@@ -1,4 +1,4 @@
-# Selyvar Arena — bíblia inicial da IP
+# Three Realms: Soul Arena — bíblia inicial da IP
 
 ## Premissa
 

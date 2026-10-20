@@ -1,4 +1,4 @@
-# Selyvar Arena
+# Three Realms: Soul Arena
 
 Protótipo original de combate tático 3v3 e progressão roguelite. Almas despertam no conflito entre Inferno, Paraíso e Limbo, formam Trios e atravessam trilhas de poder.
 
@@ -23,7 +23,7 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Confronto final contra Veynar após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.
 
-Selyvar é o nome do limiar espiritual onde Inferno, Paraíso e Limbo se encontram.
+Inferno, Paraíso e Limbo convergem numa arena onde trios de almas decidem o destino dos três reinos.
 
 ## Direção visual
 
