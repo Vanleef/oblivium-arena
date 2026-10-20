@@ -1,4 +1,4 @@
-# Three Realms: Soul Arena
+# PMA: Post Mortem Arena
 
 Protótipo original de combate tático 3v3 e progressão roguelite. Almas despertam no conflito entre Inferno, Paraíso e Limbo, formam Trios e atravessam trilhas de poder.
 
@@ -23,7 +23,7 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Confronto final contra Veynar após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.
 
-Inferno, Paraíso e Limbo convergem numa arena onde trios de almas decidem o destino dos três reinos.
+PMA: Post Mortem Arena — três reinos, um trio de almas e o destino do além em jogo.
 
 ## Direção visual
 

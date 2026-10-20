@@ -36,5 +36,5 @@ createServer(async (request, response) => {
     response.writeHead(404).end("Not Found");
   }
 }).listen(port, () => {
-  process.stdout.write("Three Realms: Soul Arena em http://localhost:" + port + "\n");
+  process.stdout.write("PMA: Post Mortem Arena em http://localhost:" + port + "\n");
 });

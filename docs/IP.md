@@ -1,4 +1,4 @@
-# Three Realms: Soul Arena — bíblia inicial da IP
+# PMA: Post Mortem Arena — bíblia inicial da IP
 
 ## Premissa
 
