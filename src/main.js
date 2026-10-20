@@ -3,8 +3,8 @@ import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
 import { chooseAction, createBattle, createEnemyTeam, getEloById, passTurn } from "./engine.js";
 
 const app = document.querySelector("#app");
-const SAVE_KEY = "numether-arena-v1";
-const LEGACY_SAVE_KEYS = ["aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1"];
+const SAVE_KEY = "animavelle-arena-v1";
+const LEGACY_SAVE_KEYS = ["numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1"];
 const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
   ownedIds: starters.map((character) => character.id),
@@ -239,9 +239,9 @@ function header() {
   ];
   return `
     <header class="topbar">
-      <button class="brand" data-tab="rota" aria-label="Numether Arena, início">
-        <span class="brand-mark">N</span>
-        <span class="brand-name"><b>NUMETHER</b><small>ARENA</small></span>
+      <button class="brand" data-tab="rota" aria-label="Animavelle Arena, início">
+        <span class="brand-mark">A</span>
+        <span class="brand-name"><b>ANIMAVELLE</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("")}</nav>
       <div class="player-chip"><span class="player-orb">✦</span><span><b>Alma desperta</b><small>Rank ${Math.max(1, Math.floor(profile.xp / 250) + 1)} · ${profile.xp} XP</small></span></div>
@@ -272,7 +272,7 @@ function hero() {
       <div class="hero-art" aria-hidden="true">
         <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
         <div class="realm-mark mark-heaven">✧</div><div class="realm-mark mark-hell">✹</div>
-        <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">R</div>
+        <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">A</div>
         <div class="hero-label label-heaven">PARAÍSO</div><div class="hero-label label-hell">INFERNO</div><div class="hero-label label-limbo">LIMBO</div>
       </div>
       <div class="hero-bottom"><span>CONFLITO CENTRAL</span><p>Veynar, o Elo Final, quer rasgar o véu e estender o Inferno ao mundo dos vivos. Os Protetores do Paraíso tentam restaurar as barreiras.</p><span class="hero-index">01 <i>/</i> 03</span></div>
@@ -451,7 +451,7 @@ function render() {
       <main class="main-content">
         ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : battleView()}
       </main>
-      <footer class="site-footer"><span>NUMETHER ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.1</span></footer>
+      <footer class="site-footer"><span>ANIMAVELLE ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.1</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
 }

@@ -1,9 +1,9 @@
 {
-  "name": "numether-arena",
+  "name": "animavelle-arena",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Protótipo tático roguelite 3v3 nos reinos espirituais de Numether.",
+  "description": "Protótipo tático roguelite 3v3 nos reinos espirituais de Animavelle.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "test": "node --test"
