@@ -20,7 +20,7 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Combate tático por turnos com técnicas, Essência compartilhada, alvo selecionável, dano, escudo, cura, controle e passivas de Elo.
 - Trilhas com rotas ramificadas, combates normais e de elite, eventos, aprimoramentos, reparos, tesouros, mini-boss e Guardião final.
 - Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
-- Confronto final contra Veynar após atravessar os 17 Elos.
+- Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.
 
 PMA: Post Mortem Arena — três reinos, um trio de almas e o destino do além em jogo.

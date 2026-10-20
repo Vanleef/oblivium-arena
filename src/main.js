@@ -4,6 +4,7 @@ import { chooseAction, createBattle, createEnemyTeam, getEloById, passTurn } fro
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
+const FINAL_BOSS = Object.freeze({ id: "the-end", name: "O Fim", nameEn: "The End", title: "Rei do Inferno" });
 const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1", "selyvar-arena-v1", "three-realms-soul-arena-v1", "post-mortem-arena-v1"];
 const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
@@ -119,9 +120,10 @@ function startEncounter(node) {
   const encounterType = specialFinale ? "boss" : node.id;
   const enemies = createEnemyTeam(elo, profile.team, encounterType, profile.run?.encounter || 0);
   if (specialFinale) {
-    enemies[0].id = "veynar";
-    enemies[0].name = "Veynar, o Elo Final";
-    enemies[0].title = "Rei do Inferno";
+    enemies[0].id = FINAL_BOSS.id;
+    enemies[0].name = FINAL_BOSS.name;
+    enemies[0].nameEn = FINAL_BOSS.nameEn;
+    enemies[0].title = FINAL_BOSS.title;
     enemies[1].name = "Arauto do Véu Partido";
     enemies[2].name = "Sentinela das Barreiras";
   }
@@ -275,7 +277,7 @@ function hero() {
         <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">P</div>
         <div class="hero-label label-heaven">PARAÍSO</div><div class="hero-label label-hell">INFERNO</div><div class="hero-label label-limbo">LIMBO</div>
       </div>
-      <div class="hero-bottom"><span>CONFLITO CENTRAL</span><p>Veynar, o Elo Final, quer rasgar o véu e estender o Inferno ao mundo dos vivos. Os Protetores do Paraíso tentam restaurar as barreiras.</p><span class="hero-index">01 <i>/</i> 03</span></div>
+      <div class="hero-bottom"><span>CONFLITO CENTRAL</span><p>O Fim (The End), Rei do Inferno e Elo Final, quer rasgar o véu e estender o Inferno ao mundo dos vivos. Os Protetores do Paraíso tentam restaurar as barreiras.</p><span class="hero-index">01 <i>/</i> 03</span></div>
     </section>`;
 }
 
@@ -304,7 +306,7 @@ function routeView() {
           <div class="elo-card-foot"><span>${esc(elo.strength)} <i>·</i> ${getEloRoster(elo.id).length} almas</span><button data-start-run="${elo.id}">${currentRun?.eloId === elo.id ? "RETOMAR" : "ENTRAR"} <b>↗</b></button></div>
         </article>`).join("")}</div>
       ${currentRun ? runMap() : ""}
-      ${completedAll ? `<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>Veynar, o Elo Final</h3><p>Os dezessete Elos foram atravessados. Reúna o trio para impedir a ruptura completa.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR VEYNAR <span>↗</span></button></section>` : ""}
+      ${completedAll ? `<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>${FINAL_BOSS.name}</h3><p>${FINAL_BOSS.nameEn}, o nome em inglês. Os dezessete Elos foram atravessados; reúna o trio para impedir a ruptura completa.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM <span>↗</span></button></section>` : ""}
       ${state.pending ? pendingPanel() : ""}
     </section>`;
 }
@@ -341,9 +343,9 @@ function pendingPanel() {
   if (pending.type === "complete") return `
     <section class="notice-panel"><span class="notice-icon">✧</span><div><div class="eyebrow">TRILHA CONCLUÍDA</div><h3>Elo da ${esc(pending.elo.name)} atravessado.</h3><p>${getEloRoster(pending.elo.id).length} almas do Elo agora podem ser recrutadas. +250 XP e 24 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-complete") return `
-    <section class="notice-panel"><span class="notice-icon">☼</span><div><div class="eyebrow">O VÉU RESISTIU</div><h3>Veynar foi detido.</h3><p>O equilíbrio ainda exige cuidado, mas os três reinos podem respirar. +500 XP e 80 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
+    <section class="notice-panel"><span class="notice-icon">☼</span><div><div class="eyebrow">O VÉU RESISTIU</div><h3>O Fim foi detido.</h3><p>O equilíbrio ainda exige cuidado, mas os três reinos podem respirar. +500 XP e 80 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-defeat") return `
-    <section class="notice-panel notice-fracture"><span class="notice-icon">♜</span><div><div class="eyebrow">A BARREIRA AINDA RESISTE</div><h3>Veynar continua avançando.</h3><p>Reúna o trio e tente o confronto final novamente.</p></div><button class="button button-outline" data-final-battle>TENTAR DE NOVO</button></section>`;
+    <section class="notice-panel notice-fracture"><span class="notice-icon">♜</span><div><div class="eyebrow">A BARREIRA AINDA RESISTE</div><h3>O Fim continua avançando.</h3><p>Reúna o trio e tente o confronto final novamente.</p></div><button class="button button-outline" data-final-battle>TENTAR DE NOVO</button></section>`;
   if (pending.type === "reset") return `
     <section class="notice-panel notice-fracture"><span class="notice-icon">⟲</span><div><div class="eyebrow">CORRENTES ROMPIDAS</div><h3>A trilha se recompõe.</h3><p>As três correntes cederam. O trio conserva os fragmentos, mas precisa escolher uma nova travessia.</p></div><button class="button button-outline" data-clear-notice>ENTENDI</button></section>`;
   return "";

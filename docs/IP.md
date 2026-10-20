@@ -6,7 +6,7 @@ Após a morte, cada alma é julgada e enviada a um de três reinos: Paraíso, In
 
 O crescimento recente da violência, da corrupção e do abandono estreitou as barreiras entre os reinos. O Limbo, sem Elos estáveis, tornou-se o ponto de contato mais perigoso. Suas almas carregam Correntes Quebradas: poderes instáveis, capazes de produzir vantagem e custo no mesmo gesto.
 
-Veynar, o Elo Final e Rei do Inferno, quer romper o véu e transformar o mundo dos vivos em extensão de seu reino. Os Protetores do Paraíso lutam para restaurar as barreiras. O jogador desperta no meio do conflito, reúne um Trio e decide a direção da balança.
+O Fim (The End em inglês), Elo Final e Rei do Inferno, quer romper o véu e transformar o mundo dos vivos em extensão de seu reino. Os Protetores do Paraíso lutam para restaurar as barreiras. O jogador desperta no meio do conflito, reúne um Trio e decide a direção da balança.
 
 ## Os reinos
 
@@ -42,7 +42,7 @@ Essência é um recurso compartilhado pelo trio. Ataques básicos geram Essênci
 
 Cada Elo tem uma trilha ramificada com nós de combate normal, elite, evento, aprimoramento, reparo, tesouro, mini-boss e Guardião. Cada vitória avança o trio; derrota reduz a estabilidade das Correntes. Ao perder as três Correntes, a tentativa reinicia. Concluir a trilha recruta as almas daquele Elo e fortalece permanentemente o jogador.
 
-Cada Guardião final comanda dois subordinados do próprio Elo. Depois de concluir os 17 Elos, o trio pode enfrentar Veynar, o Elo Final.
+Cada Guardião final comanda dois subordinados do próprio Elo. Depois de concluir os 17 Elos, o trio pode enfrentar O Fim (The End), Rei do Inferno e Elo Final.
 
 ## Escala inicial do elenco
 

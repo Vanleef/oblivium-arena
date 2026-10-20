@@ -13,7 +13,7 @@ test("aplicação inicializa, abre uma trilha e resolve ações do combate", asy
 
   await import("../src/main.js?smoke=1");
   assert.match(app.innerHTML, /Três reinos/);
-  assert.match(app.innerHTML, /Veynar, o Elo Final/);
+  assert.match(app.innerHTML, /O Fim \(The End\)/);
   assert.equal((app.innerHTML.match(/class="elo-card /g) || []).length, 9);
 
   const click = (dataset) => handlers.click({ target: { dataset, closest() { return this; } } });
