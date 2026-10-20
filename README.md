@@ -1,4 +1,4 @@
-# Animavelle Arena
+# Eidoveyl Arena
 
 Protótipo original de combate tático 3v3 e progressão roguelite. Almas despertam no conflito entre Inferno, Paraíso e Limbo, formam Trios e atravessam trilhas de poder.
 
@@ -23,7 +23,7 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Confronto final contra Veynar após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.
 
-Animavelle combina *anima*, alma, com *veil*, o véu entre os reinos espirituais.
+Eidoveyl combina *eidolon*, espírito, com *veil*, o véu entre os reinos.
 
 ## Direção visual
 
