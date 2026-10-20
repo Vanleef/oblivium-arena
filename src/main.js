@@ -272,7 +272,7 @@ function hero() {
       <div class="hero-art" aria-hidden="true">
         <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
         <div class="realm-mark mark-heaven">✧</div><div class="realm-mark mark-hell">✹</div>
-        <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">E</div>
+        <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">S</div>
         <div class="hero-label label-heaven">PARAÍSO</div><div class="hero-label label-hell">INFERNO</div><div class="hero-label label-limbo">LIMBO</div>
       </div>
       <div class="hero-bottom"><span>CONFLITO CENTRAL</span><p>Veynar, o Elo Final, quer rasgar o véu e estender o Inferno ao mundo dos vivos. Os Protetores do Paraíso tentam restaurar as barreiras.</p><span class="hero-index">01 <i>/</i> 03</span></div>
