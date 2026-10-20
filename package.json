@@ -1,9 +1,9 @@
 {
-  "name": "eidoveyl-arena",
+  "name": "selyvar-arena",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Protótipo tático roguelite 3v3 nos reinos espirituais de Eidoveyl.",
+  "description": "Protótipo tático roguelite 3v3 nos reinos espirituais de Selyvar.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "test": "node --test"

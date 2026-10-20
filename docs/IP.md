@@ -1,4 +1,4 @@
-# Eidoveyl Arena — bíblia inicial da IP
+# Selyvar Arena — bíblia inicial da IP
 
 ## Premissa
 

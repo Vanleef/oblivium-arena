@@ -3,8 +3,8 @@ import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
 import { chooseAction, createBattle, createEnemyTeam, getEloById, passTurn } from "./engine.js";
 
 const app = document.querySelector("#app");
-const SAVE_KEY = "eidoveyl-arena-v1";
-const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1"];
+const SAVE_KEY = "selyvar-arena-v1";
+const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1"];
 const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
   ownedIds: starters.map((character) => character.id),
@@ -239,9 +239,9 @@ function header() {
   ];
   return `
     <header class="topbar">
-      <button class="brand" data-tab="rota" aria-label="Eidoveyl Arena, início">
-        <span class="brand-mark">E</span>
-        <span class="brand-name"><b>EIDOVEYL</b><small>ARENA</small></span>
+      <button class="brand" data-tab="rota" aria-label="Selyvar Arena, início">
+        <span class="brand-mark">S</span>
+        <span class="brand-name"><b>SELYVAR</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("")}</nav>
       <div class="player-chip"><span class="player-orb">✦</span><span><b>Alma desperta</b><small>Rank ${Math.max(1, Math.floor(profile.xp / 250) + 1)} · ${profile.xp} XP</small></span></div>
@@ -451,7 +451,7 @@ function render() {
       <main class="main-content">
         ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : battleView()}
       </main>
-      <footer class="site-footer"><span>EIDOVEYL ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.1</span></footer>
+      <footer class="site-footer"><span>SELYVAR ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.1</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
 }
