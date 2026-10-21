@@ -1,7 +1,7 @@
 import { characterById, characters } from './data.js';
 import { eloCrest } from './crests.js';
 import { esc, portraitMarkup } from './view-utils.js';
-import { eloAccess, maxDifficulty, trailVariants, recruitCandidates, modifierLabels, difficultyName } from './progression.js';
+import { eloAccess, maxDifficulty, trailVariants, recruitCandidates, modifierLabels, difficultyName, legacyCollection } from './progression.js';
 const requirementsMarkup=access=>`<ul class="elo-requirements">${access.requirements.map(r=>`<li class="${r.current>=r.total?'met':''}"><span>${r.current>=r.total?'✓':'◇'} ${esc(r.label)}</span><b>${Math.min(r.current,r.total)}/${r.total}</b></li>`).join('')}</ul>`;
 export function renderCampaign(profile,state,realm) {
   const selected=realm.elos.find(e=>e.id===state.eloId)||realm.elos[0],access=eloAccess(profile,selected),max=maxDifficulty(profile,selected.id),difficulty=Math.min(state.difficulty??max,max),p=profile.eloProgress[selected.id];
@@ -13,7 +13,7 @@ export function renderCampaign(profile,state,realm) {
 }
 export function renderLegacies(profile) {
   if(!profile.globalUpgrades.length)return '';
-  return `<details class="legacy-hall"><summary><span>✦ Legados da Alma</span><b>${profile.globalUpgrades.length} ATIVOS</b></summary><div class="legacy-grid">${profile.globalUpgrades.map(p=>`<article><span>${p.icon}</span><div><b>${esc(p.title)}</b><p>${esc(p.text)}</p><small>Ruptura ${p.difficulty}</small></div></article>`).join('')}</div></details>`;
+  return `<details class="legacy-hall"><summary><span>✦ Legados da Alma</span><b>${profile.globalUpgrades.length} ATIVOS</b></summary><div class="legacy-grid">${legacyCollection(profile).map(p=>`<article><span>${p.icon}</span><div><b>${esc(p.title)}${p.count>1?` <i>×${p.count}</i>`:""}</b><p>${esc(p.text)}</p><small>Grau ${p.difficulty+1}</small></div></article>`).join('')}</div></details>`;
 }
 export function renderCompletion(profile) {
   const pending=profile.pendingGlobalReward,notice=pending||profile.completionNotice;if(!notice)return '';

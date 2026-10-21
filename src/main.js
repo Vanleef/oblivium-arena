@@ -4,6 +4,7 @@ import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloBy
 import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
+import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail } from "./battle-view.js";
 import { eloCrest } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
@@ -359,8 +360,8 @@ function battleChanges(before,battle) {
 function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
   const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
-  const kind=event.mode==="turn"?"turn":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0)?"shield":"control";
-  state.battleFx={...event,id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida. Confira as condições e o registro."};render();
+  const kind=event.mode==="turn"?"turn":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
+  state.battleFx={...event,...(event.reactions?.length?{title:"Contra-ataque",actorName:event.reactions.map(r=>r.actorName).join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
 }
 function resolveCombatStep() {
   const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);
@@ -372,8 +373,12 @@ function executePlannedTurn() {
 }
 function updateBattle(actorId,abilityId) {
   const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
-  if(!actor||!ability||actor.hp<=0||actor.stunned||actor.cooldowns[abilityId]||!canAffordAbility(b,actor,ability))return;
-  state.selectedSkill={actorId,abilityId};state.focusSkill={actorId,abilityId};state.inspectUnitId=null;render();
+  if(!actor||!ability)return;
+  state.focusSkill={actorId,abilityId};state.inspectUnitId=null;
+  if(actor.hp<=0||actor.stunned||actor.cooldowns[abilityId]||!canAffordAbility(b,actor,ability)){
+    state.selectedSkill=null;render();app.querySelector(`[data-use-skill="${actorId}:${abilityId}"]`)?.focus({preventScroll:true});return;
+  }
+  state.selectedSkill={actorId,abilityId};render();app.querySelector('.fighter-card.valid-target')?.focus({preventScroll:true});
 }
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
@@ -450,7 +455,7 @@ function routeView() {
     ${completedAll?`<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
 
-function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs); }
+function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds); }
 
 function pendingPanel() {
   const pending = state.pending;
@@ -533,6 +538,7 @@ function battleView() { return renderBattle(state, activeElo()); }
 
 function render() {
   const tab = state.tab;
+  const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill");
   document.body.dataset.tab = tab;
   app.innerHTML = `
     <div class="app-shell">
@@ -541,14 +547,18 @@ function render() {
       <main class="main-content">
         ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : battleView()}
       </main>
-      <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.4</span></footer>
+      <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.5</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
+  renderBattleMotion(app,state.battleFx);
+  if(state.confirmTurn)app.querySelector('[data-action="cancel-review"]')?.focus({preventScroll:true});
+  else if(focusAction)app.querySelector(`[data-action="${focusAction}"]`)?.focus({preventScroll:true});
+  else if(focusSkill)app.querySelector(`[data-use-skill="${focusSkill}"]`)?.focus({preventScroll:true});
 }
 
 // Preview a technique without selecting an action or replacing the arena DOM.
 function previewTechnique(event) {
-  if (state.tab !== "battle" || !state.battle) return;
+  if (state.tab !== "battle" || !state.battle || state.battleFx || state.battle.phase === "resolving") return;
   const button = event.target.closest("[data-use-skill]");
   if (!button || (event.relatedTarget && button.contains(event.relatedTarget))) return;
   const [actorId, abilityId] = button.dataset.useSkill.split(":");
@@ -651,9 +661,20 @@ app.addEventListener("input", (event) => {
 });
 
 app.addEventListener("keydown", (event) => {
+  if(state.battleFx||state.battle?.phase==="resolving")return;
+  if(state.confirmTurn){
+    if(event.key==="Escape"){event.preventDefault();state.confirmTurn=false;render();app.querySelector('[data-action="review-turn"]')?.focus({preventScroll:true});return;}
+    if(event.key==="Tab"){
+      const dialog=app.querySelector('.turn-review'),buttons=dialog?[...dialog.querySelectorAll('button:not(:disabled)')]:[];
+      if(!buttons.length)return;const first=buttons[0],last=buttons.at(-1);
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+    }
+    return;
+  }
+  if(event.key==="Escape"&&state.selectedSkill){event.preventDefault();const ref=state.selectedSkill;state.selectedSkill=null;render();app.querySelector(`[data-use-skill="${ref.actorId}:${ref.abilityId}"]`)?.focus({preventScroll:true});return;}
   if (event.target.matches("[data-target]") && (event.key === "Enter" || event.key === " ")) {
-    event.preventDefault();
-    if (!state.battleFx) selectBattleTarget(event.target.dataset.target);
+    event.preventDefault();selectBattleTarget(event.target.dataset.target);
   }
 });
 

@@ -1,14 +1,17 @@
+import { characterById } from "./data.js";
 import { difficultyName } from "./progression.js";
 import { visibleTrail } from "./trail.js";
 import { eloCrest } from "./crests.js";
-import { esc } from "./view-utils.js";
+import { esc, portraitMarkup } from "./view-utils.js";
 const labels={normal:"Combate",elite:"Elite",mini:"Guardião menor",boss:"Guardião",repair:"Descanso",treasure:"Tesouro",event:"Evento",shop:"Mercador",upgrade:"Eco"};
-export function renderTrail(run,elo,fx,buffs){
+export function renderTrail(run,elo,fx,buffs,ownedIds=[]){
   const {nodes,edges,cleared,available,lastRow}=visibleTrail(run),height=Math.max(330,(lastRow+1)*124+104),x=n=>150+n.col*300,y=n=>92+n.row*124;
   const completed=run.stage>=run.map.length;
+  const council=nodes.some(n=>n.type==="boss"&&available.has(n.id))?(run.bossIds||[]).map(id=>characterById[id]).filter(Boolean):[];
   return `<section class="run-panel color-${esc(elo.color)} ${fx?`trail-fx-${fx.kind}`:""}">
     <div class="run-heading"><div><div class="eyebrow">TRAVESSIA · ${esc(elo.realm.toUpperCase())}</div><h3>${esc(run.variantTitle||elo.name)}</h3><span class="run-difficulty">${difficultyName(run.difficulty||0)}</span></div><div class="run-strength">${eloCrest(elo,"run-crest")}<span><small>CORRENTES DA ALMA</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
     ${fx ? `<div class="trail-feedback" role="status" aria-live="polite"><span>${fx.kind==="travel"?"↝":fx.kind==="reward"?"✦":"✧"}</span><div><b>${esc(fx.title)}</b><small>${esc(fx.summary)}</small></div></div>` : ""}
+    ${council.length?`<section class="council-reveal" aria-label="Conselho final revelado"><header><span>✹</span><div><div class="eyebrow">CONSELHO REVELADO</div><h4>O último confronto</h4></div><small>1 ALMA POR VITÓRIA</small></header><div class="council-members">${council.map(c=>`<article class="color-${esc(c.color)} ${ownedIds.includes(c.id)?"council-owned":""}">${portraitMarkup(c,"council-portrait")}<div><b>${esc(c.name)}</b><small>${ownedIds.includes(c.id)?"JÁ RECRUTADA":"PODE SER RECRUTADA"}</small></div></article>`).join("")}</div></section>`:""}
     <div class="path-guide"><span>CAMINHO REVELADO</span><span>${available.size} ${available.size===1?"encontro disponível":"escolhas disponíveis"} · passo ${Math.min(run.stage+1,run.map.length)} / ${run.map.length}</span></div>
     <div class="path-map crest-trail"><div class="path-canvas" style="height:${height}px">
       ${eloCrest(elo,"elo-crest-watermark")}
@@ -19,6 +22,6 @@ export function renderTrail(run,elo,fx,buffs){
       }).join("")}</div>
       <div class="trail-horizon" style="top:${y({row:lastRow})+86}px"><span>◇</span><small>${completed?"TRAVESSIA CONCLUÍDA":"Véu não explorado"}</small></div>
     </div></div>
-    <div class="run-footer"><span>ECOS <b>${run.buffs.length}</b></span><span class="buff-list">${run.buffs.map(id=>`<i title="${esc(buffs.find(b=>b.id===id)?.title||id)}">✧</i>`).join("")||"Nenhum Eco coletado"}</span><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></div>
+    <div class="run-footer"><details class="run-echoes"><summary>ECOS <b>${run.buffs.length}</b><span>⌄</span></summary><div class="echo-popover">${run.buffs.length?run.buffs.map(id=>{const buff=buffs.find(b=>b.id===id);return buff?`<article><span>${buff.icon}</span><div><b>${esc(buff.title)}</b><p>${esc(buff.text)}</p></div></article>`:"";}).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></div>
   </section>`;
 }

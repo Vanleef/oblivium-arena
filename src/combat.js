@@ -30,9 +30,9 @@ function apply(s,actor,a,targetId){
   const costs=getAbilityResourceCosts(actor,a),p=pool(s,actor.side);
   if(!Object.entries(costs).every(([id,n])=>(p[id]||0)>=n)){log(s,`${actor.name} não tem recursos para ${a.name}.`);return {skipped:true,reason:"Recursos removidos antes da resolução."};}
   for(const [id,n]of Object.entries(costs))p[id]-=n;
-  const charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,affected=0;
+  const charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,affected=0;const reactions=[];
   for(const target of targets){
-    if(!isFriendly&&target.counter>0){const value=target.counter;target.counter=0;const r=hit(actor,value,{ignoreInvulnerability:true});log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano.`);continue;}
+    if(!isFriendly&&target.counter>0){const value=target.counter;target.counter=0;const r=hit(actor,value,{ignoreInvulnerability:true});log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano.`);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});continue;}
     affected++;
     const combo=a.combo&&meetsCondition(target,a.combo.condition,actor),passiveDamage=passiveBonus(actor,target);
     if(!isFriendly){
@@ -62,7 +62,7 @@ function apply(s,actor,a,targetId){
   if(a.damage&&actor.passive?.type==="firstHit")actor.passiveUsed=true;
   if(a.spendCharge)actor.charge=0;actor.charge=Math.min(3,actor.charge+(a.gainCharge||0));
   if(a.selfDamage&&actor.hp>0)actor.hp=Math.max(1,actor.hp-Math.max(0,a.selfDamage+(actor.side==="player"?s.buffs.risk:0)));
-  if(a.cooldown){actor.cooldowns[a.id]=a.cooldown;actor.cooldownFresh.push(a.id);}return {skipped:false,totalDamage};
+  if(a.cooldown){actor.cooldowns[a.id]=a.cooldown;actor.cooldownFresh.push(a.id);}return {skipped:false,totalDamage,reactions};
 }
 function grantTurn(s,side,opening=false){
   const count=opening&&side==="player"?1:living(team(s,side)).length,draws=[];

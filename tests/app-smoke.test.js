@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { elos, starters } from "../src/data.js";
-function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};return {app,click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
+function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};return {app,key:key=>handlers.keydown({key,preventDefault(){},target:{matches:()=>false}}),click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
 test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila",async t=>{
  t.mock.timers.enable({apis:["setTimeout"]});t.mock.method(Math,"random",()=>.6);const {app,click}=setup();await import("../src/main.js?rework-smoke=1");
  click({startRun:"sangria"});assert.match(app.innerHTML,/Brasão do Elo Sangria/);assert.doesNotMatch(app.innerHTML,/map-illustration/);assert.equal((app.innerHTML.match(/data-node=/g)||[]).length,1);assert.doesNotMatch(app.innerHTML,/Guardião do Elo/);
@@ -29,4 +29,12 @@ test('escolha global persiste, bloqueia nova trilha até resgate e não duplica 
  setup(JSON.stringify(persisted));await import('../src/main.js?campaign-reload=1');
  const fresh=setup(JSON.stringify(persisted));await import('../src/main.js?campaign-reload=2');assert.doesNotMatch(fresh.app.innerHTML,/data-global-upgrade=/);assert.match(fresh.app.innerHTML,/Legados da Alma/);
  fresh.click({startRun:'sangria'});assert.match(fresh.app.innerHTML,/Ruptura 1/);
+});
+
+test('inspecionar técnica cinza não reserva uma ação e Escape fecha a revisão',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});t.mock.method(Math,'random',()=>.6);
+ const {app,click,key}=setup();await import('../src/main.js?touch-inspect=1');click({startRun:'sangria'});click({node:'0:0'});t.mock.timers.tick(500);
+ click({useSkill:'o-escudo-vivo:impulso'});assert.match(app.innerHTML,/ALVO DESTACADO/);
+ click({useSkill:'a-brasa-eterna:voto'});assert.match(app.innerHTML,/ENERGIA INSUFICIENTE/);assert.doesNotMatch(app.innerHTML,/class="[^"]*\svalid-target/);assert.doesNotMatch(app.innerHTML,/data-remove-action=/);
+ click({action:'review-turn'});assert.match(app.innerHTML,/role="dialog"/);key('Escape');assert.doesNotMatch(app.innerHTML,/role="dialog"/);
 });

@@ -11,3 +11,12 @@ Na primeira vitória por par Elo/dificuldade, escolha um entre três Legados per
 A geração básica de energia segue Naruto Arena: o jogador inicial recebe uma energia aleatória; a oposição recebe uma por personagem vivo. Nos turnos seguintes cada lado recebe uma energia por personagem vivo, sorteada entre os quatro tipos com probabilidade de 25% cada. Energia não utilizada acumula. Não há geração garantida de afinidade nem limite artificial de cinco. Legados e Ecos de energia são bônus de abertura, apresentados em suas descrições, sem alterar a distribuição da geração básica.
 
 O trio de uma travessia é fixado ao partir. Alterações na formação preparam a próxima travessia. Vida, Correntes, Ecos, escolhas pendentes, missão e progressão são persistidos localmente. Este projeto continua sendo um cliente estático; não há autenticação ou sincronização de campanha entre dispositivos nesta entrega.
+
+
+## Interface e efeitos
+
+Técnicas indisponíveis permanecem acessíveis para inspeção por toque ou teclado. A seleção e a reserva continuam sujeitas a energia, estado e recarga. Durante a resolução, os comandos ficam bloqueados. O diálogo de revisão retém a navegação por Tab; Escape volta ao planejamento.
+
+As trajetórias das habilidades usam as posições reais dos retratos, incluindo layouts estreitos. Contra-ataques informam o defensor e o atacante para orientar o efeito de retorno. Movimentos decorativos são suprimidos quando o navegador pede movimento reduzido.
+
+O conselho final só aparece quando o nó do chefe é revelado. Os Ecos da travessia podem ser consultados num painel recolhido. Legados da mesma família aparecem agrupados com o valor acumulado. Defesa inicial global limita-se a 80, roubo de Vida global a 60%, bônus de descanso a 60 pontos percentuais e carga inicial a 3. Ofertas deixam de incluir famílias que atingiram o limite.

@@ -47,7 +47,9 @@ export function difficultyModifiers(level=0) {
 }
 export function difficultyName(d) { return d===0?'Véu intacto':`Ruptura ${d}`; }
 export function modifierLabels(d) { const m=difficultyModifiers(d);return d?[`Vida +${Math.round((m.hp-1)*100)}%`,`Dano +${Math.round((m.damage-1)*100)}%`,`Defesa inicial +${m.shield}`,...(m.armor?[`Armadura ${m.armor}`]:[]),...(m.regen?[`Regeneração ${m.regen}`]:[]),...(m.affliction?[`Aflição +${m.affliction}`]:[])]:['Sem modificadores']; }
-export function aggregateGlobal(profile) { return (profile.globalUpgrades||[]).reduce((acc,p)=>{for(const [key,value]of Object.entries(p.effect||{}))acc[key]=(acc[key]||0)+value;return acc;},{}); }
+const legacyCaps={shield:80,lifesteal:.6,restBonus:.6,startingCharge:3};
+function clampLegacy(effect) {const out={...effect};for(const [key,cap]of Object.entries(legacyCaps))if(out[key]!=null)out[key]=Math.min(cap,out[key]);return out;}
+export function aggregateGlobal(profile) { return clampLegacy((profile.globalUpgrades||[]).reduce((acc,p)=>{for(const [key,value]of Object.entries(p.effect||{}))acc[key]=(acc[key]||0)+value;return acc;},{})); }
 export function runMaxHp(profile,run,id) { return (characterById[id]?.maxHp||100)+(aggregateGlobal(profile).maxHp||0)+(run?.buffs||[]).reduce((n,id)=>n+(buffs.find(b=>b.id===id)?.effect.maxHp||0),0); }
 export function createExpedition(profile,elo,variantId='hunt',difficulty=maxDifficulty(profile,elo.id),seed=Date.now()) {
   if(profile.pendingGlobalReward)throw Error('Escolha seu Legado antes de iniciar outra trilha.');
@@ -92,10 +94,11 @@ const powers=[
   ['preparation','Instante Guardado','⌛','exploration',d=>({startingCharge:Math.min(3,1+Math.floor(d/4))}),e=>`Aliados começam cada combate com ${e.startingCharge} carga(s).`]
 ];
 export function globalChoices(profile,eloId,difficulty,seed=1) {
-  const rng=seededRandom(seed),owned=new Set(profile.globalUpgrades.map(p=>p.kind));
+  const rng=seededRandom(seed),owned=new Set(profile.globalUpgrades.map(p=>p.kind)),current=aggregateGlobal(profile);
   return ['offense','defense','exploration'].map(category=>{
-    const candidates=powers.filter(p=>p[3]===category),fresh=candidates.filter(p=>!owned.has(p[0]));
+    const candidates=powers.filter(p=>p[3]===category&&Object.keys(p[4](difficulty)).every(key=>legacyCaps[key]==null||(current[key]||0)<legacyCaps[key]-1e-9)),fresh=candidates.filter(p=>!owned.has(p[0]));
     const [kind,title,icon,,effectFn,textFn]=shuffled(fresh.length?fresh:candidates,rng)[0],effect=effectFn(difficulty);
+    for(const key of Object.keys(effect))if(legacyCaps[key]!=null)effect[key]=Math.min(effect[key],legacyCaps[key]-(current[key]||0));
     return {id:`${eloId}:${difficulty}:${kind}`,kind,title,icon,category,effect,text:textFn(effect),difficulty};
   });
 }
@@ -119,4 +122,14 @@ export function claimGlobalUpgrade(profile,id) {
   if(!choice)return false;
   if(!profile.globalUpgrades.some(p=>p.id===choice.id))profile.globalUpgrades.push(choice);
   profile.pendingGlobalReward=null;return choice;
+}
+
+export function legacyCollection(profile) {
+  const groups=new Map();
+  for(const power of profile.globalUpgrades||[]){
+    const group=groups.get(power.kind)||{...power,count:0,effect:{}};
+    group.count++;group.difficulty=Math.max(group.difficulty,power.difficulty);for(const [key,value]of Object.entries(power.effect))group.effect[key]=(group.effect[key]||0)+value;
+    groups.set(power.kind,group);
+  }
+  return [...groups.values()].map(group=>{const template=powers.find(p=>p[0]===group.kind),effect=clampLegacy(group.effect);return {...group,effect,text:template?template[5](effect):group.text};});
 }
