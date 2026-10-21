@@ -476,10 +476,9 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
   .path-map { margin-right: -10px; padding-bottom: 7px; }
   .path-canvas { min-width: 700px; }
   .stage-nodes { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 5px; }
-  .path-node { grid-template-columns: 27px minmax(0,1fr); min-height: 70px; padding: 6px 7px; column-gap: 5px; }
-  .node-icon { width: 25px; height: 25px; font-size: 11px; }
+  .path-node { min-height: 88px; padding: 0 3px; }
+  .node-icon { width: 44px; height: 44px; font-size: 17px; }
   .path-node b { font-size: 7px; }
-  .path-node small { font-size: 6px; }
   .path-node .node-type { font-size: 5px; }
   .path-stage .stage-number { left: -26px; width: 18px; font-size: 8px; }
   .run-footer { gap: 8px; font-size: 8px; }
@@ -520,6 +519,7 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
   .codex-grid { grid-template-columns: 1fr; }
   .battle-header h1 { font-size: 25px; }
   .battle-layout { grid-template-columns: 1fr; gap: 8px; }
+  .battle-layout::before { display: none; }
   .battle-center { flex-direction: row; order: 2; justify-content: center; padding: 1px 4px; }
   .battle-side.enemy-side { order: 3; }
   .resonance-mini { width: auto; max-width: 145px; grid-template-columns: 20px 1fr; text-align: left; }
