@@ -1,6 +1,10 @@
 import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById, realmResource } from "./data.js";
 import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
-import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getAbilityResourceCosts, getEloById, passTurn } from "./engine.js";
+import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction } from "./engine.js";
+import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
+import { normalizeTrail, advanceTrail } from "./trail.js";
+import { renderTrail } from "./trail-view.js";
+import { renderBattle } from "./battle-view.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -43,6 +47,7 @@ function ensureRunMap() {
   run.availableNodeIds ||= run.map[run.stage]?.map((node) => node.id) || [];
   run.teamHealth ||= Object.fromEntries((run.team || profile.team).map((id) => [id, 100]));
   run.buffs ||= [];
+  normalizeTrail(run);
 }
 ensureRunMap();
 let state = {
@@ -54,6 +59,12 @@ let state = {
   targetId: null,
   battle: null,
   battleFx: null,
+  selectedSkill: null,
+  focusSkill: null,
+  inspectUnitId: null,
+  confirmTurn: false,
+  trailFx: null,
+  trailBusy: false,
   battleNode: null,
   pending: null,
   toast: "",
@@ -61,92 +72,12 @@ let state = {
 };
 let battleFxTimer = null;
 let battleFxSequence = 0;
+let trailFxTimer = null;
 
 function save() {
   localStorage.setItem(SAVE_KEY, JSON.stringify({ ...profile, version: 1 }));
 }
 
-function esc(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
-}
-
-function portraitMarkup(character, className) {
-  return character.art?.portrait
-    ? `<img class="${className}" src="${esc(character.art.portrait)}" alt="" loading="lazy">`
-    : `<span class="${className} portrait-fallback color-${esc(character.color)}" aria-hidden="true">${esc(character.symbol)}</span>`;
-}
-
-function costMarkup(actor, ability) {
-  const costs = getAbilityResourceCosts(actor, ability);
-  const entries = Object.entries(costs);
-  if (!entries.length) return `<span class="cost-label">BASE</span>`;
-  const title = entries.map(([id, amount]) => `${amount} ${resourceById[id]?.name || id}`).join(" + ");
-  return `<span class="skill-cost" title="${esc(title)}">${entries.flatMap(([id, amount]) => Array.from({ length: amount }, () => `<i class="cost-pip pip-${esc(id)}" aria-hidden="true"></i>`)).join("")}</span>`;
-}
-
-function eloSeed(eloId) {
-  return [...eloId].reduce((value, char) => ((value * 31) + char.charCodeAt(0)) >>> 0, 17);
-}
-
-function islandShape(seed, cx, cy, rx, ry, scale = 1, points = 28) {
-  const vertices = Array.from({ length: points }, (_, index) => {
-    const angle = (index / points) * Math.PI * 2;
-    const noise = .82 + ((Math.sin(seed * .017 + index * 2.31) + Math.cos(seed * .009 + index * .83) + 2) / 4) * .28;
-    return { x: cx + Math.cos(angle) * rx * noise * scale, y: cy + Math.sin(angle) * ry * noise * scale };
-  });
-  const middle = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
-  let path = `M ${middle(vertices.at(-1), vertices[0]).x.toFixed(1)} ${middle(vertices.at(-1), vertices[0]).y.toFixed(1)}`;
-  vertices.forEach((point, index) => {
-    const next = middle(point, vertices[(index + 1) % vertices.length]);
-    path += ` Q ${point.x.toFixed(1)} ${point.y.toFixed(1)} ${next.x.toFixed(1)} ${next.y.toFixed(1)}`;
-  });
-  return `${path} Z`;
-}
-
-function atlasIllustration(elo, height) {
-  const seed = eloSeed(elo.id);
-  const centerY = height / 2;
-  const waterColor = elo.realm === "Inferno" ? "#181015" : elo.realm === "Paraíso" ? "#102024" : "#15121e";
-  const landColor = elo.realm === "Inferno" ? "#472629" : elo.realm === "Paraíso" ? "#263d3c" : "#30283d";
-  const highlandColor = elo.realm === "Inferno" ? "#815044" : elo.realm === "Paraíso" ? "#628476" : "#67577f";
-  const shoreColor = elo.realm === "Inferno" ? "#df877b" : elo.realm === "Paraíso" ? "#afd2bd" : "#b6a1d0";
-  const land = islandShape(seed, 450, centerY, 344, Math.min(330, height * .43), 1);
-  const contours = [.89, .77, .64].map((scale) => `<path class="atlas-contour" d="${islandShape(seed + 83, 450, centerY, 344, Math.min(330, height * .43), scale)}"/>`).join("");
-  const waves = Array.from({ length: 16 }, (_, index) => {
-    const y = 34 + index * ((height - 68) / 15);
-    const curve = ((seed + index * 19) % 31) - 15;
-    return `<path d="M 0 ${y.toFixed(1)} Q 220 ${(y + curve).toFixed(1)} 450 ${y.toFixed(1)} T 900 ${y.toFixed(1)}"/>`;
-  }).join("");
-  const satelliteIslands = Array.from({ length: 5 }, (_, index) => {
-    const angle = ((seed % 360) + index * 72) * Math.PI / 180;
-    const x = 450 + Math.cos(angle) * (350 + (index % 2) * 28);
-    const y = centerY + Math.sin(angle) * (Math.min(330, height * .43) + 18);
-    const shape = islandShape(seed + index * 67, x, y, 45 + (index % 3) * 8, 25 + (index % 2) * 8, 1, 12);
-    return `<path class="atlas-islet" d="${shape}"/>`;
-  }).join("");
-  const ridges = Array.from({ length: 7 }, (_, index) => {
-    const x = 155 + ((seed * (index + 5)) % 590);
-    const y = 95 + ((seed + index * 113) % Math.max(1, Math.floor(height - 190)));
-    const size = 13 + ((seed + index * 29) % 15);
-    return `<path class="atlas-ridge" d="M ${x - size} ${y + size * .56} L ${x} ${y - size} L ${x + size} ${y + size * .56} Z"/>`;
-  }).join("");
-  const realmFeature = elo.realm === "Inferno"
-    ? `<path class="atlas-feature" d="M 260 ${centerY - 98} Q 352 ${centerY - 20} 420 ${centerY + 6} T 600 ${centerY + 122}"/><path class="atlas-feature thin" d="M 590 ${centerY - 150} Q 520 ${centerY - 42} 547 ${centerY + 10} T 470 ${centerY + 180}"/>`
-    : elo.realm === "Paraíso"
-      ? `<path class="atlas-feature" d="M 178 ${centerY + 160} Q 280 ${centerY + 12} 420 ${centerY + 40} T 700 ${centerY - 120}"/><path class="atlas-feature thin" d="M 250 ${centerY - 160} Q 360 ${centerY - 40} 440 ${centerY - 82} T 640 ${centerY + 110}"/>`
-      : `<path class="atlas-feature" d="M 245 ${centerY - 210} L 415 ${centerY - 28} L 335 ${centerY + 88} L 516 ${centerY + 236}"/><path class="atlas-feature thin" d="M 640 ${centerY - 194} L 500 ${centerY - 35} L 585 ${centerY + 92} L 424 ${centerY + 210}"/>`;
-  const uid = `atlas-${elo.id}`;
-  return `<svg class="map-illustration" viewBox="0 0 900 ${height}" preserveAspectRatio="none" aria-hidden="true">
-    <defs><linearGradient id="${uid}-land" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="${highlandColor}" stop-opacity=".66"/><stop offset=".52" stop-color="${landColor}" stop-opacity=".91"/><stop offset="1" stop-color="${waterColor}" stop-opacity=".92"/></linearGradient><radialGradient id="${uid}-sea"><stop stop-color="${shoreColor}" stop-opacity=".12"/><stop offset="1" stop-color="${waterColor}" stop-opacity=".72"/></radialGradient></defs>
-    <rect width="900" height="${height}" fill="${waterColor}"/><rect width="900" height="${height}" fill="url(#${uid}-sea)"/>
-    <g class="atlas-waves">${waves}</g>
-    <path class="atlas-shoreline" d="${land}"/><path class="atlas-land" d="${land}" fill="url(#${uid}-land)"/>
-    <g class="atlas-contours">${contours}</g><g class="atlas-ridges">${ridges}</g><g class="atlas-islets">${satelliteIslands}</g>
-    ${realmFeature}
-    <circle class="atlas-sigil-ring" cx="450" cy="${centerY}" r="118"/><text class="atlas-sigil" x="450" y="${centerY + 28}" text-anchor="middle">${esc(elo.symbol)}</text>
-    <rect class="atlas-frame" x="8" y="8" width="884" height="${height - 16}" rx="8"/>
-  </svg>`;
-}
 
 function teamResourceLegend(teamIds) {
   const affinities = new Set(teamIds.map((id) => characterById[id]?.affinity).filter(Boolean));
@@ -178,6 +109,7 @@ function toast(message) {
 }
 
 function startRun(eloId) {
+  if (profile.run?.eloId === eloId) { state.tab = "rota"; render(); return; }
   if (profile.team.length !== 3) {
     toast("Monte um Trio completo antes de entrar na trilha.");
     state.tab = "trio";
@@ -191,31 +123,33 @@ function startRun(eloId) {
   profile.run = {
     eloId, seed, map, stage: 0, stability: 3, maxStability: 3, buffs: [], encounter: 0,
     tried: 0, teamHealth: Object.fromEntries(profile.team.map((id) => [id, 100])),
-    availableNodeIds: map[0].map((node) => node.id), clearedNodeIds: [], currentNodeId: null
+    availableNodeIds: map[0].map((node) => node.id), revealedNodeIds: map[0].map((node) => node.id), clearedNodeIds: [], currentNodeId: null
   };
   state.eloId = eloId;
   state.pending = null;
+  state.trailFx = null;
+  state.battle = null;
   state.tab = "rota";
   save();
   render();
 }
 
-function continueRun() {
-  if (!profile.run) return;
-  const run = profile.run;
-  const current = run.map.flat().find((node) => node.id === run.currentNodeId);
-  if (current) {
-    run.clearedNodeIds = [...new Set([...run.clearedNodeIds, current.id])];
-    run.availableNodeIds = current.nextIds || [];
-  }
-  run.stage += 1;
-  run.encounter += 1;
-  run.tried = 0;
-  run.currentNodeId = null;
-  state.pending = null;
-  if (run.stage >= run.map.length) completeRun();
-  save();
-  render();
+function setTrailFeedback(kind,title,summary,extra={}) {
+  clearTimeout(trailFxTimer); state.trailFx={kind,title,summary,...extra}; render();
+  trailFxTimer=setTimeout(()=>{state.trailFx=null;render();},3200);
+}
+function selectTrailNode(node) {
+  if(state.trailBusy||!profile.run||state.pending)return;
+  if(state.battle&&state.battleNode?.id===node.id){state.tab="battle";render();return;}
+  state.trailBusy=true;profile.run.currentNodeId=node.id;
+  setTrailFeedback("travel",node.label,"O trio segue pelo caminho escolhido…",{selectedId:node.id});
+  setTimeout(()=>{state.trailBusy=false;if(profile.run?.availableNodeIds.includes(node.id))resolveNode(node);},480);
+}
+function continueRun(resultText) {
+  if(!profile.run)return;const run=profile.run,progress=advanceTrail(run,run.currentNodeId);if(!progress.ok)return;
+  run.encounter++;run.tried=0;state.pending=null;state.tab="rota";
+  if(run.stage>=run.map.length)completeRun();save();
+  if(profile.run)setTrailFeedback("reveal",`${progress.current.label} concluído`,`${resultText||state.toast||"Encontro resolvido."} ${progress.newIds.length} nova(s) escolha(s) revelada(s).`,{newIds:progress.newIds,completedId:progress.current.id});else render();
 }
 
 function completeRun() {
@@ -234,6 +168,8 @@ function completeRun() {
 
 function startEncounter(node) {
   if (battleFxTimer) clearTimeout(battleFxTimer);
+  clearTimeout(trailFxTimer);
+  state.trailFx = null;
   const nodeType = node.type || node.id;
   if (!profile.run && nodeType !== "finale") return;
   const elo = activeElo();
@@ -247,9 +183,10 @@ function startEncounter(node) {
     enemies[0].title = FINAL_BOSS.title;
     enemies[0].art = { portrait: FINAL_BOSS.portrait };
     enemies[0].abilities = [
-      { id: "fenda", name: "Fenda do Véu", kind: "strike", cost: 0, damage: 29, target: "enemy" },
-      { id: "decreto", name: "Decreto do Fim", kind: "control", cost: 1, damage: 32, target: "enemy" },
-      { id: "coroa", name: "Coroa que Não Cai", kind: "guard", cost: 1, damage: 0, shield: 24, target: "team" }
+      { id: "fenda", name: "Fenda do Véu", kind: "strike", costs: { affinity: 1 }, damage: 25, damageType: "piercing", mark: "fim", target: "enemy", description: "Causa 25 de dano perfurante e marca o alvo por 3 turnos." },
+      { id: "decreto", name: "Decreto do Fim", kind: "control", costs: { affinity: 1, essence: 1 }, damage: 25, combo: { condition: "mark:fim", bonusDamage: 15, stun: 1 }, cooldown: 2, target: "enemy", description: "Causa 25 de dano; contra a marca do Fim, +15 de dano e Atordoa por 1 turno." },
+      { id: "coroa", name: "Coroa que Não Cai", kind: "guard", costs: { essence: 1, affinity: 1 }, shield: 20, target: "team", cooldown: 1, description: "Concede 20 de Defesa ao trio." },
+      { id: "despertar", name: "Fim Inalcançável", kind: "defense", costs: { essence: 1 }, invulnerable: 1, defense: true, target: "self", cooldown: 4, description: "Fica Invulnerável por 1 turno. Recarga de 4 turnos." }
     ];
     enemies[1].name = "Arauto do Véu Partido";
     enemies[1].art = null;
@@ -263,6 +200,10 @@ function startEncounter(node) {
   state.battle = createBattle(profile.team, enemies, { buffs: profile.run?.buffs || [], teamHealth: profile.run?.teamHealth || {} });
   state.targetId = null;
   state.battleFx = null;
+  state.selectedSkill = null;
+  state.focusSkill = null;
+  state.inspectUnitId = null;
+  state.confirmTurn = false;
   state.tab = "battle";
   render();
 }
@@ -314,7 +255,7 @@ function chooseEvent(choice) {
 function chooseBuff(id) {
   if (!profile.run || profile.run.buffs.includes(id)) return;
   profile.run.buffs.push(id);
-  continueRun();
+  continueRun(`Eco ${buffs.find(buff => buff.id === id)?.title || id} incorporado ao trio.`);
 }
 
 function grantRunBuff(id) {
@@ -379,7 +320,7 @@ function returnFromBattle() {
       }
     }
     state.battle = null;
-    continueRun();
+    continueRun("Vitória: fragmentos recebidos e Vida do trio preservada para o próximo encontro.");
     return;
   }
   if (state.battle.phase === "defeat") {
@@ -392,7 +333,9 @@ function returnFromBattle() {
     }
     profile.run.teamHealth = Object.fromEntries(state.battle.allies.map((ally) => [ally.id, Math.max(35, ally.hp || Math.round(ally.maxHp * 0.35))]));
     profile.run.stability -= 1;
+    profile.run.currentNodeId = null;
     state.battle = null;
+    state.tab = "rota";
     if (profile.run.stability <= 0) {
       profile.run = null;
       state.pending = { type: "reset" };
@@ -403,82 +346,41 @@ function returnFromBattle() {
     profile.run.tried += 1;
     toast("Uma Corrente se rompeu. Restam " + profile.run.stability + ".");
     save();
-    state.tab = "rota";
-    render();
+    setTrailFeedback("failure", "Uma Corrente se rompeu", `Restam ${profile.run.stability} Correntes. O nó permanece disponível para tentar novamente.`);
   }
 }
 
 function battleSnapshot(battle) {
-  return [...battle.allies.map((unit) => ({ ...unit, side: "ally" })), ...battle.enemies.map((unit) => ({ ...unit, side: "enemy" }))]
-    .map((unit) => ({ id: unit.id, name: unit.name, side: unit.side, hp: unit.hp, shield: unit.shield, stunned: unit.stunned, weakened: unit.weakened, exposed: unit.exposed, burning: unit.burning, abilities: unit.abilities }));
+  return [...battle.allies,...battle.enemies].map(u=>({id:u.id,name:u.name,hp:u.hp,shield:u.shield,invulnerable:u.invulnerable,stunned:u.stunned,weakened:u.weakened,exposed:u.exposed,charge:u.charge,counter:u.counter,dots:u.dots.map(d=>`${d.tag}:${d.turns}`),marks:Object.keys(u.marks)}));
 }
-
-function battleChanges(before, battle) {
-  const previous = new Map(before.map((unit) => [unit.id, unit]));
-  const statuses = [["stunned", "ATORDOADO"], ["weakened", "ENFRAQUECIDO"], ["exposed", "EXPOSTO"], ["burning", "EM CHAMAS"]];
-  return [...battle.allies.map((unit) => ({ ...unit, side: "ally" })), ...battle.enemies.map((unit) => ({ ...unit, side: "enemy" }))]
-    .map((unit) => {
-      const old = previous.get(unit.id);
-      if (!old) return null;
-      const change = {
-        id: unit.id, name: unit.name, side: unit.side,
-        hp: unit.hp - old.hp,
-        shield: (unit.shield || 0) - (old.shield || 0),
-        statuses: statuses.flatMap(([key, label]) => {
-          const delta = (unit[key] || 0) - (old[key] || 0);
-          if (delta > 0) return [`${label} +${delta}`];
-          if (delta < 0) return [`${label} ${unit[key] > 0 ? `−${Math.abs(delta)}` : "REMOVIDO"}`];
-          return [];
-        })
-      };
-      return change.hp || change.shield || change.statuses.length ? change : null;
-    }).filter(Boolean);
+function battleChanges(before,battle) {
+  const old=new Map(before.map(u=>[u.id,u]));
+  return [...battle.allies,...battle.enemies].map(u=>{const p=old.get(u.id),statuses=[["invulnerable","INVULNERÁVEL"],["stunned","ATORDOADO"],["weakened","ENFRAQUECIDO"],["exposed","EXPOSTO"],["counter","CONTRA-ATAQUE"],["charge","CARGA"]].filter(([key])=>u[key]>p[key]).map(([,label])=>label);if(u.dots.some(d=>!p.dots.includes(`${d.tag}:${d.turns}`)))statuses.push("AFLIÇÃO");if(Object.keys(u.marks).some(key=>!p.marks.includes(key)))statuses.push("MARCADO");const c={id:u.id,name:u.name,hp:u.hp-p.hp,shield:u.shield-p.shield,statuses};return c.hp||c.shield||statuses.length?c:null;}).filter(Boolean);
 }
-
-function presentBattleEffect(before, { actorId = null, abilityId = null, targetId = null, roundBefore, mode = "ability" }) {
-  const battle = state.battle;
-  if (!battle) return;
-  const actor = before.find((unit) => unit.id === actorId);
-  const ability = actor?.abilities.find((item) => item.id === abilityId);
-  const changes = battleChanges(before, battle);
-  const summary = changes.flatMap((change) => [
-    change.hp < 0 ? `${change.name}: −${Math.abs(change.hp)} Vida` : "",
-    change.hp > 0 ? `${change.name}: +${change.hp} Vida` : "",
-    change.shield < 0 ? `${change.name}: −${Math.abs(change.shield)} Escudo` : "",
-    change.shield > 0 ? `${change.name}: +${change.shield} Escudo` : "",
-    change.statuses.length ? `${change.name}: ${change.statuses.join(", ")}` : ""
-  ]).filter(Boolean).slice(0, 3).join(" · ");
-  const kind = mode === "turn" ? "turn" : changes.some((change) => change.hp < 0) ? "impact" : changes.some((change) => change.hp > 0) ? "restore" : changes.some((change) => change.shield) ? "shield" : changes.some((change) => change.statuses.length) ? "control" : "cast";
-  const id = ++battleFxSequence;
-  state.battleFx = {
-    id, mode, kind, actorId, abilityId, targetId, changes,
-    title: mode === "turn" ? "Turno adversário resolvido" : ability?.name || "Técnica",
-    actorName: actor?.name || null,
-    summary: summary || (battle.phase === "victory" ? "A última unidade adversária caiu." : battle.phase === "defeat" ? "O trio foi derrotado. Confira o registro para ver as intenções." : battle.round !== roundBefore ? `Rodada ${battle.round} iniciada · recursos renovados.` : mode === "turn" ? "O turno foi resolvido sem alterar Vida ou Escudo." : "A técnica foi ativada sem mudar Vida, Escudo ou condições."),
-    roundAdvanced: battle.round !== roundBefore,
-    completed: battle.phase === "victory" || battle.phase === "defeat"
-  };
-  if (battleFxTimer) clearTimeout(battleFxTimer);
-  render();
-  battleFxTimer = setTimeout(() => {
-    if (state.battleFx?.id !== id) return;
-    state.battleFx = null;
-    render();
-  }, 2350);
+function presentBattleEffect(before,event) {
+  const changes=battleChanges(before,state.battle);
+  const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
+  const kind=event.mode==="turn"?"turn":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0)?"shield":"control";
+  state.battleFx={...event,id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida. Confira as condições e o registro."};render();
 }
-
-function updateBattle(actorId, abilityId) {
-  if (state.battleFx || !state.battle) return;
-  const before = battleSnapshot(state.battle);
-  const roundBefore = state.battle.round;
-  const targetId = state.targetId || state.battle.enemies.find((enemy) => enemy.hp > 0)?.id;
-  const result = chooseAction(state.battle, actorId, abilityId, targetId);
-  if (!result.ok) {
-    toast(result.reason);
-    return;
-  }
-  state.targetId = null;
-  presentBattleEffect(before, { actorId, abilityId, targetId, roundBefore });
+function resolveCombatStep() {
+  const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);
+  if(!result.event){state.battleFx=null;render();return;}presentBattleEffect(before,result.event);
+  battleFxTimer=setTimeout(()=>{if(state.battle!==battle)return;state.battleFx=null;if(result.done)render();else resolveCombatStep();},result.event.mode==="turn"?750:1250);
+}
+function executePlannedTurn() {
+  if(!state.battle||!commitTurn(state.battle).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
+}
+function updateBattle(actorId,abilityId) {
+  const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
+  if(!actor||!ability||actor.hp<=0||actor.stunned||actor.cooldowns[abilityId]||!canAffordAbility(b,actor,ability))return;
+  state.selectedSkill={actorId,abilityId};state.focusSkill={actorId,abilityId};state.inspectUnitId=null;render();
+}
+function selectBattleTarget(targetId) {
+  if(!state.battle||state.battle.phase!=="player")return;
+  if(!state.selectedSkill){state.inspectUnitId=targetId;state.focusSkill=null;render();return;}
+  const {actorId,abilityId}=state.selectedSkill,result=chooseAction(state.battle,actorId,abilityId,targetId);
+  if(!result.ok){toast(result.reason);return;}state.selectedSkill=null;render();
 }
 
 function header() {
@@ -559,50 +461,7 @@ function routeView() {
     </section>`;
 }
 
-function runMap() {
-  const run = profile.run;
-  const elo = activeElo();
-  const completed = run.stage >= run.map.length;
-  const cleared = new Set(run.clearedNodeIds || []);
-  const available = new Set(run.availableNodeIds || []);
-  const rowStep = 114;
-  const stageHeight = 94;
-  const height = run.map.length * rowStep - (rowStep - stageHeight);
-  const xFor = (col) => 150 + col * 300;
-  const edges = run.map.flat().flatMap((node) => node.nextIds.map((nextId) => {
-    const next = run.map.flat().find((candidate) => candidate.id === nextId);
-    if (!next) return "";
-    const activeEdge = cleared.has(node.id) && available.has(next.id);
-    const startY = node.row * rowStep + stageHeight - 20;
-    const endY = next.row * rowStep + 4;
-    const bend = Math.max(13, (endY - startY) * .42);
-    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${startY} C ${xFor(node.col)} ${startY + bend}, ${xFor(next.col)} ${endY - bend}, ${xFor(next.col)} ${endY}"/>`;
-  })).join("");
-  return `
-    <section class="run-panel">
-      <div class="run-heading"><div><div class="eyebrow">TRILHA ATIVA · ${esc(elo.realm.toUpperCase())}</div><h3>Elo da ${esc(elo.name)}</h3></div><div class="run-strength"><span class="run-elo-symbol">${elo.symbol}</span><span><small>ESTABILIDADE DAS CORRENTES</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
-      <div class="path-guide"><span>MAPA DA TRAVESSIA <i>·</i> ESCOLHA UM NÓ CONECTADO</span><div><small><i class="legend-combat">⚔</i> Combate</small><small><i class="legend-reward">✦</i> Recompensa</small><small><i class="legend-rest">⟲</i> Descanso</small><small><i class="legend-event">◇</i> Evento</small></div></div>
-      <div class="path-map map-elo-${esc(elo.id)} color-${esc(elo.color)}"><div class="path-canvas">
-        <div class="atlas-caption" aria-hidden="true"><span>${elo.symbol}</span><div><small>MAPA DO ELO</small><b>${esc(elo.name.toUpperCase())}</b><i>${esc(elo.theme)}</i></div></div>
-        ${atlasIllustration(elo, height)}
-        <svg class="path-lines" viewBox="0 0 900 ${height}" preserveAspectRatio="none" aria-hidden="true">${edges}</svg>
-        <div class="path-grid">${run.map.map((stage, stageIndex) => {
-          const nodes = stage.map((node) => {
-            const done = cleared.has(node.id);
-            const canSelect = available.has(node.id) && !completed;
-            const nodeType = node.type || node.id;
-            const nodeKind = nodeType === "normal" ? "COMBATE" : nodeType === "boss" ? "CHEFE" : nodeType === "mini" ? "ELITE" : nodeType.toUpperCase();
-            const access = done ? "Concluído" : canSelect ? "Disponível para escolher" : "Bloqueado";
-            return `<button class="path-node type-${esc(nodeType)} ${done ? "done" : ""} ${canSelect ? "active" : "locked"}" style="grid-column:${node.col + 1}" ${canSelect ? `data-node="${esc(node.id)}"` : "disabled aria-disabled=\"true\""} title="${esc(node.desc)}" aria-label="${esc(`${node.label}, ${nodeKind.toLowerCase()}. ${node.desc}. ${access}.`)}">
-              <span class="node-icon" aria-hidden="true">${done ? "✓" : node.icon}</span><b>${esc(node.label)}</b><i class="node-type">${esc(nodeKind)}</i>
-            </button>`;
-          }).join("");
-          return `<div class="path-stage ${stageIndex === run.stage ? "current-floor" : ""}"><span class="stage-number">${String(stageIndex + 1).padStart(2, "0")}</span><div class="stage-nodes">${nodes}</div></div>`;
-        }).join("")}</div>
-      </div></div>
-      <div class="run-footer"><span>ANDAR <b>${Math.min(run.stage + 1, run.map.length)}</b> / ${run.map.length}</span><span class="buff-list">${run.buffs.length ? run.buffs.map((id) => `<i title="${esc(buffs.find((buff) => buff.id === id)?.title || id)}">✧</i>`).join("") : "Nenhum Eco coletado"}</span><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></div>
-    </section>`;
-}
+function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs); }
 
 function pendingPanel() {
   const pending = state.pending;
@@ -667,7 +526,7 @@ function codexView() {
     const owned = profile.ownedIds.includes(character.id);
     const realm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
     const query = !state.crewSearch || (character.name + " " + character.elo).toLowerCase().includes(state.crewSearch.toLowerCase());
-    return realm && query && (owned || state.crewRealm === "Todos");
+    return realm && query;
   });
   return `
     <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Concluir a trilha de um Elo libera suas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>PLANEJADOS</span></div></section>
@@ -678,95 +537,12 @@ function codexView() {
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${esc(character.symbol)}</span><small>${owned ? "RECRUTADA" : "TRILHA NÃO CONCLUÍDA"}</small></div>
         <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${esc(character.symbol)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        <div class="codex-moves">${character.abilities.map((ability, index) => `<span title="${esc(ability.description)}">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${String(index + 1).padStart(2, "0")}</i>`}<b>${esc(ability.name)}</b></span>`).join("")}</div>
+        <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary>${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${index + 1}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p><small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
 
-function unitCard(unit, side, index) {
-  const isEnemy = side === "enemy";
-  const selected = isEnemy && state.targetId === unit.id;
-  const intent = isEnemy ? state.battle.intents.find((item) => item.actorId === unit.id) : null;
-  const fx = state.battleFx;
-  const change = fx?.changes.find((item) => item.id === unit.id);
-  const fxClasses = [
-    fx?.actorId === unit.id && "fx-caster",
-    change?.hp < 0 && "fx-damage",
-    change?.hp > 0 && "fx-heal",
-    change?.shield > 0 && "fx-shield",
-    change?.statuses.length && "fx-control"
-  ].filter(Boolean).join(" ");
-  const hpPercent = Math.max(0, (unit.hp / unit.maxHp) * 100);
-  const barClass = unit.realm === "Inferno" ? "hp-hell" : unit.realm === "Paraíso" ? "hp-heaven" : "hp-limbo";
-  const statusLabels = [
-    unit.shield > 0 && `Escudo ${unit.shield}`,
-    unit.stunned > 0 && "Atordoado",
-    unit.weakened > 0 && "Enfraquecido",
-    unit.exposed > 0 && "Exposto",
-    unit.burning > 0 && "Em chamas"
-  ].filter(Boolean);
-  const floaters = change ? [
-    change.hp < 0 && `<span class="floater-damage">−${Math.abs(change.hp)} VIDA</span>`,
-    change.hp > 0 && `<span class="floater-heal">+${change.hp} VIDA</span>`,
-    change.shield > 0 && `<span class="floater-shield">+${change.shield} ESCUDO</span>`,
-    change.shield < 0 && `<span class="floater-damage">−${Math.abs(change.shield)} ESCUDO</span>`,
-    change.statuses.length > 0 && `<span class="floater-control">${change.statuses.map(esc).join(" · ")}</span>`
-  ].filter(Boolean).join("") : "";
-  return `<article class="combat-unit fighter-card ${isEnemy ? "enemy-unit" : "ally-unit"} color-${esc(unit.color)} ${unit.hp <= 0 ? "fallen" : ""} ${selected ? "targeted" : ""} ${fxClasses}" ${isEnemy && unit.hp > 0 ? `data-target="${unit.id}" role="button" tabindex="0" aria-label="Selecionar ${esc(unit.name)} como alvo"` : ""}>
-    <div class="fighter-backdrop">${portraitMarkup(unit, "fighter-portrait")}</div><div class="fighter-shade"></div>
-    ${floaters ? `<div class="combat-floaters" aria-hidden="true">${floaters}</div>` : ""}
-    <div class="fighter-content">
-      <div class="fighter-meta"><span class="unit-index">0${index + 1} · ${isEnemy ? "OPOSIÇÃO" : "TRIO"}</span><span class="unit-state">${unit.hp <= 0 ? "CAÍDO" : selected ? "ALVO MARCADO" : esc(unit.role)}</span></div>
-      <div class="fighter-nameplate"><b class="unit-name">${esc(unit.name)}</b><small class="unit-title">${unit.nameEn ? `${esc(unit.nameEn)} · ${esc(unit.title)}` : `${esc(unit.elo)} · ${esc(unit.realm)}`}</small></div>
-      <div class="health-row"><div class="health-track"><i class="${barClass}" style="width:${hpPercent}%"></i></div><b>${Math.max(0, unit.hp)}</b></div>
-      ${statusLabels.length ? `<div class="unit-statuses">${statusLabels.map((label) => `<span>${esc(label)}</span>`).join("")}</div>` : ""}
-      ${isEnemy && unit.hp > 0 ? (intent ? `<div class="enemy-intent"><span>INTENÇÃO · ${esc(intent.targetName)}</span><b>${esc(intent.abilityName)}</b><small>${esc(intent.damage ? `até ${intent.damage} de dano` : intent.effect || intent.targetName)}</small></div>` : `<div class="enemy-hint">${selected ? "ALVO SELECIONADO" : "MARCAR COMO ALVO"}</div>`) : ""}
-    </div>
-  </article>`;
-}
-
-function techniqueCard(unit, index) {
-  const acted = state.battle.acted.includes(unit.id);
-  const castAbility = state.battleFx?.actorId === unit.id ? state.battleFx.abilityId : null;
-  return `<article class="technique-card color-${esc(unit.color)} ${unit.hp <= 0 ? "fallen" : ""} ${acted ? "acted" : ""}">
-    <div class="technique-card-heading">${portraitMarkup(unit, "technique-avatar")}<span><small>0${index + 1} · ${esc(unit.role)}</small><b>${esc(unit.name)}</b></span><i>${acted ? "AÇÃO USADA" : unit.hp <= 0 ? "CAÍDO" : unit.stunned > 0 ? "ATORDOADO" : "PRONTO"}</i></div>
-    <div class="unit-skills">${unit.abilities.map((ability) => {
-      const cooldown = unit.cooldowns[ability.id] || 0;
-      const disabled = state.battle.phase !== "player" || Boolean(state.battleFx) || acted || state.battle.acted.length >= state.battle.actionLimit || unit.hp <= 0 || unit.stunned > 0 || cooldown > 0 || !canAffordAbility(state.battle, unit, ability);
-      const isCasting = castAbility === ability.id;
-      return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""} ${isCasting ? "skill-cast" : ""}" data-use-skill="${unit.id}:${ability.id}" title="${esc(ability.description || ability.name)}" ${disabled ? "disabled" : ""}>${ability.art ? `<img class="skill-art" src="${esc(ability.art)}" alt="" loading="lazy">` : `<span class="skill-art-fallback color-${esc(unit.color)}">${esc(unit.symbol)}</span>`}<span><b>${esc(ability.name)}</b><small>${cooldown ? `Recarga: ${cooldown}T` : esc(ability.description || ability.kind)}</small></span>${cooldown ? `<span class="cooldown-badge">${cooldown}T</span>` : costMarkup(unit, ability)}</button>`;
-    }).join("")}</div>
-  </article>`;
-}
-
-function battleView() {
-  const battle = state.battle;
-  if (!battle) return "";
-  const result = battle.phase === "victory" || battle.phase === "defeat";
-  const node = state.battleNode;
-  const visibleResources = resources.filter((resource) => resource.id === "essence" || battle.allies.some((ally) => ally.affinity === resource.id));
-  const actionsLeft = Math.max(0, battle.actionLimit - battle.acted.length);
-  const defaultTarget = battle.enemies.find((enemy) => enemy.hp > 0);
-  const selectedTarget = battle.enemies.find((enemy) => enemy.id === state.targetId && enemy.hp > 0);
-  const target = selectedTarget || defaultTarget;
-  const flowStep = state.battleFx ? 3 : battle.phase === "player" ? 2 : 3;
-  return `
-    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p><div class="action-economy"><b>${actionsLeft} / ${battle.actionLimit}</b> ações restantes neste turno · habilidades compartilham recursos</div></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
-    <section class="combat-flow-panel" aria-label="Fluxo do combate">
-      <div class="combat-flow-steps"><div class="combat-flow-step ${flowStep === 1 ? "current" : "done"}"><i>1</i><span><b>Marque um alvo</b><small>${target ? `Alvo: ${esc(target.name)}${selectedTarget ? " · marcado" : " · automático"}` : "Sem adversários em pé"}</small></span></div><div class="combat-flow-step ${flowStep === 2 ? "current" : flowStep > 2 ? "done" : ""}"><i>2</i><span><b>Use até ${battle.actionLimit} ações</b><small>${actionsLeft} disponíveis · uma por aliado</small></span></div><div class="combat-flow-step ${flowStep === 3 ? "current" : ""}"><i>3</i><span><b>Resolva o turno</b><small>${battle.phase === "player" ? "Passe para executar as intenções inimigas" : battle.phase === "enemy" ? "Intenções inimigas em execução" : result ? "Confronto encerrado" : "Novo turno"}</small></span></div></div>
-      <div class="combat-target-control">${selectedTarget ? `<button data-clear-target>ALVO AUTOMÁTICO</button>` : `<span>Alvo automático · clique em um inimigo para redirecionar</span>`}</div>
-    </section>
-    ${state.battleFx ? `<section class="battle-action-banner effect-${state.battleFx.kind}" role="status" aria-live="polite"><span class="action-banner-icon">${state.battleFx.kind === "impact" ? "✹" : state.battleFx.kind === "restore" ? "✚" : state.battleFx.kind === "shield" ? "⬡" : state.battleFx.kind === "control" ? "✧" : state.battleFx.mode === "turn" ? "↻" : "✦"}</span><div><small>${state.battleFx.mode === "turn" ? "RESOLUÇÃO DA RODADA" : `TÉCNICA EXECUTADA · ${esc(state.battleFx.actorName || "ALIADO")}`}</small><b>${esc(state.battleFx.title)}</b><span>${esc(state.battleFx.summary)}</span></div></section>` : ""}
-    <div class="battle-layout">
-      <section class="battle-side ally-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
-      <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div></div>
-      <section class="battle-side enemy-side"><div class="battle-side-heading"><span>OPOSIÇÃO</span><small>${battle.enemies.filter((unit) => unit.hp > 0).length} RESTANTES</small></div><div class="combat-grid">${battle.enemies.map((unit, index) => unitCard(unit, "enemy", index)).join("")}</div></section>
-    </div>
-    <section class="technique-tray"><header class="technique-tray-heading"><div><div class="eyebrow">TÉCNICAS DO TRIO</div><b>Escolha as ações desta rodada</b><small>Selecione a técnica no cartão do aliado · uma ação por personagem</small></div><div class="tray-controls"><span class="action-economy"><b>${actionsLeft} / ${battle.actionLimit}</b> ações restantes</span><button class="pass-turn" data-action="pass-turn" ${battle.phase !== "player" || result || Boolean(state.battleFx) ? "disabled" : ""}>PASSAR TURNO <span>↗</span></button></div></header><div class="technique-grid">${battle.allies.map((unit, index) => techniqueCard(unit, index)).join("")}</div></section>
-    <section class="battle-log"><div><div class="eyebrow">REGISTRO DO COMBATE</div><b>${battle.phase === "player" ? `Sua vez — ${actionsLeft} ação(ões) disponíveis.` : battle.phase === "enemy" ? "O trio adversário está agindo." : battle.phase === "victory" ? "Vitória na trilha." : "As correntes cederam."}</b><small class="intent-summary">${battle.phase === "player" ? "Leia as intenções e escolha quem interromper, proteger ou finalizar." : ""}</small></div><ol>${battle.log.map((line) => `<li>${esc(line)}</li>`).join("")}</ol></section>
-    ${result ? `<div class="battle-result ${battle.phase}"><span>${battle.phase === "victory" ? "✧" : "⟲"}</span><div><b>${battle.phase === "victory" ? "Vitória" : "Derrota"}</b><small>${battle.phase === "victory" ? "A trilha se abre diante do trio." : "Uma Corrente da Alma enfraqueceu."}</small></div><button class="button button-gold" data-action="return-battle">CONTINUAR <span>↗</span></button></div>` : ""}
-  `;
-}
+function battleView() { return renderBattle(state, activeElo()); }
 
 function render() {
   const tab = state.tab;
@@ -784,8 +560,10 @@ function render() {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-clear-target]");
+  const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill]");
   if (!target) return;
+  if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
+  if (state.trailBusy) return;
   if (target.dataset.tab) {
     state.tab = target.dataset.tab;
     render();
@@ -804,7 +582,7 @@ app.addEventListener("click", (event) => {
     const node = legacy
       ? profile.run.map[Number(legacy[1])]?.[Number(legacy[2])]
       : profile.run.map.flat().find((candidate) => candidate.id === target.dataset.node);
-    if (node && profile.run.availableNodeIds.includes(node.id)) resolveNode(node);
+    if (node && profile.run.availableNodeIds.includes(node.id)) selectTrailNode(node);
     return;
   }
   if (target.dataset.crewRealm) { state.crewRealm = target.dataset.crewRealm; render(); return; }
@@ -827,22 +605,14 @@ app.addEventListener("click", (event) => {
     updateBattle(actorId, abilityId);
     return;
   }
-  if (target.dataset.target) {
-    if (state.battleFx) return;
-    state.targetId = target.dataset.target;
-    render();
-    return;
-  }
-  if (target.dataset.clearTarget !== undefined) { state.targetId = null; render(); return; }
-  if (target.dataset.action === "pass-turn") {
-    if (state.battleFx || !state.battle) return;
-    const before = battleSnapshot(state.battle);
-    const roundBefore = state.battle.round;
-    if (!passTurn(state.battle)) return;
-    state.targetId = null;
-    presentBattleEffect(before, { roundBefore, mode: "turn" });
-    return;
-  }
+  if (target.dataset.target) { if (!state.battleFx) selectBattleTarget(target.dataset.target); return; }
+  if (target.dataset.removeAction) { removeQueuedAction(state.battle,target.dataset.removeAction); render(); return; }
+  if (target.dataset.moveAction) { const [id,direction]=target.dataset.moveAction.split(":"); moveQueuedAction(state.battle,id,Number(direction)); render(); return; }
+  if (target.dataset.inspectSkill) { const [actorId,abilityId]=target.dataset.inspectSkill.split(":"); state.focusSkill={actorId,abilityId}; state.selectedSkill=null; render(); return; }
+  if (target.dataset.action === "review-turn" || target.dataset.action === "pass-turn") { state.confirmTurn=true; state.selectedSkill=null; render(); return; }
+  if (target.dataset.action === "cancel-review") { state.confirmTurn=false; render(); return; }
+  if (target.dataset.action === "cancel-skill") { state.selectedSkill=null; render(); return; }
+  if (target.dataset.action === "commit-turn") { executePlannedTurn(); return; }
   if (target.dataset.action === "return-battle") { returnFromBattle(); return; }
   if (target.dataset.action === "leave-battle") { state.tab = "rota"; render(); return; }
   if (target.dataset.eventChoice) { chooseEvent(target.dataset.eventChoice); return; }
@@ -877,8 +647,7 @@ app.addEventListener("input", (event) => {
 app.addEventListener("keydown", (event) => {
   if (event.target.matches("[data-target]") && (event.key === "Enter" || event.key === " ")) {
     event.preventDefault();
-    state.targetId = event.target.dataset.target;
-    render();
+    if (!state.battleFx) selectBattleTarget(event.target.dataset.target);
   }
 });
 

@@ -1,3 +1,4 @@
+import { buildCharacterKit } from "./kits.js";
 const inferno = [
   {
     id: "sangria", name: "Sangria", realm: "Inferno", theme: "Sangue, lâminas e carnificina", strength: "Máxima",
@@ -169,14 +170,6 @@ const illustratedCharacterIds = new Set([
   "a-mensageira-do-amanha", "o-que-revela", "o-olho-desarmado", "a-guardia-das-promessas"
 ]);
 
-const roleCycle = [
-  { name: "Vanguarda", kind: "strike", hint: "abre caminho com dano direto" },
-  { name: "Controlador", kind: "control", hint: "desorganiza o turno inimigo" },
-  { name: "Guardião", kind: "guard", hint: "segura a linha quando o trio vacila" },
-  { name: "Apoio", kind: "support", hint: "mantém o grupo em combate" },
-  { name: "Duelista", kind: "strike", hint: "pressiona um alvo com precisão" },
-  { name: "Ruptor", kind: "burst", hint: "concentra poder num golpe decisivo" }
-];
 
 function slug(text) {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -200,83 +193,19 @@ function artForCharacter(name) {
 }
 
 function characterFrom(elo, name, index) {
-  const role = roleCycle[index % roleCycle.length];
-  const epithet = name.replace(/^(O|A|Os|As)\s+/i, "").split(" ").slice(0, 2).join(" ");
-  const starterNames = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"];
-  const starter = starterNames.includes(name);
-  const moves = elo.moves;
-  const risky = elo.realm === "Limbo" || (elo.realm === "Inferno" && ["Chama", "Sangria", "Vazio"].includes(elo.name));
-  const eloArticle = ["Vazio", "Silêncio"].includes(elo.name) ? "do Elo do " : "do Elo da ";
   const affinity = realmResource[elo.realm];
-  const affinityName = resourceById[affinity].shortName;
   const art = artForCharacter(name);
-  const tacticalKind = index % 2 ? "control" : "strike";
-  const thirdKind = ["guard", "support", "control", "strike", "burst"][index % 5];
-  const thirdDescriptions = {
-    guard: "Ergue uma proteção para o trio.",
-    support: "Recupera Vida do aliado mais ferido e reforça sua guarda.",
-    control: "Atinge e enfraquece um inimigo por uma ação.",
-    strike: "Golpe tático de dano direto contra um inimigo.",
-    burst: "Golpe decisivo: causa dano extra e pode interromper o alvo."
-  };
-  const teamGuard = role.name === "Guardião" || role.name === "Apoio" || index % 3 === 0;
-  const fourthCooldown = 2;
-  const abilities = [
-    {
-      id: "impulso", name: moves[0] + " · " + epithet, kind: "strike", cost: 0, costs: {},
-      damage: 18 + (index % 3), target: "enemy", description: "Ataque básico; gera 1 de Essência.", art: art?.abilities.impulso
-    },
-    {
-      id: "tecnica", name: moves[1] + " de " + epithet, kind: tacticalKind, cost: 1, costs: { affinity: 1 },
-      damage: 24 + (index % 4), target: "enemy", cooldown: tacticalKind === "control" ? 1 : 0,
-      expose: tacticalKind === "strike" ? 1 : 0, burn: elo.id === "chama" ? 2 : 0,
-      description: `${role.hint}; custa 1 ${affinityName}${tacticalKind === "control" ? " e aplica Enfraquecido" : " e expõe o alvo"}${elo.id === "chama" ? " e causa Queimadura" : ""}.`, art: art?.abilities.tecnica
-    },
-    {
-      id: "voto", name: moves[2] + " · " + epithet, kind: thirdKind, cost: 2, costs: { essence: 1, affinity: 1 },
-      damage: thirdKind === "burst" ? 28 + (index % 5) : 17 + (index % 3), heal: 20,
-      shield: thirdKind === "guard" || thirdKind === "support" ? 16 + (index % 5) : 0,
-      target: ["guard", "support"].includes(thirdKind) ? "team" : "enemy", cooldown: 1,
-      description: `${thirdDescriptions[thirdKind]} Custa 1 Essência + 1 ${affinityName}; recarga de 1 turno.`, art: art?.abilities.voto
-    },
-    {
-      id: "despertar", name: moves[3] + " de " + epithet, kind: "guard", cost: 2, costs: { affinity: 2 },
-      damage: 0, shield: 20 + (index % 5), target: teamGuard ? "team" : "self", taunt: teamGuard ? 1 : 0, cooldown: fourthCooldown,
-      description: `Técnica defensiva: ${teamGuard ? "protege o trio e atrai ataques" : "protege o usuário"}. Custa 2 ${affinityName}; recarga de ${fourthCooldown} turnos.`, art: art?.abilities.despertar
-    }
-  ];
+  const kit = buildCharacterKit(elo.id, index, art);
+  const starter = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"].includes(name);
   return {
-    id: slug(name),
-    name,
-    realm: elo.realm,
-    elo: elo.name,
-    eloId: elo.id,
-    title: role.name + " " + eloArticle + elo.name,
-    role: role.name,
-    roleHint: role.hint,
-    indexInElo: index,
-    color: elo.color,
-    symbol: elo.symbol,
-    affinity,
+    id: slug(name), name, realm: elo.realm, elo: elo.name, eloId: elo.id,
+    title: kit.role + " do Elo " + elo.name, ...kit, indexInElo: index,
+    color: elo.color, symbol: elo.symbol, affinity,
     art: art ? { portrait: art.portrait, passive: art.passive } : null,
-    maxHp: 100,
-    starter,
-    unlockedByDefault: starter,
-    passive: {
-      name: elo.passive,
-      art: art?.passive,
-      description: elo.realm === "Limbo"
-        ? "Uma vez por combate, seu primeiro golpe especial causa dano extra e a Corrente Quebrada também fere o próprio usuário."
-        : elo.realm === "Paraíso"
-          ? "Na primeira vez que um aliado cai abaixo de 40 de Vida, concede 10 de escudo ao trio."
-          : "Seu primeiro golpe certeiro no combate gera 1 de Essência para a equipe."
-    },
-    abilities,
-    flavor: elo.flavor,
-    risk: risky
+    maxHp: 100, starter, unlockedByDefault: starter,
+    flavor: elo.flavor, risk: elo.realm === "Limbo"
   };
 }
-
 export const elos = [...inferno, ...paradise, ...limbo];
 export function getElo(eloId) {
   return elos.find((elo) => elo.id === eloId) || elos[0];

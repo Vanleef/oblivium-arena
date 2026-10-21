@@ -23,15 +23,15 @@ test("cada personagem tem quatro técnicas e uma passiva de Elo", () => {
     assert.equal(character.abilities.length, 4, character.name);
     assert.ok(character.passive.name);
     assert.ok(character.abilities.every((ability) => ability.name && ability.kind && Number.isInteger(ability.cost)));
-    assert.equal(character.abilities[3].kind, "guard", `${character.name}: a quarta técnica é defensiva`);
+    assert.equal(character.abilities[3].kind, "defense", `${character.name}: a quarta técnica é defensiva`);
     assert.equal(character.affinity, realmResource[character.realm]);
   }
 });
 
 test("os custos combinam Essência com o recurso próprio de cada reino", () => {
-  assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { cinza: 1 });
+  assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { cinza: 1, essence: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Escudo Vivo"), byName("O Escudo Vivo").abilities[2]), { essence: 1, graca: 1 });
-  assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { ruptura: 2 });
+  assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { essence: 1 });
 });
 
 test("o trio inicial tem retrato, passiva e quatro artes de habilidade em arquivos próprios", () => {
@@ -97,40 +97,14 @@ test("trilha inclui os oito tipos de nó pedidos e termina em Guardião", () => 
   assert.equal(routeStages.at(-1)[0].label, "Guardião do Elo");
 });
 
-test("aliados vivos geram Essência e Graça, com custo tático por técnica", () => {
-  const allies = ["o-escudo-vivo", "a-muralha", "o-que-ficou"];
-  const elo = elos.find((item) => item.id === "protecao");
-  const enemies = createEnemyTeam(elo, allies, "normal", 0);
-  const battle = createBattle(allies, enemies, { buffs: [] });
-  assert.equal(battle.resonance.tier, "complete");
-  const target = battle.enemies[0];
-  const before = target.hp;
-  assert.equal(battle.resources.essence, 0);
-  assert.equal(battle.resources.graca, 0);
-  assert.equal(canAffordAbility(battle, battle.allies[0], battle.allies[0].abilities[1]), false);
-  assert.equal(chooseAction(battle, allies[0], "impulso", target.id).ok, true);
-  assert.equal(battle.resources.essence, 1);
-  assert.ok(target.hp < before);
-  assert.equal(chooseAction(battle, allies[1], "impulso", target.id).ok, true);
-  assert.equal(chooseAction(battle, allies[2], "impulso", target.id).ok, true);
-  assert.equal(battle.round, 2);
-  assert.equal(battle.phase, "player");
-  assert.equal(battle.resources.essence, 5);
-  assert.equal(battle.resources.graca, 3);
-  assert.equal(canAffordAbility(battle, battle.allies[0], battle.allies[0].abilities[1]), true);
-  assert.equal(chooseAction(battle, allies[0], "tecnica", target.id).ok, true);
-  assert.equal(battle.resources.graca, 2);
+test("recursos são recebidos antes do planejamento e reservados pela fila", () => {
+ const allies=["o-escudo-vivo","a-brasa-eterna","o-passo-interrompido"],battle=createBattle(allies,createEnemyTeam(elos[0],allies));
+ assert.equal(battle.resources.essence,1);assert.equal(battle.resources.graca,1);assert.equal(canAffordAbility(battle,battle.allies[0],battle.allies[0].abilities[0]),true);
+ const hp=battle.enemies[0].hp;chooseAction(battle,allies[0],"impulso",battle.enemies[0].id);assert.equal(battle.enemies[0].hp,hp);assert.equal(battle.resources.graca,1);
 });
-
-test("a quarta técnica consome afinidade e protege o trio", () => {
-  const allies = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
-  const elo = elos.find((item) => item.id === "protecao");
-  const battle = createBattle(allies, createEnemyTeam(elo, allies), { buffs: [] });
-  battle.resources.graca = 2;
-  const shieldBefore = battle.allies.map((ally) => ally.shield);
-  assert.equal(chooseAction(battle, "o-escudo-vivo", "despertar").ok, true);
-  assert.equal(battle.resources.graca, 0);
-  assert.deepEqual(battle.allies.map((ally) => ally.shield), shieldBefore.map((shield) => shield + 20));
+test("cada kit tem identidade, combo e custos positivos nas quatro técnicas", () => {
+ assert.equal(new Set(characters.map(c=>c.combo)).size,100);
+ for(const c of characters){assert.ok(c.passive.type,c.name);assert.ok(c.abilities.every(a=>Object.values(getAbilityResourceCosts(c,a)).reduce((s,n)=>s+n,0)>0),c.name);assert.equal(c.abilities[3].invulnerable,1);assert.equal(c.abilities[3].cooldown,4);}
 });
 
 test("aprimoramentos disponíveis têm IDs exclusivos", () => {
