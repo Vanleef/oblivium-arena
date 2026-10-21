@@ -419,7 +419,7 @@ Cultive esporos e use as cargas para restaurar ou sufocar a vítima.
 
 ### O Médico de Vermes — Cirurgião Sombrio
 
-Trate um aliado ou infecte o inimigo; a sutura transforma veneno em recuperação.
+Infecte o inimigo para ampliar a drenagem; a sutura cura e limpa um aliado.
 
 **Passiva — Cuidado Decomposto:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
@@ -430,7 +430,7 @@ Trate um aliado ou infecte o inimigo; a sutura transforma veneno em recuperaçã
 
 ### O Jardim Morto — Cerco Vivo
 
-Raízes degradam a oposição; o terreno do jardim converte doença em imobilização.
+Raízes degradam a oposição; o jardim amplia o dano contra alvos doentes e enfraquece a ofensiva inimiga.
 
 **Passiva — Raiz sob a Pele:** Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor.
 
@@ -511,7 +511,7 @@ Prepare a sentinela ausente e cobre o descuido de quem tiver sua guarda removida
 
 ### O que Possui — Possessor
 
-Inscreva a posse e use a ligação para enfraquecer e drenar a vítima.
+Inscreva a posse e use a ligação para interromper a vítima ou drenar sua Vida.
 
 **Passiva — Vontade Parasita:** Após causar dano com uma habilidade, restaura 4 de Vida.
 
@@ -680,7 +680,7 @@ Permaneça ao lado dos feridos e transforme a resistência em um retorno decisiv
 
 ### O Último Guardião — Contra-ataque
 
-Defenda o aliado ameaçado e ataque com mais força quando a guarda está erguida.
+Defenda o aliado ameaçado com um contra-ataque e interrompa o inimigo marcado pela vigília.
 
 **Passiva — Última Vigília:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
 
@@ -704,7 +704,7 @@ Revele um agressor, proteja o trio e ataque por dentro de suas defesas.
 
 ### A Mão que Cura — Curadora
 
-Alterne restauração e dano; um inimigo marcado devolve Vida a quem o enfrenta.
+Cure e limpe um aliado; o golpe contra um inimigo marcado devolve Vida ao usuário.
 
 **Passiva — A Dor é Vista:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
@@ -989,7 +989,7 @@ Proteja uma promessa e cobre o inimigo marcado sem abandonar o cuidado.
 
 ### O que Cria — Artífice
 
-Cada forma criada gera uma carga que pode virar proteção ou uma construção ofensiva.
+Crie formas de ataque e proteção para acumular cargas e concluir a obra ofensiva.
 
 **Passiva — Ideia Persistente:** No início do seu turno, recebe 4 de Defesa destrutível.
 
@@ -1145,7 +1145,7 @@ Roube impulso na penumbra e alterne drenagem com golpes na vítima marcada.
 
 ### A Ponte Rasgada — Ruptor de Passagens
 
-Derrube o apoio e marque o vão; a travessia final atinge toda a linha.
+Derrube a Defesa e exponha o inimigo; a travessia final atinge toda a linha.
 
 **Passiva — Vão Persistente:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
