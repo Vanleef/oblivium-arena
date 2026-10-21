@@ -150,6 +150,12 @@ const starterArt = {
   }
 };
 
+const illustratedCharacterIds = new Set([
+  "o-acougueiro", "a-viuva-escarlate", "o-colecionador-de-cabecas", "gemeos-do-cutelo",
+  "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",
+  "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo"
+]);
+
 const roleCycle = [
   { name: "Vanguarda", kind: "strike", hint: "abre caminho com dano direto" },
   { name: "Controlador", kind: "control", hint: "desorganiza o turno inimigo" },
@@ -163,6 +169,23 @@ function slug(text) {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function artForCharacter(name) {
+  if (starterArt[name]) return starterArt[name];
+  const id = slug(name);
+  if (!illustratedCharacterIds.has(id)) return null;
+  const base = `/art/characters/${id}`;
+  return {
+    portrait: `${base}/portrait.webp`,
+    passive: `${base}/passive.webp`,
+    abilities: {
+      impulso: `${base}/skill-impulso.webp`,
+      tecnica: `${base}/skill-tecnica.webp`,
+      voto: `${base}/skill-voto.webp`,
+      despertar: `${base}/skill-despertar.webp`
+    }
+  };
+}
+
 function characterFrom(elo, name, index) {
   const role = roleCycle[index % roleCycle.length];
   const epithet = name.replace(/^(O|A|Os|As)\s+/i, "").split(" ").slice(0, 2).join(" ");
@@ -173,7 +196,7 @@ function characterFrom(elo, name, index) {
   const eloArticle = ["Vazio", "Silêncio"].includes(elo.name) ? "do Elo do " : "do Elo da ";
   const affinity = realmResource[elo.realm];
   const affinityName = resourceById[affinity].shortName;
-  const art = starterArt[name];
+  const art = artForCharacter(name);
   const tacticalKind = index % 2 ? "control" : "strike";
   const thirdKind = ["guard", "support", "control", "strike"][index % 4];
   const thirdDescriptions = {

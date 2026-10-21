@@ -44,6 +44,22 @@ test("o trio inicial tem retrato, passiva e quatro artes de habilidade em arquiv
   assert.ok(existsSync(new URL("../art/characters/o-fim/portrait.webp", import.meta.url)));
 });
 
+test("os doze personagens seguintes têm artes únicas completas", () => {
+  const names = [
+    "O Açougueiro", "A Viúva Escarlate", "O Colecionador de Cabeças", "Gêmeos do Cutelo",
+    "O Carrasco sem Rosto", "A Mãe Rubra", "O Soberano Quebrado", "A Juíza de Ferro",
+    "O Trono Vazio", "O Príncipe das Correntes", "A Regente de Cinzas", "O Herdeiro Cativo"
+  ];
+  for (const name of names) {
+    const character = byName(name);
+    assert.ok(character?.art, `${name}: retrato e passiva ligados ao personagem`);
+    const paths = [character.art.portrait, character.passive.art, ...character.abilities.map((ability) => ability.art)];
+    assert.equal(paths.length, 6, `${name}: 6 imagens`);
+    for (const path of paths) assert.ok(existsSync(new URL(".." + path, import.meta.url)), `${name}: ${path}`);
+    assert.equal(new Set(paths).size, 6, `${name}: cada imagem usa um arquivo próprio`);
+  }
+});
+
 test("Ressonância diferencia trios do mesmo Elo, duplas e equipes mistas", () => {
   const inferno = characters.filter((character) => character.eloId === "sangria");
   const paradise = characters.filter((character) => character.eloId === "protecao");
