@@ -1,49 +1,33 @@
 # Direção de arte de PMA
 
-## Linguagem visual
+## Padrão obrigatório
 
-- Anime japonês 2D de ação sobrenatural, com line art expressiva, silhuetas claras, cel shading e efeitos desenhados à mão.
-- Fantasia sombria legível e vibrante; evitar pintura realista, acabamento fotográfico ou 3D.
-- As cores indicam os reinos, mas identidade vem também de rosto, idade, porte, cabelo, roupa, postura e formas dos efeitos.
-- Retratos mostram a identidade específica do personagem. Passivas e habilidades podem mostrar o efeito ou símbolo sem repetir o retrato.
-- Cada imagem deve continuar reconhecível em miniaturas de 25 a 64 px.
-- Sem letras, logotipos, personagens de franquias conhecidas, gore ou texto embutido.
+Anime 2D de televisão, com contornos nítidos, rostos estilizados, mechas de cabelo gráficas, cores chapadas e sombras de borda dura. Pele lisa; tecidos, metal e pedra representados por formas desenhadas. O acabamento semirrealista do primeiro lote desta revisão foi rejeitado e não deve voltar como referência.
 
-## Conjuntos já produzidos
+Evitar pintura digital realista, hachuras, granulação, poros, anatomia hiperdefinida, ferrugem fotográfica, dobras excessivas, iluminação volumétrica, profundidade de campo fotográfica e render 3D. A referência visual é `art/source/a-chama-que-nao-apaga-sheet.webp`, na versão de anime com casaco amarelo liso e chama azul.
 
-Cada personagem jogável inicial tem seis imagens quadradas: retrato, passiva e quatro técnicas. As imagens estão em WebP individuais; as folhas 3×2 originais ficam em `art/source/`.
+## Identidade e poderes
 
-| Personagem | Identidade | Motivos de habilidade | Arquivos |
-| --- | --- | --- | --- |
-| O Escudo Vivo | Mulher de 38 anos, pele escura, cabelo prateado curto, porte largo e armadura assimétrica de vidro azul | Chama protegida, muralha de vitral, amparo individual, três escudos conectados e domo dourado | `art/characters/o-escudo-vivo/` |
-| A Brasa Eterna | Homem de 24 anos, corpo esguio, cabelo cacheado preto raspado nas laterais e trança vermelha | Carvão aceso, faísca de impacto, coluna vertical de fogo, marca no chão e manto de cinzas | `art/characters/a-brasa-eterna/` |
-| O Passo Interrompido | Pessoa andrógina de 21 anos, olhos de cores diferentes, corte assimétrico e casaco longo marfim e violeta | Prisma em órbita, chão aberto, pegadas fora de fase, espelho estilhaçado e desvio espacial | `art/characters/o-passo-interrompido/` |
-| O Açougueiro, A Viúva Escarlate, O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Mãe Rubra | Seis silhuetas de Sangria: açougueiro robusto, duelista elegante, arquivista alto, dupla de gêmeos, executor faceless e matriarca compacta | Lâmina, fios, máscaras, correntes, selo, tecido protetor e outras composições de Sangria sem gore | `art/characters/<id>/` |
-| O Soberano Quebrado, A Juíza de Ferro, O Trono Vazio, O Príncipe das Correntes, A Regente de Cinzas e O Herdeiro Cativo | Seis identidades de Coroa, incluindo uma soberana espectral ligada a um trono desocupado e cinco personagens com idades, corpos, roupas e silhuetas diferentes | Peso, ordem, grilhões, decreto e coroação com ângulos e formas próprios para cada personagem | `art/characters/<id>/` |
-| O Sussurro, A Máscara Dupla, O Tecelão de Mentiras, A Boca de Vidro, O Falso Profeta e O Corretor de Memórias | Seis silhuetas de Mentira: conspirador de trança longa, ilusionista de máscaras, marionete de seis braços, soprador de vidro, falso oráculo e arquivista de mão mecânica | Véus, reflexos falsos, fios de marionete, refração, ecos plantados e cartões de memória em composições próprias | `art/characters/<id>/` |
-| O Incendiário, O Ódio Encarnado, O Filho da Cinza, A Pira Errante e O Coração em Fúria | Cinco silhuetas inéditas de Chama para completar o Elo ao lado de A Brasa Eterna: incendiário de mão larga, espírito de placas vulcânicas, jovem sob poncho de cinzas, braseiro ambulante e guerreiro com núcleo em forma de coração | Faíscas, colunas de brasa, marcas punitivas e mantos de cinza compostos de modos próprios para cada identidade | `art/characters/<id>/` |
-| O Devorador, A Mão que Toma, O Estômago sem Fundo, A Senhora do Último Pão, O Credor e A Balança Vazia | Humanoide de boca sombria, ladra com mão espectral, vaso ambulante com vazio estelar, padeira idosa, cobrador de monocle e espírito de balança | Motes de Essência, sombras vorazes, fios de dívida, mãos de cobrança e proteção em forma de mesa, luz ou balança | `art/characters/<id>/` |
-| O Apodrecido, A Praga Andante, O Corrupto, A Rainha dos Fungos, O Médico de Vermes e O Jardim Morto | Seis formas diferentes de decadência: homem-árvore, nuvem ambulante, nobre de espinhos, rainha fúngica, médico com terrários e estufa de pernas | Mofo, esporos, raízes e proteção orgânica em quadros próprios, sem gore | `art/characters/<id>/` |
-| O que Observou, A Porta Fechada, O Surdo, A Testemunha Cega, O Quarto Vazio e O Vigia Ausente | Astrônomo idoso, carpinteira com portal portátil, homem dos abafadores, testemunha de olhos cobertos, cômodo assombrado e capa vazia com lanterna flutuante | Recortes de luz, ecos interrompidos, portas, espaços negativos e apagamento sonoro para cada identidade | `art/characters/<id>/` |
-| O que Possui, A Pele Alheia, O Desejo Quebrado, A Marionetista de Nervos, O Espelho Carnal e A Costureira | Homem seguido por sombra própria, mulher de casaco mutável, dançarino de fragmento flutuante, manipuladora de fios, espírito de argila refletiva e costureira idosa | Silhuetas falsas, tecidos, fios de fibra e reflexos abstratos, sem imagens gráficas | `art/characters/<id>/` |
-| O que Apaga, A Ausência, O Fim Silencioso, O Menino sem Sombra, A Última Página e O Lugar de Ninguém | Apagador de superfícies, vazio antropomórfico, duelista de prata, garoto de casaco amarelo, encadernadora e encruzilhada viva | Fragmentos nulos, frio, fendas no espaço e apagamento branco representados por imagem própria em cada técnica | `art/characters/<id>/` |
-| A Muralha, O que Ficou, O Último Guardião e A Sentinela Azul | Arquitetura viva de vitral, homem de capa de chuva e guarda-chuva, ancião vigia com cajado-lanterna e sentinela de pele escura com manto de arraia | Abrigo de pedra, guarda sob a chuva, vigília de lanternas e correntes de vento azul, cada técnica com cenário e composição próprios | `art/characters/<id>/` |
-| A Mão que Cura, O Restaurador, A Luz que Restaura, A Jardineira das Feridas e O Pulso Sereno | Cirurgiã com dedos de porcelana articulados, artesão idoso de kintsugi, espírito-mariposa não humano, botânica alta de manto vegetal e músico de pele escura com handpan | Diagnóstico atento, reparo dourado, asas restauradoras, cultivo medicinal e ondas sonoras; cada técnica usa enquadramento e efeito próprios | `art/characters/<id>/` |
-| O Equilíbrio, A Lâmina Justa, O que Pesa, A Testemunha Íntegra e O Julgador Gentil | Balança autômata com pássaros, duelista veterana de espada única, guardião humanoide de gravidade com pêndulo de ferro, anciã testemunha com lente âmbar e jovem magistrado com malho de madeira | Contrapeso, luz refletida, peso no terreno, revelação sem distorção e conciliação; imagens específicas para cada técnica | `art/characters/<id>/` |
+Cada personagem precisa ter rosto, idade, porte, cabelo, roupa, postura e equipamento próprios. O Elo e o reino orientam o poder, mas não substituem a identidade individual. Os títulos são simbólicos: seres associados a objetos ou lugares podem se manifestar como humanoides, espíritos, constructos ou feras coerentes; não devem virar objetos grotescos com membros aleatórios.
 
-Cada personagem jogável listado tem seis imagens individuais em WebP; são 444 imagens para os 74 conjuntos completos. O chefe O Fim (The End) tem retrato próprio em `art/characters/o-fim/portrait.webp`: uma figura mascarada e não humana, com coroa de ferro queimado. A linguagem de anime conecta a coleção, enquanto as silhuetas, paletas e elementos de cada personagem continuam distintas.
+Cada conjunto tem seis cenas independentes: retrato, passiva e quatro habilidades. Variar gesto, ação, distância da câmera, geometria e ponto de vista. As habilidades devem mostrar a assinatura do personagem — seu instrumento, arma, vestimenta ou manifestação de poder — em vez de símbolos genéricos. Não repetir o mesmo rosto em seis poses quase iguais, nem preencher o conjunto com círculos, rajadas ou explosões intercambiáveis.
 
-Os recortes seguem os nomes `portrait.webp`, `passive.webp`, `skill-impulso.webp`, `skill-tecnica.webp`, `skill-voto.webp` e `skill-despertar.webp`. `skill-despertar.webp` é sempre a técnica defensiva e deve comunicar proteção, evasão, restauração ou redirecionamento.
+A última habilidade comunica defesa pessoal por esquiva, aparo, intangibilidade, redirecionamento ou proteção própria. Evitar a fórmula recorrente de proteger um grupo sob uma bolha. Personagens formados por irmãos ou duplas continuam com corpos separados e ações legíveis.
 
-## Regras para novas artes
+## Revisão visual
 
-1. Defina antes a idade, o corpo, o rosto, o cabelo, a roupa e a silhueta do personagem. Compare esses itens com os designs existentes para evitar que pareçam variações do mesmo modelo.
-2. Faça um retrato só para a identidade do personagem. Não repita o rosto em todos os ícones de habilidade.
-3. Crie uma imagem por técnica, orientada pelo efeito mecânico e pelo nome. Varie enquadramento, geometria, escala e ponto de vista entre os quadros.
-4. Mantenha line art e cel shading consistentes entre a coleção; varie as cores e formas internas para refletir o reino e a habilidade.
-5. Confira o recorte quadrado em tamanho pequeno antes de integrar a folha. Evite repetir círculos, chamas, escudos ou explosões quando não forem a mecânica específica daquela habilidade.
+Conferir mãos com cinco dedos, articulações, número de membros, empunhaduras e posição das armas. Distinguir intangibilidade intencional de arma atravessando um corpo sólido. Verificar continuidade de roupas, joias, correntes, instrumentos, próteses e lentes. Óculos e monóculos mantêm lentes coerentes; não inserir objetos inexplicáveis dentro delas.
 
+Os recortes precisam ser legíveis como miniaturas. Revisar primeiro a prancha inteira e depois o retrato e os ícones quadrados. A validação automática verifica existência, integridade dos arquivos e duplicação exata; estilo, semântica e anatomia exigem inspeção visual.
 
-## Revisão de seis conjuntos — 21/10/2026
+## Organização
 
-Mensageira: cartas, origamis e evasão; O que Revela: monóculo transparente e prismas; Olho Desarmado: leitura de vestígios, impacto de palma e esquiva baixa; Guardiã: cordas de juramento e capa tecida defensiva; O que Pesa: pêndulo e gravidade; Trono Vazio: soberana espectral, correntes e intangibilidade. Cada conjunto contém retrato, passiva e quatro cenas distintas. A defesa da Guardiã foi corrigida por geração de imagem para mostrar a lança desviada pela capa.
+Cada personagem do catálogo usa `art/characters/<id>/portrait.webp`, `passive.webp`, `skill-impulso.webp`, `skill-tecnica.webp`, `skill-voto.webp` e `skill-despertar.webp`. As pranchas de seis células quadradas ficam em `art/source/<id>-sheet.webp`.
+
+A identidade e as seis cenas planejadas de cada personagem estão registradas em `docs/art-revision-specs.json`. O script `scripts/integrate-art.py` apenas recorta e converte pranchas já produzidas; a criação e a correção das imagens usam geração de imagens.
+
+## Cenários por habilidade
+
+Cada uma das seis imagens de um personagem deve acontecer em um local realmente diferente, com composição, arquitetura ou paisagem, clima e horário próprios. Não repetir o mesmo pátio por causa da imagem de referência. O cenário deve participar da ação e fazer sentido no reino e no poder da personagem; evitar a mera troca de uma imagem de fundo atrás da mesma pose.
+
+O planejamento completo está em `docs/art-scene-plan.json`: 100 personagens, 600 cenas e seis ambientes distintos por conjunto. A amostra em `art/review/anime-cel-style-reference.webp` é referência somente de traço e cores; seus cenários repetidos não são aprovados como padrão.
