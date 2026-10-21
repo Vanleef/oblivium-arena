@@ -434,17 +434,20 @@ function runMap() {
   const completed = run.stage >= run.map.length;
   const cleared = new Set(run.clearedNodeIds || []);
   const available = new Set(run.availableNodeIds || []);
-  const height = run.map.length * 94 - 18;
+  const rowStep = 104;
+  const stageHeight = 82;
+  const height = run.map.length * rowStep - (rowStep - stageHeight);
   const xFor = (col) => 150 + col * 300;
   const edges = run.map.flat().flatMap((node) => node.nextIds.map((nextId) => {
     const next = run.map.flat().find((candidate) => candidate.id === nextId);
     if (!next) return "";
     const activeEdge = cleared.has(node.id) && available.has(next.id);
-    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${node.row * 94 + 76} L ${xFor(next.col)} ${next.row * 94}"/>`;
+    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${node.row * rowStep + stageHeight} L ${xFor(next.col)} ${next.row * rowStep}"/>`;
   })).join("");
   return `
     <section class="run-panel">
       <div class="run-heading"><div><div class="eyebrow">TRILHA ATIVA · ${esc(elo.realm.toUpperCase())}</div><h3>Elo da ${esc(elo.name)}</h3></div><div class="run-strength"><span class="run-elo-symbol">${elo.symbol}</span><span><small>ESTABILIDADE DAS CORRENTES</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
+      <div class="path-guide"><span>MAPA DA TRAVESSIA <i>·</i> ESCOLHA UM NÓ CONECTADO</span><div><small><i class="legend-combat">⚔</i> Combate</small><small><i class="legend-reward">✦</i> Recompensa</small><small><i class="legend-rest">⟲</i> Descanso</small><small><i class="legend-event">◇</i> Evento</small></div></div>
       <div class="path-map"><div class="path-canvas">
         <svg class="path-lines" viewBox="0 0 900 ${height}" preserveAspectRatio="none" aria-hidden="true">${edges}</svg>
         <div class="path-grid">${run.map.map((stage, stageIndex) => {
@@ -452,7 +455,7 @@ function runMap() {
             const done = cleared.has(node.id);
             const canSelect = available.has(node.id) && !completed;
             const nodeType = node.type || node.id;
-            return `<button class="path-node ${done ? "done" : ""} ${canSelect ? "active" : "locked"}" style="grid-column:${node.col + 1}" ${canSelect ? `data-node="${esc(node.id)}"` : "disabled aria-disabled=\"true\""}>
+            return `<button class="path-node type-${esc(nodeType)} ${done ? "done" : ""} ${canSelect ? "active" : "locked"}" style="grid-column:${node.col + 1}" ${canSelect ? `data-node="${esc(node.id)}"` : "disabled aria-disabled=\"true\""}>
               <span class="node-icon">${done ? "✓" : node.icon}</span><b>${esc(node.label)}</b><small>${esc(node.desc)}</small><i class="node-type">${esc(nodeType === "boss" ? "CHEFE" : nodeType === "mini" ? "ELITE" : nodeType.toUpperCase())}</i>
             </button>`;
           }).join("");
@@ -555,18 +558,27 @@ function unitCard(unit, side, index) {
     unit.exposed > 0 && "Exposto",
     unit.burning > 0 && "Em chamas"
   ].filter(Boolean);
-  return `<article class="combat-unit ${isEnemy ? "enemy-unit" : "ally-unit"} ${unit.hp <= 0 ? "fallen" : ""} ${selected ? "targeted" : ""}" ${isEnemy && unit.hp > 0 ? `data-target="${unit.id}" role="button" tabindex="0"` : ""}>
-    <div class="unit-top"><span class="unit-index">0${index + 1}</span>${portraitMarkup(unit, "unit-symbol")}<span class="unit-state">${unit.hp <= 0 ? "CAÍDO" : esc(unit.role)}</span></div>
-    <b class="unit-name">${esc(unit.name)}</b><small class="unit-title">${unit.nameEn ? `${esc(unit.nameEn)} · ${esc(unit.title)}` : `${esc(unit.elo)} · ${esc(unit.realm)}`}</small>
-    <div class="health-row"><div class="health-track"><i class="${barClass}" style="width:${hpPercent}%"></i></div><b>${Math.max(0, unit.hp)}</b></div>
-    ${statusLabels.length ? `<div class="unit-statuses">${statusLabels.map((label) => `<span>${esc(label)}</span>`).join("")}</div>` : ""}
-    ${!isEnemy ? `<div class="unit-skills">${unit.abilities.map((ability) => {
-      const acted = state.battle.acted.includes(unit.id);
+  return `<article class="combat-unit fighter-card ${isEnemy ? "enemy-unit" : "ally-unit"} color-${esc(unit.color)} ${unit.hp <= 0 ? "fallen" : ""} ${selected ? "targeted" : ""}" ${isEnemy && unit.hp > 0 ? `data-target="${unit.id}" role="button" tabindex="0" aria-label="Selecionar ${esc(unit.name)} como alvo"` : ""}>
+    <div class="fighter-backdrop">${portraitMarkup(unit, "fighter-portrait")}</div><div class="fighter-shade"></div>
+    <div class="fighter-content">
+      <div class="fighter-meta"><span class="unit-index">0${index + 1} · ${isEnemy ? "OPOSIÇÃO" : "TRIO"}</span><span class="unit-state">${unit.hp <= 0 ? "CAÍDO" : selected ? "ALVO MARCADO" : esc(unit.role)}</span></div>
+      <div class="fighter-nameplate"><b class="unit-name">${esc(unit.name)}</b><small class="unit-title">${unit.nameEn ? `${esc(unit.nameEn)} · ${esc(unit.title)}` : `${esc(unit.elo)} · ${esc(unit.realm)}`}</small></div>
+      <div class="health-row"><div class="health-track"><i class="${barClass}" style="width:${hpPercent}%"></i></div><b>${Math.max(0, unit.hp)}</b></div>
+      ${statusLabels.length ? `<div class="unit-statuses">${statusLabels.map((label) => `<span>${esc(label)}</span>`).join("")}</div>` : ""}
+      ${isEnemy && unit.hp > 0 ? (intent ? `<div class="enemy-intent"><span>INTENÇÃO · ${esc(intent.targetName)}</span><b>${esc(intent.abilityName)}</b><small>${esc(intent.damage ? `até ${intent.damage} de dano` : intent.effect || intent.targetName)}</small></div>` : `<div class="enemy-hint">${selected ? "ALVO SELECIONADO" : "MARCAR COMO ALVO"}</div>`) : ""}
+    </div>
+  </article>`;
+}
+
+function techniqueCard(unit, index) {
+  const acted = state.battle.acted.includes(unit.id);
+  return `<article class="technique-card color-${esc(unit.color)} ${unit.hp <= 0 ? "fallen" : ""} ${acted ? "acted" : ""}">
+    <div class="technique-card-heading">${portraitMarkup(unit, "technique-avatar")}<span><small>0${index + 1} · ${esc(unit.role)}</small><b>${esc(unit.name)}</b></span><i>${acted ? "AÇÃO USADA" : unit.hp <= 0 ? "CAÍDO" : unit.stunned > 0 ? "ATORDOADO" : "PRONTO"}</i></div>
+    <div class="unit-skills">${unit.abilities.map((ability) => {
       const cooldown = unit.cooldowns[ability.id] || 0;
       const disabled = state.battle.phase !== "player" || acted || state.battle.acted.length >= state.battle.actionLimit || unit.hp <= 0 || unit.stunned > 0 || cooldown > 0 || !canAffordAbility(state.battle, unit, ability);
-      return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""}" data-use-skill="${unit.id}:${ability.id}" title="${esc(ability.description || ability.name)}" ${disabled ? "disabled" : ""}>${ability.art ? `<img class="skill-art" src="${esc(ability.art)}" alt="" loading="lazy">` : `<span class="skill-art-fallback color-${esc(unit.color)}">${esc(unit.symbol)}</span>`}<span><b>${esc(ability.name)}</b><small>${cooldown ? `Recarga: ${cooldown} turno(s)` : esc(ability.description || ability.kind)}</small></span>${cooldown ? `<span class="cooldown-badge">${cooldown}T</span>` : costMarkup(unit, ability)}</button>`;
-    }).join("")}</div>` : `<div class="enemy-hint">${selected ? "ALVO SELECIONADO" : "SELECIONAR ALVO"}</div>`}
-    ${isEnemy && intent && unit.hp > 0 ? `<div class="enemy-intent"><span>INTENÇÃO</span><b>${esc(intent.abilityName)}</b><small>${esc(intent.damage ? `${intent.targetName} · até ${intent.damage} de dano` : intent.effect || intent.targetName)}</small></div>` : ""}
+      return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""}" data-use-skill="${unit.id}:${ability.id}" title="${esc(ability.description || ability.name)}" ${disabled ? "disabled" : ""}>${ability.art ? `<img class="skill-art" src="${esc(ability.art)}" alt="" loading="lazy">` : `<span class="skill-art-fallback color-${esc(unit.color)}">${esc(unit.symbol)}</span>`}<span><b>${esc(ability.name)}</b><small>${cooldown ? `Recarga: ${cooldown}T` : esc(ability.description || ability.kind)}</small></span>${cooldown ? `<span class="cooldown-badge">${cooldown}T</span>` : costMarkup(unit, ability)}</button>`;
+    }).join("")}</div>
   </article>`;
 }
 
@@ -580,10 +592,11 @@ function battleView() {
   return `
     <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p><div class="action-economy"><b>${actionsLeft} / ${battle.actionLimit}</b> ações restantes neste turno · habilidades compartilham recursos</div></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
     <div class="battle-layout">
-      <section class="battle-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
-      <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div><button class="pass-turn" data-action="pass-turn" ${battle.phase !== "player" || result ? "disabled" : ""}>PASSAR TURNO <span>↗</span></button></div>
+      <section class="battle-side ally-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
+      <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div></div>
       <section class="battle-side enemy-side"><div class="battle-side-heading"><span>OPOSIÇÃO</span><small>${battle.enemies.filter((unit) => unit.hp > 0).length} RESTANTES</small></div><div class="combat-grid">${battle.enemies.map((unit, index) => unitCard(unit, "enemy", index)).join("")}</div></section>
     </div>
+    <section class="technique-tray"><header class="technique-tray-heading"><div><div class="eyebrow">TÉCNICAS DO TRIO</div><b>Escolha as ações desta rodada</b><small>Uma ação por personagem · habilidades compartilham recursos</small></div><div class="tray-controls"><span class="action-economy"><b>${actionsLeft} / ${battle.actionLimit}</b> ações restantes</span><button class="pass-turn" data-action="pass-turn" ${battle.phase !== "player" || result ? "disabled" : ""}>PASSAR TURNO <span>↗</span></button></div></header><div class="technique-grid">${battle.allies.map((unit, index) => techniqueCard(unit, index)).join("")}</div></section>
     <section class="battle-log"><div><div class="eyebrow">REGISTRO DO COMBATE</div><b>${battle.phase === "player" ? `Sua vez — ${actionsLeft} ação(ões) disponíveis.` : battle.phase === "enemy" ? "O trio adversário está agindo." : battle.phase === "victory" ? "Vitória na trilha." : "As correntes cederam."}</b><small class="intent-summary">${battle.phase === "player" ? "Leia as intenções e escolha quem interromper, proteger ou finalizar." : ""}</small></div><ol>${battle.log.map((line) => `<li>${esc(line)}</li>`).join("")}</ol></section>
     ${result ? `<div class="battle-result ${battle.phase}"><span>${battle.phase === "victory" ? "✧" : "⟲"}</span><div><b>${battle.phase === "victory" ? "Vitória" : "Derrota"}</b><small>${battle.phase === "victory" ? "A trilha se abre diante do trio." : "Uma Corrente da Alma enfraqueceu."}</small></div><button class="button button-gold" data-action="return-battle">CONTINUAR <span>↗</span></button></div>` : ""}
   `;

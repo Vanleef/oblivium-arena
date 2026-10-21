@@ -20,11 +20,15 @@ test("aplicação inicializa, abre uma trilha e resolve ações do combate", asy
   const click = (dataset) => handlers.click({ target: { dataset, closest() { return this; } } });
   click({ startRun: "sangria" });
   assert.match(app.innerHTML, /TRILHA ATIVA/);
+  assert.match(app.innerHTML, /MAPA DA TRAVESSIA/);
   assert.match(app.innerHTML, /Combate/);
 
   click({ node: "0:0" });
   assert.match(app.innerHTML, /COMBATE TÁTICO 3v3/);
   assert.match(app.innerHTML, /SEU TRIO/);
+  assert.equal((app.innerHTML.match(/class="combat-unit fighter-card/g) || []).length, 6);
+  assert.equal((app.innerHTML.match(/class="technique-card /g) || []).length, 3);
+  assert.match(app.innerHTML, /TÉCNICAS DO TRIO/);
 
   click({ useSkill: "o-escudo-vivo:impulso" });
   assert.match(app.innerHTML, /O Escudo Vivo usa/);
