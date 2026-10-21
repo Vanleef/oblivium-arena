@@ -94,12 +94,12 @@ test("trilha inclui os oito tipos de nó pedidos e termina em Guardião", () => 
   const types = new Set(routeStages.flatMap((stage) => stage.map((node) => node.id)));
   for (const type of ["normal", "elite", "event", "upgrade", "repair", "treasure", "mini", "boss"]) assert.ok(types.has(type), type);
   assert.equal(routeStages.at(-1)[0].id, "boss");
-  assert.equal(routeStages.at(-1)[0].label, "Guardião do Elo");
+  assert.equal(routeStages.at(-1)[0].label, "Conselho do Elo");
 });
 
 test("recursos são recebidos antes do planejamento e reservados pela fila", () => {
- const allies=["o-escudo-vivo","a-brasa-eterna","o-passo-interrompido"],battle=createBattle(allies,createEnemyTeam(elos[0],allies));
- assert.equal(battle.resources.essence,1);assert.equal(battle.resources.graca,1);assert.equal(canAffordAbility(battle,battle.allies[0],battle.allies[0].abilities[0]),true);
+ const allies=["o-escudo-vivo","a-brasa-eterna","o-passo-interrompido"],battle=createBattle(allies,createEnemyTeam(elos[0],allies),{rng:()=>.6});
+ assert.equal(battle.resources.essence,0);assert.equal(battle.resources.graca,1);assert.equal(canAffordAbility(battle,battle.allies[0],battle.allies[0].abilities[0]),true);
  const hp=battle.enemies[0].hp;chooseAction(battle,allies[0],"impulso",battle.enemies[0].id);assert.equal(battle.enemies[0].hp,hp);assert.equal(battle.resources.graca,1);
 });
 test("cada kit tem identidade, combo e custos positivos nas quatro técnicas", () => {

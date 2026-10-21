@@ -251,7 +251,7 @@ export const routeStages = [
   ],
   [
     { id: "event", label: "Encontro", icon: "✦", desc: "Decida como responder à travessia.", col: 0 },
-    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco permanente.", col: 1 },
+    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco para esta trilha.", col: 1 },
     { id: "shop", label: "Mercador", icon: "◈", desc: "Troque fragmentos por cura ou um Eco.", col: 2 }
   ],
   [
@@ -262,16 +262,19 @@ export const routeStages = [
   [
     { id: "repair", label: "Descanso", icon: "⟲", desc: "Repare as Correntes da Alma.", col: 0 },
     { id: "treasure", label: "Tesouro", icon: "◇", desc: "Um Eco e fragmentos antigos.", col: 1 },
-    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco permanente.", col: 2 }
+    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco para esta trilha.", col: 2 }
   ],
-  [{ id: "boss", label: "Guardião do Elo", icon: "✹", desc: "O Guardião e dois subordinados.", col: 1 }]
+  [{ id: "boss", label: "Conselho do Elo", icon: "✹", desc: "Vença o trio e recrute uma das almas derrotadas.", col: 1 }]
 ];
 
-export function generateTrail(eloId, seed = 0) {
+export function generateTrail(eloId, seed = 0, variant = "hunt") {
   const numericSeed = Math.abs(Math.trunc(Number(seed) || 0));
   const rows = routeStages.map((stage, rowIndex) => stage.map((template, nodeIndex) => {
     const rotation = stage.length === 3 ? (numericSeed + rowIndex * 2) % 3 : 0;
-    const content = stage[(nodeIndex + rotation) % stage.length];
+    let content = stage[(nodeIndex + rotation) % stage.length];
+    if (variant === "pilgrimage" && rowIndex === 2) content = [routeStages[3][1], routeStages[1][1], routeStages[2][0]][nodeIndex];
+    if (variant === "eclipse" && rowIndex === 2) content = routeStages[2][0];
+    if (variant === "eclipse" && rowIndex === 4) content = nodeIndex === 1 ? routeStages[4][0] : routeStages[4][1];
     return {
       ...content,
       col: template.col,

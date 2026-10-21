@@ -7,6 +7,8 @@ import { renderTrail } from "./trail-view.js";
 import { renderBattle, renderBattleDetail } from "./battle-view.js";
 import { eloCrest } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
+import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -39,10 +41,12 @@ function readProfile() {
   }
 }
 
-const profile = readProfile();
+const profile = normalizeCampaign(readProfile());
 function ensureRunMap() {
   if (!profile.run) return;
   const run = profile.run;
+  run.difficulty ||= 0; run.variantId ||= "hunt"; run.variantTitle ||= "Caçada"; run.team ||= [...profile.team];
+  run.bossIds ||= shuffled(getEloRoster(run.eloId),seededRandom(run.seed)).slice(0,3).map(c=>c.id);
   if (!Array.isArray(run.map) || !run.map.length) run.map = generateTrail(run.eloId, run.seed || 0);
   run.stage = Math.min(Math.max(0, run.stage || 0), run.map.length);
   run.clearedNodeIds ||= [];
@@ -68,7 +72,8 @@ let state = {
   trailFx: null,
   trailBusy: false,
   battleNode: null,
-  pending: null,
+  pending: profile.run?.pending || null,
+  difficulty: null,
   toast: "",
   toastTimer: null
 };
@@ -77,6 +82,7 @@ let battleFxSequence = 0;
 let trailFxTimer = null;
 
 function save() {
+  if(profile.run) profile.run.pending = ["event","reward","upgrade","shop"].includes(state.pending?.type) ? state.pending : null;
   localStorage.setItem(SAVE_KEY, JSON.stringify({ ...profile, version: 1 }));
 }
 
@@ -110,31 +116,19 @@ function toast(message) {
   state.toastTimer = setTimeout(() => { state.toast = ""; render(); }, 2400);
 }
 
-function startRun(eloId) {
-  if (profile.run?.eloId === eloId) { state.tab = "rota"; render(); focusTrail(); return; }
-  if (profile.team.length !== 3) {
-    toast("Monte um Trio completo antes de entrar na trilha.");
-    state.tab = "trio";
+function startRun(eloId,variantId="hunt",difficulty) {
+  if (profile.run) {
+    if(profile.run.eloId===eloId){state.tab="rota";render();focusTrail();}
+    else toast("Conclua ou abandone a trilha atual.");
     return;
   }
-  const elo = elos.find((item) => item.id === eloId);
-  if (!elo) return;
-  state.realmId = realms.find((realm) => realm.elos.some((item) => item.id === eloId))?.id || state.realmId;
-  const seed = Date.now();
-  const map = generateTrail(eloId, seed);
-  profile.run = {
-    eloId, seed, map, stage: 0, stability: 3, maxStability: 3, buffs: [], encounter: 0,
-    tried: 0, teamHealth: Object.fromEntries(profile.team.map((id) => [id, 100])),
-    availableNodeIds: map[0].map((node) => node.id), revealedNodeIds: map[0].map((node) => node.id), clearedNodeIds: [], currentNodeId: null
-  };
-  state.eloId = eloId;
-  state.pending = null;
-  state.trailFx = null;
-  state.battle = null;
-  state.tab = "rota";
-  save();
-  render();
-  focusTrail();
+  if(profile.team.length!==3){state.tab="trio";toast("Escolha três almas.");return;}
+  const elo=elos.find(e=>e.id===eloId);if(!elo)return;
+  try { profile.run=createExpedition(profile,elo,variantId,difficulty??maxDifficulty(profile,eloId)); }
+  catch(error){toast(error.message);return;}
+  state.realmId=realms.find(r=>r.elos.some(e=>e.id===eloId)).id;
+  state.eloId=eloId;state.pending=null;state.trailFx=null;state.battle=null;state.tab="rota";
+  profile.completionNotice=null;save();render();focusTrail();
 }
 
 function focusTrail() {
@@ -149,28 +143,20 @@ function selectTrailNode(node) {
   if(state.trailBusy||!profile.run||state.pending)return;
   if(state.battle&&state.battleNode?.id===node.id){state.tab="battle";render();return;}
   state.trailBusy=true;profile.run.currentNodeId=node.id;
-  setTrailFeedback("travel",node.label,"O trio segue pelo caminho escolhido…",{selectedId:node.id});
+  setTrailFeedback("travel",node.label,"Em travessia…",{selectedId:node.id});
   setTimeout(()=>{state.trailBusy=false;if(profile.run?.availableNodeIds.includes(node.id))resolveNode(node);},480);
 }
 function continueRun(resultText) {
   if(!profile.run)return;const run=profile.run,progress=advanceTrail(run,run.currentNodeId);if(!progress.ok)return;
   run.encounter++;run.tried=0;state.pending=null;state.tab="rota";
   if(run.stage>=run.map.length)completeRun();save();
-  if(profile.run){setTrailFeedback("reveal",`Encontro concluído · ${progress.current.label}`,`${resultText||state.toast||"Encontro resolvido."} ${progress.newIds.length} ${progress.newIds.length===1?"nova escolha revelada":"novas escolhas reveladas"}.`,{newIds:progress.newIds,completedId:progress.current.id});focusTrail();}else render();
+  if(profile.run){setTrailFeedback("reveal",`Encontro concluído · ${progress.current.label}`,`${progress.newIds.length} ${progress.newIds.length===1?"novo caminho":"novos caminhos"}.`,{newIds:progress.newIds,completedId:progress.current.id});focusTrail();}else render();
 }
 
 function completeRun() {
-  const run = profile.run;
-  if (!run) return;
-  const elo = getEloById(run.eloId);
-  const newIds = getEloRoster(elo.id).map((character) => character.id);
-  profile.ownedIds = [...new Set([...profile.ownedIds, ...newIds])];
-  profile.completedElos = [...new Set([...profile.completedElos, elo.id])];
-  profile.xp += 250;
-  profile.fragments += 24;
-  profile.run = null;
-  state.pending = { type: "complete", elo };
-  state.tab = "rota";
+  if(!profile.run)return;
+  completeExpedition(profile,profile.run);
+  profile.run=null;state.pending=null;state.tab="rota";state.difficulty=null;
 }
 
 function startEncounter(node) {
@@ -182,7 +168,8 @@ function startEncounter(node) {
   const elo = activeElo();
   const specialFinale = nodeType === "finale";
   const encounterType = specialFinale ? "boss" : nodeType;
-  const enemies = createEnemyTeam(elo, profile.team, encounterType, profile.run?.encounter || 0);
+  const battleTeam=profile.run?.team||profile.team;
+  const enemies = createEnemyTeam(elo, battleTeam, encounterType, profile.run?.encounter || 0, {difficulty:profile.run?.difficulty||0,bossIds:profile.run?.bossIds});
   if (specialFinale) {
     enemies[0].id = FINAL_BOSS.id;
     enemies[0].name = FINAL_BOSS.name;
@@ -204,7 +191,7 @@ function startEncounter(node) {
   }
   state.battleNode = node;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
-  state.battle = createBattle(profile.team, enemies, { buffs: profile.run?.buffs || [], teamHealth: profile.run?.teamHealth || {} });
+  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0 });
   state.targetId = null;
   state.battleFx = null;
   state.selectedSkill = null;
@@ -225,7 +212,7 @@ function resolveNode(node) {
     return;
   }
   if (nodeType === "repair") {
-    healRunTeam(0.4);
+    healRunTeam(0.4+(aggregateGlobal(profile).restBonus||0));
     profile.run.stability = Math.min(profile.run.maxStability, profile.run.stability + 1);
     toast("Trio recuperado e Correntes reparadas: " + profile.run.stability + "/" + profile.run.maxStability + ".");
     continueRun();
@@ -239,17 +226,19 @@ function resolveNode(node) {
     return;
   }
   if (nodeType === "event") state.pending = { type: "event" };
-  if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffs(profile.team, profile.run.buffs).slice(0, 3) };
+  if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffs(profile.run.team, profile.run.buffs).slice(0, 3) };
   if (nodeType === "upgrade") {
-    const choices = getRelevantBuffs(profile.team, profile.run.buffs);
+    const choices = getRelevantBuffs(profile.run.team, profile.run.buffs);
     state.pending = { type: "upgrade", choices: choices.sort(() => Math.random() - 0.5).slice(0, 3) };
   }
-  render();
+  save();render();
 }
 
 function chooseEvent(choice) {
+  if(!profile.run||state.pending?.type!=="event")return;
+  profile.eloProgress[profile.run.eloId].events++;
   if (choice === "repair") {
-    healRunTeam(0.25);
+    healRunTeam(0.25+(aggregateGlobal(profile).restBonus||0));
     profile.run.stability = Math.min(profile.run.maxStability, profile.run.stability + 1);
     toast("Uma alma gentil reforça uma Corrente.");
   } else {
@@ -261,7 +250,7 @@ function chooseEvent(choice) {
 }
 
 function chooseBuff(id) {
-  if (!profile.run || profile.run.buffs.includes(id)) return;
+  if (!profile.run || profile.run.buffs.includes(id) || !state.pending?.choices?.some(c=>c.id===id)) return;
   profile.run.buffs.push(id);
   continueRun(`Eco ${buffs.find(buff => buff.id === id)?.title || id} incorporado ao trio.`);
 }
@@ -274,8 +263,8 @@ function grantRunBuff(id) {
 
 function healRunTeam(ratio) {
   if (!profile.run) return;
-  for (const id of profile.team) {
-    const maxHp = characterById[id]?.maxHp || 100;
+  for (const id of profile.run.team) {
+    const maxHp = runMaxHp(profile,profile.run,id);
     const hp = profile.run.teamHealth[id] ?? maxHp;
     profile.run.teamHealth[id] = Math.min(maxHp, hp + Math.ceil(maxHp * ratio));
   }
@@ -313,10 +302,12 @@ function returnFromBattle() {
     }
     if (profile.run) {
       profile.run.teamHealth = Object.fromEntries(state.battle.allies.map((ally) => [ally.id, ally.hp]));
+      const fresh=recordEncounter(profile,profile.run,state.battleNode);
+      if(!fresh)return;
       const rewardNode = ["elite", "mini"].includes(state.battleNode.type || state.battleNode.id);
-      profile.fragments += rewardNode ? 18 : 6;
+      profile.fragments += (rewardNode ? 18 : 6)+(aggregateGlobal(profile).fragments||0);
       if (rewardNode) {
-        const choices = getRelevantBuffs(profile.team, profile.run.buffs).sort(() => Math.random() - 0.5).slice(0, 3);
+        const choices = getRelevantBuffs(profile.run.team, profile.run.buffs).sort(() => Math.random() - 0.5).slice(0, 3);
         if (choices.length) {
           state.battle = null;
           state.pending = { type: "reward", choices };
@@ -328,7 +319,7 @@ function returnFromBattle() {
       }
     }
     state.battle = null;
-    continueRun("Vitória: fragmentos recebidos e Vida do trio preservada para o próximo encontro.");
+    continueRun("Vitória.");
     return;
   }
   if (state.battle.phase === "defeat") {
@@ -400,7 +391,7 @@ function header() {
   return `
     <header class="topbar">
       <button class="brand" data-tab="rota" aria-label="PMA: Post Mortem Arena, início">
-        <span class="brand-mark">PMA</span>
+        <img class="brand-mark" src="/icon.svg" alt="">
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("")}</nav>
@@ -426,8 +417,8 @@ function hero() {
       <div class="hero-copy">
         <div class="eyebrow"><span></span> O VÉU ESTÁ SE ROMPENDO</div>
         <h1>Três reinos.<br><em>Uma fronteira.</em></h1>
-        <p>Bondade e maldade moldam os Elos do além. Agora, a violência dos vivos estreita as barreiras. No Limbo, cada trio decide o peso da balança.</p>
-        <div class="hero-actions"><button class="button button-gold" data-tab="trio">FORMAR MEU TRIO <span>↗</span></button><span class="hero-caption">3v3 tático · trilhas roguelite</span></div>
+        <p>Reúna três almas. Atravesse os Elos. Restaure o véu.</p>
+
       </div>
       <div class="hero-art" aria-hidden="true">
         ${veilScene()}
@@ -439,7 +430,7 @@ function hero() {
         <div class="hero-label label-heaven">PARAÍSO</div><div class="hero-label label-hell">INFERNO</div><div class="hero-label label-limbo">LIMBO</div>
         <div class="hero-antagonist-caption"><small>A ÚLTIMA BARREIRA</small><b>O Fim</b><span>REI DO INFERNO</span></div>
       </div>
-      <div class="hero-bottom"><span>CONFLITO CENTRAL</span><p>O Fim (The End), Rei do Inferno e Elo Final, quer rasgar o véu e estender o Inferno ao mundo dos vivos. Os Protetores do Paraíso tentam restaurar as barreiras.</p><span class="hero-index">01 <i>/</i> 03</span></div>
+
     </section>`;
 }
 
@@ -452,26 +443,11 @@ function resonanceCard() {
 }
 
 function routeView() {
-  const realm = realms.find((item) => item.id === state.realmId) || realms[0];
-  const currentRun = profile.run;
-  const completedAll = profile.completedElos.length >= elos.length;
-  return `
-    ${hero()}
-    <section class="route-section">
-      <div class="section-heading"><div><div class="eyebrow">ESCOLHA SUA TRAVESSIA</div><h2>A Grande Rota</h2><p>Explore trilhas nos três reinos. Cada rota testa o trio com escolhas, encontros e Guardiões.</p></div><span class="section-count">${elos.length} ELOS <i>·</i> 3 REINOS</span></div>
-      <div class="realm-tabs">${realms.map((item) => `<button class="realm-tab ${state.realmId === item.id ? "selected" : ""} realm-${item.id}" data-realm="${item.id}"><span>${item.name === "Inferno" ? "✹" : item.name === "Paraíso" ? "✧" : "⟲"}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length === 1 ? "Elo" : "Elos"}</small></button>`).join("")}</div>
-      <div class="realm-intro"><div><span class="eyebrow">DOMÍNIO · ${esc(realm.title.toUpperCase())}</span><p>${esc(realm.description)}</p></div><span class="realm-sigil">${realm.color === "inferno" ? "✹" : realm.color === "paraiso" ? "✧" : "⟲"}</span></div>
-      <div class="elo-grid">${realm.elos.map((elo) => `
-        <article class="elo-card elo-${elo.color} ${currentRun?.eloId === elo.id ? "is-current" : ""}">
-          ${eloCrest(elo,"elo-card-crest")}
-          <div class="elo-card-top"><span class="elo-symbol">${elo.symbol}</span><span class="elo-status ${profile.completedElos.includes(elo.id) ? "complete" : ""}">${profile.completedElos.includes(elo.id) ? "CONCLUÍDO" : "TRILHA"}</span></div>
-          <h3>Elo da ${esc(elo.name)}</h3><p class="elo-theme">${esc(elo.theme)}</p>
-          <div class="elo-card-foot"><span>${esc(elo.strength)} <i>·</i> ${getEloRoster(elo.id).length} almas</span><button data-start-run="${elo.id}">${currentRun?.eloId === elo.id ? "RETOMAR" : "ENTRAR"} <b>↗</b></button></div>
-        </article>`).join("")}</div>
-      ${currentRun ? runMap() : ""}
-      ${completedAll ? `<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>${FINAL_BOSS.name}</h3><p>${FINAL_BOSS.nameEn}, o nome em inglês. Os dezessete Elos foram atravessados; reúna o trio para impedir a ruptura completa.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM <span>↗</span></button></section>` : ""}
-      ${state.pending ? pendingPanel() : ""}
-    </section>`;
+  const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=profile.completedElos.length>=elos.length;
+  const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${item.id==="inferno"?"✹":item.id==="paraiso"?"✧":"⟲"}</span><b>${item.name}</b><small>${item.elos.length} Elos</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
+  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition"><div class="eyebrow">TRAVESSIA EM CURSO</div>${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div>${selection}</section>${state.pending?pendingPanel():""}`}
+    ${renderLegacies(profile)}
+    ${completedAll?`<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
 
 function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs); }
@@ -480,13 +456,11 @@ function pendingPanel() {
   const pending = state.pending;
   if (!pending) return "";
   if (pending.type === "event") return `
-    <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade e 25% de Vida</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e 1 ${esc(activeAffinityResource().name)} extra por combate</small></button></div></section>`;
+    <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade e 25% de Vida</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e ${esc(activeAffinityResource().shortName)} inicial nos próximos combates</small></button></div></section>`;
   if (["upgrade", "reward"].includes(pending.type)) return `
     <section class="choice-panel"><div class="eyebrow">${pending.type === "reward" ? "RECOMPENSA DE ELITE · ESCOLHA UM PODER" : "APRIMORAMENTO · ESCOLHA UM ECO"}</div><h3>${pending.type === "reward" ? "A vitória deixa uma marca no trio." : "O trio se adapta à trilha."}</h3><div class="buff-choices">${pending.choices.map((buff) => `<button class="buff-card" data-choose-buff="${buff.id}"><span>${buff.icon}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)}</small></button>`).join("")}</div></section>`;
   if (pending.type === "shop") return `
     <section class="choice-panel"><div class="eyebrow">MERCADOR · ${profile.fragments} FRAGMENTOS</div><h3>Prepare o trio para o próximo andar.</h3><div class="shop-choices"><button class="shop-item" data-shop-action="heal" ${profile.fragments < 12 ? "disabled" : ""}><span>⟲</span><b>Remendar o trio</b><small>Recupere 35% da Vida · 12 fragmentos</small></button>${pending.choices.map((buff) => `<button class="shop-item" data-shop-buff="${buff.id}" ${profile.fragments < 22 ? "disabled" : ""}><span>${buff.icon}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)} · 22 fragmentos</small></button>`).join("")}<button class="shop-item shop-leave" data-shop-action="leave"><span>↗</span><b>Seguir viagem</b><small>Guarde seus fragmentos</small></button></div></section>`;
-  if (pending.type === "complete") return `
-    <section class="notice-panel"><span class="notice-icon">✧</span><div><div class="eyebrow">TRILHA CONCLUÍDA</div><h3>Elo da ${esc(pending.elo.name)} atravessado.</h3><p>${getEloRoster(pending.elo.id).length} almas do Elo agora podem ser recrutadas. +250 XP e 24 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-complete") return `
     <section class="notice-panel"><span class="notice-icon">☼</span><div><div class="eyebrow">O VÉU RESISTIU</div><h3>O Fim foi detido.</h3><p>O equilíbrio ainda exige cuidado, mas os três reinos podem respirar. +500 XP e 80 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-defeat") return `
@@ -505,7 +479,7 @@ function teamView() {
     return matchesRealm && matchesSearch && (owned || state.crewRealm === "Todos");
   });
   return `
-    <section class="page-heading"><div><div class="eyebrow">ALIANÇA 3v3</div><h1>Formar Trio</h1><p>Escolha até três almas. Ressonâncias mudam a potência do grupo.</p></div><div class="roster-total"><b>${profile.ownedIds.length}</b><span>/ 100<br>RECRUTADAS</span></div></section>
+    <section class="page-heading"><div><div class="eyebrow">ALIANÇA 3v3</div><h1>Formar Trio</h1><p>Escolha três almas e combine suas forças.</p></div><div class="roster-total"><b>${profile.ownedIds.length}</b><span>/ 100<br>RECRUTADAS</span></div></section>
     <div class="team-layout">
       <section class="team-builder">
         <div class="team-builder-heading"><div><div class="eyebrow">SUA FORMAÇÃO</div><h2>Trio de combate</h2></div><span>${profile.team.length} / 3</span></div>
@@ -542,13 +516,13 @@ function codexView() {
     return realm && query;
   });
   return `
-    <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Concluir a trilha de um Elo libera suas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
+    <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
     <div class="codex-controls"><label class="search-box"><span>⌕</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
-        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${esc(character.symbol)}</span><small>${owned ? "RECRUTADA" : "TRILHA NÃO CONCLUÍDA"}</small></div>
+        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${esc(character.symbol)}</span><small>${owned ? "RECRUTADA" : "A RECRUTAR"}</small></div>
         <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${esc(character.symbol)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
         <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary>${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${index + 1}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p><small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
       </article>`;
@@ -567,7 +541,7 @@ function render() {
       <main class="main-content">
         ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : battleView()}
       </main>
-      <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.3</span></footer>
+      <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.4</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
 }
@@ -587,7 +561,7 @@ app.addEventListener("pointerover", previewTechnique);
 app.addEventListener("focusin", previewTechnique);
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill]");
+  const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
   if (!target) return;
   if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
   if (state.trailBusy) return;
@@ -598,11 +572,15 @@ app.addEventListener("click", (event) => {
   }
   if (target.dataset.realm) {
     state.realmId = target.dataset.realm;
-    state.eloId = realms.find((realm) => realm.id === state.realmId).elos[0].id;
+    state.eloId = realms.find((realm) => realm.id === state.realmId).elos[0].id;state.difficulty=null;
     render();
     return;
   }
-  if (target.dataset.startRun) { startRun(target.dataset.startRun); return; }
+  if(target.dataset.selectElo){state.eloId=target.dataset.selectElo;state.difficulty=null;render();if(typeof requestAnimationFrame==="function")requestAnimationFrame(()=>app.querySelector(".expedition-panel")?.scrollIntoView({behavior:"smooth",block:"center"}));return;}
+  if(target.dataset.difficulty!==undefined){state.difficulty=Math.max(0,Math.min(maxDifficulty(profile,state.eloId),Number(target.dataset.difficulty)||0));render();return;}
+  if(target.dataset.globalUpgrade){const power=claimGlobalUpgrade(profile,target.dataset.globalUpgrade);if(power){save();toast(`Legado incorporado: ${power.title}`);}return;}
+  if(target.dataset.clearCompletion!==undefined){if(!profile.pendingGlobalReward){profile.completionNotice=null;save();render();}return;}
+  if (target.dataset.startRun) { startRun(target.dataset.startRun,target.dataset.trail||"hunt",target.dataset.runDifficulty===undefined?undefined:Number(target.dataset.runDifficulty)); return; }
   if (target.dataset.node) {
     if (!profile.run || state.pending) return;
     const legacy = target.dataset.node.match(/^(\d+):(\d+)$/);
@@ -654,6 +632,7 @@ app.addEventListener("click", (event) => {
   }
   if (target.dataset.clearNotice !== undefined) { state.pending = null; render(); return; }
   if (target.dataset.finalBattle !== undefined) {
+    if(profile.completedElos.length<elos.length)return;
     const elo = getEloById("vazio");
     state.eloId = elo.id;
     startEncounter({ id: "finale", type: "finale", label: "A Última Barreira", eloId: elo.id });
