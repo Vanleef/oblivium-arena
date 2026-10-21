@@ -3,6 +3,7 @@ import { initializeSkillForms, refreshSkillForms, applySkillShifts, scaleSkillFo
 import { characterById, buffs, getElo, resources, realmResource } from "./data.js";
 import { getResonance } from "./rules.js";
 import { difficultyModifiers } from "./progression.js";
+import { planTeamActions } from "./combat-ai.js";
 const living = units => units.filter(u=>u.hp>0);
 const byId = (units,id)=>units.find(u=>u.id===id && u.hp>0);
 const nearest = units=>[...living(units)].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0];
@@ -21,7 +22,8 @@ export function canAffordAbility(s,actor,ability){const p=actor.side==="enemy"?s
 export function getValidTargets(s,actor,ability){if(!actor||!ability)return [];if(ability.target==="self")return actor.hp>0?[actor]:[];return living(friendly(ability)?team(s,actor.side):enemies(s,actor.side)).filter(u=>friendly(ability)||!u.invulnerable||ability.ignoreInvulnerability).filter(u=>!ability.formTargetId||u.id===ability.formTargetId).filter(u=>!ability.requiredMark||u.marks[ability.requiredMark]?.sourceId===actor.id);}
 export function meetsCondition(u,condition,actor){if(!u||!condition)return false;if(condition.startsWith("mark:"))return u.marks[condition.slice(5)]?.sourceId===actor.id;const tags={bleed:"sangramento",burn:"queimadura",poison:"veneno",decay:"decadencia"};if(tags[condition])return u.dots.some(d=>d.tag===tags[condition]&&d.turns>0);if(condition==="afflicted")return u.dots.length>0;if(condition==="marked")return Object.values(u.marks).some(m=>m.sourceId===actor.id);if(condition==="wounded")return u.hp<=50;if(condition==="selfWounded")return actor.hp<=50;if(condition==="selfShielded")return actor.shield>0;if(condition==="shielded")return u.shield>0;return (u[condition]||0)>0;}
 function consume(u,condition,actor){if(condition.startsWith("mark:"))delete u.marks[condition.slice(5)];else if(["bleed","burn","poison","decay"].includes(condition)){const tag={bleed:"sangramento",burn:"queimadura",poison:"veneno",decay:"decadencia"}[condition];u.dots=u.dots.filter(d=>d.tag!==tag);}else if(condition==="marked")for(const [id,m]of Object.entries(u.marks))if(m.sourceId===actor.id)delete u.marks[id];}
-function hit(u,n,options={}){if(u.hp<=0||(u.invulnerable&&!options.ignoreInvulnerability))return {dealt:0,blocked:0,immune:true};const type=options.damageType||"physical";let amount=Math.max(0,Math.round(n));if(type!=="affliction"&&u.exposed)amount+=10;if(!["piercing","affliction"].includes(type))amount=Math.max(0,amount-u.reduction-(u.armor||0));const blocked=type==="affliction"?0:Math.min(u.shield,amount);u.shield-=blocked;const dealt=Math.min(u.hp,amount-blocked);u.hp-=dealt;return {dealt,blocked,immune:false};}
+export function previewHit(u,n,options={}){if(u.hp<=0||(u.invulnerable&&!options.ignoreInvulnerability))return {dealt:0,blocked:0,immune:true};const type=options.damageType||"physical";let amount=Math.max(0,Math.round(n));if(type!=="affliction"&&u.exposed)amount+=10;if(!["piercing","affliction"].includes(type))amount=Math.max(0,amount-u.reduction-(u.armor||0));const blocked=type==="affliction"?0:Math.min(u.shield,amount);return {dealt:Math.min(u.hp,amount-blocked),blocked,immune:false};}
+function hit(u,n,options={}){const result=previewHit(u,n,options);u.shield-=result.blocked;u.hp-=result.dealt;return result;}
 function cleanse(u){u.dots=[];u.marks={};u.stunned=0;u.weakened=0;u.exposed=0;u.sealSupport=0;u.sealAttack=0;u.healingBlock=0;u.reactives=u.reactives.filter(r=>!r.harmful);}
 const effectsContext=reactions=>({hit,heal,shield,transfer,log,reactions,shift:applySkillShifts,condition:meetsCondition});
 // A preparation must survive long enough for its owner to take the next action.
@@ -38,6 +40,13 @@ function applySupport(s,actor,a,receiver,charges){
   if(a.invulnerable)receiver.invulnerable=a.invulnerable;
 }
 function passiveBonus(actor,target){const p=actor.passive;if(!p)return 0;if(p.type==="hunter"&&meetsCondition(target,p.condition,actor)||p.type==="firstHit"&&!actor.passiveUsed||p.type==="comeback"&&actor.hp<=50)return p.amount;return 0;}
+function attackValue(s,actor,a,target,charges=actor.charge){
+  if(!a.damage)return 0;
+  const g=actor.side==="player"?s.global:{},typeBonus=a.damageType==="energy"?g.spiritualPower:a.damageType==="piercing"?g.piercingPower:a.damageType==="affliction"?g.afflictionPower:g.physicalPower;
+  const globalDamage=(typeBonus||0)+(!actor.globalStrikeUsed?(g.firstStrike||0):0),combo=a.combo&&meetsCondition(target,a.combo.condition,actor);
+  const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:1;
+  return Math.max(0,Math.round((a.damage+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveBonus(actor,target)+actor.boost-(actor.weakened?10:0))*multiplier));
+}
 function transfer(s,side,n,steal){const other=side==="player"?"enemy":"player",p=pool(s,other);let count=0;for(let i=0;i<n;i++){const id=Object.keys(p).sort((a,b)=>p[b]-p[a]).find(k=>p[k]>0);if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
 function apply(s,actor,a,targetId){
@@ -50,14 +59,10 @@ function apply(s,actor,a,targetId){
   for(const target of targets){
     if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter;target.counter=0;const r=hit(actor,value,{ignoreInvulnerability:true});log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano.`);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);target.counterFormChanges=[];continue;}
     affected++;
-    const combo=a.combo&&meetsCondition(target,a.combo.condition,actor),passiveDamage=passiveBonus(actor,target),additionalDamage=extraDamage(actor,target,a);
+    const combo=a.combo&&meetsCondition(target,a.combo.condition,actor),value=attackValue(s,actor,a,target,charges);
     if(!isFriendly){
       if(a.stripShield){totalStripped+=Math.min(target.shield,a.stripShield);target.shield=Math.max(0,target.shield-a.stripShield);}
       if(a.purge){target.boost=0;target.reduction=0;target.counter=0;}
-      const g=actor.side==="player"?s.global:{},typeBonus=a.damageType==="energy"?g.spiritualPower:a.damageType==="piercing"?g.piercingPower:a.damageType==="affliction"?g.afflictionPower:g.physicalPower;
-      const globalDamage=(typeBonus||0)+(!actor.globalStrikeUsed?(g.firstStrike||0):0);
-      const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:1;
-      const value=a.damage?Math.max(0,Math.round((a.damage+additionalDamage+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveDamage+actor.boost-(actor.weakened?10:0))*multiplier)):0;
       const r=a.damage?hit(target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability}):{dealt:0,blocked:0};totalDamage+=r.dealt;
       if(a.stun||combo&&a.combo.stun){target.stunned=Math.max(target.stunned,a.stun||a.combo.stun);target.skillGrowth={};}
       if(a.weaken)target.weakened=Math.max(target.weakened,a.weaken);
@@ -87,42 +92,26 @@ function apply(s,actor,a,targetId){
   triggerReactives(s,actor,a.defense?"defense":isFriendly?"support":"attack",null,effectsContext(reactions));
   refreshSkillForms(s);return {skipped:false,totalDamage,reactions,abilityArt:a.art,formKey:a.formKey||"base"};
 }
-function grantTurn(s,side,opening=false){
+function grantTurn(s,side,opening=false,recoveries=[]){
   const count=opening&&side==="player"?1:living(team(s,side)).length,draws=[];
   for(let i=0;i<count;i++){const id=resources[Math.min(3,Math.floor(s.rng()*4))].id;gain(s,side,id);draws.push(id);}
   s.energyDraws[side]=draws;
   for(const u of living(team(s,side))){
-    for(const regen of u.regens){heal(u,regen.heal);regen.turns--;}u.regens=u.regens.filter(r=>r.turns>0);
+    for(const regen of u.regens){const restored=heal(u,regen.heal),source=[...s.allies,...s.enemies].find(v=>v.id===regen.sourceId);if(restored)recoveries.push({kind:"recovery",actorId:source?.id||u.id,targetId:u.id,actorName:source?.name||u.name,label:regen.label,heal:restored});regen.turns--;}u.regens=u.regens.filter(r=>r.turns>0);
     if(u.passive?.type==="ward")shield(u,u.passive.amount);
     if(u.passive?.type==="renew")heal(u,u.passive.amount);
     if(s.round>1)heal(u,u.regeneration+(side==="player"?s.global.regeneration||0:0));
   }
 }
-function aiScore(a,actor,target,ownTeam){
- if(a.defense)return actor.hp<45&&!actor.invulnerable?33:-5;
- const setup=(a.shift||[]).filter(v=>v.form!=="base").length*9;
- if(friendly(a)){
-  const recipients=a.target==="team"?living(ownTeam):[target];
-  return setup+recipients.reduce((score,u)=>score+Math.min(u.maxHp-u.hp,(a.heal||0)+(a.perChargeHeal||0)*actor.charge+(a.regen?a.regen.heal*a.regen.turns*.6:0))*1.1+(a.cleanse&&(u.dots.length||u.stunned||u.sealAttack||u.sealSupport)?12:0)+(a.counter?Math.min(22,a.counter):0)+(a.shield?Math.min(a.shield,Math.max(0,45-u.shield))*.65:0)+(a.boost?4:0)+(a.reactive?6:0)+(a.reduceCooldown?u.abilities.filter(v=>!v.defense).reduce((sum,v)=>sum+Math.min(a.reduceCooldown,u.cooldowns[v.id]||0)*7,0):0),0);
- }
- let score=(a.damage||0)+extraDamage(actor,target,a)+(a.dot?a.dot.damage*a.dot.turns*.7:0)+(a.stun?12:0)+(a.mark?5:0)+(a.expose?4:0)+(a.perChargeDamage||0)*actor.charge+(a.sealAttack?11:0)+(a.sealSupport?8:0)+(a.reactive?7:0)+(a.healingBlock&&target.hp<75?7:0)+(a.stripShield?Math.min(target.shield,a.stripShield)*.5:0);
- if(a.combo&&meetsCondition(target,a.combo.condition,actor))score+=(a.combo.bonusDamage||0)+(a.combo.stun?12:0);
- score+=setup;if(target.hp<=(a.damage||0))score+=20;return score;
+// Planning reads public combat state only; the player's queue and future draws are never consulted.
+export function getCombatPlan(s,side="enemy"){
+ return planTeamActions(s,side,{getAbilityResourceCosts,getValidTargets,meetsCondition,attackValue,previewHit,skillSealReason});
 }
-function planAI(s){
- const reserved={...s.enemyResources};s.intents=[];
- for(const actor of living(s.enemies)){
-  if(actor.stunned)continue;
-  const choices=actor.abilities.filter(a=>!actor.cooldowns[a.id]&&!skillSealReason(actor,a)&&Object.entries(getAbilityResourceCosts(actor,a)).every(([id,n])=>(reserved[id]||0)>=n)).flatMap(a=>getValidTargets(s,actor,a).map(target=>({a,target,score:aiScore(a,actor,target,living(s.enemies))})));
-  choices.sort((a,b)=>b.score-a.score);const pick=choices[0];if(!pick)continue;
-  for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,pick.a)))reserved[id]-=n;
-  s.intents.push({actorId:actor.id,abilityId:pick.a.id,targetId:pick.target.id,abilityName:pick.a.name,targetName:pick.target.name,side:"enemy",formKey:pick.a.formKey||"base"});
- }
-}
+function planAI(s){s.intents=s.enemyPlanner(s);}
 export function createBattle(ids,enemyTeam,config={}){
   const global=config.globalEffects||{},resonance=getResonance(ids),buffValues=(config.buffs||[]).reduce((acc,id)=>{for(const [k,v]of Object.entries(buffs.find(b=>b.id===id)?.effect||{}))acc[k]=(acc[k]||0)+v;return acc;},{damage:0,shield:0,essence:0,cinza:0,graca:0,ruptura:0,maxHp:0,resonance:0,risk:0});resonance.bonus+=buffValues.resonance;
   const allies=ids.slice(0,3).map(id=>characterById[id]).filter(Boolean).map(c=>clone(c,"player",config));for(const u of allies){u.maxHp+=buffValues.maxHp+(global.maxHp||0);u.armor=global.armor||0;u.charge=Math.min(3,global.startingCharge||0);if(config.teamHealth?.[u.id]==null)u.hp=u.maxHp;u.shield=Math.min(80,buffValues.shield+(global.shield||0));}
-  const s={rng:config.rng||Math.random,energyDraws:{player:[],enemy:[]},global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:buffValues,acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};grantTurn(s,"player",true);grantTurn(s,"enemy",true);refreshSkillForms(s);planAI(s);return s;
+  const s={enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,energyDraws:{player:[],enemy:[]},global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:buffValues,acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};grantTurn(s,"player",true);grantTurn(s,"enemy",true);refreshSkillForms(s);planAI(s);return s;
 }
 export function chooseAction(s,actorId,abilityId,targetId){
   refreshSkillForms(s);
@@ -133,19 +122,20 @@ export function chooseAction(s,actorId,abilityId,targetId){
 }
 export function removeQueuedAction(s,id){if(s.phase!=="player")return false;s.queue=s.queue.filter(a=>a.actorId!==id);return true;}
 export function moveQueuedAction(s,id,direction){if(s.phase!=="player")return false;const i=s.queue.findIndex(a=>a.actorId===id),j=i+direction;if(i<0||j<0||j>=s.queue.length)return false;[s.queue[i],s.queue[j]]=[s.queue[j],s.queue[i]];return true;}
-export function commitTurn(s){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...s.queue.map(a=>({...a})),{type:"handoff"},...s.intents.map(a=>({...a})),{type:"effects"},{type:"next-turn"}];s.queue=[];return {ok:true};}
+export function commitTurn(s){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...s.queue.map(a=>({...a})),{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];return {ok:true};}
 function endOpposing(s,units){expireReactives(s,units,"opposing",effectsContext());for(const u of units){if(!u.healingBlockFresh)u.healingBlock=0;u.healingBlockFresh=false;u.invulnerable=0;u.counter=0;u.reduction=0;if(!u.exposedFresh)u.exposed=0;u.exposedFresh=false;}}
 function endActing(s,units,reactions=[]){expireReactives(s,units,"acting",effectsContext(reactions));for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
 function tickEffects(s){for(const u of [...s.allies,...s.enemies]){if(u.hp<=0)continue;for(const d of u.dots){const r=hit(u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);d.turns--;}u.dots=u.dots.filter(d=>d.turns>0);for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}}}
-function nextTurn(s){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,"player");grantTurn(s,"enemy");refreshSkillForms(s);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: recursos recebidos. Monte sua próxima fila.`);}
+function nextTurn(s,recoveries){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,"player",false,recoveries);grantTurn(s,"enemy",false,recoveries);refreshSkillForms(s);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: recursos recebidos. Monte sua próxima fila.`);}
 export function resolveNextAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();
-  if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary));nextTurn(s);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
-  if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
+  if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
+  if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
   if(action.type==="effects"){const reactions=[];endActing(s,s.enemies,reactions);endOpposing(s,s.allies);tickEffects(s);outcome(s);return {done:s.phase!=="resolving",event:{mode:reactions.length?"reactions":"effects",reactions,title:reactions.length?"Efeito reativo":"Efeitos persistentes",summary:"Aflições e durações foram atualizadas."}};}
   const actor=byId(team(s,action.side),action.actorId),a=actor?.abilities.find(a=>a.id===action.abilityId);
   if(!actor||!a)return {done:false,event:{...action,skipped:true,title:"Ação cancelada",summary:"O personagem deixou o combate antes de agir."}};
   if(actor.stunned){log(s,`${actor.name} perde a ação: Atordoado.`);return {done:false,event:{...action,skipped:true,title:`${actor.name} · Atordoado`,summary:"A habilidade foi interrompida."}};}
+  if(actor.cooldowns[a.id])return {done:false,event:{...action,skipped:true,title:"Técnica em recarga",summary:"A recarga impede esta ação. Recursos preservados."}};
   if(skillSealReason(actor,a))return {done:false,event:{...action,skipped:true,title:skillSealReason(actor,a),summary:"A técnica foi selada antes de agir. Recursos preservados."}};
   if(action.formKey&&action.formKey!==(a.formKey||"base"))return {done:false,event:{...action,skipped:true,title:"Técnica alterada",summary:"A forma mudou após a confirmação. Ação cancelada; recursos preservados."}};
   const result=apply(s,actor,a,action.targetId);if(action.side==="player")s.acted.push(actor.id);outcome(s);return {done:s.phase!=="resolving",event:{...action,...result,title:a.name,actorName:actor.name,summary:result.reason||""}};

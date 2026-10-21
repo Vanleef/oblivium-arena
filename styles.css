@@ -934,6 +934,14 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .detail-idle small { display: block; margin-top: 8px; color: #8fa69f; font-size: 9px; }
 .inspection-skills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
 .inspection-skills button { padding: 5px 8px; cursor: pointer; border: 1px solid #b2c8be35; background: #ffffff05; color: #dac695; font-size: 9px; }
+.active-effects { margin: 10px 0 0; padding-top: 9px; border-top: 1px solid #b2c8be24; }
+.active-effects > small { color: #d8be87; font-size: 8px; letter-spacing: .1em; }
+.active-effects ul { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 7px 16px; list-style: none; margin: 8px 0 0; padding: 0; }
+.active-effects li { display: grid; grid-template-columns: 21px minmax(0,1fr); gap: 7px; }
+.active-effects li > i { display: grid; place-items: center; align-self: start; height: 21px; border: 1px solid #cdb77d4d; background: #252c2d; color: #dac695; font-style: normal; font-size: 12px; }
+.active-effects li b { color: #e2d2af; font-size: 10px; font-weight: 600; }
+.arena-detail .active-effects p { margin-top: 2px; font-size: 10px; overflow-wrap: anywhere; }
+.active-effects .no-active-effects { color: #8b9f99; }
 .arena-plan { margin: 12px 0; padding: 13px; border: 1px solid #b1c3b82b; background: #111d25; }
 .arena-plan header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .arena-plan header b { display: block; margin-top: 4px; color: #9eb5ad; font-size: 9px; font-weight: 400; }

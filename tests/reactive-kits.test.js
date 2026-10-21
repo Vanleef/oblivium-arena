@@ -8,7 +8,7 @@ const char=name=>characters.find(c=>c.name===name);
 const dummy={id:'alvo',name:'Alvo',realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]};
 function battle(name='O Açougueiro'){const b=createBattle([char(name).id],[dummy],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};b.allies[0].passive=null;return b;}
 function cast(b,a,target='alvo'){const u=b.allies[0];if(typeof a==='object'){u.abilities[0]=a;a=a.id;}assert.equal(chooseAction(b,u.id,a,target).ok,true);passTurn(b);}
-function enemyAction(b,a){const e=b.enemies[0];e.abilities=[a];b.intents=[{actorId:e.id,abilityId:a.id,targetId:a.target==='self'?e.id:b.allies[0].id,side:'enemy'}];}
+function enemyAction(b,a){const e=b.enemies[0];e.abilities=[a];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:a.id,targetId:a.target==='self'?e.id:b.allies[0].id,side:'enemy'}];}
 const attack={id:'golpe',name:'Golpe',target:'enemy',damage:1,costs:{}};
 const support={id:'apoio',name:'Apoio',target:'self',heal:1,costs:{}};
 

@@ -361,7 +361,7 @@ function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
   const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
   const kind=event.mode==="turn"?"turn":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
-  state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":"Contra-ataque",actorName:event.reactions.map(r=>r.actorName).join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
+  state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
 }
 function resolveCombatStep() {
   const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);

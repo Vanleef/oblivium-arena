@@ -75,11 +75,11 @@ test('controle ligado termina se a ligação for quebrada por Invulnerável ou A
 
 test('contra-ataque só abre a resposta quando é ativado, contra o agressor correto',()=>{
  const b=battle('A Viúva Escarlate');cast(b,1);assert.equal(skill(b,0).formKey,'base');
- const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',target:'enemy',costs:{},damage:10}];b.intents=[{actorId:e.id,abilityId:'hit',targetId:b.allies[0].id,side:'enemy'}];cast(b,1);assert.equal(skill(b,0).name,'Fio Reverso');assert.equal(skill(b,0).formTargetId,e.id);
+ const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',target:'enemy',costs:{},damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:'hit',targetId:b.allies[0].id,side:'enemy'}];cast(b,1);assert.equal(skill(b,0).name,'Fio Reverso');assert.equal(skill(b,0).formTargetId,e.id);
 });
 
 test('contra-ataque concedido a um aliado evolui o kit de quem o criou',()=>{
- const owner=char('O Espelho'),ally=char('O Escudo Vivo'),b=createBattle([owner.id,ally.id],[dummy()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',costs:{},target:'enemy',damage:10}];b.intents=[{actorId:e.id,abilityId:'hit',targetId:ally.id,side:'enemy'}];
+ const owner=char('O Espelho'),ally=char('O Escudo Vivo'),b=createBattle([owner.id,ally.id],[dummy()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',costs:{},target:'enemy',damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:'hit',targetId:ally.id,side:'enemy'}];
  chooseAction(b,owner.id,'tecnica',ally.id);passTurn(b);assert.equal(b.allies[0].abilities[0].name,'Estilhaço Devolvido');assert.equal(b.allies[1].abilities[0].name,'Golpe do Bastião');
 });
 

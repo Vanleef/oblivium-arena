@@ -59,8 +59,8 @@ test('utilidade sem dano não causa dano adicional contra um alvo Exposto',()=>{
 
 test('as durações de preparação também funcionam para a oposição',()=>{
  const b=battle(characters[0]),u=b.allies[0],v=b.enemies[0];u.passive=null;
- v.abilities=[{id:'preparar',name:'Preparar',target:'self',costs:{},boost:10}];b.intents=[{actorId:v.id,abilityId:'preparar',targetId:v.id,side:'enemy'}];passTurn(b);assert.equal(v.boost,10);
- v.abilities=[{id:'golpe',name:'Golpe',target:'enemy',costs:{},damage:10}];b.intents=[{actorId:v.id,abilityId:'golpe',targetId:u.id,side:'enemy'}];passTurn(b);assert.equal(u.hp,80);assert.equal(v.boost,0);
- v.abilities=[{id:'expor',name:'Expor',target:'enemy',costs:{},damage:5,expose:1}];b.intents=[{actorId:v.id,abilityId:'expor',targetId:u.id,side:'enemy'}];passTurn(b);assert.equal(u.exposed,1);
- v.abilities=[{id:'golpe',name:'Golpe',target:'enemy',costs:{},damage:10}];b.intents=[{actorId:v.id,abilityId:'golpe',targetId:u.id,side:'enemy'}];const hp=u.hp;passTurn(b);assert.equal(hp-u.hp,20);assert.equal(u.exposed,0);
+ v.abilities=[{id:'preparar',name:'Preparar',target:'self',costs:{},boost:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'preparar',targetId:v.id,side:'enemy'}];passTurn(b);assert.equal(v.boost,10);
+ v.abilities=[{id:'golpe',name:'Golpe',target:'enemy',costs:{},damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'golpe',targetId:u.id,side:'enemy'}];passTurn(b);assert.equal(u.hp,80);assert.equal(v.boost,0);
+ v.abilities=[{id:'expor',name:'Expor',target:'enemy',costs:{},damage:5,expose:1}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'expor',targetId:u.id,side:'enemy'}];passTurn(b);assert.equal(u.exposed,1);
+ v.abilities=[{id:'golpe',name:'Golpe',target:'enemy',costs:{},damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'golpe',targetId:u.id,side:'enemy'}];const hp=u.hp;passTurn(b);assert.equal(hp-u.hp,20);assert.equal(u.exposed,0);
 });

@@ -55,11 +55,11 @@ test("Invulnerável impede alvos novos, mas não remove aflições anteriores",(
 });
 test("contra-ataque anula a próxima habilidade e não cria recursão",()=>{
  const b=createBattle([ids[0]],[dummy(30)]);b.allies[0].passive=null;b.allies[0].abilities[0]={id:"armadilha",name:"Armadilha",target:"self",costs:{},counter:20};
- chooseAction(b,ids[0],"armadilha",ids[0]);passTurn(b);assert.equal(b.allies[0].hp,100);assert.equal(b.enemies[0].hp,9980);assert.ok(b.log.some(l=>l.includes("anula")));
+ b.enemyPlanner=()=>[{actorId:"treino",abilityId:"golpe",targetId:ids[0],side:"enemy"}];chooseAction(b,ids[0],"armadilha",ids[0]);passTurn(b);assert.equal(b.allies[0].hp,100);assert.equal(b.enemies[0].hp,9980);assert.ok(b.log.some(l=>l.includes("anula")));
 });
 test("a invulnerabilidade da oposição cobre o próximo turno do jogador",()=>{
  const enemy=dummy(0);enemy.abilities=[{id:"defesa",name:"Defesa",target:"self",costs:{},invulnerable:1,defense:true,cooldown:4}];
- const b=createBattle(ids,[enemy]);passTurn(b);assert.equal(b.enemies[0].invulnerable,1);assert.equal(getValidTargets(b,b.allies[0],b.allies[0].abilities[0]).length,0);
+ const b=createBattle(ids,[enemy]);b.enemyPlanner=s=>s.intents;b.intents=[{actorId:'treino',abilityId:'defesa',targetId:'treino',side:'enemy'}];passTurn(b);assert.equal(b.enemies[0].invulnerable,1);assert.equal(getValidTargets(b,b.allies[0],b.allies[0].abilities[0]).length,0);
  passTurn(b);assert.equal(b.enemies[0].invulnerable,0);assert.equal(getValidTargets(b,b.allies[0],b.allies[0].abilities[0]).length,1);
 });
 test("o custo de Vida de uma técnica não revive quem caiu num contra-ataque",()=>{
@@ -68,7 +68,7 @@ test("o custo de Vida de uma técnica não revive quem caiu num contra-ataque",(
 });
 test("Atordoado cancela a ação adversária e não é limpo antes da vez correta",()=>{
  const b=createBattle([ids[0]],[dummy(30)]);b.allies[0].abilities[0]={id:"parar",name:"Parar",target:"enemy",costs:{},damage:5,stun:1};
- chooseAction(b,ids[0],"parar","treino");passTurn(b);assert.equal(b.allies[0].hp,100);assert.ok(b.log.some(l=>l.includes("Atordoado")));
+ b.enemyPlanner=()=>[{actorId:"treino",abilityId:"golpe",targetId:ids[0],side:"enemy"}];chooseAction(b,ids[0],"parar","treino");passTurn(b);assert.equal(b.allies[0].hp,100);assert.ok(b.log.some(l=>l.includes("Atordoado")));
 });
 test("os 400 efeitos e todas as passivas podem ser resolvidos sem kits ausentes",()=>{
  assert.equal(new Set(characters.flatMap(c=>c.abilities.map(a=>a.name))).size,400);

@@ -25,13 +25,16 @@ export function triggerReactives(s,unit,kind,other,ctx){
  for(const r of ready){
   const source=[...s.allies,...s.enemies].find(u=>u.id===r.sourceId);if(!source)continue;
   const victim=r.harmful?unit:other;
-  if(r.damage&&victim?.hp>0){const result=ctx.hit(victim,r.damage,{damageType:r.damageType||'affliction',ignoreInvulnerability:true});ctx.reactions?.push({kind:'reaction',actorId:source.id,targetId:victim.id,actorName:source.name,damage:result.dealt});}
+  const events=new Map();
+  const record=(target,values={})=>{if(target)events.set(target.id,{...(events.get(target.id)||{}),...values});};
+  if(r.damage&&victim?.hp>0){const result=ctx.hit(victim,r.damage,{damageType:r.damageType||'affliction',ignoreInvulnerability:true});record(victim,{damage:result.dealt});}
   const recipients=r.healBoth?[...new Set([source,unit])]:[r.healSource?source:unit];
-  if(r.heal||r.healSource||r.healBoth)for(const u of recipients)ctx.heal(u,r.heal||r.healSource||r.healBoth);
-  if(r.shield)ctx.shield(unit,r.shield);if(r.shieldSource)ctx.shield(source,r.shieldSource);
-  if(r.drain)ctx.transfer(s,source.side,r.drain,false);
-  if(r.exposeAttacker&&other?.hp>0){other.exposed=1;other.exposedFresh=s.resolutionSide===source.side;}
-  if(r.shift)ctx.shift(s,source,r.shift,r.harmful?unit.id:other?.id,ctx.condition);
+  if(r.heal||r.healSource||r.healBoth)for(const u of recipients)record(u,{heal:ctx.heal(u,r.heal||r.healSource||r.healBoth)});
+  if(r.shield)record(unit,{shield:ctx.shield(unit,r.shield)});if(r.shieldSource)record(source,{shield:ctx.shield(source,r.shieldSource)});
+  if(r.drain)record(unit,{drain:ctx.transfer(s,source.side,r.drain,false)});
+  if(r.exposeAttacker&&other?.hp>0){other.exposed=1;other.exposedFresh=s.resolutionSide===source.side;record(other);}
+  if(r.shift){ctx.shift(s,source,r.shift,r.harmful?unit.id:other?.id,ctx.condition);record(source);}
+  for(const [targetId,values]of events)ctx.reactions?.push({kind:'reaction',actorId:source.id,targetId,actorName:source.name,label:r.label,...values});
   ctx.log(s,`${r.label}: ${r.trigger==='idle'?'inatividade':'reação'} de ${unit.name} ativa o efeito.`);
  }
 }
