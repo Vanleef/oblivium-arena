@@ -29,7 +29,7 @@ PMA: Post Mortem Arena — três reinos, um trio de almas e o destino do além e
 
 ## Direção visual
 
-Fantasia sombria pintada à mão, com contornos nítidos, textura de pincel e paleta azul-ardósia, carvão e marfim. Cada reino acrescenta seu acento de cor. A direção está registrada em `docs/ART_DIRECTION.md`.
+Anime japonês 2D de fantasia sobrenatural, com line art forte, sombras em cel shading e efeitos desenhados para cada técnica. Os personagens têm rostos, corpos, roupas e silhuetas próprios; passivas e habilidades usam composições distintas ligadas ao efeito de cada golpe. A direção está registrada em `docs/ART_DIRECTION.md`.
 
 ## Estado
 

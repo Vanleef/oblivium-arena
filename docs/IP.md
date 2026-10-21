@@ -66,4 +66,4 @@ Cada Guardião final comanda dois subordinados do próprio Elo. Depois de conclu
 
 ## Direção
 
-Shonen sobrenatural com confrontos legíveis, escolhas táticas e progressão de poder. Retratos, passivas e técnicas usam uma linha de fantasia sombria pintada à mão, com contornos nítidos, textura de pincel e iluminação cinematográfica. A paleta base é azul-ardósia e carvão; cada reino acrescenta sua própria cor. A arte evita texto embutido, marcas de franquias e imagens gráficas de automutilação ou suicídio.
+Shonen sobrenatural com confrontos legíveis, escolhas táticas e progressão de poder. Retratos, passivas e técnicas usam anime 2D com line art nítida, cel shading e efeitos gráficos próprios. Cada personagem tem identidade visual distinta; cada habilidade tem uma composição ligada ao seu efeito. As cores de cada reino ajudam a reconhecer as afinidades sem substituir o desenho do personagem. A arte evita texto embutido, marcas de franquias e imagens gráficas de automutilação ou suicídio.
