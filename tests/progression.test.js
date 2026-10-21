@@ -61,3 +61,17 @@ test('Legados de combate alteram Vida, guarda, dano, aflições, cura e prepara�
  const b=createBattle(ids,[dummy],{globalEffects:g,rng:()=>0});assert.equal(b.allies[0].maxHp,112);assert.equal(b.allies[0].shield,14);assert.equal(b.allies[0].armor,2);assert.equal(b.allies[0].charge,2);assert.equal(b.resources.essence,2);
  b.allies[0].abilities[0]={id:'hit',name:'Golpe',target:'enemy',costs:{},damage:10,damageType:'physical',dot:{tag:'queimadura',damage:2,turns:2},shield:5};b.allies[0].hp=50;chooseAction(b,ids[0],'hit','dummy');passTurn(b);assert.ok(b.enemies[0].hp<=9977);assert.equal(b.enemies[0].dots[0].damage,4);assert.ok(b.allies[0].hp>52);
 });
+test('todos os 17 Elos podem ser abertos pela progressão e o elenco inteiro pode ser recrutado',()=>{
+ const p=profile();let seed=100;
+ for(const realm of realms)for(const elo of realm.elos){
+  assert.equal(eloAccess(p,elo).unlocked,true,elo.name);
+  let attempt=0;
+  while(attempt<2||characters.some(c=>c.eloId===elo.id&&!p.ownedIds.includes(c.id))){
+   const run=createExpedition(p,elo,attempt%2?'pilgrimage':'hunt',maxDifficulty(p,elo.id),seed++);
+   while(run.availableNodeIds.length){const options=run.map.flat().filter(n=>run.availableNodeIds.includes(n.id)),node=options.find(n=>n.type==='event')||options.find(n=>['elite','mini'].includes(n.type))||options[0];if(['normal','elite','mini','boss'].includes(node.type))recordEncounter(p,run,node);if(node.type==='event')p.eloProgress[elo.id].events++;advanceTrail(run,node.id);}
+   completeExpedition(p,run);if(p.pendingGlobalReward)claimGlobalUpgrade(p,p.pendingGlobalReward.choices[0].id);
+   attempt++;assert.ok(attempt<14,elo.name);
+  }
+ }
+ assert.equal(p.ownedIds.length,100);assert.equal(p.completedElos.length,17);
+});
