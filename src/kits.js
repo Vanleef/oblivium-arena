@@ -164,7 +164,23 @@ export function describeAbility(a) {
   if(a.shield) parts.push(`Concede ${a.shield} de Defesa destrutível${a.damage ? " ao usuário" : a.target === "team" ? " ao trio" : ""}.`);
   if(a.reduce) parts.push(`Reduz em ${a.reduce} o dano recebido por 1 turno${a.damage ? " pelo usuário" : ""}.`);
   if(a.boost) parts.push(`Aumenta em ${a.boost} o dano${a.damage ? " do usuário" : ""} até o fim do próximo turno do beneficiado.`);
-  if(a.counter) parts.push(`Anula a próxima habilidade inimiga recebida e contra-ataca com ${a.counter} de dano. Dura 1 turno.`);
+  if(a.counter) parts.push(`Anula a próxima habilidade inimiga ${a.counterFilter?a.counterFilter.map(t=>({physical:"física",piercing:"perfurante",energy:"espiritual",affliction:"de aflição"})[t]).join(" ou ")+" ":""}recebida e contra-ataca com ${a.counter} de dano. Dura 1 turno.`);
+  if(a.regen) parts.push(`Regeneração: restaura ${a.regen.heal} de Vida no início dos próximos ${a.regen.turns} turnos${a.target==="team"?" de cada aliado":" do beneficiado"}.`);
+  if(a.sealSupport) parts.push(`Sela técnicas de apoio por ${a.sealSupport} turno do alvo. A defesa pessoal continua disponível.`);
+  if(a.sealAttack) parts.push(`Sela técnicas ofensivas por ${a.sealAttack} turno do alvo.`);
+  if(a.healingBlock) parts.push(`Reduz a cura recebida em ${Math.round(a.healingBlock*100)}% até o fim do próximo turno deste lado.`);
+  if(a.reduceCooldown) parts.push(`Reduz em ${a.reduceCooldown} turno as recargas não defensivas do beneficiado.`);
+  if(a.ignoreCounters) parts.push("Não pode ser anulado por Contra-ataque.");
+  if(a.escalating) parts.push(`Cada uso não anulado dá +${a.escalating.amount} de dano a esta técnica (máx. +${a.escalating.max}). Atordoamento zera esse bônus.`);
+  if(a.missingHpDamage) parts.push(`A cada ${a.missingHpDamage.step} de Vida perdida pelo usuário: +${a.missingHpDamage.amount} de dano (máx. +${a.missingHpDamage.cap}).`);
+  if(a.missingHpHeal) parts.push(`A cada ${a.missingHpHeal.step} de Vida faltante do beneficiado: +${a.missingHpHeal.amount} de cura (máx. +${a.missingHpHeal.cap}).`);
+  if(a.shieldToDamage) parts.push(`Acrescenta ${Math.round(a.shieldToDamage.ratio*100)}% da Defesa do usuário ao dano (máx. +${a.shieldToDamage.cap})${a.shieldToDamage.consume?" e consome toda a sua Defesa":""}.`);
+  if(a.shieldFromStripped) parts.push(`Converte ${Math.round(a.shieldFromStripped*100)}% da Defesa removida em Defesa própria (máx. 15).`);
+  if(a.wardFromDamage) parts.push(`Converte ${Math.round(a.wardFromDamage*100)}% do dano real causado em Defesa própria (máx. 20 por uso).`);
+  if(a.siphonToAlly) parts.push(`Restaura ao aliado proporcionalmente mais ferido ${Math.round(a.siphonToAlly*100)}% do dano real causado (máx. 15 por uso).`);
+  if(a.cleanseBonusShield) parts.push(`Cada condição removida concede ${a.cleanseBonusShield} de Defesa ao beneficiado (máx. 15).`);
+  if(a.purgeBonusDamage) parts.push(`Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta ${a.purgeBonusDamage} ao dano (máx. +12).`);
+  if(a.reactive){const r=a.reactive,trigger={attack:"Se o alvo usar uma técnica ofensiva em sua próxima vez",support:"Se o alvo usar uma técnica de apoio em sua próxima vez",skill:"Se o alvo usar uma técnica em sua próxima vez",idle:"Se o alvo não usar nenhuma técnica em sua próxima vez",damaged:"Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado"}[r.trigger];const effects=[r.damage?`causa ${r.damage} de dano de aflição ${r.trigger==="damaged"?"ao agressor":"ao próprio alvo"}`:"",r.drain?`remove ${r.drain} recurso inimigo`:"",r.healSource?`restaura ${r.healSource} de Vida ao usuário`:"",r.healBoth?`restaura ${r.healBoth} de Vida ao usuário e ao beneficiado, uma vez por alma`:"",r.shieldSource?`concede ${r.shieldSource} de Defesa ao usuário`:"",r.exposeAttacker?"expõe o agressor até o fim do próximo turno do usuário":"",r.shift?"abre uma técnica alternativa para o usuário por 2 turnos":""].filter(Boolean);parts.push(`${trigger}: ${effects.join(" e ")}. Ativa uma vez.`);}
   if(a.cleanse) parts.push(`Remove aflições e condições prejudiciais${a.damage ? " do usuário" : ""}.`);
   if(a.purge) parts.push("Remove bônus de dano, redução e contra-ataque do alvo.");
   if(a.stripShield) parts.push(`Remove ${a.stripShield} de Defesa antes do dano.`);

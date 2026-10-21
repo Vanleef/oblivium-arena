@@ -27,6 +27,9 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 - Marcas pertencem a quem as aplicou. Cargas vão de 0 a 3. Bônus por carga usa as cargas anteriores à ação; ganho e consumo ocorrem uma vez por habilidade não anulada.
 - O primeiro jogador recebe 1 recurso aleatório na abertura; nos turnos seguintes cada lado recebe um por personagem vivo. Os quatro tipos têm 25% de chance por sorteio. Saldos não gastos acumulam sem teto de 5.
 - Benefícios pessoais e passivas de uma técnica em área ocorrem uma vez por uso. Dano, cura coletiva e Defesa coletiva atingem cada alvo válido.
+- Regeneração recupera Vida no início dos turnos indicados. Reaplicar a mesma técnica da mesma origem renova o efeito sem acumular cópias.
+- Armadilhas reagem uma vez à condição descrita e expiram após a próxima vez do alvo. Reações de amparo respondem à perda de Vida por novas habilidades durante a resposta adversária. Reações não encadeiam outras reações.
+- Selos de apoio e ofensiva cancelam apenas a categoria indicada; a quarta defesa continua disponível sob selo de apoio. Recargas reduzidas por apoio nunca incluem a quarta defesa.
 - Variações ocupam o mesmo espaço e compartilham a ação e a recarga. Uma técnica pode mudar por preparação, contra-ataque ativado, Vida, cargas ou esgotamento de usos. Janelas indicam quantos turnos próprios seguintes permanecem abertas. Posturas sem duração acabam apenas pelo efeito de reversão.
 - Quando uma preparação abre uma continuação no mesmo espaço, sua recarga é adiada até a continuação terminar ou expirar. A quarta defesa nunca é substituída.
 - Técnicas em área com maior potencial de explosão custam 3 recursos. Custos aparecem no jogo como quadrados coloridos.

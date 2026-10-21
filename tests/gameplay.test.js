@@ -72,7 +72,7 @@ test("Atordoado cancela a ação adversária e não é limpo antes da vez corret
 });
 test("os 400 efeitos e todas as passivas podem ser resolvidos sem kits ausentes",()=>{
  assert.equal(new Set(characters.flatMap(c=>c.abilities.map(a=>a.name))).size,400);
- for(const c of characters)for(const original of c.abilities){const b=createBattle([c.id],[dummy(0)]);rich(b);b.allies[0].hp=60;b.allies[0].charge=3;const a=b.allies[0].abilities.find(a=>a.id===original.id),target=["self","ally","team"].includes(a.target)?c.id:"treino";assert.equal(chooseAction(b,c.id,a.id,target).ok,true,`${c.name}/${a.name}`);assert.equal(passTurn(b),true);for(const u of [...b.allies,...b.enemies]){assert.ok(Number.isFinite(u.hp));assert.ok(u.hp>=0&&u.hp<=u.maxHp);assert.ok(u.shield>=0&&u.shield<=80);}}
+ for(const c of characters)for(const original of c.abilities){const b=createBattle([c.id],[dummy(0)]);rich(b);b.allies[0].hp=60;b.allies[0].charge=1;const a=b.allies[0].abilities.find(a=>a.id===original.id),target=["self","ally","team"].includes(a.target)?c.id:"treino";assert.equal(chooseAction(b,c.id,a.id,target).ok,true,`${c.name}/${a.name}`);assert.equal(passTurn(b),true);for(const u of [...b.allies,...b.enemies]){assert.ok(Number.isFinite(u.hp));assert.ok(u.hp>=0&&u.hp<=u.maxHp);assert.ok(u.shield>=0&&u.shield<=80);}}
 });
 test("a Vida restante atravessa encontros e elites recebem escala de encontro",()=>{
  const b=createBattle(ids,[dummy()],{teamHealth:{[ids[0]]:61}});assert.equal(b.allies[0].hp,61);

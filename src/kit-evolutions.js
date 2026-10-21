@@ -1,3 +1,4 @@
+import { expandKit } from "./kit-expansion.js";
 // PMA identities use several distinct Arena structures, rather than a shared finisher template.
 const slots=['impulso','tecnica','voto'];
 const attack=(name,damage,cost=2,extra={})=>({name,damage,cost,target:'enemy',damageType:'physical',...extra});
@@ -164,5 +165,5 @@ export function evolveKit(elo,index,source){
   after(1,[shift(2,'release',1,{bindTarget:true})],'No próximo turno, Devolver os Segundos vira Retomar o Instante contra o alvo interrompido.');
   identity('Acumule segundos e pare um alvo para abrir uma janela curta de descarga concentrada.','Janela de execução');break;
  }
- return spec;
+ return expandKit(elo,index,spec);
 }

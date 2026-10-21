@@ -12,10 +12,10 @@ const skill=(b,i)=>b.allies[0].abilities[i];
 function cast(b,i,targetId){const a=skill(b,i);assert.equal(chooseAction(b,b.allies[0].id,a.id,targetId||getValidTargets(b,b.allies[0],a)[0]?.id).ok,true,a.name);assert.equal(passTurn(b),true);return a;}
 function finish(b){let n=0;while(b.phase==='resolving'&&n++<20)resolveNextAction(b);assert.ok(n<20);}
 
-test('36 kits acrescentam 42 técnicas e preservam as quatro posições e a defesa',()=>{
- assert.equal(characters.filter(c=>c.mechanic).length,36);assert.equal(characters.flatMap(c=>c.abilities.flatMap(a=>a.forms||[])).length,42);
+test('100 kits têm estruturas e 56 técnicas alternativas e preservam as quatro posições e a defesa',()=>{
+ assert.equal(characters.filter(c=>c.mechanic).length,100);assert.equal(characters.flatMap(c=>c.abilities.flatMap(a=>a.forms||[])).length,56);
  for(const c of characters){assert.equal(c.abilities.length,4);assert.ok(!c.abilities[3].forms);for(const a of allSkillForms(c)){assert.ok(a.description&&a.cost>0);assert.ok(a.classes?.length);if(a.formKey)assert.notEqual(a.id,'despertar');}}
- assert.equal(new Set(characters.flatMap(c=>allSkillForms(c).map(a=>a.name))).size,442);
+ assert.equal(new Set(characters.flatMap(c=>allSkillForms(c).map(a=>a.name))).size,456);
 });
 
 test('usar uma preparação troca a técnica e mantém custo, fila e ação únicos por alma',()=>{
@@ -97,7 +97,7 @@ test('forma que muda após confirmação cancela a ação e preserva seus recurs
  b.allies[1].abilities[0]={id:'heal',name:'Cura',target:'ally',costs:{},heal:30};chooseAction(b,d.id,'impulso','alvo');chooseAction(b,h.id,'heal',d.id);moveQueuedAction(b,h.id,-1);commitTurn(b);resolveNextAction(b);const energy={...b.resources},event=resolveNextAction(b).event;assert.equal(event.skipped,true);assert.match(event.summary,/forma mudou/);assert.deepEqual(b.resources,energy);finish(b);
 });
 
-test('todas as 42 formas podem resolver sem NaN, custos gratuitos ou alteração de definições',()=>{
+test('todas as 56 formas podem resolver sem NaN, custos gratuitos ou alteração de definições',()=>{
  for(const c of characters)for(const root of c.abilities)for(const form of root.forms||[]){const b=battle(c.name),u=b.allies[0];u.hp=60;u.charge=3;if(form.requiredMark)b.enemies[0].marks[form.requiredMark]={sourceId:u.id,turns:5};u.skillForms[root.id]={form:form.formKey,expiresAt:10,...(form.requiresLink?{targetId:'alvo'}:{})};refreshSkillForms(b);cast(b,c.abilities.indexOf(root));for(const v of [...b.allies,...b.enemies]){assert.ok(Number.isFinite(v.hp));assert.ok(v.hp>=0&&v.hp<=v.maxHp);}assert.equal(c.abilities[3].cooldown,4);}
 });
 

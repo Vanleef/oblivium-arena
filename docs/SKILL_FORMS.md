@@ -1,6 +1,6 @@
 # Técnicas alternativas do PMA
 
-36 dos 100 kits têm estruturas de troca, acrescentando 42 técnicas às 400 técnicas principais. Todos conservam quatro espaços e uma ação por personagem por turno. A quarta defesa mantém Invulnerável por uma resposta adversária e quatro turnos próprios de recarga.
+Os 100 kits têm estruturas autorais de preparação, troca, reação, crescimento ou apoio. Há 56 técnicas alternativas além das 400 técnicas principais. Todos conservam quatro espaços e uma ação por personagem por turno. A quarta defesa mantém Invulnerável por uma resposta adversária e quatro turnos próprios de recarga.
 
 | Estrutura | Exemplos do PMA | Decisão |
 | --- | --- | --- |
@@ -13,6 +13,12 @@
 | Desfechos mutuamente exclusivos | Rainha dos Fungos | Usar a mesma colônia para amparo coletivo ou dano de aflição em área |
 | Uso limitado por combate | Colecionador de Cabeças, Fim Silencioso | Escolher quando gastar os dois usos fortes; depois há uma técnica de menor impacto |
 | Controle com vínculo | Marionetista de Nervos | Manter a interrupção na mesma vítima ou usar o desfecho; perder contato encerra a continuação |
+| Armadilhas de decisão | Sussurro, Incendiário, Credor | Punir ofensiva, apoio, qualquer técnica ou inatividade, uma única vez |
+| Selos seletivos | Trono Vazio, Juíza, Porta Fechada | Interditar ofensiva ou apoio; o selo de apoio preserva a defesa pessoal |
+| Recuperação futura | Mãe Rubra, Médico de Vermes, Senhora do Último Pão | Receber cura imediata menor e manter recuperação pelos turnos seguintes |
+| Crescimento interrompível | Boca de Vidro, Lâmina Justa, Andarilho de Vidro | Repetir uma técnica até um teto; Atordoamento zera o bônus |
+| Conversão de Defesa | Estômago sem Fundo, Muralha, Arquiteta | Converter Defesa removida em guarda própria ou consumir guarda para acrescentar dano |
+| Manipulação de recargas | Sentinela Azul, Portador da Aurora, Primeiro Canto | Adiantar técnicas de apoio ou ofensiva sem reduzir a recarga da quarta defesa |
 | Alternância de alvo e função | Linha Partida, Cartógrafa, Equilíbrio | Transformar preparação ofensiva em cuidado, ou cuidado em ataque |
 
 ## Referências de estrutura
@@ -25,6 +31,8 @@ Foram consultadas as atualizações do Naruto Arena Classic com estilos de Lee, 
 
 ## Implementação
 
+- `src/combat-effects.js` controla reações, regeneração, selos e cálculos adicionais. Cada reação ativa uma vez; reações não ativam outras reações. Limpeza remove armadilhas hostis e condições novas, preservando os efeitos de apoio.
+- `src/kit-expansion.js` define a segunda passagem de identidade dos 64 kits restantes.
 - `src/kit-evolutions.js` define as alterações autorais por Elo e índice, sem substituir o catálogo básico por um novo ciclo genérico de arquétipos.
 - `src/kits.js` compila técnicas principais e alternativas com descrições, custos, classes e recargas completos.
 - `src/skill-state.js` mantém formas, usos e janelas por combatente. O catálogo original não é modificado durante a luta. Um novo encontro começa com as formas e os usos reiniciados.
@@ -39,4 +47,4 @@ Foram consultadas as atualizações do Naruto Arena Classic com estilos de Lee, 
 
 ## Verificação
 
-`tests/skill-forms.test.js` cobre as famílias acima, os 42 efeitos alternativos, custos reservados, anulações, troca após confirmação, recargas adiadas, janelas completas, quebra de vínculos, IA e apresentação. `tests/kits-audit.test.js` mantém a cobertura das 76 continuações básicas. O equilíbrio entre equipes e Rupturas continua sujeito a partidas de avaliação.
+`tests/skill-forms.test.js` cobre as famílias acima, os 56 efeitos alternativos, custos reservados, anulações, troca após confirmação, recargas adiadas, janelas completas, quebra de vínculos, IA e apresentação. `tests/kits-audit.test.js` mantém a cobertura das 76 continuações básicas. `tests/reactive-kits.test.js` cobre selos, condições de reação, limpeza, regeneração, crescimento, conversões e a preservação da defesa pessoal. O equilíbrio entre equipes e Rupturas continua sujeito a partidas de avaliação.

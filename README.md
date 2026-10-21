@@ -14,7 +14,7 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 
 ## O que já funciona
 
-- Catálogo jogável com 100 personagens, 400 técnicas principais e 42 técnicas alternativas: 54 Inferno, 35 Paraíso e 11 Limbo.
+- Catálogo jogável com 100 personagens, 400 técnicas principais e 56 técnicas alternativas: 54 Inferno, 35 Paraíso e 11 Limbo.
 - Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
 - Combate tático por turnos: uma ação por personagem, seleção de alvo, fila reordenável e confirmação antes da resposta adversária. Energia aleatória entre quatro tipos, com saldo acumulável.
@@ -45,4 +45,4 @@ Este é um protótipo jogável com 100 kits implementados; 74 já têm conjuntos
 
 `tests/kits-audit.test.js` executa as 76 continuações de combo com preparações do próprio personagem, verifica que marcas e cargas têm uso e cobre durações, anulações e benefícios em área. O balanceamento entre equipes e Rupturas continua sujeito a partidas de avaliação.
 
-36 kits têm técnicas que mudam por sequência, transformação, postura, reação, Vida, cargas ou usos limitados. As estruturas estão documentadas em `docs/SKILL_FORMS.md` e verificadas em `tests/skill-forms.test.js`.
+O elenco de 100 kits recebeu estruturas de preparação, transformação, reação, crescimento e apoio, com 56 técnicas alternativas. Armadilhas, selos seletivos, regeneração e conversão de recursos acrescentam decisões sem mudar os quatro espaços. As estruturas estão documentadas em `docs/SKILL_FORMS.md` e verificadas em `tests/skill-forms.test.js`.
