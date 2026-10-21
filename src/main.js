@@ -5,6 +5,8 @@ import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
 import { renderBattle } from "./battle-view.js";
+import { eloCrest } from "./crests.js";
+import { veilScene } from "./atmosphere.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -428,10 +430,14 @@ function hero() {
         <div class="hero-actions"><button class="button button-gold" data-tab="trio">FORMAR MEU TRIO <span>↗</span></button><span class="hero-caption">3v3 tático · trilhas roguelite</span></div>
       </div>
       <div class="hero-art" aria-hidden="true">
+        ${veilScene()}
+        <img class="hero-antagonist" src="${FINAL_BOSS.portrait}" alt="" fetchpriority="high">
+        <div class="veil-embers"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
         <div class="realm-mark mark-heaven">✧</div><div class="realm-mark mark-hell">✹</div>
         <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">P</div>
         <div class="hero-label label-heaven">PARAÍSO</div><div class="hero-label label-hell">INFERNO</div><div class="hero-label label-limbo">LIMBO</div>
+        <div class="hero-antagonist-caption"><small>A ÚLTIMA BARREIRA</small><b>O Fim</b><span>REI DO INFERNO</span></div>
       </div>
       <div class="hero-bottom"><span>CONFLITO CENTRAL</span><p>O Fim (The End), Rei do Inferno e Elo Final, quer rasgar o véu e estender o Inferno ao mundo dos vivos. Os Protetores do Paraíso tentam restaurar as barreiras.</p><span class="hero-index">01 <i>/</i> 03</span></div>
     </section>`;
@@ -457,6 +463,7 @@ function routeView() {
       <div class="realm-intro"><div><span class="eyebrow">DOMÍNIO · ${esc(realm.title.toUpperCase())}</span><p>${esc(realm.description)}</p></div><span class="realm-sigil">${realm.color === "inferno" ? "✹" : realm.color === "paraiso" ? "✧" : "⟲"}</span></div>
       <div class="elo-grid">${realm.elos.map((elo) => `
         <article class="elo-card elo-${elo.color} ${currentRun?.eloId === elo.id ? "is-current" : ""}">
+          ${eloCrest(elo,"elo-card-crest")}
           <div class="elo-card-top"><span class="elo-symbol">${elo.symbol}</span><span class="elo-status ${profile.completedElos.includes(elo.id) ? "complete" : ""}">${profile.completedElos.includes(elo.id) ? "CONCLUÍDO" : "TRILHA"}</span></div>
           <h3>Elo da ${esc(elo.name)}</h3><p class="elo-theme">${esc(elo.theme)}</p>
           <div class="elo-card-foot"><span>${esc(elo.strength)} <i>·</i> ${getEloRoster(elo.id).length} almas</span><button data-start-run="${elo.id}">${currentRun?.eloId === elo.id ? "RETOMAR" : "ENTRAR"} <b>↗</b></button></div>
@@ -560,7 +567,7 @@ function render() {
       <main class="main-content">
         ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : battleView()}
       </main>
-      <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.1</span></footer>
+      <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.3</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
 }
