@@ -157,7 +157,9 @@ const illustratedCharacterIds = new Set([
   "o-sussurro", "a-mascara-dupla", "o-tecelao-de-mentiras", "a-boca-de-vidro",
   "o-falso-profeta", "o-corretor-de-memorias", "o-incendiario", "o-odio-encarnado",
   "o-filho-da-cinza", "a-pira-errante", "o-coracao-em-furia", "o-devorador", "a-mao-que-toma",
-  "o-estomago-sem-fundo", "a-senhora-do-ultimo-pao", "o-credor", "a-balanca-vazia"
+  "o-estomago-sem-fundo", "a-senhora-do-ultimo-pao", "o-credor", "a-balanca-vazia",
+  "o-apodrecido", "a-praga-andante", "o-corrupto", "a-rainha-dos-fungos", "o-medico-de-vermes",
+  "o-jardim-morto"
 ]);
 
 const roleCycle = [
