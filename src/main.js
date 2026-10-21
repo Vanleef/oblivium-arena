@@ -434,15 +434,18 @@ function runMap() {
   const completed = run.stage >= run.map.length;
   const cleared = new Set(run.clearedNodeIds || []);
   const available = new Set(run.availableNodeIds || []);
-  const rowStep = 104;
-  const stageHeight = 82;
+  const rowStep = 114;
+  const stageHeight = 94;
   const height = run.map.length * rowStep - (rowStep - stageHeight);
   const xFor = (col) => 150 + col * 300;
   const edges = run.map.flat().flatMap((node) => node.nextIds.map((nextId) => {
     const next = run.map.flat().find((candidate) => candidate.id === nextId);
     if (!next) return "";
     const activeEdge = cleared.has(node.id) && available.has(next.id);
-    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${node.row * rowStep + stageHeight} L ${xFor(next.col)} ${next.row * rowStep}"/>`;
+    const startY = node.row * rowStep + stageHeight - 20;
+    const endY = next.row * rowStep + 4;
+    const bend = Math.max(13, (endY - startY) * .42);
+    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${startY} C ${xFor(node.col)} ${startY + bend}, ${xFor(next.col)} ${endY - bend}, ${xFor(next.col)} ${endY}"/>`;
   })).join("");
   return `
     <section class="run-panel">
@@ -455,8 +458,10 @@ function runMap() {
             const done = cleared.has(node.id);
             const canSelect = available.has(node.id) && !completed;
             const nodeType = node.type || node.id;
-            return `<button class="path-node type-${esc(nodeType)} ${done ? "done" : ""} ${canSelect ? "active" : "locked"}" style="grid-column:${node.col + 1}" ${canSelect ? `data-node="${esc(node.id)}"` : "disabled aria-disabled=\"true\""}>
-              <span class="node-icon">${done ? "✓" : node.icon}</span><b>${esc(node.label)}</b><small>${esc(node.desc)}</small><i class="node-type">${esc(nodeType === "boss" ? "CHEFE" : nodeType === "mini" ? "ELITE" : nodeType.toUpperCase())}</i>
+            const nodeKind = nodeType === "normal" ? "COMBATE" : nodeType === "boss" ? "CHEFE" : nodeType === "mini" ? "ELITE" : nodeType.toUpperCase();
+            const access = done ? "Concluído" : canSelect ? "Disponível para escolher" : "Bloqueado";
+            return `<button class="path-node type-${esc(nodeType)} ${done ? "done" : ""} ${canSelect ? "active" : "locked"}" style="grid-column:${node.col + 1}" ${canSelect ? `data-node="${esc(node.id)}"` : "disabled aria-disabled=\"true\""} title="${esc(node.desc)}" aria-label="${esc(`${node.label}, ${nodeKind.toLowerCase()}. ${node.desc}. ${access}.`)}">
+              <span class="node-icon" aria-hidden="true">${done ? "✓" : node.icon}</span><b>${esc(node.label)}</b><i class="node-type">${esc(nodeKind)}</i>
             </button>`;
           }).join("");
           return `<div class="path-stage ${stageIndex === run.stage ? "current-floor" : ""}"><span class="stage-number">${String(stageIndex + 1).padStart(2, "0")}</span><div class="stage-nodes">${nodes}</div></div>`;
