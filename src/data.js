@@ -165,7 +165,8 @@ const illustratedCharacterIds = new Set([
   "o-fim-silencioso", "o-menino-sem-sombra", "a-ultima-pagina", "o-lugar-de-ninguem",
   "a-muralha", "o-que-ficou", "o-ultimo-guardiao", "a-sentinela-azul",
   "a-mao-que-cura", "o-restaurador", "a-luz-que-restaura", "a-jardineira-das-feridas", "o-pulso-sereno",
-  "o-equilibrio", "a-lamina-justa", "o-que-pesa", "a-testemunha-integra", "o-julgador-gentil"
+  "o-equilibrio", "a-lamina-justa", "o-que-pesa", "a-testemunha-integra", "o-julgador-gentil",
+  "a-mensageira-do-amanha", "o-que-revela", "o-olho-desarmado", "a-guardia-das-promessas"
 ]);
 
 const roleCycle = [
@@ -341,3 +342,4 @@ export const buffs = [
   { id: "echo", title: "Eco do Trio", text: "A Ressonância concede mais 5% de bônus.", icon: "∞", effect: { resonance: 0.05 } },
   { id: "fracture", title: "Fissura Vigiada", text: "As habilidades de Limbo causam menos dano ao usuário.", icon: "⟲", effect: { risk: -4 } }
 ];
+
