@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { elos, starters } from "../src/data.js";
-function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};return {app,key:key=>handlers.keydown({key,preventDefault(){},target:{matches:()=>false}}),click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
+function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};return {app,handlers,key:key=>handlers.keydown({key,preventDefault(){},target:{matches:()=>false}}),click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
 test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila",async t=>{
  t.mock.timers.enable({apis:["setTimeout"]});t.mock.method(Math,"random",()=>.6);const {app,click}=setup();await import("../src/main.js?rework-smoke=1");
  click({startRun:"sangria"});assert.match(app.innerHTML,/Brasão do Elo Sangria/);assert.doesNotMatch(app.innerHTML,/map-illustration/);assert.equal((app.innerHTML.match(/data-node=/g)||[]).length,1);assert.doesNotMatch(app.innerHTML,/Guardião do Elo/);
@@ -37,4 +37,16 @@ test('inspecionar técnica cinza não reserva uma ação e Escape fecha a revis�
  click({useSkill:'o-escudo-vivo:impulso'});assert.match(app.innerHTML,/ALVO DESTACADO/);
  click({useSkill:'a-brasa-eterna:voto'});assert.match(app.innerHTML,/ENERGIA INSUFICIENTE/);assert.doesNotMatch(app.innerHTML,/class="[^"]*\svalid-target/);assert.doesNotMatch(app.innerHTML,/data-remove-action=/);
  click({action:'review-turn'});assert.match(app.innerHTML,/role="dialog"/);key('Escape');assert.doesNotMatch(app.innerHTML,/role="dialog"/);
+});
+
+
+test('Codex abre e fecha descrições por clique, Enter e Espaço sem perder a busca', async()=>{
+ const {app,handlers,click}=setup();await import('../src/main.js?codex-description=1');click({tab:'codex'});
+ assert.match(app.innerHTML,/data-codex-skill aria-expanded="false"/);
+ const details={open:false},summary={dataset:{codexSkill:''},expanded:null,closest(selector){return selector==='details'?details:this;},setAttribute(key,value){this.expanded=value;},matches(selector){return selector==='[data-codex-skill]';}};
+ let prevented=0;const event={target:summary,preventDefault(){prevented++;}};
+ handlers.click(event);assert.equal(details.open,true);assert.equal(summary.expanded,'true');
+ handlers.keydown({...event,key:'Enter'});assert.equal(details.open,false);assert.equal(summary.expanded,'false');
+ handlers.keydown({...event,key:' '});assert.equal(details.open,true);assert.equal(prevented,3);
+ assert.match(app.innerHTML,/Codex/);
 });

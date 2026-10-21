@@ -529,7 +529,7 @@ function codexView() {
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${esc(character.symbol)}</span><small>${owned ? "RECRUTADA" : "A RECRUTAR"}</small></div>
         <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${esc(character.symbol)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary>${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${index + 1}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p><small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
+        <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${index + 1}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p><small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
@@ -570,9 +570,17 @@ function previewTechnique(event) {
 app.addEventListener("pointerover", previewTechnique);
 app.addEventListener("focusin", previewTechnique);
 
+function toggleCodexSkill(summary) {
+  const details = summary.closest("details");
+  if (!details) return;
+  details.open = !details.open;
+  summary.setAttribute("aria-expanded", String(details.open));
+}
+
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
+  const target = event.target.closest("[data-codex-skill], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
   if (!target) return;
+  if (target.dataset.codexSkill !== undefined) { event.preventDefault(); toggleCodexSkill(target); return; }
   if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
   if (state.trailBusy) return;
   if (target.dataset.tab) {
@@ -661,6 +669,9 @@ app.addEventListener("input", (event) => {
 });
 
 app.addEventListener("keydown", (event) => {
+  if (event.target.matches("[data-codex-skill]") && (event.key === "Enter" || event.key === " ")) {
+    event.preventDefault(); toggleCodexSkill(event.target); return;
+  }
   if(state.battleFx||state.battle?.phase==="resolving")return;
   if(state.confirmTurn){
     if(event.key==="Escape"){event.preventDefault();state.confirmTurn=false;render();app.querySelector('[data-action="review-turn"]')?.focus({preventScroll:true});return;}
