@@ -32,6 +32,8 @@ test("um turno oferece três ações da equipe e mostra as intenções inimigas"
   assert.equal(battle.intents.length, 3);
   assert.ok(battle.intents.every((intent) => intent.abilityName && intent.targetName));
   assert.ok(battle.intents.some((intent) => intent.damage > 0));
+  const attackIntents = battle.intents.filter((intent) => intent.damage > 0);
+  assert.equal(new Set(attackIntents.map((intent) => intent.targetId)).size, attackIntents.length);
   assert.ok(battle.intents.filter((intent) => intent.kind === "guard").every((intent) => /próprio trio/.test(intent.effect)));
 
   for (const id of ids) assert.equal(chooseAction(battle, id, "impulso", battle.enemies[0].id).ok, true);

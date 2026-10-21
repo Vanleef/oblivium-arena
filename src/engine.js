@@ -166,7 +166,13 @@ function checkOutcome(state) {
 
 function enemyTarget(state, actor) {
   const taunting = living(state.allies).filter((ally) => ally.taunt > 0);
-  return taunting[0] || nearestTarget(state.allies);
+  if (taunting.length) return taunting[0];
+  const targets = living(state.allies);
+  if (!targets.length) return null;
+  const lowestRatio = Math.min(...targets.map((ally) => ally.hp / ally.maxHp));
+  const vulnerable = targets.filter((ally) => ally.hp / ally.maxHp <= lowestRatio + 0.08);
+  const actorIndex = Math.max(0, state.enemies.indexOf(actor));
+  return vulnerable[(actorIndex + state.round - 1) % vulnerable.length];
 }
 
 function chooseEnemyAbility(state, actor) {
