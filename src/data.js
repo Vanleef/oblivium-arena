@@ -159,7 +159,8 @@ const illustratedCharacterIds = new Set([
   "o-filho-da-cinza", "a-pira-errante", "o-coracao-em-furia", "o-devorador", "a-mao-que-toma",
   "o-estomago-sem-fundo", "a-senhora-do-ultimo-pao", "o-credor", "a-balanca-vazia",
   "o-apodrecido", "a-praga-andante", "o-corrupto", "a-rainha-dos-fungos", "o-medico-de-vermes",
-  "o-jardim-morto"
+  "o-jardim-morto", "o-que-observou", "a-porta-fechada", "o-surdo", "a-testemunha-cega",
+  "o-quarto-vazio", "o-vigia-ausente"
 ]);
 
 const roleCycle = [

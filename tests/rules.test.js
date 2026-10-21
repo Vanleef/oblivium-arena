@@ -44,7 +44,7 @@ test("o trio inicial tem retrato, passiva e quatro artes de habilidade em arquiv
   assert.ok(existsSync(new URL("../art/characters/o-fim/portrait.webp", import.meta.url)));
 });
 
-test("os trinta e cinco personagens seguintes têm artes únicas completas", () => {
+test("os quarenta e um personagens seguintes têm artes únicas completas", () => {
   const names = [
     "O Açougueiro", "A Viúva Escarlate", "O Colecionador de Cabeças", "Gêmeos do Cutelo",
     "O Carrasco sem Rosto", "A Mãe Rubra", "O Soberano Quebrado", "A Juíza de Ferro",
@@ -54,7 +54,8 @@ test("os trinta e cinco personagens seguintes têm artes únicas completas", () 
     "O Filho da Cinza", "A Pira Errante", "O Coração em Fúria", "O Devorador", "A Mão que Toma",
     "O Estômago sem Fundo", "A Senhora do Último Pão", "O Credor", "A Balança Vazia",
     "O Apodrecido", "A Praga Andante", "O Corrupto", "A Rainha dos Fungos", "O Médico de Vermes",
-    "O Jardim Morto"
+    "O Jardim Morto", "O que Observou", "A Porta Fechada", "O Surdo", "A Testemunha Cega",
+    "O Quarto Vazio", "O Vigia Ausente"
   ];
   for (const name of names) {
     const character = byName(name);
