@@ -566,7 +566,7 @@ function unitCard(unit, side, index) {
       const disabled = state.battle.phase !== "player" || acted || state.battle.acted.length >= state.battle.actionLimit || unit.hp <= 0 || unit.stunned > 0 || cooldown > 0 || !canAffordAbility(state.battle, unit, ability);
       return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""}" data-use-skill="${unit.id}:${ability.id}" title="${esc(ability.description || ability.name)}" ${disabled ? "disabled" : ""}>${ability.art ? `<img class="skill-art" src="${esc(ability.art)}" alt="" loading="lazy">` : `<span class="skill-art-fallback color-${esc(unit.color)}">${esc(unit.symbol)}</span>`}<span><b>${esc(ability.name)}</b><small>${cooldown ? `Recarga: ${cooldown} turno(s)` : esc(ability.description || ability.kind)}</small></span>${cooldown ? `<span class="cooldown-badge">${cooldown}T</span>` : costMarkup(unit, ability)}</button>`;
     }).join("")}</div>` : `<div class="enemy-hint">${selected ? "ALVO SELECIONADO" : "SELECIONAR ALVO"}</div>`}
-    ${isEnemy && intent && unit.hp > 0 ? `<div class="enemy-intent"><span>INTENÇÃO</span><b>${esc(intent.abilityName)}</b><small>${esc(intent.targetName)} · ${intent.damage ? `até ${intent.damage} de dano` : "defesa ou suporte"}</small></div>` : ""}
+    ${isEnemy && intent && unit.hp > 0 ? `<div class="enemy-intent"><span>INTENÇÃO</span><b>${esc(intent.abilityName)}</b><small>${esc(intent.damage ? `${intent.targetName} · até ${intent.damage} de dano` : intent.effect || intent.targetName)}</small></div>` : ""}
   </article>`;
 }
 

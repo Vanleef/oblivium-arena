@@ -191,9 +191,13 @@ function enemyAbilityScore(ability, actor, target) {
 function planEnemyIntents(state) {
   state.intents = living(state.enemies).map((actor) => {
     const ability = chooseEnemyAbility(state, actor);
-    const target = enemyTarget(state, actor);
+    const friendlyEffect = ["guard", "support", "heal"].includes(ability.kind);
+    const target = friendlyEffect ? null : enemyTarget(state, actor);
+    const friendlyTarget = [...living(state.enemies)].sort((a, b) => a.hp / a.maxHp - b.hp / b.maxHp)[0];
     const damage = ability.kind === "guard" || ability.kind === "support" || ability.kind === "heal" ? 0 : Math.max(0, ability.damage || 0) + (ability.kind === "burst" ? 5 : 0);
-    const intent = { actorId: actor.id, abilityId: ability.id, abilityName: ability.name, targetId: target?.id || null, targetName: target?.name || "Trio", kind: ability.kind, damage };
+    const targetName = ability.kind === "guard" ? "próprio trio" : ["support", "heal"].includes(ability.kind) ? friendlyTarget?.name || "aliado ferido" : target?.name || "Trio";
+    const effect = ability.kind === "guard" ? "protege o próprio trio" : ["support", "heal"].includes(ability.kind) ? `cura ${targetName}` : "";
+    const intent = { actorId: actor.id, abilityId: ability.id, abilityName: ability.name, targetId: target?.id || friendlyTarget?.id || null, targetName, kind: ability.kind, damage, effect };
     actor.intent = intent;
     return intent;
   });
