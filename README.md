@@ -19,7 +19,7 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
 - Combate tático por turnos com Essência compartilhada e afinidades de Cinza, Graça e Ruptura; aliados vivos geram recursos para o trio.
 - Quatro técnicas por personagem: ataque básico gratuito, técnicas com custos de afinidade e uma quarta técnica defensiva.
-- Retrato, passiva e quatro artes de habilidade para 56 personagens: o trio inicial e 53 personagens de Sangria, Coroa, Mentira, Chama, Fome, Podridão, Silêncio, Carne e Vazio; O Fim tem retrato próprio.
+- Retrato, passiva e quatro artes de habilidade para 60 personagens: o trio inicial e 57 personagens de Sangria, Coroa, Mentira, Chama, Fome, Podridão, Silêncio, Carne, Vazio e Proteção; O Fim tem retrato próprio.
 - Trilhas com rotas ramificadas, combates normais e de elite, eventos, aprimoramentos, reparos, tesouros, mini-boss e Guardião final.
 - Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
 - Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
@@ -33,4 +33,4 @@ Anime japonês 2D de fantasia sobrenatural, com line art forte, sombras em cel s
 
 ## Estado
 
-Este é o primeiro slice jogável. O elenco contém 100 personagens planejados; 56 já têm conjuntos completos de seis imagens e O Fim tem retrato próprio. A cobertura visual dos outros 44 personagens, o balanceamento e a campanha narrativa completa seguem em expansão.
+Este é o primeiro slice jogável. O elenco contém 100 personagens planejados; 60 já têm conjuntos completos de seis imagens e O Fim tem retrato próprio. A cobertura visual dos outros 40 personagens, o balanceamento e a campanha narrativa completa seguem em expansão.
