@@ -1,10 +1,10 @@
-import { characters, characterById, elos, realms, routeStages, buffs, starters } from "./data.js";
+import { characters, characterById, elos, realms, routeStages, buffs, starters, resources, resourceById, realmResource } from "./data.js";
 import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
-import { chooseAction, createBattle, createEnemyTeam, getEloById, passTurn } from "./engine.js";
+import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getAbilityResourceCosts, getEloById, passTurn } from "./engine.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
-const FINAL_BOSS = Object.freeze({ id: "the-end", name: "O Fim", nameEn: "The End", title: "Rei do Inferno" });
+const FINAL_BOSS = Object.freeze({ id: "the-end", name: "O Fim", nameEn: "The End", title: "Rei do Inferno", portrait: "/art/characters/o-fim/portrait.webp" });
 const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1", "selyvar-arena-v1", "three-realms-soul-arena-v1", "post-mortem-arena-v1"];
 const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
@@ -56,12 +56,40 @@ function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 }
 
+function portraitMarkup(character, className) {
+  return character.art?.portrait
+    ? `<img class="${className}" src="${esc(character.art.portrait)}" alt="" loading="lazy">`
+    : `<span class="${className} portrait-fallback color-${esc(character.color)}" aria-hidden="true">${esc(character.symbol)}</span>`;
+}
+
+function costMarkup(actor, ability) {
+  const costs = getAbilityResourceCosts(actor, ability);
+  const entries = Object.entries(costs);
+  if (!entries.length) return `<span class="cost-label">BASE</span>`;
+  const title = entries.map(([id, amount]) => `${amount} ${resourceById[id]?.name || id}`).join(" + ");
+  return `<span class="skill-cost" title="${esc(title)}">${entries.flatMap(([id, amount]) => Array.from({ length: amount }, () => `<i class="cost-pip pip-${esc(id)}" aria-hidden="true"></i>`)).join("")}</span>`;
+}
+
+function teamResourceLegend(teamIds) {
+  const affinities = new Set(teamIds.map((id) => characterById[id]?.affinity).filter(Boolean));
+  const active = resources.filter((resource) => resource.id === "essence" || affinities.has(resource.id));
+  return `<div class="team-resource-legend"><small>RECURSOS DA FORMAÇÃO</small><div>${active.map((resource) => `<span class="resource-${resource.color}"><i>${resource.icon}</i>${esc(resource.shortName)}</span>`).join("")}</div></div>`;
+}
+
 function team() {
   return profile.team.map((id) => characterById[id]).filter(Boolean);
 }
 
 function activeElo() {
   return elos.find((elo) => elo.id === (profile.run?.eloId || state.eloId)) || elos[0];
+}
+
+function activeAffinityResource() {
+  return resourceById[realmResource[activeElo().realm]];
+}
+
+function activeAffinityBuff() {
+  return activeAffinityResource().id === "cinza" ? "cinzas" : activeAffinityResource().id;
 }
 
 function toast(message) {
@@ -124,8 +152,18 @@ function startEncounter(node) {
     enemies[0].name = FINAL_BOSS.name;
     enemies[0].nameEn = FINAL_BOSS.nameEn;
     enemies[0].title = FINAL_BOSS.title;
+    enemies[0].art = { portrait: FINAL_BOSS.portrait };
+    enemies[0].abilities = [
+      { id: "fenda", name: "Fenda do Véu", kind: "strike", cost: 0, damage: 29, target: "enemy" },
+      { id: "decreto", name: "Decreto do Fim", kind: "control", cost: 1, damage: 32, target: "enemy" },
+      { id: "coroa", name: "Coroa que Não Cai", kind: "guard", cost: 1, damage: 0, shield: 24, target: "team" }
+    ];
     enemies[1].name = "Arauto do Véu Partido";
+    enemies[1].art = null;
+    enemies[1].symbol = "◇";
     enemies[2].name = "Sentinela das Barreiras";
+    enemies[2].art = null;
+    enemies[2].symbol = "⬡";
   }
   state.battleNode = node;
   state.battle = createBattle(profile.team, enemies, { buffs: profile.run?.buffs || [] });
@@ -148,8 +186,8 @@ function resolveNode(node) {
   }
   if (node.id === "treasure") {
     profile.fragments += 12;
-    profile.run.buffs.push("essence");
-    toast("Você encontrou 12 fragmentos e um Eco de Essência.");
+    profile.run.buffs.push(activeAffinityBuff());
+    toast(`Você encontrou 12 fragmentos e um Eco de ${activeAffinityResource().shortName}.`);
     continueRun();
     return;
   }
@@ -167,8 +205,8 @@ function chooseEvent(choice) {
     toast("Uma alma gentil reforça uma Corrente.");
   } else {
     profile.fragments += 8;
-    profile.run.buffs.push("essence");
-    toast("Você guarda 8 fragmentos e um Eco de Essência.");
+    profile.run.buffs.push(activeAffinityBuff());
+    toast(`Você guarda 8 fragmentos e um Eco de ${activeAffinityResource().shortName}.`);
   }
   continueRun();
 }
@@ -337,7 +375,7 @@ function pendingPanel() {
   const pending = state.pending;
   if (!pending) return "";
   if (pending.type === "event") return `
-    <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e Essência extra</small></button></div></section>`;
+    <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e 1 ${esc(activeAffinityResource().name)} extra por combate</small></button></div></section>`;
   if (pending.type === "upgrade") return `
     <section class="choice-panel"><div class="eyebrow">APRIMORAMENTO · ESCOLHA UM ECO</div><h3>O trio se adapta à trilha.</h3><div class="buff-choices">${pending.choices.map((buff) => `<button class="buff-card" data-choose-buff="${buff.id}"><span>${buff.icon}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)}</small></button>`).join("")}</div></section>`;
   if (pending.type === "complete") return `
@@ -366,9 +404,10 @@ function teamView() {
         <div class="team-builder-heading"><div><div class="eyebrow">SUA FORMAÇÃO</div><h2>Trio de combate</h2></div><span>${profile.team.length} / 3</span></div>
         <div class="active-team">${[0, 1, 2].map((index) => {
           const member = characterById[profile.team[index]];
-          return member ? `<article class="team-slot slot-${member.color}"><span class="slot-index">0${index + 1}</span><span class="slot-avatar">${member.symbol}</span><div><small>${esc(member.realm)} · ${esc(member.elo)}</small><b>${esc(member.name)}</b><span>${esc(member.role)}</span></div><button data-remove-member="${member.id}" aria-label="Remover ${esc(member.name)}">×</button></article>` : `<article class="team-slot empty-slot"><span class="slot-index">0${index + 1}</span><span class="empty-plus">+</span><div><b>Escolha uma alma</b><small>Selecione abaixo</small></div></article>`;
+          return member ? `<article class="team-slot slot-${member.color}"><span class="slot-index">0${index + 1}</span>${portraitMarkup(member, "slot-avatar")}<div><small>${esc(member.realm)} · ${esc(member.elo)}</small><b>${esc(member.name)}</b><span>${esc(member.role)}</span></div><button data-remove-member="${member.id}" aria-label="Remover ${esc(member.name)}">×</button></article>` : `<article class="team-slot empty-slot"><span class="slot-index">0${index + 1}</span><span class="empty-plus">+</span><div><b>Escolha uma alma</b><small>Selecione abaixo</small></div></article>`;
         }).join("")}</div>
         ${resonanceCard()}
+        ${teamResourceLegend(profile.team)}
         <div class="team-note"><b>Correntes Quebradas</b><span>Uma alma do Limbo pode criar uma Ressonância Caótica com qualquer Elo.</span></div>
         <button class="button button-gold full-button" data-tab="rota">IR PARA A GRANDE ROTA <span>↗</span></button>
       </section>
@@ -381,7 +420,7 @@ function teamView() {
           const selected = profile.team.includes(character.id);
           const disabled = !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            <span class="roster-card-symbol color-${character.color}">${character.symbol}</span><span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)} · ${esc(character.role)}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)} · ${esc(character.role)}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -402,9 +441,9 @@ function codexView() {
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
-        <div class="codex-card-head color-${character.color}"><span>${character.symbol}</span><small>${owned ? "RECRUTADA" : "TRILHA NÃO CONCLUÍDA"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive"><b>${esc(character.passive.name)}</b><span>${esc(character.flavor)}</span></div></div>
-        <div class="codex-moves">${character.abilities.map((ability, index) => `<span><i>0${index + 1}</i>${esc(ability.name)}</span>`).join("")}</div>
+        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${esc(character.symbol)}</span><small>${owned ? "RECRUTADA" : "TRILHA NÃO CONCLUÍDA"}</small></div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${esc(character.symbol)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        <div class="codex-moves">${character.abilities.map((ability, index) => `<span title="${esc(ability.description)}">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${String(index + 1).padStart(2, "0")}</i>`}<b>${esc(ability.name)}</b></span>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
@@ -415,13 +454,13 @@ function unitCard(unit, side, index) {
   const hpPercent = Math.max(0, (unit.hp / unit.maxHp) * 100);
   const barClass = unit.realm === "Inferno" ? "hp-hell" : unit.realm === "Paraíso" ? "hp-heaven" : "hp-limbo";
   return `<article class="combat-unit ${isEnemy ? "enemy-unit" : "ally-unit"} ${unit.hp <= 0 ? "fallen" : ""} ${selected ? "targeted" : ""}" ${isEnemy && unit.hp > 0 ? `data-target="${unit.id}" role="button" tabindex="0"` : ""}>
-    <div class="unit-top"><span class="unit-index">0${index + 1}</span><span class="unit-symbol color-${unit.color}">${unit.symbol}</span><span class="unit-state">${unit.hp <= 0 ? "CAÍDO" : unit.stunned ? "ATORDOADO" : unit.shield ? "ESCUDO " + unit.shield : unit.role}</span></div>
-    <b class="unit-name">${esc(unit.name)}</b><small class="unit-title">${esc(unit.elo)} · ${esc(unit.realm)}</small>
+    <div class="unit-top"><span class="unit-index">0${index + 1}</span>${portraitMarkup(unit, "unit-symbol")}<span class="unit-state">${unit.hp <= 0 ? "CAÍDO" : unit.stunned ? "ATORDOADO" : unit.shield ? "ESCUDO " + unit.shield : unit.role}</span></div>
+    <b class="unit-name">${esc(unit.name)}</b><small class="unit-title">${unit.nameEn ? `${esc(unit.nameEn)} · ${esc(unit.title)}` : `${esc(unit.elo)} · ${esc(unit.realm)}`}</small>
     <div class="health-row"><div class="health-track"><i class="${barClass}" style="width:${hpPercent}%"></i></div><b>${Math.max(0, unit.hp)}</b></div>
     ${!isEnemy ? `<div class="unit-skills">${unit.abilities.map((ability) => {
       const acted = state.battle.acted.includes(unit.id);
-      const disabled = state.battle.phase !== "player" || acted || unit.hp <= 0 || state.battle.essence < ability.cost;
-      return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""}" data-use-skill="${unit.id}:${ability.id}" ${disabled ? "disabled" : ""}><span><b>${esc(ability.name)}</b><small>${ability.kind}</small></span><i>${ability.cost ? "◈ " + ability.cost : "BASE"}</i></button>`;
+      const disabled = state.battle.phase !== "player" || acted || unit.hp <= 0 || !canAffordAbility(state.battle, unit, ability);
+      return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""}" data-use-skill="${unit.id}:${ability.id}" title="${esc(ability.description || ability.name)}" ${disabled ? "disabled" : ""}>${ability.art ? `<img class="skill-art" src="${esc(ability.art)}" alt="" loading="lazy">` : `<span class="skill-art-fallback color-${esc(unit.color)}">${esc(unit.symbol)}</span>`}<span><b>${esc(ability.name)}</b><small>${esc(ability.description || ability.kind)}</small></span>${costMarkup(unit, ability)}</button>`;
     }).join("")}</div>` : `<div class="enemy-hint">${selected ? "ALVO SELECIONADO" : "SELECIONAR ALVO"}</div>`}
   </article>`;
 }
@@ -431,8 +470,9 @@ function battleView() {
   if (!battle) return "";
   const result = battle.phase === "victory" || battle.phase === "defeat";
   const node = state.battleNode;
+  const visibleResources = resources.filter((resource) => resource.id === "essence" || battle.allies.some((ally) => ally.affinity === resource.id));
   return `
-    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p></div><div class="combat-resource"><small>ESSÊNCIA</small><b>${battle.essence}<i> / 5</i></b></div></section>
+    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
     <div class="battle-layout">
       <section class="battle-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
       <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div><button class="pass-turn" data-action="pass-turn" ${battle.phase !== "player" || result ? "disabled" : ""}>ENCERRAR TURNO <span>↗</span></button></div>

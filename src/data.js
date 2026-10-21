@@ -20,7 +20,7 @@ const inferno = [
   {
     id: "chama", name: "Chama", realm: "Inferno", theme: "Ódio, vingança e fogo negro", strength: "Alta",
     symbol: "♨", color: "ember", forms: ["O Incendiário", "A Brasa Eterna", "O Ódio Encarnado", "O Filho da Cinza", "A Pira Errante", "O Coração em Fúria"],
-    moves: ["Faísca de Ódio", "Brasa Ascendente", "Fogo Punitivo", "Incêndio Absoluto"], passive: "Combustão",
+    moves: ["Faísca de Ódio", "Brasa Ascendente", "Fogo Punitivo", "Manto de Cinzas"], passive: "Combustão",
     flavor: "Raiva alimenta a chama escura. A força vem depressa e sempre cobra um preço."
   },
   {
@@ -107,6 +107,49 @@ const limbo = [{
   flavor: "As almas deste reino carregam correntes instáveis. Toda ruptura pode virar poder, com risco real para quem a invoca."
 }];
 
+export const resources = [
+  { id: "essence", name: "Essência", shortName: "Essência", icon: "◈", color: "essence" },
+  { id: "cinza", name: "Cinza", shortName: "Cinza", icon: "✹", color: "inferno" },
+  { id: "graca", name: "Graça", shortName: "Graça", icon: "✧", color: "paraiso" },
+  { id: "ruptura", name: "Ruptura", shortName: "Ruptura", icon: "⟲", color: "limbo" }
+];
+
+export const resourceById = Object.fromEntries(resources.map((resource) => [resource.id, resource]));
+export const realmResource = { Inferno: "cinza", "Paraíso": "graca", Limbo: "ruptura" };
+
+const starterArt = {
+  "O Escudo Vivo": {
+    portrait: "/art/characters/o-escudo-vivo/portrait.webp",
+    passive: "/art/characters/o-escudo-vivo/passive.webp",
+    abilities: {
+      impulso: "/art/characters/o-escudo-vivo/skill-impulso.webp",
+      tecnica: "/art/characters/o-escudo-vivo/skill-tecnica.webp",
+      voto: "/art/characters/o-escudo-vivo/skill-voto.webp",
+      despertar: "/art/characters/o-escudo-vivo/skill-despertar.webp"
+    }
+  },
+  "A Brasa Eterna": {
+    portrait: "/art/characters/a-brasa-eterna/portrait.webp",
+    passive: "/art/characters/a-brasa-eterna/passive.webp",
+    abilities: {
+      impulso: "/art/characters/a-brasa-eterna/skill-impulso.webp",
+      tecnica: "/art/characters/a-brasa-eterna/skill-tecnica.webp",
+      voto: "/art/characters/a-brasa-eterna/skill-voto.webp",
+      despertar: "/art/characters/a-brasa-eterna/skill-despertar.webp"
+    }
+  },
+  "O Passo Interrompido": {
+    portrait: "/art/characters/o-passo-interrompido/portrait.webp",
+    passive: "/art/characters/o-passo-interrompido/passive.webp",
+    abilities: {
+      impulso: "/art/characters/o-passo-interrompido/skill-impulso.webp",
+      tecnica: "/art/characters/o-passo-interrompido/skill-tecnica.webp",
+      voto: "/art/characters/o-passo-interrompido/skill-voto.webp",
+      despertar: "/art/characters/o-passo-interrompido/skill-despertar.webp"
+    }
+  }
+};
+
 const roleCycle = [
   { name: "Vanguarda", kind: "strike", hint: "abre caminho com dano direto" },
   { name: "Controlador", kind: "control", hint: "desorganiza o turno inimigo" },
@@ -128,6 +171,38 @@ function characterFrom(elo, name, index) {
   const moves = elo.moves;
   const risky = elo.realm === "Limbo" || (elo.realm === "Inferno" && ["Chama", "Sangria", "Vazio"].includes(elo.name));
   const eloArticle = ["Vazio", "Silêncio"].includes(elo.name) ? "do Elo do " : "do Elo da ";
+  const affinity = realmResource[elo.realm];
+  const affinityName = resourceById[affinity].shortName;
+  const art = starterArt[name];
+  const tacticalKind = index % 2 ? "control" : "strike";
+  const thirdKind = ["guard", "support", "control", "strike"][index % 4];
+  const thirdDescriptions = {
+    guard: "Ergue uma proteção para o trio.",
+    support: "Recupera Vida do aliado mais ferido e reforça sua guarda.",
+    control: "Atinge e enfraquece um inimigo por uma ação.",
+    strike: "Golpe tático de dano direto contra um inimigo."
+  };
+  const teamGuard = role.name === "Guardião" || role.name === "Apoio" || index % 3 === 0;
+  const abilities = [
+    {
+      id: "impulso", name: moves[0] + " · " + epithet, kind: "strike", cost: 0, costs: {},
+      damage: 18 + (index % 3), target: "enemy", description: "Ataque básico; gera 1 de Essência.", art: art?.abilities.impulso
+    },
+    {
+      id: "tecnica", name: moves[1] + " de " + epithet, kind: tacticalKind, cost: 1, costs: { affinity: 1 },
+      damage: 24 + (index % 4), target: "enemy", description: `${role.hint}; custa 1 ${affinityName}.`, art: art?.abilities.tecnica
+    },
+    {
+      id: "voto", name: moves[2] + " · " + epithet, kind: thirdKind, cost: 2, costs: { essence: 1, affinity: 1 },
+      damage: 17 + (index % 3), shield: 16 + (index % 5), target: "team",
+      description: `${thirdDescriptions[thirdKind]} Custa 1 Essência + 1 ${affinityName}.`, art: art?.abilities.voto
+    },
+    {
+      id: "despertar", name: moves[3] + " de " + epithet, kind: "guard", cost: 2, costs: { affinity: 2 },
+      damage: 0, shield: 20 + (index % 5), target: teamGuard ? "team" : "self",
+      description: `Técnica defensiva: ${teamGuard ? "protege o trio" : "protege o usuário"}. Custa 2 ${affinityName}.`, art: art?.abilities.despertar
+    }
+  ];
   return {
     id: slug(name),
     name,
@@ -140,23 +215,21 @@ function characterFrom(elo, name, index) {
     indexInElo: index,
     color: elo.color,
     symbol: elo.symbol,
+    affinity,
+    art: art ? { portrait: art.portrait, passive: art.passive } : null,
     maxHp: 100,
     starter,
     unlockedByDefault: starter,
     passive: {
       name: elo.passive,
+      art: art?.passive,
       description: elo.realm === "Limbo"
         ? "Uma vez por combate, seu primeiro golpe especial causa dano extra e a Corrente Quebrada também fere o próprio usuário."
         : elo.realm === "Paraíso"
           ? "Na primeira vez que um aliado cai abaixo de 40 de Vida, concede 10 de escudo ao trio."
           : "Seu primeiro golpe certeiro no combate gera 1 de Essência para a equipe."
     },
-    abilities: [
-      { id: "impulso", name: moves[0] + " · " + epithet, kind: "strike", cost: 0, damage: 18 + (index % 3), target: "enemy", description: "Ataque básico; gera 1 de Essência." },
-      { id: "tecnica", name: moves[1] + " de " + epithet, kind: index % 2 ? "control" : "strike", cost: 1, damage: 24 + (index % 4), target: "enemy", description: role.hint + "; custa 1 de Essência." },
-      { id: "voto", name: moves[2] + " · " + epithet, kind: ["guard", "support", "control", "strike"][index % 4], cost: 2, damage: 17 + (index % 3), target: "team", description: "Técnica tática; custa 2 de Essência." },
-      { id: "despertar", name: moves[3] + " de " + epithet, kind: "burst", cost: 3, damage: 38 + (index % 5), target: "enemy", description: risky ? "Golpe extremo. Custa 3 de Essência e pode cobrar Vida do usuário." : "Golpe decisivo; custa 3 de Essência." }
-    ],
+    abilities,
     flavor: elo.flavor,
     risk: risky
   };
@@ -226,6 +299,9 @@ export const buffs = [
   { id: "edge", title: "Fio Ressonante", text: "Todo o trio causa +12% de dano nesta trilha.", icon: "✧", effect: { damage: 0.12 } },
   { id: "ward", title: "Escudo de Partida", text: "O trio começa cada combate com 12 de escudo.", icon: "⬡", effect: { shield: 12 } },
   { id: "essence", title: "Núcleo de Essência", text: "Comece cada combate com 1 de Essência extra.", icon: "◈", effect: { essence: 1 } },
+  { id: "cinzas", title: "Cinzas da Travessia", text: "Comece cada combate com 1 Cinza extra.", icon: "✹", effect: { cinza: 1 } },
+  { id: "graca", title: "Graça Remanescente", text: "Comece cada combate com 1 Graça extra.", icon: "✧", effect: { graca: 1 } },
+  { id: "ruptura", title: "Fenda Contida", text: "Comece cada combate com 1 Ruptura extra.", icon: "⟲", effect: { ruptura: 1 } },
   { id: "mend", title: "Fio de Vida", text: "Aumenta em 10 a Vida máxima de cada aliado na trilha.", icon: "✚", effect: { maxHp: 10 } },
   { id: "echo", title: "Eco do Trio", text: "A Ressonância concede mais 5% de bônus.", icon: "∞", effect: { resonance: 0.05 } },
   { id: "fracture", title: "Fissura Vigiada", text: "As habilidades de Limbo causam menos dano ao usuário.", icon: "⟲", effect: { risk: -4 } }

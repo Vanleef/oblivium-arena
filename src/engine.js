@@ -1,15 +1,20 @@
-import { characterById, buffs, getElo } from "./data.js";
+import { characterById, buffs, getElo, resources } from "./data.js";
 import { getResonance } from "./rules.js";
+
+const RESOURCE_CAP = 5;
 
 const cloneUnit = (character, side) => ({
   id: character.id,
   name: character.name,
+  nameEn: character.nameEn,
   title: character.title,
   realm: character.realm,
   elo: character.elo,
   eloId: character.eloId,
   color: character.color,
   symbol: character.symbol,
+  affinity: character.affinity,
+  art: character.art,
   role: character.role,
   abilities: character.abilities,
   passive: character.passive,
@@ -35,6 +40,26 @@ function log(state, text) {
   state.log = state.log.slice(0, 12);
 }
 
+export function getAbilityResourceCosts(actor, ability) {
+  const source = ability.costs || (ability.cost ? { essence: ability.cost } : {});
+  return Object.entries(source).reduce((costs, [resourceId, amount]) => {
+    const resolvedId = resourceId === "affinity" ? actor.affinity : resourceId;
+    if (resolvedId && amount > 0) costs[resolvedId] = (costs[resolvedId] || 0) + amount;
+    return costs;
+  }, {});
+}
+
+export function canAffordAbility(state, actor, ability) {
+  return Object.entries(getAbilityResourceCosts(actor, ability)).every(([resourceId, amount]) => (state.resources?.[resourceId] || 0) >= amount);
+}
+
+function gainResource(state, resourceId, amount = 1) {
+  const current = state.resources[resourceId] || 0;
+  const next = Math.min(RESOURCE_CAP, current + amount);
+  state.resources[resourceId] = next;
+  return next - current;
+}
+
 function hit(target, value, state) {
   let remaining = Math.max(1, Math.round(value * (target.weakened ? 0.75 : 1)));
   const blocked = Math.min(target.shield, remaining);
@@ -45,37 +70,30 @@ function hit(target, value, state) {
   return { dealt: remaining, blocked };
 }
 
-function grantShield(team, value) {
-  const livingTeam = living(team);
-  if (!livingTeam.length) return null;
-  const target = [...livingTeam].sort((a, b) => a.shield - b.shield)[0];
-  target.shield += value;
-  return target;
-}
-
 function applyAbility(state, actor, ability, selectedTarget, isPlayer = true) {
   const allies = isPlayer ? state.allies : state.enemies;
   const enemies = isPlayer ? state.enemies : state.allies;
   const target = selectedTarget && selectedTarget.hp > 0 ? selectedTarget : nearestTarget(enemies);
-  const cost = ability.cost;
-  const limboRisk = isPlayer && actor.realm === "Limbo" && cost > 0 && !state.passivesUsed.has(actor.id);
-  if (isPlayer && state.essence < cost) return false;
-  if (isPlayer) state.essence -= cost;
-  if (!cost) state.essence = Math.min(5, state.essence + 1);
+  const costs = getAbilityResourceCosts(actor, ability);
+  const totalCost = Object.values(costs).reduce((sum, amount) => sum + amount, 0);
+  const limboRisk = isPlayer && actor.realm === "Limbo" && totalCost > 0 && !state.passivesUsed.has(actor.id);
+  if (isPlayer && !canAffordAbility(state, actor, ability)) return false;
+  if (isPlayer) for (const [resourceId, amount] of Object.entries(costs)) state.resources[resourceId] -= amount;
+  if (!totalCost) gainResource(state, "essence", 1);
 
   if (ability.kind === "guard") {
-    const shieldTarget = ability.target === "team" ? grantShield(allies, 17 + (ability.damage % 4)) : actor;
+    const shield = ability.shield ?? (ability.target === "team" ? 18 : 22);
     if (ability.target === "team") {
-      for (const member of living(allies)) member.shield += 10;
+      for (const member of living(allies)) member.shield += shield;
     } else {
-      actor.shield += 19;
+      actor.shield += shield;
     }
-    log(state, actor.name + " ergue " + ability.name + (shieldTarget ? " e reforça a guarda." : "."));
+    log(state, actor.name + " ergue " + ability.name + (ability.target === "team" ? " e protege o trio com " : " e se protege com ") + shield + " de escudo.");
   } else if (ability.kind === "support") {
     const weakest = [...living(allies)].sort((a, b) => a.hp - b.hp)[0] || actor;
     const healed = Math.min(20, weakest.maxHp - weakest.hp);
     weakest.hp += healed;
-    weakest.shield += 6;
+    weakest.shield += ability.shield ?? 6;
     log(state, actor.name + " usa " + ability.name + ": " + weakest.name + " recupera " + healed + " de Vida.");
   } else {
     if (!target) return false;
@@ -95,8 +113,7 @@ function applyAbility(state, actor, ability, selectedTarget, isPlayer = true) {
   }
   if (isPlayer && actor.realm === "Inferno" && !state.passivesUsed.has(actor.id) && !["guard", "support"].includes(ability.kind)) {
     state.passivesUsed.add(actor.id);
-    if (state.essence < 5) {
-      state.essence += 1;
+    if (gainResource(state, "essence", 1)) {
       log(state, actor.name + " canaliza a força do Inferno: +1 de Essência.");
     }
   }
@@ -141,9 +158,15 @@ function enemyTurn(state) {
     state.round += 1;
     state.acted = [];
     for (const ally of living(state.allies)) ally.stunned = 0;
-    state.essence = Math.min(5, state.essence + 1 + state.buffs.essence);
+    let essenceGained = 0;
+    const affinityGains = {};
+    for (const ally of living(state.allies)) {
+      essenceGained += gainResource(state, "essence", 1);
+      affinityGains[ally.affinity] = (affinityGains[ally.affinity] || 0) + gainResource(state, ally.affinity, 1);
+    }
     state.phase = "player";
-    log(state, "Rodada " + state.round + ": o trio recupera o fôlego e 1 de Essência.");
+    const affinitySummary = Object.entries(affinityGains).filter(([, amount]) => amount > 0).map(([id, amount]) => `+${amount} ${resources.find((resource) => resource.id === id)?.shortName || id}`).join(", ");
+    log(state, "Rodada " + state.round + ": aliados em pé geram +" + essenceGained + " Essência" + (affinitySummary ? " e " + affinitySummary : "") + ".");
   }
 }
 
@@ -154,7 +177,7 @@ export function createBattle(teamIds, enemyTeam, config = {}) {
     const effect = buffs.find((buff) => buff.id === id)?.effect || {};
     for (const [key, value] of Object.entries(effect)) acc[key] = (acc[key] || 0) + value;
     return acc;
-  }, { damage: 0, shield: 0, essence: 0, maxHp: 0, resonance: 0, risk: 0 });
+  }, { damage: 0, shield: 0, essence: 0, cinza: 0, graca: 0, ruptura: 0, maxHp: 0, resonance: 0, risk: 0 });
   resonance.bonus += buffValues.resonance;
   const allies = teamIds.map((id) => characterById[id]).filter(Boolean).map((character) => {
     const unit = cloneUnit(character, "player");
@@ -164,8 +187,9 @@ export function createBattle(teamIds, enemyTeam, config = {}) {
   });
   const enemies = enemyTeam.map((character) => cloneUnit(character, "enemy"));
   for (const ally of allies) ally.shield = buffValues.shield;
+  const resourceValues = Object.fromEntries(resources.map((resource) => [resource.id, buffValues[resource.id] || 0]));
   return {
-    allies, enemies, round: 1, essence: buffValues.essence, resonance,
+    allies, enemies, round: 1, resources: resourceValues, resonance,
     buffs: buffValues, acted: [], passivesUsed: new Set(), virtuePassiveUsed: false, phase: "player", log: ["O combate começou. Ações do trio compartilham Essência."],
     turnSlots: allies.length
   };
@@ -177,7 +201,7 @@ export function chooseAction(state, actorId, abilityId, targetId) {
   if (!actor || state.acted.includes(actor.id)) return { ok: false, reason: "Esse aliado já agiu." };
   const ability = actor.abilities.find((item) => item.id === abilityId);
   if (!ability) return { ok: false, reason: "Técnica indisponível." };
-  if (state.essence < ability.cost) return { ok: false, reason: "Essência insuficiente." };
+  if (!canAffordAbility(state, actor, ability)) return { ok: false, reason: "Recursos insuficientes para essa técnica." };
   const target = state.enemies.find((unit) => unit.id === targetId && unit.hp > 0) || nearestTarget(state.enemies);
   if (!applyAbility(state, actor, ability, target, true)) return { ok: false, reason: "Não foi possível usar essa técnica." };
   state.acted.push(actor.id);

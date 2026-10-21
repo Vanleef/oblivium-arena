@@ -34,9 +34,20 @@ O Limbo é um território fragmentado das almas que tiraram a própria vida. O m
 
 ## Correntes da Alma
 
-Toda alma desperta uma Corrente após a morte. Correntes de Pecado tendem a dano e risco; Correntes de Virtude favorecem defesa, apoio e controle; Correntes Quebradas combinam alto retorno com instabilidade.
+Toda alma desperta uma Corrente após a morte. Correntes de Pecado tendem a dano e risco; Correntes de Virtude favorecem defesa, apoio e controle; Correntes Quebradas combinam alto retorno com instabilidade. Os personagens mantêm 100 pontos de Vida e não usam atributos de ataque, defesa ou agilidade. Dano e escudo são valores fixos definidos por cada técnica, com mudanças apenas por efeitos explícitos como Ressonância e aprimoramentos da trilha.
 
-Essência é um recurso compartilhado pelo trio. Ataques básicos geram Essência; técnicas táticas gastam de um a três pontos. Um Trio pode usar três personagens do mesmo Elo para obter Ressonância Completa, dois para Parcial, misturar Elos livremente ou incluir uma alma do Limbo para criar sinergias Caóticas.
+O trio compartilha Essência e também produz um recurso ligado ao reino de cada aliado. Assim, as ações combinam afinidades diferentes sem tornar personagens de reinos distintos incompatíveis.
+
+| Recurso | Reino | Papel no combate |
+| --- | --- | --- |
+| Essência | Todos | Ataques básicos geram 1; cada aliado vivo gera 1 ao fim da rodada. |
+| Cinza | Inferno | Cada aliado do Inferno vivo gera 1 ao fim da rodada. |
+| Graça | Paraíso | Cada aliado do Paraíso vivo gera 1 ao fim da rodada. |
+| Ruptura | Limbo | Cada aliado do Limbo vivo gera 1 ao fim da rodada. |
+
+Cada reserva tem limite de 5. A segunda técnica custa 1 recurso de afinidade; a terceira custa 1 Essência e 1 recurso de afinidade; a quarta técnica é sempre defensiva e custa 2 pontos de afinidade. A primeira técnica é básica e gratuita. Cada aliado tem uma ação por rodada. Aprimoramentos encontrados na Grande Rota podem conceder recursos no início do combate.
+
+Um Trio pode usar três personagens do mesmo Elo para obter Ressonância Completa, dois para Parcial, misturar Elos livremente ou incluir uma alma do Limbo para criar sinergias Caóticas.
 
 ## Grande Rota
 
@@ -55,4 +66,4 @@ Cada Guardião final comanda dois subordinados do próprio Elo. Depois de conclu
 
 ## Direção
 
-Shonen sobrenatural com confrontos legíveis, escolhas táticas e progressão de poder. A representação visual usa símbolos e cores abstratas nesta versão; arte e animação finais podem ser criadas em torno da identidade original de cada Elo.
+Shonen sobrenatural com confrontos legíveis, escolhas táticas e progressão de poder. Retratos, passivas e técnicas usam uma linha de fantasia sombria pintada à mão, com contornos nítidos, textura de pincel e iluminação cinematográfica. A paleta base é azul-ardósia e carvão; cada reino acrescenta sua própria cor. A arte evita texto embutido, marcas de franquias e imagens gráficas de automutilação ou suicídio.

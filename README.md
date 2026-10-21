@@ -17,7 +17,9 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Catálogo original com 100 personagens planejados: 54 Inferno, 35 Paraíso e 11 Limbo.
 - Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
-- Combate tático por turnos com técnicas, Essência compartilhada, alvo selecionável, dano, escudo, cura, controle e passivas de Elo.
+- Combate tático por turnos com Essência compartilhada e afinidades de Cinza, Graça e Ruptura; aliados vivos geram recursos para o trio.
+- Quatro técnicas por personagem: ataque básico gratuito, técnicas com custos de afinidade e uma quarta técnica defensiva.
+- Retrato, passiva e quatro ícones ilustrados para os três personagens iniciais, além do retrato próprio de O Fim.
 - Trilhas com rotas ramificadas, combates normais e de elite, eventos, aprimoramentos, reparos, tesouros, mini-boss e Guardião final.
 - Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
 - Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
@@ -27,8 +29,8 @@ PMA: Post Mortem Arena — três reinos, um trio de almas e o destino do além e
 
 ## Direção visual
 
-Interface escura com sinais vetoriais e cores próprias para cada Elo. O protótipo não usa retratos, cenas, marcas ou assets da obra que inspirou a versão anterior.
+Fantasia sombria pintada à mão, com contornos nítidos, textura de pincel e paleta azul-ardósia, carvão e marfim. Cada reino acrescenta seu acento de cor. A direção está registrada em `docs/ART_DIRECTION.md`.
 
 ## Estado
 
-Este é o primeiro slice jogável. Os 100 conceitos e seus nomes já estão no Codex; o balanceamento, a arte final e a campanha narrativa completa ainda podem ser expandidos.
+Este é o primeiro slice jogável. Os 100 conceitos estão no Codex; a primeira leva contém 18 imagens individuais para o trio inicial e um retrato para O Fim. A cobertura visual dos demais personagens, o balanceamento e a campanha narrativa completa seguem em expansão.

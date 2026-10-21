@@ -48,9 +48,14 @@ export function getRelevantBuffs(teamIds, collectedIds = []) {
   const team = resolveTeam(teamIds);
   const resonance = getResonance(team);
   const hasLimbo = team.some((member) => member.realm === "Limbo");
+  const hasInferno = team.some((member) => member.realm === "Inferno");
+  const hasParadise = team.some((member) => member.realm === "Paraíso");
   return buffs.filter((buff) => {
     if (collectedIds.includes(buff.id)) return false;
     if (buff.id === "fracture" && !hasLimbo) return false;
+    if (buff.id === "cinzas" && !hasInferno) return false;
+    if (buff.id === "graca" && !hasParadise) return false;
+    if (buff.id === "ruptura" && !hasLimbo) return false;
     if (buff.id === "echo" && resonance.tier === "none") return false;
     return true;
   });
