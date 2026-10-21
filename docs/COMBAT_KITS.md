@@ -44,7 +44,7 @@ O fio escarlate expõe a vítima; a viúva rouba Vida quando cobra sua promessa.
 
 **Passiva — Luto Faminto:** Após causar dano com uma habilidade, restaura 4 de Vida.
 
-- **Fio Escarlate** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido.
+- **Fio Escarlate** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Véu da Viúva** (1 cinza + 1 essence; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
 - **Beijo da Última Noite** (1 cinza + 1 essence; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +15 dano.
 - **Véu de Sangue** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -66,7 +66,7 @@ Dois cortes alternam pressão e exposição; a execução ganha força contra um
 
 **Passiva — Ritmo dos Gêmeos:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
-- **Cutelo da Esquerda** (1 cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Cutelo da Esquerda** (1 cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Cutelo da Direita** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos.
 - **Encontro das Lâminas** (1 cinza + 1 essence; recarga 1T): Causa 15 de dano físico a todos os inimigos. Se o alvo está Exposto: +10 dano.
 - **Dança Cruzada** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -112,7 +112,7 @@ A acusação revela excessos; a sentença pune quem permanece exposto.
 
 **Passiva — Peso da Lei:** Suas habilidades causam +5 de dano se o alvo está Exposto.
 
-- **Acusação de Ferro** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Acusação de Ferro** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Audiência Suspensa** (1 cinza + 1 essence; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove 10 de Defesa antes do dano.
 - **Veredito Irrecorrível** (1 cinza + 1 essence; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
 - **Sala Inviolável** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -203,7 +203,7 @@ Estilhaços passam pela redução de dano; a exposição amplifica o discurso fi
 **Passiva — Verdade Fraturada:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
 - **Sílaba Cortante** (1 cinza; recarga 0T): Causa 20 de dano perfurante a um inimigo.
-- **Confissão Rachada** (1 cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove 1 recurso da reserva inimiga.
+- **Confissão Rachada** (1 cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove 1 recurso da reserva inimiga.
 - **Discurso em Estilhaços** (1 cinza + 1 essence; recarga 1T): Causa 20 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano.
 - **Reflexo da Boca** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -306,7 +306,7 @@ Drene Vida e finalize inimigos feridos para sustentar a própria presença.
 **Passiva — Fome Crescente:** Após causar dano com uma habilidade, restaura 4 de Vida.
 
 - **Mordida da Alma** (1 cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado.
-- **Saliva Corrosiva** (1 cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove 20 de Defesa antes do dano.
+- **Saliva Corrosiva** (1 cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Engolir a Essência** (1 cinza + 1 essence; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem 50 de Vida ou menos: +15 dano.
 - **Mandíbula do Vazio** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -396,7 +396,7 @@ Corrompa a proteção e transforme a abertura numa cobrança de aflição.
 **Passiva — Lucro da Ruína:** Suas habilidades causam +4 de dano se o alvo tem Defesa.
 
 - **Acordo Podre** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 20 de Defesa antes do dano.
-- **Quebrar a Confiança** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Quebrar a Confiança** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Preço da Corrupção** (1 cinza + 1 essence; recarga 1T): Causa 25 de dano de aflição a um inimigo. Rouba 1 recurso da reserva inimiga. Se o alvo tem a marca desta preparação: +10 dano.
 - **Privilégio Oculto** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -474,7 +474,7 @@ Revele a presença do inimigo e prepare uma resposta contra a próxima agressão
 
 **Passiva — Visão sem Olhos:** Suas habilidades causam +5 de dano se o alvo está Exposto.
 
-- **Presença Denunciada** (1 cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Presença Denunciada** (1 cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Memória do Golpe** (1 cinza + 1 essence; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
 - **Testemunho Final** (1 cinza + 1 essence; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
 - **Campo sem Testemunha** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -496,7 +496,7 @@ Prepare a sentinela ausente e cobre o descuido de quem tiver sua guarda removida
 
 **Passiva — Vigília Tardia:** Sua primeira habilidade ofensiva do combate causa +6 de dano.
 
-- **Passagem Desguarnecida** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove 20 de Defesa antes do dano.
+- **Passagem Desguarnecida** (1 cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Vigia na Sombra** (1 cinza + 1 essence; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
 - **Chegar Depois** (1 cinza + 1 essence; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo está Exposto: +15 dano.
 - **Posto Vazio** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -532,7 +532,7 @@ O desejo cobra Vida para gerar cargas; a descarga rompe a proteção inimiga.
 **Passiva — Falta Incurável:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
 
 - **Pulso do Desejo** (1 cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Ganha 1 carga (máx. 3). O usuário perde 5 de Vida (não o derrota).
-- **Aproximação Dolorosa** (1 cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove 1 recurso da reserva inimiga.
+- **Aproximação Dolorosa** (1 cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove 1 recurso da reserva inimiga.
 - **Desejo Desfeito** (1 cinza + 1 essence; recarga 2T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga.
 - **Forma Inalcançável** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -553,7 +553,7 @@ Faça a agressão retornar e ataque a imagem vulnerável que o espelho revelou.
 
 **Passiva — Dor Refletida:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
 
-- **Reflexo de Carne** (1 cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Reflexo de Carne** (1 cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Imagem de Resposta** (1 cinza + 1 essence; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
 - **Rachar o Reflexo** (1 cinza + 1 essence; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 20 de Defesa antes do dano. Se o alvo está Exposto: +10 dano.
 - **Atrás do Espelho** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -621,7 +621,7 @@ Escreva a conclusão no alvo e remova suas vantagens antes de fechar o livro.
 
 **Passiva — Parágrafo Final:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
 
-- **Nome na Última Folha** (1 cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido.
+- **Nome na Última Folha** (1 cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Rasura do Destino** (1 cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Remove 1 recurso da reserva inimiga.
 - **Fechar a História** (1 cinza + 1 essence; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Margem em Branco** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -658,7 +658,7 @@ Erga a muralha para o trio e carregue força para romper a linha adversária.
 
 - **Impacto do Baluarte** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
 - **Muralha Partilhada** (1 graca + 1 essence; recarga 0T): Concede 18 de Defesa destrutível ao trio.
-- **Avanço do Bastão** (1 graca + 1 essence; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Consome as cargas: +8 de dano por carga.
+- **Avanço do Bastão** (1 graca + 1 essence; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Consome as cargas: +8 de dano por carga.
 - **Além do Baluarte** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O que Ficou — Sacrifício
@@ -689,7 +689,7 @@ Revele um agressor, proteja o trio e ataque por dentro de suas defesas.
 
 **Passiva — Olhar de Vigília:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
-- **Sinal Azul** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Sinal Azul** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Linha de Proteção** (1 graca + 1 essence; recarga 0T): Concede 10 de Defesa destrutível ao trio. Reduz em 5 o dano recebido por 1 turno.
 - **Lança do Horizonte** (1 graca + 1 essence; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
 - **Vigília Intangível** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -724,7 +724,7 @@ A luz expõe a oposição e usa a clareza para recuperar aliados feridos.
 
 **Passiva — Claridade que Ampara:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
-- **Raio Restaurador** (1 graca; recarga 0T): Causa 20 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Raio Restaurador** (1 graca; recarga 0T): Causa 20 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Reconstruir o Fôlego** (1 graca + 1 essence; recarga 0T): Restaura 25 de Vida. Aumenta em 5 o dano por 1 turno.
 - **Aurora Reparadora** (1 graca + 1 essence; recarga 1T): Causa 25 de dano espiritual a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo está Exposto: +10 dano.
 - **Clarão Imaculado** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -759,7 +759,7 @@ Exponha o excesso e mantenha o trio protegido enquanto prepara a medida final.
 
 **Passiva — Medida Justa:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
-- **Peso do Excesso** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Peso do Excesso** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Prato da Misericórdia** (1 graca + 1 essence; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível.
 - **Equação da Justiça** (1 graca + 1 essence; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
 - **Balança Imóvel** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -792,7 +792,7 @@ O testemunho remove vantagens e permite que o trio ataque uma abertura real.
 
 **Passiva — Voz sem Distorção:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
 
-- **Registrar a Verdade** (1 graca; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido.
+- **Registrar a Verdade** (1 graca; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Prova Irrefutável** (1 graca; recarga 0T): Causa 20 de dano espiritual a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Testemunho Íntegro** (1 graca + 1 essence; recarga 2T): Causa 20 de dano espiritual a todos os inimigos. Se o alvo tem a marca desta preparação: +10 dano.
 - **Testemunho Protegido** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -860,7 +860,7 @@ Marque o destino e dê ao aliado o fôlego necessário para completar a travessi
 
 **Passiva — Promessa de Chegada:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
-- **Sinal do Amanhã** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido.
+- **Sinal do Amanhã** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Mensagem de Alento** (1 graca + 1 essence; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível.
 - **O Amanhã Chegou** (1 graca + 1 essence; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Passagem da Mensagem** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -873,7 +873,7 @@ Remova vantagens ocultas e use a exposição para um golpe que ignora redução.
 
 **Passiva — Nada a Esconder:** Suas habilidades causam +5 de dano se o alvo está Exposto.
 
-- **Luz sem Mentira** (1 graca; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Luz sem Mentira** (1 graca; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Clareza Partilhada** (1 graca + 1 essence; recarga 0T): Remove aflições e condições prejudiciais.
 - **Verdade Incisiva** (1 graca + 1 essence; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
 - **Transparência Absoluta** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -895,7 +895,7 @@ Revele a abertura e faça a próxima agressão retornar ao próprio agressor.
 
 **Passiva — Reflexo Honesto:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
 
-- **Imagem Verdadeira** (1 graca; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Imagem Verdadeira** (1 graca; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Devolver a Intenção** (1 graca + 1 essence; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
 - **Fratura da Ilusão** (1 graca + 1 essence; recarga 1T): Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Se o alvo está Exposto: +10 dano.
 - **Dentro do Reflexo** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -906,7 +906,7 @@ Trace rotas no adversário e use os pontos de referência para orientar a ofensi
 
 **Passiva — Rota sem Engano:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
 
-- **Traçar a Abertura** (1 graca; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido. Ganha 1 carga (máx. 3).
+- **Traçar a Abertura** (1 graca; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Ganha 1 carga (máx. 3).
 - **Caminho Seguro** (1 graca + 1 essence; recarga 0T): Concede 12 de Defesa destrutível ao trio. Aumenta em 5 o dano por 1 turno.
 - **Convergência das Rotas** (1 graca + 1 essence; recarga 1T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +8 de dano por carga.
 - **Fora das Coordenadas** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -917,7 +917,7 @@ Enfraqueça a agressão sem depender de força; a abertura real permite desarmá
 
 **Passiva — Ver sem Ferir:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
-- **Olhar Desarmante** (1 graca; recarga 0T): Causa 10 de dano espiritual a um inimigo. Enfraquece por 1 turno: −10 de dano causado. Expõe por 1 turno: +10 de dano recebido.
+- **Olhar Desarmante** (1 graca; recarga 0T): Causa 10 de dano espiritual a um inimigo. Enfraquece por 1 turno: −10 de dano causado. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Cuidar sem Defesa** (1 graca + 1 essence; recarga 0T): Restaura 20 de Vida. Remove aflições e condições prejudiciais.
 - **Intenção Desvendada** (1 graca + 1 essence; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Exposto: +10 dano e Atordoa por 1 turno.
 - **Ponto Cego Sereno** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -952,7 +952,7 @@ O vínculo prepara uma defesa reativa e transforma a exposição em pressão.
 
 **Passiva — Pacto de Permanência:** No início do seu turno, recebe 4 de Defesa destrutível.
 
-- **Selo do Pacto** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido.
+- **Selo do Pacto** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Responder pelo Outro** (1 graca + 1 essence; recarga 0T): Concede 15 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
 - **Resposta da Aliança** (1 graca + 1 essence; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 30% do dano causado. Se o alvo está Exposto: +10 dano.
 - **Laço Intangível** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -1020,7 +1020,7 @@ A estrutura protege o trio; pontos de apoio preparam um desabamento controlado.
 
 **Passiva — Fundação Viva:** No início do seu turno, recebe 5 de Defesa destrutível.
 
-- **Pilar Ascendente** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido.
+- **Pilar Ascendente** (1 graca; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Abóbada Verde** (1 graca + 1 essence; recarga 0T): Concede 18 de Defesa destrutível ao trio.
 - **Convergência dos Pilares** (1 graca + 1 essence; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Geometria Intocável** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -1077,7 +1077,7 @@ Uma abertura marca o destino; atravesse a defesa e preserve quem precisa passar.
 
 **Passiva — Limite Suspenso:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
-- **Abertura Impossível** (1 ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido.
+- **Abertura Impossível** (1 ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Expõe por 1 turno: +10 de dano recebido, exceto aflição.
 - **Travessia Segura** (1 ruptura + 1 essence; recarga 0T): Concede 25 de Defesa destrutível. Remove aflições e condições prejudiciais.
 - **Fechar a Passagem** (1 ruptura + 1 essence; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +10 dano. O usuário perde 5 de Vida (não o derrota).
 - **Do Outro Lado** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -1143,7 +1143,7 @@ Derrube o apoio e marque o vão; a travessia final atinge toda a linha.
 
 **Passiva — Vão Persistente:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
-- **Romper o Apoio** (1 ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido. Remove 20 de Defesa antes do dano.
+- **Romper o Apoio** (1 ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe por 1 turno: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Ponte de Emergência** (1 ruptura + 1 essence; recarga 0T): Concede 15 de Defesa destrutível ao trio. O usuário perde 5 de Vida (não o derrota).
 - **Queda da Travessia** (1 ruptura + 1 essence; recarga 2T): Causa 15 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano. O usuário perde 5 de Vida (não o derrota).
 - **Entre as Margens** (1 essence; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.

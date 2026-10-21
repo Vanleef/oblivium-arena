@@ -158,7 +158,7 @@ export function describeAbility(a) {
   if(a.dot) parts.push(`${dotLabels[a.dot.tag]}: ${a.dot.damage} de dano de aflição por ${a.dot.turns} turnos.`);
   if(a.stun) parts.push(`Atordoa por ${a.stun} turno.`);
   if(a.weaken) parts.push("Enfraquece por 1 turno: −10 de dano causado.");
-  if(a.expose) parts.push("Expõe por 1 turno: +10 de dano recebido.");
+  if(a.expose) parts.push("Expõe por 1 turno: +10 de dano recebido, exceto aflição.");
   if(a.heal) parts.push(`Restaura ${a.heal} de Vida${a.target === "team" ? " ao trio" : ""}.`);
   if(a.shield) parts.push(`Concede ${a.shield} de Defesa destrutível${a.damage ? " ao usuário" : a.target === "team" ? " ao trio" : ""}.`);
   if(a.reduce) parts.push(`Reduz em ${a.reduce} o dano recebido por 1 turno${a.damage ? " pelo usuário" : ""}.`);

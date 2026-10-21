@@ -18,7 +18,7 @@ test("elenco tem 100 almas nos três reinos, divididas conforme a bíblia", () =
   assert.equal(new Set(characters.map((character) => character.id)).size, 100);
 });
 
-test("cada personagem tem quatro técnicas e uma passiva de Elo", () => {
+test("cada personagem tem quatro técnicas e uma passiva própria", () => {
   for (const character of characters) {
     assert.equal(character.abilities.length, 4, character.name);
     assert.ok(character.passive.name);

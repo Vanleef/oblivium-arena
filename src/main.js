@@ -109,7 +109,7 @@ function toast(message) {
 }
 
 function startRun(eloId) {
-  if (profile.run?.eloId === eloId) { state.tab = "rota"; render(); return; }
+  if (profile.run?.eloId === eloId) { state.tab = "rota"; render(); focusTrail(); return; }
   if (profile.team.length !== 3) {
     toast("Monte um Trio completo antes de entrar na trilha.");
     state.tab = "trio";
@@ -132,6 +132,11 @@ function startRun(eloId) {
   state.tab = "rota";
   save();
   render();
+  focusTrail();
+}
+
+function focusTrail() {
+  if (typeof requestAnimationFrame === "function") requestAnimationFrame(() => app.querySelector(".run-panel")?.scrollIntoView({ behavior: "smooth", block: "start" }));
 }
 
 function setTrailFeedback(kind,title,summary,extra={}) {
@@ -149,7 +154,7 @@ function continueRun(resultText) {
   if(!profile.run)return;const run=profile.run,progress=advanceTrail(run,run.currentNodeId);if(!progress.ok)return;
   run.encounter++;run.tried=0;state.pending=null;state.tab="rota";
   if(run.stage>=run.map.length)completeRun();save();
-  if(profile.run)setTrailFeedback("reveal",`${progress.current.label} concluído`,`${resultText||state.toast||"Encontro resolvido."} ${progress.newIds.length} nova(s) escolha(s) revelada(s).`,{newIds:progress.newIds,completedId:progress.current.id});else render();
+  if(profile.run){setTrailFeedback("reveal",`Encontro concluído · ${progress.current.label}`,`${resultText||state.toast||"Encontro resolvido."} ${progress.newIds.length} ${progress.newIds.length===1?"nova escolha revelada":"novas escolhas reveladas"}.`,{newIds:progress.newIds,completedId:progress.current.id});focusTrail();}else render();
 }
 
 function completeRun() {
@@ -206,6 +211,7 @@ function startEncounter(node) {
   state.confirmTurn = false;
   state.tab = "battle";
   render();
+  if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function resolveNode(node) {
@@ -529,7 +535,7 @@ function codexView() {
     return realm && query;
   });
   return `
-    <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Concluir a trilha de um Elo libera suas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>PLANEJADOS</span></div></section>
+    <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Concluir a trilha de um Elo libera suas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
     <div class="codex-controls"><label class="search-box"><span>⌕</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
     <div class="codex-grid">${filtered.map((character) => {
