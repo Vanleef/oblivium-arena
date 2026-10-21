@@ -177,7 +177,7 @@ function chooseEnemyAbility(state, actor) {
 }
 
 function enemyAbilityScore(ability, actor, target) {
-  if (ability.kind === "guard") return actor.shield < 24 ? 42 : 2;
+  if (ability.kind === "guard") return actor.shield < 12 && actor.hp < actor.maxHp * 0.5 ? 32 : 2;
   if (ability.kind === "support" || ability.kind === "heal") {
     const ally = actor;
     return ally.hp < ally.maxHp * 0.45 ? 18 : 4;
