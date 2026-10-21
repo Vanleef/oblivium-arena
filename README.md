@@ -17,10 +17,11 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Catálogo original com 100 personagens planejados: 54 Inferno, 35 Paraíso e 11 Limbo.
 - Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
-- Combate tático por turnos com Essência compartilhada e afinidades de Cinza, Graça e Ruptura; aliados vivos geram recursos para o trio.
-- Quatro técnicas por personagem: ataque básico gratuito, técnicas com custos de afinidade e uma quarta técnica defensiva.
+- Combate tático por turnos com três ações do trio por rodada, alvo selecionável, intenções inimigas anunciadas e recursos compartilhados de Essência, Cinza, Graça e Ruptura.
+- Quatro técnicas por personagem com custos, recargas e efeitos táticos: Enfraquecido, Exposto, Queimadura, Escudo, Provocação e Atordoado. Atordoamento interrompe uma intenção anunciada.
 - Retrato, passiva e quatro artes de habilidade para 74 personagens: o trio inicial e 71 personagens de Sangria, Coroa, Mentira, Chama, Fome, Podridão, Silêncio, Carne, Vazio, Proteção, Cura e Justiça; O Fim tem retrato próprio.
-- Trilhas com rotas ramificadas, combates normais e de elite, eventos, aprimoramentos, reparos, tesouros, mini-boss e Guardião final.
+- Mapas de sete andares com conexões reais entre rotas, combates normais e de elite, eventos, poderes, descanso, tesouro, mercador, mini-boss e Guardião final.
+- Vida do trio persiste entre encontros; descanso, evento e mercador permitem recuperar a formação. Vitórias de elite recompensam um poder da trilha.
 - Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
 - Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.

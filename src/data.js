@@ -211,14 +211,16 @@ function characterFrom(elo, name, index) {
   const affinityName = resourceById[affinity].shortName;
   const art = artForCharacter(name);
   const tacticalKind = index % 2 ? "control" : "strike";
-  const thirdKind = ["guard", "support", "control", "strike"][index % 4];
+  const thirdKind = ["guard", "support", "control", "strike", "burst"][index % 5];
   const thirdDescriptions = {
     guard: "Ergue uma proteção para o trio.",
     support: "Recupera Vida do aliado mais ferido e reforça sua guarda.",
     control: "Atinge e enfraquece um inimigo por uma ação.",
-    strike: "Golpe tático de dano direto contra um inimigo."
+    strike: "Golpe tático de dano direto contra um inimigo.",
+    burst: "Golpe decisivo: causa dano extra e pode interromper o alvo."
   };
   const teamGuard = role.name === "Guardião" || role.name === "Apoio" || index % 3 === 0;
+  const fourthCooldown = 2;
   const abilities = [
     {
       id: "impulso", name: moves[0] + " · " + epithet, kind: "strike", cost: 0, costs: {},
@@ -226,17 +228,21 @@ function characterFrom(elo, name, index) {
     },
     {
       id: "tecnica", name: moves[1] + " de " + epithet, kind: tacticalKind, cost: 1, costs: { affinity: 1 },
-      damage: 24 + (index % 4), target: "enemy", description: `${role.hint}; custa 1 ${affinityName}.`, art: art?.abilities.tecnica
+      damage: 24 + (index % 4), target: "enemy", cooldown: tacticalKind === "control" ? 1 : 0,
+      expose: tacticalKind === "strike" ? 1 : 0, burn: elo.id === "chama" ? 2 : 0,
+      description: `${role.hint}; custa 1 ${affinityName}${tacticalKind === "control" ? " e aplica Enfraquecido" : " e expõe o alvo"}${elo.id === "chama" ? " e causa Queimadura" : ""}.`, art: art?.abilities.tecnica
     },
     {
       id: "voto", name: moves[2] + " · " + epithet, kind: thirdKind, cost: 2, costs: { essence: 1, affinity: 1 },
-      damage: 17 + (index % 3), shield: 16 + (index % 5), target: "team",
-      description: `${thirdDescriptions[thirdKind]} Custa 1 Essência + 1 ${affinityName}.`, art: art?.abilities.voto
+      damage: thirdKind === "burst" ? 28 + (index % 5) : 17 + (index % 3), heal: 20,
+      shield: thirdKind === "guard" || thirdKind === "support" ? 16 + (index % 5) : 0,
+      target: ["guard", "support"].includes(thirdKind) ? "team" : "enemy", cooldown: 1,
+      description: `${thirdDescriptions[thirdKind]} Custa 1 Essência + 1 ${affinityName}; recarga de 1 turno.`, art: art?.abilities.voto
     },
     {
       id: "despertar", name: moves[3] + " de " + epithet, kind: "guard", cost: 2, costs: { affinity: 2 },
-      damage: 0, shield: 20 + (index % 5), target: teamGuard ? "team" : "self",
-      description: `Técnica defensiva: ${teamGuard ? "protege o trio" : "protege o usuário"}. Custa 2 ${affinityName}.`, art: art?.abilities.despertar
+      damage: 0, shield: 20 + (index % 5), target: teamGuard ? "team" : "self", taunt: teamGuard ? 1 : 0, cooldown: fourthCooldown,
+      description: `Técnica defensiva: ${teamGuard ? "protege o trio e atrai ataques" : "protege o usuário"}. Custa 2 ${affinityName}; recarga de ${fourthCooldown} turnos.`, art: art?.abilities.despertar
     }
   ];
   return {
@@ -303,33 +309,62 @@ export const rosterCounts = {
 };
 
 export const routeStages = [
+  [{ id: "normal", label: "Patrulha", icon: "⚔", desc: "O primeiro trio bloqueia a travessia.", col: 1 }],
   [
-    { id: "normal", label: "Combate", icon: "⚔", desc: "Um trio patrulha a trilha." },
-    { id: "event", label: "Encontro", icon: "✦", desc: "Uma alma pede ajuda." }
+    { id: "normal", label: "Combate", icon: "⚔", desc: "Um trio patrulha a trilha.", col: 0 },
+    { id: "event", label: "Encontro", icon: "✦", desc: "Uma alma pede ajuda.", col: 1 },
+    { id: "normal", label: "Combate", icon: "⚔", desc: "Uma patrulha guarda o desvio.", col: 2 }
   ],
   [
-    { id: "normal", label: "Combate", icon: "⚔", desc: "Um trio patrulha a trilha." },
-    { id: "upgrade", label: "Aprimoramento", icon: "⬆", desc: "Escolha 1 entre 3 ecos." },
-    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Essência e fragmentos antigos." }
+    { id: "elite", label: "Elite", icon: "◆", desc: "Guardiões reforçados; melhor recompensa.", col: 0 },
+    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Um Eco e fragmentos antigos.", col: 1 },
+    { id: "repair", label: "Descanso", icon: "⟲", desc: "Recupere Vida antes do próximo confronto.", col: 2 }
   ],
   [
-    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados." },
-    { id: "repair", label: "Reparo", icon: "⟲", desc: "Restaure uma Corrente da Alma." }
+    { id: "event", label: "Encontro", icon: "✦", desc: "Decida como responder à travessia.", col: 0 },
+    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco permanente.", col: 1 },
+    { id: "shop", label: "Mercador", icon: "◈", desc: "Troque fragmentos por cura ou um Eco.", col: 2 }
   ],
   [
-    { id: "event", label: "Encontro", icon: "✦", desc: "Decida como responder à travessia." },
-    { id: "upgrade", label: "Aprimoramento", icon: "⬆", desc: "Escolha 1 entre 3 ecos." },
-    { id: "mini", label: "Mini-Boss", icon: "♜", desc: "Um guardião menor impede a passagem." }
+    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados.", col: 0 },
+    { id: "mini", label: "Mini-Boss", icon: "♜", desc: "Um guardião menor protege o caminho.", col: 1 },
+    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados.", col: 2 }
   ],
   [
-    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Uma reserva esquecida entre os reinos." },
-    { id: "repair", label: "Reparo", icon: "⟲", desc: "Restaure uma Corrente da Alma." },
-    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados." }
+    { id: "repair", label: "Descanso", icon: "⟲", desc: "Repare as Correntes da Alma.", col: 0 },
+    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Um Eco e fragmentos antigos.", col: 1 },
+    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco permanente.", col: 2 }
   ],
-  [
-    { id: "boss", label: "Guardião do Elo", icon: "✹", desc: "O Guardião e dois subordinados." }
-  ]
+  [{ id: "boss", label: "Guardião do Elo", icon: "✹", desc: "O Guardião e dois subordinados.", col: 1 }]
 ];
+
+export function generateTrail(eloId, seed = 0) {
+  const numericSeed = Math.abs(Math.trunc(Number(seed) || 0));
+  const rows = routeStages.map((stage, rowIndex) => stage.map((template, nodeIndex) => {
+    const rotation = stage.length === 3 ? (numericSeed + rowIndex * 2) % 3 : 0;
+    const content = stage[(nodeIndex + rotation) % stage.length];
+    return {
+      ...content,
+      col: template.col,
+      row: rowIndex,
+      type: content.id,
+      id: `${eloId}-r${rowIndex}-c${template.col}-${content.id}-${nodeIndex}`,
+      nextIds: []
+    };
+  }));
+  for (let rowIndex = 0; rowIndex < rows.length - 1; rowIndex += 1) {
+    const nextRow = rows[rowIndex + 1];
+    for (const node of rows[rowIndex]) {
+      const connected = nextRow.length === 1
+        ? nextRow
+        : rows[rowIndex].length === 1
+          ? nextRow
+          : nextRow.filter((candidate) => Math.abs(candidate.col - node.col) <= 1);
+      node.nextIds = connected.map((candidate) => candidate.id);
+    }
+  }
+  return rows;
+}
 
 export const buffs = [
   { id: "edge", title: "Fio Ressonante", text: "Todo o trio causa +12% de dano nesta trilha.", icon: "✧", effect: { damage: 0.12 } },

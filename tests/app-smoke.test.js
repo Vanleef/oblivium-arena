@@ -61,5 +61,6 @@ test("o confronto final usa o retrato e as técnicas próprias de O Fim", async 
   assert.match(app.innerHTML, /The End/);
   assert.match(app.innerHTML, /o-fim\/portrait\.webp/);
   handlers.click({ target: { dataset: { action: "pass-turn" }, closest() { return this; } } });
-  assert.match(app.innerHTML, /Coroa que Não Cai/);
+  assert.match(app.innerHTML, /INTENÇÃO/);
+  assert.match(app.innerHTML, /ações restantes neste turno/);
 });
