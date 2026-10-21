@@ -5,7 +5,7 @@ import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
 import { renderBattleMotion } from "./battle-motion.js";
-import { renderBattle, renderBattleDetail } from "./battle-view.js";
+import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
@@ -375,7 +375,7 @@ function updateBattle(actorId,abilityId) {
   const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
   if(!actor||!ability)return;
   state.focusSkill={actorId,abilityId};state.inspectUnitId=null;
-  if(actor.hp<=0||actor.stunned||actor.cooldowns[abilityId]||!canAffordAbility(b,actor,ability)){
+  if(skillAvailability(b,actor,ability)){
     state.selectedSkill=null;render();app.querySelector(`[data-use-skill="${actorId}:${abilityId}"]`)?.focus({preventScroll:true});return;
   }
   state.selectedSkill={actorId,abilityId};render();app.querySelector('.fighter-card.valid-target')?.focus({preventScroll:true});

@@ -18,6 +18,7 @@ export function skillAvailability(b,actor,ability) {
   if(actor.stunned)return "ATORDOADO";
   if(actor.cooldowns[ability.id])return `RECARGA ${actor.cooldowns[ability.id]}T`;
   if(!canAffordAbility(b,actor,ability))return "ENERGIA INSUFICIENTE";
+  if(!getValidTargets(b,actor,ability).length)return "SEM ALVO VÁLIDO";
   return "";
 }
 function skills(u,state){

@@ -13,6 +13,7 @@ test('técnicas sem energia e em recarga continuam legíveis, sem permitirem aç
  assert.equal(skillAvailability(battle,battle.allies[0],battle.allies[0].abilities[0]),'ENERGIA INSUFICIENTE');
  assert.match(renderBattleDetail(state),/ENERGIA INSUFICIENTE/);assert.equal(chooseAction(battle,ids[0],'impulso',battle.enemies[0].id).ok,false);
  const html=renderBattle(state,elos[0]);assert.match(html,/skill-unavailable/);assert.doesNotMatch(html,/data-use-skill="o-escudo-vivo:impulso"[^>]* disabled/);
+ battle.resources.graca=1;for(const enemy of battle.enemies)enemy.invulnerable=1;assert.equal(skillAvailability(battle,battle.allies[0],battle.allies[0].abilities[0]),'SEM ALVO VÁLIDO');assert.equal(chooseAction(battle,ids[0],'impulso',battle.enemies[0].id).ok,false);
  battle.allies[0].cooldowns.impulso=3;assert.match(renderBattleDetail(state),/RECARGA 3T/);
  battle.phase='resolving';assert.match(renderBattle(state,elos[0]),/data-use-skill="o-escudo-vivo:impulso"[^>]* disabled/);
 });
