@@ -155,7 +155,8 @@ const illustratedCharacterIds = new Set([
   "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",
   "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo",
   "o-sussurro", "a-mascara-dupla", "o-tecelao-de-mentiras", "a-boca-de-vidro",
-  "o-falso-profeta", "o-corretor-de-memorias"
+  "o-falso-profeta", "o-corretor-de-memorias", "o-incendiario", "o-odio-encarnado",
+  "o-filho-da-cinza", "a-pira-errante", "o-coracao-em-furia"
 ]);
 
 const roleCycle = [
