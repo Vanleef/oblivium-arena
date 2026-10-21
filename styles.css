@@ -158,7 +158,7 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .path-node.active { cursor: pointer; border-color: color-mix(in srgb, var(--node-color) 47%, transparent); }
 .path-node.active:hover { border-color: var(--node-color); transform: translateY(-2px); box-shadow: 0 7px 19px rgba(0,0,0,.28), 0 0 18px color-mix(in srgb, var(--node-color) 11%, transparent); }
 .path-node.done { --node-color: #a9c7b4; border-color: rgba(169, 199, 180, .42); background: linear-gradient(145deg, rgba(43, 67, 53, .74), rgba(25, 34, 30, .94)); }
-.path-node.locked { opacity: .54; color: #89857e; }
+.path-node.locked { opacity: .78; color: #9b968d; border-color: rgba(228, 219, 196, .19); }
 .node-icon { grid-row: 1 / span 3; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--node-color) 42%, transparent); border-radius: 50%; background: color-mix(in srgb, var(--node-color) 10%, transparent); color: var(--node-color); font-size: 15px; box-shadow: inset 0 0 12px color-mix(in srgb, var(--node-color) 7%, transparent); }
 .path-node b { overflow: hidden; color: #e4ded2; text-overflow: ellipsis; white-space: nowrap; font-size: 9px; font-weight: 600; }
 .path-node small { overflow: hidden; color: var(--muted); font-size: 7px; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
