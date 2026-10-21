@@ -452,7 +452,8 @@ function presentBattleEffect(before, { actorId = null, abilityId = null, targetI
   const id = ++battleFxSequence;
   state.battleFx = {
     id, mode, kind, actorId, abilityId, targetId, changes,
-    title: mode === "turn" ? "Turno adversário resolvido" : `${actor?.name || "Aliado"} · ${ability?.name || "Técnica"}`,
+    title: mode === "turn" ? "Turno adversário resolvido" : ability?.name || "Técnica",
+    actorName: actor?.name || null,
     summary: summary || (battle.phase === "victory" ? "A última unidade adversária caiu." : battle.phase === "defeat" ? "O trio foi derrotado. Confira o registro para ver as intenções." : battle.round !== roundBefore ? `Rodada ${battle.round} iniciada · recursos renovados.` : mode === "turn" ? "O turno foi resolvido sem alterar Vida ou Escudo." : "A técnica foi ativada sem mudar Vida, Escudo ou condições."),
     roundAdvanced: battle.round !== roundBefore,
     completed: battle.phase === "victory" || battle.phase === "defeat"
@@ -463,7 +464,7 @@ function presentBattleEffect(before, { actorId = null, abilityId = null, targetI
     if (state.battleFx?.id !== id) return;
     state.battleFx = null;
     render();
-  }, 1550);
+  }, 2350);
 }
 
 function updateBattle(actorId, abilityId) {
@@ -755,7 +756,7 @@ function battleView() {
       <div class="combat-flow-steps"><div class="combat-flow-step ${flowStep === 1 ? "current" : "done"}"><i>1</i><span><b>Marque um alvo</b><small>${target ? `Alvo: ${esc(target.name)}${selectedTarget ? " · marcado" : " · automático"}` : "Sem adversários em pé"}</small></span></div><div class="combat-flow-step ${flowStep === 2 ? "current" : flowStep > 2 ? "done" : ""}"><i>2</i><span><b>Use até ${battle.actionLimit} ações</b><small>${actionsLeft} disponíveis · uma por aliado</small></span></div><div class="combat-flow-step ${flowStep === 3 ? "current" : ""}"><i>3</i><span><b>Resolva o turno</b><small>${battle.phase === "player" ? "Passe para executar as intenções inimigas" : battle.phase === "enemy" ? "Intenções inimigas em execução" : result ? "Confronto encerrado" : "Novo turno"}</small></span></div></div>
       <div class="combat-target-control">${selectedTarget ? `<button data-clear-target>ALVO AUTOMÁTICO</button>` : `<span>Alvo automático · clique em um inimigo para redirecionar</span>`}</div>
     </section>
-    ${state.battleFx ? `<section class="battle-action-banner effect-${state.battleFx.kind}" role="status" aria-live="polite"><span class="action-banner-icon">${state.battleFx.kind === "impact" ? "✹" : state.battleFx.kind === "restore" ? "✚" : state.battleFx.kind === "shield" ? "⬡" : state.battleFx.kind === "control" ? "✧" : state.battleFx.mode === "turn" ? "↻" : "✦"}</span><div><small>${state.battleFx.mode === "turn" ? "RESOLUÇÃO DA RODADA" : "TÉCNICA EXECUTADA"}</small><b>${esc(state.battleFx.title)}</b><span>${esc(state.battleFx.summary)}</span></div></section>` : ""}
+    ${state.battleFx ? `<section class="battle-action-banner effect-${state.battleFx.kind}" role="status" aria-live="polite"><span class="action-banner-icon">${state.battleFx.kind === "impact" ? "✹" : state.battleFx.kind === "restore" ? "✚" : state.battleFx.kind === "shield" ? "⬡" : state.battleFx.kind === "control" ? "✧" : state.battleFx.mode === "turn" ? "↻" : "✦"}</span><div><small>${state.battleFx.mode === "turn" ? "RESOLUÇÃO DA RODADA" : `TÉCNICA EXECUTADA · ${esc(state.battleFx.actorName || "ALIADO")}`}</small><b>${esc(state.battleFx.title)}</b><span>${esc(state.battleFx.summary)}</span></div></section>` : ""}
     <div class="battle-layout">
       <section class="battle-side ally-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
       <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div></div>

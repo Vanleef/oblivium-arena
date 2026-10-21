@@ -450,6 +450,7 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .skill-button small { display: -webkit-box; overflow: hidden; color: #aaa397; font-size: 7px; line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .skill-button .skill-cost, .skill-button .cost-label, .skill-button .cooldown-badge { margin-left: auto; align-self: flex-start; }
 .skill-button.skill-cast { z-index: 1; transform: scale(1.025); border-color: var(--gold-bright); background: linear-gradient(135deg, rgba(217,189,124,.2), rgba(217,189,124,.055)); box-shadow: 0 0 0 1px rgba(243,217,159,.3), 0 0 22px rgba(217,189,124,.28); animation: skill-ignite .88s ease-out 2; }
+.skill-button.skill-cast:disabled { opacity: 1; filter: brightness(1.2); }
 .skill-button.skill-cast::after { animation: skill-sweep .78s ease-out 2; }
 .skill-button.skill-cast .skill-art, .skill-button.skill-cast .skill-art-fallback { border-color: var(--gold-bright); box-shadow: 0 0 18px rgba(217,189,124,.45); animation: art-burst .72s ease-out 2; }
 .cooldown-badge { flex-shrink: 0; padding: 4px; border: 1px solid var(--line); color: var(--gold); font-size: 7px; }
