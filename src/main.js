@@ -4,7 +4,7 @@ import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloBy
 import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
-import { renderBattle } from "./battle-view.js";
+import { renderBattle, renderBattleDetail } from "./battle-view.js";
 import { eloCrest } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 
@@ -571,6 +571,20 @@ function render() {
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
 }
+
+// Preview a technique without selecting an action or replacing the arena DOM.
+function previewTechnique(event) {
+  if (state.tab !== "battle" || !state.battle) return;
+  const button = event.target.closest("[data-use-skill]");
+  if (!button || (event.relatedTarget && button.contains(event.relatedTarget))) return;
+  const [actorId, abilityId] = button.dataset.useSkill.split(":");
+  if (state.focusSkill?.actorId === actorId && state.focusSkill?.abilityId === abilityId) return;
+  state.focusSkill = { actorId, abilityId };
+  const panel = app.querySelector(".arena-reading");
+  if (panel) panel.innerHTML = renderBattleDetail(state);
+}
+app.addEventListener("pointerover", previewTechnique);
+app.addEventListener("focusin", previewTechnique);
 
 app.addEventListener("click", (event) => {
   const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill]");

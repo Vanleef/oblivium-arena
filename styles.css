@@ -723,7 +723,7 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 
 /* PMA — obsidian, worn brass, cinders and cold light. */
 body { --bg: #090e13; --panel: #131b21; --panel-2: #19232a; --line: rgba(190,207,202,.14); --line-strong: rgba(212,204,173,.28); --text: #f0e9d9; --muted: #a5b0af; --dim: #7e8c8c; --gold: #d3af70; --gold-bright: #f5d89c; background: radial-gradient(ellipse at 0 0,rgba(140,68,43,.16),transparent 43rem),radial-gradient(ellipse at 100% 38%,rgba(54,104,111,.12),transparent 54rem),#090e13; }
-body::before { position: fixed; z-index: -1; inset: 0; content: ""; pointer-events: none; opacity: .15; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.3' d='M0 0h100v100H0z'/%3E%3C/svg%3E"); }
+body::before { position: fixed; z-index: -1; inset: 0; content: ""; pointer-events: none; opacity: .09; background-size: 180px 180px; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.3' d='M0 0h100v100H0z'/%3E%3C/svg%3E"); }
 .app-shell { max-width: 1280px; }
 .topbar { height: 76px; border-color: rgba(211,175,112,.2); }
 .brand-mark { border-radius: 0; width: 43px; height: 43px; transform: rotate(-7deg); background: linear-gradient(135deg,#2c2a23,#0d151a); box-shadow: 0 0 22px #d3af7010,inset 0 0 0 4px #0e1419; }
@@ -835,7 +835,7 @@ body::before { position: fixed; z-index: -1; inset: 0; content: ""; pointer-even
 
 /* Classic arena composition: compact portraits + four square techniques. */
 body[data-tab="battle"] .status-strip { display: none; }
-body[data-tab="battle"] .main-content { max-width: 1080px; margin: auto; padding-top: 16px; }
+body[data-tab="battle"] .main-content { max-width: 980px; margin: auto; padding-top: 16px; }
 body[data-tab="battle"] .battle-header { padding: 0 0 12px; gap: 10px 18px; }
 body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .arena-turn-control { display: grid; justify-items: end; gap: 8px; }
@@ -860,7 +860,7 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .battle-side-heading { height: 24px; margin: 0 0 9px; padding: 0 0 9px; color: #a7cdcb; font-size: 9px; letter-spacing: .12em; align-items: center; }
 .battle-side-heading small { font-size: 7px; color: #8a9c9b; }
 .arena-opposition .battle-side-heading { color: #dda192; }
-.arena-ally-row { display: grid; grid-template-columns: minmax(160px,1fr) 252px; align-items: center; gap: 15px; min-height: 92px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #b3c5bc12; }
+.arena-ally-row { display: grid; grid-template-columns: 190px 252px; align-items: center; gap: 15px; min-height: 92px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #b3c5bc12; }
 .arena-ally-row:last-child { padding-bottom: 0; margin-bottom: 0; border: 0; }
 .arena-match .fighter-card { width: 100%; height: 82px; min-height: 82px; cursor: pointer; overflow: visible; border: 0; border-radius: 0; background: none; box-shadow: none; }
 .arena-match .fighter-backdrop { width: 70px; height: 70px; top: 0; bottom: auto; left: 0; z-index: 1; overflow: hidden; border: 1px solid color-mix(in srgb,var(--accent) 65%,#30454b); background: #10181e; box-shadow: 0 3px 12px #0008; }
@@ -875,7 +875,7 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .arena-match .health-row { position: absolute; left: 0; top: 72px; width: 70px; margin: 0; gap: 3px; }
 .arena-match .health-track { height: 6px; border-color: #a9d7c139; background: #0009; }
 .arena-match .health-track i { background: linear-gradient(90deg,#4c948d,#a8d8bd); box-shadow: 0 0 6px #a8d8bd33; }
-.arena-match .hp-hell { background: linear-gradient(90deg,#913d38,#e58d74); }
+.arena-match .health-track i.hp-hell { background: linear-gradient(90deg,#913d38,#e58d74); }
 .arena-match .health-row b { width: 18px; font-size: 8px; color: #c6d6c7; }
 .arena-match .unit-statuses { gap: 3px; margin: 5px 0 0; max-width: 120px; }
 .arena-match .unit-statuses span { width: 17px; height: 17px; display: grid; place-items: center; padding: 0; font-size: 10px; background: #252c2d; border-color: #cdb77d4d; }
@@ -900,6 +900,8 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .arena-divider > span { font: 8px Georgia,serif; letter-spacing: 4px; }
 .arena-skills { display: grid; grid-template-columns: repeat(4,57px); justify-content: end; gap: 8px; padding-bottom: 10px; }
 .arena-skill.skill-button { position: relative; width: 57px; height: 62px; min-height: 62px; padding: 0; display: block; overflow: visible; border-radius: 1px; border: 1px solid #b0c6b55c; background: #0a1219; box-shadow: 0 3px 12px #0006; }
+.arena-skill.skill-button::after { inset: 0; width: 100%; transform: none; background: linear-gradient(115deg,transparent 20%,#ffffff55 50%,transparent 80%); opacity: 0; }
+.arena-skill.skill-button.skill-cast::after { animation: technique-flare .65s ease-out 2; }
 .arena-skill .skill-art,.arena-skill .skill-art-fallback { width: 55px; height: 60px; border: 0; object-fit: cover; opacity: .95; transition: filter .2s; }
 .arena-skill .skill-art-fallback { font-size: 25px; }
 .arena-skill > .skill-slot-index { position: absolute; z-index: 2; left: 3px; top: 3px; display: grid; place-items: center; width: 12px; height: 12px; font-size: 7px; color: #eee1c7; background: #060d13b3; }
@@ -963,9 +965,10 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 @keyframes detail-reveal { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes queue-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes arena-impact { 25% { transform: translateX(-2px); } 65% { transform: translateX(2px); } }
+@keyframes technique-flare { 0%,100% { opacity: 0; } 30% { opacity: .8; } }
 @media (max-width:1100px) {
   .arena-match { grid-template-columns: minmax(0,1fr) 35px 200px; gap: 10px; padding: 14px; }
-  .arena-ally-row { grid-template-columns: minmax(135px,1fr) 228px; gap: 10px; }
+  .arena-ally-row { grid-template-columns: 170px 228px; gap: 10px; }
   .arena-skills { grid-template-columns: repeat(4,51px); gap: 8px; }
   .arena-skill.skill-button { width: 51px; height: 56px; min-height: 56px; }.arena-skill .skill-art,.arena-skill .skill-art-fallback { width: 49px; height: 54px; }
   .arena-match .unit-name { font-size: 12px; }.arena-divider b { width: 30px; height: 30px; font-size: 12px; }
