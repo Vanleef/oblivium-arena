@@ -161,7 +161,8 @@ const illustratedCharacterIds = new Set([
   "o-apodrecido", "a-praga-andante", "o-corrupto", "a-rainha-dos-fungos", "o-medico-de-vermes",
   "o-jardim-morto", "o-que-observou", "a-porta-fechada", "o-surdo", "a-testemunha-cega",
   "o-quarto-vazio", "o-vigia-ausente", "o-que-possui", "a-pele-alheia", "o-desejo-quebrado",
-  "a-marionetista-de-nervos", "o-espelho-carnal", "a-costureira"
+  "a-marionetista-de-nervos", "o-espelho-carnal", "a-costureira", "o-que-apaga", "a-ausencia",
+  "o-fim-silencioso", "o-menino-sem-sombra", "a-ultima-pagina", "o-lugar-de-ninguem"
 ]);
 
 const roleCycle = [
