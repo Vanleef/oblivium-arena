@@ -164,7 +164,8 @@ const illustratedCharacterIds = new Set([
   "a-marionetista-de-nervos", "o-espelho-carnal", "a-costureira", "o-que-apaga", "a-ausencia",
   "o-fim-silencioso", "o-menino-sem-sombra", "a-ultima-pagina", "o-lugar-de-ninguem",
   "a-muralha", "o-que-ficou", "o-ultimo-guardiao", "a-sentinela-azul",
-  "a-mao-que-cura", "o-restaurador", "a-luz-que-restaura", "a-jardineira-das-feridas", "o-pulso-sereno"
+  "a-mao-que-cura", "o-restaurador", "a-luz-que-restaura", "a-jardineira-das-feridas", "o-pulso-sereno",
+  "o-equilibrio", "a-lamina-justa", "o-que-pesa", "a-testemunha-integra", "o-julgador-gentil"
 ]);
 
 const roleCycle = [
