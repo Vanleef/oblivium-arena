@@ -440,7 +440,7 @@ function runMap() {
     const next = run.map.flat().find((candidate) => candidate.id === nextId);
     if (!next) return "";
     const activeEdge = cleared.has(node.id) && available.has(next.id);
-    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${node.row * 94 + 38} L ${xFor(next.col)} ${next.row * 94 + 38}"/>`;
+    return `<path class="path-edge ${activeEdge ? "available" : ""}" d="M ${xFor(node.col)} ${node.row * 94 + 76} L ${xFor(next.col)} ${next.row * 94}"/>`;
   })).join("");
   return `
     <section class="run-panel">
