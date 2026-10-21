@@ -1194,3 +1194,19 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .fighter-card.fx-counter .fighter-backdrop { border-color: #efd096; animation: counter-answer .65s ease-out 2; }
 @keyframes counter-answer { 0%,100% { box-shadow: 0 0 0 1px #efd09622; } 35% { box-shadow: 0 0 0 3px #efd09677,0 0 25px #efb97266; filter: brightness(1.35); } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+/* Alternate skills preserve the four-slot Arena layout. */
+.skill-evolved { border-color: #a8c9e6 !important; box-shadow: inset 0 0 0 1px #bd9fe34d, 0 0 14px #8f9edd25; }
+.skill-evolved .skill-art { filter: saturate(1.2) hue-rotate(12deg); }
+.skill-form-mark { position: absolute; right: 3px; bottom: 2px; z-index: 3; color: #e1d1ff; font-size: 16px; text-shadow: 0 0 8px #b4a3f6; }
+.skill-form-shift { animation: technique-shift .9s ease-out both; }
+.active-form-label { display: block; color: #c5b8ea; margin: 6px 0; font-size: 10px; }
+.form-guide { margin: 9px 0; border-top: 1px solid #8e87aa35; }
+.form-guide > summary { cursor: pointer; color: #b2acbf; font-size: 9px; padding: 9px 0; list-style: none; }
+.form-guide > div, .codex-forms > section { padding: 10px; margin-top: 7px; border-left: 2px solid #9e8ac3; background: #9e8ac30a; }
+.form-guide header, .codex-forms header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.form-guide header b, .codex-forms header b { color: #d3c4e5; font-size: 11px; }
+.form-guide > div small { color: #a8a1b7; font-size: 9px; }
+.codex-forms { margin-bottom: 12px; }
+@keyframes technique-shift { 0% { transform: scale(.88); filter: brightness(1.8); box-shadow: 0 0 30px #d3b4fa; } 55% { transform: scale(1.06); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .skill-form-shift { animation: none; } }

@@ -1,3 +1,4 @@
+import { evolveKit } from "./kit-evolutions.js";
 // Kits autorais: cada entrada define preparação, resposta e desfecho do personagem.
 const A = (name, damage, cost = 1, extra = {}) => ({ name, damage, cost, target: "enemy", damageType: "physical", ...extra });
 const S = (name, extra, cost = 1) => A(name, 0, cost, { target: "ally", ...extra });
@@ -173,6 +174,8 @@ export function describeAbility(a) {
   if(a.gainCharge) parts.push(`Ganha ${a.gainCharge} carga (máx. 3).`);
   if(a.perChargeDamage) parts.push(`${a.spendCharge ? "Consome as cargas:" : "Por carga:"} +${a.perChargeDamage} de dano por carga.`);
   if(a.perChargeHeal) parts.push(`Consome as cargas: +${a.perChargeHeal} de cura por carga${a.target === "team" ? " a cada aliado" : ""}.`);
+  if(a.spendCharge&&!a.perChargeDamage&&!a.perChargeHeal) parts.push("Consome todas as cargas.");
+  if(a.requiredMark) parts.push("Exige a marca desta preparação no alvo.");
   if(a.combo) parts.push(`Se ${conditionLabel(a.combo.condition)}: +${a.combo.bonusDamage || 0} dano${a.combo.stun ? " e Atordoa por 1 turno" : ""}${a.combo.consume ? "; consome a preparação" : ""}.`);
   if(a.selfDamage) parts.push(`O usuário perde ${a.selfDamage} de Vida (não o derrota).`);
   if(a.invulnerable) parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.");
@@ -192,14 +195,20 @@ function describePassive(p) {
   return descriptions[p.type];
 }
 export function buildCharacterKit(eloId, index, art) {
-  const spec = rosters[eloId]?.[index];
+  const original = rosters[eloId]?.[index];
+  const spec = original && evolveKit(eloId,index,original);
   if(!spec) throw new Error(`Kit ausente: ${eloId}/${index}`);
   const ids=["impulso","tecnica","voto","despertar"];
-  const abilities=[...spec.skills,A(spec.defense,0,1,{target:"self",costs:{essence:1},invulnerable:1,cooldown:4,defense:true})].map((a,i)=>{
+  const raw=[...spec.skills,A(spec.defense,0,1,{target:"self",costs:{essence:1},invulnerable:1,cooldown:4,defense:true})];
+  const compile=(a,i)=>{
     const costs=a.costs || (a.cost===0 ? {} : a.cost===1 ? {affinity:1} : a.cost===2 ? {affinity:1,essence:1} : {affinity:2,essence:1});
     const kind=a.defense ? "defense" : a.damage ? a.stun || a.weaken || a.mark ? "control" : "strike" : a.shield || a.counter || a.reduce ? "guard" : "support";
-    return {...a,id:ids[i],costs,cooldown:a.cooldown||0,kind,classes:[a.damage ? a.damageType==="physical" ? "Física" : a.damageType==="piercing" ? "Perfurante" : a.damageType==="affliction" ? "Aflição" : "Espiritual" : "Estratégica",a.dot ? "Persistente" : "Instantânea"],description:describeAbility(a),art:art?.abilities[ids[i]]};
-  });
-  return {role:spec.role,roleHint:spec.combo,combo:spec.combo,passive:{...spec.passive,description:describePassive(spec.passive),art:art?.passive},abilities};
+    const next=a.evolutionNote||a.shift?.map(t=>t.form==="base"?`Após usar, restaura ${raw[ids.indexOf(t.slot)].name}.`:`Abre ${raw[ids.indexOf(t.slot)].forms.find(f=>f.formKey===t.form)?.name}${t.turns?` por ${t.turns} turno(s)`:""}.`).join(" ")||"";
+    return {...a,id:ids[i],costs,cooldown:a.cooldown||0,kind,classes:[a.damage ? a.damageType==="physical" ? "Física" : a.damageType==="piercing" ? "Perfurante" : a.damageType==="affliction" ? "Aflição" : "Espiritual" : "Estratégica",a.dot ? "Persistente" : "Instantânea"],description:[describeAbility(a),next].filter(Boolean).join(" "),art:art?.abilities[ids[i]],...(a.forms?{forms:a.forms.map(f=>compile(f,i))}:{})};
+  };
+  const abilities=raw.map(compile);
+  return {role:spec.role,roleHint:spec.combo,combo:spec.combo,mechanic:spec.mechanic,passive:{...spec.passive,description:describePassive(spec.passive),art:art?.passive},abilities};
 }
 export const kitCount=Object.values(rosters).reduce((sum,list)=>sum+list.length,0);
+
+export function allSkillForms(character){return character.abilities.flatMap(a=>[a,...(a.forms||[])]);}

@@ -1,5 +1,6 @@
 import {writeFile} from 'node:fs/promises';
 import {characters,elos,resources} from '../src/data.js';
+import {allSkillForms} from '../src/kits.js';
 import {getAbilityResourceCosts} from '../src/combat.js';
 const names=Object.fromEntries(resources.map(r=>[r.id,r.name]));
 const lines=[`# PMA — kits e regras de combate
@@ -26,6 +27,8 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 - Marcas pertencem a quem as aplicou. Cargas vão de 0 a 3. Bônus por carga usa as cargas anteriores à ação; ganho e consumo ocorrem uma vez por habilidade não anulada.
 - O primeiro jogador recebe 1 recurso aleatório na abertura; nos turnos seguintes cada lado recebe um por personagem vivo. Os quatro tipos têm 25% de chance por sorteio. Saldos não gastos acumulam sem teto de 5.
 - Benefícios pessoais e passivas de uma técnica em área ocorrem uma vez por uso. Dano, cura coletiva e Defesa coletiva atingem cada alvo válido.
+- Variações ocupam o mesmo espaço e compartilham a ação e a recarga. Uma técnica pode mudar por preparação, contra-ataque ativado, Vida, cargas ou esgotamento de usos. Janelas indicam quantos turnos próprios seguintes permanecem abertas. Posturas sem duração acabam apenas pelo efeito de reversão.
+- Quando uma preparação abre uma continuação no mesmo espaço, sua recarga é adiada até a continuação terminar ou expirar. A quarta defesa nunca é substituída.
 - Técnicas em área com maior potencial de explosão custam 3 recursos. Custos aparecem no jogo como quadrados coloridos.
 
 ## Referências de estrutura
@@ -36,9 +39,9 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 Os kits usam as identidades e os conceitos do PMA. Compartilhar palavras-chave e arquétipos é intencional; nomes diferentes, por si só, não demonstram diversidade nem equilíbrio. Testes cobrem a execução de cada combo, custos, uso de marcas e cargas, durações e a quarta defesa. O ajuste fino entre equipes e dificuldades depende de partidas e iterações de balanceamento.
 `];
 for(const elo of elos){lines.push(`## Elo ${elo.name}\n`);for(const c of characters.filter(c=>c.eloId===elo.id)){
- lines.push(`### ${c.name} — ${c.role}\n\n${c.combo}\n\n**Passiva — ${c.passive.name}:** ${c.passive.description}\n`);
- for(const a of c.abilities){const cost=Object.entries(getAbilityResourceCosts(c,a)).map(([id,n])=>`${n} ${names[id]||id}`).join(' + ');lines.push(`- **${a.name}** (${cost}; recarga ${a.cooldown}T): ${a.description}`);}
+ lines.push(`### ${c.name} — ${c.role}\n\n${c.combo}\n\n${c.mechanic?`**Estrutura:** ${c.mechanic}\n\n`:""}**Passiva — ${c.passive.name}:** ${c.passive.description}\n`);
+ for(const a of allSkillForms(c)){const cost=Object.entries(getAbilityResourceCosts(c,a)).map(([id,n])=>`${n} ${names[id]||id}`).join(' + ');lines.push(`- **${a.name}**${a.formKey?" [variação]":""} (${cost}; recarga ${a.cooldown}T): ${a.description}`);}
  lines.push('');
 }}
 await writeFile(new URL('../docs/COMBAT_KITS.md',import.meta.url),`${lines.join('\n')}\n`);
-console.log(`Catálogo atualizado: ${characters.length} kits, ${characters.flatMap(c=>c.abilities).length} habilidades.`);
+console.log(`Catálogo atualizado: ${characters.length} kits, ${characters.flatMap(allSkillForms).length} técnicas, incluindo variações.`);

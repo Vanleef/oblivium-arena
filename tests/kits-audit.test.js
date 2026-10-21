@@ -31,7 +31,7 @@ test('cargas e marcas de todos os kits têm um uso mecânico',()=>{
 test('bônus criado no próprio turno chega à próxima ofensiva e expira depois dela',()=>{
  const c=characters.find(c=>c.name==='O Ódio Encarnado'),b=battle(c),u=b.allies[0];u.passive=null;
  cast(b,c.abilities[1]);assert.equal(u.boost,10);
- const before=b.enemies[0].hp;cast(b,c.abilities[0]);assert.equal(before-b.enemies[0].hp,35);assert.equal(u.boost,0);
+ const before=b.enemies[0].hp;cast(b,c.abilities[0]);assert.equal(before-b.enemies[0].hp,40);assert.equal(u.boost,0);
 });
 
 test('exposição beneficia a continuação do próprio usuário e expira no fim dessa janela',()=>{
