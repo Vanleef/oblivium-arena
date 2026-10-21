@@ -153,7 +153,9 @@ const starterArt = {
 const illustratedCharacterIds = new Set([
   "o-acougueiro", "a-viuva-escarlate", "o-colecionador-de-cabecas", "gemeos-do-cutelo",
   "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",
-  "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo"
+  "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo",
+  "o-sussurro", "a-mascara-dupla", "o-tecelao-de-mentiras", "a-boca-de-vidro",
+  "o-falso-profeta", "o-corretor-de-memorias"
 ]);
 
 const roleCycle = [
