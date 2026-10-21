@@ -14,11 +14,11 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 
 ## O que já funciona
 
-- Catálogo original com 100 personagens planejados: 54 Inferno, 35 Paraíso e 11 Limbo.
+- Catálogo jogável com 100 personagens e 400 técnicas: 54 Inferno, 35 Paraíso e 11 Limbo.
 - Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
-- Combate tático por turnos com três ações do trio por rodada, alvo selecionável, intenções inimigas anunciadas e recursos compartilhados de Essência, Cinza, Graça e Ruptura.
-- Quatro técnicas por personagem com custos, recargas e efeitos táticos: Enfraquecido, Exposto, Queimadura, Escudo, Provocação e Atordoado. Atordoamento interrompe uma intenção anunciada.
+- Combate tático por turnos: uma ação por personagem, seleção de alvo, fila reordenável e confirmação antes da resposta adversária. Energia aleatória entre quatro tipos, com saldo acumulável.
+- Quatro técnicas por personagem com custos, recargas, aflições, marcas, cargas, Defesa destrutível e contra-ataques. A quarta técnica concede Invulnerável por 1 turno e tem recarga de 4 turnos.
 - Retrato, passiva e quatro artes de habilidade para 74 personagens: o trio inicial e 71 personagens de Sangria, Coroa, Mentira, Chama, Fome, Podridão, Silêncio, Carne, Vazio, Proteção, Cura e Justiça; O Fim tem retrato próprio.
 - Mapas de sete andares com conexões reais entre rotas, combates normais e de elite, eventos, poderes, descanso, tesouro, mercador, mini-boss e Guardião final.
 - Vida do trio persiste entre encontros; descanso, evento e mercador permitem recuperar a formação. Vitórias de elite recompensam um poder da trilha.
@@ -34,5 +34,13 @@ Anime japonês 2D de fantasia sobrenatural, com line art forte, sombras em cel s
 
 ## Estado
 
-Este é o primeiro slice jogável. O elenco contém 100 personagens planejados; 74 já têm conjuntos completos de seis imagens e O Fim tem retrato próprio. A cobertura visual dos outros 26 personagens, o balanceamento e a campanha narrativa completa seguem em expansão.
+Este é um protótipo jogável com 100 kits implementados; 74 já têm conjuntos completos de seis imagens e O Fim tem retrato próprio. A cobertura visual dos outros 26 personagens, o balanceamento e a campanha narrativa completa seguem em expansão.
 
+
+## Catálogo e auditoria de kits
+
+`docs/COMBAT_KITS.md` contém os 100 kits e as descrições usadas pelo jogo. Para atualizar o catálogo após editar os dados:
+
+    node scripts/generate-kit-catalog.mjs
+
+`tests/kits-audit.test.js` executa as 76 continuações de combo com preparações do próprio personagem, verifica que marcas e cargas têm uso e cobre durações, anulações e benefícios em área. O balanceamento entre equipes e Rupturas continua sujeito a partidas de avaliação.

@@ -21,6 +21,17 @@ export function meetsCondition(u,condition,actor){if(!u||!condition)return false
 function consume(u,condition,actor){if(condition.startsWith("mark:"))delete u.marks[condition.slice(5)];else if(["bleed","burn","poison","decay"].includes(condition)){const tag={bleed:"sangramento",burn:"queimadura",poison:"veneno",decay:"decadencia"}[condition];u.dots=u.dots.filter(d=>d.tag!==tag);}else if(condition==="marked")for(const [id,m]of Object.entries(u.marks))if(m.sourceId===actor.id)delete u.marks[id];}
 function hit(u,n,options={}){if(u.hp<=0||(u.invulnerable&&!options.ignoreInvulnerability))return {dealt:0,blocked:0,immune:true};const type=options.damageType||"physical";let amount=Math.max(0,Math.round(n));if(type!=="affliction"&&u.exposed)amount+=10;if(!["piercing","affliction"].includes(type))amount=Math.max(0,amount-u.reduction-(u.armor||0));const blocked=type==="affliction"?0:Math.min(u.shield,amount);u.shield-=blocked;const dealt=Math.min(u.hp,amount-blocked);u.hp-=dealt;return {dealt,blocked,immune:false};}
 function cleanse(u){u.dots=[];u.marks={};u.stunned=0;u.weakened=0;u.exposed=0;}
+// A preparation must survive long enough for its owner to take the next action.
+function applySupport(s,actor,a,receiver,charges){
+  const g=actor.side==="player"?s.global:{};
+  if(a.heal||a.perChargeHeal)heal(receiver,(a.heal||0)+(a.perChargeHeal||0)*charges+(g.healPower||0));
+  if(a.shield)shield(receiver,a.shield+(g.shieldPower||0));
+  if(a.reduce)receiver.reduction=Math.max(receiver.reduction,a.reduce);
+  if(a.boost){receiver.boost=Math.max(receiver.boost,a.boost);receiver.boostFresh=receiver.side===actor.side;}
+  if(a.counter)receiver.counter=Math.max(receiver.counter,a.counter);
+  if(a.cleanse)cleanse(receiver);
+  if(a.invulnerable)receiver.invulnerable=a.invulnerable;
+}
 function passiveBonus(actor,target){const p=actor.passive;if(!p)return 0;if(p.type==="hunter"&&meetsCondition(target,p.condition,actor)||p.type==="firstHit"&&!actor.passiveUsed||p.type==="comeback"&&actor.hp<=50)return p.amount;return 0;}
 function transfer(s,side,n,steal){const other=side==="player"?"enemy":"player",p=pool(s,other);let count=0;for(let i=0;i<n;i++){const id=Object.keys(p).sort((a,b)=>p[b]-p[a]).find(k=>p[k]>0);if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
@@ -42,25 +53,25 @@ function apply(s,actor,a,targetId){
       const globalDamage=(typeBonus||0)+(!actor.globalStrikeUsed?(g.firstStrike||0):0);
       const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:1;
       const value=a.damage?Math.max(0,Math.round((a.damage+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveDamage+actor.boost-(actor.weakened?10:0))*multiplier)):0;
-      const r=hit(target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability});totalDamage+=r.dealt;
+      const r=a.damage?hit(target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability}):{dealt:0,blocked:0};totalDamage+=r.dealt;
       if(a.stun||combo&&a.combo.stun)target.stunned=Math.max(target.stunned,a.stun||a.combo.stun);
       if(a.weaken)target.weakened=Math.max(target.weakened,a.weaken);
-      if(a.expose)target.exposed=Math.max(target.exposed,a.expose);
+      if(a.expose){target.exposed=Math.max(target.exposed,a.expose);target.exposedFresh=true;}
       if(combo&&a.combo.consume)consume(target,a.combo.condition,actor);
       if(a.mark)target.marks[a.mark]={sourceId:actor.id,turns:a.markTurns||3,label:a.name};
       if(a.dot){target.dots=target.dots.filter(d=>!(d.sourceId===actor.id&&d.skillId===a.id));target.dots.push({...a.dot,damage:a.dot.damage+(actor.side==="player"?s.global.afflictionPower||0:0),sourceId:actor.id,skillId:a.id});}
       log(s,`${actor.name} usa ${a.name} em ${target.name}: ${r.dealt} dano${r.blocked?`, ${r.blocked} absorvido pela Defesa`:""}${combo?" · COMBO":""}.`);
       if(r.dealt&&target.passive?.type==="retaliate"&&actor.hp>0){hit(actor,target.passive.amount,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${target.passive.name}: ${actor.name} sofre ${target.passive.amount} de aflição.`);}
     }
-    const receiver=isFriendly?target:actor;
-    if(a.heal||a.perChargeHeal)heal(receiver,(a.heal||0)+(a.perChargeHeal||0)*charges+(actor.side==="player"?s.global.healPower||0:0));
-    if(a.shield)shield(receiver,a.shield+(actor.side==="player"?s.global.shieldPower||0:0));if(a.reduce)receiver.reduction=Math.max(receiver.reduction,a.reduce);if(a.boost)receiver.boost=Math.max(receiver.boost,a.boost);if(a.counter)receiver.counter=Math.max(receiver.counter,a.counter);if(a.cleanse)cleanse(receiver);if(a.invulnerable)receiver.invulnerable=a.invulnerable;
+    if(isFriendly)applySupport(s,actor,a,target,charges);
   }
+  // Self benefits of an offensive area skill are granted once per cast.
+  if(!isFriendly&&affected)applySupport(s,actor,a,actor,charges);
   if(isFriendly)log(s,`${actor.name} usa ${a.name}${a.target==="team"?" no trio":` em ${targets[0].name}`}${a.invulnerable?": Invulnerável por 1 turno":": apoio aplicado"}.`);
   if(affected){if(a.lifesteal)heal(actor,Math.floor(totalDamage*a.lifesteal));if(totalDamage&&actor.passive?.type==="leech")heal(actor,actor.passive.amount);if(isFriendly&&actor.passive?.type==="support")heal(actor,actor.passive.amount);if(a.drain||a.steal){const n=transfer(s,actor.side,a.steal||a.drain,Boolean(a.steal));log(s,`${a.steal?"Roubo":"Drenagem"}: ${n} recurso(s).`);}}
   if(a.damage&&affected){actor.globalStrikeUsed=true;if(actor.side==="player"&&s.global.lifesteal)heal(actor,Math.floor(totalDamage*Math.min(.6,s.global.lifesteal)));}
-  if(a.damage&&actor.passive?.type==="firstHit")actor.passiveUsed=true;
-  if(a.spendCharge)actor.charge=0;actor.charge=Math.min(3,actor.charge+(a.gainCharge||0));
+  if(a.damage&&affected&&actor.passive?.type==="firstHit")actor.passiveUsed=true;
+  if(affected){if(a.spendCharge)actor.charge=0;actor.charge=Math.min(3,actor.charge+(a.gainCharge||0));}
   if(a.selfDamage&&actor.hp>0)actor.hp=Math.max(1,actor.hp-Math.max(0,a.selfDamage+(actor.side==="player"?s.buffs.risk:0)));
   if(a.cooldown){actor.cooldowns[a.id]=a.cooldown;actor.cooldownFresh.push(a.id);}return {skipped:false,totalDamage,reactions};
 }
@@ -90,8 +101,8 @@ export function chooseAction(s,actorId,abilityId,targetId){
 export function removeQueuedAction(s,id){if(s.phase!=="player")return false;s.queue=s.queue.filter(a=>a.actorId!==id);return true;}
 export function moveQueuedAction(s,id,direction){if(s.phase!=="player")return false;const i=s.queue.findIndex(a=>a.actorId===id),j=i+direction;if(i<0||j<0||j>=s.queue.length)return false;[s.queue[i],s.queue[j]]=[s.queue[j],s.queue[i]];return true;}
 export function commitTurn(s){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...s.queue.map(a=>({...a})),{type:"handoff"},...s.intents.map(a=>({...a})),{type:"effects"},{type:"next-turn"}];s.queue=[];return {ok:true};}
-function endOpposing(units){for(const u of units){u.invulnerable=0;u.counter=0;u.reduction=0;}}
-function endActing(units){for(const u of units){u.boost=0;u.exposed=0;u.weakened=0;u.stunned=Math.max(0,u.stunned-1);}}
+function endOpposing(units){for(const u of units){u.invulnerable=0;u.counter=0;u.reduction=0;if(!u.exposedFresh)u.exposed=0;u.exposedFresh=false;}}
+function endActing(units){for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
 function tickEffects(s){for(const u of [...s.allies,...s.enemies]){if(u.hp<=0)continue;for(const d of u.dots){const r=hit(u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);d.turns--;}u.dots=u.dots.filter(d=>d.turns>0);for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}}}
 function nextTurn(s){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,"player");grantTurn(s,"enemy");planAI(s);log(s,`Turno ${s.round}: recursos recebidos. Monte sua próxima fila.`);}
 export function resolveNextAction(s){
