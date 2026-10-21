@@ -20,3 +20,9 @@ Técnicas indisponíveis permanecem acessíveis para inspeção por toque ou tec
 As trajetórias das habilidades usam as posições reais dos retratos, incluindo layouts estreitos. Contra-ataques informam o defensor e o atacante para orientar o efeito de retorno. Movimentos decorativos são suprimidos quando o navegador pede movimento reduzido.
 
 O conselho final só aparece quando o nó do chefe é revelado. Os Ecos da travessia podem ser consultados num painel recolhido. Legados da mesma família aparecem agrupados com o valor acumulado. Defesa inicial global limita-se a 80, roubo de Vida global a 60%, bônus de descanso a 60 pontos percentuais e carga inicial a 3. Ofertas deixam de incluir famílias que atingiram o limite.
+
+## Trilha por brasão
+
+A expedição usa um atlas vertical ascendente com o brasão do Elo integrado ao fundo, atmosfera do véu e símbolos vetoriais próprios para cada encontro. O percurso mostra apenas nós revelados e conexões que partem de encontros concluídos. Os ícones dos encontros percorridos são preservados; um selo separado indica a conclusão. As próximas passagens também podem ser escolhidas na coluna lateral, que apresenta descrição e recompensa. No mobile, as escolhas seguem abaixo do atlas.
+
+O layout usa as mesmas coordenadas para o centro dos nós e as extremidades das curvas. Os movimentos de revelação, os fios de energia, as partículas e o destaque da passagem selecionada respeitam movimento reduzido. Durante a travessia animada ou uma decisão pendente, mapa e escolhas ficam desabilitados. O trio exibe Vida persistida, limites de Legados e, quando se retorna de um confronto ainda aberto, a Vida atual daquele combate.

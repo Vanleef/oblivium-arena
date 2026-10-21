@@ -20,15 +20,15 @@ function partyMarkup(run,profile,teamHealth){
 function councilMarkup(nodes,available,run,ownedIds){
   if(!nodes.some(n=>n.type==="boss"&&available.has(n.id)))return "";
   const council=(run.bossIds||[]).map(id=>characterById[id]).filter(Boolean);
-  return `<section class="council-reveal journey-council" aria-label="Conselho final revelado"><div class="journey-section-label">CONSELHO REVELADO</div><div class="council-members">${council.map(c=>`<article class="color-${esc(c.color)} ${ownedIds.includes(c.id)?"council-owned":""}">${portraitMarkup(c,"council-portrait")}<div><b>${esc(c.name)}</b><small>${ownedIds.includes(c.id)?"JÁ RECRUTADA":"PODE SER RECRUTADA"}</small></div></article>`).join("")}</div><p>Uma dessas almas se une ao seu trio após a vitória.</p></section>`;
+  return `<section class="council-reveal journey-council" aria-label="Conselho final revelado"><div class="journey-section-label">CONSELHO REVELADO</div><div class="council-members">${council.map(c=>`<article class="color-${esc(c.color)} ${ownedIds.includes(c.id)?"council-owned":""}">${portraitMarkup(c,"council-portrait")}<div><b>${esc(c.name)}</b><small>${ownedIds.includes(c.id)?"JÁ RECRUTADA":"PODE SER RECRUTADA"}</small></div></article>`).join("")}</div><p>${council.some(c=>!ownedIds.includes(c.id))?"Uma dessas almas se une ao seu trio após a vitória.":"Conclua o Elo para avançar sua progressão."}</p></section>`;
 }
 
 export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
   const {nodes,edges,cleared,available}=visibleTrail(run),{height,points}=trailLayout(nodes,run.seed);
   const completed=run.stage>=run.map.length,choices=nodes.filter(n=>available.has(n.id)&&!completed),locked=Boolean(options.busy||options.pending);
   const step=Math.min(run.stage+1,run.map.length),profile=options.profile||{};
-  return `<section class="run-panel journey-shell color-${esc(elo.color)} ${fx?`trail-fx-${esc(fx.kind)}`:""}" aria-label="Trilha de ${esc(elo.name)}">
-    <header class="journey-heading"><div><div class="eyebrow">${esc(elo.realm.toUpperCase())} <span>/</span> ${difficultyName(run.difficulty||0).toUpperCase()}</div><h3>${esc(run.variantTitle||elo.name)}</h3></div><div class="journey-progress"><span>TRAVESSIA <b>${number(step)} <i>/ ${number(run.map.length)}</i></b></span><div aria-label="${run.stage} de ${run.map.length} etapas concluídas">${run.map.map((_,i)=>`<i class="${i<run.stage?"done":i===run.stage?"current":""}"></i>`).join("")}</div></div></header>
+  return `<section class="run-panel journey-shell color-${esc(elo.color)} ${fx?`trail-fx-${esc(fx.kind)}`:""}" aria-label="Trilha de ${esc(elo.name)}" aria-busy="${Boolean(options.busy)}">
+    <header class="journey-heading"><div><div class="eyebrow">${esc(elo.realm.toUpperCase())} <span>/</span> ${esc(difficultyName(run.difficulty||0).toUpperCase())}</div><h3>${esc(run.variantTitle||elo.name)}</h3></div><div class="journey-progress"><span>TRAVESSIA <b>${number(step)} <i>/ ${number(run.map.length)}</i></b></span><div aria-label="${run.stage} de ${run.map.length} etapas concluídas">${run.map.map((_,i)=>`<i class="${i<run.stage?"done":i===run.stage?"current":""}"></i>`).join("")}</div></div></header>
     <div class="journey-layout">
       <div class="journey-atlas">
         <div class="journey-atmosphere" aria-hidden="true"><i class="journey-orbit orbit-one"></i><i class="journey-orbit orbit-two"></i>${eloCrest(elo,"journey-crest")}<span class="journey-elo-name">${esc(elo.name)}</span><div class="journey-motes"><i></i><i></i><i></i><i></i><i></i></div></div>
@@ -39,7 +39,7 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
             const point=points.get(node.id),done=cleared.has(node.id),active=available.has(node.id)&&!completed,selected=run.currentNodeId===node.id,index=choices.findIndex(n=>n.id===node.id),kind=labels[node.type]||node.label;
             return `<button class="journey-node type-${esc(node.type)} ${done?"done":active?"active":"skipped"} ${selected?"selected":""} ${fx?.newIds?.includes(node.id)?"node-reveal":""}" style="left:${point.x/9}%;top:${point.y}px;--reveal-delay:${Math.max(0,index)*100}ms" ${active&&!locked?`data-node="${esc(node.id)}"`:"disabled"} data-waypoint="${esc(node.id)}" aria-label="${esc(`${node.label}, ${kind}. ${done?"Concluído":active?"Disponível":"Desvio não escolhido"}. ${node.desc}`)}"><span class="waypoint-disc">${trailIcon(node.type)}</span>${done?'<span class="waypoint-done" aria-hidden="true">✓</span>':active?`<span class="waypoint-number" aria-hidden="true">${number(index+1)}</span>`:""}<b>${esc(node.label)}</b>${selected?'<small>EM CURSO</small>':active?'<small>DISPONÍVEL</small>':""}</button>`;
           }).join("")}
-          <span class="journey-origin" style="top:${height-44}px" aria-hidden="true">${cleared.size?"CAMINHO PERCORRIDO":"INÍCIO DA TRAVESSIA"}</span>
+          <span class="journey-origin" style="top:${height-20}px" aria-hidden="true">${cleared.size?"CAMINHO PERCORRIDO":"INÍCIO DA TRAVESSIA"}</span>
         </div></div>
         <div class="journey-map-caption"><span><i></i> ${choices.length} ${choices.length===1?"passagem aberta":"passagens abertas"}</span><span>${esc(elo.name)} <b>✦</b></span></div>
       </div>

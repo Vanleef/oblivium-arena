@@ -1355,3 +1355,18 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
  .journey-party { margin-top: 23px; padding-top: 20px; }.journey-party > div:last-child { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; }.journey-soul { display: grid; gap: 9px; }.journey-soul .journey-portrait { width: 36px; height: 44px; }.journey-soul b { font-size: 8px; min-height: 22px; line-height: 1.3; }.journey-soul small { font-size: 7px; }.journey-notice-slot { left: 12px; right: 12px; top: 135px; }.journey-feedback.trail-feedback b { font-size: 10px; }.journey-footer.run-footer { padding: 17px 18px; }
 }
 @media(prefers-reduced-motion:reduce) { .journey-node,.journey-node .waypoint-disc,.journey-node .waypoint-disc::after,.journey-thread,.journey-choice,.journey-motes i { animation: none !important; transition: none !important; }.journey-node.node-reveal { opacity: 1; }.journey-motes { display: none; } }
+/* Keep several passage choices and a revealed council balanced against the atlas. */
+.journey-shell:has(.journey-choice:nth-child(2)) .journey-choice { padding: 12px 10px; gap: 10px; }
+.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > b { font-size: 18px; }
+.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > span { margin-top: 6px; font-size: 9px; line-height: 1.5; }
+.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > em { margin-top: 8px; }
+.journey-shell:is(:has(.journey-choice:nth-child(2)),:has(.journey-council)) .journey-party { margin-top: 22px; padding-top: 17px; }
+.journey-shell:is(:has(.journey-choice:nth-child(2)),:has(.journey-council)) .journey-party > div:last-child { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-top: 12px; }
+.journey-shell:is(:has(.journey-choice:nth-child(2)),:has(.journey-council)) .journey-soul { display: grid; gap: 8px; align-items: start; }
+.journey-shell:is(:has(.journey-choice:nth-child(2)),:has(.journey-council)) .journey-soul b { min-height: 24px; font-size: 8px; line-height: 1.4; }
+.journey-council .council-members { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+.journey-council .council-members article { display: grid; align-content: start; gap: 8px; }
+.journey-council .council-members b { font-size: 8px; line-height: 1.4; }
+.journey-council .council-members small { margin-top: 5px; font-size: 5px; }
+@media(min-width:681px) { .journey-shell:is(:has(.journey-choice:nth-child(3)),:has(.journey-council)) .journey-map { height: 560px; } }
+@media(max-width:680px) { .journey-shell:has(.journey-choice:nth-child(2)) .journey-choice { padding: 14px; gap: 14px; }.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > b { font-size: 21px; }.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > span { font-size: 11px; }.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > em { font-size: 9px; }.journey-council .council-members b { font-size: 10px; }.journey-council .council-members small { font-size: 6px; } }
