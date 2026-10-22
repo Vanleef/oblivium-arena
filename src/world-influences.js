@@ -1,51 +1,58 @@
 import { seededRandom, shuffled } from './progression.js';
 import { elos } from './data.js';
-const event=(id,title,lore,eloIds,effect,description)=>({id,title,lore,eloIds,effect,description});
-export const worldInfluences=[
- event('remessa','A remessa dos condenados','Mentiras alimentam uma nova onda de violência entre os vivos.',['mentira','sangria'],{maxHp:12},'+12 de Vida máxima'),
- event('incendios','Cidades em cinzas','Incêndios atravessam a madrugada. O calor alcança o outro lado.',['chama'],{damage:4},'+4 de dano direto'),
- event('escassez','Mesas vazias','A fome dos vivos ecoa nas profundezas.',['fome','carne'],{damage:3},'+3 de dano direto'),
- event('socorro','Uma vida por outra','Equipes de resgate recusam abandonar os feridos.',['cura','protecao'],{heal:4,shield:8},'+4 de cura direta e 8 de Defesa'),
- event('testemunhas','Vozes que resistem','Testemunhas enfrentam os poderosos para revelar a verdade.',['verdade','justica'],{damage:3,shield:6},'+3 de dano direto e 6 de Defesa'),
- event('reconstrucao','Depois da queda','Comunidades reconstroem aquilo que parecia perdido.',['criacao','esperanca','uniao'],{maxHp:10,shield:6},'+10 de Vida máxima e 6 de Defesa'),
- event('esquecidos','Nomes apagados','Os vivos deixam de lembrar aqueles que partiram.',['silencio','vazio','correntes-quebradas'],{damage:3,shield:8},'+3 de dano direto e 8 de Defesa'),
- event('imperio','O preço do poder','Governantes celebram enquanto suas cidades adoecem.',['coroa','podridao'],{maxHp:14},'+14 de Vida máxima'),
- event('luto','Vigília dos vivos','Milhares acendem uma luz por quem morreu.',[],{shield:8},'Todos os personagens vivos recebem 8 de Defesa'),
- event('clamor','O clamor atravessa','Um grito coletivo rompe a fronteira entre os mundos.',[],{damage:2},'Todos os personagens vivos recebem +2 de dano direto'),
- event('abrigo','Último abrigo','Estranhos abrem suas portas durante uma noite de medo.',[],{maxHp:8},'Todos os personagens vivos recebem +8 de Vida máxima'),
- {...event('promessa','Promessa de retorno','Uma promessa mantém acesa a vontade de sobreviver.',[],{heal:3},'Personagens com técnicas de cura recebem +3 de cura direta'),type:'healer'},
- {...event('barricadas','Barricadas na madrugada','Os vivos erguem barreiras para proteger quem ainda resiste.',[],{shield:12},'Personagens com barreiras ou redução de dano recebem 12 de Defesa'),type:'guardian'},
- {...event('contagio','O contágio invisível','Uma doença silenciosa atravessa as fronteiras dos vivos.',[],{maxHp:10},'Personagens com técnicas de aflição recebem +10 de Vida máxima'),type:'afflicter'}
-];
+import { worldInfluences } from './world-event-catalog.js';
+export { worldInfluences } from './world-event-catalog.js';
+import { initializeWorldUnit } from './world-rules.js';
 const units=s=>[...s.allies,...s.enemies];
 const techniques=u=>u.abilities.flatMap(a=>[a,...(a.forms||[])]);
-const matchesType=(e,u)=>!e.type||techniques(u).some(a=>e.type==='healer'?a.heal||a.perChargeHeal:e.type==='guardian'?a.shield||a.reduce:a.dot||a.reactive?.damage);
+const helpful=a=>['self','ally','friendly','team'].includes(a.target)&&!a.defense;
+const predicates={
+ healer:a=>a.heal||a.perChargeHeal,guardian:a=>a.shield||a.reduce,
+ afflicter:a=>a.dot||a.reactive?.damage&&(!a.reactive.damageType||a.reactive.damageType==='affliction'),
+ marker:a=>a.mark||a.requiredMark||a.combo?.condition?.startsWith('mark:'),
+ support:helpful,controller:a=>a.stun||a.weaken||a.expose||a.sealAttack||a.sealSupport||a.combo?.stun,
+ counter:a=>a.counter,charger:a=>a.gainCharge||a.spendCharge||a.perChargeDamage||a.perChargeHeal,
+ shifter:a=>a.forms?.length||a.shift?.length||a.formKey&&a.formKey!=='base'
+};
+const typeLabels={healer:'Cura',guardian:'Barreiras e redução',afflicter:'Aflições',marker:'Marcas',support:'Apoio',controller:'Controle',counter:'Contra-ataques',charger:'Cargas',shifter:'Habilidades mutáveis'};
+const matchesType=(e,u)=>!e.type||techniques(u).some(predicates[e.type]||(()=>false));
 export const influenceTargets=(e,list)=>list.filter(u=>u.hp>0&&matchesType(e,u)&&(!e.eloIds.length||e.eloIds.includes(u.eloId)));
-export const influenceScope=e=>e.eloIds.length?e.eloIds.map(id=>elos.find(e=>e.id===id)?.name||id).join(' · '):e.type==='healer'?'Técnicas de cura':e.type==='guardian'?'Barreiras e redução':e.type==='afflicter'?'Técnicas de aflição':'Todos os Elos';
-export function influenceOffers(s,seed=1){
- const available=worldInfluences.filter(e=>influenceTargets(e,units(s)).length&&!s.worldEvents?.some(p=>p.id===e.id));
- const relevant=worldInfluences.filter(e=>influenceTargets(e,units(s)).length);
- const pool=available.length>=3?available:relevant.length>=3?relevant:worldInfluences.filter(e=>!e.eloIds.length&&!e.type);
- const rng=seededRandom(seed);return shuffled(pool,rng).slice(0,3);
+export const influenceScope=e=>[e.eloIds.length?e.eloIds.map(id=>elos.find(e=>e.id===id)?.name||id).join(' · '):'',typeLabels[e.type]||''].filter(Boolean).join(' / ')||'Todos os Elos';
+export function draftTier(seed,stage=0){const n=seededRandom(seed+stage*4099)();return n<Math.max(.2,.7-stage*.18)?'silver':n<Math.max(.65,.95-stage*.1)?'gold':'prismatic';}
+export function influenceOffers(s,seed=1,tier=null){
+ const eligible=worldInfluences.filter(e=>(!tier||e.tier===tier)&&influenceTargets(e,units(s)).length);
+ const fallback=worldInfluences.filter(e=>(!tier||e.tier===tier)&&!e.eloIds.length&&!e.type);
+ const relevant=eligible.length>=3?eligible:fallback;
+ const fresh=relevant.filter(e=>!s.worldEvents?.some(p=>p.id===e.id));
+ const rng=seededRandom(seed),choices=[];
+ for(const category of ['offense','defense','utility']){
+  const options=shuffled(relevant.filter(e=>e.category===category),rng),newOptions=options.filter(e=>fresh.includes(e));
+  const picked=newOptions[0]||options[0];if(picked)choices.push(picked);
+ }
+ for(const e of shuffled([...fresh,...relevant],rng))if(choices.length<3&&!choices.some(p=>p.id===e.id))choices.push(e);
+ return shuffled(choices,rng).slice(0,3);
 }
 export function applyInfluence(s,id,side){
  const e=worldInfluences.find(e=>e.id===id);if(!e)throw new Error('Evento desconhecido');
- for(const u of influenceTargets(e,units(s))){
+ const eligible=influenceTargets(e,units(s));
+ for(const u of eligible){
   u.persistentMaxHp??=u.maxHp;
   if(e.effect.maxHp){const ratio=u.hp/u.maxHp;u.maxHp+=e.effect.maxHp;u.hp=Math.max(1,Math.round(u.maxHp*ratio));}
-  u.shield=Math.min(80,u.shield+(e.effect.shield||0));u.worldDamage=(u.worldDamage||0)+(e.effect.damage||0);u.worldHeal=(u.worldHeal||0)+(e.effect.heal||0);
+  u.shield=Math.min(80,u.shield+(e.effect.shield||0));initializeWorldUnit(u,e.effect);
  }
- (s.worldEvents||=[]).push({id,side,title:e.title});
+ if(e.effect.energy)for(const [side,list]of [['player',s.allies],['enemy',s.enemies]])if(list.some(u=>eligible.includes(u))){const pool=side==='player'?s.resources:s.enemyResources;for(const [id,n]of Object.entries(e.effect.energy))pool[id]=(pool[id]||0)+n;}
+ (s.worldEvents||=[]).push({id,side,title:e.title,tier:e.tier});
 }
 export function persistentCombatHp(u){return u.hp<=0?0:Math.max(1,Math.round(u.hp*(u.persistentMaxHp||u.maxHp)/u.maxHp));}
-export function beginInfluences(s,seed=1){s.worldSeed=Number(seed)||1;s.worldEvents=[];s.eventDeaths=units(s).filter(u=>u.hp<=0).map(u=>u.id);s.influenceQueue=[{side:'player',reason:'O mundo dos vivos se agita'},{side:'enemy',reason:'Escolha da oposição'}];s.influenceResume=s.phase;openInfluence(s);}
+export function beginInfluences(s,seed=1){s.worldSeed=Number(seed)||1;s.worldEvents=[];s.influenceStages={player:0,enemy:0};s.eventDeaths=units(s).filter(u=>u.hp<=0).map(u=>u.id);s.influenceQueue=[{side:'player',reason:'O mundo dos vivos se agita'},{side:'enemy',reason:'Escolha da oposição'}];s.influenceResume=s.phase;openInfluence(s);}
 function openInfluence(s){
  const next=s.influenceQueue.shift();if(!next){s.influenceDraft=null;s.phase=s.influenceResume;return;}
- const options=influenceOffers(s,s.worldSeed+37*s.worldEvents.length+101*s.eventDeaths.length);
- // The AI chooses from public rosters only, before consulting a human choice.
- s.influenceDraft={...next,options:options.map(e=>e.id)};s.phase='influence';
+ s.influenceStages||={player:0,enemy:0};const stage=s.influenceStages[next.side]++;
+ const tier=draftTier(s.worldSeed,stage),options=influenceOffers(s,s.worldSeed+37*s.worldEvents.length+101*s.eventDeaths.length,tier);
+ // The AI scores public recipients and current resources; it never reads a queued action.
+ s.influenceDraft={...next,tier,stage,options:options.map(e=>e.id)};s.phase='influence';
  if(next.side==='enemy'&&!s.humanSides){
-  const score=e=>influenceTargets(e,s.enemies).length*2-influenceTargets(e,s.allies).length;
+  const score=e=>influenceValue(e,s.enemies)-influenceValue(e,s.allies)*.65;
   const choice=[...options].sort((a,b)=>score(b)-score(a))[0];applyInfluence(s,choice.id,'enemy');openInfluence(s);
  }
 }
@@ -54,4 +61,9 @@ export function checkDeathInfluences(s){
  if(s.worldSeed===undefined)return false;
  const fallen=units(s).filter(u=>u.hp<=0&&!s.eventDeaths.includes(u.id));if(!fallen.length)return false;
  s.eventDeaths.push(...fallen.map(u=>u.id));s.influenceResume=s.phase;s.influenceQueue=fallen.map(u=>({side:u.side,reason:`${u.name} caiu`,fallenId:u.id}));openInfluence(s);return s.phase==='influence';
+}
+
+export function influenceValue(e,list){
+ const eligible=influenceTargets(e,list),v=e.effect;
+ return eligible.reduce((score,u)=>score+(v.damage||0)*1.4+(v.maxHp||0)*.25+Math.min(80-u.shield,v.shield||0)*.4+(v.armor||0)*3+(v.regeneration||0)*3+(v.heal||0)*(techniques(u).some(predicates.healer)?.8:0)+(v.shieldPower||0)*(techniques(u).some(predicates.guardian)?.8:0)+(v.affliction||0)*2+(v.lifesteal||0)*30+(v.firstStrike||0)*.65+['woundedPower','markedPower','afflictedPower','executePower','shieldedPower','controlPower','chargePower','evolvedPower','lastStandPower','counterPower'].reduce((n,key)=>n+(v[key]||0)*.75,0)+(v.supportShield||0)*.45+(v.shiftShield||0)*.45+(v.killShield||0)*.35+(v.defenseHeal||0)*.8+(v.charge||0)*1.5+(v.supportCharge||0)*3,0)+(eligible.length&&v.energy?Object.values(v.energy).reduce((a,b)=>a+b,0)*5:0);
 }

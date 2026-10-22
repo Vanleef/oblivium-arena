@@ -10,7 +10,7 @@ const harmfulCount = u => u.dots.length + Object.keys(u.marks).length + u.reacti
 function healing(s, actor, a, u) {
   const global = actor.side === 'player' ? s.global.healPower || 0 : 0;
   const missing = a.missingHpHeal ? Math.min(a.missingHpHeal.cap, Math.floor((u.maxHp - u.hp) / a.missingHpHeal.step) * a.missingHpHeal.amount) : 0;
-  return clampedHeal(u, (a.heal || 0) + (a.perChargeHeal || 0) * actor.charge + ((a.heal || a.perChargeHeal) ? global + missing : 0));
+  return clampedHeal(u, (a.heal || 0) + (a.perChargeHeal || 0) * actor.charge + ((a.heal || a.perChargeHeal) ? global + (actor.worldHeal||0) + missing : 0));
 }
 
 function protectedTarget(target, a) {
@@ -24,10 +24,10 @@ function attackResult(s, actor, a, target, rules) {
 
 function scoreSupport(s, actor, a, u) {
   const regen = a.regen && !u.regens.some(r => r.sourceId === actor.id && r.skillId === a.id) ? clampedHeal(u, a.regen.heal * a.regen.turns) * .55 : 0;
-  const extraShield = actor.side === 'player' ? s.global.shieldPower || 0 : 0;
+  const extraShield = (actor.side === 'player' ? s.global.shieldPower || 0 : 0)+(actor.worldShieldPower||0);
   return healing(s, actor, a, u) * 1.1 + regen
     + (a.cleanse ? Math.min(24, harmfulCount(u) * 8) : 0)
-    + (a.counter && !u.counter ? Math.min(20, a.counter) : 0)
+    + (a.counter && !u.counter ? Math.min(20, a.counter+(actor.worldCounterPower||0)) : 0)
     + (a.shield ? Math.min(a.shield + extraShield, Math.max(0, 45 - u.shield)) * .65 : 0)
     + (a.reduce ? Math.max(0, a.reduce - u.reduction) * .6 : 0)
     + (a.boost ? Math.max(0, a.boost - u.boost) * .8 : 0)
@@ -40,7 +40,7 @@ function scoreAttack(s, actor, a, target, rules) {
   const r = attackResult(s, actor, a, target, rules), combo = a.combo && rules.meetsCondition(target, a.combo.condition, actor);
   const newDot = a.dot && !target.dots.some(d => d.sourceId === actor.id && d.skillId === a.id);
   return r.dealt + r.blocked * .4 + (r.dealt >= target.hp ? 24 : 0)
-    + (newDot ? Math.min(target.hp - r.dealt, a.dot.damage * a.dot.turns) * .65 : 0)
+    + (newDot ? Math.min(target.hp - r.dealt, (a.dot.damage+(actor.worldAffliction||0)) * a.dot.turns) * .65 : 0)
     + ((a.stun || combo && a.combo.stun) && !target.stunned ? 13 : 0)
     + (a.mark && target.marks[a.mark]?.sourceId !== actor.id ? 6 : 0)
     + (a.expose && !target.exposed ? 7 : 0)

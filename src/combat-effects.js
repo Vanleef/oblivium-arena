@@ -10,7 +10,7 @@ export function addReactive(target,spec,actor,ability){
  target.reactives.push({...spec,turns:spec.turns||1,sourceId:actor.id,skillId:ability.id,label:ability.name,harmful:actor.side!==target.side});
 }
 export function applyExtraEffects(s,actor,ability,target,ctx){
- if(ability.reactive){const r=ability.reactive;addReactive(target,{...r,...(r.damage?{damage:r.damage+(actor.side==="player"?s.global.afflictionPower||0:0)}:{})},actor,ability);}
+ if(ability.reactive){const r=ability.reactive;addReactive(target,{...r,...(r.damage?{damage:r.damage+((!r.damageType||r.damageType==='affliction')?actor.worldAffliction||0:0)+(actor.side==="player"?s.global.afflictionPower||0:0)}:{})},actor,ability);}
  if(ability.regen){target.regens=target.regens.filter(r=>r.sourceId!==actor.id||r.skillId!==ability.id);target.regens.push({...ability.regen,sourceId:actor.id,skillId:ability.id,label:ability.name});}
  if(ability.sealSupport)target.sealSupport=Math.max(target.sealSupport,ability.sealSupport);
  if(ability.sealAttack)target.sealAttack=Math.max(target.sealAttack,ability.sealAttack);

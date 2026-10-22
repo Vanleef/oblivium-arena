@@ -72,6 +72,20 @@ export function recordEncounter(profile,run,node) {
 }
 // Three categories guarantee an offensive, defensive and exploration choice.
 const powers=[
+  ['wounded','Vontade Indomável','✹','offense',d=>({woundedPower:3+Math.floor(d/2)}),e=>`+${e.woundedPower} dano direto enquanto o aliado tiver até 50% da Vida.`],
+  ['marked','Sentença Gravada','◎','offense',d=>({markedPower:3+Math.floor(d/2)}),e=>`+${e.markedPower} dano direto contra alvos com uma marca do próprio aliado.`],
+  ['afflicted','Ferida sobre Ferida','♨','offense',d=>({afflictedPower:2+Math.floor(d/2)}),e=>`+${e.afflictedPower} dano direto contra alvos com aflições ativas.`],
+  ['control','Voz de Interdição','⊘','offense',d=>({controlPower:2+Math.floor(d/2)}),e=>`Técnicas de controle causam +${e.controlPower} dano direto.`],
+  ['evolved','Segunda Natureza','↻','offense',d=>({evolvedPower:3+Math.floor(d/2)}),e=>`Formas alternativas de habilidades causam +${e.evolvedPower} dano direto.`],
+  ['execution','Instante Final','↯','offense',d=>({executePower:3+Math.floor(d/2)}),e=>`+${e.executePower} dano direto contra alvos com até 40% da Vida.`],
+  ['resolve','Apoio que Sustenta','⬡','defense',d=>({supportShield:3+Math.floor(d/2)}),e=>`Usar apoio concede ${e.supportShield} Defesa ao próprio usuário; uma vez por habilidade.`],
+  ['escape','Retorno à Luz','✧','defense',d=>({defenseHeal:3+Math.floor(d/2)}),e=>`A defesa pessoal também recupera ${e.defenseHeal} Vida do usuário.`],
+  ['inheritance','Guarda dos Caídos','◇','defense',d=>({killShield:4+Math.floor(d/2)}),e=>`Derrubar uma alma com uma técnica ofensiva concede ${e.killShield} Defesa; uma vez por habilidade.`],
+  ['metamorph','Manto da Mudança','↻','defense',d=>({shiftShield:4+Math.floor(d/2)}),e=>`Mudar a própria forma por uma técnica concede ${e.shiftShield} Defesa; uma vez por habilidade.`],
+  ['reprisal','O Golpe Devolvido','↶','defense',d=>({counterPower:2+Math.floor(d/2)}),e=>`Contra-ataques preparados por habilidades causam +${e.counterPower} dano.`],
+  ['charge','Reserva do Amanhã','✦','exploration',d=>({chargePower:1+Math.floor(d/4)}),e=>`Técnicas diretas causam +${e.chargePower} dano por carga armazenada.`],
+  ['solidarity','Promessa Compartilhada','∞','exploration',d=>({supportCharge:1}),e=>`Usar apoio concede ${e.supportCharge} carga ao usuário; uma vez por habilidade, máximo de 3.`],
+  ['laststand','Ainda de Pé','✹','offense',d=>({lastStandPower:4+Math.floor(d/2)}),e=>`A última alma viva da equipe causa +${e.lastStandPower} dano direto.`],
   ['vitality','Carne do Amanhã','✚','defense',d=>({maxHp:8+3*d}),e=>`+${e.maxHp} Vida máxima por aliado.`],
   ['bulwark','Último Baluarte','⬡','defense',d=>({shield:8+3*d}),e=>`+${e.shield} Defesa no início de cada combate.`],
   ['renewal','Pulso Persistente','♡','defense',d=>({regeneration:1+Math.floor(d/3)}),e=>`Recupere ${e.regeneration} Vida por aliado a partir do turno 2.`],
@@ -99,7 +113,7 @@ export function globalChoices(profile,eloId,difficulty,seed=1) {
     const candidates=powers.filter(p=>p[3]===category&&Object.keys(p[4](difficulty)).every(key=>legacyCaps[key]==null||(current[key]||0)<legacyCaps[key]-1e-9)),fresh=candidates.filter(p=>!owned.has(p[0]));
     const [kind,title,icon,,effectFn,textFn]=shuffled(fresh.length?fresh:candidates,rng)[0],effect=effectFn(difficulty);
     for(const key of Object.keys(effect))if(legacyCaps[key]!=null)effect[key]=Math.min(effect[key],legacyCaps[key]-(current[key]||0));
-    return {id:`${eloId}:${difficulty}:${kind}`,kind,title,icon,category,effect,text:textFn(effect),difficulty};
+    return {id:`${eloId}:${difficulty}:${kind}`,kind,title,icon,category,effect,text:textFn(effect),difficulty,tier:difficulty>=4?'prismatic':difficulty>=1?'gold':'silver'};
   });
 }
 export function completeExpedition(profile,run) {

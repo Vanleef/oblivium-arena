@@ -41,8 +41,8 @@ test('apenas concluir o chefe concede recompensa; uma vitória de nó não pode 
  const p=profile(),run=createExpedition(p,elos[0],'hunt',0,1),node=run.map[0][0];assert.throws(()=>completeExpedition(p,run),/não foi concluída/);assert.equal(recordEncounter(p,run,node),true);assert.equal(recordEncounter(p,run,node),false);assert.equal(p.eloProgress.sangria.combats,1);
 });
 test('Legados oferecem três categorias, variam e escalam com a dificuldade',()=>{
- const p=profile(),kinds=new Set();for(let i=0;i<10;i++){const choices=globalChoices(p,'sangria',2,i+1);assert.equal(new Set(choices.map(c=>c.category)).size,3);for(const choice of choices){kinds.add(choice.kind);p.globalUpgrades.push({...choice,id:choice.id+i});}}
- assert.equal(kinds.size,20);for(let seed=1;seed<25;seed++){const a=globalChoices(profile(),'sangria',0,seed),b=globalChoices(profile(),'sangria',6,seed);for(let i=0;i<3;i++){assert.equal(a[i].kind,b[i].kind);for(const key of Object.keys(a[i].effect))assert.ok(b[i].effect[key]>=a[i].effect[key]);}}
+ const p=profile(),kinds=new Set();for(let i=0;i<20;i++){const choices=globalChoices(p,'sangria',2,i+1);assert.equal(new Set(choices.map(c=>c.category)).size,3);for(const choice of choices){kinds.add(choice.kind);p.globalUpgrades.push({...choice,id:choice.id+i});}}
+ assert.equal(kinds.size,34);for(let seed=1;seed<25;seed++){const a=globalChoices(profile(),'sangria',0,seed),b=globalChoices(profile(),'sangria',6,seed);for(let i=0;i<3;i++){assert.equal(a[i].kind,b[i].kind);for(const key of Object.keys(a[i].effect))assert.ok(b[i].effect[key]>=a[i].effect[key]);}}
  assert.ok(Object.keys(aggregateGlobal(p)).length>=18);
 });
 test('Rupturas reforçam todos os tipos de combate e aplicam os modificadores no motor',()=>{

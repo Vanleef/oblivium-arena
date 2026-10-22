@@ -1,3 +1,5 @@
+import { uiIcon, realmEmblem } from "./ui-icons.js";
+import { renderAugmentCard, effectGlyph, augmentGlyph } from "./augment-cards.js";
 import { arenaRequest } from "./online-client.js";
 import { renderArena } from "./arena-view.js";
 import { beginInfluences, chooseInfluence, persistentCombatHp } from "./world-influences.js";
@@ -97,7 +99,7 @@ function save() {
 function teamResourceLegend(teamIds) {
   const affinities = new Set(teamIds.map((id) => characterById[id]?.affinity).filter(Boolean));
   const active = resources.filter((resource) => resource.id === "essence" || affinities.has(resource.id));
-  return `<div class="team-resource-legend"><small>RECURSOS DA FORMAÇÃO</small><div>${active.map((resource) => `<span class="resource-${resource.color}"><i>${resource.icon}</i>${esc(resource.shortName)}</span>`).join("")}</div></div>`;
+  return `<div class="team-resource-legend"><small>RECURSOS DA FORMAÇÃO</small><div>${active.map((resource) => `<span class="resource-${resource.color}"><i>${uiIcon(resource.id)}</i>${esc(resource.shortName)}</span>`).join("")}</div></div>`;
 }
 
 function team() {
@@ -371,7 +373,7 @@ function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
   const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
   const kind=event.mode==="turn"?"turn":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
-  state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
+  state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="world")?"Eco ativado":event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
 }
 function resolveCombatStep() {
   const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);
@@ -421,11 +423,11 @@ function header() {
   return `
     <header class="topbar">
       <button class="brand" data-tab="rota" aria-label="PMA: Post Mortem Arena, início">
-        <img class="brand-mark" src="/icon.svg" alt="">
+        <img class="brand-mark" src="/art/interface/brand.webp" alt="">
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
-      <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("")}</nav>
-      <div class="player-chip"><span class="player-orb">✦</span><span><b>Alma desperta</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></div>
+      <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${uiIcon(id)}<span>${label}</span></button>`).join("")}</nav>
+      <div class="player-chip"><span class="player-orb">${uiIcon("essence")}</span><span><b>Alma desperta</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></div>
       <button class="mobile-menu" data-tab="trio" aria-label="Abrir equipe">☰</button>
     </header>`;
 }
@@ -434,9 +436,9 @@ function statusStrip() {
   const run = profile.run;
   return `
     <section class="status-strip" aria-label="Progresso">
-      <div class="status-item"><span class="status-icon">⟲</span><span><small>CORRENTES DA ALMA</small><b>${run ? run.stability + " / " + run.maxStability : "FIRMES"}</b></span><span class="chain-pips">${Array.from({length:Math.min(run?.maxStability||3,8)},(_,i)=>i).map((i) => `<i class="${run && i >= run.stability ? "broken" : ""}"></i>`).join("")}</span></div>
-      <div class="status-item"><span class="status-icon gold">◈</span><span><small>FRAGMENTOS</small><b>${profile.fragments}</b></span></div>
-      <div class="status-item"><span class="status-icon white">✧</span><span><small>TRILHAS CONCLUÍDAS</small><b>${profile.completedElos.length} / ${elos.length}</b></span></div>
+      <div class="status-item"><span class="status-icon">${uiIcon("chains")}</span><span><small>CORRENTES DA ALMA</small><b>${run ? run.stability + " / " + run.maxStability : "FIRMES"}</b></span><span class="chain-pips">${Array.from({length:Math.min(run?.maxStability||3,8)},(_,i)=>i).map((i) => `<i class="${run && i >= run.stability ? "broken" : ""}"></i>`).join("")}</span></div>
+      <div class="status-item"><span class="status-icon gold">${uiIcon("fragments")}</span><span><small>FRAGMENTOS</small><b>${profile.fragments}</b></span></div>
+      <div class="status-item"><span class="status-icon white">${uiIcon("seal")}</span><span><small>TRILHAS CONCLUÍDAS</small><b>${profile.completedElos.length} / ${elos.length}</b></span></div>
       <div class="status-quote">"As barreiras cedem. O trio escolhe o que atravessa."</div>
     </section>`;
 }
@@ -452,13 +454,13 @@ function hero() {
       </div>
       <div class="hero-art" aria-hidden="true">
         ${veilScene()}
-        <img class="hero-antagonist" src="${FINAL_BOSS.portrait}" alt="" fetchpriority="high">
+        
         <div class="veil-embers"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
         <div class="realm-mark mark-heaven">✧</div><div class="realm-mark mark-hell">✹</div>
         <div class="realm-mark mark-limbo">⟲</div><div class="hero-core">P</div>
         <div class="hero-label label-heaven">PARAÍSO</div><div class="hero-label label-hell">INFERNO</div><div class="hero-label label-limbo">LIMBO</div>
-        <div class="hero-antagonist-caption"><small>A ÚLTIMA BARREIRA</small><b>O Fim</b><span>REI DO INFERNO</span></div>
+        <div class="hero-gate-caption"><span>POST MORTEM ARENA</span><b>O outro lado espera.</b></div>
       </div>
 
     </section>`;
@@ -467,17 +469,17 @@ function hero() {
 function resonanceCard() {
   const resonance = getResonance(profile.team);
   return `<div class="resonance-card resonance-${resonance.tier}">
-    <div class="resonance-icon">${resonance.tier === "complete" ? "✦" : resonance.tier === "chaotic" ? "⟲" : resonance.tier === "partial" ? "◈" : "◇"}</div>
+    <div class="resonance-icon">${uiIcon(resonance.tier === "chaotic"?"chains":"trio")}</div>
     <div><small>SINERGIA DO TRIO</small><b>${resonance.title}</b><p>${resonance.detail}</p></div>
   </div>`;
 }
 
 function routeView() {
   const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=profile.completedElos.length>=elos.length;
-  const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${item.id==="inferno"?"✹":item.id==="paraiso"?"✧":"⟲"}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Elo":"Elos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
+  const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${realmEmblem(item.id)}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Elo":"Elos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
   return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div>${selection}</section>${state.pending?pendingPanel():""}`}
     ${renderLegacies(profile)}
-    ${completedAll?`<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
+    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
 
 function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,persistentCombatHp(u)])):null}); }
@@ -488,9 +490,9 @@ function pendingPanel() {
   if (pending.type === "event") return `
     <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade e 25% de Vida</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e ${esc(activeAffinityResource().shortName)} inicial nos próximos combates</small></button></div></section>`;
   if (["upgrade", "reward"].includes(pending.type)) return `
-    <section class="choice-panel"><div class="eyebrow">${pending.type === "reward" ? "RECOMPENSA DE ELITE · ESCOLHA UM PODER" : "APRIMORAMENTO · ESCOLHA UM ECO"}</div><h3>${pending.type === "reward" ? "A vitória deixa uma marca no trio." : "O trio se adapta à trilha."}</h3><div class="buff-choices">${pending.choices.map((buff) => `<button class="buff-card" data-choose-buff="${buff.id}"><span>${buff.icon}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)}</small></button>`).join("")}</div></section>`;
+    <section class="choice-panel"><div class="eyebrow">${pending.type === "reward" ? "RECOMPENSA DE ELITE · ESCOLHA UM PODER" : "APRIMORAMENTO · ESCOLHA UM ECO"}</div><h3>${pending.type === "reward" ? "A vitória deixa uma marca no trio." : "O trio se adapta à trilha."}</h3><div class="buff-choices augment-choices">${pending.choices.map((buff,index)=>renderAugmentCard({...buff,tier:pending.type==="reward"?"gold":"silver",glyph:effectGlyph(buff.effect),attribute:"choose-buff",className:"buff-card",cta:"INCORPORAR",duration:"NESTA TRILHA",index})).join("")}</div></section>`;
   if (pending.type === "shop") return `
-    <section class="choice-panel"><div class="eyebrow">MERCADOR · ${profile.fragments} FRAGMENTOS</div><h3>Prepare o trio para o próximo andar.</h3><div class="shop-choices"><button class="shop-item" data-shop-action="heal" ${profile.fragments < 12 ? "disabled" : ""}><span>⟲</span><b>Remendar o trio</b><small>Recupere 35% da Vida · 12 fragmentos</small></button>${pending.choices.map((buff) => `<button class="shop-item" data-shop-buff="${buff.id}" ${profile.fragments < 22 ? "disabled" : ""}><span>${buff.icon}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)} · 22 fragmentos</small></button>`).join("")}<button class="shop-item shop-leave" data-shop-action="leave"><span>↗</span><b>Seguir viagem</b><small>Guarde seus fragmentos</small></button></div></section>`;
+    <section class="choice-panel"><div class="eyebrow">MERCADOR · ${profile.fragments} FRAGMENTOS</div><h3>Prepare o trio para o próximo andar.</h3><div class="shop-choices"><button class="shop-item" data-shop-action="heal" ${profile.fragments < 12 ? "disabled" : ""}><span>${uiIcon("heart")}</span><b>Remendar o trio</b><small>Recupere 35% da Vida · 12 fragmentos</small></button>${pending.choices.map((buff) => `<button class="shop-item" data-shop-buff="${buff.id}" ${profile.fragments < 22 ? "disabled" : ""}><span>${augmentGlyph(effectGlyph(buff.effect))}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)} · 22 fragmentos</small></button>`).join("")}<button class="shop-item shop-leave" data-shop-action="leave"><span>↗</span><b>Seguir viagem</b><small>Guarde seus fragmentos</small></button></div></section>`;
   if (pending.type === "finale-complete") return `
     <section class="notice-panel"><span class="notice-icon">☼</span><div><div class="eyebrow">O VÉU RESISTIU</div><h3>O Fim foi detido.</h3><p>O equilíbrio ainda exige cuidado, mas os três reinos podem respirar. +500 XP e 80 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-defeat") return `
@@ -524,7 +526,7 @@ function teamView() {
       </section>
       <section class="roster-browser">
         <div class="roster-header"><div><div class="eyebrow">ALMAS CONHECIDAS</div><h2>Codex de Elos</h2></div><span class="owned-count">${profile.ownedIds.length} disponíveis</span></div>
-        <label class="search-box"><span>⌕</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar nome, reino ou Elo"></label>
+        <label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar nome, reino ou Elo"></label>
         <div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div>
         <div class="roster-grid">${filtered.map((character) => {
           const owned = profile.ownedIds.includes(character.id);
@@ -548,7 +550,7 @@ function codexView() {
   return `
     <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
-    <div class="codex-controls"><label class="search-box"><span>⌕</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
+    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">

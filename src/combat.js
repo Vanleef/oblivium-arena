@@ -1,3 +1,4 @@
+import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
 import { checkDeathInfluences } from "./world-influences.js";
 import { skillSealReason, initializeCombatEffects, applyExtraEffects, triggerReactives, expireReactives, extraDamage, skillGrowthKey } from "./combat-effects.js";
 import { initializeSkillForms, refreshSkillForms, applySkillShifts, scaleSkillForms, formSummary } from "./skill-state.js";
@@ -33,10 +34,10 @@ function applySupport(s,actor,a,receiver,charges){
   applyExtraEffects(s,actor,a,receiver,effectsContext());
   const missingHeal=a.missingHpHeal?Math.min(a.missingHpHeal.cap,Math.floor((receiver.maxHp-receiver.hp)/a.missingHpHeal.step)*a.missingHpHeal.amount):0;
   if(a.heal||a.perChargeHeal)heal(receiver,(a.heal||0)+(a.perChargeHeal||0)*charges+(g.healPower||0)+(actor.worldHeal||0)+missingHeal);
-  if(a.shield)shield(receiver,a.shield+(g.shieldPower||0));
+  if(a.shield)shield(receiver,a.shield+(g.shieldPower||0)+(actor.worldShieldPower||0));
   if(a.reduce)receiver.reduction=Math.max(receiver.reduction,a.reduce);
   if(a.boost){receiver.boost=Math.max(receiver.boost,a.boost);receiver.boostFresh=receiver.side===actor.side;}
-  if(a.counter){receiver.counterFilter=a.counterFilter;receiver.counter=Math.max(receiver.counter,a.counter);receiver.counterSourceId=actor.id;receiver.counterFormChanges=a.counterShift||[];}
+  if(a.counter){receiver.counterFilter=a.counterFilter;receiver.counter=Math.max(receiver.counter,a.counter+(actor.worldCounterPower||0));receiver.counterSourceId=actor.id;receiver.counterFormChanges=a.counterShift||[];}
   if(a.cleanse)cleanse(receiver);
   if(a.invulnerable)receiver.invulnerable=a.invulnerable;
 }
@@ -46,7 +47,7 @@ function attackValue(s,actor,a,target,charges=actor.charge){
   const g=actor.side==="player"?s.global:{},typeBonus=a.damageType==="energy"?g.spiritualPower:a.damageType==="piercing"?g.piercingPower:a.damageType==="affliction"?g.afflictionPower:g.physicalPower;
   const globalDamage=(typeBonus||0)+(!actor.globalStrikeUsed?(g.firstStrike||0):0),combo=a.combo&&meetsCondition(target,a.combo.condition,actor);
   const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:s.humanSides?1+(s.enemyResonance?.bonus||0):1;
-  return Math.max(0,Math.round((a.damage+(actor.worldDamage||0)+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveBonus(actor,target)+actor.boost-(actor.weakened?10:0))*multiplier));
+  return Math.max(0,Math.round((a.damage+worldDamageBonus(s,actor,a,target,charges)+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveBonus(actor,target)+actor.boost-(actor.weakened?10:0))*multiplier));
 }
 function transfer(s,side,n,steal){const other=side==="player"?"enemy":"player",p=pool(s,other);let count=0;for(let i=0;i<n;i++){const id=Object.keys(p).sort((a,b)=>p[b]-p[a]).find(k=>p[k]>0);if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
@@ -56,7 +57,7 @@ function apply(s,actor,a,targetId){
   const costs=getAbilityResourceCosts(actor,a),p=pool(s,actor.side);
   if(!Object.entries(costs).every(([id,n])=>(p[id]||0)>=n)){log(s,`${actor.name} não tem recursos para ${a.name}.`);return {skipped:true,reason:"Recursos removidos antes da resolução."};}
   for(const [id,n]of Object.entries(costs))p[id]-=n;actor.actedThisTurn=true;
-  const charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,affected=0;const reactions=[];
+  const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,affected=0;const reactions=[];
   for(const target of targets){
     if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter;target.counter=0;const r=hit(actor,value,{ignoreInvulnerability:true});log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano.`);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);target.counterFormChanges=[];continue;}
     affected++;
@@ -72,7 +73,7 @@ function apply(s,actor,a,targetId){
       if(a.mark)target.marks[a.mark]={sourceId:actor.id,turns:a.markTurns||3,label:a.name};
       applyExtraEffects(s,actor,a,target,effectsContext(reactions));
       if(r.dealt)triggerReactives(s,target,"damaged",actor,effectsContext(reactions));
-      if(a.dot){target.dots=target.dots.filter(d=>!(d.sourceId===actor.id&&d.skillId===a.id));target.dots.push({...a.dot,damage:a.dot.damage+(actor.side==="player"?s.global.afflictionPower||0:0),sourceId:actor.id,skillId:a.id});}
+      if(a.dot){target.dots=target.dots.filter(d=>!(d.sourceId===actor.id&&d.skillId===a.id));target.dots.push({...a.dot,damage:a.dot.damage+(actor.worldAffliction||0)+(actor.side==="player"?s.global.afflictionPower||0:0),sourceId:actor.id,skillId:a.id});}
       log(s,`${actor.name} usa ${a.name} em ${target.name}: ${r.dealt} dano${r.blocked?`, ${r.blocked} absorvido pela Defesa`:""}${combo?" · COMBO":""}.`);
       if(r.dealt&&target.passive?.type==="retaliate"&&actor.hp>0){hit(actor,target.passive.amount,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${target.passive.name}: ${actor.name} sofre ${target.passive.amount} de aflição.`);}
     }
@@ -91,7 +92,7 @@ function apply(s,actor,a,targetId){
   const ownShift=affected&&a.shift?.some(t=>t.slot===a.id&&t.form!=="base");
   if(ownShift&&actor.skillForms[a.id]&&a.cooldown){actor.skillForms[a.id].returnCooldown=actor.cooldowns[a.id];delete actor.cooldowns[a.id];actor.cooldownFresh=actor.cooldownFresh.filter(id=>id!==a.id);}
   triggerReactives(s,actor,a.defense?"defense":isFriendly?"support":"attack",null,effectsContext(reactions));
-  refreshSkillForms(s);return {skipped:false,totalDamage,reactions,abilityArt:a.art,formKey:a.formKey||"base"};
+  refreshSkillForms(s);worldAfterAction(s,actor,a,{affected,totalDamage,killed:targets.some(u=>u.hp<=0),shifted:priorForms!==actor.abilities.map(a=>a.formKey||"base").join(":"),helpful:isFriendly},{heal,shield,log,reactions});return {skipped:false,totalDamage,reactions,abilityArt:a.art,formKey:a.formKey||"base"};
 }
 function grantTurn(s,side,opening=false,recoveries=[]){
   const count=opening&&side==="player"?1:living(team(s,side)).length,draws=[];
@@ -111,7 +112,7 @@ export function getCombatPlan(s,side="enemy"){
 function planAI(s){s.intents=s.enemyPlanner(s);}
 export function createBattle(ids,enemyTeam,config={}){
   const global=config.globalEffects||{},resonance=getResonance(ids),buffValues=(config.buffs||[]).reduce((acc,id)=>{for(const [k,v]of Object.entries(buffs.find(b=>b.id===id)?.effect||{}))acc[k]=(acc[k]||0)+v;return acc;},{damage:0,shield:0,essence:0,cinza:0,graca:0,ruptura:0,maxHp:0,resonance:0,risk:0});resonance.bonus+=buffValues.resonance;
-  const allies=ids.slice(0,3).map(id=>characterById[id]).filter(Boolean).map(c=>clone(c,"player",config));for(const u of allies){u.maxHp+=buffValues.maxHp+(global.maxHp||0);u.armor=global.armor||0;u.charge=Math.min(3,global.startingCharge||0);u.hp=config.teamHealth?.[u.id]==null?u.maxHp:Math.max(0,Math.min(u.maxHp,config.teamHealth[u.id]));u.shield=Math.min(80,buffValues.shield+(global.shield||0));}
+  const allies=ids.slice(0,3).map(id=>characterById[id]).filter(Boolean).map(c=>clone(c,"player",config));for(const u of allies){u.maxHp+=buffValues.maxHp+(global.maxHp||0);u.armor=global.armor||0;u.charge=Math.min(3,global.startingCharge||0);u.hp=config.teamHealth?.[u.id]==null?u.maxHp:Math.max(0,Math.min(u.maxHp,config.teamHealth[u.id]));u.shield=Math.min(80,buffValues.shield+(global.shield||0));initializeWorldUnit(u,Object.fromEntries(Object.keys(global).filter(key=>["woundedPower","markedPower","afflictedPower","executePower","shieldedPower","controlPower","chargePower","evolvedPower","lastStandPower","counterPower","supportShield","supportCharge","killShield","defenseHeal","shiftShield"].includes(key)).map(key=>[key,global[key]])));}
   const s={enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,energyDraws:{player:[],enemy:[]},global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:buffValues,acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};grantTurn(s,"player",true);grantTurn(s,"enemy",true);refreshSkillForms(s);planAI(s);return s;
 }
 export function chooseAction(s,actorId,abilityId,targetId){

@@ -1,3 +1,4 @@
+import { augmentGlyph, effectGlyph } from "./augment-cards.js";
 import { characterById } from "./data.js";
 import { difficultyName, runMaxHp } from "./progression.js";
 import { visibleTrail } from "./trail.js";
@@ -50,6 +51,6 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
     </div>
     ${councilMarkup(nodes,available,run,ownedIds)}
     <div class="journey-notice-slot">${fx?`<div class="trail-feedback journey-feedback" role="status" aria-live="polite"><span>${fx.kind==="travel"?"↝":fx.kind==="failure"?"⨯":"✦"}</span><div><b>${esc(fx.title)}</b><small>${esc(fx.summary)}</small></div></div>`:""}</div>
-    <footer class="run-footer journey-footer"><details class="run-echoes"><summary>ECOS <b>${run.buffs.length}</b><span>⌄</span></summary><div class="echo-popover">${run.buffs.length?run.buffs.map(id=>{const buff=buffs.find(b=>b.id===id);return buff?`<article><span>${buff.icon}</span><div><b>${esc(buff.title)}</b><p>${esc(buff.text)}</p></div></article>`:"";}).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></footer>
+    <footer class="run-footer journey-footer"><details class="run-echoes"><summary>ECOS <b>${run.buffs.length}</b><span>⌄</span></summary><div class="echo-popover">${run.buffs.length?run.buffs.map(id=>{const buff=buffs.find(b=>b.id===id);return buff?`<article><span>${augmentGlyph(effectGlyph(buff.effect))}</span><div><b>${esc(buff.title)}</b><p>${esc(buff.text)}</p></div></article>`:"";}).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></footer>
   </section>`;
 }
