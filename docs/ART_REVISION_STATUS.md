@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 100 conjuntos habilitados, 600 referências válidas. Trinta e cinco conjuntos passaram por esta revisão de estilo e 65 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e um conjuntos passaram por esta revisão de estilo e 59 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -53,3 +53,9 @@ Os títulos representam entidades humanoides distintas. As cenas respeitam os al
 O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Mãe Rubra recebem 24 imagens novas. Com O Açougueiro e A Viúva Escarlate, Sangria passa a ter seus seis conjuntos revisados. Os rostos, idades, roupas e acessórios de referência foram preservados, com ações e câmeras distintas por habilidade.
 
 O caçador acumula e consome troféus, os dois gêmeos alternam ataques, o carrasco sentencia uma vítima e a Mãe Rubra diferencia drenagem, apoio com sacrifício e ataque em área. As defesas pessoais não protegem aliados. Os kits e a limpeza anterior de molduras permanecem preservados. Prompts e arquivos: `ART_LOT_20261022_07.json`.
+
+## Oitavo lote: os seis personagens de Coroa
+
+O Soberano Quebrado, A Juíza de Ferro, O Trono Vazio, O Príncipe das Correntes, A Regente de Cinzas e O Herdeiro Cativo recebem 36 imagens reformuladas. A identidade original foi preservada em cada rosto, roupa e acessório, com ações e câmeras ligadas aos kits. Balcões, pontes, tribunais, cisternas, pátios, jardins e passagens de prisão variam os cenários dentro do império arruinado de Coroa.
+
+A autoridade fraturada do Soberano, os planos de ferro da Juíza, a ausência espectral do Trono, os grilhões do Príncipe, o comando de cinzas da Regente e a resistência do Herdeiro têm linguagens próprias. O apoio ao trio aparece apenas nas habilidades correspondentes; as seis defesas pessoais protegem o próprio usuário. Regras, ícones e limpeza anterior de molduras preservados. Prompts, fontes e recortes: `ART_LOT_20261022_08.json`.
