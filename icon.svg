@@ -1,63 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="iron" x1="138" y1="88" x2="373" y2="382" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#77727a"/>
-      <stop offset=".24" stop-color="#34343c"/>
-      <stop offset=".68" stop-color="#171920"/>
-      <stop offset="1" stop-color="#5c4934"/>
+    <linearGradient id="stone" x1="113" y1="81" x2="375" y2="386" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7b747d"/>
+      <stop offset=".28" stop-color="#373740"/>
+      <stop offset=".72" stop-color="#171921"/>
+      <stop offset="1" stop-color="#51402f"/>
     </linearGradient>
-    <linearGradient id="inlay" x1="144" y1="116" x2="371" y2="351" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#e3c989"/>
-      <stop offset=".5" stop-color="#9f8252"/>
-      <stop offset="1" stop-color="#65513b"/>
+    <linearGradient id="edge" x1="143" y1="98" x2="361" y2="361" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e3c987"/>
+      <stop offset=".52" stop-color="#a38452"/>
+      <stop offset="1" stop-color="#66513a"/>
     </linearGradient>
-    <radialGradient id="void" cx="0" cy="0" r="1" gradientTransform="matrix(0 145 -145 0 256 142)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#171a22"/>
+    <linearGradient id="rift" x1="243" y1="148" x2="282" y2="318" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff4d0"/>
+      <stop offset=".46" stop-color="#dbc185"/>
+      <stop offset="1" stop-color="#a47c48"/>
+    </linearGradient>
+    <linearGradient id="shadow" x1="204" y1="121" x2="326" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171a23"/>
       <stop offset="1" stop-color="#05060b"/>
-    </radialGradient>
+    </linearGradient>
   </defs>
 
-  <!-- The three forged gate sections echo the three realms. -->
-  <circle cx="256" cy="237" r="134" fill="url(#void)" stroke="#292a31" stroke-width="2"/>
+  <!-- Three broken monoliths suggest the realms and the shattered veil. -->
+  <path d="m165 79 68-19 25 22-16 47-20 44-18 52-28 54-37 39-42-15 17-54 5-54 19-54 25-43z" fill="#08090e" stroke="#29282d" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m165 79 68-19 25 22-16 47-20 44-18 52-28 54-37 39-42-15 17-54 5-54 19-54 25-43z" fill="url(#stone)"/>
+  <path d="m169 100 49-14 15 5-14 39-19 42-17 47-25 48-28 28m-3-87 10-44 20-39" stroke="url(#edge)" stroke-width="4" stroke-linecap="square"/>
+  <path d="m132 170 16-25 8 3-13 27zm51-74 15-13 12 1m-62 169 17-17 7 4-17 20z" fill="#11131a"/>
+  <path d="m124 215 16-6m37-84 12-8m-49 151 12-11" stroke="#c3a979" stroke-width="2" opacity=".62"/>
 
-  <g stroke-linecap="butt" stroke-linejoin="bevel">
-    <path d="M220 88A150 150 0 0 0 106 237" stroke="#08090e" stroke-width="48"/>
-    <path d="M292 88A150 150 0 0 1 406 237" stroke="#08090e" stroke-width="48"/>
-    <path d="M406 237A150 150 0 0 1 106 237" stroke="#08090e" stroke-width="48"/>
+  <path d="m285 75 48 12 29 32-12 38-37 25-32-17-31-38 15-38z" fill="#08090e" stroke="#29272b" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m285 75 48 12 29 32-12 38-37 25-32-17-31-38 15-38z" fill="url(#stone)"/>
+  <path d="m271 103 15-25 44 11 18 21m-51 46 23-15 20-24" stroke="url(#edge)" stroke-width="4" stroke-linecap="square"/>
+  <path d="m292 89 20 5m53 29-13 16" stroke="#c3a979" stroke-width="2" opacity=".64"/>
 
-    <path d="M220 88A150 150 0 0 0 106 237" stroke="url(#iron)" stroke-width="38"/>
-    <path d="M292 88A150 150 0 0 1 406 237" stroke="url(#iron)" stroke-width="38"/>
-    <path d="M406 237A150 150 0 0 1 106 237" stroke="url(#iron)" stroke-width="38"/>
+  <path d="m344 175 42 12 27 44-10 42-36 27-38-21-15-39 17-37z" fill="#08090e" stroke="#29272b" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m344 175 42 12 27 44-10 42-36 27-38-21-15-39 17-37z" fill="url(#stone)"/>
+  <path d="m351 193 31 8 17 30-8 31m-52-24 18 24 23 7" stroke="url(#edge)" stroke-width="4" stroke-linecap="square"/>
+  <path d="m403 235 12-5-3 17-9 11z" fill="#c6aa72" opacity=".8"/>
 
-    <path d="M218 101A137 137 0 0 0 119 225" stroke="url(#inlay)" stroke-width="3" opacity=".85"/>
-    <path d="M294 101A137 137 0 0 1 393 225" stroke="url(#inlay)" stroke-width="3" opacity=".85"/>
-    <path d="M393 248A137 137 0 0 1 119 248" stroke="url(#inlay)" stroke-width="3" opacity=".72"/>
-  </g>
+  <path d="m145 284 42-31 40 19 23 42-18 50-36 24-45-19-26-39z" fill="#08090e" stroke="#302a27" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m145 284 42-31 40 19 23 42-18 50-36 24-45-19-26-39z" fill="url(#stone)"/>
+  <path d="m153 292 34-25 30 17 18 33m-63 47 40 16 20-15" stroke="url(#edge)" stroke-width="4" stroke-linecap="square"/>
+  <path d="m204 264 13 7m-69 64 12 17m63 39 14-9" stroke="#c3a979" stroke-width="2" opacity=".64"/>
 
-  <!-- Chipped, faceted ends make the opening feel like a fractured gateway. -->
-  <path d="m202 99 5-24 14-16 12 10-4 16-10 17-10 9z" fill="#25262d" stroke="#8e7958" stroke-width="3" stroke-linejoin="bevel"/>
-  <path d="m298 99-5-24 14-17 14 8 3 17-12 15-9 9z" fill="#282931" stroke="#b79a67" stroke-width="3" stroke-linejoin="bevel"/>
-  <path d="m208 79 10-15 9 5-3 13" stroke="#e0ca92" stroke-width="2" stroke-linecap="square" opacity=".8"/>
-  <path d="m300 78 8-13 10 6 2 11" stroke="#e0ca92" stroke-width="2" stroke-linecap="square" opacity=".8"/>
+  <path d="m283 279 45-9 30 25-8 36-43 28-49 16-31-18-2-38 26-23z" fill="#08090e" stroke="#302a27" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m283 279 45-9 30 25-8 36-43 28-49 16-31-18-2-38 26-23z" fill="url(#stone)"/>
+  <path d="m275 298 36-14 28 12m-43 51 35-20 13-17" stroke="url(#edge)" stroke-width="4" stroke-linecap="square"/>
+  <path d="m330 276 19 13m-38 67 17-10" stroke="#c3a979" stroke-width="2" opacity=".6"/>
 
-  <!-- Engraved cuts and worn facets in the dark metal. -->
-  <g stroke="#d5bd84" stroke-linecap="square" opacity=".64">
-    <path d="m147 145 12 8m-17 2 8 5" stroke-width="2"/>
-    <path d="m353 144-12 8m17 3-8 5" stroke-width="2"/>
-    <path d="m177 340 10 7m-3-14 8 5" stroke-width="2"/>
-    <path d="m335 340-10 7m3-14-8 5" stroke-width="2"/>
-  </g>
-  <path d="m135 253 12 3-8 8-10-3zm242 0 12 3-8 8-10-3z" fill="#78706a" opacity=".78"/>
-  <path d="m245 382 11-7 11 7-11 8z" fill="#ae8f5d" opacity=".9"/>
+  <!-- The veil is a wide, branching rupture rather than a central needle. -->
+  <path d="m243 139 33 24-16 38 29 27-29 28 19 34-29 42 6-48-24-28 22-29-22-26 22-34z" fill="url(#rift)"/>
+  <path d="m250 157 15 11-10 27m13 55-17 19 8 12" stroke="#fff8e2" stroke-width="4" stroke-linecap="square" opacity=".85"/>
+  <path d="m238 203-17-8m72 29 15 8m-57 65-12 13" stroke="#d0ad71" stroke-width="4" stroke-linecap="square"/>
+  <path d="m228 191-28-13m101 83 27 4m-78 49-22 24" stroke="#8b6b43" stroke-width="2" opacity=".7"/>
 
-  <!-- The central light fracture is the portal's signature. -->
-  <path d="m257 135 11 66-17 29 17 42-24 71 11-67-18-44 20-33z" fill="#d8c18d"/>
-  <path d="m257 151 7 49-12 23m9 52-14 43" stroke="#fff2cd" stroke-width="3" stroke-linecap="square" opacity=".84"/>
-  <path d="m244 230-10-7m34 55 10 4" stroke="#b49867" stroke-width="3" stroke-linecap="square"/>
-
-  <!-- P.M.A. is engraved as the maker's mark beneath the gate. -->
-  <text x="256" y="454" fill="#cfb881" font-family="Georgia, 'Times New Roman', serif" font-size="25" letter-spacing="9" text-anchor="middle">P.M.A.</text>
-  <path d="M153 468h42m122 0h42" stroke="#6b5941" stroke-width="2"/>
-  <circle cx="143" cy="468" r="3" fill="#b79a67"/>
-  <circle cx="369" cy="468" r="3" fill="#b79a67"/>
+  <text x="256" y="469" fill="#cfb881" font-family="Georgia, 'Times New Roman', serif" font-size="25" letter-spacing="9" text-anchor="middle">P.M.A.</text>
 </svg>
