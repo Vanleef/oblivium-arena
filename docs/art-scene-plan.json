@@ -1,5 +1,5 @@
 {
-  "status": "Two varied-scenery character sheets generated and integrated on branch; remaining character sheets are still pending.",
+  "status": "Three varied-scenery character sheets generated and integrated on branch; remaining character sheets are still pending.",
   "style": "2D television anime, flat colors, one hard-edged shadow; no realism or textures.",
   "style_reference": "art/review/anime-cel-style-reference.webp",
   "requirements": [
@@ -97,7 +97,7 @@
       "realm": "Paraíso",
       "elo": "Esperança",
       "identity": "Paraíso / Esperança. Androgynous adult 34, East Asian face, round cheeks, stocky upper body, cobalt cropped hair and long side braid, amber hearing aid firmly behind ear; ivory sleeveless choir coat, coral sash, teal throat pendant. Power comes from visible sound pressure as angular handwritten-looking strokes WITHOUT text.",
-      "status": "pending_varied_scenery_generation",
+      "status": "generated_and_integrated_on_branch",
       "scenes": [
         {
           "slot": "portrait",
