@@ -1,3 +1,4 @@
+import { checkDeathInfluences } from "./world-influences.js";
 import { skillSealReason, initializeCombatEffects, applyExtraEffects, triggerReactives, expireReactives, extraDamage, skillGrowthKey } from "./combat-effects.js";
 import { initializeSkillForms, refreshSkillForms, applySkillShifts, scaleSkillForms, formSummary } from "./skill-state.js";
 import { characterById, buffs, getElo, resources, realmResource } from "./data.js";
@@ -31,7 +32,7 @@ function applySupport(s,actor,a,receiver,charges){
   const g=actor.side==="player"?s.global:{};
   applyExtraEffects(s,actor,a,receiver,effectsContext());
   const missingHeal=a.missingHpHeal?Math.min(a.missingHpHeal.cap,Math.floor((receiver.maxHp-receiver.hp)/a.missingHpHeal.step)*a.missingHpHeal.amount):0;
-  if(a.heal||a.perChargeHeal)heal(receiver,(a.heal||0)+(a.perChargeHeal||0)*charges+(g.healPower||0)+missingHeal);
+  if(a.heal||a.perChargeHeal)heal(receiver,(a.heal||0)+(a.perChargeHeal||0)*charges+(g.healPower||0)+(actor.worldHeal||0)+missingHeal);
   if(a.shield)shield(receiver,a.shield+(g.shieldPower||0));
   if(a.reduce)receiver.reduction=Math.max(receiver.reduction,a.reduce);
   if(a.boost){receiver.boost=Math.max(receiver.boost,a.boost);receiver.boostFresh=receiver.side===actor.side;}
@@ -44,8 +45,8 @@ function attackValue(s,actor,a,target,charges=actor.charge){
   if(!a.damage)return 0;
   const g=actor.side==="player"?s.global:{},typeBonus=a.damageType==="energy"?g.spiritualPower:a.damageType==="piercing"?g.piercingPower:a.damageType==="affliction"?g.afflictionPower:g.physicalPower;
   const globalDamage=(typeBonus||0)+(!actor.globalStrikeUsed?(g.firstStrike||0):0),combo=a.combo&&meetsCondition(target,a.combo.condition,actor);
-  const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:1;
-  return Math.max(0,Math.round((a.damage+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveBonus(actor,target)+actor.boost-(actor.weakened?10:0))*multiplier));
+  const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:s.humanSides?1+(s.enemyResonance?.bonus||0):1;
+  return Math.max(0,Math.round((a.damage+(actor.worldDamage||0)+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+passiveBonus(actor,target)+actor.boost-(actor.weakened?10:0))*multiplier));
 }
 function transfer(s,side,n,steal){const other=side==="player"?"enemy":"player",p=pool(s,other);let count=0;for(let i=0;i<n;i++){const id=Object.keys(p).sort((a,b)=>p[b]-p[a]).find(k=>p[k]>0);if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
@@ -127,7 +128,7 @@ function endOpposing(s,units){expireReactives(s,units,"opposing",effectsContext(
 function endActing(s,units,reactions=[]){expireReactives(s,units,"acting",effectsContext(reactions));for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
 function tickEffects(s){for(const u of [...s.allies,...s.enemies]){if(u.hp<=0)continue;for(const d of u.dots){const r=hit(u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);d.turns--;}u.dots=u.dots.filter(d=>d.turns>0);for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}}}
 function nextTurn(s,recoveries){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,"player",false,recoveries);grantTurn(s,"enemy",false,recoveries);refreshSkillForms(s);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: recursos recebidos. Monte sua próxima fila.`);}
-export function resolveNextAction(s){
+function resolveAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();
   if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
   if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
@@ -150,3 +151,39 @@ export function createEnemyTeam(elo,playerIds,encounter="normal",sequence=0,conf
   });
 }
 export function getEloById(id){return getElo(id);}
+
+export function resolveNextAction(s){const result=resolveAction(s);if(checkDeathInfluences(s))return {...result,done:true,influence:true};return result;}
+
+// Authoritative human-v-human entry points. No client health, costs or results are accepted.
+export function createDuel(firstIds,secondIds,config={}){
+ const roster=secondIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
+ const s=createBattle(firstIds,roster,{...config,enemyPlanner:()=>[]});
+ s.humanSides=true;s.turnSide='player';s.turnNumber=1;s.intents=[];
+ // Both human teams receive their own composition bonus.
+ s.enemyResonance=getResonance(secondIds);return s;
+}
+export function submitDuelTurn(s,side,actions){
+ if(s.phase!=='player'||s.turnSide!==side)throw new Error('Não é seu turno.');
+ if(!Array.isArray(actions)||actions.length>3)throw new Error('Fila inválida.');
+ refreshSkillForms(s);const used=new Set(),remaining={...pool(s,side)},queue=[];
+ for(const ref of actions){
+  const actor=byId(team(s,side),ref.actorId),a=actor?.abilities.find(a=>a.id===ref.abilityId);
+  if(!actor||!a||used.has(actor.id)||actor.stunned||actor.cooldowns[a.id]||skillSealReason(actor,a))throw new Error('Ação indisponível.');
+  if(!getValidTargets(s,actor,a).some(u=>u.id===ref.targetId))throw new Error('Alvo inválido.');
+  for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,a))){remaining[id]-=n;if(remaining[id]<0)throw new Error('Energia insuficiente.');}
+  used.add(actor.id);queue.push({actorId:actor.id,abilityId:a.id,targetId:ref.targetId,formKey:a.formKey||'base',side});
+ }
+ s.phase='resolving';s.resolution=[...queue,{type:'duel-end',side}];s.queue=[];continueDuel(s);
+}
+export function continueDuel(s){
+ let guard=0;
+ while(s.phase==='resolving'&&guard++<12){
+  if(s.resolution[0]?.type==='duel-end'){
+   const {side}=s.resolution.shift();endActing(s,team(s,side));endOpposing(s,enemies(s,side));
+   if(side==='enemy'){tickEffects(s);if(!outcome(s))nextTurn(s,[]);}else if(!outcome(s))s.phase='player';
+   s.turnSide=side==='player'?'enemy':'player';s.turnNumber++;refreshSkillForms(s);
+   checkDeathInfluences(s);break;
+  }
+  resolveNextAction(s);
+ }
+}

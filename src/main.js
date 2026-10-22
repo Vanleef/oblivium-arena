@@ -1,3 +1,8 @@
+import { arenaRequest } from "./online-client.js";
+import { renderArena } from "./arena-view.js";
+import { beginInfluences, chooseInfluence, persistentCombatHp } from "./world-influences.js";
+import { renderInfluences, renderWorldHistory } from "./influence-view.js";
+import { playerLevel } from "./player-level.js";
 import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById, realmResource } from "./data.js";
 import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
 import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction } from "./engine.js";
@@ -194,6 +199,7 @@ function startEncounter(node) {
   state.battleNode = node;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
   state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0 });
+  beginInfluences(state.battle,(profile.run?.seed||1)+(profile.run?.encounter||0)*97);
   state.targetId = null;
   state.battleFx = null;
   state.selectedSkill = null;
@@ -288,7 +294,9 @@ function chooseShop(action, buffId) {
   continueRun();
 }
 
+function rewardEncounterXp(node){return ["boss","mini","elite"].includes(node.type||node.id)?50:25;}
 function returnFromBattle() {
+  if(state.battle?.online){sendOnline({op:"ack"});state.battle=null;state.tab="arena";render();return;}
   if (!state.battle) return;
   if (state.battle.phase === "victory") {
     if ((state.battleNode.type || state.battleNode.id) === "finale") {
@@ -303,9 +311,10 @@ function returnFromBattle() {
       return;
     }
     if (profile.run) {
-      profile.run.teamHealth = Object.fromEntries(state.battle.allies.map((ally) => [ally.id, ally.hp]));
+      profile.run.teamHealth = Object.fromEntries(state.battle.allies.map((ally) => [ally.id, persistentCombatHp(ally)]));
       const fresh=recordEncounter(profile,profile.run,state.battleNode);
       if(!fresh)return;
+      profile.xp+=rewardEncounterXp(state.battleNode);
       const rewardNode = ["elite", "mini"].includes(state.battleNode.type || state.battleNode.id);
       profile.fragments += (rewardNode ? 18 : 6)+(aggregateGlobal(profile).fragments||0);
       if (rewardNode) {
@@ -332,7 +341,7 @@ function returnFromBattle() {
       render();
       return;
     }
-    profile.run.teamHealth = Object.fromEntries(state.battle.allies.map((ally) => [ally.id, Math.max(35, ally.hp || Math.round(ally.maxHp * 0.35))]));
+    profile.run.teamHealth = Object.fromEntries(state.battle.allies.map((ally) => [ally.id, Math.max(35, persistentCombatHp(ally) || Math.round((ally.persistentMaxHp||ally.maxHp) * 0.35))]));
     profile.run.stability -= 1;
     profile.run.currentNodeId = null;
     state.battle = null;
@@ -370,6 +379,7 @@ function resolveCombatStep() {
   battleFxTimer=setTimeout(()=>{if(state.battle!==battle)return;state.battleFx=null;if(result.done)render();else resolveCombatStep();},result.event.mode==="turn"?750:1250);
 }
 function executePlannedTurn() {
+  if(state.battle?.online){state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue});return;}
   if(!state.battle||!commitTurn(state.battle).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {
@@ -388,11 +398,25 @@ function selectBattleTarget(targetId) {
   if(!result.ok){toast(result.reason);return;}state.selectedSkill=null;render();
 }
 
+let onlineTimer=null;
+async function sendOnline(payload){
+ state.online ||= {connected:false,queuing:false};const online=state.online;if(online.busy)return;online.busy=true;
+ clearTimeout(onlineTimer);
+ try{
+  const data=await arenaRequest({...payload,version:online.match?.version});
+  const changed=data.match?.id!==online.match?.id||data.match?.version!==online.match?.version;
+  Object.assign(online,data,{connected:true,message:data.match?data.match.settled?"Resultado registrado na classificação.":"Partida conectada.":online.queuing?"Buscando uma alma de classificação próxima…":"Arena conectada."});
+  if(data.match){online.queuing=false;if(changed){state.battle=data.match.battle;state.battleNode={label:"Arena ranqueada"};state.selectedSkill=null;state.focusSkill=null;state.confirmTurn=false;state.tab="battle";}}
+  else if(state.battle?.online)state.battle=null;
+ }catch(error){online.message=error.message;if(error.status===503){online.connected=false;online.queuing=false;}else if(error.status===409){onlineTimer=setTimeout(()=>sendOnline({op:"profile"}),300);}}
+ finally{online.busy=false;render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team}:{op:"profile"}),2000);}}
+}
+function arenaView(){return renderArena(profile,state.online);}
 function header() {
   const tabList = [
     ["rota", "Grande Rota"],
     ["trio", "Formar Trio"],
-    ["codex", "Codex"]
+    ["codex", "Codex"], ["arena", "Arena"]
   ];
   return `
     <header class="topbar">
@@ -401,7 +425,7 @@ function header() {
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("")}</nav>
-      <div class="player-chip"><span class="player-orb">✦</span><span><b>Alma desperta</b><small>Rank ${Math.max(1, Math.floor(profile.xp / 250) + 1)} · ${profile.xp} XP</small></span></div>
+      <div class="player-chip"><span class="player-orb">✦</span><span><b>Alma desperta</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></div>
       <button class="mobile-menu" data-tab="trio" aria-label="Abrir equipe">☰</button>
     </header>`;
 }
@@ -535,7 +559,7 @@ function codexView() {
     }).join("")}</div>`;
 }
 
-function battleView() { return renderBattle(state, activeElo()); }
+function battleView() { return state.battle?.phase==="influence" ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo()); }
 
 function render() {
   const tab = state.tab;
@@ -546,7 +570,7 @@ function render() {
       ${header()}
       ${statusStrip()}
       <main class="main-content">
-        ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : battleView()}
+        ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : tab === "arena" ? arenaView() : battleView()}
       </main>
       <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.5</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
@@ -586,11 +610,17 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-codex-skill], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
+  const target = event.target.closest("[data-world-event], [data-codex-skill], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
   if (!target) return;
+  if(target.dataset.worldEvent){if(state.battleFx||state.online?.busy)return;if(state.battle?.online){sendOnline({op:"influence",eventId:target.dataset.worldEvent});return;}if(chooseInfluence(state.battle,target.dataset.worldEvent)){render();if(state.battle.phase==="resolving")resolveCombatStep();}return;}
   if (target.dataset.codexSkill !== undefined) { event.preventDefault(); toggleCodexSkill(target); return; }
   if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
   if (state.trailBusy) return;
+  if(target.dataset.action==="connect-arena"){sendOnline({op:"profile"});return;}
+  if(target.dataset.action==="queue-online"){if(state.battle&&!state.battle.online){toast("Termine o combate atual antes de buscar uma partida.");return;}state.online.queuing=true;sendOnline({op:"queue",team:profile.team});return;}
+  if(target.dataset.action==="cancel-online"){state.online.queuing=false;sendOnline({op:"cancel"});return;}
+  if(target.dataset.action==="resume-online"){state.tab="battle";render();return;}
+  if(target.dataset.action==="surrender-online"){sendOnline({op:"surrender"});return;}
   if (target.dataset.tab) {
     state.tab = target.dataset.tab;
     render();
@@ -606,7 +636,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.difficulty!==undefined){state.difficulty=Math.max(0,Math.min(maxDifficulty(profile,state.eloId),Number(target.dataset.difficulty)||0));render();return;}
   if(target.dataset.globalUpgrade){const power=claimGlobalUpgrade(profile,target.dataset.globalUpgrade);if(power){save();toast(`Legado incorporado: ${power.title}`);}return;}
   if(target.dataset.clearCompletion!==undefined){if(!profile.pendingGlobalReward){profile.completionNotice=null;save();render();}return;}
-  if (target.dataset.startRun) { startRun(target.dataset.startRun,target.dataset.trail||"hunt",target.dataset.runDifficulty===undefined?undefined:Number(target.dataset.runDifficulty)); return; }
+  if (target.dataset.startRun) { if(state.online?.match&&!state.online.match.settled){toast("Conclua sua partida online antes de iniciar uma trilha.");return;} startRun(target.dataset.startRun,target.dataset.trail||"hunt",target.dataset.runDifficulty===undefined?undefined:Number(target.dataset.runDifficulty)); return; }
   if (target.dataset.node) {
     if (!profile.run || state.pending) return;
     const legacy = target.dataset.node.match(/^(\d+):(\d+)$/);
@@ -645,7 +675,7 @@ app.addEventListener("click", (event) => {
   if (target.dataset.action === "cancel-skill") { state.selectedSkill=null; render(); return; }
   if (target.dataset.action === "commit-turn") { executePlannedTurn(); return; }
   if (target.dataset.action === "return-battle") { returnFromBattle(); return; }
-  if (target.dataset.action === "leave-battle") { state.tab = "rota"; render(); return; }
+  if (target.dataset.action === "leave-battle") { state.tab = state.battle?.online?"arena":"rota"; render(); return; }
   if (target.dataset.eventChoice) { chooseEvent(target.dataset.eventChoice); return; }
   if (target.dataset.chooseBuff) { chooseBuff(target.dataset.chooseBuff); return; }
   if (target.dataset.shopAction) { chooseShop(target.dataset.shopAction); return; }

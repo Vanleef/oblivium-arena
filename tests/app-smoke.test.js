@@ -1,11 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { elos, starters } from "../src/data.js";
-function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};return {app,handlers,key:key=>handlers.keydown({key,preventDefault(){},target:{matches:()=>false}}),click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
+let draft=()=>{};
+function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};draft=()=>{const id=app.innerHTML.match(/data-world-event="([^"]+)"/)?.[1];if(id)handlers.click({target:{dataset:{worldEvent:id},closest(){return this;}}});};return {app,handlers,key:key=>handlers.keydown({key,preventDefault(){},target:{matches:()=>false}}),click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
 test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila",async t=>{
  t.mock.timers.enable({apis:["setTimeout"]});t.mock.method(Math,"random",()=>.6);const {app,click}=setup();await import("../src/main.js?rework-smoke=1");
  click({startRun:"sangria"});assert.match(app.innerHTML,/Brasão do Elo Sangria/);assert.doesNotMatch(app.innerHTML,/map-illustration/);assert.equal(new Set([...app.innerHTML.matchAll(/data-node="([^"]+)"/g)].map(m=>m[1])).size,1);assert.doesNotMatch(app.innerHTML,/Guardião do Elo/);
- click({node:"0:0"});t.mock.timers.tick(500);assert.match(app.innerHTML,/COMBATE TÁTICO 3v3/);assert.match(app.innerHTML,/FILA DO TURNO/);assert.equal((app.innerHTML.match(/data-use-skill=/g)||[]).length,12);
+ click({node:"0:0"});t.mock.timers.tick(500);draft();assert.match(app.innerHTML,/COMBATE TÁTICO 3v3/);assert.match(app.innerHTML,/FILA DO TURNO/);assert.equal((app.innerHTML.match(/data-use-skill=/g)||[]).length,12);
  click({useSkill:"o-escudo-vivo:impulso"});assert.match(app.innerHTML,/ALVO DESTACADO/);assert.match(app.innerHTML,/valid-target/);
  click({target:"oponente-0-0"});assert.match(app.innerHTML,/NA FILA/);assert.doesNotMatch(app.innerHTML,/O Escudo Vivo usa/);
  click({action:"review-turn"});assert.match(app.innerHTML,/Pronto para executar/);click({action:"commit-turn"});assert.match(app.innerHTML,/O Escudo Vivo usa/);
@@ -14,7 +15,7 @@ test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila"
  click({tab:"codex"});assert.match(app.innerHTML,/Manto de Cinzas/);assert.match(app.innerHTML,/passive.webp/);
 });
 test("O Fim mantém arte e possui defesa de invulnerabilidade",async t=>{
- t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});assert.match(app.innerHTML,/o-fim\/portrait.webp/);click({target:"the-end"});assert.match(app.innerHTML,/Fim Inalcançável/);click({inspectSkill:"the-end:despertar"});assert.match(app.innerHTML,/RECARGA 4T/);
+ t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/portrait.webp/);click({target:"the-end"});assert.match(app.innerHTML,/Fim Inalcançável/);click({inspectSkill:"the-end:despertar"});assert.match(app.innerHTML,/RECARGA 4T/);
 });
 test('escolha global persiste, bloqueia nova trilha até resgate e não duplica após recarregar',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});
@@ -33,7 +34,7 @@ test('escolha global persiste, bloqueia nova trilha até resgate e não duplica 
 
 test('inspecionar técnica cinza não reserva uma ação e Escape fecha a revisão',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});t.mock.method(Math,'random',()=>.6);
- const {app,click,key}=setup();await import('../src/main.js?touch-inspect=1');click({startRun:'sangria'});click({node:'0:0'});t.mock.timers.tick(500);
+ const {app,click,key}=setup();await import('../src/main.js?touch-inspect=1');click({startRun:'sangria'});click({node:'0:0'});t.mock.timers.tick(500);draft();
  click({useSkill:'o-escudo-vivo:impulso'});assert.match(app.innerHTML,/ALVO DESTACADO/);
  click({useSkill:'a-brasa-eterna:voto'});assert.match(app.innerHTML,/ENERGIA INSUFICIENTE/);assert.doesNotMatch(app.innerHTML,/class="[^"]*\svalid-target/);assert.doesNotMatch(app.innerHTML,/data-remove-action=/);
  click({action:'review-turn'});assert.match(app.innerHTML,/role="dialog"/);key('Escape');assert.doesNotMatch(app.innerHTML,/role="dialog"/);
