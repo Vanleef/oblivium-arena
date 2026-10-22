@@ -1,10 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <rect width="512" height="512" rx="112" fill="#08090d"/>
-  <path d="m256 66 111 58 25 106-23 105-113 111-113-111-23-105 25-106 111-58Z" fill="#171720" stroke="#3b3743" stroke-width="9" stroke-linejoin="round"/>
-  <path d="m256 111 76 41 17 78-17 75-76 76-76-76-17-75 17-78 76-41Z" fill="#0a0b10" stroke="#2d2b36" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M256 142 305 174v84l-16 61-33 33-33-33-16-61v-84l49-32Z" fill="#111118"/>
-  <path d="m190 184 32 46-16 22 41 42-11 54" stroke="#8d3d4b" stroke-width="13" stroke-linecap="square" stroke-linejoin="bevel"/>
-  <path d="m322 184-32 46 16 22-41 42 11 54" stroke="#74628f" stroke-width="13" stroke-linecap="square" stroke-linejoin="bevel"/>
-  <path d="m256 153-10 69 20 28-20 39 10 59" stroke="#83a9a3" stroke-width="11" stroke-linecap="square" stroke-linejoin="bevel"/>
-  <path d="m256 253 16 17-16 18-16-18 16-17Z" fill="#06070a" stroke="#51434d" stroke-width="4" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="porcelain" x1="256" y1="110" x2="256" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b4aab6"/>
+      <stop offset=".55" stop-color="#827985"/>
+      <stop offset="1" stop-color="#504956"/>
+    </linearGradient>
+    <linearGradient id="ember" x1="175" y1="184" x2="239" y2="316" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aa4e5e"/>
+      <stop offset="1" stop-color="#5b2938"/>
+    </linearGradient>
+    <linearGradient id="sanctuary" x1="337" y1="178" x2="275" y2="314" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9cc8bb"/>
+      <stop offset="1" stop-color="#456a69"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#09090e"/>
+  <path d="M103 339c35-22 55-48 69-91m234 91c-35-22-55-48-69-91M176 104l35 40m125-40-35 40" stroke="#302a34" stroke-width="15" stroke-linecap="square"/>
+  <path d="m217 157-72-71 25 111 47 40-20-50Zm78 0 72-71-25 111-47 40 20-50Z" fill="#28232e" stroke="#050609" stroke-width="11" stroke-linejoin="round"/>
+  <path d="M256 110c-32 5-64 20-84 44l12 51-17 30 13 51c13 53 40 86 76 124 36-38 63-71 76-124l13-51-17-30 12-51c-20-24-52-39-84-44Z" fill="url(#porcelain)" stroke="#050609" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M256 126c-24 7-47 18-63 37l11 47-13 30 11 44c9 35 27 59 54 83V126Z" fill="#503c48"/>
+  <path d="M256 126c24 7 47 18 63 37l-11 47 13 30-11 44c-9 35-27 59-54 83V126Z" fill="#3b4a4d"/>
+  <path d="m214 144 19 27-12 18" stroke="#aa4e5e" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="8"/>
+  <path d="m298 144-19 27 12 18" stroke="#74628f" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="8"/>
+  <path d="m256 142-8 32 11 14-10 21" stroke="#9cc8bb" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="8"/>
+  <path d="m184 223 48-18 20 12-35 31-29-5Zm144 0-48-18-20 12 35 31 29-5Z" fill="#09090e" stroke="#18171e" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m191 225 38-13 13 6-29 18-21-4Z" fill="url(#ember)"/>
+  <path d="m321 225-38-13-13 6 29 18 21-4Z" fill="url(#sanctuary)"/>
+  <path d="m256 222-19 48 19 17 19-17-19-48Z" fill="#292731" stroke="#08090d" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m214 303 23-13 19 9 19-9 23 13-16 25-26 9-26-9-16-25Z" fill="#111017" stroke="#050609" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m244 298 12 8 12-8-4 25-8 4-8-4-4-25Z" fill="#c4b8bd"/>
+  <path d="m178 264-20 15 27 8m149-23 20 15-27 8" stroke="#74628f" stroke-width="7" stroke-linecap="square"/>
 </svg>
