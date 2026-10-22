@@ -188,6 +188,9 @@ function artForCharacter(name) {
   return {
     portrait: `${base}/portrait.webp`,
     passive: `${base}/passive.webp`,
+    forms: id === "o-tecelao-de-mentiras" ? {
+      tecnica: { unweave: `${base}/skill-tecnica-unweave.webp` }
+    } : undefined,
     abilities: {
       impulso: `${base}/skill-impulso.webp`,
       tecnica: `${base}/skill-tecnica.webp`,

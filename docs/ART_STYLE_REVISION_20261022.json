@@ -4,8 +4,8 @@
   "counts": {
     "roster": 100,
     "available": 100,
-    "revised": 42,
-    "existingPending": 58,
+    "revised": 44,
+    "existingPending": 56,
     "missing": 0
   },
   "revised": [
@@ -731,6 +731,58 @@
         "Six separate settings and cameras; attacks target one enemy, counter protects one ally, defense only the caster.",
         "Six square crops 512x512; original game references preserved."
       ]
+    },
+    {
+      "id": "a-mascara-dupla",
+      "name": "A Máscara Dupla",
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: production six-scene art sheet for Post Mortem Arena, character A Máscara Dupla, Inferno, Elo Mentira. Image 1 is the exact IDENTITY reference, not a pose template. Preserve adult brown-skinned woman with strong brows, narrow golden-brown eyes, short dense SILVER CURLS, long gold-and-ivory tassel earrings, tailored ivory lapel coat over black high-collar top with gold cord clasps. TWO signature props TOTAL: ONE smiling IVORY theatrical mask with thin gold flourish, ONE solemn BLACK theatrical mask with thin gold flourish. Each has one short dark handle attached. Never duplicate a mask, put a third on her face, attach a mask to her body, or fuse fingers into handles. Masks stay same shape all cells.\nStyle: STRICT 2D hand-drawn TV ANIME, expressive stylized faces, clean strong ink contours, simple cel shadows, flat graphic colors, no realistic skin, no painterly texture, no 3D. Clear silhouette at 75 px. Mood dark and cunning. Mentira: deceptive old theaters, jade spiritual glimmers, lacquer and silk, not generic green poison or generic wizard blasts. Anatomy coherent, two arms, attached limbs, five fingers if visible, prefer closed grips. No gore, no writing, no text, no watermark, no decorative borders.\nCanvas 1536x1024 EXACT 3 columns x 2 rows of equal square scenes, edge to edge no gutters. Each square independent center-safe action, never cut a face across the cell. Top row portrait/passive/first skill, bottom row second/third/defense.\n1 TOP LEFT portrait: low-angle waist-up in a deserted moonlit roof garden above Mentira theater district. Woman studies viewer sidelong, silver curls and tassel earrings clear, ivory mask held low in ONE closed grip, black mask tucked at belt, no other masks anywhere. Wind moves coat, red hanging fabric and jade skyline behind.\n2 TOP MIDDLE passive Segundo Rosto, restoring life after damage: side medium CLOSE under a cracked tiled colonnade after battle. Woman holds BLACK mask at chest, ivory mask still at belt. ONE injured but standing armored foe in background. A few small pale JADE droplets travel FROM foe's fading wound light TOWARD her sternum; a tiny crack in her shoulder garment glows as her vitality returns. No bloody injury, no beam attack, just two people, no extra faces in walls.\n3 TOP RIGHT Rosto Emprestado marking attack: wide overhead diagonal in an abandoned floating-lantern canal dock, solid stone ground. Woman extends ONE ivory smiling mask toward ONE enemy. A thin theatrical ivory crescent strikes their breastplate and leaves ONE small mask-shaped mark over chest, a symbolic 2D sigil not a physical third prop. Black mask at her belt. Woman's real face visible, no mask worn. Clear single enemy target, spiritual impact. No green poison.\n4 BOTTOM LEFT O Outro Rosto personal counter: medium SIDE profile in a dim velvet dressing room. Woman pivots as one enemy spear meets her raised BLACK mask in a single closed grip; mask projects a compact black-and-gold angled mirror plane in front of HER ALONE. One force streak reverses toward SAME attacker, no staff emerging from her hand. Ivory mask at belt, exactly woman and one enemy, no allies, no mirror reflections of extra people.\n5 BOTTOM MIDDLE Traição Revelada: dynamic low oblique in the dusty under-stage machinery chamber, wooden winches and ropes. Woman delivers ONE physical elbow strike to ONE marked enemy's armored upper torso; her ivory mask held safely at her side, black mask at belt. The enemy's tiny mask sigil breaks into few clear ivory slivers, while ONE small gold resource mote is pulled FROM enemy's belt TO her open coat near sternum. Real contact, no limbs passing through armor, no gore, face and curls visible, just two people.\n6 BOTTOM RIGHT Troca de Máscara PERSONAL DEFENSE: tight three-quarter view on a rain-drenched backstage stair landing with a tall window. Woman ALONE raises the ivory mask in front of one cheek, real eye visible beside it, black mask still at belt. Her body turns into pale flat paper-like contours that allow ONE arrow to pass through the EMPTY gap beside her shoulder and strike the wall. Show her as one coherent figure, no full second body, no third mask, no allies. Invulnerability for self, not healing, not counter-attack.\nAll SIX scenes must have different poses, camera scales, distinct backgrounds and clear unique purposes; preserve facial identity and exact costume/accessory continuity.",
+      "generationFile": "exec-1331176d-4514-4853-97a1-46332e1596b3.png",
+      "realm": "Inferno",
+      "elo": "Mentira",
+      "source": "art/source/a-mascara-dupla-sheet.webp",
+      "assets": [
+        "art/characters/a-mascara-dupla/portrait.webp",
+        "art/characters/a-mascara-dupla/passive.webp",
+        "art/characters/a-mascara-dupla/skill-impulso.webp",
+        "art/characters/a-mascara-dupla/skill-tecnica.webp",
+        "art/characters/a-mascara-dupla/skill-voto.webp",
+        "art/characters/a-mascara-dupla/skill-despertar.webp"
+      ],
+      "identityReference": {
+        "commit": "1a22043ac59757170184b6f7f670a0a643a4bc1e",
+        "path": "art/characters/a-mascara-dupla/portrait.webp"
+      }
+    },
+    {
+      "id": "o-tecelao-de-mentiras",
+      "name": "O Tecelão de Mentiras",
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: six-scene production sheet for Post Mortem Arena, O Tecelão de Mentiras, Inferno / Elo Mentira. Image 1 is exact IDENTITY reference. An androgynous slender ADULT HUMANOID SPIRIT, NOT a spider, no insect legs. A SINGLE cracked ivory porcelain face, one glowing JADE eye at viewer-left and one empty BLACK eye socket at viewer-right. ONE face only, never a second mask over it. Long straight black thread-like hair. Crown made of FIVE small brass sewing-thread spools attached securely to headpiece: emerald/ivory/plum/ivory/emerald left to right. Thin brass arc behind head; chipped ivory hanging paper strips and a long dark-plum and black layered robe bound by ivory thread wraps at chest. Two human arms, two legs, no mechanical extra limbs, no mouths on clothing. Preserve all signature identity elements, colors and eye sides across EVERY cell. Spools are small functional worn objects, not gigantic towers or grotesque anatomy.\nStyle: 100% hand-drawn 2D TV ANIME, clean bold ink shapes, graphic flat cel shadows, no realism, no 3D, no textured painting, no grain, no prose/text/written talismans, no watermark. Dark sinister atmosphere, tangible ivory thread and sparse jade knot highlights, no random energy blasts, no webs of spider silk organic horror, no blood/gore. Physical threads should connect visibly between one spool/tool and target, never pass nonsensically through solid bodies; normal hands in simple closed grips.\nCanvas 1536x1024, exact 3 equal columns by 2 equal rows, SIX square cells edge-to-edge, no frames/gutters. Each scene must survive centered square crop and be readable at 75px. Order top portrait/passive/skill1; bottom skill2/skill3/defense. All scenes different camera and setting within Mentira's old deceptive empire.\n1 TOP LEFT portrait: waist-up distant three-quarter view seated on a low stone ledge in a SILENT outdoor mulberry orchard under pale dusk. Slender masked spirit leans forward, long hair framing single porcelain face, five crown spools clearly visible, plum robe pooled at knees. No literal attacking loom, no other people. Stylized dark trunks and paper strips.\n2 TOP MIDDLE Trama Paciente PASSIVE: tight over ONE enemy's shoulder in an indoor dusty dye warehouse. Foreground enemy has ONE small ivory woven-knot mark at shoulder plate; weaver in background inspects the already-present knot calmly, ONE jade eye narrow. It is the existing mark that glows, not a new strike. Exactly weaver and one foe, no additional masks/faces in walls.\n3 TOP RIGHT Fio de Engano: medium low diagonal on a roofed suspension walkway above dry mist. Weaver at left pulls ONE taut pale physical thread around ONE enemy's sword WRIST, wrist stays attached and healthy; enemy's blade is tugged downward as a tiny woven-knot sigil lands on shoulder armor. Weaver's arm and hand connected, one compact spool held in closed grip. TWO people only, weakness/mark conveyed without poison or blood.\n4 BOTTOM LEFT Rede de Falsidades: wide elevated rear-three-quarter on weaver's shoulder at a ruined textile-market PLAZA. Weaver foreground LEFT, exactly THREE distinct armored enemies in a shallow triangular formation center/right, all feet planted on same stone floor. A low ivory thread NET snags the weapons/forearms of ALL THREE, pulling their weapons down and weakening their attacks. Thread net physically joins caster's compact spool. Three targets must be visible and separate; NO fourth enemy, no friendly protected group. No strangling necks.\n5 BOTTOM MIDDLE Nó da Contradição: medium SIDE action in an abandoned bathhouse with dry shallow tiled basin and violet clerestory window. Weaver at right clenches ONE thread spool and tightens a single angular knot around ONE enemy's armored torso; existing shoulder knot flares jade and enemy drops to one knee, briefly stunned. Both attached arms and legs coherent, no dismemberment/gore. Sharp physical tension not a magic blast.\n6 BOTTOM RIGHT Fora da Trama PERSONAL DEFENSE: low intimate three-quarter in a narrow attic hung with plain cloth strips and roof slats. Weaver ALONE steps sideways through a deliberate opening between taut threads; one incoming arrow is caught in a compact ivory thread screen just OUTSIDE caster's shoulder. Single porcelain face/jade eye visible and same five-spool headpiece. Protect ONLY caster, no allies, no transparent second humanoid, no defensive dome.\nNo repeated chamber, camera, pose or generic front-facing arm thrust in six cells. Keep character and clothes consistent.",
+      "generationFile": "exec-40ebcc77-c1a6-41e2-8443-4eef14979b3f.png",
+      "alternativeArt": {
+        "slot": "tecnica",
+        "formKey": "unweave",
+        "name": "Desatar a Trama",
+        "target": "team",
+        "path": "art/characters/o-tecelao-de-mentiras/skill-tecnica-unweave.webp",
+        "source": "art/source/o-tecelao-de-mentiras-unweave.webp",
+        "generationFile": "exec-a0586933-1be8-43a4-9f63-da52697c388d.png",
+        "prompt": "Use case: identity-preserve / illustration-story. Create ONE standalone SQUARE 1024x1024 production ability icon for Post Mortem Arena, O Tecelão de Mentiras, alternative skill DESATAR A TRAMA. Image1 exact original face/costume reference; image2 approved current anime scenes style/costume. This is a HEAL AND CLEANSE FOR THREE ALLIES INCLUDING CASTER, not offensive thread-net.\nSTRICT crisp hand-drawn 2D TV ANIME, flat cel shadows, confident clean ink, no photorealism/3D/painted texture. No words, letters, border, watermark. Dark interior of a ruined SILK CONSERVATORY, roof open to pale rain-light, dry stone floor with old mulberry leaves. Do not repeat archive, tiled bathhouse or marketplace from sheet.\nEXACTLY THREE PEOPLE TOTAL: caster on LEFT, one clearly adult dark-brown-skinned stocky ally in muted rust traveling cloak CENTER, one clearly adult pale older ally with short gray hair in slate robes RIGHT. Space each separate waist-up silhouette clearly; they form a small semicircle, all three visible and not overlapping in confusing ways. No fourth figure, silhouettes, reflections, spirits, ghost faces or masks on walls.\nCASTER preserve slender humanoid spirit, ONE cracked ivory porcelain face with glowing jade eye on viewer-left and empty black socket viewer-right, long black thread hair, five small brass thread spools emerald/ivory/plum/ivory/emerald in headpiece, thin brass arc, plain blank worn ivory strips and plum-black layered robe with ivory wraps. Only two arms; closed right-hand grip on one small brass spool low near waist, left palm open with five natural fingers.\nACTION: the caster gently UNWINDS three SEPARATE DARK PURPLE KNOTS of affliction, one from caster's own chest, one from each ally's shoulder. Ivory thread leads from spool to these loosened knots, which FALL APART INTO HARMLESS DARK THREAD ENDS dropping toward the floor. Around each of the THREE chests a subtle clear JADE healing pulse remains, visibly restoring vitality. Calm relief on allies. NO enclosing net, no bindings holding allies captive, no threads around necks, no enemy, no attack, no blood, no force beam, no shared shield dome.\nMedium wide slightly overhead diagonal camera, warm skin tones against plum shade, ivory threads and jade healing accents clearly read at 75px. The single porcelain caster and BOTH human allies recognizable in safe central 80% of square. Coherent anatomy, attached limbs, no third arm or duplicate mask. Art must read as release/purification distinct from offensive network."
+      },
+      "realm": "Inferno",
+      "elo": "Mentira",
+      "source": "art/source/o-tecelao-de-mentiras-sheet.webp",
+      "assets": [
+        "art/characters/o-tecelao-de-mentiras/portrait.webp",
+        "art/characters/o-tecelao-de-mentiras/passive.webp",
+        "art/characters/o-tecelao-de-mentiras/skill-impulso.webp",
+        "art/characters/o-tecelao-de-mentiras/skill-tecnica.webp",
+        "art/characters/o-tecelao-de-mentiras/skill-voto.webp",
+        "art/characters/o-tecelao-de-mentiras/skill-despertar.webp"
+      ],
+      "identityReference": {
+        "commit": "1a22043ac59757170184b6f7f670a0a643a4bc1e",
+        "path": "art/characters/o-tecelao-de-mentiras/portrait.webp"
+      }
     }
   ],
   "inventory": [
@@ -972,13 +1024,13 @@
       "id": "a-mascara-dupla",
       "name": "A Máscara Dupla",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-tecelao-de-mentiras",
       "name": "O Tecelão de Mentiras",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-boca-de-vidro",

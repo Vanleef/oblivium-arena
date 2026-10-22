@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e dois conjuntos passaram por esta revisão de estilo e 58 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e quatro conjuntos passaram por esta revisão de estilo e 56 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -66,3 +66,9 @@ A autoridade fraturada do Soberano, os planos de ferro da Juíza, a ausência es
 Seis imagens reformuladas e integradas: retrato, passiva e quatro técnicas. A referência atual preserva rosto, trança, contas de jade, uniforme e lapela marfim. Arcada sob chuva, arquivo, canal, pátio, sala de ensaio e corredor de banhos distinguem os cenários. Veneno e roubo atingem um inimigo; Aviso Falso mostra um aliado evitando e revidando um ataque; Voz sem Origem é defesa pessoal. Kits, efeitos, custos e molduras permanecem preservados. Prompts e arquivos: `ART_LOT_20261022_09.json`.
 
 O lote de 37 imagens citado na continuidade do chat não estava presente no commit de partida. Esta entrega registra apenas as seis imagens efetivamente integradas, sem contar as demais como concluídas.
+
+## Décimo lote: Máscara Dupla e Tecelão — Mentira
+
+Treze sprites novos: dois conjuntos completos e arte exclusiva de Desatar a Trama. A Máscara Dupla mantém cachos prateados, pele, brincos, traje e duas máscaras; seus seis cenários distinguem recuperação, marcação, contra-ataque, traição e defesa pessoal. O Tecelão mantém o rosto único de porcelana, cabelo de fios, carretéis e traje, com marcação e controle por fios físicos. Sua rede ofensiva afeta três inimigos; Desatar a Trama mostra exatamente três aliados, incluindo o usuário, removendo nós de aflição e recuperando Vida.
+
+A forma alternativa agora possui um caminho de arte independente. Ao retornar à forma base, a habilidade recupera a imagem ofensiva. Apenas a seleção de arte foi ampliada: efeitos, custos, alvos, duração e recarga preservados. A limpeza de molduras e o layout anterior foram mantidos. Prompts e referências: `ART_LOT_20261022_10.json`. Estado: 44 conjuntos revisados, 56 antigos pendentes, 600 imagens de slots básicos e uma arte alternativa exclusiva.
