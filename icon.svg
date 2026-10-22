@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="orbit" x1="122" y1="128" x2="390" y2="390" gradientUnits="userSpaceOnUse">
+    <linearGradient id="gate" x1="124" y1="132" x2="388" y2="386" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f0d59a"/>
-      <stop offset="1" stop-color="#b38d55"/>
+      <stop offset="1" stop-color="#9e7844"/>
     </linearGradient>
   </defs>
-  <circle cx="256" cy="256" r="151" stroke="url(#orbit)" stroke-width="22" stroke-dasharray="264 52 276 50 260 47" transform="rotate(-12 256 256)"/>
-  <circle cx="220" cy="256" r="133" fill="#09090e"/>
+  <circle cx="256" cy="256" r="132" fill="#09090e"/>
+  <circle cx="256" cy="256" r="151" stroke="url(#gate)" stroke-width="22" stroke-dasharray="832 118" stroke-linecap="butt" transform="rotate(-62 256 256)"/>
+  <path d="m256 174 13 79-13 94-13-94 13-79Z" fill="#e4cf99"/>
+  <path d="M256 198v128" stroke="#fff2cc" stroke-width="3" stroke-linecap="round" opacity=".82"/>
 </svg>
