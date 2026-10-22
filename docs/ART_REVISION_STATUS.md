@@ -1,9 +1,12 @@
 # Estado da revisão de artes
 
-A direção inicial deste lote foi rejeitada por se aproximar de realismo. A segunda direção corrigiu o traço para anime de televisão, mas repetiu o mesmo pátio em várias habilidades. Essas gerações não constituem artes finais aprovadas.
+## Concluído nesta branch
 
-O usuário pediu variação real dos cenários por habilidade. O plano atualizado cobre os 100 personagens e seis imagens por conjunto, com ambientes definidos individualmente. Preserva rostos e equipamentos próprios, ações ligadas aos poderes e revisão de anatomia.
+- **A Chama que Não Apaga**: prancha com seis cenas independentes gerada, recortada e integrada em `art/characters/a-brasa-eterna/`.
+- Cenários: trilha de floresta ao amanhecer, oficina na chuva à noite, viela de casas vermelhas sob chuva, caverna de cristais lilases, ponte sobre rio turquesa ao meio-dia e dunas douradas ao pôr do sol.
+- A identidade foi mantida: mulher robusta de 58 anos, pele marrom-escura, cabelo branco em undercut cacheado, casaco âmbar, calça índigo, manopla de cobre e pequena brasa azul-branca na lanterna.
+- A prancha de origem está em `art/source/a-brasa-eterna-sheet.webp`; os seis recortes seguem os nomes de arquivo usados pelo jogo.
 
-A tentativa de gerar a primeira prancha com os cenários variados foi bloqueada pelo limite de uso da ferramenta de imagens. Não foi produzido um resultado final dessa tentativa. O lote revisado ainda não foi publicado nem integrado à branch principal.
+## Próximos passos
 
-Para retomar: usar `art-scene-plan.json`, gerar um conjunto com os seis cenários diferentes, inspecionar o resultado antes de ampliar o lote e só integrar imagens que atendam simultaneamente ao traço anime, à diversidade de cenários e à coerência corporal. A amostra de estilo não deve determinar os fundos das novas imagens. Não usar as imagens rejeitadas como entregas concluídas.
+Inspecionar os recortes no jogo em escala de seleção e combate. Seguir o plano individual de cenas em `art-scene-plan.json` para os próximos personagens e revisar anatomia, leitura em miniatura, continuidade de acessórios e traço de anime 2D antes de ampliar o lote.

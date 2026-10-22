@@ -1,5 +1,5 @@
 {
-  "status": "Pending image generation: image tool usage limit reached. No revised batch published.",
+  "status": "First varied-scenery sheet generated and integrated on branch; remaining character sheets are still pending.",
   "style": "2D television anime, flat colors, one hard-edged shadow; no realism or textures.",
   "style_reference": "art/review/anime-cel-style-reference.webp",
   "requirements": [
@@ -15,7 +15,7 @@
       "realm": "Paraíso",
       "elo": "Esperança",
       "identity": "Paraíso / Esperança. Stout 58-year-old woman with deep brown skin, broad nose, white coiled undercut, thick brows; amber work coat, indigo trousers, copper firekeeper gauntlet. Her power is a tiny tenacious blue-white ember preserved inside an old cracked miner lantern, not a fire humanoid.",
-      "status": "pending_varied_scenery_generation",
+      "status": "generated_and_integrated_on_branch",
       "scenes": [
         {
           "slot": "portrait",
