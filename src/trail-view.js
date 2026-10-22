@@ -32,7 +32,7 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
     <header class="journey-heading"><div><div class="eyebrow">${esc(elo.realm.toUpperCase())} <span>/</span> ${esc(difficultyName(run.difficulty||0).toUpperCase())}</div><h3>${esc(run.variantTitle||elo.name)}</h3></div><div class="journey-progress"><span>TRAVESSIA <b>${number(step)} <i>/ ${number(run.map.length)}</i></b></span><div aria-label="${run.stage} de ${run.map.length} etapas concluídas">${run.map.map((_,i)=>`<i class="${i<run.stage?"done":i===run.stage?"current":""}"></i>`).join("")}</div></div></header>
     <div class="journey-layout">
       <div class="journey-atlas">
-        <div class="journey-atmosphere" aria-hidden="true"><i class="journey-orbit orbit-one"></i><i class="journey-orbit orbit-two"></i>${eloCrest(elo,"journey-crest")}<span class="journey-elo-name">${esc(elo.name)}</span><div class="journey-motes"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="journey-atmosphere" aria-hidden="true">${eloCrest(elo,"journey-crest")}<span class="journey-elo-name">${esc(elo.name)}</span><div class="journey-motes"><i></i><i></i><i></i><i></i><i></i></div></div>
         <div class="journey-map" tabindex="0" role="region" aria-label="Percurso revelado de ${esc(elo.name)}"><div class="journey-canvas" style="height:calc(${height}px * var(--route-scale,1) + var(--route-pad,0px))">
           <div class="journey-veil" aria-hidden="true"><span>ALÉM DO VÉU</span><i></i></div>
           <svg class="journey-paths" viewBox="0 0 900 ${height}" preserveAspectRatio="none" aria-hidden="true">${edges.map(e=>`<path class="journey-thread ${e.active?"available":""} ${e.traveled?"traveled":""} ${fx?.newIds?.includes(e.to.id)?"edge-reveal":""}" data-route-edge="${esc(e.to.id)}" d="${trailCurve(points.get(e.from.id),points.get(e.to.id))}"/>`).join("")}</svg>
@@ -54,3 +54,4 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
     <footer class="run-footer journey-footer"><details class="run-echoes"><summary>ECOS <b>${run.buffs.length}</b><span>⌄</span></summary><div class="echo-popover">${run.buffs.length?run.buffs.map(id=>{const buff=buffs.find(b=>b.id===id);return buff?`<article><span>${augmentGlyph(effectGlyph(buff.effect))}</span><div><b>${esc(buff.title)}</b><p>${esc(buff.text)}</p></div></article>`:"";}).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></footer>
   </section>`;
 }
+

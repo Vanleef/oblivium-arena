@@ -1,4 +1,8 @@
 /* Hand-drawn heraldic shapes and short cel-style hits; no perpetual animation. */
+.elo-crest,.elo-sigil{background:none;border:0;border-radius:0;box-shadow:none}
+.world-elo .world-crest,.expedition-heading .expedition-crest{filter:none}
+.world-elo.locked .world-crest{opacity:.78;filter:none}
+.journey-crest{filter:none!important}
 .realm-tab .realm-emblem{max-width:100%;max-height:100%}
 .elo-sigil{display:inline-block;flex:none;width:18px;height:18px;vertical-align:middle;color:var(--accent,#c5b7ef)}
 .fighter-nameplate .unit-title{display:flex;align-items:center;gap:5px}
