@@ -1,12 +1,63 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="gate" x1="124" y1="132" x2="388" y2="386" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f0d59a"/>
-      <stop offset="1" stop-color="#9e7844"/>
+    <linearGradient id="iron" x1="138" y1="88" x2="373" y2="382" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77727a"/>
+      <stop offset=".24" stop-color="#34343c"/>
+      <stop offset=".68" stop-color="#171920"/>
+      <stop offset="1" stop-color="#5c4934"/>
     </linearGradient>
+    <linearGradient id="inlay" x1="144" y1="116" x2="371" y2="351" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e3c989"/>
+      <stop offset=".5" stop-color="#9f8252"/>
+      <stop offset="1" stop-color="#65513b"/>
+    </linearGradient>
+    <radialGradient id="void" cx="0" cy="0" r="1" gradientTransform="matrix(0 145 -145 0 256 142)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171a22"/>
+      <stop offset="1" stop-color="#05060b"/>
+    </radialGradient>
   </defs>
-  <circle cx="256" cy="256" r="132" fill="#09090e"/>
-  <circle cx="256" cy="256" r="151" stroke="url(#gate)" stroke-width="22" stroke-dasharray="832 118" stroke-linecap="butt" transform="rotate(-62 256 256)"/>
-  <path d="m256 174 13 79-13 94-13-94 13-79Z" fill="#e4cf99"/>
-  <path d="M256 198v128" stroke="#fff2cc" stroke-width="3" stroke-linecap="round" opacity=".82"/>
+
+  <!-- The three forged gate sections echo the three realms. -->
+  <circle cx="256" cy="237" r="134" fill="url(#void)" stroke="#292a31" stroke-width="2"/>
+
+  <g stroke-linecap="butt" stroke-linejoin="bevel">
+    <path d="M220 88A150 150 0 0 0 106 237" stroke="#08090e" stroke-width="48"/>
+    <path d="M292 88A150 150 0 0 1 406 237" stroke="#08090e" stroke-width="48"/>
+    <path d="M406 237A150 150 0 0 1 106 237" stroke="#08090e" stroke-width="48"/>
+
+    <path d="M220 88A150 150 0 0 0 106 237" stroke="url(#iron)" stroke-width="38"/>
+    <path d="M292 88A150 150 0 0 1 406 237" stroke="url(#iron)" stroke-width="38"/>
+    <path d="M406 237A150 150 0 0 1 106 237" stroke="url(#iron)" stroke-width="38"/>
+
+    <path d="M218 101A137 137 0 0 0 119 225" stroke="url(#inlay)" stroke-width="3" opacity=".85"/>
+    <path d="M294 101A137 137 0 0 1 393 225" stroke="url(#inlay)" stroke-width="3" opacity=".85"/>
+    <path d="M393 248A137 137 0 0 1 119 248" stroke="url(#inlay)" stroke-width="3" opacity=".72"/>
+  </g>
+
+  <!-- Chipped, faceted ends make the opening feel like a fractured gateway. -->
+  <path d="m202 99 5-24 14-16 12 10-4 16-10 17-10 9z" fill="#25262d" stroke="#8e7958" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m298 99-5-24 14-17 14 8 3 17-12 15-9 9z" fill="#282931" stroke="#b79a67" stroke-width="3" stroke-linejoin="bevel"/>
+  <path d="m208 79 10-15 9 5-3 13" stroke="#e0ca92" stroke-width="2" stroke-linecap="square" opacity=".8"/>
+  <path d="m300 78 8-13 10 6 2 11" stroke="#e0ca92" stroke-width="2" stroke-linecap="square" opacity=".8"/>
+
+  <!-- Engraved cuts and worn facets in the dark metal. -->
+  <g stroke="#d5bd84" stroke-linecap="square" opacity=".64">
+    <path d="m147 145 12 8m-17 2 8 5" stroke-width="2"/>
+    <path d="m353 144-12 8m17 3-8 5" stroke-width="2"/>
+    <path d="m177 340 10 7m-3-14 8 5" stroke-width="2"/>
+    <path d="m335 340-10 7m3-14-8 5" stroke-width="2"/>
+  </g>
+  <path d="m135 253 12 3-8 8-10-3zm242 0 12 3-8 8-10-3z" fill="#78706a" opacity=".78"/>
+  <path d="m245 382 11-7 11 7-11 8z" fill="#ae8f5d" opacity=".9"/>
+
+  <!-- The central light fracture is the portal's signature. -->
+  <path d="m257 135 11 66-17 29 17 42-24 71 11-67-18-44 20-33z" fill="#d8c18d"/>
+  <path d="m257 151 7 49-12 23m9 52-14 43" stroke="#fff2cd" stroke-width="3" stroke-linecap="square" opacity=".84"/>
+  <path d="m244 230-10-7m34 55 10 4" stroke="#b49867" stroke-width="3" stroke-linecap="square"/>
+
+  <!-- P.M.A. is engraved as the maker's mark beneath the gate. -->
+  <text x="256" y="454" fill="#cfb881" font-family="Georgia, 'Times New Roman', serif" font-size="25" letter-spacing="9" text-anchor="middle">P.M.A.</text>
+  <path d="M153 468h42m122 0h42" stroke="#6b5941" stroke-width="2"/>
+  <circle cx="143" cy="468" r="3" fill="#b79a67"/>
+  <circle cx="369" cy="468" r="3" fill="#b79a67"/>
 </svg>
