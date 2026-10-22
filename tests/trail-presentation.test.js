@@ -5,6 +5,7 @@ import {normalizeCampaign,createExpedition} from '../src/progression.js';
 import {advanceTrail,visibleTrail} from '../src/trail.js';
 import {renderTrail} from '../src/trail-view.js';
 import {trailLayout,trailCurve,trailIcon} from '../src/trail-layout.js';
+import {highlightTrailChoice} from '../src/trail-motion.js';
 const profile=()=>normalizeCampaign({ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:[]});
 const nodeIds=html=>new Set([...html.matchAll(/data-node="([^"]+)"/g)].map(m=>m[1]));
 
@@ -44,4 +45,17 @@ test('o trio da trilha usa Vida atual, limites dos Legados e texto escapado',()=
  const run=createExpedition(p,elos[0],'hunt',0,135),id=run.team[0];run.variantTitle='<Caçada>';
  const html=renderTrail(run,elos[0],null,buffs,p.ownedIds,{profile:p,teamHealth:{[id]:73}});
  assert.match(html,/73\/110 Vida/);assert.match(html,/&lt;Caçada&gt;/);assert.doesNotMatch(html,/<Caçada>/);
+});
+
+test('foco de passagem liga somente o nó, a escolha e a conexão correspondente sem alterar a trilha',()=>{
+ const p=profile(),run=createExpedition(p,elos[0],'hunt',0,135);advanceTrail(run,run.availableNodeIds[0]);
+ const html=renderTrail(run,elos[0],null,buffs),before=JSON.stringify(run),chosen=run.availableNodeIds[1];
+ const element=(field,id)=>({dataset:{[field]:id},active:false,classList:{toggle(_,value){this.owner.active=value;}}});
+ const nodes=[...html.matchAll(/data-route-preview="([^"]+)"/g)].map(m=>element('routePreview',m[1]));
+ const edges=[...html.matchAll(/data-route-edge="([^"]+)"/g)].map(m=>element('routeEdge',m[1]));
+ for(const node of [...nodes,...edges])node.classList.owner=node;
+ const root={querySelectorAll:selector=>selector==='[data-route-preview]'?nodes:edges};
+ highlightTrailChoice(root,chosen);assert.equal(nodes.filter(n=>n.active).length,2);assert.equal(edges.filter(n=>n.active).length,1);
+ assert.ok([...nodes,...edges].filter(n=>n.active).every(n=>(n.dataset.routePreview||n.dataset.routeEdge)===chosen));
+ highlightTrailChoice(root,null);assert.ok([...nodes,...edges].every(n=>!n.active));assert.equal(JSON.stringify(run),before);
 });

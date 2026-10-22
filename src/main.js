@@ -4,6 +4,7 @@ import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloBy
 import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
+import { highlightTrailChoice } from "./trail-motion.js";
 import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest } from "./crests.js";
@@ -567,8 +568,15 @@ function previewTechnique(event) {
   const panel = app.querySelector(".arena-reading");
   if (panel) panel.innerHTML = renderBattleDetail(state);
 }
-app.addEventListener("pointerover", previewTechnique);
-app.addEventListener("focusin", previewTechnique);
+function previewTrailChoice(event){
+  if(!app.querySelector('.journey-shell'))return;
+  highlightTrailChoice(app,event.target.closest('[data-route-preview]')?.dataset.routePreview);
+}
+app.addEventListener("pointerover", event=>{previewTechnique(event);previewTrailChoice(event);});
+app.addEventListener("focusin", event=>{previewTechnique(event);previewTrailChoice(event);});
+app.addEventListener("pointerout", event=>{
+  if(event.target.closest('.journey-shell')&&!event.relatedTarget?.closest?.('.journey-shell'))highlightTrailChoice(app,null);
+});
 
 function toggleCodexSkill(summary) {
   const details = summary.closest("details");

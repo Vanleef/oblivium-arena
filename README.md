@@ -12,6 +12,8 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 
     npm test
 
+Para conferir visualmente início, bifurcações e conselho em larguras de 320 a 1200px, abra `/tests/fixtures/trail.html` na prévia. O cenário é isolado e não lê nem modifica o progresso salvo do jogo.
+
 ## O que já funciona
 
 - Catálogo jogável com 100 personagens, 400 técnicas principais e 56 técnicas alternativas: 54 Inferno, 35 Paraíso e 11 Limbo.
