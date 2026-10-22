@@ -96,7 +96,7 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .section-count i { color: var(--gold); font-style: normal; }
 .realm-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin: 23px 0 17px; }
 .realm-tab { min-height: 68px; display: flex; align-items: center; gap: 13px; padding: 12px 17px; text-align: left; cursor: pointer; border: 1px solid var(--line); border-radius: 4px; background: rgba(28, 29, 35, .62); }
-.realm-tab > span { width: 33px; height: 33px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-size: 19px; }
+.realm-tab > span { width: 33px; height: 33px; display: grid; place-items: center; font-size: 19px; }
 .realm-tab b { font-family: Georgia, serif; font-size: 15px; font-weight: 500; }
 .realm-tab small { margin-left: auto; color: var(--muted); font-size: 9px; }
 .realm-tab.selected { border-color: rgba(217, 189, 124, .55); background: rgba(217, 189, 124, .06); }
@@ -214,7 +214,8 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .notice-fracture { border-color: rgba(189, 119, 115, .35); }
 .notice-fracture .notice-icon { color: var(--red); }
 .finale-card { margin-top: 22px; padding: 20px 24px; display: flex; align-items: center; gap: 17px; border: 1px solid rgba(208, 132, 105, .34); background: linear-gradient(100deg, rgba(75, 42, 38, .48), rgba(29, 27, 33, .78)); }
-.finale-sigil { width: 42px; height: 42px; display: grid; place-items: center; color: #e29a7d; border: 1px solid rgba(226, 154, 125, .47); border-radius: 50%; font-size: 19px; }
+.finale-sigil { width: 42px; height: 42px; flex: none; display: grid; place-items: center; color: #e29a7d; font-size: 19px; }
+.finale-sigil .realm-emblem { width: 42px; height: 42px; }
 .finale-card h3 { margin: 4px 0; font-family: Georgia, serif; font-size: 19px; font-weight: 400; }
 .finale-card p { margin: 0; color: var(--muted); font-size: 10px; }
 .finale-card .button { margin-left: auto; flex-shrink: 0; }
@@ -242,7 +243,7 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .empty-slot { opacity: .5; }
 .empty-plus { display: grid; place-items: center; width: 35px; height: 35px; border: 1px dashed var(--line-strong); border-radius: 50%; color: var(--muted); }
 .resonance-card { display: flex; gap: 11px; margin-top: 15px; padding: 13px; border: 1px solid var(--line); background: rgba(16, 17, 21, .55); }
-.resonance-icon { min-width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--gold); }
+.resonance-icon { width: 36px; min-width: 36px; height: 36px; display: grid; place-items: center; color: var(--gold); }
 .resonance-card > div:last-child { display: grid; gap: 3px; }
 .resonance-card small { color: var(--muted); font-size: 7px; letter-spacing: .14em; }
 .resonance-card b { font-family: Georgia, serif; font-size: 12px; font-weight: 500; }
@@ -1405,3 +1406,4 @@ body:has(.journey-shell) { min-width: 0; }
 @media(max-width:680px){body[data-tab="battle"]{min-width:0}.battle-header,.arena-reading,.arena-plan,.arena-match{min-width:0}.arena-turn-control .button,.queue-heading-controls .button,.review-controls .button{min-height:44px;font-size:10px}.arena-detail p{font-size:12px;line-height:1.65}.arena-detail footer{font-size:10px}.turn-state{font-size:9px}.arena-match .unit-name{font-size:10px}.arena-match .health-row b{font-size:9px}.arena-topline .resource-meter small{font-size:8px}.arena-topline .resource-meter{padding:7px 3px}.world-history{font-size:12px}.arena-plan header{gap:10px}.world-rule{font-size:12px}}
 @media(max-width:480px){.arena-skills{grid-template-columns:repeat(2,minmax(44px,48px));justify-content:start;gap:10px;padding-bottom:8px}.arena-skill.skill-button{width:100%;height:48px;min-height:44px;aspect-ratio:auto;touch-action:manipulation}.arena-ally-row{min-height:126px}.arena-opposition{grid-template-rows:24px repeat(3,126px);gap:10px}.arena-skill .cost-pip{width:8px;height:8px}.arena-skill>.skill-slot-index{width:13px;height:13px;font-size:8px}.arena-skill .skill-cooldown small{font-size:6px}.arena-match .unit-statuses{max-height:70px;overflow:hidden}.battle-header{grid-template-columns:minmax(0,1fr)}.arena-turn-control{justify-content:space-between;width:100%}.battle-header .eyebrow{font-size:9px}.arena-topline .resource-meter{grid-template-columns:10px minmax(0,1fr);gap:3px}.arena-topline .resource-symbol{font-size:10px}}
 .arena-ready-team{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0;padding:16px 0;border-top:1px solid #ffffff15;border-bottom:1px solid #ffffff15;align-items:center}.arena-ready-team>div{display:flex;align-items:center;gap:10px;min-width:0}.arena-ready-portrait{width:40px;height:48px;object-fit:cover;border:1px solid #a18e5f66;border-radius:3px}.arena-ready-team span{font-size:13px;color:#ccc3b6}.arena-ready-team>.button{margin-left:auto}@media(max-width:480px){.arena-ready-team{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}.arena-ready-team>.button{margin-left:0}.arena-ready-portrait{width:36px;height:44px}}
+

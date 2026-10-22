@@ -29,8 +29,8 @@
 .codex-card.unowned{opacity:1}
 .codex-card.unowned .codex-card-head small{color:#efd29c;border-color:#d4b57470;background:#111b29ed}
 .codex-portrait{filter:saturate(1)}
-.codex-card-sigil{display:grid;place-items:center;width:31px;height:34px;background:#0a1425cf;border:1px solid #b6c9e52b;border-radius:3px}
-.codex-card-sigil .elo-sigil{width:23px;height:25px}
+.codex-card-sigil{display:grid;place-items:center;width:31px;height:34px;background:none;border:0;border-radius:0}
+.codex-card-sigil .elo-sigil{width:23px;height:25px;filter:drop-shadow(0 1px 2px #030812)}
 .portrait-fallback .elo-sigil{width:58%;height:58%;max-width:72px}
 .move-fallback .ui-icon,.skill-art-fallback .ui-icon{width:58%;height:58%}
 .passive-fallback .elo-sigil{width:23px;height:23px}
