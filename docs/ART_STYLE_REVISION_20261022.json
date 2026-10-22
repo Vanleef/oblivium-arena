@@ -3,10 +3,10 @@
   "status": "in_progress",
   "counts": {
     "roster": 100,
-    "available": 84,
-    "revised": 15,
+    "available": 88,
+    "revised": 19,
     "existingPending": 69,
-    "missing": 16
+    "missing": 12
   },
   "revised": [
     {
@@ -342,6 +342,62 @@
       ],
       "prompt": "PMA Post Mortem Arena original game art. Create ONE six-panel sprite sheet, exactly 3 columns x 2 rows, 1536x1024 landscape, all SIX cells square, equal and edge-to-edge. No borders, gutters, text, letters or UI. Strict hand-drawn Japanese TV ANIME cel frames: bold clean dark contour, GRAPHIC STYLIZED anime eyes/nose/mouth, bucket-filled FLAT colors, ONE hard shadow per surface, broad simplified background shapes. No photorealism, painterly rendering, fine texture, skin pores, gradient skin, 3D, glossy fantasy concept art, grain, hatching or excessive tiny detail. Dark supernatural shounen tone, expressive faces and strong silhouettes readable at 64px. Each cell needs a different camera distance/angle/action AND a different setting, not the same scene with color changes. Only portrait is a posed face; remaining cells depict an actual meaningful action or close-up tied to this SAME character. Keep age, body shape, hairstyle, clothes and accessories consistent. Normal anatomical joint bends, five fingers per visible hand, two arms and two legs per human, plausible weapon grips and line of contact. Show only essential hands; avoid extra limbs and mirrored/doubled faces. No gore. Last cell ALWAYS self defense/evasion, never sheltering a group. Identity: A Linha Partida, Limbo/Correntes Quebradas. Tall slender woman36, light olive skin, angular long nose, one BLACK eyebrow and one WHITE eyebrow, jagged short BLACK bob, VIOLET cropped tailcoat, white wrapped trousers, black ankle boots, small brass sewing SEAM RIPPER (two short prongs, curved hook, wooden handle). Real human anatomy. Power is ONE KINKED RED SPATIAL SEAM that misaligns the scenery on either side, NOT physical blood or mutilation, NOT red silk clothing. Limbo has unfinished geometry, cold white/violet stone and gray space, no red hell city. Panel1 PORTRAIT tight SIDE three-quarter mature face, one eyebrow each color, dim station of suspended stone steps with dark empty sky; seam ripper hooked safely to lapel. Panel2 PASSIVE Tensão da Ruptura: MACRO seam ripper in her attached right hand, one kinked red seam in a floor tile reflected on its BRASS hook, violet cuff and white wrap sleeve visible, quiet gray pebble shoreline with a displaced horizon, no detached fingers. Panel3 Extremidade Solta: OVERHEAD close of seam ripper hooking ONLY the edge of enemy glowing defense pane over intact armor, one bent red gap opens between two shield sections, ruined slanted aqueduct at dawn; correct hook grip and no body injury. Panel4 ALLY HEAL Nó de Emergência: SIDE close two-person partial crop, her left palm presses a SMALL white loop-shaped repair seal onto ONE ally cracked shoulder guard, right hand holds own violet lapel near ribs showing effort, one red seam dims at her cuff, dark rootless crystal cavern, no blood or squeezing ally flesh. Panel5 Puxar o Fim da Linha: LOW target POV with her right fist and seam ripper pulling a kinked luminous red seam toward foreground enemy shield, the background's broad library shelf is offset on either side of seam, no strings tied around bodies; enemy spirit aura recoils in a clean red angular pulse, no gore. Panel6 Linha Inalcançável: medium REAR view she slides one foot to the safe side of a red spatial kink, an incoming blade crosses empty space on the OTHER side, white trousers, violet coat and two coherent legs, broken archway above opaque gray clouds. All six compositions different, no duplicated body parts, preserve red seam only one per scene, no literal sliced people.",
       "revision": "20261022-lot3"
+    },
+    {
+      "id": "a-que-une",
+      "source": "art/source/a-que-une-sheet.webp",
+      "assets": [
+        "art/characters/a-que-une/portrait.webp",
+        "art/characters/a-que-une/passive.webp",
+        "art/characters/a-que-une/skill-impulso.webp",
+        "art/characters/a-que-une/skill-tecnica.webp",
+        "art/characters/a-que-une/skill-voto.webp",
+        "art/characters/a-que-une/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character A que Une, Elo União. Black woman aged60, broad face, wide nose, heavy eyelids, mature stocky build, grey box braids in a low crown. Navy tunic, ivory long sleeveless coat, broad red sash, brass ring-shaped weaving shuttle; power is flat turquoise woven light ribbons with clearly interlocked square weave, not loose thin threads. No duplicates of shuttle.\nCell1: chest-up three-quarter face looking down-left, fingers resting on one shuttle at waist; rainy ivory bridge and dark cypresses.\nCell2 passive healing after support: intimate profile and clavicle/upper chest, her own woven cuff closes a torn sleeve seam with green light; brass shuttle visible waist; stone loom workshop, dawn.\nCell3 Fio de Encontro spiritual hit and drain: enemy shoulder in close foreground, turquoise flat ribbon strikes enemy breastplate and returns one bright stitch toward her red sash; she stands back at right, dynamic diagonal overhead courtyard view, pale blue pools.\nCell4 Reunir os Fragmentos heals/shields/cleanses ONE ally: low side angle seated wounded adult ally forearm foreground, her five-finger hand lays woven turquoise bandage over the forearm, purple smoke leaving and a small woven panel guarding that SAME ally; moonlit white stone infirmary.\nCell5 Fôlego Coletivo team healing/boost: dramatic bird-eye crop her red sash at central fountain, exactly two adult allied silhouettes each connected to ONE flat broad turquoise ribbon and warm gold healing spark; circular terrace among olive trees at sunset.\nCell6 Entrelaçar de Luz invulnerability self: full-body leaning sideways, her OWN coat becomes a close weave of turquoise light as a blade passes without contact beside her shoulder; one woman only, narrow sanctuary stairway over cloudsea at blue night. Avoid same pose and arm-thrust in all cells.",
+      "revision": "20261022-lot4"
+    },
+    {
+      "id": "o-vinculo",
+      "source": "art/source/o-vinculo-sheet.webp",
+      "assets": [
+        "art/characters/o-vinculo/portrait.webp",
+        "art/characters/o-vinculo/passive.webp",
+        "art/characters/o-vinculo/skill-impulso.webp",
+        "art/characters/o-vinculo/skill-tecnica.webp",
+        "art/characters/o-vinculo/skill-voto.webp",
+        "art/characters/o-vinculo/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character O Vínculo, Elo União. Athletic East Asian man35, squared jaw, thick straight brows, black hair in SHORT tight topknot, short black goatee, small white vertical scar below right eye. Maroon sleeveless coat over ochre sleeves and charcoal trousers, left wrist solid bronze rectangular cuff, exactly one short ivory rectangular oath tally in right hand. Magic is paired white rectangular seal impressions with interlocking bronze notches; never chains or round golden rings.\nCell1 front low-angle chest portrait against pale stone oathgate and starry indigo sky; stern mature anime face, white tally near chest.\nCell2 passive destructive defense: macro left forearm bronze cuff (not right), a thin WHITE rectangular hardlight plate grows just beyond cuff and arrests falling stone chip; old oath archive stone shelves, cuff ochre sleeve and coat edge identify him.\nCell3 Selo do Pacto physical expose: extreme low perspective from enemy armored shoulder, his right palm with ivory tally stamps a sharp rectangular light imprint on shoulder, enemy posture opens; tilted alabaster staircase under cloudy dawn.\nCell4 Responder pelo Outro shields/counters ONE ally: close over-the-shoulder view man standing at left placing cuff-side hand on ONE ally's shoulder, white sealplate intercepts a dagger at ally's chest and a second RETURN streak points toward attacker's wrist; solemn roofed stone arcade, purple dusk; no other allies.\nCell5 Resposta da Aliança physical lifesteal: lateral close action his right elbow drives a short strike into armored enemy torso, rectangular seal breaks into bright white shards returning to his bronze cuff, no blood; wind-swept marble causeway at golden evening, full impact legible, natural elbow anatomy.\nCell6 Laço Intangível SELF: own body steps through a vertical gap between two floating white sealplanes, enemy spear tip remains behind plane separated from body; side-back full figure cloak silhouette, shallow mirror lake beneath white sanctuary pillars. Only caster protected.",
+      "revision": "20261022-lot4"
+    },
+    {
+      "id": "os-tres-irmaos",
+      "source": "art/source/os-tres-irmaos-sheet.webp",
+      "assets": [
+        "art/characters/os-tres-irmaos/portrait.webp",
+        "art/characters/os-tres-irmaos/passive.webp",
+        "art/characters/os-tres-irmaos/skill-impulso.webp",
+        "art/characters/os-tres-irmaos/skill-tecnica.webp",
+        "art/characters/os-tres-irmaos/skill-voto.webp",
+        "art/characters/os-tres-irmaos/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character Os Três Irmãos, Elo União: a SINGLE playable character represented by THREE distinct adult brothers, always exactly these three when all shown, no duplicates. Eldest55 stocky tan man with silver moustache and cropped silver hair, terracotta short jacket; middle40 tall dark tan lean man, sharp nose, long tied black hair, teal long coat; youngest24 short adult light tan man with curly black hair, round face, plum short robe. All wear same ivory horizontal shoulder sash and bronze round brooch. Powers are three synchronized amber percussion arcs, not musical notes or invented symbols. No weapons, no instruments. Anatomically separate figures.\nCell1 portrait three faces in compact triangular grouping chest-up; eldest near center, middle upper left and youngest upper right; sanctuary mountain amphitheater deep navy dawn.\nCell2 first offensive hit bonus passive: extreme close of eldest terracotta sleeve, middle teal sleeve and youngest plum sleeve each ending in ONE clenched fist, the three fists touch centrally like a pact (exactly3 fists, no open fingers); amber spark at meeting, carved white stone doorway behind.\nCell3 Primeira Cadência physical hit/charge: foreground eldest's boot striking enemy shin, terracotta trouser hem, other two brothers farther behind in TWO distinct stances; one amber pulse behind heel, low ground camera along alabaster aqueduct.\nCell4 Segunda Cadência team defense/charge: high overhead view three brothers stand triangularly, each anchors ONE translucent amber pentagonal shield below feet and an arc connects them; olive grove pale marble paving after rain, no other people.\nCell5 Terceira Cadência all enemy physical attack/spendcharge: very wide view compressed for readability, exactly3 brothers in foreground (terracotta/teal/plum), synchronized forward stepping sends THREE broad amber ground arcs toward exactly3 distant armored adversaries; three clear hit silhouettes, ruined white arena at sunset, no extra people.\nCell6 Passo em Uníssono personal invulnerability of this ONE trio-entity: three brothers together lean away along same safe diagonal as ONE black sword sweeps harmlessly across the foreground, cloak hems distinct; overhead oblique glass-floor sanctuary gallery and cloudy violet void. All3 dodge for themselves, not protecting a fourth ally. Keep faces, clothing colors and relative body sizes consistent.",
+      "revision": "20261022-lot4"
+    },
+    {
+      "id": "o-primeiro-canto",
+      "source": "art/source/o-primeiro-canto-sheet.webp",
+      "assets": [
+        "art/characters/o-primeiro-canto/portrait.webp",
+        "art/characters/o-primeiro-canto/passive.webp",
+        "art/characters/o-primeiro-canto/skill-impulso.webp",
+        "art/characters/o-primeiro-canto/skill-tecnica.webp",
+        "art/characters/o-primeiro-canto/skill-voto.webp",
+        "art/characters/o-primeiro-canto/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character O Primeiro Canto, Elo Criação. Elder Indigenous Brazilian-looking man80, deep brown skin, very thin tall body, long hooked nose and high cheekbones, silver hair in ONE long side braid, bare scalp temples, long narrow grey eyebrows, no beard. Large flat copper throat collar, indigo sleeveless robe, coral-orange shoulder shawl, turquoise small ear studs. Power is acoustic turquoise concentric broken crescent waves causing tiny floating pale seed shapes to form at resonance nodes, never generic staff, fire, letters or musical notation. No instrument. Collar is single and stays on neck.\nCell1 tight side-three-quarter portrait, solemn ancient face, closed lips, silver braid over left shoulder, overgrown pale bell tower under starry indigo sky.\nCell2 selfheal after support passive: extreme close side profile lower cheek mouth and copper collar, a soft turquoise inward acoustic crescent returns to his chest and seals tiny light crack in robe with no body wound; dark sanctuary acoustic chamber with pale moss arches.\nCell3 Nota Primordial spiritual hit/gaincharge: enemy helmet in foreground recoils from ONE sharp turquoise crescent, old singer distant left mouth open, left arm low relaxed; reverse low enemy viewpoint in white stone canyon, floating one pale seed beside collar.\nCell4 Refrão da Vida team heal/boost/cooldown: high oblique view singer kneels center with two standing adult allies at opposite sides, three turquoise ripples connect chests, warm green healing glows and tiny pale seed bud rises at each ally foot; sunken circular sanctuary orchard at dawn. Three people total, singer included.\nCell5 Canto que Abre o Mundo all enemies/spendcharge: close low camera by singer shoulder mouth OPEN, flat massive layered turquoise sound wave fans away toward three distant armored enemies staggered in an ivory hillside arena, luminous seeds at THREE resonance nodes, coral shawl streams BACK from wave direction; pale overcast sky, graphic action not explosion.\nCell6 Pausa Anterior ao Som invulnerability SELF: complete stillness, side view old man with closed mouth and braid relaxed, contained soundless turquoise empty oval around HIM, external spear ripples curve around without touching, translucent effect does not obscure body; tiny sanctuary island above violet clouds at night. No other protected figures. Avoid repeating close mouth pose in other cells.",
+      "revision": "20261022-lot4"
     }
   ],
   "inventory": [
@@ -366,60 +422,50 @@
     {
       "id": "o-portador-da-aurora",
       "name": "O Portador da Aurora",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot2",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-luz-nua",
       "name": "A Luz Nua",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot3",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-espelho",
       "name": "O Espelho",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot3",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-cartografa-da-clareza",
       "name": "A Cartógrafa da Clareza",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot3",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-elo-dourado",
       "name": "O Elo Dourado",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot3",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-que-une",
       "name": "A que Une",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-vinculo",
       "name": "O Vínculo",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "os-tres-irmaos",
       "name": "Os Três Irmãos",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-que-cria",
@@ -430,10 +476,8 @@
     {
       "id": "a-semente",
       "name": "A Semente",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot3",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-cultivador",
@@ -450,16 +494,14 @@
     {
       "id": "o-primeiro-canto",
       "name": "O Primeiro Canto",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-linha-partida",
       "name": "A Linha Partida",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art",
-      "status": "revised_anime_cel_20261022_lot3",
-      "available": true
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-eco-sem-dono",
@@ -519,17 +561,13 @@
       "id": "o-acougueiro",
       "name": "O Açougueiro",
       "artAvailable": true,
-      "styleReview": "pending_existing_art",
-      "status": "revised_anime_cel_20261022_lot2",
-      "available": true
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-viuva-escarlate",
       "name": "A Viúva Escarlate",
       "artAvailable": true,
-      "styleReview": "pending_existing_art",
-      "status": "revised_anime_cel_20261022_lot2",
-      "available": true
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-colecionador-de-cabecas",
@@ -589,9 +627,7 @@
       "id": "o-passo-interrompido",
       "name": "O Passo Interrompido",
       "artAvailable": true,
-      "styleReview": "pending_existing_art",
-      "status": "revised_anime_cel_20261022_lot2",
-      "available": true
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-sussurro",
@@ -849,9 +885,7 @@
       "id": "o-escudo-vivo",
       "name": "O Escudo Vivo",
       "artAvailable": true,
-      "styleReview": "pending_existing_art",
-      "status": "revised_anime_cel_20261022_lot2",
-      "available": true
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-muralha",

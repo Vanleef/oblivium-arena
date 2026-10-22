@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 84 conjuntos habilitados, 504 referências válidas. Quinze conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, 16 personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 88 conjuntos habilitados, 528 referências válidas. Dezenove conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, 12 personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -27,3 +27,11 @@ O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais d
 A Luz Nua, O Espelho e A Cartógrafa da Clareza completam Verdade. O Elo Dourado inicia o complemento de União, A Semente de Criação e A Linha Partida de Correntes Quebradas. Cenas e traços próprios seguem os kits existentes, sem alterações nas mecânicas. Prompts, arquivos e correções: `ART_LOT_20261022_03.json`.
 
 O Codex mantém a indicação de recrutamento por selo sem escurecer toda a carta. Os símbolos pequenos usam o desenho dos respectivos Elos; os espaços sem arte usam ícones de efeito. Textos de passiva/efeitos maiores e técnicas em coluna única até 480 px melhoram a leitura e o toque no celular.
+
+## Quarto lote: 24 imagens e limpeza de molduras
+
+A que Une, O Vínculo e Os Três Irmãos completam o Elo da União. O Primeiro Canto amplia Criação com uma linguagem acústica própria. Os conjuntos incluem retrato, passiva e quatro habilidades; prompts, alvos, arquivos e revisão em `ART_LOT_20261022_04.json`. As regras dos kits foram preservadas.
+
+Foram removidos círculos herdados dos emblemas de reino, perfil, ressonância e encontro final, além das caixas extras dos ícones de expedição e do pequeno símbolo do Codex. A aura duplicada atrás dos brasões saiu do SVG. Os desenhos dos brasões mantêm seu contorno próprio; seleção de botões, foco por teclado, retratos e custos continuam identificáveis. A contagem de Elos alinha-se sob o nome, os emblemas cabem nos espaços reservados e os símbolos de correntes/trio têm área de desenho sem recortes nas extremidades.
+
+O inventário foi normalizado para usar os campos `artAvailable` e `styleReview` de forma consistente com o catálogo.
