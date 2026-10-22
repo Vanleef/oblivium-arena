@@ -4,8 +4,8 @@
   "counts": {
     "roster": 100,
     "available": 100,
-    "revised": 31,
-    "existingPending": 69,
+    "revised": 35,
+    "existingPending": 65,
     "missing": 0
   },
   "revised": [
@@ -566,6 +566,62 @@
       ],
       "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. A Alma em Suspenso: slim adult man23, light olive skin, long soft face, large gentle violet eyes, rounded nose, thick dark BLUE hair in loose curls reaching ears, one silver lock at center forehead. Cream wrap tunic, pale coral sleeveless ankle coat, indigo wide belt, bare feet; ONE small smoky oval glass breath-vessel pendant at chest, tied with black cord. Human spirit, not a floating disembodied organ. Power WARM WHITE breath ribbons and small AMBER suspended pulse-orbs, no cyan music waves or magenta echo rectangles. No anatomical mutations.\n1 Tight face and chest portrait, quiet closed mouth and curly blue hair, breath-vessel pendant, coral coat; floating basalt hospital balcony above silver cloud sea before sunrise.\n2 Fôlego no Limiar own regeneration: macro gentle closed mouth, cream scarf edge and SINGLE pendant with one suspended amber glow, warm white breath ribbon returns to HIS chest and repairs a small tunic light seam; empty dark room with inverted distant candles.\n3 Pulso Suspenso enemy energy/charge: reverse low shot an amber pulse-orb hits ONE enemy breastplate, caster barefoot on a floating rectangular slab at left with one palm raised and exactlyONE extra tiny orb beside pendant as stored charge; pale sea underneath upside-down violet sunrise. Natural hand five fingers.\n4 Prender o Último Fôlego heal/shield ONE ally: close side angle caster kneels beside ONE wounded adult ally, palm resting on ally forearm, warm white breath returns at ally chest and small amber guard encircles same forearm; abandoned slate infirmary with pale green mist, caster tired but unhurt. Two people total.\n5 Soltar a Âncora single enemy affliction/spendcharge: high oblique ONE enemy torso is bound by three short warm white breath ribbons converging into amber pulse at chest, caster below releases from own pendant and bows with effort, no wounds; lonely sinking stone quay under ochre evening.\n6 Suspensão Absoluta SELF: full body hovers a few inches inside a small warm white oval with amber still point at pendant, ONE dark spear passes beneath bare feet without contact, only caster present; suspended moonlit cliff room opening to indigo emptiness. Hands relaxed, legs separate and connected.",
       "revision": "20261022-lot6"
+    },
+    {
+      "id": "o-colecionador-de-cabecas",
+      "source": "art/source/o-colecionador-de-cabecas-sheet.webp",
+      "assets": [
+        "art/characters/o-colecionador-de-cabecas/portrait.webp",
+        "art/characters/o-colecionador-de-cabecas/passive.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-impulso.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-tecnica.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-voto.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-despertar.webp"
+      ],
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: one production character art sheet for Post Mortem Arena (PMA). Input image is identity reference only: keep age, face, hair, physique, costume and recognizable accessories, redesign all poses and scenes. Canvas 1536x1024, EXACT 3 columns x 2 rows, six equal square panels seamlessly edge to edge, no gaps, lines, decorative frames, labels, lettering or watermarks. Read left to right top then bottom: portrait, passive, first attack, second technique, ultimate, personal defense. Entirely hand-drawn 2D dark TV anime, decisive ink outlines, graphic cel shadow shapes, crisp expressive faces, restrained gradients, no photorealism, no painterly realism, no 3D. Six genuinely different camera angles and staged action beats. Each cell remains readable at 75px: bold subject silhouette and one dominant action shape, center-safe square compositions. Inferno's Sangria realm is an oppressive ruined gothic world, soot, iron, burgundy and restrained red energy. No modern city, no unrelated elemental magic. Every visible human anatomically coherent: two arms, two legs, normal five-finger hands, hands preferably natural closed grips or outside crop. No severed body parts, gore or gratuitous torture. Skill targeting must be exact. Identity: severe elderly lean tan man, slick silver hair tied short at nape, angular lined face, pale high-collared coat with burgundy lining over black clothes, black gloves, diagonal strap of ivory theatrical mask trophies and old rectangular brass tags. These masks symbolize his trophies; keep this humanoid identity, never a giant literal head.\n1 Portrait: waist-up three-quarter low angle, appraising gaze, one gloved fist resting on the mask strap, dim vertical archive behind.\n2 Primeiro Troféu passive: side close action view of this man hooking his FIRST ivory mask trophy to his belt; small red spark marks one earned advantage. Focus face plus single trophy.\n3 Laço de Caça: over his shoulder as he pulls one red hunting cord taut around ONE distant standing armored enemy's forearm; motion travels from hunter to target, no noose around neck. One trophy glints at his waist as a charge is earned.\n4 Cobrança do Caçador: tight diagonal mid-shot of him driving one brass-tagged cleaver into ONE enemy's translucent red defensive ward; ward cracks first, enemy silhouette behind, physical follow-through.\n5 Galeria de Troféus: high oblique wide shot hunter sweeping THREE mask trophies from his coat in one crescent around ONE enemy, masks break to ember dust as spent charges, open empty hooks visibly left behind. Not multiple victims.\n6 Sombra do Colecionador: full-body narrow side profile hunter alone stepping sideways into a wall of his own mask-shaped shadow as ONE incoming attack passes through where he stood; shadow shelters ONLY him. No allies.",
+      "revision": "20261022-lot7"
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "source": "art/source/gemeos-do-cutelo-sheet.webp",
+      "assets": [
+        "art/characters/gemeos-do-cutelo/portrait.webp",
+        "art/characters/gemeos-do-cutelo/passive.webp",
+        "art/characters/gemeos-do-cutelo/skill-impulso.webp",
+        "art/characters/gemeos-do-cutelo/skill-tecnica.webp",
+        "art/characters/gemeos-do-cutelo/skill-voto.webp",
+        "art/characters/gemeos-do-cutelo/skill-despertar.webp"
+      ],
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: one production character art sheet for Post Mortem Arena (PMA). Input image is identity reference only: keep age, face, hair, physique, costume and recognizable accessories, redesign all poses and scenes. Canvas 1536x1024, EXACT 3 columns x 2 rows, six equal square panels seamlessly edge to edge, no gaps, lines, decorative frames, labels, lettering or watermarks. Read left to right top then bottom: portrait, passive, first attack, second technique, ultimate, personal defense. Entirely hand-drawn 2D dark TV anime, decisive ink outlines, graphic cel shadow shapes, crisp expressive faces, restrained gradients, no photorealism, no painterly realism, no 3D. Six genuinely different camera angles and staged action beats. Each cell remains readable at 75px: bold subject silhouette and one dominant action shape, center-safe square compositions. Inferno's Sangria realm is an oppressive ruined gothic world, soot, iron, burgundy and restrained red energy. No modern city, no unrelated elemental magic. Every visible human anatomically coherent: two arms, two legs, normal five-finger hands, hands preferably natural closed grips or outside crop. No severed body parts, gore or gratuitous torture. Skill targeting must be exact. Identity: EXACT pair from reference, adult dark-brown-skinned woman with black tight curls, pale cross-shaped forehead scar and small brass earrings; tall pale man with straight black side-swept hair and angular face. Both wear black high-collar brass-fastened uniforms, burgundy diagonal sashes, brown leather wrists, each holds ONE broad iron cleaver. They are two people, not one merged body, no extra twins.\n1 Portrait: upper-body back-to-back paired portrait, woman nearer left and man farther right; distinct expressions, strict reference continuity.\n2 Ritmo dos Gêmeos passive: top-down cropped two-person rhythm as their two cleavers trace alternating short red beats toward a SINGLE exposed armor silhouette in the lower corner. Show both faces in profile, NO magical runes or text.\n3 Cutelo da Esquerda: low side action, WOMAN lunges with her one cleaver toward a SINGLE enemy shield, small red fracture opens the enemy guard; man poised behind her for follow-up. Exactly two twins and one enemy.\n4 Cutelo da Direita: reverse over woman's shoulder, MAN strikes with his one cleaver along that exposed guard on same single enemy. Controlled crimson trailing line symbolizes bleeding, no gore. Woman is stationary observer foreground; anatomy separate.\n5 Encontro das Lâminas: high wide frontal shot both twins clearly separated at left and right edges swing their single cleavers inward; two broad slash arcs cross at center and sweep through exactly THREE distant standing enemies. No duplicate physical blades; effects distinct from the two weapons.\n6 Dança Cruzada: tilted medium-wide shot ONLY the two twins dodge past each other back-to-back, two incoming projectiles miss their crossed paths, trailing burgundy sashes communicate movement. Personal joint-character evasion, no shield dome, no allies being protected.",
+      "revision": "20261022-lot7"
+    },
+    {
+      "id": "o-carrasco-sem-rosto",
+      "source": "art/source/o-carrasco-sem-rosto-sheet.webp",
+      "assets": [
+        "art/characters/o-carrasco-sem-rosto/portrait.webp",
+        "art/characters/o-carrasco-sem-rosto/passive.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-impulso.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-tecnica.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-voto.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-despertar.webp"
+      ],
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: one production character art sheet for Post Mortem Arena (PMA). Input image is identity reference only: keep age, face, hair, physique, costume and recognizable accessories, redesign all poses and scenes. Canvas 1536x1024, EXACT 3 columns x 2 rows, six equal square panels seamlessly edge to edge, no gaps, lines, decorative frames, labels, lettering or watermarks. Read left to right top then bottom: portrait, passive, first attack, second technique, ultimate, personal defense. Entirely hand-drawn 2D dark TV anime, decisive ink outlines, graphic cel shadow shapes, crisp expressive faces, restrained gradients, no photorealism, no painterly realism, no 3D. Six genuinely different camera angles and staged action beats. Each cell remains readable at 75px: bold subject silhouette and one dominant action shape, center-safe square compositions. Inferno's Sangria realm is an oppressive ruined gothic world, soot, iron, burgundy and restrained red energy. No modern city, no unrelated elemental magic. Every visible human anatomically coherent: two arms, two legs, normal five-finger hands, hands preferably natural closed grips or outside crop. No severed body parts, gore or gratuitous torture. Skill targeting must be exact. Identity: huge broad-shouldered humanoid man, dirty ivory sleeves, rough black riveted leather shoulder straps, long tattered pointed black hood covering ALL face with completely featureless black void beneath. Compact weathered wooden execution frame strapped upright to his back, single red rope hanging to the side as reference. Never turn him into a disembodied hood. No eyes, mouth, skull mask or visible facial features in ANY panel.\n1 Portrait: imposing chest-up three-quarter view from below, broad shoulders, weathered backframe visible behind head, ash-gray fortress.\n2 Sem Apelação passive: waist-up side view he stands immovable beside ONE stunned adult enemy silhouette, enemy stagger shown by dropped weapon and dizzy stance; brief red edge illuminates executioner's grip and hood.\n3 Sentença sem Nome: reverse close angle from behind his shoulder, one gloved hand stamps a small scarlet abstract square sentence onto ONE enemy breastplate, enemy's attempted support glow rebounds as a restrained red recoil onto SAME enemy. No readable writing.\n4 Queda da Guilhotina: low oblique action, caster at left snaps a single rope downward with closed fist, a spectral flat guillotine blade descends vertically toward ONE marked standing enemy at right. Blade has one straight coherent edge, no graphic injury. Strong descending red motion.\n5 Última Respiração: high side close medium shot executioner advances with ONE broad execution axe in both hands toward ONE wounded kneeling armored adult foe, single final diagonal red trail stops at armor; no decapitation or blood spray. No extra weapons.\n6 Capuz do Esquecimento: overhead three-quarter caster ALONE pulls his hood and cloak around his own body, incoming arrow dissolves into black folds before reaching him. Personal invulnerability only; NO sheltered allies.",
+      "revision": "20261022-lot7"
+    },
+    {
+      "id": "a-mae-rubra",
+      "source": "art/source/a-mae-rubra-sheet.webp",
+      "assets": [
+        "art/characters/a-mae-rubra/portrait.webp",
+        "art/characters/a-mae-rubra/passive.webp",
+        "art/characters/a-mae-rubra/skill-impulso.webp",
+        "art/characters/a-mae-rubra/skill-tecnica.webp",
+        "art/characters/a-mae-rubra/skill-voto.webp",
+        "art/characters/a-mae-rubra/skill-despertar.webp"
+      ],
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: one production character art sheet for Post Mortem Arena (PMA). Input image is identity reference only: keep age, face, hair, physique, costume and recognizable accessories, redesign all poses and scenes. Canvas 1536x1024, EXACT 3 columns x 2 rows, six equal square panels seamlessly edge to edge, no gaps, lines, decorative frames, labels, lettering or watermarks. Read left to right top then bottom: portrait, passive, first attack, second technique, ultimate, personal defense. Entirely hand-drawn 2D dark TV anime, decisive ink outlines, graphic cel shadow shapes, crisp expressive faces, restrained gradients, no photorealism, no painterly realism, no 3D. Six genuinely different camera angles and staged action beats. Each cell remains readable at 75px: bold subject silhouette and one dominant action shape, center-safe square compositions. Inferno's Sangria realm is an oppressive ruined gothic world, soot, iron, burgundy and restrained red energy. No modern city, no unrelated elemental magic. Every visible human anatomically coherent: two arms, two legs, normal five-finger hands, hands preferably natural closed grips or outside crop. No severed body parts, gore or gratuitous torture. Skill targeting must be exact. Identity: kindly formidable elderly brown-skinned woman, lined round face and warm dark eyes, salt-and-pepper hair in two thick braids with burgundy ties, small simple hoop earrings, black high-button blouse and worn deep crimson fringed woven shawl. Mature stout human build. Her power uses continuous red threads of vitality, never a literal mother-shaped object, no babies or children in combat.\n1 Portrait: close three-quarter face viewed slightly from above, knowing half smile, shawl and two gray braids clearly visible; ruined hearth behind.\n2 Sangue que Acolhe passive: medium side view she gathers the loose glowing red hem of her shawl toward her OWN chest, a quiet red healing pulse restores her after helping; gentle expression, no recipient in frame.\n3 Cordão Rubro: dramatic low full-body oblique, she casts ONE continuous thin red cord at ONE armored enemy's wrist; red vitality travels visibly along it back into her torso. Her casting arm clearly connected, other hand gathers shawl at waist.\n4 Partilha da Mãe: intimate over-shoulder two-person view Mãe Rubra at left offers a thread of vitality from her own chest into ONE seated adult ally at right; partial translucent red woven guard forms around that ally's shoulder, a faint dim spot on her chest conveys personal sacrifice. She stays upright, visibly tired but gentle. Heal plus destructible guard, not invulnerability.\n5 Berço de Sangue: high-angle wide shot she plants her closed feet at foreground center and swings shawl hem across ground; exactly THREE distant enemy adults are caught by separate crimson thread arcs around boots, slow bleeding visualized with red flecks, no gore. NOT a cradle or a scene protecting allies.\n6 Casulo Rubro: medium frontal eye-level view she ALONE wraps her crimson shawl into a close spiral cocoon around her own torso and legs, her face visible at top, ONE incoming projectile deflects off the threads. No ally inside, no group shield. Keep two braids and human anatomy.",
+      "revision": "20261022-lot7"
     }
   ],
   "inventory": [
@@ -741,25 +797,25 @@
       "id": "o-colecionador-de-cabecas",
       "name": "O Colecionador de Cabeças",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "gemeos-do-cutelo",
       "name": "Gêmeos do Cutelo",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-carrasco-sem-rosto",
       "name": "O Carrasco sem Rosto",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-mae-rubra",
       "name": "A Mãe Rubra",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-soberano-quebrado",
