@@ -1,5 +1,5 @@
 {
-  "status": "First varied-scenery sheet generated and integrated on branch; remaining character sheets are still pending.",
+  "status": "Two varied-scenery character sheets generated and integrated on branch; remaining character sheets are still pending.",
   "style": "2D television anime, flat colors, one hard-edged shadow; no realism or textures.",
   "style_reference": "art/review/anime-cel-style-reference.webp",
   "requirements": [
@@ -56,7 +56,7 @@
       "realm": "Paraíso",
       "elo": "Esperança",
       "identity": "Paraíso / Esperança. Tall wiry elderly man, olive skin, long silver moustache, narrow face, one wooden lower-leg prosthesis, short salt-pepper hair; teal patched overalls and ochre rolled sleeves. Lifting and restoring momentum through a folding iron climbing pick with sunrise-colored inlays.",
-      "status": "pending_varied_scenery_generation",
+      "status": "generated_and_integrated_on_branch",
       "scenes": [
         {
           "slot": "portrait",

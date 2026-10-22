@@ -7,6 +7,12 @@
 - A identidade foi mantida: mulher robusta de 58 anos, pele marrom-escura, cabelo branco em undercut cacheado, casaco âmbar, calça índigo, manopla de cobre e pequena brasa azul-branca na lanterna.
 - A prancha de origem está em `art/source/a-brasa-eterna-sheet.webp`; os seis recortes seguem os nomes de arquivo usados pelo jogo.
 
+
+- **O que Levanta**: seis cenas independentes geradas e integradas em `art/characters/o-que-levanta/`.
+- Cenários: beco de casas vermelhas sob chuva, campo de trigo ao amanhecer, ponte quebrada sobre rio turquesa, clareira nevada, telhados da vila ao nascer do sol e oficina de madeira à noite com chuva.
+- A identidade foi mantida: homem idoso esguio, bigode prateado, cabelo curto grisalho, macacão verde-azulado remendado, mangas ocre, perna protética de madeira e picareta de ferro com detalhes de nascer do sol.
+- A cena de despertar foi revisada para deixar o salto defensivo e a relação com a lâmina inimiga mais claros. A prancha de origem está em `art/source/o-que-levanta-sheet.webp`.
+
 ## Próximos passos
 
 Inspecionar os recortes no jogo em escala de seleção e combate. Seguir o plano individual de cenas em `art-scene-plan.json` para os próximos personagens e revisar anatomia, leitura em miniatura, continuidade de acessórios e traço de anime 2D antes de ampliar o lote.
