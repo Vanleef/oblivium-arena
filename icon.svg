@@ -1,44 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="gate" x1="116" y1="82" x2="396" y2="390" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#4b4c57"/>
-      <stop offset=".48" stop-color="#282b35"/>
-      <stop offset="1" stop-color="#11151e"/>
+    <linearGradient id="shadow" x1="147" y1="88" x2="367" y2="413" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#393943"/>
+      <stop offset=".52" stop-color="#1a1d27"/>
+      <stop offset="1" stop-color="#0c1119"/>
     </linearGradient>
-    <linearGradient id="edge" x1="144" y1="120" x2="375" y2="358" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#e7d49b"/>
-      <stop offset=".48" stop-color="#9c8557"/>
-      <stop offset="1" stop-color="#60523c"/>
+    <linearGradient id="rift" x1="202" y1="122" x2="316" y2="365" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff0c1"/>
+      <stop offset=".48" stop-color="#dec179"/>
+      <stop offset="1" stop-color="#a77d48"/>
     </linearGradient>
-    <linearGradient id="rift" x1="232" y1="160" x2="284" y2="355" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff3ce"/>
-      <stop offset=".45" stop-color="#e5c879"/>
-      <stop offset="1" stop-color="#b07d43"/>
-    </linearGradient>
-    <filter id="riftGlow" x="196" y="132" width="124" height="254" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feGaussianBlur stdDeviation="12"/>
+    <filter id="softLight" x="135" y="90" width="250" height="330" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="9"/>
     </filter>
   </defs>
 
-  <!-- A single monumental threshold, with a broken crown and a deep doorway. -->
-  <path d="M105 390 117 164 232 94 253 66 276 91 374 123 406 176 400 390 326 390 326 197 256 153 187 198 179 390Z"
-        fill="url(#gate)" stroke="#07090e" stroke-width="9" stroke-linejoin="round"/>
+  <!-- An uneven eclipse shadow, without the rim or marks of a dial. -->
+  <path d="M251 68c-58 7-107 43-134 98-32 62-31 132 1 189 30 54 79 82 139 113 59-31 109-59 139-113 32-57 33-127 1-189-28-55-77-91-134-98-4 0-8 0-12 0Z"
+        fill="url(#shadow)" stroke="#07090e" stroke-width="9" stroke-linejoin="round"/>
 
-  <!-- Broad bevels make the gate read as carved stone and darkened metal. -->
-  <path d="m130 361 10-188 96-58 17-22m-76 271 8-161 71-48 73 48v161m-11-207 52 20 23 39 1 145"
-        stroke="url(#edge)" stroke-width="5" stroke-linecap="square" stroke-linejoin="bevel" opacity=".9"/>
-  <path d="m153 351 8-169 80-49m119 52 15 25v142"
-        stroke="#080b12" stroke-width="4" stroke-linecap="square" opacity=".72"/>
-
-  <!-- The veil is a torn opening, not a dial or a collection of loose shards. -->
-  <path d="m255 166 24 31-19 32 24 28-30 39 16 23-29 38 7-43-16-21 25-36-20-27 22-33-17-23Z"
-        fill="#f2d78e" opacity=".62" filter="url(#riftGlow)"/>
-  <path d="m256 164 22 33-19 31 24 29-30 38 16 24-28 38 6-43-16-21 24-36-20-28 22-32-16-23Z"
-        fill="url(#rift)" stroke="#fff2c7" stroke-width="2" stroke-linejoin="round"/>
-  <path d="m273 257 28 12-24 5m-40 25-27 10 24 3"
-        stroke="#d7b86e" stroke-width="5" stroke-linecap="square" stroke-linejoin="bevel"/>
-
-  <!-- Restrained inscription ties the mark to Post Mortem Arena. -->
-  <text x="256" y="461" text-anchor="middle" fill="#c4ac74" font-family="Georgia, 'Times New Roman', serif"
-        font-size="28" letter-spacing="11">P.M.A.</text>
+  <!-- A single flowing opening widens through the center of the torn shadow. -->
+  <path d="M309 112c-20 47-42 82-73 112-27 26-54 46-54 62 0 20 35 30 63 48 28 18 48 43 62 77-18-31-39-52-65-68-25-15-58-27-59-48-1-17 29-35 55-62 30-31 54-66 71-121Z"
+        fill="#a77d48" opacity=".3" filter="url(#softLight)"/>
+  <path d="M309 112c-20 47-42 82-73 112-27 26-54 46-54 62 0 20 35 30 63 48 28 18 48 43 62 77-18-31-39-52-65-68-25-15-58-27-59-48-1-17 29-35 55-62 30-31 54-66 71-121Z"
+        fill="url(#rift)"/>
 </svg>
