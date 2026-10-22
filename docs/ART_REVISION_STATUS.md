@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e seis conjuntos passaram por esta revisão de estilo e 54 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e oito conjuntos passaram por esta revisão de estilo e 52 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -80,3 +80,11 @@ Treze sprites: dois conjuntos de seis e a Confissão do Falso Santo. Boca de Vid
 O Falso Profeta preserva pele, rosto, argola nasal, auréola segmentada de cobre e fitas azuis. A bênção gera carga e recuperação pessoal; o milagre consome cargas no golpe físico. A confissão tem arte própria de autocura e purificação, distinta da bênção, com retorno à imagem da forma base após uso. Defesas pessoais mostram apenas o usuário. Kits, custos, recargas, alvos e limpeza de molduras preservados. Prompts e correção de acessório: `ART_LOT_20261022_11.json`.
 
 Estado integrado: 46 conjuntos revisados, 54 antigos pendentes, 600 imagens dos slots básicos e duas artes alternativas exclusivas. Em Mentira, cinco dos seis conjuntos estão revisados; O Corretor de Memórias permanece pendente.
+
+## Décimo segundo lote: Mentira concluído e avanço em Chama
+
+O Corretor de Memórias recebe seis imagens novas, preservando rosto idoso, coque e barba brancos, mão direita mecânica dourada, mão esquerda natural, manto verde-petróleo e arquivo de madeira. As cenas distinguem vantagem no primeiro ataque, marca/roubo de recurso, remoção de Defesa e bônus, liquidação contra alvo marcado e defesa pessoal por memória substituta. Mentira passa a ter seis de seis conjuntos revisados.
+
+O Incendiário recebe seis imagens novas de Chama: sardas, cabelo cobre com lateral raspada, casaco claro sujo de fuligem e projetor único preservados. Sua identidade de fogo negro com bordas alaranjadas diferencia leitura de Queimadura existente, pavio em um inimigo, fagulhas físicas contra três inimigos, consumo da Queimadura na detonação e invulnerabilidade pessoal por fumaça. Os ambientes são vulcânicos e industriais, distintos dos canais e arquivos de Mentira. Com A Brasa Eterna, Chama tem dois de seis conjuntos revisados.
+
+Prompts e referências: `ART_LOT_20261022_12.json`. Estado integrado: 48 conjuntos revisados, 52 antigos pendentes, 600 imagens básicas e duas artes alternativas exclusivas. Nenhuma regra ou código-fonte de jogo foi alterado; molduras, estilos, alvos, custos, duração e recarga permanecem preservados.

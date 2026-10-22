@@ -4,8 +4,8 @@
   "counts": {
     "roster": 100,
     "available": 100,
-    "revised": 46,
-    "existingPending": 54,
+    "revised": 48,
+    "existingPending": 52,
     "missing": 0
   },
   "revised": [
@@ -843,6 +843,48 @@
         "commit": "8debf7f59140ff42acf1399991fa8d0ac1f110b5",
         "path": "art/characters/o-falso-profeta/portrait.webp"
       }
+    },
+    {
+      "id": "o-corretor-de-memorias",
+      "name": "O Corretor de Memórias",
+      "realm": "Inferno",
+      "elo": "Mentira",
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: six-scene production sheet for Post Mortem Arena. Image1 is exact IDENTITY reference: O Corretor de Memórias, elderly warm brown-skinned man, white hair in small high TOPKNOT, thick white eyebrows, kind narrow dark eyes, white mustache and short rounded white beard, deceptively friendly half-smile. Preserve layered deep TEAL robe with ivory inner collar and blank rectangular ivory memory slips attached along mantle edges. His RIGHT hand is a GOLD ARTICULATED PROSTHETIC with exactly FIVE jointed digits (four fingers plus thumb); his LEFT hand is natural brown skin. No second mechanical hand, extra fingers, floating digits or gold hand fused to cards. ONE small compartmented wooden archival card box with brass corners belongs to him. All cards/slips are blank, no letters, symbols or faces printed on them. He is a cunning memory broker of Inferno, Elo Mentira, not a holy healer, generic wizard or literal filing-cabinet monster.\nStyle STRICT polished hand-drawn 2D TV ANIME: graphic white hair clumps and beard, expressive simplified face, bold clean contours and hard flat cel shadows, no skin pores, realism, 3D, brush texture or grain. Antique jade-shadowed trading district, blank paper, muted gold and teal effects, no generic poison, flame, thread powers or surreal floating eyeballs.\nCanvas 1536x1024 exact THREE columns by TWO rows, SIX equal square scenes edge-to-edge, no grid lines/gutters/borders/text/captions/watermarks. Each scene independent center-safe composition and readable at 75px. Top row portrait/passive/skill1, bottom skill2/skill3/defense. Different setting/pose/camera scale in EVERY cell. Natural limbs, gold hand in simple closed grip or only necessary fingertips visible, no gore.\n1 TOP LEFT PORTRAIT: medium waist-up three-quarter at a CLOSED ANTIQUE AUCTION BALCONY overlooking jade canals at pink dusk. Friendly elderly broker leans one natural forearm on wooden card box, RIGHT gold prosthetic rests on closed lid with fingers clearly grouped, white topknot and teal mantle visible. No card next to face pose from reference, no other people.\n2 TOP MIDDLE Arquivo Roubado PASSIVE (first offensive hit gets bonus): intimate SIDE close in a cramped lacquered counting-house vault. Broker opens ONE compartment of his wooden box with natural LEFT hand, RIGHT gold hand selects ONE blank ivory memory slip that catches a small sharp gold edge flash. The other compartments remain shut and dark, visualizing a single prepared opening advantage. Face/topknot and prosthetic visible, NO victim, no drain or healing, no extra hands.\n3 TOP RIGHT Lembrança Hipotecada: dynamic low diagonal at a tiled raised ferry landing. Broker LEFT flicks ONE stiff blank memory card from RIGHT gold prosthetic; card visibly strikes ONE enemy's armored upper forearm as physical impact. A small rectangular memory mark glows on enemy shoulder. ONE small jade resource mote travels FROM enemy's belt TOWARD the open wooden box at broker's waist, clearly stealing one resource. Exactly TWO people, no card entering an eye/mouth/skin, no gore. Card flight path separate from human limbs.\n4 BOTTOM LEFT Esquecer a Defesa: overhead oblique in an abandoned tea-house gallery. Broker RIGHT presses one blank memory slip against ONE enemy's raised translucent guard with RIGHT golden palm, causing guard to shatter before a compact physical impact on armor. Small abstract support sparks around enemy's talisman at waist vanish, while their ordinary defensive stance remains physically possible. Natural left hand holds wooden box. Two people only; no attack sealing all movement, no group barrier, no copied gold arms.\n5 BOTTOM MIDDLE Liquidação do Passado: medium reverse-three-quarter down a silent STONE FUNERARY RECORD HALL, no modern filing cabinets. Broker near LEFT closes wooden box decisively with RIGHT gold hand. In ONE previously marked enemy at right, the small rectangular memory mark folds into a compact gold/teal spiritual compression on breastplate, briefly overwhelming them. A few blank light rectangles dissolve around impact, not physical extra card props pasted to eyes. One caster, one enemy, no bodily harm/gore, no giant room-filling beam.\n6 BOTTOM RIGHT Memória Substituta PERSONAL INVULNERABILITY: intimate low three-quarter inside a dim old bookbinder's loft, blank hanging paper sheets and a narrow teal window. Broker ALONE calmly sidesteps; ONE incoming dart passes through a FLAT PAPER AFTERIMAGE just outside his REAL shoulder and lodges in empty wooden wall. Actual man has one face, topknot, coat, RIGHT golden hand holding card box close; afterimage has only simple empty paper contour, not a second human face/body or severed limb. No allies protected, no generic dome, no enemies in this scene.\nPreserve warm elderly facial identity, topknot, white beard, blank tabs, right gold hand, left natural hand and one card box consistently. Six images must clearly differ in action, camera and setting while sharing this character's memory-dealing visual language.",
+      "generationFile": "exec-6d1a690b-88b1-4361-9cda-ec68651499fa.png",
+      "source": "art/source/o-corretor-de-memorias-sheet.webp",
+      "assets": [
+        "art/characters/o-corretor-de-memorias/portrait.webp",
+        "art/characters/o-corretor-de-memorias/passive.webp",
+        "art/characters/o-corretor-de-memorias/skill-impulso.webp",
+        "art/characters/o-corretor-de-memorias/skill-tecnica.webp",
+        "art/characters/o-corretor-de-memorias/skill-voto.webp",
+        "art/characters/o-corretor-de-memorias/skill-despertar.webp"
+      ],
+      "identityReference": {
+        "commit": "3aa953bb50b781e0f0a96e4d3bdaf6e803fc0e35",
+        "path": "art/characters/o-corretor-de-memorias/portrait.webp"
+      }
+    },
+    {
+      "id": "o-incendiario",
+      "name": "O Incendiário",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "prompt": "Use case: identity-preserve / illustration-story. Asset: six-scene production character sheet for Post Mortem Arena, O Incendiário, Inferno / Elo Chama. Image1 exact IDENTITY reference. Preserve adult man with warm tan skin, simplified FRECKLE dots over cheeks/nose, angular brow, amber-orange eyes, copper-red thick wavy hair swept to his LEFT with his RIGHT temple shaved, short dark jaw stubble, stern impatient expression. Soot-stained IVORY high-collar coat over dark charcoal combat clothes, dark armored gauntlets. ONE recognizable compact BRASS AND BLACK incendiary PROJECTOR held in RIGHT gloved hand, consisting visually of a short cylindrical reservoir and ONE perforated conical nozzle pointing forward. Same prop silhouette throughout, no extra barrels, no gun growing out of torso, no detached floating hand, no real construction diagram. Incendiary magic is BLACK flame core with clean ORANGE edges and angular sparks, not ordinary generic fire everywhere.\nStyle 100% hand-drawn 2D TV ANIME, expressive stylized eyes, clean bold ink, simple flat cel shadow shapes, graphic hair clumps and controlled sparse freckles. No realistic pores, photorealistic skin, volumetric 3D effects, painterly texture, grain or soft oil rendering. Dark volcanic-industrial Chama world: soot, basalt, old foundries and slag channels, NOT Mentira's jade canals, paper archives or theaters. No text, letters, watermark, ornamental frame, diagrams, gore or visible burn wounds.\nCanvas 1536x1024 EXACT 3 equal columns x 2 equal rows, SIX independent square scenes edge-to-edge, no gutters. Top portrait/passive/skill1, bottom skill2/skill3/defense. Each different pose, shot scale, camera and setting, center-safe and readable at 75px. Hands have five natural fingers in closed gloved grips, exactly two attached arms, coherent projector grip/nozzle.\n1 TOP LEFT PORTRAIT: waist-up low three-quarter on a cold abandoned COAL-QUARRY GANTRY over a black ravine, wind pulls soot-stained ivory coat to side. Man stands with projector carried safely LOW rather than pointing at viewer, shaved temple and copper curls clear. No fire attack, no enemy, distant red furnace glow only.\n2 TOP MIDDLE Pavio Aceso PASSIVE: close over ONE already burning enemy's armored shoulder in a dark FOUNDRY VENT chamber. Enemy foreground carries a small persistent black/orange flame on outside shoulder plate. Incendiário in background narrows amber eyes and reads that existing flame with predatory focus, projector lowered. Exactly TWO people, no new shot, no gore. Character's freckled face and curls identifiable.\n3 TOP RIGHT Pavio de Ódio: dynamic SIDE action on a narrow basalt SLAG-CHANNEL CROSSING. Caster left fires ONE thin curved black/orange magical FUSE from his SINGLE conical nozzle onto ONE foe's chest armor. The attached flame has one clear glowing ember traveling along a short hanging dark fuse-like energy trace, showing a threat that will punish inaction. No bombs, explosive diagrams, dismemberment or extra enemies. Both feet grounded on stone crossing.\n4 BOTTOM LEFT Fagulhas em Cadeia: wide elevated reverse-three-quarter from caster foreground lower-left in an abandoned open AIRSHIP MOORING YARD of black metal pylons. Exactly THREE separate armored enemies in shallow arc center/right. Three visible angular hot slag SPARKS from projector's short fan strike one guard/armor each, each sparks a small black-edge flame patch. Physical hot sparks plus continuing burn, not a huge indiscriminate wall of flame. No fourth target/crowd/allies.\n5 BOTTOM MIDDLE Detonação Negra: ground-level diagonal medium in a dry CALDERA SHRINE with cracked basalt altar slabs (no religious symbols). ONE already burning enemy at center-right, caster left makes a tight trigger grip with his right gloved hand on same projector. Existing small shoulder/chest flame contracts into a compact BLACK CORE then bursts outward with ORANGE angular edges against armor, expending the previous burn. One caster, one enemy only; not entire scene on fire, no random detonations, no injury/gore. Face and correct side-shaved copper hair visible.\n6 BOTTOM RIGHT Corpo de Fumaça PERSONAL INVULNERABILITY: intimate low side three-quarter in a deserted brick FURNACE ACCESS CORRIDOR with cold pipes. Caster ALONE turns sideways; his OWN coat hem/one shoulder becomes a clean dark smoke ribbon, an incoming spearhead sweeps harmlessly through the EMPTY smoke gap just outside his real shoulder. Keep real freckled face, shaved side, curls, one solid head and coherent two arms; projector still in right grip low. No clone, no smoke monster, no allies protected, no group dome. No spear lodged in flesh.\nMaintain reference identity, freckles, hair side, coat and same single projector in all appropriate scenes. Six actions must distinguish observation of an existing burn, single-target threatening fuse, physical three-target sparks, consuming one foe's burn, and self-only smoke evasion.",
+      "generationFile": "exec-d03e5ddb-d948-46f8-8721-fe6be59ad107.png",
+      "source": "art/source/o-incendiario-sheet.webp",
+      "assets": [
+        "art/characters/o-incendiario/portrait.webp",
+        "art/characters/o-incendiario/passive.webp",
+        "art/characters/o-incendiario/skill-impulso.webp",
+        "art/characters/o-incendiario/skill-tecnica.webp",
+        "art/characters/o-incendiario/skill-voto.webp",
+        "art/characters/o-incendiario/skill-despertar.webp"
+      ],
+      "identityReference": {
+        "commit": "3aa953bb50b781e0f0a96e4d3bdaf6e803fc0e35",
+        "path": "art/characters/o-incendiario/portrait.webp"
+      }
     }
   ],
   "inventory": [
@@ -1108,13 +1150,13 @@
       "id": "o-corretor-de-memorias",
       "name": "O Corretor de Memórias",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-incendiario",
       "name": "O Incendiário",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-brasa-eterna",
