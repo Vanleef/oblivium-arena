@@ -20,7 +20,7 @@ function partyMarkup(run,profile,teamHealth){
 function councilMarkup(nodes,available,run,ownedIds){
   if(!nodes.some(n=>n.type==="boss"&&available.has(n.id)))return "";
   const council=(run.bossIds||[]).map(id=>characterById[id]).filter(Boolean);
-  return `<section class="council-reveal journey-council" aria-label="Conselho final revelado"><div class="journey-section-label">CONSELHO REVELADO</div><div class="council-members">${council.map(c=>`<article class="color-${esc(c.color)} ${ownedIds.includes(c.id)?"council-owned":""}">${portraitMarkup(c,"council-portrait")}<div><b>${esc(c.name)}</b><small>${ownedIds.includes(c.id)?"JÁ RECRUTADA":"PODE SER RECRUTADA"}</small></div></article>`).join("")}</div><p>${council.some(c=>!ownedIds.includes(c.id))?"Uma dessas almas se une ao seu trio após a vitória.":"Conclua o Elo para avançar sua progressão."}</p></section>`;
+  return `<section class="council-reveal journey-council" aria-label="Conselho final revelado"><div class="journey-section-label">CONSELHO REVELADO</div><h4>O último confronto</h4><div class="council-members">${council.map(c=>`<article class="color-${esc(c.color)} ${ownedIds.includes(c.id)?"council-owned":""}">${portraitMarkup(c,"council-portrait")}<div><b>${esc(c.name)}</b><small>${ownedIds.includes(c.id)?"JÁ RECRUTADA":"PODE SER RECRUTADA"}</small></div></article>`).join("")}</div><p>${council.some(c=>!ownedIds.includes(c.id))?"Uma dessas almas se une ao seu trio após a vitória.":"Conclua o Elo para avançar sua progressão."}</p></section>`;
 }
 
 export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
@@ -45,10 +45,10 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
       </div>
       <aside class="journey-sidebar" aria-label="Escolhas da trilha"><div class="journey-choice-heading"><div class="journey-section-label">${completed?"TRAVESSIA CONCLUÍDA":choices.length===1?"PRÓXIMO ENCONTRO":"ESCOLHA SUA PASSAGEM"}</div><h4>${completed?"O Elo cedeu.":choices.length===1?"O caminho se abre.":"Cada escolha, um destino."}</h4></div>
         <div class="journey-choices">${choices.map((node,index)=>`<button data-route-preview="${esc(node.id)}" class="journey-choice type-${esc(node.type)} ${run.currentNodeId===node.id?"in-progress":""}" ${!locked?`data-node="${esc(node.id)}"`:"disabled"} aria-label="${run.currentNodeId===node.id?"Continuar":"Entrar em"} ${esc(node.label)}"><span class="choice-emblem">${trailIcon(node.type)}<i>${number(index+1)}</i></span><span class="choice-copy"><small>${esc(labels[node.type]||node.type)}</small><b>${esc(node.label)}</b><span>${esc(node.desc)}</span><em>${esc(rewards[node.type]||"Descubra o encontro")}</em></span><span class="choice-arrow" aria-hidden="true">↗</span></button>`).join("")}</div>
-        ${councilMarkup(nodes,available,run,ownedIds)}
         ${partyMarkup(run,profile,options.teamHealth)}
       </aside>
     </div>
+    ${councilMarkup(nodes,available,run,ownedIds)}
     <div class="journey-notice-slot">${fx?`<div class="trail-feedback journey-feedback" role="status" aria-live="polite"><span>${fx.kind==="travel"?"↝":fx.kind==="failure"?"⨯":"✦"}</span><div><b>${esc(fx.title)}</b><small>${esc(fx.summary)}</small></div></div>`:""}</div>
     <footer class="run-footer journey-footer"><details class="run-echoes"><summary>ECOS <b>${run.buffs.length}</b><span>⌄</span></summary><div class="echo-popover">${run.buffs.length?run.buffs.map(id=>{const buff=buffs.find(b=>b.id===id);return buff?`<article><span>${buff.icon}</span><div><b>${esc(buff.title)}</b><p>${esc(buff.text)}</p></div></article>`:"";}).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></footer>
   </section>`;

@@ -1368,7 +1368,7 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .journey-council .council-members article { display: grid; align-content: start; gap: 8px; }
 .journey-council .council-members b { font-size: 8px; line-height: 1.4; }
 .journey-council .council-members small { margin-top: 5px; font-size: 5px; }
-@media(min-width:681px) { .journey-shell:is(:has(.journey-choice:nth-child(3)),:has(.journey-council)) .journey-map { height: 560px; } }
+@media(min-width:681px) { .journey-shell:has(.journey-choice:nth-child(3)) .journey-map { height: 560px; } }
 @media(max-width:680px) { .journey-shell:has(.journey-choice:nth-child(2)) .journey-choice { padding: 14px; gap: 14px; }.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > b { font-size: 21px; }.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > span { font-size: 11px; }.journey-shell:has(.journey-choice:nth-child(2)) .choice-copy > em { font-size: 9px; }.journey-council .council-members b { font-size: 10px; }.journey-council .council-members small { font-size: 6px; } }
 
 /* A passage's icon, approach and choice card answer the same hover or keyboard focus. */
@@ -1376,3 +1376,22 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .journey-node.route-preview .waypoint-disc { border-color: #f1dfb2; box-shadow: 0 0 40px color-mix(in srgb,var(--node-tone) 35%,transparent),inset 0 0 0 4px #202d2b; }
 .journey-node.route-preview b { color: #f5e4bd; }
 .journey-thread.route-preview { stroke: #f0d5a0; stroke-width: 2.8; stroke-dasharray: none; filter: drop-shadow(0 0 5px #d5b87888); }
+
+/* A narrow viewport must not inherit the page's original desktop minimum. */
+body:has(.journey-shell) { min-width: 0; }
+/* The final trio has its own reveal, with portraits and names at a readable size. */
+.journey-shell:has(.journey-council) .journey-map { height: 500px; }
+.journey-council.council-reveal { margin: 0; padding: 23px 28px; border-top: 1px solid #c49d624d; background: linear-gradient(110deg,#60453115,#10191e); }
+.journey-council h4 { margin: 7px 0 19px; color: #e5d5b2; font: 25px Georgia,serif; }
+.journey-council .council-members { gap: 14px; margin-top: 0; }
+.journey-council .council-members article { display: flex; align-items: center; gap: 15px; padding: 13px; border: 1px solid #b8aa7f24; background: #1a252652; }
+.journey-council .council-portrait { width: 52px; height: 64px; }
+.journey-council .council-members b { color: #e6d8b8; font-size: 17px; line-height: 1.25; }
+.journey-council .council-members small { margin-top: 8px; font-size: 8px; }
+.journey-council > p { margin-top: 17px; font-size: 11px; }
+@media(max-width:680px) {
+ .journey-shell:has(.journey-council) .journey-map { height: 400px; }
+ .journey-council.council-reveal { padding: 20px 15px; }.journey-council h4 { font-size: 24px; }
+ .journey-council .council-members { gap: 8px; }.journey-council .council-members article { flex-direction: column; align-items: center; padding: 10px 5px; gap: 10px; text-align: center; }
+ .journey-council .council-portrait { width: 45px; height: 56px; }.journey-council .council-members b { font-size: 11px; line-height: 1.35; }.journey-council .council-members small { font-size: 7px; line-height: 1.5; letter-spacing: 0; }.journey-council > p { font-size: 11px; line-height: 1.5; }
+}
