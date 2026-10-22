@@ -1,64 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="body" x1="203" y1="80" x2="300" y2="415" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#95c8c1"/><stop offset=".5" stop-color="#8e9db5"/><stop offset="1" stop-color="#8d5c84"/>
+    <clipPath id="mould"><path d="M242 75Q256 49 270 75L458 410Q472 435 443 435H69Q40 435 54 410Z"/></clipPath>
+    <linearGradient id="base" x1="256" y1="70" x2="256" y2="435" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8ebfb8"/><stop offset=".55" stop-color="#9d8f9e"/><stop offset="1" stop-color="#925b85"/>
     </linearGradient>
-    <radialGradient id="fire" cx="0" cy="0" r="1" gradientTransform="translate(145 354) rotate(-49) scale(211 169)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ec9a6c"/><stop offset=".48" stop-color="#db705e"/><stop offset="1" stop-color="#d36164" stop-opacity="0"/>
+    <radialGradient id="fire" cx="0" cy="0" r="1" gradientTransform="translate(94 415) rotate(-30) scale(337 252)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#df8067"/><stop offset=".4" stop-color="#ca716c"/><stop offset="1" stop-color="#c47176" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="limbo" cx="0" cy="0" r="1" gradientTransform="translate(372 342) rotate(-138) scale(211 181)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9d86ca"/><stop offset=".47" stop-color="#8e74bb"/><stop offset="1" stop-color="#997ebc" stop-opacity="0"/>
+    <radialGradient id="limbo" cx="0" cy="0" r="1" gradientTransform="translate(430 414) rotate(-150) scale(340 250)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9279c0"/><stop offset=".4" stop-color="#8d74b0"/><stop offset="1" stop-color="#947db1" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="paradise" cx="0" cy="0" r="1" gradientTransform="translate(256 132) rotate(90) scale(214 151)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#b1ddd4"/><stop offset=".42" stop-color="#92c8ba"/><stop offset="1" stop-color="#93c4bc" stop-opacity="0"/>
+    <radialGradient id="paradise" cx="0" cy="0" r="1" gradientTransform="translate(256 116) rotate(90) scale(274 215)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a9d7cd"/><stop offset=".35" stop-color="#91c2b8"/><stop offset="1" stop-color="#91bdb4" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="gold" x1="220" y1="96" x2="274" y2="366" gradientUnits="userSpaceOnUse">
       <stop stop-color="#97713c"/><stop offset=".28" stop-color="#c4a263"/><stop offset=".52" stop-color="#aa8549"/><stop offset=".78" stop-color="#896335"/><stop offset="1" stop-color="#614526"/>
     </linearGradient>
-    <linearGradient id="current" x1="179" y1="229" x2="302" y2="365" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#e6b77d" stop-opacity=".65"/><stop offset=".55" stop-color="#e7b797" stop-opacity=".18"/><stop offset="1" stop-color="#b5c6db" stop-opacity="0"/>
+    <linearGradient id="flow" x1="146" y1="180" x2="367" y2="421" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b8ded0" stop-opacity=".45"/><stop offset=".55" stop-color="#b8b8c6" stop-opacity=".2"/><stop offset="1" stop-color="#b5a1cf" stop-opacity="0"/>
     </linearGradient>
-    <filter id="outline" x="45" y="30" width="415" height="444" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="edge"/>
-      <feFlood flood-color="#05080d"/><feComposite in2="edge" operator="in"/>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <!-- A shared silhouette removes seams where the realm symbols meet. -->
-    <mask id="fusion" x="0" y="0" width="512" height="512" maskUnits="userSpaceOnUse" mask-type="alpha">
-      <g stroke="white" stroke-linecap="round" stroke-linejoin="round">
-        <g transform="translate(88 7) scale(1.68)">
-          <path d="M97 150c-19-15-39-35-42-58-3-18 6-35 19-47-8 23 2 43 20 57M103 150c19-15 39-35 42-58 3-18-6-35-19-47 8 23-2 43-20 57" stroke-width="12"/>
-        </g>
-        <g transform="translate(37 179) scale(1.42)" fill="white" stroke="none">
-          <path d="M101 13c20 27 1 42 17 62 10-10 15-21 14-35 20 18 26 37 16 55 8-1 13-5 17-11-2 29-20 57-48 72-6 11-9 20-14 28-5-10-9-19-15-29-25-10-43-30-45-54 7-1 13-4 18-8-8-5-13-12-16-21 9 5 17 8 24 9-4-21 5-36 20-48l-2 30c14-13 13-30 14-50Z"/>
-        </g>
-        <g transform="translate(200 188) scale(1.32)" stroke-width="14">
-          <path d="M87 34 70 29C50 24 36 37 33 55l-4 20c-4 18 6 29 23 36l17 7M113 166l17 5c20 5 34-8 37-26l4-20c4-18-6-29-23-36l-17-7"/>
-          <path d="M47 143c18 20 28-17 44-12 11 4 17-10 23-17M153 57c-18-20-28 17-44 12-11-4-17 10-23 17"/>
-        </g>
-        <path d="M223 223c-5 27-4 54-19 73 13 18 31 42 61 53 14 6 26 3 40-6-16-13-24-33-24-57-1-28 12-48 27-61-20-1-37 14-51 32-15-8-26-20-34-34Z" fill="white" stroke="none"/>
-        <ellipse cx="264" cy="241" rx="18" ry="9" transform="rotate(-35 264 241)" fill="white" stroke="none"/>
-      </g>
-    </mask>
+    <filter id="soften" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="13"/></filter>
   </defs>
 
-  <!-- The crests share continuous pigments and smoothly joined currents. -->
-  <g filter="url(#outline)">
-    <g mask="url(#fusion)">
-      <path fill="url(#body)" d="M0 0h512v512H0z"/>
-      <path fill="url(#fire)" d="M0 0h512v512H0z"/>
-      <path fill="url(#limbo)" d="M0 0h512v512H0z"/>
-      <path fill="url(#paradise)" d="M0 0h512v512H0z"/>
-      <path d="M184 223c16 45-22 55-16 88 6 29 51 25 77 45-9-34-37-37-39-62-2-23 2-40-22-71Z" fill="url(#current)"/>
-      <path d="M211 100c-28 68 4 130 51 166 26 21 33 58 73 73" stroke="#dce3d1" stroke-opacity=".24" stroke-width="3" stroke-linecap="round"/>
-      <path d="M278 229c-48 12-56 59-25 88 29 28 73 15 91 51" stroke="#d7c2d1" stroke-opacity=".24" stroke-width="3" stroke-linecap="round"/>
-    </g>
+  <!-- One triangular mould holds the three realm pigments. -->
+  <g clip-path="url(#mould)">
+    <path fill="url(#base)" d="M0 0h512v512H0z"/>
+    <path fill="url(#fire)" d="M0 0h512v512H0z"/>
+    <path fill="url(#limbo)" d="M0 0h512v512H0z"/>
+    <path fill="url(#paradise)" d="M0 0h512v512H0z"/>
+    <path d="M195 118c-53 117 64 117 72 192 6 62-63 102-127 139 134-29 196-87 173-153-22-66-128-97-118-178Z" fill="url(#flow)" filter="url(#soften)"/>
+    <path d="M95 423c79-56 111-85 178-72 70 13 108 1 172-47" stroke="#d3adb0" stroke-opacity=".13" stroke-width="27" stroke-linecap="round" filter="url(#soften)"/>
   </g>
-  <path d="M256 61c-3 18-11 28-15 42 3 14 9 27 15 37 6-10 12-23 15-37-4-14-12-24-15-42Z" fill="url(#gold)"/>
+  <path d="M242 75Q256 49 270 75L458 410Q472 435 443 435H69Q40 435 54 410Z" stroke="#05080d" stroke-width="7" stroke-linejoin="round"/>
 
   <g fill="url(#gold)" stroke="#080b12" stroke-width="8" stroke-linejoin="round" paint-order="stroke" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="700">
-    <text x="256" y="160">P</text>
-    <text x="180" y="320">M</text>
-    <text x="332" y="320">A</text>
+    <text x="256" y="186">P</text>
+    <text x="152" y="356">M</text>
+    <text x="360" y="356">A</text>
   </g>
 </svg>
