@@ -14,14 +14,14 @@ export const worldInfluences=[
  event('clamor','O clamor atravessa','Um grito coletivo rompe a fronteira entre os mundos.',[],{damage:2},'Todos os personagens vivos recebem +2 de dano direto'),
  event('abrigo','Último abrigo','Estranhos abrem suas portas durante uma noite de medo.',[],{maxHp:8},'Todos os personagens vivos recebem +8 de Vida máxima'),
  {...event('promessa','Promessa de retorno','Uma promessa mantém acesa a vontade de sobreviver.',[],{heal:3},'Personagens com técnicas de cura recebem +3 de cura direta'),type:'healer'},
- {...event('barricadas','Barricadas na madrugada','Os vivos erguem barreiras para proteger quem ainda resiste.',[],{shield:12},'Personagens com técnicas de Defesa recebem 12 de Defesa'),type:'guardian'},
+ {...event('barricadas','Barricadas na madrugada','Os vivos erguem barreiras para proteger quem ainda resiste.',[],{shield:12},'Personagens com barreiras ou redução de dano recebem 12 de Defesa'),type:'guardian'},
  {...event('contagio','O contágio invisível','Uma doença silenciosa atravessa as fronteiras dos vivos.',[],{maxHp:10},'Personagens com técnicas de aflição recebem +10 de Vida máxima'),type:'afflicter'}
 ];
 const units=s=>[...s.allies,...s.enemies];
 const techniques=u=>u.abilities.flatMap(a=>[a,...(a.forms||[])]);
 const matchesType=(e,u)=>!e.type||techniques(u).some(a=>e.type==='healer'?a.heal||a.perChargeHeal:e.type==='guardian'?a.shield||a.reduce:a.dot||a.reactive?.damage);
 export const influenceTargets=(e,list)=>list.filter(u=>u.hp>0&&matchesType(e,u)&&(!e.eloIds.length||e.eloIds.includes(u.eloId)));
-export const influenceScope=e=>e.eloIds.length?e.eloIds.map(id=>elos.find(e=>e.id===id)?.name||id).join(' · '):e.type==='healer'?'Técnicas de cura':e.type==='guardian'?'Técnicas de Defesa':e.type==='afflicter'?'Técnicas de aflição':'Todos os Elos';
+export const influenceScope=e=>e.eloIds.length?e.eloIds.map(id=>elos.find(e=>e.id===id)?.name||id).join(' · '):e.type==='healer'?'Técnicas de cura':e.type==='guardian'?'Barreiras e redução':e.type==='afflicter'?'Técnicas de aflição':'Todos os Elos';
 export function influenceOffers(s,seed=1){
  const available=worldInfluences.filter(e=>influenceTargets(e,units(s)).length&&!s.worldEvents?.some(p=>p.id===e.id));
  const relevant=worldInfluences.filter(e=>influenceTargets(e,units(s)).length);

@@ -406,7 +406,7 @@ async function sendOnline(payload){
   const data=await arenaRequest({...payload,version:online.match?.version});
   const changed=data.match?.id!==online.match?.id||data.match?.version!==online.match?.version;
   Object.assign(online,data,{connected:true,message:data.match?data.match.settled?"Resultado registrado na classificação.":"Partida conectada.":online.queuing?"Buscando uma alma de classificação próxima…":"Arena conectada."});
-  if(data.match){online.queuing=false;if(changed){state.battle=data.match.battle;state.battleNode={label:"Arena ranqueada"};state.selectedSkill=null;state.focusSkill=null;state.confirmTurn=false;state.tab="battle";}}
+  if(data.match){online.queuing=false;if(changed){state.battle=data.match.battle;state.battle.deadline=data.match.deadline;state.battleNode={label:"Arena ranqueada"};state.selectedSkill=null;state.focusSkill=null;state.confirmTurn=false;state.tab="battle";}}
   else if(state.battle?.online)state.battle=null;
  }catch(error){online.message=error.message;if(error.status===503){online.connected=false;online.queuing=false;}else if(error.status===409){onlineTimer=setTimeout(()=>sendOnline({op:"profile"}),300);}}
  finally{online.busy=false;render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team}:{op:"profile"}),2000);}}
@@ -480,7 +480,7 @@ function routeView() {
     ${completedAll?`<section class="finale-card"><div class="finale-sigil">♜</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
 
-function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,u.hp])):null}); }
+function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,persistentCombatHp(u)])):null}); }
 
 function pendingPanel() {
   const pending = state.pending;
@@ -559,7 +559,7 @@ function codexView() {
     }).join("")}</div>`;
 }
 
-function battleView() { return state.battle?.phase==="influence" ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo()); }
+function battleView() { return state.battle?.phase==="influence"&&!state.battleFx ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo()); }
 
 function render() {
   const tab = state.tab;

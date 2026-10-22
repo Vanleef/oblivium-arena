@@ -34,7 +34,7 @@ export class ArenaService{
    if(op==='ack'&&match?.settled){p.matchId=null;await tx.set(profileKey(id),p);match=null;}
    const side=match?.players.indexOf(id);
    if(match&&side<0)fail('Partida indisponível.',403);
-   if(match&&!match.settled&&match.deadline<=now){const current=match.battle.phase==='influence'?match.battle.influenceDraft.side:match.battle.turnSide;match.battle.phase=current==='player'?'defeat':'victory';match.reason='Tempo esgotado';match.version++;}
+   if(match&&!match.settled&&match.deadline<=now){const current=match.battle.phase==='influence'?match.battle.influenceDraft.side:match.battle.turnSide;match.battle.phase=terminal({phase:match.battle.influenceResume})?match.battle.influenceResume:current==='player'?'defeat':'victory';match.reason='Tempo esgotado';match.version++;}
    if(op==='queue'&&!match){
     const ids=input.team;if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!characterById[id]))fail('Escolha três personagens diferentes.');
     const oldQueue=await tx.get('queue')||[],previous=oldQueue.find(q=>q.id===id);let queue=oldQueue.filter(q=>now-q.touched<20000&&q.id!==id);
