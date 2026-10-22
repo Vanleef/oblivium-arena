@@ -3,10 +3,10 @@
   "status": "in_progress",
   "counts": {
     "roster": 100,
-    "available": 92,
-    "revised": 23,
+    "available": 100,
+    "revised": 31,
     "existingPending": 69,
-    "missing": 8
+    "missing": 0
   },
   "revised": [
     {
@@ -454,6 +454,118 @@
       ],
       "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Limbo, Elo Correntes Quebradas: impossible disconnected pale basalt ruins, inverted horizons, violet haze and hanging fragments of bridges. Character is an original humanoid spirit, not an actual disembodied ear or speaker. O Eco sem Dono: lean androgynous adult38, slate-blue skin in anime flat tones, thin long nose, small closed mouth, pupil-less pale violet eyes, chin-length blunt WHITE hair with long straight fringe, ONE white horizontal paint stripe across BOTH cheeks. Charcoal-violet high-collar poncho over muted plum wraps, black tight gloves, ONE small hollow BRONZE crescent resonator pendant at sternum. Power is fragmented MAGENTA echo rectangles and offset outline ripples, NOT singer cyan curves or musical notes. Keep mouth closed; magic comes from listening/resonator. No duplicated pendant.\n1 Portrait extreme close front three-quarter face looking sideways, one gloved fingertip touching resonator just below chin, slate skin and cheek stripe clear; inverted ruined bell arcade hanging over violet void.\n2 passive retaliation: macro bronze crescent pendant at chest takes incoming pale spear-impact spark at left while a broken magenta echo angle RETURNS toward same attack direction on left, frayed violet poncho and lower face crop identify spirit; shattered mirror wall in grey-purple rain. No body wound.\n3 Eco Residual spiritual damage+charge: enemy torso dominates low foreground at right, one rectangular magenta echo hits breastplate, spirit crouches behind left with closed gloved fist against pendant, single small magenta echo shard stays at shoulder as charge; broken stepping stones over upside-down lake in pale pink Limbo dawn.\n4 Devolver a Voz protects/counters ONE ally: over ally shoulder view one adult ally at center, spirit visible behind left placing gloved hand on ally shoulder, angled magenta echo plate intercepts ONE hostile thrust and bends a return angle to visible enemy wrist at right; tilted basalt arch against lavender fog. OnlyONE ally shielded, spirit not making a broad group dome.\n5 Coro sem Origem all-enemies/spendcharge +caster fatigue: distant top-down shot spirit at foreground edge RELEASES exactlyTHREE broken rectangular echo waves toward exactlyTHREE distant enemy silhouettes on separated pale basalt fragments. Slight exhausted bent posture but no wound; pendant readable by bronze glint, magenta high contrast against slate-violet void, no additional figures.\n6 Eco Intangível SELF: narrow side profile full figure splits into two OFFSET contour outlines around same single body, hostile spear passes through empty echo AFTERIMAGE BEHIND the spirit, slate face/pale hair and pendant remain solid; solitary inverted staircase in deep purple night. No duplicate bodies, detached limbs, extra hands or other protected souls.",
       "revision": "20261022-lot5"
+    },
+    {
+      "id": "a-porta-que-flutua",
+      "source": "art/source/a-porta-que-flutua-sheet.webp",
+      "assets": [
+        "art/characters/a-porta-que-flutua/portrait.webp",
+        "art/characters/a-porta-que-flutua/passive.webp",
+        "art/characters/a-porta-que-flutua/skill-impulso.webp",
+        "art/characters/a-porta-que-flutua/skill-tecnica.webp",
+        "art/characters/a-porta-que-flutua/skill-voto.webp",
+        "art/characters/a-porta-que-flutua/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. A Porta que Flutua: tall slender woman52, deep umber skin, very long oval face, broad flat nose, grey almond eyes, black hair swept into one sculpted high curved bun with a silver horizontal hairpin. Ivory ankle-length coat over smoky olive high-neck dress, burnt-orange diagonal sash. ONE small brass square keyless lock pendant at sternum; power AMBER rectangular threshold lines, NO physical wooden door.\n1 Waist-up three-quarter bust, looking over shoulder on a floating rust stone jetty above an inverted sea under grey dawn. Bun/pendant visible.\n2 Limite Suspenso SELF heal after support: close face/upper torso, her gloved fist closes beside brass square pendant as an amber doorway edge folds INTO her own torn coat seam and seals it; empty basalt waiting room in green-grey moonlight.\n3 Abertura Impossível single enemy energy/mark/expose: reverse shot behind armored enemy, narrow amber rectangular aperture opens across enemy breastplate, tiny amber corner mark remains; woman small but clear on opposite edge of a broken stairwell, eyes fixed on target; pale pink Limbo sky. No wound.\n4 Travessia Segura shields/cleanses ONE ally: high oblique shot she draws an amber angular threshold close around ONE kneeling adult ally, dark smoke peels away from that ally; woman outside threshold at left, chest pendant visible, no other people; flooded abandoned terminal with floating white stone slabs.\n5 Fechar a Passagem single enemy piercing: tight side view an amber aperture closes on enemy shield/body silhouette without gore, two facing thin edges meet at center and shatter armor light; woman foreground shoulder and bun anchored; diagonal suspended black bridge above a pale cyan void. Her slight strain shows risk, not self-wound.\n6 Do Outro Lado SELF: rear full body steps sideways through her own thin rectangular threshold, enemy spear remains on original plane BEHIND her, only one solid woman; silent inverted cliff garden at violet night.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "o-nome-esquecido",
+      "source": "art/source/o-nome-esquecido-sheet.webp",
+      "assets": [
+        "art/characters/o-nome-esquecido/portrait.webp",
+        "art/characters/o-nome-esquecido/passive.webp",
+        "art/characters/o-nome-esquecido/skill-impulso.webp",
+        "art/characters/o-nome-esquecido/skill-tecnica.webp",
+        "art/characters/o-nome-esquecido/skill-voto.webp",
+        "art/characters/o-nome-esquecido/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. O Nome Esquecido: middle-aged androgynous humanoid45 with pale ochre skin, broad round face, heavy drooping black eyes, blunt flat nose, short dark grey coarse hair with TWO square ivory hair clips at right temple. Deep aubergine robe, sand scarf, black fingerless wraps; ONE blank ivory oval name medallion hanging centrally on chest. Face remains intact and expressive. Memory erasure is INK-BLACK rectangular gaps edged IVORY, no letters, no writing, no erased face.\n1 Close front portrait under a roof of floating blank archive tablets, washed yellow-grey afternoon, distinct clips and blank medallion.\n2 Nome que se Dissolve SELF regeneration: macro scarf/medallion and lower cheek, one dark missing notch in their robe fills with ivory quiet light returning to chest; deserted amber lamp archive.\n3 Sílaba Perdida physical mark/resource drain: extreme low side angle wrapped closed fist taps an enemy's wrist guard, leaves a small blank oval mark while one golden resource spark slips away toward caster's blank medallion; narrow disconnected slate street in rain. ExactlyONE enemy.\n4 Esquecer a Forma enemy energy/weaken/purge: over caster's head and cropped hair clips, three bright enemy buff panels lose their centers to small black rectangular memory gaps, armored enemy bends under an ivory pulse; tilted slate courtroom with green mist.\n5 Ninguém Responde enemy affliction: intimate reverse closeup blank oval mark on enemy shoulder radiates a silent black hollow ring around the SINGLE enemy, caster distant beyond gap keeps mouth closed, scarf blowing; empty sunken amphitheater, white eclipse. No duplicate enemy or caster.\n6 Nome Fora da Memória SELF: full side view caster stands intact beside their OWN blank silhouette-shaped hole in space; spear passes through the HOLE, not their body, two hair clips and blank medallion clearly real; abandoned staircase floating over ochre clouds. No additional solid body.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "o-relogio-afogado",
+      "source": "art/source/o-relogio-afogado-sheet.webp",
+      "assets": [
+        "art/characters/o-relogio-afogado/portrait.webp",
+        "art/characters/o-relogio-afogado/passive.webp",
+        "art/characters/o-relogio-afogado/skill-impulso.webp",
+        "art/characters/o-relogio-afogado/skill-tecnica.webp",
+        "art/characters/o-relogio-afogado/skill-voto.webp",
+        "art/characters/o-relogio-afogado/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. O Relógio Afogado: stout elderly man70, dark brown skin, heavy under-eye folds, square broad nose, short dense white beard and bald dome. Thick navy fisher coat, rust-red waistcoat, olive trousers, one teal cord around waist. ONE bronze pocketwatch without numerals secured to waist by short black cord; no watch face for a head, no diving helmet. Power DENSE INDIGO water lenses with COPPER thin tick-like streaks, no letters/numerals or cyan singer sound.\n1 Bust from low front angle beside a half-submerged copper bell on distant stone pier, cold grey dawn, kindly grave anime face and waistwatch partly seen.\n2 Tempo em Reserva own passive shield: macro navy-sleeved CLOSED fist at waist beside SINGLE watch, suspended indigo water droplets merge into a thin curved guard over HIS forearm; dark dry clockmaker alcove with pale green light.\n3 Segundo Afogado enemy energy/weaken/charge: enemy-side close armor foreground struck by ONE heavy indigo droplet, slow copper echo trails hang behind enemy boot, caster stout silhouette holds fist near waistwatch at left; empty black tide pool under upside-down afternoon sky.\n4 Ponteiro Imóvel physical hit/stun: extreme ground shot his boot stomps next to enemy armored foot, COPPER straight marker pins enemy boot's shadow to surface while small stun spark appears above distant helmet; diagonal flooded slate causeway at lilac twilight. TWO connected legs per enemy, no severed limbs.\n5 Devolver os Segundos single enemy charged energy: side chest-close man pulls one bronze watch up on SAME short cord and releases THREE stored indigo droplets converging on ONE enemy torso; his weary face shows effort, navy coat intact; drowned bell-tower courtyard, dull orange sunset. ExactlyONE watch.\n6 Instante Submerso SELF: full body inside a close still indigo water lens, enemy spear skims OUTSIDE lens harmlessly, his waistwatch and teal cord visible, only caster protected; lonely floating reef slab, silver moon and black sea overhead.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "a-asa-invertida",
+      "source": "art/source/a-asa-invertida-sheet.webp",
+      "assets": [
+        "art/characters/a-asa-invertida/portrait.webp",
+        "art/characters/a-asa-invertida/passive.webp",
+        "art/characters/a-asa-invertida/skill-impulso.webp",
+        "art/characters/a-asa-invertida/skill-tecnica.webp",
+        "art/characters/a-asa-invertida/skill-voto.webp",
+        "art/characters/a-asa-invertida/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. A Asa Invertida: short muscular African woman34, deep brown skin, triangular face, big round dark eyes, wide nose, short white natural curls with one long black forelock. Slate cropped jacket, white pleated cape attached symmetrically at shoulders, cobalt waist wrap, ochre boots; ONE oval silver gravity clasp at collar. No anatomical wings, no extra arms, no feathers sprouting from skin. Power reversed gravity shown as SILVER-BLUE inverted feather-shaped planes and upward-falling debris; cape is clothing.\n1 Three-quarter chest portrait chin high, white pleated cape framing muscular shoulders, gravity clasp central; vertical ruined cliff where black sea hangs above, pale green dawn.\n2 Queda Ascendente extra damage on weak enemy: close reverse angle ONE enemy's sagging boot and silver feather-plane lifting its SHADOW, her ochre boot and white cape edge in foreground identify her; sideways basalt steps under dull coral sky.\n3 Pena ao Contrário physical weaken: lateral low view she kicks enemy's armored knee with OCHRE boot, silver-blue feather-shaped plane peels upward from impact and enemy balance falters; disconnected pale stone causeway in snow-grey fog. No injury.\n4 Voo Reverso SELF counter/boost: tight high oblique action, she turns own pleated cape into one sweeping curved deflection plane that turns ONE hostile blade back toward attacker wrist; oval clasp visible, only she protected; inverted bell arcade at midnight.\n5 Cair para o Alto single enemy piercing: dramatic bird-eye view she drives an upward heel kick through enemy guard, upward debris and ONE silver-blue feather-plane pierce only the spiritual outline of the same armored enemy, no gore; black stone floating arena and pale yellow eclipse. Full connected limbs and onlyONE enemy.\n6 Asa Fora do Plano SELF: full side silhouette she leans laterally onto an impossible vertical step while a spear passes across the abandoned position beneath her, cape folds like two crisp pleats, ONE solid woman; windswept violet cloud chasm, cobalt horizon.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "o-andarilho-de-vidro",
+      "source": "art/source/o-andarilho-de-vidro-sheet.webp",
+      "assets": [
+        "art/characters/o-andarilho-de-vidro/portrait.webp",
+        "art/characters/o-andarilho-de-vidro/passive.webp",
+        "art/characters/o-andarilho-de-vidro/skill-impulso.webp",
+        "art/characters/o-andarilho-de-vidro/skill-tecnica.webp",
+        "art/characters/o-andarilho-de-vidro/skill-voto.webp",
+        "art/characters/o-andarilho-de-vidro/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. O Andarilho de Vidro: lean weathered man58, medium brown skin, long narrow face, black mustache with no beard, dark gold eyes, wavy shoulder-length brown hair with white side streak. Faded teal knee coat with ochre lining, charcoal high collar, sand trousers, dark leather boots with TRANSPARENT GLASS SOLE plates. ONE small triangular frosted glass bead on left lapel. Body is flesh-and-blood anime, NOT transparent glass anatomy. Power CLEAR angular footprints and PALE LIME reflection edges, no jade wood, no glass daggers held in fingers.\n1 Tight chest portrait turned right, wind lifts coat lining, left-lapel bead and white hair streak visible; black sand plateau with suspended mirror shards and pale apricot dawn.\n2 Luz nas Fissuras comeback power when hurt: close torn teal lapel and his weary mustached profile, glass bead cracks with PALE LIME light that runs along own coat seams; dark hollow railway arch over white fog. No open flesh or gore.\n3 Pegada de Vidro physical mark/bleed: extreme ground closeup his glass-soled boot presses a clear footprint onto enemy armored boot, small lime mark remains and harmless-looking red spiritual sparks show affliction, no wound; tilted black cobblestone trail in cool grey rain.\n4 Reflexo do Andarilho SELF counter: rear shoulder close shot he twists as ONE incoming blade hits an angled clear mirror pane attached to a footprint at his feet; reflected PALE LIME slash returns toward attacker's wrist; white ruined observatory under turquoise dusk.\n5 Travessia Estilhaçada single enemy piercing: lateral wide action he crosses a row of THREE clear footprints and a fan of small lime-edged glass planes strikes ONE enemy shield and torso outline, coat lining streams behind, bead remains on left lapel; suspended salt-flat bridge in orange evening, no shards inside skin.\n6 Passo Transparente SELF: close full stride his solid body steps onto a barely visible glass footprint above ground while enemy spear cuts through only an empty clear aftertrail below, one solid man; silent inverted forest with lavender mist.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "a-sombra-inconstante",
+      "source": "art/source/a-sombra-inconstante-sheet.webp",
+      "assets": [
+        "art/characters/a-sombra-inconstante/portrait.webp",
+        "art/characters/a-sombra-inconstante/passive.webp",
+        "art/characters/a-sombra-inconstante/skill-impulso.webp",
+        "art/characters/a-sombra-inconstante/skill-tecnica.webp",
+        "art/characters/a-sombra-inconstante/skill-voto.webp",
+        "art/characters/a-sombra-inconstante/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. A Sombra Inconstante: tall curvy woman43, warm brown skin, long angular nose, sleepy narrow hazel eyes, asymmetrical dark RED bob hair covering right ear, left temple shaved. Mustard-yellow wrap coat over black trousers, pale peach neckcloth, black leather gloves; ONE crescent black enamel brooch on left collar. ONE solid human body and ONE grounded mutable shadow. Shadow has OCHRE rim and paper-flat shape, NOT magenta echo clones, not tentacles growing from flesh.\n1 Waist-up front three-quarter portrait, one glove holding coat collar near brooch, ochre rim shadow cast sideways on suspended pale wall; deserted room with no roof and deep green evening sky.\n2 Fome da Penumbra SELF lifesteal after damage: close chest and pale peach scarf, thin dark ribbon comes from a distant enemy's shadow and becomes warm ochre light at her OWN brooch; empty tilted theatre lobby, pearl-grey dawn.\n3 Sombra Atrás da Alma physical mark/resource steal: low enemy-side view her mustard sleeve and gloved fist make short body strike to enemy armor, own flat shadow reaches across ground to touch enemy shadow and takes ONE gold spark; rust-colored stone pier under black sun. One enemy.\n4 Mudar de Contorno SELF heal/cleanse/boost: overhead view she crouches on her OWN flat ochre-edged shadow as it folds neatly around her coat hem, dark purple affliction smoke lifts away and warm light returns at collar brooch; abandoned spiral stairwell in bone-white fog. No ally protected.\n5 A Sombra se Fecha single enemy affliction: reverse shot over her shaved temple and red bob, ONE enemy silhouette is enclosed by its own flat dark shadow rising as a narrow ochre-edged seam, caster retains intact ordinary limbs; pale flooded courtyard with inverted navy clouds. Not a giant monster.\n6 Contorno Imaterial SELF: side full body steps out of a coat-shaped flat shadow on a wall; spear passes through EMPTY shadow while solid woman is safely to one side, brooch and mustard coat visible; disconnected doorway over green-grey sea. No duplicate solid body.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "a-ponte-rasgada",
+      "source": "art/source/a-ponte-rasgada-sheet.webp",
+      "assets": [
+        "art/characters/a-ponte-rasgada/portrait.webp",
+        "art/characters/a-ponte-rasgada/passive.webp",
+        "art/characters/a-ponte-rasgada/skill-impulso.webp",
+        "art/characters/a-ponte-rasgada/skill-tecnica.webp",
+        "art/characters/a-ponte-rasgada/skill-voto.webp",
+        "art/characters/a-ponte-rasgada/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. A Ponte Rasgada: broad heavyset woman49, tawny skin, square chin, very broad straight nose, thick black eyebrows, short dark hair in tight crown braid with grey front streak. Rust-red sleeveless workcoat over slate long sleeves, dark plum sash, heavy brown boots, ONE brass buckle with broken horizontal bar on waist. A SINGLE coiled black suspension cable on shoulder. Human guardian of broken crossings, NOT an actual bridge with limbs. Power is CRIMSON tensile cable lines and dark floating anchoring blocks, no plant roots or loose thin sewing threads.\n1 Low chest portrait looking downward, cable coil rests on shoulder and broken-bar buckle at lower crop; deserted red stone suspension crossing over grey void at dawn.\n2 Vão Persistente damage to exposed enemy: extreme close enemy armor's open guard, one crimson stress-line reveals exposed gap while her slate-sleeved CLOSED fist and brass broken-bar buckle sit in foreground; ruined toll alcove in pale amber light.\n3 Romper o Apoio physical shield-strip/expose: ground-level diagonal she stamps her heavy boot into floating slab, a thick crimson cable anchored to that slab pulls enemy shield SIDEWAYS revealing ONE armored enemy; no severed limbs; fragmented rust causeway in blue-grey rain.\n4 Ponte de Emergência TEAM shield: high oblique she stands center with exactlyTWO adult allies at opposite sides, three individual crimson cable lattice guards anchored to dark floating blocks protect the trio; black tide canyon, pale lilac sky. Her bent posture hints self-cost, no injury or fourth ally.\n5 Queda da Travessia ALL ENEMIES piercing: reverse high shot her rust coat foreground, she pulls one thick cable and three separated slate bridge tiles tilt below exactlyTHREE armored enemies, each struck by ONE bright crimson upward tension line; enemies clearly on separate planes, no gore; vast broken aqueduct under ivory eclipse.\n6 Entre as Margens SELF: full side leap she steps into safe narrow gap BETWEEN two disconnected bridge planes while ONE spear remains on old plane, own coil and broken-bar buckle visible, only caster protected; deep violet night with orange horizon.",
+      "revision": "20261022-lot6"
+    },
+    {
+      "id": "a-alma-em-suspenso",
+      "source": "art/source/a-alma-em-suspenso-sheet.webp",
+      "assets": [
+        "art/characters/a-alma-em-suspenso/portrait.webp",
+        "art/characters/a-alma-em-suspenso/passive.webp",
+        "art/characters/a-alma-em-suspenso/skill-impulso.webp",
+        "art/characters/a-alma-em-suspenso/skill-tecnica.webp",
+        "art/characters/a-alma-em-suspenso/skill-voto.webp",
+        "art/characters/a-alma-em-suspenso/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE six-cell production sprite sheet for PMA original dark anime tactical game. Canvas1536x1024, STRICT3 equal columns x2 equal rows of512px cells, edge-to-edge, NO gutters, borders, frames, writing, glyph text, watermarks or UI. Order: portrait / passive / first skill / second skill / ultimate / personal invulnerability. Six DIFFERENT scenes, camera viewpoints, poses and shot sizes. Legible at75px.\nStyle: fully 2D hand-inked TV ANIME CEL ANIMATION; strong graphic outlines, expressive stylized anime face, flat color shapes and one hard-edged shadow per surface. No realistic skin, soft rendering, painterly material detail, gradients,3D, photography or cinematic lenses. Dark but readable. Same face, body shape, clothing, power colors and single signature accessory in every cell. Anatomy: exactly two connected arms and two connected legs per person, natural joints, five digits for each complete hand; use closed fists/cropped hands/simplified silhouettes in distant shots. No duplicated objects or accidental extra people. Skills visibly belong to this character and their stated targets.\nWorld Limbo/Elo Correntes Quebradas: impossible horizons, broken spatial continuity, suspended architecture, disconnected coastlines and ruins, liminal lighting. Do not reuse one cathedral or purple background in all cells. Character names are SYMBOLIC TITLES; draw credible original humanoid entities, not objects with limbs or grotesque anatomy. Last cell protects ONLY the caster. No copyrighted characters. A Alma em Suspenso: slim adult man23, light olive skin, long soft face, large gentle violet eyes, rounded nose, thick dark BLUE hair in loose curls reaching ears, one silver lock at center forehead. Cream wrap tunic, pale coral sleeveless ankle coat, indigo wide belt, bare feet; ONE small smoky oval glass breath-vessel pendant at chest, tied with black cord. Human spirit, not a floating disembodied organ. Power WARM WHITE breath ribbons and small AMBER suspended pulse-orbs, no cyan music waves or magenta echo rectangles. No anatomical mutations.\n1 Tight face and chest portrait, quiet closed mouth and curly blue hair, breath-vessel pendant, coral coat; floating basalt hospital balcony above silver cloud sea before sunrise.\n2 Fôlego no Limiar own regeneration: macro gentle closed mouth, cream scarf edge and SINGLE pendant with one suspended amber glow, warm white breath ribbon returns to HIS chest and repairs a small tunic light seam; empty dark room with inverted distant candles.\n3 Pulso Suspenso enemy energy/charge: reverse low shot an amber pulse-orb hits ONE enemy breastplate, caster barefoot on a floating rectangular slab at left with one palm raised and exactlyONE extra tiny orb beside pendant as stored charge; pale sea underneath upside-down violet sunrise. Natural hand five fingers.\n4 Prender o Último Fôlego heal/shield ONE ally: close side angle caster kneels beside ONE wounded adult ally, palm resting on ally forearm, warm white breath returns at ally chest and small amber guard encircles same forearm; abandoned slate infirmary with pale green mist, caster tired but unhurt. Two people total.\n5 Soltar a Âncora single enemy affliction/spendcharge: high oblique ONE enemy torso is bound by three short warm white breath ribbons converging into amber pulse at chest, caster below releases from own pendant and bows with effort, no wounds; lonely sinking stone quay under ochre evening.\n6 Suspensão Absoluta SELF: full body hovers a few inches inside a small warm white oval with amber still point at pendant, ONE dark spear passes beneath bare feet without contact, only caster present; suspended moonlit cliff room opening to indigo emptiness. Hands relaxed, legs separate and connected.",
+      "revision": "20261022-lot6"
     }
   ],
   "inventory": [
@@ -568,50 +680,50 @@
     {
       "id": "a-porta-que-flutua",
       "name": "A Porta que Flutua",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-nome-esquecido",
       "name": "O Nome Esquecido",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-relogio-afogado",
       "name": "O Relógio Afogado",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-asa-invertida",
       "name": "A Asa Invertida",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-andarilho-de-vidro",
       "name": "O Andarilho de Vidro",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-sombra-inconstante",
       "name": "A Sombra Inconstante",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-ponte-rasgada",
       "name": "A Ponte Rasgada",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-alma-em-suspenso",
       "name": "A Alma em Suspenso",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-acougueiro",

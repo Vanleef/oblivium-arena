@@ -152,6 +152,7 @@ const starterArt = {
 };
 
 const illustratedCharacterIds = new Set([
+  "a-porta-que-flutua", "o-nome-esquecido", "o-relogio-afogado", "a-asa-invertida", "o-andarilho-de-vidro", "a-sombra-inconstante", "a-ponte-rasgada", "a-alma-em-suspenso",
   "o-que-cria", "o-cultivador", "a-arquiteta-verde", "o-eco-sem-dono",
   "a-que-une", "o-vinculo", "os-tres-irmaos", "o-primeiro-canto",
   "a-luz-nua", "o-espelho", "a-cartografa-da-clareza", "o-elo-dourado", "a-semente", "a-linha-partida",

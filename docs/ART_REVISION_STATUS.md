@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 92 conjuntos habilitados, 552 referências válidas. Vinte e três conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, oito personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 100 conjuntos habilitados, 600 referências válidas. Trinta e um conjuntos passaram por esta revisão de estilo e 69 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -41,3 +41,9 @@ O inventário foi normalizado para usar os campos `artAvailable` e `styleReview`
 O que Cria, O Cultivador e A Arquiteta Verde completam Criação; todos os 35 personagens de Paraíso passam a ter conjunto próprio. O Eco sem Dono amplia Correntes Quebradas com uma identidade de eco fragmentado, distinta do canto orgânico de Criação. Os conjuntos seguem os kits atuais, sem mudanças de regras. Prompts, arquivos e limites dos recortes: `ART_LOT_20261022_05.json`.
 
 A cobertura de arte não representa revisão de estilo concluída: 69 conjuntos antigos ainda aguardam reformulação e oito personagens de Limbo seguem sem conjunto completo. A limpeza de molduras do lote anterior foi preservada.
+
+## Sexto lote: 48 imagens e cobertura completa
+
+A Porta que Flutua, O Nome Esquecido, O Relógio Afogado, A Asa Invertida, O Andarilho de Vidro, A Sombra Inconstante, A Ponte Rasgada e A Alma em Suspenso completam as artes de Correntes Quebradas. Todos os 100 personagens agora têm retrato, passiva e quatro habilidades. Isso encerra a falta de conjuntos; a revisão de estilo continua para os 69 conjuntos antigos.
+
+Os títulos representam entidades humanoides distintas. As cenas respeitam os alvos dos kits e diferenciam passagens, apagamento da memória, tempo submerso, gravidade invertida, pegadas de vidro, sombra mutável, cabos de travessia e fôlego suspenso. Prompts, arquivos e limites dos recortes: `ART_LOT_20261022_06.json`. Custos, efeitos, formas alternativas, ícones e limpeza de molduras anteriores foram preservados.
