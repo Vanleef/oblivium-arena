@@ -1,34 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="face" x1="123" y1="116" x2="387" y2="388" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#4a4752"/>
-      <stop offset="1" stop-color="#252a35"/>
+    <linearGradient id="inferno" x1="45" y1="40" x2="151" y2="162" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f39769"/><stop offset=".58" stop-color="#e65d59"/><stop offset="1" stop-color="#9e3548"/>
     </linearGradient>
-    <linearGradient id="fracture" x1="326" y1="83" x2="214" y2="399" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff0c1"/>
-      <stop offset=".52" stop-color="#dcc075"/>
-      <stop offset="1" stop-color="#9e764b"/>
+    <linearGradient id="ember" x1="86" y1="60" x2="119" y2="147" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe0a0"/><stop offset=".55" stop-color="#f0a55f"/><stop offset="1" stop-color="#d64d50"/>
+    </linearGradient>
+    <linearGradient id="sanctuary" x1="44" y1="45" x2="151" y2="151" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a9e0e8"/><stop offset=".58" stop-color="#92cfca"/><stop offset="1" stop-color="#9fc997"/>
+    </linearGradient>
+    <linearGradient id="dawn" x1="88" y1="44" x2="112" y2="149" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/><stop offset=".6" stop-color="#e9cc86"/><stop offset="1" stop-color="#b9d9cb"/>
+    </linearGradient>
+    <linearGradient id="fracture" x1="42" y1="35" x2="159" y2="164" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c5b0f0"/><stop offset=".58" stop-color="#9f83dc"/><stop offset="1" stop-color="#6d63a9"/>
+    </linearGradient>
+    <linearGradient id="rift" x1="58" y1="54" x2="143" y2="146" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a7e2e6"/><stop offset="1" stop-color="#b9a1ee"/>
     </linearGradient>
   </defs>
 
-  <g transform="translate(-51 -13) scale(1.2 1.05)">
-  <!-- A fractured spirit mask: angular, asymmetrical and without a circular frame. -->
-  <path d="m263 55 70 33 50 48 24 65-28 49 13 58-38 43-21 49-68 38-58-27-59-26-36-49 12-62-29-48 24-58 39-48 62-31 43-34Z"
-        fill="url(#face)" stroke="#07090e" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Broken links connect the three worlds into one quiet triangular mark. -->
+  <g stroke="#d8c078" stroke-width="3" stroke-linecap="round" opacity=".4" stroke-dasharray="5 11">
+    <path d="m224 204-31 54M288 204l31 54M216 378h80"/>
+  </g>
 
-  <!-- One offset plane makes the face feel split by the veil, not split down its center. -->
-  <path d="m321 78-127 326 81 38 68-38 21-49 38-43-13-58 28-49-24-65-50-48-22-14Z"
-        fill="#111620" opacity=".9"/>
+  <!-- Paradise crest at the top: P. -->
+  <g transform="translate(101 -31) scale(1.55)">
+    <path d="M97 150c-19-15-39-35-42-58-3-18 6-35 19-47-8 23 2 43 20 57M103 150c19-15 39-35 42-58 3-18-6-35-19-47 8 23-2 43-20 57" stroke="#000000" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M97 150c-19-15-39-35-42-58-3-18 6-35 19-47-8 23 2 43 20 57M103 150c19-15 39-35 42-58 3-18-6-35-19-47 8 23-2 43-20 57" stroke="url(#sanctuary)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path fill="url(#dawn)" d="m100 32 10 25-9 16 11 18-12 21-12-21 11-18-9-16 10-25Zm0 53v32"/>
+  </g>
 
-  <!-- Uneven, recessed eye slits give the mark an anime spirit-mask expression. -->
-  <path d="M145 205c24-22 53-28 83-17l-12 26c-23-8-43-4-65 11l-6-20Z" fill="#080b12"/>
-  <path d="m300 199 66 10-18 24-43-8-5-26Z" fill="#080b12"/>
-  <path d="m318 207 31 5-8 7-23-4v-8Z" fill="#c7aa69"/>
+  <!-- Inferno crest at the lower left: M. -->
+  <g transform="translate(-9 237) scale(1.35)">
+    <path fill="url(#inferno)" stroke="#000000" stroke-width="8" stroke-linejoin="round" d="M101 13c20 27 1 42 17 62 10-10 15-21 14-35 20 18 26 37 16 55l17-11-5 26c-6 20-20 36-43 46l-14 28-15-29c-25-10-43-30-45-54l18-8-16-21 24 9c-4-21 5-36 20-48l-2 30c14-13 13-30 14-50Z"/>
+    <path fill="url(#ember)" d="M100 50c9 21-11 32-6 49 3 10 12 15 11 26 8-8 11-16 8-27 16 17 15 36 2 47-11 10-28 7-35-6-8-16 8-25 4-38-4-13 3-31 16-51Z"/>
+  </g>
 
-  <!-- A single diagonal tear cuts between the eyes and breaks the face into two planes. -->
-  <path d="m321 76 17 9-23 45 17 15-27 41 16 16-31 45 15 16-35 49 11 16-39 54 24-59-10-15 34-48-16-17 29-42-17-16 27-42-17-14 25-47Z"
-        fill="#05070c" opacity=".7"/>
-  <path d="m317 80 13 7-22 44 17 15-26 40 17 17-30 43 15 16-34 48 11 16-35 47 21-52-10-15 32-46-15-16 27-40-16-16 25-40-16-14 26-44Z"
-        fill="url(#fracture)" stroke="#fff0c1" stroke-width="2" stroke-linejoin="bevel"/>
+  <!-- Limbo crest at the lower right: A. -->
+  <g transform="translate(260 247) scale(1.25)">
+    <path d="M87 34 70 29C50 24 36 37 33 55l-4 20c-4 18 6 29 23 36l17 7M113 166l17 5c20 5 34-8 37-26l4-20c4-18-6-29-23-36l-17-7M47 143l11 9 14-15 12 10 17-19M153 57l-11-9-14 15-12-10-17 19" stroke="#000000" stroke-width="27" stroke-linecap="square" stroke-linejoin="bevel"/>
+    <path d="M87 34 70 29C50 24 36 37 33 55l-4 20c-4 18 6 29 23 36l17 7M113 166l17 5c20 5 34-8 37-26l4-20c4-18-6-29-23-36l-17-7M47 143l11 9 14-15 12 10 17-19M153 57l-11-9-14 15-12-10-17 19" stroke="url(#fracture)" stroke-width="17" stroke-linecap="square" stroke-linejoin="bevel"/>
+    <path d="m40 51-4 20c-2 10 3 17 12 22m104 56 4-20c2-10-3-17-12-22m-68 10 12 10 17-19m37-41-12-10-17 19" stroke="url(#rift)" stroke-width="3" stroke-linecap="square" stroke-linejoin="bevel"/>
+  </g>
+
+  <!-- Letters sit above their world emblems and remain legible at icon size. -->
+  <g fill="#f5e9ce" stroke="#080b12" stroke-width="10" stroke-linejoin="round" paint-order="stroke" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700">
+    <text x="256" y="110">P</text>
+    <text x="126" y="372">M</text>
+    <text x="386" y="370">A</text>
   </g>
 </svg>
