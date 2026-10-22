@@ -180,6 +180,15 @@ function slug(text) {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+const characterFormArt = {
+  "o-tecelao-de-mentiras": {
+    tecnica: { unweave: "/art/characters/o-tecelao-de-mentiras/skill-tecnica-unweave.webp" }
+  },
+  "o-falso-profeta": {
+    tecnica: { confess: "/art/characters/o-falso-profeta/skill-tecnica-confess.webp" }
+  }
+};
+
 function artForCharacter(name) {
   if (starterArt[name]) return starterArt[name];
   const id = slug(name);
@@ -188,9 +197,7 @@ function artForCharacter(name) {
   return {
     portrait: `${base}/portrait.webp`,
     passive: `${base}/passive.webp`,
-    forms: id === "o-tecelao-de-mentiras" ? {
-      tecnica: { unweave: `${base}/skill-tecnica-unweave.webp` }
-    } : undefined,
+    forms: characterFormArt[id],
     abilities: {
       impulso: `${base}/skill-impulso.webp`,
       tecnica: `${base}/skill-tecnica.webp`,

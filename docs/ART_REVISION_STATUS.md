@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e quatro conjuntos passaram por esta revisão de estilo e 56 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e seis conjuntos passaram por esta revisão de estilo e 54 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -72,3 +72,11 @@ O lote de 37 imagens citado na continuidade do chat não estava presente no comm
 Treze sprites novos: dois conjuntos completos e arte exclusiva de Desatar a Trama. A Máscara Dupla mantém cachos prateados, pele, brincos, traje e duas máscaras; seus seis cenários distinguem recuperação, marcação, contra-ataque, traição e defesa pessoal. O Tecelão mantém o rosto único de porcelana, cabelo de fios, carretéis e traje, com marcação e controle por fios físicos. Sua rede ofensiva afeta três inimigos; Desatar a Trama mostra exatamente três aliados, incluindo o usuário, removendo nós de aflição e recuperando Vida.
 
 A forma alternativa agora possui um caminho de arte independente. Ao retornar à forma base, a habilidade recupera a imagem ofensiva. Apenas a seleção de arte foi ampliada: efeitos, custos, alvos, duração e recarga preservados. A limpeza de molduras foi preservada; o Codex passou a mostrar a miniatura da forma alternativa junto ao título e aos custos. Prompts e referências: `ART_LOT_20261022_10.json`. Estado: 44 conjuntos revisados, 56 antigos pendentes, 600 imagens de slots básicos e uma arte alternativa exclusiva.
+
+## Décimo primeiro lote: Boca de Vidro e Falso Profeta — Mentira
+
+Treze sprites: dois conjuntos de seis e a Confissão do Falso Santo. Boca de Vidro mantém cabelo claro trançado, brincos de cristal, mandíbula translúcida e traje; sua remoção de recurso mostra fragmentos caindo, sem transferir o recurso à usuária. A fala perfurante, a abertura na guarda e o ataque a três inimigos têm cenas diferentes.
+
+O Falso Profeta preserva pele, rosto, argola nasal, auréola segmentada de cobre e fitas azuis. A bênção gera carga e recuperação pessoal; o milagre consome cargas no golpe físico. A confissão tem arte própria de autocura e purificação, distinta da bênção, com retorno à imagem da forma base após uso. Defesas pessoais mostram apenas o usuário. Kits, custos, recargas, alvos e limpeza de molduras preservados. Prompts e correção de acessório: `ART_LOT_20261022_11.json`.
+
+Estado integrado: 46 conjuntos revisados, 54 antigos pendentes, 600 imagens dos slots básicos e duas artes alternativas exclusivas. Em Mentira, cinco dos seis conjuntos estão revisados; O Corretor de Memórias permanece pendente.
