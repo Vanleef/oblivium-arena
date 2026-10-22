@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e um conjuntos passaram por esta revisão de estilo e 59 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 100 conjuntos habilitados, 600 referências válidas. Quarenta e dois conjuntos passaram por esta revisão de estilo e 58 conjuntos antigos aguardam reformulação. Nenhum personagem está sem conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -59,3 +59,10 @@ O caçador acumula e consome troféus, os dois gêmeos alternam ataques, o carra
 O Soberano Quebrado, A Juíza de Ferro, O Trono Vazio, O Príncipe das Correntes, A Regente de Cinzas e O Herdeiro Cativo recebem 36 imagens reformuladas. A identidade original foi preservada em cada rosto, roupa e acessório, com ações e câmeras ligadas aos kits. Balcões, pontes, tribunais, cisternas, pátios, jardins e passagens de prisão variam os cenários dentro do império arruinado de Coroa.
 
 A autoridade fraturada do Soberano, os planos de ferro da Juíza, a ausência espectral do Trono, os grilhões do Príncipe, o comando de cinzas da Regente e a resistência do Herdeiro têm linguagens próprias. O apoio ao trio aparece apenas nas habilidades correspondentes; as seis defesas pessoais protegem o próprio usuário. Regras, ícones e limpeza anterior de molduras preservados. Prompts, fontes e recortes: `ART_LOT_20261022_08.json`.
+
+
+## Nono lote: O Sussurro — Mentira
+
+Seis imagens reformuladas e integradas: retrato, passiva e quatro técnicas. A referência atual preserva rosto, trança, contas de jade, uniforme e lapela marfim. Arcada sob chuva, arquivo, canal, pátio, sala de ensaio e corredor de banhos distinguem os cenários. Veneno e roubo atingem um inimigo; Aviso Falso mostra um aliado evitando e revidando um ataque; Voz sem Origem é defesa pessoal. Kits, efeitos, custos e molduras permanecem preservados. Prompts e arquivos: `ART_LOT_20261022_09.json`.
+
+O lote de 37 imagens citado na continuidade do chat não estava presente no commit de partida. Esta entrega registra apenas as seis imagens efetivamente integradas, sem contar as demais como concluídas.
