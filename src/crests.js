@@ -20,6 +20,16 @@ const designs={
 };
 const palettes={sangria:'#df6c78',coroa:'#dcad62',mentira:'#ad91e5',chama:'#f29359',fome:'#c1ad62',podridao:'#9cb56b',silencio:'#a7b3c3',carne:'#d997a8',vazio:'#a591c7',protecao:'#86c4e0',cura:'#83d1b4',justica:'#dbcb8b',esperanca:'#eed28a',verdade:'#9bd5de',uniao:'#c5b7ef',criacao:'#9dcba5','correntes-quebradas':'#bca8f0'};
 let serial=0;
+// Small marks use the same drawing as the full heraldry, without tiny lettering.
+export function eloVisual(id) {
+ const design=designs[id];
+ return design?{path:design.solid,accent:palettes[id]}:null;
+}
+export function eloSigil(id,extraClass='') {
+ const visual=eloVisual(id);
+ if(!visual)return '';
+ return `<svg class="elo-sigil ${extraClass}" viewBox="25 30 150 140" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="${visual.path}"/></svg>`;
+}
 export function eloCrest(elo,extraClass=''){
  const id=`crest-${elo.id}-${++serial}`,design=designs[elo.id]||designs.vazio,accent=palettes[elo.id]||'#cbb4e7';
  const heaven=elo.realm==='Paraíso',limbo=elo.realm==='Limbo';
@@ -27,3 +37,4 @@ export function eloCrest(elo,extraClass=''){
  const interior='M100 29 146 53 158 100 144 144 100 183 56 144 42 100 54 53Z';
  return `<svg class="elo-crest ${extraClass} crest-${heaven?'sanctuary':limbo?'fracture':'infernal'}" viewBox="0 0 200 230" role="img" aria-label="Brasão do Elo ${elo.name}"><defs><linearGradient id="${id}-metal" x2=".6" y2="1"><stop stop-color="#f0dcab"/><stop offset=".35" stop-color="#b69a64"/><stop offset=".36" stop-color="#64533c"/><stop offset=".76" stop-color="#9c835a"/><stop offset=".77" stop-color="#352f2b"/></linearGradient><linearGradient id="${id}-enamel" x2=".8" y2="1"><stop stop-color="${accent}"/><stop offset=".47" stop-color="${accent}"/><stop offset=".48" stop-color="#303242"/><stop offset="1" stop-color="#111723"/></linearGradient></defs><path class="crest-aura" d="${frame}" fill="${accent}" opacity=".1"/><path class="crest-shell" d="${frame}" fill="url(#${id}-metal)" stroke="#070c14" stroke-width="4"/><path d="${interior}" fill="#111823" stroke="${accent}" stroke-opacity=".45" stroke-width="2"/><path d="M100 38 139 59 149 99 137 138 100 173 63 138 51 99 61 59Z" fill="url(#${id}-enamel)" opacity=".2"/><path d="M56 59 48 100 62 140M144 59 152 100 138 140M76 164 100 188 124 164" fill="none" stroke="#e5d0a0" stroke-width="2" opacity=".6"/><g fill="${accent}" stroke="#080d16" stroke-width="3" stroke-linejoin="round"><path fill-rule="evenodd" d="${design.solid}"/></g><path d="${design.etch}" fill="none" stroke="#fff1cb" stroke-width="2.5" stroke-linecap="round" opacity=".85"/><path d="M88 17 100 7 112 17 100 26Z" fill="${accent}" stroke="#f8e9b5" stroke-width="1"/><path class="crest-ribbon" d="M31 185 44 178H156L169 185 156 205H44Z" fill="#101722" stroke="#a99160" stroke-width="1.3"/><text x="100" y="195" text-anchor="middle" fill="#eadab4" font-size="9" font-family="system-ui" letter-spacing="1">${elo.name.toUpperCase()}</text></svg>`;
 }
+

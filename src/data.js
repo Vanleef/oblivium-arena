@@ -152,6 +152,7 @@ const starterArt = {
 };
 
 const illustratedCharacterIds = new Set([
+  "a-chama-que-nao-apaga", "o-que-levanta", "a-voz", "o-portador-da-aurora",
   "o-acougueiro", "a-viuva-escarlate", "o-colecionador-de-cabecas", "gemeos-do-cutelo",
   "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",
   "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo",
@@ -309,4 +310,5 @@ export const buffs = [
   { id: "echo", title: "Eco do Trio", text: "A Ressonância concede mais 5% de bônus.", icon: "∞", effect: { resonance: 0.05 } },
   { id: "fracture", title: "Fissura Vigiada", text: "As habilidades de Limbo causam menos dano ao usuário.", icon: "⟲", effect: { risk: -4 } }
 ];
+
 
