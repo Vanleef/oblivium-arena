@@ -423,7 +423,7 @@ function header() {
   return `
     <header class="topbar">
       <button class="brand" data-tab="rota" aria-label="PMA: Post Mortem Arena, início">
-        <img class="brand-mark" src="/art/interface/brand.webp" alt="">
+        <img class="brand-mark" src="/icon.svg" alt="">
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${uiIcon(id)}<span>${label}</span></button>`).join("")}</nav>

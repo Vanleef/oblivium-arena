@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#0b101c"/><g stroke="#090d18" stroke-width="12" stroke-linejoin="round"><path d="M236 49C125 48 39 140 53 253L121 305 168 217 217 162Z" fill="#57cbd2"/><path d="M276 49C387 48 473 140 459 253L391 305 344 217 295 162Z" fill="#e96663"/><path d="M72 292C111 447 375 472 440 292L351 311 291 361 220 350 161 308Z" fill="#9d78de"/></g><g fill="none" stroke="#d9b875" stroke-width="9"><path d="M236 49C125 48 39 140 53 253M276 49C387 48 473 140 459 253M72 292C111 447 375 472 440 292"/><path d="M92 168 155 203 188 139M420 168 357 203 324 139M180 397 256 358 332 397"/></g><path d="m256 104-24 86 13 45-26 58 37 75 37-75-26-58 13-45Z" fill="#fff0b9" stroke="#d4a157" stroke-width="9"/><path d="M256 148V320" stroke="#fffcec" stroke-width="6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="inferno" x1="170" y1="40" x2="235" y2="169" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f39769"/>
+      <stop offset=".55" stop-color="#e65d59"/>
+      <stop offset="1" stop-color="#9e3548"/>
+    </linearGradient>
+    <linearGradient id="paraiso" x1="38" y1="49" x2="128" y2="137" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a9e0e8"/>
+      <stop offset=".58" stop-color="#92cfca"/>
+      <stop offset="1" stop-color="#9fc997"/>
+    </linearGradient>
+    <linearGradient id="limbo" x1="43" y1="165" x2="212" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c5b0f0"/>
+      <stop offset=".62" stop-color="#9f83dc"/>
+      <stop offset="1" stop-color="#6d63a9"/>
+    </linearGradient>
+    <linearGradient id="convergence" x1="117" y1="45" x2="143" y2="207" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".55" stop-color="#e9c879"/>
+      <stop offset="1" stop-color="#d87967"/>
+    </linearGradient>
+  </defs>
+  <path d="M97 145c-17-14-34-32-37-52-2-15 5-29 17-39-7 19 2 36 18 48M103 145c17-14 34-32 37-52 2-15-5-29-17-39 7 19-2 36-18 48" stroke="url(#paraiso)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="url(#inferno)" d="M207 35c20 27 1 40 15 60 9-9 14-20 13-33 19 17 24 35 15 52l16-10-4 24c-6 18-19 32-39 42l-13 26-14-27c-23-9-40-27-42-49l17-7-15-19 22 8c-4-19 5-33 18-44l-2 27c13-12 12-27 13-50Z"/>
+  <path fill="url(#limbo)" d="m43 174 11-12c18-19 41-25 60-17l15 11-12 14-11-8c-13-4-26 1-38 14l-12 13-13-10Zm169-4-11-12c-18-19-41-25-60-17l-15 11 12 14 11-8c13-4 26 1 38 14l12 13 13-10Z"/>
+  <path fill="url(#convergence)" d="m128 38-17 49 9 26-16 31 24 62 24-62-16-31 9-26-17-49Zm0 45v77"/>
+</svg>
