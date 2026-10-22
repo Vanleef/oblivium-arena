@@ -3,10 +3,10 @@
   "status": "in_progress",
   "counts": {
     "roster": 100,
-    "available": 88,
-    "revised": 19,
+    "available": 92,
+    "revised": 23,
     "existingPending": 69,
-    "missing": 12
+    "missing": 8
   },
   "revised": [
     {
@@ -398,6 +398,62 @@
       ],
       "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character O Primeiro Canto, Elo Criação. Elder Indigenous Brazilian-looking man80, deep brown skin, very thin tall body, long hooked nose and high cheekbones, silver hair in ONE long side braid, bare scalp temples, long narrow grey eyebrows, no beard. Large flat copper throat collar, indigo sleeveless robe, coral-orange shoulder shawl, turquoise small ear studs. Power is acoustic turquoise concentric broken crescent waves causing tiny floating pale seed shapes to form at resonance nodes, never generic staff, fire, letters or musical notation. No instrument. Collar is single and stays on neck.\nCell1 tight side-three-quarter portrait, solemn ancient face, closed lips, silver braid over left shoulder, overgrown pale bell tower under starry indigo sky.\nCell2 selfheal after support passive: extreme close side profile lower cheek mouth and copper collar, a soft turquoise inward acoustic crescent returns to his chest and seals tiny light crack in robe with no body wound; dark sanctuary acoustic chamber with pale moss arches.\nCell3 Nota Primordial spiritual hit/gaincharge: enemy helmet in foreground recoils from ONE sharp turquoise crescent, old singer distant left mouth open, left arm low relaxed; reverse low enemy viewpoint in white stone canyon, floating one pale seed beside collar.\nCell4 Refrão da Vida team heal/boost/cooldown: high oblique view singer kneels center with two standing adult allies at opposite sides, three turquoise ripples connect chests, warm green healing glows and tiny pale seed bud rises at each ally foot; sunken circular sanctuary orchard at dawn. Three people total, singer included.\nCell5 Canto que Abre o Mundo all enemies/spendcharge: close low camera by singer shoulder mouth OPEN, flat massive layered turquoise sound wave fans away toward three distant armored enemies staggered in an ivory hillside arena, luminous seeds at THREE resonance nodes, coral shawl streams BACK from wave direction; pale overcast sky, graphic action not explosion.\nCell6 Pausa Anterior ao Som invulnerability SELF: complete stillness, side view old man with closed mouth and braid relaxed, contained soundless turquoise empty oval around HIM, external spear ripples curve around without touching, translucent effect does not obscure body; tiny sanctuary island above violet clouds at night. No other protected figures. Avoid repeating close mouth pose in other cells.",
       "revision": "20261022-lot4"
+    },
+    {
+      "id": "o-que-cria",
+      "source": "art/source/o-que-cria-sheet.webp",
+      "assets": [
+        "art/characters/o-que-cria/portrait.webp",
+        "art/characters/o-que-cria/passive.webp",
+        "art/characters/o-que-cria/skill-impulso.webp",
+        "art/characters/o-que-cria/skill-tecnica.webp",
+        "art/characters/o-que-cria/skill-voto.webp",
+        "art/characters/o-que-cria/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Paraíso, Elo Criação: solemn ancient living sanctuary, pale skies and dark blue shadows; creation is constructive power, not Inferno destruction. Choose varied sanctuary places and times, not six identical cathedral interiors. Character O que Cria: rotund broad-shouldered man40, light brown skin, round soft face, large sleepy eyes, tiny cleft chin, dense auburn buzzcut, freckles, ONE dark teardrop birthmark BELOW LEFT EYE. Ivory potter apron over cobalt long-sleeved tunic, burgundy trousers, rectangular copper caliper fixed at belt. Original magic: ivory glazed CERAMIC angular fragments with jade edges, handmade geometric forms, not metal swords or generic crystal blasts.\n1 Portrait chest-up worm-eye three-quarter view, friendly serious mature round anime face, apron and belt caliper; hanging ceramic bells over white cliff village at indigo dawn.\n2 Ideia Persistente own passive shield: macro cobalt-sleeved forearm and open five-finger hand, three ivory tiles grow beside HIS forearm into curved small guard, copper caliper stays at belt in soft-focus background; broken-roof potter workshop sunrise.\n3 Fragmento Nascente enemy spiritual hit +charge: extreme enemy-side low viewpoint, ONE sharply shaped ivory fragment in foreground strikes dark enemy breastplate without blood; rotund maker visible in mid-ground pushing a CLOSED palm forward, one small jade spark remains near apron pocket; narrow aqueduct over cloud sea at noon.\n4 Forma de Amparo shield ONE ally: top-down shot his cobalt sleeves and gloved hands positioning TWO curved ivory ceramic plates around one kneeling adult ally at center, not him; fresh jade light joins seams, no wound-heal glow; solemn sanctuary kiln court after rain.\n5 Obra Convergente charge-consuming single enemy hit: lateral distant silhouette, three separate ivory fragments converge into ONE sculpted geometric ram at dark enemy's chest; maker rotund body foreground at left directing with right forearm, caliper at belt; pale stone wind terrace at sunset. Show exactlyONE enemy.\n6 Forma Impossível SELF invulnerability: maker half-turns bodily inside a small arch of his own ivory forms, attacker spear passes through empty gap behind his shoulder, only maker protected; moonlit ceramic gallery with pale lavender sky. Bold distinct framing, keep rotund body and left-eye birthmark.",
+      "revision": "20261022-lot5"
+    },
+    {
+      "id": "o-cultivador",
+      "source": "art/source/o-cultivador-sheet.webp",
+      "assets": [
+        "art/characters/o-cultivador/portrait.webp",
+        "art/characters/o-cultivador/passive.webp",
+        "art/characters/o-cultivador/skill-impulso.webp",
+        "art/characters/o-cultivador/skill-tecnica.webp",
+        "art/characters/o-cultivador/skill-voto.webp",
+        "art/characters/o-cultivador/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Paraíso, Elo Criação: solemn ancient living sanctuary, pale skies and dark blue shadows; creation is constructive power, not Inferno destruction. Choose varied sanctuary places and times, not six identical cathedral interiors. Character O Cultivador: lean wiry man65, weathered olive-tan skin, long rectangular face, very large hooked nose, thick grey beard cropped SQUARE at jaw, thinning wavy dark hair with grey temples. Moss-green broad gardener coat over saffron shirt, indigo sash, rolled brown trousers, straw woven shoulder guard. ONE short wooden hoe with single crescent iron head, no duplicate tools. Magic: thick pale living roots, small ivory grain heads and warm green growth. Different from seed-summoning child: seasoned mature physical laborer.\n1 Portrait shoulders three-quarter side against orchard sunset, stern long nose, square grey beard, hoe resting on shoulder.\n2 Ciclo da Colheita SELF recovery after support: macro his indigo sash and saffron sleeve, warm green grain light travels from a harvested grain head toward his own chest, his distinct beard cropped above; dark stone seed cellar with dawn slitlight.\n3 Arar a Alma physical hit/enfeeble/ally drainheal +charge: low ground closeup hoehead hooks enemy's armored ANKLE and drags it safely off balance, no gore or cut feet; cultivator kneels farther back, one warm grain spark floats BACK to one distant wounded adult ally's raised forearm; wet sanctuary orchard furrow after rain.\n4 Colheita de Fôlego TEAM heal/spendcharge: steep bird-eye view cultivator stands centrally holding hoe VERTICALLY, exactly two allied adults at opposite corners with warm green healing circles at chest connected to THREE pale grain heads; luminous circular terraced herb garden in cloudy morning. Three friendly figures total.\n5 Ramos da Resposta physical shield-strip +damage: tight oblique enemy breastplate foreground, single thick root erupts and snaps a transparent enemy shield before striking chest, cultivator green sleeve and hoe handle visible at left; ancient marble root-covered aqueduct, blue night; ONE enemy, no gore, no humanoid plant.\n6 Abrigo das Raízes SELF invulnerability: close full crouched cultivator under three tightly curved roots forming a small personal hollow as ONE spear glances off outer root; own coat and square beard clearly visible, single hoe beside him, no other protected person; windy sanctuary cliff farm in purple dusk.",
+      "revision": "20261022-lot5"
+    },
+    {
+      "id": "a-arquiteta-verde",
+      "source": "art/source/a-arquiteta-verde-sheet.webp",
+      "assets": [
+        "art/characters/a-arquiteta-verde/portrait.webp",
+        "art/characters/a-arquiteta-verde/passive.webp",
+        "art/characters/a-arquiteta-verde/skill-impulso.webp",
+        "art/characters/a-arquiteta-verde/skill-tecnica.webp",
+        "art/characters/a-arquiteta-verde/skill-voto.webp",
+        "art/characters/a-arquiteta-verde/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Paraíso, Elo Criação: solemn ancient living sanctuary, pale skies and dark blue shadows; creation is constructive power, not Inferno destruction. Choose varied sanctuary places and times, not six identical cathedral interiors. Character A Arquiteta Verde: tall powerfully built South Asian woman32, deep brown skin, thick strong brows, wide straight nose, sea-green eyes, blunt blue-black bob to jawline and mint fabric headband. Rose-magenta architect coat with split skirt over cream fitted long sleeves, dark green trousers and flat leather boots. One hinged brass triangular ruler at waist, ONE mint-green vertical rectangular stone tablet held as plan. Her creation is geometric living JADE-WOOD ribs and beams, angular plan lines and growth joints, never loose vines, plant-woman limbs or existing buildings teleporting.\n1 Portrait side-upward bust with square confident jaw, green tablet pressed to chest, ruler at waist, unfinished jade-wood sanctuary cupola and pale gold dawn.\n2 Fundação Viva own passive shield: extreme close cream-sleeved forearm, small interlocked jade-wood joint appears as wrist guard and stops a falling chip, tablet and magenta coat edge establish identity; shadowy architectural model hall at night.\n3 Pilar Ascendente physical mark/expose: reverse low shot behind enemy, ONE rectangular jade-wood pillar rises under its metal boot tilting enemy stance, a bright GREEN square plan mark appears on enemy greave; architect broad silhouette at right with tablet in left hand, directing with lowered right palm; flooded sanctuary foundation yard, overcast blue morning.\n4 Abóbada Verde TEAM shield: dramatic overhead view architect at vertex center and exactly two allied adults below a delicate triangular vaulted rib structure with clearly THREE shield panels, no enemies; pale marble botanical atrium with pink dusk sky, brass ruler visible waist.\n5 Convergência dos Pilares single target physical damage+stun: extreme lateral close composition two jade-wood pillars angle toward the SAME armored enemy's sides and pin its cloak/armor, brief green stun burst above helmet, no flesh penetration; architect in foreground cropped magenta shoulder and plan tablet; slanted sanctuary bridge among white flowering trees, noon.\n6 Geometria Intocável SELF invulnerability: rear three-quarter full figure standing safely inside a tight wireframe jade-wood diamond with empty space between her body and ONE dark blade deflected outside, no allies; suspended sanctuary drafting platform over indigo clouds. Maintain ONE tablet and ONE belt ruler, normal connected limbs.",
+      "revision": "20261022-lot5"
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "source": "art/source/o-eco-sem-dono-sheet.webp",
+      "assets": [
+        "art/characters/o-eco-sem-dono/portrait.webp",
+        "art/characters/o-eco-sem-dono/passive.webp",
+        "art/characters/o-eco-sem-dono/skill-impulso.webp",
+        "art/characters/o-eco-sem-dono/skill-tecnica.webp",
+        "art/characters/o-eco-sem-dono/skill-voto.webp",
+        "art/characters/o-eco-sem-dono/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Limbo, Elo Correntes Quebradas: impossible disconnected pale basalt ruins, inverted horizons, violet haze and hanging fragments of bridges. Character is an original humanoid spirit, not an actual disembodied ear or speaker. O Eco sem Dono: lean androgynous adult38, slate-blue skin in anime flat tones, thin long nose, small closed mouth, pupil-less pale violet eyes, chin-length blunt WHITE hair with long straight fringe, ONE white horizontal paint stripe across BOTH cheeks. Charcoal-violet high-collar poncho over muted plum wraps, black tight gloves, ONE small hollow BRONZE crescent resonator pendant at sternum. Power is fragmented MAGENTA echo rectangles and offset outline ripples, NOT singer cyan curves or musical notes. Keep mouth closed; magic comes from listening/resonator. No duplicated pendant.\n1 Portrait extreme close front three-quarter face looking sideways, one gloved fingertip touching resonator just below chin, slate skin and cheek stripe clear; inverted ruined bell arcade hanging over violet void.\n2 passive retaliation: macro bronze crescent pendant at chest takes incoming pale spear-impact spark at left while a broken magenta echo angle RETURNS toward same attack direction on left, frayed violet poncho and lower face crop identify spirit; shattered mirror wall in grey-purple rain. No body wound.\n3 Eco Residual spiritual damage+charge: enemy torso dominates low foreground at right, one rectangular magenta echo hits breastplate, spirit crouches behind left with closed gloved fist against pendant, single small magenta echo shard stays at shoulder as charge; broken stepping stones over upside-down lake in pale pink Limbo dawn.\n4 Devolver a Voz protects/counters ONE ally: over ally shoulder view one adult ally at center, spirit visible behind left placing gloved hand on ally shoulder, angled magenta echo plate intercepts ONE hostile thrust and bends a return angle to visible enemy wrist at right; tilted basalt arch against lavender fog. OnlyONE ally shielded, spirit not making a broad group dome.\n5 Coro sem Origem all-enemies/spendcharge +caster fatigue: distant top-down shot spirit at foreground edge RELEASES exactlyTHREE broken rectangular echo waves toward exactlyTHREE distant enemy silhouettes on separated pale basalt fragments. Slight exhausted bent posture but no wound; pendant readable by bronze glint, magenta high contrast against slate-violet void, no additional figures.\n6 Eco Intangível SELF: narrow side profile full figure splits into two OFFSET contour outlines around same single body, hostile spear passes through empty echo AFTERIMAGE BEHIND the spirit, slate face/pale hair and pendant remain solid; solitary inverted staircase in deep purple night. No duplicate bodies, detached limbs, extra hands or other protected souls.",
+      "revision": "20261022-lot5"
     }
   ],
   "inventory": [
@@ -470,8 +526,8 @@
     {
       "id": "o-que-cria",
       "name": "O que Cria",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-semente",
@@ -482,14 +538,14 @@
     {
       "id": "o-cultivador",
       "name": "O Cultivador",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-arquiteta-verde",
       "name": "A Arquiteta Verde",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "o-primeiro-canto",
@@ -506,8 +562,8 @@
     {
       "id": "o-eco-sem-dono",
       "name": "O Eco sem Dono",
-      "artAvailable": false,
-      "styleReview": "pending_missing_art"
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
     },
     {
       "id": "a-porta-que-flutua",

@@ -18,7 +18,7 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 88 conjuntos habilitados, 528 referências válidas. Dezenove conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, 12 personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 92 conjuntos habilitados, 552 referências válidas. Vinte e três conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, oito personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
 
@@ -35,3 +35,9 @@ A que Une, O Vínculo e Os Três Irmãos completam o Elo da União. O Primeiro C
 Foram removidos círculos herdados dos emblemas de reino, perfil, ressonância e encontro final, além das caixas extras dos ícones de expedição e do pequeno símbolo do Codex. A aura duplicada atrás dos brasões saiu do SVG. Os desenhos dos brasões mantêm seu contorno próprio; seleção de botões, foco por teclado, retratos e custos continuam identificáveis. A contagem de Elos alinha-se sob o nome, os emblemas cabem nos espaços reservados e os símbolos de correntes/trio têm área de desenho sem recortes nas extremidades.
 
 O inventário foi normalizado para usar os campos `artAvailable` e `styleReview` de forma consistente com o catálogo.
+
+## Quinto lote: 24 imagens
+
+O que Cria, O Cultivador e A Arquiteta Verde completam Criação; todos os 35 personagens de Paraíso passam a ter conjunto próprio. O Eco sem Dono amplia Correntes Quebradas com uma identidade de eco fragmentado, distinta do canto orgânico de Criação. Os conjuntos seguem os kits atuais, sem mudanças de regras. Prompts, arquivos e limites dos recortes: `ART_LOT_20261022_05.json`.
+
+A cobertura de arte não representa revisão de estilo concluída: 69 conjuntos antigos ainda aguardam reformulação e oito personagens de Limbo seguem sem conjunto completo. A limpeza de molduras do lote anterior foi preservada.

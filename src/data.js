@@ -152,6 +152,7 @@ const starterArt = {
 };
 
 const illustratedCharacterIds = new Set([
+  "o-que-cria", "o-cultivador", "a-arquiteta-verde", "o-eco-sem-dono",
   "a-que-une", "o-vinculo", "os-tres-irmaos", "o-primeiro-canto",
   "a-luz-nua", "o-espelho", "a-cartografa-da-clareza", "o-elo-dourado", "a-semente", "a-linha-partida",
   "a-chama-que-nao-apaga", "o-que-levanta", "a-voz", "o-portador-da-aurora",
