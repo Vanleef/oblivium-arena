@@ -1,0 +1,795 @@
+{
+  "date": "2026-10-22",
+  "status": "in_progress",
+  "counts": {
+    "roster": 100,
+    "available": 77,
+    "revised": 4,
+    "existingPending": 73,
+    "missing": 23
+  },
+  "revised": [
+    {
+      "id": "a-chama-que-nao-apaga",
+      "source": "art/source/a-chama-que-nao-apaga-sheet.webp",
+      "assets": [
+        "art/characters/a-chama-que-nao-apaga/portrait.webp",
+        "art/characters/a-chama-que-nao-apaga/passive.webp",
+        "art/characters/a-chama-que-nao-apaga/skill-impulso.webp",
+        "art/characters/a-chama-que-nao-apaga/skill-tecnica.webp",
+        "art/characters/a-chama-que-nao-apaga/skill-voto.webp",
+        "art/characters/a-chama-que-nao-apaga/skill-despertar.webp"
+      ],
+      "prompt": "EDIT TARGET image 1: six-panel character sheet. Image 2: reference for replacement top-right scene ONLY.\nRedraw the ENTIRE sheet in a MUCH MORE GRAPHIC TV ANIME CEL STYLE. This is a new clean animation drawing, not a filter: expressive stylized anime eyes, small line nose, simple mouth, big graphic hair clumps, bold clean black contours, bucket-filled saturated flat colors, exactly ONE hard-edged shadow per surface. Backgrounds built from broad clean color shapes, no brick-by-brick detail. NO realistic skin, gradients on people, painterly brushwork, texture, grain, hatching, bloom, cinematic rendering, 3D. Strong graphic silhouette at icon scale.\nPreserve same mature stout dark-brown-skinned woman with broad nose, white coiled undercut, amber coat, indigo trousers, copper gauntlet, cracked copper lantern with tiny blue-white ember. She is 58, mature anime face rather than a young slim woman. Consistent anatomy and five fingers.\nExactly six square cells, edge-to-edge 3 columns x2 rows, 1536x1024, no gutters or text.\nCell order: 1 portrait forest dawn; 2 passive close hand relighting lantern wick at rainy workshop; 3 REPLACE with image2 action: seen from beside wooden target inside round brick-kiln workshop at blue night, coal near foreground and woman holding lantern close to waist farther away, elbows bent, no generic arm thrust, one discrete coal rather than beam; 4 low view raising lantern hook to shatter falling crystal in lilac cave; 5 kneeling lantern anchors gap in broken bridge; 6 personal defense crouching behind own hardened glowing coat hem as blade skids off, golden dunes.\nKeep all six camera framings and actions distinct. Illustrate soundless ember magic as clean blue-white graphic shapes, never a humanoid flame. Do not reuse the kiln or new pose in other cells. Preserve all clothing/accessories. No extra limbs, extra digits or lettering.",
+      "sceneReview": [
+        {
+          "slot": "portrait",
+          "action": "tight mature face beside cracked copper lantern",
+          "setting": "forest dawn"
+        },
+        {
+          "slot": "passive",
+          "action": "macro five-finger hand tending wick, copper cuff and lantern identify character",
+          "setting": "rainy wooden workshop"
+        },
+        {
+          "slot": "impulso",
+          "action": "target-side viewpoint: discrete blue-white coal in foreground; lantern held near waist in middle ground",
+          "setting": "circular brick-kiln workshop at blue night"
+        },
+        {
+          "slot": "tecnica",
+          "action": "low diagonal raising lantern hook into falling crystal; face, hook and impact emphasized",
+          "setting": "lilac crystal cave"
+        },
+        {
+          "slot": "voto",
+          "action": "close oblique view of copper-gauntlet hand anchoring lantern into cracked ground",
+          "setting": "broken bridge over turquoise river"
+        },
+        {
+          "slot": "despertar",
+          "action": "close crouched personal defense: hostile blade slides off own glowing coat hem",
+          "setting": "golden dunes at sunset"
+        }
+      ]
+    },
+    {
+      "id": "o-que-levanta",
+      "source": "art/source/o-que-levanta-sheet.webp",
+      "assets": [
+        "art/characters/o-que-levanta/portrait.webp",
+        "art/characters/o-que-levanta/passive.webp",
+        "art/characters/o-que-levanta/skill-impulso.webp",
+        "art/characters/o-que-levanta/skill-tecnica.webp",
+        "art/characters/o-que-levanta/skill-voto.webp",
+        "art/characters/o-que-levanta/skill-despertar.webp"
+      ],
+      "prompt": "Use case: style-transfer and composition revision. Image1 is the EDIT TARGET character sheet. Image2 is a research montage of arena game screenshots: study its flat anime drawing, tight crops and camera variety ONLY, never copy its characters, costumes or exact shots.\nRedraw image1 as SIX ORIGINAL TV-ANIME SCREENSHOT ICONS. Simple hand-drawn anime cel shading, graphic expressive eyes, small drawn nose, broad hair shapes, black outlines, flat base color plus ONE hard shadow. No painterly/realistic rendering, no texture, no gradients on skin, no 3D. Subject or decisive action fills 70-85% of each square; background subordinate and simplified. Vary camera and shot scale; do not make six full-body fantasy posters.\nSame character throughout: lean elderly olive-skinned man, narrow long face, big silver moustache, short gray-black hair, ochre rolled sleeves, teal patched overalls. Exactly ONE wooden lower-leg prosthesis, his left; right leg natural with boot. Same folding iron pick with orange sunrise inlays.\nExactly 3x2 equal square panels in a 1536x1024 sheet. Row-major:\n1 Tight laughing face with pick crossing behind shoulder, red rainy alley hinted.\n2 Extreme low close detail of left wooden prosthetic foot pressing fallen flag, sunrise light in ground crack, wheat field hinted.\n3 Enemy-view foreshortened upward PICK STRIKE, pick head and moustached face dominate, single dark armored foe lifted at edge, turquoise river bridge hinted.\n4 REPLACE OLD OVERHEAD LIFT POSE. Bird's-eye tight view: man CROUCHES beside a fallen stone beam in a ruined circular observatory at starry night; pick used as a lever with its head UNDER beam, both hands on handle below chest. Amber force bands raise the beam a short distance. Clear leverage, grounded limbs, NO arms over head, no yellow arrows or diagrams. Teal/ochre silhouette identifiable.\n5 Close decisive moment of helping an ally stand: two anatomically correct hands clasp, old man's moustached three-quarter face and warm pick brace visible, terracotta rooftop sunrise behind.\n6 Strong side diagonal vault over a low sword in rainy workshop, body fills frame, pick planted as pole, left wooden prosthesis and natural booted right foot clearly separated.\nOne visual event per cell, distinct silhouettes, coherent accessory scale. Five digits per hand, two arms/two legs, no fused limbs. No lettering, no borders or gutters, no copied anime characters.",
+      "sceneReview": [
+        {
+          "slot": "portrait",
+          "action": "close laughing moustached face, pick across shoulder",
+          "setting": "red-house alley in rain"
+        },
+        {
+          "slot": "passive",
+          "action": "macro prosthetic foot planted on fallen flag, light in crack",
+          "setting": "wheat field at sunrise"
+        },
+        {
+          "slot": "impulso",
+          "action": "foreshortened pick head and hands dominate upward strike lifting a single armored foe",
+          "setting": "broken river bridge at midday"
+        },
+        {
+          "slot": "tecnica",
+          "action": "grounded crouch using pick head as lever under fallen beam, amber lifting force, no overhead lift pose",
+          "setting": "ruined circular observatory at starry night"
+        },
+        {
+          "slot": "voto",
+          "action": "near-view hand clasp helping ally stand, moustached face and pick brace visible",
+          "setting": "village rooftops at sunrise"
+        },
+        {
+          "slot": "despertar",
+          "action": "diagonal vault using planted pick pole, one wooden lower leg distinct from natural booted leg",
+          "setting": "rainy wooden workshop at night"
+        }
+      ]
+    },
+    {
+      "id": "a-voz",
+      "source": "art/source/a-voz-sheet.webp",
+      "assets": [
+        "art/characters/a-voz/portrait.webp",
+        "art/characters/a-voz/passive.webp",
+        "art/characters/a-voz/skill-impulso.webp",
+        "art/characters/a-voz/skill-tecnica.webp",
+        "art/characters/a-voz/skill-voto.webp",
+        "art/characters/a-voz/skill-despertar.webp"
+      ],
+      "prompt": "EDIT TARGET image1 six-panel sheet. Image2 is an arena-game reference montage ONLY for anime cel drawing and variety of cropped shots. Do not copy any famous character or exact composition.\nRedraw all SIX cells as original shounen TV anime episode frames, NOT realistic fantasy illustration. Strong clean black outlines, stylized graphic eyes and simple noses, hair in broad graphic blue clumps, flat skin/cloth colors with exactly ONE hard cel shadow, limited palette, very simple background shapes, no painterly texture, hatching, skin gradients, glossy rendering, bloom or 3D. Use tightly composed square ICONS where character or decisive action fills 75% of frame. Do not make six full-body landscape posters.\nPreserve A Voz: androgynous East Asian adult with round cheeks and broad upper body, short cobalt hair with ONE long side braid, small amber behind-ear hearing aid, ivory sleeveless coat with coral collar/sash and teal throat pendant.\nExactly 3 columns x2 rows, equal square cells edge-to-edge, 1536x1024. In reading order:\n1 tight expressive FACE portrait, hearing aid visible, broken bridge/riverside background subordinate.\n2 PASSIVE extreme close detail of five-finger hand touching teal throat pendant, collar and side braid identifiable, tiny warm breath ripples, wheat field hinted.\n3 COMPLETELY REPLACE OLD ARM-THRUST. Dramatic extreme PROFILE CLOSE-UP: face and open shouting mouth occupy left two-thirds; amber hearing aid clear. Angular wedges of compressed sound burst right and fracture a single stone target at right edge. NO extended arm or hand. New setting pale salt flats beneath violet storm sky, just broad shapes. Mouth is unmistakably the source.\n4 técnica steep high-angle close action: boot stomps harbor planks, a fan of jagged pressure interrupts enemy's incoming foot/lunge; character's blue braid/ivory/coral torso fills upper frame. Sharp readable cause/effect, no generic beam from palm.\n5 voto medium cropped three-quarter face with one hand near mouth; narrow note binds tip of enemy spear in separate space to right, enemy small behind. Forest dawn simplified, NO spear crossing character's body.\n6 despertar tight evasive shoulder-and-head diagonal shot: A Voz ducks sideways as a single dart passes just beside shoulder; a crisp flat compressed-air plane from mouth redirects dart away. Dunes sunset hinted. NOT another hand-push pose, no group shield.\nAll six shots must differ in scale, silhouette and action. Anatomy correct, five fingers on visible hands, two arms only, no floating accessories, no text, no borders.",
+      "sceneReview": [
+        {
+          "slot": "portrait",
+          "action": "tight expressive face, hearing aid visible",
+          "setting": "broken bridge at midday"
+        },
+        {
+          "slot": "passive",
+          "action": "macro hand touching teal throat pendant, braid and coral collar identifiable",
+          "setting": "wheat field"
+        },
+        {
+          "slot": "impulso",
+          "action": "extreme shouting profile, mouth emits angular pressure fracturing stone at frame edge, no extended hand",
+          "setting": "salt flats under violet storm sky"
+        },
+        {
+          "slot": "tecnica",
+          "action": "foreshortened close boot stomp interrupting enemy foot, jagged pressure and harbor planks visible",
+          "setting": "harbor dock"
+        },
+        {
+          "slot": "voto",
+          "action": "cropped face and hand near mouth, narrow sound constricts enemy spear in separate space",
+          "setting": "forest path at dawn"
+        },
+        {
+          "slot": "despertar",
+          "action": "tight shoulder-and-head evasive turn, single projectile redirected beside shoulder",
+          "setting": "dunes at sunset"
+        }
+      ]
+    },
+    {
+      "id": "a-brasa-eterna",
+      "source": "art/source/a-brasa-eterna-sheet.webp",
+      "assets": [
+        "art/characters/a-brasa-eterna/portrait.webp",
+        "art/characters/a-brasa-eterna/passive.webp",
+        "art/characters/a-brasa-eterna/skill-impulso.webp",
+        "art/characters/a-brasa-eterna/skill-tecnica.webp",
+        "art/characters/a-brasa-eterna/skill-voto.webp",
+        "art/characters/a-brasa-eterna/skill-despertar.webp"
+      ],
+      "prompt": "Image1 is the OLD original A Brasa Eterna sheet: EDIT TARGET and identity reference. Image2 arena-icon study: reference ONLY for flat TV-anime rendering, tight framing, varied camera shots. Never copy Naruto/Bleach/One Piece characters, costumes, signature symbols or exact frames.\nRedraw six cells in consistent clean hand-drawn ANIME CEL style: graphic expressive eyes, simple nose and mouth, bold black outlines, broad flat hair shapes, saturated flat fills and ONE hard shadow. No semi-realism, painterly textures, hatching, skin pores, glossy 3D, realistic rubble or excessive particles. Preserve dark ominous atmosphere.\nOriginal character A Brasa Eterna of Inferno/Chama: young tan-skinned male martial fighter, curly black undercut on one side, single long dark-red braid, amber eyes, orange-black wrap coat, black fingerless hand wraps. Not the white-haired lantern woman from another character. His powers use compact orange flame with black ash.\nExactly SIX equal square scenes 3 columns by2 rows, 1536x1024, edge-to-edge, no gutters or text. Each icon must have ONE large decisive focal event and distinct framing, no six full-body posters:\n1 portrait very tight three-quarter face with crooked determined smile, gloved fist under chin, dark-red braid, volcanic skyline merely hinted.\n2 passive MACRO: his wrapped five-finger fist presses against sternum, one tenacious ember glows through a charred fold in orange coat, lower edge of face and red braid identify him. Black temple interior.\n3 impulso: foreshortened wrapped fist drives a SHORT diagonal orange ember slash into one armored practice target; his half-face large behind fist, ash-gray fortress gate at blue night. No generic laser or crossed unrelated swords.\n4 técnica: steep low angle cropped torso and bent knee as fighter rotates inside a narrow orange-black fire spiral, white-hot arc fills one diagonal; storm clouds and barren crag at violet dusk.\n5 voto: top-down CLOSE of palm pressed into cracked basalt floor, molten orange fault lines lock around enemy boot at edge; black wraps and orange sleeve clearly identifiable, damp ruined courtyard. No giant generic battlefield.\n6 despertar: close SIDE action of fighter slipping behind a sweep of his own ash-edged orange coat; a single enemy blade is deflected past his shoulder, his amber eye and braid visible. Pale ruined arch, no group shield, no dome.\nMaintain clear five-finger hands and coherent body/weapon layers; no extra limbs, no text or symbols.",
+      "sceneReview": [
+        {
+          "slot": "portrait",
+          "action": "tight determined face with wrapped fist under chin, black curls and red braid",
+          "setting": "volcanic skyline"
+        },
+        {
+          "slot": "passive",
+          "action": "macro wrapped hand tending compact ember in charred orange coat, lower face and red braid visible",
+          "setting": "dark temple interior"
+        },
+        {
+          "slot": "impulso",
+          "action": "foreshortened wrapped fist and short diagonal ember slash strike armored target",
+          "setting": "ash-gray fortress gate at blue night"
+        },
+        {
+          "slot": "tecnica",
+          "action": "cropped diagonal torso and bent knee rotate inside narrow orange-black fire spiral",
+          "setting": "barren crag at violet dusk"
+        },
+        {
+          "slot": "voto",
+          "action": "top-down palm presses basalt, ember fault lines surround enemy boot at edge",
+          "setting": "damp ruined courtyard"
+        },
+        {
+          "slot": "despertar",
+          "action": "side close of amber eye and ash-edged coat deflecting one blade past own shoulder",
+          "setting": "pale ruined arch"
+        }
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "id": "a-chama-que-nao-apaga",
+      "name": "A Chama que Não Apaga",
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
+    },
+    {
+      "id": "o-que-levanta",
+      "name": "O que Levanta",
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
+    },
+    {
+      "id": "a-voz",
+      "name": "A Voz",
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
+    },
+    {
+      "id": "o-portador-da-aurora",
+      "name": "O Portador da Aurora",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-luz-nua",
+      "name": "A Luz Nua",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-espelho",
+      "name": "O Espelho",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-cartografa-da-clareza",
+      "name": "A Cartógrafa da Clareza",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-elo-dourado",
+      "name": "O Elo Dourado",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-que-une",
+      "name": "A que Une",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-vinculo",
+      "name": "O Vínculo",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "os-tres-irmaos",
+      "name": "Os Três Irmãos",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-que-cria",
+      "name": "O que Cria",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-semente",
+      "name": "A Semente",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-cultivador",
+      "name": "O Cultivador",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-arquiteta-verde",
+      "name": "A Arquiteta Verde",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-primeiro-canto",
+      "name": "O Primeiro Canto",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-linha-partida",
+      "name": "A Linha Partida",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "name": "O Eco sem Dono",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-porta-que-flutua",
+      "name": "A Porta que Flutua",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-nome-esquecido",
+      "name": "O Nome Esquecido",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-relogio-afogado",
+      "name": "O Relógio Afogado",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-asa-invertida",
+      "name": "A Asa Invertida",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-andarilho-de-vidro",
+      "name": "O Andarilho de Vidro",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-sombra-inconstante",
+      "name": "A Sombra Inconstante",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-ponte-rasgada",
+      "name": "A Ponte Rasgada",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "a-alma-em-suspenso",
+      "name": "A Alma em Suspenso",
+      "artAvailable": false,
+      "styleReview": "pending_missing_art"
+    },
+    {
+      "id": "o-acougueiro",
+      "name": "O Açougueiro",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-viuva-escarlate",
+      "name": "A Viúva Escarlate",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-colecionador-de-cabecas",
+      "name": "O Colecionador de Cabeças",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "name": "Gêmeos do Cutelo",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-carrasco-sem-rosto",
+      "name": "O Carrasco sem Rosto",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-mae-rubra",
+      "name": "A Mãe Rubra",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-soberano-quebrado",
+      "name": "O Soberano Quebrado",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-juiza-de-ferro",
+      "name": "A Juíza de Ferro",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "O Príncipe das Correntes",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-regente-de-cinzas",
+      "name": "A Regente de Cinzas",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-herdeiro-cativo",
+      "name": "O Herdeiro Cativo",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-passo-interrompido",
+      "name": "O Passo Interrompido",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-sussurro",
+      "name": "O Sussurro",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-mascara-dupla",
+      "name": "A Máscara Dupla",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-tecelao-de-mentiras",
+      "name": "O Tecelão de Mentiras",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-boca-de-vidro",
+      "name": "A Boca de Vidro",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-falso-profeta",
+      "name": "O Falso Profeta",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-corretor-de-memorias",
+      "name": "O Corretor de Memórias",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-incendiario",
+      "name": "O Incendiário",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "artAvailable": true,
+      "styleReview": "revised_2026_10_22"
+    },
+    {
+      "id": "o-odio-encarnado",
+      "name": "O Ódio Encarnado",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Filho da Cinza",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "A Pira Errante",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-coracao-em-furia",
+      "name": "O Coração em Fúria",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-devorador",
+      "name": "O Devorador",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-mao-que-toma",
+      "name": "A Mão que Toma",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "name": "O Estômago sem Fundo",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-senhora-do-ultimo-pao",
+      "name": "A Senhora do Último Pão",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-credor",
+      "name": "O Credor",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-balanca-vazia",
+      "name": "A Balança Vazia",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-apodrecido",
+      "name": "O Apodrecido",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-praga-andante",
+      "name": "A Praga Andante",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-corrupto",
+      "name": "O Corrupto",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-rainha-dos-fungos",
+      "name": "A Rainha dos Fungos",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-medico-de-vermes",
+      "name": "O Médico de Vermes",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-jardim-morto",
+      "name": "O Jardim Morto",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-que-observou",
+      "name": "O que Observou",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-porta-fechada",
+      "name": "A Porta Fechada",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-surdo",
+      "name": "O Surdo",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-testemunha-cega",
+      "name": "A Testemunha Cega",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-quarto-vazio",
+      "name": "O Quarto Vazio",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-vigia-ausente",
+      "name": "O Vigia Ausente",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-que-possui",
+      "name": "O que Possui",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-pele-alheia",
+      "name": "A Pele Alheia",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-desejo-quebrado",
+      "name": "O Desejo Quebrado",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-marionetista-de-nervos",
+      "name": "A Marionetista de Nervos",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-espelho-carnal",
+      "name": "O Espelho Carnal",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-costureira",
+      "name": "A Costureira",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-que-apaga",
+      "name": "O que Apaga",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-ausencia",
+      "name": "A Ausência",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-fim-silencioso",
+      "name": "O Fim Silencioso",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "name": "O Menino sem Sombra",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-ultima-pagina",
+      "name": "A Última Página",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-lugar-de-ninguem",
+      "name": "O Lugar de Ninguém",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-escudo-vivo",
+      "name": "O Escudo Vivo",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-muralha",
+      "name": "A Muralha",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-que-ficou",
+      "name": "O que Ficou",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-ultimo-guardiao",
+      "name": "O Último Guardião",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-sentinela-azul",
+      "name": "A Sentinela Azul",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-mao-que-cura",
+      "name": "A Mão que Cura",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-restaurador",
+      "name": "O Restaurador",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "name": "A Luz que Restaura",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-jardineira-das-feridas",
+      "name": "A Jardineira das Feridas",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-pulso-sereno",
+      "name": "O Pulso Sereno",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-equilibrio",
+      "name": "O Equilíbrio",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-lamina-justa",
+      "name": "A Lâmina Justa",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-testemunha-integra",
+      "name": "A Testemunha Íntegra",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-julgador-gentil",
+      "name": "O Julgador Gentil",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-mensageira-do-amanha",
+      "name": "A Mensageira do Amanhã",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-que-revela",
+      "name": "O que Revela",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-olho-desarmado",
+      "name": "O Olho Desarmado",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "a-guardia-das-promessas",
+      "name": "A Guardiã das Promessas",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-que-pesa",
+      "name": "O que Pesa",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "O Trono Vazio",
+      "artAvailable": true,
+      "styleReview": "pending_existing_art"
+    }
+  ]
+}

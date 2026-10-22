@@ -151,6 +151,7 @@ const starterArt = {
 };
 
 const illustratedCharacterIds = new Set([
+  "a-chama-que-nao-apaga", "o-que-levanta", "a-voz",
   "o-acougueiro", "a-viuva-escarlate", "o-colecionador-de-cabecas", "gemeos-do-cutelo",
   "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",
   "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo",

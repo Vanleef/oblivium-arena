@@ -1,24 +1,24 @@
 # Estado da revisão de artes
 
-## Concluído nesta branch
+## Revisão anime de 22/10/2026
 
-- **A Chama que Não Apaga**: prancha com seis cenas independentes gerada, recortada e integrada em `art/characters/a-brasa-eterna/`.
-- Cenários: trilha de floresta ao amanhecer, oficina na chuva à noite, viela de casas vermelhas sob chuva, caverna de cristais lilases, ponte sobre rio turquesa ao meio-dia e dunas douradas ao pôr do sol.
-- A identidade foi mantida: mulher robusta de 58 anos, pele marrom-escura, cabelo branco em undercut cacheado, casaco âmbar, calça índigo, manopla de cobre e pequena brasa azul-branca na lanterna.
-- A prancha de origem está em `art/source/a-brasa-eterna-sheet.webp`; os seis recortes seguem os nomes de arquivo usados pelo jogo.
+Primeiro lote: **4 personagens / 24 imagens** redesenhadas (retrato, passiva e quatro habilidades por personagem).
 
+- **A Chama que Não Apaga**: identidade da mulher madura com lanterna preservada; impulso agora usa ponto de vista do alvo em uma oficina de forno circular. Arquivos próprios em `art/characters/a-chama-que-nao-apaga/`.
+- **O que Levanta**: golpe em perspectiva mais próximo; técnica refeita como alavanca junto ao chão em um observatório em ruínas, evitando outra pose de braços erguidos.
+- **A Voz**: impulso em close de perfil com som saindo da boca; técnica focada na pisada; voto e esquiva com recortes diferentes.
+- **A Brasa Eterna**: lutador do Inferno com cachos escuros, trança vermelha e casaco laranja/preto; passiva e habilidades com detalhes de corpo/objeto e impacto, separado da mulher da lanterna.
 
-- **O que Levanta**: seis cenas independentes geradas e integradas em `art/characters/o-que-levanta/`.
-- Cenários: beco de casas vermelhas sob chuva, campo de trigo ao amanhecer, ponte quebrada sobre rio turquesa, clareira nevada, telhados da vila ao nascer do sol e oficina de madeira à noite com chuva.
-- A identidade foi mantida: homem idoso esguio, bigode prateado, cabelo curto grisalho, macacão verde-azulado remendado, mangas ocre, perna protética de madeira e picareta de ferro com detalhes de nascer do sol.
-- A cena de despertar foi revisada para deixar o salto defensivo e a relação com a lâmina inimiga mais claros. A prancha de origem está em `art/source/o-que-levanta-sheet.webp`.
+## Integração corrigida
 
+A revisão anterior havia colocado A Chama que Não Apaga na pasta de A Brasa Eterna. Cada um agora tem seu próprio conjunto. O catálogo foi atualizado para habilitar as artes de A Chama que Não Apaga, O que Levanta e A Voz.
 
-- **A Voz**: seis cenas independentes geradas e integradas em `art/characters/a-voz/`.
-- Cenários: ponte quebrada sobre rio turquesa ao meio-dia, campo de trigo, viela de casas vermelhas sob chuva, cais com barcos e mastros, trilha de floresta ao amanhecer e dunas ao pôr do sol.
-- A identidade foi mantida: adulto andrógino de 34 anos, cabelo azul-cobalto com trança lateral, aparelho auditivo âmbar, casaco-colete marfim, faixa coral e pingente teal. A cena de voto foi recomposta para separar a lança do torso e mostrar o som envolvendo a arma do inimigo.
-- A prancha de origem está em `art/source/a-voz-sheet.webp`.
+## Cobertura e pendências
 
-## Próximos passos
+- Catálogo: 100 personagens.
+- Conjuntos com arquivos disponíveis e habilitados após esta revisão: 77.
+- Revisados neste lote: 4.
+- Conjuntos existentes ainda aguardando esta revisão de estilo: 73.
+- Personagens ainda sem conjunto próprio completo: 23.
 
-Inspecionar os recortes no jogo em escala de seleção e combate. Seguir o plano individual de cenas em `art-scene-plan.json` para os próximos personagens e revisar anatomia, leitura em miniatura, continuidade de acessórios e traço de anime 2D antes de ampliar o lote.
+Não considerar a revisão de todo o elenco concluída. O inventário e os prompts finais estão em `ART_STYLE_REVISION_20261022.json`; os critérios e as referências, em `ANIME_ART_DIRECTION.md`.
