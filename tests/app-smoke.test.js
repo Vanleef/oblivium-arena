@@ -51,3 +51,16 @@ test('Codex abre e fecha descrições por clique, Enter e Espaço sem perder a b
  handlers.keydown({...event,key:' '});assert.equal(details.open,true);assert.equal(prevented,3);
  assert.match(app.innerHTML,/Codex/);
 });
+
+
+test('metadados visuais do mundo não desviam o clique de alvo para a navegação',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});t.mock.method(Math,'random',()=>.6);
+ const {app,click}=setup();await import('../src/main.js?visual-world-routing=1');
+ click({startRun:'sangria'});click({node:'0:0'});t.mock.timers.tick(500);draft();
+ click({useSkill:'o-escudo-vivo:impulso'});
+ const tag=app.innerHTML.match(/<article[^>]*data-target="oponente-0-0"[^>]*>/)?.[0];assert.ok(tag);
+ const dataset=Object.fromEntries([...tag.matchAll(/data-([\w-]+)="([^"]*)"/g)].map(([,k,v])=>[k.replace(/-([a-z])/g,(_,c)=>c.toUpperCase()),v]));
+ assert.equal(dataset.originRealm,'Inferno');assert.equal(dataset.realm,undefined);
+ click(dataset);assert.match(app.innerHTML,/data-remove-action="o-escudo-vivo"/);
+ assert.doesNotMatch(app.innerHTML,/<div data-realm="Inferno" class="arena-match/);
+});

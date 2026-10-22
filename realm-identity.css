@@ -2,9 +2,9 @@
 .elo-sigil{display:inline-block;flex:none;width:18px;height:18px;vertical-align:middle;color:var(--accent,#c5b7ef)}
 .fighter-nameplate .unit-title{display:flex;align-items:center;gap:5px}
 .fighter-nameplate .elo-sigil{width:14px;height:14px}
-.fighter-card[data-realm="Inferno"] .fighter-backdrop{border-color:#d68b755c;clip-path:polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%)}
-.fighter-card[data-realm="Paraíso"] .fighter-backdrop{border-color:#9cd3df70;clip-path:polygon(12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%,0 12%)}
-.fighter-card[data-realm="Limbo"] .fighter-backdrop{border-color:#b6a3ee70;clip-path:polygon(0 0,91% 0,91% 8%,100% 8%,100% 87%,88% 87%,88% 100%,0 100%,0 56%,5% 56%,5% 45%,0 45%)}
+.fighter-card[data-origin-realm="Inferno"] .fighter-backdrop{border-color:#d68b755c;clip-path:polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%)}
+.fighter-card[data-origin-realm="Paraíso"] .fighter-backdrop{border-color:#9cd3df70;clip-path:polygon(12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%,0 12%)}
+.fighter-card[data-origin-realm="Limbo"] .fighter-backdrop{border-color:#b6a3ee70;clip-path:polygon(0 0,91% 0,91% 8%,100% 8%,100% 87%,88% 87%,88% 100%,0 100%,0 56%,5% 56%,5% 45%,0 45%)}
 .anime-impact{transform-box:fill-box;transform-origin:center;animation:cel-impact 640ms cubic-bezier(.16,.8,.3,1) both;animation-delay:var(--motion-delay,0ms);stroke:var(--effect-color);stroke-width:2.1;stroke-linecap:square;stroke-linejoin:miter;fill:none}
 .anime-impact .elo-impact-mark{fill:var(--elo-color);stroke:#0b111c;stroke-width:5;opacity:.85}
 .anime-impact .impact-paper{fill:var(--effect-color);stroke:none;opacity:.9}
@@ -19,9 +19,9 @@
 @media(max-width:680px){.fighter-nameplate .elo-sigil{width:12px;height:12px}.fighter-nameplate .unit-title{gap:3px}.fighter-nameplate .unit-name{overflow-wrap:anywhere}.fighter-nameplate{min-width:0}}
 @media(prefers-reduced-motion:reduce){.anime-impact{display:none}.world-crest{transition:none}}
 
-.arena-match[data-realm]{background-size:cover;background-position:center;isolation:isolate}
-.arena-match[data-realm="Inferno"]{background-image:linear-gradient(#0d1828f0,#0d1828e8),url("/art/interface/inferno.webp")}
-.arena-match[data-realm="Paraíso"]{background-image:linear-gradient(#0d1828f0,#0d1828e8),url("/art/interface/paraiso.webp")}
-.arena-match[data-realm="Limbo"]{background-image:linear-gradient(#0d1828f0,#0d1828e8),url("/art/interface/limbo.webp")}
+.arena-match[data-origin-realm]{background-size:cover;background-position:center;isolation:isolate}
+.arena-match[data-origin-realm="Inferno"]{background-image:linear-gradient(#0d1828f0,#0d1828e8),url("/art/interface/inferno.webp")}
+.arena-match[data-origin-realm="Paraíso"]{background-image:linear-gradient(#0d1828f0,#0d1828e8),url("/art/interface/paraiso.webp")}
+.arena-match[data-origin-realm="Limbo"]{background-image:linear-gradient(#0d1828f0,#0d1828e8),url("/art/interface/limbo.webp")}
 /* Keep the eyes inside the short landscape window on wide Codex cards. */
 .codex-portrait{object-position:center 14%}
