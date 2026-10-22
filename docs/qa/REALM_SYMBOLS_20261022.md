@@ -1,6 +1,6 @@
 # Símbolos dos reinos e ícone dark do jogo
 
-Os três emblemas dos mundos usam símbolos vetoriais transparentes com contorno preto para destacar suas silhuetas sem adicionar molduras. Inferno usa uma chama serrilhada; Paraíso, linhas abertas e fluidas com um foco de luz; Limbo, elos interrompidos. O ícone do jogo agora usa uma abordagem de pincel e nanquim anime: um eclipse de bordas irregulares atravessado por três rastros dos mundos. O SVG e os PNGs mantêm o fundo transparente; o símbolo também substitui a marca no cabeçalho e os ícones de instalação.
+Os três emblemas dos mundos usam símbolos vetoriais transparentes com contorno preto para destacar suas silhuetas sem adicionar molduras. Inferno usa uma chama serrilhada; Paraíso, linhas abertas e fluidas com um foco de luz; Limbo, elos interrompidos. O ícone do jogo recupera a silhueta simples da primeira marca: um anel dourado parcialmente encoberto por um disco escuro, com um pequeno ponto vermelho. A composição evoca um eclipse e mantém o SVG e os PNGs sem fundo; ela também substitui a marca no cabeçalho e os ícones de instalação.
 
 ## Verificação
 

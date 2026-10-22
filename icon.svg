@@ -1,36 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="moon" x1="132" y1="132" x2="328" y2="384" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#b4a9b8"/>
-      <stop offset=".56" stop-color="#736978"/>
-      <stop offset="1" stop-color="#332d3a"/>
-    </linearGradient>
-    <linearGradient id="inferno" x1="100" y1="171" x2="262" y2="254" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ad5260"/>
-      <stop offset="1" stop-color="#6b2f40"/>
-    </linearGradient>
-    <linearGradient id="paraiso" x1="401" y1="133" x2="263" y2="254" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9dc6b8"/>
-      <stop offset="1" stop-color="#567d78"/>
-    </linearGradient>
-    <linearGradient id="limbo" x1="403" y1="378" x2="263" y2="255" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8873a7"/>
-      <stop offset="1" stop-color="#504465"/>
+    <linearGradient id="orbit" x1="122" y1="128" x2="390" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0d59a"/>
+      <stop offset="1" stop-color="#b38d55"/>
     </linearGradient>
   </defs>
-  <path d="M388 250c0 92-62 157-143 164-84 7-160-57-165-143-5-70 33-132 90-161l9 13c-50 27-79 78-75 137 5 71 66 123 134 119 72-4 126-62 126-133 0-27-8-53-22-74l13-10c21 27 33 56 33 88Z" fill="#302936"/>
-  <path d="M371 233c-4-75-54-124-122-126-52-2-99 25-123 68l-11-8c28-56 82-88 143-85 80 4 137 61 143 145Z" fill="#633241"/>
-  <path d="M269 96c-79-11-151 41-176 116-26 79 13 164 89 201 48 23 105 22 153-7-53 10-110-7-145-47-39-45-44-108-17-158 24-44 64-73 113-77-4-10-10-19-17-28Z" fill="url(#moon)"/>
-  <path d="M288 105c79 4 138 61 143 136 5 79-53 146-130 153-72 6-132-47-143-115-12-72 32-145 100-166 10-4 20-6 30-8Z" fill="#0c0b12" stroke="#665667" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M115 211c9-46 37-86 76-110m-77 177c6 35 24 66 48 88" stroke="#d1c5d3" stroke-width="4" stroke-linecap="round" opacity=".34"/>
-  <path d="m88 166 51 13 37 15 47 26 42 36-35-9-42-20-41-18-47-21-22-14Z" fill="url(#inferno)"/>
-  <path d="m102 168 27 7-12 6-21-7m53 33 18 5-10 8-22-8" fill="#c66a70" opacity=".7"/>
-  <path d="m421 119-29 34-31 24-37 32-58 60 24-39 31-40 31-34 34-29 23-8Z" fill="url(#paraiso)"/>
-  <path d="m408 127-24 28-19 10m-52 51-17 18m-18 25 22-39" stroke="#c1dbce" stroke-width="5" stroke-linecap="round" opacity=".72"/>
-  <path d="m423 385-43-25-34-27-38-34-42-43 37 20 34 26 35 27 42 31 19 25Z" fill="url(#limbo)"/>
-  <path d="m394 361-25-18-8-13m-57-41-17-19m-20-23 35 22" stroke="#b9a5d1" stroke-width="5" stroke-linecap="square" opacity=".65"/>
-  <path d="m255 215 38 38-38 45-36-40 36-43Z" fill="#09080e" stroke="#c0a9ba" stroke-width="5" stroke-linejoin="bevel"/>
-  <path d="m256 226 15 27-16 26-15-26 16-27Z" fill="#8e3f50"/>
-  <path d="m116 134 13 23-27-6 14-17Zm282 19 21-13-5 28-16-15Zm-22 229 25 12-28 7 3-19Z" fill="#25212d"/>
-  <path d="m130 148 10 11-18-3m259-23-14 18m-13 267 17-2-8 10" stroke="#8d788f" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+  <circle cx="247" cy="256" r="151" stroke="url(#orbit)" stroke-width="22"/>
+  <circle cx="278" cy="256" r="133" fill="#09090e"/>
+  <circle cx="390" cy="127" r="12" fill="#df7065"/>
 </svg>
