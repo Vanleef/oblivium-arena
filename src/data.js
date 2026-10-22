@@ -152,6 +152,7 @@ const starterArt = {
 };
 
 const illustratedCharacterIds = new Set([
+  "a-luz-nua", "o-espelho", "a-cartografa-da-clareza", "o-elo-dourado", "a-semente", "a-linha-partida",
   "a-chama-que-nao-apaga", "o-que-levanta", "a-voz", "o-portador-da-aurora",
   "o-acougueiro", "a-viuva-escarlate", "o-colecionador-de-cabecas", "gemeos-do-cutelo",
   "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",

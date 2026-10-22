@@ -24,3 +24,18 @@ const paths={
 export function uiIcon(name,extraClass=''){return `<svg class="ui-icon ${extraClass}" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${paths[name]||paths.seal}"/></svg>`;}
 export function realmEmblem(id,className='realm-emblem'){return `<img class="${className}" src="/art/interface/realm-${id}.webp" alt="" width="128" height="128" loading="lazy">`;}
 export function statusIcon(label){const name=/carga/i.test(label)?'charge':/afli|sangramento|queimadura|veneno|decad/i.test(label)?'spore':/marca/i.test(label)?'mark':/cura|regenera/i.test(label)?'heart':/contra/i.test(label)?'counter':/selad|atordo/i.test(label)?'lock':/exposto/i.test(label)?'eye':/defesa|armadura|redução|invulner/i.test(label)?'shield':'seal';return uiIcon(name);}
+
+
+// Temporary artwork slots retain the ability's meaning and the shared icon style.
+export function abilityIconName(ability) {
+ if(ability.defense||ability.invulnerable)return 'shield';
+ if(ability.counter)return 'counter';
+ if(ability.heal||ability.regen)return 'heart';
+ if(ability.stun||ability.sealAttack||ability.sealSupport)return 'lock';
+ if(ability.damageType==='affliction'||ability.dot)return 'spore';
+ if(ability.mark)return 'mark';
+ if(ability.shield)return 'shield';
+ if(ability.damage)return ability.damageType==='physical'?'arena':'charge';
+ return 'seal';
+}
+export function abilityIcon(ability){return uiIcon(abilityIconName(ability));}

@@ -18,6 +18,12 @@ Os 17 Elos compartilham seus desenhos entre brasão, pequeno símbolo do combate
 
 ## Cobertura
 
-100 personagens; 78 conjuntos habilitados, 468 referências válidas. Nove conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, 22 personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
+100 personagens; 84 conjuntos habilitados, 504 referências válidas. Quinze conjuntos passaram por esta revisão de estilo, 69 conjuntos existentes aguardam revisão, 16 personagens ainda não têm conjunto completo próprio. O primeiro lote revisou A Chama que Não Apaga, O que Levanta, A Voz e A Brasa Eterna.
 
 O arquivo `art-scene-plan.json` contém propostas históricas: as cenas finais deste lote seguem os kits atuais e estão documentadas acima. Não considerar a revisão do elenco concluída.
+
+## Terceiro lote: 36 imagens
+
+A Luz Nua, O Espelho e A Cartógrafa da Clareza completam Verdade. O Elo Dourado inicia o complemento de União, A Semente de Criação e A Linha Partida de Correntes Quebradas. Cenas e traços próprios seguem os kits existentes, sem alterações nas mecânicas. Prompts, arquivos e correções: `ART_LOT_20261022_03.json`.
+
+O Codex mantém a indicação de recrutamento por selo sem escurecer toda a carta. Os símbolos pequenos usam o desenho dos respectivos Elos; os espaços sem arte usam ícones de efeito. Textos de passiva/efeitos maiores e técnicas em coluna única até 480 px melhoram a leitura e o toque no celular.

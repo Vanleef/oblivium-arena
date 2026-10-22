@@ -1,4 +1,4 @@
-import { uiIcon, realmEmblem } from "./ui-icons.js";
+import { uiIcon, realmEmblem, abilityIcon } from "./ui-icons.js";
 import { renderAugmentCard, effectGlyph, augmentGlyph } from "./augment-cards.js";
 import { arenaRequest } from "./online-client.js";
 import { renderArena } from "./arena-view.js";
@@ -14,7 +14,7 @@ import { renderTrail } from "./trail-view.js";
 import { highlightTrailChoice } from "./trail-motion.js";
 import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
-import { eloCrest } from "./crests.js";
+import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
@@ -554,9 +554,9 @@ function codexView() {
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
-        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${esc(character.symbol)}</span><small>${owned ? "RECRUTADA" : "A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${esc(character.symbol)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${index + 1}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header><b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>${esc(form.classes.join(" · "))} · Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
+        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.eloId)}</span><small>${owned ? "RECRUTADA" : "A RECRUTAR"}</small></div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO DA ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3><p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header><b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>${esc(form.classes.join(" · "))} · Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
@@ -730,3 +730,4 @@ app.addEventListener("keydown", (event) => {
 });
 
 render();
+
