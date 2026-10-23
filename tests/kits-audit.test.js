@@ -29,7 +29,7 @@ test('cargas e marcas de todos os kits têm um uso mecânico',()=>{
 });
 
 test('bônus criado no próprio turno chega à próxima ofensiva e expira depois dela',()=>{
- const c=characters.find(c=>c.name==='O Ódio Encarnado'),b=battle(c),u=b.allies[0];u.passive=null;
+ const c=characters.find(c=>c.id==='o-odio-encarnado'),b=battle(c),u=b.allies[0];u.passive=null;
  cast(b,c.abilities[1]);assert.equal(u.boost,10);
  const before=b.enemies[0].hp;cast(b,c.abilities[0]);assert.equal(before-b.enemies[0].hp,40);assert.equal(u.boost,0);
 });
@@ -64,4 +64,5 @@ test('as durações de preparação também funcionam para a oposição',()=>{
  v.abilities=[{id:'expor',name:'Expor',target:'enemy',costs:{},damage:5,expose:1}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'expor',targetId:u.id,side:'enemy'}];passTurn(b);assert.equal(u.exposed,1);
  v.abilities=[{id:'golpe',name:'Golpe',target:'enemy',costs:{},damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'golpe',targetId:u.id,side:'enemy'}];const hp=u.hp;passTurn(b);assert.equal(hp-u.hp,20);assert.equal(u.exposed,0);
 });
+
 

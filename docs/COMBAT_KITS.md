@@ -48,11 +48,11 @@ Abra Sangramento e escolha entre reabrir a mesma ferida ou consumi-la na Senten�
 
 - **Incisão de Abate** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Sangramento: 5 de dano de aflição por 2 turnos. Vira Reabrir a Ferida por 2 turnos, somente contra a mesma vítima.
 - **Reabrir a Ferida** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 20 de dano físico a um inimigo. Se o alvo está com Sangramento: +10 dano; consome a preparação. Após usar, restaura Incisão de Abate.
-- **Separar Tendões** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno.
+- **Talho Imobilizante** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno.
 - **Sentença do Cutelo** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano físico a um inimigo. Se o alvo está com Sangramento: +15 dano; consome a preparação.
 - **Passo entre Lâminas** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Viúva Escarlate — Duelista
+### A Viúva — Duelista
 
 Atraia uma agressão ao véu para abrir uma cobrança de Vida contra quem o atacou.
 
@@ -66,7 +66,7 @@ Atraia uma agressão ao véu para abrir uma cobrança de Vida contra quem o atac
 - **Beijo da Última Noite** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +15 dano.
 - **Véu de Sangue** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Colecionador de Cabeças — Caçador
+### O Colecionador — Caçador
 
 Acumule troféus e escolha quando gastar as duas grandes execuções disponíveis no combate.
 
@@ -94,7 +94,7 @@ Use um corte para abrir o outro; escolha entre a continuação concentrada e o e
 - **Encontro das Lâminas** (2 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo está Exposto: +10 dano.
 - **Dança Cruzada** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Carrasco sem Rosto — Sentenciador
+### O Carrasco — Sentenciador
 
 Marque uma sentença que pune apoio; interrompa a vítima ou guarde a execução para quando ela estiver ferida.
 
@@ -122,7 +122,7 @@ Troque sua Vida por guarda e recuperação futura de um aliado; sustente-se dren
 
 ## Elo Coroa
 
-### O Soberano Quebrado — Dominador
+### O Soberano — Dominador
 
 Assuma a coroa para espalhar decretos e depois escolha quem será obrigado a ajoelhar.
 
@@ -136,33 +136,33 @@ Assuma a coroa para espalhar decretos e depois escolha quem será obrigado a ajo
 - **Coroa sobre Ruínas** (1 Cinza + 1 Essência; recarga 0T): Concede 25 de Defesa destrutível. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Durante os próximos 2 turnos, Decreto do Rei Caído vira Decreto sobre Todos.
 - **Trono Interior** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Juíza de Ferro — Controladora
+### A Magistrada — Magistrada Tirânica
 
-A acusação expõe e sela o apoio; a audiência interrompe e o veredito atravessa a redução de dano.
+Imponha uma acusação para expor e selar o apoio; interrompa a resistência antes da sentença perfurante.
 
 **Estrutura:** Interdição de apoio
 
-**Passiva — Peso da Lei:** Suas habilidades causam +5 de dano se o alvo está Exposto.
+**Passiva — Lei do Mais Forte:** Suas habilidades causam +5 de dano se o alvo está Exposto.
 
-- **Acusação de Ferro** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
-- **Audiência Suspensa** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove 10 de Defesa antes do dano.
-- **Veredito Irrecorrível** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
-- **Sala Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Acusação Imposta** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
+- **Interdição da Defesa** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove 10 de Defesa antes do dano.
+- **Sentença de Submissão** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
+- **Toga Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Trono Vazio — Estrategista
+### O Suserano — Suserano da Interdição
 
-Interdite a ofensiva sem impedir o apoio; alterne o domínio com proteção coletiva e contra-ataques.
+Sele a ofensiva inimiga, imponha uma resposta em favor de um aliado e fortaleça a guarda dos seus vassalos.
 
 **Estrutura:** Autoridade sem corpo
 
-**Passiva — Presença sem Corpo:** No início do seu turno, recebe 4 de Defesa destrutível.
+**Passiva — Autoridade Delegada:** No início do seu turno, recebe 4 de Defesa destrutível.
 
-- **Vontade do Assento Vazio** (1 Cinza + 1 Essência; recarga 1T): Causa 15 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
-- **Edicto de Interdição** (1 Cinza + 1 Essência; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
-- **Domínio sem Rei** (1 Cinza + 1 Essência; recarga 0T): Concede 15 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
-- **Palácio Inatingível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Decreto de Submissão** (1 Cinza + 1 Essência; recarga 1T): Causa 15 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
+- **Interdição Soberana** (1 Cinza + 1 Essência; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
+- **Guarda dos Vassalos** (1 Cinza + 1 Essência; recarga 0T): Concede 15 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
+- **Suserania Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Príncipe das Correntes — Carcereiro
+### O Príncipe — Carcereiro
 
 Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas no cárcere.
 
@@ -176,31 +176,31 @@ Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas 
 - **Cárcere Dinástico** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a um inimigo. Atordoa por 1 turno. Consome as cargas: +8 de dano por carga.
 - **Corrente Exterior** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Regente de Cinzas — Comandante
+### A Déspota — Comandante Tirânica
 
-Mantenha o trio com um comando que deixa recuperação futura; use as cinzas para preparar a purga.
+Queime a resistência com o ferro do jugo, fortaleça seus executores e castigue quem já carrega a Queimadura.
 
 **Estrutura:** Comando persistente
 
 **Passiva — Lealdade pelo Medo:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
-- **Ordem em Cinzas** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos.
-- **Comando da Regente** (1 Cinza + 1 Essência; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Regeneração: restaura 2 de Vida no início dos próximos 2 turnos de cada aliado.
-- **Purgar a Rebelião** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +15 dano.
-- **Manto da Regência** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ferro do Jugo** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos.
+- **Ordem Absoluta** (1 Cinza + 1 Essência; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Regeneração: restaura 2 de Vida no início dos próximos 2 turnos de cada aliado.
+- **Esmagar a Resistência** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +15 dano.
+- **Privilégio Soberano** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Herdeiro Cativo — Rebelde
+### O Herdeiro — Tirano Herdeiro
 
-O punho ganha força com a Vida perdida; escolha entre recuperar-se ou conservar o risco para a sucessão.
+Use a Vida perdida para fortalecer o punho; recupere-se ou gaste as cargas na tomada do trono.
 
 **Estrutura:** Resistência cativa
 
-**Passiva — Vontade Cativa:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
+**Passiva — Ambição Acorrentada:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
 
 - **Punho Acorrentado** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +3 de dano (máx. +9). Ganha 1 carga (máx. 3).
-- **Aguentar o Decreto** (1 Cinza; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno.
-- **Sucessão Rompida** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
-- **Brecha na Cela** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Resistência do Pretendente** (1 Cinza; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno.
+- **Tomada do Trono** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
+- **Guarda Dinástica** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Mentira
 
@@ -231,7 +231,7 @@ Empreste um rosto para marcar, mude a resposta e revele a traição quando o adv
 - **Traição Revelada** (1 Cinza + 1 Essência; recarga 2T): Causa 20 de dano físico a um inimigo. Rouba 1 recurso da reserva inimiga. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Troca de Máscara** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Tecelão de Mentiras — Manipulador
+### O Intrigante — Manipulador
 
 Prenda o adversário na trama e escolha entre continuar o controle ou desatar a rede para limpar o trio.
 
@@ -245,20 +245,20 @@ Prenda o adversário na trama e escolha entre continuar o controle ou desatar a 
 - **Nó da Contradição** (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Fora da Trama** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Boca de Vidro — Atiradora
+### A Serpe — Predadora de Reflexos
 
-Repetir a sílaba aumenta seu dano até um limite; ser Atordoada quebra o ritmo do discurso.
+Repetir o sibilo aumenta seu dano até o limite; Atordoamento quebra a sequência.
 
 **Estrutura:** Discurso crescente
 
 **Passiva — Verdade Fraturada:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
-- **Sílaba Cortante** (1 Cinza; recarga 0T): Causa 15 de dano perfurante a um inimigo. Cada uso não anulado dá +3 de dano a esta técnica (máx. +9). Atordoamento zera esse bônus.
-- **Confissão Rachada** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 recurso da reserva inimiga.
-- **Discurso em Estilhaços** (2 Cinza + 1 Essência; recarga 2T): Causa 20 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano.
-- **Reflexo da Boca** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Sibilo Cortante** (1 Cinza; recarga 0T): Causa 15 de dano perfurante a um inimigo. Cada uso não anulado dá +3 de dano a esta técnica (máx. +9). Atordoamento zera esse bônus.
+- **Reflexo Traiçoeiro** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 recurso da reserva inimiga.
+- **Coro de Estilhaços** (2 Cinza + 1 Essência; recarga 2T): Causa 20 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano.
+- **Reflexo Desviado** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Falso Profeta — Corruptor
+### O Impostor — Corruptor
 
 Cultive cargas com a falsa bênção e escolha entre confessar para recuperar-se ou fabricar um milagre ofensivo.
 
@@ -272,7 +272,7 @@ Cultive cargas com a falsa bênção e escolha entre confessar para recuperar-se
 - **Milagre Fabricado** (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
 - **Imagem Sagrada** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Corretor de Memórias — Ladrão de Memórias
+### O Falsário — Ladrão de Memórias
 
 Hipoteque uma memória e apague as opções de apoio da vítima antes de liquidar o passado.
 
@@ -314,7 +314,7 @@ Mantenha a Queimadura, sufoque a vítima e escolha entre a labareda concentrada 
 - **Fornalha Interior** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Por carga: +5 de dano por carga.
 - **Manto de Cinzas** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Ódio Encarnado — Berserker
+### O Furor — Berserker
 
 Alimente o ódio para transformar seus ataques por 2 turnos; o desfecho encerra a fúria e cobra Vida.
 
@@ -329,35 +329,35 @@ Alimente o ódio para transformar seus ataques por 2 turnos; o desfecho encerra 
 - **Ressentimento sem Freio** [variação] (1 Cinza + 1 Essência; recarga 2T): Causa 35 de dano espiritual a um inimigo. Se o usuário tem 50 de Vida ou menos: +15 dano. O usuário perde 10 de Vida (não o derrota). Após usar, restaura Punho de Rancor. Após usar, restaura Explosão do Ressentimento.
 - **Fúria Intocável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Filho da Cinza — Sobrevivente
+### O Ressentido — Portador do Rancor
 
-Guarde calor até renascer; decida se gasta as reservas para atacar ou recuperar o corpo.
+Acumule rancor até reacender a primeira técnica; escolha entre consumir as reservas para recuperar Vida ou devolver a chama.
 
 **Estrutura:** Limiar de cargas
 
-**Passiva — Debaixo das Cinzas:** No início do seu turno, restaura 4 de Vida.
+**Passiva — Rancor Latente:** No início do seu turno, restaura 4 de Vida.
 
-- **Carvão Oculto** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Com 3 cargas, vira Ressurgir do Carvão até as cargas serem gastas.
-- **Ressurgir do Carvão** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 25 de dano espiritual a um inimigo. Remove aflições e condições prejudiciais do usuário. Consome as cargas: +3 de dano por carga.
-- **Recompor-se da Cinza** (1 Cinza; recarga 0T): Restaura 15 de Vida. Consome as cargas: +7 de cura por carga.
-- **Renascer em Chamas** (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Remove aflições e condições prejudiciais do usuário.
+- **Brasa do Ressentimento** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Com 3 cargas, vira Rancor Reaceso até as cargas serem gastas.
+- **Rancor Reaceso** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 25 de dano espiritual a um inimigo. Remove aflições e condições prejudiciais do usuário. Consome as cargas: +3 de dano por carga.
+- **Nutrir o Rancor** (1 Cinza; recarga 0T): Restaura 15 de Vida. Consome as cargas: +7 de cura por carga.
+- **Revide Incandescente** (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Remove aflições e condições prejudiciais do usuário.
 - **Dissolução em Cinzas** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Pira Errante — Cerco
+### A Vingadora — Vingança Incandescente
 
-O círculo anula uma agressão; se outra ferir a pira, abre Lenha da Retaliação contra o agressor.
+Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar sua proteção, abra a revanche contra o inimigo.
 
 **Estrutura:** Defesa em duas camadas
 
-**Passiva — Lenha da Travessia:** No início do seu turno, recebe 3 de Defesa destrutível.
+**Passiva — Rancor Encouraçado:** No início do seu turno, recebe 3 de Defesa destrutível.
 
-- **Lenha Espiritual** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Queimadura: 6 de dano de aflição por 3 turnos.
-- **Lenha da Retaliação** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 20 de dano espiritual a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. Após usar, restaura Lenha Espiritual.
-- **Círculo da Pira** (1 Cinza + 1 Essência; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
-- **Marcha da Fogueira** (2 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +10 dano.
+- **Brasa Punitiva** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Queimadura: 6 de dano de aflição por 3 turnos.
+- **Revanche Ardente** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 20 de dano espiritual a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. Após usar, restaura Brasa Punitiva.
+- **Guarda Vingativa** (1 Cinza + 1 Essência; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
+- **Cerco Incandescente** (2 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +10 dano.
 - **Passo entre Brasas** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Coração em Fúria — Ruptor
+### O Colérico — Ruptor
 
 A ebulição cresce com a Vida perdida, prepara o próximo golpe e disputa espaço com a descarga de cargas.
 
@@ -372,7 +372,7 @@ A ebulição cresce com a Vida perdida, prepara o próximo golpe e disputa espa�
 
 ## Elo Fome
 
-### O Devorador — Predador
+### O Devorador — Fera da Avidez
 
 A fome muda com sua Vida: ferido, você atravessa a Defesa e drena recursos; recuperado, volta a morder.
 
@@ -384,47 +384,47 @@ A fome muda com sua Vida: ferido, você atravessa a Defesa e drena recursos; rec
 - **Fome sem Corpo** [variação] (1 Cinza + 1 Essência; recarga 1T): Causa 15 de dano de aflição a um inimigo. Remove 1 recurso da reserva inimiga. Restaura ao usuário 60% do dano causado.
 - **Saliva Corrosiva** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Engolir a Essência** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem 50 de Vida ou menos: +15 dano.
-- **Mandíbula do Vazio** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Couraça Voraz** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Mão que Toma — Usurpadora
+### A Saqueadora — Acumuladora de Espólios
 
-Guarde o que roubou e escolha se as cargas vão para o Confisco ou para abrir uma reserva vital.
+Roube recursos e acumule espólios; gaste as reservas para recuperar Vida ou reforçar o confisco.
 
 **Estrutura:** Reserva conversível
 
 **Passiva — Posse Insaciável:** Sua primeira habilidade ofensiva do combate causa +4 de dano.
 
 - **Dedos da Cobiça** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Rouba 1 recurso da reserva inimiga.
-- **Guardar o que Roubou** (1 Cinza; recarga 0T): Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Vira Abrir o Cofre por 2 turnos; gastar as reservas restaura esta técnica.
-- **Abrir o Cofre** [variação] (1 Cinza + 1 Essência; recarga 0T): Restaura 20 de Vida. Consome as cargas: +5 de cura por carga. Após usar, restaura Guardar o que Roubou.
+- **Entesourar** (1 Cinza; recarga 0T): Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Vira Abrir o Cofre por 2 turnos; gastar as reservas restaura esta técnica.
+- **Abrir o Cofre** [variação] (1 Cinza + 1 Essência; recarga 0T): Restaura 20 de Vida. Consome as cargas: +5 de cura por carga. Após usar, restaura Entesourar.
 - **Confisco da Alma** (1 Cinza + 1 Essência; recarga 1T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano. Consome as cargas: +7 de dano por carga.
-- **Mão Fora de Alcance** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Espólio Intocável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Estômago sem Fundo — Devorador de Defesa
+### O Insaciável — Predador de Reservas
 
-Converta a Defesa removida em guarda própria, acumule refeições e escolha entre reserva vital e abismo.
+Consuma a Defesa inimiga para formar sua própria guarda; reúna reservas e gaste-as na fome de aflição.
 
 **Estrutura:** Digestão de Defesa
 
-**Passiva — Digestão Lenta:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Assimilação:** No início do seu turno, restaura 3 de Vida.
 
-- **Corrosão Faminta** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Converte 50% da Defesa removida em Defesa própria (máx. 15). Remove 20 de Defesa antes do dano. Ganha 1 carga (máx. 3).
-- **Reserva do Estômago** (1 Cinza; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno.
-- **Fundo que Não Existe** (1 Cinza + 1 Essência; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +8 de dano por carga.
-- **Refúgio no Abismo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Consumir a Guarda** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Converte 50% da Defesa removida em Defesa própria (máx. 15). Remove 20 de Defesa antes do dano. Ganha 1 carga (máx. 3).
+- **Reserva Consumida** (1 Cinza; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno.
+- **Fome Devorante** (1 Cinza + 1 Essência; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +8 de dano por carga.
+- **Corpo Recolhido** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Senhora do Último Pão — Apoio da Escassez
+### A Matriarca — Soberana da Privação
 
-Divida uma cura menor agora que continua nos dois turnos seguintes, enquanto a privação prepara a cobrança.
+Drene recursos com a marca da privação, sustente seus aliados dependentes e cobre o tributo do alvo marcado.
 
 **Estrutura:** Ração repartida
 
-**Passiva — Última Migalha:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Lucro da Privação:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
 - **Marca da Privação** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 1 recurso da reserva inimiga.
-- **Dividir o Último Pão** (1 Cinza + 1 Essência; recarga 0T): Restaura 8 de Vida a cada aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.
-- **Dívida da Mesa Vazia** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Mesa Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ração dos Submissos** (1 Cinza + 1 Essência; recarga 0T): Restaura 8 de Vida a cada aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.
+- **Tributo da Fome** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
+- **Celeiro Lacrado** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Credor — Cobrador
 
@@ -439,18 +439,18 @@ Assine uma dívida que cobra a próxima técnica usada pela vítima; escolha ent
 - **Execução do Contrato** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Cláusula de Ausência** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Balança Vazia — Drenagem
+### A Usurária — Credora Predatória
 
-O contrapeso recupera mais Vida quanto mais ferido estiver o aliado; a fome coletiva ainda exige alvos feridos.
+Drene a reserva inimiga e sustente um aliado ferido; o confisco pune inimigos já enfraquecidos pela perda de Vida.
 
 **Estrutura:** Contrapeso da carência
 
-**Passiva — Peso da Carência:** Com 50 de Vida ou menos, suas habilidades causam +5 de dano.
+**Passiva — Lucro da Carência:** Com 50 de Vida ou menos, suas habilidades causam +5 de dano.
 
-- **Prato da Falta** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Remove 1 recurso da reserva inimiga.
-- **Contrapeso Vital** (1 Cinza + 1 Essência; recarga 0T): Restaura 15 de Vida. A cada 20 de Vida faltante do beneficiado: +3 de cura (máx. +12). Remove aflições e condições prejudiciais.
-- **Fome em Equilíbrio** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo tem 50 de Vida ou menos: +10 dano.
-- **Peso Zero** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Cobrança da Penúria** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Remove 1 recurso da reserva inimiga.
+- **Adiantamento Vital** (1 Cinza + 1 Essência; recarga 0T): Restaura 15 de Vida. A cada 20 de Vida faltante do beneficiado: +3 de cura (máx. +12). Remove aflições e condições prejudiciais.
+- **Confisco Coletivo** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo tem 50 de Vida ou menos: +10 dano.
+- **Penhor Inalcançável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Podridão
 
@@ -467,9 +467,9 @@ A decadência reduz a cura recebida; escolha entre degradar a guarda e concluir 
 - **Decomposição Completa** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo está com Decadência: +15 dano.
 - **Casca Morta** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Praga Andante — Propagadora
+### A Pestilência — Vetor Espiritual
 
-Espalhe Veneno e transforme o contágio coletivo em uma cobrança concentrada.
+Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta interrompe uma vítima já contaminada.
 
 **Estrutura:** Propagação e foco
 
@@ -509,118 +509,118 @@ Semeie uma colônia e escolha sua colheita: proteger os vivos ou espalhar esporo
 - **Esporos da Última Colheita** [variação] (2 Cinza + 1 Essência; recarga 2T): Causa 15 de dano de aflição a todos os inimigos. Consome as cargas: +3 de dano por carga. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
 - **Coroa de Esporos** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Médico de Vermes — Cirurgião Sombrio
+### O Inoculador — Cultivador de Parasitas
 
-A sutura limpa agora e restaura Vida nos próximos turnos; a colônia inimiga alimenta outra forma de recuperação.
+Inocule Veneno para drenar o inimigo; conserve seus hospedeiros aliados com limpeza e regeneração.
 
 **Estrutura:** Sutura viva
 
-**Passiva — Cuidado Decomposto:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Simbiose Corrupta:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
 - **Incisão Parasitária** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Veneno: 5 de dano de aflição por 3 turnos. Restaura ao usuário 50% do dano causado.
-- **Sutura de Vermes** (1 Cinza + 1 Essência; recarga 1T): Restaura 15 de Vida. Regeneração: restaura 6 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
+- **Hospedeiro Renovado** (1 Cinza + 1 Essência; recarga 1T): Restaura 15 de Vida. Regeneração: restaura 6 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
 - **Drenagem da Colônia** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 70% do dano causado. Se o alvo está com Veneno: +10 dano.
 - **Corpo entre Vermes** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Jardim Morto — Cerco Vivo
+### O Definhador — Semeador da Ruína
 
-O solo protege cada aliado e pune a primeira agressão que atravessar sua guarda; as raízes mantêm a decadência.
+Aplique Decadência, envolva o trio na trama e devolva parte da agressão em aflição; o definhar coletivo enfraquece inimigos contaminados.
 
 **Estrutura:** Jardim de retaliação
 
-**Passiva — Raiz sob a Pele:** Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor.
+**Passiva — Seiva Corrosiva:** Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor.
 
 - **Raiz Necrosada** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Decadência: 4 de dano de aflição por 3 turnos.
-- **Solo Contaminado** (1 Cinza + 1 Essência; recarga 0T): Concede 12 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 5 de dano de aflição ao agressor. Ativa uma vez.
-- **Jardim do Fim** (2 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo está com Decadência: +10 dano.
-- **Entre Raízes Mortas** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Trama Necrosada** (1 Cinza + 1 Essência; recarga 0T): Concede 12 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 5 de dano de aflição ao agressor. Ativa uma vez.
+- **Definhar** (2 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo está com Decadência: +10 dano.
+- **Casca Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Silêncio
 
-### O que Observou — Observador
+### O Espectador — Observador da Omissão
 
-Registre o acontecimento e provoque uma resposta: a agressão ao contra-ataque revela um desfecho próprio.
+Registre a vítima, recuse a interferência e transforme as cargas de observação em retaliação espiritual.
 
 **Estrutura:** Testemunho reativo
 
-**Passiva — Olhos que Não Piscam:** No início do seu turno, recebe 3 de Defesa destrutível.
+**Passiva — Indiferença Vigilante:** No início do seu turno, recebe 3 de Defesa destrutível.
 
-- **Registrar a Falha** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3).
-- **Recusar Interferência** (1 Cinza + 1 Essência; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, Peso do Testemunho vira Resposta da Testemunha contra o agressor por 2 turnos.
-- **Peso do Testemunho** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
-- **Resposta da Testemunha** [variação] (1 Cinza + 1 Essência; recarga 2T): Causa 30 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. Após usar, restaura Peso do Testemunho.
+- **Memória da Omissão** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3).
+- **Recusar Interferência** (1 Cinza + 1 Essência; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, Peso da Indiferença vira Retaliação do Espectador contra o agressor por 2 turnos.
+- **Peso da Indiferença** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
+- **Retaliação do Espectador** [variação] (1 Cinza + 1 Essência; recarga 2T): Causa 30 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. Após usar, restaura Peso da Indiferença.
 - **Fora do Acontecimento** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Porta Fechada — Carcereira
+### A Carcereira — Carcereira
 
 Feche o apoio da vítima sem impedir sua ofensiva; marque a porta para interrompê-la no momento certo.
 
 **Estrutura:** Tranca seletiva
 
-**Passiva — Lado de Dentro:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Abrigo dos Cúmplices:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
 - **Batida sem Resposta** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
-- **Tranca do Refúgio** (1 Cinza; recarga 0T): Concede 25 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno.
+- **Guarida Seletiva** (1 Cinza; recarga 0T): Concede 25 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno.
 - **Não Há Saída** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Porta Fora do Mundo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Limiar Interdito** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Surdo — Interrupção
+### O Silenciador — Supressor de Vozes
 
-Prolongue o Enfraquecimento e escolha entre a onda de combo ou interromper para abrir um golpe de aflição.
+Enfraqueça a voz inimiga, interrompa sua ação e escolha entre prolongar a aflição ou liberar o decreto.
 
 **Estrutura:** Interrupção e continuação
 
-**Passiva — Ruído Abafado:** Com 50 de Vida ou menos, suas habilidades causam +5 de dano.
+**Passiva — Clamor Sufocado:** Com 50 de Vida ou menos, suas habilidades causam +5 de dano.
 
 - **Impacto Abafado** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado.
-- **Som que Não Retorna** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 20 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Após usar, restaura Impacto Abafado.
-- **Cessar do Som** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. No próximo turno, Impacto Abafado vira Som que Não Retorna contra o alvo interrompido.
-- **Onda Inaudível** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo está Enfraquecido: +15 dano.
+- **Clamor sem Retorno** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 20 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Após usar, restaura Impacto Abafado.
+- **Interditar a Voz** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. No próximo turno, Impacto Abafado vira Clamor sem Retorno contra o alvo interrompido.
+- **Decreto do Silêncio** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo está Enfraquecido: +15 dano.
 - **Silêncio Absoluto** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Testemunha Cega — Testemunha
+### A Cúmplice — Cúmplice do Silêncio
 
 A memória responde a técnicas espirituais ou de aflição; revele a presença para preparar o testemunho perfurante.
 
 **Estrutura:** Vigília espiritual
 
-**Passiva — Visão sem Olhos:** Suas habilidades causam +5 de dano se o alvo está Exposto.
+**Passiva — Cumplicidade Velada:** Suas habilidades causam +5 de dano se o alvo está Exposto.
 
-- **Presença Denunciada** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
-- **Memória do Golpe** (1 Cinza; recarga 0T): Anula a próxima habilidade inimiga espiritual ou de aflição recebida e contra-ataca com 20 de dano. Dura 1 turno.
-- **Testemunho Final** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
-- **Campo sem Testemunha** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Segredo Exposto** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Resposta Preparada** (1 Cinza; recarga 0T): Anula a próxima habilidade inimiga espiritual ou de aflição recebida e contra-ataca com 20 de dano. Dura 1 turno.
+- **Acusação Oportunista** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
+- **Depoimento Retido** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Quarto Vazio — Isolamento
+### O Anfitrião — Entidade do Isolamento
 
 A presença vazia pune o próximo apoio da vítima com dano e perda de um recurso; a ausência coletiva drena o restante.
 
 **Estrutura:** Isolamento oportunista
 
-**Passiva — Vazio Habitado:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Hospitalidade Negada:** No início do seu turno, restaura 3 de Vida.
 
-- **Ausência Pesada** (1 Cinza; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 8 de dano de aflição ao próprio alvo e remove 1 recurso inimigo. Ativa uma vez.
+- **Convite ao Isolamento** (1 Cinza; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 8 de dano de aflição ao próprio alvo e remove 1 recurso inimigo. Ativa uma vez.
 - **Ninguém Vem** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a todos os inimigos. Remove 1 recurso da reserva inimiga uma única vez.
-- **Quarto sem Retorno** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Quarto Inacessível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Estadia sem Retorno** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo tem a marca desta preparação: +10 dano.
+- **Porta do Desamparo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Vigia Ausente — Emboscada
+### O Desertor — Predador da Omissão
 
-Anule uma agressão física para abrir uma chegada que ignora contra-ataques, ou cobre diretamente a abertura exposta.
+Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda contra o responsável.
 
 **Estrutura:** Emboscada após defesa
 
-**Passiva — Vigília Tardia:** Sua primeira habilidade ofensiva do combate causa +6 de dano.
+**Passiva — Oportunismo:** Sua primeira habilidade ofensiva do combate causa +6 de dano.
 
 - **Passagem Desguarnecida** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
-- **Vigia na Sombra** (1 Cinza + 1 Essência; recarga 0T): Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 25 de dano. Dura 1 turno. Ao anular uma técnica física ou perfurante, Chegar Depois vira Chegada pela Retaguarda contra o agressor por 2 turnos.
-- **Chegar Depois** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo está Exposto: +15 dano.
-- **Chegada pela Retaguarda** [variação] (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo está Exposto: +15 dano. Após usar, restaura Chegar Depois.
+- **Espera Cúmplice** (1 Cinza + 1 Essência; recarga 0T): Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 25 de dano. Dura 1 turno. Ao anular uma técnica física ou perfurante, Cobrar o Abandono vira Golpe da Retaguarda contra o agressor por 2 turnos.
+- **Cobrar o Abandono** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo está Exposto: +15 dano.
+- **Golpe da Retaguarda** [variação] (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo está Exposto: +15 dano. Após usar, restaura Cobrar o Abandono.
 - **Posto Vazio** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Carne
 
-### O que Possui — Possessor
+### O Usurpador — Possessor
 
 A posse sela ataques por uma ação, mas permite apoio; decida entre interromper a vítima marcada ou drenar sua Vida.
 
@@ -630,38 +630,38 @@ A posse sela ataques por uma ação, mas permite apoio; decida entre interromper
 
 - **Selo da Posse** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Sela técnicas ofensivas por 1 turno do alvo.
 - **Nervos Tomados** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Usufruto Vital** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 60% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
+- **Espoliação Vital** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 60% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
 - **Desligar o Corpo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Pele Alheia — Metamorfa
+### A Metamorfa — Usurpadora de Formas
 
-Assuma uma pele que atravessa redução de dano; descarte-a para recuperar Vida e voltar à forma anterior.
+Assuma a pele usurpada para trocar a lâmina e a técnica; descarte o molde para recuperar Vida e retomar a forma anterior.
 
 **Estrutura:** Postura reversível
 
-**Passiva — Pele que Aprende:** No início do seu turno, recebe 4 de Defesa destrutível.
+**Passiva — Adaptação Predatória:** No início do seu turno, recebe 4 de Defesa destrutível.
 
-- **Lâmina de Epiderme** (1 Cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 10 de Defesa antes do dano.
-- **Lâmina da Pele Nova** [variação] (1 Cinza; recarga 0T): Causa 15 de dano perfurante a um inimigo. Remove 15 de Defesa antes do dano.
-- **Camada Substituta** (1 Cinza + 1 Essência; recarga 0T): Concede 25 de Defesa destrutível. Remove aflições e condições prejudiciais. Assume a pele nova até usar Descartar a Forma. Troca Lâmina de Epiderme e esta técnica.
-- **Descartar a Forma** [variação] (1 Cinza; recarga 0T): Restaura 15 de Vida. Remove aflições e condições prejudiciais. Após usar, restaura Lâmina de Epiderme. Após usar, restaura Camada Substituta.
-- **Forma de Retaliação** (1 Cinza + 1 Essência; recarga 0T): Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
-- **Troca de Pele** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Gume Mutável** (1 Cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 10 de Defesa antes do dano.
+- **Gume Transfigurado** [variação] (1 Cinza; recarga 0T): Causa 15 de dano perfurante a um inimigo. Remove 15 de Defesa antes do dano.
+- **Pele Usurpada** (1 Cinza + 1 Essência; recarga 0T): Concede 25 de Defesa destrutível. Remove aflições e condições prejudiciais. Assume a pele nova até usar Descartar o Molde. Troca Gume Mutável e esta técnica.
+- **Descartar o Molde** [variação] (1 Cinza; recarga 0T): Restaura 15 de Vida. Remove aflições e condições prejudiciais. Após usar, restaura Gume Mutável. Após usar, restaura Pele Usurpada.
+- **Instinto de Revide** (1 Cinza + 1 Essência; recarga 0T): Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
+- **Corpo Substituto** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Desejo Quebrado — Ruptor Vital
+### O Profanador — Violador de Limites
 
-Sacrifique Vida para carregar o desejo; o pulso fica mais forte conforme o corpo se aproxima do limite.
+Converta sua Vida perdida em pressão ofensiva; invada a guarda alheia e consuma as cargas no golpe perfurante.
 
 **Estrutura:** Desejo de risco
 
-**Passiva — Falta Incurável:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
+**Passiva — Avidez Profana:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
 
-- **Pulso do Desejo** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +4 de dano (máx. +12). Ganha 1 carga (máx. 3). O usuário perde 5 de Vida (não o derrota).
-- **Aproximação Dolorosa** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 recurso da reserva inimiga.
-- **Desejo Desfeito** (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga.
-- **Forma Inalcançável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ímpeto Profano** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +4 de dano (máx. +12). Ganha 1 carga (máx. 3). O usuário perde 5 de Vida (não o derrota).
+- **Contato Invasivo** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 recurso da reserva inimiga.
+- **Violação da Forma** (1 Cinza + 1 Essência; recarga 2T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga.
+- **Forma Intangível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Marionetista de Nervos — Controladora
+### A Marionetista — Controladora
 
 Conecte os nervos e escolha entre sustentar o controle por mais uma ação ou romper os fios no desfecho.
 
@@ -675,46 +675,46 @@ Conecte os nervos e escolha entre sustentar o controle por mais uma ação ou ro
 - **Romper o Comando** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Fios Fora de Fase** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Espelho Carnal — Refletor
+### O Simulacro — Espelhamento Imposto
 
-A imagem ampara um aliado e devolve parte da próxima agressão que o ferir, sem anular a técnica recebida.
+Exponha o inimigo e sustente um aliado com o vínculo parasita; a dor recebida provoca uma resposta de aflição.
 
 **Estrutura:** Imagem que sente
 
-**Passiva — Dor Refletida:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
+**Passiva — Eco da Dor:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
 
-- **Reflexo de Carne** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
-- **Imagem de Resposta** (1 Cinza; recarga 0T): Restaura 10 de Vida. Concede 10 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 8 de dano de aflição ao agressor. Ativa uma vez.
-- **Rachar o Reflexo** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 20 de Defesa antes do dano. Se o alvo está Exposto: +10 dano.
-- **Atrás do Espelho** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Molde Vulnerável** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Vínculo Parasita** (1 Cinza; recarga 0T): Restaura 10 de Vida. Concede 10 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 8 de dano de aflição ao agressor. Ativa uma vez.
+- **Romper o Molde** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 20 de Defesa antes do dano. Se o alvo está Exposto: +10 dano.
+- **Duplicata Intangível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Costureira — Cirurgiã
+### A Suturadora — Cirurgiã
 
-Alterne o cuidado da sutura e sua retirada, preservando a opção de abrir os pontos do inimigo marcado.
+Use o fio para marcar e ferir; sustente seus aliados com suturas e desfaça os pontos da vítima no desfecho.
 
 **Estrutura:** Ciclo de cuidado
 
-**Passiva — Linha da Reparação:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Fio do Controle:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
 - **Ponto de Corte** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Sangramento: 4 de dano de aflição por 2 turnos.
-- **Sutura Perfeita** (1 Cinza + 1 Essência; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. No próximo turno, vira Retirar a Sutura: amparo sem nova limpeza.
-- **Retirar a Sutura** [variação] (1 Cinza; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Após usar, restaura Sutura Perfeita.
+- **Sutura de Domínio** (1 Cinza + 1 Essência; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. No próximo turno, vira Reforçar os Pontos: amparo sem nova limpeza.
+- **Reforçar os Pontos** [variação] (1 Cinza; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Após usar, restaura Sutura de Domínio.
 - **Desfazer os Pontos** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Costura de Ausência** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Vazio
 
-### O que Apaga — Anulador
+### O Anulador — Anulador de Vantagens
 
-Apague as vantagens e escolha qual técnica consumirá a presença marcada do adversário.
+Marque e remova vantagens; a preparação abre uma anulação exclusiva contra a mesma vítima, enquanto a segunda técnica dissolve Defesa.
 
 **Estrutura:** Apagamento dirigido
 
-**Passiva — Nada se Sustenta:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Vantagem Negada:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
 
-- **Traço Apagado** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove bônus de dano, redução e contra-ataque do alvo. Vira Ausência Definitiva por 2 turnos, apenas contra o alvo da marca.
-- **Ausência Definitiva** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 25 de dano de aflição a um inimigo. Exige a marca desta preparação no alvo. Se o alvo tem a marca desta preparação: +5 dano; consome a preparação. Após usar, restaura Traço Apagado.
-- **Branco sobre a Guarda** (1 Cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano.
+- **Marca da Anulação** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove bônus de dano, redução e contra-ataque do alvo. Vira Anulação Definitiva por 2 turnos, apenas contra o alvo da marca.
+- **Anulação Definitiva** [variação] (1 Cinza + 1 Essência; recarga 0T): Causa 25 de dano de aflição a um inimigo. Exige a marca desta preparação no alvo. Se o alvo tem a marca desta preparação: +5 dano; consome a preparação. Após usar, restaura Marca da Anulação.
+- **Dissolver a Guarda** (1 Cinza; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano.
 - **Extinguir o Traço** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +10 dano.
 - **Fora da Existência** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -731,7 +731,7 @@ Drene um recurso e deixe a ausência cobrar outro se a vítima não usar uma té
 - **Ausência Contagiosa** (1 Cinza + 1 Essência; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Não Estar** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Fim Silencioso — Finalizador
+### O Arauto — Finalizador
 
 Guarde suas duas sentenças mais fortes para os feridos; depois delas, o silêncio muda de forma.
 
@@ -739,51 +739,51 @@ Guarde suas duas sentenças mais fortes para os feridos; depois delas, o silênc
 
 **Passiva — Último Instante:** Suas habilidades causam +6 de dano se o alvo tem 50 de Vida ou menos.
 
-- **Aviso do Fim** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Presságio de Extinção** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Cessar da Vontade** (1 Cinza + 1 Essência; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Sem Últimas Palavras** (1 Cinza + 1 Essência; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +15 dano. Pode ser usada 2 vezes por combate; depois vira Silêncio Residual.
 - **Silêncio Residual** [variação] (1 Cinza; recarga 0T): Causa 20 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +5 dano.
 - **Instante sem Tempo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Menino sem Sombra — Sombra Frágil
+### O Desolador — Flagelo da Desolação
 
-O refúgio muda quando a Vida baixa; escolha entre usá-lo e gastar a sombra acumulada numa ofensiva arriscada.
+Acumule vestígios de ruína e consuma-os para extinguir a presença inimiga; com pouca Vida, a recomposição assume outra forma.
 
 **Estrutura:** Refúgio por necessidade
 
-**Passiva — Medo sem Forma:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
+**Passiva — Ruína Crescente:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
 
-- **Brincadeira sem Sombra** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
-- **Refúgio na Falta** (1 Cinza; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno. Com 50 de Vida ou menos, vira Esconder-se do Sol, com custo e recuperação maiores.
-- **Esconder-se do Sol** [variação] (1 Cinza + 1 Essência; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
-- **Sol que Não Encontra** (1 Cinza + 1 Essência; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
-- **Infância Invisível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Toque da Desolação** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
+- **Recompor o Vazio** (1 Cinza; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno. Com 50 de Vida ou menos, vira Recolher a Presença, com custo e recuperação maiores.
+- **Recolher a Presença** [variação] (1 Cinza + 1 Essência; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
+- **Extinguir a Presença** (1 Cinza + 1 Essência; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
+- **Presença Nula** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Última Página — Encerramento
+### A Escriba — Escriba da Extinção
 
-Escreva um nome e raspe a próxima ofensiva da vítima; a conclusão ainda consome a marca da página.
+Inscreva e exponha uma vítima, interrompa sua ofensiva e consuma a marca ao encerrar seu vestígio.
 
 **Estrutura:** Rasura de ações
 
-**Passiva — Parágrafo Final:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
+**Passiva — Traço Terminal:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
 
-- **Nome na Última Folha** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
-- **Rasura do Destino** (1 Cinza + 1 Essência; recarga 2T): Causa 5 de dano físico a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Remove bônus de dano, redução e contra-ataque do alvo.
-- **Fechar a História** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Margem em Branco** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Inscrever o Fim** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Rasura Terminal** (1 Cinza + 1 Essência; recarga 2T): Causa 5 de dano físico a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Encerrar o Vestígio** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
+- **Folha Nula** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Lugar de Ninguém — Desolação
+### O Obliterador — Anulador de Territórios
 
-O chão corrói e pune a inatividade de cada inimigo; escolha quem receberá o endereço marcado.
+Apague o terreno para punir a inatividade; marque uma coordenada, enfraqueça a vítima e consuma seu vestígio para recuperar Vida.
 
 **Estrutura:** Território que exige movimento
 
-**Passiva — Habitar o Nada:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Sustento do Apagamento:** No início do seu turno, restaura 3 de Vida.
 
-- **Chão de Ninguém** (1 Cinza + 1 Essência; recarga 1T): Causa 5 de dano físico a todos os inimigos. Decadência: 4 de dano de aflição por 2 turnos. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
-- **Endereço Inexistente** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Enfraquece por 1 turno do alvo: −10 de dano causado.
-- **Engolido pelo Lugar** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Território Impossível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Apagar o Terreno** (1 Cinza + 1 Essência; recarga 1T): Causa 5 de dano físico a todos os inimigos. Decadência: 4 de dano de aflição por 2 turnos. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
+- **Coordenada Nula** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Eliminar o Vestígio** (1 Cinza + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
+- **Contorno Inexistente** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Proteção
 
@@ -801,9 +801,9 @@ Erga a própria guarda e escolha entre o avanço curto e a Resposta da Égide ma
 - **Resposta da Égide** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o usuário tem Defesa: +15 dano.
 - **Fortaleza de Luz** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Muralha — Fortificação
+### A Muralha — Sentinela de Pedra
 
-Atravessar a guarda de seus aliados reforça sua própria muralha; o avanço gasta cargas e Defesa para romper a linha.
+Fortifique o trio e acumule cargas; a investida consome sua Defesa para expor um inimigo, enquanto o dano aos aliados pode recompor sua guarda.
 
 **Estrutura:** Muralha que converge
 
@@ -811,23 +811,23 @@ Atravessar a guarda de seus aliados reforça sua própria muralha; o avanço gas
 
 - **Impacto do Baluarte** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
 - **Muralha Partilhada** (1 Graça + 1 Essência; recarga 2T): Concede 18 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: concede 8 de Defesa ao usuário. Ativa uma vez.
-- **Avanço do Bastão** (1 Graça + 1 Essência; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Acrescenta 25% da Defesa do usuário ao dano (máx. +15) e consome toda a sua Defesa. Consome as cargas: +6 de dano por carga.
-- **Além do Baluarte** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Investida do Baluarte** (1 Graça + 1 Essência; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Acrescenta 25% da Defesa do usuário ao dano (máx. +15) e consome toda a sua Defesa. Consome as cargas: +6 de dano por carga.
+- **Baluarte Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O que Ficou — Sacrifício
+### O Abnegado — Protetor Sacrificial
 
-Deixe recuperação futura com o aliado e sustente a própria resistência até o retorno ofensivo com pouca Vida.
+Ceda parte da sua Vida para amparar um aliado e sustente-se na resposta ofensiva, mais forte quando ferido.
 
 **Estrutura:** Permanência vital
 
 **Passiva — Presença que Sustenta:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
 - **Não Recuar** (1 Graça; recarga 0T): Causa 20 de dano físico a um inimigo. Reduz em 5 o dano recebido por 1 turno pelo usuário.
-- **Lugar ao Meu Lado** (1 Graça + 1 Essência; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Regeneração: restaura 5 de Vida no início dos próximos 2 turnos do beneficiado. O usuário perde 5 de Vida (não o derrota).
-- **Eu Ainda Estou Aqui** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 30% do dano causado. Se o usuário tem 50 de Vida ou menos: +15 dano.
+- **Amparo Abnegado** (1 Graça + 1 Essência; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Regeneração: restaura 5 de Vida no início dos próximos 2 turnos do beneficiado. O usuário perde 5 de Vida (não o derrota).
+- **Permanecer de Pé** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 30% do dano causado. Se o usuário tem 50 de Vida ou menos: +15 dano.
 - **Promessa Inquebrável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Último Guardião — Contra-ataque
+### O Guardião — Sentinela Ancestral
 
 Proteja contra técnicas físicas e perfurantes; a vigília marca quem poderá ser interrompido no alvorecer.
 
@@ -835,12 +835,12 @@ Proteja contra técnicas físicas e perfurantes; a vigília marca quem poderá s
 
 **Passiva — Última Vigília:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
 
-- **Lança da Guarda** (1 Graça; recarga 0T): Causa 20 de dano físico a um inimigo. Marca o alvo por 3 turnos.
+- **Investida Vigilante** (1 Graça; recarga 0T): Causa 20 de dano físico a um inimigo. Marca o alvo por 3 turnos.
 - **Sentinela de Resposta** (1 Graça + 1 Essência; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 30 de dano. Dura 1 turno.
-- **Alvorecer do Guardião** (1 Graça + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
+- **Revide Radiante** (1 Graça + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Guarda Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Sentinela Azul — Guarda Tática
+### A Sentinela — Guarda Tática
 
 Concentre a linha em um aliado para protegê-lo e reduzir a recarga de suas técnicas não defensivas.
 
@@ -855,7 +855,7 @@ Concentre a linha em um aliado para protegê-lo e reduzir a recarga de suas téc
 
 ## Elo Cura
 
-### A Mão que Cura — Curadora
+### A Compassiva — Curadora
 
 Limpar condições prejudiciais também produz Defesa; use a compaixão marcada para recuperar sua própria Vida.
 
@@ -882,33 +882,33 @@ Prepare Vida até a reserva se tornar uma restauração coletiva mais cara, capa
 - **Reserva Imaculada** [variação] (2 Graça + 1 Essência; recarga 0T): Restaura 15 de Vida a cada aliado. Remove aflições e condições prejudiciais. Consome as cargas: +5 de cura por carga a cada aliado.
 - **Forma Preservada** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Luz que Restaura — Luz Vital
+### A Sanadora — Restauradora de Essência
 
-Reconstruir o fôlego recupera mais Vida em alvos feridos e ainda prepara seu dano no turno seguinte.
+Exponha o agressor, restitua o vigor de um aliado ferido e use o fluxo vital para atacar e recuperar sua própria Vida.
 
 **Estrutura:** Luz dos feridos
 
-**Passiva — Claridade que Ampara:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Amparo Recíproco:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
-- **Raio Restaurador** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
-- **Reconstruir o Fôlego** (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. A cada 25 de Vida faltante do beneficiado: +3 de cura (máx. +9).
-- **Aurora Reparadora** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo está Exposto: +10 dano.
-- **Clarão Imaculado** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Clarão Incisivo** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Restituir Vigor** (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. A cada 25 de Vida faltante do beneficiado: +3 de cura (máx. +9).
+- **Fluxo Vital** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo está Exposto: +10 dano.
+- **Forma Luminosa** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Jardineira das Feridas — Cultivo Vital
+### A Boticária — Herborista Espiritual
 
-Repetir a raiz fortalece seus ataques de preparação; Atordoamento interrompe o cultivo e as cargas escolhem cura ou espinhos.
+Prepare as raízes para acumular reservas; use a infusão para recuperar o trio ou os espinhos para enfraquecer um agressor.
 
 **Estrutura:** Cultivo que amadurece
 
-**Passiva — Jardim da Convalescença:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Remédio Perene:** No início do seu turno, restaura 3 de Vida.
 
-- **Raiz que Cuida** (1 Graça; recarga 0T): Causa 13 de dano espiritual a um inimigo. Cada uso não anulado dá +2 de dano a esta técnica (máx. +8). Atordoamento zera esse bônus. Ganha 1 carga (máx. 3).
-- **Flores de Convalescença** (1 Graça + 1 Essência; recarga 0T): Restaura 10 de Vida a cada aliado. Consome as cargas: +6 de cura por carga a cada aliado.
-- **Espinhos da Proteção** (1 Graça + 1 Essência; recarga 1T): Causa 20 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Consome as cargas: +7 de dano por carga.
+- **Raiz Contundente** (1 Graça; recarga 0T): Causa 13 de dano espiritual a um inimigo. Cada uso não anulado dá +2 de dano a esta técnica (máx. +8). Atordoamento zera esse bônus. Ganha 1 carga (máx. 3).
+- **Infusão Restauradora** (1 Graça + 1 Essência; recarga 0T): Restaura 10 de Vida a cada aliado. Consome as cargas: +6 de cura por carga a cada aliado.
+- **Espinhos Sedativos** (1 Graça + 1 Essência; recarga 1T): Causa 20 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Consome as cargas: +7 de dano por carga.
 - **Pétalas de Refúgio** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Pulso Sereno — Acalmador
+### O Sereno — Acalmador
 
 Desarme a agressão: se a vítima ainda atacar, o usuário recupera Vida; a quietude continua sendo o controle mais forte.
 
@@ -923,21 +923,21 @@ Desarme a agressão: se a vítima ainda atacar, o usuário recupera Vida; a quie
 
 ## Elo Justiça
 
-### O Equilíbrio — Equilíbrio
+### O Árbitro — Árbitro da Reparação
 
-Ofereça amparo e depois converta a misericórdia em um veredito que devolve Vida ao usuário.
+Exponha o excesso, ofereça amparo e abra a resposta equânime; o veredito perfurante pune a abertura revelada.
 
 **Estrutura:** Amparo e cobrança
 
 **Passiva — Medida Justa:** Suas habilidades causam +4 de dano se o alvo está Exposto.
 
 - **Peso do Excesso** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
-- **Prato da Misericórdia** (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. No próximo turno, vira Reparação do Veredito: dano que restaura Vida ao usuário.
-- **Reparação do Veredito** [variação] (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Restaura 10 de Vida ao usuário. Após usar, restaura Prato da Misericórdia.
-- **Equação da Justiça** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
-- **Balança Imóvel** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Amparo Equânime** (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. No próximo turno, vira Resposta Equânime: dano que restaura Vida ao usuário.
+- **Resposta Equânime** [variação] (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Restaura 10 de Vida ao usuário. Após usar, restaura Amparo Equânime.
+- **Veredito Proporcional** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
+- **Posição Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Lâmina Justa — Duelista Justa
+### A Íntegra — Duelista Justa
 
 O corte ganha precisão ao ser repetido, até um limite; Atordoamento quebra a disciplina, sem apagar sua marca de ofensa.
 
@@ -950,7 +950,7 @@ O corte ganha precisão ao ser repetido, até um limite; Atordoamento quebra a d
 - **Sentença da Lâmina** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Passo Equânime** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O que Pesa — Ponderador
+### O Ponderador — Ponderador
 
 Pese, julgue e recupere o equilíbrio: a decisão abre uma preparação diferente para o próximo ciclo.
 
@@ -964,7 +964,7 @@ Pese, julgue e recupere o equilíbrio: a decisão abre uma preparação diferent
 - **Decisão Ponderada** (1 Graça + 1 Essência; recarga 3T): Causa 20 de dano físico a um inimigo. Consome as cargas: +6 de dano por carga. Se o alvo tem a marca desta preparação: +5 dano e Atordoa por 1 turno; consome a preparação. Pesar os Atos vira Prato Ascendente por 2 turnos, preparando uma nova decisão com Defesa.
 - **Entre os Pratos** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Testemunha Íntegra — Reveladora
+### A Testemunha — Reveladora
 
 A prova pune bônus de dano, redução e contra-ataque ativos antes de removê-los; o registro prepara o testemunho coletivo.
 
@@ -977,22 +977,22 @@ A prova pune bônus de dano, redução e contra-ataque ativos antes de removê-l
 - **Testemunho Íntegro** (1 Graça + 1 Essência; recarga 2T): Causa 20 de dano espiritual a todos os inimigos. Se o alvo tem a marca desta preparação: +10 dano.
 - **Testemunho Protegido** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Julgador Gentil — Julgador de Amparo
+### O Juiz — Julgador de Amparo
 
 Repare Vida e condições enquanto reduz recargas não defensivas; conserve o Enfraquecimento para o limite da clemência.
 
 **Estrutura:** Reparação de tempo
 
-**Passiva — Gentileza Firme:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Clemência Inabalável:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
-- **Advertência Serena** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado.
+- **Advertência do Juiz** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado.
 - **Reparação Justa** (1 Graça + 1 Essência; recarga 3T): Restaura 20 de Vida. Reduz em 1 turno as recargas não defensivas do beneficiado. Remove aflições e condições prejudiciais.
 - **Limite da Clemência** (1 Graça + 1 Essência; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Enfraquecido: +10 dano e Atordoa por 1 turno.
 - **Trégua Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Esperança
 
-### A Chama que Não Apaga — Perseverança
+### A Perseverante — Perseverança
 
 Recupere o fôlego para reacender um ataque diferente ou guarde as cargas para a aurora.
 
@@ -1006,7 +1006,7 @@ Recupere o fôlego para reacender um ataque diferente ou guarde as cargas para a
 - **Aurora Imorredoura** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Consome as cargas: +7 de dano por carga.
 - **Chama Intocável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O que Levanta — Resiliência
+### O Inquebrantável — Resiliência
 
 Erga um aliado e recupere seu próprio fôlego se ele perder Vida por uma nova habilidade durante a resposta adversária.
 
@@ -1034,7 +1034,7 @@ Inicie um hino para marcar vários inimigos com o coro ou encerre-o para recuper
 - **Não Seremos Calados** (1 Graça + 1 Essência; recarga 2T): Causa 20 de dano espiritual a todos os inimigos. Se o alvo tem a marca desta preparação: +10 dano.
 - **Nota Inalcançável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Portador da Aurora — Portador
+### O Alvorecer — Portador
 
 A aurora limpa, fortalece e reduz recargas não defensivas de um aliado; as cargas ainda alimentam o horizonte perfurante.
 
@@ -1047,7 +1047,7 @@ A aurora limpa, fortalece e reduz recargas não defensivas de um aliado; as carg
 - **Abrir o Horizonte** (1 Graça + 1 Essência; recarga 2T): Causa 20 de dano perfurante a um inimigo. Consome as cargas: +9 de dano por carga.
 - **Além do Horizonte** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Mensageira do Amanhã — Mensageira
+### A Mensageira — Mensageira
 
 Envie alento para abrir uma resposta que converte dano em recuperação do aliado mais ferido.
 
@@ -1063,7 +1063,7 @@ Envie alento para abrir uma resposta que converte dano em recuperação do aliad
 
 ## Elo Verdade
 
-### O que Revela — Revelador
+### O Revelador — Revelador
 
 A luz remove vantagens e expõe mesmo diante de um contra-ataque; Invulnerável ainda impede o alvo.
 
@@ -1076,16 +1076,16 @@ A luz remove vantagens e expõe mesmo diante de um contra-ataque; Invulnerável 
 - **Verdade Incisiva** (1 Graça + 1 Essência; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
 - **Transparência Absoluta** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Luz Nua — Claridade
+### A Lúcida — Desveladora de Enganos
 
-A guarda e os bônus do adversário tornam o golpe de despir mais forte; o clarão continua ligado à marca da luz.
+Revele uma marca, remova a guarda e as vantagens do alvo; o clarão concentra dano no inimigo que você marcou.
 
 **Estrutura:** Vantagens despidas
 
 **Passiva — Sem Disfarce:** Sua primeira habilidade ofensiva do combate causa +4 de dano.
 
-- **Toque da Luz Nua** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
-- **Despir a Guarda** (1 Graça + 1 Essência; recarga 1T): Causa 10 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta 3 ao dano (máx. +12). Remove bônus de dano, redução e contra-ataque do alvo. Remove 20 de Defesa antes do dano.
+- **Foco da Clareza** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
+- **Desvelar a Guarda** (1 Graça + 1 Essência; recarga 1T): Causa 10 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta 3 ao dano (máx. +12). Remove bônus de dano, redução e contra-ataque do alvo. Remove 20 de Defesa antes do dano.
 - **Clarão sem Véu** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Feixe Inatingível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -1103,9 +1103,9 @@ Mostre uma abertura e devolva a intenção: uma agressão ao espelho libera o es
 - **Fratura da Ilusão** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Se o alvo está Exposto: +10 dano.
 - **Dentro do Reflexo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Cartógrafa da Clareza — Cartógrafa
+### A Cartógrafa — Guia da Clareza
 
-Trace uma abertura e use o atalho para recuperar um aliado, ou preserve a rota para convergir no ataque.
+Trace a abertura e revele o atalho de amparo; reúna as cargas para concentrar a convergência no inimigo.
 
 **Estrutura:** Rota de apoio
 
@@ -1117,7 +1117,7 @@ Trace uma abertura e use o atalho para recuperar um aliado, ou preserve a rota p
 - **Convergência das Rotas** (1 Graça + 1 Essência; recarga 1T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +8 de dano por carga.
 - **Fora das Coordenadas** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Olho Desarmado — Percepção
+### O Vidente — Percepção
 
 A leitura enfraquece, expõe e pune a próxima ofensiva da vítima; escolha entre cuidar de um aliado e desarmar o alvo.
 
@@ -1126,13 +1126,13 @@ A leitura enfraquece, expõe e pune a próxima ofensiva da vítima; escolha entr
 **Passiva — Ver sem Ferir:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
 
 - **Olhar Desarmante** (1 Graça; recarga 0T): Causa 5 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
-- **Cuidar sem Defesa** (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Remove aflições e condições prejudiciais.
+- **Amparo da Clareza** (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Remove aflições e condições prejudiciais.
 - **Intenção Desvendada** (1 Graça + 1 Essência; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Exposto: +10 dano e Atordoa por 1 turno.
-- **Ponto Cego Sereno** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Véu da Serenidade** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo União
 
-### O Elo Dourado — Vínculo Ofensivo
+### O Fraterno — Vínculo Ofensivo
 
 O laço ofensivo converte parte do dano real em recuperação do aliado mais ferido, além de marcar a corrente final.
 
@@ -1145,7 +1145,7 @@ O laço ofensivo converte parte do dano real em recuperação do aliado mais fer
 - **Corrente Dourada** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Elo Inquebrável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A que Une — Vínculo Vital
+### A Tecelã — Vínculo Vital
 
 Reconstrua os fragmentos com limpeza, guarda e recuperação futura; escolha o amparo concentrado ou o fôlego coletivo.
 
@@ -1158,7 +1158,7 @@ Reconstrua os fragmentos com limpeza, guarda e recuperação futura; escolha o a
 - **Fôlego Coletivo** (1 Graça + 1 Essência; recarga 0T): Restaura 15 de Vida a cada aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
 - **Entrelaçar de Luz** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Vínculo — Guarda de Aliança
+### O Altruísta — Guarda de Aliança
 
 Uma agressão é anulada pelo pacto; se outra ferir o aliado, ele e o usuário recuperam Vida, sem duplicar se forem a mesma alma.
 
@@ -1186,23 +1186,23 @@ Alterne três vozes no mesmo espaço: ataque, amparo e desfecho, sem perder as o
 - **Terceira Cadência** (2 Graça + 1 Essência; recarga 2T): Causa 15 de dano físico a todos os inimigos. Consome as cargas: +5 de dano por carga.
 - **Passo em Uníssono** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Guardiã das Promessas — Guardiã de Pactos
+### A Juramentada — Fiadora de Alianças
 
-Se uma nova habilidade ferir quem você protegeu, o cuidado muda para Cumprir a Palavra por 2 turnos.
+Honre o pacto com um aliado; se ele perder Vida durante a resposta inimiga, abra a renovação do amparo.
 
 **Estrutura:** Promessa provada
 
 **Passiva — Promessa Cumprida:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
 
-- **Juramento Gravado** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
-- **Guardar a Palavra** (1 Graça + 1 Essência; recarga 0T): Restaura 10 de Vida. Concede 25 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
-- **Cumprir a Palavra** [variação] (1 Graça + 1 Essência; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. Após usar, restaura Guardar a Palavra.
-- **Cobrança do Juramento** (1 Graça + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
+- **Selo do Juramento** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
+- **Honrar o Pacto** (1 Graça + 1 Essência; recarga 0T): Restaura 10 de Vida. Concede 25 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
+- **Renovar o Pacto** [variação] (1 Graça + 1 Essência; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. Após usar, restaura Honrar o Pacto.
+- **Resposta do Juramento** (1 Graça + 1 Essência; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Pacto Inviolável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Criação
 
-### O que Cria — Artífice
+### O Artífice — Artífice
 
 Crie amparo para abrir uma forma perfurante; escolha entre ela e a Obra Convergente para gastar as cargas.
 
@@ -1216,7 +1216,7 @@ Crie amparo para abrir uma forma perfurante; escolha entre ela e a Obra Converge
 - **Obra Convergente** (1 Graça + 1 Essência; recarga 2T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +9 de dano por carga.
 - **Forma Impossível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Semente — Germinação
+### A Semente — Germinação Espiritual
 
 A semente amadurece com as cargas: colha amparo para si ou conserve a marca para germinar no inimigo.
 
@@ -1224,10 +1224,10 @@ A semente amadurece com as cargas: colha amparo para si ou conserve a marca para
 
 **Passiva — Potência Latente:** No início do seu turno, restaura 3 de Vida.
 
-- **Semente da Ruptura** (1 Graça; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). Com 3 cargas, vira Fruto do Porvir: gaste a reserva em cuidado pessoal ou use outra técnica.
+- **Marca Germinal** (1 Graça; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). Com 3 cargas, vira Fruto do Porvir: gaste a reserva em cuidado pessoal ou use outra técnica.
 - **Fruto do Porvir** [variação] (1 Graça + 1 Essência; recarga 0T): Restaura 20 de Vida. Concede 10 de Defesa destrutível. Consome todas as cargas.
 - **Abrigo do Broto** (1 Graça + 1 Essência; recarga 0T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Consome as cargas: +5 de cura por carga.
-- **Germinar por Dentro** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
+- **Florescer da Marca** (1 Graça + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Casulo de Origem** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Cultivador — Cultivador
@@ -1243,7 +1243,7 @@ Arar a alma já recupera o aliado mais ferido; acumule reservas para escolher a 
 - **Ramos da Resposta** (1 Graça + 1 Essência; recarga 1T): Causa 20 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Consome as cargas: +8 de dano por carga.
 - **Abrigo das Raízes** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Arquiteta Verde — Arquiteta
+### A Arquiteta — Arquiteta
 
 Erga a abóbada para abrir amparo concentrado ou um colapso coletivo que consome sua guarda.
 
@@ -1258,7 +1258,7 @@ Erga a abóbada para abrir amparo concentrado ou um colapso coletivo que consome
 - **Colapsar a Abóbada** [variação] (2 Graça + 1 Essência; recarga 2T): Causa 20 de dano físico a todos os inimigos. Acrescenta 25% da Defesa do usuário ao dano (máx. +10) e consome toda a sua Defesa. Após usar, restaura Pilar Ascendente. Após usar, restaura Convergência dos Pilares.
 - **Geometria Intocável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Primeiro Canto — Cantor da Origem
+### O Ressonante — Cantor da Origem
 
 O refrão encurta as recargas não defensivas do trio; escolha quando pagar seu custo e quando gastar as cargas no canto.
 
@@ -1273,7 +1273,7 @@ O refrão encurta as recargas não defensivas do trio; escolha quando pagar seu 
 
 ## Elo Correntes Quebradas
 
-### O Passo Interrompido — Duelista Temporal
+### O Descontínuo — Duelista Temporal
 
 Percorra uma sequência de três passos contra a mesma vítima ou gaste suas cargas no Golpe Descontínuo.
 
@@ -1288,7 +1288,7 @@ Percorra uma sequência de três passos contra a mesma vítima ou gaste suas car
 - **Golpe Descontínuo** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Passo Fora do Tempo** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Linha Partida — Ruptura de Vínculos
+### A Cindida — Alma Fragmentada
 
 Abra uma extremidade no inimigo e escolha entre reatar o fio para proteger ou puxar seu fim para atacar.
 
@@ -1302,7 +1302,7 @@ Abra uma extremidade no inimigo e escolha entre reatar o fio para proteger ou pu
 - **Puxar o Fim da Linha** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
 - **Linha Inalcançável** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Eco sem Dono — Eco Errante
+### O Eco — Ressonância Errante
 
 Colete ecos e devolva uma agressão para abrir uma ressonância coletiva que dispensa o sacrifício de Vida.
 
@@ -1316,9 +1316,9 @@ Colete ecos e devolva uma agressão para abrir uma ressonância coletiva que dis
 - **Ressonância Roubada** [variação] (2 Ruptura + 1 Essência; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Consome as cargas: +5 de dano por carga. Após usar, restaura Coro sem Origem.
 - **Eco Intangível** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Porta que Flutua — Travessia
+### A Errante — Viajante do Limiar
 
-Proteja quem atravessa para abrir um retorno de amparo; escolha essa volta ou feche a passagem no inimigo marcado.
+Abra uma passagem, use o atalho para amparar um aliado e retorne; fechar a rota no inimigo também cobra sua Vida.
 
 **Estrutura:** Travessia de volta
 
@@ -1326,11 +1326,11 @@ Proteja quem atravessa para abrir um retorno de amparo; escolha essa volta ou fe
 
 - **Abertura Impossível** (1 Ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Passagem de Retorno** [variação] (1 Ruptura; recarga 0T): Restaura 10 de Vida. Concede 10 de Defesa destrutível. Após usar, restaura Abertura Impossível.
-- **Travessia Segura** (1 Ruptura + 1 Essência; recarga 0T): Concede 25 de Defesa destrutível. Remove aflições e condições prejudiciais. No próximo turno, Abertura Impossível vira Passagem de Retorno para amparar um aliado.
+- **Atalho Suspenso** (1 Ruptura + 1 Essência; recarga 0T): Concede 25 de Defesa destrutível. Remove aflições e condições prejudiciais. No próximo turno, Abertura Impossível vira Passagem de Retorno para amparar um aliado.
 - **Fechar a Passagem** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +10 dano. O usuário perde 5 de Vida (não o derrota).
 - **Do Outro Lado** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Nome Esquecido — Esquecimento
+### O Esquecido — Esquecimento
 
 O nome perdido drena agora e deixa uma cobrança para o próximo apoio da vítima; apagar a forma prepara o desfecho de aflição.
 
@@ -1343,7 +1343,7 @@ O nome perdido drena agora e deixa uma cobrança para o próximo apoio da vítim
 - **Ninguém Responde** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
 - **Nome Fora da Memória** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Relógio Afogado — Tempo Submerso
+### O Cronista — Tempo Submerso
 
 Acumule segundos e pare um alvo para abrir uma janela curta de descarga concentrada.
 
@@ -1357,7 +1357,7 @@ Acumule segundos e pare um alvo para abrir uma janela curta de descarga concentr
 - **Retomar o Instante** [variação] (2 Ruptura + 1 Essência; recarga 2T): Causa 35 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. O usuário perde 5 de Vida (não o derrota). Após usar, restaura Devolver os Segundos.
 - **Instante Submerso** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Asa Invertida — Inversão
+### A Inversa — Inversão
 
 Devolva uma agressão física para abrir um golpe que sela a ofensiva do agressor; o Enfraquecimento ainda prepara a queda.
 
@@ -1371,7 +1371,7 @@ Devolva uma agressão física para abrir um golpe que sela a ofensiva do agresso
 - **Cair para o Alto** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Enfraquecido: +15 dano. O usuário perde 5 de Vida (não o derrota).
 - **Asa Fora do Plano** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Andarilho de Vidro — Vidro Errante
+### O Andarilho — Vidro Errante
 
 Cada pegada reforça a próxima até um limite; Atordoamento rompe a sequência, enquanto a travessia final ainda cobra sua integridade.
 
@@ -1384,7 +1384,7 @@ Cada pegada reforça a próxima até um limite; Atordoamento rompe a sequência,
 - **Travessia Estilhaçada** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 8 de Vida (não o derrota).
 - **Passo Transparente** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Sombra Inconstante — Sombra Mutável
+### A Oscilante — Sombra Mutável
 
 Entre num contorno de abrigo para recuperar-se e contra-atacar, depois retome a sombra para voltar a marcar e drenar.
 
@@ -1399,7 +1399,7 @@ Entre num contorno de abrigo para recuperar-se e contra-atacar, depois retome a 
 - **A Sombra se Fecha** (1 Ruptura + 1 Essência; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
 - **Contorno Imaterial** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Ponte Rasgada — Ruptor de Passagens
+### A Peregrina — Ruptor de Passagens
 
 Quem atravessa a proteção da ponte revela uma abertura; aproveite-a na travessia coletiva antes que desapareça.
 
@@ -1412,17 +1412,17 @@ Quem atravessa a proteção da ponte revela uma abertura; aproveite-a na travess
 - **Queda da Travessia** (2 Ruptura + 1 Essência; recarga 2T): Causa 15 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano. O usuário perde 5 de Vida (não o derrota).
 - **Entre as Margens** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Alma em Suspenso — Suspensão Vital
+### O Ancorado — Âncora Vital
 
-Acumule o limiar para emprestar fôlego a um aliado ou solte a âncora num desfecho de aflição.
+Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ruptura; ancorar e soltar a âncora também cobra sua Vida.
 
 **Estrutura:** Suspensão partilhada
 
-**Passiva — Fôlego no Limiar:** No início do seu turno, restaura 4 de Vida.
+**Passiva — Âncora Persistente:** No início do seu turno, restaura 4 de Vida.
 
 - **Pulso Suspenso** (1 Ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Com 3 cargas, vira Fôlego Emprestado: gaste a reserva para recuperar um aliado ou use a descarga ofensiva.
 - **Fôlego Emprestado** [variação] (1 Ruptura + 1 Essência; recarga 0T): Restaura 25 de Vida. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Consome todas as cargas.
-- **Prender o Último Fôlego** (1 Ruptura + 1 Essência; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. O usuário perde 5 de Vida (não o derrota).
+- **Ancorar o Fôlego** (1 Ruptura + 1 Essência; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. O usuário perde 5 de Vida (não o derrota).
 - **Soltar a Âncora** (1 Ruptura + 1 Essência; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Suspensão Absoluta** (1 Essência; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 

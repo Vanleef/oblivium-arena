@@ -18,6 +18,236 @@ const entitySlots = {
 };
 const personalDefenseArt = new Set(['a-mao-que-toma','o-vigia-ausente','o-desejo-quebrado','o-que-ficou']);
 export const characterRevisions = {
+  "a-viuva-escarlate": {
+    "name": "A Viúva",
+    "aliases": [
+      "A Viúva Escarlate"
+    ],
+    "lore": "Conserva no véu escarlate a lembrança de cada agressão que recebeu. Atrai a lâmina alheia para perto e transforma a resposta em uma cobrança de vitalidade. Seu luto se prolonga na violência que oferece a Sangria."
+  },
+  "o-colecionador-de-cabecas": {
+    "name": "O Colecionador",
+    "aliases": [
+      "O Colecionador de Cabeças"
+    ],
+    "lore": "Retém a assinatura espiritual de cada vítima como um troféu. Persegue quem já deixou uma abertura e reúne os vestígios da caçada para uma execução preparada com cuidado. Seu acervo cresce com a carnificina que alimenta Sangria."
+  },
+  "gemeos-do-cutelo": {
+    "lore": "Duas presenças de Sangria dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. A alternância entre os gêmeos torna cada aproximação uma ameaça dupla."
+  },
+  "o-carrasco-sem-rosto": {
+    "name": "O Carrasco",
+    "aliases": [
+      "O Carrasco sem Rosto"
+    ],
+    "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. Sangria reconhece seus atos pela lâmina que desce."
+  },
+  "a-mae-rubra": {
+    "lore": "Estende aos seus um cordão de essência retirado das vítimas. Cede a própria vitalidade para conservar esse círculo e recupera o que perdeu ao drenar outra alma. A proteção que concede mantém os predadores de Sangria em combate."
+  },
+  "o-soberano-quebrado": {
+    "name": "O Soberano",
+    "aliases": [
+      "O Soberano Quebrado"
+    ],
+    "lore": "Carrega uma autoridade fraturada que exige ser reconhecida a cada encontro. Ao assumir a coroa, espalha decretos e escolhe quem deverá se ajoelhar. Cada vontade subjugada recompõe uma parte do domínio que oferece a Coroa."
+  },
+  "o-principe-das-correntes": {
+    "name": "O Príncipe",
+    "aliases": [
+      "O Príncipe das Correntes"
+    ],
+    "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Coroa só tem valor enquanto alguém permanece submetido."
+  },
+  "o-sussurro": {
+    "lore": "Faz um segredo parecer uma descoberta da própria vítima. A palavra plantada envenena a decisão seguinte e abre espaço para cobrar o que ela ainda conserva. Sua presença percorre Mentira pela confiança que consegue corromper."
+  },
+  "a-mascara-dupla": {
+    "lore": "Oferece um rosto à confiança e reserva o outro para a traição. Cada máscara muda a resposta que prepara, enquanto a vítima acredita ter aprendido suas intenções. Vive das certezas que Mentira permite fabricar por um instante."
+  },
+  "o-tecelao-de-mentiras": {
+    "name": "O Intrigante",
+    "aliases": [
+      "O Tecelão de Mentiras"
+    ],
+    "lore": "Organiza versões incompatíveis de um mesmo acontecimento em uma trama de fios espirituais. Prende quem tenta escapar das contradições e desfaz os próprios nós para libertar seus cúmplices das aflições que os alcançam. Sempre conserva uma ponta da intriga fora de vista."
+  },
+  "o-falso-profeta": {
+    "name": "O Impostor",
+    "aliases": [
+      "O Falso Profeta"
+    ],
+    "lore": "Apresenta como revelação aquilo que preparou para obter obediência. Acumula força com bênçãos fabricadas e transforma a expectativa dos outros em um milagre ofensivo. Quando a farsa ameaça ruir, a confissão lhe devolve fôlego para recomeçar."
+  },
+  "o-corretor-de-memorias": {
+    "name": "O Falsário",
+    "aliases": [
+      "O Corretor de Memórias"
+    ],
+    "lore": "Adultera lembranças e negocia as versões que sobreviveram à falsificação. Hipoteca um passado, retira dele os amparos que sustentavam a vítima e cobra a memória que deixou marcada. Seus arquivos guardam as histórias que Mentira tornou convenientes."
+  },
+  "o-incendiario": {
+    "lore": "Prepara o pavio antes de deixar a raiva tomar o lugar. Sua chama pune a hesitação e espalha fagulhas até que encontre o momento de detonar. Alimenta Chama ao transformar cada espera em uma ameaça de vingança."
+  },
+  "a-brasa-eterna": {
+    "lore": "Conserva o calor de uma ofensa muito depois de sua origem desaparecer. A queimadura persiste sob as cinzas, sufoca a resistência e se reúne em uma fornalha quando o rancor encontra saída. Sua constância dá ao ódio de Chama tempo para consumir."
+  },
+  "o-odio-encarnado": {
+    "name": "O Furor",
+    "aliases": [
+      "O Ódio Encarnado"
+    ],
+    "lore": "Dá passagem a uma fúria que muda a violência de seus próprios golpes. Quanto mais a alimenta, mais difícil se torna sustentar a forma que a contém. O desfecho devolve a pressão sobre sua integridade, espalhando o ódio que fortalece Chama."
+  },
+  "o-credor": {
+    "lore": "Converte a necessidade de outra alma em um contrato que nunca deixa de cobrar. Cada técnica da vítima pode produzir novos juros, até que a dívida se torne uma execução anunciada. Fome prospera nos vínculos de dependência que ele preserva."
+  },
+  "o-apodrecido": {
+    "lore": "Carrega uma decadência que avança pelas falhas da matéria espiritual. Seu contato prejudica a recuperação e deixa a guarda ceder antes da decomposição. O que parece resistir à primeira passagem continua se desfazendo sob a influência de Podridão."
+  },
+  "o-corrupto": {
+    "lore": "Oferece acordos cuja confiança já nasceu comprometida. Marca a outra parte e converte a quebra do pacto em proteção para si, prolongando a vantagem obtida sobre quem acreditou nele. A ruína de cada compromisso alimenta Podridão."
+  },
+  "a-rainha-dos-fungos": {
+    "lore": "Faz de cada alma alcançada um possível abrigo para sua colônia. Conserva os próprios hospedeiros sob o micélio e reúne esporos para uma colheita que pode sustentar seus cúmplices ou contaminar os adversários. A vida que cultiva existe para espalhar Podridão."
+  },
+  "a-marionetista-de-nervos": {
+    "name": "A Marionetista",
+    "aliases": [
+      "A Marionetista de Nervos"
+    ],
+    "lore": "Prende fios espirituais às respostas do corpo alheio. Sustenta o comando enquanto a vítima tenta recuperar os próprios movimentos e escolhe o instante de romper a ligação em dor. Cada gesto imposto prolonga o abuso que fortalece Carne."
+  },
+  "a-ausencia": {
+    "lore": "Deixa uma lacuna onde uma alma esperava encontrar apoio, vigor ou continuidade. Sua passagem consome as reservas da vítima e prolonga a perda quando ela hesita em agir. O vazio que abre se espalha até a própria presença tornar-se impossível de alcançar."
+  },
+  "o-escudo-vivo": {
+    "lore": "Escolheu permanecer entre a ameaça e quem precisa atravessar. Reúne a própria guarda antes de avançar e transforma a resistência acumulada em uma resposta da égide. Seu amparo dá ao Elo Proteção uma linha que ainda pode ser sustentada."
+  },
+  "a-sentinela-azul": {
+    "name": "A Sentinela",
+    "aliases": [
+      "A Sentinela Azul"
+    ],
+    "lore": "Reconhece o instante em que um companheiro precisa de espaço para agir. Concentra a linha de proteção nessa alma, devolve ritmo às suas técnicas e aponta a abertura que a equipe poderá aproveitar. Sua vigília mantém Proteção atenta ao próximo movimento."
+  },
+  "a-mao-que-cura": {
+    "name": "A Compassiva",
+    "aliases": [
+      "A Mão que Cura"
+    ],
+    "lore": "Percebe a dor que uma alma tenta ocultar e a alcança com cuidado. Remove as aflições que interrompem a recuperação e recompõe uma guarda ao redor do que ainda está frágil. A compaixão que oferece também lhe permite recuperar o próprio fôlego."
+  },
+  "o-restaurador": {
+    "lore": "Reúne aos poucos a vitalidade dispersa pelo sofrimento. Conserva essa reserva até poder devolvê-la em uma restauração que alcança seus companheiros e desfaz as aflições que os prendem. Cada retorno fortalece a continuidade de Cura."
+  },
+  "o-pulso-sereno": {
+    "name": "O Sereno",
+    "aliases": [
+      "O Pulso Sereno"
+    ],
+    "lore": "Escuta o descompasso que antecede uma agressão e responde com um ritmo capaz de contê-la. Sua quietude enfraquece a violência, devolve fôlego e interrompe o impulso que ameaça romper o cuidado. Cura se manifesta nele como presença paciente."
+  },
+  "a-lamina-justa": {
+    "name": "A Íntegra",
+    "aliases": [
+      "A Lâmina Justa"
+    ],
+    "lore": "Submete a própria lâmina à disciplina do princípio que escolheu seguir. Cada corte reafirma a medida do anterior, até encontrar a precisão necessária para deter o agressor. Sua força em Justiça depende da constância com que sustenta essa decisão."
+  },
+  "a-testemunha-integra": {
+    "name": "A Testemunha",
+    "aliases": [
+      "A Testemunha Íntegra"
+    ],
+    "lore": "Conserva o registro que o poder gostaria de fazer desaparecer. Expõe a vantagem construída sobre o abuso e reúne a prova necessária para que outras almas possam responder. Seu testemunho dá a Justiça uma voz que permanece íntegra sob pressão."
+  },
+  "a-chama-que-nao-apaga": {
+    "name": "A Perseverante",
+    "aliases": [
+      "A Chama que Não Apaga"
+    ],
+    "lore": "Cuida da última fagulha quando tudo ao redor parece encerrado. Recupera o fôlego, reacende a própria força e guarda calor suficiente para abrir uma nova aurora. Cada tentativa de continuar fortalece Esperança."
+  },
+  "o-portador-da-aurora": {
+    "name": "O Alvorecer",
+    "aliases": [
+      "O Portador da Aurora"
+    ],
+    "lore": "Carrega a possibilidade de um horizonte além do confronto presente. Sua luz restitui clareza, vigor e tempo de reação a um aliado antes de se concentrar contra a ameaça. O alvorecer que oferece permite a Esperança avançar mais um passo."
+  },
+  "a-mensageira-do-amanha": {
+    "name": "A Mensageira",
+    "aliases": [
+      "A Mensageira do Amanhã"
+    ],
+    "lore": "Atravessa o combate com uma promessa de chegada. Entrega alento a um companheiro e prepara uma resposta que pode devolver fôlego à alma mais ferida. Sua mensagem só se completa quando alguém encontra forças para continuar."
+  },
+  "o-que-revela": {
+    "name": "O Revelador",
+    "aliases": [
+      "O que Revela"
+    ],
+    "lore": "Dirige a luz ao detalhe que uma vantagem fabricada tentou esconder. Retira o amparo do engano e deixa a intenção exposta para que o trio possa agir com clareza. Em Verdade, sua presença torna visível aquilo que sustentava a ameaça."
+  },
+  "o-espelho": {
+    "lore": "Devolve à agressão a imagem de sua própria intenção. Mostra uma abertura, acolhe o risco da resposta e prepara o estilhaço que retornará ao autor do golpe. A superfície que manifesta em Verdade conserva o que de fato lhe foi apresentado."
+  },
+  "o-elo-dourado": {
+    "name": "O Fraterno",
+    "aliases": [
+      "O Elo Dourado"
+    ],
+    "lore": "Firma um laço que leva aos companheiros parte do vigor conquistado em combate. Sua ofensiva abre uma corrente de cooperação, fazendo a resposta de um alcançar a alma que mais precisa de amparo. União se fortalece na reciprocidade que ele mantém."
+  },
+  "os-tres-irmaos": {
+    "lore": "Três almas conservaram a própria voz dentro de um mesmo compromisso. Alternam ataque, amparo e desfecho em uma cadência que só existe porque cada uma cede espaço à seguinte. Sua irmandade transforma a cooperação em presença de União."
+  },
+  "o-cultivador": {
+    "lore": "Prepara a matéria espiritual para que a vida encontre onde continuar. Cada sulco já devolve fôlego a uma alma, enquanto as reservas reunidas aguardam a escolha entre uma colheita de amparo e os ramos que conterão a ameaça. Criação cresce com o cuidado que ele repete."
+  },
+  "a-arquiteta-verde": {
+    "name": "A Arquiteta",
+    "aliases": [
+      "A Arquiteta Verde"
+    ],
+    "lore": "Ergue estruturas vivas capazes de sustentar novas possibilidades. Distribui o peso entre pilares e abóbadas, escolhendo quando conservar o abrigo e quando fazer a própria obra convergir contra o agressor. Cada construção dá a Criação um lugar para permanecer."
+  },
+  "o-passo-interrompido": {
+    "name": "O Descontínuo",
+    "aliases": [
+      "O Passo Interrompido"
+    ],
+    "lore": "Já não atravessa os instantes na ordem em que os outros os percebem. Segue a mesma vítima por passos que se adiantam, retornam e deixam uma fissura onde a continuidade falhou. Cada travessia exige reunir de novo a própria presença no Limbo."
+  },
+  "o-nome-esquecido": {
+    "name": "O Esquecido",
+    "aliases": [
+      "O Nome Esquecido"
+    ],
+    "lore": "Restaram-lhe sílabas de um nome que nenhuma lembrança consegue completar. Sua passagem faz outras almas perderem referências e dispersa a essência de que ainda dispunham. No Limbo, tenta sustentar o próprio contorno entre recordações que continuam cedendo."
+  },
+  "a-asa-invertida": {
+    "name": "A Inversa",
+    "aliases": [
+      "A Asa Invertida"
+    ],
+    "lore": "Encontra impulso nas direções em que outras presenças apenas cairiam. Inverte a trajetória de uma agressão e usa a abertura para devolver o desequilíbrio ao responsável. Sua relação instável com a gravidade acompanha as fraturas do Limbo."
+  },
+  "o-andarilho-de-vidro": {
+    "name": "O Andarilho",
+    "aliases": [
+      "O Andarilho de Vidro"
+    ],
+    "lore": "Cada travessia deixa uma pegada de vidro espiritual, frágil o bastante para se romper e nítida o bastante para orientar o passo seguinte. A sequência fortalece seu avanço, mas uma interrupção desfaz o caminho que vinha reunindo. Continua andando entre os instantes partidos do Limbo."
+  },
+  "a-sombra-inconstante": {
+    "name": "A Oscilante",
+    "aliases": [
+      "A Sombra Inconstante"
+    ],
+    "lore": "Seu contorno oscila entre a presença que persegue e o abrigo em que tenta se recompor. Muda de estado para responder à ameaça, depois retorna à penumbra onde pode marcar e drenar. No Limbo, até a sombra precisa negociar o tempo de sua permanência."
+  },
   "a-boca-de-vidro": {
     "name": "A Serpe",
     "role": "Predadora de Reflexos",
@@ -84,15 +314,26 @@ export const characterRevisions = {
     lore: 'Uma fera quadrúpede de Fome, cuja voracidade não conhece saciedade. Corrói a guarda das vítimas com saliva espiritual e incorpora a essência que devora; quando ferida, sua fome ultrapassa a matéria e alcança as reservas alheias.',
     terms: {'Mandíbula do Vazio': 'Couraça Voraz'}
   },
-  'o-ultimo-guardiao': {
-    role: 'Sentinela Ancestral',
-    lore: 'Um espírito quadrúpede abrigado em uma carapaça de pedra viva. Permanece no limiar de Proteção para que outras almas atravessem em segurança. Seu chifre marca a ameaça, e as placas de seu corpo projetam amparo antes de devolver a agressão.',
-    terms: {'Lança da Guarda': 'Investida Vigilante', 'Alvorecer do Guardião': 'Revide Radiante'}
+  "o-ultimo-guardiao": {
+    "role": "Sentinela Ancestral",
+    "lore": "Um espírito quadrúpede abrigado em uma carapaça de pedra viva. Permanece no limiar de Proteção para que outras almas atravessem em segurança. Seu chifre marca a ameaça, e as placas de seu corpo projetam amparo antes de devolver a agressão.",
+    "terms": {
+      "Lança da Guarda": "Investida Vigilante",
+      "Alvorecer do Guardião": "Revide Radiante"
+    },
+    "name": "O Guardião",
+    "aliases": [
+      "O Último Guardião"
+    ]
   },
-  'o-eco-sem-dono': {
-    role: 'Ressonância Errante',
-    lore: 'Vozes que perderam sua origem no Limbo persistem numa espiral de névoa e anéis partidos. Sem rosto ou corpo humano, a aparição recolhe vibrações e devolve o que a atinge. Cada coro a desfaz um pouco, a menos que encontre uma ressonância alheia para sustentar-se.',
-    terms: {}
+  "o-eco-sem-dono": {
+    "role": "Ressonância Errante",
+    "lore": "Vozes que perderam sua origem no Limbo persistem numa espiral de névoa e anéis partidos. Sem rosto ou corpo humano, a aparição recolhe vibrações e devolve o que a atinge. Cada coro a desfaz um pouco, a menos que encontre uma ressonância alheia para sustentar-se.",
+    "terms": {},
+    "name": "O Eco",
+    "aliases": [
+      "O Eco sem Dono"
+    ]
   },
   "o-acougueiro": {
     "lore": "Executor de Sangria: seu cutelo reconhece a essência de uma vítima ferida. Cada ferida alimenta seu faro e torna a próxima investida mais implacável.",
@@ -665,12 +906,14 @@ export const characterRevisions = {
     ]
   },
   "a-praga-andante": {
-    "name": "A Praga Andante",
+    "name": "A Pestilência",
     "role": "Vetor Espiritual",
     "lore": "Escolhe cada caminho pela quantidade de almas que pode contaminar. O contágio espalhado alimenta sua própria vitalidade e retorna concentrado à vítima já envenenada, propagando Podridão por onde passa.",
     "terms": {},
     "roleHint": "Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta interrompe uma vítima já contaminada.",
-    "aliases": []
+    "aliases": [
+      "A Praga Andante"
+    ]
   }
 };
 
