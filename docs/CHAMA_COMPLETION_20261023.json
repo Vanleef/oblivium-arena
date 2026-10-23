@@ -582,5 +582,9 @@
     "chamaBasicPaths": 36,
     "chamaAlternativePaths": 5,
     "newFiles": 12
+  },
+  "codexPortraitFocus": {
+    "a-brasa-eterna": "center 60%",
+    "o-filho-da-cinza": "center 60%"
   }
 }

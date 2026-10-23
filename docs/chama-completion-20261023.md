@@ -16,6 +16,8 @@ O Ressentido mantém pele escura, cachos brancos, olhos cinzentos e capuz que se
 
 A Vingadora conserva roupa, cabelo, trança e lanterna. A revanche usa a lanterna para responder espiritualmente ao mesmo agressor, em contraste com a técnica física base.
 
+O enquadramento no Codex recebe um ajuste de foco exclusivo para os novos retratos da Brasa e do Ressentido, preservando olhos, focinho ou boca e queixo dentro da faixa do cartão. Os demais retratos conservam seu foco atual.
+
 ## Cobertura de Chama
 
 Com os lotes anteriores, os seis personagens de Chama têm **36 imagens básicas e cinco artes exclusivas de formas alternativas: 41 caminhos ativos**. Esta contagem é específica de Chama e não reconta o progresso global dos 100 personagens.

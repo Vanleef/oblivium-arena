@@ -72,4 +72,9 @@
 @media(max-width:480px){.codex-moves{grid-template-columns:minmax(0,1fr)}.codex-skill summary{min-height:48px}.codex-skill summary>img,.codex-skill summary>.move-fallback{width:44px;height:44px}.codex-skill summary>b{font-size:12px}.codex-card-body .eyebrow{font-size:8px;line-height:1.5}}
 @media(max-width:480px){.codex-skill summary{grid-template-columns:44px minmax(0,1fr) auto}.codex-skill summary>img,.codex-skill summary>.move-fallback{grid-row:1}.codex-skill summary .skill-cost{grid-column:3;grid-row:1;align-self:center}}
 
+/* These portraits place the face lower than the default head-and-shoulders crop. */
+.codex-portrait[src$="/a-brasa-eterna/chama-completion-20261023/portrait.webp"],
+.codex-portrait[src$="/o-filho-da-cinza/chama-completion-20261023/portrait.webp"]{object-position:center 60%}
+
+
 
