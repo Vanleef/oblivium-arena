@@ -21,7 +21,8 @@ export const characterRevisions = {
   "a-boca-de-vidro": {
     "name": "A Serpe",
     "role": "Predadora de Reflexos",
-    "lore": "Uma entidade serpentina de vidro espiritual que se esconde nas contradições dos próprios reflexos. Seus sibilos atravessam a guarda, expõem a vítima e desfazem reservas alheias; cada mentira repetida afia o próximo ataque. Sua forma pertence ao engano de Mentira, sem recorrer à posse de Carne ou ao apagamento de Vazio.",
+    "roleHint": "Repetir o sibilo aumenta seu dano até o limite; Atordoamento quebra a sequência.",
+    "lore": "Uma entidade serpentina de vidro espiritual que se esconde nas contradições dos próprios reflexos. Seus sibilos atravessam a guarda, expõem a vítima e desfazem reservas alheias. Sussurra promessas de saídas que nunca existiram, conduzindo suas vítimas até uma abertura na própria defesa.",
     "terms": {
       "Sílaba Cortante": "Sibilo Cortante",
       "Confissão Rachada": "Reflexo Traiçoeiro",
@@ -35,7 +36,7 @@ export const characterRevisions = {
   "a-semente": {
     "name": "A Semente",
     "role": "Germinação Espiritual",
-    "lore": "Uma vida vegetal que preserva possibilidades nas ruínas de Criação. Amadurece essência em seu núcleo, abriga outras almas entre folhas vivas e faz florescer a marca espiritual que deixou no agressor. Seu crescimento protege e abre caminhos; não se alimenta da decomposição de Podridão.",
+    "lore": "Uma vida vegetal que preserva possibilidades nas ruínas de Criação. Amadurece essência em seu núcleo, abriga outras almas entre folhas vivas e faz florescer a marca espiritual que deixou no agressor. Cultiva novos caminhos onde outras almas só encontravam ruínas.",
     "terms": {
       "Semente da Ruptura": "Marca Germinal",
       "Germinar por Dentro": "Florescer da Marca"
@@ -45,7 +46,7 @@ export const characterRevisions = {
   "a-linha-partida": {
     "name": "A Cindida",
     "role": "Alma Fragmentada",
-    "lore": "Uma alma do Limbo cujos fragmentos já não ocupam o mesmo instante. Três fios instáveis conservam sua continuidade: ela os projeta para romper a guarda inimiga ou os reata em torno de um aliado, cedendo parte da própria integridade. Não controla vontades; tenta sustentar vínculos que a ruptura ameaça desfazer.",
+    "lore": "Uma alma do Limbo cujos fragmentos já não ocupam o mesmo instante. Três fios instáveis conservam sua continuidade: ela os projeta para romper a guarda inimiga ou os reata em torno de um aliado, cedendo parte da própria integridade. Cada ajuda deixa seus fragmentos mais distantes, mas ela insiste em reatar o que ainda pode alcançar.",
     "terms": {},
     "aliases": [
       "A Linha Partida"
