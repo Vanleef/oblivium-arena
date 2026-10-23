@@ -1,41 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <clipPath id="mould"><path d="M242 75Q256 49 270 75L458 410Q472 435 443 435H69Q40 435 54 410Z"/></clipPath>
-    <linearGradient id="base" x1="256" y1="70" x2="256" y2="435" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8ebfb8"/><stop offset=".55" stop-color="#9d8f9e"/><stop offset="1" stop-color="#925b85"/>
+    <clipPath id="band">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M237 66Q256 32 275 66L455 378Q478 419 431 430H81Q34 419 57 378ZM246 186Q256 168 266 186L357 344Q367 362 346 362H166Q145 362 155 344Z"/>
+    </clipPath>
+    <linearGradient id="body" x1="256" y1="63" x2="256" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#528b80"/><stop offset=".55" stop-color="#50546a"/><stop offset="1" stop-color="#603c55"/>
     </linearGradient>
-    <radialGradient id="fire" cx="0" cy="0" r="1" gradientTransform="translate(94 415) rotate(-30) scale(337 252)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#df8067"/><stop offset=".4" stop-color="#ca716c"/><stop offset="1" stop-color="#c47176" stop-opacity="0"/>
+    <radialGradient id="ember" cx="0" cy="0" r="1" gradientTransform="translate(90 394) rotate(-41) scale(320 196)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#af5c50"/><stop offset=".45" stop-color="#8c484b"/><stop offset="1" stop-color="#8c484b" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="limbo" cx="0" cy="0" r="1" gradientTransform="translate(430 414) rotate(-150) scale(340 250)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9279c0"/><stop offset=".4" stop-color="#8d74b0"/><stop offset="1" stop-color="#947db1" stop-opacity="0"/>
+    <radialGradient id="violet" cx="0" cy="0" r="1" gradientTransform="translate(425 395) rotate(-139) scale(328 211)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7a639f"/><stop offset=".45" stop-color="#5e4c7e"/><stop offset="1" stop-color="#5e4c7e" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="paradise" cx="0" cy="0" r="1" gradientTransform="translate(256 116) rotate(90) scale(274 215)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#a9d7cd"/><stop offset=".35" stop-color="#91c2b8"/><stop offset="1" stop-color="#91bdb4" stop-opacity="0"/>
+    <radialGradient id="jade" cx="0" cy="0" r="1" gradientTransform="translate(253 104) rotate(90) scale(232 163)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7dafa1"/><stop offset=".36" stop-color="#5e9386"/><stop offset="1" stop-color="#5e9386" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="rightFlow" x1="256" y1="83" x2="420" y2="397" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9ac3af" stop-opacity=".48"/><stop offset=".55" stop-color="#8f9ab1" stop-opacity=".23"/><stop offset="1" stop-color="#9f83be" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="leftFlow" x1="91" y1="400" x2="256" y2="83" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d18a6e" stop-opacity=".38"/><stop offset=".5" stop-color="#aa8e8b" stop-opacity=".1"/><stop offset="1" stop-color="#b7d3ba" stop-opacity=".22"/>
+    </linearGradient>
+    <linearGradient id="baseFlow" x1="420" y1="400" x2="91" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aa8bcd" stop-opacity=".28"/><stop offset=".5" stop-color="#a97790" stop-opacity=".08"/><stop offset="1" stop-color="#cc7866" stop-opacity=".25"/>
+    </linearGradient>
     <linearGradient id="gold" x1="220" y1="96" x2="274" y2="366" gradientUnits="userSpaceOnUse">
       <stop stop-color="#97713c"/><stop offset=".28" stop-color="#c4a263"/><stop offset=".52" stop-color="#aa8549"/><stop offset=".78" stop-color="#896335"/><stop offset="1" stop-color="#614526"/>
     </linearGradient>
-    <linearGradient id="flow" x1="146" y1="180" x2="367" y2="421" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#b8ded0" stop-opacity=".45"/><stop offset=".55" stop-color="#b8b8c6" stop-opacity=".2"/><stop offset="1" stop-color="#b5a1cf" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="soften" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="13"/></filter>
   </defs>
 
-  <!-- One triangular mould holds the three realm pigments. -->
-  <g clip-path="url(#mould)">
-    <path fill="url(#base)" d="M0 0h512v512H0z"/>
-    <path fill="url(#fire)" d="M0 0h512v512H0z"/>
-    <path fill="url(#limbo)" d="M0 0h512v512H0z"/>
-    <path fill="url(#paradise)" d="M0 0h512v512H0z"/>
-    <path d="M195 118c-53 117 64 117 72 192 6 62-63 102-127 139 134-29 196-87 173-153-22-66-128-97-118-178Z" fill="url(#flow)" filter="url(#soften)"/>
-    <path d="M95 423c79-56 111-85 178-72 70 13 108 1 172-47" stroke="#d3adb0" stroke-opacity=".13" stroke-width="27" stroke-linecap="round" filter="url(#soften)"/>
+  <!-- A hollow triangular current: one continuous material, three realm pigments. -->
+  <g clip-path="url(#band)">
+    <path fill="url(#body)" d="M0 0h512v512H0z"/>
+    <path fill="url(#ember)" d="M0 0h512v512H0z"/>
+    <path fill="url(#violet)" d="M0 0h512v512H0z"/>
+    <path fill="url(#jade)" d="M0 0h512v512H0z"/>
+    <path d="M256 83c30 61 82 125 110 189 26 49 33 99 54 125" stroke="url(#rightFlow)" stroke-width="47" stroke-linecap="round"/>
+    <path d="M91 400c34-50 29-96 65-141 37-62 65-111 100-176" stroke="url(#leftFlow)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M421 399c-85 17-152-24-201 1-52 16-90 6-129 0" stroke="url(#baseFlow)" stroke-width="32" stroke-linecap="round"/>
+    <path d="M255 75c39 74 79 123 112 193 24 49 35 88 50 121M93 407c67 6 92-11 125-13 72-5 129 24 199 5" stroke="#c1c6b7" stroke-opacity=".14" stroke-width="2" stroke-linecap="round"/>
   </g>
-  <path d="M242 75Q256 49 270 75L458 410Q472 435 443 435H69Q40 435 54 410Z" stroke="#05080d" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M237 66Q256 32 275 66L455 378Q478 419 431 430H81Q34 419 57 378ZM246 186Q256 168 266 186L357 344Q367 362 346 362H166Q145 362 155 344Z" stroke="#05080d" stroke-width="7" stroke-linejoin="round"/>
 
-  <g fill="url(#gold)" stroke="#080b12" stroke-width="8" stroke-linejoin="round" paint-order="stroke" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="700">
-    <text x="256" y="186">P</text>
-    <text x="152" y="356">M</text>
-    <text x="360" y="356">A</text>
+  <g fill="url(#gold)" stroke="#080b12" stroke-width="7" stroke-linejoin="round" paint-order="stroke" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-weight="700">
+    <text x="256" y="126">P</text>
+    <text x="126" y="390">M</text>
+    <text x="386" y="390">A</text>
   </g>
 </svg>
