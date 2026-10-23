@@ -12,7 +12,12 @@ test('Codex encontra a identidade atual por seu nome novo ou anterior e mostra a
   [['A Balança Vazia','A Usurária da Penúria','A Usurária'],'A Usurária','entity-revision-20261023'],
   [['O Lugar de Ninguém','O Obliterador'],'O Obliterador','entity-revision-20261023'],
   [['A Guardiã das Promessas','A Juramentada'],'A Juramentada',null],
-  [['O Trono Vazio','O Suserano'],'O Suserano',null]
+  [['O Trono Vazio','O Suserano'],'O Suserano',null],
+  [['A Pira Errante','A Vingadora'],'A Vingadora','spirit-revision-20261023'],
+  [['O Jardim Morto','O Definhador'],'O Definhador','spirit-revision-20261023'],
+  [['A Luz que Restaura','A Sanadora'],'A Sanadora','spirit-revision-20261023'],
+  [['A Alma em Suspenso','O Ancorado'],'O Ancorado',null]
+
 
  ])for(const query of queries){
   handlers.input({target:{matches:()=>true,value:query,selectionStart:query.length}});

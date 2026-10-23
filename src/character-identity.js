@@ -2,6 +2,13 @@
 const fullArt = new Set(['a-senhora-do-ultimo-pao','o-surdo','o-quarto-vazio']);
 const eloArt = new Set(['o-estomago-sem-fundo','o-equilibrio','o-menino-sem-sombra']);
 const entityArt = new Set(['a-balanca-vazia','a-muralha','o-lugar-de-ninguem']);
+const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura']);
+const spiritSlots = {
+  'o-espelho-carnal':['tecnica'],
+  'a-pele-alheia':['despertar'],
+  'a-ultima-pagina':['voto','despertar'],
+  'o-que-apaga':['impulso','voto','despertar']
+};
 const entitySlots = {
   'o-filho-da-cinza':['passive','tecnica','despertar'],
   'a-jardineira-das-feridas':['passive','impulso'],
@@ -453,11 +460,153 @@ export const characterRevisions = {
     "aliases": [
       "A Guardiã das Promessas"
     ]
+  },
+  "a-pira-errante": {
+    "name": "A Vingadora",
+    "role": "Vingança Incandescente",
+    "lore": "Transforma qualquer resistência em motivo para ampliar a punição. Conserva uma brasa de cada afronta na lanterna que carrega e alimenta um cerco de fogo até que a vingança de Chama consuma quem a desafia.",
+    "terms": {
+      "Lenha da Travessia": "Rancor Encouraçado",
+      "Lenha Espiritual": "Brasa Punitiva",
+      "Lenha da Retaliação": "Revanche Ardente",
+      "Círculo da Pira": "Guarda Vingativa",
+      "Marcha da Fogueira": "Cerco Incandescente"
+    },
+    "roleHint": "Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar sua proteção, abra a revanche contra o inimigo.",
+    "aliases": [
+      "A Pira Errante"
+    ]
+  },
+  "o-jardim-morto": {
+    "name": "O Definhador",
+    "role": "Semeador da Ruína",
+    "lore": "Espalha raízes que roubam vigor e corrompem a matéria espiritual. Seus cúmplices se abrigam na trama necrosada, enquanto cada agressão alimenta uma resposta corrosiva; sua vontade é fazer Podridão avançar sobre o que ainda resiste.",
+    "terms": {
+      "Raiz sob a Pele": "Seiva Corrosiva",
+      "Solo Contaminado": "Trama Necrosada",
+      "Jardim do Fim": "Definhar",
+      "Entre Raízes Mortas": "Casca Inviolável"
+    },
+    "roleHint": "Aplique Decadência, envolva o trio na trama e devolva parte da agressão em aflição; o definhar coletivo enfraquece inimigos contaminados.",
+    "aliases": [
+      "O Jardim Morto"
+    ]
+  },
+  "a-luz-que-restaura": {
+    "name": "A Sanadora",
+    "role": "Restauradora de Essência",
+    "lore": "Reconstitui os fios de vitalidade que o sofrimento rompeu. Sua presença devolve vigor às almas feridas, e a mesma corrente luminosa abre espaço contra quem ameaça interromper o cuidado de Cura.",
+    "terms": {
+      "Claridade que Ampara": "Amparo Recíproco",
+      "Raio Restaurador": "Clarão Incisivo",
+      "Reconstruir o Fôlego": "Restituir Vigor",
+      "Aurora Reparadora": "Fluxo Vital",
+      "Clarão Imaculado": "Forma Luminosa"
+    },
+    "roleHint": "Exponha o agressor, restitua o vigor de um aliado ferido e use o fluxo vital para atacar e recuperar sua própria Vida.",
+    "aliases": [
+      "A Luz que Restaura"
+    ]
+  },
+  "o-espelho-carnal": {
+    "name": "O Simulacro",
+    "role": "Espelhamento Imposto",
+    "lore": "Implanta cópias da própria matéria em corpos alheios para converter dor em agressão de retorno. Seu auxílio conserva o corpo como instrumento de domínio, prolongando a imposição e o abuso que fortalecem Carne.",
+    "terms": {
+      "Dor Refletida": "Eco da Dor",
+      "Reflexo de Carne": "Molde Vulnerável",
+      "Imagem de Resposta": "Vínculo Parasita",
+      "Rachar o Reflexo": "Romper o Molde",
+      "Atrás do Espelho": "Duplicata Intangível"
+    },
+    "roleHint": "Exponha o inimigo e sustente um aliado com o vínculo parasita; a dor recebida provoca uma resposta de aflição.",
+    "aliases": [
+      "O Espelho Carnal"
+    ]
+  },
+  "a-pele-alheia": {
+    "name": "A Metamorfa",
+    "role": "Usurpadora de Formas",
+    "lore": "Faz da própria pele um instrumento de invasão. Incorpora formas que tomou de outras almas, alterna proteção e lâmina e descarta cada molde assim que ele deixa de servir à sua vontade de dominar.",
+    "terms": {
+      "Pele que Aprende": "Adaptação Predatória",
+      "Lâmina de Epiderme": "Gume Mutável",
+      "Lâmina da Pele Nova": "Gume Transfigurado",
+      "Camada Substituta": "Pele Usurpada",
+      "Descartar a Forma": "Descartar o Molde",
+      "Forma de Retaliação": "Instinto de Revide",
+      "Troca de Pele": "Corpo Substituto"
+    },
+    "roleHint": "Assuma a pele usurpada para trocar a lâmina e a técnica; descarte o molde para recuperar Vida e retomar a forma anterior.",
+    "aliases": [
+      "A Pele Alheia"
+    ]
+  },
+  "a-ultima-pagina": {
+    "name": "A Escriba",
+    "role": "Escriba da Extinção",
+    "lore": "Inscreve nomes em fragmentos espirituais para reduzir as possibilidades de uma alma. Rasura a vontade de reagir e encerra o vestígio que marcou, transformando cada continuidade perdida em força para Vazio.",
+    "terms": {
+      "Parágrafo Final": "Traço Terminal",
+      "Nome na Última Folha": "Inscrever o Fim",
+      "Rasura do Destino": "Rasura Terminal",
+      "Fechar a História": "Encerrar o Vestígio",
+      "Margem em Branco": "Folha Nula"
+    },
+    "roleHint": "Inscreva e exponha uma vítima, interrompa sua ofensiva e consuma a marca ao encerrar seu vestígio.",
+    "aliases": [
+      "A Última Página"
+    ]
+  },
+  "o-que-apaga": {
+    "name": "O Anulador",
+    "role": "Anulador de Vantagens",
+    "lore": "Remove o que permite a uma alma sustentar a própria resistência. Dissolve guarda e vantagens, deixa uma marca sobre o que restou e concentra a anulação final nesse vestígio, ampliando o apagamento de Vazio.",
+    "terms": {
+      "Nada se Sustenta": "Vantagem Negada",
+      "Traço Apagado": "Marca da Anulação",
+      "Ausência Definitiva": "Anulação Definitiva",
+      "Branco sobre a Guarda": "Dissolver a Guarda"
+    },
+    "roleHint": "Marque e remova vantagens; a preparação abre uma anulação exclusiva contra a mesma vítima, enquanto a segunda técnica dissolve Defesa.",
+    "aliases": [
+      "O que Apaga"
+    ]
+  },
+  "a-alma-em-suspenso": {
+    "name": "O Ancorado",
+    "role": "Âncora Vital",
+    "lore": "Uma alma retida num instante que não terminou. Reúne fôlego nas fraturas do Limbo e o prende a outra presença, cedendo parte da própria integridade; ao soltar a âncora, converte a reserva acumulada em ruptura.",
+    "terms": {
+      "Fôlego no Limiar": "Âncora Persistente",
+      "Prender o Último Fôlego": "Ancorar o Fôlego"
+    },
+    "roleHint": "Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ruptura; ancorar e soltar a âncora também cobra sua Vida.",
+    "aliases": [
+      "A Alma em Suspenso"
+    ]
+  },
+  "a-praga-andante": {
+    "name": "A Praga Andante",
+    "role": "Vetor Espiritual",
+    "lore": "Escolhe cada caminho pela quantidade de almas que pode contaminar. O contágio espalhado alimenta sua própria vitalidade e retorna concentrado à vítima já envenenada, propagando Podridão por onde passa.",
+    "terms": {},
+    "roleHint": "Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta interrompe uma vítima já contaminada.",
+    "aliases": []
   }
 };
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (spiritArt.has(id)) {
+    const base = `/art/characters/${id}/spirit-revision-20261023`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (spiritSlots[id]) {
+    const base = `/art/characters/${id}/spirit-revision-20261023`;
+    return {...art,abilities:{...art.abilities,...Object.fromEntries(spiritSlots[id].map(slot=>[slot,`${base}/skill-${slot}.webp`]))}};
+  }
   if (entitySlots[id]) {
     const base = `/art/characters/${id}/entity-revision-20261023`, slots = entitySlots[id];
     return {...art,...(slots.includes('passive') ? {passive:`${base}/passive.webp`} : {}),

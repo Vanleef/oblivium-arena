@@ -38,6 +38,17 @@ test('formas alternativas e suas instruções usam o mesmo vocabulário da técn
   const oath=characterById['a-guardia-das-promessas'];
   assert.equal(oath.abilities[1].forms[0].name,'Renovar o Pacto');
   assert.match(oath.abilities[1].forms[0].description,/restaura Honrar o Pacto/);
+  const avenger=characterById['a-pira-errante'];
+  assert.equal(avenger.abilities[0].forms[0].name,'Revanche Ardente');
+  assert.match(avenger.abilities[0].forms[0].description,/restaura Brasa Punitiva/);
+  const morph=characterById['a-pele-alheia'];
+  assert.match(morph.abilities[1].description,/até usar Descartar o Molde/);
+  assert.match(morph.abilities[1].forms[0].description,/restaura Gume Mutável/);
+  assert.match(morph.abilities[1].forms[0].description,/restaura Pele Usurpada/);
+  const nullifier=characterById['o-que-apaga'];
+  assert.match(nullifier.abilities[0].description,/Vira Anulação Definitiva/);
+  assert.match(nullifier.abilities[0].forms[0].description,/restaura Marca da Anulação/);
+
 
 
 });

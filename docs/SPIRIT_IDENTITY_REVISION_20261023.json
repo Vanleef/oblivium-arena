@@ -1,0 +1,414 @@
+{
+  "date": "2026-10-23",
+  "scope": "Nine identities, eight renamed characters, three full art sets and seven ability-scene corrections, 25 new images.",
+  "identities": {
+    "a-pira-errante": {
+      "name": "A Vingadora",
+      "role": "Vingança Incandescente",
+      "lore": "Transforma qualquer resistência em motivo para ampliar a punição. Conserva uma brasa de cada afronta na lanterna que carrega e alimenta um cerco de fogo até que a vingança de Chama consuma quem a desafia.",
+      "terms": {
+        "Lenha da Travessia": "Rancor Encouraçado",
+        "Lenha Espiritual": "Brasa Punitiva",
+        "Lenha da Retaliação": "Revanche Ardente",
+        "Círculo da Pira": "Guarda Vingativa",
+        "Marcha da Fogueira": "Cerco Incandescente"
+      },
+      "roleHint": "Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar sua proteção, abra a revanche contra o inimigo.",
+      "aliases": [
+        "A Pira Errante"
+      ]
+    },
+    "o-jardim-morto": {
+      "name": "O Definhador",
+      "role": "Semeador da Ruína",
+      "lore": "Espalha raízes que roubam vigor e corrompem a matéria espiritual. Seus cúmplices se abrigam na trama necrosada, enquanto cada agressão alimenta uma resposta corrosiva; sua vontade é fazer Podridão avançar sobre o que ainda resiste.",
+      "terms": {
+        "Raiz sob a Pele": "Seiva Corrosiva",
+        "Solo Contaminado": "Trama Necrosada",
+        "Jardim do Fim": "Definhar",
+        "Entre Raízes Mortas": "Casca Inviolável"
+      },
+      "roleHint": "Aplique Decadência, envolva o trio na trama e devolva parte da agressão em aflição; o definhar coletivo enfraquece inimigos contaminados.",
+      "aliases": [
+        "O Jardim Morto"
+      ]
+    },
+    "a-luz-que-restaura": {
+      "name": "A Sanadora",
+      "role": "Restauradora de Essência",
+      "lore": "Reconstitui os fios de vitalidade que o sofrimento rompeu. Sua presença devolve vigor às almas feridas, e a mesma corrente luminosa abre espaço contra quem ameaça interromper o cuidado de Cura.",
+      "terms": {
+        "Claridade que Ampara": "Amparo Recíproco",
+        "Raio Restaurador": "Clarão Incisivo",
+        "Reconstruir o Fôlego": "Restituir Vigor",
+        "Aurora Reparadora": "Fluxo Vital",
+        "Clarão Imaculado": "Forma Luminosa"
+      },
+      "roleHint": "Exponha o agressor, restitua o vigor de um aliado ferido e use o fluxo vital para atacar e recuperar sua própria Vida.",
+      "aliases": [
+        "A Luz que Restaura"
+      ]
+    },
+    "o-espelho-carnal": {
+      "name": "O Simulacro",
+      "role": "Espelhamento Imposto",
+      "lore": "Implanta cópias da própria matéria em corpos alheios para converter dor em agressão de retorno. Seu auxílio conserva o corpo como instrumento de domínio, prolongando a imposição e o abuso que fortalecem Carne.",
+      "terms": {
+        "Dor Refletida": "Eco da Dor",
+        "Reflexo de Carne": "Molde Vulnerável",
+        "Imagem de Resposta": "Vínculo Parasita",
+        "Rachar o Reflexo": "Romper o Molde",
+        "Atrás do Espelho": "Duplicata Intangível"
+      },
+      "roleHint": "Exponha o inimigo e sustente um aliado com o vínculo parasita; a dor recebida provoca uma resposta de aflição.",
+      "aliases": [
+        "O Espelho Carnal"
+      ]
+    },
+    "a-pele-alheia": {
+      "name": "A Metamorfa",
+      "role": "Usurpadora de Formas",
+      "lore": "Faz da própria pele um instrumento de invasão. Incorpora formas que tomou de outras almas, alterna proteção e lâmina e descarta cada molde assim que ele deixa de servir à sua vontade de dominar.",
+      "terms": {
+        "Pele que Aprende": "Adaptação Predatória",
+        "Lâmina de Epiderme": "Gume Mutável",
+        "Lâmina da Pele Nova": "Gume Transfigurado",
+        "Camada Substituta": "Pele Usurpada",
+        "Descartar a Forma": "Descartar o Molde",
+        "Forma de Retaliação": "Instinto de Revide",
+        "Troca de Pele": "Corpo Substituto"
+      },
+      "roleHint": "Assuma a pele usurpada para trocar a lâmina e a técnica; descarte o molde para recuperar Vida e retomar a forma anterior.",
+      "aliases": [
+        "A Pele Alheia"
+      ]
+    },
+    "a-ultima-pagina": {
+      "name": "A Escriba",
+      "role": "Escriba da Extinção",
+      "lore": "Inscreve nomes em fragmentos espirituais para reduzir as possibilidades de uma alma. Rasura a vontade de reagir e encerra o vestígio que marcou, transformando cada continuidade perdida em força para Vazio.",
+      "terms": {
+        "Parágrafo Final": "Traço Terminal",
+        "Nome na Última Folha": "Inscrever o Fim",
+        "Rasura do Destino": "Rasura Terminal",
+        "Fechar a História": "Encerrar o Vestígio",
+        "Margem em Branco": "Folha Nula"
+      },
+      "roleHint": "Inscreva e exponha uma vítima, interrompa sua ofensiva e consuma a marca ao encerrar seu vestígio.",
+      "aliases": [
+        "A Última Página"
+      ]
+    },
+    "o-que-apaga": {
+      "name": "O Anulador",
+      "role": "Anulador de Vantagens",
+      "lore": "Remove o que permite a uma alma sustentar a própria resistência. Dissolve guarda e vantagens, deixa uma marca sobre o que restou e concentra a anulação final nesse vestígio, ampliando o apagamento de Vazio.",
+      "terms": {
+        "Nada se Sustenta": "Vantagem Negada",
+        "Traço Apagado": "Marca da Anulação",
+        "Ausência Definitiva": "Anulação Definitiva",
+        "Branco sobre a Guarda": "Dissolver a Guarda"
+      },
+      "roleHint": "Marque e remova vantagens; a preparação abre uma anulação exclusiva contra a mesma vítima, enquanto a segunda técnica dissolve Defesa.",
+      "aliases": [
+        "O que Apaga"
+      ]
+    },
+    "a-alma-em-suspenso": {
+      "name": "O Ancorado",
+      "role": "Âncora Vital",
+      "lore": "Uma alma retida num instante que não terminou. Reúne fôlego nas fraturas do Limbo e o prende a outra presença, cedendo parte da própria integridade; ao soltar a âncora, converte a reserva acumulada em ruptura.",
+      "terms": {
+        "Fôlego no Limiar": "Âncora Persistente",
+        "Prender o Último Fôlego": "Ancorar o Fôlego"
+      },
+      "roleHint": "Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ruptura; ancorar e soltar a âncora também cobra sua Vida.",
+      "aliases": [
+        "A Alma em Suspenso"
+      ]
+    },
+    "a-praga-andante": {
+      "name": "A Praga Andante",
+      "role": "Vetor Espiritual",
+      "lore": "Escolhe cada caminho pela quantidade de almas que pode contaminar. O contágio espalhado alimenta sua própria vitalidade e retorna concentrado à vítima já envenenada, propagando Podridão por onde passa.",
+      "terms": {},
+      "roleHint": "Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta interrompe uma vítima já contaminada.",
+      "aliases": []
+    }
+  },
+  "art": [
+    {
+      "id": "a-pira-errante",
+      "slot": "portrait",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. INFERNO / CHAMA, deliberate revenge and implacable retaliation. A formidable mature adult FEMALE spirit, tall and athletic, warm terracotta skin, long angular face with a strong chin and sharp cheekbones, severe dark charcoal eyes with small COPPER irises and clear iris outlines, thick black eyebrows. BLACK hair cut to jaw length on one side and shaved on the other, a single long burnt-ORANGE braid falling from the back, NO white hair. High-collared charcoal sleeveless armored tunic, simple broad red sash, matte iron bracers with narrow ember seams, long ragged RED shoulder cape edged in dark ash. One compact iron ritual lantern with a red ember core hangs LOW at her hip, a deliberate tool, never her head or body. Her INNER fire is red-orange, never blue/holy gold. Severe controlled anger, spiritually imposing without gore. No horns, generic fire monster, literal walking bonfire, wooden post for a body, scales or crown. SCENE: Large head-and-shoulders three-quarter portrait, low angle, complete face, jawline and hairstyle within margins. A few glowing ash flecks follow her orange braid, no fire across face. Far backdrop a blackened stone watch post at dusk with distant red furnace slits. No other characters.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-28e3da82-e641-40e4-b2e4-25a7dd3cafd4.png",
+      "path": "art/characters/a-pira-errante/spirit-revision-20261023/portrait.webp",
+      "bytes": 55812,
+      "sha256": "21393d2a94399cfd95bb50e74f5d653f1dac8b9639a426bb7e49215e43739b35"
+    },
+    {
+      "id": "a-pira-errante",
+      "slot": "passive",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / CHAMA, deliberate revenge and implacable retaliation. A formidable mature adult FEMALE spirit, tall and athletic, warm terracotta skin, long angular face with a strong chin and sharp cheekbones, severe dark charcoal eyes with small COPPER irises and clear iris outlines, thick black eyebrows. BLACK hair cut to jaw length on one side and shaved on the other, a single long burnt-ORANGE braid falling from the back, NO white hair. High-collared charcoal sleeveless armored tunic, simple broad red sash, matte iron bracers with narrow ember seams, long ragged RED shoulder cape edged in dark ash. One compact iron ritual lantern with a red ember core hangs LOW at her hip, a deliberate tool, never her head or body. Her INNER fire is red-orange, never blue/holy gold. Severe controlled anger, spiritually imposing without gore. No horns, generic fire monster, literal walking bonfire, wooden post for a body, scales or crown. REQUIRED SCENE: PASSIVE Rancor Encouraçado: PERSONAL defense is reinforced every turn. Tight side close-up of her recognizable terracotta face, orange braid and iron bracer inside a ruined forge at night. Warm red embers from the SMALL lantern at her hip travel into an additional thin dark iron plate forming on HER own forearm guard, then cool at the edge. A self-fortifying act, no wound or healing, no outgoing attack, no ally. Clear body ownership, face visible, lantern is a compact accessory, never head/body.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-28e3da82-e641-40e4-b2e4-25a7dd3cafd4.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e5b2e197-04c9-463e-9559-9f5487d4e0e6.png",
+      "path": "art/characters/a-pira-errante/spirit-revision-20261023/passive.webp",
+      "bytes": 85894,
+      "sha256": "4f618ed3c16f710f422896958d8e6024b0710c7e7f8c21c9bf694e61735fb111"
+    },
+    {
+      "id": "a-pira-errante",
+      "slot": "skill-impulso",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / CHAMA, deliberate revenge and implacable retaliation. A formidable mature adult FEMALE spirit, tall and athletic, warm terracotta skin, long angular face with a strong chin and sharp cheekbones, severe dark charcoal eyes with small COPPER irises and clear iris outlines, thick black eyebrows. BLACK hair cut to jaw length on one side and shaved on the other, a single long burnt-ORANGE braid falling from the back, NO white hair. High-collared charcoal sleeveless armored tunic, simple broad red sash, matte iron bracers with narrow ember seams, long ragged RED shoulder cape edged in dark ash. One compact iron ritual lantern with a red ember core hangs LOW at her hip, a deliberate tool, never her head or body. Her INNER fire is red-orange, never blue/holy gold. Severe controlled anger, spiritually imposing without gore. No horns, generic fire monster, literal walking bonfire, wooden post for a body, scales or crown. REQUIRED SCENE: SINGLE-TARGET PHYSICAL ATTACK Brasa Punitiva, also used by the later spiritual Revanche Ardente form. Dynamic low three-quarter medium action on a scorched bridge. She drives one iron-bracer strike forward, a short compact RED-ORANGE ember lash from her own wrist striking the intact upper-body guard of ONE adult dark-armored hostile; burnt-red fragments cling to the hostile's aura as lingering fire. Her complete face, asymmetrical black hair and orange braid clear, other hand natural at waist by hip lantern. No severed limb, no weapon cutting armor parts on a table, no group being hit, no smile or healing.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-28e3da82-e641-40e4-b2e4-25a7dd3cafd4.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e49f724b-f339-48c0-a3e7-61a450b7556f.png",
+      "path": "art/characters/a-pira-errante/spirit-revision-20261023/skill-impulso.webp",
+      "bytes": 89454,
+      "sha256": "e57e7f5f10dbce9a67a51e5eb37215865ef50f5eb21eb03607f0f43a68598e1e"
+    },
+    {
+      "id": "a-pira-errante",
+      "slot": "skill-tecnica",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / CHAMA, deliberate revenge and implacable retaliation. A formidable mature adult FEMALE spirit, tall and athletic, warm terracotta skin, long angular face with a strong chin and sharp cheekbones, severe dark charcoal eyes with small COPPER irises and clear iris outlines, thick black eyebrows. BLACK hair cut to jaw length on one side and shaved on the other, a single long burnt-ORANGE braid falling from the back, NO white hair. High-collared charcoal sleeveless armored tunic, simple broad red sash, matte iron bracers with narrow ember seams, long ragged RED shoulder cape edged in dark ash. One compact iron ritual lantern with a red ember core hangs LOW at her hip, a deliberate tool, never her head or body. Her INNER fire is red-orange, never blue/holy gold. Severe controlled anger, spiritually imposing without gore. No horns, generic fire monster, literal walking bonfire, wooden post for a body, scales or crown. REQUIRED SCENE: PERSONAL DEFENSE AND COUNTER Guarda Vingativa: shield herself and prepare retaliation. Frontal close-medium in an abandoned circular courtyard under rain, her own iron-bracer forearms crossed before HER chest, a tight ring of hard RED embers and matte iron chips surrounds only her upper torso. One incoming white hostile spear-shaped energy streak is stopped just OUTSIDE that ring, a short orange rebound begins along the incoming path. Her head fully unobstructed. No sheltered people, allies, group dome, giant bonfire body or actual injury. Visibly poised to retaliate, not healing.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-28e3da82-e641-40e4-b2e4-25a7dd3cafd4.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-c0a483e8-cf03-4bb0-a5fd-1b8d85635b23.png",
+      "path": "art/characters/a-pira-errante/spirit-revision-20261023/skill-tecnica.webp",
+      "bytes": 102676,
+      "sha256": "60c9ff00a7abd37d401126a6778ab7683496f586986568c6c3f90388c9659409"
+    },
+    {
+      "id": "a-pira-errante",
+      "slot": "skill-voto",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / CHAMA, deliberate revenge and implacable retaliation. A formidable mature adult FEMALE spirit, tall and athletic, warm terracotta skin, long angular face with a strong chin and sharp cheekbones, severe dark charcoal eyes with small COPPER irises and clear iris outlines, thick black eyebrows. BLACK hair cut to jaw length on one side and shaved on the other, a single long burnt-ORANGE braid falling from the back, NO white hair. High-collared charcoal sleeveless armored tunic, simple broad red sash, matte iron bracers with narrow ember seams, long ragged RED shoulder cape edged in dark ash. One compact iron ritual lantern with a red ember core hangs LOW at her hip, a deliberate tool, never her head or body. Her INNER fire is red-orange, never blue/holy gold. Severe controlled anger, spiritually imposing without gore. No horns, generic fire monster, literal walking bonfire, wooden post for a body, scales or crown. REQUIRED SCENE: PHYSICAL AREA ATTACK Cerco Incandescente: damages all THREE enemies and strips their guard, stronger if already burning. WIDE high diagonal view in a blackened open market at sunset; her identifiable face in foreground, orange braid sweeping behind, she sweeps one raised iron bracer sideways. THREE solid red ember arcs strike separate intact adult hostile armored torsos across the midground, cracking their translucent blue defenses. One already ember-marked foe receives a brighter impact. No body mutilation, flame victims without bodies, people being protected or enormous walking lantern.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-28e3da82-e641-40e4-b2e4-25a7dd3cafd4.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-899b6620-038f-4919-b9bf-9232da7fe2d2.png",
+      "path": "art/characters/a-pira-errante/spirit-revision-20261023/skill-voto.webp",
+      "bytes": 105390,
+      "sha256": "5a99c1d7b94eb4aef16f8565b1023741e7e2d35a57bdd2a946f5b0c709692d51"
+    },
+    {
+      "id": "a-pira-errante",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / CHAMA, deliberate revenge and implacable retaliation. A formidable mature adult FEMALE spirit, tall and athletic, warm terracotta skin, long angular face with a strong chin and sharp cheekbones, severe dark charcoal eyes with small COPPER irises and clear iris outlines, thick black eyebrows. BLACK hair cut to jaw length on one side and shaved on the other, a single long burnt-ORANGE braid falling from the back, NO white hair. High-collared charcoal sleeveless armored tunic, simple broad red sash, matte iron bracers with narrow ember seams, long ragged RED shoulder cape edged in dark ash. One compact iron ritual lantern with a red ember core hangs LOW at her hip, a deliberate tool, never her head or body. Her INNER fire is red-orange, never blue/holy gold. Severe controlled anger, spiritually imposing without gore. No horns, generic fire monster, literal walking bonfire, wooden post for a body, scales or crown. REQUIRED SCENE: PERSONAL EVASION Passo entre Brasas: ONLY she becomes invulnerable. Fast lateral medium shot on a narrow ruined rooftop, she twists her own athletic body aside into a compact ribbon of ash and RED embers while one incoming white slash crosses the space her torso just vacated. Her recognizable full face, black asymmetrical hair, orange braid, red cape, and SMALL lantern secured at hip remain clear. No ally or protected group anywhere, no fully invisible empty landscape, no giant group fire shield, no injury.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-28e3da82-e641-40e4-b2e4-25a7dd3cafd4.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-54ab4172-4b89-46f7-9fe5-2609d454d865.png",
+      "path": "art/characters/a-pira-errante/spirit-revision-20261023/skill-despertar.webp",
+      "bytes": 94580,
+      "sha256": "4c6e5dd737e5b451dbc2263d62401eecc2730989cab41b67233c19525524459e"
+    },
+    {
+      "id": "o-jardim-morto",
+      "slot": "portrait",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. INFERNO / PODRIDÃO, deliberately spreads corruption through necrotic roots. An imposing ADULT MALE humanoid spirit, tall gaunt frame with oversized layered shoulders, pale gray-green face, very long thin nose and narrow pointed chin, hollow yellow-green eyes with normal clear iris contours, no beard. Long straight dark MOSS-GREEN hair swept BACK and tied into a low loose knot, with two pale dry strands near ears; no shaggy white hair or hiding the eyes. His face has several fine dark bark-like veins, NOT open wounds or decay holes. Coat formed from large overlapping desiccated BROWN leaf-and-bark plates, dark moss fabric beneath, collar of three curved dead ROOT segments behind the neck, no antlers, flowers, mushroom hat or animal. His hands are humanoid gray-green with exactly five articulated fingers; roots issue from cuffs as POWER, not fingers. Stooped but commanding, cold predatory expression. No literal egg, flower bud, garden landscape replacing a character, skull, corpse or gore. SCENE: Large head-and-upper-torso portrait, strong side three-quarter angle with the full face visible, complete head and collar within margins. Far backdrop: a ruined cistern with dead roots threading cracked stone and dull green mist near ground only. One dry root curls behind shoulder, away from face; clear sepia/gray-green shapes with a small acidic green accent.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7fead190-39aa-4de1-bfb6-50266e57b9bd.png",
+      "path": "art/characters/o-jardim-morto/spirit-revision-20261023/portrait.webp",
+      "bytes": 84320,
+      "sha256": "691db482d4dc93266ccc725b3c18758657d15e8396aa6b4cf3678e47c7cb9869"
+    },
+    {
+      "id": "o-jardim-morto",
+      "slot": "passive",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / PODRIDÃO, deliberately spreads corruption through necrotic roots. An imposing ADULT MALE humanoid spirit, tall gaunt frame with oversized layered shoulders, pale gray-green face, very long thin nose and narrow pointed chin, hollow yellow-green eyes with normal clear iris contours, no beard. Long straight dark MOSS-GREEN hair swept BACK and tied into a low loose knot, with two pale dry strands near ears; no shaggy white hair or hiding the eyes. His face has several fine dark bark-like veins, NOT open wounds or decay holes. Coat formed from large overlapping desiccated BROWN leaf-and-bark plates, dark moss fabric beneath, collar of three curved dead ROOT segments behind the neck, no antlers, flowers, mushroom hat or animal. His hands are humanoid gray-green with exactly five articulated fingers; roots issue from cuffs as POWER, not fingers. Stooped but commanding, cold predatory expression. No literal egg, flower bud, garden landscape replacing a character, skull, corpse or gore. REQUIRED SCENE: PASSIVE Seiva Corrosiva: when an enemy removes HIS life, that aggressor suffers a small corrosive retaliation. Tight dramatic over-the-shoulder shot in a dark collapsed cistern: one intact adult hostile's blade has struck an OUTER dry bark plate on HIS shoulder, cracking the coat but leaving his flesh uninjured and intact. His cold gray-green face and tied moss hair look back toward the aggressor. ONE short green sap filament darts from that cracked OUTER plate toward the aggressor's gauntlet, clearly returning the damage. No blood, severed body, poisonous weapon held backward or protective ward.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7fead190-39aa-4de1-bfb6-50266e57b9bd.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-83e57986-ba61-4367-9436-4fe879e382e3.png",
+      "path": "art/characters/o-jardim-morto/spirit-revision-20261023/passive.webp",
+      "bytes": 78352,
+      "sha256": "309b6dbd4245b4f443d3a5c48274f5b895d253570d8384261339c8a9ed04fe08"
+    },
+    {
+      "id": "o-jardim-morto",
+      "slot": "skill-impulso",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / PODRIDÃO, deliberately spreads corruption through necrotic roots. An imposing ADULT MALE humanoid spirit, tall gaunt frame with oversized layered shoulders, pale gray-green face, very long thin nose and narrow pointed chin, hollow yellow-green eyes with normal clear iris contours, no beard. Long straight dark MOSS-GREEN hair swept BACK and tied into a low loose knot, with two pale dry strands near ears; no shaggy white hair or hiding the eyes. His face has several fine dark bark-like veins, NOT open wounds or decay holes. Coat formed from large overlapping desiccated BROWN leaf-and-bark plates, dark moss fabric beneath, collar of three curved dead ROOT segments behind the neck, no antlers, flowers, mushroom hat or animal. His hands are humanoid gray-green with exactly five articulated fingers; roots issue from cuffs as POWER, not fingers. Stooped but commanding, cold predatory expression. No literal egg, flower bud, garden landscape replacing a character, skull, corpse or gore. REQUIRED SCENE: SINGLE-TARGET PHYSICAL ATTACK Raiz Necrosada: deals damage and lingering decay. LOW lateral medium action in a cracked stone aqueduct channel; he thrusts one NORMAL gray-green hand forward and a thick DRY ROOT grown from his cuff lashes across the ground to STRIKE the intact torso guard of ONE adult dark-armored foe. Green decay veining spreads only over the foe's external aura and armor surface, no flesh rot. His identifiable long angular face and tied moss hair clear in foreground. Exactly five humanoid fingers; roots are power from cuff, not extra fingers. No group, flower-bud body, forest replacing caster, healing or gore.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7fead190-39aa-4de1-bfb6-50266e57b9bd.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-59f46aa0-51a9-4277-b75f-163001e7a447.png",
+      "path": "art/characters/o-jardim-morto/spirit-revision-20261023/skill-impulso.webp",
+      "bytes": 97688,
+      "sha256": "23f62ea48a604ed487513112777b3647ca67c128defdb0446f0e0b066110629a"
+    },
+    {
+      "id": "o-jardim-morto",
+      "slot": "skill-tecnica",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / PODRIDÃO, deliberately spreads corruption through necrotic roots. An imposing ADULT MALE humanoid spirit, tall gaunt frame with oversized layered shoulders, pale gray-green face, very long thin nose and narrow pointed chin, hollow yellow-green eyes with normal clear iris contours, no beard. Long straight dark MOSS-GREEN hair swept BACK and tied into a low loose knot, with two pale dry strands near ears; no shaggy white hair or hiding the eyes. His face has several fine dark bark-like veins, NOT open wounds or decay holes. Coat formed from large overlapping desiccated BROWN leaf-and-bark plates, dark moss fabric beneath, collar of three curved dead ROOT segments behind the neck, no antlers, flowers, mushroom hat or animal. His hands are humanoid gray-green with exactly five articulated fingers; roots issue from cuffs as POWER, not fingers. Stooped but commanding, cold predatory expression. No literal egg, flower bud, garden landscape replacing a character, skull, corpse or gore. REQUIRED SCENE: TEAM DEFENSE Trama Necrosada: shields the trio and retaliates if an enemy damages them. WIDE eye-level shot beneath a ruined sepia cloister; he stands on one side, face clearly visible, one hand open low. DRY BROWN ROOTS form THREE compact separate woven guard panels in front of HIM and EXACTLY TWO adult dark-robed ALLIES, not enemies. Faint green corrosive tips point OUTWARD away from the three bodies, ready to punish an attacker. No root piercing an ally, no forced bodily restraints, no full forest dome, no extra limbs or living flower head.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7fead190-39aa-4de1-bfb6-50266e57b9bd.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-9c14163f-45ba-4ed1-b7f8-045d87b2e5a8.png",
+      "path": "art/characters/o-jardim-morto/spirit-revision-20261023/skill-tecnica.webp",
+      "bytes": 121026,
+      "sha256": "0cb7c1a74fec6fbfd39ac9edeef2667cd068ec74aa0445aeab5858912b13ae67"
+    },
+    {
+      "id": "o-jardim-morto",
+      "slot": "skill-voto",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / PODRIDÃO, deliberately spreads corruption through necrotic roots. An imposing ADULT MALE humanoid spirit, tall gaunt frame with oversized layered shoulders, pale gray-green face, very long thin nose and narrow pointed chin, hollow yellow-green eyes with normal clear iris contours, no beard. Long straight dark MOSS-GREEN hair swept BACK and tied into a low loose knot, with two pale dry strands near ears; no shaggy white hair or hiding the eyes. His face has several fine dark bark-like veins, NOT open wounds or decay holes. Coat formed from large overlapping desiccated BROWN leaf-and-bark plates, dark moss fabric beneath, collar of three curved dead ROOT segments behind the neck, no antlers, flowers, mushroom hat or animal. His hands are humanoid gray-green with exactly five articulated fingers; roots issue from cuffs as POWER, not fingers. Stooped but commanding, cold predatory expression. No literal egg, flower bud, garden landscape replacing a character, skull, corpse or gore. REQUIRED SCENE: PHYSICAL AREA ATTACK Definhar: strikes all THREE enemies with necrotic roots and weakens them, stronger if decayed. WIDE high oblique view on a desolate floodplain of broken paving: his clearly recognizable gray-green face and bark coat at near left, he pulls one hand upward. THREE separate thick DRY ROOT arches strike the intact blue guards of exactly THREE adult dark-armored opponents across the far ground, a dull acidic green pulse dims their aura at impact. No corpse, open wound, killing plants replacing his body, healing, fungal poison cloud or black-hole erasure.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7fead190-39aa-4de1-bfb6-50266e57b9bd.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-4b7cbbf7-51eb-4abd-ae88-41cfb159d05d.png",
+      "path": "art/characters/o-jardim-morto/spirit-revision-20261023/skill-voto.webp",
+      "bytes": 112152,
+      "sha256": "6e32fc35690de6d00a6875ef45ab823d325ee7b6d9edaa5aa3fd4409636ec053"
+    },
+    {
+      "id": "o-jardim-morto",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. INFERNO / PODRIDÃO, deliberately spreads corruption through necrotic roots. An imposing ADULT MALE humanoid spirit, tall gaunt frame with oversized layered shoulders, pale gray-green face, very long thin nose and narrow pointed chin, hollow yellow-green eyes with normal clear iris contours, no beard. Long straight dark MOSS-GREEN hair swept BACK and tied into a low loose knot, with two pale dry strands near ears; no shaggy white hair or hiding the eyes. His face has several fine dark bark-like veins, NOT open wounds or decay holes. Coat formed from large overlapping desiccated BROWN leaf-and-bark plates, dark moss fabric beneath, collar of three curved dead ROOT segments behind the neck, no antlers, flowers, mushroom hat or animal. His hands are humanoid gray-green with exactly five articulated fingers; roots issue from cuffs as POWER, not fingers. Stooped but commanding, cold predatory expression. No literal egg, flower bud, garden landscape replacing a character, skull, corpse or gore. REQUIRED SCENE: PERSONAL INVULNERABILITY Casca Inviolável: only HE is protected. Frontal medium shot on a rain-wet ruined stairway at night, he draws overlapping bark plates from HIS own cloak tightly around HIS torso like an articulated carapace. Two white hostile energy streaks slide off the exterior, his long gray-green face, yellow-green eyes and low tied moss hair remain above the armor fully visible. Exactly two normal hands bracing his own cloak. No other person, ally group, giant tree body, detached body part or face inside a flower bud.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7fead190-39aa-4de1-bfb6-50266e57b9bd.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-c7571343-6d06-47e6-bbf6-e14cf5ec3587.png",
+      "path": "art/characters/o-jardim-morto/spirit-revision-20261023/skill-despertar.webp",
+      "bytes": 102634,
+      "sha256": "bdfb7850790a85a88e99d93b52641f8dde6535a41d30efb635ffa72c7a647b03"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "slot": "portrait",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. PARAÍSO / CURA, compassion, renewal and reconstituting spiritual vitality. An imposing serene ADULT FEMALE humanoid light spirit, slender tall physique, luminous pale MINT-CYAN skin in FLAT cel color, graceful long face with a broad forehead, medium straight nose, full calm lips, normal almond-shaped deep TEAL eyes with DARK pupils, clearly expressive humanlike face. SHORT WHITE hair in three broad gently swept petal-shaped sections, no actual leaves or flowers, no horns, animal muzzle, wings or antlers. Ivory draped sleeveless robe in broad clean folds, warm gold narrow wrist bands, a small AMBER diamond clasp at upper chest that glows with vitality, never an open chest cavity or gemstone replacing body. Thin translucent mint edges along sleeves express an incorporeal body. No stone joints, armor, staff, healer grandmother, deity halo disk or literal walking light bulb. Her body remains person-shaped and her healing feels active and deliberate. SCENE: Large fully visible head-and-shoulders portrait, frontal level kind but confident gaze, complete white hairstyle and chin with generous margins. One open five-fingered hand low near amber clasp, compact warm green-gold renewal light, no huge beam. Far backdrop a calm pale stone recovery sanctuary at dawn with soft teal openings, no forest, no crowded patients, no text.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-cb75f326-3487-44aa-9ed1-70056516b991.png",
+      "path": "art/characters/a-luz-que-restaura/spirit-revision-20261023/portrait.webp",
+      "bytes": 65712,
+      "sha256": "f77fc5b1d4c514206f4062793ce77c5bf1d48441c68cfd17e9192cea8afc72d0"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "slot": "passive",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. PARAÍSO / CURA, compassion, renewal and reconstituting spiritual vitality. An imposing serene ADULT FEMALE humanoid light spirit, slender tall physique, luminous pale MINT-CYAN skin in FLAT cel color, graceful long face with a broad forehead, medium straight nose, full calm lips, normal almond-shaped deep TEAL eyes with DARK pupils, clearly expressive humanlike face. SHORT WHITE hair in three broad gently swept petal-shaped sections, no actual leaves or flowers, no horns, animal muzzle, wings or antlers. Ivory draped sleeveless robe in broad clean folds, warm gold narrow wrist bands, a small AMBER diamond clasp at upper chest that glows with vitality, never an open chest cavity or gemstone replacing body. Thin translucent mint edges along sleeves express an incorporeal body. No stone joints, armor, staff, healer grandmother, deity halo disk or literal walking light bulb. Her body remains person-shaped and her healing feels active and deliberate. REQUIRED SCENE: PASSIVE Amparo Recíproco: using support restores HER OWN vitality. Side close-medium view in a quiet pale stone recovery chamber at dawn; she cups one mint-cyan hand near the small amber clasp at HER OWN chest, a warm green-gold renewal thread curves BACK to her from the edge of a recently completed support gesture outside frame, gently restoring her own luminous outline. Serene adult face and short swept white hair clearly visible. No visible allied patient, attack, armor, wings, animal head, giant shield or wounded body. Normal five-fingered hand.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-cb75f326-3487-44aa-9ed1-70056516b991.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-ebb189f8-fe7a-4208-b8ef-7d860c710a91.png",
+      "path": "art/characters/a-luz-que-restaura/spirit-revision-20261023/passive.webp",
+      "bytes": 60628,
+      "sha256": "1c705ebad914991d98f505206b9f6632750120ebfe23d0b6f46c72ecc1cb7c35"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "slot": "skill-impulso",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. PARAÍSO / CURA, compassion, renewal and reconstituting spiritual vitality. An imposing serene ADULT FEMALE humanoid light spirit, slender tall physique, luminous pale MINT-CYAN skin in FLAT cel color, graceful long face with a broad forehead, medium straight nose, full calm lips, normal almond-shaped deep TEAL eyes with DARK pupils, clearly expressive humanlike face. SHORT WHITE hair in three broad gently swept petal-shaped sections, no actual leaves or flowers, no horns, animal muzzle, wings or antlers. Ivory draped sleeveless robe in broad clean folds, warm gold narrow wrist bands, a small AMBER diamond clasp at upper chest that glows with vitality, never an open chest cavity or gemstone replacing body. Thin translucent mint edges along sleeves express an incorporeal body. No stone joints, armor, staff, healer grandmother, deity halo disk or literal walking light bulb. Her body remains person-shaped and her healing feels active and deliberate. REQUIRED SCENE: SPIRITUAL OFFENSIVE ATTACK Clarão Incisivo: damage ONE enemy and EXPOSE their weakness, does not heal them. LOW diagonal medium action on a pale marble causeway over teal water; she extends one open mint hand to send a SINGLE thin GOLD-GREEN light strike at the intact chest guard of ONE adult dark-robed hostile opponent. Their blue guard splits into two harmless light pieces and one weak seam is outlined. Her complete serene but determined humanoid face, deep teal eyes and short white hair clearly visible. No treating this enemy, group beam, huge holy explosion, blood, stone-construct joints or animal antlers.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-cb75f326-3487-44aa-9ed1-70056516b991.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-d79a835d-7b55-44a6-9ff5-68f1adbc9080.png",
+      "path": "art/characters/a-luz-que-restaura/spirit-revision-20261023/skill-impulso.webp",
+      "bytes": 71248,
+      "sha256": "4060d4fa2b3a7aba60da1a79d7f68bd040c49efa4e9935f25a566934752cde17"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "slot": "skill-tecnica",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. PARAÍSO / CURA, compassion, renewal and reconstituting spiritual vitality. An imposing serene ADULT FEMALE humanoid light spirit, slender tall physique, luminous pale MINT-CYAN skin in FLAT cel color, graceful long face with a broad forehead, medium straight nose, full calm lips, normal almond-shaped deep TEAL eyes with DARK pupils, clearly expressive humanlike face. SHORT WHITE hair in three broad gently swept petal-shaped sections, no actual leaves or flowers, no horns, animal muzzle, wings or antlers. Ivory draped sleeveless robe in broad clean folds, warm gold narrow wrist bands, a small AMBER diamond clasp at upper chest that glows with vitality, never an open chest cavity or gemstone replacing body. Thin translucent mint edges along sleeves express an incorporeal body. No stone joints, armor, staff, healer grandmother, deity halo disk or literal walking light bulb. Her body remains person-shaped and her healing feels active and deliberate. REQUIRED SCENE: ONE-ALLY HEAL AND DAMAGE BOOST Restituir Vigor: recovery increases with the ally's lost life. Medium three-quarter shot in a cool shaded sanctuary alcove with teal windows: she kneels beside ONE exhausted adult BLUE-ROBED ALLY, holding her open mint-cyan hand near their intact shoulder. GOLD-GREEN filaments rejoin gaps in that ally's external spiritual aura, becoming a clear brighter line along the ally's forearm as renewed strength. Her adult face fully visible, kindly intent, short white swept hair and amber chest clasp preserved. No attack, group healing, resurrected corpse, wounds, huge barrier or touching body parts through clothes.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-cb75f326-3487-44aa-9ed1-70056516b991.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-b30723bc-5384-40a0-85c5-c6d766f4aeb0.png",
+      "path": "art/characters/a-luz-que-restaura/spirit-revision-20261023/skill-tecnica.webp",
+      "bytes": 89044,
+      "sha256": "ee039b4b08e65c9623ca99182b600733f2939656e706d5c930ce26f7c43932f9"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "slot": "skill-voto",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. PARAÍSO / CURA, compassion, renewal and reconstituting spiritual vitality. An imposing serene ADULT FEMALE humanoid light spirit, slender tall physique, luminous pale MINT-CYAN skin in FLAT cel color, graceful long face with a broad forehead, medium straight nose, full calm lips, normal almond-shaped deep TEAL eyes with DARK pupils, clearly expressive humanlike face. SHORT WHITE hair in three broad gently swept petal-shaped sections, no actual leaves or flowers, no horns, animal muzzle, wings or antlers. Ivory draped sleeveless robe in broad clean folds, warm gold narrow wrist bands, a small AMBER diamond clasp at upper chest that glows with vitality, never an open chest cavity or gemstone replacing body. Thin translucent mint edges along sleeves express an incorporeal body. No stone joints, armor, staff, healer grandmother, deity halo disk or literal walking light bulb. Her body remains person-shaped and her healing feels active and deliberate. REQUIRED SCENE: SPIRITUAL OFFENSIVE ATTACK AND SELF-RECOVERY Fluxo Vital: ONE enemy is hit and part of the damage restores the user. High side medium action in a pale deserted amphitheater; one controlled GOLD-GREEN arc of light from her hand strikes an exposed seam in the intact torso guard of ONE adult dark-robed foe at midground, while a much thinner returning green renewal strand curls to HER small amber chest clasp. She remains identifiable in foreground, serene firm face, white swept short hair and mint skin. No mouth eating souls, ally being attacked, group drain, red gore, chains or animal body.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-cb75f326-3487-44aa-9ed1-70056516b991.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-6925fe52-c641-4e04-864d-bf1dd7f07cfc.png",
+      "path": "art/characters/a-luz-que-restaura/spirit-revision-20261023/skill-voto.webp",
+      "bytes": 76830,
+      "sha256": "4a57cecc46e02798356e396e1233bc1663d0a8803c93f35099e9d6cd12e108d3"
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is CHARACTER IDENTITY REFERENCE ONLY: preserve face, gender, age, build, hair, eyes, clothes and accessories. Do NOT repeat the reference camera, pose or location. Create a new standalone ability scene; the required action below controls framing and location. PARAÍSO / CURA, compassion, renewal and reconstituting spiritual vitality. An imposing serene ADULT FEMALE humanoid light spirit, slender tall physique, luminous pale MINT-CYAN skin in FLAT cel color, graceful long face with a broad forehead, medium straight nose, full calm lips, normal almond-shaped deep TEAL eyes with DARK pupils, clearly expressive humanlike face. SHORT WHITE hair in three broad gently swept petal-shaped sections, no actual leaves or flowers, no horns, animal muzzle, wings or antlers. Ivory draped sleeveless robe in broad clean folds, warm gold narrow wrist bands, a small AMBER diamond clasp at upper chest that glows with vitality, never an open chest cavity or gemstone replacing body. Thin translucent mint edges along sleeves express an incorporeal body. No stone joints, armor, staff, healer grandmother, deity halo disk or literal walking light bulb. Her body remains person-shaped and her healing feels active and deliberate. REQUIRED SCENE: PERSONAL INVULNERABILITY Forma Luminosa: ONLY she is protected. Close medium profile in a narrow moonlit pale stone corridor; she pivots her own mint-cyan torso into two close parallel translucent MINT light contours, so ONE hostile thin violet energy lance passes through a vacated sliver between them without injury. Her full expressive humanoid face and swept white hair remain solid and clear above, ivory robe and amber clasp recognizable. No other person, ally group, crowd shield, wings, animal mask, empty landscape or explosion.",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-cb75f326-3487-44aa-9ed1-70056516b991.png",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-ef9e3e6c-1da0-4d0b-8ac2-78984350d7dd.png",
+      "path": "art/characters/a-luz-que-restaura/spirit-revision-20261023/skill-despertar.webp",
+      "bytes": 60624,
+      "sha256": "6ba12975387d56a575cdffc077937f8a06a2d4eafe7bfdf58b5b500623614b30"
+    },
+    {
+      "id": "o-espelho-carnal",
+      "slot": "skill-tecnica",
+      "scene": "ALLY SUPPORT Vínculo Parasita: heal and shield ONE ally; if that ally is injured, affliction returns to the aggressor. Preserve this reference androgynous SEXLESS smooth humanoid entity of pale LAVENDER reflective ectoplasm, very long bald head, narrow dark VIOLET eyes, no visible mouth, no human hair or costume, no explicit anatomy. Medium side view in a dark mirror-lined ruined chamber. The recognizable caster stands BESIDE ONE seated adult BLACK-ROBED ALLY, holding one normal five-fingered lavender hand near the ally's shoulder; a thin lavender mirrored layer restores the ally's external aura and ONE small upright reflective panel forms before that ally, with a restrained outward-pointing ripple prepared at its edge. No other doubles or protected group, no attack on the ally, no bodily penetration, no gore or nudity detail. Main entity face visible.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-espelho-carnal/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. ALLY SUPPORT Vínculo Parasita: heal and shield ONE ally; if that ally is injured, affliction returns to the aggressor. Preserve this reference androgynous SEXLESS smooth humanoid entity of pale LAVENDER reflective ectoplasm, very long bald head, narrow dark VIOLET eyes, no visible mouth, no human hair or costume, no explicit anatomy. Medium side view in a dark mirror-lined ruined chamber. The recognizable caster stands BESIDE ONE seated adult BLACK-ROBED ALLY, holding one normal five-fingered lavender hand near the ally's shoulder; a thin lavender mirrored layer restores the ally's external aura and ONE small upright reflective panel forms before that ally, with a restrained outward-pointing ripple prepared at its edge. No other doubles or protected group, no attack on the ally, no bodily penetration, no gore or nudity detail. Main entity face visible.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-8d5bae7a-2b4c-4cf8-a317-2af39af4e6b3.png",
+      "path": "art/characters/o-espelho-carnal/spirit-revision-20261023/skill-tecnica.webp",
+      "bytes": 86038,
+      "sha256": "4e1b54f7665bd353c42d16033357a14dd090f70a932b6cdb20d6fb75cc170a1d"
+    },
+    {
+      "id": "a-pele-alheia",
+      "slot": "skill-despertar",
+      "scene": "PERSONAL INVULNERABILITY Corpo Substituto. Preserve exact adult female entity with BLUE-LAVENDER skin, short thick WHITE curls, AMBER eyes, two dark curved head ornaments/horns, high angular violet collar and many flat violet/cream ribbonlike coat panels. Strong close-medium side action in a broken moonlit stairwell. She separates only HER OWN torso silhouette into two offset violet translucent surface layers, allowing ONE thin white hostile slash to cross the temporary gap; the layers remain aligned around HER body. Her face fully visible and intact, hands remain normal with five fingers, no cut flesh. No other people, ally, child or group shelter anywhere, no giant dome, no extra body parts or crowd of clones.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/a-pele-alheia/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. PERSONAL INVULNERABILITY Corpo Substituto. Preserve exact adult female entity with BLUE-LAVENDER skin, short thick WHITE curls, AMBER eyes, folded hollow curved coat panels behind the head, NO horns attached to the head, high angular violet collar and many flat violet/cream ribbonlike coat panels. Strong close-medium side action in a broken moonlit stairwell. She separates only HER OWN torso silhouette into two offset violet translucent surface layers, allowing ONE thin white hostile slash to cross the temporary gap; the layers remain aligned around HER body. Her face fully visible and intact, hands remain normal with five fingers, no cut flesh. No other people, ally, child or group shelter anywhere, no giant dome, no extra body parts or crowd of clones.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-b9aefc66-f39c-4e8e-8c3c-c9459cf8b8c5.png",
+      "path": "art/characters/a-pele-alheia/spirit-revision-20261023/skill-despertar.webp",
+      "bytes": 84820,
+      "sha256": "da9afad3804fb787e12de128eb5af513296737f9210f5902b60068d413e5cc76"
+    },
+    {
+      "id": "a-ultima-pagina",
+      "slot": "skill-voto",
+      "scene": "SINGLE-TARGET SPIRITUAL FINISHER Encerrar o Vestígio: ONE marked enemy receives damage and its preparation is consumed. Preserve exact adult woman with deep BROWN skin, tightly braided WHITE high updo, sharp gray eyes, large gold circular earrings, black tailored torso with dark MAGENTA panels and WHITE paperlike angular collar and coat shards. High diagonal medium action in a ruined archive gallery. Her full face and black quill in her normal five-fingered hand dominate foreground; she slashes the quill across ONE unlettered white page shard, sending a SINGLE narrow pale cyan spiritual line at the intact aura-marked torso of ONE adult dark-robed hostile in the midground. A simple unlettered pale bracket on the target dissolves at impact to show consumed preparation. No writing close-up alone, no text, severing, gore, group attack, blade cutting armor limbs on a table or additional victims.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/a-ultima-pagina/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. SINGLE-TARGET SPIRITUAL FINISHER Encerrar o Vestígio: ONE marked enemy receives damage and its preparation is consumed. Preserve exact adult woman with deep BROWN skin, tightly braided WHITE high updo, sharp dark brown eyes, long gold triangular drop earrings, black tailored torso with dark MAGENTA panels and WHITE paperlike angular collar and coat shards. High diagonal medium action in a ruined archive gallery. Her full face and black quill in her normal five-fingered hand dominate foreground; she slashes the quill across ONE unlettered white page shard, sending a SINGLE narrow pale cyan spiritual line at the intact aura-marked torso of ONE adult dark-robed hostile in the midground. A simple unlettered pale bracket on the target dissolves at impact to show consumed preparation. No writing close-up alone, no text, severing, gore, group attack, blade cutting armor limbs on a table or additional victims.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-c73f99c7-fe21-4119-ac72-4976c6907659.png",
+      "path": "art/characters/a-ultima-pagina/spirit-revision-20261023/skill-voto.webp",
+      "bytes": 77010,
+      "sha256": "936c89af6c5a2c3f014c861ff384c09595e5c5fdba2b17a375879199c2cb9ad5"
+    },
+    {
+      "id": "a-ultima-pagina",
+      "slot": "skill-despertar",
+      "scene": "PERSONAL INVULNERABILITY Folha Nula. Preserve exact adult woman with deep BROWN skin, tightly braided WHITE high updo, sharp gray eyes, gold circular earrings, black/magenta fitted clothing and WHITE angular paperlike collar and coat shards. Frontal medium view ALONE inside a narrow ruined archive doorway. She turns HER OWN shoulder sideways behind three compact WHITE paper-thin planes forming a close personal angular covering; ONE incoming white spear of energy slides past the outside edge. Her full head, entire face and gold earring remain visible above guard. Quill held naturally low in her other hand, five fingers. No ally or other person anywhere, no group paper dome, no additional limbs, no literal book for body or paper covering eyes.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/a-ultima-pagina/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. PERSONAL INVULNERABILITY Folha Nula. Preserve exact adult woman with deep BROWN skin, tightly braided WHITE high updo, sharp dark brown eyes, long gold triangular drop earrings, black/magenta fitted clothing and WHITE angular paperlike collar and coat shards. Frontal medium view ALONE inside a narrow ruined archive doorway. She turns HER OWN shoulder sideways behind three compact WHITE paper-thin planes forming a close personal angular covering; ONE incoming white spear of energy slides past the outside edge. Her full head, entire face and gold earring remain visible above guard. Quill held naturally low in her other hand, five fingers. No ally or other person anywhere, no group paper dome, no additional limbs, no literal book for body or paper covering eyes.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-ec9453a5-033f-4f50-8ec0-89ddf2cf8244.png",
+      "path": "art/characters/a-ultima-pagina/spirit-revision-20261023/skill-despertar.webp",
+      "bytes": 70254,
+      "sha256": "49c2427582b96e9750c6184a22f91577455fb166359e648046df413d3d16178d"
+    },
+    {
+      "id": "o-que-apaga",
+      "slot": "skill-impulso",
+      "scene": "SINGLE-TARGET PHYSICAL ATTACK Marca da Anulação: damage ONE enemy, remove their bonuses, and mark that SAME target for a later exclusive form. Preserve exact mature male reference with dark BROWN skin, short tightly curled WHITE hair, thick WHITE brows, severe gray eyes, no beard, broad long nose, LIGHT GRAY neck wrap and layered dark gray sleeveless strapped mantle. Dynamic low three-quarter medium shot on a ruined pale stone bridge. His full face clearly visible as his one open normal brown hand strikes the BLUE defensive aura over ONE intact adult black-armored opponent's chest, splitting away TWO small bright bonus fragments while ONE simple BLACK brush-stroke ring remains on that chest as preparation. No separate enemy group, body severing, blank abstract slash without caster, white-haired duplicate opponent, blue ally being attacked or text. Caster must be recognizable, same clothing, five fingers.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-que-apaga/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. SINGLE-TARGET PHYSICAL ATTACK Marca da Anulação: damage ONE enemy, remove their bonuses, and mark that SAME target for a later exclusive form. Preserve exact mature male reference with dark BROWN skin, short spiky cropped WHITE hair, thick WHITE brows, severe gray eyes, fine white chin stubble, broad long nose, LIGHT GRAY neck wrap and layered dark gray sleeveless strapped mantle. Dynamic low three-quarter medium shot on a ruined pale stone bridge. His full face clearly visible as his one open normal brown hand strikes the BLUE defensive aura over ONE intact adult black-armored opponent's chest, splitting away TWO small bright bonus fragments while ONE simple BLACK brush-stroke ring remains on that chest as preparation. No separate enemy group, body severing, blank abstract slash without caster, white-haired duplicate opponent, blue ally being attacked or text. Caster must be recognizable, same clothing, five fingers.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-8fa1bcba-d8af-4e62-970b-23993d0bbcfd.png",
+      "path": "art/characters/o-que-apaga/spirit-revision-20261023/skill-impulso.webp",
+      "bytes": 88342,
+      "sha256": "2ac3bd44ff22c49c48b87877c812a3ee17ad2cffcc4691ce40f70d04a07550de"
+    },
+    {
+      "id": "o-que-apaga",
+      "slot": "skill-voto",
+      "scene": "SINGLE-TARGET AFFLICTION ATTACK Extinguir o Traço: damages ONLY ONE marked enemy. Preserve exact mature male with dark BROWN skin, short tight WHITE curls, thick white brows, severe gray eyes, broad long nose, no beard, light GRAY neck wrap and dark gray strapped mantle. Medium strong lateral action in a desolate roofless stone hall: he extends ONE flat normal hand toward ONE intact adult dark-robed hostile standing in the midground. A single narrow BLACK-AND-IVORY erasure streak crosses the opponent's external aura at the existing dark ring on their torso, with a clear non-gory spiritual impact. His face recognizable in near foreground. NO other enemies or people in the scene, no area attack, no multiple shadows as victims, no missing limbs, no black hole mouth, no abstract paving pattern without caster or unreadable tiny character.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-que-apaga/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. SINGLE-TARGET AFFLICTION ATTACK Extinguir o Traço: damages ONLY ONE marked enemy. Preserve exact mature male with dark BROWN skin, short spiky WHITE hair, thick white brows, severe gray eyes, broad long nose, fine white chin stubble, light GRAY neck wrap and dark gray strapped mantle. Medium strong lateral action in a desolate roofless stone hall: he extends ONE flat normal hand toward ONE intact adult dark-robed hostile standing in the midground. A single narrow BLACK-AND-IVORY erasure streak crosses the opponent's external aura at the existing dark ring on their torso, with a clear non-gory spiritual impact. His face recognizable in near foreground. NO other enemies or people in the scene, no area attack, no multiple shadows as victims, no missing limbs, no black hole mouth, no abstract paving pattern without caster or unreadable tiny character.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-f1b8dc22-9364-4ce1-9306-9912d985bb9b.png",
+      "path": "art/characters/o-que-apaga/spirit-revision-20261023/skill-voto.webp",
+      "bytes": 87760,
+      "sha256": "0f9697ca5b576aa31d5d5cec99a94d0bc5f01a7d88b5741229d7e95a404103e0"
+    },
+    {
+      "id": "o-que-apaga",
+      "slot": "skill-despertar",
+      "scene": "PERSONAL INVULNERABILITY Fora da Existência. Preserve exact mature male dark BROWN skin, short tight WHITE curls, thick white eyebrows, severe gray eyes, broad long nose, no beard, light GRAY neck wrap and layered dark gray strapped mantle. Diagonal close-medium action ALONE in a narrow collapsed alley at night; he leans sideways while only HIS own outer mantle and torso silhouette briefly shift to crisp IVORY-white absence outlined in black. ONE hostile thin orange energy slash passes through the vacated edge harmlessly; his full face and white curls remain clearly solid above the phased torso. Two normal brown hands intact. Absolutely no ally, child, sheltered group or other person, no circle around multiple people, no injury or extra limbs.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-que-apaga/portrait.webp",
+      "prompt": "Use case: stylized-concept. Asset: production character art for PMA, original supernatural dark-shonen tactical game. ONE square standalone image, no text, labels, grid, frame, UI or watermark. PURE 2D ANIME, clean forceful ink lines, simple flat-color shapes, hard cel shadows, expressive readable face and silhouette at small icon size. No photorealism, oil painting, 3D, plastic render, overly busy patterned costume or tiny cinematic face. Original entity design, coherent anatomy; normal five-fingered humanoid hands and plausible object grips. Input image is IDENTITY REFERENCE ONLY. Preserve that exact face, gender, build, hairstyle, eye color, body material and clothing. Create a new standalone ability action and a different camera and location; do not copy the portrait. PERSONAL INVULNERABILITY Fora da Existência. Preserve exact mature male dark BROWN skin, short spiky WHITE hair, thick white eyebrows, severe gray eyes, broad long nose, fine white chin stubble, light GRAY neck wrap and layered dark gray strapped mantle. Diagonal close-medium action ALONE in a narrow collapsed alley at night; he leans sideways while only HIS own outer mantle and torso silhouette briefly shift to crisp IVORY-white absence outlined in black. ONE hostile thin orange energy slash passes through the vacated edge harmlessly; his full face and white curls remain clearly solid above the phased torso. Two normal brown hands intact. Absolutely no ally, child, sheltered group or other person, no circle around multiple people, no injury or extra limbs.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-d877e51e-b3fd-47cd-9136-a696812594e7.png",
+      "path": "art/characters/o-que-apaga/spirit-revision-20261023/skill-despertar.webp",
+      "bytes": 75616,
+      "sha256": "15c5da5f8292d24701b7709d94e1ec10d99c21afed0272a26a47f41a66cafc5a"
+    }
+  ],
+  "generation": "Built-in integrated image generation. Production export RGB WebP 512x512, quality 91. Previous assets preserved.",
+  "validation": {
+    "roster": 100,
+    "uniqueNames": 100,
+    "mechanics": "All non-presentation fields equal for all 100 characters against previous preview.",
+    "images": {
+      "decoded": 25,
+      "uniqueHashes": 25
+    },
+    "tests": {
+      "targetedPass": 10,
+      "targetedFail": 0,
+      "full": {
+        "pass": 140,
+        "fail": 0,
+        "skipped": 0
+      }
+    }
+  }
+}

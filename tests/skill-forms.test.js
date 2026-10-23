@@ -44,7 +44,7 @@ test('transformações alteram vários espaços e o desfecho encerra a forma int
 });
 
 test('postura permanece até a reversão voluntária e não muda a quarta defesa',()=>{
- const b=battle('A Pele Alheia');cast(b,1);for(let i=0;i<5;i++)passTurn(b);assert.equal(skill(b,0).name,'Lâmina da Pele Nova');assert.equal(skill(b,1).name,'Descartar a Forma');cast(b,1);assert.equal(skill(b,0).formKey,'base');assert.equal(skill(b,1).formKey,'base');
+ const b=battle('A Pele Alheia');cast(b,1);for(let i=0;i<5;i++)passTurn(b);assert.equal(skill(b,0).name,'Gume Transfigurado');assert.equal(skill(b,1).name,'Descartar o Molde');cast(b,1);assert.equal(skill(b,0).formKey,'base');assert.equal(skill(b,1).formKey,'base');
 });
 
 test('forma por Vida muda alvo, custo e tipo e reverte após recuperar Vida',()=>{
