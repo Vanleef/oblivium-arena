@@ -1,11 +1,13 @@
 # Símbolos dos reinos e ícone dark do jogo
 
-O ícone do jogo é um selo triangular vazado, formado por uma faixa contínua com correntes curvas de cor. Verde-água no topo, vermelho na base esquerda e violeta na direita usam tons profundos, com reflexos suaves nas bordas. O centro triangular e o exterior são transparentes. P permanece no vértice superior, M no inferior esquerdo e A no inferior direito, com a fonte serifada e o degradê de ouro envelhecido e bronze escuro. A marca usa a paleta dos mundos e aparece no cabeçalho e nos ícones de instalação.
+O ícone do jogo é um selo ritual em V, com P no braço superior esquerdo, M no superior direito e A na ponta inferior. Os braços curvos têm contornos e gravações em ouro envelhecido, com tons discretos dos três mundos no interior. Filamentos cruzados e arcos abertos completam a composição. As letras serifadas recebem o mesmo degradê de ouro e bronze individualmente. O centro e o exterior são transparentes; SVG e PNGs aparecem no cabeçalho e nos ícones de instalação.
+
+Referência de linguagem visual: [selos de Elden Ring](https://www.eurogamer.de/elden-ring-alle-heiligen-siegel-finden-ausruesten-kaufen-und-verbessern?page=2), com traços vetoriais próprios para a composição de PMA.
 
 ## Verificação
 
 - Os emblemas dos mundos mantêm o fundo transparente e incluem contorno preto nos motivos principais.
-- O ícone tem uma faixa triangular; o centro vazado e a área externa são transparentes nos PNGs de 192 × 192 e 512 × 512.
-- As três cores se misturam ao longo da faixa; P, M e A mantêm suas posições e o dourado escuro.
+- O ícone tem silhueta em V; as áreas abertas e externas são transparentes nos PNGs de 192 × 192 e 512 × 512.
+- A ordem visual é P à esquerda, M à direita e A abaixo, com ouro envelhecido e cores dos mundos nas hastes.
 - Os PNGs foram decodificados e os arquivos aparecem nos caminhos usados pelo cabeçalho, favicon, manifesto e cartões dos reinos.
 - `node --test --test-skip-pattern='o trio inicial tem retrato|os sessenta e sete personagens seguintes'`: 134 aprovados. Dois testes do acervo antigo foram omitidos porque as imagens pré-existentes correspondentes não estão nesta cópia parcial.

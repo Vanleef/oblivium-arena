@@ -1,50 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <clipPath id="band">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M237 66Q256 32 275 66L455 378Q478 419 431 430H81Q34 419 57 378ZM246 186Q256 168 266 186L357 344Q367 362 346 362H166Q145 362 155 344Z"/>
-    </clipPath>
-    <linearGradient id="body" x1="256" y1="63" x2="256" y2="430" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#528b80"/><stop offset=".55" stop-color="#50546a"/><stop offset="1" stop-color="#603c55"/>
+    <linearGradient id="metal" x1="131" y1="70" x2="371" y2="446" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79582e"/><stop offset=".22" stop-color="#c2a16b"/><stop offset=".46" stop-color="#8e6c3d"/><stop offset=".7" stop-color="#b38d52"/><stop offset="1" stop-color="#604221"/>
     </linearGradient>
-    <radialGradient id="ember" cx="0" cy="0" r="1" gradientTransform="translate(90 394) rotate(-41) scale(320 196)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#af5c50"/><stop offset=".45" stop-color="#8c484b"/><stop offset="1" stop-color="#8c484b" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="violet" cx="0" cy="0" r="1" gradientTransform="translate(425 395) rotate(-139) scale(328 211)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7a639f"/><stop offset=".45" stop-color="#5e4c7e"/><stop offset="1" stop-color="#5e4c7e" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="jade" cx="0" cy="0" r="1" gradientTransform="translate(253 104) rotate(90) scale(232 163)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7dafa1"/><stop offset=".36" stop-color="#5e9386"/><stop offset="1" stop-color="#5e9386" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="rightFlow" x1="256" y1="83" x2="420" y2="397" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9ac3af" stop-opacity=".48"/><stop offset=".55" stop-color="#8f9ab1" stop-opacity=".23"/><stop offset="1" stop-color="#9f83be" stop-opacity=".35"/>
-    </linearGradient>
-    <linearGradient id="leftFlow" x1="91" y1="400" x2="256" y2="83" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#d18a6e" stop-opacity=".38"/><stop offset=".5" stop-color="#aa8e8b" stop-opacity=".1"/><stop offset="1" stop-color="#b7d3ba" stop-opacity=".22"/>
-    </linearGradient>
-    <linearGradient id="baseFlow" x1="420" y1="400" x2="91" y2="400" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#aa8bcd" stop-opacity=".28"/><stop offset=".5" stop-color="#a97790" stop-opacity=".08"/><stop offset="1" stop-color="#cc7866" stop-opacity=".25"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="220" y1="96" x2="274" y2="366" gradientUnits="userSpaceOnUse">
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
       <stop stop-color="#97713c"/><stop offset=".28" stop-color="#c4a263"/><stop offset=".52" stop-color="#aa8549"/><stop offset=".78" stop-color="#896335"/><stop offset="1" stop-color="#614526"/>
+    </linearGradient>
+    <linearGradient id="realms" x1="108" y1="97" x2="391" y2="343" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3e655d"/><stop offset=".39" stop-color="#424750"/><stop offset=".65" stop-color="#613b43"/><stop offset="1" stop-color="#51426c"/>
+    </linearGradient>
+    <linearGradient id="inlay" x1="256" y1="88" x2="256" y2="437" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a6b1a0" stop-opacity=".22"/><stop offset=".5" stop-color="#26303a" stop-opacity=".1"/><stop offset="1" stop-color="#2b1822" stop-opacity=".5"/>
     </linearGradient>
   </defs>
 
-  <!-- A hollow triangular current: one continuous material, three realm pigments. -->
-  <g clip-path="url(#band)">
-    <path fill="url(#body)" d="M0 0h512v512H0z"/>
-    <path fill="url(#ember)" d="M0 0h512v512H0z"/>
-    <path fill="url(#violet)" d="M0 0h512v512H0z"/>
-    <path fill="url(#jade)" d="M0 0h512v512H0z"/>
-    <path d="M256 83c30 61 82 125 110 189 26 49 33 99 54 125" stroke="url(#rightFlow)" stroke-width="47" stroke-linecap="round"/>
-    <path d="M91 400c34-50 29-96 65-141 37-62 65-111 100-176" stroke="url(#leftFlow)" stroke-width="34" stroke-linecap="round"/>
-    <path d="M421 399c-85 17-152-24-201 1-52 16-90 6-129 0" stroke="url(#baseFlow)" stroke-width="32" stroke-linecap="round"/>
-    <path d="M255 75c39 74 79 123 112 193 24 49 35 88 50 121M93 407c67 6 92-11 125-13 72-5 129 24 199 5" stroke="#c1c6b7" stroke-opacity=".14" stroke-width="2" stroke-linecap="round"/>
+  <!-- Original ritual ornament: open roots and fine engraved arcs. -->
+  <g stroke="#05080d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M106 91C72 122 83 187 134 214M406 91c34 31 23 96-28 123M103 82C137 43 186 40 211 75M409 82C375 43 326 40 301 75"/>
   </g>
-  <path d="M237 66Q256 32 275 66L455 378Q478 419 431 430H81Q34 419 57 378ZM246 186Q256 168 266 186L357 344Q367 362 346 362H166Q145 362 155 344Z" stroke="#05080d" stroke-width="7" stroke-linejoin="round"/>
+  <g stroke="url(#metal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M106 91C72 122 83 187 134 214M406 91c34 31 23 96-28 123M103 82C137 43 186 40 211 75M409 82C375 43 326 40 301 75"/>
+    <path d="m101 84-25-20m31 12L96 44m315 40 25-20m-31 12 11-32M107 167l-30 10m41 16-18 26m305-52 30 10m-41 16 18 26" opacity=".75"/>
+  </g>
 
-  <g fill="url(#gold)" stroke="#080b12" stroke-width="7" stroke-linejoin="round" paint-order="stroke" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-weight="700">
-    <text x="256" y="126">P</text>
-    <text x="126" y="390">M</text>
-    <text x="386" y="390">A</text>
+  <!-- The broad calligraphic V carries the initials and three dark realm tones. -->
+  <path d="M91 74c30 27 59 42 82 31-2 71 32 163 83 268 51-105 85-197 83-268 23 11 52-4 82-31-19 118-80 249-165 372C171 323 110 192 91 74Z" fill="url(#realms)" stroke="#05080d" stroke-width="13" stroke-linejoin="round"/>
+  <path d="M91 74c30 27 59 42 82 31-2 71 32 163 83 268 51-105 85-197 83-268 23 11 52-4 82-31-19 118-80 249-165 372C171 323 110 192 91 74Z" fill="url(#inlay)" stroke="url(#metal)" stroke-width="5" stroke-linejoin="round"/>
+  <g stroke="url(#metal)" stroke-linecap="round">
+    <path d="M115 102c19 95 73 222 141 324 68-102 122-229 141-324" stroke-width="2" opacity=".7"/>
+    <path d="M160 182c26 72 51 128 75 176M352 182c-26 72-51 128-75 176" stroke-width="1.5" opacity=".45"/>
+    <path d="m147 233-18 6m30 20-17 6m29 19-16 6m27 19-15 7m198-83 18 6m-30 20 17 6m-29 19 16 6m-27 19 15 7" stroke-width="2" opacity=".7"/>
+  </g>
+
+  <!-- Delicate crossing filaments suggest the veil held between the arms. -->
+  <g stroke="url(#metal)" stroke-width="2.5" stroke-linecap="round" opacity=".8">
+    <path d="M159 192c58-20 55 89 97 112 42-23 39-132 97-112"/>
+    <path d="M185 224c33-6 49 21 71 43 22-22 38-49 71-43" opacity=".65"/>
+    <path d="M256 196v26m0 61v38"/>
+  </g>
+  <path d="m256 224 7 15-7 17-7-17 7-15Z" fill="url(#metal)"/>
+
+  <g fill="url(#gold)" stroke="#080b12" stroke-width="6" stroke-linejoin="round" paint-order="stroke" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700">
+    <text x="147" y="142">P</text>
+    <text x="365" y="142">M</text>
+    <text x="256" y="399" font-size="70">A</text>
   </g>
 </svg>
