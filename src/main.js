@@ -507,7 +507,7 @@ function teamView() {
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const matchesRealm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const matchesSearch = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.elo + " " + character.realm).toLowerCase().includes(state.crewSearch.toLowerCase());
+    const matchesSearch = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo + " " + character.realm).toLowerCase().includes(state.crewSearch.toLowerCase());
     return matchesRealm && matchesSearch && (owned || state.crewRealm === "Todos");
   });
   return `
@@ -544,7 +544,7 @@ function codexView() {
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const realm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const query = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.elo).toLowerCase().includes(state.crewSearch.toLowerCase());
+    const query = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo).toLowerCase().includes(state.crewSearch.toLowerCase());
     return realm && query;
   });
   return `

@@ -215,7 +215,7 @@ function characterFrom(elo, name, index) {
   const kit = reviseKitIdentity(buildCharacterKit(elo.id, index, art), revision);
   const starter = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"].includes(name);
   return {
-    id, name:revision?.name || name, ...(revision?.name ? {previousName:name} : {}), realm: elo.realm, elo: elo.name, eloId: elo.id,
+    id, name:revision?.name || name, ...(revision?.name ? {previousName:name} : {}), aliases:revision?.aliases || [], realm: elo.realm, elo: elo.name, eloId: elo.id,
     title: kit.role + " do Elo " + elo.name, ...kit, indexInElo: index,
     color: elo.color, symbol: elo.symbol, affinity,
     art: art ? { portrait: art.portrait, passive: art.passive } : null,

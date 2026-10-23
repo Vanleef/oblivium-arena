@@ -1,0 +1,386 @@
+{
+  "date": "2026-10-23",
+  "scope": "10 character identities revised to clarify world and Elo belonging; 3 full art sets and 4 personal defensive scenes, 22 images total.",
+  "mechanics": "Permanent IDs, realm, Elo, ownership, stats, costs, cooldowns, targets, effects and alternate-form logic unchanged across all 100 characters.",
+  "identities": {
+    "a-regente-de-cinzas": {
+      "name": "A Déspota",
+      "role": "Comandante Tirânica",
+      "lore": "Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Coroa.",
+      "terms": {
+        "Ordem em Cinzas": "Ferro do Jugo",
+        "Comando da Regente": "Ordem Absoluta",
+        "Purgar a Rebelião": "Esmagar a Resistência",
+        "Manto da Regência": "Privilégio Soberano"
+      },
+      "roleHint": "Queime a resistência com o ferro do jugo, fortaleça seus executores e castigue quem já carrega a Queimadura.",
+      "aliases": [
+        "A Regente de Cinzas"
+      ]
+    },
+    "a-mao-que-toma": {
+      "name": "A Saqueadora",
+      "role": "Acumuladora de Espólios",
+      "lore": "Converte a privação alheia em riqueza própria. Seus espólios espirituais compram proteção e vigor; o roubo só termina quando não resta mais nada a tomar.",
+      "terms": {
+        "Guardar o que Roubou": "Entesourar",
+        "Mão Fora de Alcance": "Espólio Intocável"
+      },
+      "roleHint": "Roube recursos e acumule espólios; gaste as reservas para recuperar Vida ou reforçar o confisco.",
+      "aliases": [
+        "A Mão que Toma"
+      ]
+    },
+    "o-estomago-sem-fundo": {
+      "name": "O Insaciável",
+      "role": "Predador de Reservas",
+      "lore": "Devora a proteção que outros acumularam e incorpora os despojos ao próprio corpo. Nada o satisfaz: até a guarda de uma alma se torna alimento para a próxima cobrança de Fome.",
+      "terms": {
+        "Digestão Lenta": "Assimilação",
+        "Corrosão Faminta": "Consumir a Guarda",
+        "Reserva do Estômago": "Reserva Consumida",
+        "Fundo que Não Existe": "Fome Devorante",
+        "Refúgio no Abismo": "Corpo Recolhido"
+      },
+      "roleHint": "Consuma a Defesa inimiga para formar sua própria guarda; reúna reservas e gaste-as na fome de aflição.",
+      "aliases": [
+        "O Abismo",
+        "O Abismo Voraz",
+        "O Estômago sem Fundo"
+      ]
+    },
+    "o-medico-de-vermes": {
+      "name": "O Inoculador",
+      "role": "Cultivador de Parasitas",
+      "lore": "Trata almas como hospedeiros de suas colônias. Mantém os cúmplices vivos para perpetuar a infestação e extrai vitalidade dos contaminados, espalhando a corrupção de Podridão.",
+      "terms": {
+        "Cuidado Decomposto": "Simbiose Corrupta",
+        "Sutura de Vermes": "Hospedeiro Renovado"
+      },
+      "roleHint": "Inocule Veneno para drenar o inimigo; conserve seus hospedeiros aliados com limpeza e regeneração.",
+      "aliases": [
+        "O Médico de Vermes"
+      ]
+    },
+    "o-vigia-ausente": {
+      "name": "O Desertor",
+      "role": "Predador da Omissão",
+      "lore": "Abandonou deliberadamente quem deveria guardar. Agora espera que uma alma fique sem auxílio para atacar pela retaguarda; sua lanterna só se acende quando o socorro já foi negado.",
+      "terms": {
+        "Vigília Tardia": "Oportunismo",
+        "Vigia na Sombra": "Espera Cúmplice",
+        "Chegar Depois": "Cobrar o Abandono",
+        "Chegada pela Retaguarda": "Golpe da Retaguarda"
+      },
+      "roleHint": "Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda contra o responsável.",
+      "aliases": [
+        "O Vigia Ausente"
+      ]
+    },
+    "o-desejo-quebrado": {
+      "name": "O Profanador",
+      "role": "Violador de Limites",
+      "lore": "Enxerga a integridade de outra alma como algo que pode consumir e deformar. Força o próprio corpo além do limite para invadir o espaço alheio e impor o abuso que alimenta Carne.",
+      "terms": {
+        "Falta Incurável": "Avidez Profana",
+        "Pulso do Desejo": "Ímpeto Profano",
+        "Aproximação Dolorosa": "Contato Invasivo",
+        "Desejo Desfeito": "Violação da Forma",
+        "Forma Inalcançável": "Forma Intangível"
+      },
+      "roleHint": "Converta sua Vida perdida em pressão ofensiva; invada a guarda alheia e consuma as cargas no golpe perfurante.",
+      "aliases": [
+        "O Desejo Quebrado"
+      ]
+    },
+    "o-menino-sem-sombra": {
+      "name": "O Desolador",
+      "role": "Flagelo da Desolação",
+      "lore": "Uma entidade adulta que escolhe extinguir toda possibilidade de continuidade. O que toca perde contorno e propósito; recompõe a própria presença com os vestígios das certezas que destruiu.",
+      "terms": {
+        "Medo sem Forma": "Ruína Crescente",
+        "Brincadeira sem Sombra": "Toque da Desolação",
+        "Refúgio na Falta": "Recompor o Vazio",
+        "Esconder-se do Sol": "Recolher a Presença",
+        "Sol que Não Encontra": "Extinguir a Presença",
+        "Infância Invisível": "Presença Nula"
+      },
+      "roleHint": "Acumule vestígios de ruína e consuma-os para extinguir a presença inimiga; com pouca Vida, a recomposição assume outra forma.",
+      "aliases": [
+        "O Menino sem Sombra"
+      ]
+    },
+    "o-que-ficou": {
+      "name": "O Abnegado",
+      "role": "Protetor Sacrificial",
+      "lore": "Escolhe permanecer quando recuar seria mais seguro. Sua força vem do amparo que oferece: cede parte do próprio fôlego para manter outra alma protegida e sustenta a linha enquanto alguém precisar atravessar.",
+      "terms": {
+        "Lugar ao Meu Lado": "Amparo Abnegado",
+        "Eu Ainda Estou Aqui": "Permanecer de Pé"
+      },
+      "roleHint": "Ceda parte da sua Vida para amparar um aliado e sustente-se na resposta ofensiva, mais forte quando ferido.",
+      "aliases": [
+        "O que Ficou"
+      ]
+    },
+    "o-equilibrio": {
+      "name": "O Árbitro",
+      "role": "Árbitro da Reparação",
+      "lore": "Um constructo espiritual que mede o dano antes de intervir. Sua vara de medida delimita a reparação e interrompe o excesso; sua autoridade serve ao equilíbrio de Justiça, sem exigir submissão.",
+      "terms": {
+        "Prato da Misericórdia": "Amparo Equânime",
+        "Reparação do Veredito": "Resposta Equânime",
+        "Equação da Justiça": "Veredito Proporcional",
+        "Balança Imóvel": "Posição Inviolável"
+      },
+      "roleHint": "Exponha o excesso, ofereça amparo e abra a resposta equânime; o veredito perfurante pune a abertura revelada.",
+      "aliases": [
+        "O Equilíbrio"
+      ]
+    },
+    "a-porta-que-flutua": {
+      "name": "A Errante",
+      "role": "Viajante do Limiar",
+      "lore": "Sua passagem permanece suspensa entre destinos que se romperam. Encontra atalhos transitórios nas fraturas do Limbo, empresta uma saída a outra alma e perde parte da própria estabilidade quando fecha uma dessas rotas.",
+      "terms": {
+        "Travessia Segura": "Atalho Suspenso"
+      },
+      "roleHint": "Abra uma passagem, use o atalho para amparar um aliado e retorne; fechar a rota no inimigo também cobra sua Vida.",
+      "aliases": [
+        "A Guardiã",
+        "A Guardiã do Limiar",
+        "A Porta que Flutua"
+      ]
+    }
+  },
+  "art": [
+    {
+      "id": "o-estomago-sem-fundo",
+      "slot": "portrait",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-a07f888c-ddd3-4cdc-be1d-841e04502bd7.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Entire face visible with margin, full head and shoulders, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. INFERNO / FOME (greed, predation, endless consumption, never cosmic erasure). An enormous heavyset adult male spirit, warm bronze skin, broad flat nose, dark amber eyes with black sclera but clear normal iris outlines, black hair swept into a short thick topknot with shaved temples, no facial hair. Strong horizontal face and neck, impassive acquisitive expression. Huge layered aubergine-purple brocade mantle; a massive segmented antique-bronze jaw torc sits BELOW his chin, not covering his face; three staggered rectangular bronze plates form each shoulder; long black sleeves and bronze fingerless gauntlets. Small amber cracks in captured armor fragments orbit one shoulder like consumed trophies, not body parts. No owl, animal head, literal stomach, chest-mouth, clock or stars inside body. Close three-quarter head and shoulder portrait at slightly low angle. Background: dark treasury gate and depleted banquet vessels, angular amber light, nothing burning.",
+      "path": "art/characters/o-estomago-sem-fundo/elo-revision-20261023/portrait.webp",
+      "sha256": "9623ab59520cab38e29ad234b279b7ff2afa18ee6a7d99fe1f3297d53ffc5006",
+      "bytes": 90142
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "slot": "passive",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-a07f888c-ddd3-4cdc-be1d-841e04502bd7.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / FOME (greed, predation, endless consumption, never cosmic erasure). An enormous heavyset adult male spirit, warm bronze skin, broad flat nose, dark amber eyes with black sclera but clear normal iris outlines, black hair swept into a short thick topknot with shaved temples, no facial hair. Strong horizontal face and neck, impassive acquisitive expression. Huge layered aubergine-purple brocade mantle; a massive segmented antique-bronze jaw torc sits BELOW his chin, not covering his face; three staggered rectangular bronze plates form each shoulder; long black sleeves and bronze fingerless gauntlets. Small amber cracks in captured armor fragments orbit one shoulder like consumed trophies, not body parts. No owl, animal head, literal stomach, chest-mouth, clock or stars inside body.  Background: dark treasury gate and depleted banquet vessels, angular amber light, nothing burning. SCENE REQUIRED: PASSIVE — Assimilação, restores his own vitality every turn. Close 3/4 side view of his face, chest and open palm in a cramped amber-lit vault; small already-captured spiritual fragments dissolve from palm into a warm amber pulse through his bronze torc, restoring his presence. Calm acquisitive eyes, clearly self-renewal, no shield, no attacking anyone, no food in mouth. Torc remains below chin.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-c9aaff5c-7a16-4a74-ae30-0344f370524f.png",
+      "path": "art/characters/o-estomago-sem-fundo/elo-revision-20261023/passive.webp",
+      "sha256": "3d63acc4ec62004aff0e16adb12f8eead8c9a117b70f19673b260c790d2b9219",
+      "bytes": 100128
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "slot": "skill-impulso",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-a07f888c-ddd3-4cdc-be1d-841e04502bd7.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / FOME (greed, predation, endless consumption, never cosmic erasure). An enormous heavyset adult male spirit, warm bronze skin, broad flat nose, dark amber eyes with black sclera but clear normal iris outlines, black hair swept into a short thick topknot with shaved temples, no facial hair. Strong horizontal face and neck, impassive acquisitive expression. Huge layered aubergine-purple brocade mantle; a massive segmented antique-bronze jaw torc sits BELOW his chin, not covering his face; three staggered rectangular bronze plates form each shoulder; long black sleeves and bronze fingerless gauntlets. Small amber cracks in captured armor fragments orbit one shoulder like consumed trophies, not body parts. No owl, animal head, literal stomach, chest-mouth, clock or stars inside body.  Background: dark treasury gate and depleted banquet vessels, angular amber light, nothing burning. SCENE REQUIRED: ATTACK — Consumir a Guarda. Dynamic low side angle on an abandoned stone toll bridge; he seizes an intact opponent's translucent BLUE DEFENSIVE WARD with one bronze-gauntleted hand, crushing only that ward into amber fragments drawn toward his own shoulder plates. Intact adult dark-robed opponent recoils behind the broken energy barrier, no detached limbs, no body consumption. Main character face identifiable. A short physical crushing action, not a beam.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-8d17d3e0-2ddc-4c53-8819-f6fbd5f673c2.png",
+      "path": "art/characters/o-estomago-sem-fundo/elo-revision-20261023/skill-impulso.webp",
+      "sha256": "a0456188acdee0316594e4942e46ce56dd530bd93154edff3f05a26c101c409c",
+      "bytes": 102298
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "slot": "skill-tecnica",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-a07f888c-ddd3-4cdc-be1d-841e04502bd7.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / FOME (greed, predation, endless consumption, never cosmic erasure). An enormous heavyset adult male spirit, warm bronze skin, broad flat nose, dark amber eyes with black sclera but clear normal iris outlines, black hair swept into a short thick topknot with shaved temples, no facial hair. Strong horizontal face and neck, impassive acquisitive expression. Huge layered aubergine-purple brocade mantle; a massive segmented antique-bronze jaw torc sits BELOW his chin, not covering his face; three staggered rectangular bronze plates form each shoulder; long black sleeves and bronze fingerless gauntlets. Small amber cracks in captured armor fragments orbit one shoulder like consumed trophies, not body parts. No owl, animal head, literal stomach, chest-mouth, clock or stars inside body.  Background: dark treasury gate and depleted banquet vessels, angular amber light, nothing burning. SCENE REQUIRED: SELF SUPPORT — Reserva Consumida, restore life and reduce damage briefly. Medium frontal shot in a moonlit desolate banquet hall, he closes both bronze-gauntleted hands near his own chest; amber spiritual reserves circulate inward from the segmented torc and a thin dense bronze shell settles around HIS upper body. No other person protected, no group, no feast, no attack. Strong face visible.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-9316d133-cfe4-460d-9a44-96d705d5a46e.png",
+      "path": "art/characters/o-estomago-sem-fundo/elo-revision-20261023/skill-tecnica.webp",
+      "sha256": "7701785642b8f4c4f5ed95bc24a4f3de4e4de55ff34cb1a332728401da47d019",
+      "bytes": 109526
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "slot": "skill-voto",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-a07f888c-ddd3-4cdc-be1d-841e04502bd7.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / FOME (greed, predation, endless consumption, never cosmic erasure). An enormous heavyset adult male spirit, warm bronze skin, broad flat nose, dark amber eyes with black sclera but clear normal iris outlines, black hair swept into a short thick topknot with shaved temples, no facial hair. Strong horizontal face and neck, impassive acquisitive expression. Huge layered aubergine-purple brocade mantle; a massive segmented antique-bronze jaw torc sits BELOW his chin, not covering his face; three staggered rectangular bronze plates form each shoulder; long black sleeves and bronze fingerless gauntlets. Small amber cracks in captured armor fragments orbit one shoulder like consumed trophies, not body parts. No owl, animal head, literal stomach, chest-mouth, clock or stars inside body.  Background: dark treasury gate and depleted banquet vessels, angular amber light, nothing burning. SCENE REQUIRED: AFFLICTION FINISHER — Fome Devorante. Medium high diagonal view at an empty rain-dark market crossroads: his OPEN hand reaches outward, three accumulated amber trophy fragments dissolve and converge into a narrow hungry pressure spiral that draws violet spiritual essence from ONE intact adult robed adversary in the midground. Their clothing and limbs stay intact. Focus his face and hand with the spent fragments; no literal mouth, black hole, flames, gore or physical eating.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-d3319410-9fdb-4cae-9b7f-0e3144777ad5.png",
+      "path": "art/characters/o-estomago-sem-fundo/elo-revision-20261023/skill-voto.webp",
+      "sha256": "bd20d4e3c49974ece60d301eb2d5af9926ba3cca1d09e628e6a8bc71870705ef",
+      "bytes": 112480
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "slot": "skill-despertar",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-a07f888c-ddd3-4cdc-be1d-841e04502bd7.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / FOME (greed, predation, endless consumption, never cosmic erasure). An enormous heavyset adult male spirit, warm bronze skin, broad flat nose, dark amber eyes with black sclera but clear normal iris outlines, black hair swept into a short thick topknot with shaved temples, no facial hair. Strong horizontal face and neck, impassive acquisitive expression. Huge layered aubergine-purple brocade mantle; a massive segmented antique-bronze jaw torc sits BELOW his chin, not covering his face; three staggered rectangular bronze plates form each shoulder; long black sleeves and bronze fingerless gauntlets. Small amber cracks in captured armor fragments orbit one shoulder like consumed trophies, not body parts. No owl, animal head, literal stomach, chest-mouth, clock or stars inside body.  Background: dark treasury gate and depleted banquet vessels, angular amber light, nothing burning. SCENE REQUIRED: PERSONAL EVASION — Corpo Recolhido. Tight full torso action shot along a narrow treasury stairwell, his body folds sideways behind his own massive purple mantle and his bronze shoulder plates interlock around him. A single incoming white energy slash glances away from the OUTSIDE of his sealed personal covering. His one visible amber eye peers above the torc. Self only, no allies, no table, no detached armor, no giant magic circle.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-ac71c635-b84d-4429-b0ee-66e29f184255.png",
+      "path": "art/characters/o-estomago-sem-fundo/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "d8d51f807641e952eee1ea77774d275873b15e7c0259851422287b281b86071f",
+      "bytes": 96954
+    },
+    {
+      "id": "o-equilibrio",
+      "slot": "portrait",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e23d0958-e551-40b2-b7ed-4fa1f1c7e2c9.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Entire face visible with margin, full head and shoulders, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. PARAÍSO / JUSTIÇA (impartial consequence and proportion, never tyrannical punishment). An ancient male-presenting humanoid ceramic construct, smooth ivory face with a square jaw, finely articulated cheek and neck seams, stern but compassionate dark blue eyes, two thick dark cobalt eyebrow strokes, hairless smooth head with ONE fine vertical gold inlay on the forehead. No human skin texture. White and cobalt judge-like layered vestments, broad symmetrical rectangular shoulder panels and narrow gold trim; dark blue segmented hands. A long straight gold-and-cobalt measuring staff held vertically away from the face; staff head is a simple horizontal short bar, NOT weighing pans. Upper torso portrait, face fully visible, still confident level gaze. Pale sandstone tribunal open to the sky, measured blue/gold planes behind him. NO animal, antlers, floating scales, clock head, hanging weighing pans or crown; the entity itself carries the meaning rather than a literal object.",
+      "path": "art/characters/o-equilibrio/elo-revision-20261023/portrait.webp",
+      "sha256": "1af29d9e1cea8cc33a6dab6ad3ecfea4b78240f54e98c1d8dead920b55146b5f",
+      "bytes": 58898
+    },
+    {
+      "id": "o-equilibrio",
+      "slot": "passive",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e23d0958-e551-40b2-b7ed-4fa1f1c7e2c9.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. PARAÍSO / JUSTIÇA (impartial consequence and proportion, never tyrannical punishment). An ancient male-presenting humanoid ceramic construct, smooth ivory face with a square jaw, finely articulated cheek and neck seams, stern but compassionate dark blue eyes, two thick dark cobalt eyebrow strokes, hairless smooth head with ONE fine vertical gold inlay on the forehead. No human skin texture. White and cobalt judge-like layered vestments, broad symmetrical rectangular shoulder panels and narrow gold trim; dark blue segmented hands. A long straight gold-and-cobalt measuring staff held vertically away from the face; staff head is a simple horizontal short bar, NOT weighing pans.  Pale sandstone tribunal open to the sky, measured blue/gold planes behind him. NO animal, antlers, floating scales, clock head, hanging weighing pans or crown; the entity itself carries the meaning rather than a literal object. SCENE REQUIRED: PASSIVE — Medida Justa: extra damage against an exposed target. Intense profile close-up of his ivory ceramic face and blue eye; he precisely aligns his straight measuring staff with a small gold outlined weak seam in an intact distant adult dark-robed aggressor's blue energy guard. Background quiet tribunal archive. Focus on observation and measured precision, no shield, no healing, no animals, no scales. Only simple straight gold measurement lines, no text.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-c3c027aa-53d5-4ec2-8f2d-e4ccfc296902.png",
+      "path": "art/characters/o-equilibrio/elo-revision-20261023/passive.webp",
+      "sha256": "f8a3373dfbf50d95baf8b1a5e84b0efe5188c7a0567f0a56308388fc5bf54320",
+      "bytes": 66880
+    },
+    {
+      "id": "o-equilibrio",
+      "slot": "skill-impulso",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e23d0958-e551-40b2-b7ed-4fa1f1c7e2c9.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. PARAÍSO / JUSTIÇA (impartial consequence and proportion, never tyrannical punishment). An ancient male-presenting humanoid ceramic construct, smooth ivory face with a square jaw, finely articulated cheek and neck seams, stern but compassionate dark blue eyes, two thick dark cobalt eyebrow strokes, hairless smooth head with ONE fine vertical gold inlay on the forehead. No human skin texture. White and cobalt judge-like layered vestments, broad symmetrical rectangular shoulder panels and narrow gold trim; dark blue segmented hands. A long straight gold-and-cobalt measuring staff held vertically away from the face; staff head is a simple horizontal short bar, NOT weighing pans.  Pale sandstone tribunal open to the sky, measured blue/gold planes behind him. NO animal, antlers, floating scales, clock head, hanging weighing pans or crown; the entity itself carries the meaning rather than a literal object. SCENE REQUIRED: PHYSICAL ATTACK — Peso do Excesso: deal damage and expose one enemy. Low side action view on a pale stone bridge, he strikes ONE intact adult dark-robed aggressor's guard with the blunt horizontal end of his rigid measuring staff; a single clean angular gold impact splits the hostile BLUE barrier at its seam and outlines a weak point. His ivory face visible, controlled stance, no execution, no detached limb, no animal, no weighing pans. Staff is one rigid tool, grip anatomically correct.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-835820a4-f113-4777-ab42-9a8785828ce1.png",
+      "path": "art/characters/o-equilibrio/elo-revision-20261023/skill-impulso.webp",
+      "sha256": "08d7086cb58bd7a09d18c02e331cf5c6f14aeae568e727597bd9028b93b8e561",
+      "bytes": 76996
+    },
+    {
+      "id": "o-equilibrio",
+      "slot": "skill-tecnica",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e23d0958-e551-40b2-b7ed-4fa1f1c7e2c9.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. PARAÍSO / JUSTIÇA (impartial consequence and proportion, never tyrannical punishment). An ancient male-presenting humanoid ceramic construct, smooth ivory face with a square jaw, finely articulated cheek and neck seams, stern but compassionate dark blue eyes, two thick dark cobalt eyebrow strokes, hairless smooth head with ONE fine vertical gold inlay on the forehead. No human skin texture. White and cobalt judge-like layered vestments, broad symmetrical rectangular shoulder panels and narrow gold trim; dark blue segmented hands. A long straight gold-and-cobalt measuring staff held vertically away from the face; staff head is a simple horizontal short bar, NOT weighing pans.  Pale sandstone tribunal open to the sky, measured blue/gold planes behind him. NO animal, antlers, floating scales, clock head, hanging weighing pans or crown; the entity itself carries the meaning rather than a literal object. SCENE REQUIRED: ALLY HEAL AND GUARD — Amparo Equânime, also opens a later retaliatory verdict. Medium three-quarter view in a shaded sandstone cloister, he kneels BESIDE ONE seated weary adult ally, places his open dark blue segmented hand near the ally's shoulder without merging bodies; a compact gold restoration pulse and one upright translucent cobalt plane surround THAT ally. Main character entire face visible, staff leaning safely at his other side. No group shield, no garden, no scales, no animal, no revived corpse.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-14a7e5f5-a587-4dcb-bc21-1a4cc8ca5373.png",
+      "path": "art/characters/o-equilibrio/elo-revision-20261023/skill-tecnica.webp",
+      "sha256": "f5e82e7963744e80466e729f0faa09ed5b7ea9c3aafc9be89fbfe0d38b906875",
+      "bytes": 82406
+    },
+    {
+      "id": "o-equilibrio",
+      "slot": "skill-voto",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e23d0958-e551-40b2-b7ed-4fa1f1c7e2c9.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. PARAÍSO / JUSTIÇA (impartial consequence and proportion, never tyrannical punishment). An ancient male-presenting humanoid ceramic construct, smooth ivory face with a square jaw, finely articulated cheek and neck seams, stern but compassionate dark blue eyes, two thick dark cobalt eyebrow strokes, hairless smooth head with ONE fine vertical gold inlay on the forehead. No human skin texture. White and cobalt judge-like layered vestments, broad symmetrical rectangular shoulder panels and narrow gold trim; dark blue segmented hands. A long straight gold-and-cobalt measuring staff held vertically away from the face; staff head is a simple horizontal short bar, NOT weighing pans.  Pale sandstone tribunal open to the sky, measured blue/gold planes behind him. NO animal, antlers, floating scales, clock head, hanging weighing pans or crown; the entity itself carries the meaning rather than a literal object. SCENE REQUIRED: PIERCING ATTACK — Veredito Proporcional. Foreshortened frontal action on a wind-swept rooftop tribunal, he points his one straight gold-and-cobalt measuring staff toward ONE intact adult shadow-robed aggressor; a thin precise GOLD line crosses a pre-existing opening in the enemy's blue guard and reaches their torso, a bright non-gory impact. Firm measured expression, his full ivory face visible near foreground, not furious. No sword storm, no all-target explosion, no animal or scales.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-8cfe2689-473c-464a-9923-0d646da31dd4.png",
+      "path": "art/characters/o-equilibrio/elo-revision-20261023/skill-voto.webp",
+      "sha256": "42a5ec501efe44199d3a38422c2d5fd1262f2089aa39b3f13f8fbbcc3cf45d6b",
+      "bytes": 75754
+    },
+    {
+      "id": "o-equilibrio",
+      "slot": "skill-despertar",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e23d0958-e551-40b2-b7ed-4fa1f1c7e2c9.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. PARAÍSO / JUSTIÇA (impartial consequence and proportion, never tyrannical punishment). An ancient male-presenting humanoid ceramic construct, smooth ivory face with a square jaw, finely articulated cheek and neck seams, stern but compassionate dark blue eyes, two thick dark cobalt eyebrow strokes, hairless smooth head with ONE fine vertical gold inlay on the forehead. No human skin texture. White and cobalt judge-like layered vestments, broad symmetrical rectangular shoulder panels and narrow gold trim; dark blue segmented hands. A long straight gold-and-cobalt measuring staff held vertically away from the face; staff head is a simple horizontal short bar, NOT weighing pans.  Pale sandstone tribunal open to the sky, measured blue/gold planes behind him. NO animal, antlers, floating scales, clock head, hanging weighing pans or crown; the entity itself carries the meaning rather than a literal object. SCENE REQUIRED: SELF INVULNERABILITY — Posição Inviolável. Medium full torso from above in a rain-wet circular courtyard; he holds the rigid staff horizontally across his own body as three compact cobalt geometric panels align tightly around HIM ONLY, redirecting two incoming white hostile streaks outside his shoulders. His ivory face unobstructed at center, no ally behind shield, no group, no animal, no literal balance. Angular and controlled, distinct from the healing scene.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-71691e07-d5db-438e-a189-888a8ab1d781.png",
+      "path": "art/characters/o-equilibrio/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "d046d5dff96fe3641e12af401951dc2de933028b9431ae2845e67544c08bffd7",
+      "bytes": 103272
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "slot": "portrait",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e4275b51-9c3d-4ca1-b745-a3afc108bbd4.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Entire face visible with margin, full head and shoulders, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. INFERNO / VAZIO (deliberately spreads despair and extinguishes possibility). An imposing ADULT male specter, no child or victim. Very tall lean physique, long angular charcoal-gray face, narrow pale violet eyes with clear normal iris outlines, straight sharp nose, no beard, very long WHITE hair pulled into a single high narrow ponytail that flows upwards without hiding the face. Small asymmetrical black triangular mark below LEFT eye. High closed black mantle, sculpted bone-white collar in two hooked panels, desaturated violet inner sleeves, long flat black ribbon-like tails with erasing edges, hands intact ash-gray with five fingers. Face cold and deliberate. No crown, weapons, chains, skulls, clocks, gore or wounded body. Frontal head and shoulders viewed slightly from below, large visible face and complete hairstyle. Far background: barren suspended causeway dissolving into flat white blankness, tiny violet erasure particles. The power is erasing presence and hope, not flames, hunger, illness or darkness-only assassin magic.",
+      "path": "art/characters/o-menino-sem-sombra/elo-revision-20261023/portrait.webp",
+      "sha256": "2b3b8d5c8b973baded65a6b00a8ef1f03d9d82e5be5a3dbd6f3ea26609555e70",
+      "bytes": 48766
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "slot": "passive",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e4275b51-9c3d-4ca1-b745-a3afc108bbd4.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / VAZIO (deliberately spreads despair and extinguishes possibility). An imposing ADULT male specter, no child or victim. Very tall lean physique, long angular charcoal-gray face, narrow pale violet eyes with clear normal iris outlines, straight sharp nose, no beard, very long WHITE hair pulled into a single high narrow ponytail that flows upwards without hiding the face. Small asymmetrical black triangular mark below LEFT eye. High closed black mantle, sculpted bone-white collar in two hooked panels, desaturated violet inner sleeves, long flat black ribbon-like tails with erasing edges, hands intact ash-gray with five fingers. Face cold and deliberate. No crown, weapons, chains, skulls, clocks, gore or wounded body.  Far background: barren suspended causeway dissolving into flat white blankness, tiny violet erasure particles. The power is erasing presence and hope, not flames, hunger, illness or darkness-only assassin magic. SCENE REQUIRED: PASSIVE — Ruína Crescente, attacks strengthen when he is weakened. Close head/shoulder view from below in a shattered starless observatory, several dry harmless cracks cross the BLACK mantle, not wounded flesh; his pale violet gaze sharpens as jagged VIOLET erasure pressure emanates OUTWARD from behind him, erasing the edges of a distant stone arch into blank white space. No defensive bubble, no healing, no victim posture, no child.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-bd4f0fde-187d-4e32-8cad-e4d2d5f5234a.png",
+      "path": "art/characters/o-menino-sem-sombra/elo-revision-20261023/passive.webp",
+      "sha256": "f6c228a0d096e3c736f911c86df8bf285ffeb9f0d3af5eb42d95499f9802c94f",
+      "bytes": 72460
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "slot": "skill-impulso",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e4275b51-9c3d-4ca1-b745-a3afc108bbd4.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / VAZIO (deliberately spreads despair and extinguishes possibility). An imposing ADULT male specter, no child or victim. Very tall lean physique, long angular charcoal-gray face, narrow pale violet eyes with clear normal iris outlines, straight sharp nose, no beard, very long WHITE hair pulled into a single high narrow ponytail that flows upwards without hiding the face. Small asymmetrical black triangular mark below LEFT eye. High closed black mantle, sculpted bone-white collar in two hooked panels, desaturated violet inner sleeves, long flat black ribbon-like tails with erasing edges, hands intact ash-gray with five fingers. Face cold and deliberate. No crown, weapons, chains, skulls, clocks, gore or wounded body.  Far background: barren suspended causeway dissolving into flat white blankness, tiny violet erasure particles. The power is erasing presence and hope, not flames, hunger, illness or darkness-only assassin magic. SCENE REQUIRED: SPIRITUAL ATTACK — Toque da Desolação, builds one charge. Tight side medium shot in an abandoned amphitheater, he thrusts two fingers forward and sends one narrow VIOLET tearing ripple through the spiritual outline of ONE intact adult dark-robed adversary, leaving a small drifting erased arc that returns toward him as a charge. He actively causes despair, not a sad victim. Adult face and left-cheek triangle clearly recognizable. No blood, severing, knives, shadows swallowing children or flames.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-2c2939a7-200f-4108-847f-be9f3f948a07.png",
+      "path": "art/characters/o-menino-sem-sombra/elo-revision-20261023/skill-impulso.webp",
+      "sha256": "044ab29a927e12da25e0b4d9bbb9441e0790d6f9da30055e4a3ed807755a55ac",
+      "bytes": 79720
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "slot": "skill-tecnica",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e4275b51-9c3d-4ca1-b745-a3afc108bbd4.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / VAZIO (deliberately spreads despair and extinguishes possibility). An imposing ADULT male specter, no child or victim. Very tall lean physique, long angular charcoal-gray face, narrow pale violet eyes with clear normal iris outlines, straight sharp nose, no beard, very long WHITE hair pulled into a single high narrow ponytail that flows upwards without hiding the face. Small asymmetrical black triangular mark below LEFT eye. High closed black mantle, sculpted bone-white collar in two hooked panels, desaturated violet inner sleeves, long flat black ribbon-like tails with erasing edges, hands intact ash-gray with five fingers. Face cold and deliberate. No crown, weapons, chains, skulls, clocks, gore or wounded body.  Far background: barren suspended causeway dissolving into flat white blankness, tiny violet erasure particles. The power is erasing presence and hope, not flames, hunger, illness or darkness-only assassin magic. SCENE REQUIRED: SELF RECOVERY — Recompor o Vazio, can become Recolher a Presença with lower life. Medium frontal image inside a broken corridor suspended over blank white emptiness; he calmly draws his OWN scattered black-violet mantle fragments inward to re-form his torso silhouette, a few violet motes restore continuity in his robe. Closed tall bone-white hooked collar and upward white ponytail stay recognizable. One hand half-open near chest, five fingers. No wound, no healed ally, no body horror, no sun, no attack.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-ad2d14f7-405b-4a4b-bab4-3a89b6b42e7a.png",
+      "path": "art/characters/o-menino-sem-sombra/elo-revision-20261023/skill-tecnica.webp",
+      "sha256": "96a8ee8ad1fd404d8eb4e9aae249e0e4b6b590df8a7f6ec921ef2ed136a5bfba",
+      "bytes": 72106
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "slot": "skill-voto",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e4275b51-9c3d-4ca1-b745-a3afc108bbd4.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / VAZIO (deliberately spreads despair and extinguishes possibility). An imposing ADULT male specter, no child or victim. Very tall lean physique, long angular charcoal-gray face, narrow pale violet eyes with clear normal iris outlines, straight sharp nose, no beard, very long WHITE hair pulled into a single high narrow ponytail that flows upwards without hiding the face. Small asymmetrical black triangular mark below LEFT eye. High closed black mantle, sculpted bone-white collar in two hooked panels, desaturated violet inner sleeves, long flat black ribbon-like tails with erasing edges, hands intact ash-gray with five fingers. Face cold and deliberate. No crown, weapons, chains, skulls, clocks, gore or wounded body.  Far background: barren suspended causeway dissolving into flat white blankness, tiny violet erasure particles. The power is erasing presence and hope, not flames, hunger, illness or darkness-only assassin magic. SCENE REQUIRED: AFFLICTION FINISHER — Extinguir a Presença, consumes accumulated charges and slightly taxes the user. Dramatic high oblique view on a narrow black causeway; three small stored VIOLET arcs dissolve above his outstretched palm, a concentrated front of BLANK WHITE erasure crosses the spirit silhouette of ONE intact adult dark-robed enemy across the gap. The victim remains whole and readable, only outer aura and environmental edges vanish. Some black ribbons peel off caster's mantle as cost, no injured flesh. His full face seen in three-quarter, no sun, no child, no black-hole hunger, no gore.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-7be53fa5-90aa-434f-813c-d7d4a8468577.png",
+      "path": "art/characters/o-menino-sem-sombra/elo-revision-20261023/skill-voto.webp",
+      "sha256": "38cf3e5cdf70dbac28de6ef811785732b616f27dfe8d64eab00ac71181777cb0",
+      "bytes": 73520
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "slot": "skill-despertar",
+      "reference": "/workspace/scratch/8dd2ca875e33/generated_images/exec-e4275b51-9c3d-4ca1-b745-a3afc108bbd4.png",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Face visible and identifiable; framing follows the specific ability scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image: CHARACTER IDENTITY REFERENCE ONLY, not an edit target. Preserve this exact reference face, age, body build, skin, eyes, hair, outfit and signature accessories. Create a new standalone ability scene with DIFFERENT camera angle, pose, action and environment. All visible human hands have five fingers; every hand/object contact has coherent grip, no extra limbs. INFERNO / VAZIO (deliberately spreads despair and extinguishes possibility). An imposing ADULT male specter, no child or victim. Very tall lean physique, long angular charcoal-gray face, narrow pale violet eyes with clear normal iris outlines, straight sharp nose, no beard, very long WHITE hair pulled into a single high narrow ponytail that flows upwards without hiding the face. Small asymmetrical black triangular mark below LEFT eye. High closed black mantle, sculpted bone-white collar in two hooked panels, desaturated violet inner sleeves, long flat black ribbon-like tails with erasing edges, hands intact ash-gray with five fingers. Face cold and deliberate. No crown, weapons, chains, skulls, clocks, gore or wounded body.  Far background: barren suspended causeway dissolving into flat white blankness, tiny violet erasure particles. The power is erasing presence and hope, not flames, hunger, illness or darkness-only assassin magic. SCENE REQUIRED: PERSONAL INVULNERABILITY — Presença Nula. Strong side 3/4 view in a collapsed hall, he pivots sideways and momentarily turns HIS OWN torso and streaming cloak edges into a crisp blank WHITE silhouette interrupted by thin violet outlines, so a single hostile cyan energy spear passes through the vacated side of his silhouette without injury. His adult face, violet eyes, white ponytail and bone-white collar remain visible in the unphased upper portion. No allies, no shelter scene, no group barrier, no child, no invisible-only empty background.",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-c2a30bdf-57a0-4b96-9d34-f6b3d131ae90.png",
+      "path": "art/characters/o-menino-sem-sombra/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "84a5145cb99cf9b9b7840323b02717d084cde56a69d5b773309777a0468b1034",
+      "bytes": 75904
+    },
+    {
+      "id": "a-mao-que-toma",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Character recognizable; framing follows the requested scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image is identity reference ONLY. Create a new scene, not a portrait crop. A Saqueadora, Inferno/Fome. Preserve the exact adult dark brown woman with short tight teal-green curls, sharp gold eyes, olive hooded jacket, dark fitted shirt, bronze hoop earring and yellow-gold spiritual oversized hands from the reference. PERSONAL EVASION: on a slanted ruined treasury roof she pulls only HER OWN torso behind ONE giant translucent gold hand whose palm faces OUTWARD toward a white hostile slash; coins of stolen spiritual essence rotate tight around her own shoulders. Her face and normal smaller hands remain clear. No other allies, absolutely no protected group, no extra fingers, no broken limbs, no gore. Strong diagonal medium shot, pure 2D cel anime. Power visualizes keeping stolen reserves out of reach, not benevolent protection.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/a-mao-que-toma/portrait.webp",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-76a16875-8e66-481f-914c-b3870920a4d9.png",
+      "path": "art/characters/a-mao-que-toma/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "7942870875bb20e8b5785327db3ba715f08e186b8c02582e571d45716fe24861",
+      "bytes": 114424
+    },
+    {
+      "id": "o-vigia-ausente",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Character recognizable; framing follows the requested scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image is identity reference ONLY. Create a new scene, not a portrait crop. O Desertor, Inferno/Silêncio. Preserve this exact apparition: an empty dark navy hooded silhouette, no human face, a SMALL ANTIQUE RECTANGULAR BRASS LANTERN hovering where his head would be, several small keys and frayed navy cape tails; the object is an intentional spectral head. PERSONAL EVASION ONLY: in a tight abandoned watchtower stairwell the apparition fades sideways into a very narrow dark unguarded doorway; one hostile white blade passes through his vacated cloak outline while the lantern dims almost entirely. Show only THIS entity, no helpless people or allies, no group to protect. Low over-the-shoulder shot with amber lamp and deep blue-gray contrast. Clear coherent one floating-lantern head, no body parts, no gore. Pure 2D cel anime.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-vigia-ausente/portrait.webp",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-04dec1fc-827b-48d9-b627-24c6ebeeb4c0.png",
+      "path": "art/characters/o-vigia-ausente/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "96e96d66545cf747f555c823bb33131ec314d106c1d6232e1a332b112d556228",
+      "bytes": 64404
+    },
+    {
+      "id": "o-desejo-quebrado",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Character recognizable; framing follows the requested scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image is identity reference ONLY. Create a new scene, not a portrait crop. O Profanador, Inferno/Carne. Preserve exact adult male face, medium tan skin, short swept silver-lilac hair, one partially covered gray eye, dark burgundy high-collar tailored coat, torn blue crystal-heart talisman below throat from the reference. PERSONAL INVULNERABILITY: he twists his OWN torso into thin coherent translucent violet layered contours so a single incoming narrow white energy slash slides harmlessly between those contours; free hand near his own shoulder, five fingers, smug controlling expression. Only HE is in the image, no sheltered allies, no group, no rainbow dome, no mutilation or deformed hands. Three-quarter side close medium view in a dark fractured mirror gallery. Not heartbroken or wounded, deliberately invasive entity. Pure 2D cel anime.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-desejo-quebrado/portrait.webp",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-2423a644-ec6f-4c19-9722-4b979239ed57.png",
+      "path": "art/characters/o-desejo-quebrado/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "48c4ae94899ebef8cddf7534deb9c5811d932a8e186eeca7fdc6752215fa6fed",
+      "bytes": 86688
+    },
+    {
+      "id": "o-que-ficou",
+      "slot": "skill-despertar",
+      "prompt": "Use case: stylized-concept. Asset: production portrait for PMA, original supernatural dark shonen anime tactical game. ONE square image, no text, grid, border, UI or watermark. Pure hand-drawn 2D ANIME: crisp ink contours, flat colors, hard cel shadows, expressive readable design at 75px. No realistic painting, photo, 3D, gradients over the face. Character recognizable; framing follows the requested scene, coherent anatomy. Entity feels formidable and spiritual, not an ordinary civilian. Original character, no franchise copying. Input image is identity reference ONLY. Create a new scene, not a portrait crop. O Abnegado, Paraíso/Proteção. Preserve exact adult man with messy tightly wavy copper-red hair, warm brown skin, short stubble, blue traveling coat and red scarf, broad shoulders and worn round steel shield from the reference. PERSONAL INVULNERABILITY ONLY: alone under a ruined stone arch he crouches behind his own round shield held naturally by his left forearm; a compact warm gold field exactly follows HIS silhouette and redirects incoming arrows around him. No ally behind him, absolutely no group dome, no other people. His determined face clear above shield edge, right hand closed at chest, coherent five fingers. Strong low frontal action close medium, pure 2D cel anime. His standing ground expresses chosen protection.",
+      "reference": "/workspace/scratch/8dd2ca875e33/pma/art/characters/o-que-ficou/portrait.webp",
+      "source": "/workspace/scratch/8dd2ca875e33/generated_images/exec-6d786ea4-f081-4ec9-978a-6d95d36a0d5f.png",
+      "path": "art/characters/o-que-ficou/elo-revision-20261023/skill-despertar.webp",
+      "sha256": "47b71e76fefe7f2dbde976b8e0d9c95a222db6f5bd83deb0fc4124ff554afa44",
+      "bytes": 106676
+    }
+  ],
+  "generation": "Built-in integrated image generation. Production export: RGB WebP 512x512, quality 91. Original files preserved.",
+  "validation": {
+    "roster": 100,
+    "uniqueNames": 100,
+    "mechanicalParity": true,
+    "tests": {
+      "pass": 140,
+      "fail": 0,
+      "status": "Passed full npm test suite after exporting and decoding all 22 final assets."
+    }
+  }
+}

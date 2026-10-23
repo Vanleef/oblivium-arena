@@ -25,6 +25,14 @@ test('formas alternativas e suas instruções usam o mesmo vocabulário da técn
   assert.doesNotMatch(witness.abilities[1].description,/Peso do Testemunho|Resposta da Testemunha/);
   assert.match(characterById['o-surdo'].abilities[1].description,/Clamor sem Retorno/);
   assert.match(characterById['a-costureira'].abilities[1].description,/Reforçar os Pontos/);
+  const deserter=characterById['o-vigia-ausente'];
+  assert.match(deserter.abilities[1].description,/Cobrar o Abandono vira Golpe da Retaguarda/);
+  assert.match(deserter.abilities[2].forms[0].description,/restaura Cobrar o Abandono/);
+  const arbiter=characterById['o-equilibrio'];
+  assert.match(arbiter.abilities[1].description,/vira Resposta Equânime/);
+  assert.match(arbiter.abilities[1].forms[0].description,/restaura Amparo Equânime/);
+  assert.match(characterById['o-menino-sem-sombra'].abilities[1].description,/vira Recolher a Presença/);
+
 });
 
 test('elenco exposto e trios inimigos mostram os nomes atuais com referências estáveis',()=>{
