@@ -40,7 +40,7 @@ test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila"
  click({tab:"codex"});assert.match(app.innerHTML,/Manto de Cinzas/);assert.match(app.innerHTML,/passive.webp/);
 });
 test("O Fim mostra sua natureza sem rosto fixo e preserva a defesa de invulnerabilidade",async t=>{
- t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/anime-rift-revision-20261023\/portrait.webp/);click({target:"the-end"});assert.match(app.innerHTML,/Fim Inalcançável/);assert.match(app.innerHTML,/maior medo de quem o olha/);assert.match(app.innerHTML,/cada observador encara uma manifestação única/);click({inspectSkill:"the-end:despertar"});assert.match(app.innerHTML,/RECARGA 4T/);assert.match(app.innerHTML,/skill-despertar.webp/);
+ t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/approved-elo-union-20261023\/portrait.webp/);click({target:"the-end"});assert.doesNotMatch(app.innerHTML,/o-fim\/anime-rift-revision/);assert.match(app.innerHTML,/Fim Inalcançável/);assert.match(app.innerHTML,/maior medo de quem o olha/);assert.match(app.innerHTML,/cada observador encara uma manifestação única/);for(const slot of ["fenda","decreto","coroa","despertar"]){click({inspectSkill:`the-end:${slot}`});assert.ok(app.innerHTML.includes(`/o-fim/approved-elo-union-20261023/skill-${slot}.webp`),slot);}assert.match(app.innerHTML,/RECARGA 4T/);assert.match(app.innerHTML,/skill-despertar.webp/);
 });
 
 test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o reino',async()=>{
@@ -98,4 +98,5 @@ test('metadados visuais do mundo não desviam o clique de alvo para a navegaçã
  click(dataset);assert.match(app.innerHTML,/data-remove-action="o-escudo-vivo"/);
  assert.doesNotMatch(app.innerHTML,/<div data-realm="Inferno" class="arena-match/);
 });
+
 
