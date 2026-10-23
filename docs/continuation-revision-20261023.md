@@ -9,7 +9,7 @@ A rodada iniciada no chat “Prosseguir opções PMA” foi retomada a partir de
 | A Linha Partida | A Cindida | Limbo / Correntes Quebradas | Alma fragmentada, unida por fios instáveis, sem corpo humano. |
 | O Primeiro Canto | O Ressonante | Paraíso / Criação | Nome e lore individual revistos. |
 | O Coração em Fúria | O Colérico | Inferno / Chama | Nome e lore individual revistos. |
-| O Vínculo | O Leal | Paraíso / União | Nome e lore individual revistos. |
+| O Vínculo | O Altruísta | Paraíso / União | Nome e lore individual revistos. |
 
 ## Coerência das cenas
 

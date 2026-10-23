@@ -70,12 +70,13 @@ export const characterRevisions = {
     ]
   },
   "o-vinculo": {
-    "name": "O Leal",
+    "name": "O Altruísta",
     "lore": "Escolhe permanecer ao lado de outra alma sem tomar sua liberdade. Seu pacto ampara, responde à agressão e partilha a recuperação entre os envolvidos: a força de União nasce da lealdade consentida.",
     "terms": {},
     "aliases": [
       "O Vínculo",
-      "O Companheiro"
+      "O Companheiro",
+      "O Leal"
     ]
   },
   'o-devorador': {
