@@ -7,9 +7,9 @@ A rodada iniciada no chat “Prosseguir opções PMA” foi retomada a partir de
 | A Boca de Vidro | A Serpe | Inferno / Mentira | Serpente de vidro espiritual; sibilos e reflexos enganosos. |
 | A Semente | A Semente | Paraíso / Criação | Vida vegetal de núcleo germinal, folhas e raízes; crescimento e preservação. |
 | A Linha Partida | A Cindida | Limbo / Correntes Quebradas | Alma fragmentada, unida por fios instáveis, sem corpo humano. |
-| O Primeiro Canto | O Cantor | Paraíso / Criação | Nome e lore individual revistos. |
+| O Primeiro Canto | O Ressonante | Paraíso / Criação | Nome e lore individual revistos. |
 | O Coração em Fúria | O Colérico | Inferno / Chama | Nome e lore individual revistos. |
-| O Vínculo | O Companheiro | Paraíso / União | Nome e lore individual revistos. |
+| O Vínculo | O Leal | Paraíso / União | Nome e lore individual revistos. |
 
 ## Coerência das cenas
 

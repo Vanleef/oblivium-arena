@@ -53,11 +53,12 @@ export const characterRevisions = {
     ]
   },
   "o-primeiro-canto": {
-    "name": "O Cantor",
+    "name": "O Ressonante",
     "lore": "Sua voz dá ritmo à matéria espiritual de Criação, apressando o despertar de novas possibilidades. O canto ampara o trio e reúne uma cadência que pode ser liberada contra quem ameaça a vida nascente.",
     "terms": {},
     "aliases": [
-      "O Primeiro Canto"
+      "O Primeiro Canto",
+      "O Cantor"
     ]
   },
   "o-coracao-em-furia": {
@@ -69,11 +70,12 @@ export const characterRevisions = {
     ]
   },
   "o-vinculo": {
-    "name": "O Companheiro",
+    "name": "O Leal",
     "lore": "Escolhe permanecer ao lado de outra alma sem tomar sua liberdade. Seu pacto ampara, responde à agressão e partilha a recuperação entre os envolvidos: a força de União nasce da lealdade consentida.",
     "terms": {},
     "aliases": [
-      "O Vínculo"
+      "O Vínculo",
+      "O Companheiro"
     ]
   },
   'o-devorador': {
