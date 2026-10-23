@@ -1,4 +1,5 @@
 import { buildCharacterKit } from "./kits.js";
+import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
 const inferno = [
   {
     id: "sangria", name: "Sangria", realm: "Inferno", theme: "Sangue, lâminas e carnificina", strength: "Máxima",
@@ -208,17 +209,18 @@ function artForCharacter(name) {
 }
 
 function characterFrom(elo, name, index) {
+  const id = slug(name), revision = characterRevisions[id];
   const affinity = realmResource[elo.realm];
-  const art = artForCharacter(name);
-  const kit = buildCharacterKit(elo.id, index, art);
+  const art = revisedArtFor(id, artForCharacter(name));
+  const kit = reviseKitIdentity(buildCharacterKit(elo.id, index, art), revision);
   const starter = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"].includes(name);
   return {
-    id: slug(name), name, realm: elo.realm, elo: elo.name, eloId: elo.id,
+    id, name:revision?.name || name, ...(revision?.name ? {previousName:name} : {}), realm: elo.realm, elo: elo.name, eloId: elo.id,
     title: kit.role + " do Elo " + elo.name, ...kit, indexInElo: index,
     color: elo.color, symbol: elo.symbol, affinity,
     art: art ? { portrait: art.portrait, passive: art.passive } : null,
     maxHp: 100, starter, unlockedByDefault: starter,
-    flavor: elo.flavor, risk: elo.realm === "Limbo"
+    flavor: revision?.lore || elo.flavor, lore:revision?.lore || null, risk: elo.realm === "Limbo"
   };
 }
 export const elos = [...inferno, ...paradise, ...limbo];
@@ -244,6 +246,8 @@ export const realms = [
 ];
 
 export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => characterFrom(elo, name, index)));
+// Expose current display names after deriving permanent IDs from the original roster.
+for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));
 export const starters = characters.filter((character) => character.starter);
 export const rosterCounts = {
@@ -324,5 +328,6 @@ export const buffs = [
   { id: "echo", title: "Eco do Trio", text: "A Ressonância concede mais 5% de bônus.", icon: "∞", effect: { resonance: 0.05 } },
   { id: "fracture", title: "Fissura Vigiada", text: "As habilidades de Limbo causam menos dano ao usuário.", icon: "⟲", effect: { risk: -4 } }
 ];
+
 
 

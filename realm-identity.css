@@ -1,5 +1,7 @@
 /* Hand-drawn heraldic shapes and short cel-style hits; no perpetual animation. */
 /* The approved moth keeps its full silhouette at every brand placement. */
+.codex-card-body h3,.roster-card-copy b{overflow-wrap:anywhere}
+.codex-card-body .codex-lore{color:#b9c2cf;font-size:12px;line-height:1.65}
 .brand-mark{width:64px;height:56px;flex:none;object-fit:contain;object-position:center;transform:none;border:0;border-radius:0;background:none;box-shadow:none;filter:none}
 .battle-result::after{background-image:url('/art/interface/brand-moth.webp')}
 @media(max-width:680px){.brand-mark{width:52px;height:48px}}

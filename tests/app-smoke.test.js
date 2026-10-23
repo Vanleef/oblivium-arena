@@ -2,6 +2,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { elos, starters } from "../src/data.js";
 let draft=()=>{};
+test('Codex encontra a identidade atual por seu nome novo ou anterior e mostra a lore individual',async()=>{
+ const {app,handlers,click}=setup();await import('../src/main.js?identity-revision=1');click({tab:'codex'});
+ for(const query of ['O Surdo','O Silenciador']){
+  handlers.input({target:{matches:()=>true,value:query,selectionStart:query.length}});
+  assert.match(app.innerHTML,/<h3>O Silenciador<\/h3>/);
+  assert.doesNotMatch(app.innerHTML,/<h3>O Surdo<\/h3>/);
+  assert.match(app.innerHTML,/codex-lore/);
+  assert.match(app.innerHTML,/revision-20261023\/portrait.webp/);
+ }
+});
 function setup(save=null){const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:()=>save,setItem(){}};draft=()=>{const id=app.innerHTML.match(/data-world-event="([^"]+)"/)?.[1];if(id)handlers.click({target:{dataset:{worldEvent:id},closest(){return this;}}});};return {app,handlers,key:key=>handlers.keydown({key,preventDefault(){},target:{matches:()=>false}}),click:dataset=>handlers.click({target:{dataset,closest(){return this;}}})};}
 test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila",async t=>{
  t.mock.timers.enable({apis:["setTimeout"]});t.mock.method(Math,"random",()=>.6);const {app,click}=setup();await import("../src/main.js?rework-smoke=1");
@@ -64,3 +74,4 @@ test('metadados visuais do mundo não desviam o clique de alvo para a navegaçã
  click(dataset);assert.match(app.innerHTML,/data-remove-action="o-escudo-vivo"/);
  assert.doesNotMatch(app.innerHTML,/<div data-realm="Inferno" class="arena-match/);
 });
+

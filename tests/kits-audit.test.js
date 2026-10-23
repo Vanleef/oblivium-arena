@@ -35,7 +35,7 @@ test('bônus criado no próprio turno chega à próxima ofensiva e expira depois
 });
 
 test('exposição beneficia a continuação do próprio usuário e expira no fim dessa janela',()=>{
- const c=characters.find(c=>c.name==='A Testemunha Cega'),b=battle(c);b.allies[0].passive=null;
+ const c=characters.find(c=>c.id==='a-testemunha-cega'),b=battle(c);b.allies[0].passive=null;
  cast(b,c.abilities[0]);assert.equal(b.enemies[0].exposed,1);
  const hp=b.enemies[0].hp;cast(b,c.abilities[2]);assert.equal(hp-b.enemies[0].hp,50);assert.equal(b.enemies[0].exposed,0);
 });
@@ -64,3 +64,4 @@ test('as durações de preparação também funcionam para a oposição',()=>{
  v.abilities=[{id:'expor',name:'Expor',target:'enemy',costs:{},damage:5,expose:1}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'expor',targetId:u.id,side:'enemy'}];passTurn(b);assert.equal(u.exposed,1);
  v.abilities=[{id:'golpe',name:'Golpe',target:'enemy',costs:{},damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:v.id,abilityId:'golpe',targetId:u.id,side:'enemy'}];const hp=u.hp;passTurn(b);assert.equal(hp-u.hp,20);assert.equal(u.exposed,0);
 });
+

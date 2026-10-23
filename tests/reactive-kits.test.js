@@ -4,7 +4,7 @@ import {characters,elos} from '../src/data.js';
 import {createBattle,chooseAction,passTurn,commitTurn,resolveNextAction,getAbilityResourceCosts,createEnemyTeam} from '../src/combat.js';
 import {allSkillForms} from '../src/kits.js';
 import {skillAvailability} from '../src/battle-view.js';
-const char=name=>characters.find(c=>c.name===name);
+const char=name=>characters.find(c=>c.name===name||c.previousName===name);
 const dummy={id:'alvo',name:'Alvo',realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]};
 function battle(name='O Açougueiro'){const b=createBattle([char(name).id],[dummy],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};b.allies[0].passive=null;return b;}
 function cast(b,a,target='alvo'){const u=b.allies[0];if(typeof a==='object'){u.abilities[0]=a;a=a.id;}assert.equal(chooseAction(b,u.id,a,target).ok,true);passTurn(b);}
@@ -87,3 +87,4 @@ test('uma armadilha de inatividade encerra o confronto antes de novas ações e 
 test('Legado de aflição aumenta a armadilha sem multiplicar suas ativações',()=>{
  const b=battle();b.global.afflictionPower=3;cast(b,{id:'trap',name:'Armadilha',target:'enemy',costs:{},reactive:{trigger:'idle',damage:10,turns:1}});assert.equal(b.enemies[0].hp,9987);passTurn(b);assert.equal(b.enemies[0].hp,9987);
 });
+

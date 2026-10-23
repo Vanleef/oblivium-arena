@@ -5,7 +5,7 @@ import { characters, elos, realms, rosterCounts, routeStages, buffs, realmResour
 import { getResonance, getRosterCounts, getRelevantBuffs } from "../src/rules.js";
 import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getAbilityResourceCosts } from "../src/engine.js";
 
-const byName = (name) => characters.find((character) => character.name === name);
+const byName = (name) => characters.find((character) => character.name === name || character.previousName === name);
 
 test("elenco tem 100 almas nos três reinos, divididas conforme a bíblia", () => {
   assert.equal(characters.length, 100);
@@ -123,3 +123,4 @@ test("aprimoramentos oferecem efeitos que fazem sentido para o Trio atual", () =
   const resonantTeam = ["o-escudo-vivo", "a-muralha", "o-que-ficou"];
   assert.ok(getRelevantBuffs(resonantTeam).some((buff) => buff.id === "echo"));
 });
+

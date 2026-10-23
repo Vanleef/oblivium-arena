@@ -5,7 +5,7 @@ import {allSkillForms} from '../src/kits.js';
 import {createBattle,chooseAction,passTurn,commitTurn,resolveNextAction,getValidTargets,getAvailableResources,createEnemyTeam,moveQueuedAction} from '../src/combat.js';
 import {refreshSkillForms} from '../src/skill-state.js';
 import {renderBattleDetail,renderBattle} from '../src/battle-view.js';
-const char=name=>characters.find(c=>c.name===name);
+const char=name=>characters.find(c=>c.name===name||c.previousName===name);
 const dummy=(id='alvo')=>({id,name:id,realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]});
 function battle(name,enemies=[dummy()]){const c=char(name),b=createBattle([c.id],enemies,{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};return b;}
 const skill=(b,i)=>b.allies[0].abilities[i];
@@ -110,3 +110,4 @@ test('a interface mantém 12 ícones e distingue técnica ativa, descrição, cu
  const b=battle('O Escudo Vivo');cast(b,0);const state={battle:b,battleNode:{label:'Treino'},focusSkill:{actorId:b.allies[0].id,abilityId:'impulso'}};
  const detail=renderBattleDetail(state);assert.match(detail,/Golpe do Bastião → Avanço da Égide/);assert.match(detail,/VARIAÇÕES/);assert.match(detail,/Custo: 1 Graça \+ 1 Essência/);assert.match(renderBattle(state,elos[0]),/skill-evolved/);
 });
+
