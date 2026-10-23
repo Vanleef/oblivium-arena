@@ -1,53 +1,53 @@
 {
   "date": "2026-10-23",
-  "scope": "Audit of 100 portraits and roster labels. 23 character display names, 50 skill/passive names, 3 complete character art sets and 3 Açougueiro attack scenes revised.",
+  "scope": "Audit of 100 portraits and roster labels. 23 character identities (22 display names changed from the original roster), 50 skill/passive names, 3 complete character art sets and 3 Açougueiro attack scenes revised.",
   "nameChanges": [
     {
       "id": "a-juiza-de-ferro",
       "old": "A Juíza de Ferro",
-      "new": "A Magistrada do Jugo",
+      "new": "A Magistrada",
       "realm": "Inferno",
       "elo": "Coroa"
     },
     {
       "id": "o-herdeiro-cativo",
       "old": "O Herdeiro Cativo",
-      "new": "O Herdeiro do Jugo",
+      "new": "O Herdeiro",
       "realm": "Inferno",
       "elo": "Coroa"
     },
     {
       "id": "o-estomago-sem-fundo",
       "old": "O Estômago sem Fundo",
-      "new": "O Abismo Voraz",
+      "new": "O Abismo",
       "realm": "Inferno",
       "elo": "Fome"
     },
     {
       "id": "a-senhora-do-ultimo-pao",
       "old": "A Senhora do Último Pão",
-      "new": "A Matriarca da Escassez",
+      "new": "A Matriarca",
       "realm": "Inferno",
       "elo": "Fome"
     },
     {
       "id": "a-balanca-vazia",
       "old": "A Balança Vazia",
-      "new": "A Usurária da Penúria",
+      "new": "A Usurária",
       "realm": "Inferno",
       "elo": "Fome"
     },
     {
       "id": "o-que-observou",
       "old": "O que Observou",
-      "new": "O Espectador Impassível",
+      "new": "O Espectador",
       "realm": "Inferno",
       "elo": "Silêncio"
     },
     {
       "id": "a-porta-fechada",
       "old": "A Porta Fechada",
-      "new": "A Guardiã do Abandono",
+      "new": "A Carcereira",
       "realm": "Inferno",
       "elo": "Silêncio"
     },
@@ -61,49 +61,49 @@
     {
       "id": "a-testemunha-cega",
       "old": "A Testemunha Cega",
-      "new": "A Testemunha Omissa",
+      "new": "A Cúmplice",
       "realm": "Inferno",
       "elo": "Silêncio"
     },
     {
       "id": "o-quarto-vazio",
       "old": "O Quarto Vazio",
-      "new": "O Anfitrião do Desamparo",
+      "new": "O Anfitrião",
       "realm": "Inferno",
       "elo": "Silêncio"
     },
     {
       "id": "o-que-possui",
       "old": "O que Possui",
-      "new": "O Usurpador de Corpos",
+      "new": "O Usurpador",
       "realm": "Inferno",
       "elo": "Carne"
     },
     {
       "id": "a-costureira",
       "old": "A Costureira",
-      "new": "A Suturadora de Vontades",
+      "new": "A Suturadora",
       "realm": "Inferno",
       "elo": "Carne"
     },
     {
       "id": "o-fim-silencioso",
       "old": "O Fim Silencioso",
-      "new": "O Arauto da Extinção",
+      "new": "O Arauto",
       "realm": "Inferno",
       "elo": "Vazio"
     },
     {
       "id": "o-que-pesa",
       "old": "O que Pesa",
-      "new": "O Ponderador das Almas",
+      "new": "O Ponderador",
       "realm": "Paraíso",
       "elo": "Justiça"
     },
     {
       "id": "o-julgador-gentil",
       "old": "O Julgador Gentil",
-      "new": "O Juiz da Clemência",
+      "new": "O Juiz",
       "realm": "Paraíso",
       "elo": "Justiça"
     },
@@ -117,49 +117,49 @@
     {
       "id": "a-voz",
       "old": "A Voz",
-      "new": "A Voz do Alento",
+      "new": "A Voz",
       "realm": "Paraíso",
       "elo": "Esperança"
     },
     {
       "id": "o-olho-desarmado",
       "old": "O Olho Desarmado",
-      "new": "O Vidente da Intenção",
+      "new": "O Vidente",
       "realm": "Paraíso",
       "elo": "Verdade"
     },
     {
       "id": "a-que-une",
       "old": "A que Une",
-      "new": "A Tecelã dos Vínculos",
+      "new": "A Tecelã",
       "realm": "Paraíso",
       "elo": "União"
     },
     {
       "id": "o-que-cria",
       "old": "O que Cria",
-      "new": "O Artífice da Gênese",
+      "new": "O Artífice",
       "realm": "Paraíso",
       "elo": "Criação"
     },
     {
       "id": "a-porta-que-flutua",
       "old": "A Porta que Flutua",
-      "new": "A Guardiã do Limiar",
+      "new": "A Guardiã",
       "realm": "Limbo",
       "elo": "Correntes Quebradas"
     },
     {
       "id": "o-relogio-afogado",
       "old": "O Relógio Afogado",
-      "new": "O Cronista Submerso",
+      "new": "O Cronista",
       "realm": "Limbo",
       "elo": "Correntes Quebradas"
     },
     {
       "id": "a-ponte-rasgada",
       "old": "A Ponte Rasgada",
-      "new": "A Peregrina das Margens",
+      "new": "A Peregrina",
       "realm": "Limbo",
       "elo": "Correntes Quebradas"
     }
@@ -297,5 +297,6 @@
     "visualReview": "Four 25-portrait audit sheets; four complete before/after character sets inspected for style, identity, coherent actions and anatomy.",
     "source": "Integrated image generation. Original older art retained at prior paths; current data references versioned new art.",
     "effectReview": "Silenciador passive depicts offensive comeback below 50% Life, not shielding; all three complete sets checked against actual compiled effects."
-  }
+  },
+  "namingDirection": "Prefer short, distinct titles such as A Matriarca and O Anfitrião. Explain the world and Elo relationship in lore instead of appending it to the name."
 }
