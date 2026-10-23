@@ -1,6 +1,12 @@
 // Presentation revisions use permanent character IDs, never a new name-derived ID.
 const fullArt = new Set(['a-senhora-do-ultimo-pao','o-surdo','o-quarto-vazio']);
 const eloArt = new Set(['o-estomago-sem-fundo','o-equilibrio','o-menino-sem-sombra']);
+const entityArt = new Set(['a-balanca-vazia','a-muralha','o-lugar-de-ninguem']);
+const entitySlots = {
+  'o-filho-da-cinza':['passive','tecnica','despertar'],
+  'a-jardineira-das-feridas':['passive','impulso'],
+  'a-guardia-das-promessas':['tecnica']
+};
 const personalDefenseArt = new Set(['a-mao-que-toma','o-vigia-ausente','o-desejo-quebrado','o-que-ficou']);
 export const characterRevisions = {
   "o-acougueiro": {
@@ -66,15 +72,20 @@ export const characterRevisions = {
   },
   "a-balanca-vazia": {
     "name": "A Usurária",
-    "role": "Usurária Espiritual",
-    "lore": "Mede o valor de uma alma pelo que ainda pode extrair dela. Seu amparo é investimento; sua balança jamais devolve o que toma.",
+    "role": "Credora Predatória",
+    "lore": "Oferece sustento como quem calcula uma cobrança futura. O auxílio cresce onde a falta é maior, mas serve apenas para preservar dependentes; quando a penúria se aprofunda, ela amplia a própria ofensiva.",
     "terms": {
       "Peso da Carência": "Lucro da Carência",
       "Prato da Falta": "Cobrança da Penúria",
-      "Contrapeso Vital": "Reserva do Penhor",
+      "Contrapeso Vital": "Adiantamento Vital",
       "Fome em Equilíbrio": "Confisco Coletivo",
       "Peso Zero": "Penhor Inalcançável"
-    }
+    },
+    "roleHint": "Drene a reserva inimiga e sustente um aliado ferido; o confisco pune inimigos já enfraquecidos pela perda de Vida.",
+    "aliases": [
+      "A Balança Vazia",
+      "A Usurária da Penúria"
+    ]
   },
   "o-que-observou": {
     "name": "O Espectador",
@@ -330,11 +341,133 @@ export const characterRevisions = {
     "aliases": [
       "O Equilíbrio"
     ]
+  },
+  "o-trono-vazio": {
+    "name": "O Suserano",
+    "role": "Suserano da Interdição",
+    "lore": "Transforma obediência em poder mesmo longe do trono. Seus decretos retiram dos outros o direito de reagir, e a guarda de seus vassalos prolonga o domínio de Coroa.",
+    "terms": {
+      "Presença sem Corpo": "Autoridade Delegada",
+      "Vontade do Assento Vazio": "Decreto de Submissão",
+      "Edicto de Interdição": "Interdição Soberana",
+      "Domínio sem Rei": "Guarda dos Vassalos",
+      "Palácio Inatingível": "Suserania Inviolável"
+    },
+    "roleHint": "Sele a ofensiva inimiga, imponha uma resposta em favor de um aliado e fortaleça a guarda dos seus vassalos.",
+    "aliases": [
+      "O Trono Vazio"
+    ]
+  },
+  "o-filho-da-cinza": {
+    "name": "O Ressentido",
+    "role": "Portador do Rancor",
+    "lore": "Conserva cada afronta como uma brasa que se recusa a deixar morrer. Reúne as cinzas para recompor a própria força e devolver o rancor em fogo, alimentando a vingança de Chama.",
+    "terms": {
+      "Debaixo das Cinzas": "Rancor Latente",
+      "Carvão Oculto": "Brasa do Ressentimento",
+      "Ressurgir do Carvão": "Rancor Reaceso",
+      "Recompor-se da Cinza": "Nutrir o Rancor",
+      "Renascer em Chamas": "Revide Incandescente"
+    },
+    "roleHint": "Acumule rancor até reacender a primeira técnica; escolha entre consumir as reservas para recuperar Vida ou devolver a chama.",
+    "aliases": [
+      "O Filho da Cinza"
+    ]
+  },
+  "o-lugar-de-ninguem": {
+    "name": "O Obliterador",
+    "role": "Anulador de Territórios",
+    "lore": "Sua presença desfaz os lugares que poderiam sustentar outra alma. Apaga as referências do caminho, reduz a vontade de quem ainda resiste e incorpora o que resta ao próprio contorno, expandindo Vazio.",
+    "terms": {
+      "Habitar o Nada": "Sustento do Apagamento",
+      "Chão de Ninguém": "Apagar o Terreno",
+      "Endereço Inexistente": "Coordenada Nula",
+      "Engolido pelo Lugar": "Eliminar o Vestígio",
+      "Território Impossível": "Contorno Inexistente"
+    },
+    "roleHint": "Apague o terreno para punir a inatividade; marque uma coordenada, enfraqueça a vítima e consuma seu vestígio para recuperar Vida.",
+    "aliases": [
+      "O Lugar de Ninguém"
+    ]
+  },
+  "a-muralha": {
+    "name": "A Muralha",
+    "role": "Sentinela de Pedra",
+    "lore": "Um constructo de forma humana que escolheu tornar-se abrigo. Cada agressão que atravessa a guarda de seus companheiros reforça suas placas; avança apenas para abrir espaço a quem precisa proteger.",
+    "terms": {
+      "Avanço do Bastão": "Investida do Baluarte",
+      "Além do Baluarte": "Baluarte Inviolável"
+    },
+    "roleHint": "Fortifique o trio e acumule cargas; a investida consome sua Defesa para expor um inimigo, enquanto o dano aos aliados pode recompor sua guarda.",
+    "aliases": []
+  },
+  "a-jardineira-das-feridas": {
+    "name": "A Boticária",
+    "role": "Herborista Espiritual",
+    "lore": "Conhece o que cada alma precisa para recuperar o fôlego. Extrai remédios de raízes e flores espirituais para tratar feridas; seus espinhos contêm a agressão enquanto a convalescença devolve vigor ao grupo.",
+    "terms": {
+      "Jardim da Convalescença": "Remédio Perene",
+      "Raiz que Cuida": "Raiz Contundente",
+      "Flores de Convalescença": "Infusão Restauradora",
+      "Espinhos da Proteção": "Espinhos Sedativos"
+    },
+    "roleHint": "Prepare as raízes para acumular reservas; use a infusão para recuperar o trio ou os espinhos para enfraquecer um agressor.",
+    "aliases": [
+      "A Jardineira das Feridas"
+    ]
+  },
+  "a-luz-nua": {
+    "name": "A Lúcida",
+    "role": "Desveladora de Enganos",
+    "lore": "Reconhece a forma verdadeira sob as vantagens fabricadas. Sua claridade desmonta disfarces e revela o ponto que uma mentira tentava esconder; age para restituir clareza, sem fazer da revelação um ato de crueldade.",
+    "terms": {
+      "Toque da Luz Nua": "Foco da Clareza",
+      "Despir a Guarda": "Desvelar a Guarda"
+    },
+    "roleHint": "Revele uma marca, remova a guarda e as vantagens do alvo; o clarão concentra dano no inimigo que você marcou.",
+    "aliases": [
+      "A Luz Nua"
+    ]
+  },
+  "a-cartografa-da-clareza": {
+    "name": "A Cartógrafa",
+    "role": "Guia da Clareza",
+    "lore": "Traça o caminho que permanece quando os desvios falsos são retirados. Suas cartas não criam territórios: revelam passagens, intenções e pontos vulneráveis, permitindo que outras almas avancem sem engano.",
+    "terms": {},
+    "roleHint": "Trace a abertura e revele o atalho de amparo; reúna as cargas para concentrar a convergência no inimigo.",
+    "aliases": [
+      "A Cartógrafa da Clareza"
+    ]
+  },
+  "a-guardia-das-promessas": {
+    "name": "A Juramentada",
+    "role": "Fiadora de Alianças",
+    "lore": "Dá força a compromissos assumidos livremente entre almas. Se um companheiro é ferido sob sua palavra, ela responde renovando o amparo; o juramento une vontades, sem tomar a liberdade de nenhuma delas.",
+    "terms": {
+      "Juramento Gravado": "Selo do Juramento",
+      "Guardar a Palavra": "Honrar o Pacto",
+      "Cumprir a Palavra": "Renovar o Pacto",
+      "Cobrança do Juramento": "Resposta do Juramento"
+    },
+    "roleHint": "Honre o pacto com um aliado; se ele perder Vida durante a resposta inimiga, abra a renovação do amparo.",
+    "aliases": [
+      "A Guardiã das Promessas"
+    ]
   }
 };
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (entitySlots[id]) {
+    const base = `/art/characters/${id}/entity-revision-20261023`, slots = entitySlots[id];
+    return {...art,...(slots.includes('passive') ? {passive:`${base}/passive.webp`} : {}),
+      abilities:{...art.abilities,...Object.fromEntries(slots.filter(slot=>slot!=='passive').map(slot=>[slot,`${base}/skill-${slot}.webp`]))}};
+  }
+  if (entityArt.has(id)) {
+    const base = `/art/characters/${id}/entity-revision-20261023`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (personalDefenseArt.has(id)) return {...art, abilities:{...art.abilities,
     despertar:`/art/characters/${id}/elo-revision-20261023/skill-despertar.webp`
   }};

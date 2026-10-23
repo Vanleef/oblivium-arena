@@ -8,7 +8,12 @@ test('Codex encontra a identidade atual por seu nome novo ou anterior e mostra a
   [['O Surdo','O Silenciador'],'O Silenciador','revision-20261023'],
   [['O Estômago sem Fundo','O Abismo','O Insaciável'],'O Insaciável','elo-revision-20261023'],
   [['A Porta que Flutua','A Guardiã do Limiar','A Errante'],'A Errante',null],
-  [['O Menino sem Sombra','O Desolador'],'O Desolador','elo-revision-20261023']
+  [['O Menino sem Sombra','O Desolador'],'O Desolador','elo-revision-20261023'],
+  [['A Balança Vazia','A Usurária da Penúria','A Usurária'],'A Usurária','entity-revision-20261023'],
+  [['O Lugar de Ninguém','O Obliterador'],'O Obliterador','entity-revision-20261023'],
+  [['A Guardiã das Promessas','A Juramentada'],'A Juramentada',null],
+  [['O Trono Vazio','O Suserano'],'O Suserano',null]
+
  ])for(const query of queries){
   handlers.input({target:{matches:()=>true,value:query,selectionStart:query.length}});
   assert.ok(app.innerHTML.includes(`<h3>${name}</h3>`),query);

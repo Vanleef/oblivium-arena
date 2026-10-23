@@ -32,6 +32,13 @@ test('formas alternativas e suas instruções usam o mesmo vocabulário da técn
   assert.match(arbiter.abilities[1].description,/vira Resposta Equânime/);
   assert.match(arbiter.abilities[1].forms[0].description,/restaura Amparo Equânime/);
   assert.match(characterById['o-menino-sem-sombra'].abilities[1].description,/vira Recolher a Presença/);
+  const resentful=characterById['o-filho-da-cinza'];
+  assert.match(resentful.abilities[0].description,/vira Rancor Reaceso/);
+  assert.doesNotMatch(resentful.abilities[0].description,/Ressurgir do Carvão/);
+  const oath=characterById['a-guardia-das-promessas'];
+  assert.equal(oath.abilities[1].forms[0].name,'Renovar o Pacto');
+  assert.match(oath.abilities[1].forms[0].description,/restaura Honrar o Pacto/);
+
 
 });
 
