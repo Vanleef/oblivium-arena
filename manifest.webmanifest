@@ -3,20 +3,21 @@
   "short_name": "PMA",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#090e13",
-  "theme_color": "#090e13",
+  "background_color": "#0e0914",
+  "theme_color": "#0e0914",
   "icons": [
     {
-      "src": "/icon-192.png?v=moth-v1",
+      "src": "/icon-192.png?v=moth-violet-v2",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png?v=moth-v1",
+      "src": "/icon-512.png?v=moth-violet-v2",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
   ]
 }
+

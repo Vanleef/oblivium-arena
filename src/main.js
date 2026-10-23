@@ -18,7 +18,7 @@ import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
-import { FINAL_BOSS } from "./final-boss.js";
+import { FINAL_BOSS, createFinalBossAbilities } from "./final-boss.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -187,13 +187,7 @@ function startEncounter(node) {
     enemies[0].role = FINAL_BOSS.title;
     enemies[0].lore = FINAL_BOSS.lore;
     enemies[0].art = { portrait: FINAL_BOSS.portrait };
-    enemies[0].abilities = [
-      { id: "fenda", name: "Fenda do Véu", kind: "strike", costs: { affinity: 1 }, damage: 25, damageType: "piercing", mark: "fim", target: "enemy", description: "Causa 25 de dano perfurante e marca o alvo por 3 turnos." },
-      { id: "decreto", name: "Decreto do Fim", kind: "control", costs: { affinity: 1, essence: 1 }, damage: 25, combo: { condition: "mark:fim", bonusDamage: 15, stun: 1 }, cooldown: 2, target: "enemy", description: "Causa 25 de dano; contra a marca do Fim, +15 de dano e Atordoa por 1 turno." },
-      { id: "coroa", name: "Coroa que Não Cai", kind: "guard", costs: { essence: 1, affinity: 1 }, shield: 20, target: "team", cooldown: 1, description: "Concede 20 de Defesa ao trio." },
-      { id: "despertar", name: "Fim Inalcançável", kind: "defense", costs: { essence: 1 }, invulnerable: 1, defense: true, target: "self", cooldown: 4, description: "Fica Invulnerável por 1 turno. Recarga de 4 turnos." }
-    ];
-    enemies[0].abilities = enemies[0].abilities.map(ability => ({...ability, art: FINAL_BOSS.abilities[ability.id]}));
+    enemies[0].abilities = createFinalBossAbilities();
     enemies[1].name = "Arauto do Véu Partido";
     enemies[1].art = null;
     enemies[1].symbol = "◇";
@@ -426,7 +420,7 @@ function header() {
   return `
     <header class="topbar">
       <button class="brand" data-tab="rota" aria-label="PMA: Post Mortem Arena, início">
-        <img class="brand-mark" src="/art/interface/brand-moth-192.webp" srcset="/art/interface/brand-moth-192.webp 192w, /art/interface/brand-moth-384.webp 384w" sizes="(max-width: 680px) 52px, 64px" width="64" height="64" alt="" decoding="async">
+        <img class="brand-mark" src="/art/interface/moth-violet-20261023/brand-moth-192.webp" srcset="/art/interface/moth-violet-20261023/brand-moth-192.webp 192w, /art/interface/moth-violet-20261023/brand-moth-384.webp 384w" sizes="(max-width: 680px) 52px, 64px" width="64" height="64" alt="" decoding="async">
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${uiIcon(id)}<span>${label}</span></button>`).join("")}</nav>
@@ -556,7 +550,7 @@ function codexView() {
     <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
     <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
-    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(FINAL_BOSS.portrait)}" alt="Presença instável de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · ${esc(FINAL_BOSS.title).toUpperCase()}</div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div></article>` : ""}
+    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(FINAL_BOSS.portrait)}" alt="Presença instável de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · ${esc(FINAL_BOSS.title).toUpperCase()}</div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim"><header><h3>Habilidades</h3><span>Quatro técnicas do Rei do Inferno</span></header><div class="codex-moves">${createFinalBossAbilities().map(ability=>`<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false"><img src="${esc(ability.art)}" alt="" loading="lazy"><b>${esc(ability.name)}</b>${costMarkup(FINAL_BOSS,ability)}</summary><p>${esc(ability.description)}</p><small>Recarga ${ability.cooldown || 0}T</small></details>`).join("")}</div></section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
@@ -736,6 +730,7 @@ app.addEventListener("keydown", (event) => {
 });
 
 render();
+
 
 
 

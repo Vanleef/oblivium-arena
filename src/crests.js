@@ -70,19 +70,19 @@ const designs = {
   }
 };
 const palettes = {
-  sangria:'#ee817f',coroa:'#dfad71',mentira:'#ba9de3',chama:'#f49a62',
-  fome:'#c6b077',podridao:'#a9bd76',silencio:'#a8b5c7',carne:'#dc98ac',vazio:'#b09fcf',
-  protecao:'#a6dcef',cura:'#a9dec3',justica:'#f0da9b',esperanca:'#f6d88f',
-  verdade:'#afe3e7',uniao:'#d4c8f1',criacao:'#b7d79c','correntes-quebradas':'#c8b5f0'
+  sangria:'#e86b80',coroa:'#e0b86e',mentira:'#b885f0',chama:'#f07a6d',
+  fome:'#cbb47d',podridao:'#b2b584',silencio:'#ae9dbd',carne:'#d789a8',vazio:'#a684cf',
+  protecao:'#eadcc3',cura:'#c9d2b0',justica:'#e6ca8a',esperanca:'#f4dc9e',
+  verdade:'#eee3d6',uniao:'#ddd0ed',criacao:'#c7c89f','correntes-quebradas':'#bb8aed'
 };
 const sanctuary = new Set(['protecao','cura','justica','esperanca','verdade','uniao','criacao']);
 function familyFor(id) {
   return id === 'correntes-quebradas' ? 'fracture' : sanctuary.has(id) ? 'sanctuary' : 'infernal';
 }
 const materials = {
-  infernal: {ink:'#251019',shade:'#754953',light:'#ffd4b3',join:'miter'},
-  sanctuary: {ink:'#19333e',shade:'#719ba8',light:'#fff9df',join:'round'},
-  fracture: {ink:'#241d3b',shade:'#7165a2',light:'#bdf0f5',join:'bevel'}
+  infernal: {ink:'#25101d',shade:'#793d56',light:'#f5d5bd',join:'miter'},
+  sanctuary: {ink:'#32233b',shade:'#a09072',light:'#fff2d7',join:'round'},
+  fracture: {ink:'#271333',shade:'#8154aa',light:'#e4c7ff',join:'bevel'}
 };
 let serial = 0;
 export function eloVisual(id) {
@@ -100,5 +100,6 @@ export function eloCrest(elo,extraClass='') {
   const id = `elo-symbol-${key}-${++serial}`;
   return `<svg class="elo-crest crest-${family} ${extraClass}" viewBox="0 0 200 200" role="img" aria-label="Brasão do Elo ${elo.name}" focusable="false"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="${material.light}"/><stop offset=".32" stop-color="${accent}"/><stop offset=".62" stop-color="${accent}"/><stop offset=".63" stop-color="${material.shade}"/><stop offset="1" stop-color="${accent}"/></linearGradient></defs><path class="elo-symbol" fill-rule="evenodd" d="${design.solid}" fill="url(#${id})" stroke="${material.ink}" stroke-width="3" stroke-linejoin="${material.join}"/><path class="elo-symbol-etch" d="${design.etch}" fill="none" stroke="${material.light}" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>`;
 }
+
 
 

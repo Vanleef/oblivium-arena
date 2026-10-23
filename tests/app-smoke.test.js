@@ -47,6 +47,10 @@ test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o
  const {app,handlers,click}=setup();await import('../src/main.js?fear-codex=1');click({tab:'codex'});
  const search=value=>handlers.input({target:{matches:()=>true,value,selectionStart:value.length}});
  search('O Fim');assert.match(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/não tem rosto nem forma fixos/);assert.match(app.innerHTML,/Nenhuma aparência é sua forma verdadeira/);assert.doesNotMatch(app.innerHTML,/data-final-battle/);
+ const entity=app.innerHTML.match(/<article class="codex-entity"[\s\S]*?<\/article>/)?.[0];
+ assert.ok(entity);assert.match(entity,/Habilidades de O Fim/);
+ for(const [slot,name] of [['fenda','Fenda do Véu'],['decreto','Decreto do Fim'],['coroa','Coroa que Não Cai'],['despertar','Fim Inalcançável']]){assert.ok(entity.includes(name),name);assert.ok(entity.includes(`/approved-elo-union-20261023/skill-${slot}.webp`),slot);}
+ assert.equal((entity.match(/data-codex-skill/g)||[]).length,4);assert.match(entity,/Custo: 1 Cinza \+ 1 Essência/);assert.match(entity,/Recarga 4T/);
  click({crewRealm:'Paraíso'});assert.doesNotMatch(app.innerHTML,/codex-entity/);
  click({crewRealm:'Inferno'});assert.match(app.innerHTML,/codex-entity/);
  search('O Devorador');assert.doesNotMatch(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/form-revision-20261023\/portrait.webp/);assert.match(app.innerHTML,/fera quadrúpede/);
