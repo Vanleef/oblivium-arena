@@ -53,7 +53,13 @@ test('forma por Vida muda alvo, custo e tipo e reverte após recuperar Vida',()=
 });
 
 test('limiar de cargas oferece uma técnica com outro alvo e seu gasto restaura a base',()=>{
- const b=battle('A Semente');b.allies[0].charge=3;refreshSkillForms(b);assert.equal(skill(b,0).name,'Fruto do Porvir');assert.equal(skill(b,0).target,'self');cast(b,0);assert.equal(b.allies[0].charge,0);assert.equal(skill(b,0).name,'Semente da Ruptura');
+ const b=battle('A Semente'),baseArt=skill(b,0).art;b.allies[0].charge=3;refreshSkillForms(b);assert.equal(skill(b,0).name,'Fruto do Porvir');assert.equal(skill(b,0).target,'self');assert.notEqual(skill(b,0).art,baseArt);cast(b,0);assert.equal(b.allies[0].charge,0);assert.equal(skill(b,0).name,'Marca Germinal');assert.equal(skill(b,0).art,baseArt);
+});
+
+test('a ruptura da Cindida troca ataque por amparo com arte própria e retorna após reatar',()=>{
+ const b=battle('A Cindida'),baseArt=skill(b,0).art;
+ cast(b,0);assert.equal(skill(b,0).name,'Reatar a Linha');assert.equal(skill(b,0).target,'ally');assert.notEqual(skill(b,0).art,baseArt);
+ cast(b,0);assert.equal(skill(b,0).name,'Extremidade Solta');assert.equal(skill(b,0).target,'enemy');assert.equal(skill(b,0).art,baseArt);
 });
 
 test('a colheita tem dois desfechos exclusivos: usar um fecha ambos',()=>{
@@ -110,4 +116,5 @@ test('a interface mantém 12 ícones e distingue técnica ativa, descrição, cu
  const b=battle('O Escudo Vivo');cast(b,0);const state={battle:b,battleNode:{label:'Treino'},focusSkill:{actorId:b.allies[0].id,abilityId:'impulso'}};
  const detail=renderBattleDetail(state);assert.match(detail,/Golpe do Bastião → Avanço da Égide/);assert.match(detail,/VARIAÇÕES/);assert.match(detail,/Custo: 1 Graça \+ 1 Essência/);assert.match(renderBattle(state,elos[0]),/skill-evolved/);
 });
+
 

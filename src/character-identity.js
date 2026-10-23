@@ -4,6 +4,7 @@ const eloArt = new Set(['o-estomago-sem-fundo','o-equilibrio','o-menino-sem-somb
 const entityArt = new Set(['a-balanca-vazia','a-muralha','o-lugar-de-ninguem']);
 const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura']);
 const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
+const continuationArt = new Set(['a-boca-de-vidro','a-semente','a-linha-partida']);
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
   'a-pele-alheia':['despertar'],
@@ -17,6 +18,63 @@ const entitySlots = {
 };
 const personalDefenseArt = new Set(['a-mao-que-toma','o-vigia-ausente','o-desejo-quebrado','o-que-ficou']);
 export const characterRevisions = {
+  "a-boca-de-vidro": {
+    "name": "A Serpe",
+    "role": "Predadora de Reflexos",
+    "lore": "Uma entidade serpentina de vidro espiritual que se esconde nas contradições dos próprios reflexos. Seus sibilos atravessam a guarda, expõem a vítima e desfazem reservas alheias; cada mentira repetida afia o próximo ataque. Sua forma pertence ao engano de Mentira, sem recorrer à posse de Carne ou ao apagamento de Vazio.",
+    "terms": {
+      "Sílaba Cortante": "Sibilo Cortante",
+      "Confissão Rachada": "Reflexo Traiçoeiro",
+      "Discurso em Estilhaços": "Coro de Estilhaços",
+      "Reflexo da Boca": "Reflexo Desviado"
+    },
+    "aliases": [
+      "A Boca de Vidro"
+    ]
+  },
+  "a-semente": {
+    "name": "A Semente",
+    "role": "Germinação Espiritual",
+    "lore": "Uma vida vegetal que preserva possibilidades nas ruínas de Criação. Amadurece essência em seu núcleo, abriga outras almas entre folhas vivas e faz florescer a marca espiritual que deixou no agressor. Seu crescimento protege e abre caminhos; não se alimenta da decomposição de Podridão.",
+    "terms": {
+      "Semente da Ruptura": "Marca Germinal",
+      "Germinar por Dentro": "Florescer da Marca"
+    },
+    "aliases": []
+  },
+  "a-linha-partida": {
+    "name": "A Cindida",
+    "role": "Alma Fragmentada",
+    "lore": "Uma alma do Limbo cujos fragmentos já não ocupam o mesmo instante. Três fios instáveis conservam sua continuidade: ela os projeta para romper a guarda inimiga ou os reata em torno de um aliado, cedendo parte da própria integridade. Não controla vontades; tenta sustentar vínculos que a ruptura ameaça desfazer.",
+    "terms": {},
+    "aliases": [
+      "A Linha Partida"
+    ]
+  },
+  "o-primeiro-canto": {
+    "name": "O Cantor",
+    "lore": "Sua voz dá ritmo à matéria espiritual de Criação, apressando o despertar de novas possibilidades. O canto ampara o trio e reúne uma cadência que pode ser liberada contra quem ameaça a vida nascente.",
+    "terms": {},
+    "aliases": [
+      "O Primeiro Canto"
+    ]
+  },
+  "o-coracao-em-furia": {
+    "name": "O Colérico",
+    "lore": "Transforma cada afronta em pressão ardente. A raiva acelera o pulso e fortalece sua próxima descarga, mas cobra a própria integridade quando ele força o corpo além do limite. Alimenta Chama pelo ódio que insiste em devolver.",
+    "terms": {},
+    "aliases": [
+      "O Coração em Fúria"
+    ]
+  },
+  "o-vinculo": {
+    "name": "O Companheiro",
+    "lore": "Escolhe permanecer ao lado de outra alma sem tomar sua liberdade. Seu pacto ampara, responde à agressão e partilha a recuperação entre os envolvidos: a força de União nasce da lealdade consentida.",
+    "terms": {},
+    "aliases": [
+      "O Vínculo"
+    ]
+  },
   'o-devorador': {
     role: 'Fera da Avidez',
     lore: 'Uma fera quadrúpede de Fome, cuja voracidade não conhece saciedade. Corrói a guarda das vítimas com saliva espiritual e incorpora a essência que devora; quando ferida, sua fome ultrapassa a matéria e alcança as reservas alheias.',
@@ -614,6 +672,13 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (continuationArt.has(id)) {
+    const base = `/art/characters/${id}/continuation-revision-20261023`;
+    const form = id === 'a-semente' ? 'fruit' : id === 'a-linha-partida' ? 'mend' : null;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(form ? {forms:{...art.forms,impulso:{...art.forms?.impulso,[form]:`${base}/skill-impulso-${form}.webp`}}} : {})};
+  }
   if (diverseArt.has(id)) {
     const base = `/art/characters/${id}/form-revision-20261023`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
@@ -662,3 +727,4 @@ export function reviseKitIdentity(kit, revision) {
     passive:{...kit.passive,name:text(kit.passive.name),description:text(kit.passive.description)},
     abilities:kit.abilities.map(ability)};
 }
+
