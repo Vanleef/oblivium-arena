@@ -25,7 +25,7 @@ Todos foram produzidos com a ferramenta integrada de geração de imagens, sem C
 | `art/interface/realm-paraiso.webp` | insígnia do Paraíso |
 | `art/interface/realm-limbo.webp` | insígnia do Limbo |
 | `icon-192.png`, `icon-512.png` | ícone instalável anime |
-| `icon.svg` | contraparte vetorial simplificada para tamanhos pequenos |
+| `icon.svg` | compatibilidade com URLs anteriores; contém o mesmo desenho aprovado |
 
 ## Prompts finais
 
@@ -45,7 +45,7 @@ Sufixo comum: Wide landscape illustration, clear central landmark in upper right
 
 ### Emblemas — desenho e edição anime
 
-Conceitos individuais: marca, portal circular de três segmentos (jade/brasa/ametista) com abertura de alma ao centro; Inferno, coroa solar de ferro negro com fenda carmesim; Paraíso, arco de marfim com semente estelar e ramos protetores; Limbo, elos de prata rompidos envolvendo uma porta de ametista.
+Conceitos individuais: marca anterior, portal circular de três segmentos (jade/brasa/ametista) com abertura de alma ao centro (substituída pela Mariposa do Véu em 23/10/2026); Inferno, coroa solar de ferro negro com fenda carmesim; Paraíso, arco de marfim com semente estelar e ramos protetores; Limbo, elos de prata rompidos envolvendo uma porta de ametista.
 
 Após gerar esses conceitos como imagens separadas, cada um foi redesenhado usando este prompt final, com sua própria imagem como referência de edição:
 
@@ -58,3 +58,15 @@ Use case: style-transfer. Redraw this exact original PMA game insignia as unmist
 34 Legados permanentes. Bônus novos passam pelo mesmo módulo de regras usado pelos eventos. O sistema não altera custos nem a defesa pessoal Invulnerável por um turno com recarga de quatro.
 
 A API online continua dependendo de um Redis conectado. Esta reformulação não declara o ranqueamento global ativo.
+
+
+## Marca aprovada — Mariposa do Véu (23/10/2026)
+
+A segunda versão refinada escolhida por Eduardo é a referência única da marca. As asas superiores são violeta e obsidiana com marcas de marfim; as inferiores, carmesim; os contornos, dourados. As variações de tamanho são exportações do mesmo desenho, sem usar a proposta compacta alternativa.
+
+- `art/interface/brand-moth.webp`: emblema principal transparente, 768 px, também usado como marca discreta no resultado de combate. `brand.webp` mantém compatibilidade com o arquivo anterior.
+- `art/interface/brand-moth-192.webp` e `brand-moth-384.webp`: imagens responsivas do cabeçalho.
+- `favicon-32.png`, `favicon-64.png`: ícone da aba; `apple-touch-icon.png`: atalho Apple de 180 px.
+- `icon-192.png`, `icon-512.png`: ícones do aplicativo instalado, com manifest atualizado e versão de cache.
+
+A imagem aprovada foi criada pela ferramenta integrada de geração de imagens. O preparo para a interface apenas remove margem transparente excedente e exporta os tamanhos com transparência e proporções preservadas.

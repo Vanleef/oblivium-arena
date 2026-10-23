@@ -1,4 +1,8 @@
 /* Hand-drawn heraldic shapes and short cel-style hits; no perpetual animation. */
+/* The approved moth keeps its full silhouette at every brand placement. */
+.brand-mark{width:64px;height:56px;flex:none;object-fit:contain;object-position:center;transform:none;border:0;border-radius:0;background:none;box-shadow:none;filter:none}
+.battle-result::after{background-image:url('/art/interface/brand-moth.webp')}
+@media(max-width:680px){.brand-mark{width:52px;height:48px}}
 .elo-crest,.elo-sigil{background:none;border:0;border-radius:0;box-shadow:none}
 .world-elo .world-crest,.expedition-heading .expedition-crest{filter:none}
 .world-elo.locked .world-crest{opacity:.78;filter:none}
@@ -57,4 +61,5 @@
 .codex-skill summary .skill-cost{grid-column:2;grid-row:2;display:flex;margin-left:0;align-self:start}
 @media(max-width:480px){.codex-moves{grid-template-columns:minmax(0,1fr)}.codex-skill summary{min-height:48px}.codex-skill summary>img,.codex-skill summary>.move-fallback{width:44px;height:44px}.codex-skill summary>b{font-size:12px}.codex-card-body .eyebrow{font-size:8px;line-height:1.5}}
 @media(max-width:480px){.codex-skill summary{grid-template-columns:44px minmax(0,1fr) auto}.codex-skill summary>img,.codex-skill summary>.move-fallback{grid-row:1}.codex-skill summary .skill-cost{grid-column:3;grid-row:1;align-self:center}}
+
 
