@@ -39,8 +39,11 @@ test('a queda da vítima devolve a técnica base em vez de deixar um espaço sem
 });
 
 test('transformações alteram vários espaços e o desfecho encerra a forma inteira',()=>{
- const b=battle('O Ódio Encarnado');cast(b,1);assert.equal(skill(b,0).name,'Punho do Ódio Solto');assert.equal(skill(b,2).name,'Ressentimento sem Freio');assert.equal(skill(b,3).cooldown,4);
+ const b=battle('O Ódio Encarnado'),baseArt=[skill(b,0).art,skill(b,2).art];
+ cast(b,1);assert.equal(skill(b,0).name,'Punho do Ódio Solto');assert.equal(skill(b,2).name,'Ressentimento sem Freio');assert.equal(skill(b,3).cooldown,4);
+ assert.notEqual(skill(b,0).art,baseArt[0]);assert.notEqual(skill(b,2).art,baseArt[1]);
  cast(b,2);assert.equal(skill(b,0).formKey,'base');assert.equal(skill(b,2).formKey,'base');assert.equal(b.allies[0].cooldowns.voto,2);
+ assert.equal(skill(b,0).art,baseArt[0]);assert.equal(skill(b,2).art,baseArt[1]);
 });
 
 test('postura permanece até a reversão voluntária e não muda a quarta defesa',()=>{

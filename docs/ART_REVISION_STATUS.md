@@ -88,3 +88,12 @@ O Corretor de Memórias recebe seis imagens novas, preservando rosto idoso, coqu
 O Incendiário recebe seis imagens novas de Chama: sardas, cabelo cobre com lateral raspada, casaco claro sujo de fuligem e projetor único preservados. Sua identidade de fogo negro com bordas alaranjadas diferencia leitura de Queimadura existente, pavio em um inimigo, fagulhas físicas contra três inimigos, consumo da Queimadura na detonação e invulnerabilidade pessoal por fumaça. Os ambientes são vulcânicos e industriais, distintos dos canais e arquivos de Mentira. Com A Brasa Eterna, Chama tem dois de seis conjuntos revisados.
 
 Prompts e referências: `ART_LOT_20261022_12.json`. Estado integrado: 48 conjuntos revisados, 52 antigos pendentes, 600 imagens básicas e duas artes alternativas exclusivas. Nenhuma regra ou código-fonte de jogo foi alterado; molduras, estilos, alvos, custos, duração e recarga permanecem preservados.
+
+
+## Revisão de Chama em 23/10/2026: O Furor e O Colérico
+
+Novo lote de 14 imagens individuais em estilo anime: oito para O Furor e seis para O Colérico. Inclui retratos, passivas, quatro habilidades de cada personagem e duas técnicas transformadas do Furor. O constructo mantém placas flutuantes, rosto sem feições e arco fragmentado; o Colérico mantém pele cinzenta, chifre único, correntes no ombro direito e armadura de costelas em torno da fornalha espiritual.
+
+As cenas distinguem golpes físicos, descarga espiritual, preparação pessoal, retaliação ao agressor e invulnerabilidade do próprio usuário. As formas Punho do Ódio Solto e Ressentimento sem Freio usam arquivos próprios e recuperam as artes base ao encerrar a transformação. IDs, nomes, lores e mecânicas dos 100 personagens preservados.
+
+Os totais dos lotes de 22/10 acima são históricos; esta entrada registra somente os dois conjuntos deste lote, sem recontar revisões posteriores registradas em outros manifestos. Prompts, arquivos e hashes: `CHAMA_ART_REVISION_20261023.json`.

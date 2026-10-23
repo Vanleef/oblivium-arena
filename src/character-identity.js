@@ -5,6 +5,7 @@ const entityArt = new Set(['a-balanca-vazia','a-muralha','o-lugar-de-ninguem']);
 const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura']);
 const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
 const continuationArt = new Set(['a-boca-de-vidro','a-semente','a-linha-partida']);
+const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
   'a-pele-alheia':['despertar'],
@@ -919,6 +920,15 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (chamaArt.has(id)) {
+    const base = `/art/characters/${id}/chama-revision-20261023`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(id === 'o-odio-encarnado' ? {forms:{...art.forms,
+        impulso:{...art.forms?.impulso,rage:`${base}/skill-impulso-rage.webp`},
+        voto:{...art.forms?.voto,eruption:`${base}/skill-voto-eruption.webp`}
+      }} : {})};
+  }
   if (continuationArt.has(id)) {
     const base = `/art/characters/${id}/continuation-revision-20261023`;
     const form = id === 'a-semente' ? 'fruit' : id === 'a-linha-partida' ? 'mend' : null;
