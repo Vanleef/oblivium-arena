@@ -65,6 +65,30 @@ test('a ruptura da Cindida troca ataque por amparo com arte própria e retorna a
  cast(b,0);assert.equal(skill(b,0).name,'Extremidade Solta');assert.equal(skill(b,0).target,'enemy');assert.equal(skill(b,0).art,baseArt);
 });
 
+test('o Ressentido muda a arte ao reunir cargas e restaura a base após gastá-las',()=>{
+ const b=battle('O Ressentido'),baseArt=skill(b,0).art;
+ cast(b,0);cast(b,0);cast(b,0);
+ assert.equal(skill(b,0).name,'Rancor Reaceso');assert.notEqual(skill(b,0).art,baseArt);
+ cast(b,0);assert.equal(b.allies[0].charge,0);assert.equal(skill(b,0).formKey,'base');assert.equal(skill(b,0).art,baseArt);
+});
+
+test('a Brasa troca a arte após sufocar um alvo em Queimadura e restaura após a labareda',()=>{
+ const b=battle('A Brasa Eterna'),baseArt=skill(b,0).art;
+ cast(b,0);cast(b,1);
+ assert.equal(skill(b,0).name,'Labareda Sufocante');assert.notEqual(skill(b,0).art,baseArt);
+ cast(b,0);assert.equal(skill(b,0).formKey,'base');assert.equal(skill(b,0).art,baseArt);
+});
+
+test('a Vingadora só mostra a arte da revanche após sofrer dano e a prende ao agressor',()=>{
+ const b=battle('A Vingadora',[dummy('primeiro'),dummy('segundo')]),baseArt=skill(b,0).art;
+ for(const e of b.enemies)e.abilities=[{id:'hit',name:'Golpe',target:'enemy',costs:{},damage:40}];
+ b.enemyPlanner=s=>s.intents;b.intents=b.enemies.map(e=>({actorId:e.id,abilityId:'hit',targetId:b.allies[0].id,side:'enemy'}));
+ cast(b,1);
+ assert.equal(skill(b,0).name,'Revanche Ardente');assert.notEqual(skill(b,0).art,baseArt);
+ assert.deepEqual(getValidTargets(b,b.allies[0],skill(b,0)).map(u=>u.id),['segundo']);
+ b.intents=[];cast(b,0,'segundo');assert.equal(skill(b,0).formKey,'base');assert.equal(skill(b,0).art,baseArt);
+});
+
 test('a colheita tem dois desfechos exclusivos: usar um fecha ambos',()=>{
  for(const choice of [1,2]){const b=battle('A Rainha dos Fungos');cast(b,0);assert.equal(skill(b,1).name,'Florescer para os Vivos');assert.equal(skill(b,2).name,'Esporos da Última Colheita');cast(b,choice);assert.equal(skill(b,1).formKey,'base');assert.equal(skill(b,2).formKey,'base');assert.equal(b.allies[0].charge,0);}
 });

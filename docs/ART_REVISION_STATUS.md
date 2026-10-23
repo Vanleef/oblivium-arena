@@ -97,3 +97,11 @@ Novo lote de 14 imagens individuais em estilo anime: oito para O Furor e seis pa
 As cenas distinguem golpes físicos, descarga espiritual, preparação pessoal, retaliação ao agressor e invulnerabilidade do próprio usuário. As formas Punho do Ódio Solto e Ressentimento sem Freio usam arquivos próprios e recuperam as artes base ao encerrar a transformação. IDs, nomes, lores e mecânicas dos 100 personagens preservados.
 
 Os totais dos lotes de 22/10 acima são históricos; esta entrada registra somente os dois conjuntos deste lote, sem recontar revisões posteriores registradas em outros manifestos. Prompts, arquivos e hashes: `CHAMA_ART_REVISION_20261023.json`.
+
+## Conclusão de Chama em 23/10/2026
+
+Doze imagens adicionais: sete para a Brasa Eterna reformulada como fera espiritual felina, quatro para completar O Ressentido e uma Revanche Ardente própria para A Vingadora. O Ressentido conserva suas três cenas já revisadas de passiva, cura pessoal e invulnerabilidade; a Vingadora conserva seu conjunto básico.
+
+Os seis personagens de Chama passam a ter 36 imagens básicas e cinco artes exclusivas de técnicas alternativas, totalizando 41 caminhos ativos. Esta é uma contagem do Elo Chama, sem alterar os totais históricos globais de 22/10 acima. A Brasa tem uma silhueta quadrúpede distinta da Vingadora, e as cenas distinguem ataques físicos e espirituais de acordo com os efeitos atuais.
+
+143 testes funcionais aprovados, incluindo a troca e a restauração das três novas artes de formas. Comparação integral dos 100 personagens confirma que somente os campos de arte mudaram; nomes, lores, IDs, mecânicas e progressão permanecem iguais. Inventário, prompts e hashes: `CHAMA_COMPLETION_20261023.json`; relatório: `chama-completion-20261023.md`.

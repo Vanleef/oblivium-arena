@@ -6,6 +6,7 @@ const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura
 const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
 const continuationArt = new Set(['a-boca-de-vidro','a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
+const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
   'a-pele-alheia':['despertar'],
@@ -920,6 +921,16 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  const completedForm = chamaCompletionForms[id];
+  if (completedForm) {
+    const base = `/art/characters/${id}/chama-completion-20261023`;
+    art = {...art,forms:{...art.forms,impulso:{...art.forms?.impulso,
+      [completedForm]:`${base}/skill-impulso-${completedForm}.webp`}}};
+    if (id === 'a-brasa-eterna') return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+    if (id === 'o-filho-da-cinza') art = {...art,portrait:`${base}/portrait.webp`,
+      abilities:{...art.abilities,impulso:`${base}/skill-impulso.webp`,voto:`${base}/skill-voto.webp`}};
+  }
   if (chamaArt.has(id)) {
     const base = `/art/characters/${id}/chama-revision-20261023`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,

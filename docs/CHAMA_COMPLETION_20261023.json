@@ -1,0 +1,586 @@
+{
+  "date": "2026-10-23",
+  "scope": {
+    "realm": "Inferno",
+    "elo": "Chama",
+    "newImages": 12,
+    "charactersChanged": 3
+  },
+  "subjects": [
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "identity": "A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object."
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Ressentido",
+      "identity": "A young adult male ash spirit, dark brown skin, narrow tired pale-gray eyes, dense tousled CURLY WHITE hair whose outer curls fade into ash, and a deep ragged charcoal hood and cloak with irregular pale-gray ashen edges and tiny red-orange embers. Black cloth wrist wraps. A quiet resentful severe expression, slender adult build. No armor, horn, braid, jewelry or weapon; the hood and white curls identify him even when he becomes ash. Two normal arms and two coherent hands, exactly five fingers each if visible. Inferno / Chama, accumulated rancor and self restoration in ash, not Paraíso healing light."
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "A Vingadora",
+      "identity": "A strong angular-faced adult woman with warm tan-brown skin and amber eyes, black asymmetrical jaw-length hair with HER RIGHT temple shaved (LEFT in a frontal view), a long RED-ORANGE braid behind her head, fitted sleeveless black high-neck tunic, torn crimson shoulder mantle and broad crimson waist sash. A black iron bracer with fine red ember cracks on her RIGHT forearm. A small dark iron cage ember lantern hangs at HER LEFT HIP (RIGHT in a frontal view), orange light within it. No horns, crown, glasses or weapon. Preserve her lean athletic build, coherent two arms and five fingers per human hand. She represents vindictive fire in Inferno / Chama."
+    }
+  ],
+  "eloInventory": [
+    {
+      "id": "o-incendiario",
+      "name": "O Incendiário",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "basic": [
+        {
+          "slot": "portrait",
+          "path": "/art/characters/o-incendiario/portrait.webp"
+        },
+        {
+          "slot": "passive",
+          "path": "/art/characters/o-incendiario/passive.webp"
+        },
+        {
+          "slot": "impulso",
+          "path": "/art/characters/o-incendiario/skill-impulso.webp"
+        },
+        {
+          "slot": "tecnica",
+          "path": "/art/characters/o-incendiario/skill-tecnica.webp"
+        },
+        {
+          "slot": "voto",
+          "path": "/art/characters/o-incendiario/skill-voto.webp"
+        },
+        {
+          "slot": "despertar",
+          "path": "/art/characters/o-incendiario/skill-despertar.webp"
+        }
+      ],
+      "forms": []
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "basic": [
+        {
+          "slot": "portrait",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/portrait.webp"
+        },
+        {
+          "slot": "passive",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/passive.webp"
+        },
+        {
+          "slot": "impulso",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/skill-impulso.webp"
+        },
+        {
+          "slot": "tecnica",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/skill-tecnica.webp"
+        },
+        {
+          "slot": "voto",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/skill-voto.webp"
+        },
+        {
+          "slot": "despertar",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/skill-despertar.webp"
+        }
+      ],
+      "forms": [
+        {
+          "slot": "impulso",
+          "formKey": "smother",
+          "name": "Labareda Sufocante",
+          "path": "/art/characters/a-brasa-eterna/chama-completion-20261023/skill-impulso-smother.webp"
+        }
+      ]
+    },
+    {
+      "id": "o-odio-encarnado",
+      "name": "O Furor",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "basic": [
+        {
+          "slot": "portrait",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/portrait.webp"
+        },
+        {
+          "slot": "passive",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/passive.webp"
+        },
+        {
+          "slot": "impulso",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/skill-impulso.webp"
+        },
+        {
+          "slot": "tecnica",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/skill-tecnica.webp"
+        },
+        {
+          "slot": "voto",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/skill-voto.webp"
+        },
+        {
+          "slot": "despertar",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/skill-despertar.webp"
+        }
+      ],
+      "forms": [
+        {
+          "slot": "impulso",
+          "formKey": "rage",
+          "name": "Punho do Ódio Solto",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/skill-impulso-rage.webp"
+        },
+        {
+          "slot": "voto",
+          "formKey": "eruption",
+          "name": "Ressentimento sem Freio",
+          "path": "/art/characters/o-odio-encarnado/chama-revision-20261023/skill-voto-eruption.webp"
+        }
+      ]
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Ressentido",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "basic": [
+        {
+          "slot": "portrait",
+          "path": "/art/characters/o-filho-da-cinza/chama-completion-20261023/portrait.webp"
+        },
+        {
+          "slot": "passive",
+          "path": "/art/characters/o-filho-da-cinza/entity-revision-20261023/passive.webp"
+        },
+        {
+          "slot": "impulso",
+          "path": "/art/characters/o-filho-da-cinza/chama-completion-20261023/skill-impulso.webp"
+        },
+        {
+          "slot": "tecnica",
+          "path": "/art/characters/o-filho-da-cinza/entity-revision-20261023/skill-tecnica.webp"
+        },
+        {
+          "slot": "voto",
+          "path": "/art/characters/o-filho-da-cinza/chama-completion-20261023/skill-voto.webp"
+        },
+        {
+          "slot": "despertar",
+          "path": "/art/characters/o-filho-da-cinza/entity-revision-20261023/skill-despertar.webp"
+        }
+      ],
+      "forms": [
+        {
+          "slot": "impulso",
+          "formKey": "rebirth",
+          "name": "Rancor Reaceso",
+          "path": "/art/characters/o-filho-da-cinza/chama-completion-20261023/skill-impulso-rebirth.webp"
+        }
+      ]
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "A Vingadora",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "basic": [
+        {
+          "slot": "portrait",
+          "path": "/art/characters/a-pira-errante/spirit-revision-20261023/portrait.webp"
+        },
+        {
+          "slot": "passive",
+          "path": "/art/characters/a-pira-errante/spirit-revision-20261023/passive.webp"
+        },
+        {
+          "slot": "impulso",
+          "path": "/art/characters/a-pira-errante/spirit-revision-20261023/skill-impulso.webp"
+        },
+        {
+          "slot": "tecnica",
+          "path": "/art/characters/a-pira-errante/spirit-revision-20261023/skill-tecnica.webp"
+        },
+        {
+          "slot": "voto",
+          "path": "/art/characters/a-pira-errante/spirit-revision-20261023/skill-voto.webp"
+        },
+        {
+          "slot": "despertar",
+          "path": "/art/characters/a-pira-errante/spirit-revision-20261023/skill-despertar.webp"
+        }
+      ],
+      "forms": [
+        {
+          "slot": "impulso",
+          "formKey": "reply",
+          "name": "Revanche Ardente",
+          "path": "/art/characters/a-pira-errante/chama-completion-20261023/skill-impulso-reply.webp"
+        }
+      ]
+    },
+    {
+      "id": "o-coracao-em-furia",
+      "name": "O Colérico",
+      "realm": "Inferno",
+      "elo": "Chama",
+      "basic": [
+        {
+          "slot": "portrait",
+          "path": "/art/characters/o-coracao-em-furia/chama-revision-20261023/portrait.webp"
+        },
+        {
+          "slot": "passive",
+          "path": "/art/characters/o-coracao-em-furia/chama-revision-20261023/passive.webp"
+        },
+        {
+          "slot": "impulso",
+          "path": "/art/characters/o-coracao-em-furia/chama-revision-20261023/skill-impulso.webp"
+        },
+        {
+          "slot": "tecnica",
+          "path": "/art/characters/o-coracao-em-furia/chama-revision-20261023/skill-tecnica.webp"
+        },
+        {
+          "slot": "voto",
+          "path": "/art/characters/o-coracao-em-furia/chama-revision-20261023/skill-voto.webp"
+        },
+        {
+          "slot": "despertar",
+          "path": "/art/characters/o-coracao-em-furia/chama-revision-20261023/skill-despertar.webp"
+        }
+      ],
+      "forms": []
+    }
+  ],
+  "evidence": [
+    "docs/ART_STYLE_REVISION_20261022.json",
+    "docs/ENTITY_IDENTITY_REVISION_20261023.json",
+    "docs/SPIRIT_IDENTITY_REVISION_20261023.json",
+    "docs/CHAMA_ART_REVISION_20261023.json"
+  ],
+  "status": "integrated_and_locally_verified",
+  "generator": "image_gen.imagegen",
+  "format": {
+    "type": "WebP",
+    "width": 512,
+    "height": 512,
+    "quality": 86
+  },
+  "assets": [
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "portrait",
+      "ability": "A Brasa Eterna",
+      "identity": "A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime character portrait for A Brasa Eterna. NEW visual identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nClose three-quarter head and upper shoulders, ENTIRE face visible, both eyes, complete ears and jaw within frame. The small black nose and pale cheek ruffs contrast with charcoal shoulders; deep red ember light leaks from fur near the chest, not all over the face. Black basalt ridge in cool blue-gray twilight, broad flat background silhouettes, a few crimson embers. A distinctive solemn predatory gaze, not roaring. Bold black ink outlines, flat color fills, hard-edged cel shadows, graphic anime fur clumps. No realism/3D/painterly hair detail, no text, UI, border or watermark.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/portrait.webp",
+      "bytes": 46428,
+      "sha256": "250f31094a43f136434f674fa703c43ebb90c54cf1c344d7b7e29da1254cb713",
+      "generatedSource": {
+        "filename": "exec-b5a1ddf5-9f1a-4d15-ae5d-d694b42b362d.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "58c6a5a92ab6bbd67c7739ceb382fe0a5b57feda8d5761bd22aa514f4bb44c26"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Ressentido",
+      "slot": "portrait",
+      "ability": "O Ressentido",
+      "identity": "A young adult male ash spirit, dark brown skin, narrow tired pale-gray eyes, dense tousled CURLY WHITE hair whose outer curls fade into ash, and a deep ragged charcoal hood and cloak with irregular pale-gray ashen edges and tiny red-orange embers. Black cloth wrist wraps. A quiet resentful severe expression, slender adult build. No armor, horn, braid, jewelry or weapon; the hood and white curls identify him even when he becomes ash. Two normal arms and two coherent hands, exactly five fingers each if visible. Inferno / Chama, accumulated rancor and self restoration in ash, not Paraíso healing light.",
+      "prompt": "Use case: identity-preserve. Create ONE finished square 2D anime game character portrait. Image 1 identifies O Ressentido; preserve A young adult male ash spirit, dark brown skin, narrow tired pale-gray eyes, dense tousled CURLY WHITE hair whose outer curls fade into ash, and a deep ragged charcoal hood and cloak with irregular pale-gray ashen edges and tiny red-orange embers. Black cloth wrist wraps. A quiet resentful severe expression, slender adult build. No armor, horn, braid, jewelry or weapon; the hood and white curls identify him even when he becomes ash. Two normal arms and two coherent hands, exactly five fingers each if visible. Inferno / Chama, accumulated rancor and self restoration in ash, not Paraíso healing light.\nClose eye-level three-quarter head and shoulders, ENTIRE face visible, both eyes and full chin inside the frame, hood frames rather than covers his face. Expression is held-back resentment, lips closed. A cool violet dawn through a ruined brick arch behind, broad simple shapes, just three tiny warm embers on the shoulder. The pale curls contrast against the charcoal hood. Crisp bold black ink contours, flat color fills, hard-edged cel shadows, 2D dark shonen anime, absolutely no realistic skin/texture/3D. No UI, writing, border or watermark.",
+      "path": "art/characters/o-filho-da-cinza/chama-completion-20261023/portrait.webp",
+      "bytes": 38164,
+      "sha256": "6250afc9bd2deab8a7efe1bf9069911cd482afcf28aeb2216cedcb87072007a1",
+      "generatedSource": {
+        "filename": "exec-c30b49ee-194b-4710-85ac-95cb9c7b3bb4.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "bfc703c1483220515ea7a4b212a97939d953d30de9a33881ca3e3fda2efff438"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Ressentido",
+      "slot": "impulso",
+      "ability": "Brasa do Ressentimento",
+      "scene": "Tight SIDE PROFILE over one separate silver-armored target's raised shoulder in the right foreground. The hooded ash spirit at left flicks ONE small dense red-orange spiritual ember from the tips of a single hand toward that enemy at mid distance. His white curls and serious face remain recognizable in profile. A tiny second ember gathers near his OWN wrapped wrist to signal accumulating a charge. No contact punch, beam, second enemy or extra hand. Setting: a narrow broken stone arcade against a cool pale-gray sky, black ash drifting sideways. Five fingers on the one visible hand, other hand hidden naturally by cloak.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Brasa do Ressentimento\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A young adult male ash spirit, dark brown skin, narrow tired pale-gray eyes, dense tousled CURLY WHITE hair whose outer curls fade into ash, and a deep ragged charcoal hood and cloak with irregular pale-gray ashen edges and tiny red-orange embers. Black cloth wrist wraps. A quiet resentful severe expression, slender adult build. No armor, horn, braid, jewelry or weapon; the hood and white curls identify him even when he becomes ash. Two normal arms and two coherent hands, exactly five fingers each if visible. Inferno / Chama, accumulated rancor and self restoration in ash, not Paraíso healing light.\nNEW SCENE: Tight SIDE PROFILE over one separate silver-armored target's raised shoulder in the right foreground. The hooded ash spirit at left flicks ONE small dense red-orange spiritual ember from the tips of a single hand toward that enemy at mid distance. His white curls and serious face remain recognizable in profile. A tiny second ember gathers near his OWN wrapped wrist to signal accumulating a charge. No contact punch, beam, second enemy or extra hand. Setting: a narrow broken stone arcade against a cool pale-gray sky, black ash drifting sideways. Five fingers on the one visible hand, other hand hidden naturally by cloak.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/o-filho-da-cinza/chama-completion-20261023/skill-impulso.webp",
+      "bytes": 54172,
+      "sha256": "4a2168eeff99e54e36ea0daa8919c52e8ef18eacc8fcf857e80191167fcc38bb",
+      "generatedSource": {
+        "filename": "exec-06cf6885-6205-432d-a773-34339e258575.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "7a3627f31dad10db9575b7346ccb369124428b80ad370b359380be8b4eb04cbf"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Ressentido",
+      "slot": "voto",
+      "ability": "Revide Incandescente",
+      "scene": "A steep HIGH OBLIQUE action crop: the hooded ash spirit drives his WRAPPED FOREARM physically across ONE enemy's armored guard in a close-range body turn. The forearm and actual armor contact dominate the diagonal; a small orange ember streak remains on the target's armor to signal the ensuing burn. Ragged dark harmful bindings flake off the USER'S cloak into clean gray ash, showing personal purification. White curls and one eye visible under hood. Exactly two caster arms, off-arm held close to his own waist. Background: wet black rooftop tiles and a cold violet skyline, no group and no spiritual ranged beam.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Revide Incandescente\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A young adult male ash spirit, dark brown skin, narrow tired pale-gray eyes, dense tousled CURLY WHITE hair whose outer curls fade into ash, and a deep ragged charcoal hood and cloak with irregular pale-gray ashen edges and tiny red-orange embers. Black cloth wrist wraps. A quiet resentful severe expression, slender adult build. No armor, horn, braid, jewelry or weapon; the hood and white curls identify him even when he becomes ash. Two normal arms and two coherent hands, exactly five fingers each if visible. Inferno / Chama, accumulated rancor and self restoration in ash, not Paraíso healing light.\nNEW SCENE: A steep HIGH OBLIQUE action crop: the hooded ash spirit drives his WRAPPED FOREARM physically across ONE enemy's armored guard in a close-range body turn. The forearm and actual armor contact dominate the diagonal; a small orange ember streak remains on the target's armor to signal the ensuing burn. Ragged dark harmful bindings flake off the USER'S cloak into clean gray ash, showing personal purification. White curls and one eye visible under hood. Exactly two caster arms, off-arm held close to his own waist. Background: wet black rooftop tiles and a cold violet skyline, no group and no spiritual ranged beam.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/o-filho-da-cinza/chama-completion-20261023/skill-voto.webp",
+      "bytes": 61732,
+      "sha256": "daab06d6cd7efb2f7bde29b4bee3fbbe361e478354b5a61bba475cf41a218239",
+      "generatedSource": {
+        "filename": "exec-ae5e8aa5-aba3-4610-8495-1df8f034860c.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "e6449ea0fab6cf0be367b32e599402e7ae11cee4b1bd4b171d318d1a9e1458f8"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Ressentido",
+      "slot": "impulso-rebirth",
+      "ability": "Rancor Reaceso",
+      "scene": "Wide tilted LOW view from beside ONE iron-armored target: the hooded ash spirit stands on a small broken stair above the target, his white curls and dark-brown face visible. THREE small red embers near his wrapped wrist visibly merge into ONE concentrated spiritual scarlet-orange arc that strikes this SAME target at a distance. Dark binding fragments peel from the caster's OWN cloak and vanish into gray ash, showing self purification; the outgoing heat spends his stored embers. His hands stay close together in front of his own torso, not a punch and not healing an ally. Setting: a roofless narrow ash shrine under slate-blue daylight, simple flat architectural shapes, no other victims.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Rancor Reaceso\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A young adult male ash spirit, dark brown skin, narrow tired pale-gray eyes, dense tousled CURLY WHITE hair whose outer curls fade into ash, and a deep ragged charcoal hood and cloak with irregular pale-gray ashen edges and tiny red-orange embers. Black cloth wrist wraps. A quiet resentful severe expression, slender adult build. No armor, horn, braid, jewelry or weapon; the hood and white curls identify him even when he becomes ash. Two normal arms and two coherent hands, exactly five fingers each if visible. Inferno / Chama, accumulated rancor and self restoration in ash, not Paraíso healing light.\nNEW SCENE: Wide tilted LOW view from beside ONE iron-armored target: the hooded ash spirit stands on a small broken stair above the target, his white curls and dark-brown face visible. THREE small red embers near his wrapped wrist visibly merge into ONE concentrated spiritual scarlet-orange arc that strikes this SAME target at a distance. Dark binding fragments peel from the caster's OWN cloak and vanish into gray ash, showing self purification; the outgoing heat spends his stored embers. His hands stay close together in front of his own torso, not a punch and not healing an ally. Setting: a roofless narrow ash shrine under slate-blue daylight, simple flat architectural shapes, no other victims.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/o-filho-da-cinza/chama-completion-20261023/skill-impulso-rebirth.webp",
+      "bytes": 76340,
+      "sha256": "46b196c1771ba1418fa436af1942047067ee8641d4a879b305e679d0ad444052",
+      "generatedSource": {
+        "filename": "exec-42494a4b-21fc-497a-a52b-01ec1f4a1794.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "14a0ec17bd1ecf062dcda8088d90b04976b6c7ae28e93027bb73a6f0098ae154"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "passive",
+      "ability": "Calor Persistente",
+      "scene": "EXTREME PROFILE CLOSE-UP of the feline's AMBER EYE, black ear tuft and pale cheek ruff across most of the square. In the lower-right background, ONE separate enemy's armored forearm is already marked with a small persistent red ember-burn; the feline watches that existing burn with a cold hunting stare. The passive means greater damage against an already burning enemy, NOT self healing or gaining armor. Keep the feline anatomy; no human face or fingers. Setting: cold blue-gray basalt shadows with a tiny crimson reflection in the eye. Minimal orange, don't make another portrait.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Calor Persistente\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nNEW SCENE: EXTREME PROFILE CLOSE-UP of the feline's AMBER EYE, black ear tuft and pale cheek ruff across most of the square. In the lower-right background, ONE separate enemy's armored forearm is already marked with a small persistent red ember-burn; the feline watches that existing burn with a cold hunting stare. The passive means greater damage against an already burning enemy, NOT self healing or gaining armor. Keep the feline anatomy; no human face or fingers. Setting: cold blue-gray basalt shadows with a tiny crimson reflection in the eye. Minimal orange, don't make another portrait.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/passive.webp",
+      "bytes": 47092,
+      "sha256": "481cb1cc4d56d09d468a3b8ca754f09d44577130510c7354b10353f4bd541b22",
+      "generatedSource": {
+        "filename": "exec-92709bbd-4497-42da-a4a1-8192a8cf0255.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "c6f9dd805dee3950a78ebddd074f44a4df549707d72a08252aa8ecd324a1be1d"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "impulso",
+      "ability": "Brasa que Permanece",
+      "scene": "SIDE-ON mid-close action: the crouching FOUR-LEGGED feline at left launches ONE dense small red-orange SPIRITUAL EMBER from its open mouth toward ONE separate dark-silver armored enemy at right, leaving a short thin scarlet trail. All visible paws stay on the cracked stone ledge, no physical contact, paw swipe or human punch. Read as a persistent spiritual burn rather than a physical strike. Its pale cheek ruff, two tufted ears, amber eye and short bobtail identify it. Setting: an abandoned black-stone bridge under a broad cold turquoise night sky, strong negative space between animal and target.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Brasa que Permanece\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nNEW SCENE: SIDE-ON mid-close action: the crouching FOUR-LEGGED feline at left launches ONE dense small red-orange SPIRITUAL EMBER from its open mouth toward ONE separate dark-silver armored enemy at right, leaving a short thin scarlet trail. All visible paws stay on the cracked stone ledge, no physical contact, paw swipe or human punch. Read as a persistent spiritual burn rather than a physical strike. Its pale cheek ruff, two tufted ears, amber eye and short bobtail identify it. Setting: an abandoned black-stone bridge under a broad cold turquoise night sky, strong negative space between animal and target.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/skill-impulso.webp",
+      "bytes": 54804,
+      "sha256": "3dd661b91813ca0b386de09f97b7b04bbc48a625ccab336eed1a8da320c97b5b",
+      "generatedSource": {
+        "filename": "exec-8933c3e7-2705-4c59-96f8-f9c1e7643e1a.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "4e941eef4bc8b7380ce2bafaaea09de6d32abd41da56e9836563b200d84a178e"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "tecnica",
+      "ability": "Sufoco das Cinzas",
+      "scene": "Dramatic VERY LOW view near a metal floor: the feline's NEAR FRONT PAW makes PHYSICAL CONTACT with ONE enemy's raised armored forearm. A compact cloud of pale ash bursts from its cheek ruff toward that same enemy's visor, weakening the target; a few old red ember marks remain on the armor. The beast keeps its far front leg bent near its own chest and both hind legs grounded, FOUR limbs total, coherent feline paws and no human fingers. The paw swipe is a blunt battering strike, no gore, claws through flesh, or ranged energy beam. Setting: a narrow collapsed industrial kiln corridor with a cool window shaft, simple flat background.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Sufoco das Cinzas\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nNEW SCENE: Dramatic VERY LOW view near a metal floor: the feline's NEAR FRONT PAW makes PHYSICAL CONTACT with ONE enemy's raised armored forearm. A compact cloud of pale ash bursts from its cheek ruff toward that same enemy's visor, weakening the target; a few old red ember marks remain on the armor. The beast keeps its far front leg bent near its own chest and both hind legs grounded, FOUR limbs total, coherent feline paws and no human fingers. The paw swipe is a blunt battering strike, no gore, claws through flesh, or ranged energy beam. Setting: a narrow collapsed industrial kiln corridor with a cool window shaft, simple flat background.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/skill-tecnica.webp",
+      "bytes": 70886,
+      "sha256": "9111f47220feb054b3f0b101f564b5e47a192ea93ace97df4b80c8a5fc46ed7f",
+      "generatedSource": {
+        "filename": "exec-0dc47ea7-03cc-4e23-a0e7-dfd7078592a9.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "af2edbb29ed9ab3c18306b7130db246009b063a6a2530107c74f41c469926299"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "voto",
+      "ability": "Fornalha Interior",
+      "scene": "Over the SHOULDER of ONE separate armored opponent in the lower-left foreground: the feline is crouched on the upper-right basalt plinth, jaws CLOSED, both front paws firmly planted. A concentrated scarlet SPIRITUAL shock-front emits from the ember fissures UNDER its chest fur and strikes the ONE opponent's raised guard. A tiny bright ember settles into the feline's own shoulder fur as stored charge. White-hot center, deep crimson outer edges, no contact strike, no world explosion, no second enemy. Its ash-gray cheek ruffs, tufted ears, black nose, amber eyes, four-legged silhouette and short bobtail remain consistent. Setting: wind-scoured basalt courtyard under a gray dawn.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Fornalha Interior\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nNEW SCENE: Over the SHOULDER of ONE separate armored opponent in the lower-left foreground: the feline is crouched on the upper-right basalt plinth, jaws CLOSED, both front paws firmly planted. A concentrated scarlet SPIRITUAL shock-front emits from the ember fissures UNDER its chest fur and strikes the ONE opponent's raised guard. A tiny bright ember settles into the feline's own shoulder fur as stored charge. White-hot center, deep crimson outer edges, no contact strike, no world explosion, no second enemy. Its ash-gray cheek ruffs, tufted ears, black nose, amber eyes, four-legged silhouette and short bobtail remain consistent. Setting: wind-scoured basalt courtyard under a gray dawn.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/skill-voto.webp",
+      "bytes": 82468,
+      "sha256": "3216c76318e5df5886d1a4a99be028fe1071646a7f4d419f591235f4531a9e09",
+      "generatedSource": {
+        "filename": "exec-1c5a5238-591e-4aa1-b3e3-683f3168c9ed.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "97c53d70dd91a08e1818600398951eb4a66ed882f8d1c55c0cab33b38815acf3"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "despertar",
+      "ability": "Manto de Cinzas",
+      "scene": "Tight DIAGONAL SIDE shot of ONLY the feline, dropping its low coherent FOUR-LEGGED body beneath one anonymous incoming sword. Its OWN pale ash cheek and shoulder ruff billows into a tight PERSONAL mantle along its own back, guiding the sword harmlessly above the actual body. Keep one actual head, two tufted ears, one torso, four coherent legs and a short bobtail; no clone, people, ally, big dome or counterattack. Ember light stays small under the chest fur. Setting: a broken dark arch on a basalt ridge in cold moonlight, simple strong shapes. This represents personal invulnerability by evasive movement and ash mantle.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Manto de Cinzas\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nNEW SCENE: Tight DIAGONAL SIDE shot of ONLY the feline, dropping its low coherent FOUR-LEGGED body beneath one anonymous incoming sword. Its OWN pale ash cheek and shoulder ruff billows into a tight PERSONAL mantle along its own back, guiding the sword harmlessly above the actual body. Keep one actual head, two tufted ears, one torso, four coherent legs and a short bobtail; no clone, people, ally, big dome or counterattack. Ember light stays small under the chest fur. Setting: a broken dark arch on a basalt ridge in cold moonlight, simple strong shapes. This represents personal invulnerability by evasive movement and ash mantle.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/skill-despertar.webp",
+      "bytes": 68894,
+      "sha256": "540864e3701f6da57a6298eecd9769cb1607eab738f9120b01fc92a797a308d5",
+      "generatedSource": {
+        "filename": "exec-dfe7428a-57f6-46ca-8b36-d8256fad898e.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "3164f4074cd432d1528b7e66652fc75b739e654a1dfcfbc6ec84b4807464682f"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "slot": "impulso-smother",
+      "ability": "Labareda Sufocante",
+      "scene": "STEEP HIGH-ANGLE shot: ONE isolated bronze-armored target below a ruined stair is enclosed tightly by a compact SPIRITUAL scarlet fire-and-ash spiral. The coherent FOUR-LEGGED feline stands above on the narrow stair edge, head in recognizable side profile and jaws open; a short curved crimson stream connects its mouth to that SAME enemy's already burning guard. The smoke coils around armor, no literal choking hands or gore. This is the stronger spiritual alternative to Brasa que Permanece, not another paw strike and not a group attack. Pale cheek ruff, tufted ears, amber eye and short bobtail are clear. Background: cool gray obsidian steps under light ash snowfall, no broad burning landscape.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Labareda Sufocante\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A nonhumanoid supernatural LYNX-like FELINE, always a real coherent FOUR-LEGGED animal, with a low muscular charcoal-gray body, a broad pale ash-gray feline face, a short black triangular cat nose, sharp AMBER eyes with vertical pupils, TWO triangular ears each bearing a long black ear tuft, long pale ash-gray cheek ruffs, and a short bobtail. The cheek ruffs and shoulder fur dissolve at their outer edges into broad flat pale ash wisps. Deep CRIMSON ember fissures glow UNDER the charcoal fur around the chest and forelegs, small warm-white ember centers, not exposed flesh and not literal stone plates. Four paws with coherent feline toes, no human hands or fingers; no wings, horn, jewelry, clothing, lantern, weapon or extra limbs. This is a predatory spirit of stubborn resentment in Inferno / Chama, calm and malicious rather than cute or friendly. It is NOT a human, anthro, biped, lion with a giant mane, fox, wolf or metal construct. The title A Brasa Eterna is symbolic, not a walking object.\nNEW SCENE: STEEP HIGH-ANGLE shot: ONE isolated bronze-armored target below a ruined stair is enclosed tightly by a compact SPIRITUAL scarlet fire-and-ash spiral. The coherent FOUR-LEGGED feline stands above on the narrow stair edge, head in recognizable side profile and jaws open; a short curved crimson stream connects its mouth to that SAME enemy's already burning guard. The smoke coils around armor, no literal choking hands or gore. This is the stronger spiritual alternative to Brasa que Permanece, not another paw strike and not a group attack. Pale cheek ruff, tufted ears, amber eye and short bobtail are clear. Background: cool gray obsidian steps under light ash snowfall, no broad burning landscape.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-brasa-eterna/chama-completion-20261023/skill-impulso-smother.webp",
+      "bytes": 82084,
+      "sha256": "0862b4ab23c5f0659c18cf21ae61148514c43729122e0329094da07227b09c40",
+      "generatedSource": {
+        "filename": "exec-19ac2922-0079-43a3-bf41-6ec8df79e5fc.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "5b6afeb19bd2f8dd369b58c0eba25ec531ab45afa4a04296dafd4ff6250c014f"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "A Vingadora",
+      "slot": "impulso-reply",
+      "ability": "Revanche Ardente",
+      "scene": "Reverse THREE-QUARTER view from just BEHIND the woman's RIGHT armored shoulder, close enough to see her tan cheek and stern face in partial profile. Her black hair and red-orange braid sweep back; she lifts her small dark iron ember-lantern from HER LEFT HIP with her LEFT hand, keeping the hanging lantern's original cage design and handle coherent. ONE focused orange SPIRITUAL ribbon comes out of the lantern glass toward the SAME ONE steel-armored enemy who has just struck her right bracer (small glowing fresh crack). Her right forearm remains close to her own chest, not punching. This is a spiritual revenge after the enemy's aggression, not her base physical Brasa Punitiva, no ally or group. Setting: a rain-damp abandoned kiln yard at cold blue dawn; a few ash specks, hard clear flame shapes. Exactly two arms with normal five-finger anatomy, the hand holds the lantern handle only.",
+      "prompt": "Use case: stylized-concept. Create ONE finished square 2D dark shonen anime ability illustration for \"Revanche Ardente\". Image 1 is ONLY the approved character identity, NOT a composition to copy. Preserve this exact identity: A strong angular-faced adult woman with warm tan-brown skin and amber eyes, black asymmetrical jaw-length hair with HER RIGHT temple shaved (LEFT in a frontal view), a long RED-ORANGE braid behind her head, fitted sleeveless black high-neck tunic, torn crimson shoulder mantle and broad crimson waist sash. A black iron bracer with fine red ember cracks on her RIGHT forearm. A small dark iron cage ember lantern hangs at HER LEFT HIP (RIGHT in a frontal view), orange light within it. No horns, crown, glasses or weapon. Preserve her lean athletic build, coherent two arms and five fingers per human hand. She represents vindictive fire in Inferno / Chama.\nNEW SCENE: Reverse THREE-QUARTER view from just BEHIND the woman's RIGHT armored shoulder, close enough to see her tan cheek and stern face in partial profile. Her black hair and red-orange braid sweep back; she lifts her small dark iron ember-lantern from HER LEFT HIP with her LEFT hand, keeping the hanging lantern's original cage design and handle coherent. ONE focused orange SPIRITUAL ribbon comes out of the lantern glass toward the SAME ONE steel-armored enemy who has just struck her right bracer (small glowing fresh crack). Her right forearm remains close to her own chest, not punching. This is a spiritual revenge after the enemy's aggression, not her base physical Brasa Punitiva, no ally or group. Setting: a rain-damp abandoned kiln yard at cold blue dawn; a few ash specks, hard clear flame shapes. Exactly two arms with normal five-finger anatomy, the hand holds the lantern handle only.\nStyle: graphic hand-drawn 2D anime, BOLD black ink contours, broad FLAT color fills, hard-edged cel shadow blocks. Fur/hair in simple angular clumps, no individual hair rendering or realistic texture. Clear character and effect readable at 75px. Correct anatomy, accessories and exact target count. Distinct crop, distance and scene. No realism, 3D, oil painting, gradients on characters, text, UI, typography, border or watermark. Full bleed square.",
+      "path": "art/characters/a-pira-errante/chama-completion-20261023/skill-impulso-reply.webp",
+      "bytes": 67540,
+      "sha256": "9839b73daa705863dded31fd25665d7f46cc257aa8a2150d488291f484ef2fcc",
+      "generatedSource": {
+        "filename": "exec-d180fbcc-a6c4-4b33-ae3c-6eeff0d4bcf5.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "e7d0d2ef39eeec9a9a4c8b6206d1ca4baac7016b81721dc66a821d0243896ab6"
+      },
+      "review": {
+        "visual": "approved",
+        "identity": "consistent",
+        "targetCount": "correct",
+        "mechanics": "scene matches current effect"
+      }
+    }
+  ],
+  "validation": {
+    "functionalTestsPassed": 143,
+    "historicalBinaryPresenceTestsExcluded": 2,
+    "charactersComparedIgnoringOnlyArt": 100,
+    "nonArtDataUnchanged": true,
+    "currentCatalogArtPaths": 609,
+    "chamaBasicPaths": 36,
+    "chamaAlternativePaths": 5,
+    "newFiles": 12
+  }
+}
