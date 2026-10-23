@@ -3,6 +3,7 @@ const fullArt = new Set(['a-senhora-do-ultimo-pao','o-surdo','o-quarto-vazio']);
 const eloArt = new Set(['o-estomago-sem-fundo','o-equilibrio','o-menino-sem-sombra']);
 const entityArt = new Set(['a-balanca-vazia','a-muralha','o-lugar-de-ninguem']);
 const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura']);
+const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
   'a-pele-alheia':['despertar'],
@@ -16,6 +17,21 @@ const entitySlots = {
 };
 const personalDefenseArt = new Set(['a-mao-que-toma','o-vigia-ausente','o-desejo-quebrado','o-que-ficou']);
 export const characterRevisions = {
+  'o-devorador': {
+    role: 'Fera da Avidez',
+    lore: 'Uma fera quadrúpede de Fome, cuja voracidade não conhece saciedade. Corrói a guarda das vítimas com saliva espiritual e incorpora a essência que devora; quando ferida, sua fome ultrapassa a matéria e alcança as reservas alheias.',
+    terms: {'Mandíbula do Vazio': 'Couraça Voraz'}
+  },
+  'o-ultimo-guardiao': {
+    role: 'Sentinela Ancestral',
+    lore: 'Um espírito quadrúpede abrigado em uma carapaça de pedra viva. Permanece no limiar de Proteção para que outras almas atravessem em segurança. Seu chifre marca a ameaça, e as placas de seu corpo projetam amparo antes de devolver a agressão.',
+    terms: {'Lança da Guarda': 'Investida Vigilante', 'Alvorecer do Guardião': 'Revide Radiante'}
+  },
+  'o-eco-sem-dono': {
+    role: 'Ressonância Errante',
+    lore: 'Vozes que perderam sua origem no Limbo persistem numa espiral de névoa e anéis partidos. Sem rosto ou corpo humano, a aparição recolhe vibrações e devolve o que a atinge. Cada coro a desfaz um pouco, a menos que encontre uma ressonância alheia para sustentar-se.',
+    terms: {}
+  },
   "o-acougueiro": {
     "lore": "Executor de Sangria: seu cutelo reconhece a essência de uma vítima ferida. Cada ferida alimenta seu faro e torna a próxima investida mais implacável.",
     "terms": {
@@ -598,6 +614,11 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (diverseArt.has(id)) {
+    const base = `/art/characters/${id}/form-revision-20261023`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (spiritArt.has(id)) {
     const base = `/art/characters/${id}/spirit-revision-20261023`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,

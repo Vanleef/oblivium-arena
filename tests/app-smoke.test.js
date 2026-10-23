@@ -39,8 +39,17 @@ test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila"
  assert.match(app.innerHTML,/TURNO 2/);assert.match(app.innerHTML,/SUA VEZ/);
  click({tab:"codex"});assert.match(app.innerHTML,/Manto de Cinzas/);assert.match(app.innerHTML,/passive.webp/);
 });
-test("O Fim mantém arte e possui defesa de invulnerabilidade",async t=>{
- t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/portrait.webp/);click({target:"the-end"});assert.match(app.innerHTML,/Fim Inalcançável/);click({inspectSkill:"the-end:despertar"});assert.match(app.innerHTML,/RECARGA 4T/);
+test("O Fim mostra sua natureza sem rosto fixo e preserva a defesa de invulnerabilidade",async t=>{
+ t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/fear-revision-20261023\/portrait.webp/);click({target:"the-end"});assert.match(app.innerHTML,/Fim Inalcançável/);assert.match(app.innerHTML,/maior medo de quem o olha/);assert.match(app.innerHTML,/cada observador encara uma manifestação única/);click({inspectSkill:"the-end:despertar"});assert.match(app.innerHTML,/RECARGA 4T/);assert.match(app.innerHTML,/skill-despertar.webp/);
+});
+
+test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o reino',async()=>{
+ const {app,handlers,click}=setup();await import('../src/main.js?fear-codex=1');click({tab:'codex'});
+ const search=value=>handlers.input({target:{matches:()=>true,value,selectionStart:value.length}});
+ search('O Fim');assert.match(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/não tem rosto nem forma fixos/);assert.match(app.innerHTML,/Nenhuma aparência é sua forma verdadeira/);assert.doesNotMatch(app.innerHTML,/data-final-battle/);
+ click({crewRealm:'Paraíso'});assert.doesNotMatch(app.innerHTML,/codex-entity/);
+ click({crewRealm:'Inferno'});assert.match(app.innerHTML,/codex-entity/);
+ search('O Devorador');assert.doesNotMatch(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/form-revision-20261023\/portrait.webp/);assert.match(app.innerHTML,/fera quadrúpede/);
 });
 test('escolha global persiste, bloqueia nova trilha até resgate e não duplica após recarregar',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});

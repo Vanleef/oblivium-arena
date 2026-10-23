@@ -18,10 +18,10 @@ import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
+import { FINAL_BOSS } from "./final-boss.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
-const FINAL_BOSS = Object.freeze({ id: "the-end", name: "O Fim", nameEn: "The End", title: "Rei do Inferno", portrait: "/art/characters/o-fim/portrait.webp" });
 const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1", "selyvar-arena-v1", "three-realms-soul-arena-v1", "post-mortem-arena-v1"];
 const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
@@ -184,6 +184,8 @@ function startEncounter(node) {
     enemies[0].name = FINAL_BOSS.name;
     enemies[0].nameEn = FINAL_BOSS.nameEn;
     enemies[0].title = FINAL_BOSS.title;
+    enemies[0].role = FINAL_BOSS.title;
+    enemies[0].lore = FINAL_BOSS.lore;
     enemies[0].art = { portrait: FINAL_BOSS.portrait };
     enemies[0].abilities = [
       { id: "fenda", name: "Fenda do Véu", kind: "strike", costs: { affinity: 1 }, damage: 25, damageType: "piercing", mark: "fim", target: "enemy", description: "Causa 25 de dano perfurante e marca o alvo por 3 turnos." },
@@ -191,6 +193,7 @@ function startEncounter(node) {
       { id: "coroa", name: "Coroa que Não Cai", kind: "guard", costs: { essence: 1, affinity: 1 }, shield: 20, target: "team", cooldown: 1, description: "Concede 20 de Defesa ao trio." },
       { id: "despertar", name: "Fim Inalcançável", kind: "defense", costs: { essence: 1 }, invulnerable: 1, defense: true, target: "self", cooldown: 4, description: "Fica Invulnerável por 1 turno. Recarga de 4 turnos." }
     ];
+    enemies[0].abilities = enemies[0].abilities.map(ability => ({...ability, art: FINAL_BOSS.abilities[ability.id]}));
     enemies[1].name = "Arauto do Véu Partido";
     enemies[1].art = null;
     enemies[1].symbol = "◇";
@@ -479,7 +482,7 @@ function routeView() {
   const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${realmEmblem(item.id)}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Elo":"Elos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
   return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div>${selection}</section>${state.pending?pendingPanel():""}`}
     ${renderLegacies(profile)}
-    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
+    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3><p>Sem rosto fixo. Cada alma encara o próprio maior medo.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
 
 function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,persistentCombatHp(u)])):null}); }
@@ -547,10 +550,13 @@ function codexView() {
     const query = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo).toLowerCase().includes(state.crewSearch.toLowerCase());
     return realm && query;
   });
+  const showFinalBoss = (state.crewRealm === "Todos" || state.crewRealm === "Inferno") &&
+    (!state.crewSearch || `${FINAL_BOSS.name} ${FINAL_BOSS.title}`.toLowerCase().includes(state.crewSearch.toLowerCase()));
   return `
     <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
     <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
+    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(FINAL_BOSS.portrait)}" alt="Presença instável de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · ${esc(FINAL_BOSS.title).toUpperCase()}</div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
