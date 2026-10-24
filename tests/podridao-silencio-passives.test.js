@@ -24,6 +24,11 @@ test('Podridão e Silêncio têm 12 assinaturas distintas e oito regras editoria
  assert.ok(batch.every(c=>c.passive.type==='triggered'));
  const signatures=batch.map(c=>{const {name,description,art,...rules}=c.passive;return JSON.stringify(rules)});assert.equal(new Set(signatures).size,12);
  for(const c of batch)assert.notEqual(localizeText(c.passive.description,'en'),c.passive.description,c.name);
+ assert.equal(characterById['a-testemunha-cega'].affinity,'graca');assert.equal(characterById['o-medico-de-vermes'].affinity,'cinza');
+});
+
+test('o registro de selo de apoio também fica inteiramente em inglês',()=>{
+ assert.equal(localizeText('O Silenciador · Clamor Sufocado: O Sussurro Apoio selado.','en'),'The Silencer · Smothered Cry: The Whisper Support sealed.');
 });
 
 test('Pestilência exige dois inimigos vivos com Veneno próprio que ainda não expirou',()=>{

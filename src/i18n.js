@@ -552,6 +552,7 @@ Object.assign(wordTranslations, Object.fromEntries(Object.entries({
 }).map(([source, translated]) => [normalize(source), translated])));
 
 const combatPatterns = [
+  [/Apoio selado/gi, () => "Support sealed"],
   [/A cada (\d+) de Vida perdida pelo usuário: \+(\d+) de dano \(máx\. \+(\d+)\)\./gi, (_, lost, damage, max) => `For every ${lost} Health you have lost, gain +${damage} damage (max +${max}).`],
   [/A cada (\d+) de Vida faltante do beneficiado: \+(\d+) de cura \(máx\. \+(\d+)\)\./gi, (_, missing, healing, max) => `For every ${missing} missing Health, healing increases by +${healing} (max +${max}).`],
   [/Aumenta em (\d+) o dano do usuário até o fim do próximo turno do beneficiado\./gi, (_, amount) => `Increase your damage by ${amount} until the recipient's next turn ends.`],

@@ -922,7 +922,7 @@ export const characterRevisions = {
 export function revisedArtFor(id, art) {
   if (!art) return art;
   if (id === 'o-sussurro') {
-    const base = `/art/characters/${id}/anime-review-20261024`;
+    const base = `/art/characters/${id}/anime-amphibian-20261024`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }

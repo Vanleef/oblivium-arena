@@ -2,7 +2,7 @@
 
 ## Continuação — Podridão, Silêncio e O Sussurro
 
-Oito passivas de Podridão e Silêncio ganharam gatilhos próprios. Com as seis regras já específicas de cada Elo, os 12 personagens destes dois Elos estão cobertos. O total da revisão passa de 56 para **64 de 100** passivas com gatilho específico ou recuperação ligada ao tipo de dano; **36** continuam na fila. Cada gatilho limita a recompensa a uma vez por rodada, exceto Oportunismo, que é uma vez por combate.
+Oito passivas de Podridão e Silêncio ganharam gatilhos próprios. Com as duas regras já específicas de cada Elo, os 12 personagens destes dois Elos estão cobertos. O total da revisão passa de 56 para **64 de 100** passivas com gatilho específico ou recuperação ligada ao tipo de dano; **36** continuam na fila. Cada gatilho limita a recompensa a uma vez por rodada, exceto Oportunismo, que é uma vez por combate.
 
 | Personagem | Regra revisada |
 | --- | --- |
@@ -17,9 +17,17 @@ Oito passivas de Podridão e Silêncio ganharam gatilhos próprios. Com as seis 
 
 As passivas restantes de Podridão e Silêncio também foram conferidas: consumo de Decadência respeita sua condição; Colônia Viva e Abrigo dos Cúmplices verificam a reserva no começo do turno; Hospitalidade Negada verifica aflições persistentes. O teste negativo cobre alvos mortos, aflições de outro autor, efeitos expirados, dano absorvido, cura bloqueada, sobrecura, Contra-ataques incompatíveis e origem morta.
 
-O Sussurro recebe novo conjunto anime 2D: um espírito anfíbio baixo e largo, com rosto achatado, bolsa vocal, olhos estreitos assimétricos e trança curta com contas de jade. As seis artes mantêm esses marcadores e variam entre arcada sob chuva, arquivo alagado, teatro arruinado e plataforma subterrânea. O retrato, passiva e quatro técnicas foram exportados em WebP 512 × 512; regras e custos foram preservados. Prompts, caminhos e hashes: `ART_SUSSURRO_20261024.json`. A identidade visual foi registrada em `CHARACTER_VISUAL_IDENTITIES.md`.
+O Sussurro recebe seis cenas anime próprias de um espírito anfíbio baixo e largo: cabeça calva achatada, olhos jade estreitos, pele verde-petróleo com sardas cobre, mãos palmadas e bolsa vocal translúcida. O casaco ameixa, colete marfim, faixa azul-marinho, tubo de latão e leque de ferro acompanham todo o conjunto. As cenas variam entre canal sob chuva, casa de contas, telhado com varais, mercado, ponte e aqueduto. A biografia acompanha essa identidade em português e inglês. Os caminhos finais e os prompts completos estão em `ART_SUSSURRO_ANFIBIO_20261024.json`; as imagens foram exportadas completas para WebP 512 × 512, sem recorte.
 
-Validação final deste lote: **291 testes passaram**, o build gerou **902 arquivos**, e a auditoria encontrou **626/626 caminhos de arte presentes**.
+O conjunto intermediário com trança curta e uniforme escuro permanece preservado em `anime-review-20261024` e no inventário `ART_SUSSURRO_20261024.json`. O conjunto ativo usa `anime-amphibian-20261024`, com os traços descritos acima e as cenas coerentes com o leque de ferro e a conversão de Éter.
+
+A revisão mantém quatro espaços de técnica, os valores-base de dano e a defesa pessoal com recarga 4. As afinidades derivadas do kit passam de Graça para Cinza no Inoculador e de Ruptura para Graça na Cúmplice, acompanhando suas novas passivas; a quantidade total exigida por técnica não mudou. Coringa continua traduzido como Wildcard.
+
+O motor conta condições realmente limpas e bônus realmente removidos. Uma preparação de Contra-ataque mais fraca preserva o valor, o filtro e a autoria da resposta mais forte; a morte da origem não transfere sua passiva ao protegido. A previsão da IA respeita a exigência de Defesa para ativar um Contra-ataque. A última aplicação letal de uma aflição notifica o abate antes de expirar, preservando a recompensa da Brasa.
+
+A simulação atual resolveu 300 confrontos, 32.424 etapas, 434 técnicas e 43 alternativas. Normais: 51 vitórias, 47 derrotas e 2 limites; elites na Ruptura III: 5 vitórias, 94 derrotas e 1 limite; chefes na Ruptura VI: 1 vitória, 98 derrotas e 1 limite. Os quatro limites de 100 rodadas não receberam vencedor. Isso verifica integridade e execução; as Rupturas altas ainda exigem playtests com builds e decisões humanas. Relatório: `PASSIVES_PODRIDAO_SILENCIO_SIM_20261024.json`.
+
+Verificação deste lote: **293 testes aprovados**, nenhuma falha; build de produção concluído; 626 caminhos ativos de arte presentes, nenhum ausente. A identidade e os seis arquivos finais do Sussurro têm referências, unicidade, dimensões e hashes conferidos.
 
 ## Continuação — Herdeiro, Chama e Fome
 
