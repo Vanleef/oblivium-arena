@@ -1,6 +1,6 @@
-import { characters, characterById, elos, realms, routeStages, buffs, starters, resources, resourceById, realmResource } from "./data.js";
-import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
-import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getAbilityResourceCosts, getEloById, passTurn } from "./engine.js";
+import { characters, characterById, elos, realms, routeStages, buffs, difficulties, starters, resources, resourceById, realmResource } from "./data.js";
+import { getResonance, getEloRoster, getBuffChoices } from "./rules.js";
+import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getAbilityResourceCosts, getEloById, passTurn, skipStunnedAction } from "./engine.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -13,6 +13,7 @@ const defaults = {
   completedElos: [],
   xp: 0,
   fragments: 0,
+  difficulty: "veteran",
   run: null
 };
 
@@ -26,7 +27,8 @@ function readProfile() {
       ...saved,
       ownedIds: [...new Set([...defaults.ownedIds, ...(saved.ownedIds || [])])],
       team: saved.team || starterTeam,
-      completedElos: saved.completedElos || []
+      completedElos: saved.completedElos || [],
+      difficulty: difficulties.some((item) => item.id === saved.difficulty) ? saved.difficulty : "veteran"
     };
   } catch {
     return { ...defaults, version: 1 };
@@ -108,7 +110,7 @@ function startRun(eloId) {
   const elo = elos.find((item) => item.id === eloId);
   if (!elo) return;
   state.realmId = realms.find((realm) => realm.elos.some((item) => item.id === eloId))?.id || state.realmId;
-  profile.run = { eloId, stage: 0, stability: 3, maxStability: 3, buffs: [], encounter: 0, tried: 0 };
+  profile.run = { eloId, difficulty: profile.difficulty, stage: 0, stability: 3, maxStability: 3, buffs: [], encounter: 0, tried: 0 };
   state.eloId = eloId;
   state.pending = null;
   state.tab = "rota";
@@ -134,8 +136,9 @@ function completeRun() {
   const newIds = getEloRoster(elo.id).map((character) => character.id);
   profile.ownedIds = [...new Set([...profile.ownedIds, ...newIds])];
   profile.completedElos = [...new Set([...profile.completedElos, elo.id])];
-  profile.xp += 250;
-  profile.fragments += 24;
+  const reward = difficulties.find((item) => item.id === run.difficulty)?.rewardMultiplier || 1;
+  profile.xp += Math.round(250 * reward);
+  profile.fragments += Math.round(24 * reward);
   profile.run = null;
   state.pending = { type: "complete", elo };
   state.tab = "rota";
@@ -166,7 +169,11 @@ function startEncounter(node) {
     enemies[2].symbol = "⬡";
   }
   state.battleNode = node;
-  state.battle = createBattle(profile.team, enemies, { buffs: profile.run?.buffs || [] });
+  state.battle = createBattle(profile.team, enemies, {
+    buffs: profile.run?.buffs || [],
+    difficulty: profile.run?.difficulty || profile.difficulty,
+    encounter: specialFinale ? "finale" : encounterType
+  });
   state.targetId = null;
   state.tab = "battle";
   render();
@@ -193,8 +200,8 @@ function resolveNode(node) {
   }
   if (node.id === "event") state.pending = { type: "event" };
   if (node.id === "upgrade") {
-    const choices = getRelevantBuffs(profile.team, profile.run.buffs);
-    state.pending = { type: "upgrade", choices: choices.sort(() => Math.random() - 0.5).slice(0, 3) };
+    const choices = getBuffChoices(profile.team, profile.run.buffs, 3);
+    state.pending = { type: "upgrade", choices };
   }
   render();
 }
@@ -222,9 +229,10 @@ function returnFromBattle() {
   if (state.battle.phase === "victory") {
     if (state.battleNode.id === "finale") {
       state.pending = { type: "finale-complete" };
+      const reward = difficulties.find((item) => item.id === (state.battle.difficulty?.id || profile.difficulty))?.rewardMultiplier || 1;
       profile.run = null;
-      profile.xp += 500;
-      profile.fragments += 80;
+      profile.xp += Math.round(500 * reward);
+      profile.fragments += Math.round(80 * reward);
       save();
       state.battle = null;
       state.tab = "rota";
@@ -258,6 +266,15 @@ function returnFromBattle() {
     state.tab = "rota";
     render();
   }
+}
+
+function difficultyPicker(currentRun) {
+  const selectedId = currentRun?.difficulty || profile.difficulty || "veteran";
+  const selected = difficulties.find((item) => item.id === selectedId) || difficulties[1];
+  if (currentRun) {
+    return `<div class="difficulty-current"><span class="difficulty-mark">${selected.mark}</span><span><small>DIFICULDADE DA TRILHA</small><b>${esc(selected.name)}</b></span><p>${esc(selected.description)}</p></div>`;
+  }
+  return `<section class="difficulty-picker" aria-label="Escolher dificuldade"><div class="difficulty-heading"><div><div class="eyebrow">AJUSTE O DESAFIO</div><b>Como deseja atravessar?</b></div><small>Maior risco rende mais XP e fragmentos.</small></div><div class="difficulty-options">${difficulties.map((item) => `<button class="difficulty-option ${item.id === selectedId ? "selected" : ""}" data-difficulty="${item.id}" aria-pressed="${item.id === selectedId}"><span class="difficulty-mark">${item.mark}</span><span class="difficulty-copy"><b>${esc(item.name)}</b><small>${esc(item.description)}</small></span><i>${Math.round((item.rewardMultiplier || 1) * 100)}%<small>RECOMPENSA</small></i></button>`).join("")}</div></section>`;
 }
 
 function updateBattle(actorId, abilityId) {
@@ -335,6 +352,7 @@ function routeView() {
     ${hero()}
     <section class="route-section">
       <div class="section-heading"><div><div class="eyebrow">ESCOLHA SUA TRAVESSIA</div><h2>A Grande Rota</h2><p>Explore trilhas nos três reinos. Cada rota testa o trio com escolhas, encontros e Guardiões.</p></div><span class="section-count">${elos.length} ELOS <i>·</i> 3 REINOS</span></div>
+      ${difficultyPicker(currentRun)}
       <div class="realm-tabs">${realms.map((item) => `<button class="realm-tab ${state.realmId === item.id ? "selected" : ""} realm-${item.id}" data-realm="${item.id}"><span>${item.name === "Inferno" ? "✹" : item.name === "Paraíso" ? "✧" : "⟲"}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length === 1 ? "Elo" : "Elos"}</small></button>`).join("")}</div>
       <div class="realm-intro"><div><span class="eyebrow">DOMÍNIO · ${esc(realm.title.toUpperCase())}</span><p>${esc(realm.description)}</p></div><span class="realm-sigil">${realm.color === "inferno" ? "✹" : realm.color === "paraiso" ? "✧" : "⟲"}</span></div>
       <div class="elo-grid">${realm.elos.map((elo) => `
@@ -355,7 +373,7 @@ function runMap() {
   const completed = run.stage >= routeStages.length;
   return `
     <section class="run-panel">
-      <div class="run-heading"><div><div class="eyebrow">TRILHA ATIVA · ${esc(elo.realm.toUpperCase())}</div><h3>Elo da ${esc(elo.name)}</h3></div><div class="run-strength"><span class="run-elo-symbol">${elo.symbol}</span><span><small>ESTABILIDADE DAS CORRENTES</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
+      <div class="run-heading"><div><div class="eyebrow">TRILHA ATIVA · ${esc(elo.realm.toUpperCase())} · ${esc(difficulties.find((item) => item.id === run.difficulty)?.name || "Veterano")}</div><h3>Elo da ${esc(elo.name)}</h3></div><div class="run-strength"><span class="run-elo-symbol">${elo.symbol}</span><span><small>ESTABILIDADE DAS CORRENTES</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
       <div class="path-grid">${routeStages.map((stage, stageIndex) => {
         const done = stageIndex < run.stage;
         const active = stageIndex === run.stage;
@@ -367,7 +385,7 @@ function runMap() {
         }).join("");
         return `<div class="path-stage"><span class="stage-number">${String(stageIndex + 1).padStart(2, "0")}</span><div class="stage-nodes">${nodes}</div></div>`;
       }).join("")}</div>
-      <div class="run-footer"><span><b>${run.stage}</b> / ${routeStages.length} etapas</span><span class="buff-list">${run.buffs.length ? run.buffs.map((id) => `<i title="${esc(buffs.find((buff) => buff.id === id)?.title || id)}">✧</i>`).join("") : "Nenhum eco coletado"}</span><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></div>
+      <div class="run-footer"><span><b>${run.stage}</b> / ${routeStages.length} etapas</span><span class="buff-list">${run.buffs.length ? run.buffs.map((id) => { const buff = buffs.find((item) => item.id === id); return `<i title="${esc(buff?.title || id)}">${esc(buff?.icon || "✧")}</i>`; }).join("") : "Nenhum eco coletado"}</span><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></div>
     </section>`;
 }
 
@@ -377,7 +395,7 @@ function pendingPanel() {
   if (pending.type === "event") return `
     <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e 1 ${esc(activeAffinityResource().name)} extra por combate</small></button></div></section>`;
   if (pending.type === "upgrade") return `
-    <section class="choice-panel"><div class="eyebrow">APRIMORAMENTO · ESCOLHA UM ECO</div><h3>O trio se adapta à trilha.</h3><div class="buff-choices">${pending.choices.map((buff) => `<button class="buff-card" data-choose-buff="${buff.id}"><span>${buff.icon}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)}</small></button>`).join("")}</div></section>`;
+    <section class="choice-panel"><div class="eyebrow">APRIMORAMENTO · ESCOLHA UM ECO</div><h3>O trio se adapta à trilha.</h3><div class="buff-choices">${pending.choices.map((buff) => `<button class="buff-card" data-choose-buff="${buff.id}"><span class="buff-icon">${esc(buff.icon)}</span><span class="buff-category">${esc(buff.category)}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)}</small><em>${esc(buff.context)}</em></button>`).join("")}</div></section>`;
   if (pending.type === "complete") return `
     <section class="notice-panel"><span class="notice-icon">✧</span><div><div class="eyebrow">TRILHA CONCLUÍDA</div><h3>Elo da ${esc(pending.elo.name)} atravessado.</h3><p>${getEloRoster(pending.elo.id).length} almas do Elo agora podem ser recrutadas. +250 XP e 24 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-complete") return `
@@ -457,9 +475,9 @@ function unitCard(unit, side, index) {
     <div class="unit-top"><span class="unit-index">0${index + 1}</span>${portraitMarkup(unit, "unit-symbol")}<span class="unit-state">${unit.hp <= 0 ? "CAÍDO" : unit.stunned ? "ATORDOADO" : unit.shield ? "ESCUDO " + unit.shield : unit.role}</span></div>
     <b class="unit-name">${esc(unit.name)}</b><small class="unit-title">${unit.nameEn ? `${esc(unit.nameEn)} · ${esc(unit.title)}` : `${esc(unit.elo)} · ${esc(unit.realm)}`}</small>
     <div class="health-row"><div class="health-track"><i class="${barClass}" style="width:${hpPercent}%"></i></div><b>${Math.max(0, unit.hp)}</b></div>
-    ${!isEnemy ? `<div class="unit-skills">${unit.abilities.map((ability) => {
+    ${!isEnemy && unit.stunned && !state.battle.acted.includes(unit.id) ? `<button class="stun-skip" data-skip-stunned="${unit.id}">ATORDOADO · PERDER A AÇÃO</button>` : !isEnemy ? `<div class="unit-skills">${unit.abilities.map((ability) => {
       const acted = state.battle.acted.includes(unit.id);
-      const disabled = state.battle.phase !== "player" || acted || unit.hp <= 0 || !canAffordAbility(state.battle, unit, ability);
+      const disabled = state.battle.phase !== "player" || acted || unit.hp <= 0 || unit.stunned || !canAffordAbility(state.battle, unit, ability);
       return `<button class="skill-button ${ability.cost === 0 ? "skill-basic" : ""}" data-use-skill="${unit.id}:${ability.id}" title="${esc(ability.description || ability.name)}" ${disabled ? "disabled" : ""}>${ability.art ? `<img class="skill-art" src="${esc(ability.art)}" alt="" loading="lazy">` : `<span class="skill-art-fallback color-${esc(unit.color)}">${esc(unit.symbol)}</span>`}<span><b>${esc(ability.name)}</b><small>${esc(ability.description || ability.kind)}</small></span>${costMarkup(unit, ability)}</button>`;
     }).join("")}</div>` : `<div class="enemy-hint">${selected ? "ALVO SELECIONADO" : "SELECIONAR ALVO"}</div>`}
   </article>`;
@@ -472,7 +490,7 @@ function battleView() {
   const node = state.battleNode;
   const visibleResources = resources.filter((resource) => resource.id === "essence" || battle.allies.some((ally) => ally.affinity === resource.id));
   return `
-    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
+    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · ${esc(battle.difficulty.name.toUpperCase())} · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
     <div class="battle-layout">
       <section class="battle-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
       <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div><button class="pass-turn" data-action="pass-turn" ${battle.phase !== "player" || result ? "disabled" : ""}>ENCERRAR TURNO <span>↗</span></button></div>
@@ -499,7 +517,7 @@ function render() {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target]");
+  const target = event.target.closest("[data-tab], [data-realm], [data-difficulty], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-skip-stunned], [data-action], [data-event-choice], [data-choose-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target]");
   if (!target) return;
   if (target.dataset.tab) {
     state.tab = target.dataset.tab;
@@ -510,6 +528,13 @@ app.addEventListener("click", (event) => {
   if (target.dataset.realm) {
     state.realmId = target.dataset.realm;
     state.eloId = realms.find((realm) => realm.id === state.realmId).elos[0].id;
+    render();
+    return;
+  }
+  if (target.dataset.difficulty) {
+    if (profile.run || !difficulties.some((item) => item.id === target.dataset.difficulty)) return;
+    profile.difficulty = target.dataset.difficulty;
+    save();
     render();
     return;
   }
@@ -540,6 +565,7 @@ app.addEventListener("click", (event) => {
     updateBattle(actorId, abilityId);
     return;
   }
+  if (target.dataset.skipStunned) { skipStunnedAction(state.battle, target.dataset.skipStunned); render(); return; }
   if (target.dataset.target) {
     state.targetId = target.dataset.target;
     render();

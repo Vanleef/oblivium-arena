@@ -52,11 +52,33 @@ export function getRelevantBuffs(teamIds, collectedIds = []) {
   const hasParadise = team.some((member) => member.realm === "Paraíso");
   return buffs.filter((buff) => {
     if (collectedIds.includes(buff.id)) return false;
-    if (buff.id === "fracture" && !hasLimbo) return false;
-    if (buff.id === "cinzas" && !hasInferno) return false;
-    if (buff.id === "graca" && !hasParadise) return false;
-    if (buff.id === "ruptura" && !hasLimbo) return false;
-    if (buff.id === "echo" && resonance.tier === "none") return false;
+    const effect = buff.effect || {};
+    if ((effect.risk || effect.ruptura) && !hasLimbo) return false;
+    if (effect.cinza && !hasInferno) return false;
+    if (effect.graca && !hasParadise) return false;
+    if (effect.resonance && resonance.tier === "none") return false;
     return true;
   });
+}
+
+export function getBuffChoices(teamIds, collectedIds = [], count = 3, random = Math.random) {
+  const candidates = [...getRelevantBuffs(teamIds, collectedIds)];
+  for (let index = candidates.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [candidates[index], candidates[swapIndex]] = [candidates[swapIndex], candidates[index]];
+  }
+
+  const picked = [];
+  const categories = new Set();
+  for (const buff of candidates) {
+    if (picked.length >= count) break;
+    if (categories.has(buff.category)) continue;
+    picked.push(buff);
+    categories.add(buff.category);
+  }
+  for (const buff of candidates) {
+    if (picked.length >= count) break;
+    if (!picked.some((item) => item.id === buff.id)) picked.push(buff);
+  }
+  return picked;
 }

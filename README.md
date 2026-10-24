@@ -18,9 +18,12 @@ Abra http://localhost:4173. Para validar as regras e o elenco:
 - Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
 - Combate tático por turnos com Essência compartilhada e afinidades de Cinza, Graça e Ruptura; aliados vivos geram recursos para o trio.
+- Quatro dificuldades selecionáveis, de Travessia a Agonia, com recompensas proporcionais, inimigos mais resistentes e IA que respeita custos, foca alvos vulneráveis e usa cura e guarda quando necessário.
 - Quatro técnicas por personagem: ataque básico gratuito, técnicas com custos de afinidade e uma quarta técnica defensiva.
 - Retrato, passiva e quatro artes de habilidade para 74 personagens: o trio inicial e 71 personagens de Sangria, Coroa, Mentira, Chama, Fome, Podridão, Silêncio, Carne, Vazio, Proteção, Cura e Justiça; O Fim tem retrato próprio.
 - Trilhas com rotas ramificadas, combates normais e de elite, eventos, aprimoramentos, reparos, tesouros, mini-boss e Guardião final.
+- Catálogo com 35 aprimoramentos de efeitos variados, cada um com símbolo, categoria e contexto próprios; as ofertas evitam repetir categorias quando possível.
+- Escudos limitados a metade da Vida máxima por unidade para evitar acúmulo ilimitado e confrontos travados.
 - Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
 - Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.
@@ -33,5 +36,5 @@ Anime japonês 2D de fantasia sobrenatural, com line art forte, sombras em cel s
 
 ## Estado
 
-Este é o primeiro slice jogável. O elenco contém 100 personagens planejados; 74 já têm conjuntos completos de seis imagens e O Fim tem retrato próprio. A cobertura visual dos outros 26 personagens, o balanceamento e a campanha narrativa completa seguem em expansão.
+Este é o primeiro slice jogável. O elenco contém 100 personagens planejados; 74 já têm conjuntos completos de seis imagens e O Fim tem retrato próprio. A cobertura visual dos outros 26 personagens e a campanha narrativa completa seguem em expansão; as regras de dificuldade, IA e aprimoramentos também continuarão recebendo ajustes de balanceamento.
 

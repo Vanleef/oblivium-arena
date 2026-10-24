@@ -16,10 +16,13 @@ test("aplicação inicializa, abre uma trilha e resolve ações do combate", asy
   assert.match(app.innerHTML, /Três reinos/);
   assert.match(app.innerHTML, /O Fim \(The End\)/);
   assert.equal((app.innerHTML.match(/class="elo-card /g) || []).length, 9);
+  assert.match(app.innerHTML, /data-difficulty="agony"/);
 
   const click = (dataset) => handlers.click({ target: { dataset, closest() { return this; } } });
+  click({ difficulty: "agony" });
   click({ startRun: "sangria" });
   assert.match(app.innerHTML, /TRILHA ATIVA/);
+  assert.match(app.innerHTML, /Agonia/);
   assert.match(app.innerHTML, /Combate/);
 
   click({ node: "0:0" });
@@ -61,5 +64,5 @@ test("o confronto final usa o retrato e as técnicas próprias de O Fim", async 
   assert.match(app.innerHTML, /The End/);
   assert.match(app.innerHTML, /o-fim\/portrait\.webp/);
   handlers.click({ target: { dataset: { action: "pass-turn" }, closest() { return this; } } });
-  assert.match(app.innerHTML, /Coroa que Não Cai/);
+  assert.match(app.innerHTML, /O Fim usa (Fenda do Véu|Decreto do Fim)/);
 });
