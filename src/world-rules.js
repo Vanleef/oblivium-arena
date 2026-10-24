@@ -32,3 +32,4 @@ export function worldAfterAction(s,actor,a,{affected,totalDamage,killed,shifted,
  if(shifted)gainShield(actor.worldShiftShield);
  if(Object.keys(effects).length){const label='Eco do mundo dos vivos';ctx.reactions.push({kind:'world',actorId:actor.id,targetId:actor.id,actorName:actor.name,label,...effects});ctx.log(s,`${actor.name} · ${label}: ${[effects.shield&&`+${effects.shield} Defesa`,effects.heal&&`+${effects.heal} Vida`,effects.charge&&`+${effects.charge} carga(s)`].filter(Boolean).join(' · ')}.`);}
 }
+

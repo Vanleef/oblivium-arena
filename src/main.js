@@ -5,9 +5,11 @@ import { renderArena } from "./arena-view.js";
 import { beginInfluences, chooseInfluence, persistentCombatHp } from "./world-influences.js";
 import { renderInfluences, renderWorldHistory } from "./influence-view.js";
 import { playerLevel } from "./player-level.js";
-import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById, realmResource } from "./data.js";
-import { getResonance, getEloRoster, getRelevantBuffs, getBuffChoices } from "./rules.js";
-import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, getTurnPayment, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction } from "./engine.js";
+import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById } from "./data.js";
+import { affinityForTeam, archetypeCatalog } from "./archetypes.js";
+import { getResonance, getEloRoster, getRelevantBuffChoices } from "./rules.js";
+import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, getTurnPayment, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction, exchangeEssence } from "./engine.js";
+import { suggestEssenceExchangePayment } from "./resource-costs.js";
 import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
@@ -16,7 +18,7 @@ import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
@@ -24,8 +26,35 @@ import { accountRequest, campaignRequest, currentAccount } from "./account-clien
 import { audioEnabled, playSfx, setAudioEnabled, startAmbience } from "./audio.js";
 import { tutorialView } from "./tutorial.js";
 import { storyMarkup } from "./story-content.js";
+import { handleArtworkError } from "./art-fallback.js";
+import { abilityDetailMarkup, abilityQuickEffect } from "./ability-presentation.js";
+import { getLanguage, localizeMarkup, localizeText, setLanguage } from "./i18n.js";
 
 const app = document.querySelector("#app");
+function archetypeSearchText(character){return [character.archetypeName,...(character.archetypes||[]).map(id=>character.archetypeDetails?.find(tag=>tag.id===id)?.name),...(character.bodyForms||[]).map(form=>archetypeCatalog[form.archetype]?.name)].filter(Boolean).join(" ");}
+const functionArchetypes={
+  "Dano":["status","berserker","burst","area","defenseBreak"],
+  "Suporte":["sustain","bulwark"],
+  "Controle":["setup","counter","control"],
+  "Essência":["resourceControl","essenceGenerator","essenceConverter","essenceSpender"],
+  "Formas":["transformation"]
+};
+function codexFunctions(character){return Object.entries(functionArchetypes).filter(([,ids])=>ids.some(id=>(character.archetypes||[character.archetype]).includes(id))).map(([label])=>label);}
+function playstyleSummary(character){
+ const advice={status:"Abra com uma aflição e use o golpe que a consome quando a janela estiver segura.",sustain:"Alterne pressão e apoio para manter o trio vivo sem abandonar o ritmo.",transformation:"Troque de forma conforme a ameaça; cada postura oferece uma resposta diferente.",setup:"Prepare a Marca primeiro e gaste a abertura com a técnica que melhor responde ao alvo.",berserker:"Preserve Vida enquanto prepara o limiar; aceite o risco quando o golpe puder decidir a luta.",bulwark:"Crie Defesa antes de atrair pressão e transforme a guarda em tempo para o trio.",resourceControl:"Drene ou converta reservas antes de gastar o golpe mais exigente.",counter:"Leia a intenção inimiga e prepare a resposta contra o tipo de ação que mais ameaça o trio.",control:"Interrompa o alvo perigoso e use a janela para concentrar dano.",burst:"Guarde Essência para uma sequência curta contra um alvo marcado ou ferido.",area:"Pressione a linha inteira e deixe o trio escolher a melhor finalização.",essenceGenerator:"Use a técnica geradora cedo para financiar as próximas ações da equipe.",essenceConverter:"Adapte os tipos da reserva antes de enfileirar custos específicos.",essenceSpender:"Acumule Essência e escolha o momento em que o gasto muda o combate.",defenseBreak:"Remova Defesa antes de atacar; seus melhores golpes aproveitam a guarda aberta."};
+ const adviceEn={status:"Start with an affliction, then use the move that consumes it when the opening is safe.",sustain:"Alternate pressure and support to keep your team alive without losing momentum.",transformation:"Shift Forms to meet the threat; each stance offers a different answer.",setup:"Set up the Mark first, then use the opening for the move that best answers the target.",berserker:"Preserve Health while preparing the threshold; accept the risk when a strike can decide the fight.",bulwark:"Build Defense before drawing pressure, then turn your guard into time for the team.",resourceControl:"Drain or convert reserves before spending on your most demanding strike.",counter:"Read the enemy's intent and prepare a response to the action that threatens your team most.",control:"Interrupt the dangerous target and use the opening to focus damage.",burst:"Save Essence for a short sequence against a marked or wounded target.",area:"Pressure the whole enemy line and let your team choose the best finisher.",essenceGenerator:"Use your generating technique early to fund the team's next actions.",essenceConverter:"Adapt your reserve before queuing techniques with specific costs.",essenceSpender:"Build an Essence reserve and choose when spending it can change the fight.",defenseBreak:"Remove Defense before attacking; your strongest strikes exploit an open guard."};
+ const context=getLanguage()==="en"?localizeText(character.archetypeContext||"", "en"):character.archetypeContext||"";
+ const detail=getLanguage()==="en"?(adviceEn[character.archetype]||"Review costs and cooldowns before choosing your action order."):(advice[character.archetype]||"Observe custos e recargas antes de escolher a ordem das técnicas.");
+ return `${context} ${detail}`.trim();
+}
+function matchesCodexFilters(character){
+ const query=[character.name,character.previousName,...(character.aliases||[]),character.elo,character.realm,character.role,archetypeSearchText(character),resourceById[character.affinity]?.name].filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ").toLowerCase();
+ return (state.crewRealm==="Todos"||character.realm===state.crewRealm)
+  &&(state.crewElo==="Todos"||character.eloId===state.crewElo)
+  &&(state.crewArchetype==="Todos"||character.archetype===state.crewArchetype)
+  &&(state.crewFunction==="Todas"||codexFunctions(character).includes(state.crewFunction))
+  &&(!state.crewSearch||query.includes(state.crewSearch.toLowerCase()));
+}
 const SAVE_KEY = "pma-post-mortem-arena-v1";
 const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1", "selyvar-arena-v1", "three-realms-soul-arena-v1", "post-mortem-arena-v1"];
 const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
@@ -39,7 +68,8 @@ const defaults = {
   unlockedAvatars: ["soul", ...starters.map(character => character.id)],
   avatarId: "soul",
   bio: "",
-  tutorialComplete: false
+  tutorialComplete: false,
+  contextTipsOff: false
 };
 
 function readProfile() {
@@ -64,13 +94,15 @@ function ensureRunMap() {
   if (!profile.run) return;
   const run = profile.run;
   run.difficulty ||= 0; run.variantId ||= "hunt"; run.variantTitle ||= "Caçada"; run.team ||= [...profile.team];
-  run.bossIds ||= shuffled(getEloRoster(run.eloId),seededRandom(run.seed)).slice(0,3).map(c=>c.id);
+  const rosterIds=getEloRoster(run.eloId).map(c=>c.id),opponentIds=rosterIds.filter(id=>!(run.team||profile.team).includes(id));
+  run.bossIds ||= selectBossRoster(run.team||profile.team,opponentIds.length>=3?opponentIds:rosterIds,run.seed);
   if (!Array.isArray(run.map) || !run.map.length) run.map = generateTrail(run.eloId, run.seed || 0);
   run.stage = Math.min(Math.max(0, run.stage || 0), run.map.length);
   run.clearedNodeIds ||= [];
   run.availableNodeIds ||= run.map[run.stage]?.map((node) => node.id) || [];
   run.teamHealth ||= Object.fromEntries((run.team || profile.team).map((id) => [id, 100]));
   run.buffs ||= [];
+  run.memories ||= [];run.memoryNodeIds ||= [];run.guided=Boolean(run.guided);
   normalizeTrail(run);
 }
 ensureRunMap();
@@ -79,6 +111,9 @@ let state = {
   realmId: "inferno",
   eloId: "sangria",
   crewRealm: "Todos",
+  crewElo: "Todos",
+  crewArchetype: "Todos",
+  crewFunction: "Todas",
   formPreviews: {},
   crewSearch: "",
   targetId: null,
@@ -89,6 +124,8 @@ let state = {
   inspectUnitId: null,
   confirmTurn: false,
   randomPayment:null,
+  exchangeOpen:false,
+  exchangePayment:null,
   trailFx: null,
   trailBusy: false,
   battleNode: null,
@@ -104,8 +141,10 @@ let state = {
   profileError: "",
   publicView: "login",
   publicTutorialStep: 0,
+  publicTutorialAnswer: null,
   tutorialOpen: false,
   tutorialStep: 0,
+  tutorialAnswer: null,
   audioOn: audioEnabled()
 };
 let battleFxTimer = null;
@@ -127,10 +166,11 @@ let accountSaveTimer=null,searchRenderTimer=null;
 function accountAvatar(id,size="avatar-small") {
   const c=characterById[id];return c?.art?.portrait?`<img class="${size}" src="${esc(c.art.portrait)}" alt="">`:`<span class="${size} avatar-soul" aria-hidden="true">☽</span>`;
 }
-function publicHeader(active="login"){return `<header class="auth-topbar"><button class="auth-brand" data-public-view="login" aria-label="Início PMA"><img src="/art/interface/moth-violet-20261023/brand-moth-192.webp" alt=""><span><b>POST MORTEM</b><small>ARENA</small></span></button><nav aria-label="Conteúdo público"><button data-public-view="tutorial" class="${active==="tutorial"?"active":""}">Tutorial</button><button data-public-view="codex" class="${active==="codex"?"active":""}">Codex</button><button data-public-view="login" class="auth-nav-cta">Entrar</button></nav></header>`;}
+function languageControl(){const language=getLanguage();return `<div class="language-control" role="group" aria-label="Idioma"><small>IDIOMA</small><button type="button" data-language="pt-BR" aria-label="Português (Brasil)" aria-pressed="${language==="pt-BR"}" class="${language==="pt-BR"?"active":""}">PT</button><button type="button" data-language="en" aria-label="English" aria-pressed="${language==="en"}" class="${language==="en"?"active":""}">EN</button></div>`;}
+function publicHeader(active="login"){return `<header class="auth-topbar"><button class="auth-brand" data-public-view="login" aria-label="Início PMA"><img src="/art/interface/moth-violet-20261023/brand-moth-192.webp" alt=""><span><b>POST MORTEM</b><small>ARENA</small></span></button><nav aria-label="Conteúdo público"><button data-public-view="tutorial" class="${active==="tutorial"?"active":""}">Tutorial</button><button data-public-view="codex" class="${active==="codex"?"active":""}">Codex</button><button data-public-view="login" class="auth-nav-cta">Entrar</button>${languageControl()}</nav></header>`;}
 function authFrame(content,active){return `<div class="auth-screen">${publicHeader(active)}<main class="public-page">${content}</main></div>`;}
 function authView(){return `<div class="auth-screen">${publicHeader("login")}<main class="auth-layout"><section class="auth-intro"><div class="auth-moth-halo"><img class="auth-moth" src="/art/interface/moth-violet-20261023/brand-moth-384.webp" alt="Mariposa violeta de Post Mortem Arena"></div><div class="eyebrow"><span></span> TRÊS MUNDOS · UMA FRONTEIRA</div><h1>Escolha o que<br><em>atravessa o véu.</em></h1><p>Monte seu trio, descubra as formas e enfrente as almas que guardam cada Elo.</p><div class="auth-worlds"><span><i class="world-dot dot-inferno"></i>Inferno</span><span><i class="world-dot dot-paraiso"></i>Paraíso</span><span><i class="world-dot dot-limbo"></i>Limbo</span></div></section><section class="auth-card" aria-labelledby="auth-title"><div class="auth-card-heading"><span class="eyebrow">${state.authMode==="register"?"NOVA ALMA":"SUA CONTA"}</span><h2 id="auth-title">${state.authMode==="register"?"Criar conta":"Entrar"}</h2><p>${state.authMode==="register"?"Seu progresso fica salvo na conta.":"Continue de onde sua jornada parou."}</p></div><div class="auth-switch" role="group" aria-label="Acessar conta"><button type="button" data-auth-mode="login" aria-pressed="${state.authMode==="login"}" class="${state.authMode==="login"?"active":""}">Entrar</button><button type="button" data-auth-mode="register" aria-pressed="${state.authMode==="register"}" class="${state.authMode==="register"?"active":""}">Criar conta</button></div><form data-auth-form>${state.authMode==="register"?`<label>Nick único<input name="handle" autocomplete="username" minlength="3" maxlength="20" pattern="[\\p{L}\\p{N}_]{3,20}" required placeholder="Seu nome na Arena"><small>3–20 caracteres · letras, números e _</small></label>`:""}<label>E-mail<input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="voce@exemplo.com"></label><label>Senha<input name="password" type="password" autocomplete="${state.authMode==="register"?"new-password":"current-password"}" minlength="10" maxlength="256" required placeholder="${state.authMode==="register"?"Mínimo 10 caracteres":"Sua senha"}"></label><button class="button button-gold full-button" type="submit">${state.authMode==="register"?"CRIAR CONTA":"ENTRAR NA ARENA"}<span aria-hidden="true">↗</span></button></form><p class="auth-message" role="status">${esc(state.accountError||(!state.accountReady?"Conectando…":""))}</p><div class="auth-footnote">Campanha, roguelike e Arena exigem login.</div></section></main></div>`;}
-function profileView(){const unlocked=["soul",...profile.ownedIds],chosen=profile.avatarId||"soul";return `<section class="profile-page"><header class="profile-heading">${accountAvatar(chosen,"avatar-large")}<div><div class="eyebrow">IDENTIDADE DA ALMA</div><h1>Seu perfil</h1><p>Retrato e nick aparecem nas partidas.</p></div><button class="button button-outline" data-action="logout">SAIR</button></header><div class="profile-layout"><form data-profile-form class="profile-form"><label>Nick único<input name="handle" minlength="3" maxlength="20" required value="${esc(state.account?.handle||"")}"></label><label>Sobre você <small>até 160 caracteres</small><textarea name="bio" maxlength="160">${esc(profile.bio||"")}</textarea></label><fieldset><legend>Retrato de perfil</legend><div class="avatar-grid">${unlocked.map(id=>`<button type="button" data-avatar="${esc(id)}" aria-label="Escolher retrato ${esc(characterById[id]?.name||"Alma")}" aria-pressed="${id===chosen}">${accountAvatar(id,"avatar-choice")}<small>${esc(characterById[id]?.name||"Alma desperta")}</small></button>`).join("")}</div></fieldset><button class="button button-gold" type="submit">SALVAR PERFIL</button><p class="profile-message" role="status">${esc(state.profileError)}</p></form><aside class="profile-side"><h2>Progresso guardado</h2><p>${profile.completedElos.length} / ${elos.length} Elos concluídos</p><p>${profile.ownedIds.length} retratos disponíveis · ${profile.xp} XP</p><button class="button button-outline" data-action="open-tutorial">ABRIR TUTORIAL</button><button class="button button-outline" data-action="audio-toggle">${state.audioOn?"DESLIGAR SOM":"LIGAR SOM"}</button><small>Trilha ambiente e efeitos sonoros sintetizados.</small></aside></div></section>`;}
+function profileView(){const unlocked=["soul",...profile.ownedIds],chosen=profile.avatarId||"soul";return `<section class="profile-page"><header class="profile-heading">${accountAvatar(chosen,"avatar-large")}<div><div class="eyebrow">IDENTIDADE DA ALMA</div><h1>Seu perfil</h1><p>Retrato e nick aparecem nas partidas.</p></div><button class="button button-outline" data-action="logout">SAIR</button></header><div class="profile-layout"><form data-profile-form class="profile-form"><label>Nick único<input name="handle" minlength="3" maxlength="20" required value="${esc(state.account?.handle||"")}"></label><label>Sobre você <small>até 160 caracteres</small><textarea data-no-translate name="bio" maxlength="160">${esc(profile.bio||"")}</textarea></label><fieldset><legend>Retrato de perfil</legend><div class="avatar-grid">${unlocked.map(id=>`<button type="button" data-avatar="${esc(id)}" aria-label="Escolher retrato ${esc(characterById[id]?.name||localizeText("Alma"))}" aria-pressed="${id===chosen}">${accountAvatar(id,"avatar-choice")}<small>${esc(characterById[id]?.name||localizeText("Alma desperta"))}</small></button>`).join("")}</div></fieldset><button class="button button-gold" type="submit">SALVAR PERFIL</button><p class="profile-message" role="status">${esc(state.profileError)}</p></form><aside class="profile-side"><h2>Progresso guardado</h2><p>${profile.completedElos.length} / ${elos.length} Elos concluídos</p><p>${profile.ownedIds.length} retratos disponíveis · ${profile.xp} XP</p><button class="button button-outline" data-action="open-tutorial">ABRIR TUTORIAL</button><button class="button button-outline" data-action="audio-toggle">${state.audioOn?"DESLIGAR SOM":"LIGAR SOM"}</button><small>Trilha ambiente e efeitos sonoros sintetizados.</small></aside></div></section>`;}
 
 function hydrateAccount(data){state.account=data.user||null;if(data.profile){Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=profile.run?.pending||null;state.battle=data.battle||profile.run?.battle||null;state.battleNode=profile.run?.currentNodeId?profile.run.map.flat().find(node=>node.id===profile.run.currentNodeId)||null:null;}state.accountReady=true;state.accountError="";state.tutorialOpen=Boolean(state.account&&!profile.tutorialComplete);state.tab=state.account?"rota":state.tab;render();}
 function syncCampaign(data){state.account=data.user||state.account;if(data.profile)Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=data.pending||profile.run?.pending||null;state.battle=Object.hasOwn(data,"battle")?data.battle:profile.run?.battle||null;state.battleNode=profile.run?.currentNodeId?profile.run.map.flat().find(node=>node.id===profile.run.currentNodeId)||null:null;}
@@ -157,7 +197,7 @@ async function requestCampaign(payload,{animate=false}={}){
 function teamResourceLegend(teamIds) {
   const affinities = new Set(teamIds.flatMap(id=>{const c=characterById[id];return [c?.affinity,...(c?.bodyForms||[]).map(f=>f.resource)];}).filter(Boolean));
   const active = resources.filter((resource) => resource.id === "essence" || affinities.has(resource.id));
-  return `<div class="team-resource-legend"><small>RECURSOS DA FORMAÇÃO</small><div>${active.map((resource) => `<span class="resource-${resource.color}"><i>${uiIcon(resource.id)}</i>${esc(resource.shortName)}</span>`).join("")}</div></div>`;
+  return `<div class="team-resource-legend"><small>TIPOS DE ESSÊNCIA DA FORMAÇÃO</small><div>${active.map((resource) => `<span class="resource-${resource.color}"><i>${uiIcon(resource.id)}</i>${esc(resource.shortName)}</span>`).join("")}</div></div>`;
 }
 
 function team() {
@@ -169,7 +209,7 @@ function activeElo() {
 }
 
 function activeAffinityResource() {
-  return resourceById[realmResource[activeElo().realm]];
+  return resourceById[affinityForTeam(profile.team, characterById)];
 }
 
 function activeAffinityBuff() {
@@ -183,7 +223,7 @@ function toast(message) {
   state.toastTimer = setTimeout(() => { state.toast = ""; render(); }, 2400);
 }
 
-async function startRun(eloId,variantId="hunt",difficulty) {
+async function startRun(eloId,variantId="hunt",difficulty,guided=false) {
   if (profile.run) {
     if(profile.run.eloId===eloId){state.tab="rota";render();focusTrail();}
     else toast("Conclua ou abandone a trilha atual.");
@@ -192,10 +232,10 @@ async function startRun(eloId,variantId="hunt",difficulty) {
   if(profile.team.length!==3){state.tab="trio";toast("Escolha três almas.");return;}
   const elo=elos.find(e=>e.id===eloId);if(!elo)return;
   if(state.account){
-    const result=await requestCampaign({op:"start",eloId,variantId,difficulty:difficulty??maxDifficulty(profile,eloId)});
+    const result=await requestCampaign({op:"start",eloId,variantId,difficulty:difficulty??maxDifficulty(profile,eloId),guided:Boolean(guided)});
     if(!result)return;
   }else{
-    try { profile.run=createExpedition(profile,elo,variantId,difficulty??maxDifficulty(profile,eloId)); }
+    try { profile.run=createExpedition(profile,elo,variantId,difficulty??maxDifficulty(profile,eloId),Date.now(),{guided}); }
     catch(error){toast(error.message);return;}
   }
   state.realmId=realms.find(r=>r.elos.some(e=>e.id===eloId)).id;
@@ -255,7 +295,7 @@ function startEncounter(node) {
   }
   state.battleNode = node;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
-  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0 });
+  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0 });
   beginInfluences(state.battle,(profile.run?.seed||1)+(profile.run?.encounter||0)*97);
   state.targetId = null;
   state.battleFx = null;
@@ -293,9 +333,9 @@ function resolveNode(node) {
     return;
   }
   if (nodeType === "event") state.pending = { type: "event" };
-  if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffs(profile.run.team, profile.run.buffs).slice(0, 3) };
+  if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+1) };
   if (nodeType === "upgrade") {
-    const choices = getBuffChoices(profile.run.team, profile.run.buffs, 3);
+    const choices = getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+2);
     state.pending = { type: "upgrade", choices: choices.sort(() => Math.random() - 0.5).slice(0, 3) };
   }
   save();render();
@@ -385,7 +425,7 @@ function returnFromBattle() {
       const rewardNode = ["elite", "mini"].includes(state.battleNode.type || state.battleNode.id);
       profile.fragments += (rewardNode ? 18 : 6)+(aggregateGlobal(profile).fragments||0);
       if (rewardNode) {
-        const choices = getRelevantBuffs(profile.run.team, profile.run.buffs).sort(() => Math.random() - 0.5).slice(0, 3);
+        const choices = getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+3);
         if (choices.length) {
           state.battle = null;
           state.pending = { type: "reward", choices };
@@ -448,9 +488,10 @@ function resolveCombatStep() {
 }
 function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
-  if(state.battle.online){state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected});return;}
-  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId}));state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected},{animate:true});return;}
-  if(!commitTurn(state.battle,payment.selected).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
+  const exchanges=state.battle.pendingEssenceExchanges||[];
+  if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected,exchanges});return;}
+  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
+  if(!commitTurn(state.battle,payment.selected).ok)return;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {
   const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
@@ -465,7 +506,7 @@ function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
   if(!state.selectedSkill){state.inspectUnitId=targetId;state.focusSkill=null;render();return;}
   const {actorId,abilityId}=state.selectedSkill,result=chooseAction(state.battle,actorId,abilityId,targetId);
-  if(!result.ok){toast(result.reason);return;}state.selectedSkill=null;render();
+  if(!result.ok){toast(result.reason);return;}state.exchangeOpen=false;state.exchangePayment=null;state.selectedSkill=null;render();
 }
 
 let onlineTimer=null;
@@ -495,7 +536,7 @@ function header() {
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${uiIcon(id)}<span>${label}</span></button>`).join("")}</nav>
-      <button class="player-chip" data-tab="profile">${accountAvatar(profile.avatarId||"soul","avatar-small")}<span><b>${esc(state.account?.handle||"Alma desperta")}</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></button>
+      ${languageControl()}<button class="player-chip" data-tab="profile">${accountAvatar(profile.avatarId||"soul","avatar-small")}<span><b data-no-translate>${esc(state.account?.handle||localizeText("Alma desperta"))}</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></button>
       <button class="mobile-menu" data-tab="trio" aria-label="Abrir equipe">☰</button>
     </header>`;
 }
@@ -545,12 +586,19 @@ function resonanceCard() {
 function routeView() {
   const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=profile.completedElos.length>=elos.length;
   const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${realmEmblem(item.id)}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Elo":"Elos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
-  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div>${selection}</section>${state.pending?pendingPanel():""}`}
+  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div><aside class="guided-entry"><div><small>PARA QUEM ESTÁ COMEÇANDO</small><b>Primeira Run Guiada</b><p>Objetivos curtos apresentam a trilha, os custos de Essência e seus primeiros aprimoramentos.</p></div><button class="button button-gold" data-guided-run="${realm.elos[0].id}">COMEÇAR GUIA ↗</button><button class="text-button" data-action="toggle-context-tips">Dicas contextuais ${profile.contextTipsOff?"desligadas":"ligadas"}</button></aside>${selection}</section>${state.pending?pendingPanel():""}`}
     ${renderLegacies(profile)}
     ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3><p>Sem rosto fixo. Cada alma encara o próprio maior medo.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
 
 function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,persistentCombatHp(u)])):null}); }
+
+function activeRunEchoMarkup(run=profile.run){
+ if(!run)return "";
+ const items=[...(run.memories||[]).map(memory=>({title:memory.title,text:`${memory.text||"Efeito ativo"}${memory.stacks>1?` · ${memory.stacks} ecos`:""}`,lore:memory.lore,glyph:memory.glyph})),...(run.buffs||[]).map(id=>{const buff=buffs.find(item=>item.id===id);return buff?{title:buff.title,text:buff.text,lore:buff.lore,glyph:buff.glyph||effectGlyph(buff.effect)}:null;}).filter(Boolean)];
+ if(!items.length)return "";
+ return `<details class="active-run-echoes"><summary>APRIMORAMENTOS E MEMÓRIAS ATIVOS · ${items.length}<span>⌄</span></summary><div>${items.map(item=>`<article><span>${augmentGlyph(item.glyph||"compass")}</span><section><b>${esc(item.title)}</b><p>${esc(item.text)}</p>${item.lore?`<small>${esc(item.lore)}</small>`:""}</section></article>`).join("")}</div></details>`;
+}
 
 function pendingPanel() {
   const pending = state.pending;
@@ -558,9 +606,9 @@ function pendingPanel() {
   if (pending.type === "event") return `
     <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade e 25% de Vida</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e ${esc(activeAffinityResource().shortName)} inicial nos próximos combates</small></button></div></section>`;
   if (["upgrade", "reward"].includes(pending.type)) return `
-    <section class="choice-panel"><div class="eyebrow">${pending.type === "reward" ? "RECOMPENSA DE ELITE · ESCOLHA UM PODER" : "APRIMORAMENTO · ESCOLHA UM ECO"}</div><h3>${pending.type === "reward" ? "A vitória deixa uma marca no trio." : "O trio se adapta à trilha."}</h3><div class="buff-choices augment-choices">${pending.choices.map((buff,index)=>renderAugmentCard({...buff,tier:pending.type==="reward"?"gold":"silver",glyph:effectGlyph(buff.effect),attribute:"choose-buff",className:"buff-card",cta:"INCORPORAR",duration:"NESTA TRILHA",index})).join("")}</div></section>`;
+    <section class="choice-panel"><div class="eyebrow">${pending.type === "reward" ? "RECOMPENSA DE ELITE · ESCOLHA UM PODER" : "APRIMORAMENTO · ESCOLHA UM ECO"}</div><h3>${pending.type === "reward" ? "A vitória deixa uma marca no trio." : "O trio se adapta à trilha."}</h3><div class="buff-choices augment-choices">${pending.choices.map((buff,index)=>renderAugmentCard({...buff,tier:pending.type==="reward"?"gold":"silver",glyph:buff.glyph||effectGlyph(buff.effect),attribute:"choose-buff",className:"buff-card",cta:"INCORPORAR",duration:"NESTA TRILHA",index})).join("")}</div></section>`;
   if (pending.type === "shop") return `
-    <section class="choice-panel"><div class="eyebrow">MERCADOR · ${profile.fragments} FRAGMENTOS</div><h3>Prepare o trio para o próximo andar.</h3><div class="shop-choices"><button class="shop-item" data-shop-action="heal" ${profile.fragments < 12 ? "disabled" : ""}><span>${uiIcon("heart")}</span><b>Remendar o trio</b><small>Recupere 35% da Vida · 12 fragmentos</small></button>${pending.choices.map((buff) => `<button class="shop-item" data-shop-buff="${buff.id}" ${profile.fragments < 22 ? "disabled" : ""}><span>${augmentGlyph(effectGlyph(buff.effect))}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)} · 22 fragmentos</small></button>`).join("")}<button class="shop-item shop-leave" data-shop-action="leave"><span>↗</span><b>Seguir viagem</b><small>Guarde seus fragmentos</small></button></div></section>`;
+    <section class="choice-panel"><div class="eyebrow">MERCADOR · ${profile.fragments} FRAGMENTOS</div><h3>Prepare o trio para o próximo andar.</h3><div class="shop-choices"><button class="shop-item" data-shop-action="heal" ${profile.fragments < 12 ? "disabled" : ""}><span>${uiIcon("heart")}</span><b>Remendar o trio</b><small>Recupere 35% da Vida · 12 fragmentos</small></button>${pending.choices.map((buff) => `<button class="shop-item" data-shop-buff="${buff.id}" ${profile.fragments < 22 ? "disabled" : ""}><span>${augmentGlyph(buff.glyph||effectGlyph(buff.effect))}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)} · 22 fragmentos</small></button>`).join("")}<button class="shop-item shop-leave" data-shop-action="leave"><span>↗</span><b>Seguir viagem</b><small>Guarde seus fragmentos</small></button></div></section>`;
   if (pending.type === "finale-complete") return `
     <section class="notice-panel"><span class="notice-icon">☼</span><div><div class="eyebrow">O VÉU RESISTIU</div><h3>O Fim foi detido.</h3><p>O equilíbrio ainda exige cuidado, mas os três reinos podem respirar. +500 XP e 80 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-defeat") return `
@@ -575,7 +623,7 @@ function teamView() {
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const matchesRealm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const matchesSearch = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo + " " + character.realm).toLowerCase().includes(state.crewSearch.toLowerCase());
+    const matchesSearch = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo + " " + character.realm + " " + archetypeSearchText(character) + " " + resourceById[character.affinity]?.name).toLowerCase().includes(state.crewSearch.toLowerCase());
     return matchesRealm && matchesSearch && (owned || state.crewRealm === "Todos");
   });
   return `
@@ -594,14 +642,14 @@ function teamView() {
       </section>
       <section class="roster-browser">
         <div class="roster-header"><div><div class="eyebrow">ALMAS CONHECIDAS</div><h2>Codex de Elos</h2></div><span class="owned-count">${profile.ownedIds.length} disponíveis</span></div>
-        <label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar nome, reino ou Elo"></label>
+        <label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar nome, arquétipo ou Essência"></label>
         <div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div>
         <div class="roster-grid">${filtered.map((character) => {
           const owned = profile.ownedIds.includes(character.id);
           const selected = profile.team.includes(character.id);
           const disabled = !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)} · ${esc(character.archetypeName)}</small><small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -611,45 +659,48 @@ function teamView() {
 function bodyFormSelector(c){
  if(!c.bodyForms?.length)return '';
  const choices=[{key:'base',name:c.baseFormName||'Forma original',resource:c.affinity,portrait:c.bodyForms&& (c.id===FINAL_BOSS.id?FINAL_BOSS.portrait:characterById[c.id]?.art?.portrait)},...c.bodyForms];
- return `<section class="body-form-picker" aria-label="Formas de ${esc(c.name)}"><div class="eyebrow">FORMAS · ${esc(c.bodyFormName)}</div><div class="body-form-options">${choices.map(f=>`<button data-preview-form="${esc(c.id)}:${esc(f.key)}" aria-label="Ver ${esc(c.name)}: ${esc(f.name)}" aria-pressed="${c.bodyForm===f.key}"><img src="${esc(f.portrait)}" width="44" height="44" alt="" loading="lazy"><span>${esc(f.name)}<small class="body-resource"><i class="cost-pip pip-${esc(f.resource)}" aria-hidden="true"></i>${esc(resourceById[f.resource]?.name)}</small></span></button>`).join('')}</div><small>Toque numa forma para ver seu retrato e suas técnicas.</small></section>`;
+ return `<section class="body-form-picker" aria-label="Formas de ${esc(c.name)}"><div class="eyebrow">FORMAS · <span>${esc(c.bodyFormName)}</span></div><div class="body-form-options">${choices.map(f=>`<button data-preview-form="${esc(c.id)}:${esc(f.key)}" aria-label="Ver ${esc(c.name)}: ${esc(f.name)}" aria-pressed="${c.bodyForm===f.key}"><img src="${esc(f.portrait)}" width="44" height="44" alt="" loading="lazy"><span>${esc(f.name)}<small class="body-resource"><i class="cost-pip pip-${esc(f.resource)}" aria-hidden="true"></i>${esc(resourceById[f.resource]?.name)}</small></span></button>`).join('')}</div><small>Toque numa forma para ver seu retrato e suas técnicas.</small></section>`;
 }
 
 function codexView() {
   const boss=previewBodyForm(createFinalBoss(),state.formPreviews[FINAL_BOSS.id]);
-  const filtered = characters.filter((character) => {
-    const owned = profile.ownedIds.includes(character.id);
-    const realm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const query = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo).toLowerCase().includes(state.crewSearch.toLowerCase());
-    return realm && query;
-  });
-  const showFinalBoss = (state.crewRealm === "Todos" || state.crewRealm === "Inferno") &&
-    (!state.crewSearch || `${FINAL_BOSS.name} ${FINAL_BOSS.title}`.toLowerCase().includes(state.crewSearch.toLowerCase()));
+  const filtered = characters.filter(matchesCodexFilters);
+  const showFinalBoss = (state.crewRealm === "Todos" || state.crewRealm === "Inferno")
+    &&(state.crewElo==="Todos"||state.crewElo===FINAL_BOSS.eloId)
+    &&(state.crewArchetype==="Todos"||state.crewArchetype==="transformation")
+    &&(state.crewFunction==="Todas"||state.crewFunction==="Formas")
+    &&(!state.crewSearch||`${FINAL_BOSS.name} ${FINAL_BOSS.title}`.toLowerCase().includes(state.crewSearch.toLowerCase()));
   return `
     <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
-    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
-    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · ${esc(FINAL_BOSS.title).toUpperCase()}</div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header><div class="codex-moves">${boss.abilities.map(ability=>`<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false"><img src="${esc(ability.art)}" alt="" loading="lazy"><b>${esc(ability.name)}</b>${costMarkup(boss,ability)}</summary><p>${esc(ability.description)}</p><small>Recarga ${ability.cooldown || 0}T</small></details>`).join("")}</div></section></article>` : ""}
+    <aside class="realm-synergy-guide" aria-label="Sinergias discretas de Elo, Mundo e afinidade"><small>SINERGIAS DE ELO, MUNDO E AFINIDADE · ESCALAM COM ALIADOS VIVOS</small><div><b>◎ Elo</b><span>Cada Elo tem um efeito próprio: aflições, controle, Marcas, apoio, Formas ou Essência. Máximo +2 por aliado adicional.</span></div><div class="stat-inferno"><b>♨ Inferno</b><span>Aflições aplicadas recebem +1 de dano por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-paraiso"><b>✧ Paraíso</b><span>Curas concedidas recebem +1 de Vida por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-limbo"><b>⟲ Limbo</b><span>O trio recebe +1 Defesa por aliado adicional do Limbo (máx. +2); controle recebe +1 dano por parceiro e 2+ aliados geram 1 Ruptura a cada dois turnos.</span></div><div><b>◈ Afinidade</b><span>Duas ou mais almas com a mesma afinidade principal começam cada combate com +1 daquela Essência. O bônus vale para cada lado, inclusive a oposição.</span></div></aside>
+    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Elo ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>ELO</small><select data-codex-elo><option value="Todos">Todos os Elos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label><label><small>ARQUÉTIPO PRINCIPAL</small><select data-codex-archetype><option value="Todos">Todos os arquétipos</option>${Object.entries(archetypeCatalog).map(([id,item])=>`<option value="${esc(id)}" ${state.crewArchetype===id?"selected":""}>${esc(item.name)}</option>`).join("")}</select></label><label><small>FUNÇÃO</small><select data-codex-function><option value="Todas">Todas as funções</option>${Object.keys(functionArchetypes).map(label=>`<option value="${esc(label)}" ${state.crewFunction===label?"selected":""}>${esc(label)}</option>`).join("")}</select></label></div></div>
+    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · <span>${esc(FINAL_BOSS.title)}</span></div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header><div class="codex-moves">${boss.abilities.map(ability=>`<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false"><img src="${esc(ability.art)}" alt="" loading="lazy"><b>${esc(ability.name)}</b><small class="codex-skill-quick">${esc(abilityQuickEffect(ability))}</small>${costMarkup(boss,ability)}</summary>${abilityDetailMarkup(boss,ability)}<small class="codex-cooldown">Recarga ${ability.cooldown||0}T</small></details>`).join("")}</div></section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = !state.account || profile.ownedIds.includes(character.id);
       character=previewBodyForm(character,state.formPreviews[character.id]);
       return `<article class="codex-card ${state.account&&!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.eloId)}</span><small>${!state.account?"ALMA DO PMA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        ${bodyFormSelector(character)}<div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${!character.bodyForms?.length&&ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<div class="codex-archetype" data-archetype="${esc(character.archetype)}"><i aria-hidden="true">${esc(character.archetypeIcon)}</i><div><small>ARQUÉTIPO PRINCIPAL · <span>${esc(character.archetypeVariant)}</span></small><b>${esc(character.archetypeName)}</b><span>${esc(character.archetypeContext)}</span></div></div><div class="codex-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i><span><small>AFINIDADE PRINCIPAL DE ESSÊNCIA</small><b>${esc(resourceById[character.affinity]?.name||"Essência")}</b></span></div><div class="codex-playstyle"><small>COMO JOGAR</small><p>${esc(playstyleSummary(character))}</p></div><div class="archetype-tags" aria-label="Outros arquétipos deste kit">${character.archetypeDetails.slice(1).map(tag=>`<span title="${esc(tag.context)}"><i>${esc(tag.icon)}</i>${esc(tag.name)}</span>`).join("")}</div><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        ${bodyFormSelector(character)}<div class="codex-moves">${character.abilities.map((ability) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b><small class="codex-skill-quick">${esc(abilityQuickEffect(ability))}</small>${costMarkup(character,ability)}</summary>${abilityDetailMarkup(character,ability)}${!character.bodyForms?.length&&ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}</details>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
 
-function battleView() { const name=state.battle?.online?state.online?.profile?.name:state.account?.handle;return `${profile.run?storyMarkup(profile.run):""}<aside class="battle-player-identity">${accountAvatar(profile.avatarId||"soul","avatar-small")}<b>${esc(name||"Alma")}</b><small>JOGADOR</small></aside>`+(state.battle?.phase==="influence"&&!state.battleFx ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo())); }
+function battleView() { const name=state.battle?.online?state.online?.profile?.name:state.account?.handle,tip=profile.run?.guided&&!profile.contextTipsOff?`<aside class="context-tip"><b>Dica da travessia</b><span>Selecione uma técnica para ver custo, efeito e recarga. A quarta técnica protege o trio; reserve Essência para a janela certa.</span></aside>`:"";return `${profile.run?storyMarkup(profile.run):""}${tip}${activeRunEchoMarkup()}<aside class="battle-player-identity">${accountAvatar(profile.avatarId||"soul","avatar-small")}<b data-no-translate>${esc(name||localizeText("Alma"))}</b><small>JOGADOR</small></aside>`+(state.battle?.phase==="influence"&&!state.battleFx ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo())); }
 
 function render() {
   const tab = state.tab;
   const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill"),focusForm=focused?.getAttribute?.("data-preview-form"),focusPayment=focused?.getAttribute?.("data-random-payment");
   document.body.dataset.tab = tab;
+  const language=getLanguage();
+  if(document.documentElement)document.documentElement.lang=language;
+  const description=document.querySelector('meta[name="description"]');
+  description?.setAttribute?.("content",localizeText("PMA: Post Mortem Arena — reúna um trio, atravesse os Elos e escolha o destino dos três reinos.",language));
   if(typeof window!=="undefined"&&(!state.accountReady||!state.account)){
-    app.innerHTML=state.publicView==="codex"?authFrame(codexView(),"codex"):state.publicView==="tutorial"?authFrame(tutorialView(state.publicTutorialStep,{publicPage:true}),"tutorial"):authView();return;
+    app.innerHTML=localizeMarkup(state.publicView==="codex"?authFrame(codexView(),"codex"):state.publicView==="tutorial"?authFrame(tutorialView(state.publicTutorialStep,{publicPage:true,answer:state.publicTutorialAnswer}),"tutorial"):authView());return;
   }
-  app.innerHTML = `
+  app.innerHTML = localizeMarkup(`
     <div class="app-shell">
       ${header()}
       ${statusStrip()}
@@ -658,8 +709,8 @@ function render() {
       </main>
       <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.5</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
-      ${state.tutorialOpen?`<div class="tutorial-backdrop">${tutorialView(state.tutorialStep)}</div>`:""}
-    </div>`;
+      ${state.tutorialOpen?`<div class="tutorial-backdrop">${tutorialView(state.tutorialStep,{answer:state.tutorialAnswer})}</div>`:""}
+    </div>`);
   renderBattleMotion(app,state.battleFx);
   if(state.confirmTurn&&focusPayment){const button=app.querySelector(`[data-random-payment="${focusPayment}"]`);(button&&!button.disabled?button:app.querySelector(`[data-random-payment="${focusPayment.split(":")[0]}:${focusPayment.endsWith(":1")?"-1":"1"}"]`))?.focus({preventScroll:true});}
   else if(state.confirmTurn&&focusAction==="suggest-payment")app.querySelector('[data-action="suggest-payment"]')?.focus({preventScroll:true});
@@ -678,12 +729,13 @@ function previewTechnique(event) {
   if (state.focusSkill?.actorId === actorId && state.focusSkill?.abilityId === abilityId) return;
   state.focusSkill = { actorId, abilityId };
   const panel = app.querySelector(".arena-reading");
-  if (panel) panel.innerHTML = renderBattleDetail(state);
+  if (panel) panel.innerHTML = localizeMarkup(renderBattleDetail(state));
 }
 function previewTrailChoice(event){
   if(!app.querySelector('.journey-shell'))return;
   highlightTrailChoice(app,event.target.closest('[data-route-preview]')?.dataset.routePreview);
 }
+app.addEventListener("error", handleArtworkError, true);
 app.addEventListener("pointerover", event=>{previewTechnique(event);previewTrailChoice(event);});
 app.addEventListener("focusin", event=>{previewTechnique(event);previewTrailChoice(event);});
 app.addEventListener("pointerout", event=>{
@@ -698,14 +750,17 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-random-payment], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial]");
+  const target = event.target.closest("[data-language], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
   if (!target) return;
   if(state.account&&state.audioOn)startAmbience();
   playSfx("click");
+  if(target.dataset.language){setLanguage(target.dataset.language);render();return;}
   if(target.dataset.publicView){state.publicView=target.dataset.publicView;if(target.dataset.publicView==="tutorial")state.publicTutorialStep=0;render();return;}
   if(target.dataset.authMode){state.authMode=target.dataset.authMode;state.accountError="";render();return;}
   if(target.dataset.avatar){profile.avatarId=target.dataset.avatar;state.profileError="";render();return;}
-  if(target.dataset.tutorial!==undefined){const next=Number(target.dataset.tutorial);if(!state.account&&state.publicView==="tutorial"){if(next>=6){state.publicView="login";state.publicTutorialStep=0;}else state.publicTutorialStep=Math.max(0,next);}else if(next>=6){state.tutorialOpen=false;profile.tutorialComplete=true;save();}else state.tutorialStep=Math.max(0,next);render();return;}
+  if(target.dataset.action==="toggle-context-tips"){profile.contextTipsOff=!profile.contextTipsOff;save();render();return;}
+  if(target.dataset.tutorialAnswer){if(!state.account&&state.publicView==="tutorial")state.publicTutorialAnswer=target.dataset.tutorialAnswer;else state.tutorialAnswer=target.dataset.tutorialAnswer;render();return;}
+  if(target.dataset.tutorial!==undefined){const next=Number(target.dataset.tutorial);if(!state.account&&state.publicView==="tutorial"){if(next>=6){state.publicView="login";state.publicTutorialStep=0;}else state.publicTutorialStep=Math.max(0,next);state.publicTutorialAnswer=null;}else if(next>=6){state.tutorialOpen=false;profile.tutorialComplete=true;save();}else{state.tutorialStep=Math.max(0,next);state.tutorialAnswer=null;}render();return;}
   if(target.dataset.worldEvent){if(state.battleFx||state.online?.busy)return;if(state.battle?.online){sendOnline({op:"influence",eventId:target.dataset.worldEvent});return;}if(profile.run?.serverOwned){requestCampaign({op:"influence",eventId:target.dataset.worldEvent},{animate:true});return;}if(chooseInfluence(state.battle,target.dataset.worldEvent)){render();if(state.battle.phase==="resolving")resolveCombatStep();}return;}
   if (target.dataset.codexSkill !== undefined) { event.preventDefault(); toggleCodexSkill(target); return; }
   if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
@@ -734,6 +789,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.globalUpgrade){if(profile.run?.serverOwned||state.account){requestCampaign({op:"claim",id:target.dataset.globalUpgrade}).then(data=>{if(data?.claimed)toast(`Legado incorporado: ${data.claimed.title}`);});return;}const power=claimGlobalUpgrade(profile,target.dataset.globalUpgrade);if(power){save();toast(`Legado incorporado: ${power.title}`);}return;}
   if(target.dataset.clearCompletion!==undefined){if(!profile.pendingGlobalReward){if(state.account)requestCampaign({op:"clear-notice"});else{profile.completionNotice=null;save();render();}}return;}
   if (target.dataset.startRun) { if(state.online?.match&&!state.online.match.settled){toast("Conclua sua partida online antes de iniciar uma trilha.");return;} startRun(target.dataset.startRun,target.dataset.trail||"hunt",target.dataset.runDifficulty===undefined?undefined:Number(target.dataset.runDifficulty)); return; }
+  if (target.dataset.guidedRun) { if(state.online?.match&&!state.online.match.settled){toast("Conclua sua partida online antes de iniciar uma trilha.");return;} startRun(target.dataset.guidedRun,"hunt",0,true); return; }
   if (target.dataset.node) {
     if (!profile.run || state.pending) return;
     const legacy = target.dataset.node.match(/^(\d+):(\d+)$/);
@@ -769,6 +825,14 @@ app.addEventListener("click", (event) => {
   if (target.dataset.moveAction) { const [id,direction]=target.dataset.moveAction.split(":"); moveQueuedAction(state.battle,id,Number(direction)); render(); return; }
   if (target.dataset.inspectSkill) { const [actorId,abilityId]=target.dataset.inspectSkill.split(":"); state.focusSkill={actorId,abilityId}; state.selectedSkill=null; render(); return; }
   if (target.dataset.action === "review-turn" || target.dataset.action === "pass-turn") { state.confirmTurn=true; state.randomPayment=null; state.selectedSkill=null; render(); return; }
+  if(target.dataset.action==='open-essence-exchange'){
+    const available=Object.values(state.battle?.resources||{}).reduce((sum,n)=>sum+n,0);
+    if(state.battle?.phase==='player'&&!state.battle.queue.length&&available>=5){state.exchangeOpen=true;state.exchangePayment=suggestEssenceExchangePayment(state.battle.resources);state.selectedSkill=null;render();}
+    return;
+  }
+  if(target.dataset.action==='cancel-essence-exchange'){state.exchangeOpen=false;state.exchangePayment=null;render();return;}
+  if(target.dataset.exchangePayment){const [id,delta]=target.dataset.exchangePayment.split(':');const selected={...(state.exchangePayment||suggestEssenceExchangePayment(state.battle.resources))},current=selected[id]||0,next=current+Number(delta),count=Object.values(selected).reduce((sum,n)=>sum+n,0);if(next>=0&&next<=state.battle.resources[id]&&(Number(delta)<0||count<5)){selected[id]=next;state.exchangePayment=selected;render();}return;}
+  if(target.dataset.exchangeTarget){const result=exchangeEssence(state.battle,target.dataset.exchangeTarget,state.exchangePayment);if(!result.ok){toast(result.reason);return;}state.randomPayment=null;state.exchangePayment=suggestEssenceExchangePayment(state.battle.resources);if(!state.exchangePayment){state.exchangeOpen=false;state.exchangePayment=null;}toast(`5 Essências convertidas em 1 ${resourceById[target.dataset.exchangeTarget].name}.`);render();return;}
   if(target.dataset.randomPayment){const [id,delta]=target.dataset.randomPayment.split(':');const p=getTurnPayment(state.battle,state.randomPayment);const selected={...p.selected};const next=(selected[id]||0)+Number(delta);if(next>=0&&next<=p.available[id]&&(Number(delta)<0||p.missing>0)){selected[id]=next;state.randomPayment=selected;render();}return;}
   if(target.dataset.action==='suggest-payment'){state.randomPayment=null;render();return;}
   if (target.dataset.action === "cancel-review") { state.confirmTurn=false; render(); return; }
@@ -781,7 +845,7 @@ app.addEventListener("click", (event) => {
   if (target.dataset.shopAction) { chooseShop(target.dataset.shopAction); return; }
   if (target.dataset.shopBuff) { chooseShop("buff", target.dataset.shopBuff); return; }
   if (target.dataset.abandonRun) {
-    if (profile.run && confirm("Abandonar a trilha atual? A estabilidade será perdida.")) {
+    if (profile.run && confirm(localizeText("Abandonar a trilha atual? A estabilidade será perdida."))) {
       if(profile.run.serverOwned)requestCampaign({op:"abandon"});else{profile.run = null; save(); render();}
     }
     return;
@@ -815,6 +879,15 @@ app.addEventListener("input", (event) => {
     clearTimeout(searchRenderTimer);
     searchRenderTimer=setTimeout(()=>{render();const input=app.querySelector("[data-search]");input?.focus();input?.setSelectionRange(cursor,cursor);},120);
   }
+});
+
+app.addEventListener("change",event=>{
+ const target=event.target;
+ if(target.matches("[data-codex-elo]"))state.crewElo=target.value;
+ else if(target.matches("[data-codex-archetype]"))state.crewArchetype=target.value;
+ else if(target.matches("[data-codex-function]"))state.crewFunction=target.value;
+ else return;
+ render();
 });
 
 app.addEventListener("keydown", (event) => {

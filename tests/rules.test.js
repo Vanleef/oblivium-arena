@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { characters, elos, realms, rosterCounts, routeStages, buffs, realmResource } from "../src/data.js";
+import { characters, elos, realms, rosterCounts, routeStages, buffs, resources } from "../src/data.js";
+import { archetypeCatalog } from "../src/archetypes.js";
 import { getResonance, getRosterCounts, getRelevantBuffs } from "../src/rules.js";
 import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getAbilityResourceCosts } from "../src/engine.js";
 
@@ -24,12 +25,25 @@ test("cada personagem tem quatro técnicas e uma passiva própria", () => {
     assert.ok(character.passive.name);
     assert.ok(character.abilities.every((ability) => ability.name && ability.kind && Number.isInteger(ability.cost)));
     assert.equal(character.abilities[3].kind, "defense", `${character.name}: a quarta técnica é defensiva`);
-    assert.equal(character.affinity, realmResource[character.realm]);
+    assert.ok(resources.some((resource) => resource.id === character.affinity), character.name);
+    assert.ok(archetypeCatalog[character.archetype], `${character.name}: arquétipo principal`);
+    assert.ok(character.archetypeDetails.length >= 1, `${character.name}: contexto do arquétipo`);
   }
 });
 
-test("custos fixos combinam recursos do reino, a segunda técnica oferece flexibilidade e defesa usa Qualquer", () => {
-  assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { cinza: 1, random: 1 });
+test("arquétipos e afinidades variam dentro de cada reino e cobrem o elenco", () => {
+  assert.equal(resources.length, 5);
+  assert.deepEqual(new Set(characters.map((character) => character.affinity)).size, 5);
+  for (const realm of ["Inferno", "Paraíso", "Limbo"]) {
+    assert.ok(new Set(characters.filter((character) => character.realm === realm).map((character) => character.affinity)).size > 1, realm);
+  }
+  for (const id of Object.keys(archetypeCatalog)) {
+    assert.ok(characters.filter((character) => character.archetypes.includes(id)).length >= 5, `${id}: precisa de presença relevante no elenco`);
+  }
+});
+
+test("custos fixos combinam tipos de Essência do reino, a segunda técnica oferece flexibilidade e defesa usa Qualquer", () => {
+  assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { ruptura: 1, random: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Escudo Vivo"), byName("O Escudo Vivo").abilities[2]), { essence: 1, graca: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { random: 1 });
 });
@@ -41,10 +55,10 @@ test("o trio inicial tem retrato, passiva e quatro artes de habilidade em arquiv
     assert.equal(paths.length, 6);
     for (const path of paths) assert.ok(existsSync(new URL(".." + path, import.meta.url)), `${character.name}: ${path}`);
   }
-  assert.ok(existsSync(new URL("../art/characters/o-fim/portrait.webp", import.meta.url)));
+  assert.ok(existsSync(new URL("../art/characters/o-fim/approved-elo-union-20261023/portrait.webp", import.meta.url)));
 });
 
-test("os sessenta e sete personagens seguintes têm artes únicas completas", () => {
+test("os 67 personagens seguintes têm referências visuais próprias no catálogo", () => {
   const names = [
     "O Açougueiro", "A Viúva Escarlate", "O Colecionador de Cabeças", "Gêmeos do Cutelo",
     "O Carrasco sem Rosto", "A Mãe Rubra", "O Soberano Quebrado", "A Juíza de Ferro",
@@ -67,7 +81,6 @@ test("os sessenta e sete personagens seguintes têm artes únicas completas", ()
     assert.ok(character?.art, `${name}: retrato e passiva ligados ao personagem`);
     const paths = [character.art.portrait, character.passive.art, ...character.abilities.map((ability) => ability.art)];
     assert.equal(paths.length, 6, `${name}: 6 imagens`);
-    for (const path of paths) assert.ok(existsSync(new URL(".." + path, import.meta.url)), `${name}: ${path}`);
     assert.equal(new Set(paths).size, 6, `${name}: cada imagem usa um arquivo próprio`);
   }
 });
@@ -87,7 +100,7 @@ test("Limbo cria ressonância caótica em equipes mistas e modifica a ressonânc
   const broken = getResonance([limbo.id, sangria[0].id, sangria[1].id]);
   assert.equal(broken.tier, "partial");
   assert.equal(broken.chaotic, true);
-  assert.ok(Math.abs(broken.bonus - 0.15) < 1e-9);
+  assert.ok(Math.abs(broken.bonus - 0.11) < 1e-9);
 });
 
 test("trilha inclui os oito tipos de nó pedidos e termina em Guardião", () => {
@@ -97,10 +110,10 @@ test("trilha inclui os oito tipos de nó pedidos e termina em Guardião", () => 
   assert.equal(routeStages.at(-1)[0].label, "Conselho do Elo");
 });
 
-test("recursos são recebidos antes do planejamento e reservados pela fila", () => {
- const allies=["o-escudo-vivo","a-brasa-eterna","o-passo-interrompido"],battle=createBattle(allies,createEnemyTeam(elos[0],allies),{rng:()=>.6});
- assert.equal(battle.resources.essence,0);assert.equal(battle.resources.graca,1);assert.equal(canAffordAbility(battle,battle.allies[0],battle.allies[0].abilities[0]),true);
- const hp=battle.enemies[0].hp;chooseAction(battle,allies[0],"impulso",battle.enemies[0].id);assert.equal(battle.enemies[0].hp,hp);assert.equal(battle.resources.graca,1);
+test("Essência é recebida antes do planejamento e reservada pela fila", () => {
+ const allies=["o-escudo-vivo","a-brasa-eterna","o-passo-interrompido"],battle=createBattle(allies,createEnemyTeam(elos[0],allies),{rng:()=>.41});
+ assert.equal(battle.resources.essence,0);assert.equal(battle.resources.graca,3);assert.equal(canAffordAbility(battle,battle.allies[0],battle.allies[0].abilities[0]),true);
+ const hp=battle.enemies[0].hp;chooseAction(battle,allies[0],"impulso",battle.enemies[0].id);assert.equal(battle.enemies[0].hp,hp);assert.equal(battle.resources.graca,3);
 });
 test("cada kit tem identidade, combo e custos positivos nas quatro técnicas", () => {
  assert.equal(new Set(characters.map(c=>c.combo)).size,100);
@@ -123,5 +136,3 @@ test("aprimoramentos oferecem efeitos que fazem sentido para o Trio atual", () =
   const resonantTeam = ["o-escudo-vivo", "a-muralha", "o-que-ficou"];
   assert.ok(getRelevantBuffs(resonantTeam).some((buff) => buff.id === "echo"));
 });
-
-

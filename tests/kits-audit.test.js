@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {characters} from '../src/data.js';
 import {createBattle,chooseAction,passTurn,meetsCondition,getAbilityResourceCosts} from '../src/combat.js';
 const target=()=>({id:'audit-target',name:'Alvo',realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]});
-function battle(c){const b=createBattle([c.id],[target()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};return b;}
+function battle(c){const b=createBattle([c.id],[target()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100,coringa:100};return b;}
 function cast(b,a,targetId){assert.equal(chooseAction(b,b.allies[0].id,a.id,targetId||(['self','ally','team'].includes(a.target)?b.allies[0].id:'audit-target')).ok,true,a.name);assert.equal(passTurn(b),true);}
 function findPreparation(c,condition){const tags={bleed:'sangramento',burn:'queimadura',poison:'veneno',decay:'decadencia'};return c.abilities.find(a=>condition.startsWith('mark:')?a.mark===condition.slice(5):tags[condition]?a.dot?.tag===tags[condition]:condition==='exposed'?a.expose:condition==='weakened'?a.weaken>=2:condition==='selfShielded'?a.shield:false);}
 

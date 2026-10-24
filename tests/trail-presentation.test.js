@@ -59,3 +59,4 @@ test('foco de passagem liga somente o nó, a escolha e a conexão correspondente
  assert.ok([...nodes,...edges].filter(n=>n.active).every(n=>(n.dataset.routePreview||n.dataset.routeEdge)===chosen));
  highlightTrailChoice(root,null);assert.ok([...nodes,...edges].every(n=>!n.active));assert.equal(JSON.stringify(run),before);
 });
+

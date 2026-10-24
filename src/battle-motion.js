@@ -49,3 +49,4 @@ export function renderBattleMotion(app,fx) {
   if(parts.length)board.insertAdjacentHTML('beforeend',`<svg class="ability-traces" viewBox="0 0 ${rect.width} ${rect.height}" aria-hidden="true" focusable="false">${parts.join('')}</svg>`);
 }
 
+

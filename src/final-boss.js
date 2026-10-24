@@ -14,7 +14,7 @@ export const FINAL_BOSS = Object.freeze({
  combo:'Na forma original, escolha uma manifestação: ela substitui as três primeiras técnicas e o retrato. A troca consome sua ação. Fim Inalcançável recupera 10 de Vida e restaura a forma original. As recargas pertencem às posições e continuam entre formas.',
  bodyForms:Object.freeze([
   {key:'tyrant',resource:'cinza',name:'Tirano',portrait:`${formsArt}/portrait-tyrant.webp`,when:Object.fromEntries(slots.map(s=>[s,'tyrant'])),description:'Controle por marcas, interrupção e guarda. Medo de ser subjugado.'},
-  {key:'predator',resource:'ruptura',name:'Predador',portrait:`${formsArt}/portrait-predator.webp`,when:Object.fromEntries(slots.map(s=>[s,'predator'])),description:'Perseguição, drenagem de Vida e consumo de recursos. Medo de ser caçado.'},
+  {key:'predator',resource:'ruptura',name:'Predador',portrait:`${formsArt}/portrait-predator.webp`,when:Object.fromEntries(slots.map(s=>[s,'predator'])),description:'Perseguição, drenagem de Vida e consumo de Essência. Medo de ser caçado.'},
   {key:'ruin',resource:'graca',name:'Ruína',portrait:`${formsArt}/portrait-ruin.webp`,when:Object.fromEntries(slots.map(s=>[s,'ruin'])),description:'Aflições, interdição de apoio e dano coletivo. Medo de perder a própria continuidade.'}
  ])
 });
@@ -28,7 +28,7 @@ export function createFinalBossAbilities(){
   predator:[
    skill('rastro','Rastro Faminto','Causa 15 de dano físico, rouba 50% do dano causado como Vida e marca o alvo por 3 turnos.',{damage:15,damageType:'physical',lifesteal:.5,mark:'caca-fim',classes:['Física','Instantânea']}),
    skill('ceifar','Ceifar o Vínculo','Causa 25 de dano perfurante e rouba 50% do dano causado como Vida. Contra sua marca de caça, causa +10 de dano e consome a marca.',{damage:25,damageType:'piercing',lifesteal:.5,costs:{affinity:1,random:1},combo:{condition:'mark:caca-fim',bonusDamage:10,consume:true},cooldown:1,classes:['Perfurante','Instantânea']}),
-   skill('fome','Fome dos Reinos','Causa 15 de dano espiritual a cada inimigo e drena 1 recurso da reserva inimiga, uma vez por uso.',{damage:15,damageType:'energy',target:'all-enemies',drain:1,costs:{affinity:2,random:1},cooldown:2})
+   skill('fome','Fome dos Reinos','Causa 15 de dano espiritual a cada inimigo e drena 1 unidade de Essência da reserva inimiga, uma vez por uso.',{damage:15,damageType:'energy',target:'all-enemies',drain:1,costs:{affinity:2,random:1},cooldown:2})
   ],
   ruin:[
    skill('cinza','Cinza de Ninguém','Causa 10 de dano de aflição e aplica Decadência: 4 de dano por 3 turnos.',{damage:10,damageType:'affliction',dot:{tag:'decadencia',damage:4,turns:3},classes:['Aflição','Persistente']}),

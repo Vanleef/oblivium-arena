@@ -6,3 +6,4 @@ else{document.body.className='sample';document.body.dataset.tab='battle';const b
 const legacyProfile={xp:925,team:starters.map(c=>c.id),globalUpgrades:[]};legacyProfile.pendingGlobalReward={difficulty:4,choices:globalChoices(legacyProfile,'sangria',4,17)};const state={battle:b,battleNode:{label:'Confronto de Sangria'},battleFx:null};const draw=()=>document.body.innerHTML=`<div class="app-shell"><main class="main-content">${view==='legacy'?renderCompletion(legacyProfile):view==='arena'?renderArena({xp:925,team:starters.map(c=>c.id)},null):b.phase==='influence'?renderInfluences(b):renderWorldHistory(b)+renderBattle(state,elos[0])}</main></div>`;document.body.addEventListener('click',e=>{const card=e.target.closest('[data-world-event]');if(card){chooseInfluence(b,card.dataset.worldEvent);draw();}});draw();}
 </script></body></html>
 
+

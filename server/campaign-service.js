@@ -1,10 +1,11 @@
 import { randomBytes } from 'node:crypto';
-import { elos, characterById, buffs, realmResource } from '../src/data.js';
-import { getRelevantBuffs } from '../src/rules.js';
+import { elos, characterById, buffs } from '../src/data.js';
+import { affinityForTeam } from '../src/archetypes.js';
+import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
-import { chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
+import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from '../src/progression.js';
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty } from '../src/progression.js';
 
 const cloneJson=value=>JSON.parse(JSON.stringify(value));
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -49,14 +50,16 @@ function finishNode(profile,run,node,account){
 }
 function setPending(run,type,choices){run.pending={type,...(choices?{choices}: {})};}
 function buffChoices(run,offset=0){
- const options=getRelevantBuffs(run.team,run.buffs),rng=seededRandom((run.seed||1)+run.encounter*991+offset*101);
- return shuffled(options,rng).slice(0,3);
+ return getRelevantBuffChoices(run.team,run.buffs,(run.seed||1)+run.encounter*991+offset*101);
 }
 function startBattle(profile,run,node){
  const elo=elos.find(item=>item.id===run.eloId);if(!elo)fail('Elo inválido.');
+ const roster=Object.values(characterById).filter(character=>character.eloId===elo.id).map(character=>character.id),opponents=roster.filter(id=>!(run.team||profile.team).includes(id));
+ run.bossIds||=selectBossRoster(run.team||profile.team,opponents.length>=3?opponents:roster,run.seed);
+ run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
  const enemies=createEnemyTeam(elo,run.team,nodeType,run.encounter,{difficulty:run.difficulty||0,bossIds:run.bossIds});
- const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed});
+ const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed});
  beginInfluences(battle,seed);
  run.currentNodeId=node.id;run.battle=storeBattle(battle);
  return campaignState(profile,{battle:run.battle,node});
@@ -90,7 +93,7 @@ export class CampaignService{
      const elo=elos.find(item=>item.id===body.eloId);if(!elo)fail('Elo inválido.');
      const seed=randomBytes(4).readUInt32BE(0)||1;
      account.campaignRunId=randomBytes(24).toString('hex');
-     profile.run=createExpedition(profile,elo,String(body.variantId||'hunt'),body.difficulty===undefined?maxDifficulty(profile,elo.id):Number(body.difficulty),seed);
+     profile.run=createExpedition(profile,elo,String(body.variantId||'hunt'),body.difficulty===undefined?maxDifficulty(profile,elo.id):Number(body.difficulty),seed,{guided:Boolean(body.guided)});
      profile.run.serverOwned=true;profile.run.serverRunId=account.campaignRunId;profile.run.battle=null;profile.run.pending=null;profile.completionNotice=null;
      break;
     }
@@ -100,10 +103,10 @@ export class CampaignService{
      if(!node||!run.availableNodeIds.includes(node.id)||run.clearedNodeIds.includes(node.id))fail('Este caminho não está disponível.');
      run.currentNodeId=node.id;
      if(isCombat(node)){extra=startBattle(profile,run,node);break;}
-     const affinity=realmResource[elos.find(item=>item.id===run.eloId)?.realm];
      if(node.type==='repair'){
       healTeam(profile,run,.4+(aggregateGlobal(profile).restBonus||0));run.stability=Math.min(run.maxStability,run.stability+1);finishNode(profile,run,node,account);
      }else if(node.type==='treasure'){
+      const affinity=affinityForTeam(run.team,characterById);
       profile.fragments+=12;const id=affinityBuff(affinity);if(id&&buffs.some(buff=>buff.id===id)&&!run.buffs.includes(id))run.buffs.push(id);finishNode(profile,run,node,account);
      }else if(node.type==='event')setPending(run,'event');
      else if(node.type==='shop')setPending(run,'shop',buffChoices(run,1));
@@ -116,6 +119,7 @@ export class CampaignService{
      if(!Array.isArray(body.actions)||body.actions.length>3)fail('Fila inválida.');
      const battle=restoreBattle(run.battle);if(battle.phase!=='player')fail('Aguarde a decisão atual do combate.',409);
      if(!Number.isSafeInteger(body.round)||body.round!==battle.round)fail('O turno mudou. A campanha foi atualizada.',409);
+     const exchanges=applyEssenceExchanges(battle,'player',body.exchanges||[]);if(!exchanges.ok)fail(exchanges.reason||'Troca de Essência inválida.');
      const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId);if(!result.ok)fail(result.reason||'Ação inválida.');}
      const committed=commitTurn(battle,body.payment);if(!committed.ok)fail(committed.reason||'Pagamento inválido.');
      const events=runBattleToDecision(battle);run.battle=storeBattle(battle);extra={battle:run.battle,events};
@@ -155,7 +159,7 @@ export class CampaignService{
      if(!['repair','echo'].includes(body.choice))fail('Escolha inválida.');profile.eloProgress[run.eloId].events++;
      const node=currentNode(run);if(!node||node.type!=='event')fail('Evento inválido.');
      if(body.choice==='repair'){healTeam(profile,run,.25+(aggregateGlobal(profile).restBonus||0));run.stability=Math.min(run.maxStability,run.stability+1);}
-     else{profile.fragments+=8;const affinity=realmResource[elos.find(item=>item.id===run.eloId)?.realm],id=affinityBuff(affinity);if(id&&buffs.some(buff=>buff.id===id)&&!run.buffs.includes(id))run.buffs.push(id);}
+     else{profile.fragments+=8;const affinity=affinityForTeam(run.team,characterById),id=affinityBuff(affinity);if(id&&buffs.some(buff=>buff.id===id)&&!run.buffs.includes(id))run.buffs.push(id);}
      finishNode(profile,run,node,account);break;
     }
     case 'buff':{

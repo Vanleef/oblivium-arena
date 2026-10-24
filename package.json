@@ -6,9 +6,12 @@
   "description": "Protótipo tático roguelite 3v3 nos três reinos espirituais.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
-    "test": "node --test"
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "audit:art": "node scripts/audit-art.mjs"
   },
   "engines": {
     "node": ">=20"
   }
 }
+

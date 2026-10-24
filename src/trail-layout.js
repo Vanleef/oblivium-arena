@@ -14,3 +14,4 @@ export function trailCurve(from,to) {
 }
 const nodeGlyphs={normal:'blade',elite:'crown',mini:'shield',boss:'rift',repair:'candle',treasure:'charge',event:'veil',shop:'shelter',upgrade:'metamorph'};
 export function trailIcon(type){return augmentGlyph(nodeGlyphs[type]||'veil');}
+

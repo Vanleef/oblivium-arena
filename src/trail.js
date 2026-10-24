@@ -24,3 +24,4 @@ export function advanceTrail(run,nodeId) {
   run.currentNodeId=null;
   return {ok:true,current,newIds:current.nextIds.filter(id=>!old.has(id))};
 }
+

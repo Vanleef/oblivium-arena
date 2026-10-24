@@ -28,14 +28,17 @@ export function evolveKit(elo,index,source){
   identity('Acumule troféus e escolha quando gastar as duas grandes execuções disponíveis no combate.','Munição limitada');break;
  case 'coroa:0':
   form(0,'edict',attack('Decreto sobre Todos',10,2,{target:'all-enemies',damageType:'energy',mark:'decreto'}));
-  after(2,[shift(0,'edict',2)],'Durante os próximos 2 turnos, Decreto do Rei Caído vira Decreto sobre Todos.');
-  identity('Assuma a coroa para espalhar decretos e depois escolha quem será obrigado a ajoelhar.','Domínio temporário');break;
+  form(1,'edict',attack('Cadeia de Juramento',10,2,{target:'all-enemies',damageType:'energy',weaken:1}));
+  form(2,'edict',support('Trono Incontestável',{target:'team',shield:12,boost:5},2));
+  after(2,[shift(0,'edict',2),shift(1,'edict',2),shift(2,'edict',2)],'Durante 2 turnos, as três primeiras técnicas assumem o kit de domínio coletivo; depois, voltam sem reiniciar recargas.');
+  identity('Assuma a forma de domínio para espalhar decretos, enfraquecer a linha e erguer um trono para o trio.','Forma de domínio');break;
  case 'coroa:3':
   form(0,'drag',attack('Apertar o Grilhão',15,1,{gainCharge:1,weaken:1,shift:back(0)}));
   after(0,[shift(0,'drag',1,{bindTarget:true})],'No próximo turno, vira Apertar o Grilhão contra a mesma vítima.');
   identity('Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas no cárcere.','Perseguição');break;
  case 'mentira:1':
   form(0,'other',attack('Gesto de Outro Rosto',10,2,{counter:15,damageType:'energy',shift:back(0)}));
+  s[2].convertEssence={from:'any',to:'coringa',amount:1};
   after(0,[shift(0,'other',2)],'Vira Gesto de Outro Rosto por 2 turnos: um ataque que prepara um contra-ataque pessoal.');
   identity('Empreste um rosto para marcar, mude a resposta e revele a traição quando o adversário baixar a guarda.','Alternância de intenções');break;
  case 'mentira:2':
@@ -44,11 +47,13 @@ export function evolveKit(elo,index,source){
   identity('Prenda o adversário na trama e escolha entre continuar o controle ou desatar a rede para limpar o trio.','Controle ou amparo');break;
  case 'chama:1':
   form(0,'smother',attack('Labareda Sufocante',20,2,{damageType:'energy',dot:dot('queimadura',6,2),shift:back(0)}));
-  after(1,[shift(0,'smother',2,{condition:'burn',bindTarget:true})],'Se o alvo já tinha Queimadura, Brasa que Permanece vira Labareda Sufocante contra ele por 2 turnos.');
-  identity('Mantenha a Queimadura, sufoque a vítima e escolha entre a labareda concentrada e a Fornalha.','Combustão em etapas');break;
+  form(1,'smother',attack('Cinzas de Sufoco',10,2,{target:'all-enemies',damageType:'energy',dot:dot('queimadura',4,2),cooldown:2}));
+  form(2,'smother',attack('Fornalha Sepulcral',25,2,{damageType:'energy',combo:{condition:'burn',bonusDamage:10,consume:true},cooldown:2}));
+  after(1,[shift(0,'smother',2,{condition:'burn',bindTarget:true}),shift(1,'smother',2,{condition:'burn'}),shift(2,'smother',2,{condition:'burn'})],'Se o alvo já tinha Queimadura, assuma por 2 turnos o kit de sufocamento: labareda, cinza coletiva e fornalha.');
+  identity('Mantenha a Queimadura e assuma o corpo de sufocamento: pressão em área, controle do calor e uma fornalha que consome a condição.','Forma de sufocamento');break;
  case 'chama:2':
   form(0,'rage',attack('Punho do Ódio Solto',30,1,{selfDamage:10}));
-  form(2,'eruption',attack('Ressentimento sem Freio',35,2,{damageType:'energy',selfDamage:10,combo:{condition:'selfWounded',bonusDamage:15},shift:back(0,2),cooldown:2}));
+  form(2,'eruption',attack('Ressentimento sem Freio',30,2,{damageType:'energy',selfDamage:10,combo:{condition:'selfWounded',bonusDamage:10},shift:back(0,2),cooldown:2}));
   after(1,[shift(0,'rage',2),shift(2,'eruption',2)],'Libera duas técnicas mais arriscadas por 2 turnos. Ressentimento sem Freio encerra a transformação.');
   identity('Alimente o ódio para transformar seus ataques por 2 turnos; o desfecho encerra a fúria e cobra Vida.','Transformação de risco');break;
  case 'chama:3':
@@ -58,7 +63,7 @@ export function evolveKit(elo,index,source){
  case 'fome:0':
   form(0,'starved',attack('Fome sem Corpo',15,2,{damageType:'affliction',lifesteal:.6,drain:1,cooldown:1}));
   s[0].formRule={type:'health',at:50,form:'starved'};s[0].evolutionNote='Com 50 de Vida ou menos, vira Fome sem Corpo. Recuperar Vida acima de 50 restaura Mordida da Alma.';
-  identity('A fome muda com sua Vida: ferido, você atravessa a Defesa e drena recursos; recuperado, volta a morder.','Forma por Vida');break;
+  identity('A fome muda com sua Vida: ferido, você atravessa a Defesa e drena Essência; recuperado, volta a morder.','Forma por Vida');break;
  case 'fome:1':
   form(1,'open',support('Abrir o Cofre',{heal:20,perChargeHeal:5,spendCharge:true,shift:back(1)},2));
   after(1,[shift(1,'open',2)],'Vira Abrir o Cofre por 2 turnos; gastar as reservas restaura esta técnica.');
@@ -157,9 +162,12 @@ export function evolveKit(elo,index,source){
   after(0,[shift(0,'mend',1)],'No próximo turno, vira Reatar a Linha: transforme a ruptura em proteção para um aliado.');
   identity('Abra uma extremidade no inimigo e escolha entre reatar o fio para proteger ou puxar seu fim para atacar.','Ruptura e reparação');break;
  case 'correntes-quebradas:2':
+  form(0,'stolen',attack('Eco sem Origem',10,1,{damageType:'energy',gainCharge:1}));
+  form(1,'stolen',support('Voz Devolvida',{target:'team',shield:10,cleanse:true},2));
   form(2,'stolen',attack('Ressonância Roubada',15,3,{target:'all-enemies',damageType:'energy',perChargeDamage:5,spendCharge:true,shift:back(2),cooldown:2}));
-  counter(1,[shift(2,'stolen',2)],'Se o contra-ataque ativar, Coro sem Origem vira Ressonância Roubada por 2 turnos, sem custo de Vida.');
-  identity('Colete ecos e devolva uma agressão para abrir uma ressonância coletiva que dispensa o sacrifício de Vida.','Ressonância reativa');break;
+  s[2].convertEssence={from:'ruptura',to:'coringa',amount:1};
+  counter(1,[shift(0,'stolen',2),shift(1,'stolen',2),shift(2,'stolen',2)],'Se o contra-ataque ativar, assuma por 2 turnos o corpo ecoante: golpe, amparo e ressonância coletiva.');
+  identity('Colete ecos e devolva uma agressão para mudar o trio inteiro de postura: golpe leve, limpeza coletiva e ressonância que gasta cargas.','Forma de ressonância');break;
  case 'correntes-quebradas:5':
   form(2,'release',attack('Retomar o Instante',35,3,{damageType:'energy',perChargeDamage:5,spendCharge:true,selfDamage:5,shift:back(2),cooldown:2}));
   after(1,[shift(2,'release',1,{bindTarget:true})],'No próximo turno, Devolver os Segundos vira Retomar o Instante contra o alvo interrompido.');
@@ -167,3 +175,4 @@ export function evolveKit(elo,index,source){
  }
  return expandKit(elo,index,spec);
 }
+

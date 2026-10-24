@@ -1,10 +1,16 @@
-// Qualquer is a flexible COST, never a fifth resource drawn into the pool.
-export const resourceIds=['essence','cinza','graca','ruptura'];
+// Qualquer is a flexible cost; Coringa is a real fifth type in the shared Essência pool.
+export const resourceIds=['essence','cinza','graca','ruptura','coringa'];
 export function getAbilityResourceCosts(actor,ability){
- return Object.entries(ability.costs||(ability.cost?{essence:ability.cost}:{})).reduce((out,[id,n])=>{
+ const out=Object.entries(ability.costs||(ability.cost?{essence:ability.cost}:{})).reduce((result,[id,n])=>{
   const key=id==='affinity'?(actor.bodyForms?.find(f=>ability.formKey&&f.when[ability.id]===ability.formKey)?.resource||actor.bodyResource||actor.affinity):id;
-  if(key&&n>0)out[key]=(out[key]||0)+n;return out;
+  if(key&&n>0)result[key]=(result[key]||0)+n;return result;
  },{});
+ const discount=actor.passive?.costDiscount;
+ if(discount&&actor.bodyForm===discount.form&&ability.formKey&&ability.formKey!=='base'){
+  const key=discount.resource==='affinity'?(actor.bodyResource||actor.affinity):discount.resource;
+  if(resourceIds.includes(key))out[key]=Math.max(0,(out[key]||0)-Math.max(0,Math.floor(discount.amount||1)));
+ }
+ return out;
 }
 const total=p=>resourceIds.reduce((n,id)=>n+(p[id]||0),0);
 export function suggestRandomPayment(available,required){
@@ -15,16 +21,25 @@ export function suggestRandomPayment(available,required){
  }
  return selected;
 }
+export function suggestEssenceExchangePayment(pool){return suggestRandomPayment(pool,5);}
+export function resolveEssenceExchange(pool,target,selected){
+ if(!resourceIds.includes(target))return {ok:false,reason:'Tipo de Essência inválido.'};
+ const payment=resolveResourcePayment({random:5},pool,selected);
+ if(!payment.ok)return {...payment,reason:payment.reason||'São necessárias 5 Essências para a troca.'};
+ const next=Object.fromEntries(resourceIds.map(id=>[id,(pool[id]||0)-(payment.selected[id]||0)]));
+ next[target]++;
+ return {ok:true,target,selected:payment.selected,pool:next,totalBefore:total(pool),totalAfter:total(next)};
+}
 export function resolveResourcePayment(costs,pool,selected){
  const fixed=Object.fromEntries(resourceIds.map(id=>[id,costs[id]||0]));
  const available=Object.fromEntries(resourceIds.map(id=>[id,(pool[id]||0)-fixed[id]]));
  const required=costs.random||0;
- if(Object.values(costs).some(n=>!Number.isSafeInteger(n)||n<0)||Object.keys(costs).some(id=>!resourceIds.includes(id)&&id!=='random')||Object.values(available).some(n=>n<0)||total(available)<required)return {ok:false,reason:'Recursos insuficientes.',fixed,available,required};
+ if(Object.values(costs).some(n=>!Number.isSafeInteger(n)||n<0)||Object.keys(costs).some(id=>!resourceIds.includes(id)&&id!=='random')||Object.values(available).some(n=>n<0)||total(available)<required)return {ok:false,reason:'Essência insuficiente.',fixed,available,required};
  const suggestion=suggestRandomPayment(available,required),payment=selected===undefined||selected===null?suggestion:selected;
  const invalid=!payment||typeof payment!=='object'||Array.isArray(payment)||Object.keys(payment).some(id=>!resourceIds.includes(id))||resourceIds.some(id=>!Number.isSafeInteger(payment[id]??0)||(payment[id]||0)<0||(payment[id]||0)>available[id]);
  const chosen=invalid?{}:Object.fromEntries(resourceIds.map(id=>[id,payment[id]||0]));
  const missing=required-total(chosen);
- return {ok:!invalid&&missing===0,reason:invalid?'Seleção de recursos inválida.':missing?'Complete o custo Qualquer.':'',fixed,available,required,selected:chosen,suggestion,missing,costs:Object.fromEntries(resourceIds.map(id=>[id,fixed[id]+(chosen[id]||0)]))};
+ return {ok:!invalid&&missing===0,reason:invalid?'Seleção de tipos de Essência inválida.':missing?'Complete o custo Qualquer.':'',fixed,available,required,selected:chosen,suggestion,missing,costs:Object.fromEntries(resourceIds.map(id=>[id,fixed[id]+(chosen[id]||0)]))};
 }
 export function allocateQueuePayment(actions,units,pool,selected){
  const specs=actions.map(action=>{

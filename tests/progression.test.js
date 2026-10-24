@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { elos, realms, starters, characters, characterById } from '../src/data.js';
-import { normalizeCampaign, eloAccess, createExpedition, completeExpedition, claimGlobalUpgrade, globalChoices, aggregateGlobal, maxDifficulty, recordEncounter, seededRandom } from '../src/progression.js';
+import { normalizeCampaign, eloAccess, createExpedition, completeExpedition, claimGlobalUpgrade, globalChoices, globalUpgradeCatalog, aggregateGlobal, maxDifficulty, recordEncounter, seededRandom } from '../src/progression.js';
+import { augmentGlyph } from '../src/augment-cards.js';
 import { advanceTrail } from '../src/trail.js';
 import { createBattle, createEnemyTeam, passTurn, chooseAction } from '../src/combat.js';
 const ids=['o-escudo-vivo','a-brasa-eterna','o-passo-interrompido'];
@@ -41,24 +42,26 @@ test('apenas concluir o chefe concede recompensa; uma vitória de nó não pode 
  const p=profile(),run=createExpedition(p,elos[0],'hunt',0,1),node=run.map[0][0];assert.throws(()=>completeExpedition(p,run),/não foi concluída/);assert.equal(recordEncounter(p,run,node),true);assert.equal(recordEncounter(p,run,node),false);assert.equal(p.eloProgress.sangria.combats,1);
 });
 test('Legados oferecem três categorias, variam e escalam com a dificuldade',()=>{
- const p=profile(),kinds=new Set();for(let i=0;i<20;i++){const choices=globalChoices(p,'sangria',2,i+1);assert.equal(new Set(choices.map(c=>c.category)).size,3);for(const choice of choices){kinds.add(choice.kind);p.globalUpgrades.push({...choice,id:choice.id+i});}}
- assert.equal(kinds.size,34);for(let seed=1;seed<25;seed++){const a=globalChoices(profile(),'sangria',0,seed),b=globalChoices(profile(),'sangria',6,seed);for(let i=0;i<3;i++){assert.equal(a[i].kind,b[i].kind);for(const key of Object.keys(a[i].effect))assert.ok(b[i].effect[key]>=a[i].effect[key]);}}
+ const p=profile(),kinds=new Set();for(let i=0;i<20;i++){const choices=globalChoices(p,'sangria',2,i+1);assert.equal(new Set(choices.map(c=>c.category)).size,3);for(const choice of choices){assert.ok(choice.glyph&&choice.lore);kinds.add(choice.kind);p.globalUpgrades.push({...choice,id:choice.id+i});}}
+ assert.ok(kinds.size>34);assert.equal(globalUpgradeCatalog.length,50);assert.equal(new Set(globalUpgradeCatalog.map(x=>x.glyph)).size,50);
+ assert.ok(globalUpgradeCatalog.every(x=>x.title&&x.lore&&augmentGlyph(x.glyph).includes('augment-glyph')));
+ for(let seed=1;seed<25;seed++){const a=globalChoices(profile(),'sangria',0,seed),b=globalChoices(profile(),'sangria',6,seed);for(let i=0;i<3;i++){assert.equal(a[i].kind,b[i].kind);for(const key of Object.keys(a[i].effect))assert.ok(b[i].effect[key]>=a[i].effect[key]);}}
  assert.ok(Object.keys(aggregateGlobal(p)).length>=18);
 });
 test('Rupturas reforçam todos os tipos de combate e aplicam os modificadores no motor',()=>{
- const p=profile();for(const encounter of ['normal','elite','mini','boss']){const normal=createEnemyTeam(elos[0],ids,encounter,0,{difficulty:0}),hard=createEnemyTeam(elos[0],ids,encounter,0,{difficulty:4});assert.ok(hard[0].maxHp>normal[0].maxHp);assert.ok(hard[0].abilities[0].damage>normal[0].abilities[0].damage);const b=createBattle(ids,hard);assert.equal(b.enemies[0].armor,2);assert.equal(b.enemies[0].shield,20);b.enemies[0].hp-=10;passTurn(b);assert.equal(b.enemies[0].hp,b.enemies[0].maxHp-6);}
+ const p=profile();for(const encounter of ['normal','elite','mini','boss']){const normal=createEnemyTeam(elos[0],ids,encounter,0,{difficulty:0}),hard=createEnemyTeam(elos[0],ids,encounter,0,{difficulty:4});assert.ok(hard[0].maxHp>normal[0].maxHp);assert.ok(hard[0].abilities[0].damage>normal[0].abilities[0].damage);const b=createBattle(ids,hard,{enemyPlanner:()=>[]});assert.equal(b.enemies[0].armor,1);assert.equal(b.enemies[0].shield,12);b.enemies[0].hp-=10;passTurn(b);assert.equal(b.enemies[0].hp,b.enemies[0].maxHp-6);}
 });
-test('energia: uma na abertura; quatro tipos equiprováveis; acúmulo; menos energia após uma morte',()=>{
- let n=0;const rolls=[.01,.26,.51,.76],b=createBattle(ids,[dummy],{rng:()=>rolls[n++%4]});assert.equal(Object.values(b.resources).reduce((a,b)=>a+b),1);assert.equal(b.resources.essence,1);assert.equal(Object.values(b.enemyResources).reduce((a,b)=>a+b),1);
- passTurn(b);assert.equal(b.energyDraws.player.length,3);assert.equal(Object.values(b.resources).reduce((a,b)=>a+b),4);
- b.allies[0].hp=0;passTurn(b);assert.equal(b.energyDraws.player.length,2);assert.equal(Object.values(b.resources).reduce((a,b)=>a+b),6);
- const totals={essence:0,cinza:0,graca:0,ruptura:0};for(let i=0;i<4;i++){const x=createBattle(ids,[dummy],{rng:()=>rolls[i]});totals[Object.keys(x.resources).find(k=>x.resources[k])]++;}assert.deepEqual(Object.values(totals),[1,1,1,1]);
+test('Essência: uma por alma viva desde a abertura; cinco tipos equiprováveis e queda após baixa',()=>{
+ let n=0;const rolls=[.01,.21,.41,.61,.81],b=createBattle(ids,[dummy],{rng:()=>rolls[n++%5]});assert.equal(Object.values(b.resources).reduce((a,b)=>a+b),3);assert.equal(b.resources.essence,1);assert.equal(Object.values(b.enemyResources).reduce((a,b)=>a+b),1);
+ passTurn(b);assert.equal(b.essenceDraws.player.length,3);assert.equal(Object.values(b.resources).reduce((a,b)=>a+b),6);
+ b.allies[0].hp=0;passTurn(b);assert.equal(b.essenceDraws.player.length,2);assert.equal(Object.values(b.resources).reduce((a,b)=>a+b),9,'a queda também deixa uma Essência de herança');
+ const totals={essence:0,cinza:0,graca:0,ruptura:0,coringa:0};for(let i=0;i<5;i++){const x=createBattle(ids,[dummy],{rng:()=>rolls[i]});totals[Object.keys(x.resources).find(k=>x.resources[k])]++;}assert.deepEqual(Object.values(totals),[1,1,1,1,1]);
  const x=createBattle(ids,[dummy],{rng:()=>0});for(let i=0;i<6;i++)passTurn(x);assert.ok(x.resources.essence>5);
- const enemies=createEnemyTeam(elos[0],ids);assert.equal(Object.values(createBattle(ids,enemies).enemyResources).reduce((a,b)=>a+b),3);
+ const enemies=createEnemyTeam(elos[0],ids),enemyAffinityCounts=new Map();for(const enemy of enemies){const affinity=enemy.affinity||enemy.bodyResource;if(affinity)enemyAffinityCounts.set(affinity,(enemyAffinityCounts.get(affinity)||0)+1);}const enemyAffinityBonus=[...enemyAffinityCounts.values()].some(count=>count>=2)?1:0;assert.equal(Object.values(createBattle(ids,enemies).enemyResources).reduce((a,b)=>a+b),3+enemyAffinityBonus);
 });
 test('Legados de combate alteram Vida, guarda, dano, aflições, cura e preparação',()=>{
  const g={maxHp:12,shield:9,armor:2,physicalPower:3,firstStrike:5,afflictionPower:2,healPower:4,shieldPower:3,regeneration:2,startingCharge:2,lifesteal:.2,essence:1};
- const b=createBattle(ids,[dummy],{globalEffects:g,rng:()=>0});assert.equal(b.allies[0].maxHp,112);assert.equal(b.allies[0].shield,14);assert.equal(b.allies[0].armor,2);assert.equal(b.allies[0].charge,2);assert.equal(b.resources.essence,2);
+ const b=createBattle(ids,[dummy],{globalEffects:g,rng:()=>0});assert.equal(b.allies[0].maxHp,112);assert.equal(b.allies[0].shield,14);assert.equal(b.allies[0].armor,2);assert.equal(b.allies[0].charge,2);assert.equal(b.resources.essence,4);
  b.allies[0].abilities[0]={id:'hit',name:'Golpe',target:'enemy',costs:{},damage:10,damageType:'physical',dot:{tag:'queimadura',damage:2,turns:2},shield:5};b.allies[0].hp=50;chooseAction(b,ids[0],'hit','dummy');passTurn(b);assert.ok(b.enemies[0].hp<=9977);assert.equal(b.enemies[0].dots[0].damage,4);assert.ok(b.allies[0].hp>52);
 });
 test('todos os 17 Elos podem ser abertos pela progressão e o elenco inteiro pode ser recrutado',()=>{
@@ -75,3 +78,4 @@ test('todos os 17 Elos podem ser abertos pela progressão e o elenco inteiro pod
  }
  assert.equal(p.ownedIds.length,100);assert.equal(p.completedElos.length,17);
 });
+

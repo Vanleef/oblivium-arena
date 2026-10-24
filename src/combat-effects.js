@@ -52,3 +52,4 @@ export function extraDamage(actor,target,a){
  const missing=a.missingHpDamage,shield=a.shieldToDamage;
  return (missing?Math.min(missing.cap,Math.floor((actor.maxHp-actor.hp)/missing.step)*missing.amount):0)+(shield?Math.min(shield.cap,Math.floor(actor.shield*shield.ratio)):0)+(a.escalating?actor.skillGrowth[skillGrowthKey(a)]||0:0)+(a.purgeBonusDamage?Math.min(12,['boost','reduction','counter'].filter(k=>target[k]>0).length*a.purgeBonusDamage):0);
 }
+

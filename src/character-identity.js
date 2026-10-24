@@ -396,7 +396,7 @@ export const characterRevisions = {
       "Dívida da Mesa Vazia": "Tributo da Fome",
       "Mesa Inviolável": "Celeiro Lacrado"
     },
-    "roleHint": "Drene recursos com a marca da privação, sustente seus aliados dependentes e cobre o tributo do alvo marcado."
+    "roleHint": "Drene Essência com a marca da privação, sustente seus aliados dependentes e cobre o tributo do alvo marcado."
   },
   "a-balanca-vazia": {
     "name": "A Usurária",
@@ -576,7 +576,7 @@ export const characterRevisions = {
       "Guardar o que Roubou": "Entesourar",
       "Mão Fora de Alcance": "Espólio Intocável"
     },
-    "roleHint": "Roube recursos e acumule espólios; gaste as reservas para recuperar Vida ou reforçar o confisco.",
+    "roleHint": "Roube Essência e acumule espólios; gaste as reservas para recuperar Vida ou reforçar o confisco.",
     "aliases": [
       "A Mão que Toma"
     ]

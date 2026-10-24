@@ -17,3 +17,4 @@ test('contra-ataques desenham o brasão de quem revidou e o modo reduzido evita 
  assert.ok(html.includes(eloVisual('sangria').path));assert.ok(!html.includes(eloVisual('protecao').path));
  const previous=globalThis.window;try{globalThis.window={matchMedia:()=>({matches:true})};renderBattleMotion({querySelector:()=>assert.fail('não deve medir o campo')},{actorId:'a',changes:[{id:'b',hp:-5}]});}finally{if(previous===undefined)delete globalThis.window;else globalThis.window=previous;}
 });
+

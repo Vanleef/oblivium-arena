@@ -4,16 +4,17 @@ const A = (name, damage, cost = 1, extra = {}) => ({ name, damage, cost, target:
 const S = (name, extra, cost = 1) => A(name, 0, cost, { target: "ally", ...extra });
 const D = (tag, damage = 5, turns = 2) => ({ tag, damage, turns });
 const F = (name, damage, condition, bonusDamage = 10, extra = {}) => A(name, damage, 2, { combo: { condition, bonusDamage }, cooldown: 1, ...extra });
-const P = (name, type, amount = 4, condition = "afflicted") => ({ name, type, amount, condition });
+const P = (name, type, amount = 4, condition = "afflicted", extra = {}) => ({ name, type, amount, condition, ...extra });
 const K = (role, combo, passive, skills, defense) => ({ role, combo, passive, skills, defense });
+const T = (name, trigger, effect, description, extra = {}) => ({ name, type: "triggered", trigger, effect, description, ...extra });
 
 const rosters = {
   sangria: [
-    K("Executor", "Abra um sangramento e consuma a ferida no golpe final.", P("Faro de Sangue", "hunter", 5, "bleed"), [A("Incisão de Abate",15,1,{dot:D("sangramento")}), A("Separar Tendões",10,2,{stun:1,cooldown:2}), F("Sentença do Cutelo",30,"bleed",15,{combo:{condition:"bleed",bonusDamage:15,consume:true}})], "Passo entre Lâminas"),
+    K("Executor", "Abra um sangramento e consuma a ferida no golpe final.", P("Faro de Sangue", "hunter", 5, "bleed"), [A("Incisão de Abate",15,1,{dot:D("sangramento")}), A("Separar Tendões",10,2,{stun:1,cooldown:2}), F("Sentença do Cutelo",28,"bleed",12,{combo:{condition:"bleed",bonusDamage:12,consume:true}})], "Passo entre Lâminas"),
     K("Duelista", "O fio escarlate expõe a vítima; a viúva rouba Vida quando cobra sua promessa.", P("Luto Faminto", "leech", 4), [A("Fio Escarlate",15,1,{mark:"fio",expose:1}), S("Véu da Viúva",{target:"self",counter:20},2), F("Beijo da Última Noite",25,"mark:fio",15,{lifesteal:.5})], "Véu de Sangue"),
     K("Caçador", "Acumule troféus com ataques e gaste as cargas para uma execução concentrada.", P("Primeiro Troféu", "firstHit", 5), [A("Laço de Caça",15,1,{gainCharge:1}), A("Cobrança do Caçador",20,1,{stripShield:15}), A("Galeria de Troféus",20,2,{perChargeDamage:8,spendCharge:true,cooldown:2})], "Sombra do Colecionador"),
     K("Ruptor", "Dois cortes alternam pressão e exposição; a execução ganha força contra uma abertura.", P("Ritmo dos Gêmeos", "hunter", 4,"exposed"), [A("Cutelo da Esquerda",15,1,{expose:1}), A("Cutelo da Direita",15,1,{dot:D("sangramento",4,2)}), F("Encontro das Lâminas",25,"exposed",15,{cost:3,target:"all-enemies",damage:15,combo:{condition:"exposed",bonusDamage:10},cooldown:2})], "Dança Cruzada"),
-    K("Sentenciador", "Marque a sentença e interrompa a resistência antes de executar um alvo ferido.", P("Sem Apelação", "hunter", 5,"stunned"), [A("Sentença sem Nome",10,1,{mark:"sentenca",weaken:1}), F("Queda da Guilhotina",25,"mark:sentenca",10,{combo:{condition:"mark:sentenca",bonusDamage:10,stun:1},cooldown:2}), F("Última Respiração",25,"wounded",20)], "Capuz do Esquecimento"),
+    K("Sentenciador", "Marque a sentença e interrompa a resistência antes de executar um alvo ferido.", P("Sem Apelação", "hunter", 5,"stunned"), [A("Sentença sem Nome",10,1,{mark:"sentenca",weaken:1}), F("Queda da Guilhotina",25,"mark:sentenca",10,{combo:{condition:"mark:sentenca",bonusDamage:10,stun:1},cooldown:2}), F("Última Respiração",25,"wounded",15)], "Capuz do Esquecimento"),
     K("Sustentação", "Converta feridas em proteção e sacrifique a própria Vida para alimentar o trio.", P("Sangue que Acolhe", "support", 5), [A("Cordão Rubro",15,1,{lifesteal:.5}), S("Partilha da Mãe",{heal:20,shield:10,selfDamage:5}), A("Berço de Sangue",10,2,{target:"all-enemies",dot:D("sangramento",4,2),cooldown:2})], "Casulo Rubro")
   ],
   coroa: [
@@ -25,28 +26,28 @@ const rosters = {
     K("Rebelde", "Resista com pouca Vida e converta o peso da prisão em uma ruptura ofensiva.", P("Vontade Cativa", "comeback",6), [A("Punho Acorrentado",20,1,{gainCharge:1}), S("Aguentar o Decreto",{target:"self",heal:15,reduce:10}), A("Sucessão Rompida",25,2,{perChargeDamage:8,spendCharge:true,selfDamage:5,cooldown:1})], "Brecha na Cela")
   ],
   mentira: [
-    K("Sabotador", "Uma palavra venenosa prepara o próximo sussurro para roubar recursos.", P("Segredo em Circulação", "hunter",4,"poison"), [A("Palavra Envenenada",10,1,{dot:D("veneno",5,3),damageType:"energy"}), F("Segredo Cobrado",20,"poison",10,{steal:1}), S("Aviso Falso",{target:"ally",counter:15},2)], "Voz sem Origem"),
+    K("Sabotador", "Uma palavra venenosa prepara o próximo sussurro para roubar Essência.", P("Segredo em Circulação", "hunter",4,"poison"), [A("Palavra Envenenada",10,1,{dot:D("veneno",5,3),damageType:"energy"}), F("Segredo Cobrado",20,"poison",10,{steal:1}), S("Aviso Falso",{target:"ally",counter:15},2)], "Voz sem Origem"),
     K("Ilusionista", "Alterne entre marcar um alvo e desarmar sua tentativa de resposta.", P("Segundo Rosto", "leech",3), [A("Rosto Emprestado",15,1,{mark:"mascara",damageType:"energy"}), S("O Outro Rosto",{target:"self",counter:25},2), F("Traição Revelada",20,"mark:mascara",15,{steal:1,combo:{condition:"mark:mascara",bonusDamage:15,consume:true},cooldown:2})], "Troca de Máscara"),
     K("Manipulador", "Tecidos de engano enfraquecem o grupo; o nó central pune um alvo preso à trama.", P("Trama Paciente", "hunter",4,"marked"), [A("Fio de Engano",10,1,{mark:"trama",weaken:1}), A("Rede de Falsidades",10,2,{target:"all-enemies",weaken:1,cooldown:2}), F("Nó da Contradição",25,"mark:trama",10,{combo:{condition:"mark:trama",bonusDamage:10,stun:1},cooldown:2})], "Fora da Trama"),
     K("Atiradora", "Estilhaços passam pela redução de dano; a exposição amplifica o discurso final.", P("Verdade Fraturada", "hunter",4,"exposed"), [A("Sílaba Cortante",20,1,{damageType:"piercing"}), A("Confissão Rachada",10,1,{expose:1,drain:1,cooldown:1}), F("Discurso em Estilhaços",20,"exposed",10,{cost:3,target:"all-enemies",damageType:"piercing",cooldown:2})], "Reflexo da Boca"),
     K("Corruptor", "Uma promessa marca o adversário; a falsa bênção mantém o usuário enquanto o culto cresce.", P("Fé Desviada", "renew",3), [A("Promessa do Profeta",15,1,{mark:"profecia",damageType:"energy"}), S("Bênção Falsa",{target:"self",heal:20,gainCharge:1}), F("Milagre Fabricado",25,"mark:profecia",10,{perChargeDamage:5,spendCharge:true,cooldown:2})], "Imagem Sagrada"),
-    K("Ladrão de Memórias", "Apague a guarda e cobre a lembrança marcada em forma de recursos e dano.", P("Arquivo Roubado", "firstHit",5), [A("Lembrança Hipotecada",10,1,{mark:"memoria",steal:1,cooldown:1}), A("Esquecer a Defesa",15,1,{stripShield:25,purge:true}), F("Liquidação do Passado",25,"mark:memoria",15,{damageType:"energy"})], "Memória Substituta")
+    K("Ladrão de Memórias", "Apague a guarda; depois, cobre a lembrança marcada com dano e rouba Essência.", P("Arquivo Roubado", "firstHit",5), [A("Lembrança Hipotecada",10,1,{mark:"memoria",steal:1,cooldown:1}), A("Esquecer a Defesa",15,1,{stripShield:25,purge:true}), F("Liquidação do Passado",25,"mark:memoria",15,{damageType:"energy"})], "Memória Substituta")
   ],
   chama: [
     K("Incendiário", "Espalhe queimaduras e consuma a combustão para uma explosão concentrada.", P("Pavio Aceso", "hunter",4,"burn"), [A("Pavio de Ódio",15,1,{dot:D("queimadura",5,2),damageType:"energy"}), A("Fagulhas em Cadeia",10,2,{target:"all-enemies",dot:D("queimadura",4,2),cooldown:2}), F("Detonação Negra",25,"burn",15,{combo:{condition:"burn",bonusDamage:15,consume:true},damageType:"energy"})], "Corpo de Fumaça"),
     K("Controladora de Chamas", "Mantenha a chama no alvo e interrompa sua ação enquanto a brasa se fortalece.", P("Calor Persistente", "hunter",5,"burn"), [A("Brasa que Permanece",15,1,{dot:D("queimadura",5,3),damageType:"energy"}), F("Sufoco das Cinzas",10,"burn",5,{combo:{condition:"burn",bonusDamage:5,stun:1},weaken:1,cooldown:2}), A("Fornalha Interior",25,2,{damageType:"energy",gainCharge:1,perChargeDamage:5,cooldown:1})], "Manto de Cinzas"),
-    K("Berserker", "Ferir a si próprio aumenta a pressão; a fúria atinge o auge quando a Vida baixa.", P("Raiva sem Freio", "comeback",7), [A("Punho de Rancor",25,1,{selfDamage:5}), S("Alimentar o Ódio",{target:"self",boost:10,shield:10,selfDamage:5}), F("Explosão do Ressentimento",30,"selfWounded",15,{selfDamage:5,damageType:"energy"})], "Fúria Intocável"),
+    K("Berserker", "Ferir a si próprio aumenta a pressão; a fúria atinge o auge quando a Vida baixa.", P("Raiva sem Freio", "comeback",7), [A("Punho de Rancor",25,1,{selfDamage:5}), S("Alimentar o Ódio",{target:"self",boost:10,shield:10,selfDamage:5}), F("Explosão do Ressentimento",27,"selfWounded",10,{selfDamage:5,damageType:"energy"})], "Fúria Intocável"),
     K("Sobrevivente", "Guarde calor com golpes pequenos e use as cinzas para recuperar o corpo.", P("Debaixo das Cinzas", "renew",4), [A("Carvão Oculto",15,1,{gainCharge:1,damageType:"energy"}), S("Recompor-se da Cinza",{target:"self",heal:15,perChargeHeal:7,spendCharge:true}), A("Renascer em Chamas",25,2,{dot:D("queimadura",5,2),cleanse:true,cooldown:2})], "Dissolução em Cinzas"),
     K("Cerco", "Prepare uma pira lenta, espalhe o fogo e elimine a guarda do alvo em combustão.", P("Lenha da Travessia", "ward",3), [A("Lenha Espiritual",10,1,{dot:D("queimadura",6,3)}), S("Círculo da Pira",{target:"self",counter:20,shield:10},2), F("Marcha da Fogueira",15,"burn",10,{cost:3,target:"all-enemies",stripShield:15,cooldown:2})], "Passo entre Brasas"),
     K("Ruptor", "Cada pulsação carrega o coração; o descontrole converte as cargas em dano.", P("Pulso Irado", "retaliate",3), [A("Batida Escaldante",15,1,{gainCharge:1}), A("Sangue em Ebulição",20,1,{selfDamage:5,boost:5}), A("Coração em Erupção",20,2,{perChargeDamage:10,spendCharge:true,selfDamage:8,cooldown:2})], "Pulso Intangível")
   ],
   fome: [
     K("Predador", "Drene Vida e finalize inimigos feridos para sustentar a própria presença.", P("Fome Crescente", "leech",4), [A("Mordida da Alma",15,1,{lifesteal:.5}), A("Saliva Corrosiva",10,1,{stripShield:20,expose:1}), F("Engolir a Essência",25,"wounded",15,{lifesteal:.5})], "Mandíbula do Vazio"),
-    K("Usurpadora", "A mão rouba recursos enquanto a cobrança destrói as defesas do adversário.", P("Posse Insaciável", "firstHit",4), [A("Dedos da Cobiça",10,1,{steal:1,cooldown:1}), S("Guardar o que Roubou",{target:"self",shield:20,gainCharge:1}), A("Confisco da Alma",20,2,{stripShield:30,perChargeDamage:7,spendCharge:true,cooldown:1})], "Mão Fora de Alcance"),
+    K("Usurpadora", "A mão rouba Essência enquanto a cobrança destrói as defesas do adversário.", P("Posse Insaciável", "firstHit",4), [A("Dedos da Cobiça",10,1,{steal:1,cooldown:1}), S("Guardar o que Roubou",{target:"self",shield:20,gainCharge:1}), A("Confisco da Alma",20,2,{stripShield:30,perChargeDamage:7,spendCharge:true,cooldown:1})], "Mão Fora de Alcance"),
     K("Devorador de Defesa", "Devore a guarda e transforme cada refeição em cargas para o abismo.", P("Digestão Lenta", "renew",3), [A("Corrosão Faminta",15,1,{stripShield:20,gainCharge:1}), S("Reserva do Estômago",{target:"self",heal:20,reduce:5}), A("Fundo que Não Existe",20,2,{damageType:"affliction",perChargeDamage:8,spendCharge:true,cooldown:2})], "Refúgio no Abismo"),
     K("Apoio da Escassez", "Reparta o pouco que resta e puna quem carrega a marca da privação.", P("Última Migalha", "support",5), [A("Marca da Privação",10,1,{mark:"privacao",drain:1,cooldown:1}), S("Dividir o Último Pão",{target:"team",heal:12},2), F("Dívida da Mesa Vazia",25,"mark:privacao",10,{lifesteal:.5})], "Mesa Inviolável"),
-    K("Cobrador", "A dívida amadurece em marcas e recursos; a cobrança final exige pagamento.", P("Juros da Alma", "hunter",5,"marked"), [A("Assinar a Dívida",10,1,{mark:"divida",markTurns:4}), F("Juros Acumulados",20,"mark:divida",10,{steal:1}), F("Execução do Contrato",25,"mark:divida",15,{combo:{condition:"mark:divida",bonusDamage:15,consume:true},damageType:"piercing"})], "Cláusula de Ausência"),
-    K("Drenagem", "Esvazie os recursos inimigos e equilibre a própria Vida com o peso do alvo.", P("Peso da Carência", "comeback",5), [A("Prato da Falta",15,1,{drain:1,cooldown:1}), S("Contrapeso Vital",{heal:20,cleanse:true},2), F("Fome em Equilíbrio",25,"wounded",10,{target:"all-enemies",damage:15,cooldown:2})], "Peso Zero")
+    K("Cobrador", "A dívida amadurece em marcas e Essência; a cobrança final exige pagamento.", P("Juros da Alma", "hunter",5,"marked"), [A("Assinar a Dívida",10,1,{mark:"divida",markTurns:4}), F("Juros Acumulados",20,"mark:divida",10,{steal:1}), F("Execução do Contrato",25,"mark:divida",15,{combo:{condition:"mark:divida",bonusDamage:15,consume:true},damageType:"piercing"})], "Cláusula de Ausência"),
+    K("Drenagem", "Esvazie a Essência inimiga e equilibre a própria Vida com o peso do alvo.", P("Peso da Carência", "comeback",5), [A("Prato da Falta",15,1,{drain:1,cooldown:1}), S("Contrapeso Vital",{heal:20,cleanse:true},2), F("Fome em Equilíbrio",25,"wounded",10,{target:"all-enemies",damage:15,cooldown:2})], "Peso Zero")
   ],
   podridao: [
     K("Aflição", "A decadência enfraquece a guarda e prepara a decomposição do alvo.", P("Carne em Ruína", "hunter",4,"decay"), [A("Contato da Ruína",10,1,{dot:D("decadencia",5,3)}), A("Tecido Cedido",15,1,{weaken:1,stripShield:15}), F("Decomposição Completa",25,"decay",15,{damageType:"affliction"})], "Casca Morta"),
@@ -74,8 +75,8 @@ const rosters = {
   ],
   vazio: [
     K("Anulador", "Apague proteções antes de extinguir a marca deixada na alma do alvo.", P("Nada se Sustenta", "hunter",4,"marked"), [A("Traço Apagado",15,1,{purge:true,mark:"apagamento"}), A("Branco sobre a Guarda",20,1,{stripShield:30}), F("Extinguir o Traço",30,"mark:apagamento",10,{damageType:"affliction"})], "Fora da Existência"),
-    K("Evasão", "O adversário perde recursos tentando preencher a ausência; a falta vira dano.", P("Falta de Substância", "ward",4), [A("Toque Ausente",15,1,{drain:1,cooldown:1}), S("Ataque a Ninguém",{target:"self",counter:20},2), A("Ausência Contagiosa",15,2,{target:"all-enemies",weaken:1,damageType:"energy",cooldown:2})], "Não Estar"),
-    K("Finalizador", "Reduza a resistência em silêncio e concentre a sentença em um inimigo ferido.", P("Último Instante", "hunter",6,"wounded"), [A("Aviso do Fim",15,1,{weaken:1}), A("Cessar da Vontade",10,2,{stun:1,purge:true,cooldown:2}), F("Sem Últimas Palavras",30,"wounded",15,{damageType:"piercing"})], "Instante sem Tempo"),
+    K("Evasão", "O adversário perde Essência tentando preencher a ausência; a falta vira dano.", P("Falta de Substância", "ward",4), [A("Toque Ausente",15,1,{drain:1,cooldown:1}), S("Ataque a Ninguém",{target:"self",counter:20},2), A("Ausência Contagiosa",15,2,{target:"all-enemies",weaken:1,damageType:"energy",cooldown:2})], "Não Estar"),
+    K("Finalizador", "Reduza a resistência em silêncio e concentre a sentença em um inimigo ferido.", P("Último Instante", "hunter",6,"wounded"), [A("Aviso do Fim",15,1,{weaken:1}), A("Cessar da Vontade",10,2,{stun:1,purge:true,cooldown:2}), F("Sem Últimas Palavras",28,"wounded",12,{damageType:"piercing"})], "Instante sem Tempo"),
     K("Sombra Frágil", "Guarde fragmentos da própria sombra e lance uma investida que cobra Vida.", P("Medo sem Forma", "comeback",6), [A("Brincadeira sem Sombra",15,1,{gainCharge:1,damageType:"energy"}), S("Refúgio na Falta",{target:"self",heal:15,reduce:10}), A("Sol que Não Encontra",20,2,{perChargeDamage:9,spendCharge:true,selfDamage:5,damageType:"affliction",cooldown:2})], "Infância Invisível"),
     K("Encerramento", "Escreva a conclusão no alvo e remova suas vantagens antes de fechar o livro.", P("Parágrafo Final", "firstHit",5), [A("Nome na Última Folha",10,1,{mark:"pagina",expose:1}), A("Rasura do Destino",15,1,{purge:true,drain:1,cooldown:1}), F("Fechar a História",25,"mark:pagina",15,{combo:{condition:"mark:pagina",bonusDamage:15,consume:true},damageType:"energy"})], "Margem em Branco"),
     K("Desolação", "O território corrói todos; a ruína do alvo escolhido alimenta a sobrevivência.", P("Habitar o Nada", "renew",3), [A("Chão de Ninguém",5,2,{target:"all-enemies",dot:D("decadencia",5,2),cooldown:1}), A("Endereço Inexistente",15,1,{mark:"lugar",weaken:1}), F("Engolido pelo Lugar",25,"mark:lugar",10,{lifesteal:.5,damageType:"affliction"})], "Território Impossível")
@@ -134,7 +135,7 @@ const rosters = {
     K("Ruptura de Vínculos", "Corte a proteção e amarre a falha do inimigo a uma linha que ainda não terminou.", P("Tensão da Ruptura", "hunter",4,"marked"), [A("Extremidade Solta",15,1,{mark:"linha",stripShield:15}), S("Nó de Emergência",{heal:20,shield:10,selfDamage:5}), F("Puxar o Fim da Linha",25,"mark:linha",15,{damageType:"affliction",selfDamage:5})], "Linha Inalcançável"),
     K("Eco Errante", "Acumule ecos e devolva a intenção agressiva antes de liberar a ressonância.", P("Ressonância sem Dono", "retaliate",3), [A("Eco Residual",15,1,{gainCharge:1,damageType:"energy"}), S("Devolver a Voz",{counter:20},2), A("Coro sem Origem",15,3,{target:"all-enemies",perChargeDamage:5,spendCharge:true,selfDamage:5,damageType:"energy",cooldown:2})], "Eco Intangível"),
     K("Travessia", "Uma abertura marca o destino; atravesse a defesa e preserve quem precisa passar.", P("Limite Suspenso", "support",4), [A("Abertura Impossível",15,1,{mark:"passagem",expose:1,damageType:"energy"}), S("Travessia Segura",{shield:25,cleanse:true},2), F("Fechar a Passagem",25,"mark:passagem",10,{damageType:"piercing",selfDamage:5})], "Do Outro Lado"),
-    K("Esquecimento", "Apague vantagens e faça o adversário perder os recursos ligados ao nome marcado.", P("Nome que se Dissolve", "renew",3), [A("Sílaba Perdida",10,1,{mark:"nome",drain:1,cooldown:1}), A("Esquecer a Forma",15,1,{purge:true,weaken:1,damageType:"energy"}), F("Ninguém Responde",25,"mark:nome",15,{damageType:"affliction",selfDamage:5})], "Nome Fora da Memória"),
+    K("Esquecimento", "Apague vantagens e faça o adversário perder Essência junto ao nome marcado.", P("Nome que se Dissolve", "renew",3), [A("Sílaba Perdida",10,1,{mark:"nome",drain:1,cooldown:1}), A("Esquecer a Forma",15,1,{purge:true,weaken:1,damageType:"energy"}), F("Ninguém Responde",25,"mark:nome",15,{damageType:"affliction",selfDamage:5})], "Nome Fora da Memória"),
     K("Tempo Submerso", "Atrase a resposta inimiga e gaste os segundos acumulados em dano concentrado.", P("Tempo em Reserva", "ward",3), [A("Segundo Afogado",15,1,{gainCharge:1,weaken:1,damageType:"energy"}), A("Ponteiro Imóvel",10,2,{stun:1,cooldown:2}), A("Devolver os Segundos",20,2,{perChargeDamage:10,spendCharge:true,selfDamage:8,damageType:"energy",cooldown:2})], "Instante Submerso"),
     K("Inversão", "Desarme a ofensiva e use a abertura para uma queda que desafia o peso do mundo.", P("Queda Ascendente", "hunter",5,"weakened"), [A("Pena ao Contrário",10,1,{weaken:2}), S("Voo Reverso",{target:"self",counter:20,boost:5},2), F("Cair para o Alto",25,"weakened",15,{damageType:"piercing",selfDamage:5})], "Asa Fora do Plano"),
     K("Vidro Errante", "Marque o caminho em estilhaços e gaste a própria integridade para atravessar a guarda.", P("Luz nas Fissuras", "comeback",6), [A("Pegada de Vidro",15,1,{mark:"vidro",dot:D("sangramento",4,2)}), S("Reflexo do Andarilho",{target:"self",counter:25},2), F("Travessia Estilhaçada",25,"mark:vidro",15,{damageType:"piercing",selfDamage:8})], "Passo Transparente"),
@@ -143,6 +144,94 @@ const rosters = {
     K("Suspensão Vital", "Preserve a forma por um instante, carregue o limiar e solte a alma em uma descarga.", P("Fôlego no Limiar", "renew",4), [A("Pulso Suspenso",15,1,{gainCharge:1,damageType:"energy"}), S("Prender o Último Fôlego",{heal:20,shield:15,selfDamage:5},2), A("Soltar a Âncora",20,2,{perChargeDamage:9,spendCharge:true,damageType:"affliction",selfDamage:5,cooldown:2})], "Suspensão Absoluta")
   ]
 };
+
+// Replaces repeated one-line bonuses with distinct, bounded triggers across every Elo.
+// Triggered passives proc at most once per round unless the design says otherwise.
+const passiveRevisions = {
+  sangria: {
+    0: T("Faro de Sangue", "consume", { generateEssence: { resource: "ruptura", amount: 1 } }, "Ao consumir Sangramento de um inimigo, gera 1 Ruptura para a equipe. Ativa uma vez por rodada."),
+    1: T("Luto Faminto", "kill", { heal: 8, generateEssence: { resource: "coringa", amount: 1 } }, "Quando um inimigo marcado pela Viúva cai, ela recupera 8 de Vida e a equipe recebe 1 Coringa. Ativa uma vez por rodada.", { requiresOwnMark: true })
+  },
+  coroa: {
+    2: T("Autoridade Delegada", "turnStart", { shield: 4 }, "No início do turno, recebe 4 de Defesa se não atacou na rodada anterior ou perdeu Vida para uma habilidade. A defesa pessoal não conta como ataque.", { ifNoOffenseOrDamaged: true }),
+    5: T("Ambição Acorrentada", "turnStart", { gainCharge: 1, selfDamage: 3 }, "Com 50 de Vida ou menos, ganha 1 carga no início do turno, mas perde 3 de Vida sem poder ser derrotado por esse custo.", { hpAtMost: 50 })
+  },
+  mentira: {
+    1: T("Segundo Rosto", "formChange", { generateEssence: { resourceFromForm: true, amount: 1 } }, "Ao assumir ou deixar uma Forma, gera 1 Essência do tipo da nova Forma; ao voltar ao corpo original, usa sua afinidade. Ativa uma vez por rodada."),
+    5: T("Arquivo Roubado", "essenceSpent", { stealEssence: { amount: 1 } }, "Uma vez por rodada, ao pagar Éter por uma técnica, rouba 1 Essência da reserva adversária, se houver.", { spendResource: "essence" })
+  },
+  chama: {
+    1: T("Calor Persistente", "kill", { heal: 4, generateEssence: { resource: "ruptura", amount: 1 } }, "Quando um inimigo com sua Queimadura cai, recupera 4 de Vida e gera 1 Ruptura. Ativa uma vez por rodada.", { requiresOwnDot: "queimadura" }),
+    2: T("Raiva sem Freio", "turnStart", { selfDamage: 3 }, "Enquanto Ódio Solto estiver ativo, perde 3 de Vida no início do turno sem poder ser derrotado por esse custo. Técnicas transformadas que exigem Éter custam 1 a menos.", { ifForm: "rage", costDiscount: { form: "rage", resource: "essence", amount: 1 } })
+  },
+  fome: {
+    1: T("Posse Insaciável", "firstHit", { stealEssence: { amount: 1 } }, "Na primeira habilidade ofensiva que causa dano no combate, rouba 1 Essência da reserva adversária, se houver.", { oncePerBattle: true }),
+    5: T("Lucro da Carência", "attack", { drainEssence: { resource: "coringa", amount: 1 }, weakenTarget: 1 }, "Ao atacar um inimigo que guarda ao menos 2 Coringas, remove 1 Coringa e reduz em 10 o dano causado por ele na próxima ação. Ativa uma vez por rodada.", { enemyResource: "coringa", enemyResourceMinimum: 2 })
+  },
+  podridao: {
+    0: T("Carne em Ruína", "consume", { generateEssence: { resource: "cinza", amount: 1 } }, "Ao consumir Decadência de um inimigo, gera 1 Cinza para a equipe. Ativa uma vez por rodada."),
+    3: T("Colônia Viva", "turnStart", { gainCharge: 1 }, "Se a equipe tiver ao menos 2 Cinzas no início do turno, ganha 1 carga. Ativa uma vez por rodada.", { ifResource: "cinza", resourceMinimum: 2 })
+  },
+  silencio: {
+    1: T("Abrigo dos Cúmplices", "turnStart", { drainEssence: { resource: "essence", amount: 1 }, shield: 3 }, "Se a oposição tiver ao menos 2 Éteres no início do turno, remove 1 e recebe 3 de Defesa. Ativa uma vez por rodada.", { enemyResource: "essence", enemyResourceMinimum: 2 }),
+    4: T("Hospitalidade Negada", "turnStart", { generateEssence: { resource: "cinza", amount: 1 } }, "Se algum inimigo tiver uma aflição no início do turno, gera 1 Cinza para a equipe. Ativa uma vez por rodada.", { ifEnemyAfflicted: true })
+  },
+  carne: {
+    1: T("Adaptação Predatória", "formChange", { generateEssence: { resourceFromForm: true, amount: 1 } }, "Cada troca de Forma gera 1 Essência correspondente ao novo corpo; voltar ao original usa a afinidade da Metamorfa. Ativa uma vez por rodada."),
+    4: T("Eco da Dor", "damaged", { damageAttacker: 5, generateEssence: { resource: "coringa", amount: 1 } }, "Ao perder Vida para uma habilidade espiritual, devolve 5 de dano de aflição ao agressor e gera 1 Coringa. Ativa uma vez por rodada.", { damageTypes: ["energy"], requiresLifeLoss: true })
+  },
+  vazio: {
+    1: T("Falta de Substância", "damaged", { generateEssence: { resource: "coringa", amount: 1 } }, "Ao perder Vida para uma habilidade física, gera 1 Coringa. Ativa uma vez por rodada.", { damageTypes: ["physical"], requiresLifeLoss: true }),
+    5: T("Sustento do Apagamento", "turnStart", { convertEssence: { from: "cinza", to: "coringa", amount: 1 }, heal: 4 }, "Se tiver ao menos 2 Cinzas no início do turno, converte 1 em Coringa e recupera 4 de Vida. Ativa uma vez por rodada.", { ifResource: "cinza", resourceMinimum: 2 })
+  },
+  protecao: {
+    1: T("Pedra sobre Pedra", "turnStart", { shield: 6 }, "Recebe 6 de Defesa no início do turno somente se perdeu Vida para uma habilidade na rodada anterior." , { ifDamagedLastTurn: true }),
+    3: T("Última Vigília", "damaged", { gainCharge: 1 }, "Se ainda tiver Defesa após receber uma habilidade física ou perfurante, ganha 1 carga. Ativa uma vez por rodada.", { damageTypes: ["physical", "piercing"], requiresRemainingShield: true })
+  },
+  cura: {
+    1: T("Recomposição Contínua", "essenceSpent", { heal: 4 }, "Uma vez por rodada, ao pagar Graça por uma técnica, recupera 4 de Vida.", { spendResource: "graca" }),
+    3: T("Remédio Perene", "support", { generateEssence: { resource: "graca", amount: 1 } }, "Quando um apoio restaura ao menos 10 de Vida de uma alma, gera 1 Graça. Ativa uma vez por rodada.", { minimumHeal: 10 })
+  },
+  justica: {
+    2: T("Paciência da Balança", "turnStart", { gainCharge: 1 }, "Se tiver ao menos 2 Éteres no início do turno, ganha 1 carga. Ativa uma vez por rodada.", { ifResource: "essence", resourceMinimum: 2 }),
+    4: T("Clemência Inabalável", "support", { shieldTarget: 5 }, "Quando uma técnica de apoio restaura ao menos 10 de Vida de um aliado, concede mais 5 de Defesa a ele. Ativa uma vez por rodada.", { minimumHeal: 10 })
+  },
+  esperanca: {
+    0: T("Ainda Há Amanhã", "turnStart", { spendEssence: { resource: "ruptura", amount: 1 }, heal: 7 }, "Com 50 de Vida ou menos e pelo menos 1 Ruptura disponível, consome 1 Ruptura e recupera 7 de Vida no início do turno.", { hpAtMost: 50, resourceMinimum: 1, ifResource: "ruptura" }),
+    1: T("Levantar Outra Vez", "kill", { healTeam: 4 }, "Quando elimina um inimigo, recupera 4 de Vida para cada aliado vivo. Ativa uma vez por rodada.")
+  },
+  verdade: {
+    0: T("Nada a Esconder", "attack", { drainEssence: { resource: "essence", amount: 1 } }, "Ao atingir um inimigo Exposto que guarda Éter, remove 1 Éter da reserva adversária. Ativa uma vez por rodada.", { requiresExposed: true, enemyResource: "essence", enemyResourceMinimum: 1 }),
+    1: T("Sem Disfarce", "firstHit", { generateEssence: { resource: "graca", amount: 1 } }, "Na primeira habilidade ofensiva que causa dano no combate, gera 1 Graça para a equipe.", { oncePerBattle: true })
+  },
+  uniao: {
+    1: T("Cuidar em Conjunto", "support", { healSource: 5 }, "Quando um apoio restaura ao menos 10 de Vida de um aliado, a Tecelã recupera 5 de Vida. Ativa uma vez por rodada.", { minimumHeal: 10 }),
+    3: T("Passo de Irmandade", "turnStart", { shieldTeam: 1 }, "Enquanto os três irmãos estiverem vivos, cada um concede 1 de Defesa destrutível a todo o trio no início do turno.", { requireThreeAllies: true })
+  },
+  criacao: {
+    0: T("Ideia Persistente", "essenceSpent", { convertEssence: { from: "cinza", to: "essence", amount: 1 } }, "Uma vez por rodada, ao pagar Coringa por uma técnica, pode converter 1 Cinza disponível em Éter.", { spendResource: "coringa" }),
+    1: T("Potência Latente", "turnStart", { spendEssence: { resource: "coringa", amount: 1 }, generateEssence: { resource: "ruptura", amount: 1 }, gainCharge: 1 }, "Com ao menos 2 Coringas, consome 1 no início do turno para gerar 1 Ruptura e ganhar 1 carga.", { ifResource: "coringa", resourceMinimum: 2 })
+  },
+  "correntes-quebradas": {
+    0: T("Passo que Retorna", "essenceSpent", { generateEssence: { resource: "coringa", amount: 1 } }, "Uma vez por rodada, ao pagar Ruptura por uma técnica, gera 1 Coringa.", { spendResource: "ruptura" }),
+    5: T("Tempo em Reserva", "turnStart", { convertEssence: { from: "cinza", to: "essence", amount: 1 }, gainCharge: 1 }, "Se tiver ao menos 2 Cinzas no início do turno, converte 1 em Éter e ganha 1 carga. Ativa uma vez por rodada.", { ifResource: "cinza", resourceMinimum: 2 })
+  }
+};
+for (const [elo, revisions] of Object.entries(passiveRevisions)) {
+  for (const [index, passive] of Object.entries(revisions)) rosters[elo][Number(index)].passive = passive;
+}
+rosters.fome[0].passive = P("Fome Crescente", "leech", 4, "afflicted", {
+  healByDamageType: { physical: 4, piercing: 6, energy: 2 },
+  description: "Dano perfurante restaura 6 de Vida; dano físico restaura 4 e espiritual 2. Aflição não alimenta a Fome."
+});
+rosters.carne[0].passive = P("Vontade Parasita", "leech", 4, "afflicted", {
+  healByDamageType: { physical: 4, piercing: 4, energy: 7 },
+  description: "Dano espiritual restaura 7 de Vida; dano físico ou perfurante restaura 4. Aflição não alimenta a Vontade."
+});
+rosters["correntes-quebradas"][7].passive = P("Fome da Penumbra", "leech", 4, "afflicted", {
+  healByDamageType: { physical: 2, energy: 4, affliction: 6 },
+  description: "Dano de aflição restaura 6 de Vida, espiritual 4 e físico 2. Golpes perfurantes não restauram Vida."
+});
 
 const conditionLabels = {
   bleed: "o alvo está com Sangramento", burn: "o alvo está com Queimadura", poison: "o alvo está com Veneno", decay: "o alvo está com Decadência",
@@ -164,7 +253,7 @@ export function describeAbility(a) {
   if(a.shield) parts.push(`Concede ${a.shield} de Defesa destrutível${a.damage ? " ao usuário" : a.target === "team" ? " ao trio" : ""}.`);
   if(a.reduce) parts.push(`Reduz em ${a.reduce} o dano recebido por 1 turno${a.damage ? " pelo usuário" : ""}.`);
   if(a.boost) parts.push(`Aumenta em ${a.boost} o dano${a.damage ? " do usuário" : ""} até o fim do próximo turno do beneficiado.`);
-  if(a.counter) parts.push(`Anula a próxima habilidade inimiga ${a.counterFilter?a.counterFilter.map(t=>({physical:"física",piercing:"perfurante",energy:"espiritual",affliction:"de aflição"})[t]).join(" ou ")+" ":""}recebida e contra-ataca com ${a.counter} de dano. Dura 1 turno.`);
+  if(a.counter){parts.push(`Anula a próxima habilidade inimiga ${a.counterFilter?a.counterFilter.map(t=>({physical:"física",piercing:"perfurante",energy:"espiritual",affliction:"de aflição"})[t]).join(" ou ")+" ":""}recebida e contra-ataca com ${a.counter} de dano. Dura 1 turno.`);if(a.counterRequiresShield)parts.push("Só ativa se o beneficiado ainda tiver Defesa destrutível.");if(a.counterEffect?.stealEssence)parts.push(`Ao ativar, rouba até ${a.counterEffect.stealEssence.amount||1} Essência da reserva adversária.`);if(a.counterEffect?.drainEssence)parts.push(`Ao ativar, remove até ${a.counterEffect.drainEssence.amount||1} Essência da reserva adversária.`);if(a.counterEffect?.generateEssence)parts.push(`Ao ativar, gera ${a.counterEffect.generateEssence.amount||1} ${({essence:"Éter",cinza:"Cinza",ruptura:"Ruptura",graca:"Graça",coringa:"Coringa"})[a.counterEffect.generateEssence.resource]||"Essência"}.`);if(a.counterEffect?.expose)parts.push("Ao ativar, expõe o agressor até o fim do próximo turno.");if(a.counterEffect?.mark)parts.push("Ao ativar, marca o agressor por 2 turnos.");}
   if(a.regen) parts.push(`Regeneração: restaura ${a.regen.heal} de Vida no início dos próximos ${a.regen.turns} turnos${a.target==="team"?" de cada aliado":" do beneficiado"}.`);
   if(a.sealSupport) parts.push(`Sela técnicas de apoio por ${a.sealSupport} turno do alvo. A defesa pessoal continua disponível.`);
   if(a.sealAttack) parts.push(`Sela técnicas ofensivas por ${a.sealAttack} turno do alvo.`);
@@ -180,14 +269,17 @@ export function describeAbility(a) {
   if(a.siphonToAlly) parts.push(`Restaura ao aliado proporcionalmente mais ferido ${Math.round(a.siphonToAlly*100)}% do dano real causado (máx. 15 por uso).`);
   if(a.cleanseBonusShield) parts.push(`Cada condição removida concede ${a.cleanseBonusShield} de Defesa ao beneficiado (máx. 15).`);
   if(a.purgeBonusDamage) parts.push(`Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta ${a.purgeBonusDamage} ao dano (máx. +12).`);
-  if(a.reactive){const r=a.reactive,trigger={attack:"Se o alvo usar uma técnica ofensiva em sua próxima vez",support:"Se o alvo usar uma técnica de apoio em sua próxima vez",skill:"Se o alvo usar uma técnica em sua próxima vez",idle:"Se o alvo não usar nenhuma técnica em sua próxima vez",damaged:"Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado"}[r.trigger];const effects=[r.damage?`causa ${r.damage} de dano de aflição ${r.trigger==="damaged"?"ao agressor":"ao próprio alvo"}`:"",r.drain?`remove ${r.drain} recurso inimigo`:"",r.healSource?`restaura ${r.healSource} de Vida ao usuário`:"",r.healBoth?`restaura ${r.healBoth} de Vida ao usuário e ao beneficiado, uma vez por alma`:"",r.shieldSource?`concede ${r.shieldSource} de Defesa ao usuário`:"",r.exposeAttacker?"expõe o agressor até o fim do próximo turno do usuário":"",r.shift?"abre uma técnica alternativa para o usuário por 2 turnos":""].filter(Boolean);parts.push(`${trigger}: ${effects.join(" e ")}. Ativa uma vez.`);}
+  if(a.reactive){const r=a.reactive,trigger={attack:"Se o alvo usar uma técnica ofensiva em sua próxima vez",support:"Se o alvo usar uma técnica de apoio em sua próxima vez",skill:"Se o alvo usar uma técnica em sua próxima vez",idle:"Se o alvo não usar nenhuma técnica em sua próxima vez",damaged:"Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado"}[r.trigger];const effects=[r.damage?`causa ${r.damage} de dano de aflição ${r.trigger==="damaged"?"ao agressor":"ao próprio alvo"}`:"",r.drain?`remove ${r.drain} ${r.drain===1?"unidade":"unidades"} de Essência da reserva adversária`:"",r.healSource?`restaura ${r.healSource} de Vida ao usuário`:"",r.healBoth?`restaura ${r.healBoth} de Vida ao usuário e ao beneficiado, uma vez por alma`:"",r.shieldSource?`concede ${r.shieldSource} de Defesa ao usuário`:"",r.exposeAttacker?"expõe o agressor até o fim do próximo turno do usuário":"",r.shift?"abre uma técnica alternativa para o usuário por 2 turnos":""].filter(Boolean);parts.push(`${trigger}: ${effects.join(" e ")}. Ativa uma vez.`);}
   if(a.cleanse) parts.push(`Remove aflições e condições prejudiciais${a.damage ? " do usuário" : ""}.`);
   if(a.purge) parts.push("Remove bônus de dano, redução e contra-ataque do alvo.");
   if(a.stripShield) parts.push(`Remove ${a.stripShield} de Defesa antes do dano.`);
-  if(a.drain) parts.push(`Remove ${a.drain} recurso da reserva inimiga${a.target === "all-enemies" ? " uma única vez" : ""}.`);
-  if(a.steal) parts.push(`Rouba ${a.steal} recurso da reserva inimiga.`);
+  if(a.drain) parts.push(`Remove ${a.drain} ${a.drain===1?"unidade":"unidades"} de Essência da reserva inimiga${a.target === "all-enemies" ? " uma única vez" : ""}.`);
+  if(a.steal) parts.push(`Rouba ${a.steal} ${a.steal===1?"unidade":"unidades"} de Essência da reserva inimiga.`);
   if(a.lifesteal) parts.push(`Restaura ao usuário ${Math.round(a.lifesteal*100)}% do dano causado.`);
   if(a.gainCharge) parts.push(`Ganha ${a.gainCharge} carga (máx. 3).`);
+  const essenceNames={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',coringa:'Coringa'};
+  if(a.generateEssence)parts.push(`Gera ${a.generateEssence.amount||1} ${essenceNames[a.generateEssence.resource]||'Essência'} para a reserva da equipe.`);
+  if(a.convertEssence){const source=a.convertEssence.from==='any'?'um tipo disponível':essenceNames[a.convertEssence.from]||'Essência';parts.push(`Converte ${a.convertEssence.amount||1} ${source} em ${essenceNames[a.convertEssence.to]||'outro tipo de Essência'} na reserva da equipe.`);}
   if(a.perChargeDamage) parts.push(`${a.spendCharge ? "Consome as cargas:" : "Por carga:"} +${a.perChargeDamage} de dano por carga.`);
   if(a.perChargeHeal) parts.push(`Consome as cargas: +${a.perChargeHeal} de cura por carga${a.target === "team" ? " a cada aliado" : ""}.`);
   if(a.spendCharge&&!a.perChargeDamage&&!a.perChargeHeal) parts.push("Consome todas as cargas.");
@@ -198,6 +290,8 @@ export function describeAbility(a) {
   return parts.join(" ");
 }
 function describePassive(p) {
+  if(p.description)return p.description;
+  if(p.healByDamageType){const labels={physical:"físico",piercing:"perfurante",energy:"espiritual",affliction:"de aflição"};return `Após causar dano, recupera Vida conforme o tipo: ${Object.entries(p.healByDamageType).map(([type,amount])=>`${labels[type]} ${amount}`).join(", ")}.`;}
   const descriptions = {
     hunter:`Suas habilidades causam +${p.amount} de dano se ${conditionLabel(p.condition)}.`,
     leech:`Após causar dano com uma habilidade, restaura ${p.amount} de Vida.`,
@@ -208,7 +302,7 @@ function describePassive(p) {
     comeback:`Com 50 de Vida ou menos, suas habilidades causam +${p.amount} de dano.`,
     retaliate:`Ao perder Vida por uma habilidade inimiga, causa ${p.amount} de dano de aflição ao agressor.`
   };
-  return descriptions[p.type];
+  return descriptions[p.type]||"Efeito passivo específico do personagem.";
 }
 export function buildCharacterKit(eloId, index, art) {
   const original = rosters[eloId]?.[index];

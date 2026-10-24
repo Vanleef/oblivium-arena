@@ -8,10 +8,10 @@ import { renderTrail } from '../src/trail-view.js';
 import { advanceTrail } from '../src/trail.js';
 import { portraitAnchor, traceGeometry, effectTone, renderBattleMotion } from '../src/battle-motion.js';
 const ids=['o-escudo-vivo','a-brasa-eterna','o-passo-interrompido'];
-test('técnicas sem energia e em recarga continuam legíveis, sem permitirem ações ilegais',()=>{
+test('técnicas sem Essência e em recarga continuam legíveis, sem permitirem ações ilegais',()=>{
  const battle=createBattle(ids,createEnemyTeam(elos[0],ids),{rng:()=>0}),state={battle,battleNode:{label:'Patrulha'},focusSkill:{actorId:ids[0],abilityId:'impulso'}};
- assert.equal(skillAvailability(battle,battle.allies[0],battle.allies[0].abilities[0]),'ENERGIA INSUFICIENTE');
- assert.match(renderBattleDetail(state),/ENERGIA INSUFICIENTE/);assert.equal(chooseAction(battle,ids[0],'impulso',battle.enemies[0].id).ok,false);
+ assert.equal(skillAvailability(battle,battle.allies[0],battle.allies[0].abilities[0]),'ESSÊNCIA INSUFICIENTE');
+ assert.match(renderBattleDetail(state),/ESSÊNCIA INSUFICIENTE/);assert.equal(chooseAction(battle,ids[0],'impulso',battle.enemies[0].id).ok,false);
  const html=renderBattle(state,elos[0]);assert.match(html,/skill-unavailable/);assert.doesNotMatch(html,/data-use-skill="o-escudo-vivo:impulso"[^>]* disabled/);
  battle.resources.graca=1;for(const enemy of battle.enemies)enemy.invulnerable=1;assert.equal(skillAvailability(battle,battle.allies[0],battle.allies[0].abilities[0]),'SEM ALVO VÁLIDO');assert.equal(chooseAction(battle,ids[0],'impulso',battle.enemies[0].id).ok,false);
  battle.allies[0].cooldowns.impulso=3;assert.match(renderBattleDetail(state),/RECARGA 3T/);
@@ -38,7 +38,8 @@ test('Legados repetidos são agrupados e ofertas evitam efeitos já no limite',(
  p.globalUpgrades.push({kind:'preparation',difficulty:9,effect:{startingCharge:3}},{kind:'vampirism',difficulty:9,effect:{lifesteal:.3}});assert.equal(aggregateGlobal(p).startingCharge,3);assert.equal(aggregateGlobal(p).lifesteal,.6);
 });
 test('contra-ataque informa origem e alvo da reação para a animação correta',()=>{
- const battle=createBattle([ids[0]],[{id:'counter',name:'Revidador',realm:'Inferno',abilities:[{id:'idle',name:'Observar',target:'self',costs:{}}]}],{rng:()=>.6});battle.enemies[0].counter=17;
+ const battle=createBattle([ids[0]],[{id:'counter',name:'Revidador',realm:'Inferno',abilities:[{id:'idle',name:'Observar',target:'self',costs:{}}]}],{rng:()=>.41});battle.enemies[0].counter=17;
  chooseAction(battle,ids[0],'impulso','counter');commitTurn(battle);const result=resolveNextAction(battle);
  assert.equal(result.event.reactions.length,1);assert.deepEqual(result.event.reactions[0],{actorId:'counter',targetId:ids[0],actorName:'Revidador',damage:12});
 });
+

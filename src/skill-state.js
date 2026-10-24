@@ -1,3 +1,5 @@
+import { applyArchetypeForm } from "./archetypes.js";
+
 // Runtime forms belong to one combatant. Slot ids and cooldowns remain stable.
 export function initializeSkillForms(unit){
  unit.baseArt=unit.art?{...unit.art}:null;
@@ -25,6 +27,7 @@ export function refreshSkillForms(s){
   });
   const body=u.bodyForms?.find(f=>Object.entries(f.when).every(([slot,key])=>u.abilities.some(a=>a.id===slot&&a.formKey===key)));
   u.bodyResource=body?.resource||u.affinity;u.bodyForm=body?.key||'base';u.bodyFormName=body?.name||u.baseFormName||'Forma original';
+  Object.assign(u,applyArchetypeForm(u,body?.archetype||u.baseArchetype||u.archetype));
   if(u.bodyForms?.length)u.art={...u.baseArt,portrait:body?.portrait||u.baseArt?.portrait};
  }
 }

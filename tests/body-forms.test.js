@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {characters,starters,characterById} from '../src/data.js';
 import {createFinalBoss,FINAL_BOSS} from '../src/final-boss.js';
 import {previewBodyForm} from '../src/body-forms.js';
@@ -8,7 +9,7 @@ import {refreshSkillForms} from '../src/skill-state.js';
 import {portraitMarkup} from '../src/view-utils.js';
 import {renderBattle} from '../src/battle-view.js';
 const dummy=id=>({id,name:id,realm:'Inferno',maxHp:1000,abilities:[]});
-const refill=b=>{b.resources={essence:20,cinza:20,graca:20,ruptura:20};b.enemyResources={...b.resources};};
+const refill=b=>{b.resources={essence:20,cinza:20,graca:20,ruptura:20,coringa:20};b.enemyResources={...b.resources};};
 function bossBattle(){const b=createBattle([starters[0].id],[createFinalBoss(),dummy('alvo')],{rng:()=>0,enemyPlanner:()=>[]});const boss=b.enemies.shift();boss.side='player';b.allies=[boss];refill(b);return b;}
 function finish(b){let n=0;while(b.phase==='resolving'&&n++<20)resolveNextAction(b);assert.ok(n<20);}
 function cast(b,index){refill(b);const u=b.allies[0],a=u.abilities[index],target=getValidTargets(b,u,a)[0];assert.equal(chooseAction(b,u.id,a.id,target?.id).ok,true,a.name);commitTurn(b);const result=resolveNextAction(b);assert.equal(result.event?.skipped,false,a.name);return result;}
@@ -91,6 +92,18 @@ test('Furor troca de retrato ao assumir, encerrar e expirar a fúria; Oscilante 
  const b=morphBattle('a-sombra-inconstante'),u=b.allies[0],base=u.art.portrait;cast(b,1);assert.equal(u.bodyForm,'shelter');finish(b);cast(b,1);assert.equal(u.bodyForm,'base');assert.equal(u.art.portrait,base);
 });
 
+test('Devorador e Máscara Dupla têm formas legíveis, artes próprias e retorno previsível',()=>{
+ const dev=morphBattle('o-devorador'),beast=dev.allies[0],devForm=characterById['o-devorador'].bodyForms[0],threshold=beast.skillBook[0].formRule.at;
+ assert.equal(beast.bodyForm,'base');assert.notEqual(beast.art.portrait,devForm.portrait);beast.hp=threshold;refreshSkillForms(dev);
+ assert.equal(beast.bodyForm,'starved');assert.equal(beast.art.portrait,devForm.portrait);assert.equal(beast.abilities[0].formKey,'starved');
+ beast.hp=beast.maxHp;refreshSkillForms(dev);assert.equal(beast.bodyForm,'base');
+ const mask=morphBattle('a-mascara-dupla'),spirit=mask.allies[0],maskForm=characterById['a-mascara-dupla'].bodyForms[0],base=spirit.art.portrait;
+ cast(mask,0);refreshSkillForms(mask);assert.equal(spirit.bodyForm,'betrayal');assert.notEqual(spirit.art.portrait,base);assert.equal(spirit.abilities[0].formKey,'other');
+ const altSkill=spirit.abilities[0].art;assert.equal(altSkill,'/art/characters/a-mascara-dupla/body-forms-20261023/skill-impulso-other.webp');
+ spirit.skillForms.impulso.expiresAt=mask.round;mask.round++;refreshSkillForms(mask);assert.equal(spirit.bodyForm,'base');assert.equal(spirit.art.portrait,base);
+ for(const image of [beast.art.portrait,devForm.portrait,base,maskForm.portrait,altSkill])assert.ok(fs.existsSync(image.replace(/^\//,'')),image);
+});
+
 test('preview de cada forma mostra o kit completo sem alterar o personagem ou o combate',()=>{
  for(const c of [createFinalBoss(),...characters.filter(c=>c.bodyForms)]){
   const before=JSON.stringify(c);
@@ -110,7 +123,7 @@ test('formas funcionam dos dois lados do duelo autoritativo e não permitem aç�
  assert.notEqual(player.art.portrait,enemy.art.portrait);refreshSkillForms(b);
 });
 
-test('transformações não acontecem com recursos insuficientes ou Atordoamento antes da resolução',()=>{
+test('transformações não acontecem com Essência insuficiente ou Atordoamento antes da resolução',()=>{
  const b=bossBattle(),u=b.allies[0];b.resources.essence=0;assert.equal(chooseAction(b,u.id,'fenda',u.id).ok,false);assert.equal(u.bodyForm,'base');
  refill(b);assert.equal(chooseAction(b,u.id,'fenda',u.id).ok,true);commitTurn(b);u.stunned=1;const before={...b.resources};resolveNextAction(b);assert.equal(u.bodyForm,'base');assert.deepEqual(b.resources,before);
 });

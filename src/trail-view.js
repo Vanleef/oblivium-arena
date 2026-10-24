@@ -28,8 +28,16 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
   const {nodes,edges,cleared,available}=visibleTrail(run),{height,points}=trailLayout(nodes,run.seed);
   const completed=run.stage>=run.map.length,choices=nodes.filter(n=>available.has(n.id)&&!completed),locked=Boolean(options.busy||options.pending);
   const step=Math.min(run.stage+1,run.map.length),profile=options.profile||{};
+  const echoes=[...(run.memories||[]).map(memory=>({title:memory.title,text:`${memory.text||"Efeito ativo"}${memory.stacks>1?` · ${memory.stacks} ecos`:""}`,lore:memory.lore,glyph:memory.glyph})),...(run.buffs||[]).map(id=>{const buff=buffs.find(b=>b.id===id);return buff?{title:buff.title,text:buff.text,lore:buff.lore,glyph:buff.glyph||effectGlyph(buff.effect)}:null;}).filter(Boolean)];
+  const guidedGoals=[
+    {label:"Conclua o primeiro encontro",done:(run.clearedNodeIds||[]).length>0},
+    {label:"Incorpore um Aprimoramento",done:(run.buffs||[]).length>0},
+    {label:"Recolha uma Memória",done:(run.memories||[]).length>0},
+    {label:"Alcance o guardião do Elo",done:completed}
+  ];
   return `<section class="run-panel journey-shell color-${esc(elo.color)} ${fx?`trail-fx-${esc(fx.kind)}`:""}" aria-label="Trilha de ${esc(elo.name)}" aria-busy="${Boolean(options.busy)}">
     <header class="journey-heading"><div><div class="eyebrow">${esc(elo.realm.toUpperCase())} <span>/</span> ${esc(difficultyName(run.difficulty||0).toUpperCase())}</div><h3>${esc(run.variantTitle||elo.name)}</h3></div><div class="journey-progress"><span>TRAVESSIA <b>${number(step)} <i>/ ${number(run.map.length)}</i></b></span><div aria-label="${run.stage} de ${run.map.length} etapas concluídas">${run.map.map((_,i)=>`<i class="${i<run.stage?"done":i===run.stage?"current":""}"></i>`).join("")}</div></div></header>
+    ${run.guided?`<aside class="guided-objectives"><div><small>PRIMEIRA RUN GUIADA</small><b>${guidedGoals.filter(goal=>goal.done).length}/${guidedGoals.length} objetivos</b><button class="text-button" data-action="toggle-context-tips">Dicas contextuais ${options.profile?.contextTipsOff?"desligadas":"ligadas"}</button></div><ol>${guidedGoals.map(goal=>`<li class="${goal.done?"done":""}"><i>${goal.done?"✓":"·"}</i>${esc(goal.label)}</li>`).join("")}</ol></aside>`:""}
     <div class="journey-layout">
       <div class="journey-atlas">
         <div class="journey-atmosphere" aria-hidden="true">${eloCrest(elo,"journey-crest")}<span class="journey-elo-name">${esc(elo.name)}</span><div class="journey-motes"><i></i><i></i><i></i><i></i><i></i></div></div>
@@ -51,7 +59,8 @@ export function renderTrail(run,elo,fx,buffs,ownedIds=[],options={}){
     </div>
     ${councilMarkup(nodes,available,run,ownedIds)}
     <div class="journey-notice-slot">${fx?`<div class="trail-feedback journey-feedback" role="status" aria-live="polite"><span>${fx.kind==="travel"?"↝":fx.kind==="failure"?"⨯":"✦"}</span><div><b>${esc(fx.title)}</b><small>${esc(fx.summary)}</small></div></div>`:""}</div>
-    <footer class="run-footer journey-footer"><details class="run-echoes"><summary>ECOS <b>${run.buffs.length}</b><span>⌄</span></summary><div class="echo-popover">${run.buffs.length?run.buffs.map(id=>{const buff=buffs.find(b=>b.id===id);return buff?`<article><span>${augmentGlyph(effectGlyph(buff.effect))}</span><div><b>${esc(buff.title)}</b><p>${esc(buff.text)}</p></div></article>`:"";}).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></footer>
+    <footer class="run-footer journey-footer"><details class="run-echoes"><summary>ECOS <b>${echoes.length}</b><span>⌄</span></summary><div class="echo-popover">${echoes.length?echoes.map(echo=>`<article><span>${augmentGlyph(echo.glyph||"compass")}</span><div><b>${esc(echo.title)}</b><p>${esc(echo.text)}</p>${echo.lore?`<small>${esc(echo.lore)}</small>`:""}</div></article>`).join(""):'<p>Nenhum Eco coletado.</p>'}</div></details><button class="text-button" data-abandon-run>ABANDONAR TRILHA</button></footer>
   </section>`;
 }
+
 

@@ -75,7 +75,7 @@ A forma alternativa agora possui um caminho de arte independente. Ao retornar à
 
 ## Décimo primeiro lote: Boca de Vidro e Falso Profeta — Mentira
 
-Treze sprites: dois conjuntos de seis e a Confissão do Falso Santo. Boca de Vidro mantém cabelo claro trançado, brincos de cristal, mandíbula translúcida e traje; sua remoção de recurso mostra fragmentos caindo, sem transferir o recurso à usuária. A fala perfurante, a abertura na guarda e o ataque a três inimigos têm cenas diferentes.
+Treze sprites: dois conjuntos de seis e a Confissão do Falso Santo. Boca de Vidro mantém cabelo claro trançado, brincos de cristal, mandíbula translúcida e traje; a remoção de Essência mostra fragmentos caindo, sem transferir Essência à usuária. A fala perfurante, a abertura na guarda e o ataque a três inimigos têm cenas diferentes.
 
 O Falso Profeta preserva pele, rosto, argola nasal, auréola segmentada de cobre e fitas azuis. A bênção gera carga e recuperação pessoal; o milagre consome cargas no golpe físico. A confissão tem arte própria de autocura e purificação, distinta da bênção, com retorno à imagem da forma base após uso. Defesas pessoais mostram apenas o usuário. Kits, custos, recargas, alvos e limpeza de molduras preservados. Prompts e correção de acessório: `ART_LOT_20261022_11.json`.
 
@@ -83,7 +83,7 @@ Estado integrado: 46 conjuntos revisados, 54 antigos pendentes, 600 imagens dos 
 
 ## Décimo segundo lote: Mentira concluído e avanço em Chama
 
-O Corretor de Memórias recebe seis imagens novas, preservando rosto idoso, coque e barba brancos, mão direita mecânica dourada, mão esquerda natural, manto verde-petróleo e arquivo de madeira. As cenas distinguem vantagem no primeiro ataque, marca/roubo de recurso, remoção de Defesa e bônus, liquidação contra alvo marcado e defesa pessoal por memória substituta. Mentira passa a ter seis de seis conjuntos revisados.
+O Corretor de Memórias recebe seis imagens novas, preservando rosto idoso, coque e barba brancos, mão direita mecânica dourada, mão esquerda natural, manto verde-petróleo e arquivo de madeira. As cenas distinguem vantagem no primeiro ataque, marca/roubo de Essência, remoção de Defesa e bônus, liquidação contra alvo marcado e defesa pessoal por memória substituta. Mentira passa a ter seis de seis conjuntos revisados.
 
 O Incendiário recebe seis imagens novas de Chama: sardas, cabelo cobre com lateral raspada, casaco claro sujo de fuligem e projetor único preservados. Sua identidade de fogo negro com bordas alaranjadas diferencia leitura de Queimadura existente, pavio em um inimigo, fagulhas físicas contra três inimigos, consumo da Queimadura na detonação e invulnerabilidade pessoal por fumaça. Os ambientes são vulcânicos e industriais, distintos dos canais e arquivos de Mentira. Com A Brasa Eterna, Chama tem dois de seis conjuntos revisados.
 
@@ -105,3 +105,29 @@ Doze imagens adicionais: sete para a Brasa Eterna reformulada como fera espiritu
 Os seis personagens de Chama passam a ter 36 imagens básicas e cinco artes exclusivas de técnicas alternativas, totalizando 41 caminhos ativos. Esta é uma contagem do Elo Chama, sem alterar os totais históricos globais de 22/10 acima. A Brasa tem uma silhueta quadrúpede distinta da Vingadora, e as cenas distinguem ataques físicos e espirituais de acordo com os efeitos atuais.
 
 143 testes funcionais aprovados, incluindo a troca e a restauração das três novas artes de formas. Comparação integral dos 100 personagens confirma que somente os campos de arte mudaram; nomes, lores, IDs, mecânicas e progressão permanecem iguais. Inventário, prompts e hashes: `CHAMA_COMPLETION_20261023.json`; relatório: `chama-completion-20261023.md`.
+
+## Atualização de integridade — 24/10/2026
+
+O Escudo Vivo, O Descontínuo, O Açougueiro, A Viúva Escarlate, O Colecionador, Gêmeos do Cutelo, O Carrasco sem Rosto e A Mãe Rubra receberam 48 arquivos WebP próprios, em 512 × 512, para restaurar os caminhos usados por seus kits. As cenas distinguem defesa pessoal de apoio, camadas temporais, véu e broche, caça a motes espirituais, cadência dos gêmeos, sentenças do Carrasco e sustentação por fios da Mãe Rubra; ações de Sangria não mostram gore. Prompts resumidos, caminhos, fontes e hashes: `ART_RESTORATION_20261024.json`.
+
+O teste do trio inicial também verifica o retrato aprovado de O Fim em seu caminho versionado. Na auditoria feita após esse lote, 89 dos 600 caminhos base de retrato, passiva e quatro técnicas existiam; faltavam 511 em 86 personagens. Naquela execução, a suíte registrou 193 de 194 testes aprovados, com o retrato de O Soberano Quebrado como bloqueio.
+
+## Formas adicionais — 24/10/2026
+
+O Soberano Quebrado, A Brasa Eterna e O Eco sem Dono receberam uma segunda forma jogável com três técnicas substitutas e um retrato alternativo próprio. Os retratos-base dessas formas também foram adicionados para manter a transição visual. A suíte específica de formas verifica mudança de kit, retrato, retorno e afinidade; a auditoria após essa entrega encontrou 91 dos 600 caminhos base, com 509 ausentes em 86 personagens. A lacuna de arte das técnicas e passivas do restante do elenco permanece separada desta entrega.
+
+## Estado atual do checkout — 24/10/2026
+
+As contagens acima são registros de cada lote, não uma garantia de que todos os arquivos estejam presentes na versão atual. `npm run audit:art` percorre agora 625 caminhos únicos referenciados pelos 100 personagens: 600 de arte base e caminhos de formas, com sobreposições entre categorias. No checkout atual, 131 arquivos existem e 494 faltam; 83 personagens têm ao menos uma referência ausente. O fallback vetorial evita espaços de imagem quebrados, mas não substitui a conclusão das ilustrações. Use a auditoria executável como fonte atual de cobertura.
+
+## O Soberano — técnicas da forma base — 24/10/2026
+
+Passiva e quatro técnicas receberam artes 2D anime próprias, geradas a partir do retrato-base aprovado. A Autoridade Estilhaçada usa fragmentos de coroa diante de uma única marca; Decreto do Rei Caído marca um inimigo com corrente; Ajoelhar representa o controle físico do alvo; Coroa sobre Ruínas protege O Soberano e dois aliados; Trono Interior mostra uma defesa pessoal. As cinco imagens foram integradas como WebP 512 × 512, com hashes e resumos de cena em `ART_SOBERANO_20261024.json`. A cobertura caiu de 511 para 506 caminhos ausentes.
+
+## A Magistrada — kit base — 24/10/2026
+
+O retrato estabelece sua identidade: cabelo prateado curto com trança, máscara de ferro, gola assimétrica de placas, toga oxblood e braçadeira acorrentada. As artes da Lei do Mais Forte, Acusação Imposta, Interdição da Defesa, Sentença de Submissão e Toga Inviolável variam entre galeria, corredor de tribunal, escadaria, ponte e câmara privada. A sequência mostra exposição, selo de apoio, quebra de Defesa com atordoamento, golpe perfurante e proteção pessoal. Os seis arquivos foram integrados como WebP 512 × 512, com prompts e hashes em `ART_MAGISTRADA_20261024.json`. A cobertura caiu de 506 para 500 caminhos ausentes.
+
+## O Suserano — kit base — 24/10/2026
+
+O retrato estabelece uma silhueta espectral vazia, com fenda âmbar no capuz, coroa quebrada flutuante, placas de ferro semelhantes ao espaldar de um trono, manto vinho e correntes prateadas. As cenas mostram uma guarda passiva pessoal, um decreto que sela a ofensiva de um inimigo, uma interdição que protege um aliado e rebate um golpe, proteção coletiva para exatamente três aliados e uma defesa inviolável individual. As seis imagens foram integradas como WebP 512 × 512, com prompts e hashes em `ART_SUSERANO_20261024.json`. A cobertura caiu de 500 para 494 caminhos ausentes; 83 personagens ainda têm referências ausentes.

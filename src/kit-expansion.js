@@ -29,6 +29,7 @@ export function expandKit(elo,index,spec){
   identity('Interdição de apoio','A acusação expõe e sela o apoio; a audiência interrompe e o veredito atravessa a redução de dano.');break;
  case 'coroa:2':
   set(0,{damage:15,cost:2,sealAttack:1,cooldown:1});
+  set(1,{counterEffect:{drainEssence:{resource:'essence',amount:1},expose:1}});
   identity('Autoridade sem corpo','Interdite a ofensiva sem impedir o apoio; alterne o domínio com proteção coletiva e contra-ataques.');break;
  case 'coroa:4':
   set(1,{regen:{heal:2,turns:2}});
@@ -38,12 +39,12 @@ export function expandKit(elo,index,spec){
   identity('Resistência cativa','O punho ganha força com a Vida perdida; escolha entre recuperar-se ou conservar o risco para a sucessão.');break;
  case 'mentira:0':
   set(0,{damage:5,dot:{tag:'veneno',damage:5,turns:2},reactive:R('attack',{damage:8})});
-  identity('Segredo provocador','Envenene um segredo que pune a próxima ofensiva da vítima e depois cobre seus recursos.');break;
+  identity('Segredo provocador','Envenene um segredo que pune a próxima ofensiva da vítima e depois cobra Essência.');break;
  case 'mentira:3':
   set(0,{damage:15,escalating:G(3,9)});
   identity('Discurso crescente','Repetir a sílaba aumenta seu dano até um limite; ser Atordoada quebra o ritmo do discurso.');break;
  case 'mentira:4':
-  set(1,{heal:15,regen:{heal:3,turns:2}});
+  set(1,{heal:15,regen:{heal:3,turns:2},cost:2,generateEssence:{resource:'coringa',amount:1}});
   form(1,'confess',S('Confissão do Falso Santo',{heal:25,cleanse:true,perChargeHeal:3,spendCharge:true,shift:B(1)},2));
   after(1,[T(1,'confess',2)],'Vira Confissão do Falso Santo por 2 turnos: gaste as cargas em cuidado ou preserve-as para o milagre.');
   identity('Fé ou confissão','Cultive cargas com a falsa bênção e escolha entre confessar para recuperar-se ou fabricar um milagre ofensivo.');break;
@@ -88,15 +89,15 @@ export function expandKit(elo,index,spec){
   set(0,{damage:10,weaken:0,sealSupport:1,cooldown:1});
   identity('Tranca seletiva','Feche o apoio da vítima sem impedir sua ofensiva; marque a porta para interrompê-la no momento certo.');break;
  case 'silencio:3':
-  set(1,{cost:1,counterFilter:['energy','affliction']});
-  identity('Vigília espiritual','A memória responde a técnicas espirituais ou de aflição; revele a presença para preparar o testemunho perfurante.');break;
+  set(1,{cost:1,counterFilter:['energy','affliction'],counterEffect:{stealEssence:{amount:1}}});
+  identity('Vigília espiritual','A memória responde a técnicas espirituais ou de aflição, devolve dano e rouba 1 Essência; revele a presença para preparar o testemunho perfurante.');break;
  case 'silencio:4':
   set(0,{damage:10,reactive:R('support',{damage:8,drain:1})});
-  identity('Isolamento oportunista','A presença vazia pune o próximo apoio da vítima com dano e perda de um recurso; a ausência coletiva drena o restante.');break;
+  identity('Isolamento oportunista','A presença vazia pune o próximo apoio da vítima com dano e perda de Essência; a ausência coletiva drena o restante.');break;
  case 'silencio:5':
   form(2,'ambush',A('Chegada pela Retaguarda',25,2,{ignoreCounters:true,combo:{condition:'exposed',bonusDamage:15},shift:B(2),cooldown:2}));
-  set(1,{counterFilter:['physical','piercing'],counterShift:[T(2,'ambush',2,{bindTarget:true})],evolutionNote:'Ao anular uma técnica física ou perfurante, Chegar Depois vira Chegada pela Retaguarda contra o agressor por 2 turnos.'});
-  identity('Emboscada após defesa','Anule uma agressão física para abrir uma chegada que ignora contra-ataques, ou cobre diretamente a abertura exposta.');break;
+  set(1,{counterFilter:['physical','piercing'],counterEffect:{expose:1},counterShift:[T(2,'ambush',2,{bindTarget:true})],evolutionNote:'Ao anular uma técnica física ou perfurante, expõe o agressor e Chegar Depois vira Chegada pela Retaguarda contra ele por 2 turnos.'});
+  identity('Emboscada após defesa','Anule uma agressão física para expor o agressor e abrir uma chegada que ignora contra-ataques, ou cobre diretamente a abertura exposta.');break;
  case 'carne:0':
   set(0,{cost:2,sealAttack:1,cooldown:2});
   identity('Posse da ofensiva','A posse sela ataques por uma ação, mas permite apoio; decida entre interromper a vítima marcada ou drenar sua Vida.');break;
@@ -108,7 +109,7 @@ export function expandKit(elo,index,spec){
   identity('Imagem que sente','A imagem ampara um aliado e devolve parte da próxima agressão que o ferir, sem anular a técnica recebida.');break;
  case 'vazio:1':
   set(0,{damage:10,reactive:R('idle',{damage:5,drain:1})});
-  identity('Ausência que cobra espera','Drene um recurso e deixe a ausência cobrar outro se a vítima não usar uma técnica em sua vez.');break;
+  identity('Ausência que cobra espera','Drene Essência e deixe a ausência cobrar mais se a vítima não usar uma técnica em sua vez.');break;
  case 'vazio:3':
   form(1,'hide',S('Esconder-se do Sol',{heal:20,reduce:5,regen:{heal:3,turns:2}},2));
   set(1,{formRule:{type:'health',at:50,form:'hide'},evolutionNote:'Com 50 de Vida ou menos, vira Esconder-se do Sol, com custo e recuperação maiores.'});
@@ -127,8 +128,8 @@ export function expandKit(elo,index,spec){
   set(1,{heal:10,shield:15,regen:{heal:5,turns:2}});
   identity('Permanência vital','Deixe recuperação futura com o aliado e sustente a própria resistência até o retorno ofensivo com pouca Vida.');break;
  case 'protecao:3':
-  set(1,{counter:30,counterFilter:['physical','piercing']});
-  identity('Guarda contra lâminas','Proteja contra técnicas físicas e perfurantes; a vigília marca quem poderá ser interrompido no alvorecer.');break;
+  set(1,{counter:30,counterFilter:['physical','piercing'],counterRequiresShield:true,counterEffect:{generateEssence:{resource:'graca',amount:1}}});
+  identity('Guarda contra lâminas','Com Defesa destrutível ainda presente, anula uma técnica física ou perfurante, devolve 30 de dano e gera 1 Graça.');break;
  case 'protecao:4':
   set(1,{target:'ally',shield:15,reduceCooldown:1,cooldown:3});
   identity('Proteção de tempo','Concentre a linha em um aliado para protegê-lo e reduzir a recarga de suas técnicas não defensivas.');break;
@@ -194,6 +195,7 @@ export function expandKit(elo,index,spec){
   after(1,[T(0,'beam',2),T(2,'collapse',2)],'Abre Viga de Apoio e Colapsar a Abóbada por 2 turnos. O colapso encerra as duas variações e gasta sua Defesa.');
   identity('Arquitetura de escolhas','Erga a abóbada para abrir amparo concentrado ou um colapso coletivo que consome sua guarda.');break;
  case 'criacao:4':
+  set(0,{cost:2,generateEssence:{resource:'graca',amount:1}});
   set(1,{cost:3,heal:8,reduceCooldown:1,cooldown:3});
   identity('Cadência que adianta','O refrão encurta as recargas não defensivas do trio; escolha quando pagar seu custo e quando gastar as cargas no canto.');break;
  case 'correntes-quebradas:3':
@@ -201,7 +203,7 @@ export function expandKit(elo,index,spec){
   after(1,[T(0,'return',1)],'No próximo turno, Abertura Impossível vira Passagem de Retorno para amparar um aliado.');
   identity('Travessia de volta','Proteja quem atravessa para abrir um retorno de amparo; escolha essa volta ou feche a passagem no inimigo marcado.');break;
  case 'correntes-quebradas:4':
-  set(0,{damage:5,reactive:R('support',{drain:1,damage:5})});
+  set(0,{damage:5,reactive:R('support',{drain:1,damage:5}),convertEssence:{from:'any',to:'coringa',amount:1}});
   identity('Nome que cobra amparo','O nome perdido drena agora e deixa uma cobrança para o próximo apoio da vítima; apagar a forma prepara o desfecho de aflição.');break;
  case 'correntes-quebradas:6':
   form(0,'weight',A('Peso da Asa',15,2,{damageType:'energy',sealAttack:1,shift:B(0),cooldown:2}));
@@ -225,3 +227,4 @@ export function expandKit(elo,index,spec){
  }
  return spec;
 }
+

@@ -3,31 +3,66 @@ import assert from 'node:assert/strict';
 import {characters,starters,resources,resourceById} from '../src/data.js';
 import {createFinalBoss} from '../src/final-boss.js';
 import {previewBodyForm} from '../src/body-forms.js';
-import {createBattle,createDuel,chooseAction,commitTurn,resolveNextAction,getTurnPayment,canAffordAbility,getAvailableResources,getCombatPlan,submitDuelTurn} from '../src/combat.js';
-import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resourceIds} from '../src/resource-costs.js';
+import {createBattle,createDuel,chooseAction,commitTurn,resolveNextAction,getTurnPayment,canAffordAbility,getAvailableResources,getCombatPlan,submitDuelTurn,exchangeEssence,applyEssenceExchanges} from '../src/combat.js';
+import {getAbilityResourceCosts,resolveResourcePayment,resolveEssenceExchange,allocateQueuePayment,resourceIds} from '../src/resource-costs.js';
 import {renderBattle,renderBattleDetail} from '../src/battle-view.js';
 import {costMarkup} from '../src/view-utils.js';
-const pool=values=>({essence:0,cinza:0,graca:0,ruptura:0,...values});
+const pool=values=>({essence:0,cinza:0,graca:0,ruptura:0,coringa:0,...values});
 const target={id:'target',name:'Treino',realm:'Inferno',maxHp:1000,abilities:[]};
 function battle(costs){const b=createBattle(starters.map(c=>c.id),[target],{rng:()=>0,enemyPlanner:()=>[]});b.allies.forEach((u,i)=>u.abilities=[{id:'use',name:`Uso ${i}`,target:'enemy',damage:10,costs:costs[i]||{}}]);return b;}
 function queue(b,i){const u=b.allies[i];return chooseAction(b,u.id,'use',b.enemies[0].id);}
 const snapshot=b=>JSON.stringify(b);
 
-test('Qualquer é um custo preto, sem quinto recurso sorteado; todas as quartas defesas custam 1',()=>{
- assert.equal(resources.length,4);assert.equal(resourceById.random.name,'Qualquer');
+test('Qualquer é um custo flexível e Coringa é o quinto tipo de Essência; todas as quartas defesas custam 1',()=>{
+ assert.equal(resources.length,5);assert.equal(resourceById.random.name,'Qualquer');assert.deepEqual(resources.map(r=>r.name),['Éter','Cinza','Graça','Ruptura','Coringa']);assert.equal(resources[0].id,'essence');assert.equal(resources[4].id,'coringa');
  for(const c of [...characters,createFinalBoss()]){assert.equal(c.abilities[3].invulnerable,1);assert.deepEqual(c.abilities[3].costs,{random:1},c.name);assert.match(costMarkup(c,c.abilities[3]),/Custo: 1 Qualquer/);assert.match(costMarkup(c,c.abilities[3]),/pip-random/);}
  const ordinary=characters.filter(c=>c.abilities.slice(0,3).some(a=>a.costs.random));assert.ok(ordinary.length>characters.length/2,`Qualquer aparece em ${ordinary.length} personagens`);
  assert.equal(ordinary.length,77);
  for(const c of characters){const skill=c.abilities[1];if(skill.costs.random)assert.equal(Object.values(skill.costs).reduce((sum,n)=>sum+n,0),skill.cost,`${c.name}: a flexibilidade não altera os pontos totais`);}
- const b=battle([{}]);assert.deepEqual(Object.keys(b.resources),resourceIds);assert.ok(!b.energyDraws.player.includes('random'));
+ const b=battle([{}]);assert.deepEqual(Object.keys(b.resources),resourceIds);assert.ok(!b.essenceDraws.player.includes('random'));
 });
 
-test('cada corpo usa um recurso próprio no motor e no preview; o custo Qualquer não muda com o corpo',()=>{
+test('formas declaram seu tipo de Essência sem alterar o custo Qualquer',()=>{
  for(const c of [createFinalBoss(),...characters.filter(c=>c.bodyForms)]){
-  const seen=new Set([c.affinity]);
-  for(const f of c.bodyForms){assert.ok(!seen.has(f.resource),`${c.name}/${f.name}`);seen.add(f.resource);const p=previewBodyForm(c,f.key);assert.equal(p.bodyResource,f.resource);assert.deepEqual(getAbilityResourceCosts(p,p.abilities[3]),{random:1});for(const a of p.abilities.slice(0,3)){if(a.costs.affinity)assert.equal(getAbilityResourceCosts(p,a)[f.resource]>=a.costs.affinity,true);}}
+  const seen=new Set();
+  for(const f of c.bodyForms){if(f.resource!==c.affinity){assert.ok(!seen.has(f.resource),`${c.name}/${f.name}`);seen.add(f.resource);}const p=previewBodyForm(c,f.key);assert.equal(p.bodyResource,f.resource);assert.deepEqual(getAbilityResourceCosts(p,p.abilities[3]),{random:1});for(const a of p.abilities.slice(0,3)){if(a.costs.affinity)assert.equal(getAbilityResourceCosts(p,a)[f.resource]>=a.costs.affinity,true);}}
   assert.equal(previewBodyForm(c,'base').bodyResource,c.affinity);
  }
+});
+
+test('cada lado recebe uma Essência aleatória por alma viva desde a abertura',()=>{
+ const b=createBattle(starters.map(c=>c.id),starters,{rng:()=>0,enemyPlanner:()=>[]});
+ assert.equal(b.essenceDraws.player.length,3);assert.equal(b.essenceDraws.enemy.length,3);
+ assert.deepEqual(b.essenceDraws.player,['essence','essence','essence']);assert.deepEqual(b.essenceDraws.enemy,['essence','essence','essence']);
+});
+
+test('a troca 5:1 escolhe o tipo de destino e reduz o estoque líquido em quatro',()=>{
+ const before=pool({essence:2,cinza:1,graca:1,coringa:1});
+ const result=resolveEssenceExchange(before,'ruptura',before);assert.equal(result.ok,true);
+ assert.deepEqual(result.pool,pool({ruptura:1}));assert.equal(result.totalBefore,5);assert.equal(result.totalAfter,1);
+ assert.deepEqual(before,pool({essence:2,cinza:1,graca:1,coringa:1}));
+ assert.equal(resolveEssenceExchange(pool({essence:2,cinza:2}),'ruptura',pool({essence:2,cinza:2})).ok,false);
+ assert.equal(resolveEssenceExchange(pool({essence:5}),'inventada',pool({essence:5})).ok,false);
+ assert.equal(resolveEssenceExchange(pool({essence:5}),'ruptura',pool({essence:4})).ok,false);
+});
+
+test('troca local valida a fila, habilita custo fixo e registra o débito para o servidor',()=>{
+ const b=battle([{}]);b.resources=pool({essence:2,cinza:1,graca:1,coringa:1});
+ assert.equal(exchangeEssence(b,'ruptura',pool({essence:2,cinza:1,graca:1,coringa:1})).ok,true);
+ b.allies[0].abilities[0]={id:'specific',name:'Golpe de Ruptura',target:'enemy',damage:20,costs:{ruptura:1}};
+ assert.equal(chooseAction(b,b.allies[0].id,'specific',b.enemies[0].id).ok,true);
+ assert.equal(exchangeEssence(b,'cinza',pool({ruptura:1})).ok,false);
+ assert.equal(b.pendingEssenceExchanges.length,1);assert.deepEqual(b.resources,pool({ruptura:1}));
+ assert.equal(commitTurn(b).ok,true);assert.deepEqual(b.pendingEssenceExchanges,[]);resolveNextAction(b);assert.deepEqual(b.resources,pool({}));
+});
+
+test('a troca remota é aplicada atomicamente antes do custo da ação',()=>{
+ const ids=starters.slice(0,1).map(c=>c.id),b=createDuel(ids,ids,{rng:()=>0}),actor=b.allies[0];
+ actor.abilities[0]={id:'specific',name:'Golpe de Ruptura',target:'enemy',damage:20,costs:{ruptura:1}};
+ b.resources=pool({essence:2,cinza:1,graca:1,coringa:1});
+ const action={actorId:actor.id,abilityId:'specific',targetId:b.enemies[0].id},exchange={target:'ruptura',payment:pool({essence:2,cinza:1,graca:1,coringa:1})};
+ const before=snapshot(b);assert.throws(()=>submitDuelTurn(b,'player',[action],undefined,[exchange,{target:'ruptura',payment:pool({essence:1})}]));assert.equal(snapshot(b),before);
+ submitDuelTurn(b,'player',[action],undefined,[exchange]);assert.equal(b.resources.ruptura,0);assert.equal(b.enemies[0].hp,80);
 });
 
 test('reserva os custos fixos de toda a fila antes de sugerir o pagamento flexível',()=>{
@@ -53,12 +88,12 @@ test('Atordoamento devolve o custo daquela ação sem trocar o pagamento das dem
  assert.equal(resolveNextAction(b).event.skipped,true);assert.deepEqual(b.resources,pool({essence:1,cinza:1}));resolveNextAction(b);assert.deepEqual(b.resources,pool({essence:1}));
 });
 
-test('drenagem do recurso escolhido impede a ação sem substituir por outra cor disponível',()=>{
+test('drenagem do tipo de Essência escolhido impede a ação sem substituir por outra cor disponível',()=>{
  const b=battle([{random:1}]);b.resources=pool({essence:2,cinza:1});queue(b,0);commitTurn(b,pool({cinza:1}));b.resources.cinza=0;
  const before={...b.resources},r=resolveNextAction(b);assert.equal(r.event.skipped,true);assert.deepEqual(b.resources,before);
 });
 
-test('perda de alvo antes da resolução preserva todos os recursos escolhidos',()=>{
+test('perda de alvo antes da resolução preserva toda a Essência escolhida',()=>{
  const b=battle([{random:1}]);b.resources=pool({graca:1});queue(b,0);commitTurn(b);b.enemies[0].invulnerable=1;const before={...b.resources};assert.equal(resolveNextAction(b).event.skipped,true);assert.deepEqual(b.resources,before);
 });
 
@@ -75,11 +110,27 @@ test('IA fixa pagamentos concretos e não cria uma reserva Qualquer',()=>{
  b.enemyResources=pool({graca:1});assert.equal(getCombatPlan(b).length,0);
 });
 
+test('IA considera a troca 5:1 ao planejar custo fixo, sem mutar o combate antes da resolução',()=>{
+ const b=battle([{}]);for(const u of b.enemies.slice(1))u.hp=0;
+ b.enemies[0].abilities=[{id:'rupture',name:'Ataque de Ruptura',target:'enemy',damage:40,costs:{ruptura:1}}];
+ b.enemyResources=pool({essence:2,cinza:1,graca:1});assert.equal(getCombatPlan(b).length,0,'a oposição deve esperar até ter cinco Essências');
+ b.enemyResources=pool({essence:3,coringa:2});
+ const before=snapshot(b),plan=getCombatPlan(b);
+ assert.equal(snapshot(b),before);assert.equal(plan.length,2);assert.equal(plan[0].type,'essence-exchange');assert.equal(plan[0].target,'ruptura');assert.deepEqual(plan[0].payment,pool({essence:3,coringa:2}));assert.equal(plan[1].abilityId,'rupture');
+});
+
 test('revisão mostra sugestão, ajustes, custos separados e confirmação bloqueada enquanto faltar pagamento',()=>{
  const b=battle([{essence:1,random:2}]);b.resources=pool({essence:2,ruptura:2});queue(b,0);
  const state={battle:b,battleNode:{label:'Teste'},confirmTurn:true},elo={name:'Sangria'};
  let html=renderBattle(state,elo);assert.match(html,/Custo Qualquer · 2/);assert.match(html,/USAR SUGESTÃO/);assert.match(html,/Gastar menos Ruptura/);assert.match(html,/Pagamento completo/);assert.doesNotMatch(html,/data-action="commit-turn" disabled/);
  state.randomPayment=pool({ruptura:1});html=renderBattle(state,elo);assert.match(html,/Falta escolher 1/);assert.match(html,/data-action="commit-turn" disabled/);assert.match(html,/1 fixos/);
+});
+
+test('interface oferece troca 5:1, seleção do tipo de saída e desativa-a com ações na fila',()=>{
+ const b=battle([{}]);b.resources=pool({essence:2,cinza:1,graca:1,coringa:1});
+ const state={battle:b,battleNode:{label:'Teste'},exchangeOpen:true,exchangePayment:pool({essence:2,cinza:1,graca:1,coringa:1})},elo={name:'Sangria'};
+ let html=renderBattle(state,elo);assert.match(html,/TROCAR ESSÊNCIA · 5 → 1/);assert.match(html,/Troque 5 por 1 tipo escolhido/);assert.match(html,/data-exchange-target="ruptura"/);assert.match(html,/5\/5 Essências escolhidas/);
+ queue(b,0);html=renderBattle(state,elo);assert.match(html,/Remova a fila do turno para converter Essência/);assert.doesNotMatch(html,/Troque 5 por 1 tipo escolhido/);
 });
 
 test('fichas retiram classes decorativas e blocos de palavras-chave sem perder efeitos e recarga',()=>{

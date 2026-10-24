@@ -6,7 +6,7 @@ import {allSkillForms} from '../src/kits.js';
 import {skillAvailability} from '../src/battle-view.js';
 const char=name=>characters.find(c=>c.name===name||c.previousName===name);
 const dummy={id:'alvo',name:'Alvo',realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]};
-function battle(name='O Açougueiro'){const b=createBattle([char(name).id],[dummy],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};b.allies[0].passive=null;return b;}
+function battle(name='O Açougueiro'){const b=createBattle([char(name).id],[dummy],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100,coringa:100};b.allies[0].passive=null;return b;}
 function cast(b,a,target='alvo'){const u=b.allies[0];if(typeof a==='object'){u.abilities[0]=a;a=a.id;}assert.equal(chooseAction(b,u.id,a,target).ok,true);passTurn(b);}
 function enemyAction(b,a){const e=b.enemies[0];e.abilities=[a];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:a.id,targetId:a.target==='self'?e.id:b.allies[0].id,side:'enemy'}];}
 const attack={id:'golpe',name:'Golpe',target:'enemy',damage:1,costs:{}};
@@ -34,7 +34,7 @@ test('armadilha de inatividade só dispara se nenhuma técnica for usada',()=>{
  for(const idle of [true,false]){const b=battle();if(!idle)enemyAction(b,attack);cast(b,{id:'trap',name:'Pavio',damage:0,target:'enemy',costs:{},reactive:{trigger:'idle',damage:13,turns:1}});assert.equal(b.enemies[0].hp,idle?9987:10000);}
 });
 
-test('selo cancela a ação confirmada sem cobrar recursos e expira após a vez correta',()=>{
+test('selo cancela a ação confirmada sem cobrar Essência e expira após a vez correta',()=>{
  const b=battle();b.enemyResources.essence=3;enemyAction(b,{...attack,costs:{essence:1}});cast(b,{id:'selo',name:'Selo',damage:0,target:'enemy',costs:{},sealAttack:1});assert.equal(b.allies[0].hp,100);assert.equal(b.enemyResources.essence,4);assert.equal(b.enemies[0].sealAttack,0);assert.ok(b.log.every(l=>!l.includes('Alvo usa Golpe')));
  b.allies[0].sealSupport=1;assert.equal(skillAvailability(b,b.allies[0],b.allies[0].abilities[3]),'');assert.equal(chooseAction(b,b.allies[0].id,'despertar',b.allies[0].id).ok,true);
 });
@@ -93,5 +93,3 @@ test('uma armadilha de inatividade encerra o confronto antes de novas ações e 
 test('Legado de aflição aumenta a armadilha sem multiplicar suas ativações',()=>{
  const b=battle();b.global.afflictionPower=3;cast(b,{id:'trap',name:'Armadilha',target:'enemy',costs:{},reactive:{trigger:'idle',damage:10,turns:1}});assert.equal(b.enemies[0].hp,9987);passTurn(b);assert.equal(b.enemies[0].hp,9987);
 });
-
-

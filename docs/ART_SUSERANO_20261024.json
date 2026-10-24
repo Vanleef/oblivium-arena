@@ -1,0 +1,80 @@
+{
+  "title": "Conjunto base de O Suserano",
+  "date": "2026-10-24",
+  "generatedWith": "image_gen.imagegen",
+  "style": "Fantasia sombria ilustrada, carvão, vinho e ferro com acentos de ouro pálido; enquadramentos e cenários variados no império de Coroa.",
+  "assets": [
+    {
+      "key": "portrait",
+      "path": "art/characters/o-trono-vazio/portrait.webp",
+      "sourceFile": "exec-ad5008fe-b427-4ec8-b4fa-aace087db6f8.png",
+      "sourceSha256": "0b94cb5343908978f63d4e4a4b23280e7a3e8a75552bfb03b1201620fd041555",
+      "sha256": "50633794b3e001077bdff22646d74fb1bdadb6648deb2c688dde2a62a5e51d4e",
+      "width": 512,
+      "height": 512,
+      "bytes": 57434,
+      "promptSummary": "Retrato da presença sem corpo, com coroa quebrada flutuante, manto vinho e placas de ferro do trono.",
+      "prompt": "Retrato quadrado de O Suserano, soberano espectral vazio de Coroa: silhueta de vestes cerimoniais sem corpo ou rosto visível, uma fenda âmbar no capuz, ombros de placas negras que lembram o espaldar de um trono, manto vinho rasgado, correntes prateadas e coroa estreita quebrada flutuando acima. Salão de pedra fria, partículas douradas discretas, busto central legível em tamanho pequeno. Não representar um rei humano comum, não mostrar trono ao fundo como foco, sem balança, martelo, texto ou interface."
+    },
+    {
+      "key": "passive",
+      "path": "art/characters/o-trono-vazio/passive.webp",
+      "sourceFile": "exec-8ceaa5c7-c586-4c50-935e-92a6ee67dbbc.png",
+      "sourceSha256": "a77041f30aeb4fb6ff055e819ddb8b0c5900f6caaa7f6dc32e3f369272b9e8ec",
+      "sha256": "3c82024c82a57a8283d953a909873db45b943d55b0f8972bacac4066b0264285",
+      "width": 512,
+      "height": 512,
+      "bytes": 65636,
+      "promptSummary": "Uma camada angular de proteção dourada se forma somente em torno de O Suserano no início do turno.",
+      "prompt": "Cena quadrada de jogo para Autoridade Delegada. Usar como referência exata O Suserano: capuz vazio com fenda âmbar, coroa quebrada flutuante, placas de ferro, manto vinho e correntes. No início do turno, uma camada pequena e precisa de armadura espectral dourada aparece sobre o próprio peito e ombros; fragmentos de ferro se assentam ao redor dele. É uma defesa pessoal automática, não ataque nem cura. Enquadramento médio lateral baixo, salão imperial frio, sem outras pessoas, sem texto ou interface."
+    },
+    {
+      "key": "skill-impulso",
+      "path": "art/characters/o-trono-vazio/skill-impulso.webp",
+      "sourceFile": "exec-33bfcc9c-53d3-4dde-9b0e-9842d39e5d87.png",
+      "sourceSha256": "03c134a483355a28df319bd8f8de501fd3e21006c4c52f57af864f840cb08441",
+      "sha256": "0e7f5c76a31afc7f712b0fb2c1c86a2ac23d8cd7ed97c0c90c9226f64c3969ce",
+      "width": 512,
+      "height": 512,
+      "bytes": 82076,
+      "promptSummary": "Um decreto espiritual prende a arma de um único inimigo e sela sua ofensiva.",
+      "prompt": "Cena quadrada para Decreto de Submissão, preservando exatamente a identidade de O Suserano da referência. Ele aponta uma mão espectral envolta em correntes para exatamente um soldado inimigo numa sala judicial arruinada. Um selo angular dourado paralisa a arma e o braço levantado do alvo enquanto um impacto espiritual violeta atinge seu peito. Golpe moderado com selo ofensivo, sem execução; perspectiva lateral dinâmica, um único alvo, sem gore, texto ou interface."
+    },
+    {
+      "key": "skill-tecnica",
+      "path": "art/characters/o-trono-vazio/skill-tecnica.webp",
+      "sourceFile": "exec-3fe419f0-f791-48e3-bee5-4b2851b0d889.png",
+      "sourceSha256": "30619a09e7c0838ea03525c476a27d12989e023314ae1566a5687fde887a4a52",
+      "sha256": "0ecbad373c82ea55ff6a84d4bd14294e866dd75dd22e45ab0bb140aa7065a327",
+      "width": 512,
+      "height": 512,
+      "bytes": 78922,
+      "promptSummary": "O Suserano protege um aliado de um golpe e a corrente devolve a força ao agressor.",
+      "prompt": "Cena quadrada para Interdição Soberana, preservando O Suserano da referência: capuz vazio, fenda âmbar, coroa quebrada, placas de ferro, manto vinho e correntes. Ele fica ao lado de exatamente um aliado e o protege; uma lâmina ou feitiço hostil bate num selo dourado fino e é completamente parado. Uma corrente prateada rebate a força na direção do agressor fora de quadro. Postura reativa, aliado protegido e golpe interrompido; corredor frio de palácio, dois personagens visíveis ao todo, sem outros aliados, sem gore, texto ou interface."
+    },
+    {
+      "key": "skill-voto",
+      "path": "art/characters/o-trono-vazio/skill-voto.webp",
+      "sourceFile": "exec-5284b347-79b9-4593-ad76-87178c4240da.png",
+      "sourceSha256": "ed361aa682342c788f0ff526174205c5ee723e1949eacbda77955de937772f04",
+      "sha256": "3a6e7ec708311e70b2b1d8c62c19b5878131fa74819b37992b2a64e9746e5656",
+      "width": 512,
+      "height": 512,
+      "bytes": 90198,
+      "promptSummary": "O Suserano e exatamente dois aliados recebem uma guarda coletiva e um breve impulso ofensivo.",
+      "prompt": "Cena quadrada para Guarda dos Vassalos, preservando o capuz vazio, fenda âmbar, coroa quebrada, placas de ferro, manto vinho e correntes de O Suserano. Mostrar exatamente três figuras aliadas ao todo: O Suserano e dois aliados diferentes. Todos ficam dentro de uma rede ampla e baixa de proteção dourada translúcida; cada aliado recebe um pequeno brilho âmbar na arma ou na mão, indicando aumento breve de dano. Proteção coletiva e preparação, não cura nem ataque. Composição larga na ponte do palácio, sem outras figuras, texto ou interface."
+    },
+    {
+      "key": "skill-despertar",
+      "path": "art/characters/o-trono-vazio/skill-despertar.webp",
+      "sourceFile": "exec-f92687e0-35f2-4173-aa9d-e6d6bc50da1a.png",
+      "sourceSha256": "07cb47cc477e2f062b107f45044a6da86fb9f46b7f4a62c46ef578c62d300cbc",
+      "sha256": "cb082084bde18d07fcda6ef475e8bce9a4a49fc4c7ae2c7f840cdd459d4c2d1d",
+      "width": 512,
+      "height": 512,
+      "bytes": 73774,
+      "promptSummary": "A fenda de ausência envolve apenas O Suserano e faz um golpe recebido se desfazer sem feri-lo.",
+      "prompt": "Cena quadrada para Suserania Inviolável, usando O Suserano da referência com capuz vazio, fenda âmbar, coroa quebrada, placas de ferro, manto vinho e correntes. Defesa pessoal: somente O Suserano se dobra numa fenda estreita de ausência violeta-negra enquanto um golpe de luz inimigo se quebra inofensivamente contra uma película dourada externa; ele permanece ileso. Mostrar apenas um personagem, sem aliados, sem contra-ataque ou cura, ângulo diagonal dinâmico num salão de pedra, sem texto ou interface."
+    }
+  ]
+}

@@ -13,7 +13,7 @@ A rodada iniciada no chat “Prosseguir opções PMA” foi retomada a partir de
 
 ## Coerência das cenas
 
-Serpe distingue o alvo já Exposto da ofensiva perfurante, da remoção de recurso, do ataque a três inimigos e da própria evasão. O recurso removido cai e se desfaz: a imagem não comunica uma transferência à usuária.
+Serpe distingue o alvo já Exposto da ofensiva perfurante, da remoção de Essência, do ataque a três inimigos e da própria evasão. A Essência removida cai e se desfaz: a imagem não comunica uma transferência à usuária.
 
 Semente distingue regeneração passiva, marcação ofensiva, amparo de um aliado, ativação da marca e defesa pessoal. “Semente da Ruptura” passa a “Marca Germinal”, e “Germinar por Dentro” passa a “Florescer da Marca”, mantendo os efeitos e afastando a leitura de parasitismo ou de poder exclusivo de Limbo. A marca age sobre a aura do alvo, sem crescimento físico dentro do corpo.
 

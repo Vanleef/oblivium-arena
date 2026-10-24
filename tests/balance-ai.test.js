@@ -63,3 +63,27 @@ test("escudos param em metade da Vida máxima", () => {
   assert.equal(passTurn(battle), true);
   assert.equal(actor.shield, Math.round(actor.maxHp * 0.5));
 });
+
+
+test("a integração preserva 49 aprimoramentos com glifos e contextos ingleses distintos", async () => {
+  const { augmentGlyph } = await import('../src/augment-cards.js');
+  const { localizeText } = await import('../src/i18n.js');
+  assert.equal(buffs.length, 49);
+  assert.equal(new Set(buffs.map(buff => augmentGlyph(buff.glyph))).size, buffs.length);
+  for (const buff of buffs) {
+    assert.equal(buff.lore, buff.context);
+    for (const text of [buff.title, buff.text, buff.lore]) {
+      assert.notEqual(localizeText(text, 'en'), text, buff.id + ': cópia em inglês ausente');
+    }
+  }
+});
+
+test("Defesa inicial respeita metade da Vida, incluindo bônus de campanha e elites", () => {
+  const battle = createBattle(team, [{ id:'elite',name:'Elite',maxHp:300,startingShield:500,abilities:[] }], {
+    buffs:['ward','deep-root'],globalEffects:{shield:200,maxHp:10},enemyPlanner:()=>[]
+  });
+  for (const unit of [...battle.allies,...battle.enemies]) {
+    assert.ok(unit.shield <= Math.round(unit.maxHp * .5), unit.name);
+  }
+  assert.equal(battle.enemies[0].shield, 150);
+});

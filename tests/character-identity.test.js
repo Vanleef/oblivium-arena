@@ -62,3 +62,4 @@ test('elenco exposto e trios inimigos mostram os nomes atuais com referências e
   }
   for(const c of characters){assert.equal(c.abilities.length,4);assert.equal(c.abilities[3].cooldown,4);}
 });
+

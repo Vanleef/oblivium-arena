@@ -15,7 +15,7 @@ export function rankedResult(a,b,winner){
 export function publicBattle(match,index){
  const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;s.queue=[];s.intents=[];
  const side=index===0?'player':'enemy';
- if(index===1){[s.allies,s.enemies]=[s.enemies,s.allies];[s.resources,s.enemyResources]=[s.enemyResources,s.resources];s.resonance=s.enemyResonance;[s.energyDraws.player,s.energyDraws.enemy]=[s.energyDraws.enemy,s.energyDraws.player];if(s.phase==='victory')s.phase='defeat';else if(s.phase==='defeat')s.phase='victory';}
+ if(index===1){[s.allies,s.enemies]=[s.enemies,s.allies];[s.resources,s.enemyResources]=[s.enemyResources,s.resources];s.resonance=s.enemyResonance;[s.essenceDraws.player,s.essenceDraws.enemy]=[s.essenceDraws.enemy,s.essenceDraws.player];if(s.phase==='victory')s.phase='defeat';else if(s.phase==='defeat')s.phase='victory';}
  for(const u of s.allies)u.side='player';for(const u of s.enemies)u.side='enemy';
  if(s.phase==='influence'){if(s.influenceDraft.side!==side){s.phase='waiting';s.influenceDraft=null;}else s.influenceDraft.side='player';}
  else if(s.phase==='player'&&match.battle.turnSide!==side)s.phase='waiting';
@@ -56,7 +56,7 @@ export class ArenaService{
     if(!match||match.settled)fail('Partida encerrada ou indisponível.',409);
     if(op!=='surrender'&&input.version!==match.version)fail('O combate foi atualizado. Reconectando.',409);
     attachRandom(match.battle);const owner=match.players.indexOf(id)===0?'player':'enemy';
-    if(op==='turn'){try{submitDuelTurn(match.battle,owner,input.actions,input.payment);}catch{fail('Fila inválida ou fora do seu turno.',409);}}
+    if(op==='turn'){try{submitDuelTurn(match.battle,owner,input.actions,input.payment,input.exchanges||[]);}catch{fail('Fila inválida, troca de Essência ou turno indisponível.',409);}}
     if(op==='influence'){
      if(match.battle.phase!=='influence'||match.battle.influenceDraft.side!==owner||!chooseInfluence(match.battle,input.eventId))fail('Escolha indisponível.',409);
      continueDuel(match.battle);
@@ -76,4 +76,3 @@ export class ArenaService{
   });return {token:sessionToken,...result};
  }
 }
-

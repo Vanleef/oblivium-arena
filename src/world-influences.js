@@ -40,7 +40,7 @@ export function applyInfluence(s,id,side){
   if(e.effect.maxHp){const ratio=u.hp/u.maxHp;u.maxHp+=e.effect.maxHp;u.hp=Math.max(1,Math.round(u.maxHp*ratio));}
   u.shield=Math.min(80,u.shield+(e.effect.shield||0));initializeWorldUnit(u,e.effect);
  }
- if(e.effect.energy)for(const [side,list]of [['player',s.allies],['enemy',s.enemies]])if(list.some(u=>eligible.includes(u))){const pool=side==='player'?s.resources:s.enemyResources;for(const [id,n]of Object.entries(e.effect.energy))pool[id]=(pool[id]||0)+n;}
+ if(e.effect.essence)for(const [side,list]of [['player',s.allies],['enemy',s.enemies]])if(list.some(u=>eligible.includes(u))){const pool=side==='player'?s.resources:s.enemyResources;for(const [id,n]of Object.entries(e.effect.essence))pool[id]=(pool[id]||0)+n;}
  (s.worldEvents||=[]).push({id,side,title:e.title,tier:e.tier});
 }
 export function persistentCombatHp(u){return u.hp<=0?0:Math.max(1,Math.round(u.hp*(u.persistentMaxHp||u.maxHp)/u.maxHp));}
@@ -58,12 +58,26 @@ function openInfluence(s){
 }
 export function chooseInfluence(s,id){if(s.phase!=='influence'||!s.influenceDraft?.options.includes(id))return false;applyInfluence(s,id,s.influenceDraft.side);openInfluence(s);return true;}
 export function checkDeathInfluences(s){
- if(s.worldSeed===undefined)return false;
+ s.eventDeaths||=[];
  const fallen=units(s).filter(u=>u.hp<=0&&!s.eventDeaths.includes(u.id));if(!fallen.length)return false;
- s.eventDeaths.push(...fallen.map(u=>u.id));s.influenceResume=s.phase;s.influenceQueue=fallen.map(u=>({side:u.side,reason:`${u.name} caiu`,fallenId:u.id}));openInfluence(s);return s.phase==='influence';
+ s.eventDeaths.push(...fallen.map(u=>u.id));
+ for(const unit of fallen){
+  const side=unit.side==='enemy'?'enemy':'player',pool=side==='player'?s.resources:s.enemyResources,resource=unit.bodyResource||unit.affinity;
+  if(resource&&pool){pool[resource]=(pool[resource]||0)+1;}
+  const survivors=(side==='player'?s.allies:s.enemies).filter(ally=>ally.hp>0&&ally.eloId===unit.eloId);
+  s.deathEchoStacks||={player:0,enemy:0};
+  const echo=survivors.length>0&&s.deathEchoStacks[side]<3;
+  if(echo){s.deathEchoStacks[side]++;for(const ally of survivors)ally.worldDamage=(ally.worldDamage||0)+1;}
+  const name=({essence:'Éter',cinza:'Cinza',ruptura:'Ruptura',graca:'Graça',coringa:'Coringa'})[resource]||'Essência';
+  const fragments=[resource?`+1 ${name} para ${side==='player'?'seu trio':'a oposição'}`:'',echo?`${survivors.length} aliado(s) do Elo recebem +1 dano (limite +3)`:''].filter(Boolean);
+  if(fragments.length)s.log?.unshift(`${unit.name} deixa uma herança: ${fragments.join(' · ')}.`);
+ }
+ if(s.worldSeed===undefined)return false;
+ s.influenceResume=s.phase;s.influenceQueue=fallen.map(u=>({side:u.side,reason:`${u.name} caiu`,fallenId:u.id}));openInfluence(s);return s.phase==='influence';
 }
 
 export function influenceValue(e,list){
  const eligible=influenceTargets(e,list),v=e.effect;
- return eligible.reduce((score,u)=>score+(v.damage||0)*1.4+(v.maxHp||0)*.25+Math.min(80-u.shield,v.shield||0)*.4+(v.armor||0)*3+(v.regeneration||0)*3+(v.heal||0)*(techniques(u).some(predicates.healer)?.8:0)+(v.shieldPower||0)*(techniques(u).some(predicates.guardian)?.8:0)+(v.affliction||0)*2+(v.lifesteal||0)*30+(v.firstStrike||0)*.65+['woundedPower','markedPower','afflictedPower','executePower','shieldedPower','controlPower','chargePower','evolvedPower','lastStandPower','counterPower'].reduce((n,key)=>n+(v[key]||0)*.75,0)+(v.supportShield||0)*.45+(v.shiftShield||0)*.45+(v.killShield||0)*.35+(v.defenseHeal||0)*.8+(v.charge||0)*1.5+(v.supportCharge||0)*3,0)+(eligible.length&&v.energy?Object.values(v.energy).reduce((a,b)=>a+b,0)*5:0);
+ return eligible.reduce((score,u)=>score+(v.damage||0)*1.4+(v.maxHp||0)*.25+Math.min(80-u.shield,v.shield||0)*.4+(v.armor||0)*3+(v.regeneration||0)*3+(v.heal||0)*(techniques(u).some(predicates.healer)?.8:0)+(v.shieldPower||0)*(techniques(u).some(predicates.guardian)?.8:0)+(v.affliction||0)*2+(v.lifesteal||0)*30+(v.firstStrike||0)*.65+['woundedPower','markedPower','afflictedPower','executePower','shieldedPower','controlPower','chargePower','evolvedPower','lastStandPower','counterPower'].reduce((n,key)=>n+(v[key]||0)*.75,0)+(v.supportShield||0)*.45+(v.shiftShield||0)*.45+(v.killShield||0)*.35+(v.defenseHeal||0)*.8+(v.charge||0)*1.5+(v.supportCharge||0)*3,0)+(eligible.length&&v.essence?Object.values(v.essence).reduce((a,b)=>a+b,0)*5:0);
 }
+

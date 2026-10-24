@@ -70,6 +70,19 @@ test('servidor valida custo Qualquer e a identidade da forma antes de consumir o
  const refreshed=await accountsCurrent(campaign,session);assert.equal(refreshed.battle.phase,'player');
 });
 
+test('campanha valida e aplica a troca 5:1 no estado autoritativo antes do turno',async()=>{
+ const {accounts,campaign,session}=await fixture();
+ const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
+ let battle=(await campaign.request(session,{op:'select-node',nodeId:node.id})).battle;
+ await campaign.request(session,{op:'influence',eventId:battle.influenceDraft.options[0]});
+ await accounts.mutateAccount(session,account=>{account.profile.run.battle.resources={essence:2,cinza:1,graca:1,ruptura:0,coringa:1};});
+ battle=(await accountsCurrent(campaign,session)).battle;
+ const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}},turn={op:'turn',round:battle.round,actions:[],payment:{},exchanges:[exchange]};
+ await assert.rejects(campaign.request(session,{...turn,exchanges:[{...exchange,payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:0}}]}),{status:400});
+ assert.deepEqual((await accountsCurrent(campaign,session)).battle.resources,{essence:2,cinza:1,graca:1,ruptura:0,coringa:1});
+ const result=await campaign.request(session,turn);assert.ok(result.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
+});
+
 test('turnos e sorteios continuam no servidor após serializar o combate entre requisições',async()=>{
  const {campaign,session}=await fixture();
  const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];

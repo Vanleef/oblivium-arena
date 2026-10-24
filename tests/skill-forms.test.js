@@ -7,15 +7,23 @@ import {refreshSkillForms} from '../src/skill-state.js';
 import {renderBattleDetail,renderBattle} from '../src/battle-view.js';
 const char=name=>characters.find(c=>c.name===name||c.previousName===name);
 const dummy=(id='alvo')=>({id,name:id,realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]});
-function battle(name,enemies=[dummy()]){const c=char(name),b=createBattle([c.id],enemies,{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};return b;}
+function battle(name,enemies=[dummy()]){const c=char(name),b=createBattle([c.id],enemies,{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100,coringa:100};return b;}
 const skill=(b,i)=>b.allies[0].abilities[i];
 function cast(b,i,targetId){const a=skill(b,i);assert.equal(chooseAction(b,b.allies[0].id,a.id,targetId||getValidTargets(b,b.allies[0],a)[0]?.id).ok,true,a.name);assert.equal(passTurn(b),true);return a;}
 function finish(b){let n=0;while(b.phase==='resolving'&&n++<20)resolveNextAction(b);assert.ok(n<20);}
 
-test('100 kits têm estruturas e 60 técnicas alternativas e preservam as quatro posições e a defesa',()=>{
- assert.equal(characters.filter(c=>c.mechanic).length,100);assert.equal(characters.flatMap(c=>c.abilities.flatMap(a=>a.forms||[])).length,60);
+test('100 kits têm estruturas e 66 técnicas alternativas e preservam as quatro posições e a defesa',()=>{
+ assert.equal(characters.filter(c=>c.mechanic).length,100);assert.equal(characters.flatMap(c=>c.abilities.flatMap(a=>a.forms||[])).length,66);
  for(const c of characters){assert.equal(c.abilities.length,4);assert.ok(!c.abilities[3].forms);for(const a of allSkillForms(c)){assert.ok(a.description&&a.cost>0);assert.ok(a.classes?.length);if(a.formKey)assert.notEqual(a.id,'despertar');}}
- assert.equal(new Set(characters.flatMap(c=>allSkillForms(c).map(a=>a.name))).size,460);
+ assert.equal(new Set(characters.flatMap(c=>allSkillForms(c).map(a=>a.name))).size,466);
+});
+
+test('cada personagem mantém uma estrutura e uma assinatura mecânica próprias',()=>{
+ const presentation=new Set(['id','name','description','art','image','formKey','formTargetId']);
+ const gameplay=value=>Array.isArray(value)?value.map(gameplay):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).filter(([key])=>!presentation.has(key)).map(([key,item])=>[key,gameplay(item)])):value;
+ const signatures=characters.map(c=>JSON.stringify(gameplay(c.abilities)));
+ assert.equal(new Set(characters.map(c=>c.mechanic)).size,100,'estruturas repetidas');
+ assert.equal(new Set(signatures).size,100,'kits com os mesmos efeitos e custos');
 });
 
 test('usar uma preparação troca a técnica e mantém custo, fila e ação únicos por alma',()=>{
@@ -56,7 +64,7 @@ test('forma por Vida muda alvo, custo e tipo e reverte após recuperar Vida',()=
 });
 
 test('limiar de cargas oferece uma técnica com outro alvo e seu gasto restaura a base',()=>{
- const b=battle('A Semente'),baseArt=skill(b,0).art;b.allies[0].charge=3;refreshSkillForms(b);assert.equal(skill(b,0).name,'Fruto do Porvir');assert.equal(skill(b,0).target,'self');assert.notEqual(skill(b,0).art,baseArt);cast(b,0);assert.equal(b.allies[0].charge,0);assert.equal(skill(b,0).name,'Marca Germinal');assert.equal(skill(b,0).art,baseArt);
+ const b=battle('A Semente'),baseArt=skill(b,0).art;b.allies[0].charge=3;refreshSkillForms(b);assert.equal(skill(b,0).name,'Fruto do Porvir');assert.equal(skill(b,0).target,'self');assert.notEqual(skill(b,0).art,baseArt);assert.equal(chooseAction(b,b.allies[0].id,'impulso',b.allies[0].id).ok,true);commitTurn(b);resolveNextAction(b);assert.equal(b.allies[0].charge,0);assert.equal(skill(b,0).name,'Marca Germinal');assert.equal(skill(b,0).art,baseArt);
 });
 
 test('a ruptura da Cindida troca ataque por amparo com arte própria e retorna após reatar',()=>{
@@ -90,7 +98,7 @@ test('a Vingadora só mostra a arte da revanche após sofrer dano e a prende ao 
 });
 
 test('a colheita tem dois desfechos exclusivos: usar um fecha ambos',()=>{
- for(const choice of [1,2]){const b=battle('A Rainha dos Fungos');cast(b,0);assert.equal(skill(b,1).name,'Florescer para os Vivos');assert.equal(skill(b,2).name,'Esporos da Última Colheita');cast(b,choice);assert.equal(skill(b,1).formKey,'base');assert.equal(skill(b,2).formKey,'base');assert.equal(b.allies[0].charge,0);}
+ for(const choice of [1,2]){const b=battle('A Rainha dos Fungos');b.resources.cinza=0;cast(b,0);assert.equal(skill(b,1).name,'Florescer para os Vivos');assert.equal(skill(b,2).name,'Esporos da Última Colheita');cast(b,choice);assert.equal(skill(b,1).formKey,'base');assert.equal(skill(b,2).formKey,'base');assert.equal(b.allies[0].charge,0);}
 });
 
 test('a continuação de controle abre antes da recarga e depois bloqueia os três turnos',()=>{
@@ -112,7 +120,7 @@ test('contra-ataque só abre a resposta quando é ativado, contra o agressor cor
 });
 
 test('contra-ataque concedido a um aliado evolui o kit de quem o criou',()=>{
- const owner=char('O Espelho'),ally=char('O Escudo Vivo'),b=createBattle([owner.id,ally.id],[dummy()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',costs:{},target:'enemy',damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:'hit',targetId:ally.id,side:'enemy'}];
+ const owner=char('O Espelho'),ally=char('O Escudo Vivo'),b=createBattle([owner.id,ally.id],[dummy()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100,coringa:100};const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',costs:{},target:'enemy',damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:'hit',targetId:ally.id,side:'enemy'}];
  chooseAction(b,owner.id,'tecnica',ally.id);passTurn(b);assert.equal(b.allies[0].abilities[0].name,'Estilhaço Devolvido');assert.equal(b.allies[1].abilities[0].name,'Golpe do Bastião');
 });
 
@@ -125,12 +133,12 @@ test('munição esgotada muda o golpe e a recarga continua pertencendo ao espaç
  const b=battle('O Colecionador de Cabeças');cast(b,2);passTurn(b);passTurn(b);cast(b,2);assert.equal(skill(b,2).name,'Caça sem Troféus');assert.equal(b.allies[0].cooldowns.voto,2);assert.equal(skill(b,2).usesLeft,0);
 });
 
-test('forma que muda após confirmação cancela a ação e preserva seus recursos',()=>{
- const d=char('O Devorador'),h=char('O Escudo Vivo'),b=createBattle([d.id,h.id],[dummy()],{rng:()=>0});b.resources={essence:10,cinza:10,graca:10,ruptura:10};b.allies[0].hp=45;
- b.allies[1].abilities[0]={id:'heal',name:'Cura',target:'ally',costs:{},heal:30};chooseAction(b,d.id,'impulso','alvo');chooseAction(b,h.id,'heal',d.id);moveQueuedAction(b,h.id,-1);commitTurn(b);resolveNextAction(b);const energy={...b.resources},event=resolveNextAction(b).event;assert.equal(event.skipped,true);assert.match(event.summary,/forma mudou/);assert.deepEqual(b.resources,energy);finish(b);
+test('forma que muda após confirmação cancela a ação e preserva sua Essência',()=>{
+ const d=char('O Devorador'),h=char('O Escudo Vivo'),b=createBattle([d.id,h.id],[dummy()],{rng:()=>0});b.resources={essence:10,cinza:10,graca:10,ruptura:10,coringa:10};b.allies[0].hp=45;
+ b.allies[1].abilities[0]={id:'heal',name:'Cura',target:'ally',costs:{},heal:30};chooseAction(b,d.id,'impulso','alvo');chooseAction(b,h.id,'heal',d.id);moveQueuedAction(b,h.id,-1);commitTurn(b);resolveNextAction(b);const essence={...b.resources},event=resolveNextAction(b).event;assert.equal(event.skipped,true);assert.match(event.summary,/forma mudou/);assert.deepEqual(b.resources,essence);finish(b);
 });
 
-test('todas as 60 formas podem resolver sem NaN, custos gratuitos ou alteração de definições',()=>{
+test('todas as 66 formas podem resolver sem NaN, custos gratuitos ou alteração de definições',()=>{
  for(const c of characters)for(const root of c.abilities)for(const form of root.forms||[]){const b=battle(c.name),u=b.allies[0];u.hp=60;u.charge=3;if(form.requiredMark)b.enemies[0].marks[form.requiredMark]={sourceId:u.id,turns:5};u.skillForms[root.id]={form:form.formKey,expiresAt:10,...(form.requiresLink?{targetId:'alvo'}:{})};refreshSkillForms(b);cast(b,c.abilities.indexOf(root));for(const v of [...b.allies,...b.enemies]){assert.ok(Number.isFinite(v.hp));assert.ok(v.hp>=0&&v.hp<=v.maxHp);}assert.equal(c.abilities[3].cooldown,4);}
 });
 
@@ -141,7 +149,7 @@ test('formas inimigas recebem a escala de elite e Ruptura e podem entrar no plan
 
 test('a interface mantém 12 ícones e distingue técnica ativa, descrição, custo e alternativas',()=>{
  const b=battle('O Escudo Vivo');cast(b,0);const state={battle:b,battleNode:{label:'Treino'},focusSkill:{actorId:b.allies[0].id,abilityId:'impulso'}};
- const detail=renderBattleDetail(state);assert.match(detail,/Golpe do Bastião → Avanço da Égide/);assert.match(detail,/VARIAÇÕES/);assert.match(detail,/Custo: 1 Graça \+ 1 Essência/);assert.match(renderBattle(state,elos[0]),/skill-evolved/);
+ const detail=renderBattleDetail(state);assert.match(detail,/Golpe do Bastião → Avanço da Égide/);assert.match(detail,/VARIAÇÕES/);assert.match(detail,/Custo: 1 Graça \+ 1 Éter/);assert.match(renderBattle(state,elos[0]),/skill-evolved/);
 });
 
 

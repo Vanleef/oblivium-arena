@@ -1,0 +1,441 @@
+{
+  "title": "Restauração de arte de oito personagens",
+  "date": "2026-10-24",
+  "generatedWith": "image_gen.imagegen",
+  "style": "Arte 2D anime japonesa, traço de tinta, cel shading e fundos sombrios distintos por reino; sem gore.",
+  "conversion": "PNG gerado para WebP 512x512, qualidade 88; sem recorte.",
+  "assets": [
+    {
+      "character": "O Escudo Vivo",
+      "path": "art/characters/o-escudo-vivo/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-9c574aab-b1f4-423a-a6ab-b56826fbf2bd.png",
+      "sourceSha256": "8c6c53427c07880f1e2bdd0f36279a67b76f578f1bf028712e88991675c11e4a",
+      "sha256": "f758015569be5cfe249f59a33083508443c34d24ab92d080d22418191d23fbce",
+      "promptSummary": "Guardião sem rosto de vitral azul, escudo integrado ao antebraço, ruína de catedral."
+    },
+    {
+      "character": "O Escudo Vivo",
+      "path": "art/characters/o-escudo-vivo/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-72296ba2-b1dc-4f02-bdd4-05cac4bf7d30.png",
+      "sourceSha256": "3c6bacdd181d0ce523e9bd3d0d69b9889a65c59fa06f3686e447dbb88342a7a4",
+      "sha256": "a478edc73021ce957fcde4abedca8e5c66844f9a2222c4a697fdd7dbe7b3b587",
+      "promptSummary": "Absorve um impacto e forma um anel de vidro protetor no peito, capela alagada."
+    },
+    {
+      "character": "O Escudo Vivo",
+      "path": "art/characters/o-escudo-vivo/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-4f96841d-c1c3-4bbb-9164-737c5c7063f7.png",
+      "sourceSha256": "78da4b95007031d3f779aca269e15548a7bb113e6a5cba378931502d0888b448",
+      "sha256": "32fe018a407a4c3011d8e3118d4a5abd183ff9937fece1a2ebb3c7476aeb5d8d",
+      "promptSummary": "Golpe curto com escudo contra uma sombra, claustro em ruínas."
+    },
+    {
+      "character": "O Escudo Vivo",
+      "path": "art/characters/o-escudo-vivo/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-209b2f7e-814f-43b7-bafa-bc1a81b8b79c.png",
+      "sourceSha256": "a27750fd876060aa3152b63e84d7e4f460b381eb5e6e5fbc983db10067e8296a",
+      "sha256": "5625a36f0d6bd1bc8000e6f1d3e38f2892fdf2be149917e3d6e23bcefb0d31b0",
+      "promptSummary": "Protege um aliado com uma cúpula de vitral num arco acima das nuvens."
+    },
+    {
+      "character": "O Escudo Vivo",
+      "path": "art/characters/o-escudo-vivo/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-a080ce93-8cb7-44cd-b286-834da50a5f05.png",
+      "sourceSha256": "4f6fb0cf661eb39d5b3433f9b928b01877ae486ad1b2b5d634d04b8d0bd9abcd",
+      "sha256": "1b2349a7f231448e518afe3a74373e7685aaafc179060e9f1913424051391950",
+      "promptSummary": "Defesa que se converte em contra-golpe de luz azul na estufa noturna."
+    },
+    {
+      "character": "O Escudo Vivo",
+      "path": "art/characters/o-escudo-vivo/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-e93dc928-7d86-4e5a-9869-5a11de54a315.png",
+      "sourceSha256": "479189fbb528f1d42db0d243702d11aac9d7281f71ebea197aaef12ead2d7647",
+      "sha256": "534f40e669dd87b3aafc843ed92a1a1d7c7f3be977ff91634bfff1c4ab3081fc",
+      "promptSummary": "Casulo pessoal de vitral azul no observatório enluarado."
+    },
+    {
+      "character": "O Açougueiro",
+      "path": "art/characters/o-acougueiro/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-245e4755-ba9b-4d35-93f2-db2499196023.png",
+      "sourceSha256": "52c93674a4c58b6368d27ceb81478308b5cc414a65e16cc4afd6ec27389fbd64",
+      "sha256": "41f4ebf411de53ea71e6a05da560ce4a12600e25152615a877af26f1e0e1dd26",
+      "promptSummary": "Executor de máscara de ferro com respiros de cobre, trança curta, avental vinho e cutelo; retrato em 2D anime."
+    },
+    {
+      "character": "O Açougueiro",
+      "path": "art/characters/o-acougueiro/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-a582f107-5681-404c-b1e7-bf97fbb79d6f.png",
+      "sourceSha256": "f71215a67c5a9cb648a77693bc6ac0ee6b09647e82640d18ec327c391485795a",
+      "sha256": "c22b6b6e9f01694befdc28a0f2ff8ad3107c788d1bed9076209af0e377485497",
+      "promptSummary": "Fareja uma marca por um fio vermelho espectral, sem sangue, entre correntes e fornalha."
+    },
+    {
+      "character": "O Açougueiro",
+      "path": "art/characters/o-acougueiro/revision-20261023/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-ce316a73-00aa-4229-a089-ad0785d4611f.png",
+      "sourceSha256": "ede98383065dd34cacd19ea2adc648d9a7d687bf66a4ca81e16aedff5800c109",
+      "sha256": "d9d4eb82d948ca29b7f3b73eded47bcd02853dbe6ed66a6d8cc369dbcd078709",
+      "promptSummary": "Incisão sugerida por arco carmesim contra uma sombra na doca industrial; arte refeita em cel shading 2D."
+    },
+    {
+      "character": "O Açougueiro",
+      "path": "art/characters/o-acougueiro/revision-20261023/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-fa55b365-4164-4b25-b624-7abfabdd22c7.png",
+      "sourceSha256": "bc4fda3de2ecc8df803ef9b9b13ffce12698280ce798af2781abaa234671a7b0",
+      "sha256": "0601ac0d3e10ebe6de3e8d94a6f53a17d97f77ff5e035d41d8e5c877869ca0b8",
+      "promptSummary": "Selo geométrico carmesim prende a sombra vazia ao lado do personagem, sem contato."
+    },
+    {
+      "character": "O Açougueiro",
+      "path": "art/characters/o-acougueiro/revision-20261023/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-2a8a7b58-58a7-46d5-95f9-378236d7beaf.png",
+      "sourceSha256": "097bb4adf030138091b8c532496360619130711d1063642f70f450da7f7228be",
+      "sha256": "445d0ad426b5a6ffb937453d19713c2d12078c6e526022af42d2ecda11b7ed5f",
+      "promptSummary": "Cutelo encontra escudo erguido; uma marca vermelha indica o alvo, sem ferimento."
+    },
+    {
+      "character": "O Açougueiro",
+      "path": "art/characters/o-acougueiro/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-4b464a3d-751d-4e65-9e5b-10f354f65f0e.png",
+      "sourceSha256": "1122024e62afecad351b4e4d8dd69d278708c970280f443c59195406ef174457",
+      "sha256": "d982dac6a16839708eccf469d88035a8a7b24b2e33f0f71380ebe09b476a6e95",
+      "promptSummary": "Passo lateral evita um golpe que atravessa o espaço vazio no mercado de cinzas."
+    },
+    {
+      "character": "O Descontínuo",
+      "path": "art/characters/o-passo-interrompido/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-59201f6b-eda5-4102-ae48-a0517b71d4ea.png",
+      "sourceSha256": "2c63cc21eb6fc0ac9f7839f25ec1d380021a4fa291e48ef678c87d453efd2393",
+      "sha256": "448ef13fc6eca75f19487ce83b8958abe232fe2e4e5fbc2eff3cd6b3e354804c",
+      "promptSummary": "Duelista do Limbo com fissura prismática no rosto, casaco índigo e prisma preso ao cinto."
+    },
+    {
+      "character": "O Descontínuo",
+      "path": "art/characters/o-passo-interrompido/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-ec47e7fa-1210-4a66-b7f5-658b8bac8e8a.png",
+      "sourceSha256": "19e1e67424daf00cfafa7413c85e9c422424f2d14597f070ea77acd0f1dadedf",
+      "sha256": "11c74c4c47afc8967c366e80dfca025616462437990756c9f538df027589be25",
+      "promptSummary": "Passos sucessivos retornam pelo salão vazio, vistos de cima."
+    },
+    {
+      "character": "O Descontínuo",
+      "path": "art/characters/o-passo-interrompido/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-79f86217-bc86-4852-a2e6-d3d5e91e6d8b.png",
+      "sourceSha256": "61a8532c21feed7fba79647c9be56e14648a3ccbd2cfb04db2a2c6a959c2f6fe",
+      "sha256": "4872c2416130b138d5bb0609589a3a4c4a4599f2d412de8a59d440f609264c39",
+      "promptSummary": "Chute com ecos deslocados no caminho de pedra suspenso do Limbo."
+    },
+    {
+      "character": "O Descontínuo",
+      "path": "art/characters/o-passo-interrompido/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-788e187e-2316-4fbd-9aaf-461aebc0188a.png",
+      "sourceSha256": "8f3261c739315b8e16914a543eb165b88bc2df3f3b29120caaf85c5d00e69d86",
+      "sha256": "cb6cd947884a9ba246bba3c5d068273ae7f149581d988ba5a0cae6a400140494",
+      "promptSummary": "Anel temporal congela a sombra de uma vítima sem contato, vista de cima."
+    },
+    {
+      "character": "O Descontínuo",
+      "path": "art/characters/o-passo-interrompido/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-e877de0e-5f36-4121-8836-09ce3dee8480.png",
+      "sourceSha256": "90ea499ff8a16b53abc21ce7b5c1759214d012cfe3efff304be57633726aa2d1",
+      "sha256": "4ccff39036016cb62dde673652c79a28c49dfb7434e2e8c0023287d76d240761",
+      "promptSummary": "Três ecos convergem em uma descarga prismática no túnel ferroviário."
+    },
+    {
+      "character": "O Descontínuo",
+      "path": "art/characters/o-passo-interrompido/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-5195ae48-49de-4fdb-98f5-1305fd30cf8c.png",
+      "sourceSha256": "32fe9785e54d8189c6430b10c06d7abe706db385789961c45cb22346c7571fa4",
+      "sha256": "34f8b3ac1677f77cafd4a8a49721f9595115a60b270e883fcb54ae6d87d87e2f",
+      "promptSummary": "Passagem pessoal por uma fenda violeta na torre enevoada."
+    },
+    {
+      "character": "A Viúva",
+      "path": "art/characters/a-viuva-escarlate/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-ed2d5c31-1f4c-4c4f-bc2e-5baeda31c3e2.png",
+      "sourceSha256": "366828c4c05a2691e07b6315ac14da0f1e8dbe05fe1a35cfc4d5569ec3f15962",
+      "sha256": "f79bb6b004c639ae7908f01bb0fdf616d17fa85ec6ca65aac71bd08f59d36f3a",
+      "promptSummary": "Retrato sob véu escarlate com broche de rosa, canal de Sangria à noite."
+    },
+    {
+      "character": "A Viúva",
+      "path": "art/characters/a-viuva-escarlate/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-d0e9bc02-4882-423a-954e-6cf44fe600a4.png",
+      "sourceSha256": "1e92370c60a156a0a833ae9b121bd259c230de5c8b830c2e9d5b2603ffe56cbb",
+      "sha256": "7035bf1753354926ef1316f1717ae74c4e33c20f6f99920da8e403aeb0251e11",
+      "promptSummary": "Motes de vitalidade retornam à luva e ao broche diante do espelho do camarim."
+    },
+    {
+      "character": "A Viúva",
+      "path": "art/characters/a-viuva-escarlate/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-5715f16f-2a55-41ca-8552-70c6d5e2bdd0.png",
+      "sourceSha256": "699d714a80c374204777edebd5f13868124b54f992080d088885ca46ed61e66e",
+      "sha256": "7974f112dd9702609be454c6e440230f6df278dbd8cb4daba8ed7c2b2644ce60",
+      "promptSummary": "Fio escarlate do broche marca uma sombra distante no canal."
+    },
+    {
+      "character": "A Viúva",
+      "path": "art/characters/a-viuva-escarlate/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-ac247e29-a9ea-4490-b2ed-084fffadad04.png",
+      "sourceSha256": "632bd366b553912cf243d82fe645d6d68f218868569476ffd7837698da574314",
+      "sha256": "308be88d18168bd460bbf36066f72380ba105f8a3fef73e98cf4b7ee8cdb7824",
+      "promptSummary": "Véu desvia uma onda de energia no palco do teatro, sem contato."
+    },
+    {
+      "character": "A Viúva",
+      "path": "art/characters/a-viuva-escarlate/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-7f5535bd-dd3b-43c0-935c-4ac953ca9f47.png",
+      "sourceSha256": "15b21a2b8649d08fd22c4d16573c8b18c3b98e067143fa77fb8f83256925853e",
+      "sha256": "c56870cb67c7ba91bc20f5229c5105791eaa970ac608a56ddb434def22b68fdf",
+      "promptSummary": "Fio de luz conduz motes a partir de uma sombra na varanda infernal."
+    },
+    {
+      "character": "A Viúva",
+      "path": "art/characters/a-viuva-escarlate/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-b81884d3-408b-4158-bd76-310e1fa48d71.png",
+      "sourceSha256": "2c27afe498b9e6328d8ee2f1cf8a5df184f22e248dcc75deab781f52a28b6fb1",
+      "sha256": "e383fcdd62f7e3a4f0acbcb25173001a76b237bcf7e1f0b1c53e357a82ebeaed",
+      "promptSummary": "Véu forma uma barreira pessoal de pétalas na escadaria da cripta."
+    },
+    {
+      "character": "O Colecionador",
+      "path": "art/characters/o-colecionador-de-cabecas/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-57957e44-802b-4951-b002-c2902cbd44b6.png",
+      "sourceSha256": "08dd5b0a604aca662d254ad046907abe73c014d4a2a1ba783ce45015b691cae4",
+      "sha256": "2bea95647f54a410229fbad824046a4618da5f1f136deb2d8a92bed343233b26",
+      "promptSummary": "Caçador de pele escura, meia-máscara de marfim e lente de latão; cápsulas com motes espirituais e planície de cinzas."
+    },
+    {
+      "character": "O Colecionador",
+      "path": "art/characters/o-colecionador-de-cabecas/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-e10cfb82-035a-4777-9b10-bb7252a61bdb.png",
+      "sourceSha256": "c5e05453cb89dc672fa108828d5997a7ed4db594d22df84a54407b48a554b715",
+      "sha256": "97b1a97c74a26dd01f914b97d1d1f5d4f09a405d2d2856cbd312113c30d2a18b",
+      "promptSummary": "Primeiro mote selado numa cápsula de vidro sobre arquivo vazio visto de cima."
+    },
+    {
+      "character": "O Colecionador",
+      "path": "art/characters/o-colecionador-de-cabecas/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-d3fd085f-8059-4d8b-ae25-57ced272d86e.png",
+      "sourceSha256": "d105a3c564f1a962b3c7726a442cf7253214def61d2667fac84d45cf11bbdd01",
+      "sha256": "5a308b08dae7d9d599dd6a40448483c57322061c57a8e54d1dc64c80c759e8bc",
+      "promptSummary": "Laço espiritual marca sombra distante em floresta de cinzas."
+    },
+    {
+      "character": "O Colecionador",
+      "path": "art/characters/o-colecionador-de-cabecas/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-c2523e99-7664-4285-8de0-7f0871825c66.png",
+      "sourceSha256": "aac0263348fbeaf0705b0f5075d1638f8e9e38274e4976fd07ff20dd8be34400",
+      "sha256": "0db1db73be84ecf89c31c2419cdb4d8e706cf6cd2560944f0872d07c05331c2b",
+      "promptSummary": "Lente remove barreira translúcida de sombra em ravina basáltica."
+    },
+    {
+      "character": "O Colecionador",
+      "path": "art/characters/o-colecionador-de-cabecas/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-553faa34-6a76-409c-8b6e-10ea621f7e50.png",
+      "sourceSha256": "a9df46b4b23f32a56f3f5c66e2398c7b0ca796b565132829989278aa46f70c19",
+      "sha256": "ee31cf368e34040d3e5411cb0ded5c78b1986ea5c724fc444b80509bf64a32a9",
+      "promptSummary": "Três motes saem das cápsulas e convergem em anéis no salão de troféus vazio."
+    },
+    {
+      "character": "O Colecionador",
+      "path": "art/characters/o-colecionador-de-cabecas/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-86684b22-17e7-45b1-b00c-96f9aa3ab810.png",
+      "sourceSha256": "dddb227efd808b6a75b22e3a8de4728fa093ad285922f00d193b2706ac588e36",
+      "sha256": "e41f7217ee03752087c95838c66d11edf2ddbde4d80ee71b9a299cfd95a028da",
+      "promptSummary": "Colecionador se dissolve em sombra e cinzas na torre à noite."
+    },
+    {
+      "character": "Gêmeos do Cutelo",
+      "path": "art/characters/gemeos-do-cutelo/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-699d4ebc-0683-4d83-b9b3-3e1c899861f8.png",
+      "sourceSha256": "e9da1a47fe45ca5522cf59f95d823775649e52ecfbf2e805e921e6008774e3bd",
+      "sha256": "89015172beb6c23e910472ab107f7415bae2abc773426009620bcda12776d815",
+      "promptSummary": "Dois irmãos de faixas distintas ficam costas com costas no portão de Sangria, cercados por folhas vermelhas."
+    },
+    {
+      "character": "Gêmeos do Cutelo",
+      "path": "art/characters/gemeos-do-cutelo/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-2abb8ddb-f129-4538-98b0-be665da7583e.png",
+      "sourceSha256": "2de3533f3f0f1c442442709d29e869c811651c5b2d66bcc38413f280899ccc09",
+      "sha256": "b9595e514cb26693e3474988f093ee810bc40ae0b37f0cd1dd9c5d9eb35c5668",
+      "promptSummary": "Sombras sobrepostas e uma brasa espiritual representam o ritmo coordenado dos gêmeos no pátio de treino."
+    },
+    {
+      "character": "Gêmeos do Cutelo",
+      "path": "art/characters/gemeos-do-cutelo/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-d52aac0b-60e7-4124-89eb-9c2f4e7e1ffc.png",
+      "sourceSha256": "f632eaab70e367795231e9936a18a0cfc4d92cebfc0cd961c04a58bc5bf93264",
+      "sha256": "afbd7a009300fe39ac359c9002536d35ffb83018ec2cb856344010e86e7b68ce",
+      "promptSummary": "O gêmeo de faixa carmesim abre a guarda de um oponente com a lateral do cutelo e uma marca geométrica."
+    },
+    {
+      "character": "Gêmeos do Cutelo",
+      "path": "art/characters/gemeos-do-cutelo/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-faa56e8b-d4a5-486a-8547-b53acf900410.png",
+      "sourceSha256": "6ada85c4b7dc2c3a28e4e668b173c21bec88cab3f7b1a2e0b0d11a3eb4f39c0f",
+      "sha256": "84a11e90b1af4690fb6b4b76de78cf94876ec585dda21c9cbba5b2fb79091478",
+      "promptSummary": "O gêmeo de faixa índigo golpeia uma faixa de tecido e deixa um rastro espiritual carmesim no alvo."
+    },
+    {
+      "character": "Gêmeos do Cutelo",
+      "path": "art/characters/gemeos-do-cutelo/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-cfefe56f-0961-4290-9b74-bb088a74a116.png",
+      "sourceSha256": "e9d43953ce3f0ede48314f17f8cf93d7199094f8407332b45f5c02f963e04b56",
+      "sha256": "d0879597ef35bc4940f72df4a4cf5a785d5fafb252538e0a975a3f2e5b0735b7",
+      "promptSummary": "Ataque cruzado sincronizado dos dois gêmeos se expande em arcos espirituais contra várias silhuetas."
+    },
+    {
+      "character": "Gêmeos do Cutelo",
+      "path": "art/characters/gemeos-do-cutelo/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-592cf617-27ce-4874-9fbb-928d0e6a9c3f.png",
+      "sourceSha256": "3e433e7c99392bda6f106664fd8d5cbe468b3969b22b4ebb59601145e6b0c1a2",
+      "sha256": "6888784f5cbe8966d7e99c1c5d41182a51c026be32b03e7e248d3fa9eac4a3f5",
+      "promptSummary": "Os irmãos protegem apenas a si mesmos com cutelos cruzados, desviando uma onda de energia espectral."
+    },
+    {
+      "character": "O Carrasco sem Rosto",
+      "path": "art/characters/o-carrasco-sem-rosto/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-4e702b2c-0d33-4810-b691-2d7a23fbcc44.png",
+      "sourceSha256": "9c19dc0402aec26662e47ec35af803fd257c1434330474d95d5f7c5b72ff3b6b",
+      "sha256": "6549784ab6b82a6d74c808c90c5f58d6394a6a695a829aa7de88717cf504d644",
+      "promptSummary": "Carrasco sem rosto sob o portão do tribunal de Sangria, com manto carmesim e lâmina cerimonial."
+    },
+    {
+      "character": "O Carrasco sem Rosto",
+      "path": "art/characters/o-carrasco-sem-rosto/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-f6a2bbeb-fafc-4b60-ba16-37b2c85a8979.png",
+      "sourceSha256": "8acd923a1613589e924bbb44d141d26d5a2ecfcaaac5b4ed954eb5c4643d88f9",
+      "sha256": "c5ba48db4a27f1a14ff6fa7752f97e9424d3f947441c4e02a9e85847c8edebd2",
+      "promptSummary": "Alvo atordoado sob pesos suspensos enquanto o Carrasco observa no arquivo judicial."
+    },
+    {
+      "character": "O Carrasco sem Rosto",
+      "path": "art/characters/o-carrasco-sem-rosto/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-5b0a624f-800b-476a-aa1e-35f47d0758c2.png",
+      "sourceSha256": "4050a7e8850c6b165a0364dddd5db3a044ad35e7a26deb980157289cecb271fd",
+      "sha256": "225c9f409a0f3cd02caaaf2768855b062e9863832792f85e45263d225e3a3a18",
+      "promptSummary": "Selo de cera negra aplica uma sentença marcada a um único alvo, sem ferimentos."
+    },
+    {
+      "character": "O Carrasco sem Rosto",
+      "path": "art/characters/o-carrasco-sem-rosto/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-1d78cb68-9298-4987-8ef1-1782e132dfc2.png",
+      "sourceSha256": "7ece88a91e58eedd2a8db3e0e6ea1a7be81064748ed2d788366641406b83fec4",
+      "sha256": "81b9bf5352974234dbb6b819bcf77b330f5e4a5f9712f2e7c1b2f515fdc57182",
+      "promptSummary": "Lâmina de guilhotina atinge o piso ao lado do alvo marcado, interrompendo sua ação com faíscas."
+    },
+    {
+      "character": "O Carrasco sem Rosto",
+      "path": "art/characters/o-carrasco-sem-rosto/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-95d01341-ae4a-4f84-9eb3-03ec86e4bf9c.png",
+      "sourceSha256": "a3b4e723951daf8543830e880bd78bbcfa42ba51ce445f71ec15b7c2196aeff9",
+      "sha256": "ed361cae25cec4a2af8896eb3128a6d863b30785c3ba0a0e19da84116f1ebf43",
+      "promptSummary": "Fio espiritual carmesim aponta para uma vítima vulnerável distante na margem de cinzas."
+    },
+    {
+      "character": "O Carrasco sem Rosto",
+      "path": "art/characters/o-carrasco-sem-rosto/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-a2b8af27-54e8-4143-ac1d-0b8707259d8d.png",
+      "sourceSha256": "4f71af632073682f80b5491520ac829afa67b80fadb903f9319e3cc94114afbb",
+      "sha256": "b6fd9e1b57a3da2722fb3721fa1c5eaf747b73d40b439932e435229cb462972b",
+      "promptSummary": "O Carrasco se dissolve em cinzas e talismãs, desviando energia em uma defesa pessoal."
+    },
+    {
+      "character": "A Mãe Rubra",
+      "path": "art/characters/a-mae-rubra/portrait.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-39a16ab9-8450-4a82-b228-16e428e0ae1c.png",
+      "sourceSha256": "410463624104010330dfe42206b528f7c8ecaaf77a50195fb8b638412a1c9b34",
+      "sha256": "8c0da17d0dc7866bc7122f39a2adfc2e8f86558347e46b673659ddae23d7bbaa",
+      "promptSummary": "Retrato da matriarca de Sangria, com trança prateada, fios carmesins e santuário de velas."
+    },
+    {
+      "character": "A Mãe Rubra",
+      "path": "art/characters/a-mae-rubra/passive.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-ce7742fc-7820-46ea-84fa-f1ef40827845.png",
+      "sourceSha256": "acdcbc715a24191d56b2f91c7d90b55244954990eb8ecc5ca77f5813ec33b4cf",
+      "sha256": "c77bfc59f452fc422e9f7b177cb121881f9ba0919c7ea22669af2c0c2ac6875f",
+      "promptSummary": "Apoio a um aliado conduz um mote rubro de volta à própria Mãe, mostrando sua recuperação passiva."
+    },
+    {
+      "character": "A Mãe Rubra",
+      "path": "art/characters/a-mae-rubra/skill-impulso.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-f907e010-5ba3-42df-8f7b-4236d3601b6c.png",
+      "sourceSha256": "3185c599e5ffad2ccf8c4ce58ad00bfedf96ec939e04f291e4fc10937f309fbc",
+      "sha256": "1c695852f227c492f64dbc1117c56316aba98240116ca7c46344e0627c351af7",
+      "promptSummary": "Cordão rubro drena a essência de um inimigo distante e a devolve à usuária na ponte em ruínas."
+    },
+    {
+      "character": "A Mãe Rubra",
+      "path": "art/characters/a-mae-rubra/skill-tecnica.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-a39007fa-8ba4-418e-9579-822adb67232d.png",
+      "sourceSha256": "b36800b96f903dafaa8ad7bf0212f3973ec85fe08e7b600fd7086cd3e0cfa286",
+      "sha256": "40ddcf72bb298bcefe878f883720aecaba859bc7dfa5e2bd18c3d1cb24bf6321",
+      "promptSummary": "A Mãe Rubra sacrifica parte do próprio brilho para envolver um aliado em guarda e regeneração."
+    },
+    {
+      "character": "A Mãe Rubra",
+      "path": "art/characters/a-mae-rubra/skill-voto.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-9db6506b-443b-4699-ac39-f6c2584b2d72.png",
+      "sourceSha256": "d764c0cd13f3f36c9b5f371b97efb5e2a23919d4c6fcdba397c6ae121fc6f9d7",
+      "sha256": "c9e84717e86c6f677bb3fae3fa91ec38de8cd173e504be2d64a226155c5bc305",
+      "promptSummary": "Três adversários são alcançados por fios e flores espirituais num ataque em área no telhado."
+    },
+    {
+      "character": "A Mãe Rubra",
+      "path": "art/characters/a-mae-rubra/skill-despertar.webp",
+      "dimensions": "512x512",
+      "sourceFile": "exec-c3861e8c-1ef8-45ce-bbf1-181948bc20cc.png",
+      "sourceSha256": "335f69ba4cac319527383597fe5418720af7b9ff08e4422399c20cfca4152b96",
+      "sha256": "cb44ac91b043ca44a04427eac0164674965a1bb135a9ee69b9c1130abfa3a082",
+      "promptSummary": "Casulo de fios protege somente a Mãe Rubra e detém uma onda espectral numa escadaria."
+    }
+  ]
+}

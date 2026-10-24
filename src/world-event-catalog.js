@@ -23,7 +23,7 @@ export const worldInfluences=[
  event('censura','O silêncio imposto','Uma transmissão é cortada antes da última palavra.',['silencio','coroa'],{controlPower:4},'+4 de dano direto em técnicas que atordoam, enfraquecem, expõem ou selam','gold','offense','lock','controller'),
  event('revolta','A noite da revolta','As ruas recusam mais uma ordem impossível.',['correntes-quebradas','verdade'],{counterPower:5},'+5 de dano nos contra-ataques preparados por habilidades','gold','offense','counter','counter'),
  event('semente','Sementes sob o concreto','Uma planta floresce onde os vivos só viam ruína.',['criacao','esperanca'],{shieldPower:5},'Habilidades concedem +5 de Defesa','gold','defense','seed','guardian'),
- event('predacao','A lei do mais forte','A escassez faz os vivos disputarem os últimos recursos.',['fome','vazio'],{executePower:5},'+5 de dano direto contra alvos com até 40% da Vida','gold','offense','fang'),
+ event('predacao','A lei do mais forte','A escassez faz os vivos disputarem a Essência que resta.',['fome','vazio'],{executePower:5},'+5 de dano direto contra alvos com até 40% da Vida','gold','offense','fang'),
  event('remanescente','O que ainda respira','Sob os escombros, uma voz pede mais uma chance.',[],{regeneration:1},'Regeneram 1 de Vida no início do turno, a partir do turno 2','gold','defense','seed'),
  event('blindagem','A cidade blindada','Os vivos reforçam portas antes de uma longa noite.',[],{armor:1},'+1 de Armadura contra dano físico e espiritual','gold','utility','shield'),
  event('virada','A hora da virada','Quem perdeu tudo encontra uma última razão para lutar.',[],{woundedPower:4},'+4 de dano direto enquanto estiverem com até 50% da Vida','gold','offense','blade'),
@@ -37,7 +37,7 @@ export const worldInfluences=[
  event('mutacao','Uma nova pele','A pressão do mundo obriga os vivos a mudar.',[],{evolvedPower:5},'+5 de dano direto nas formas alternativas de habilidades','gold','offense','metamorph','shifter'),
  event('interdito','O último aviso','Uma cidade interrompe a violência antes do próximo ataque.',[],{controlPower:3},'+3 de dano direto em técnicas que atordoam, enfraquecem, expõem ou selam','silver','offense','lock','controller'),
  event('coleta','Herança dos que caem','As últimas palavras de um moribundo passam a outro sobrevivente.',[],{killShield:8},'Ao derrubar uma alma com uma técnica ofensiva, recebem 8 de Defesa; uma vez por habilidade','gold','defense','candle'),
- event('transmissao','A última transmissão','Uma voz atravessa o apagão e dá aos vivos um instante de clareza.',[],{energy:{essence:1}},'Cada equipe com ao menos um destinatário recebe 1 Essência, uma única vez','silver','utility','echo'),
+ event('transmissao','A última transmissão','Uma voz atravessa o apagão e dá aos vivos um instante de clareza.',[],{essence:{essence:1}},'Cada equipe com ao menos um destinatário recebe 1 Éter, uma única vez','silver','utility','echo'),
  event('convergencia','Quando o véu se rompe','Por um instante, todos os vivos sonham com o mesmo fim.',[],{firstStrike:8},'O próximo ataque direto de cada destinatário causa +8 de dano','prismatic','offense','rift'),
  event('ultimo-sol','O último sol','Uma luz impossível alcança quem continuou depois de todos.',[],{lastStandPower:7,shield:8},'Recebem 8 de Defesa; +7 de dano direto enquanto forem a última alma viva da equipe','prismatic','defense','dawn'),
  event('eclipse','O eclipse dos vivos','O céu escurece e os vivos sentem o pulso do outro lado.',[],{lifesteal:.08,damage:2},'+2 de dano direto e recuperam 8% do dano direto causado','prismatic','utility','eclipse'),
@@ -53,3 +53,4 @@ export const worldInfluences=[
  event('memoria','A memória que retorna','Os vivos voltam a pronunciar os nomes que tentaram apagar.',['correntes-quebradas','vazio'],{firstStrike:6,shiftShield:6},'O próximo ataque direto causa +6 de dano; mudar a própria forma por uma técnica concede 6 de Defesa','prismatic','utility','veil','shifter'),
  event('fervor','Fervor de um povo','Um movimento cresce porque alguém se recusa a desistir.',['esperanca','uniao','coroa'],{supportShield:5,charge:1},'Recebem 1 carga; ao usar apoio, recebem 5 de Defesa','gold','utility','bond','support')
 ];
+

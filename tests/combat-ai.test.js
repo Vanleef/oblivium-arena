@@ -6,7 +6,7 @@ import {renderBattleDetail} from '../src/battle-view.js';
 import {simulateMatch} from '../scripts/simulate-combat.mjs';
 const strike=(id,damage,extra={})=>({id,name:id,target:'enemy',damage,costs:{essence:1},...extra});
 const enemy=(id,abilities)=>({id,name:id,realm:'Inferno',abilities});
-function battle(enemies){const b=createBattle([characters[0].id,characters[1].id,characters[2].id],enemies,{rng:()=>0});b.enemyResources={essence:3,cinza:0,graca:0,ruptura:0};for(const u of [...b.allies,...b.enemies]){u.passive=null;u.shield=0;}return b;}
+function battle(enemies){const b=createBattle([characters[0].id,characters[1].id,characters[2].id],enemies,{rng:()=>0});b.enemyResources={essence:3,cinza:0,graca:0,ruptura:0,coringa:0};for(const u of [...b.allies,...b.enemies]){u.passive=null;u.shield=0;}return b;}
 
 test('IA considera redução, Defesa, perfurante e aflição ao escolher seu ataque',()=>{
  const b=battle([enemy('inimigo',[strike('físico',25),strike('perfurante',15,{damageType:'piercing'}),strike('aflição',12,{damageType:'affliction'})])]);
@@ -25,9 +25,16 @@ test('IA evita contra-ataque anunciado e respeita o filtro de tipo',()=>{
  assert.equal(getCombatPlan(b).length,0);
 });
 
-test('energia disputada vai à ação mais útil, independente da ordem do trio',()=>{
+test('Essência disputada vai à ação mais útil, independente da ordem do trio',()=>{
  const weak=enemy('fraco',[strike('fraco',8)]),strong=enemy('forte',[strike('forte',24)]);
  for(const roster of [[weak,strong],[strong,weak]]){const b=battle(roster);b.enemyResources.essence=1;assert.equal(getCombatPlan(b)[0].actorId,'forte');}
+});
+
+test('IA de Ruptura alta concentra ataques na ameaça mais perigosa com estado público',()=>{
+ const b=battle([enemy('caçador',[strike('golpe',20)])]),quiet=b.allies[0],danger=b.allies[1];
+ quiet.abilities=[strike('ameaça menor',5)];danger.abilities=[strike('ameaça maior',50)];
+ b.difficulty=0;assert.equal(getCombatPlan(b)[0].targetId,quiet.id);
+ b.difficulty=6;assert.equal(getCombatPlan(b)[0].targetId,danger.id);
 });
 
 test('a previsão evita desperdiçar ações numa vítima que o primeiro golpe elimina',()=>{
@@ -54,11 +61,20 @@ test('a previsão não inventa dano de Exposto numa técnica sem dano',()=>{
  assert.equal(getCombatPlan(b).length,0);
 });
 
-test('planejamento não modifica combate, não lê fila do jogador nem sorteia energia',()=>{
+test('planejamento não modifica combate, não lê fila do jogador nem sorteia Essência',()=>{
  const b=battle([enemy('um',[strike('golpe',20)]),enemy('dois',[strike('golpe2',20)])]);const before=JSON.stringify(b),first=getCombatPlan(b);
  assert.equal(JSON.stringify(b),before);b.rng=()=>{throw Error('Sorteio antecipado');};b.queue=[{actorId:b.allies[0].id,abilityId:'despertar',targetId:b.allies[0].id}];
  assert.deepEqual(getCombatPlan(b),first);
  const costs={...b.enemyResources};for(const action of first){const u=b.enemies.find(v=>v.id===action.actorId),a=u.abilities.find(v=>v.id===action.abilityId);assert.ok(getValidTargets(b,u,a).some(v=>v.id===action.targetId));for(const [id,n]of Object.entries(getAbilityResourceCosts(u,a)))costs[id]-=n;}assert.ok(Object.values(costs).every(v=>v>=0));
+});
+
+test('a previsão de conversão financia a próxima ação sem alterar a reserva real',()=>{
+ const converter=enemy('converter',[{id:'converter',name:'Converter Essência',target:'enemy',damage:20,costs:{essence:1,coringa:1},convertEssence:{from:'essence',to:'coringa',amount:1}}]);
+ const follow=enemy('eco',[strike('golpe-coringa',5,{costs:{coringa:1}})]),b=battle([converter,follow]);
+ b.enemyResources={essence:2,cinza:0,graca:0,ruptura:0,coringa:1};
+ const before=JSON.stringify(b.enemyResources),plan=getCombatPlan(b);
+ assert.deepEqual(plan.map(action=>action.abilityId),['converter','golpe-coringa']);
+ assert.equal(JSON.stringify(b.enemyResources),before,'planejamento não debita nem converte a reserva real');
 });
 
 test('a oposição decide na própria vez e evita uma defesa aplicada após o planejamento inicial',()=>{
@@ -66,7 +82,7 @@ test('a oposição decide na própria vez e evita uma defesa aplicada após o pl
  u.hp=20;u.abilities[0]={id:'proteger',name:'Proteger',target:'self',defense:true,invulnerable:1,costs:{}};
  assert.equal(getCombatPlan(b)[0].targetId,u.id);
  chooseAction(b,u.id,'proteger',u.id);commitTurn(b);resolveNextAction(b);resolveNextAction(b);
- assert.notEqual(b.intents[0].targetId,u.id);assert.equal(b.resources.essence,1);
+ assert.notEqual(b.intents[0].targetId,u.id);assert.equal(b.resources.essence,3);
 });
 
 test('reação de cura e Defesa informa a origem e cada beneficiário à animação',()=>{
@@ -91,6 +107,7 @@ test('inspeção informa origem, gatilho, valor, duração e filtro dos efeitos 
  assert.match(html,/EFEITOS ATIVOS · 2/);assert.match(html,/origem · Ao usar apoio \(exceto a defesa pessoal\)/);assert.match(html,/9 de dano de aflição/);assert.match(html,/expira após 1/);assert.match(html,/próxima técnica espiritual/);assert.match(html,/Dívida &lt;rara&gt;/);
 });
 
-test('os 100 personagens atravessam combates completos com recursos reais e invariantes a cada ação',()=>{
+test('os 100 personagens atravessam combates completos com tipos reais de Essência e invariantes a cada ação',()=>{
  for(let i=0;i<characters.length;i++){const result=simulateMatch(i,i%3);assert.ok(result.steps>0);assert.ok(result.rounds<=100);}
 });
+

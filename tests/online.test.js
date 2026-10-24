@@ -42,3 +42,14 @@ test('Arena recebe a escolha Qualquer, rejeita pagamento adulterado e mantém a 
  await assert.rejects(()=>service.request(active.token,{...input,payment:{fake:1}}),{status:409});const unchanged=await service.request(active.token);assert.equal(unchanged.match.version,active.match.version);assert.deepEqual(unchanged.match.battle.resources,active.match.battle.resources);
  const sent=await service.request(active.token,{...input,payment:{[resource]:1}});assert.equal(sent.match.version,active.match.version+1);assert.equal(sent.match.battle.allies[0].cooldowns.despertar,4);assert.ok(sent.match.battle.log.some(line=>line.includes(u.abilities[3].name)&&line.includes('usa')));
 });
+
+test('Arena autoriza a troca 5:1 somente com cinco pips reais no pool do jogador',async()=>{
+ const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
+ let views=await Promise.all([service.request(a.token),service.request(b.token)]);
+ for(let i=0;i<2;i++){const v=views.find(item=>item.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});views=await Promise.all([service.request(a.token),service.request(b.token)]);}
+ const active=views.find(v=>v.match.battle.phase==='player'),raw=JSON.parse(store.data.get(`match:${active.match.id}`)),side=raw.players.indexOf(active.profile.id)===0?'player':'enemy',pool={essence:2,cinza:1,graca:1,ruptura:0,coringa:1};
+ raw.battle[side==='player'?'resources':'enemyResources']=pool;store.data.set(`match:${raw.id}`,JSON.stringify(raw));
+ const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}},turn={op:'turn',version:active.match.version,actions:[],payment:{},exchanges:[exchange]};
+ await assert.rejects(()=>service.request(active.token,{...turn,exchanges:[{...exchange,payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:0}}]}),{status:409});
+ const accepted=await service.request(active.token,turn);assert.ok(accepted.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
+});
