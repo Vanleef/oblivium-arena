@@ -53,4 +53,4 @@ O elenco de 100 kits recebeu estruturas de preparação, transformação, reaç�
 
 # PMA: Post Mortem Arena
 
-`npm run dev` starts the game and local account API on port 4173. Local users and campaign progress persist in the ignored `.pma-dev-data.json` file. For a hosted deployment, configure `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` in Vercel; the hosted server deliberately has no filesystem or in-memory account fallback.
+`npm run dev` starts the game and local account API on port 4173. Local users and campaign progress persist in the ignored `.pma-dev-data.json` file. For a hosted deployment, connect the Vercel KV/Upstash integration or configure `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`. The server also accepts the integration variables `PMA_DB_KV_REST_API_URL` and `PMA_DB_KV_REST_API_TOKEN`; it never uses the read-only token for account writes and has no hosted filesystem or in-memory fallback.

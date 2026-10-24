@@ -3,9 +3,11 @@ import {readFile,writeFile,rename,mkdir} from 'node:fs/promises';
 import {dirname} from 'node:path';
 
 let fileQueue=Promise.resolve();
-export function storageConfigured(){return Boolean(process.env.UPSTASH_REDIS_REST_URL&&process.env.UPSTASH_REDIS_REST_TOKEN)||Boolean(process.env.PMA_LOCAL_DATA_PATH&&process.env.VERCEL!=='1');}
+function redisCredentials(){return {url:process.env.UPSTASH_REDIS_REST_URL||process.env.PMA_DB_KV_REST_API_URL,token:process.env.UPSTASH_REDIS_REST_TOKEN||process.env.PMA_DB_KV_REST_API_TOKEN};}
+export function storageConfigured(){const {url,token}=redisCredentials();return Boolean(url&&token)||Boolean(process.env.PMA_LOCAL_DATA_PATH&&process.env.VERCEL!=='1');}
 export function createStore(){
- if(process.env.UPSTASH_REDIS_REST_URL&&process.env.UPSTASH_REDIS_REST_TOKEN)return new RedisStore(process.env.UPSTASH_REDIS_REST_URL,process.env.UPSTASH_REDIS_REST_TOKEN);
+ const {url,token}=redisCredentials();
+ if(url&&token)return new RedisStore(url,token);
  if(process.env.PMA_LOCAL_DATA_PATH&&process.env.VERCEL!=='1')return new FileStore(process.env.PMA_LOCAL_DATA_PATH);
  throw Error('storage unavailable');
 }
