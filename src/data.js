@@ -1,3 +1,4 @@
+import {withFlexibleCosts} from './flexible-costs.js';
 import { buildCharacterKit } from "./kits.js";
 import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
@@ -117,7 +118,7 @@ export const resources = [
   { id: "ruptura", name: "Ruptura", shortName: "Ruptura", icon: "⟲", color: "limbo" }
 ];
 
-export const resourceById = Object.fromEntries(resources.map((resource) => [resource.id, resource]));
+export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Aleatório",color:"random"}};
 export const realmResource = { Inferno: "cinza", "Paraíso": "graca", Limbo: "ruptura" };
 
 const starterArt = {
@@ -246,7 +247,7 @@ export const realms = [
   }
 ];
 
-export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => withBodyForms(characterFrom(elo, name, index))));
+export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))));
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));

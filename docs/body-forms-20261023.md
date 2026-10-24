@@ -1,6 +1,6 @@
 # Transformações e retratos — PMA
 
-O Fim passa a escolher uma manifestação nas três primeiras posições da forma original. Cada manifestação substitui essas três técnicas e o retrato. A quarta posição continua compartilhada: **Fim Inalcançável** custa 1 Essência, concede Invulnerável por uma resposta adversária, recupera 10 de Vida e restaura a forma original, com recarga de 4 turnos. A cura respeita Vida máxima e bloqueio de cura; aflições existentes continuam.
+O Fim passa a escolher uma manifestação nas três primeiras posições da forma original. Cada manifestação substitui essas três técnicas e o retrato. A quarta posição continua compartilhada: **Fim Inalcançável** custa 1 Aleatório, concede Invulnerável por uma resposta adversária, recupera 10 de Vida e restaura a forma original, com recarga de 4 turnos. A cura respeita Vida máxima e bloqueio de cura; aflições existentes continuam.
 
 “Forma original” significa a manifestação inicial aprovada para este encontro. Não estabelece um corpo verdadeiro nem um rosto canônico para O Fim.
 
@@ -10,7 +10,7 @@ O Fim passa a escolher uma manifestação nas três primeiras posições da form
 | Predador | Perseguição, roubo de Vida e drenagem | Rastro Faminto; Ceifar o Vínculo; Fome dos Reinos |
 | Ruína | Aflições, interdição e pressão coletiva | Cinza de Ninguém; Nome Extinto; Última Fronteira |
 
-Cada transformação custa 1 Cinza, concede 8 de Defesa e consome a ação daquela alma. A forma permanece até a defensiva. Não há ação adicional ao assumir um corpo. As recargas continuam ligadas às posições ao retornar ou trocar de manifestação.
+Cada transformação custa 1 Essência, concede 8 de Defesa e consome a ação daquela alma. A forma permanece até a defensiva. Não há ação adicional ao assumir um corpo. As recargas continuam ligadas às posições ao retornar ou trocar de manifestação.
 
 A Metamorfa possui três corpos: original, Pele Usurpada e Carapaça Usurpada. As duas transformações trocam as três técnicas e o retrato. Descartar o Molde, Descamar a Armadura e Corpo Substituto restauram o corpo original sem limpar recargas. Pele Usurpada favorece lâmina perfurante e revide; Carapaça favorece guarda e contra-ataque.
 
@@ -28,4 +28,22 @@ O cenário `tests/fixtures/forms.html` renderiza o motor e a interface reais em 
 
 As artes novas estão nas pastas versionadas `art/characters/{id}/body-forms-20261023/`. Fontes, prompts de geração e hashes estão em `docs/BODY_FORMS_20261023.json`. Foram criadas pela ferramenta integrada `image_gen.imagegen`, preservando as manifestações e identidades aprovadas.
 
-A verificação no navegador confirmou: as transformações de Tirano, Carapaça Usurpada e Ódio Solto; o retorno dos retratos de O Fim e Metamorfa; Contorno de Abrigo, Pele Usurpada e a escolha de Ruína pela IA. As imagens correspondentes carregaram, sem rolagem horizontal nas larguras de quadro de 1200, 390 e 320 px. Os testes funcionais somam 157 aprovações. Duas verificações antigas de presença de todos os binários históricos foram excluídas porque o checkout local foi reconstruído sem esse acervo; os 19 novos arquivos foram validados por dimensão e hash e conferidos na árvore remota.
+A verificação no navegador confirmou: as transformações de Tirano, Carapaça Usurpada e Ódio Solto; o retorno dos retratos de O Fim e Metamorfa; Contorno de Abrigo, Pele Usurpada e a escolha de Ruína pela IA. As imagens correspondentes carregaram, sem rolagem horizontal nas larguras de quadro de 1200, 390 e 320 px. Os testes funcionais somam 171 aprovações. Duas verificações antigas de presença de todos os binários históricos foram excluídas porque o checkout local foi reconstruído sem esse acervo; os 19 novos arquivos foram validados por dimensão e hash e conferidos na árvore remota.
+
+
+## Recursos por corpo e custo Aleatório
+
+| Personagem | Original | Formas |
+| --- | --- | --- |
+| O Fim | Essência | Tirano: Cinza; Predador: Ruptura; Ruína: Graça |
+| Metamorfa | Cinza | Pele Usurpada: Ruptura; Carapaça Usurpada: Essência |
+| Furor | Cinza | Ódio Solto: Ruptura |
+| Oscilante | Ruptura | Contorno de Abrigo: Graça |
+
+O recurso principal acompanha o corpo e retorna com ele. Custos complementares das manifestações de O Fim e dos corpos alternativos de Metamorfa usam Aleatório. As 100 defesas pessoais e a quarta técnica de O Fim custam exatamente 1 Aleatório; doze técnicas normais também recebem uma unidade de custo flexível, preservando seu custo total e suas variantes.
+
+Aleatório aparece como um marcador preto de custo. Não é um quinto recurso sorteado: qualquer combinação de Essência, Cinza, Graça e Ruptura pode pagá-lo. A confirmação reserva primeiro todos os custos fixos da fila, sugere os recursos mais abundantes restantes e oferece controles de menos/mais, saldo preservado e seleção automática. O jogador pode alterar a ordem sem refazer uma escolha de pagamento válida. Remover uma ação recalcula a sugestão. A confirmação fica desabilitada até completar o pagamento.
+
+O motor fixa a escolha por ação na confirmação e só debita quando ela realmente resolve. Atordoamento, queda, mudança da técnica ou perda de alvo não consomem o custo. Drenagem posterior que remova um recurso escolhido pode impedir a ação, sem trocar silenciosamente o pagamento. No duelo, o servidor recalcula os custos a partir do kit atual e valida a seleção agregada; campos de custo ou pagamento por ação enviados pelo cliente não têm autoridade. A IA também reserva recursos concretos existentes.
+
+As fichas removem cargos táticos inventados, classes decorativas, palavras-chave e blocos COMBO repetidos. Permanecem lore, passivas reais, descrições dos efeitos, recargas, custos e nomes dos corpos.

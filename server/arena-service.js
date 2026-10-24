@@ -53,7 +53,7 @@ export class ArenaService{
     if(!match||match.settled)fail('Partida encerrada ou indisponível.',409);
     if(op!=='surrender'&&input.version!==match.version)fail('O combate foi atualizado. Reconectando.',409);
     attachRandom(match.battle);const owner=match.players.indexOf(id)===0?'player':'enemy';
-    if(op==='turn'){try{submitDuelTurn(match.battle,owner,input.actions);}catch{fail('Fila inválida ou fora do seu turno.',409);}}
+    if(op==='turn'){try{submitDuelTurn(match.battle,owner,input.actions,input.payment);}catch{fail('Fila inválida ou fora do seu turno.',409);}}
     if(op==='influence'){
      if(match.battle.phase!=='influence'||match.battle.influenceDraft.side!==owner||!chooseInfluence(match.battle,input.eventId))fail('Escolha indisponível.',409);
      continueDuel(match.battle);
@@ -73,3 +73,4 @@ export class ArenaService{
   });return {token:sessionToken,...result};
  }
 }
+

@@ -23,7 +23,7 @@ test('O Fim escolhe três manifestações completas, cada uma com três técnica
   assert.equal(u.art.portrait,FINAL_BOSS.bodyForms[i].portrait);assert.equal(u.abilities.length,4);
   for(const a of u.abilities.slice(0,3)){assert.equal(a.formKey,u.bodyForm);names.add(a.name);}
   assert.equal(u.abilities[3].name,'Fim Inalcançável');assert.match(portraitMarkup(u,'portrait'),new RegExp(`portrait-${u.bodyForm}`));
-  assert.equal(b.acted.length,1);assert.equal(b.resources.cinza,19);finish(b);
+  assert.equal(b.acted.length,1);assert.equal(b.resources.essence,19);finish(b);
  }
  assert.equal(names.size,9);assert.equal(JSON.stringify(original),serialized);
 });
@@ -111,7 +111,7 @@ test('formas funcionam dos dois lados do duelo autoritativo e não permitem aç�
 });
 
 test('transformações não acontecem com recursos insuficientes ou Atordoamento antes da resolução',()=>{
- const b=bossBattle(),u=b.allies[0];b.resources.cinza=0;assert.equal(chooseAction(b,u.id,'fenda',u.id).ok,false);assert.equal(u.bodyForm,'base');
+ const b=bossBattle(),u=b.allies[0];b.resources.essence=0;assert.equal(chooseAction(b,u.id,'fenda',u.id).ok,false);assert.equal(u.bodyForm,'base');
  refill(b);assert.equal(chooseAction(b,u.id,'fenda',u.id).ok,true);commitTurn(b);u.stunned=1;const before={...b.resources};resolveNextAction(b);assert.equal(u.bodyForm,'base');assert.deepEqual(b.resources,before);
 });
 

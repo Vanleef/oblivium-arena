@@ -1,3 +1,4 @@
+import {resolveResourcePayment} from "./resource-costs.js";
 const living = units => units.filter(u => u.hp > 0);
 const helpful = a => ['self', 'ally', 'friendly', 'team'].includes(a.target);
 const team = (s, side) => side === 'player' ? s.allies : s.enemies;
@@ -123,21 +124,21 @@ export function planTeamActions(battle, side, rules) {
       const original = team(battle, side).find(u => u.id === actor.id);
       if (used.has(actor.id) || actor.stunned || original.stunned) continue;
       for (const a of actor.abilities) {
-        const costs = rules.getAbilityResourceCosts(actor, a);
-        if (actor.cooldowns[a.id] || original.cooldowns[a.id] || rules.skillSealReason(actor, a) || rules.skillSealReason(original, a) || !Object.entries(costs).every(([id, n]) => (reserved[id] || 0) >= n)) continue;
+        const payment=resolveResourcePayment(rules.getAbilityResourceCosts(actor,a),reserved),costs=payment.costs;
+        if (actor.cooldowns[a.id] || original.cooldowns[a.id] || rules.skillSealReason(actor, a) || rules.skillSealReason(original, a) || !payment.ok) continue;
         const valid = rules.getValidTargets(s, actor, a), area = ['team', 'all-enemies'].includes(a.target);
         for (const target of area ? valid.slice(0, 1) : valid) {
           const targets = area ? valid : [target], score = scoreAction(s, actor, a, targets, rules);
-          choices.push({actor, a, target, targets, costs, score});
+          choices.push({actor, a, target, targets, costs, randomPayment:payment.selected, score});
         }
       }
     }
     choices.sort((a, b) => b.score - a.score);
     const pick = choices[0]; if (!pick || pick.score <= 0) break;
-    const {actor, a, target, targets, costs} = pick;
+    const {actor, a, target, targets, costs,randomPayment} = pick;
     for (const [id, n] of Object.entries(costs)) reserved[id] -= n;
     used.add(actor.id);
-    plan.push({actorId: actor.id, abilityId: a.id, targetId: target.id, abilityName: a.name, targetName: target.name, side, formKey: a.formKey || 'base'});
+    plan.push({actorId: actor.id, abilityId: a.id, targetId: target.id, abilityName: a.name, targetName: target.name, side, randomPayment, formKey: a.formKey || 'base'});
     forecast(s, actor, a, targets, rules);
   }
   return plan;

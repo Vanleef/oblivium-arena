@@ -7,7 +7,7 @@ import { renderInfluences, renderWorldHistory } from "./influence-view.js";
 import { playerLevel } from "./player-level.js";
 import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById, realmResource } from "./data.js";
 import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
-import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction } from "./engine.js";
+import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, getTurnPayment, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction } from "./engine.js";
 import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
@@ -80,6 +80,7 @@ let state = {
   focusSkill: null,
   inspectUnitId: null,
   confirmTurn: false,
+  randomPayment:null,
   trailFx: null,
   trailBusy: false,
   battleNode: null,
@@ -99,7 +100,7 @@ function save() {
 
 
 function teamResourceLegend(teamIds) {
-  const affinities = new Set(teamIds.map((id) => characterById[id]?.affinity).filter(Boolean));
+  const affinities = new Set(teamIds.flatMap(id=>{const c=characterById[id];return [c?.affinity,...(c?.bodyForms||[]).map(f=>f.resource)];}).filter(Boolean));
   const active = resources.filter((resource) => resource.id === "essence" || affinities.has(resource.id));
   return `<div class="team-resource-legend"><small>RECURSOS DA FORMAÇÃO</small><div>${active.map((resource) => `<span class="resource-${resource.color}"><i>${uiIcon(resource.id)}</i>${esc(resource.shortName)}</span>`).join("")}</div></div>`;
 }
@@ -375,8 +376,9 @@ function resolveCombatStep() {
   battleFxTimer=setTimeout(()=>{if(state.battle!==battle)return;state.battleFx=null;if(result.done)render();else resolveCombatStep();},result.event.mode==="turn"?750:1250);
 }
 function executePlannedTurn() {
-  if(state.battle?.online){state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue});return;}
-  if(!state.battle||!commitTurn(state.battle).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
+  if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
+  if(state.battle.online){state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected});return;}
+  if(!commitTurn(state.battle,payment.selected).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {
   const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
@@ -511,7 +513,7 @@ function teamView() {
         <div class="team-builder-heading"><div><div class="eyebrow">SUA FORMAÇÃO</div><h2>Trio de combate</h2></div><span>${profile.team.length} / 3</span></div>
         <div class="active-team">${[0, 1, 2].map((index) => {
           const member = characterById[profile.team[index]];
-          return member ? `<article class="team-slot slot-${member.color}"><span class="slot-index">0${index + 1}</span>${portraitMarkup(member, "slot-avatar")}<div><small>${esc(member.realm)} · ${esc(member.elo)}</small><b>${esc(member.name)}</b><span>${esc(member.role)}</span></div><button data-remove-member="${member.id}" aria-label="Remover ${esc(member.name)}">×</button></article>` : `<article class="team-slot empty-slot"><span class="slot-index">0${index + 1}</span><span class="empty-plus">+</span><div><b>Escolha uma alma</b><small>Selecione abaixo</small></div></article>`;
+          return member ? `<article class="team-slot slot-${member.color}"><span class="slot-index">0${index + 1}</span>${portraitMarkup(member, "slot-avatar")}<div><small>${esc(member.realm)} · ${esc(member.elo)}</small><b>${esc(member.name)}</b></div><button data-remove-member="${member.id}" aria-label="Remover ${esc(member.name)}">×</button></article>` : `<article class="team-slot empty-slot"><span class="slot-index">0${index + 1}</span><span class="empty-plus">+</span><div><b>Escolha uma alma</b><small>Selecione abaixo</small></div></article>`;
         }).join("")}</div>
         ${resonanceCard()}
         ${teamResourceLegend(profile.team)}
@@ -527,7 +529,7 @@ function teamView() {
           const selected = profile.team.includes(character.id);
           const disabled = !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)} · ${esc(character.role)}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -536,8 +538,8 @@ function teamView() {
 
 function bodyFormSelector(c){
  if(!c.bodyForms?.length)return '';
- const choices=[{key:'base',name:c.baseFormName||'Forma original',portrait:c.bodyForms&& (c.id===FINAL_BOSS.id?FINAL_BOSS.portrait:characterById[c.id]?.art?.portrait)},...c.bodyForms];
- return `<section class="body-form-picker" aria-label="Formas de ${esc(c.name)}"><div class="eyebrow">FORMAS · ${esc(c.bodyFormName)}</div><div class="body-form-options">${choices.map(f=>`<button data-preview-form="${esc(c.id)}:${esc(f.key)}" aria-label="Ver ${esc(c.name)}: ${esc(f.name)}" aria-pressed="${c.bodyForm===f.key}"><img src="${esc(f.portrait)}" width="44" height="44" alt="" loading="lazy"><span>${esc(f.name)}</span></button>`).join('')}</div><small>Toque numa forma para ver seu retrato e suas técnicas.</small></section>`;
+ const choices=[{key:'base',name:c.baseFormName||'Forma original',resource:c.affinity,portrait:c.bodyForms&& (c.id===FINAL_BOSS.id?FINAL_BOSS.portrait:characterById[c.id]?.art?.portrait)},...c.bodyForms];
+ return `<section class="body-form-picker" aria-label="Formas de ${esc(c.name)}"><div class="eyebrow">FORMAS · ${esc(c.bodyFormName)}</div><div class="body-form-options">${choices.map(f=>`<button data-preview-form="${esc(c.id)}:${esc(f.key)}" aria-label="Ver ${esc(c.name)}: ${esc(f.name)}" aria-pressed="${c.bodyForm===f.key}"><img src="${esc(f.portrait)}" width="44" height="44" alt="" loading="lazy"><span>${esc(f.name)}<small class="body-resource"><i class="cost-pip pip-${esc(f.resource)}" aria-hidden="true"></i>${esc(resourceById[f.resource]?.name)}</small></span></button>`).join('')}</div><small>Toque numa forma para ver seu retrato e suas técnicas.</small></section>`;
 }
 
 function codexView() {
@@ -560,8 +562,8 @@ function codexView() {
       character=previewBodyForm(character,state.formPreviews[character.id]);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.eloId)}</span><small>${owned ? "RECRUTADA" : "A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        ${bodyFormSelector(character)}<div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${!character.bodyForms?.length&&ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>${esc(form.classes.join(" · "))} · Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        ${bodyFormSelector(character)}<div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${!character.bodyForms?.length&&ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
@@ -570,7 +572,7 @@ function battleView() { return state.battle?.phase==="influence"&&!state.battleF
 
 function render() {
   const tab = state.tab;
-  const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill"),focusForm=focused?.getAttribute?.("data-preview-form");
+  const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill"),focusForm=focused?.getAttribute?.("data-preview-form"),focusPayment=focused?.getAttribute?.("data-random-payment");
   document.body.dataset.tab = tab;
   app.innerHTML = `
     <div class="app-shell">
@@ -583,7 +585,9 @@ function render() {
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
     </div>`;
   renderBattleMotion(app,state.battleFx);
-  if(state.confirmTurn)app.querySelector('[data-action="cancel-review"]')?.focus({preventScroll:true});
+  if(state.confirmTurn&&focusPayment){const button=app.querySelector(`[data-random-payment="${focusPayment}"]`);(button&&!button.disabled?button:app.querySelector(`[data-random-payment="${focusPayment.split(":")[0]}:${focusPayment.endsWith(":1")?"-1":"1"}"]`))?.focus({preventScroll:true});}
+  else if(state.confirmTurn&&focusAction==="suggest-payment")app.querySelector('[data-action="suggest-payment"]')?.focus({preventScroll:true});
+  else if(state.confirmTurn)app.querySelector('[data-action="cancel-review"]')?.focus({preventScroll:true});
   else if(focusAction)app.querySelector(`[data-action="${focusAction}"]`)?.focus({preventScroll:true});
   else if(focusSkill)app.querySelector(`[data-use-skill="${focusSkill}"]`)?.focus({preventScroll:true});
   else if(focusForm)app.querySelector(`[data-preview-form="${focusForm}"]`)?.focus({preventScroll:true});
@@ -618,7 +622,7 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-world-event], [data-codex-skill], [data-preview-form], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
+  const target = event.target.closest("[data-random-payment], [data-world-event], [data-codex-skill], [data-preview-form], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
   if (!target) return;
   if(target.dataset.worldEvent){if(state.battleFx||state.online?.busy)return;if(state.battle?.online){sendOnline({op:"influence",eventId:target.dataset.worldEvent});return;}if(chooseInfluence(state.battle,target.dataset.worldEvent)){render();if(state.battle.phase==="resolving")resolveCombatStep();}return;}
   if (target.dataset.codexSkill !== undefined) { event.preventDefault(); toggleCodexSkill(target); return; }
@@ -676,10 +680,12 @@ app.addEventListener("click", (event) => {
     return;
   }
   if (target.dataset.target) { if (!state.battleFx) selectBattleTarget(target.dataset.target); return; }
-  if (target.dataset.removeAction) { removeQueuedAction(state.battle,target.dataset.removeAction); render(); return; }
+  if (target.dataset.removeAction) { state.randomPayment=null; removeQueuedAction(state.battle,target.dataset.removeAction); render(); return; }
   if (target.dataset.moveAction) { const [id,direction]=target.dataset.moveAction.split(":"); moveQueuedAction(state.battle,id,Number(direction)); render(); return; }
   if (target.dataset.inspectSkill) { const [actorId,abilityId]=target.dataset.inspectSkill.split(":"); state.focusSkill={actorId,abilityId}; state.selectedSkill=null; render(); return; }
-  if (target.dataset.action === "review-turn" || target.dataset.action === "pass-turn") { state.confirmTurn=true; state.selectedSkill=null; render(); return; }
+  if (target.dataset.action === "review-turn" || target.dataset.action === "pass-turn") { state.confirmTurn=true; state.randomPayment=null; state.selectedSkill=null; render(); return; }
+  if(target.dataset.randomPayment){const [id,delta]=target.dataset.randomPayment.split(':');const p=getTurnPayment(state.battle,state.randomPayment);const selected={...p.selected};const next=(selected[id]||0)+Number(delta);if(next>=0&&next<=p.available[id]&&(Number(delta)<0||p.missing>0)){selected[id]=next;state.randomPayment=selected;render();}return;}
+  if(target.dataset.action==='suggest-payment'){state.randomPayment=null;render();return;}
   if (target.dataset.action === "cancel-review") { state.confirmTurn=false; render(); return; }
   if (target.dataset.action === "cancel-skill") { state.selectedSkill=null; render(); return; }
   if (target.dataset.action === "commit-turn") { executePlannedTurn(); return; }

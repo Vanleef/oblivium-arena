@@ -215,7 +215,7 @@ export function buildCharacterKit(eloId, index, art) {
   const spec = original && evolveKit(eloId,index,original);
   if(!spec) throw new Error(`Kit ausente: ${eloId}/${index}`);
   const ids=["impulso","tecnica","voto","despertar"];
-  const raw=[...spec.skills,A(spec.defense,0,1,{target:"self",costs:{essence:1},invulnerable:1,cooldown:4,defense:true})];
+  const raw=[...spec.skills,A(spec.defense,0,1,{target:"self",costs:{random:1},invulnerable:1,cooldown:4,defense:true})];
   const compile=(a,i)=>{
     const costs=a.costs || (a.cost===0 ? {} : a.cost===1 ? {affinity:1} : a.cost===2 ? {affinity:1,essence:1} : {affinity:2,essence:1});
     const kind=a.defense ? "defense" : a.damage ? a.stun || a.weaken || a.mark ? "control" : "strike" : a.shield || a.counter || a.reduce ? "guard" : "support";
@@ -228,3 +228,4 @@ export function buildCharacterKit(eloId, index, art) {
 export const kitCount=Object.values(rosters).reduce((sum,list)=>sum+list.length,0);
 
 export function allSkillForms(character){return character.abilities.flatMap(a=>[a,...(a.forms||[])]);}
+

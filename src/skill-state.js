@@ -24,7 +24,7 @@ export function refreshSkillForms(s){
    return {...form,id:root.id,forms:root.forms,_formRoot:root,formKey:key,originName:root.name,formTargetId:state?.targetId,formExpiresAt:state?.expiresAt,usesLeft:root.maxUses?Math.max(0,root.maxUses-(u.skillUses[root.id]||0)):null};
   });
   const body=u.bodyForms?.find(f=>Object.entries(f.when).every(([slot,key])=>u.abilities.some(a=>a.id===slot&&a.formKey===key)));
-  u.bodyForm=body?.key||'base';u.bodyFormName=body?.name||u.baseFormName||'Forma original';
+  u.bodyResource=body?.resource||u.affinity;u.bodyForm=body?.key||'base';u.bodyFormName=body?.name||u.baseFormName||'Forma original';
   if(u.bodyForms?.length)u.art={...u.baseArt,portrait:body?.portrait||u.baseArt?.portrait};
  }
 }

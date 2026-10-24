@@ -1,3 +1,5 @@
+import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment} from "./resource-costs.js";
+export {getAbilityResourceCosts} from "./resource-costs.js";
 import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
 import { checkDeathInfluences } from "./world-influences.js";
 import { skillSealReason, initializeCombatEffects, applyExtraEffects, triggerReactives, expireReactives, extraDamage, skillGrowthKey } from "./combat-effects.js";
@@ -18,9 +20,13 @@ const heal=(u,n)=>{const before=u.hp;if(u.hp>0)u.hp=Math.min(u.maxHp,u.hp+Math.m
 const shield=(u,n)=>{const before=u.shield;u.shield=Math.min(80,u.shield+n);return u.shield-before;};
 function gain(s,side,id,n=1){const p=pool(s,side),before=p[id]||0;p[id]=before+n;return p[id]-before;}
 function clone(c,side,config={}) {const maxHp=c.maxHp||100;const unit={...c,side,maxHp,hp:Math.max(0,Math.min(maxHp,config.teamHealth?.[c.id]??maxHp)),affinity:c.affinity||realmResource[c.realm],abilities:c.abilities.map(a=>({...a})),shield:c.startingShield||0,armor:c.armor||0,regeneration:c.regeneration||0,globalStrikeUsed:false,weakened:0,stunned:0,exposed:0,invulnerable:0,reduction:0,boost:0,counter:0,charge:0,dots:[],marks:{},cooldowns:{},cooldownFresh:[],passiveUsed:false};initializeSkillForms(unit);initializeCombatEffects(unit);return unit;}
-export function getAbilityResourceCosts(actor,ability){return Object.entries(ability.costs||(ability.cost?{essence:ability.cost}:{})).reduce((out,[id,n])=>{const key=id==="affinity"?actor.affinity:id;if(key&&n>0)out[key]=(out[key]||0)+n;return out;},{});}
-export function getAvailableResources(s,except=null){const out={...s.resources};for(const action of s.queue||[]){if(action.actorId===except)continue;const actor=byId(s.allies,action.actorId),ability=actor?.abilities.find(a=>a.id===action.abilityId);if(ability)for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,ability)))out[id]-=n;}return out;}
-export function canAffordAbility(s,actor,ability){const p=actor.side==="enemy"?s.enemyResources:getAvailableResources(s,actor.id);return Object.entries(getAbilityResourceCosts(actor,ability)).every(([id,n])=>(p[id]||0)>=n);}
+export function getAvailableResources(s,except=null){const out={...s.resources};for(const action of s.queue||[]){if(action.actorId===except)continue;const actor=byId(s.allies,action.actorId),ability=actor?.abilities.find(a=>a.id===action.abilityId);if(ability)for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,ability)))if(id!=="random")out[id]-=n;}return out;}
+export function getTurnPayment(s,selected){return allocateQueuePayment(s.queue||[],s.allies,s.resources,selected);}
+export function canAffordAbility(s,actor,ability){
+ if(actor.side==='enemy')return resolveResourcePayment(getAbilityResourceCosts(actor,ability),s.enemyResources).ok;
+ const actions=(s.queue||[]).filter(a=>a.actorId!==actor.id).concat({actorId:actor.id,abilityId:ability.id});
+ return allocateQueuePayment(actions,s.allies,s.resources).ok;
+}
 export function getValidTargets(s,actor,ability){if(!actor||!ability)return [];if(ability.target==="self")return actor.hp>0?[actor]:[];return living(friendly(ability)?team(s,actor.side):enemies(s,actor.side)).filter(u=>friendly(ability)||!u.invulnerable||ability.ignoreInvulnerability).filter(u=>!ability.formTargetId||u.id===ability.formTargetId).filter(u=>!ability.requiredMark||u.marks[ability.requiredMark]?.sourceId===actor.id);}
 export function meetsCondition(u,condition,actor){if(!u||!condition)return false;if(condition.startsWith("mark:"))return u.marks[condition.slice(5)]?.sourceId===actor.id;const tags={bleed:"sangramento",burn:"queimadura",poison:"veneno",decay:"decadencia"};if(tags[condition])return u.dots.some(d=>d.tag===tags[condition]&&d.turns>0);if(condition==="afflicted")return u.dots.length>0;if(condition==="marked")return Object.values(u.marks).some(m=>m.sourceId===actor.id);if(condition==="wounded")return u.hp<=50;if(condition==="selfWounded")return actor.hp<=50;if(condition==="selfShielded")return actor.shield>0;if(condition==="shielded")return u.shield>0;return (u[condition]||0)>0;}
 function consume(u,condition,actor){if(condition.startsWith("mark:"))delete u.marks[condition.slice(5)];else if(["bleed","burn","poison","decay"].includes(condition)){const tag={bleed:"sangramento",burn:"queimadura",poison:"veneno",decay:"decadencia"}[condition];u.dots=u.dots.filter(d=>d.tag!==tag);}else if(condition==="marked")for(const [id,m]of Object.entries(u.marks))if(m.sourceId===actor.id)delete u.marks[id];}
@@ -51,11 +57,12 @@ function attackValue(s,actor,a,target,charges=actor.charge){
 }
 function transfer(s,side,n,steal){const other=side==="player"?"enemy":"player",p=pool(s,other);let count=0;for(let i=0;i<n;i++){const id=Object.keys(p).sort((a,b)=>p[b]-p[a]).find(k=>p[k]>0);if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
-function apply(s,actor,a,targetId){
+function apply(s,actor,a,targetId,randomPayment){
   const valid=getValidTargets(s,actor,a),targets=["team","all-enemies"].includes(a.target)?valid:[valid.find(u=>u.id===targetId)||(a.target==="self"?actor:null)].filter(Boolean);
   if(!targets.length){log(s,`${actor.name}: ${a.name} não encontra um alvo válido.`);return {skipped:true,reason:"Alvo indisponível ou Invulnerável."};}
-  const costs=getAbilityResourceCosts(actor,a),p=pool(s,actor.side);
-  if(!Object.entries(costs).every(([id,n])=>(p[id]||0)>=n)){log(s,`${actor.name} não tem recursos para ${a.name}.`);return {skipped:true,reason:"Recursos removidos antes da resolução."};}
+  const p=pool(s,actor.side),payment=resolveResourcePayment(getAbilityResourceCosts(actor,a),p,randomPayment);
+  if(!payment.ok){log(s,`${actor.name} não tem os recursos escolhidos para ${a.name}.`);return {skipped:true,reason:"Recursos escolhidos removidos antes da resolução."};}
+  const costs=payment.costs;
   for(const [id,n]of Object.entries(costs))p[id]-=n;actor.actedThisTurn=true;
   const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,affected=0;const reactions=[];
   for(const target of targets){
@@ -124,7 +131,7 @@ export function chooseAction(s,actorId,abilityId,targetId){
 }
 export function removeQueuedAction(s,id){if(s.phase!=="player")return false;s.queue=s.queue.filter(a=>a.actorId!==id);return true;}
 export function moveQueuedAction(s,id,direction){if(s.phase!=="player")return false;const i=s.queue.findIndex(a=>a.actorId===id),j=i+direction;if(i<0||j<0||j>=s.queue.length)return false;[s.queue[i],s.queue[j]]=[s.queue[j],s.queue[i]];return true;}
-export function commitTurn(s){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...s.queue.map(a=>({...a})),{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];return {ok:true};}
+export function commitTurn(s,selected){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};const payment=getTurnPayment(s,selected);if(!payment.ok)return {ok:false,reason:payment.reason};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...payment.actions,{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];return {ok:true};}
 function endOpposing(s,units){expireReactives(s,units,"opposing",effectsContext());for(const u of units){if(!u.healingBlockFresh)u.healingBlock=0;u.healingBlockFresh=false;u.invulnerable=0;u.counter=0;u.reduction=0;if(!u.exposedFresh)u.exposed=0;u.exposedFresh=false;}}
 function endActing(s,units,reactions=[]){expireReactives(s,units,"acting",effectsContext(reactions));for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
 function tickEffects(s){for(const u of [...s.allies,...s.enemies]){if(u.hp<=0)continue;for(const d of u.dots){const r=hit(u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);d.turns--;}u.dots=u.dots.filter(d=>d.turns>0);for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}}}
@@ -140,7 +147,7 @@ function resolveAction(s){
   if(actor.cooldowns[a.id])return {done:false,event:{...action,skipped:true,title:"Técnica em recarga",summary:"A recarga impede esta ação. Recursos preservados."}};
   if(skillSealReason(actor,a))return {done:false,event:{...action,skipped:true,title:skillSealReason(actor,a),summary:"A técnica foi selada antes de agir. Recursos preservados."}};
   if(action.formKey&&action.formKey!==(a.formKey||"base"))return {done:false,event:{...action,skipped:true,title:"Técnica alterada",summary:"A forma mudou após a confirmação. Ação cancelada; recursos preservados."}};
-  const result=apply(s,actor,a,action.targetId);if(action.side==="player")s.acted.push(actor.id);outcome(s);return {done:s.phase!=="resolving",event:{...action,...result,title:a.name,actorName:actor.name,summary:result.reason||""}};
+  const result=apply(s,actor,a,action.targetId,action.randomPayment);if(action.side==="player")s.acted.push(actor.id);outcome(s);return {done:s.phase!=="resolving",event:{...action,...result,title:a.name,actorName:actor.name,summary:result.reason||""}};
 }
 export function passTurn(s){if(!commitTurn(s).ok)return false;let guard=0;while(s.phase==="resolving"&&guard++<20)resolveNextAction(s);return true;}
 export function createEnemyTeam(elo,playerIds,encounter="normal",sequence=0,config={}){
@@ -163,18 +170,18 @@ export function createDuel(firstIds,secondIds,config={}){
  // Both human teams receive their own composition bonus.
  s.enemyResonance=getResonance(secondIds);return s;
 }
-export function submitDuelTurn(s,side,actions){
+export function submitDuelTurn(s,side,actions,selected){
  if(s.phase!=='player'||s.turnSide!==side)throw new Error('Não é seu turno.');
  if(!Array.isArray(actions)||actions.length>3)throw new Error('Fila inválida.');
- refreshSkillForms(s);const used=new Set(),remaining={...pool(s,side)},queue=[];
+ refreshSkillForms(s);const used=new Set(),queue=[];
  for(const ref of actions){
   const actor=byId(team(s,side),ref.actorId),a=actor?.abilities.find(a=>a.id===ref.abilityId);
   if(!actor||!a||used.has(actor.id)||actor.stunned||actor.cooldowns[a.id]||skillSealReason(actor,a))throw new Error('Ação indisponível.');
   if(!getValidTargets(s,actor,a).some(u=>u.id===ref.targetId))throw new Error('Alvo inválido.');
-  for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,a))){remaining[id]-=n;if(remaining[id]<0)throw new Error('Energia insuficiente.');}
   used.add(actor.id);queue.push({actorId:actor.id,abilityId:a.id,targetId:ref.targetId,formKey:a.formKey||'base',side});
  }
- s.phase='resolving';s.resolution=[...queue,{type:'duel-end',side}];s.queue=[];continueDuel(s);
+ const payment=allocateQueuePayment(queue,team(s,side),pool(s,side),selected);if(!payment.ok)throw new Error(payment.reason);
+ s.phase='resolving';s.resolution=[...payment.actions,{type:'duel-end',side}];s.queue=[];continueDuel(s);
 }
 export function continueDuel(s){
  let guard=0;
@@ -188,3 +195,4 @@ export function continueDuel(s){
   resolveNextAction(s);
  }
 }
+

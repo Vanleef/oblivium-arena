@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {resolveResourcePayment} from '../src/resource-costs.js';
 import {pathToFileURL} from 'node:url';
 import {writeFile} from 'node:fs/promises';
 import {characters, elos} from '../src/data.js';
@@ -21,7 +22,9 @@ function assertEnemyPlan(b) {
   for(const action of b.intents){
     const actor=b.enemies.find(u=>u.id===action.actorId),ability=actor.abilities.find(a=>a.id===action.abilityId);
     assert.ok(!actors.has(actor.id),'IA planejou duas ações para a mesma alma');actors.add(actor.id);
-    for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,ability)))reserved[id]-=n;
+    const payment=resolveResourcePayment(getAbilityResourceCosts(actor,ability),reserved,action.randomPayment);
+    assert.ok(payment.ok,`IA excedeu energia compartilhada: ${actor.name}/${ability.name}`);
+    for(const [id,n]of Object.entries(payment.costs))reserved[id]-=n;
   }
   assert.ok(Object.values(reserved).every(n=>n>=0),'IA excedeu energia compartilhada');
 }
@@ -68,3 +71,4 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
     await writeFile(new URL('../docs/COMBAT_QA.md',import.meta.url),`# Avaliação automática de combates\n\nReprodução: \`node scripts/simulate-combat.mjs\`. São ${report.matches} partidas com sementes fixas, envolvendo os ${report.characters} personagens como integrantes do trio do jogador. As composições e os recursos variam por semente; a energia segue as regras normais, sem reservas artificiais ou Legados.\n\nAs ações do jogador de teste usam a mesma heurística da IA. Isso verifica a resolução completa e encontra interações problemáticas; não representa desempenho humano ou uma prova de equilíbrio entre personagens. Os lotes de dificuldade usam encontros diferentes e não são uma comparação controlada de dificuldade.\n\n| Encontro | Ruptura | Partidas | Vitórias | Derrotas | Limite de turnos | Média de turnos |\n| --- | --- | --- | --- | --- | --- | --- |\n${table}\n\nForam resolvidas ${report.steps} etapas, com ${report.techniques} técnicas distintas e ${report.alternatives} alternativas usadas. Cada etapa valida Vida e Defesa inteiras e dentro dos limites, energia não negativa, quatro espaços de técnica, defesa pessoal com recarga 4 e resolução limitada. O plano da IA reserva apenas recursos existentes e uma ação por alma. Partidas que atingem ${report.maxRounds} turnos são registradas como limite, sem declarar um vencedor.\n\n## Planejamento e apresentação\n\n- A oposição decide no início da própria vez, depois da resolução do trio do jogador. A IA compara utilidade e custo entre as almas antes de reservar energia. Prevê dano com as mesmas funções de cálculo do motor, considera proteção e contra-ataques visíveis, distribui alvos após eliminações previstas e evita cura ou defesa pessoal sem utilidade.\n- A previsão é conservadora e usa apenas o estado atual: não consulta a fila do jogador nem sorteios futuros. Não é uma busca exaustiva por todas as sequências possíveis.\n- A inspeção de personagem mostra os efeitos ativos com origem, gatilho e valores. O campo continua com quatro ícones por personagem.\n- Reações de cura e proteção informam origem e beneficiários; a regeneração tem uma etapa de apresentação no início do turno.\n`);
   }
 }
+

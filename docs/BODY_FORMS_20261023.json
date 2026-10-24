@@ -218,8 +218,9 @@
     }
   ],
   "validation": {
-    "functionalTests": 157,
+    "functionalTests": 171,
     "dedicatedTransformationTests": 13,
+    "resourcePaymentTests": 14,
     "legacyBinaryPresenceChecks": "2 excluded: historical art is not part of the reconstructed local checkout",
     "assetIntegrityTests": 1
   }

@@ -28,10 +28,10 @@ test("cada personagem tem quatro técnicas e uma passiva própria", () => {
   }
 });
 
-test("os custos combinam Essência com o recurso próprio de cada reino", () => {
+test("custos fixos combinam recursos do reino e a quarta defesa usa Aleatório", () => {
   assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { cinza: 1, essence: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Escudo Vivo"), byName("O Escudo Vivo").abilities[2]), { essence: 1, graca: 1 });
-  assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { essence: 1 });
+  assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { random: 1 });
 });
 
 test("o trio inicial tem retrato, passiva e quatro artes de habilidade em arquivos próprios", () => {
@@ -123,4 +123,5 @@ test("aprimoramentos oferecem efeitos que fazem sentido para o Trio atual", () =
   const resonantTeam = ["o-escudo-vivo", "a-muralha", "o-que-ficou"];
   assert.ok(getRelevantBuffs(resonantTeam).some((buff) => buff.id === "echo"));
 });
+
 

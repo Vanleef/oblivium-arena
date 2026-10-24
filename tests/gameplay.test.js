@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { characters, elos, generateTrail } from "../src/data.js";
-import { createBattle, createEnemyTeam, chooseAction, getAvailableResources, removeQueuedAction, moveQueuedAction, commitTurn, resolveNextAction, passTurn, getValidTargets } from "../src/engine.js";
+import { createBattle, createEnemyTeam, chooseAction, getAvailableResources, getTurnPayment, removeQueuedAction, moveQueuedAction, commitTurn, resolveNextAction, passTurn, getValidTargets } from "../src/engine.js";
 import { normalizeTrail, visibleTrail, advanceTrail } from "../src/trail.js";
 const ids=["o-escudo-vivo","a-brasa-eterna","o-passo-interrompido"];
 const dummy=(damage=1)=>({id:"treino",name:"Alvo de treino",realm:"Inferno",affinity:"cinza",color:"blood",symbol:"◇",maxHp:10000,abilities:[{id:"golpe",name:"Golpe de treino",costs:{},damage,target:"enemy"}]});
@@ -24,7 +24,7 @@ test("todos os caminhos gerados chegam ao Guardião sem conexões inválidas",()
 test("selecionar reserva recursos sem executar; remover e substituir devolve a reserva",()=>{
  const b=createBattle(ids,[dummy()]);b.resources={essence:1,cinza:1,graca:1,ruptura:1};const hp=b.enemies[0].hp,pool={...b.resources};
  assert.equal(chooseAction(b,ids[0],"impulso","treino").ok,true);assert.equal(b.enemies[0].hp,hp);assert.deepEqual(b.resources,pool);assert.equal(getAvailableResources(b).graca,0);
- assert.equal(chooseAction(b,ids[0],"despertar",ids[0]).ok,true);assert.equal(b.queue.length,1);assert.equal(getAvailableResources(b).graca,1);assert.equal(getAvailableResources(b).essence,0);
+ assert.equal(chooseAction(b,ids[0],"despertar",ids[0]).ok,true);assert.equal(b.queue.length,1);assert.equal(getAvailableResources(b).graca,1);assert.equal(getAvailableResources(b).essence,1);assert.equal(getTurnPayment(b).required,1);assert.equal(getTurnPayment(b).ok,true);
  removeQueuedAction(b,ids[0]);assert.deepEqual(getAvailableResources(b),pool);
 });
 test("a fila executa na ordem confirmada e permite combos entre aliados",()=>{
@@ -78,3 +78,4 @@ test("a Vida restante atravessa encontros e elites recebem escala de encontro",(
  const b=createBattle(ids,[dummy()],{teamHealth:{[ids[0]]:61}});assert.equal(b.allies[0].hp,61);
  const normal=createEnemyTeam(elos[0],ids),elite=createEnemyTeam(elos[0],ids,"elite"),mini=createEnemyTeam(elos[0],ids,"mini");assert.equal(normal[0].maxHp,100);assert.ok(elite[0].maxHp>100);assert.ok(mini[0].abilities[0].damage>normal[0].abilities[0].damage);
 });
+
