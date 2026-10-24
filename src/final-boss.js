@@ -1,5 +1,6 @@
 const approved = '/art/characters/o-fim/approved-elo-union-20261023';
 const formsArt = '/art/characters/o-fim/body-forms-distinct-20261024';
+const cohesiveArt = '/art/characters/o-fim/body-forms-cohesive-20261024';
 const slots = ['fenda','decreto','coroa'];
 const shiftTo = form => slots.map(slot=>({slot,form}));
 const skill = (id,name,description,effects={},art=`${formsArt}/skill-${id}.webp`) => ({id,name,description,target:'enemy',costs:{affinity:1},cooldown:0,kind:'strike',classes:['Espiritual','Instantânea'],art,...effects});
@@ -9,22 +10,22 @@ export const FINAL_BOSS = Object.freeze({
  realm:'Inferno',elo:'Vazio',eloId:'vazio',color:'void',symbol:'◍',affinity:'essence',maxHp:100,
  portrait:`${approved}/portrait.webp`,baseFormName:'Forma original',
  lore:'O Fim não tem rosto nem forma fixos. Assume sempre a forma do maior medo de quem o olha: cada observador encara uma manifestação única, mesmo quando várias almas o veem ao mesmo tempo.',
- artNote:'A forma original conserva a manifestação aprovada: um soberano esguio de rosto vazio, coroa, vínculos partidos e marfim tomado por raízes. Tirano se torna um bastião-cárcere; Predador, uma fera rasteira de seis membros; Ruína, um arco de catedral partido e suspenso. Nenhuma aparência é sua forma verdadeira.',
+ artNote:'A forma original conserva a manifestação aprovada: um soberano esguio de rosto vazio, coroa, aros dourados, manto e marfim tomado por raízes. As três formas mantêm esses traços. Tirano engrossa o corpo para a força bruta; Predador se alonga numa fera rasteira e móvel; Ruína flutua numa silhueta esguia e conjura vínculos espectrais. Nenhuma aparência é sua forma verdadeira.',
  mechanic:'Três manifestações do medo',
  baseArchetype:'transformation',archetype:'transformation',archetypes:['transformation'],baseArchetypes:['transformation'],
- combo:'Na forma original, escolha uma manifestação. Cada uma muda retrato, técnicas, arquétipo, Essência e efeito de entrada. Tirano controla e protege com Cinza; Predador persegue e executa com Ruptura; Ruína desgasta e interdita com Graça. Fim Inalcançável restaura 10 de Vida e a forma original. As recargas pertencem às posições e continuam entre formas.',
+ combo:'Na forma original, escolha uma manifestação. Cada uma muda retrato, técnicas, arquétipo, Essência e efeito de entrada. Tirano esmaga guardas e ganha força conforme perde Vida com Cinza; Predador caça com Ruptura; Ruína prende e interrompe com magia espectral e Graça. Fim Inalcançável restaura 10 de Vida e a forma original. As recargas pertencem às posições e continuam entre formas.',
  bodyForms:Object.freeze([
-  {key:'tyrant',resource:'cinza',archetype:'control',name:'Tirano',portrait:`${formsArt}/portrait-tyrant.webp`,when:Object.fromEntries(slots.map(s=>[s,'tyrant'])),description:'Interditor · afinidade Cinza. Marca e interrompe um alvo, depois protege o trio. Medo de ser subjugado.'},
+  {key:'tyrant',resource:'cinza',archetype:'berserker',name:'Tirano',portrait:`${cohesiveArt}/portrait-tyrant.webp`,when:Object.fromEntries(slots.map(s=>[s,'tyrant'])),description:'Berserker · afinidade Cinza. Golpes pesados quebram Defesa e ganham força conforme perde Vida. Medo de ser subjugado.'},
   {key:'predator',resource:'ruptura',archetype:'burst',name:'Predador',portrait:`${formsArt}/portrait-predator.webp`,when:Object.fromEntries(slots.map(s=>[s,'predator'])),description:'Executor · afinidade Ruptura. Persegue uma presa, recupera Vida e escolhe entre drená-la ou consumir sua marca. Medo de ser caçado.'},
-  {key:'ruin',resource:'graca',archetype:'status',name:'Ruína',portrait:`${formsArt}/portrait-ruin.webp`,when:Object.fromEntries(slots.map(s=>[s,'ruin'])),description:'Especialista em Aflições · afinidade Graça. Aplica Decadência, sela apoio e corrói a linha inimiga. Medo de perder a própria continuidade.'}
+  {key:'ruin',resource:'graca',archetype:'control',name:'Ruína',portrait:`${cohesiveArt}/portrait-ruin.webp`,when:Object.fromEntries(slots.map(s=>[s,'ruin'])),description:'Interditor · afinidade Graça. Prende um alvo com magia espectral, atordoa e sela apoio; um círculo espalha a contenção. Medo de perder a própria continuidade.'}
  ])
 });
 export function createFinalBossAbilities(){
  const kits={
   tyrant:[
-   skill('fenda','Fenda do Véu','Rasga a guarda e marca um inimigo por 3 turnos.',{damage:20,damageType:'piercing',mark:'fim',classes:['Perfurante','Instantânea']},`${formsArt}/skill-fenda.webp`),
-   skill('decreto','Decreto do Fim','Causa 20 de dano. Contra sua marca do Fim, causa +15 de dano, Atordoa por 1 turno e consome a marca.',{damage:20,costs:{affinity:1,random:1},combo:{condition:'mark:fim',bonusDamage:15,stun:1,consume:true},cooldown:2,kind:'control'},`${formsArt}/skill-decreto.webp`),
-   skill('coroa','Coroa que Não Cai','Concede 20 de Defesa destrutível ao trio.',{target:'team',shield:20,costs:{affinity:1,random:1},cooldown:2,kind:'guard',classes:['Estratégica','Instantânea']},`${formsArt}/skill-coroa.webp`)
+   skill('fenda','Punho de Cinza','Causa 20 de dano físico e prepara 1 carga.',{damage:20,damageType:'physical',gainCharge:1,classes:['Física','Instantânea']},`${cohesiveArt}/skill-tyrant-punch.webp`),
+   skill('decreto','Quebra do Trono','Causa 20 de dano físico e remove 15 de Defesa do alvo antes do dano.',{damage:20,damageType:'physical',stripShield:15,costs:{affinity:1,random:1},cooldown:1,classes:['Física','Instantânea']},`${cohesiveArt}/skill-tyrant-break.webp`),
+   skill('coroa','Queda Implacável','Causa 20 de dano físico, mais 10 por carga consumida e até 10 de dano conforme a Vida perdida.',{damage:20,damageType:'physical',perChargeDamage:10,spendCharge:true,missingHpDamage:{cap:10,step:25,amount:5},costs:{affinity:2,random:1},cooldown:2,classes:['Física','Instantânea']},`${cohesiveArt}/skill-tyrant-finisher.webp`)
   ],
   predator:[
    skill('rastro','Rastro Faminto','Causa 15 de dano físico, rouba 50% do dano causado como Vida e marca o alvo por 3 turnos.',{damage:15,damageType:'physical',lifesteal:.5,mark:'caca-fim',classes:['Física','Instantânea']},`${formsArt}/skill-rastro.webp`),
@@ -32,9 +33,9 @@ export function createFinalBossAbilities(){
    skill('fome','Fome dos Reinos','Causa 20 de dano de aflição a um inimigo e drena 1 Essência da reserva inimiga. Contra sua marca de caça, causa +15 de dano e a consome.',{damage:20,damageType:'affliction',drain:1,combo:{condition:'mark:caca-fim',bonusDamage:15,consume:true},costs:{affinity:2,random:1},cooldown:2,classes:['Aflição','Instantânea']},`${formsArt}/skill-fome.webp`)
   ],
   ruin:[
-   skill('cinza','Cinza de Ninguém','Causa 10 de dano de aflição e aplica Decadência: 4 de dano por 3 turnos.',{damage:10,damageType:'affliction',dot:{tag:'decadencia',damage:4,turns:3},classes:['Aflição','Persistente']},`${formsArt}/skill-cinza.webp`),
-   skill('nome','Nome Extinto','Causa 15 de dano espiritual, deixa o alvo Exposto e sela suas habilidades de apoio por 1 turno.',{damage:15,damageType:'energy',expose:1,sealSupport:1,costs:{affinity:1,random:1},cooldown:2,kind:'control'},`${formsArt}/skill-nome.webp`),
-   skill('fronteira','Última Fronteira','Causa 20 de dano de aflição a cada inimigo; causa +5 contra alvos com aflições.',{damage:20,damageType:'affliction',target:'all-enemies',combo:{condition:'afflicted',bonusDamage:5},costs:{affinity:2,random:1},cooldown:2,classes:['Aflição','Instantânea']},`${formsArt}/skill-fronteira.webp`)
+   skill('cinza','Fio Espectral','Causa 10 de dano espiritual e marca o alvo com um fio espectral por 2 turnos.',{damage:10,damageType:'energy',mark:'fio-ruina',markTurns:2,classes:['Espiritual','Instantânea']},`${cohesiveArt}/skill-ruin-thread.webp`),
+   skill('nome','Laço dos Ausentes','Causa 15 de dano espiritual. Contra sua marca, causa +10 de dano, Atordoa por 1 turno e consome o fio.',{damage:15,damageType:'energy',costs:{affinity:1,random:1},combo:{condition:'mark:fio-ruina',bonusDamage:10,stun:1,consume:true},cooldown:2,kind:'control',classes:['Espiritual','Instantânea']},`${cohesiveArt}/skill-ruin-bind.webp`),
+   skill('fronteira','Círculo de Interdição','Causa 10 de dano espiritual a todos os inimigos, Enfraquece e sela apoio por 1 turno.',{damage:10,damageType:'energy',target:'all-enemies',weaken:1,sealSupport:1,costs:{affinity:2,random:1},cooldown:2,kind:'control',classes:['Espiritual','Instantânea']},`${cohesiveArt}/skill-ruin-circle.webp`)
   ]
  };
  const entryEffects={tyrant:{shield:10},predator:{boost:8},ruin:{generateEssence:{resource:'graca',amount:1}}};

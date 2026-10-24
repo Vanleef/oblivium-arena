@@ -22,7 +22,7 @@ const variants = (ability) => [ability, ...(ability.forms || [])];
 const list = (character) => character.abilities.slice(0, 3).flatMap(variants);
 const count = (abilities, predicate) => abilities.filter(predicate).length;
 const bodyArchetypeProfiles = {
-  "the-end": { base: "transformation", forms: { tyrant: "control", predator: "burst", ruin: "status" } },
+  "the-end": { base: "transformation", forms: { tyrant: "berserker", predator: "burst", ruin: "control" } },
   "o-devorador": { base: "sustain", forms: { starved: "resourceControl" } },
   "a-mascara-dupla": { base: "setup", forms: { betrayal: "counter" } },
   "o-odio-encarnado": { base: "berserker", forms: { rage: "burst" } },

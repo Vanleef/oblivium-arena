@@ -33,9 +33,9 @@ test('O Fim separa papel, afinidade e efeito de entrada entre as quatro formas',
  const original=previewBodyForm(createFinalBoss(),'base');
  assert.equal(original.archetype,'transformation');assert.equal(original.bodyResource,'essence');
  const expected=[
-  ['tyrant','control','cinza'],
+  ['tyrant','berserker','cinza'],
   ['predator','burst','ruptura'],
-  ['ruin','status','graca']
+  ['ruin','control','graca']
  ];
  for(const [key,archetype,resource] of expected){
   const form=previewBodyForm(createFinalBoss(),key);
@@ -50,7 +50,7 @@ test('O Fim separa papel, afinidade e efeito de entrada entre as quatro formas',
  assert.ok(p.abilities.slice(0,3).every(a=>a.target==='enemy'));
  assert.equal(p.abilities[2].damageType,'affliction');assert.equal(p.abilities[2].drain,1);
  const r=previewBodyForm(createFinalBoss(),'ruin');
- assert.ok(r.abilities[0].dot);assert.equal(r.abilities[1].sealSupport,1);assert.equal(r.abilities[2].target,'all-enemies');
+ assert.equal(r.abilities[0].mark,'fio-ruina');assert.equal(r.abilities[1].combo.stun,1);assert.equal(r.abilities[2].target,'all-enemies');assert.equal(r.abilities[2].sealSupport,1);
 });
 
 test('Fim Inalcançável cura 10, protege por uma resposta e restaura retrato e seletores sem zerar recargas',()=>{
@@ -80,15 +80,15 @@ test('as nove técnicas de O Fim resolvem, e nenhuma forma altera a defesa ou as
  assert.equal(JSON.stringify(c),before);
 });
 
-test('Tirano consome sua própria marca para interromper; Predador drena; Ruína acumula aflição',()=>{
- const b=bossBattle(),u=b.allies[0],enemy=b.enemies[0];cast(b,0);finish(b);cast(b,0);finish(b);
- const hp=enemy.hp;cast(b,1);assert.equal(hp-enemy.hp,35);assert.equal(enemy.stunned,1);assert.equal(enemy.marks.fim,undefined);
+test('Tirano esmaga e cresce com carga e Vida perdida; Predador caça; Ruína interrompe com magia espectral',()=>{
+ const b=bossBattle(),u=b.allies[0],enemy=b.enemies[0];cast(b,0);finish(b);cast(b,0);finish(b);cast(b,0);finish(b);
+ u.hp=50;const hp=enemy.hp;cast(b,2);assert.equal(hp-enemy.hp,50);assert.equal(u.charge,0);
  const p=bossBattle(),pred=p.allies[0];cast(p,1);finish(p);pred.hp=50;pred.boost=0;cast(p,0);assert.equal(pred.hp,57);assert.ok(p.enemies[0].marks['caca-fim']);
- const r=bossBattle();cast(r,2);finish(r);cast(r,0);assert.ok(r.enemies[0].dots.some(d=>d.tag==='decadencia'&&d.turns===3));
+ const r=bossBattle();cast(r,2);finish(r);cast(r,0);finish(r);cast(r,1);assert.equal(r.enemies[0].stunned,1);assert.equal(r.enemies[0].marks['fio-ruina'],undefined);
 });
 
-test('IA prepara desgaste contra alvos inteiros e caça alvos feridos; o retrato muda na resolução',()=>{
- for(const [hp,count,expected] of [[100,1,'ruin'],[20,1,'predator'],[100,3,'ruin']]){
+test('IA prioriza controle espectral contra a linha e caça alvos feridos; o retrato muda na resolução',()=>{
+ for(const [hp,count,expected] of [[100,1,'predator'],[20,1,'predator'],[100,3,'ruin']]){
   const b=createBattle([starters[0].id],[createFinalBoss()],{rng:()=>0});
   b.allies=Array.from({length:count},(_,i)=>({...b.allies[0],id:`aliado-${i}`}));
   const u=b.enemies[0];u.hp=hp;refill(b);const before=JSON.stringify(b);

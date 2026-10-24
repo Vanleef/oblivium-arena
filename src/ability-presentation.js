@@ -33,8 +33,19 @@ export function abilityQuickEffect(ability = {}) {
   if (ability.damage) {
     const type = damageTypeNames[ability.damageType] || "físico";
     const target = ability.target === "all-enemies" ? "em área" : type;
-    const additions = [ability.dot && `${statusNames[ability.dot.tag] || "Aflição"} ${ability.dot.damage}/T`, ability.stun && `Atordoa ${ability.stun}T`, ability.expose && "Expõe", ability.mark && "Marca"].filter(Boolean);
-    return `${ability.damage} ${target}${additions.length ? ` · ${additions[0]}` : " de dano"}`;
+    const additions = [
+      ability.dot && `${statusNames[ability.dot.tag] || "Aflição"} ${ability.dot.damage}/T`,
+      ability.stun && `Atordoa ${ability.stun}T`,
+      ability.expose && "Expõe",
+      ability.mark && "Marca",
+      ability.gainCharge && `+${ability.gainCharge} carga`,
+      ability.stripShield && `−${ability.stripShield} Defesa`,
+      ability.spendCharge && ability.perChargeDamage && `+${ability.perChargeDamage}/carga consumida`,
+      ability.missingHpDamage && `+${ability.missingHpDamage.amount} a cada ${ability.missingHpDamage.step} Vida perdida (máx. +${ability.missingHpDamage.cap})`,
+      ability.weaken && `Enfraquece ${ability.weaken}T`,
+      ability.sealSupport && `Sela apoio ${ability.sealSupport}T`
+    ].filter(Boolean);
+    return `${ability.damage} ${target}${additions.length ? ` · ${additions.join(" · ")}` : " de dano"}`;
   }
   if (ability.counter) return `Anula e devolve ${ability.counter}`;
   if (ability.generateEssence) {
@@ -74,7 +85,13 @@ function abilityQuickEffectEnglish(ability = {}) {
       ability.dot && `${statusNamesEn[ability.dot.tag] || "Affliction"} ${ability.dot.damage} affliction damage/turn`,
       ability.stun && `Stun · ${ability.stun} ${ability.stun === 1 ? "turn" : "turns"}`,
       ability.expose && "Expose",
-      ability.mark && "Mark"
+      ability.mark && "Mark",
+      ability.gainCharge && `Gain ${ability.gainCharge} charge${ability.gainCharge === 1 ? "" : "s"}`,
+      ability.stripShield && `Remove ${ability.stripShield} Defense`,
+      ability.spendCharge && ability.perChargeDamage && `+${ability.perChargeDamage} damage per charge spent`,
+      ability.missingHpDamage && `+${ability.missingHpDamage.amount} per ${ability.missingHpDamage.step} Health lost (max +${ability.missingHpDamage.cap})`,
+      ability.weaken && `Weaken · ${ability.weaken} ${ability.weaken === 1 ? "turn" : "turns"}`,
+      ability.sealSupport && `Seal support · ${ability.sealSupport} ${ability.sealSupport === 1 ? "turn" : "turns"}`
     ].filter(Boolean);
     return `${ability.damage} ${type} damage ${target}${additions.length ? ` · ${additions.join(" · ")}` : ""}`;
   }

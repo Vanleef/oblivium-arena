@@ -15,10 +15,10 @@ test('as 30 artes das transformações têm conteúdo íntegro e cobrem os retra
  }
 });
 
-test('as 12 novas artes de O Fim têm hashes íntegros e cobrem as três formas',()=>{
- const root=new URL('../',import.meta.url),manifest=JSON.parse(readFileSync(new URL('docs/ART_O_FIM_DISTINCT_20261024.json',root),'utf8'));
- assert.equal(manifest.assets.length,12);const paths=new Set();
- for(const asset of manifest.assets){
+test('as artes das formas de O Fim mantêm hashes íntegros e cobrem os kits ativos',()=>{
+ const root=new URL('../',import.meta.url),previous=JSON.parse(readFileSync(new URL('docs/ART_O_FIM_DISTINCT_20261024.json',root),'utf8')),current=JSON.parse(readFileSync(new URL('docs/ART_O_FIM_COHESIVE_20261024.json',root),'utf8'));
+ assert.equal(previous.assets.length,12);assert.equal(current.assets.length,8);const paths=new Set();
+ for(const asset of [...previous.assets,...current.assets]){
   const data=readFileSync(new URL(`../${asset.path}`,import.meta.url));
   assert.ok(data.length>1000,asset.path);assert.equal(data.length,asset.bytes,asset.path);
   assert.equal(data.toString('ascii',0,4),'RIFF',asset.path);assert.equal(data.toString('ascii',8,12),'WEBP',asset.path);
@@ -26,5 +26,5 @@ test('as 12 novas artes de O Fim têm hashes íntegros e cobrem as três formas'
  }
  const boss=createFinalBoss();
  for(const form of boss.bodyForms)assert.ok(paths.has(form.portrait),form.portrait);
- for(const ability of boss.abilities.flatMap(ability=>[ability,...(ability.forms||[])]))if(ability.art?.includes('/body-forms-distinct-20261024/'))assert.ok(paths.has(ability.art),ability.art);
+ for(const ability of boss.abilities.flatMap(ability=>[ability,...(ability.forms||[])]))if(ability.art?.includes('/body-forms-distinct-20261024/')||ability.art?.includes('/body-forms-cohesive-20261024/'))assert.ok(paths.has(ability.art),ability.art);
 });

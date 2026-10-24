@@ -41,7 +41,7 @@ test("interface esconde o futuro, seleciona habilidade e alvo e confirma a fila"
  click({tab:"codex"});assert.match(app.innerHTML,/Manto de Cinzas/);assert.match(app.innerHTML,/passive.webp/);
 });
 test("O Fim mostra sua natureza sem rosto fixo e preserva a defesa de invulnerabilidade",async t=>{
- t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/approved-elo-union-20261023\/portrait.webp/);click({target:"the-end"});assert.doesNotMatch(app.innerHTML,/o-fim\/anime-rift-revision/);assert.match(app.innerHTML,/Fim Inalcançável/);assert.match(app.innerHTML,/maior medo de quem o olha/);assert.match(app.innerHTML,/cada observador encara uma manifestação única/);for(const [slot,key] of [["fenda","tyrant"],["decreto","predator"],["coroa","ruin"]]){click({inspectSkill:`the-end:${slot}`});assert.ok(app.innerHTML.includes(`/o-fim/body-forms-distinct-20261024/portrait-${key}.webp`),slot);}click({inspectSkill:'the-end:despertar'});assert.match(app.innerHTML,/recupera 10 de Vida/);assert.match(app.innerHTML,/RECARGA 4T/);assert.match(app.innerHTML,/skill-despertar.webp/);
+ t.mock.timers.enable({apis:["setTimeout"]});const save=JSON.stringify({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id),xp:0,fragments:0,run:null});const {app,click}=setup(save);await import("../src/main.js?rework-final=1");click({finalBattle:""});draft();assert.match(app.innerHTML,/o-fim\/approved-elo-union-20261023\/portrait.webp/);click({target:"the-end"});assert.doesNotMatch(app.innerHTML,/o-fim\/anime-rift-revision/);assert.match(app.innerHTML,/Fim Inalcançável/);assert.match(app.innerHTML,/maior medo de quem o olha/);assert.match(app.innerHTML,/cada observador encara uma manifestação única/);for(const [slot,key,folder] of [["fenda","tyrant","body-forms-cohesive-20261024"],["decreto","predator","body-forms-distinct-20261024"],["coroa","ruin","body-forms-cohesive-20261024"]]){click({inspectSkill:`the-end:${slot}`});assert.ok(app.innerHTML.includes(`/o-fim/${folder}/portrait-${key}.webp`),slot);}click({inspectSkill:'the-end:despertar'});assert.match(app.innerHTML,/recupera 10 de Vida/);assert.match(app.innerHTML,/RECARGA 4T/);assert.match(app.innerHTML,/skill-despertar.webp/);
 });
 
 test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o reino',async()=>{
@@ -50,14 +50,14 @@ test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o
  await search('O Fim');assert.match(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/não tem rosto nem forma fixos/);assert.match(app.innerHTML,/Nenhuma aparência é sua forma verdadeira/);assert.doesNotMatch(app.innerHTML,/data-final-battle/);
  const entity=app.innerHTML.match(/<article class="codex-entity"[\s\S]*?<\/article>/)?.[0];
  assert.ok(entity);assert.match(entity,/Habilidades de O Fim/);
- for(const label of ['Interditor','Executor','Especialista em Aflições','Cinza','Ruptura','Graça','Éter'])assert.ok(entity.includes(label),`forma do Codex sem ${label}`);
+ for(const label of ['Berserker','Executor','Interditor','Cinza','Ruptura','Graça','Éter'])assert.ok(entity.includes(label),`forma do Codex sem ${label}`);
  for(const name of ['Assumir Tirano','Assumir Predador','Assumir Ruína','Fim Inalcançável'])assert.ok(entity.includes(name),name);
  assert.equal((entity.match(/data-codex-skill/g)||[]).length,4);assert.match(entity,/Recarga 4T/);
- for(const [key,skills] of [['tyrant',['Fenda do Véu','Decreto do Fim','Coroa que Não Cai']],['predator',['Rastro Faminto','Ceifar o Vínculo','Fome dos Reinos']],['ruin',['Cinza de Ninguém','Nome Extinto','Última Fronteira']]]){
+ for(const [key,skills] of [['tyrant',['Punho de Cinza','Quebra do Trono','Queda Implacável']],['predator',['Rastro Faminto','Ceifar o Vínculo','Fome dos Reinos']],['ruin',['Fio Espectral','Laço dos Ausentes','Círculo de Interdição']]]){
   click({previewForm:`the-end:${key}`});assert.ok(app.innerHTML.includes(`portrait-${key}.webp`));for(const name of skills)assert.ok(app.innerHTML.includes(name),name);assert.match(app.innerHTML,/Fim Inalcançável/);
  }
  click({previewForm:'the-end:base'});assert.ok(app.innerHTML.includes('/approved-elo-union-20261023/portrait.webp'));assert.match(app.innerHTML,/Assumir Tirano/);
- for(const query of ['Interditor','Executor','Especialista em Aflições','Cinza','Ruptura','Graça']){await search(query);assert.match(app.innerHTML,/codex-entity/,`busca por ${query}`);}
+ for(const query of ['Berserker','Interditor','Executor','Cinza','Ruptura','Graça']){await search(query);assert.match(app.innerHTML,/codex-entity/,`busca por ${query}`);}
  await search('O Fim');
  await search('A Metamorfa');for(const key of ['skin','shell']){click({previewForm:`a-pele-alheia:${key}`});assert.ok(app.innerHTML.includes(`portrait-${key}.webp`));assert.match(app.innerHTML,/Corpo Substituto/);}await search('O Fim');
  click({crewRealm:'Paraíso'});assert.doesNotMatch(app.innerHTML,/codex-entity/);

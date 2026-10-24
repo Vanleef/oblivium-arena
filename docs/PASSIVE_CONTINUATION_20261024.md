@@ -19,11 +19,11 @@ As regras exigem dano real, Marca própria, limpeza e cura efetivas, remoção d
 
 ## Continuação — O Fim
 
-O Fim recebeu três retratos com silhuetas distintas e nove ícones próprios. Tirano usa Cinza e o arquétipo Interditor; Predador usa Ruptura e Executor; Ruína usa Graça e Especialista em Aflições. A forma original mantém Éter e Metamorfo. Os benefícios de entrada são distintos, e o Predador agora concentra as três técnicas em uma presa.
+O Fim agora tem uma identidade visual compartilhada nas três transformações: rosto-vazio, coroa, aros dourados, manto e marfim rachado com raízes. Tirano cresce para a força bruta (Berserker · Cinza), Predador mantém a caça móvel (Executor · Ruptura) e Ruína fica esguia para prender inimigos com magia espectral (Interditor · Graça). Os efeitos de entrada continuam distintos; os kits do Tirano e da Ruína foram alinhados a esses papéis.
 
-O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos seus nomes, arquétipos ou Essências. O inventário das artes e os resumos dos prompts estão em `ART_O_FIM_DISTINCT_20261024.json`; as regras e silhuetas estão em `O_FIM_FORMS_REVISION_20261024.md`.
+O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos seus nomes, arquétipos ou Essências. O Predador mantém as artes existentes. As oito artes novas do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_COHESIVE_20261024.json`; as regras e silhuetas estão em `O_FIM_FORMS_REVISION_20261024.md`.
 
-Verificação local deste lote: **304 testes aprovados**, nenhuma falha; build com **920 arquivos**; 626 caminhos ativos de arte presentes, nenhum ausente. O Codex também foi coberto em português e inglês para rótulos, buscas e descrições das formas. Conferência em produção será registrada após a publicação.
+Validação local: **304 testes aprovados**, build com **928 arquivos**, auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. A conferência da versão de produção será registrada após a publicação.
 
 ## Continuação — Podridão, Silêncio e O Sussurro
 

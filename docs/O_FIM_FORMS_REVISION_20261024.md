@@ -1,34 +1,34 @@
-# O Fim — formas distintas, 24/10/2026
+# O Fim — formas com identidade compartilhada, 24/10/2026
 
-## Identidade de cada forma
+## Direção visual
+
+As formas mantêm sinais do desenho aprovado de O Fim: rosto de vazio, coroa estreita, dois aros dourados, manto escuro, marfim rachado com raízes verdes e pequenas fissuras rubras. A transformação muda o corpo e o jeito de lutar sem trocar esses sinais por construções desconectadas.
 
 | Forma | Silhueta | Arquétipo | Essência | Efeito ao entrar |
 | --- | --- | --- | --- | --- |
-| Original | Soberano esguio, coroa, rosto vazio, manto e raízes | Metamorfo | Éter | Escolhe qual forma vai financiar e manifestar |
-| Tirano | Bastião de prisão largo, coroado e preso por correntes | Interditor | Cinza | Recebe 10 de Defesa |
-| Predador | Fera rasteira de seis membros, com boca de vazio em forma de anel | Executor | Ruptura | Prepara +8 de dano para o próximo golpe |
-| Ruína | Arco de catedral partido, suspenso e sem corpo humano | Especialista em Aflições | Graça | Gera 1 Graça |
+| Original | Soberano esguio, manto, coroa e armadura assimétrica | Metamorfo | Éter | Escolhe uma manifestação |
+| Tirano | Humanoide largo e encouraçado, com punhos pesados | Berserker | Cinza | Recebe 10 de Defesa |
+| Predador | Fera rasteira de seis membros, com boca anelar de vazio | Executor | Ruptura | Prepara +8 de dano para o próximo golpe |
+| Ruína | Conjurador esguio e flutuante, guiando fios espectrais | Interditor | Graça | Gera 1 Graça |
 
-As afinidades alteram os custos das três técnicas da forma, pois elas pagam o custo de Afinidade usando `bodyResource`. A forma original usa Éter; as outras três usam tipos distintos.
+As três manifestações têm arquétipos e Essências diferentes. O Predador conserva o visual anterior, que já combinava identidade e transformação.
 
 ## Padrão de combate
 
-- **Tirano:** Fenda do Véu marca um alvo. Decreto do Fim consome essa marca para causar dano e Atordoar; Coroa que Não Cai protege o trio.
-- **Predador:** todas as técnicas atacam um alvo. Rastro Faminto marca e rouba Vida; Ceifar o Vínculo rouba Vida e consome a marca; Fome dos Reinos consome a marca para um golpe de aflição mais forte e drena Essência.
-- **Ruína:** Cinza de Ninguém aplica Decadência persistente; Nome Extinto expõe e sela apoio; Última Fronteira atinge a linha inteira e recompensa inimigos já afligidos.
+- **Tirano:** Punho de Cinza causa 20 de dano físico e prepara uma carga. Quebra do Trono causa 20 e remove 15 de Defesa antes do dano. Queda Implacável consome cargas para dano extra e fica mais forte conforme O Fim perde Vida.
+- **Predador:** Rastro Faminto marca e rouba Vida; Ceifar o Vínculo rouba Vida e consome a marca; Fome dos Reinos consome a marca para um golpe de aflição mais forte e drena Essência.
+- **Ruína:** Fio Espectral marca um alvo; Laço dos Ausentes consome o fio para causar dano e Atordoar; Círculo de Interdição enfraquece e sela apoio em toda a linha.
 
-Cada manifestação troca o efeito de entrada, as três técnicas, os ícones, o retrato, o arquétipo e a fonte do custo. Fim Inalcançável continua compartilhada; as recargas seguem as quatro posições entre formas.
+As afinidades alteram o custo das três técnicas da forma. A forma original usa Éter; Tirano, Cinza; Predador, Ruptura; Ruína, Graça. O retorno compartilhado, Fim Inalcançável, recupera 10 de Vida, protege por uma resposta inimiga e restaura a forma original sem reiniciar recargas.
 
-O seletor do Codex agora apresenta nome, ícone de arquétipo e afinidade para cada forma. Os filtros de arquétipo, função e busca também encontram O Fim por qualquer uma das três manifestações.
+O seletor do Codex mostra arquétipo e afinidade. A busca e os filtros também localizam O Fim por nome de forma, arquétipo e Essência.
 
 ## Arte
 
-Os retratos novos separam as silhuetas antes da cor: bastião, fera baixa de seis membros e arquitetura suspensa. Os nove ícones de habilidade usam cenas próprias para controle, caça e deterioração. O conjunto foi exportado completo para WebP, sem recorte, e os retratos e técnicas anteriores permanecem preservados.
+O novo conjunto troca os retratos desconexos do Tirano e da Ruína por duas novas transformações humanoides. As seis ilustrações de técnicas também mostram os personagens executando seus efeitos: golpes físicos de força bruta no Tirano e marcas, vínculos e círculos espectrais na Ruína. As três artes do Predador foram mantidas.
 
-Manifesto com resumo dos prompts, caminhos, fontes e hashes: `ART_O_FIM_DISTINCT_20261024.json`.
+Inventário dos oito arquivos novos, prompts resumidos e hashes: `ART_O_FIM_COHESIVE_20261024.json`. O inventário anterior dos 12 arquivos ainda usados em parte está em `ART_O_FIM_DISTINCT_20261024.json`.
 
 ## Verificação
 
-Validação local concluída: **304 testes aprovados**, nenhuma falha; build com **920 arquivos**; auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**; `git diff --check` limpo. A suíte cobre arquétipos, afinidades e descrições em inglês no Codex, os efeitos de entrada, os kits e os 12 arquivos de arte.
-
-O estado do deploy e a conferência visual em português e inglês serão acrescentados após a publicação.
+Validação local desta revisão: **304 testes aprovados**, build com **928 arquivos**, auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. As oito artes novas têm hashes e dimensões verificados. A conferência visual em produção será registrada após a publicação.

@@ -132,12 +132,12 @@ test("all character names and passive rules have English copy", () => {
   assert.doesNotMatch(localizeText(FINAL_BOSS.artNote, "en"), untranslated);
   assert.doesNotMatch(localizeText(FINAL_BOSS.combo, "en"), untranslated);
   assert.equal(localizeText(FINAL_BOSS.bodyForms[0].name, "en"), "Tyrant");
-  const formLabels = { control: "Interditor", burst: "Executor", status: "Especialista em Aflições" };
+  const formLabels = { berserker: "Berserker", burst: "Executor", control: "Interditor" };
   const resourceLabels = { cinza: "Cinza", ruptura: "Ruptura", graca: "Graça" };
   const expectedForms = [
-    ["Tyrant", "DISRUPTOR", "Ash", "Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation."],
+    ["Tyrant", "BERSERKER", "Ash", "Berserker · Ash affinity. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
     ["Predator", "EXECUTOR", "Rupture", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
-    ["Ruin", "AFFLICTION SPECIALIST", "Grace", "Affliction Specialist · Grace affinity. Inflicts Decay, seals support, and wears down the enemy line. Fear of losing continuity."]
+    ["Ruin", "DISRUPTOR", "Grace", "Disruptor · Grace affinity. Binds one target with spectral magic, Stuns and seals support; a circle spreads the restraint. Fear of losing continuity."]
   ];
   assert.deepEqual(FINAL_BOSS.bodyForms.map(form => [
     localizeText(form.name, "en"),
@@ -152,9 +152,9 @@ test("all character names and passive rules have English copy", () => {
   ]);
   const bossAbilities = createFinalBossAbilities();
   assert.deepEqual(bossAbilities.slice(0, 3).map(ability => localizeText(ability.description, "en")), [
-    "Assume the Tyrant, replace your first three techniques and portrait. Gain 10 Defense when entering this Form. Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation. This Form remains until you use Unreachable End.",
+    "Assume the Tyrant, replace your first three techniques and portrait. Gain 10 Defense when entering this Form. Berserker · Ash affinity. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation. This Form remains until you use Unreachable End.",
     "Assume the Predator, replace your first three techniques and portrait. Gain +8 damage for your next strike on entry. Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted. This Form remains until you use Unreachable End.",
-    "Assume the Ruin, replace your first three techniques and portrait. Generate 1 Grace when entering this Form. Affliction Specialist · Grace affinity. Inflicts Decay, seals support, and wears down the enemy line. Fear of losing continuity. This Form remains until you use Unreachable End."
+    "Assume the Ruin, replace your first three techniques and portrait. Generate 1 Grace when entering this Form. Disruptor · Grace affinity. Binds one target with spectral magic, Stuns and seals support; a circle spreads the restraint. Fear of losing continuity. This Form remains until you use Unreachable End."
   ]);
   for (const ability of bossAbilities) {
     assert.notEqual(localizeText(ability.name, "en"), ability.name, `missing English boss technique name: ${ability.name}`);
@@ -204,6 +204,8 @@ test("campaign, story, upgrades, and living-world events have English copy", () 
 test("combat tooltips build their rules text directly in English", () => {
   globalThis.localStorage = { getItem: () => "en", setItem() {} };
   assert.equal(abilityQuickEffect({ damage: 20, damageType: "physical", target: "enemy", dot: { tag: "sangramento", damage: 5 } }), "20 physical damage to an enemy · Bleed 5 affliction damage/turn");
+  assert.equal(abilityQuickEffect({ damage: 20, damageType: "physical", target: "enemy", gainCharge: 1 }), "20 physical damage to an enemy · Gain 1 charge");
+  assert.equal(abilityQuickEffect({ damage: 10, damageType: "energy", target: "all-enemies", weaken: 1, sealSupport: 1 }), "10 spiritual damage to all enemies · Weaken · 1 turn · Seal support · 1 turn");
   assert.equal(abilityQuickEffect({ target: "self", boost: 8, shift: [{ slot: "fenda", form: "predator" }] }), "Prepare +8 damage for your next strike");
   assert.equal(abilityQuickEffect({ generateEssence: { resource: "graca", amount: 1 } }), "Generate 1 Grace");
   assert.equal(abilityConditions({ combo: { condition: "wounded", bonusDamage: 10, consume: true } }), "Bonus against a target at 50% Health or less; consumes the setup.");

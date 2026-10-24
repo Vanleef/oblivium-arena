@@ -574,9 +574,9 @@ Object.assign(phrases, {
   "Lança da Primeira Luz": "Spear of the First Light",
   [FINAL_BOSS.title]: "King of Hell",
   [FINAL_BOSS.lore]: "The End has no fixed face or Form. It always takes the shape of its observer's greatest fear: each witness sees a unique manifestation, even when several souls look upon it at once.",
-  [FINAL_BOSS.artNote]: "The original Form keeps its approved appearance: a slender, faceless sovereign with a crown, broken bonds, and ivory overtaken by roots. The Tyrant becomes a prison bastion; the Predator, a low six-limbed beast; the Ruin, a broken, suspended cathedral arch. No appearance is its true Form.",
+  [FINAL_BOSS.artNote]: "The original Form keeps its approved appearance: a slender, faceless sovereign with a crown, gold rings, mantle, and ivory overtaken by roots. All three Forms retain those traits. The Tyrant grows into brute force; the Predator becomes a low, mobile beast; the Ruin floats as a slender spectral caster. No appearance is its true Form.",
   [FINAL_BOSS.mechanic]: "Three Manifestations of Fear",
-  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant controls and protects with Ash; the Predator hunts and executes with Rupture; the Ruin wears down and seals with Grace. Unreachable End restores 10 Health and returns to the original Form. Cooldowns belong to each slot and carry across Forms.",
+  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant breaks guards with brute force and grows stronger as Health falls, using Ash; the Predator hunts with Rupture; the Ruin binds and interrupts with spectral magic and Grace. Unreachable End restores 10 Health and returns to the original Form. Cooldowns belong to each slot and carry across Forms.",
   "Forma original": "Original Form",
   "Assumir Tirano": "Assume the Tyrant",
   "Assumir Predador": "Assume the Predator",
@@ -586,9 +586,9 @@ Object.assign(phrases, {
 });
 
 const finalBossForms = [
-  ["Tirano", "Tyrant", "Interditor · afinidade Cinza. Marca e interrompe um alvo, depois protege o trio. Medo de ser subjugado.", "Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation."],
+  ["Tirano", "Tyrant", "Berserker · afinidade Cinza. Golpes pesados quebram Defesa e ganham força conforme perde Vida. Medo de ser subjugado.", "Berserker · Ash affinity. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
   ["Predador", "Predator", "Executor · afinidade Ruptura. Persegue uma presa, recupera Vida e escolhe entre drená-la ou consumir sua marca. Medo de ser caçado.", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
-  ["Ruína", "Ruin", "Especialista em Aflições · afinidade Graça. Aplica Decadência, sela apoio e corrói a linha inimiga. Medo de perder a própria continuidade.", "Affliction Specialist · Grace affinity. Inflicts Decay, seals support, and wears down the enemy line. Fear of losing continuity."]
+  ["Ruína", "Ruin", "Interditor · afinidade Graça. Prende um alvo com magia espectral, atordoa e sela apoio; um círculo espalha a contenção. Medo de perder a própria continuidade.", "Disruptor · Grace affinity. Binds one target with spectral magic, Stuns and seals support; a circle spreads the restraint. Fear of losing continuity."]
 ];
 for (const [sourceName, targetName, sourceDescription, targetDescription] of finalBossForms) {
   phrases[sourceName] = targetName;
@@ -596,20 +596,20 @@ for (const [sourceName, targetName, sourceDescription, targetDescription] of fin
 }
 
 const finalBossAbilityNames = {
-  "Fenda do Véu": "Veil Rift", "Decreto do Fim": "Final Decree", "Coroa que Não Cai": "Unfallen Crown",
+  "Punho de Cinza": "Ashen Fist", "Quebra do Trono": "Thronebreaker", "Queda Implacável": "Relentless Fall",
   "Rastro Faminto": "Hungry Trail", "Ceifar o Vínculo": "Reap the Bond", "Fome dos Reinos": "Hunger of the Realms",
-  "Cinza de Ninguém": "Ash of No One", "Nome Extinto": "Extinguished Name", "Última Fronteira": "Last Frontier"
+  "Fio Espectral": "Spectral Thread", "Laço dos Ausentes": "Absent Bind", "Círculo de Interdição": "Circle of Interdiction"
 };
 const finalBossAbilityDescriptions = {
-  "Rasga a guarda e marca um inimigo por 3 turnos.": "Rends the guard and Marks one enemy for 3 turns.",
-  "Causa 20 de dano. Contra sua marca do Fim, causa +15 de dano, Atordoa por 1 turno e consome a marca.": "Deal 20 damage. Against your End Mark, deal +15 damage, Stun for 1 turn, and consume the Mark.",
-  "Concede 20 de Defesa destrutível ao trio.": "Grant the team 20 destructible Defense.",
+  "Causa 20 de dano físico e prepara 1 carga.": "Deal 20 physical damage and gain 1 Charge.",
+  "Causa 20 de dano físico e remove 15 de Defesa do alvo antes do dano.": "Deal 20 physical damage and remove 15 Defense before damage.",
+  "Causa 20 de dano físico, mais 10 por carga consumida e até 10 de dano conforme a Vida perdida.": "Deal 20 physical damage, +10 damage per Charge spent, and +5 damage for every 25 Health lost (max +10).",
   "Causa 15 de dano físico, rouba 50% do dano causado como Vida e marca o alvo por 3 turnos.": "Deal 15 physical damage, restore 50% of damage dealt as Health, and Mark the target for 3 turns.",
   "Causa 25 de dano perfurante e rouba 50% do dano causado como Vida. Contra sua marca de caça, causa +10 de dano e consome a marca.": "Deal 25 piercing damage and restore 50% of damage dealt as Health. Against your Hunt Mark, deal +10 damage and consume the Mark.",
   "Causa 20 de dano de aflição a um inimigo e drena 1 Essência da reserva inimiga. Contra sua marca de caça, causa +15 de dano e a consome.": "Deal 20 affliction damage to one enemy and drain 1 Essence from the enemy reserve. Against your Hunt Mark, deal +15 damage and consume it.",
-  "Causa 10 de dano de aflição e aplica Decadência: 4 de dano por 3 turnos.": "Deal 10 affliction damage and inflict Decay: 4 damage for 3 turns.",
-  "Causa 15 de dano espiritual, deixa o alvo Exposto e sela suas habilidades de apoio por 1 turno.": "Deal 15 spiritual damage, Expose the target, and seal its support techniques for 1 turn.",
-  "Causa 20 de dano de aflição a cada inimigo; causa +5 contra alvos com aflições.": "Deal 20 affliction damage to each enemy; deal +5 damage to targets with an affliction."
+  "Causa 10 de dano espiritual e marca o alvo com um fio espectral por 2 turnos.": "Deal 10 spiritual damage and Mark the target with a spectral thread for 2 turns.",
+  "Causa 15 de dano espiritual. Contra sua marca, causa +10 de dano, Atordoa por 1 turno e consome o fio.": "Deal 15 spiritual damage. Against your Mark, deal +10 damage, Stun for 1 turn, and consume the thread.",
+  "Causa 10 de dano espiritual a todos os inimigos, Enfraquece e sela apoio por 1 turno.": "Deal 10 spiritual damage to all enemies, Weaken them, and seal support for 1 turn."
 };
 for (const [index, ability] of createFinalBossAbilities().entries()) {
   if (index < finalBossForms.length) {
