@@ -7,7 +7,7 @@ export default async function handler(req,res){
  if(!configured)return send(503,{error:'Cadastro e progresso aguardam conexão do banco.',code:'DATABASE_NOT_CONFIGURED'});
  const service=new AccountService(createStore());
  const session=(req.headers.cookie||'').match(/(?:^|;\s*)pma_session=([a-f0-9]{64})(?:;|$)/)?.[1];
- if(req.method==='GET'){try{return send(200,{configured:true,...(await service.current(session)||{})});}catch{return send(503,{configured:true,error:'Conta indisponível.'});}}
+ if(req.method==='GET'){try{const health=req.query?.health==='1'||new URL(req.url||'/api/account','http://localhost').searchParams.get('health')==='1';if(health){await service.store.transaction(tx=>tx.get('__healthcheck'));return send(200,{configured:true,storage:'ready'});}return send(200,{configured:true,...(await service.current(session)||{})});}catch{return send(503,{configured:true,error:'Conta indisponível.'});}}
  if(req.method!=='POST'){res.setHeader('Allow','GET, POST');return send(405,{error:'Método indisponível.'});}
  const origin=req.headers.origin;let host;try{host=origin?new URL(origin).host:null;}catch{return send(403,{error:'Origem inválida.'});}
  if(!host||host!==req.headers.host)return send(403,{error:'Origem inválida.'});if(!req.headers['content-type']?.startsWith('application/json'))return send(415,{error:'Formato inválido.'});
