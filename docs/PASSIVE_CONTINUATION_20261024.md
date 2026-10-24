@@ -22,6 +22,8 @@ Nova simulação: 300 confrontos, 100 personagens, 32.263 etapas e 436 técnicas
 
 Verificação deste lote: **273 testes aprovados**, nenhuma falha; build de produção concluído; 626 caminhos ativos de arte presentes, nenhum ausente. Relatório reproduzível de simulação: `PASSIVES_CHAMA_FOME_SIM_20261024.json`.
 
+Conferência em produção: deploy funcional `2246c349567865a3f1baa89c6c95a77299993c04` e ajuste de enquadramento `82febbe7604b4e4f3495c9dfc678347aeaa5ce7a`, ambos READY. O Codex mostrou as seis artes carregadas, a biografia em português e inglês e as 12 passivas de Chama/Fome em inglês. O retrato do Herdeiro usa corte superior para preservar olhos e fratura facial; 11 testes de apresentação passaram novamente e o build foi refeito. Evidência final: `qa/heir-codex-20261024.jpg`.
+
 ## Lote anterior — Sangria, Coroa e Mentira
 
 Doze passivas genéricas de Sangria, Coroa e Mentira foram substituídas. Os 18 personagens desses três Elos agora têm gatilhos com assinaturas mecânicas distintas. O elenco soma 49 passivas com gatilhos específicos ou recuperação ligada ao tipo de dano; as outras 51 continuam na fila de revisão. Os 100 personagens foram preservados.
