@@ -236,3 +236,12 @@ test("language toggle rerenders the Codex in either language and filters by Engl
   assert.equal(document.documentElement.lang, "pt-BR");
   assert.match(app.innerHTML, /O Açougueiro/);
 });
+
+
+test("Codex labels and split text nodes use natural English", () => {
+  assert.equal(localizeText("Sinergias discretas de Elo, Mundo e afinidade", "en"), "Subtle Bond, Realm, and affinity synergies");
+  assert.equal(localizeText("O Fim · Rei do Inferno", "en"), "The End · King of Hell");
+  assert.equal(localizeText("ALMA DO PMA", "en"), "PMA SOUL");
+  assert.equal(localizeText("DO PMA", "en"), "IN PMA");
+  assert.equal(localizeMarkup('<small>ARQUÉTIPO PRINCIPAL · <span>Execução encadeada</span></small>', 'en'), '<small>PRIMARY ARCHETYPE · <span>Chained Execution</span></small>');
+});

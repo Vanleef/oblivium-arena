@@ -8,6 +8,10 @@ const supported = new Set(["pt-BR", "en"]);
 
 const phraseTranslations = Object.fromEntries(Object.entries({
   "Post Mortem Arena": "Post Mortem Arena",
+  "Sinergias discretas de Elo, Mundo e afinidade": "Subtle Bond, Realm, and affinity synergies",
+  "O Fim · Rei do Inferno": "The End · King of Hell",
+  "ARQUÉTIPO PRINCIPAL ·": "PRIMARY ARCHETYPE ·",
+  "ALMA DO PMA": "PMA SOUL", "DO PMA": "IN PMA",
   "Grande Rota": "Grand Route", "Formar Trio": "Build Team", "Seu trio": "Your Team", "Trio selecionado": "Selected Team",
   "O véu está se rompendo": "The Veil Is Breaking", "Três reinos": "Three Realms", "Uma fronteira": "One Border",
   "Reúna três almas. Atravesse os Elos. Restaure o véu.": "Gather three souls. Cross the Bonds. Restore the veil.",
