@@ -202,10 +202,14 @@ test("campaign, story, upgrades, and living-world events have English copy", () 
 });
 
 test("combat tooltips build their rules text directly in English", () => {
+  const ruinBind = { damage: 15, damageType: "energy", combo: { condition: "mark:fio-ruina", bonusDamage: 10, stun: 1, consume: true } };
+  globalThis.localStorage = { getItem: () => "pt-BR", setItem() {} };
+  assert.equal(abilityQuickEffect(ruinBind), "15 espiritual · +10 dano se marcado · Atordoa 1T se marcado");
   globalThis.localStorage = { getItem: () => "en", setItem() {} };
   assert.equal(abilityQuickEffect({ damage: 20, damageType: "physical", target: "enemy", dot: { tag: "sangramento", damage: 5 } }), "20 physical damage to an enemy · Bleed 5 affliction damage/turn");
   assert.equal(abilityQuickEffect({ damage: 20, damageType: "physical", target: "enemy", gainCharge: 1 }), "20 physical damage to an enemy · Gain 1 charge");
   assert.equal(abilityQuickEffect({ damage: 10, damageType: "energy", target: "all-enemies", weaken: 1, sealSupport: 1 }), "10 spiritual damage to all enemies · Weaken · 1 turn · Seal support · 1 turn");
+  assert.equal(abilityQuickEffect(ruinBind), "15 spiritual damage to an enemy · +10 damage if marked · Stun · 1 turn if marked");
   assert.equal(abilityQuickEffect({ target: "self", boost: 8, shift: [{ slot: "fenda", form: "predator" }] }), "Prepare +8 damage for your next strike");
   assert.equal(abilityQuickEffect({ generateEssence: { resource: "graca", amount: 1 } }), "Generate 1 Grace");
   assert.equal(abilityConditions({ combo: { condition: "wounded", bonusDamage: 10, consume: true } }), "Bonus against a target at 50% Health or less; consumes the setup.");

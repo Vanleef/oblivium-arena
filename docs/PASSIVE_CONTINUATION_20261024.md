@@ -23,7 +23,7 @@ O Fim agora tem uma identidade visual compartilhada nas três transformações: 
 
 O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos seus nomes, arquétipos ou Essências. O Predador mantém as artes existentes. As oito artes novas do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_COHESIVE_20261024.json`; as regras e silhuetas estão em `O_FIM_FORMS_REVISION_20261024.md`.
 
-Validação local: **304 testes aprovados**, build com **928 arquivos**, auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. A conferência da versão de produção será registrada após a publicação.
+Validação local: **304 testes aprovados**, build com **928 arquivos**, auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. O deploy `4618cbfe1360369a01c42b9bb060544384547f2d` ficou READY. No Codex público, conferi retratos, sinais compartilhados, arquétipos, Essências e técnicas. A correção do resumo rápido do Laço dos Ausentes está no commit seguinte.
 
 ## Continuação — Podridão, Silêncio e O Sussurro
 

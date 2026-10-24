@@ -33,6 +33,7 @@ export function abilityQuickEffect(ability = {}) {
   if (ability.damage) {
     const type = damageTypeNames[ability.damageType] || "físico";
     const target = ability.target === "all-enemies" ? "em área" : type;
+    const comboQualifier = ability.combo?.condition?.startsWith("mark:") ? "se marcado" : "quando a condição é atendida";
     const additions = [
       ability.dot && `${statusNames[ability.dot.tag] || "Aflição"} ${ability.dot.damage}/T`,
       ability.stun && `Atordoa ${ability.stun}T`,
@@ -42,6 +43,8 @@ export function abilityQuickEffect(ability = {}) {
       ability.stripShield && `−${ability.stripShield} Defesa`,
       ability.spendCharge && ability.perChargeDamage && `+${ability.perChargeDamage}/carga consumida`,
       ability.missingHpDamage && `+${ability.missingHpDamage.amount} a cada ${ability.missingHpDamage.step} Vida perdida (máx. +${ability.missingHpDamage.cap})`,
+      ability.combo?.bonusDamage && `+${ability.combo.bonusDamage} dano ${comboQualifier}`,
+      ability.combo?.stun && `Atordoa ${ability.combo.stun}T ${comboQualifier}`,
       ability.weaken && `Enfraquece ${ability.weaken}T`,
       ability.sealSupport && `Sela apoio ${ability.sealSupport}T`
     ].filter(Boolean);
@@ -81,6 +84,7 @@ function abilityQuickEffectEnglish(ability = {}) {
   if (ability.damage) {
     const type = damageTypeNamesEn[ability.damageType] || "physical";
     const target = ability.target === "all-enemies" ? "to all enemies" : "to an enemy";
+    const comboQualifier = ability.combo?.condition?.startsWith("mark:") ? "if marked" : "when the condition is met";
     const additions = [
       ability.dot && `${statusNamesEn[ability.dot.tag] || "Affliction"} ${ability.dot.damage} affliction damage/turn`,
       ability.stun && `Stun · ${ability.stun} ${ability.stun === 1 ? "turn" : "turns"}`,
@@ -90,6 +94,8 @@ function abilityQuickEffectEnglish(ability = {}) {
       ability.stripShield && `Remove ${ability.stripShield} Defense`,
       ability.spendCharge && ability.perChargeDamage && `+${ability.perChargeDamage} damage per charge spent`,
       ability.missingHpDamage && `+${ability.missingHpDamage.amount} per ${ability.missingHpDamage.step} Health lost (max +${ability.missingHpDamage.cap})`,
+      ability.combo?.bonusDamage && `+${ability.combo.bonusDamage} damage ${comboQualifier}`,
+      ability.combo?.stun && `Stun · ${ability.combo.stun} ${ability.combo.stun === 1 ? "turn" : "turns"} ${comboQualifier}`,
       ability.weaken && `Weaken · ${ability.weaken} ${ability.weaken === 1 ? "turn" : "turns"}`,
       ability.sealSupport && `Seal support · ${ability.sealSupport} ${ability.sealSupport === 1 ? "turn" : "turns"}`
     ].filter(Boolean);
