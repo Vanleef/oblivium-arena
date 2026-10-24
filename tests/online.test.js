@@ -18,6 +18,21 @@ test('sessões isoladas e fila inválida não aceita personagem desconhecido ou 
 test('prazo persiste após reconectar e a derrota por inatividade é liquidada uma vez',async()=>{let now=1000000;const service=new ArenaService(new TestStore(),{now:()=>now}),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});const views=await Promise.all([service.request(a.token),service.request(b.token)]),current=views.find(v=>v.match.battle.phase==='influence');now+=120001;const lost=await service.request(current.token);assert.equal(lost.profile.losses,1);assert.equal(lost.match.reason,'Tempo esgotado');assert.equal((await service.request(current.token)).profile.losses,1);});
 test('sem banco: endpoint informa bloqueio e não simula jogadores ou classificação',async()=>{const oldUrl=process.env.UPSTASH_REDIS_REST_URL,oldToken=process.env.UPSTASH_REDIS_REST_TOKEN;delete process.env.UPSTASH_REDIS_REST_URL;delete process.env.UPSTASH_REDIS_REST_TOKEN;try{let status,data;const res={setHeader(){},status(code){status=code;return this;},json(v){data=v;return v;}};await handler({method:'GET',headers:{}},res);assert.equal(data.configured,false);await handler({method:'POST',headers:{}},res);assert.equal(status,503);assert.equal(data.code,'DATABASE_NOT_CONFIGURED');}finally{if(oldUrl)process.env.UPSTASH_REDIS_REST_URL=oldUrl;if(oldToken)process.env.UPSTASH_REDIS_REST_TOKEN=oldToken;}});
 
+test('todas as operações POST da Arena exigem sessão autenticada',async()=>{
+ const names=['UPSTASH_REDIS_REST_URL','UPSTASH_REDIS_REST_TOKEN'];const saved=Object.fromEntries(names.map(name=>[name,process.env[name]]));process.env.UPSTASH_REDIS_REST_URL='https://redis.example.test';process.env.UPSTASH_REDIS_REST_TOKEN='test-token';
+ try{for(const op of ['profile','queue','cancel','turn','influence','surrender','ack']){let status,data;const res={setHeader(){},status(code){status=code;return this;},json(value){data=value;return value;}};await handler({method:'POST',headers:{origin:'https://pma.example.test',host:'pma.example.test','content-type':'application/json'},body:{op}},res);assert.equal(status,401,op);assert.equal(data.code,'LOGIN_REQUIRED',op);}}
+ finally{for(const [name,value]of Object.entries(saved))if(value===undefined)delete process.env[name];else process.env[name]=value;}
+});
+
+test('a Arena mantém um perfil e o limite de chamadas por conta mesmo com tokens rotacionados',async()=>{
+ let now=100000;const service=new ArenaService(new TestStore(),{now:()=>now}),identity={id:'conta-estavel',handle:'Andarilho'};
+ const first=await service.request(undefined,{},identity),rotated=await service.request('a'.repeat(64),{},identity);
+ assert.equal(rotated.profile.id,first.profile.id);
+ for(let i=2;i<25;i++)await service.request(i.toString(16).padStart(64,'0'),{},identity);
+ await assert.rejects(service.request('f'.repeat(64),{},identity),{status:429});
+ now+=10000;const nextWindow=await service.request('e'.repeat(64),{},identity);assert.equal(nextWindow.profile.id,first.profile.id);
+});
+
 
 test('Arena recebe a escolha Qualquer, rejeita pagamento adulterado e mantém a versão após rejeição',async()=>{
  const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});

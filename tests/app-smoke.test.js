@@ -21,6 +21,7 @@ test('Codex encontra a identidade atual por seu nome novo ou anterior e mostra a
 
  ])for(const query of queries){
   handlers.input({target:{matches:()=>true,value:query,selectionStart:query.length}});
+  await new Promise(resolve=>setTimeout(resolve,140));
   assert.ok(app.innerHTML.includes(`<h3>${name}</h3>`),query);
   assert.match(app.innerHTML,/codex-lore/);
   if(folder)assert.ok(app.innerHTML.includes(`${folder}/portrait.webp`),query);
@@ -45,8 +46,8 @@ test("O Fim mostra sua natureza sem rosto fixo e preserva a defesa de invulnerab
 
 test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o reino',async()=>{
  const {app,handlers,click}=setup();await import('../src/main.js?fear-codex=1');click({tab:'codex'});
- const search=value=>handlers.input({target:{matches:()=>true,value,selectionStart:value.length}});
- search('O Fim');assert.match(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/não tem rosto nem forma fixos/);assert.match(app.innerHTML,/Nenhuma aparência é sua forma verdadeira/);assert.doesNotMatch(app.innerHTML,/data-final-battle/);
+ const search=async value=>{handlers.input({target:{matches:()=>true,value,selectionStart:value.length}});await new Promise(resolve=>setTimeout(resolve,140));};
+ await search('O Fim');assert.match(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/não tem rosto nem forma fixos/);assert.match(app.innerHTML,/Nenhuma aparência é sua forma verdadeira/);assert.doesNotMatch(app.innerHTML,/data-final-battle/);
  const entity=app.innerHTML.match(/<article class="codex-entity"[\s\S]*?<\/article>/)?.[0];
  assert.ok(entity);assert.match(entity,/Habilidades de O Fim/);
  for(const name of ['Assumir Tirano','Assumir Predador','Assumir Ruína','Fim Inalcançável'])assert.ok(entity.includes(name),name);
@@ -55,10 +56,10 @@ test('Codex permite conhecer O Fim sem desbloquear a luta e respeita a busca e o
   click({previewForm:`the-end:${key}`});assert.ok(app.innerHTML.includes(`portrait-${key}.webp`));for(const name of skills)assert.ok(app.innerHTML.includes(name),name);assert.match(app.innerHTML,/Fim Inalcançável/);
  }
  click({previewForm:'the-end:base'});assert.ok(app.innerHTML.includes('/approved-elo-union-20261023/portrait.webp'));assert.match(app.innerHTML,/Assumir Tirano/);
- search('A Metamorfa');for(const key of ['skin','shell']){click({previewForm:`a-pele-alheia:${key}`});assert.ok(app.innerHTML.includes(`portrait-${key}.webp`));assert.match(app.innerHTML,/Corpo Substituto/);}search('O Fim');
+ await search('A Metamorfa');for(const key of ['skin','shell']){click({previewForm:`a-pele-alheia:${key}`});assert.ok(app.innerHTML.includes(`portrait-${key}.webp`));assert.match(app.innerHTML,/Corpo Substituto/);}await search('O Fim');
  click({crewRealm:'Paraíso'});assert.doesNotMatch(app.innerHTML,/codex-entity/);
  click({crewRealm:'Inferno'});assert.match(app.innerHTML,/codex-entity/);
- search('O Devorador');assert.doesNotMatch(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/form-revision-20261023\/portrait.webp/);assert.match(app.innerHTML,/fera quadrúpede/);
+ await search('O Devorador');assert.doesNotMatch(app.innerHTML,/codex-entity/);assert.match(app.innerHTML,/form-revision-20261023\/portrait.webp/);assert.match(app.innerHTML,/fera quadrúpede/);
 });
 test('escolha global persiste, bloqueia nova trilha até resgate e não duplica após recarregar',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});

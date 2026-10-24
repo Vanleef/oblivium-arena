@@ -26,3 +26,18 @@ test('cadastro valida o email, nick e comprimento mínimo da senha',async()=>{
  await assert.rejects(service.register({email:'alma@example.test',handle:'x',password:'correntes-longas'}),/nick/);
  await assert.rejects(service.register({email:'alma@example.test',handle:'Alma',password:'curta'}),/10 a 256/);
 });
+
+test('limite de autenticação combina origem e identidade e normaliza nicks Unicode',async()=>{
+ const service=new AccountService(new MemoryStore(),{now:()=>120000});
+ for(let i=0;i<8;i++)await service.limitAuth(`ip-${i}`,'Pessoa@example.test');
+ await assert.rejects(service.limitAuth('ip-nova','pessoa@example.test'),{status:429});
+ const registered=await service.register({email:'nome@example.test',handle:'Ａlma',password:'correntes-longas-2026'});
+ assert.equal(registered.user.handle,'Alma');
+ await assert.rejects(service.register({email:'outro@example.test',handle:'Alma',password:'correntes-longas-2026'}),{status:409});
+});
+
+test('salvamento remove IDs desconhecidos, limita contadores e reconstrói retratos a partir da coleção',async()=>{
+ const service=new AccountService(new MemoryStore()),created=await service.register({email:'progresso@example.test',handle:'Guardiao',password:'correntes-longas-2026'});
+ const result=await service.update(created.session,{profile:{...created.profile,ownedIds:[...created.profile.ownedIds,'personagem-inexistente'],completedElos:['sangria','elo-falso'],xp:99999999999,fragments:-15,unlockedAvatars:['o-fim'],avatarId:'o-fim'}});
+ assert.equal(result.profile.ownedIds.includes('personagem-inexistente'),false);assert.deepEqual(result.profile.completedElos,['sangria']);assert.equal(result.profile.xp,1000000000);assert.equal(result.profile.fragments,0);assert.deepEqual(result.profile.unlockedAvatars,['soul',...created.profile.ownedIds]);assert.equal(result.profile.avatarId,'soul');
+});

@@ -121,7 +121,7 @@ function save() {
   }
 }
 
-let accountSaveTimer=null;
+let accountSaveTimer=null,searchRenderTimer=null;
 
 function accountAvatar(id,size="avatar-small") {
   const c=characterById[id];return c?.art?.portrait?`<img class="${size}" src="${esc(c.art.portrait)}" alt="">`:`<span class="${size} avatar-soul" aria-hidden="true">☽</span>`;
@@ -778,10 +778,8 @@ app.addEventListener("input", (event) => {
   if (event.target.matches("[data-search]")) {
     state.crewSearch = event.target.value;
     const cursor = event.target.selectionStart;
-    render();
-    const input = app.querySelector("[data-search]");
-    input?.focus();
-    input?.setSelectionRange(cursor, cursor);
+    clearTimeout(searchRenderTimer);
+    searchRenderTimer=setTimeout(()=>{render();const input=app.querySelector("[data-search]");input?.focus();input?.setSelectionRange(cursor,cursor);},120);
   }
 });
 
