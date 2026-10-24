@@ -1,0 +1,229 @@
+{
+  "date": "2026-10-22",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "characters": [
+    {
+      "id": "a-que-une",
+      "name": "A que Une",
+      "realm": "Paraíso",
+      "elo": "União",
+      "passive": {
+        "name": "Cuidar em Conjunto",
+        "effect": "Após usar uma habilidade de apoio, o usuário restaura 5 de Vida."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Fio de Encontro",
+          "target": "enemy",
+          "effect": "Causa 15 de dano espiritual a um inimigo. Restaura ao usuário 50% do dano causado."
+        },
+        {
+          "id": "tecnica",
+          "name": "Reunir os Fragmentos",
+          "target": "ally",
+          "effect": "Restaura 15 de Vida. Concede 10 de Defesa destrutível. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais."
+        },
+        {
+          "id": "voto",
+          "name": "Fôlego Coletivo",
+          "target": "team",
+          "effect": "Restaura 15 de Vida a cada aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado."
+        },
+        {
+          "id": "despertar",
+          "name": "Entrelaçar de Luz",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/a-que-une-sheet.webp",
+      "assets": [
+        "art/characters/a-que-une/portrait.webp",
+        "art/characters/a-que-une/passive.webp",
+        "art/characters/a-que-une/skill-impulso.webp",
+        "art/characters/a-que-une/skill-tecnica.webp",
+        "art/characters/a-que-une/skill-voto.webp",
+        "art/characters/a-que-une/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character A que Une, Elo União. Black woman aged60, broad face, wide nose, heavy eyelids, mature stocky build, grey box braids in a low crown. Navy tunic, ivory long sleeveless coat, broad red sash, brass ring-shaped weaving shuttle; power is flat turquoise woven light ribbons with clearly interlocked square weave, not loose thin threads. No duplicates of shuttle.\nCell1: chest-up three-quarter face looking down-left, fingers resting on one shuttle at waist; rainy ivory bridge and dark cypresses.\nCell2 passive healing after support: intimate profile and clavicle/upper chest, her own woven cuff closes a torn sleeve seam with green light; brass shuttle visible waist; stone loom workshop, dawn.\nCell3 Fio de Encontro spiritual hit and drain: enemy shoulder in close foreground, turquoise flat ribbon strikes enemy breastplate and returns one bright stitch toward her red sash; she stands back at right, dynamic diagonal overhead courtyard view, pale blue pools.\nCell4 Reunir os Fragmentos heals/shields/cleanses ONE ally: low side angle seated wounded adult ally forearm foreground, her five-finger hand lays woven turquoise bandage over the forearm, purple smoke leaving and a small woven panel guarding that SAME ally; moonlit white stone infirmary.\nCell5 Fôlego Coletivo team healing/boost: dramatic bird-eye crop her red sash at central fountain, exactly two adult allied silhouettes each connected to ONE flat broad turquoise ribbon and warm gold healing spark; circular terrace among olive trees at sunset.\nCell6 Entrelaçar de Luz invulnerability self: full-body leaning sideways, her OWN coat becomes a close weave of turquoise light as a blade passes without contact beside her shoulder; one woman only, narrow sanctuary stairway over cloudsea at blue night. Avoid same pose and arm-thrust in all cells.",
+      "generationFile": "exec-b43e4a00-f000-4744-afca-a350e6b358f9.png"
+    },
+    {
+      "id": "o-vinculo",
+      "name": "O Vínculo",
+      "realm": "Paraíso",
+      "elo": "União",
+      "passive": {
+        "name": "Pacto de Permanência",
+        "effect": "No início do seu turno, recebe 4 de Defesa destrutível."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Selo do Pacto",
+          "target": "enemy",
+          "effect": "Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição."
+        },
+        {
+          "id": "tecnica",
+          "name": "Responder pelo Outro",
+          "target": "ally",
+          "effect": "Concede 15 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: restaura 6 de Vida ao usuário e ao beneficiado, uma vez por alma. Ativa uma vez."
+        },
+        {
+          "id": "voto",
+          "name": "Resposta da Aliança",
+          "target": "enemy",
+          "effect": "Causa 25 de dano físico a um inimigo. Restaura ao usuário 30% do dano causado. Se o alvo está Exposto: +10 dano."
+        },
+        {
+          "id": "despertar",
+          "name": "Laço Intangível",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/o-vinculo-sheet.webp",
+      "assets": [
+        "art/characters/o-vinculo/portrait.webp",
+        "art/characters/o-vinculo/passive.webp",
+        "art/characters/o-vinculo/skill-impulso.webp",
+        "art/characters/o-vinculo/skill-tecnica.webp",
+        "art/characters/o-vinculo/skill-voto.webp",
+        "art/characters/o-vinculo/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character O Vínculo, Elo União. Athletic East Asian man35, squared jaw, thick straight brows, black hair in SHORT tight topknot, short black goatee, small white vertical scar below right eye. Maroon sleeveless coat over ochre sleeves and charcoal trousers, left wrist solid bronze rectangular cuff, exactly one short ivory rectangular oath tally in right hand. Magic is paired white rectangular seal impressions with interlocking bronze notches; never chains or round golden rings.\nCell1 front low-angle chest portrait against pale stone oathgate and starry indigo sky; stern mature anime face, white tally near chest.\nCell2 passive destructive defense: macro left forearm bronze cuff (not right), a thin WHITE rectangular hardlight plate grows just beyond cuff and arrests falling stone chip; old oath archive stone shelves, cuff ochre sleeve and coat edge identify him.\nCell3 Selo do Pacto physical expose: extreme low perspective from enemy armored shoulder, his right palm with ivory tally stamps a sharp rectangular light imprint on shoulder, enemy posture opens; tilted alabaster staircase under cloudy dawn.\nCell4 Responder pelo Outro shields/counters ONE ally: close over-the-shoulder view man standing at left placing cuff-side hand on ONE ally's shoulder, white sealplate intercepts a dagger at ally's chest and a second RETURN streak points toward attacker's wrist; solemn roofed stone arcade, purple dusk; no other allies.\nCell5 Resposta da Aliança physical lifesteal: lateral close action his right elbow drives a short strike into armored enemy torso, rectangular seal breaks into bright white shards returning to his bronze cuff, no blood; wind-swept marble causeway at golden evening, full impact legible, natural elbow anatomy.\nCell6 Laço Intangível SELF: own body steps through a vertical gap between two floating white sealplanes, enemy spear tip remains behind plane separated from body; side-back full figure cloak silhouette, shallow mirror lake beneath white sanctuary pillars. Only caster protected.",
+      "generationFile": "exec-d65d4df1-c343-46d0-8df6-371b2a0d1b42.png"
+    },
+    {
+      "id": "os-tres-irmaos",
+      "name": "Os Três Irmãos",
+      "realm": "Paraíso",
+      "elo": "União",
+      "passive": {
+        "name": "Passo de Irmandade",
+        "effect": "Sua primeira habilidade ofensiva do combate causa +5 de dano."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Primeira Cadência",
+          "target": "enemy",
+          "effect": "Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3). Vira Segunda Voz por 2 turnos; ela abre Terceira Voz por mais 2 turnos."
+        },
+        {
+          "id": "tecnica",
+          "name": "Segunda Cadência",
+          "target": "team",
+          "effect": "Concede 12 de Defesa destrutível ao trio. Ganha 1 carga (máx. 3)."
+        },
+        {
+          "id": "voto",
+          "name": "Terceira Cadência",
+          "target": "all-enemies",
+          "effect": "Causa 15 de dano físico a todos os inimigos. Consome as cargas: +5 de dano por carga."
+        },
+        {
+          "id": "despertar",
+          "name": "Passo em Uníssono",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/os-tres-irmaos-sheet.webp",
+      "assets": [
+        "art/characters/os-tres-irmaos/portrait.webp",
+        "art/characters/os-tres-irmaos/passive.webp",
+        "art/characters/os-tres-irmaos/skill-impulso.webp",
+        "art/characters/os-tres-irmaos/skill-tecnica.webp",
+        "art/characters/os-tres-irmaos/skill-voto.webp",
+        "art/characters/os-tres-irmaos/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character Os Três Irmãos, Elo União: a SINGLE playable character represented by THREE distinct adult brothers, always exactly these three when all shown, no duplicates. Eldest55 stocky tan man with silver moustache and cropped silver hair, terracotta short jacket; middle40 tall dark tan lean man, sharp nose, long tied black hair, teal long coat; youngest24 short adult light tan man with curly black hair, round face, plum short robe. All wear same ivory horizontal shoulder sash and bronze round brooch. Powers are three synchronized amber percussion arcs, not musical notes or invented symbols. No weapons, no instruments. Anatomically separate figures.\nCell1 portrait three faces in compact triangular grouping chest-up; eldest near center, middle upper left and youngest upper right; sanctuary mountain amphitheater deep navy dawn.\nCell2 first offensive hit bonus passive: extreme close of eldest terracotta sleeve, middle teal sleeve and youngest plum sleeve each ending in ONE clenched fist, the three fists touch centrally like a pact (exactly3 fists, no open fingers); amber spark at meeting, carved white stone doorway behind.\nCell3 Primeira Cadência physical hit/charge: foreground eldest's boot striking enemy shin, terracotta trouser hem, other two brothers farther behind in TWO distinct stances; one amber pulse behind heel, low ground camera along alabaster aqueduct.\nCell4 Segunda Cadência team defense/charge: high overhead view three brothers stand triangularly, each anchors ONE translucent amber pentagonal shield below feet and an arc connects them; olive grove pale marble paving after rain, no other people.\nCell5 Terceira Cadência all enemy physical attack/spendcharge: very wide view compressed for readability, exactly3 brothers in foreground (terracotta/teal/plum), synchronized forward stepping sends THREE broad amber ground arcs toward exactly3 distant armored adversaries; three clear hit silhouettes, ruined white arena at sunset, no extra people.\nCell6 Passo em Uníssono personal invulnerability of this ONE trio-entity: three brothers together lean away along same safe diagonal as ONE black sword sweeps harmlessly across the foreground, cloak hems distinct; overhead oblique glass-floor sanctuary gallery and cloudy violet void. All3 dodge for themselves, not protecting a fourth ally. Keep faces, clothing colors and relative body sizes consistent.",
+      "generationFile": "exec-0f63e203-7fea-4ce4-9032-4584685fe662.png"
+    },
+    {
+      "id": "o-primeiro-canto",
+      "name": "O Primeiro Canto",
+      "realm": "Paraíso",
+      "elo": "Criação",
+      "passive": {
+        "name": "Eco de Nascimento",
+        "effect": "Após usar uma habilidade de apoio, o usuário restaura 4 de Vida."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Nota Primordial",
+          "target": "enemy",
+          "effect": "Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3)."
+        },
+        {
+          "id": "tecnica",
+          "name": "Refrão da Vida",
+          "target": "team",
+          "effect": "Restaura 8 de Vida a cada aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Reduz em 1 turno as recargas não defensivas do beneficiado."
+        },
+        {
+          "id": "voto",
+          "name": "Canto que Abre o Mundo",
+          "target": "all-enemies",
+          "effect": "Causa 15 de dano espiritual a todos os inimigos. Consome as cargas: +5 de dano por carga."
+        },
+        {
+          "id": "despertar",
+          "name": "Pausa Anterior ao Som",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/o-primeiro-canto-sheet.webp",
+      "assets": [
+        "art/characters/o-primeiro-canto/portrait.webp",
+        "art/characters/o-primeiro-canto/passive.webp",
+        "art/characters/o-primeiro-canto/skill-impulso.webp",
+        "art/characters/o-primeiro-canto/skill-tecnica.webp",
+        "art/characters/o-primeiro-canto/skill-voto.webp",
+        "art/characters/o-primeiro-canto/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Production character sprite sheet for PMA dark fantasy anime tactical game. ONE sheet, exactly 1536x1024, six square cells in a strict edge-to-edge 3-column 2-row grid, no gutters, borders, captions, text or watermark. Each 512x512 cell is a separately composed clear anime shot. Order row1 portrait, passive, first attack; row2 support, ultimate, personal defense.\nStrict 2D Japanese TV anime animation drawings: bold clean ink contour, flat color fills, two cel shadow tones, graphic stylized face and eyes, graphic background shapes. No realistic rendering, painterly texture, cinematic photographic effects, 3D, skin gradients or pores. Dark but readable; use different background locations, camera angles, cropping, action silhouettes within the same character. Legible at 75px. Preserve face, age, body shape, clothing and signature props in every shot. Natural joints, clear separated limbs, exactly five digits on visible complete hands. Do not draw glowing anatomical mutations. Effects must come from the named character and show their actual ability target. Defensive sixth cell protects ONLY the caster, no shielded group. Setting is Paraíso, a solemn ancient sanctuary world: luminous living stone, pale skies and indigo shadows, no modern technology, no Inferno gore. Characters are original; do not imitate copyrighted characters. Character O Primeiro Canto, Elo Criação. Elder Indigenous Brazilian-looking man80, deep brown skin, very thin tall body, long hooked nose and high cheekbones, silver hair in ONE long side braid, bare scalp temples, long narrow grey eyebrows, no beard. Large flat copper throat collar, indigo sleeveless robe, coral-orange shoulder shawl, turquoise small ear studs. Power is acoustic turquoise concentric broken crescent waves causing tiny floating pale seed shapes to form at resonance nodes, never generic staff, fire, letters or musical notation. No instrument. Collar is single and stays on neck.\nCell1 tight side-three-quarter portrait, solemn ancient face, closed lips, silver braid over left shoulder, overgrown pale bell tower under starry indigo sky.\nCell2 selfheal after support passive: extreme close side profile lower cheek mouth and copper collar, a soft turquoise inward acoustic crescent returns to his chest and seals tiny light crack in robe with no body wound; dark sanctuary acoustic chamber with pale moss arches.\nCell3 Nota Primordial spiritual hit/gaincharge: enemy helmet in foreground recoils from ONE sharp turquoise crescent, old singer distant left mouth open, left arm low relaxed; reverse low enemy viewpoint in white stone canyon, floating one pale seed beside collar.\nCell4 Refrão da Vida team heal/boost/cooldown: high oblique view singer kneels center with two standing adult allies at opposite sides, three turquoise ripples connect chests, warm green healing glows and tiny pale seed bud rises at each ally foot; sunken circular sanctuary orchard at dawn. Three people total, singer included.\nCell5 Canto que Abre o Mundo all enemies/spendcharge: close low camera by singer shoulder mouth OPEN, flat massive layered turquoise sound wave fans away toward three distant armored enemies staggered in an ivory hillside arena, luminous seeds at THREE resonance nodes, coral shawl streams BACK from wave direction; pale overcast sky, graphic action not explosion.\nCell6 Pausa Anterior ao Som invulnerability SELF: complete stillness, side view old man with closed mouth and braid relaxed, contained soundless turquoise empty oval around HIM, external spear ripples curve around without touching, translucent effect does not obscure body; tiny sanctuary island above violet clouds at night. No other protected figures. Avoid repeating close mouth pose in other cells.",
+      "generationFile": "exec-6deff143-3a84-4a32-87d9-d77f8d49259d.png"
+    }
+  ],
+  "mechanicsFingerprint": "188522412959c0552a83d1ec4286e82ad52289d8999568cc86d2ecb0c6c64140",
+  "mechanicsFingerprintScope": "All character ids, passives and abilities, recursively excluding art fields; unchanged from commit 265fb54f4e4728187be38c01de37a498f3778ee3.",
+  "review": [
+    "Distinct older woman weaver, mature oath guardian, three separate adult brothers, and elder acoustic singer.",
+    "Six different actions/cameras per sheet; realm, Elo, heal/attack/defense targets follow current kits.",
+    "Complete visible hands and separated figures reviewed at source scale; sprites checked again at 75px.",
+    "The extra enemy in the original Canto area-attack image was removed with image_gen; final target count is three.",
+    "Only extraction and WebP conversion use deterministic image processing. No mechanics changed."
+  ],
+  "corrections": [
+    {
+      "character": "o-primeiro-canto",
+      "slot": "skill-voto",
+      "prompt": "Edit target: this six-panel PMA anime sprite sheet. Change ONLY the bottom-middle cell, the area-of-effect attack. It currently has four distant armored enemy figures. Remove the LEFTMOST extra distant enemy figure, keeping exactly THREE armored enemies total in this cell; fill the removed figure's spot with the matching ivory architecture and existing cyan acoustic wave. Keep the other three enemies, singer pose, his five-finger hand, collar, single silver braid, seed effects and acoustic wave unchanged. Preserve ALL other five cells exactly, their character designs, linework and colors. Preserve the existing panel boundaries at x512 and x1024 and y496, total image1536x1024. Do not move or redraw the layout. Maintain original clean 2D cel anime style, no added text or people.",
+      "result": "Removed leftmost fourth enemy; three remain. Panel boundary detected at y497, with square crops centered inside the actual panels."
+    }
+  ],
+  "sourceFormat": {
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cells": [
+      3,
+      2
+    ],
+    "sprites": [
+      512,
+      512
+    ],
+    "cropInset": 4,
+    "cantoRowBoundary": 497,
+    "cantoExtraction": "Square crops centered inside each actual panel, avoiding adjacent-cell bleed."
+  }
+}

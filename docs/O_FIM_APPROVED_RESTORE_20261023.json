@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-23",
+  "status": "integrated_and_locally_verified",
+  "cause": "The approved restrained concept was not connected to the game; the runtime still referenced the older anime-rift package.",
+  "approvedSource": {
+    "name": "Vulto sem rosto no arco de pedra.png",
+    "library_file_id": "libfile_a5b3372cc5d88191bdb7df2a6ff29294",
+    "file_id": "file_00000000874c820e972d674b87c4b26f",
+    "created_at": "2026-10-23T18:22:12.452946+00:00",
+    "sha256": "a7bb205789c9ac7c4e3bae943252cd22064a4b4aa772dda02f946837572bbe3a"
+  },
+  "identity": "O Fim in the EXACT approved manifestation: one HUMAN-SCALE slender adult humanoid, a smooth elongated FACE OF ABSOLUTE BLACK VOID with NO eyes, mouth or nose, a narrow modest aged-bronze thorn crown, wisps of dark violet shadow trailing behind the head, ragged charcoal layered mantle and long black/violet robes, fitted black torso with thin pale-gold seams and TWO tiny red/gold glimmers under the chest (NO chest vortex). Two linked small GOLD RINGS clasp the cloak at the upper chest, with one small purple diamond on one lapel and a pale diamond on the other. His LEFT shoulder and LEFT forearm have broken IVORY armor plates with thin GREEN vine veins and one small green sprout. His RIGHT forearm is dark with thin crimson cracks and restrained green lichen; his right glove is black. A short SILVER chain hangs at the belt. Black/gold boots with cracked ivory greaves. TWO arms and two normal five-finger gloved hands. Keep crown, rings, pendant shapes, armor sides and vines consistent. A composed frightening individual combining the Elos in subtle accessories, NOT a giant god, cyclone, galaxy, universe or disaster. The stone architecture remains intact. This is one observer's manifestation, never a fixed true face.",
+  "generation": {
+    "portrait": "approved source reused without redrawing",
+    "abilities": "image_gen.imagegen, one separate call per ability"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "art/characters/o-fim/approved-elo-union-20261023/portrait.webp",
+      "sourceKind": "approved original, format/resolution conversion only",
+      "dimensions": [
+        768,
+        768
+      ],
+      "bytes": 90902,
+      "sha256": "acc816a7f30195e56793bd145fc3b83742c57a7a406e3fdd2fd15a5339d84ec7"
+    },
+    {
+      "slot": "fenda",
+      "name": "Fenda do Véu",
+      "scene": "Tight SIDE-ON medium view at the entrance of an intact shadowy stone cloister. O Fim is on the LEFT in recognizable profile, his void face and narrow crown visible. His RIGHT hand is held low with index and middle fingers together; ONE very thin short violet-black spatial cut travels toward ONE separate bronze-armored opponent's raised chest guard at right. A single small violet diamond-shaped MARK remains on the enemy guard. This is a precise single-target piercing attack, not physical dismemberment, no big chest vortex, no planet, no exploding buildings. His ivory LEFT forearm stays bent against his own waist and the two small gold cloak rings remain visible.",
+      "prompt": "Use case: identity-preserve. ONE finished square production ability illustration for PMA, \"Fenda do Véu\". Image 1 is the EXACT APPROVED CHARACTER DESIGN, to be preserved; change only pose, camera and situation. O Fim in the EXACT approved manifestation: one HUMAN-SCALE slender adult humanoid, a smooth elongated FACE OF ABSOLUTE BLACK VOID with NO eyes, mouth or nose, a narrow modest aged-bronze thorn crown, wisps of dark violet shadow trailing behind the head, ragged charcoal layered mantle and long black/violet robes, fitted black torso with thin pale-gold seams and TWO tiny red/gold glimmers under the chest (NO chest vortex). Two linked small GOLD RINGS clasp the cloak at the upper chest, with one small purple diamond on one lapel and a pale diamond on the other. His LEFT shoulder and LEFT forearm have broken IVORY armor plates with thin GREEN vine veins and one small green sprout. His RIGHT forearm is dark with thin crimson cracks and restrained green lichen; his right glove is black. A short SILVER chain hangs at the belt. Black/gold boots with cracked ivory greaves. TWO arms and two normal five-finger gloved hands. Keep crown, rings, pendant shapes, armor sides and vines consistent. A composed frightening individual combining the Elos in subtle accessories, NOT a giant god, cyclone, galaxy, universe or disaster. The stone architecture remains intact. This is one observer's manifestation, never a fixed true face.\nNEW REQUIRED SCENE: Tight SIDE-ON medium view at the entrance of an intact shadowy stone cloister. O Fim is on the LEFT in recognizable profile, his void face and narrow crown visible. His RIGHT hand is held low with index and middle fingers together; ONE very thin short violet-black spatial cut travels toward ONE separate bronze-armored opponent's raised chest guard at right. A single small violet diamond-shaped MARK remains on the enemy guard. This is a precise single-target piercing attack, not physical dismemberment, no big chest vortex, no planet, no exploding buildings. His ivory LEFT forearm stays bent against his own waist and the two small gold cloak rings remain visible.\nHand-drawn 2D DARK SHONEN ANIME, bold black ink contours, broad flat colors and hard cel-shadow blocks, legible at 75px. Keep this reserved human scale and restrained magic, no realism, 3D, cinematic catastrophe, fog that hides the identity, text, grid, logo, border or UI. Correct anatomy and exactly the stated number of targets. Full bleed square.",
+      "path": "art/characters/o-fim/approved-elo-union-20261023/skill-fenda.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 47982,
+      "sha256": "f500994aa79bc5510e2943e8dd2e1629dcd58f931475811fa18a2ce795a5ea6f",
+      "generatedSource": {
+        "filename": "exec-a11e9351-eae8-411d-b697-31e533c21beb.png",
+        "sha256": "d39250e7ef8ee9ba719b85fb96be5a04d897806a319337562fc677cfa78fcb43"
+      },
+      "review": {
+        "identity": "matches approved manifestation",
+        "scale": "one individual, restrained effects",
+        "anatomy": "reviewed",
+        "targets": 1,
+        "targetKind": "one enemy"
+      }
+    },
+    {
+      "slot": "decreto",
+      "name": "Decreto do Fim",
+      "scene": "Steep HIGH THREE-QUARTER shot in a confined intact flagstone chamber. O Fim stands at upper left, calm and full recognizable void face with modest crown; he pulls a SHORT SILVER CHAIN from his belt with his dark RIGHT hand. The chain grows just far enough to lock around ONE separate enemy's crossed armored forearms. The enemy guard already bears ONE small violet diamond mark, glowing at the pressure point to show the marked target is pinned/stunned by the decree. His ivory vine-threaded LEFT shoulder and forearm remain visible, left hand closed near his own ribs. Two people total, no group target, no execution/gore, no vast energy beam or apocalyptic surroundings. The effect is concentrated on the one marked enemy.",
+      "prompt": "Use case: identity-preserve. ONE finished square production ability illustration for PMA, \"Decreto do Fim\". Image 1 is the EXACT APPROVED CHARACTER DESIGN, to be preserved; change only pose, camera and situation. O Fim in the EXACT approved manifestation: one HUMAN-SCALE slender adult humanoid, a smooth elongated FACE OF ABSOLUTE BLACK VOID with NO eyes, mouth or nose, a narrow modest aged-bronze thorn crown, wisps of dark violet shadow trailing behind the head, ragged charcoal layered mantle and long black/violet robes, fitted black torso with thin pale-gold seams and TWO tiny red/gold glimmers under the chest (NO chest vortex). Two linked small GOLD RINGS clasp the cloak at the upper chest, with one small purple diamond on one lapel and a pale diamond on the other. His LEFT shoulder and LEFT forearm have broken IVORY armor plates with thin GREEN vine veins and one small green sprout. His RIGHT forearm is dark with thin crimson cracks and restrained green lichen; his right glove is black. A short SILVER chain hangs at the belt. Black/gold boots with cracked ivory greaves. TWO arms and two normal five-finger gloved hands. Keep crown, rings, pendant shapes, armor sides and vines consistent. A composed frightening individual combining the Elos in subtle accessories, NOT a giant god, cyclone, galaxy, universe or disaster. The stone architecture remains intact. This is one observer's manifestation, never a fixed true face.\nNEW REQUIRED SCENE: Steep HIGH THREE-QUARTER shot in a confined intact flagstone chamber. O Fim stands at upper left, calm and full recognizable void face with modest crown; he pulls a SHORT SILVER CHAIN from his belt with his dark RIGHT hand. The chain grows just far enough to lock around ONE separate enemy's crossed armored forearms. The enemy guard already bears ONE small violet diamond mark, glowing at the pressure point to show the marked target is pinned/stunned by the decree. His ivory vine-threaded LEFT shoulder and forearm remain visible, left hand closed near his own ribs. Two people total, no group target, no execution/gore, no vast energy beam or apocalyptic surroundings. The effect is concentrated on the one marked enemy.\nHand-drawn 2D DARK SHONEN ANIME, bold black ink contours, broad flat colors and hard cel-shadow blocks, legible at 75px. Keep this reserved human scale and restrained magic, no realism, 3D, cinematic catastrophe, fog that hides the identity, text, grid, logo, border or UI. Correct anatomy and exactly the stated number of targets. Full bleed square.",
+      "path": "art/characters/o-fim/approved-elo-union-20261023/skill-decreto.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 74958,
+      "sha256": "d37e7a4cf6e1813a887c5db211bfaea75ab278a2807f355bff391e820ec48d68",
+      "generatedSource": {
+        "filename": "exec-f513ede8-d20e-44af-9df3-dc95acee68d0.png",
+        "sha256": "a9c92aca8026ca6c4fc9bac159dd1fb45e1983b8b6a51d9687e44943ea07a6e1"
+      },
+      "review": {
+        "identity": "matches approved manifestation",
+        "scale": "one individual, restrained effects",
+        "anatomy": "reviewed",
+        "targets": 1,
+        "targetKind": "one enemy"
+      }
+    },
+    {
+      "slot": "coroa",
+      "name": "Coroa que Não Cai",
+      "scene": "Wide EYE-LEVEL oblique composition in a quiet intact ash-gray courtyard: O Fim at LEFT foreground, full void face, narrow bronze crown and distinctive ivory LEFT shoulder armor recognizable. TWO separate smaller allied sentinels stand a little behind on the right: one plain dark-cloaked humanoid with no crown, one plain gray-armored humanoid with no crown, EACH a coherent single body. EXACTLY THREE allied figures total including O Fim. He raises his ivory-armored LEFT forearm slightly; three separate compact pale-gold and charcoal GUARD PLATES form close to the chest of each of these three characters, granting destructible team defense. Not his personal invulnerability, no attacking anyone, no enormous shared dome, no floating throne, giant sky crown or cloned O Fim. The double gold ring clasp and hanging silver belt chain stay on the caster only.",
+      "prompt": "Use case: identity-preserve. ONE finished square production ability illustration for PMA, \"Coroa que Não Cai\". Image 1 is the EXACT APPROVED CHARACTER DESIGN, to be preserved; change only pose, camera and situation. O Fim in the EXACT approved manifestation: one HUMAN-SCALE slender adult humanoid, a smooth elongated FACE OF ABSOLUTE BLACK VOID with NO eyes, mouth or nose, a narrow modest aged-bronze thorn crown, wisps of dark violet shadow trailing behind the head, ragged charcoal layered mantle and long black/violet robes, fitted black torso with thin pale-gold seams and TWO tiny red/gold glimmers under the chest (NO chest vortex). Two linked small GOLD RINGS clasp the cloak at the upper chest, with one small purple diamond on one lapel and a pale diamond on the other. His LEFT shoulder and LEFT forearm have broken IVORY armor plates with thin GREEN vine veins and one small green sprout. His RIGHT forearm is dark with thin crimson cracks and restrained green lichen; his right glove is black. A short SILVER chain hangs at the belt. Black/gold boots with cracked ivory greaves. TWO arms and two normal five-finger gloved hands. Keep crown, rings, pendant shapes, armor sides and vines consistent. A composed frightening individual combining the Elos in subtle accessories, NOT a giant god, cyclone, galaxy, universe or disaster. The stone architecture remains intact. This is one observer's manifestation, never a fixed true face.\nNEW REQUIRED SCENE: Wide EYE-LEVEL oblique composition in a quiet intact ash-gray courtyard: O Fim at LEFT foreground, full void face, narrow bronze crown and distinctive ivory LEFT shoulder armor recognizable. TWO separate smaller allied sentinels stand a little behind on the right: one plain dark-cloaked humanoid with no crown, one plain gray-armored humanoid with no crown, EACH a coherent single body. EXACTLY THREE allied figures total including O Fim. He raises his ivory-armored LEFT forearm slightly; three separate compact pale-gold and charcoal GUARD PLATES form close to the chest of each of these three characters, granting destructible team defense. Not his personal invulnerability, no attacking anyone, no enormous shared dome, no floating throne, giant sky crown or cloned O Fim. The double gold ring clasp and hanging silver belt chain stay on the caster only.\nHand-drawn 2D DARK SHONEN ANIME, bold black ink contours, broad flat colors and hard cel-shadow blocks, legible at 75px. Keep this reserved human scale and restrained magic, no realism, 3D, cinematic catastrophe, fog that hides the identity, text, grid, logo, border or UI. Correct anatomy and exactly the stated number of targets. Full bleed square.",
+      "path": "art/characters/o-fim/approved-elo-union-20261023/skill-coroa.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 69228,
+      "sha256": "8f33a1c1fb75d6777c6fe34d93a2a4eff2ec6e54c0ce8936eea81a9d6da3c6b4",
+      "generatedSource": {
+        "filename": "exec-60561ab4-84c3-42c6-890f-0033e493073c.png",
+        "sha256": "6f61a5c15fa2c2745b7efd4c7fa1547cbc6fa9157b8189e4f88ae9f4d4c07999"
+      },
+      "review": {
+        "identity": "matches approved manifestation",
+        "scale": "one individual, restrained effects",
+        "anatomy": "reviewed",
+        "targets": 3,
+        "targetKind": "allied trio"
+      }
+    },
+    {
+      "slot": "despertar",
+      "name": "Fim Inalcançável",
+      "scene": "Close LOW DIAGONAL SIDE view of ONLY O Fim inside an intact dim stone archway under cold violet skylight. His one coherent human-scale robed body slides half a step aside into a very NARROW vertical seam of violet shadow confined to his OWN outline. ONE incoming anonymous white spear tip crosses the EMPTY strip of shadow beside his torso, clearly missing him. His absolute black void face, one modest bronze crown, ivory LEFT shoulder and forearm with green vines, dark RIGHT glove, two linked gold cloak rings and silver belt chain remain consistent. Exactly one head, one body and two arms, no clone, ally, group shield, retaliation, vast vortex, ruined city or red eclipse. A quiet personal evasion/invulnerability image, threatening through restraint.",
+      "prompt": "Use case: identity-preserve. ONE finished square production ability illustration for PMA, \"Fim Inalcançável\". Image 1 is the EXACT APPROVED CHARACTER DESIGN, to be preserved; change only pose, camera and situation. O Fim in the EXACT approved manifestation: one HUMAN-SCALE slender adult humanoid, a smooth elongated FACE OF ABSOLUTE BLACK VOID with NO eyes, mouth or nose, a narrow modest aged-bronze thorn crown, wisps of dark violet shadow trailing behind the head, ragged charcoal layered mantle and long black/violet robes, fitted black torso with thin pale-gold seams and TWO tiny red/gold glimmers under the chest (NO chest vortex). Two linked small GOLD RINGS clasp the cloak at the upper chest, with one small purple diamond on one lapel and a pale diamond on the other. His LEFT shoulder and LEFT forearm have broken IVORY armor plates with thin GREEN vine veins and one small green sprout. His RIGHT forearm is dark with thin crimson cracks and restrained green lichen; his right glove is black. A short SILVER chain hangs at the belt. Black/gold boots with cracked ivory greaves. TWO arms and two normal five-finger gloved hands. Keep crown, rings, pendant shapes, armor sides and vines consistent. A composed frightening individual combining the Elos in subtle accessories, NOT a giant god, cyclone, galaxy, universe or disaster. The stone architecture remains intact. This is one observer's manifestation, never a fixed true face.\nNEW REQUIRED SCENE: Close LOW DIAGONAL SIDE view of ONLY O Fim inside an intact dim stone archway under cold violet skylight. His one coherent human-scale robed body slides half a step aside into a very NARROW vertical seam of violet shadow confined to his OWN outline. ONE incoming anonymous white spear tip crosses the EMPTY strip of shadow beside his torso, clearly missing him. His absolute black void face, one modest bronze crown, ivory LEFT shoulder and forearm with green vines, dark RIGHT glove, two linked gold cloak rings and silver belt chain remain consistent. Exactly one head, one body and two arms, no clone, ally, group shield, retaliation, vast vortex, ruined city or red eclipse. A quiet personal evasion/invulnerability image, threatening through restraint.\nHand-drawn 2D DARK SHONEN ANIME, bold black ink contours, broad flat colors and hard cel-shadow blocks, legible at 75px. Keep this reserved human scale and restrained magic, no realism, 3D, cinematic catastrophe, fog that hides the identity, text, grid, logo, border or UI. Correct anatomy and exactly the stated number of targets. Full bleed square.",
+      "path": "art/characters/o-fim/approved-elo-union-20261023/skill-despertar.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 57302,
+      "sha256": "0721a8cf28df8e73d507a47ee82c46668ffd528278dc7f65797b5205055c2cee",
+      "generatedSource": {
+        "filename": "exec-4c0735a2-8f70-4136-a7a9-f36e717a00ee.png",
+        "sha256": "a10dc7846becb3074baf94e54691c3f3cf2797233f1909c1ff65f533d3eaaca3"
+      },
+      "review": {
+        "identity": "matches approved manifestation",
+        "scale": "one individual, restrained effects",
+        "anatomy": "reviewed",
+        "targets": 1,
+        "targetKind": "self only"
+      }
+    }
+  ],
+  "validation": {
+    "functionalTestsPassed": 143,
+    "historicalBinaryPresenceTestsExcluded": 2,
+    "approvedArtInspectedInBattleSmokeTest": 5,
+    "mechanicsUnchanged": true,
+    "observerDependentFearLorePreserved": true,
+    "codexPortrait": "contain, full approved figure"
+  }
+}

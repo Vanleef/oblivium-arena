@@ -1,0 +1,1380 @@
+{
+  "status": "Replaced by art-scene-plan.json; image generation pending.",
+  "style": "Crie uma prancha de ANIME 2D DE TELEVISÃO, como seis frames de uma animação shounen desenhada à mão. Visual de cel de animação tradicional, desenho limpo e deliberadamente simplificado. Contornos pretos nítidos. Cores VIVAS E CHAPADAS. Uma cor-base e UMA sombra de borda dura por superfície. Rostos fortemente estilizados de anime: olhos expressivos e gráficos, nariz pequeno desenhado com um traço, boca simples, cabelo em mechas/massas gráficas. Pele completamente lisa com apenas duas cores. Roupa com poucas linhas de dobra. Metal com dois tons planos e um único brilho desenhado. Fundos também desenhados e simples. PROIBIDO: semirrealismo, concept art realista, pintura digital, texturas, granulação, hachuras, poros, veias, rugas detalhadas, ferrugem, desgaste fotográfico, luz volumétrica, bokeh, gradientes de pele, render 3D, anatomia hiperdefinida. O resultado precisa parecer captura limpa de anime, não ilustração de fantasia com aparência real. Sem texto. Prancha EXATA 3 colunas x 2 linhas, 1536x1024, seis quadros quadrados iguais sem margens.",
+  "characters": [
+    {
+      "id": "a-chama-que-nao-apaga",
+      "name": "A Chama que Não Apaga",
+      "design": "Paraíso / Esperança. Stout 58-year-old woman with deep brown skin, broad nose, white coiled undercut, thick brows; amber work coat, indigo trousers, copper firekeeper gauntlet. Her power is a tiny tenacious blue-white ember preserved inside an old cracked miner lantern, not a fire humanoid.",
+      "scenes": [
+        "warm resolute face beside lantern",
+        "macro of her callused five-finger hand relighting a stubborn wick in wind, identifiable copper cuff",
+        "side view swinging lantern to fling one white-hot coal at a dark training target",
+        "low view driving lantern hook upward, shower of sparks shatters a falling obstruction",
+        "kneeling, her copper-gauntlet hand anchors lantern into a rubble gap and warms the broken ground to hold it together",
+        "personal defense: crouches within close-fitting ember-lined coat, hostile blade skids off hardened glowing hem; no dome"
+      ]
+    },
+    {
+      "id": "o-que-levanta",
+      "name": "O que Levanta",
+      "design": "Paraíso / Esperança. Tall wiry elderly man, olive skin, long silver moustache, narrow face, one wooden lower-leg prosthesis, short salt-pepper hair; teal patched overalls and ochre rolled sleeves. Lifting and restoring momentum through a folding iron climbing pick with sunrise-colored inlays.",
+      "scenes": [
+        "laughing lined face, pick across shoulder",
+        "close view prosthetic foot planted atop fallen flag, sunrise in crack",
+        "upward iron-pick strike lifts one dark armored foe off ground",
+        "side overhead view he hoists a collapsed stone beam with amber upward force, staggered enemy below",
+        "kneels using warm inlaid pick as brace beside a fallen ally's boot, helping them regain footing",
+        "hops upward off prosthetic leg over a low blade, using pick as vault pole, motion sharply clear"
+      ]
+    },
+    {
+      "id": "a-voz",
+      "name": "A Voz",
+      "design": "Paraíso / Esperança. Androgynous adult 34, East Asian face, round cheeks, stocky upper body, cobalt cropped hair and long side braid, amber hearing aid firmly behind ear; ivory sleeveless choir coat, coral sash, teal throat pendant. Power comes from visible sound pressure as angular handwritten-looking strokes WITHOUT text.",
+      "scenes": [
+        "expressive determined face, mouth slightly open, hearing aid and pendant clear",
+        "close view hand touching throat pendant as breath condenses into tiny warm ripples",
+        "profile sharp shouted note breaks one stone target into clean angular fragments",
+        "high angle stomp and short vocal burst interrupts an enemy lunge; sound is a fan of jagged air strokes",
+        "front three-quarter hand held near mouth, narrow sustained note knots around the enemy's weapon and weakens it",
+        "leans sideways and exhales a short flat plane of compressed air, deflecting an incoming dart away from own shoulder"
+      ]
+    },
+    {
+      "id": "o-portador-da-aurora",
+      "name": "O Portador da Aurora",
+      "design": "Paraíso / Esperança. Broad 42-year-old South Asian man, warm brown skin, hooked nose, thick black beard in two short braids, shaved head; deep plum sleeveless tunic, sand cloak, brass sunrise pauldron and folding golden standard. Dawn is represented by cloth catching first light and long architectural shadows.",
+      "scenes": [
+        "quiet proud face with brass standard finial",
+        "close side view he unfolds a frayed golden pennant in darkness, narrow first light",
+        "diagonal flagstaff butt strike against armored foe",
+        "whips standard overhead, golden fabric casts a sharp bright wedge that knocks foe backward",
+        "charging feet and broad horizontal flagstaff sweep, long sunrise shadow connects impact",
+        "wraps standard cloth around own forearm and pivots, incoming arrow ricochets from hardened sunlight fabric, body safe"
+      ]
+    },
+    {
+      "id": "a-luz-nua",
+      "name": "A Luz Nua",
+      "design": "Paraíso/Verdade. Fully clothed adult albino woman age 40, short blunt white bob, rose eyes, long face, tall narrow body, opaque charcoal high-neck underdress and simple translucent-looking pale yellow OVERCOAT, polished brass shutter lantern. Symbolic naked truth, NO nudity. Unfiltered rectilinear light reveals hidden structures.",
+      "scenes": [
+        "unadorned calm face against black with open lantern shutter",
+        "her hand opens lantern's plain shutter; scarred brass housing and coat cuff recognizable",
+        "close side view a hard light sliver from lantern strikes target shoulder",
+        "overhead rectangular light strips reveal enemy hiding behind an illusion curtain",
+        "kneels casting warm light on an ally's injured gauntlet, cracks close gently",
+        "turns body edge-on, lantern produces flat radiant shutter between her and a dart, dart breaks outside body"
+      ]
+    },
+    {
+      "id": "o-espelho",
+      "name": "O Espelho",
+      "design": "Paraíso/Verdade. Athletic dark-skinned man age 28, flat nose, angular short locs white at tips, pale grey eyes, silver lapel coat over black wrapping, one polished forearm bracer made of 3 broad mirrored plates. A human reflection duelist, not literal mirror object. No glasses.",
+      "scenes": [
+        "face and mirrored collar, bold anime lines",
+        "macro reflection of his own alert eye on his forearm plate, physically coherent reflection",
+        "pivoting forearm punch, reflected blade of white light hits practice target",
+        "diagonal overhead his bracer reflects a false armored silhouette into separate harmless fragments",
+        "side knee-level a sharply reflected enemy stance fractures and foe staggers",
+        "crouches behind raised mirrored forearm, an arrow visibly ricochets upward with clear gap from face"
+      ]
+    },
+    {
+      "id": "a-cartografa-da-clareza",
+      "name": "A Cartógrafa da Clareza",
+      "design": "Paraíso/Verdade. Lean 46-year-old Black woman, very dark skin, long nose and heavy-lidded gold eyes, shaved hair with geometric grey fade, pale turquoise expedition poncho, brown knee boots, mechanical drafting compass and folded starless map. Her sight draws geographic contour lines revealing true terrain.",
+      "scenes": [
+        "three-quarter weathered face over folded map",
+        "top view her five-finger hand traces true contours, compass in other hand, no readable marks",
+        "hurls one brass survey pin into target's footing, a short light contour cracks stone",
+        "dramatic aerial route lines reveal hidden foe behind ruined arch",
+        "low tracking shot she stamps heel, rising contour ridge directly hits foe",
+        "self defense: steps precisely into a narrow safe contour path as two arrows pass behind her; clear full-body route"
+      ]
+    },
+    {
+      "id": "o-elo-dourado",
+      "name": "O Elo Dourado",
+      "design": "Paraíso/União. Massive 50-year-old Pacific Islander man, broad smiling face, dark wavy hair tied short, thick neck, deep brown skin, tattoo-free bare forearms, dark green smith apron over white shirt, pair of gold-linked iron wrist shackles deliberately worn open, short forge hammer. Unity through interlocking physical links, not human chain creature.",
+      "scenes": [
+        "warm heavy face, golden open wrist link visible",
+        "close view hammer joins two broken wrist-chain links on small anvil",
+        "hammer strikes a chain-connected enemy shield, gold link flashes at impact",
+        "whips single short chain taut to disarm a black armored foe",
+        "kneels joining three broken armor straps with interlocking gold links, own hands and gear foreground",
+        "wraps own forearms with interlocking links and crosses them to catch spear outside body, no circular barrier"
+      ]
+    },
+    {
+      "id": "a-que-une",
+      "name": "A que Une",
+      "design": "Paraíso/União. Compact elderly woman 70, brown skin, broad cheekbones, white braided crown hair with turquoise beads, indigo woven shawl, terracotta skirt, flat copper weaving shuttle. Power is joining separated surfaces with long orange woven bands; no generic threads floating unconnected.",
+      "scenes": [
+        "smiling wrinkled face and beaded braids",
+        "hands weave torn edge of personal shawl, copper shuttle clear",
+        "shuttle lashes an orange band that cracks a stone target",
+        "wide side view orange warp binds enemy weapon to nearby pillar, disrupting movement",
+        "kneeling weaver reconnects an ally's split vambrace with a bright woven seam",
+        "rolls her shoulder under the thick shawl, a blade skids along its woven surface away from her body"
+      ]
+    },
+    {
+      "id": "o-vinculo",
+      "name": "O Vínculo",
+      "design": "Paraíso/União. Slender adult man 23 with vitiligo, short black curls, square thin glasses with CLEAR ordinary lenses, long burgundy tunic, white gloves, split silver locket at chest, twin small tuning forks linked by one visible gold cord. Sympathetic resonance through paired items.",
+      "scenes": [
+        "gentle face with vitiligo and clear glasses",
+        "close view locket's two matching halves join in his gloved hands",
+        "fork taps target armor, tight angular sound impact follows cord",
+        "high angle pulls one fork while its paired fork vibrates and disrupts enemy stance",
+        "two fork prongs press near target's weapon and dull it via narrow sympathetic vibration",
+        "leans back as his two forks catch blade between prongs, exact mechanical parry, glasses clear and intact"
+      ]
+    },
+    {
+      "id": "os-tres-irmaos",
+      "name": "Os Três Irmãos",
+      "design": "Paraíso/União. THREE distinct adult siblings sharing brown skin and amber eyes: eldest sister age38 tall broad with long black braid and ivory shield; middle brother age30 lanky with auburn undercut and blue spear; youngest sister age24 short muscular with black bob and red twin batons. Cream/navy/crimson practical battle clothes. Always physically separate bodies, no fused people; portrait includes all three, other panels focus one or two.",
+      "scenes": [
+        "tight triangular portrait of three distinct siblings, correct separate heads and shoulders",
+        "close view their three different wristbands tied to one childhood knot, only three hands",
+        "youngest sister low baton strike, red outfit identity clear",
+        "middle brother pole-vault spear strike while elder's shield edge anchors foreground",
+        "oldest pivots shield toward injured sibling as they regroup, no magic circles",
+        "three siblings duck in a staggered line behind oldest's single angled ivory shield, incoming bolts stop on its outside; clear separate anatomy"
+      ]
+    },
+    {
+      "id": "o-que-cria",
+      "name": "O que Cria",
+      "design": "Paraíso/Criação. Broad 35-year-old Arab sculptor with warm brown skin, curly black beard, one pale eyebrow, terracotta apron over navy rolled sleeves, brass chisels. Gives life to hand-shaped pale clay birds and branching ceramic structures; NOT gigantic generic earth golem.",
+      "scenes": [
+        "broad thoughtful face smudged with white clay",
+        "macro fingers gently shape a small clay swallow coming alive on brass chisel",
+        "throws a sharp small clay bird at dark target",
+        "low angle a branching ceramic limb rises from his chisel mark and hits foe",
+        "both palms shape a ribbed ceramic brace supporting cracked masonry",
+        "curls behind a freshly molded white clay shoulder shell, enemy blade blocked cleanly outside body"
+      ]
+    },
+    {
+      "id": "a-semente",
+      "name": "A Semente",
+      "design": "Paraíso/Criação. Adult woman 26 with dwarfism, stocky proportional body, rich brown skin, large dark eyes, short pink curls under green headwrap, mustard cropped jacket and aubergine gardening trousers, copper seed capsule pendant. Transforms dormant seeds into strong translucent blue-green shoots.",
+      "scenes": [
+        "confident face with pink curls and copper capsule",
+        "close view copper capsule opens in her hand revealing one sprouting seed",
+        "slings a hard acorn pellet from green sling toward stone target",
+        "high-angle tree-root shoots bind a foe's feet from cracks, her tiny seed pouch visible",
+        "sprout unfolds against ally's broken boot strap and repairs support",
+        "self evasion: crouches low into folded giant blue-green leaf, arrow grazes thick leaf exterior, no group"
+      ]
+    },
+    {
+      "id": "o-cultivador",
+      "name": "O Cultivador",
+      "design": "Paraíso/Criação. Lean elderly Indigenous man 65 with long straight grey-black hair tied low, broad cheekbones, brown skin, indigo farmer smock and straw shoulder mantle, short wooden dibber and terraced seed trays. Power is cultivated terraced growth with muscular roots, not random vines.",
+      "scenes": [
+        "lined focused face with straw mantle",
+        "close side view carefully waters three ordered seedlings in his own tray",
+        "wooden dibber strike cracks target and roots erupt only at contact",
+        "sweeping low side view a trained root lifts and entangles enemy ankle",
+        "kneels pulling precise tension through root trellis to weaken a target's armor",
+        "rises on thick planted roots as sword sweeps harmlessly beneath his feet; personal evasive motion"
+      ]
+    },
+    {
+      "id": "a-arquiteta-verde",
+      "name": "A Arquiteta Verde",
+      "design": "Paraíso/Criação. Tall angular adult Chinese woman 43 with long black hair in square bun, pale tan skin, angular dark green eyebrows, ivory structural jacket with mint wide-legged trousers; collapsible bamboo set square and jade survey brooch. Grows precise living bamboo architecture, no generic flower wizard.",
+      "scenes": [
+        "stern elegant face and square bun",
+        "macro hand opens bamboo set square, small shoot follows its right angle",
+        "thrusts closed bamboo ruler at enemy shield, splinters at impact",
+        "a slanted living bamboo girder rises precisely from ruler measurement and strikes foe",
+        "dynamic overhead geometric bamboo truss swings toward target",
+        "self defense: folds into narrow bamboo rib enclosure that catches arrow on outside, hands and face unobscured"
+      ]
+    },
+    {
+      "id": "o-primeiro-canto",
+      "name": "O Primeiro Canto",
+      "design": "Paraíso/Criação. Androgynous adult 31 with deep navy-black skin, pale gold freckles, short broad ivory dreadlocks, crescent-shaped gold earrings, simple russet cape over teal high collar. Reed flute generates living tiny paper-thin songbirds and clear angular resonance; title means life awakening, not literal bird monster.",
+      "scenes": [
+        "soft broad-nosed face with gold freckles and reed flute",
+        "close view reed flute at lips, one gold-edged translucent hatchling rests on own shoulder",
+        "sharp breath launches a single bird-shaped note at dark target",
+        "high side view plays flute, branching living reeds thrust upward beneath enemy",
+        "kneeling plants flute beside fragile reed shoots that knit into a supportive trellis",
+        "self protection: flock of small reed-feather birds interlocks only around raised forearm to deflect a dart away from face"
+      ]
+    },
+    {
+      "id": "a-linha-partida",
+      "name": "A Linha Partida",
+      "design": "Limbo/Correntes Quebradas. Tall slender woman 36, light olive skin, angular nose, one black and one white eyebrow, jagged black bob, violet cropped tailcoat over white wrapped trousers, small seam ripper. Spatial severance appears as a single kinked red seam dividing ordinary scenery, not mutilation. Broken reality costs effort.",
+      "scenes": [
+        "composed face bisected only by background's red seam, intact face",
+        "close view her five-finger hands examine one snapped red stitch on own cuff",
+        "short diagonal seam-ripper slash sends a red kink at stone target",
+        "side full body steps between two misaligned halves of the same doorway, attack from unexpected angle",
+        "kneels stitching her own torn cuff with red spatial thread; seam seals and restores stance",
+        "personal defense: slides laterally across a kinked space seam, blade continues through old empty position"
+      ]
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "name": "O Eco sem Dono",
+      "design": "Limbo/Correntes Quebradas. Adult male apparition age45 with sandy skin, hollow tired eyes but normal anatomy, swept-back ash hair, asymmetric oversized pale blue scarf and black travel clothes, empty antique bronze handbell with missing clapper. One delayed pale cyan afterimage echoes his gestures; no clone crowd.",
+      "scenes": [
+        "tired face with handbell beside cheek",
+        "close view empty bell mouth and his blue cuff, one delayed faint outline",
+        "swings empty bell into armored target, delayed cyan impact occurs just behind strike",
+        "overhead runs across staggered ghost footsteps while true body stays one intact human",
+        "sharp three-quarter ghost echo of bell strikes enemy's weapon and makes it falter",
+        "self defense: twists aside, blade hits only the fading bell-shaped echo where his shoulder had been"
+      ]
+    },
+    {
+      "id": "a-porta-que-flutua",
+      "name": "A Porta que Flutua",
+      "design": "Limbo/Correntes Quebradas. Adult middle-aged woman 48, heavyset body, deep purple-black complexion, thick white eyebrows, close-cropped copper curls, long ash-grey coat with ochre door-key embroidery, iron key on flat square pendant. Humanoid threshold keeper, NOT a walking door. Opens sparse rectangular apertures in air.",
+      "scenes": [
+        "knowing face and iron square pendant",
+        "her ordinary five-finger hand turns key in small freestanding rectangular air keyhole",
+        "short iron key slash opens a thin rectangle that clips target shield edge",
+        "full body steps horizontally out of vertical floating threshold above stairs to flank enemy",
+        "high angle a small slamming aperture strikes foe's weapon hand; no severing or gore",
+        "self evasion: leans backwards into a tilted rectangular air doorway, incoming spear travels into empty background"
+      ]
+    },
+    {
+      "id": "o-nome-esquecido",
+      "name": "O Nome Esquecido",
+      "design": "Limbo/Correntes Quebradas. Adult thin man 60, pale tan skin, deeply lined triangular face, sparse silver hair, ink-black hands with normal fingers, battered moss-green archivist coat and linen scarf, one blank bone identity tag hanging from neck. Power erases recognizability by smudging silhouettes, no readable letters.",
+      "scenes": [
+        "wistful face framed by blank bone tag",
+        "close hand rubbing blank bone tag, coat cuff recognizable",
+        "open palm strikes target and smears its shadow sideways like ink",
+        "side full body blurs own silhouette into an empty coat outline momentarily while lunging",
+        "plants blank bone tag into ground, faint ink silhouettes interlock into a narrow brace",
+        "self defense: face remains intact as coat edge and body outline dissolve into ink strokes; dart passes through trailing coat silhouette away from torso"
+      ]
+    },
+    {
+      "id": "o-relogio-afogado",
+      "name": "O Relógio Afogado",
+      "design": "Limbo/Correntes Quebradas. Adult female deep-sea salvage spirit age55, brown skin, strong square face, silver hair in short braid, sea-green weatherproof coat, old brass diving collar WITHOUT helmet, short anchor-shaped baton and cracked pocket watch filled with dark water attached to belt. Human apparition, no clock-headed monster. Time represented by suspended droplets and mismatched movement.",
+      "scenes": [
+        "stern face with oxidized diving collar",
+        "macro belt watch full of water, chain attached properly and five-finger hand holds it",
+        "strikes target with anchor baton; droplets stop at impact",
+        "side full body steps past a hanging splash frozen in midair to hit enemy from behind",
+        "warm watch glow in own palm restores a crack in her diving collar, droplets flow backward",
+        "self defense: slows an incoming arrow inside a small vertical water ribbon and ducks beneath it, no surrounding sphere"
+      ]
+    },
+    {
+      "id": "a-asa-invertida",
+      "name": "A Asa Invertida",
+      "design": "Limbo/Correntes Quebradas. Adult athletic woman 29, East African face, warm dark skin, shaved sides and tall ivory hair crest, lilac flight jacket, black fitted trousers, two narrow folding glider vanes attached to forearm bracers, no extra natural limbs. Power reverses orientation/gravity in short bursts; vane motifs echo inverted feathers.",
+      "scenes": [
+        "sharp playful face and ivory hair crest",
+        "close view forearm glider vane folding against gravity with dangling broken-chain charm",
+        "flying knee and bracer-vane strike against target, body coherent",
+        "wide tilted view running along underside of a broken arch, enemy above her",
+        "bracer flick creates one inverted feather-shaped air cut weakening enemy guard",
+        "self evasion: flips upside-down above a sword slash, arms and legs anatomically separate, empty space clearly between blade and torso"
+      ]
+    },
+    {
+      "id": "o-andarilho-de-vidro",
+      "name": "O Andarilho de Vidro",
+      "design": "Limbo/Correntes Quebradas. Adult lean Central Asian man 40, tawny skin, short black moustache, straight shoulder-length silver hair, long aubergine coat with a few transparent faceted glass panels sewn onto hem, wooden walking staff with glass tip. Intact human, not shard creature. Traverses reflections in glass panes.",
+      "scenes": [
+        "narrow face and glass-tipped wooden staff",
+        "hand steadies own cracked transparent coat panel with ordinary reflection",
+        "staff tip strike bursts one wedge of glass-light against stone target",
+        "overhead steps onto a floating narrow glass path and lunges with staff",
+        "side staff sweep strikes foe's ankles through one offset glass reflection",
+        "self evasion: steps through a vertical glass sliver, real torso emerges beside it while spear hits only pane, no wounds"
+      ]
+    },
+    {
+      "id": "a-sombra-inconstante",
+      "name": "A Sombra Inconstante",
+      "design": "Limbo/Correntes Quebradas. Adult stocky androgynous person 33, warm brown skin, round face, two-tone cropped hair black and lilac, cream short cape over dark indigo bodysuit, ankle bells, one hooked knife with safe grip. Their shadow changes pose independently, restrained to ground/wall and always attached to light logic.",
+      "scenes": [
+        "alert round face, mismatched hair",
+        "low view feet stand still while shadow reaches sideways, ankle bells recognizable",
+        "small hooked knife strikes foe's forearm armor, shadow strikes in another direction",
+        "aerial view body sidesteps while ground shadow trips enemy with flat elongated arm",
+        "close side view own shadow braces against a cracked wall to hold rubble off personal position",
+        "self defense: drops into attached shadow at ground level as spear passes above vacated body position; clear safe distance"
+      ]
+    },
+    {
+      "id": "a-ponte-rasgada",
+      "name": "A Ponte Rasgada",
+      "design": "Limbo/Correntes Quebradas. Adult broad-shouldered woman 52, ruddy fair skin, broken nose, grey dreadlocks tied high, patched rust-orange engineer coat, black gloves, braided steel climbing rope and wood carpenter wedges. Symbolic bridge keeper, NOT a walking bridge. Power connects separated places using short ragged stone spans.",
+      "scenes": [
+        "weathered face and rope across shoulder",
+        "five-finger hands retie a frayed steel rope around wood wedge",
+        "throws wedge on rope like a short hammer into target shield",
+        "diagonal full body crosses a short misaligned stone span that forms under each foot and collapses behind",
+        "kneels with gloved hand reconnecting two broken paving stones into stable brace",
+        "self evasion: retracts one broken stone step beneath her and drops onto lower span, sword passes above head"
+      ]
+    },
+    {
+      "id": "a-alma-em-suspenso",
+      "name": "A Alma em Suspenso",
+      "design": "Limbo/Correntes Quebradas. Adult willowy man 27, cool brown skin, soft square face, heavy dark brows, long black hair in loose low bun, muted sage kimono coat over charcoal trousers, one silver weight tied by blue ribbon to belt. Floats a few inches above ground with tensioned ribbon and delayed gravity, no hanging or self-harm imagery.",
+      "scenes": [
+        "quiet distant face with loose strands",
+        "macro bare feet hovering above shadow, blue weighted ribbon taut beside ankle",
+        "palm strike with silver weight swinging at target from belt ribbon",
+        "side view slides in midair over broken steps, weight jerks enemy balance",
+        "close eye-level fingertips trace a suspended silver weight, its narrow pressure line weakens foe's weapon",
+        "self evasion: rises horizontally just above incoming low spear, intact floating body and clearly visible air gap"
+      ]
+    },
+    {
+      "id": "o-acougueiro",
+      "name": "O Açougueiro",
+      "design": "Inferno/Sangria. Burly middle-aged butcher, tan skin, black buzzcut, heavy jaw, leather apron, red scarf, broad single cleaver. Powers are sharp crimson cutting pressure without blood or gore.",
+      "scenes": [
+        "grim face beside cleaver",
+        "macro thumb checks nicked cleaver spine, five normal fingers",
+        "heavy downward cleaver blow into stone dummy",
+        "side view cleaver hook brands enemy armor with angular red cut",
+        "close low wide cleaver sweep splitting hostile shield",
+        "self defense steps behind flat of thick cleaver, incoming sword meets metal far from torso"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-viuva-escarlate",
+      "name": "A Viúva Escarlate",
+      "design": "Inferno/Sangria. Tall slim mature woman, dark skin, short silver finger waves, narrow violet eyes, red mourning suit, black veil attached to hat, two long needle daggers and red silk filament.",
+      "scenes": [
+        "elegant face beneath short veil",
+        "close needle winds her personal red silk spool",
+        "lunging single needle punctures armored target without wounds",
+        "overhead silk cuts taut across enemy weapon and ruins grip",
+        "cross-step needle flurry with distinct ribbon trails",
+        "self evasion drops veil over own eyes and pivots, enemy blade passes through trailing loose silk only"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-colecionador-de-cabecas",
+      "name": "O Colecionador de Cabeças",
+      "design": "Inferno/Sangria. Tall gaunt archivist age60, pale olive skin, hooked nose, long slick black-grey hair, red archive coat, bronze humanoid MASK collection on belt, angular crescent axe. Symbolic heads as discarded masks, NO severed heads or gore.",
+      "scenes": [
+        "lined face and small belt masks",
+        "hand dusts one cracked bronze mask on own belt",
+        "axe crescent strikes enemy shield",
+        "low view he hooks enemy helmet with axe, helm stays on body",
+        "hanging masks cast jagged crimson shadow that hits opponent guard",
+        "self defense raises detached bronze mask to catch dart, angular crimson plating unfolds tightly from mask"
+      ],
+      "revision": true
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "name": "Gêmeos do Cutelo",
+      "design": "Inferno/Sangria. Two adult fraternal twins, one broad dark-skinned woman with platinum afro and one lean dark-skinned man with black flat-top, red and charcoal divided outfits, two distinct short cleavers. Separate bodies always.",
+      "scenes": [
+        "paired shoulder portraits separate faces",
+        "close two different cleavers cross on shared belt clasp",
+        "woman twin charges low and strikes shield",
+        "man twin pivots above her and chops downward onto target weapon",
+        "synchronized perpendicular cleaver strikes with each body separated",
+        "self defense both roll in opposite directions around incoming spear, no fused limbs"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-carrasco-sem-rosto",
+      "name": "O Carrasco sem Rosto",
+      "design": "Inferno/Sangria. Huge masked male executioner, matte featureless steel faceplate, black hood, scarlet padded coat, heavy hooked execution sword, leather gauntlets. No face anatomy visible under intact mask.",
+      "scenes": [
+        "close featureless metal mask and crimson hood",
+        "macro leather hand tightens sword's red grip wrap",
+        "two-handed sword butt hits armored foe",
+        "top view hooked blade pins target cloak to stone floor without injury",
+        "low diagonal sword sweep chops through chained shield",
+        "self defense broad sword flat catches spear horizontally away from mask"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-mae-rubra",
+      "name": "A Mãe Rubra",
+      "design": "Inferno/Sangria. Compact 65-year-old matriarch, deep brown skin, heavy cheeks, grey braids tied in red ribbon, knitted crimson shawl, warm black dress, red bone loom shuttle. Crimson woven fabric becomes cutting edges, no gore.",
+      "scenes": [
+        "sharp kindly face with braided hair",
+        "hands tie red shawl knot around polished red bead",
+        "hurls loom shuttle along taut fabric blade into wooden target",
+        "side view scarlet shawl pleats snap outward and sever an enemy weapon strap",
+        "macro thumb stamps red triangular patch onto foe's gauntlet to weaken it",
+        "personal defense shawl hardens into close angular layered shoulder guard, dart skids off cloth exterior"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-soberano-quebrado",
+      "name": "O Soberano Quebrado",
+      "design": "Inferno/Coroa. Once imposing king now hunched 55, pale skin, long black hair white streak, jagged broken gold crown, dark red military coat, cracked heavy scepter and fractured armor. Tyrannical crushing pressure.",
+      "scenes": [
+        "bitter face with broken crown",
+        "close hand grips cracked scepter as royal signet fractures",
+        "downward scepter blow smashes target knee armor",
+        "high angle dragging iron pressure pulls enemy to one knee",
+        "straight pointing scepter casts sharp throne-shaped shadow on foe",
+        "personal defense turns fractured shoulder armor into interlocking crown plates catching blade outside body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-juiza-de-ferro",
+      "name": "A Juíza de Ferro",
+      "design": "Inferno/Coroa. Strong broad adult woman age45, olive skin, short rust-red undercut curls, rectangular face, black iron judicial coat, white neck tab, squared iron gavel and sealing wax ring.",
+      "scenes": [
+        "stern square face and judicial collar",
+        "close iron gavel resting on her own embossed docket, no text",
+        "gavel cracks stone target",
+        "overhead long iron rail clamps enemy weapon to floor",
+        "macro signet presses blank red wax seal onto armor and casts heavy black shadow",
+        "self defense pivots behind broad iron sleeve plating, hostile dart breaks at elbow plate"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "O Príncipe das Correntes",
+      "design": "Inferno/Coroa. Young adult prince age25, bronze skin, long violet hair shaved one side, angular eyes, black and gold cropped ceremonial coat, manacled wrists connected to two short flat iron chains. Anatomy fully human.",
+      "scenes": [
+        "sneering sharp face and one open manacle",
+        "macro thumb picks at old iron wrist link",
+        "chain lash hits armored target chest plate",
+        "side diagonal dual chains pull an enemy sword out of line",
+        "overhead chain lies in strict rectangular pattern and constrains target footing",
+        "self defense crosses short chains taut before chest to catch sword, metal-to-metal collision clear"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-regente-de-cinzas",
+      "name": "A Regente de Cinzas",
+      "design": "Inferno/Coroa. Tall thin adult woman age50, ashen pale skin, waist-long silver hair in single braid, black mourning veil behind hair, severe grey court gown, small black hourglass staff and flat iron ceremonial fan. Power is measured ash weight and iron edicts.",
+      "scenes": [
+        "cold face with braid and veil",
+        "close palm tips tiny ash hourglass, black grains visibly fall",
+        "iron fan edge strikes target shield",
+        "low view hourglass staff plants and ash columns pin foe's ankles",
+        "straight ash line from closed fan brands target armor with diamond pattern",
+        "self defense turns opened iron fan to deflect arrow, ash mantle follows only her body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-herdeiro-cativo",
+      "name": "O Herdeiro Cativo",
+      "design": "Inferno/Coroa. Adult slender man age22, freckles, light brown skin, unruly short chestnut hair, oversized faded maroon royal coat, torn ivory cuffs, broken ankle shackle and short iron lock bar. Oppressive power strains against own bonds.",
+      "scenes": [
+        "defiant young adult face with freckled cheeks",
+        "hand closes around own broken shackle link",
+        "lock bar thrust into target armor",
+        "low angle snaps short chain and uses recoil to yank foe's weapon",
+        "close metal chain imprint glows on opponent shield",
+        "self defense slips through narrow space between pillars with coat pulled clear as blade misses"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-passo-interrompido",
+      "name": "O Passo Interrompido",
+      "design": "Limbo/Correntes Quebradas. Adult androgynous 21, pale olive skin, violet and amber heterochromia, asymmetrical white-black haircut, long ivory-violet coat, one faceted prism at belt. Interrupted motion and spatial skips, normal human body.",
+      "scenes": [
+        "sharp face and heterochromia",
+        "close prism at belt splits own shadow into offset pieces",
+        "heel strike opens short floor fissure toward target",
+        "side view steps between two staggered versions of same stair and kicks foe",
+        "three-quarter prism shatters a lingering echo of enemy weapon",
+        "self evasion folds coat through narrow slanted space seam, incoming sword misses behind real torso"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-sussurro",
+      "name": "O Sussurro",
+      "design": "Inferno/Mentira. Slender male conspirator 40, medium brown skin, long black side braid, slim face, dark teal coat, folded paper fan and tiny copper ear trumpet. False sound and mistrust.",
+      "scenes": [
+        "face half-hidden by fan",
+        "close ear trumpet and braided cord pick up false echo",
+        "fan edge strikes target wrist",
+        "whispers into ear trumpet, false silhouette draws foe away",
+        "paper fan folds emit a narrow toxic-looking teal ribbon disrupting guard",
+        "self evasion hidden by briefly unfolding fan-shaped afterimage while real body sidesteps"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-mascara-dupla",
+      "name": "A Máscara Dupla",
+      "design": "Inferno/Mentira. Adult androgynous 32, tawny skin, short white curls, arched brows, purple patchwork tailcoat, two theatrical masks white-smile black-frown. Normal human behind them.",
+      "scenes": [
+        "face flanked by two handheld masks",
+        "close masks reflected wrongly in own glove's polished button",
+        "mask edge bash against target shield",
+        "side view false masked reflection draws enemy sword toward wall",
+        "black mask exhales sharp green pressure streak at foe",
+        "self defense swaps false silhouette behind mask while actual torso crouches away"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-tecelao-de-mentiras",
+      "name": "O Tecelão de Mentiras",
+      "design": "Inferno/Mentira. Adult male illusion tailor 57, dark skin, long angular face, tiny grey beard, round clear glasses, sage-and-purple layered robe, normal TWO arms, puppet spindle and theatrical paper marionette. Not six-arm grotesque puppet.",
+      "scenes": [
+        "calculating face and clear glasses",
+        "hands wind translucent green filament on spindle",
+        "spindle lashes rigid thread into armored target",
+        "high angle marionette silhouette fools foe into empty corner",
+        "fingers pluck crossed attached strings to snag enemy sword hand",
+        "self defense tilts backward behind paper duplicate, spear pierces paper only"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-boca-de-vidro",
+      "name": "A Boca de Vidro",
+      "design": "Inferno/Mentira. Adult elegant pale man 34, long platinum hair tied low, sharp green eyes, intact normal human mouth, small transparent glass lower-face mask secured by visible straps, dark teal glassblower coat, bronze blowpipe. Glass voice illusions, no malformed jaw.",
+      "scenes": [
+        "close normal face behind clear strapped mouth mask",
+        "five-finger hand rotates small glass bottle blown at pipe tip",
+        "short blowpipe jab shatters target guard",
+        "blows one hollow glass prism that refracts enemy into false directions",
+        "profile sharp whistle sends angular glass-note shards toward foe",
+        "self defense turns shoulder behind a bent glass sheet grown from pipe, dart ricochets outside body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-falso-profeta",
+      "name": "O Falso Profeta",
+      "design": "Inferno/Mentira. Tall adult woman age55, deep tan skin, severe cheekbones, long black hair with grey center streak, green-gold ceremonial coat and dark feather collar, wooden false halo staff carried by hand. Manipulates misleading omens, no true wings.",
+      "scenes": [
+        "smug mature face beside staff",
+        "close palm rubs false gold leaf off hollow wooden holy token",
+        "staff end hits target armor",
+        "low angle false luminous omen lures enemy over loose stones",
+        "fingers scatter blank talisman scraps that briefly dull enemy sword",
+        "self defense slips behind fluttering false cloak-image, blade hits only empty cloth illusion"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-corretor-de-memorias",
+      "name": "O Corretor de Memórias",
+      "design": "Inferno/Mentira. Short stout male broker 60, ruddy brown skin, bald top with curly grey sideburns, purple waistcoat, one ordinary human hand and one clearly engineered five-digit brass prosthetic hand, rectangular memory slides. Ordinary clear pince-nez.",
+      "scenes": [
+        "cunning round face and intact pince-nez",
+        "prosthetic hand sorts one slide showing faint scene without letters",
+        "hurls one sharp memory-slide edge into target shield",
+        "long side view rewrites foe's afterimage by sliding scene card into bronze viewer",
+        "close brass thumb pinches one enemy-memory shard and weakens foe stance",
+        "self defense raises stack of translucent rectangular slides as a narrow offset barrier, bolt stops before chest"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-incendiario",
+      "name": "O Incendiário",
+      "design": "Inferno/Chama. Stocky middle-aged woman with freckled olive skin, thick eyebrows, messy charcoal hair with orange forelock, leather firefighter jacket cut short, wide gauntlets, flint striker and oil wick bottle. Malicious controlled ignition, not fireball mage.",
+      "scenes": [
+        "wild face and soot-striped gauntlet",
+        "macro flint ignites wick attached firmly to bottle cap",
+        "gauntlet punch bursts orange spark at armor",
+        "low side sliding oil wick draws a short rising fire wall under foe",
+        "thumb presses glowing ember brand onto enemy shield",
+        "self defense ducks into own heavy soot cloak, sword skids along hardened ash cuff"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "A Brasa Eterna",
+      "design": "Inferno/Chama. Lean man24 with brown skin, black curly undercut and one short red braid, narrow jaw, red sleeveless coat over charcoal wraps, small iron coal tongs. Sustained ember pressure, not generic circular flame spells.",
+      "scenes": [
+        "intense face with red braid",
+        "macro tongs hold a persistent single living coal",
+        "flicked coal strikes armored target",
+        "low full body draws one vertical black-orange flame column with tongs",
+        "presses smoldering tongs against stone to mark a jagged punitive ember line",
+        "self defense twists sideways wrapped in close ash mantle, incoming dart crumbles at outer mantle"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-odio-encarnado",
+      "name": "O Ódio Encarnado",
+      "design": "Inferno/Chama. Massive adult male volcanic apparition, dark human-like skin with a few angular glowing cracks, broad normal face, red-black short hair like flat flame shapes, obsidian shoulder armor and thick iron knuckles. Credible humanoid, no extra limbs.",
+      "scenes": [
+        "rage-held face with small ember fissures",
+        "close knuckles crush cold charcoal to ember",
+        "iron knuckle punches shield into sparks",
+        "low-angle stomp erupts jagged basalt ridge beneath foe",
+        "open palm stamps angular heat imprint on enemy armor",
+        "self defense folds obsidian shoulder plates over own ribs as sword hits outer stone"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "O Filho da Cinza",
+      "design": "Inferno/Chama. Adult slim man20, deep brown skin, youthful round eyes, short dusty white curls, oversized ash-grey poncho over scarlet shirt, simple clay whistle and ash-filled satchel. Ash power, no child character.",
+      "scenes": [
+        "alert face peeking from grey poncho",
+        "close fingers sift ash from personal satchel revealing ember",
+        "short whistle breath fires one compressed ash pellet",
+        "overhead ash plume flows low to obscure foe footing",
+        "hand draws scorched zigzag on stone that burns enemy guard",
+        "self evasion folds poncho and slips through narrow ash cloud, arrow passes behind empty fabric edge"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "A Pira Errante",
+      "design": "Inferno/Chama. Tall mature female funeral pilgrim, dark skin, long red locs bound with charcoal cloth, deep black robe with ember-orange lining, portable iron incense brazier held on short chain. HUMANOID carrying brazier, not walking furnace.",
+      "scenes": [
+        "solemn face beside hanging incense vessel",
+        "close five-finger hand feeds one coal into brazier",
+        "swings brazier into stone target",
+        "diagonal rising swing emits a narrow pillar of red incense fire",
+        "kneeling vessel brands enemy's path with ember footprints",
+        "self defense swings brazier across body to create short hard ash veil that stops dart clear of skin"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-coracao-em-furia",
+      "name": "O Coração em Fúria",
+      "design": "Inferno/Chama. Broad adult warrior man38, warm olive skin, short maroon hair, square nose, crimson quilted armor with intact gold heart-shaped chest clasp, two black fighting batons. Pulsed heat synchronized to heartbeat, no exposed organs.",
+      "scenes": [
+        "clenched face and gold chest clasp",
+        "close palm over clasp, short ember beat visible",
+        "one baton strikes chest armor of foe",
+        "wide lunging two-baton cross impact with sharp heartbeat pressure chevron",
+        "baton tip marks foe's shield with small gold-red pulse",
+        "self defense crosses padded forearms, a short heart-shaped plate unfolds tightly from clasp to catch arrow outside torso"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-devorador",
+      "name": "O Devorador",
+      "design": "Inferno/Fome. Massive adult male spirit, brown skin, shaven scalp, broad ordinary face, dark mouth-like pattern on bronze chest plate, burgundy cloak, hooked bronze gauntlet. Absorbs essence via palm, no monstrous mouth.",
+      "scenes": [
+        "broad hungry face",
+        "gauntlet draws gold mote from bowl",
+        "gauntlet claws hit shield",
+        "black ribbon siphons essence from armor",
+        "hooked fist yanks enemy weapon",
+        "self defense absorbs dart energy in gauntlet and shaft falls before chest"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-mao-que-toma",
+      "name": "A Mão que Toma",
+      "design": "Inferno/Fome. Agile woman28, golden brown skin, turquoise tight curls shaved at sides, plum cropped jacket, ONE gold ring on leather glove. ONE five-finger spectral hand extends from gesture.",
+      "scenes": [
+        "sly face and ring glove",
+        "macro ring draws mote from lock",
+        "gloved punch extended by spectral hand impacts target",
+        "overhead spectral hand steals weapon from foe",
+        "close ring pinches essence thread",
+        "self defense spectral hand catches blade inches away from face while body sidesteps"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "name": "O Estômago sem Fundo",
+      "design": "Inferno/Fome. Heavyset adult monk40, dark brown skin, calm face, midnight curls, indigo robe, large ceramic gourd at belt and black ladle. Hunger is in gourd, NOT body cavity or walking vase.",
+      "scenes": [
+        "round face and gourd",
+        "ladle lifts mote from dark gourd",
+        "ladle strikes armor",
+        "gourd suction pulls shield sideways",
+        "hand closes gourd and shadow ribbon constrains weapon",
+        "self defense dark fold from gourd swallows dart tip while shaft falls outside body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-senhora-do-ultimo-pao",
+      "name": "A Senhora do Último Pão",
+      "design": "Inferno/Fome. Short baker woman75, warm olive skin, lined face, white bun, red checkered headscarf, brown apron, wooden bread paddle. Comforting bread turns into grabbing dark-gold crumbs.",
+      "scenes": [
+        "calculating face",
+        "hands break loaf revealing glowing crumb",
+        "paddle smacks shield",
+        "spinning crumbs grip enemy boots",
+        "thumb takes essence crumb from foe glove",
+        "self defense raises thick bread paddle to catch spear outside shoulder"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-credor",
+      "name": "O Credor",
+      "design": "Inferno/Fome. Thin man55, dark olive skin, hooked nose, slick black-grey hair, CLEAR monocle, black-green waistcoat, brass abacus and copper debt hook. Gold cords attached to beads.",
+      "scenes": [
+        "face and clear monocle",
+        "fingers shift abacus bead",
+        "hook catches shield rim",
+        "pulls abacus cord and foe stumbles",
+        "bead absorbs mote from enemy armor",
+        "self defense abacus rods redirect arrow outside ribs"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-balanca-vazia",
+      "name": "A Balança Vazia",
+      "design": "Inferno/Fome. Slender mature humanoid woman60, charcoal skin, long ivory braid, brass scale earrings, faded green robe, handheld brass balance rod. Normal face, NOT scale-headed beast.",
+      "scenes": [
+        "long face and earrings",
+        "hand lifts empty scale pan",
+        "rod strikes target shoulder",
+        "overhead unbalanced pans pull foe shadow down",
+        "tilted rod drains mote into pan",
+        "self defense shifts sideways as spear misses trailing braid"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-apodrecido",
+      "name": "O Apodrecido",
+      "design": "Inferno/Podridão. Elderly male woodsman, bark-grey brown skin, weathered normal face, mossy beard, wooden shoulder armor over faded coat, hooked pruning axe. Dry bark and moss, no wounds.",
+      "scenes": [
+        "weathered face",
+        "fingers examine crumbling leaf beside axe",
+        "axe hits target with contact rot",
+        "short dead root trips foe",
+        "hand stamps lichen on armor",
+        "self defense bark shoulder plate chips as spear stops outside body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-praga-andante",
+      "name": "A Praga Andante",
+      "design": "Inferno/Podridão. Adult female wandering physician45, grey-brown skin, lavender short hair, purple cape, brass belt bell, clean cloth respirator. Spores from hanging terrarium, NOT cloud monster.",
+      "scenes": [
+        "tired eyes and mask",
+        "hand shakes small spore terrarium",
+        "short staff hits shield and scatters spores",
+        "overhead low spore plume interrupts foe feet",
+        "hand places violet fungal mark on armor",
+        "self evasion lunges away from close spore decoy as arrow hits motes"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-corrupto",
+      "name": "O Corrupto",
+      "design": "Inferno/Podridão. Corpulent nobleman50, pallid olive skin, balding black hair, curled moustache, tarnished purple brocade suit, thorn brooch, silver moldy cane. Corrosion, no body horror.",
+      "scenes": [
+        "smirking noble face",
+        "hand wipes cane revealing mold",
+        "cane thrust impacts target guard",
+        "floor sprouts short black briars under foe",
+        "signet dulls enemy armor",
+        "self defense cane grows thorn lattice that catches sword outside chest"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-rainha-dos-fungos",
+      "name": "A Rainha dos Fungos",
+      "design": "Inferno/Podridão. Adult woman40, lavender skin, black bob, severe fine face, ivory high-neck gown, purple mushroom shoulder cape, carved root scepter. Regal humanoid.",
+      "scenes": [
+        "fine face and cape",
+        "fingers open gilled fungus pinned to shoulder",
+        "scepter shoots one hard spore pellet",
+        "high angle short fan fungi interrupt foe",
+        "mycelium dulls enemy gauntlet",
+        "self defense rigid layered mantle stops dart outside upper back"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-medico-de-vermes",
+      "name": "O Médico de Vermes",
+      "design": "Inferno/Podridão. Lean doctor60, tan skin, balding grey curls, rectangular CLEAR glasses, jade coat, leather gloves, sealed terrarium tubes with tiny glowing earthworms, silver diagnostic rod. No body infestation.",
+      "scenes": [
+        "thoughtful face and glasses",
+        "macro two small worms inside sealed tube",
+        "rod hits armor with dry rot",
+        "controlled rootlike strands slow foe boots",
+        "tube held beside weapon induces corrosion",
+        "self defense hard glass terrarium shell deflects dart outside face"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-jardim-morto",
+      "name": "O Jardim Morto",
+      "design": "Inferno/Podridão. Adult androgynous gardener50, brown-grey skin, silver eyes, black hair and wilted wreath, charcoal horticultural coat, small empty glass seedhouse at hip, iron rake. Humanoid caretaker, NOT walking greenhouse.",
+      "scenes": [
+        "haunted normal face",
+        "hand holds seedhouse with one dry root",
+        "rake hits shield",
+        "dead root ridge heaves beneath foe",
+        "rake draws grey decay furrow",
+        "self defense brittle thorn trellis catches dart beside raised coat collar"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-que-observou",
+      "name": "O que Observou",
+      "design": "Inferno/Silêncio. Elderly male astronomer70, olive skin, long white beard, balding grey hair, navy cloak and small brass telescope, ordinary eyes. Omission through shuttered observation.",
+      "scenes": [
+        "lined face and telescope",
+        "hand closes telescope shutter",
+        "telescopic staff strikes target",
+        "high angle narrow black shadow-line interrupts foe motion",
+        "closed shutter erases enemy weapon echo",
+        "self defense crouches behind folded cloak as dart enters false empty sightline"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-porta-fechada",
+      "name": "A Porta Fechada",
+      "design": "Inferno/Silêncio. Strong female carpenter45, tan skin, short grey curls, navy work shirt, leather belt, small folding wooden door shield and heavy brass latch. Humanoid carpenter, no door monster.",
+      "scenes": [
+        "suspicious face and carpenter belt",
+        "hand slides brass latch shut",
+        "folded wooden shield smashes target guard",
+        "side view drops one narrow wooden threshold to block foe feet",
+        "close latch traps target weapon harmlessly",
+        "self defense turns own door shield diagonally so spear hits exterior with torso safe"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-surdo",
+      "name": "O Surdo",
+      "design": "Inferno/Silêncio. Adult broad man35, dark brown skin, shaved hair, thick silver sound-blocking ear defenders, grey padded jacket, vibration hammer. Silence as deadened air strips, no disability caricature.",
+      "scenes": [
+        "focused face and ear defenders",
+        "hand adjusts normal ear-defender hinge",
+        "short hammer strikes target with soundless black notch",
+        "stomp creates flat vacuum strip beneath foe",
+        "hammer taps enemy sword and kills vibration",
+        "self defense bends under incoming blade within narrow soundless afterimage, real body visibly safe"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-testemunha-cega",
+      "name": "A Testemunha Cega",
+      "design": "Inferno/Silêncio. Adult tall Black woman40, shaved head, lavender cloth blindfold, white-black high-collar coat, short white cane and brass recorder medallion. Reads pressure, blindfold intact.",
+      "scenes": [
+        "calm face beneath blindfold",
+        "hand touches recorder medallion",
+        "white cane hits target wrist",
+        "overhead cane tip reveals foe with one white pressure stroke",
+        "side palm silences enemy weapon through compressed black air",
+        "self evasion tilts head and shoulders aside as dart misses blindfold, cane planted"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-quarto-vazio",
+      "name": "O Quarto Vazio",
+      "design": "Inferno/Silêncio. Adult slim male apparition45, pale grey skin, auburn side-part hair, tired face, black caretaker coat and ivory gloves, small brass room key and empty framed miniature room at belt. Humanoid keeper, NOT walking room.",
+      "scenes": [
+        "hollow-eyed normal face",
+        "hand opens empty miniature room frame",
+        "key-shaped pressure jab hits target",
+        "side view narrow rectangular empty-space cut interrupts foe charge",
+        "gloved fingers close tiny room frame and target shadow stutters",
+        "self defense steps into recessed rectangular shadow niche while sword passes empty outer space"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-vigia-ausente",
+      "name": "O Vigia Ausente",
+      "design": "Inferno/Silêncio. Tall humanoid spirit, adult unmasked weary woman55 with brown-grey skin, short white hair, long empty-looking dark watch cloak, floating lantern TETHERED to wrist by short chain. No random headless garment.",
+      "scenes": [
+        "weary face and tethered lantern",
+        "hand checks unlit lantern wick",
+        "lantern swing strikes shield",
+        "high angle lantern casts a missing patch of shadow under enemy",
+        "chain pulls extinguished flame from enemy weapon aura",
+        "self defense real body fades behind hanging cloak outline while blade passes empty cloak edge"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-que-possui",
+      "name": "O que Possui",
+      "design": "Inferno/Carne. Adult lithe man30, brown skin, sharp face, long black hair tied high, burgundy formal coat and bone-white glove, independent dark shadow connected to feet. Psychological possession, no body horror.",
+      "scenes": [
+        "piercing face and white glove",
+        "hand rests over own shadow hand on wall",
+        "gloved palm strike and shadow hand impacts shield",
+        "overhead shadow attaches to foe stance and pulls knee off balance",
+        "fingers tug attached shadow ribbon to weaken weapon",
+        "self defense exchanges position with attached wall shadow, dart hits wall silhouette only"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-pele-alheia",
+      "name": "A Pele Alheia",
+      "design": "Inferno/Carne. Adult woman28, cool brown skin, white short curls, violet eyes, mauve patchwork coat and black high-neck underlayer, two cloth sample strips. Takes surface appearances through CLOTHING, intact skin.",
+      "scenes": [
+        "smiling face with patchwork collar",
+        "hand changes cloth sample color",
+        "coat cuff snaps like ribbon and hits target",
+        "side view coat displays false camouflage while she flanks foe",
+        "strips wrap enemy glove and weaken grip",
+        "self defense slips out of false coat-shaped projection while real clothed body dodges"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-desejo-quebrado",
+      "name": "O Desejo Quebrado",
+      "design": "Inferno/Carne. Adult dancer man29, dark skin, long wavy dark-red hair, aquiline face, black dance tunic with plum sash, floating cracked porcelain heart charm attached to sash. Symbolic longing, no explicit content.",
+      "scenes": [
+        "melancholy face",
+        "fingers join two heart-charm pieces",
+        "heel kick strikes target shield",
+        "full body pivots and charm sends angular rose pressure slash",
+        "hand tilts charm reflection to dull opponent stance",
+        "self evasion deep dance backbend as spear passes high above torso"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-marionetista-de-nervos",
+      "name": "A Marionetista de Nervos",
+      "design": "Inferno/Carne. Athletic adult woman35, warm brown skin, long black braids, amber fitted coat, teal wrist spools, ordinary five-finger hands. Controls movement via attached luminous fiber threads, no gore.",
+      "scenes": [
+        "determined face and braids",
+        "macro wrist spool threads attached properly",
+        "taut thread snaps armored target wrist",
+        "overhead threads tug foe's weapon away from line",
+        "two fingers pluck thread and slow enemy elbow",
+        "self defense uses attached thread tension to sling her intact body sideways away from blade"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-espelho-carnal",
+      "name": "O Espelho Carnal",
+      "design": "Inferno/Carne. Adult tall humanoid clay spirit with copper-brown smooth skin, normal androgynous face, silver bob, deep violet draped robe, polished clay forearm plates. Reflected flesh symbolism without flesh horror.",
+      "scenes": [
+        "smooth face and silver bob",
+        "hand polishes clay plate reflecting ordinary eye",
+        "clay forearm punch hits shield",
+        "side view reflected enemy silhouette twists on plate and foe loses balance",
+        "finger taps reflected sword and foe's guard weakens",
+        "self defense clay plate bends slightly to redirect dart outside ribs, body intact"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-costureira",
+      "name": "A Costureira",
+      "design": "Inferno/Carne. Short elderly woman75, warm olive skin, silver curly bun, round CLEAR glasses, navy tailor coat, coral cuffs, large needle and sturdy patchwork shawl. Manipulates clothes and cloth dolls, no skin sewing.",
+      "scenes": [
+        "kind calculating face and glasses",
+        "hands stitch small cloth doll with clear five fingers",
+        "needle-thread slash strikes armored glove",
+        "wide sweep hangs enemy coat on short attached red threads",
+        "needle binds foe weapon strap",
+        "self defense folds own stiff patchwork shawl over shoulder, spear stops in outer weave"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-que-apaga",
+      "name": "O que Apaga",
+      "design": "Inferno/Vazio. Adult man45, charcoal-brown skin, stern face, short white hair, black work coat, broad ivory palette scraper. Erases surfaces into white negative space.",
+      "scenes": [
+        "stern face",
+        "hand cleans scraper",
+        "scraper erases notch in shield",
+        "sweeps white ground seam that trips foe",
+        "removes glow from weapon",
+        "self defense pivots through negative-space strip as dart crosses old position"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-ausencia",
+      "name": "A Ausência",
+      "design": "Inferno/Vazio. Adult feminine humanoid dark silhouette with NORMAL FACE outlined cyan, short geometric bob, layered black coat, white lapel pin. Missing surfaces, no particle spam.",
+      "scenes": [
+        "outlined face",
+        "close lapel pin in black hand",
+        "palm removes square from shield",
+        "missing pavement interrupts foe",
+        "removes weapon shadow",
+        "self defense silhouette narrows into flat cutout beside incoming spear"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-fim-silencioso",
+      "name": "O Fim Silencioso",
+      "design": "Inferno/Vazio. Duelist man55, pale grey skin, long silver hair, thin face, black high-collar coat, single silver rapier. Subtle absence.",
+      "scenes": [
+        "cold face",
+        "rapier partly withdrawn with frost",
+        "precise thrust hits armor",
+        "sweeping frost line interrupts feet",
+        "rapier tip extinguishes weapon glow",
+        "self defense precise diagonal rapier parry redirects blade away from neck"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "name": "O Menino sem Sombra",
+      "design": "Inferno/Vazio. Young ADULT man20, brown skin, round face, black fluffy hair, yellow hooded coat, grey shorts, wooden spinning top on string. No shadow.",
+      "scenes": [
+        "wistful adult face",
+        "top on sunlit ground has no shadow",
+        "thrown top hits target",
+        "absent-shadow path disrupts enemy",
+        "pulls top and foe weapon echo fades",
+        "self evasion ducks below sword with clear space over yellow hood"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-ultima-pagina",
+      "name": "A Última Página",
+      "design": "Inferno/Vazio. Elderly bookbinder woman70, dark tan skin, lined face, pinned silver hair, black apron and pale blouse, worn book and bone paper knife. Blank paper oblivion.",
+      "scenes": [
+        "face with book",
+        "hands close last blank page",
+        "paper knife hits shield",
+        "blank sheet folds across foe path",
+        "page lifts and weapon loses contrast",
+        "self defense thick folded page deflects dart outside shoulder"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-lugar-de-ninguem",
+      "name": "O Lugar de Ninguém",
+      "design": "Inferno/Vazio. Adult androgynous wanderer50, grey-brown skin, shaved head, weary face, ash coat, mismatched shoes, wooden crossroads sign fragment and stone compass. HUMANOID lost traveler.",
+      "scenes": [
+        "weary face",
+        "compass lacks needle",
+        "sign fragment strikes target",
+        "false crossroads interrupts charge",
+        "blank route erases weapon shadow",
+        "self defense steps into narrow path perspective fold and arrow misses"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-escudo-vivo",
+      "name": "O Escudo Vivo",
+      "design": "Paraíso/Proteção. Strong broad woman38, dark skin, short silver hair, square face, asymmetric blue-glass armor, thick rectangular stained-glass shield. Human.",
+      "scenes": [
+        "steady face",
+        "hand repairs shield crack with gold seam",
+        "shield bash",
+        "plants shield and lifts angled slab under weapon",
+        "shield anchors two linked plates",
+        "self defense thick tilted shield shatters spear outside body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-muralha",
+      "name": "A Muralha",
+      "design": "Paraíso/Proteção. Enormous female guardian45, dark grey skin, broad normal face, cobalt short braids, blue-gold mason mantle, stone vambraces with stained glass. HUMANOID mason, not building.",
+      "scenes": [
+        "broad face",
+        "hand fits tile into vambrace",
+        "forearm stone bash",
+        "heel lifts parapet slab to trip foe",
+        "vambraces brace broken beam",
+        "self defense tight stone shoulder plates catch arrow externally"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-que-ficou",
+      "name": "O que Ficou",
+      "design": "Paraíso/Proteção. Sturdy man50, brown skin, short beard, black-grey curls, navy raincoat, patched blue umbrella with brass handle. Endurance in rain.",
+      "scenes": [
+        "determined face",
+        "patches umbrella rib",
+        "closed umbrella jab",
+        "open umbrella pushes foe with flat rain gust",
+        "handle plants to steady own feet",
+        "self defense reinforced tilted umbrella ricochets arrow outside canopy"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-ultimo-guardiao",
+      "name": "O Último Guardião",
+      "design": "Paraíso/Proteção. Tall man80, olive skin, white beard and ponytail, layered blue watch coat, wooden staff with square lantern securely attached. Vigilance.",
+      "scenes": [
+        "weathered face",
+        "trims wick",
+        "staff butt hits armor",
+        "staff sweep emits narrow blue gust",
+        "lantern light supports broken gate",
+        "self defense staff and square lantern parry sword at arm's length"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-sentinela-azul",
+      "name": "A Sentinela Azul",
+      "design": "Paraíso/Proteção. Athletic woman33, rich brown skin, teal box braids, angular face, blue manta-shaped mantle on ordinary HUMAN body, silver short spear. Air currents.",
+      "scenes": [
+        "sharp face",
+        "fastens mantle clasp",
+        "short spear thrust",
+        "curved air current sweeps foe sideways",
+        "cloak edge lashes pressure into guard",
+        "self evasion glides low with folded mantle as spear misses above"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-mao-que-cura",
+      "name": "A Mão que Cura",
+      "design": "Paraíso/Cura. Surgeon woman42, deep brown skin, shaved head, long blue medical coat, ONE five-finger porcelain articulated prosthetic hand and one human hand, silver diagnostic wand. Clear controlled healing.",
+      "scenes": [
+        "focused face",
+        "prosthetic fingers calibrate wand",
+        "wand pressure jab hits shield",
+        "porcelain palm pulses narrow pressure strip to stop foe",
+        "close porcelain fingers seal ally armor crack and warm light heals wrist",
+        "self defense porcelain hand raises close curved ceramic plate catching dart outside shoulder"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-restaurador",
+      "name": "O Restaurador",
+      "design": "Paraíso/Cura. Short elderly man76, tan skin, round face, white moustache and bald head, blue craftsman coat, kintsugi gold brush and lacquer bowl. Repairs through precise gold seams.",
+      "scenes": [
+        "smiling face",
+        "brush repairs own bowl",
+        "brush-handle strike hits armor",
+        "gold seam travels along floor and disrupts enemy feet",
+        "brush repairs injured ally's cracked vambrace",
+        "self defense quickly seals own ceramic forearm guard as spear stops on outside"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "name": "A Luz que Restaura",
+      "design": "Paraíso/Cura. Adult moth-like HUMANOID woman, dark navy skin, ordinary serene face, pale silver short hair, ivory layered moth-pattern cloak, two small antenna-like HAIR ORNAMENTS attached clearly. Light scales restore; no insect limb confusion.",
+      "scenes": [
+        "serene face and ornaments",
+        "hand catches single glowing moth scale on own cloak",
+        "cloak edge sends one scale dart at target",
+        "wide slash of white cloak pressure stops foe",
+        "close hand warms ally broken gauntlet with scales",
+        "self defense layered cloak closes tightly around own shoulder and arrow breaks outside"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-jardineira-das-feridas",
+      "name": "A Jardineira das Feridas",
+      "design": "Paraíso/Cura. Tall woman38, warm brown skin, long dark-green locs with small flowers, long emerald botanist coat and leather gloves, hooked pruning knife and small medicinal sprig. Plant healing, not flower-wall spam.",
+      "scenes": [
+        "gentle face with green locs",
+        "hand clips medicinal leaf",
+        "knife handle strike hits target",
+        "short root-lasso interrupts enemy ankle",
+        "close medicinal leaf presses onto ally armored wrist with restorative light",
+        "self defense ducks behind stiff folded leaf grown from sleeve, sword slides off outer surface"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-pulso-sereno",
+      "name": "O Pulso Sereno",
+      "design": "Paraíso/Cura. Broad adult man40, dark skin, close silver beard, shaved head, blue loose musician tunic, copper handpan secured by waist strap. Rhythmic restoration, no generic music circles.",
+      "scenes": [
+        "calm face",
+        "fingers touch handpan dimples",
+        "sharp handpan tap shoots one angular sound hit",
+        "full body low drum strike disrupts foe step",
+        "gentle tap sends narrow warm rhythm toward ally cracked armor",
+        "self defense rotates strapped copper handpan before ribs to deflect dart externally"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-equilibrio",
+      "name": "O Equilíbrio",
+      "design": "Paraíso/Justiça. Adult androgynous humanoid magistrate45, bronze skin, squared face, straight white shoulder hair, ivory coat and indigo sash, handheld brass balance staff and ONE small brass bird perched on staff. Not balance automaton.",
+      "scenes": [
+        "calm face and bird",
+        "hand levels small scale pans",
+        "staff butt hits target",
+        "tilted scale pressure lowers foe shield",
+        "two scale plates brace a cracked pillar base",
+        "self defense balanced staff rotates horizontally to parry spear outside torso"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-lamina-justa",
+      "name": "A Lâmina Justa",
+      "design": "Paraíso/Justiça. Veteran duelist woman58, dark tan skin, cropped silver curls, scar on eyebrow, black sleeveless tunic and ivory jacket, crimson belt, SINGLE plain steel sword. Precision and proportional counterforce.",
+      "scenes": [
+        "stern face",
+        "hand cleans single sword edge",
+        "sword pommel hits target",
+        "wide grounded single cut knocks foe weapon aside",
+        "close sword catches reflected enemy glare and redirects pressure",
+        "self defense compact sword parry clearly sends blade away from own face"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-testemunha-integra",
+      "name": "A Testemunha Íntegra",
+      "design": "Paraíso/Justiça. Elderly woman72, deep brown skin, short tightly curled white hair, wrinkled broad face, purple-brown formal robe, ordinary small amber hand lens and brass testimony staff. Truthful observation, no objects inside lens.",
+      "scenes": [
+        "wise face",
+        "clear lens enlarges only normal paving detail",
+        "staff strike hits target",
+        "overhead narrow amber light reveals foe hiding place",
+        "close lens shines on weapon joint to weaken guard",
+        "self defense tilts staff and lens plate to redirect dart outside raised forearm"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-julgador-gentil",
+      "name": "O Julgador Gentil",
+      "design": "Paraíso/Justiça. Young adult man26, olive skin, soft broad face, curly auburn hair, ivory short judicial coat and teal sash, small wooden gavel and oval wood wrist guard. Calm restrained force.",
+      "scenes": [
+        "gentle face",
+        "hand rests gavel beside single balanced pebble",
+        "small gavel strike hits shield",
+        "low-angle measured pressure line tilts foe footing",
+        "wrist guard supports an injured ally arm",
+        "self defense oval wood guard catches spear on outside while body pivots clear"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-mensageira-do-amanha",
+      "name": "A Mensageira do Amanhã",
+      "design": "Paraíso/Esperança. Young ADULT messenger woman23, warm brown skin, rounded nose, lively amber eyes, short curly forest-green hair, orange scarf, ivory travel shirt, brown shoulder satchel. Paper birds and hopeful letters.",
+      "scenes": [
+        "bright face beside satchel",
+        "hands sort one sun-sealed envelope",
+        "throws single folded paper bird at target",
+        "leaps with angular flock following scarf",
+        "hand repairs orange scarf with gold stitch",
+        "self evasion low slide as spear passes above satchel"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-que-revela",
+      "name": "O que Revela",
+      "design": "Paraíso/Verdade. Adult man40, dark tan skin, shaved head and one long black braid, strong angular face, CLEAR ordinary monocle, ivory sleeveless coat, navy underlayer, blue forearm bracer with transparent crystal prism.",
+      "scenes": [
+        "stern face and clear monocle",
+        "hand traces real crack in stone",
+        "prism blade punches shield",
+        "high view prism refracts false enemy silhouette",
+        "hand aligns clear crystal facets on bracer",
+        "self defense bracer prism redirects arrow outside body"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-olho-desarmado",
+      "name": "O Olho Desarmado",
+      "design": "Paraíso/Verdade. Adult slim man24, tan skin, brown curly hair, ordinary brown eyes, no glasses, ivory short-sleeved shirt, violet scarf, dark cropped trousers and sandals. Perception and bare-handed precision.",
+      "scenes": [
+        "watchful face",
+        "finger reads footprint on dust",
+        "bare palm strikes target joint",
+        "close eyes over scarf observe enemy shadow",
+        "hands pull scarf to reveal straight luminous seam",
+        "self evasion low grounded slide under sword"
+      ],
+      "revision": true
+    },
+    {
+      "id": "a-guardia-das-promessas",
+      "name": "A Guardiã das Promessas",
+      "design": "Paraíso/União. Adult athletic woman32, light freckled skin with just THREE drawn freckles each cheek, green eyes, red long braid, ivory cloak, black tunic, crimson sash, braided red and ivory oath cord.",
+      "scenes": [
+        "firm face",
+        "hands fasten knot-shaped cloak clasp",
+        "cord whip hits shield",
+        "cord pulls foe weapon down",
+        "close knot tightens on own wrist",
+        "self defense thick woven cloak deflects spear visibly away from shoulder"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-que-pesa",
+      "name": "O que Pesa",
+      "design": "Paraíso/Justiça. Adult huge humanoid guardian man55, dark brown skin, bald head, thick white eyebrows, broad square nose, blue robe and gold sash, short iron pendulum staff. Gravity and measured weight, no animal parts.",
+      "scenes": [
+        "steady face",
+        "hand balances small stone beside pendulum",
+        "heel stomp breaks pavement under target",
+        "high view gravity pins foe to floor",
+        "open palm makes enemy armor heavy",
+        "self defense gravity curves arrows down before they reach him"
+      ],
+      "revision": true
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "O Trono Vazio",
+      "design": "Inferno/Coroa. Adult spectral sovereign woman38, pale lavender skin, short wavy black bob, narrow purple eyes, small dark iron crown, burgundy high-collar coat and black cape, silver chain. Humanlike apparition rules EMPTY throne, not furniture monster.",
+      "scenes": [
+        "regal face",
+        "hand rests on chain draped across empty throne",
+        "chain whip strikes target",
+        "pointing gesture raises narrow iron bars to constrain foe",
+        "low view her long throne shadow makes enemy kneel",
+        "self defense own torso turns into thin spectral ribbons so blade misses solid body"
+      ],
+      "revision": true
+    }
+  ]
+}

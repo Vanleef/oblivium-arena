@@ -1,3 +1,7 @@
+import {withFlexibleCosts} from './flexible-costs.js';
+import { buildCharacterKit } from "./kits.js";
+import { withBodyForms } from "./body-forms.js";
+import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
 const inferno = [
   {
     id: "sangria", name: "Sangria", realm: "Inferno", theme: "Sangue, lâminas e carnificina", strength: "Máxima",
@@ -121,7 +125,7 @@ export const difficulties = [
   { id: "agony", name: "Agonia", mark: "☠", description: "IA especialista, recursos iniciais extras e Guardiões mais resistentes e letais.", enemyHealth: 1.16, enemyDamage: 1.1, startingEssence: 2, startingAffinity: 1, aiLevel: 3, rewardMultiplier: 1.5 }
 ];
 
-export const resourceById = Object.fromEntries(resources.map((resource) => [resource.id, resource]));
+export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Qualquer",color:"random"}};
 export const realmResource = { Inferno: "cinza", "Paraíso": "graca", Limbo: "ruptura" };
 
 const starterArt = {
@@ -158,6 +162,11 @@ const starterArt = {
 };
 
 const illustratedCharacterIds = new Set([
+  "a-porta-que-flutua", "o-nome-esquecido", "o-relogio-afogado", "a-asa-invertida", "o-andarilho-de-vidro", "a-sombra-inconstante", "a-ponte-rasgada", "a-alma-em-suspenso",
+  "o-que-cria", "o-cultivador", "a-arquiteta-verde", "o-eco-sem-dono",
+  "a-que-une", "o-vinculo", "os-tres-irmaos", "o-primeiro-canto",
+  "a-luz-nua", "o-espelho", "a-cartografa-da-clareza", "o-elo-dourado", "a-semente", "a-linha-partida",
+  "a-chama-que-nao-apaga", "o-que-levanta", "a-voz", "o-portador-da-aurora",
   "o-acougueiro", "a-viuva-escarlate", "o-colecionador-de-cabecas", "gemeos-do-cutelo",
   "o-carrasco-sem-rosto", "a-mae-rubra", "o-soberano-quebrado", "a-juiza-de-ferro",
   "o-trono-vazio", "o-principe-das-correntes", "a-regente-de-cinzas", "o-herdeiro-cativo",
@@ -176,18 +185,19 @@ const illustratedCharacterIds = new Set([
   "a-mensageira-do-amanha", "o-que-revela", "o-olho-desarmado", "a-guardia-das-promessas"
 ]);
 
-const roleCycle = [
-  { name: "Vanguarda", kind: "strike", hint: "abre caminho com dano direto" },
-  { name: "Controlador", kind: "control", hint: "desorganiza o turno inimigo" },
-  { name: "Guardião", kind: "guard", hint: "segura a linha quando o trio vacila" },
-  { name: "Apoio", kind: "support", hint: "mantém o grupo em combate" },
-  { name: "Duelista", kind: "strike", hint: "pressiona um alvo com precisão" },
-  { name: "Ruptor", kind: "burst", hint: "concentra poder num golpe decisivo" }
-];
 
 function slug(text) {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
+
+const characterFormArt = {
+  "o-tecelao-de-mentiras": {
+    tecnica: { unweave: "/art/characters/o-tecelao-de-mentiras/skill-tecnica-unweave.webp" }
+  },
+  "o-falso-profeta": {
+    tecnica: { confess: "/art/characters/o-falso-profeta/skill-tecnica-confess.webp" }
+  }
+};
 
 function artForCharacter(name) {
   if (starterArt[name]) return starterArt[name];
@@ -197,6 +207,7 @@ function artForCharacter(name) {
   return {
     portrait: `${base}/portrait.webp`,
     passive: `${base}/passive.webp`,
+    forms: characterFormArt[id],
     abilities: {
       impulso: `${base}/skill-impulso.webp`,
       tecnica: `${base}/skill-tecnica.webp`,
@@ -207,77 +218,20 @@ function artForCharacter(name) {
 }
 
 function characterFrom(elo, name, index) {
-  const role = roleCycle[index % roleCycle.length];
-  const epithet = name.replace(/^(O|A|Os|As)\s+/i, "").split(" ").slice(0, 2).join(" ");
-  const starterNames = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"];
-  const starter = starterNames.includes(name);
-  const moves = elo.moves;
-  const risky = elo.realm === "Limbo" || (elo.realm === "Inferno" && ["Chama", "Sangria", "Vazio"].includes(elo.name));
-  const eloArticle = ["Vazio", "Silêncio"].includes(elo.name) ? "do Elo do " : "do Elo da ";
+  const id = slug(name), revision = characterRevisions[id];
   const affinity = realmResource[elo.realm];
-  const affinityName = resourceById[affinity].shortName;
-  const art = artForCharacter(name);
-  const tacticalKind = index % 2 ? "control" : "strike";
-  const thirdKind = ["guard", "support", "control", "strike"][index % 4];
-  const thirdDescriptions = {
-    guard: "Ergue uma proteção para o trio.",
-    support: "Recupera Vida do aliado mais ferido e reforça sua guarda.",
-    control: "Atinge e enfraquece um inimigo por uma ação.",
-    strike: "Golpe tático de dano direto contra um inimigo."
-  };
-  const teamGuard = role.name === "Guardião" || role.name === "Apoio" || index % 3 === 0;
-  const abilities = [
-    {
-      id: "impulso", name: moves[0] + " · " + epithet, kind: "strike", cost: 0, costs: {},
-      damage: 18 + (index % 3), target: "enemy", description: "Ataque básico; gera 1 de Essência.", art: art?.abilities.impulso
-    },
-    {
-      id: "tecnica", name: moves[1] + " de " + epithet, kind: tacticalKind, cost: 1, costs: { affinity: 1 },
-      damage: 24 + (index % 4), target: "enemy", description: `${role.hint}; custa 1 ${affinityName}.`, art: art?.abilities.tecnica
-    },
-    {
-      id: "voto", name: moves[2] + " · " + epithet, kind: thirdKind, cost: 2, costs: { essence: 1, affinity: 1 },
-      damage: 17 + (index % 3), shield: 16 + (index % 5), target: "team",
-      description: `${thirdDescriptions[thirdKind]} Custa 1 Essência + 1 ${affinityName}.`, art: art?.abilities.voto
-    },
-    {
-      id: "despertar", name: moves[3] + " de " + epithet, kind: "guard", cost: 2, costs: { affinity: 2 },
-      damage: 0, shield: 20 + (index % 5), target: teamGuard ? "team" : "self",
-      description: `Técnica defensiva: ${teamGuard ? "protege o trio" : "protege o usuário"}. Custa 2 ${affinityName}.`, art: art?.abilities.despertar
-    }
-  ];
+  const art = revisedArtFor(id, artForCharacter(name));
+  const kit = reviseKitIdentity(buildCharacterKit(elo.id, index, art), revision);
+  const starter = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"].includes(name);
   return {
-    id: slug(name),
-    name,
-    realm: elo.realm,
-    elo: elo.name,
-    eloId: elo.id,
-    title: role.name + " " + eloArticle + elo.name,
-    role: role.name,
-    roleHint: role.hint,
-    indexInElo: index,
-    color: elo.color,
-    symbol: elo.symbol,
-    affinity,
+    id, name:revision?.name || name, ...(revision?.name ? {previousName:name} : {}), aliases:revision?.aliases || [], realm: elo.realm, elo: elo.name, eloId: elo.id,
+    title: kit.role + " do Elo " + elo.name, ...kit, indexInElo: index,
+    color: elo.color, symbol: elo.symbol, affinity,
     art: art ? { portrait: art.portrait, passive: art.passive } : null,
-    maxHp: 100,
-    starter,
-    unlockedByDefault: starter,
-    passive: {
-      name: elo.passive,
-      art: art?.passive,
-      description: elo.realm === "Limbo"
-        ? "Uma vez por combate, seu primeiro golpe especial causa dano extra e a Corrente Quebrada também fere o próprio usuário."
-        : elo.realm === "Paraíso"
-          ? "Na primeira vez que um aliado cai abaixo de 40 de Vida, concede 10 de escudo ao trio."
-          : "Seu primeiro golpe certeiro no combate gera 1 de Essência para a equipe."
-    },
-    abilities,
-    flavor: elo.flavor,
-    risk: risky
+    maxHp: 100, starter, unlockedByDefault: starter,
+    flavor: revision?.lore || elo.flavor, lore:revision?.lore || null, risk: elo.realm === "Limbo"
   };
 }
-
 export const elos = [...inferno, ...paradise, ...limbo];
 export function getElo(eloId) {
   return elos.find((elo) => elo.id === eloId) || elos[0];
@@ -300,7 +254,20 @@ export const realms = [
   }
 ];
 
-export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => characterFrom(elo, name, index)));
+const reactiveKits={
+ "o-escudo-vivo":{tecnica:{trigger:"damaged",damage:14,turns:1}},
+ "a-mao-que-cura":{tecnica:{trigger:"damaged",healSource:12,turns:1}},
+ "a-pele-alheia":{tecnica:{trigger:"damaged",damage:16,turns:1}},
+ "o-primeiro-canto":{tecnica:{trigger:"damaged",heal:8,turns:1}},
+ "o-que-ficou":{tecnica:{trigger:"damaged",shieldSource:12,turns:1}},
+ "o-que-observou":{tecnica:{trigger:"attack",exposeAttacker:true,turns:1}},
+ "o-relogio-afogado":{tecnica:{trigger:"idle",heal:10,turns:1}},
+ "a-linha-partida":{tecnica:{trigger:"damaged",damage:12,turns:1}}
+};
+function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>kit[a.id]&&!a.reactive?{...a,reactive:kit[a.id],description:`${a.description} Efeito reativo: responde à condição indicada. Ativa uma vez.`}:a)};}
+export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))));
+// Expose current display names after deriving permanent IDs from the original roster.
+for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));
 export const starters = characters.filter((character) => character.starter);
 export const rosterCounts = {
@@ -310,33 +277,65 @@ export const rosterCounts = {
 };
 
 export const routeStages = [
+  [{ id: "normal", label: "Patrulha", icon: "⚔", desc: "O primeiro trio bloqueia a travessia.", col: 1 }],
   [
-    { id: "normal", label: "Combate", icon: "⚔", desc: "Um trio patrulha a trilha." },
-    { id: "event", label: "Encontro", icon: "✦", desc: "Uma alma pede ajuda." }
+    { id: "normal", label: "Combate", icon: "⚔", desc: "Um trio patrulha a trilha.", col: 0 },
+    { id: "event", label: "Encontro", icon: "✦", desc: "Uma alma pede ajuda.", col: 1 },
+    { id: "normal", label: "Combate", icon: "⚔", desc: "Uma patrulha guarda o desvio.", col: 2 }
   ],
   [
-    { id: "normal", label: "Combate", icon: "⚔", desc: "Um trio patrulha a trilha." },
-    { id: "upgrade", label: "Aprimoramento", icon: "⬆", desc: "Escolha 1 entre 3 ecos." },
-    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Essência e fragmentos antigos." }
+    { id: "elite", label: "Elite", icon: "◆", desc: "Guardiões reforçados; melhor recompensa.", col: 0 },
+    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Um Eco e fragmentos antigos.", col: 1 },
+    { id: "repair", label: "Descanso", icon: "⟲", desc: "Recupere Vida antes do próximo confronto.", col: 2 }
   ],
   [
-    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados." },
-    { id: "repair", label: "Reparo", icon: "⟲", desc: "Restaure uma Corrente da Alma." }
+    { id: "event", label: "Encontro", icon: "✦", desc: "Decida como responder à travessia.", col: 0 },
+    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco para esta trilha.", col: 1 },
+    { id: "shop", label: "Mercador", icon: "◈", desc: "Troque fragmentos por cura ou um Eco.", col: 2 }
   ],
   [
-    { id: "event", label: "Encontro", icon: "✦", desc: "Decida como responder à travessia." },
-    { id: "upgrade", label: "Aprimoramento", icon: "⬆", desc: "Escolha 1 entre 3 ecos." },
-    { id: "mini", label: "Mini-Boss", icon: "♜", desc: "Um guardião menor impede a passagem." }
+    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados.", col: 0 },
+    { id: "mini", label: "Mini-Boss", icon: "♜", desc: "Um guardião menor protege o caminho.", col: 1 },
+    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados.", col: 2 }
   ],
   [
-    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Uma reserva esquecida entre os reinos." },
-    { id: "repair", label: "Reparo", icon: "⟲", desc: "Restaure uma Corrente da Alma." },
-    { id: "elite", label: "Elite", icon: "◆", desc: "Um trio de guardas reforçados." }
+    { id: "repair", label: "Descanso", icon: "⟲", desc: "Repare as Correntes da Alma.", col: 0 },
+    { id: "treasure", label: "Tesouro", icon: "◇", desc: "Um Eco e fragmentos antigos.", col: 1 },
+    { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco para esta trilha.", col: 2 }
   ],
-  [
-    { id: "boss", label: "Guardião do Elo", icon: "✹", desc: "O Guardião e dois subordinados." }
-  ]
+  [{ id: "boss", label: "Conselho do Elo", icon: "✹", desc: "Vença o trio e recrute uma das almas derrotadas.", col: 1 }]
 ];
+
+export function generateTrail(eloId, seed = 0, variant = "hunt") {
+  const numericSeed = Math.abs(Math.trunc(Number(seed) || 0));
+  const rows = routeStages.map((stage, rowIndex) => stage.map((template, nodeIndex) => {
+    const rotation = stage.length === 3 ? (numericSeed + rowIndex * 2) % 3 : 0;
+    let content = stage[(nodeIndex + rotation) % stage.length];
+    if (variant === "pilgrimage" && rowIndex === 2) content = [routeStages[3][1], routeStages[1][1], routeStages[2][0]][nodeIndex];
+    if (variant === "eclipse" && rowIndex === 2) content = routeStages[2][0];
+    if (variant === "eclipse" && rowIndex === 4) content = nodeIndex === 1 ? routeStages[4][0] : routeStages[4][1];
+    return {
+      ...content,
+      col: template.col,
+      row: rowIndex,
+      type: content.id,
+      id: `${eloId}-r${rowIndex}-c${template.col}-${content.id}-${nodeIndex}`,
+      nextIds: []
+    };
+  }));
+  for (let rowIndex = 0; rowIndex < rows.length - 1; rowIndex += 1) {
+    const nextRow = rows[rowIndex + 1];
+    for (const node of rows[rowIndex]) {
+      const connected = nextRow.length === 1
+        ? nextRow
+        : rows[rowIndex].length === 1
+          ? nextRow
+          : nextRow.filter((candidate) => Math.abs(candidate.col - node.col) <= 1);
+      node.nextIds = connected.map((candidate) => candidate.id);
+    }
+  }
+  return rows;
+}
 
 export const buffs = [
   { id: "edge", title: "Fio Ressonante", category: "Ataque", text: "Todo o trio causa +10% de dano nesta trilha.", context: "Uma lâmina antiga vibra quando as almas lutam em uníssono.", icon: "⚒", effect: { damage: 0.1 } },
@@ -375,4 +374,8 @@ export const buffs = [
   { id: "eclipse-step", title: "Passo do Eclipse", category: "Controle", text: "Técnicas de controle causam +5 de dano.", context: "O instante entre luz e sombra torna o golpe inevitável.", icon: "◐", effect: { controlBonus: 5 } },
   { id: "ashen-regrowth", title: "Rebrota nas Cinzas", category: "Sustento", text: "Cada aliado recebe +5 de Vida máxima e apoio cura +4 de Vida.", context: "Uma raiz verde rompe o solo onde tudo parecia consumido.", icon: "⚘", effect: { maxHp: 5, healing: 4 } }
 ];
+
+
+
+
 

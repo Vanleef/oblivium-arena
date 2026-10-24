@@ -1,0 +1,281 @@
+{
+  "date": "2026-10-22",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "characters": [
+    {
+      "id": "o-que-cria",
+      "name": "O que Cria",
+      "realm": "Paraíso",
+      "elo": "Criação",
+      "passive": {
+        "name": "Ideia Persistente",
+        "effect": "No início do seu turno, recebe 4 de Defesa destrutível."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Fragmento Nascente",
+          "target": "enemy",
+          "effect": "Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3)."
+        },
+        {
+          "id": "tecnica",
+          "name": "Forma de Amparo",
+          "target": "ally",
+          "effect": "Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Fragmento Nascente vira Forma que Rompe por 2 turnos."
+        },
+        {
+          "id": "voto",
+          "name": "Obra Convergente",
+          "target": "enemy",
+          "effect": "Causa 20 de dano espiritual a um inimigo. Consome as cargas: +9 de dano por carga."
+        },
+        {
+          "id": "despertar",
+          "name": "Forma Impossível",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/o-que-cria-sheet.webp",
+      "assets": [
+        "art/characters/o-que-cria/portrait.webp",
+        "art/characters/o-que-cria/passive.webp",
+        "art/characters/o-que-cria/skill-impulso.webp",
+        "art/characters/o-que-cria/skill-tecnica.webp",
+        "art/characters/o-que-cria/skill-voto.webp",
+        "art/characters/o-que-cria/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Paraíso, Elo Criação: solemn ancient living sanctuary, pale skies and dark blue shadows; creation is constructive power, not Inferno destruction. Choose varied sanctuary places and times, not six identical cathedral interiors. Character O que Cria: rotund broad-shouldered man40, light brown skin, round soft face, large sleepy eyes, tiny cleft chin, dense auburn buzzcut, freckles, ONE dark teardrop birthmark BELOW LEFT EYE. Ivory potter apron over cobalt long-sleeved tunic, burgundy trousers, rectangular copper caliper fixed at belt. Original magic: ivory glazed CERAMIC angular fragments with jade edges, handmade geometric forms, not metal swords or generic crystal blasts.\n1 Portrait chest-up worm-eye three-quarter view, friendly serious mature round anime face, apron and belt caliper; hanging ceramic bells over white cliff village at indigo dawn.\n2 Ideia Persistente own passive shield: macro cobalt-sleeved forearm and open five-finger hand, three ivory tiles grow beside HIS forearm into curved small guard, copper caliper stays at belt in soft-focus background; broken-roof potter workshop sunrise.\n3 Fragmento Nascente enemy spiritual hit +charge: extreme enemy-side low viewpoint, ONE sharply shaped ivory fragment in foreground strikes dark enemy breastplate without blood; rotund maker visible in mid-ground pushing a CLOSED palm forward, one small jade spark remains near apron pocket; narrow aqueduct over cloud sea at noon.\n4 Forma de Amparo shield ONE ally: top-down shot his cobalt sleeves and gloved hands positioning TWO curved ivory ceramic plates around one kneeling adult ally at center, not him; fresh jade light joins seams, no wound-heal glow; solemn sanctuary kiln court after rain.\n5 Obra Convergente charge-consuming single enemy hit: lateral distant silhouette, three separate ivory fragments converge into ONE sculpted geometric ram at dark enemy's chest; maker rotund body foreground at left directing with right forearm, caliper at belt; pale stone wind terrace at sunset. Show exactlyONE enemy.\n6 Forma Impossível SELF invulnerability: maker half-turns bodily inside a small arch of his own ivory forms, attacker spear passes through empty gap behind his shoulder, only maker protected; moonlit ceramic gallery with pale lavender sky. Bold distinct framing, keep rotund body and left-eye birthmark.",
+      "generationFile": "exec-b99960b4-aba7-4c95-87ec-9abc7385e7ff.png"
+    },
+    {
+      "id": "o-cultivador",
+      "name": "O Cultivador",
+      "realm": "Paraíso",
+      "elo": "Criação",
+      "passive": {
+        "name": "Ciclo da Colheita",
+        "effect": "Após usar uma habilidade de apoio, o usuário restaura 4 de Vida."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Arar a Alma",
+          "target": "enemy",
+          "effect": "Causa 10 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Restaura ao aliado proporcionalmente mais ferido 40% do dano real causado (máx. 15 por uso). Ganha 1 carga (máx. 3)."
+        },
+        {
+          "id": "tecnica",
+          "name": "Colheita de Fôlego",
+          "target": "team",
+          "effect": "Restaura 10 de Vida a cada aliado. Consome as cargas: +6 de cura por carga a cada aliado."
+        },
+        {
+          "id": "voto",
+          "name": "Ramos da Resposta",
+          "target": "enemy",
+          "effect": "Causa 20 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Consome as cargas: +8 de dano por carga."
+        },
+        {
+          "id": "despertar",
+          "name": "Abrigo das Raízes",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/o-cultivador-sheet.webp",
+      "assets": [
+        "art/characters/o-cultivador/portrait.webp",
+        "art/characters/o-cultivador/passive.webp",
+        "art/characters/o-cultivador/skill-impulso.webp",
+        "art/characters/o-cultivador/skill-tecnica.webp",
+        "art/characters/o-cultivador/skill-voto.webp",
+        "art/characters/o-cultivador/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Paraíso, Elo Criação: solemn ancient living sanctuary, pale skies and dark blue shadows; creation is constructive power, not Inferno destruction. Choose varied sanctuary places and times, not six identical cathedral interiors. Character O Cultivador: lean wiry man65, weathered olive-tan skin, long rectangular face, very large hooked nose, thick grey beard cropped SQUARE at jaw, thinning wavy dark hair with grey temples. Moss-green broad gardener coat over saffron shirt, indigo sash, rolled brown trousers, straw woven shoulder guard. ONE short wooden hoe with single crescent iron head, no duplicate tools. Magic: thick pale living roots, small ivory grain heads and warm green growth. Different from seed-summoning child: seasoned mature physical laborer.\n1 Portrait shoulders three-quarter side against orchard sunset, stern long nose, square grey beard, hoe resting on shoulder.\n2 Ciclo da Colheita SELF recovery after support: macro his indigo sash and saffron sleeve, warm green grain light travels from a harvested grain head toward his own chest, his distinct beard cropped above; dark stone seed cellar with dawn slitlight.\n3 Arar a Alma physical hit/enfeeble/ally drainheal +charge: low ground closeup hoehead hooks enemy's armored ANKLE and drags it safely off balance, no gore or cut feet; cultivator kneels farther back, one warm grain spark floats BACK to one distant wounded adult ally's raised forearm; wet sanctuary orchard furrow after rain.\n4 Colheita de Fôlego TEAM heal/spendcharge: steep bird-eye view cultivator stands centrally holding hoe VERTICALLY, exactly two allied adults at opposite corners with warm green healing circles at chest connected to THREE pale grain heads; luminous circular terraced herb garden in cloudy morning. Three friendly figures total.\n5 Ramos da Resposta physical shield-strip +damage: tight oblique enemy breastplate foreground, single thick root erupts and snaps a transparent enemy shield before striking chest, cultivator green sleeve and hoe handle visible at left; ancient marble root-covered aqueduct, blue night; ONE enemy, no gore, no humanoid plant.\n6 Abrigo das Raízes SELF invulnerability: close full crouched cultivator under three tightly curved roots forming a small personal hollow as ONE spear glances off outer root; own coat and square beard clearly visible, single hoe beside him, no other protected person; windy sanctuary cliff farm in purple dusk.",
+      "generationFile": "exec-5e3cd5a3-994c-4cda-b53b-7db95b88c6e6.png"
+    },
+    {
+      "id": "a-arquiteta-verde",
+      "name": "A Arquiteta Verde",
+      "realm": "Paraíso",
+      "elo": "Criação",
+      "passive": {
+        "name": "Fundação Viva",
+        "effect": "No início do seu turno, recebe 5 de Defesa destrutível."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Pilar Ascendente",
+          "target": "enemy",
+          "effect": "Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição."
+        },
+        {
+          "id": "tecnica",
+          "name": "Abóbada Verde",
+          "target": "team",
+          "effect": "Concede 18 de Defesa destrutível ao trio. Abre Viga de Apoio e Colapsar a Abóbada por 2 turnos. O colapso encerra as duas variações e gasta sua Defesa."
+        },
+        {
+          "id": "voto",
+          "name": "Convergência dos Pilares",
+          "target": "enemy",
+          "effect": "Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno."
+        },
+        {
+          "id": "despertar",
+          "name": "Geometria Intocável",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/a-arquiteta-verde-sheet.webp",
+      "assets": [
+        "art/characters/a-arquiteta-verde/portrait.webp",
+        "art/characters/a-arquiteta-verde/passive.webp",
+        "art/characters/a-arquiteta-verde/skill-impulso.webp",
+        "art/characters/a-arquiteta-verde/skill-tecnica.webp",
+        "art/characters/a-arquiteta-verde/skill-voto.webp",
+        "art/characters/a-arquiteta-verde/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Paraíso, Elo Criação: solemn ancient living sanctuary, pale skies and dark blue shadows; creation is constructive power, not Inferno destruction. Choose varied sanctuary places and times, not six identical cathedral interiors. Character A Arquiteta Verde: tall powerfully built South Asian woman32, deep brown skin, thick strong brows, wide straight nose, sea-green eyes, blunt blue-black bob to jawline and mint fabric headband. Rose-magenta architect coat with split skirt over cream fitted long sleeves, dark green trousers and flat leather boots. One hinged brass triangular ruler at waist, ONE mint-green vertical rectangular stone tablet held as plan. Her creation is geometric living JADE-WOOD ribs and beams, angular plan lines and growth joints, never loose vines, plant-woman limbs or existing buildings teleporting.\n1 Portrait side-upward bust with square confident jaw, green tablet pressed to chest, ruler at waist, unfinished jade-wood sanctuary cupola and pale gold dawn.\n2 Fundação Viva own passive shield: extreme close cream-sleeved forearm, small interlocked jade-wood joint appears as wrist guard and stops a falling chip, tablet and magenta coat edge establish identity; shadowy architectural model hall at night.\n3 Pilar Ascendente physical mark/expose: reverse low shot behind enemy, ONE rectangular jade-wood pillar rises under its metal boot tilting enemy stance, a bright GREEN square plan mark appears on enemy greave; architect broad silhouette at right with tablet in left hand, directing with lowered right palm; flooded sanctuary foundation yard, overcast blue morning.\n4 Abóbada Verde TEAM shield: dramatic overhead view architect at vertex center and exactly two allied adults below a delicate triangular vaulted rib structure with clearly THREE shield panels, no enemies; pale marble botanical atrium with pink dusk sky, brass ruler visible waist.\n5 Convergência dos Pilares single target physical damage+stun: extreme lateral close composition two jade-wood pillars angle toward the SAME armored enemy's sides and pin its cloak/armor, brief green stun burst above helmet, no flesh penetration; architect in foreground cropped magenta shoulder and plan tablet; slanted sanctuary bridge among white flowering trees, noon.\n6 Geometria Intocável SELF invulnerability: rear three-quarter full figure standing safely inside a tight wireframe jade-wood diamond with empty space between her body and ONE dark blade deflected outside, no allies; suspended sanctuary drafting platform over indigo clouds. Maintain ONE tablet and ONE belt ruler, normal connected limbs.",
+      "generationFile": "exec-16e938aa-d55f-4bac-aa7d-a3deb77dc713.png"
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "name": "O Eco sem Dono",
+      "realm": "Limbo",
+      "elo": "Correntes Quebradas",
+      "passive": {
+        "name": "Ressonância sem Dono",
+        "effect": "Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor."
+      },
+      "abilities": [
+        {
+          "id": "impulso",
+          "name": "Eco Residual",
+          "target": "enemy",
+          "effect": "Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3)."
+        },
+        {
+          "id": "tecnica",
+          "name": "Devolver a Voz",
+          "target": "ally",
+          "effect": "Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, Coro sem Origem vira Ressonância Roubada por 2 turnos, sem custo de Vida."
+        },
+        {
+          "id": "voto",
+          "name": "Coro sem Origem",
+          "target": "all-enemies",
+          "effect": "Causa 15 de dano espiritual a todos os inimigos. Consome as cargas: +5 de dano por carga. O usuário perde 5 de Vida (não o derrota)."
+        },
+        {
+          "id": "despertar",
+          "name": "Eco Intangível",
+          "target": "self",
+          "effect": "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam."
+        }
+      ],
+      "source": "art/source/o-eco-sem-dono-sheet.webp",
+      "assets": [
+        "art/characters/o-eco-sem-dono/portrait.webp",
+        "art/characters/o-eco-sem-dono/passive.webp",
+        "art/characters/o-eco-sem-dono/skill-impulso.webp",
+        "art/characters/o-eco-sem-dono/skill-tecnica.webp",
+        "art/characters/o-eco-sem-dono/skill-voto.webp",
+        "art/characters/o-eco-sem-dono/skill-despertar.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE six-cell production sprite sheet for PMA, original dark fantasy anime tactical game. Exactly1536x1024, strict three equal512px columns and TWO equal512px rows. No gutters, frame, text, lettering, watermark or UI. Each cell must be a different camera/action and location. Reading order: portrait, passive, attack1, support2, ultimate3, SELF invulnerability.\nArt direction: fully hand-drawn 2D TV anime CEL ANIMATION. Bold clear ink outlines, simple expressive anime eyes and faces, broad FLAT fills and ONE hard-edged shadow per surface. Stylized graphic architecture, no painterly stone detail. No realism, photographic shading, realistic skin, texture, rendering, gradients on faces,3D or cinematic lens. Somber atmosphere but clear readable75px action silhouettes. Preserve exact face/age/body/clothing/props across all six cells. Natural limb connectivity, only two arms/two legs per person, five digits on each complete visible hand; prefer closed fists, cropped hands or gloves for distant hands. No object duplicates, impossible grips or detached limbs. Every skill should visibly originate from this character and hit its stated target. The sixth image protects ONLY the caster, never an allied group. Original characters, not copies of existing anime characters. World Limbo, Elo Correntes Quebradas: impossible disconnected pale basalt ruins, inverted horizons, violet haze and hanging fragments of bridges. Character is an original humanoid spirit, not an actual disembodied ear or speaker. O Eco sem Dono: lean androgynous adult38, slate-blue skin in anime flat tones, thin long nose, small closed mouth, pupil-less pale violet eyes, chin-length blunt WHITE hair with long straight fringe, ONE white horizontal paint stripe across BOTH cheeks. Charcoal-violet high-collar poncho over muted plum wraps, black tight gloves, ONE small hollow BRONZE crescent resonator pendant at sternum. Power is fragmented MAGENTA echo rectangles and offset outline ripples, NOT singer cyan curves or musical notes. Keep mouth closed; magic comes from listening/resonator. No duplicated pendant.\n1 Portrait extreme close front three-quarter face looking sideways, one gloved fingertip touching resonator just below chin, slate skin and cheek stripe clear; inverted ruined bell arcade hanging over violet void.\n2 passive retaliation: macro bronze crescent pendant at chest takes incoming pale spear-impact spark at left while a broken magenta echo angle RETURNS toward same attack direction on left, frayed violet poncho and lower face crop identify spirit; shattered mirror wall in grey-purple rain. No body wound.\n3 Eco Residual spiritual damage+charge: enemy torso dominates low foreground at right, one rectangular magenta echo hits breastplate, spirit crouches behind left with closed gloved fist against pendant, single small magenta echo shard stays at shoulder as charge; broken stepping stones over upside-down lake in pale pink Limbo dawn.\n4 Devolver a Voz protects/counters ONE ally: over ally shoulder view one adult ally at center, spirit visible behind left placing gloved hand on ally shoulder, angled magenta echo plate intercepts ONE hostile thrust and bends a return angle to visible enemy wrist at right; tilted basalt arch against lavender fog. OnlyONE ally shielded, spirit not making a broad group dome.\n5 Coro sem Origem all-enemies/spendcharge +caster fatigue: distant top-down shot spirit at foreground edge RELEASES exactlyTHREE broken rectangular echo waves toward exactlyTHREE distant enemy silhouettes on separated pale basalt fragments. Slight exhausted bent posture but no wound; pendant readable by bronze glint, magenta high contrast against slate-violet void, no additional figures.\n6 Eco Intangível SELF: narrow side profile full figure splits into two OFFSET contour outlines around same single body, hostile spear passes through empty echo AFTERIMAGE BEHIND the spirit, slate face/pale hair and pendant remain solid; solitary inverted staircase in deep purple night. No duplicate bodies, detached limbs, extra hands or other protected souls.",
+      "generationFile": "exec-50456fba-ec39-4d88-aeee-7273a8e9544e.png"
+    }
+  ],
+  "mechanicsFingerprint": "188522412959c0552a83d1ec4286e82ad52289d8999568cc86d2ecb0c6c64140",
+  "mechanicsFingerprintScope": "All character ids, passives and abilities, recursively excluding art fields; unchanged from commit 74dcbe83fbc6505b70a1451b3a0327cc56b007df.",
+  "review": [
+    "Unique round-faced ceramic maker, older root cultivator, strongly built jade-wood architect and slate-skinned echo spirit.",
+    "Six different scenes and camera angles per character. Each has a visible identity anchor and targets based on the existing kit.",
+    "Source-scale anatomy, accessories, attack direction and target counts reviewed; sprites reviewed again at 75px.",
+    "Self-invulnerability images protect the caster only. Team shields/heals are restricted to the relevant support abilities.",
+    "Only crop extraction and WebP conversion use deterministic processing. Combat mechanics unchanged."
+  ],
+  "corrections": [
+    {
+      "character": "o-que-cria",
+      "slot": "passive",
+      "prompt": "Edit target: this six-cell anime sheet for O que Cria. Change ONLY the foreground hand in TOP-MIDDLE passive cell (x512..1024,y0..512). Replace the ambiguous spread open fingers with a natural tightly CLOSED FIST, knuckles facing camera, thumb properly wrapped outside fingers, wrist connected correctly to the SAME cobalt sleeve and ivory ceramic forearm guard. The closed fist must clearly have a normal five-digit hand structure, with four folded fingers and one thumb. Preserve forearm position, ceramic guard pieces, face, ivory apron, belt caliper and background exactly. Keep every other cell untouched, including all faces, power effects, body proportions and clothing. Preserve1536x1024canvas and same strict3x2grid boundaries. Fully 2D cel anime, no added text, borders or extra hands.",
+      "result": "Replaced ambiguous spread hand with a normal closed fist. Other cells preserved."
+    }
+  ],
+  "sourceFormat": {
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cells": [
+      3,
+      2
+    ],
+    "sprites": [
+      512,
+      512
+    ],
+    "cropInset": 4,
+    "panelBoundaries": {
+      "o-que-cria": {
+        "x": [
+          0,
+          510,
+          1026,
+          1536
+        ],
+        "y": [
+          0,
+          510,
+          1024
+        ]
+      },
+      "o-cultivador": {
+        "x": [
+          0,
+          510,
+          1026,
+          1536
+        ],
+        "y": [
+          0,
+          514,
+          1024
+        ]
+      },
+      "a-arquiteta-verde": {
+        "x": [
+          0,
+          512,
+          1024,
+          1536
+        ],
+        "y": [
+          0,
+          512,
+          1024
+        ]
+      },
+      "o-eco-sem-dono": {
+        "x": [
+          0,
+          511,
+          1025,
+          1536
+        ],
+        "y": [
+          0,
+          513,
+          1024
+        ]
+      }
+    }
+  }
+}

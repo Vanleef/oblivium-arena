@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PMA · Verificação visual da trilha</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/augment-cards.css"><link rel="stylesheet" href="/identity.css"><link rel="stylesheet" href="/realm-identity.css">
+<style>
+body.fixture-host { margin:0; padding:16px; background:#080e13; color:#dcd3bb; font:12px system-ui; }
+.fixture-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:14px; }
+.fixture-toolbar b { margin-right:12px; }.fixture-toolbar label { display:flex; align-items:center; gap:7px; }
+.fixture-toolbar select { padding:7px; background:#172128; color:#e0d7bf; border:1px solid #7b8d7d55; }
+.fixture-note { color:#81958a; font-size:10px; margin:0 0 15px; }
+#fixture-frame { display:block; height:calc(100vh - 120px); min-height:600px; max-width:100%; width:1200px; border:1px solid #53635655; margin:auto; background:#0b1218; }
+body.fixture-render { margin:0; padding:12px; background:#0a1117; }
+.fixture-render .run-panel { margin:0; }
+</style></head>
+<body><script type="module">
+import {elos,buffs,starters} from '/src/data.js';
+import {normalizeCampaign,createExpedition} from '/src/progression.js';
+import {advanceTrail} from '/src/trail.js';
+import {renderTrail} from '/src/trail-view.js';
+import {highlightTrailChoice} from '/src/trail-motion.js';
+const params=new URLSearchParams(location.search);
+if(params.has('render')){
+  document.body.className='fixture-render';
+  const p=normalizeCampaign({ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:elos.map(e=>e.id)});
+  const elo=elos.find(e=>e.id===params.get('elo'))||elos.find(e=>e.id==='protecao'),run=createExpedition(p,elo,'hunt',0,135);
+  const stage=Math.min(6,Math.max(0,Number(params.get('stage'))||0));
+  for(let i=0;i<stage;i++)advanceTrail(run,run.availableNodeIds[0]);
+  run.teamHealth[run.team[0]]=73;run.teamHealth[run.team[2]]=86;
+  document.body.innerHTML=renderTrail(run,elo,null,buffs,p.ownedIds,{profile:p});
+  const preview=event=>highlightTrailChoice(document.body,event.target.closest('[data-route-preview]')?.dataset.routePreview);
+  document.body.addEventListener('pointerover',preview);document.body.addEventListener('focusin',preview);
+  document.body.addEventListener('pointerout',event=>{if(!event.relatedTarget?.closest?.('.journey-shell'))highlightTrailChoice(document.body,null);});
+  document.body.addEventListener('click',event=>{
+    const node=event.target.closest('[data-node]');if(!node)return;
+    if(advanceTrail(run,node.dataset.node).ok)document.body.innerHTML=renderTrail(run,elo,null,buffs,p.ownedIds,{profile:p});
+  });
+}else{
+  document.body.className='fixture-host';
+  document.body.innerHTML=`<div class="fixture-toolbar"><b>PMA · Verificação visual</b><label>Etapa <select id="fixture-stage"><option value="0">Início</option><option value="1" selected>Bifurcação</option><option value="3">Meio</option><option value="6">Conselho</option></select></label><label>Largura <select id="fixture-width"><option value="1200">1200px</option><option value="768">768px</option><option value="390">390px</option><option value="360">360px</option><option value="320">320px</option></select></label><label>Elo <select id="fixture-elo">${elos.map(e=>`<option value="${e.id}" ${e.id==='protecao'?'selected':''}>${e.name}</option>`).join('')}</select></label></div><p class="fixture-note">Cenário isolado para conferir a apresentação. Não lê nem modifica o progresso salvo do jogo.</p><iframe id="fixture-frame" title="Trilha em verificação"></iframe>`;
+  const frame=document.querySelector('iframe'),stage=document.querySelector('#fixture-stage'),width=document.querySelector('#fixture-width'),elo=document.querySelector('#fixture-elo');
+  const render=()=>{frame.style.width=width.value+'px';frame.src=`./trail.html?render=1&stage=${stage.value}&elo=${elo.value}`;};
+  stage.addEventListener('change',render);elo.addEventListener('change',render);width.addEventListener('change',()=>{frame.style.width=width.value+'px';});render();
+}
+</script></body></html>
+
