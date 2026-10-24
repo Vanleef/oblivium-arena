@@ -45,3 +45,5 @@ A diretriz de diversidade corporal e facial está em `CHARACTER_VISUAL_IDENTITIE
 A simulação cobriu 300 confrontos, 100 personagens, 31.996 etapas e 437 técnicas. Cinco confrontos alcançaram o limite de 100 rodadas. A dificuldade de elites e chefes continua exigindo playtests de builds humanas; a simulação entre heurísticas não encerra a avaliação de equilíbrio.
 
 Verificação final: 263 testes aprovados, nenhuma falha; build de produção gerado. As sete artes do Príncipe e seis da Déspota têm hashes, unicidade e referências verificadas.
+
+Conferência em produção: Codex público em português e inglês, busca pelos nomes localizados, biografia e passivas novas de Príncipe e Déspota. As seis imagens da Déspota carregaram no navegador. Evidência: `qa/despot-codex-20261024.jpg`.
