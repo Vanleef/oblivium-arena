@@ -628,6 +628,7 @@ for (const [index, ability] of createFinalBossAbilities().entries()) {
 for (const [index, form] of FINAL_BOSS.bodyForms.entries()) {
   phrases[form.name] = finalBossForms[index][1];
   phrases[form.description] = finalBossForms[index][3];
+  phrases[`${form.name} de O Fim, sem rosto fixo`] = `The End in its ${finalBossForms[index][1]} Form, faceless`;
 }
 
 export const englishCharacterPhrases = phrases;

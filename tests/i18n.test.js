@@ -145,6 +145,11 @@ test("all character names and passive rules have English copy", () => {
     localizeText(resourceLabels[form.resource], "en"),
     localizeText(form.description, "en")
   ]), expectedForms);
+  assert.deepEqual(FINAL_BOSS.bodyForms.map(form => localizeText(`${form.name} de O Fim, sem rosto fixo`, "en")), [
+    "The End in its Tyrant Form, faceless",
+    "The End in its Predator Form, faceless",
+    "The End in its Ruin Form, faceless"
+  ]);
   const bossAbilities = createFinalBossAbilities();
   assert.deepEqual(bossAbilities.slice(0, 3).map(ability => localizeText(ability.description, "en")), [
     "Assume the Tyrant, replace your first three techniques and portrait. Gain 10 Defense when entering this Form. Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation. This Form remains until you use Unreachable End.",
@@ -199,6 +204,8 @@ test("campaign, story, upgrades, and living-world events have English copy", () 
 test("combat tooltips build their rules text directly in English", () => {
   globalThis.localStorage = { getItem: () => "en", setItem() {} };
   assert.equal(abilityQuickEffect({ damage: 20, damageType: "physical", target: "enemy", dot: { tag: "sangramento", damage: 5 } }), "20 physical damage to an enemy · Bleed 5 affliction damage/turn");
+  assert.equal(abilityQuickEffect({ target: "self", boost: 8, shift: [{ slot: "fenda", form: "predator" }] }), "Prepare +8 damage for your next strike");
+  assert.equal(abilityQuickEffect({ generateEssence: { resource: "graca", amount: 1 } }), "Generate 1 Grace");
   assert.equal(abilityConditions({ combo: { condition: "wounded", bonusDamage: 10, consume: true } }), "Bonus against a target at 50% Health or less; consumes the setup.");
   assert.equal(abilityDuration({ dot: { tag: "queimadura", damage: 4, turns: 2 } }), "Burn: 4 affliction damage per turn for 2 turns");
 });

@@ -5,6 +5,7 @@ import { getLanguage } from "./i18n.js";
 
 const damageTypeNames = { physical: "físico", energy: "espiritual", piercing: "perfurante", affliction: "de aflição" };
 const statusNames = { sangramento: "Sangramento", queimadura: "Queimadura", veneno: "Veneno", decadencia: "Decadência" };
+const resourceNamesEn = { essence: "Aether", cinza: "Ash", ruptura: "Rupture", graca: "Grace", coringa: "Wildcard" };
 const conditionNames = {
   bleed: "alvo com Sangramento", burn: "alvo com Queimadura", poison: "alvo com Veneno", decay: "alvo com Decadência",
   afflicted: "alvo com uma aflição", exposed: "alvo Exposto", stunned: "alvo Atordoado", weakened: "alvo Enfraquecido",
@@ -36,12 +37,16 @@ export function abilityQuickEffect(ability = {}) {
     return `${ability.damage} ${target}${additions.length ? ` · ${additions[0]}` : " de dano"}`;
   }
   if (ability.counter) return `Anula e devolve ${ability.counter}`;
-  if (ability.generateEssence) return `Gera ${ability.generateEssence.amount || 1} Essência`;
+  if (ability.generateEssence) {
+    const resource = ability.generateEssence.resource || ability.generateEssence.type || ability.generateEssence.id;
+    return `Gera ${ability.generateEssence.amount || 1} ${resourceById[resource]?.name || "Essência"}`;
+  }
   if (ability.convertEssence) return "Converte Essência";
   if (ability.steal || ability.drain) return `${ability.steal ? "Rouba" : "Drena"} ${ability.steal || ability.drain} Essência`;
   if (ability.heal && ability.shield) return `Cura ${ability.heal} Vida · +${ability.shield} Defesa`;
   if (ability.heal) return `Cura ${ability.heal} Vida`;
   if (ability.shield) return `+${ability.shield} Defesa`;
+  if (ability.boost) return `Prepara +${ability.boost} de dano para o próximo golpe`;
   if (ability.reduce) return `Reduz ${ability.reduce} dano`;
   if (ability.regen) return `Regenera ${ability.regen.heal} Vida`;
   if (ability.shift?.length || ability.forms?.length) return "Muda a técnica";
@@ -74,12 +79,16 @@ function abilityQuickEffectEnglish(ability = {}) {
     return `${ability.damage} ${type} damage ${target}${additions.length ? ` · ${additions.join(" · ")}` : ""}`;
   }
   if (ability.counter) return `Negate and return ${ability.counter} damage`;
-  if (ability.generateEssence) return `Generate ${ability.generateEssence.amount || 1} ${resourceById[ability.generateEssence.type || ability.generateEssence.id]?.name || "Essence"}`;
+  if (ability.generateEssence) {
+    const resource = ability.generateEssence.resource || ability.generateEssence.type || ability.generateEssence.id;
+    return `Generate ${ability.generateEssence.amount || 1} ${resourceNamesEn[resource] || "Essence"}`;
+  }
   if (ability.convertEssence) return "Convert Essence";
   if (ability.steal || ability.drain) return `${ability.steal ? "Steal" : "Drain"} ${ability.steal || ability.drain} Essence`;
   if (ability.heal && ability.shield) return `Restore ${ability.heal} Health · +${ability.shield} Defense`;
   if (ability.heal) return `Restore ${ability.heal} Health`;
   if (ability.shield) return `+${ability.shield} Defense`;
+  if (ability.boost) return `Prepare +${ability.boost} damage for your next strike`;
   if (ability.reduce) return `Reduce damage by ${ability.reduce}`;
   if (ability.regen) return `Regenerate ${ability.regen.heal} Health`;
   if (ability.shift?.length || ability.forms?.length) return "Change technique";

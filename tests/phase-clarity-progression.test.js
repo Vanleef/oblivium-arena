@@ -23,6 +23,8 @@ test('resumo distingue Invulnerável, cura e Defesa destrutível',()=>{
  assert.equal(abilityQuickEffect({target:'team',shield:20,defense:true}),'+20 Defesa');
  assert.equal(abilityQuickEffect({target:'self',heal:10,invulnerable:1,defense:true}), 'Invulnerável · 1 turno · cura 10 Vida');
  assert.equal(abilityQuickEffect({target:'ally',heal:8,shield:12}), 'Cura 8 Vida · +12 Defesa');
+ assert.equal(abilityQuickEffect({target:'self',boost:8,shift:[{slot:'fenda',form:'predator'}]}),'Prepara +8 de dano para o próximo golpe');
+ assert.equal(abilityQuickEffect({generateEssence:{resource:'graca',amount:1}}),'Gera 1 Graça');
 });
 
 test('Memórias são idempotentes por nó, acumulam até três e alimentam a próxima luta',()=>{
