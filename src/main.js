@@ -20,6 +20,10 @@ import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpg
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
+import { accountRequest, currentAccount } from "./account-client.js";
+import { audioEnabled, playSfx, setAudioEnabled, startAmbience } from "./audio.js";
+import { tutorialView } from "./tutorial.js";
+import { storyMarkup } from "./story-content.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -31,7 +35,11 @@ const defaults = {
   completedElos: [],
   xp: 0,
   fragments: 0,
-  run: null
+  run: null,
+  unlockedAvatars: ["soul", ...starters.map(character => character.id)],
+  avatarId: "soul",
+  bio: "",
+  tutorialComplete: false
 };
 
 function readProfile() {
@@ -87,7 +95,15 @@ let state = {
   pending: profile.run?.pending || null,
   difficulty: null,
   toast: "",
-  toastTimer: null
+  toastTimer: null,
+  accountReady: typeof window === "undefined",
+  account: null,
+  accountError: "",
+  authMode: "login",
+  profileError: "",
+  tutorialOpen: false,
+  tutorialStep: 0,
+  audioOn: audioEnabled()
 };
 let battleFxTimer = null;
 let battleFxSequence = 0;
@@ -95,8 +111,24 @@ let trailFxTimer = null;
 
 function save() {
   if(profile.run) profile.run.pending = ["event","reward","upgrade","shop"].includes(state.pending?.type) ? state.pending : null;
+  profile.unlockedAvatars = [...new Set(["soul", ...(profile.ownedIds||[])])];
   localStorage.setItem(SAVE_KEY, JSON.stringify({ ...profile, version: 1 }));
+  if(state.account) {
+    clearTimeout(accountSaveTimer);
+    accountSaveTimer=setTimeout(()=>accountRequest({op:"save",profile:{...profile,version:1}}).catch(error=>{state.profileError=error.message;render();}),350);
+  }
 }
+
+let accountSaveTimer=null;
+
+function accountAvatar(id,size="avatar-small") {
+  const c=characterById[id];return c?.art?.portrait?`<img class="${size}" src="${esc(c.art.portrait)}" alt="">`:`<span class="${size} avatar-soul" aria-hidden="true">☽</span>`;
+}
+function authView(){return `<div class="auth-screen"><section class="auth-card"><img class="auth-moth" src="/art/interface/moth-violet-20261023/brand-moth-192.webp" alt=""><div class="eyebrow">POST MORTEM ARENA</div><h1>${state.authMode==="register"?"Crie sua conta":"Volte à trilha"}</h1><p>Campanha, roguelike e Arena salvam seu progresso na sua conta.</p><div class="auth-switch"><button data-auth-mode="login" class="${state.authMode==="login"?"active":""}">Entrar</button><button data-auth-mode="register" class="${state.authMode==="register"?"active":""}">Criar conta</button></div><form data-auth-form>${state.authMode==="register"?`<label>Nick único<input name="handle" autocomplete="username" minlength="3" maxlength="20" pattern="[\\p{L}\\p{N}_]{3,20}" required placeholder="3–20 letras, números ou _"></label>`:""}<label>E-mail<input name="email" type="email" autocomplete="email" maxlength="254" required></label><label>Senha<input name="password" type="password" autocomplete="${state.authMode==="register"?"new-password":"current-password"}" minlength="10" maxlength="256" required></label><button class="button button-gold full-button" type="submit">${state.authMode==="register"?"CRIAR CONTA":"ENTRAR"} ↗</button></form><p class="auth-message" role="status">${esc(state.accountError||(!state.accountReady?"Conectando ao serviço de contas…":""))}</p><small>Nick e progresso ficam vinculados à sua conta.</small></section></div>`;}
+function profileView(){const unlocked=["soul",...profile.ownedIds],chosen=profile.avatarId||"soul";return `<section class="profile-page"><header class="profile-heading">${accountAvatar(chosen,"avatar-large")}<div><div class="eyebrow">IDENTIDADE DA ALMA</div><h1>Seu perfil</h1><p>Retrato e nick aparecem nas partidas.</p></div><button class="button button-outline" data-action="logout">SAIR</button></header><div class="profile-layout"><form data-profile-form class="profile-form"><label>Nick único<input name="handle" minlength="3" maxlength="20" required value="${esc(state.account?.handle||"")}"></label><label>Sobre você <small>até 160 caracteres</small><textarea name="bio" maxlength="160">${esc(profile.bio||"")}</textarea></label><fieldset><legend>Retrato de perfil</legend><div class="avatar-grid">${unlocked.map(id=>`<button type="button" data-avatar="${esc(id)}" aria-label="Escolher retrato ${esc(characterById[id]?.name||"Alma")}" aria-pressed="${id===chosen}">${accountAvatar(id,"avatar-choice")}<small>${esc(characterById[id]?.name||"Alma desperta")}</small></button>`).join("")}</div></fieldset><button class="button button-gold" type="submit">SALVAR PERFIL</button><p class="profile-message" role="status">${esc(state.profileError)}</p></form><aside class="profile-side"><h2>Progresso guardado</h2><p>${profile.completedElos.length} / ${elos.length} Elos concluídos</p><p>${profile.ownedIds.length} retratos disponíveis · ${profile.xp} XP</p><button class="button button-outline" data-action="open-tutorial">ABRIR TUTORIAL</button><button class="button button-outline" data-action="audio-toggle">${state.audioOn?"DESLIGAR SOM":"LIGAR SOM"}</button><small>Trilha ambiente e efeitos sonoros sintetizados.</small></aside></div></section>`;}
+
+function hydrateAccount(data){state.account=data.user||null;if(data.profile){Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=profile.run?.pending||null;}state.accountReady=true;state.accountError="";state.tutorialOpen=Boolean(state.account&&!profile.tutorialComplete);state.tab=state.account?"rota":state.tab;render();}
+function checkAccount(){if(typeof window==="undefined")return;currentAccount().then(hydrateAccount).catch(error=>{state.accountReady=true;state.accountError=error.message;render();});}
 
 
 function teamResourceLegend(teamIds) {
@@ -212,6 +244,7 @@ function resolveNode(node) {
   if (!profile.run) return;
   const nodeType = node.type || node.id;
   profile.run.currentNodeId = node.id;
+  profile.run.storyBeat=({normal:"O eco anuncia um encontro",elite:"Um guardião de elite rompe o silêncio",mini:"Uma presença antiga se aproxima",boss:"A última barreira deste Elo se ergue",event:"Uma voz pede para ser ouvida",repair:"As correntes são remendadas",shop:"Um mercador oferece um trato",reward:"A vitória deixa um vestígio"})[nodeType]||"A trilha muda sob os pés do trio";
   if (["normal", "elite", "mini", "boss", "finale"].includes(nodeType)) {
     startEncounter(node);
     return;
@@ -367,7 +400,8 @@ function battleChanges(before,battle) {
 function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
   const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
-  const kind=event.mode==="turn"?"turn":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
+  const kind=event.mode==="turn"?"turn":changes.some(c=>c.statuses.some(s=>s.startsWith("FORMA ·")))?"form":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
+  playSfx(event.reactions?.length?"reactive":kind==="form"?"form":kind==="restore"?"heal":kind==="impact"?"impact":"cast");
   state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="world")?"Eco ativado":event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
 }
 function resolveCombatStep() {
@@ -414,7 +448,7 @@ function header() {
   const tabList = [
     ["rota", "Grande Rota"],
     ["trio", "Formar Trio"],
-    ["codex", "Codex"], ["arena", "Arena"]
+    ["codex", "Codex"], ["arena", "Arena"], ["profile", "Perfil"]
   ];
   return `
     <header class="topbar">
@@ -423,7 +457,7 @@ function header() {
         <span class="brand-name"><b>POST MORTEM</b><small>ARENA</small></span>
       </button>
       <nav class="main-nav" aria-label="Navegação principal">${tabList.map(([id, label]) => `<button class="nav-link ${state.tab === id ? "active" : ""}" data-tab="${id}">${uiIcon(id)}<span>${label}</span></button>`).join("")}</nav>
-      <div class="player-chip"><span class="player-orb">${uiIcon("essence")}</span><span><b>Alma desperta</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></div>
+      <button class="player-chip" data-tab="profile">${accountAvatar(profile.avatarId||"soul","avatar-small")}<span><b>${esc(state.account?.handle||"Alma desperta")}</b><small>Nível ${playerLevel(profile.xp).level} · ${profile.xp} XP</small></span></button>
       <button class="mobile-menu" data-tab="trio" aria-label="Abrir equipe">☰</button>
     </header>`;
 }
@@ -473,7 +507,7 @@ function resonanceCard() {
 function routeView() {
   const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=profile.completedElos.length>=elos.length;
   const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${realmEmblem(item.id)}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Elo":"Elos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
-  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div>${selection}</section>${state.pending?pendingPanel():""}`}
+  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} ELOS VENCIDOS</span></div>${selection}</section>${state.pending?pendingPanel():""}`}
     ${renderLegacies(profile)}
     ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3><p>Sem rosto fixo. Cada alma encara o próprio maior medo.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
 }
@@ -568,21 +602,23 @@ function codexView() {
     }).join("")}</div>`;
 }
 
-function battleView() { return state.battle?.phase==="influence"&&!state.battleFx ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo()); }
+function battleView() { const name=state.battle?.online?state.online?.profile?.name:state.account?.handle;return `${profile.run?storyMarkup(profile.run):""}<aside class="battle-player-identity">${accountAvatar(profile.avatarId||"soul","avatar-small")}<b>${esc(name||"Alma")}</b><small>JOGADOR</small></aside>`+(state.battle?.phase==="influence"&&!state.battleFx ? renderInfluences(state.battle) : renderWorldHistory(state.battle||{})+renderBattle(state, activeElo())); }
 
 function render() {
   const tab = state.tab;
   const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill"),focusForm=focused?.getAttribute?.("data-preview-form"),focusPayment=focused?.getAttribute?.("data-random-payment");
   document.body.dataset.tab = tab;
+  if(typeof window!=="undefined"&&(!state.accountReady||!state.account)){app.innerHTML=authView();return;}
   app.innerHTML = `
     <div class="app-shell">
       ${header()}
       ${statusStrip()}
       <main class="main-content">
-        ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : tab === "arena" ? arenaView() : battleView()}
+        ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : tab === "arena" ? arenaView() : tab === "profile" ? profileView() : battleView()}
       </main>
       <footer class="site-footer"><span>PMA: POST MORTEM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS REINOS, DEZESSETE ELOS, UMA ESCOLHA</span><span>BUILD 0.5</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
+      ${state.tutorialOpen?`<div class="tutorial-backdrop">${tutorialView(state.tutorialStep)}</div>`:""}
     </div>`;
   renderBattleMotion(app,state.battleFx);
   if(state.confirmTurn&&focusPayment){const button=app.querySelector(`[data-random-payment="${focusPayment}"]`);(button&&!button.disabled?button:app.querySelector(`[data-random-payment="${focusPayment.split(":")[0]}:${focusPayment.endsWith(":1")?"-1":"1"}"]`))?.focus({preventScroll:true});}
@@ -622,13 +658,22 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-random-payment], [data-world-event], [data-codex-skill], [data-preview-form], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion]");
+  const target = event.target.closest("[data-random-payment], [data-world-event], [data-codex-skill], [data-preview-form], [data-tab], [data-realm], [data-start-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial]");
   if (!target) return;
+  if(state.account&&state.audioOn)startAmbience();
+  playSfx("click");
+  if(target.dataset.authMode){state.authMode=target.dataset.authMode;state.accountError="";render();return;}
+  if(target.dataset.avatar){profile.avatarId=target.dataset.avatar;state.profileError="";render();return;}
+  if(target.dataset.tutorial!==undefined){const next=Number(target.dataset.tutorial);if(next>=6){state.tutorialOpen=false;profile.tutorialComplete=true;save();}else state.tutorialStep=Math.max(0,next);render();return;}
   if(target.dataset.worldEvent){if(state.battleFx||state.online?.busy)return;if(state.battle?.online){sendOnline({op:"influence",eventId:target.dataset.worldEvent});return;}if(chooseInfluence(state.battle,target.dataset.worldEvent)){render();if(state.battle.phase==="resolving")resolveCombatStep();}return;}
   if (target.dataset.codexSkill !== undefined) { event.preventDefault(); toggleCodexSkill(target); return; }
   if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
   if (state.trailBusy) return;
   if(target.dataset.action==="connect-arena"){sendOnline({op:"profile"});return;}
+  if(target.dataset.action==="open-tutorial"){state.tutorialOpen=true;state.tutorialStep=0;render();return;}
+  if(target.dataset.action==="skip-tutorial"){state.tutorialOpen=false;profile.tutorialComplete=true;save();render();return;}
+  if(target.dataset.action==="audio-toggle"){state.audioOn=!state.audioOn;setAudioEnabled(state.audioOn);if(state.audioOn)startAmbience();render();return;}
+  if(target.dataset.action==="logout"){clearTimeout(accountSaveTimer);accountRequest({op:"logout"}).finally(()=>{state.account=null;state.accountReady=true;state.authMode="login";state.tab="rota";render();});return;}
   if(target.dataset.action==="queue-online"){if(state.battle&&!state.battle.online){toast("Termine o combate atual antes de buscar uma partida.");return;}state.online.queuing=true;sendOnline({op:"queue",team:profile.team});return;}
   if(target.dataset.action==="cancel-online"){state.online.queuing=false;sendOnline({op:"cancel"});return;}
   if(target.dataset.action==="resume-online"){state.tab="battle";render();return;}
@@ -710,6 +755,19 @@ app.addEventListener("click", (event) => {
   }
 });
 
+app.addEventListener("submit",async event=>{
+ if(event.target.matches("[data-auth-form]")){
+  event.preventDefault();const fields=new FormData(event.target),op=state.authMode==="register"?"register":"login";state.accountError="Conectando…";render();
+  try{const data=await accountRequest({op,email:fields.get("email"),password:fields.get("password"),...(op==="register"?{handle:fields.get("handle")}:{})});hydrateAccount(data);if(state.account){startAmbience();save();}}
+  catch(error){state.accountError=error.message;state.accountReady=true;render();}return;
+ }
+ if(event.target.matches("[data-profile-form]")){
+  event.preventDefault();const fields=new FormData(event.target);state.profileError="Salvando…";render();
+  try{const data=await accountRequest({op:"save",handle:fields.get("handle"),bio:fields.get("bio"),avatarId:profile.avatarId||"soul",profile:{...profile,version:1}});state.account=data.user;Object.assign(profile,normalizeCampaign(data.profile));state.profileError="Perfil salvo.";render();}
+  catch(error){state.profileError=error.message;render();}return;
+ }
+});
+
 app.addEventListener("input", (event) => {
   if (event.target.matches("[data-search]")) {
     state.crewSearch = event.target.value;
@@ -743,6 +801,7 @@ app.addEventListener("keydown", (event) => {
 });
 
 render();
+checkAccount();
 
 
 

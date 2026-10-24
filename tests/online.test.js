@@ -19,7 +19,7 @@ test('prazo persiste após reconectar e a derrota por inatividade é liquidada u
 test('sem banco: endpoint informa bloqueio e não simula jogadores ou classificação',async()=>{const oldUrl=process.env.UPSTASH_REDIS_REST_URL,oldToken=process.env.UPSTASH_REDIS_REST_TOKEN;delete process.env.UPSTASH_REDIS_REST_URL;delete process.env.UPSTASH_REDIS_REST_TOKEN;try{let status,data;const res={setHeader(){},status(code){status=code;return this;},json(v){data=v;return v;}};await handler({method:'GET',headers:{}},res);assert.equal(data.configured,false);await handler({method:'POST',headers:{}},res);assert.equal(status,503);assert.equal(data.code,'DATABASE_NOT_CONFIGURED');}finally{if(oldUrl)process.env.UPSTASH_REDIS_REST_URL=oldUrl;if(oldToken)process.env.UPSTASH_REDIS_REST_TOKEN=oldToken;}});
 
 
-test('Arena recebe a escolha Aleatório, rejeita pagamento adulterado e mantém a versão após rejeição',async()=>{
+test('Arena recebe a escolha Qualquer, rejeita pagamento adulterado e mantém a versão após rejeição',async()=>{
  const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
  let views=await Promise.all([service.request(a.token),service.request(b.token)]);
  for(let i=0;i<2;i++){const v=views.find(v=>v.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});views=await Promise.all([service.request(a.token),service.request(b.token)]);}

@@ -110,9 +110,9 @@ test('metadados visuais do mundo não desviam o clique de alvo para a navegaçã
 
 
 
-test('pagamento Aleatório pode ser ajustado na revisão e impede confirmação incompleta',async t=>{
+test('pagamento Qualquer pode ser ajustado na revisão e impede confirmação incompleta',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});t.mock.method(Math,'random',()=>.6);const {app,click}=setup();await import('../src/main.js?random-payment=1');click({startRun:'sangria'});click({node:'0:0'});t.mock.timers.tick(500);draft();
- click({useSkill:'o-escudo-vivo:despertar'});click({target:'o-escudo-vivo'});click({action:'review-turn'});assert.match(app.innerHTML,/1 Aleatório/);assert.match(app.innerHTML,/Pagamento completo/);
+ click({useSkill:'o-escudo-vivo:despertar'});click({target:'o-escudo-vivo'});click({action:'review-turn'});assert.match(app.innerHTML,/Custo Qualquer · 1/);assert.match(app.innerHTML,/Pagamento completo/);
  const selected=app.innerHTML.match(/data-random-payment="([^:]+):-1"  aria-label/)?.[1];assert.ok(selected);click({randomPayment:`${selected}:-1`});assert.match(app.innerHTML,/Falta escolher 1/);assert.match(app.innerHTML,/data-action="commit-turn" disabled/);
  click({action:'commit-turn'});assert.match(app.innerHTML,/Pronto para executar/);assert.doesNotMatch(app.innerHTML,/O Escudo Vivo usa/);
  click({randomPayment:`${selected}:1`});assert.match(app.innerHTML,/Pagamento completo/);click({action:'commit-turn'});assert.match(app.innerHTML,/O Escudo Vivo usa/);

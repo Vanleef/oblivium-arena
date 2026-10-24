@@ -16,6 +16,12 @@ test('os 100 kits têm estrutura e descrições dos novos efeitos, sem técnicas
  for(const c of characters){assert.ok(c.mechanic,c.name);for(const a of allSkillForms(c)){assert.equal(Object.values(getAbilityResourceCosts(c,a)).reduce((n,v)=>n+v,0),a.cost);for(const [field,term]of [['reactive','Ativa uma vez'],['regen','Regeneração'],['sealSupport','Sela técnicas de apoio'],['sealAttack','Sela técnicas ofensivas'],['healingBlock','cura recebida'],['escalating','Atordoamento zera'],['reduceCooldown','recargas não defensivas']])if(a[field])assert.ok(a.description.includes(term),`${c.name}/${a.name}: ${field}`);}}
 });
 
+test('oito novos kits reagem a ataques, dano ou inatividade com efeito e custo descritos',()=>{
+ const ids=['o-escudo-vivo','a-mao-que-cura','a-pele-alheia','o-primeiro-canto','o-que-ficou','o-que-observou','o-relogio-afogado','a-linha-partida'];
+ for(const id of ids){const c=characters.find(unit=>unit.id===id),skill=c.abilities[1];assert.ok(skill.reactive,c.name);assert.ok(['attack','damaged','idle'].includes(skill.reactive.trigger),c.name);assert.match(skill.description,/Efeito reativo/);assert.match(skill.description,/Ativa uma vez/);assert.equal(Object.values(getAbilityResourceCosts(c,skill)).reduce((n,v)=>n+v,0),skill.cost,c.name);}
+ assert.ok(characters.filter(c=>c.abilities.slice(0,3).some(a=>a.reactive)).length>=26);
+});
+
 test('armadilha de ataque ativa uma vez e não reage a apoio ou inatividade',()=>{
  for(const kind of ['attack','support','idle']){const b=battle();if(kind!=='idle')enemyAction(b,kind==='attack'?attack:support);cast(b,{id:'trap',name:'Armadilha',damage:0,target:'enemy',costs:{},reactive:{trigger:'attack',damage:12,turns:1}});assert.equal(b.enemies[0].hp,kind==='attack'?9988:10000);assert.equal(b.enemies[0].reactives.length,0);passTurn(b);assert.equal(b.enemies[0].hp,kind==='attack'?9988:10000);}
 });
@@ -87,4 +93,5 @@ test('uma armadilha de inatividade encerra o confronto antes de novas ações e 
 test('Legado de aflição aumenta a armadilha sem multiplicar suas ativações',()=>{
  const b=battle();b.global.afflictionPower=3;cast(b,{id:'trap',name:'Armadilha',target:'enemy',costs:{},reactive:{trigger:'idle',damage:10,turns:1}});assert.equal(b.enemies[0].hp,9987);passTurn(b);assert.equal(b.enemies[0].hp,9987);
 });
+
 

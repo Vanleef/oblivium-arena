@@ -1,4 +1,4 @@
-// Aleatório is a flexible COST, never a fifth resource drawn into the pool.
+// Qualquer is a flexible COST, never a fifth resource drawn into the pool.
 export const resourceIds=['essence','cinza','graca','ruptura'];
 export function getAbilityResourceCosts(actor,ability){
  return Object.entries(ability.costs||(ability.cost?{essence:ability.cost}:{})).reduce((out,[id,n])=>{
@@ -24,7 +24,7 @@ export function resolveResourcePayment(costs,pool,selected){
  const invalid=!payment||typeof payment!=='object'||Array.isArray(payment)||Object.keys(payment).some(id=>!resourceIds.includes(id))||resourceIds.some(id=>!Number.isSafeInteger(payment[id]??0)||(payment[id]||0)<0||(payment[id]||0)>available[id]);
  const chosen=invalid?{}:Object.fromEntries(resourceIds.map(id=>[id,payment[id]||0]));
  const missing=required-total(chosen);
- return {ok:!invalid&&missing===0,reason:invalid?'Seleção de recursos inválida.':missing?'Complete o custo Aleatório.':'',fixed,available,required,selected:chosen,suggestion,missing,costs:Object.fromEntries(resourceIds.map(id=>[id,fixed[id]+(chosen[id]||0)]))};
+ return {ok:!invalid&&missing===0,reason:invalid?'Seleção de recursos inválida.':missing?'Complete o custo Qualquer.':'',fixed,available,required,selected:chosen,suggestion,missing,costs:Object.fromEntries(resourceIds.map(id=>[id,fixed[id]+(chosen[id]||0)]))};
 }
 export function allocateQueuePayment(actions,units,pool,selected){
  const specs=actions.map(action=>{

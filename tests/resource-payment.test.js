@@ -13,14 +13,16 @@ function battle(costs){const b=createBattle(starters.map(c=>c.id),[target],{rng:
 function queue(b,i){const u=b.allies[i];return chooseAction(b,u.id,'use',b.enemies[0].id);}
 const snapshot=b=>JSON.stringify(b);
 
-test('Aleatório é um custo preto, sem quinto recurso sorteado; todas as quartas defesas custam 1',()=>{
- assert.equal(resources.length,4);assert.equal(resourceById.random.name,'Aleatório');
- for(const c of [...characters,createFinalBoss()]){assert.equal(c.abilities[3].invulnerable,1);assert.deepEqual(c.abilities[3].costs,{random:1},c.name);assert.match(costMarkup(c,c.abilities[3]),/Custo: 1 Aleatório/);assert.match(costMarkup(c,c.abilities[3]),/pip-random/);}
- const ordinary=characters.filter(c=>c.abilities.slice(0,3).some(a=>a.costs.random));assert.equal(ordinary.length,12);
+test('Qualquer é um custo preto, sem quinto recurso sorteado; todas as quartas defesas custam 1',()=>{
+ assert.equal(resources.length,4);assert.equal(resourceById.random.name,'Qualquer');
+ for(const c of [...characters,createFinalBoss()]){assert.equal(c.abilities[3].invulnerable,1);assert.deepEqual(c.abilities[3].costs,{random:1},c.name);assert.match(costMarkup(c,c.abilities[3]),/Custo: 1 Qualquer/);assert.match(costMarkup(c,c.abilities[3]),/pip-random/);}
+ const ordinary=characters.filter(c=>c.abilities.slice(0,3).some(a=>a.costs.random));assert.ok(ordinary.length>characters.length/2,`Qualquer aparece em ${ordinary.length} personagens`);
+ assert.equal(ordinary.length,77);
+ for(const c of characters){const skill=c.abilities[1];if(skill.costs.random)assert.equal(Object.values(skill.costs).reduce((sum,n)=>sum+n,0),skill.cost,`${c.name}: a flexibilidade não altera os pontos totais`);}
  const b=battle([{}]);assert.deepEqual(Object.keys(b.resources),resourceIds);assert.ok(!b.energyDraws.player.includes('random'));
 });
 
-test('cada corpo usa um recurso próprio no motor e no preview; o custo Aleatório não muda com o corpo',()=>{
+test('cada corpo usa um recurso próprio no motor e no preview; o custo Qualquer não muda com o corpo',()=>{
  for(const c of [createFinalBoss(),...characters.filter(c=>c.bodyForms)]){
   const seen=new Set([c.affinity]);
   for(const f of c.bodyForms){assert.ok(!seen.has(f.resource),`${c.name}/${f.name}`);seen.add(f.resource);const p=previewBodyForm(c,f.key);assert.equal(p.bodyResource,f.resource);assert.deepEqual(getAbilityResourceCosts(p,p.abilities[3]),{random:1});for(const a of p.abilities.slice(0,3)){if(a.costs.affinity)assert.equal(getAbilityResourceCosts(p,a)[f.resource]>=a.costs.affinity,true);}}
@@ -68,7 +70,7 @@ test('duelo valida o pagamento agregado nos dois lados e ignora tentativas de fa
  submitDuelTurn(b,'enemy',[action(second)],{cinza:1});assert.equal(second.cooldowns.despertar,4);assert.equal(second.invulnerable,1);assert.equal(b.enemyResources.cinza,0);
 });
 
-test('IA fixa pagamentos concretos e não cria uma reserva Aleatório',()=>{
+test('IA fixa pagamentos concretos e não cria uma reserva Qualquer',()=>{
  const b=battle([{}]);const e=b.enemies[0];e.abilities=[{id:'wild',name:'Ataque',target:'enemy',damage:40,costs:{random:2}}];b.enemyResources=pool({graca:1,ruptura:1});const before=snapshot(b),plan=getCombatPlan(b);assert.equal(snapshot(b),before);assert.equal(plan.length,1);assert.deepEqual(plan[0].randomPayment,pool({graca:1,ruptura:1}));assert.equal(resolveResourcePayment({random:2},b.enemyResources,plan[0].randomPayment).ok,true);
  b.enemyResources=pool({graca:1});assert.equal(getCombatPlan(b).length,0);
 });
@@ -76,7 +78,7 @@ test('IA fixa pagamentos concretos e não cria uma reserva Aleatório',()=>{
 test('revisão mostra sugestão, ajustes, custos separados e confirmação bloqueada enquanto faltar pagamento',()=>{
  const b=battle([{essence:1,random:2}]);b.resources=pool({essence:2,ruptura:2});queue(b,0);
  const state={battle:b,battleNode:{label:'Teste'},confirmTurn:true},elo={name:'Sangria'};
- let html=renderBattle(state,elo);assert.match(html,/2 Aleatório/);assert.match(html,/USAR SUGESTÃO/);assert.match(html,/Gastar menos Ruptura/);assert.match(html,/Pagamento completo/);assert.doesNotMatch(html,/data-action="commit-turn" disabled/);
+ let html=renderBattle(state,elo);assert.match(html,/Custo Qualquer · 2/);assert.match(html,/USAR SUGESTÃO/);assert.match(html,/Gastar menos Ruptura/);assert.match(html,/Pagamento completo/);assert.doesNotMatch(html,/data-action="commit-turn" disabled/);
  state.randomPayment=pool({ruptura:1});html=renderBattle(state,elo);assert.match(html,/Falta escolher 1/);assert.match(html,/data-action="commit-turn" disabled/);assert.match(html,/1 fixos/);
 });
 

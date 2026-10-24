@@ -50,3 +50,7 @@ Este é um protótipo jogável com 100 kits implementados; 74 já têm conjuntos
 O elenco de 100 kits recebeu estruturas de preparação, transformação, reação, crescimento e apoio, com 56 técnicas alternativas. Armadilhas, selos seletivos, regeneração e conversão de recursos acrescentam decisões sem mudar os quatro espaços. As estruturas estão documentadas em `docs/SKILL_FORMS.md` e verificadas em `tests/skill-forms.test.js`.
 
 `node scripts/simulate-combat.mjs` reproduz 300 partidas completas com sementes fixas e recursos normais. `docs/COMBAT_QA.md` registra cobertura e limites dessa avaliação. A IA compara ações do trio, proteção dos alvos e utilidade do apoio antes de reservar energia; não usa a fila do jogador nem sorteios futuros. Efeitos ativos podem ser consultados ao inspecionar uma alma, incluindo origem e gatilho das reações.
+
+# PMA: Post Mortem Arena
+
+`npm run dev` starts the game and local account API on port 4173. Local users and campaign progress persist in the ignored `.pma-dev-data.json` file. For a hosted deployment, configure `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` in Vercel; the hosted server deliberately has no filesystem or in-memory account fallback.

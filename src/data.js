@@ -118,7 +118,7 @@ export const resources = [
   { id: "ruptura", name: "Ruptura", shortName: "Ruptura", icon: "⟲", color: "limbo" }
 ];
 
-export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Aleatório",color:"random"}};
+export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Qualquer",color:"random"}};
 export const realmResource = { Inferno: "cinza", "Paraíso": "graca", Limbo: "ruptura" };
 
 const starterArt = {
@@ -247,7 +247,18 @@ export const realms = [
   }
 ];
 
-export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))));
+const reactiveKits={
+ "o-escudo-vivo":{tecnica:{trigger:"damaged",damage:14,turns:1}},
+ "a-mao-que-cura":{tecnica:{trigger:"damaged",healSource:12,turns:1}},
+ "a-pele-alheia":{tecnica:{trigger:"damaged",damage:16,turns:1}},
+ "o-primeiro-canto":{tecnica:{trigger:"damaged",heal:8,turns:1}},
+ "o-que-ficou":{tecnica:{trigger:"damaged",shieldSource:12,turns:1}},
+ "o-que-observou":{tecnica:{trigger:"attack",exposeAttacker:true,turns:1}},
+ "o-relogio-afogado":{tecnica:{trigger:"idle",heal:10,turns:1}},
+ "a-linha-partida":{tecnica:{trigger:"damaged",damage:12,turns:1}}
+};
+function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>kit[a.id]&&!a.reactive?{...a,reactive:kit[a.id],description:`${a.description} Efeito reativo: responde à condição indicada. Ativa uma vez.`}:a)};}
+export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))));
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));

@@ -28,8 +28,8 @@ test("cada personagem tem quatro técnicas e uma passiva própria", () => {
   }
 });
 
-test("custos fixos combinam recursos do reino e a quarta defesa usa Aleatório", () => {
-  assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { cinza: 1, essence: 1 });
+test("custos fixos combinam recursos do reino, a segunda técnica oferece flexibilidade e defesa usa Qualquer", () => {
+  assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { cinza: 1, random: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Escudo Vivo"), byName("O Escudo Vivo").abilities[2]), { essence: 1, graca: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { random: 1 });
 });

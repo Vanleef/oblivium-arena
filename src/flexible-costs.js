@@ -13,5 +13,12 @@ function flexibleSkill(a){
  return {...a,costs,...(a.forms?{forms:a.forms.map(flexibleSkill)}:{})};
 }
 export function withFlexibleCosts(c){
- const slot=flexible[c.id];return slot?{...c,abilities:c.abilities.map(a=>a.id===slot?flexibleSkill(a):a)}:c;
+ const slot=flexible[c.id];
+ // A fixed secondary pip becomes flexible for the second technique across the
+ // roster. Total pips stay constant, so the added choice does not reduce cost.
+ return {...c,abilities:c.abilities.map((a,index)=>{
+  if(a.id===slot)return flexibleSkill(a);
+  if(index===1&&a.costs?.essence&&!a.costs.random)return flexibleSkill(a);
+  return a;
+ })};
 }

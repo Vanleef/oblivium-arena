@@ -11,14 +11,14 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 
 1. Escolha uma habilidade e um alvo destacado.
 2. Cada personagem usa uma ação por turno. A fila reserva os recursos.
-3. Reordene ou remova ações, revise, escolha o pagamento Aleatório e confirme em Pronto.
+3. Reordene ou remova ações, revise, escolha o pagamento Qualquer e confirme em Pronto.
 4. As ações aliadas e a resposta adversária resolvem uma a uma.
 5. Aflições e durações são atualizadas antes do próximo planejamento.
 
 ## Durações e recursos
 
-- A quarta técnica das 100 almas concede Invulnerável por uma resposta adversária. Custa 1 Aleatório; fica indisponível nos quatro turnos próprios seguintes.
-- Aleatório é um custo preto pago com qualquer combinação dos quatro tipos. Na revisão, os custos fixos são reservados antes da sugestão automática; os controles permitem escolher o que gastar e ver o saldo preservado. Não é um quinto recurso sorteado.
+- A quarta técnica das 100 almas concede Invulnerável por uma resposta adversária. Custa 1 Qualquer; fica indisponível nos quatro turnos próprios seguintes.
+- Qualquer é um custo preto pago com qualquer combinação dos quatro tipos. Na revisão, os custos fixos são reservados antes da sugestão automática; os controles permitem escolher o que gastar e ver o saldo preservado. Não é um quinto recurso sorteado.
 - Corpos distintos usam recursos principais diferentes; o seletor de formas do Codex mostra o recurso e o kit de cada corpo.
 - Invulnerável impede novas habilidades inimigas; aflições anteriores continuam.
 - Dano perfurante ignora redução; aflição ignora redução e Defesa destrutível.
