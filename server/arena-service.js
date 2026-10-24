@@ -27,7 +27,7 @@ export class ArenaService{
   const now=this.now(),fresh=!/^[a-f0-9]{64}$/.test(token||''),sessionToken=fresh?randomBytes(32).toString('hex'):token;
   const result=await this.store.transaction(async tx=>{
    const sessionKey=`session:${hash(sessionToken)}`;let id,p;
-   if(identity?.id){id=await tx.get(`account-arena:${identity.id}`)||randomUUID();await tx.set(`account-arena:${identity.id}`,id);await tx.set(sessionKey,id);p=await tx.get(profileKey(id));}
+   if(identity?.id){const accountKey=`account-arena:${identity.id}`;id=await tx.get(accountKey);if(!id){id=await tx.get(sessionKey)||randomUUID();await tx.set(accountKey,id);}p=await tx.get(profileKey(id));}
    else{id=await tx.get(sessionKey);p=id?await tx.get(profileKey(id)):null;}
    if(!p){id=id||randomUUID();p={id,name:`Alma ${id.slice(0,6)}`,rating:1000,wins:0,losses:0,streak:0,xp:0,matchId:null};await tx.set(sessionKey,id);await tx.set(profileKey(id),p);}
    if(identity?.handle){p.name=identity.handle;p.avatarId=identity.avatarId||'soul';await tx.set(profileKey(id),p);}
