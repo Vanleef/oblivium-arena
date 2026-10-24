@@ -6,7 +6,7 @@ import { beginInfluences, chooseInfluence, persistentCombatHp } from "./world-in
 import { renderInfluences, renderWorldHistory } from "./influence-view.js";
 import { playerLevel } from "./player-level.js";
 import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById, realmResource } from "./data.js";
-import { getResonance, getEloRoster, getRelevantBuffs } from "./rules.js";
+import { getResonance, getEloRoster, getRelevantBuffs, getBuffChoices } from "./rules.js";
 import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, getTurnPayment, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction } from "./engine.js";
 import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
@@ -295,7 +295,7 @@ function resolveNode(node) {
   if (nodeType === "event") state.pending = { type: "event" };
   if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffs(profile.run.team, profile.run.buffs).slice(0, 3) };
   if (nodeType === "upgrade") {
-    const choices = getRelevantBuffs(profile.run.team, profile.run.buffs);
+    const choices = getBuffChoices(profile.run.team, profile.run.buffs, 3);
     state.pending = { type: "upgrade", choices: choices.sort(() => Math.random() - 0.5).slice(0, 3) };
   }
   save();render();
