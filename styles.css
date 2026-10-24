@@ -204,9 +204,34 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .choice-actions button:hover, .buff-card:hover { border-color: var(--gold); }
 .choice-actions b, .buff-card b { font-size: 11px; }
 .choice-actions small, .buff-card small { margin-top: 5px; color: var(--muted); font-size: 9px; }
-.buff-choices { grid-template-columns: repeat(3, 1fr); }
-.buff-card { position: relative; padding-left: 42px; }
-.buff-card > span { position: absolute; left: 14px; top: 15px; color: var(--gold); font-size: 17px; }
+.difficulty-picker { margin: 18px 0 21px; padding: 15px; border: 1px solid var(--line); background: rgba(24, 25, 31, .72); }
+.difficulty-heading { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 11px; }
+.difficulty-heading > div { display: grid; gap: 5px; }
+.difficulty-heading > div > b { color: var(--text); font-family: Georgia, serif; font-size: 15px; font-weight: 400; }
+.difficulty-heading > small { color: var(--muted); font-size: 9px; text-align: right; }
+.difficulty-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+.difficulty-option { min-width: 0; min-height: 76px; display: grid; grid-template-columns: 27px minmax(0, 1fr); align-items: start; column-gap: 8px; padding: 10px; text-align: left; color: var(--text); cursor: pointer; border: 1px solid var(--line); background: #202128; }
+.difficulty-option:hover, .difficulty-option.selected { border-color: var(--gold); background: rgba(117, 91, 54, .18); }
+.difficulty-mark { display: grid; place-items: center; width: 27px; height: 27px; color: var(--gold); border: 1px solid rgba(196, 161, 105, .35); border-radius: 50%; font-size: 14px; }
+.difficulty-copy { display: grid; gap: 4px; min-width: 0; }
+.difficulty-copy b { font-size: 10px; }
+.difficulty-copy small { color: var(--muted); font-size: 8px; line-height: 1.45; }
+.difficulty-option > i { grid-column: 2; color: var(--gold); font-size: 10px; font-style: normal; font-weight: 700; }
+.difficulty-option > i small { display: block; margin-top: 2px; color: var(--muted); font-size: 7px; letter-spacing: .08em; }
+.difficulty-current { display: flex; align-items: center; gap: 10px; margin: 17px 0; padding: 10px 13px; border: 1px solid var(--line); background: rgba(24, 25, 31, .72); }
+.difficulty-current > span:nth-child(2) { display: grid; gap: 3px; min-width: 100px; }
+.difficulty-current small { color: var(--muted); font-size: 7px; letter-spacing: .1em; }
+.difficulty-current b { color: var(--gold); font-size: 10px; }
+.difficulty-current p { margin: 0; color: var(--muted); font-size: 9px; }
+.buff-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.buff-card { min-height: 165px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 13px; }
+.buff-icon { display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 2px; color: var(--gold); border: 1px solid rgba(196, 161, 105, .35); border-radius: 7px; background: rgba(196, 161, 105, .08); font-size: 18px; }
+.buff-card .buff-category { color: var(--gold); font-size: 7px; letter-spacing: .13em; text-transform: uppercase; }
+.buff-card b { font-size: 11px; }
+.buff-card small { margin: 0; color: #b2adb0; font-size: 9px; line-height: 1.45; }
+.buff-card em { margin-top: auto; color: #817d84; font-size: 8px; font-style: italic; line-height: 1.45; }
+.stun-skip { width: 100%; min-height: 37px; margin-top: 9px; color: #e7c97f; cursor: pointer; border: 1px solid rgba(231, 201, 127, .4); background: rgba(91, 66, 34, .2); font-size: 8px; letter-spacing: .08em; }
+.stun-skip:hover { border-color: var(--gold); }
 .notice-panel { display: flex; align-items: center; gap: 15px; }
 .notice-panel p { margin-bottom: 0; }
 .notice-icon { color: var(--gold); font-size: 27px; }
@@ -1406,5 +1431,6 @@ body:has(.journey-shell) { min-width: 0; }
 @media(max-width:680px){body[data-tab="battle"]{min-width:0}.battle-header,.arena-reading,.arena-plan,.arena-match{min-width:0}.arena-turn-control .button,.queue-heading-controls .button,.review-controls .button{min-height:44px;font-size:10px}.arena-detail p{font-size:12px;line-height:1.65}.arena-detail footer{font-size:10px}.turn-state{font-size:9px}.arena-match .unit-name{font-size:10px}.arena-match .health-row b{font-size:9px}.arena-topline .resource-meter small{font-size:8px}.arena-topline .resource-meter{padding:7px 3px}.world-history{font-size:12px}.arena-plan header{gap:10px}.world-rule{font-size:12px}}
 @media(max-width:480px){.arena-skills{grid-template-columns:repeat(2,minmax(44px,48px));justify-content:start;gap:10px;padding-bottom:8px}.arena-skill.skill-button{width:100%;height:48px;min-height:44px;aspect-ratio:auto;touch-action:manipulation}.arena-ally-row{min-height:126px}.arena-opposition{grid-template-rows:24px repeat(3,126px);gap:10px}.arena-skill .cost-pip{width:8px;height:8px}.arena-skill>.skill-slot-index{width:13px;height:13px;font-size:8px}.arena-skill .skill-cooldown small{font-size:6px}.arena-match .unit-statuses{max-height:70px;overflow:hidden}.battle-header{grid-template-columns:minmax(0,1fr)}.arena-turn-control{justify-content:space-between;width:100%}.battle-header .eyebrow{font-size:9px}.arena-topline .resource-meter{grid-template-columns:10px minmax(0,1fr);gap:3px}.arena-topline .resource-symbol{font-size:10px}}
 .arena-ready-team{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0;padding:16px 0;border-top:1px solid #ffffff15;border-bottom:1px solid #ffffff15;align-items:center}.arena-ready-team>div{display:flex;align-items:center;gap:10px;min-width:0}.arena-ready-portrait{width:40px;height:48px;object-fit:cover;border:1px solid #a18e5f66;border-radius:3px}.arena-ready-team span{font-size:13px;color:#ccc3b6}.arena-ready-team>.button{margin-left:auto}@media(max-width:480px){.arena-ready-team{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}.arena-ready-team>.button{margin-left:0}.arena-ready-portrait{width:36px;height:44px}}
+
 
 
