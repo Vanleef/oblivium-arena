@@ -1,0 +1,30 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PMA · Verificação das transformações</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/augment-cards.css"><link rel="stylesheet" href="/identity.css"><link rel="stylesheet" href="/realm-identity.css"><link rel="stylesheet" href="/moth-theme.css"><style>body.host{padding:16px;min-width:0;font:13px system-ui}.fixture-tools{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 14px}.fixture-tools label{display:flex;gap:8px;align-items:center}.fixture-tools select{color:#f5ead6;background:#25182f;padding:8px}.fixture-note{color:#c0aecb;font-size:12px}iframe{display:block;max-width:100%;margin:16px auto;width:1200px;height:1200px;border:1px solid #a369e866}body.sample{margin:0;padding:12px;min-width:0}.sample .app-shell{width:100%;max-width:none}.sample .main-content{padding-top:0}</style></head><body><script type="module">
+import {characterById,starters,elos} from '/src/data.js';
+import {createFinalBoss} from '/src/final-boss.js';
+import {createBattle,createEnemyTeam,chooseAction,commitTurn,resolveNextAction,removeQueuedAction,moveQueuedAction,getValidTargets} from '/src/combat.js';
+import {renderBattle} from '/src/battle-view.js';
+const params=new URLSearchParams(location.search);
+if(!params.has('render')){
+ document.body.className='host';document.body.innerHTML=`<div class="fixture-tools"><b>PMA · Transformações</b><label>Largura <select id="width"><option>1200</option><option>768</option><option>390</option><option>360</option><option>320</option></select></label><label>Trio <select id="party"><option value="fim">O Fim, Metamorfa e Furor</option><option value="limbo">Oscilante, Metamorfa e Furor</option></select></label><button id="restart">Reiniciar cenário</button></div><p class="fixture-note">Cenário isolado, com recursos iniciais ampliados para conferir transformações, retorno e retratos. Não lê nem altera o progresso salvo.</p><iframe title="Combate de transformações"></iframe>`;
+ const frame=document.querySelector('iframe'),width=document.querySelector('#width'),party=document.querySelector('#party');const draw=()=>{frame.style.width=width.value+'px';frame.src=`?render&party=${party.value}`;};width.addEventListener('change',()=>frame.style.width=width.value+'px');party.addEventListener('change',draw);document.querySelector('#restart').addEventListener('click',draw);draw();
+}else{
+ document.body.className='sample';document.body.dataset.tab='battle';
+ const meta='a-pele-alheia',furor='o-odio-encarnado',osc='a-sombra-inconstante';
+ const b=createBattle([params.get('party')==='limbo'?osc:starters[0].id,meta,furor],[createFinalBoss(),...createEnemyTeam(elos[0],[]).slice(0,params.get('party')==='limbo'?2:3)],{rng:()=>.1});
+ if(params.get('party')!=='limbo'){const boss=b.enemies.shift();boss.side='player';b.allies[0]=boss;}
+ b.resources={essence:8,cinza:8,graca:8,ruptura:8};b.enemyResources={...b.resources};
+ const state={battle:b,battleNode:{label:'Transformações · cenário de verificação'},battleFx:null};
+ const draw=()=>document.body.innerHTML=`<div class="app-shell"><main class="main-content">${renderBattle(state,elos[0])}</main></div>`;
+ document.body.addEventListener('click',event=>{
+  const button=event.target.closest('button,[data-target],summary');if(!button)return;const d=button.dataset;
+  if(d.useSkill||d.inspectSkill){const [actorId,abilityId]=(d.useSkill||d.inspectSkill).split(':');state.focusSkill={actorId,abilityId};state.selectedSkill={actorId,abilityId};state.inspectUnitId=null;const actor=b.allies.find(u=>u.id===actorId),a=actor?.abilities.find(a=>a.id===abilityId);if(actor&&a&&['self','team','all-enemies'].includes(a.target))chooseAction(b,actorId,abilityId,getValidTargets(b,actor,a)[0]?.id);}
+  else if(d.target&&state.selectedSkill){const {actorId,abilityId}=state.selectedSkill;chooseAction(b,actorId,abilityId,d.target);}
+  else if(d.target){state.inspectUnitId=d.target;state.focusSkill=null;}
+  else if(d.removeAction)removeQueuedAction(b,d.removeAction);
+  else if(d.moveAction){const [id,direction]=d.moveAction.split(':');moveQueuedAction(b,id,Number(direction));}
+  else if(d.action==='commit-turn'||d.action==='review-turn'){if(commitTurn(b).ok){let guard=0;while(b.phase==='resolving'&&guard++<20)resolveNextAction(b);}state.focusSkill=null;state.selectedSkill=null;state.inspectUnitId=null;}
+  else return;
+  draw();
+ });draw();
+}
+</script></body></html>

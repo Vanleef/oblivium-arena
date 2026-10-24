@@ -1,4 +1,5 @@
 import { buildCharacterKit } from "./kits.js";
+import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
 const inferno = [
   {
@@ -245,7 +246,7 @@ export const realms = [
   }
 ];
 
-export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => characterFrom(elo, name, index)));
+export const characters = elos.flatMap((elo) => elo.forms.map((name, index) => withBodyForms(characterFrom(elo, name, index))));
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));
@@ -328,6 +329,7 @@ export const buffs = [
   { id: "echo", title: "Eco do Trio", text: "A Ressonância concede mais 5% de bônus.", icon: "∞", effect: { resonance: 0.05 } },
   { id: "fracture", title: "Fissura Vigiada", text: "As habilidades de Limbo causam menos dano ao usuário.", icon: "⟲", effect: { risk: -4 } }
 ];
+
 
 
 

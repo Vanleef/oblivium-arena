@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-23",
+  "generator": "image_gen.imagegen (built-in)",
+  "scope": [
+    "O Fim: original + 3 manifestations, 9 techniques, return with 10 healing",
+    "A Metamorfa: original + 2 bodies, 3 techniques per body",
+    "O Furor and A Oscilante: portraits follow existing transformations"
+  ],
+  "assets": [
+    {
+      "key": "fim-tyrant",
+      "path": "art/characters/o-fim/body-forms-20261023/portrait-tyrant.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 156104,
+      "sha256": "6d105840d4259f794091bf6a0b691f0de17df89928e08c3812b50aae61e710fe",
+      "source": "exec-b61b4c2c-2100-4088-be28-6678f0fe30d5.png",
+      "sourceSha256": "37dc0e80a3fa312c02f1e6d6d7e310c8a15f5e66fd76169c4e3bb15ad9df6db3",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. O Fim, Tyrant manifestation of fear of domination. Same faceless black void sovereign, two linked gold rings at chest, crown, tattered mantle, black purple ivory and muted gold. Human-scale intimidating, shoulders become angular ivory prison armor, thin gold chain strands orbit wrists, crown grows into a closed thorn arch. Bust three-quarter low angle inside narrow ruined throne hall. Face remains absolutely empty black. No giant catastrophe."
+    },
+    {
+      "key": "fim-predator",
+      "path": "art/characters/o-fim/body-forms-20261023/portrait-predator.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 169106,
+      "sha256": "4c021057914fbb35daf0dc5c5dfe5af6a10f4e70451d8d537184f52a666b251a",
+      "source": "exec-e6ffd0f4-0f8e-4bd3-8e0a-633df5ff9dd1.png",
+      "sourceSha256": "e5423c66b0ab1487c758fbe6fff8babb56d8f68305cba3cfd5b6e434f240bf20",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. O Fim, Predator manifestation of fear of being hunted. Same absolutely faceless black void and two linked gold rings, shadow cloak transforms into sleek quadrupedal shadow panther shoulders and forelimbs, slim ivory segmented plates and crimson seams, crown horns low and swept backward. Bestial prowling silhouette, no human face, no open fanged mouth. Head and front upper body in profile looking toward camera, abandoned crimson reed marsh, stalking pose. Human-sized beast, restrained supernatural horror, no gore."
+    },
+    {
+      "key": "fim-ruin",
+      "path": "art/characters/o-fim/body-forms-20261023/portrait-ruin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 157190,
+      "sha256": "0db00688f73224f74c7d369ebc390702c729fcf26b46189b1ff988823eb6ec35",
+      "source": "exec-d44b5236-0df4-4b26-841c-e2aa4a347fba.png",
+      "sourceSha256": "416a10e523dc6ba3727b4c0d8fc0fbac7452bad8287f35422229415af5ff32d9",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. O Fim, Ruin manifestation of fear of losing continuity. Same faceless empty black void sovereign, two linked golden rings, slender floating shadow apparition whose mantle unravels into separated angular ivory fragments bound by delicate dead green roots and purple threads, chipped crown floats above, single crimson seam in chest. Half-body suspended in a roofless forgotten cloister with ash falling, frontal oblique angle. Visibly disjointed apparition rather than armored human, no cosmic explosion, no giant catastrophe."
+    },
+    {
+      "key": "metamorfa-skin",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/portrait-skin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 171652,
+      "sha256": "2f8cbb87399451a3d8aafd0c12d6dd9d8bf7346fd2fadaa1c4c0c182bb5b11da",
+      "source": "exec-934522e3-5474-4796-8b23-175c765a9374.png",
+      "sourceSha256": "eb31692631038c2011c8b5f5e9929e58da5780b8749e0bd7743e5533349c9aba",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. A Metamorfa from Inferno/Carne, offensive usurped skin form. Preserve blue violet skin, amber narrow eyes, short curly ivory hair, two-toned purple/cream brocade high collar and paired ribbon motifs. Transform one forearm into a smooth ivory-black curved blade and change shoulders to lean predatory layered organic plates, tighter sleek silhouette, dark violet veining not gore. Side profile in a crimson textile alley, cunning expression, half-body, face clearly visible."
+    },
+    {
+      "key": "metamorfa-shell",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/portrait-shell.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 196638,
+      "sha256": "032e9c1a897e23bfcc0b95f04ba5645229a1031af7cdc3754a3981b8a200698c",
+      "source": "exec-43395622-1f76-47d4-9ebe-eb93076505bf.png",
+      "sourceSha256": "626aa6d4f92ddd7025940e47967cabcd75a5db87aa6c51c7328a870cc9fa6753",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. A Metamorfa from Inferno/Carne, defensive armored form. Preserve blue violet skin, amber eyes, short curly ivory hair and signature violet/cream brocade; collar opens into layered ivory chitin mantle with purple seams around cheeks, larger armored shoulder shell and articulated plate gauntlets, no insect antennae, no breasts accent, no gore. Frontal bust, one armored forearm raised guarding her own neck, dark violet stone vault, sharply different broad cocoon silhouette."
+    },
+    {
+      "key": "furor-rage",
+      "path": "art/characters/o-odio-encarnado/body-forms-20261023/portrait-rage.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 186646,
+      "sha256": "f93ebacf4d3667ac2e71c7fd192170f741456fa63b80bd7699ed711211c30cb8",
+      "source": "exec-f086eb6d-f162-40c1-8a05-54fb1eadcbe5.png",
+      "sourceSha256": "d068eba890f995e9907c6a6517b2738f3aa4a6bbf243cc57e49052cd8f4542c4",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. O Furor from Inferno/Chama in released rage form. Reference is a faceless black obsidian construct with single fiery vertical facial seam and floating broken black halo, never a human. Transform by spreading shoulder stones into huge jagged articulated dark gauntlets, expose a more open molten core between separated obsidian plates, black fire forms two tall backward plumes, retain floating shattered halo and no eyes/mouth. Close low angle upper body roaring through stance only in a ruined furnace corridor. No literal explosion."
+    },
+    {
+      "key": "oscilante-shelter",
+      "path": "art/characters/a-sombra-inconstante/body-forms-20261023/portrait-shelter.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 150914,
+      "sha256": "717ca7c6852c9464e68d731947ef769264ad01aa43792304667ba87509ef2f91",
+      "source": "exec-55108a6d-1827-49ed-9335-70a10a40bbe6.png",
+      "sourceSha256": "b9f3a9252f4925e05c0bace8d2cbdcec8cb812035f0edb1496c9ab630557e081",
+      "prompt": "Use case: stylized-concept. Asset: square 1:1 anime game transformation portrait, detailed hand-drawn 2D shonen cel animation, strong ink contours, flat tonal shadows, NO realistic painting, no text, UI, watermarks or panels. Readable face/upper silhouette fully inside frame. Anatomically coherent, hands if seen have five fingers. This is a transformation of the referenced character, retain signature identity but visibly change body structure and silhouette, not a recolor. Dark supernatural PMA world. A Oscilante from Limbo, shelter contour form. Retain adult woman with warm dark skin, asymmetrical burgundy bob shaved on one side, gold eyes, circular gold-black brooch, mustard tailored jacket black bodice and ivory scarf. Her outline dissolves into translucent lavender shadow ribbons that fold into a narrow second silhouette tightly around her own body; arms crossed close to chest, no extra limbs, same single face. Three-quarter bust, twilight suspended ruin corridor, subtle protective double contour. Clearly spectral body transformation, not merely a costume recolor."
+    },
+    {
+      "key": "fim-rastro",
+      "path": "art/characters/o-fim/body-forms-20261023/skill-rastro.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 102174,
+      "sha256": "e3bd8b0cb403a7729ac2be995335b6796dbf2e50c7a809d5bfda36a2d0af75c5",
+      "source": "exec-667b70d5-c8c1-48fd-9930-a6cde0d586d6.png",
+      "sourceSha256": "7b546953f7f33368a76ef62619f91f161448d9db5e4bc0259e3c04c72040917d",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Rastro Faminto: the faceless shadow predator from reference crouches low beside ivory claw tracks glowing crimson across wet black ground, crown and linked gold rings visible, top-down three-quarter shot, silent narrow stone aqueduct, hunting presence no gore."
+    },
+    {
+      "key": "fim-ceifar",
+      "path": "art/characters/o-fim/body-forms-20261023/skill-ceifar.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 96274,
+      "sha256": "14828beff6fdb91c3a2ef3bdc0d691eff991aabfc9e9840c7093fb83b4425f94",
+      "source": "exec-32f6ea8f-4bc4-4660-bf1b-1dc73a28f130.png",
+      "sourceSha256": "982374780a216bfa455943ef85c84f8b20ac685ba189428cc977ccd26289f3ea",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Ceifar o Vínculo: dynamic side view of the same shadow predator leaping diagonally through the air to sever a thin crimson spiritual tether with an ivory foreclaw, linked gold rings visible on chest, broken bridge at twilight, graphic motion lines, NO victim body."
+    },
+    {
+      "key": "fim-fome",
+      "path": "art/characters/o-fim/body-forms-20261023/skill-fome.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 102374,
+      "sha256": "be8a06d7898151d99b347882283d1521ea8295e6209af2573cdbf6a340af8948",
+      "source": "exec-b0061409-2619-4fcd-b103-29953bf4dca3.png",
+      "sourceSha256": "12ecb53fe53466372445523922d40fdc647e39751b0c17263c8fba4d9b5d62f7",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Fome dos Reinos: frontal low view of same crowned faceless shadow beast, its tattered cloak arcs outward drawing three small pale wisps inward to chest ring sigil, standing on a small dark dais surrounded by ruined crimson pillars, no faces in wisps, no mouth, controlled vacuum effect."
+    },
+    {
+      "key": "fim-cinza",
+      "path": "art/characters/o-fim/body-forms-20261023/skill-cinza.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 91708,
+      "sha256": "119c5bf802f6b8aa6132cee1dd38043fe3a7e49632156ec3671a6165b1a8bdf8",
+      "source": "exec-913cf5d3-3e94-408d-acea-74f3197afc1a.png",
+      "sourceSha256": "e092fa36852ba2765fac5c4a62b2bc36edde2a44a9b82786685c1759587071d3",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Cinza de Ninguém: close-up of same faceless Ruin sovereign in profile, one fragmented ivory forearm releases fine violet ash from between black fingers; dead green roots and gold ring clasp visible. Focus on suspended ash particles drifting over worn stone steps, eye-level cinematic side composition."
+    },
+    {
+      "key": "fim-nome",
+      "path": "art/characters/o-fim/body-forms-20261023/skill-nome.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 96548,
+      "sha256": "8bb7b876d029b690ba8eb1d3f95cbabb2dada66596446f6cdf2acf97ab2f68ae",
+      "source": "exec-c1fbd864-0ac6-4f53-8653-823d7c22eac5.png",
+      "sourceSha256": "748c73f07b88ff464760c38a04ec373edc0f845120d40874bb2b7b9d18c195ad",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Nome Extinto: over-the-shoulder view of same fragmented faceless crowned Ruin entity, palm directed toward a single hanging spectral bell bound shut with dark violet threads; no writing. Cracked ivory pieces and green roots define arm, linked rings at collar, narrow abandoned archive balcony, quiet oppressive lighting."
+    },
+    {
+      "key": "fim-fronteira",
+      "path": "art/characters/o-fim/body-forms-20261023/skill-fronteira.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 109346,
+      "sha256": "7ecf07362dc0b9f2b01b2125717020ad32ff5bf8cd85d82b714900c646663bc9",
+      "source": "exec-0ed9c562-fe0a-42b4-b24e-6f5395426868.png",
+      "sourceSha256": "5d93367947d6cf65d8c202152e9a1b2ddc59fcdd601712cd6a3115989a9ae4a4",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Última Fronteira: wider angular shot from above of same fragmented faceless sovereign suspended at center of three converging thin violet fractures drawn across a ruined courtyard floor, ivory pieces orbit close to body, green roots, linked golden rings visible, controlled localized effect, no planetary cataclysm."
+    },
+    {
+      "key": "meta-gume",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/skill-impulso-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 103792,
+      "sha256": "6b8abde8fb616343b1ac3fc488236c0be8243ab7f0dbf9f69949232ef25bf699",
+      "source": "exec-f7322175-2fd7-40ab-8a14-324e483ebe6a.png",
+      "sourceSha256": "4e9939eadfc67f3108a6f8670e3935927602a834b57730757371bea15553a07a",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Gume Transfigurado: blue violet-skinned, amber-eyed woman with short curly ivory hair and violet cream brocade performs a sweeping slash with her single ivory-black blade forearm, diagonal rear three-quarter pose with face in profile, dark crimson hanging cloth courtyard. NO ordinary sword, forearm itself is blade."
+    },
+    {
+      "key": "meta-descarte",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/skill-tecnica-shed.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 93762,
+      "sha256": "da80910f419d07311843383753df72df12200fd49fd9ad2b0f2fabe87890b2f2",
+      "source": "exec-7881aa3e-b747-4053-b9c3-99185113de23.png",
+      "sourceSha256": "2828112d9d7b56cc93504bbc152a1abca3205f938c191d1de4e4e54b76bf2e7e",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Descartar o Molde: close-up of same ivory-haired blue-violet adult woman peeling one NON-gory empty ivory-violet forearm shell away as her regular blue-violet hand reforms underneath. Amber eyes and brocade high collar visible, calm cunning look, secluded stone basin room, no gore/skin wounds."
+    },
+    {
+      "key": "meta-instinto",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/skill-voto-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 98798,
+      "sha256": "cad9af1eec9f838ee63932992ca1eb0d657497507da07b6153c81649877d5d4f",
+      "source": "exec-49d65571-f0a1-4756-a324-32cc648313c7.png",
+      "sourceSha256": "c1697c233f4cb3deeb9cf08f75509784f2560a6f929ef983953fcadd4f13fa80",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Instinto Usurpado: low angle full upper body of same ivory-haired blue-violet woman with amber eyes, violet cream brocade and organic blade arm, body pivots to parry one incoming energy streak with ivory forearm blade while offhand points forward, fierce purposeful anime movement in dark open alley, no extra arms."
+    },
+    {
+      "key": "meta-impacto",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/skill-impulso-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 98682,
+      "sha256": "50739876fc4e70cd66aebc022f038568722302a0529be17e9d344c5bc92c3a04",
+      "source": "exec-b624d67d-9aac-4527-bebb-bf043f862a7d.png",
+      "sourceSha256": "71c71e144fec322ca514b2329572c5f8214b7fcbe5fa60d65a26bea01521ab30",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Impacto da Carapaça: same armored blue-violet ivory-haired woman shoulder-bashes a fractured stone slab using broad ivory chitin shoulder shell with purple seams, low side view, curved mantle follows motion, face stays visible, ruined colonnade exterior, no held weapon, no gore."
+    },
+    {
+      "key": "meta-descamar",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/skill-tecnica-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 108514,
+      "sha256": "ae097caf8950c4656122e9178db4d320eb2a6f7a945ef97579ac3b0fbf905652",
+      "source": "exec-204d7c80-6119-44b0-a6a6-9db70d6c8217.png",
+      "sourceSha256": "92c87514c8b989b94976d295abca8e9ad85a47905ea71a74774663abf20e8ce1",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Descamar a Armadura: same short curly ivory-haired blue-violet woman stands at moonlit shallow water, layered ivory-purple shell plates detach around her as intact brocade collar and blue-violet hand emerge. Frontal waist-up quiet controlled release, amber eyes determined, no other characters or extra hands."
+    },
+    {
+      "key": "meta-espinhos",
+      "path": "art/characters/a-pele-alheia/body-forms-20261023/skill-voto-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 107068,
+      "sha256": "7046d9dc3cc74d52a7e5127c45cfc0b24849843f08e521294381a0890077b07a",
+      "source": "exec-6c0103e6-1436-4c51-814a-33267693204b.png",
+      "sourceSha256": "5bfdfecf18a544c9a6e27c631d211f3329aa1057770f2c2968e4ce19207b32cb",
+      "prompt": "Use case: stylized-concept. Asset type: one square anime tactical game ability illustration. Single scene, NO panels/text/UI/logos. Hand inked 2D shonen anime cel art, hard shadows, vivid but dark supernatural world, NEVER realistic rendering. Keep the reference character's exact design and colors. Vary composition and setting as requested. Fully coherent anatomy, five fingers when hands are visible. Show the character actively performing the ability, readable at icon scale. Espinhos Usurpados: extreme three-quarter close-up same blue-violet ivory-haired woman turning armored forearm with five articulated fingers to catch a glowing red energy slash, short ivory chitin spikes fan outward along her own gauntlet while broad purple cream mantle guards shoulders. Individual self-defense, black stone tunnel, no crowd."
+    }
+  ],
+  "validation": {
+    "functionalTests": 156,
+    "dedicatedTransformationTests": 13,
+    "legacyBinaryPresenceChecks": "2 excluded: historical art is not part of the reconstructed local checkout"
+  }
+}

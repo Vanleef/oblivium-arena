@@ -18,7 +18,8 @@ import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, seededRandom, shuffled, maxDifficulty } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
-import { FINAL_BOSS, createFinalBossAbilities } from "./final-boss.js";
+import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
+import { previewBodyForm } from "./body-forms.js";
 
 const app = document.querySelector("#app");
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -70,6 +71,7 @@ let state = {
   realmId: "inferno",
   eloId: "sangria",
   crewRealm: "Todos",
+  formPreviews: {},
   crewSearch: "",
   targetId: null,
   battle: null,
@@ -180,14 +182,9 @@ function startEncounter(node) {
   const battleTeam=profile.run?.team||profile.team;
   const enemies = createEnemyTeam(elo, battleTeam, encounterType, profile.run?.encounter || 0, {difficulty:profile.run?.difficulty||0,bossIds:profile.run?.bossIds});
   if (specialFinale) {
-    enemies[0].id = FINAL_BOSS.id;
-    enemies[0].name = FINAL_BOSS.name;
-    enemies[0].nameEn = FINAL_BOSS.nameEn;
-    enemies[0].title = FINAL_BOSS.title;
-    enemies[0].role = FINAL_BOSS.title;
-    enemies[0].lore = FINAL_BOSS.lore;
-    enemies[0].art = { portrait: FINAL_BOSS.portrait };
-    enemies[0].abilities = createFinalBossAbilities();
+    // Keep encounter scaling, but no unrelated source character's passive or forms.
+    const {maxHp}=enemies[0];
+    Object.assign(enemies[0],createFinalBoss(),{maxHp,passive:null,sourceId:FINAL_BOSS.id});
     enemies[1].name = "Arauto do Véu Partido";
     enemies[1].art = null;
     enemies[1].symbol = "◇";
@@ -360,11 +357,11 @@ function returnFromBattle() {
 }
 
 function battleSnapshot(battle) {
-  return [...battle.allies,...battle.enemies].map(u=>({id:u.id,name:u.name,hp:u.hp,shield:u.shield,invulnerable:u.invulnerable,stunned:u.stunned,weakened:u.weakened,exposed:u.exposed,charge:u.charge,counter:u.counter,sealAttack:u.sealAttack,sealSupport:u.sealSupport,healingBlock:u.healingBlock,reactives:u.reactives.map(r=>r.sourceId+":"+r.skillId),regens:u.regens.map(r=>r.sourceId+":"+r.skillId),forms:u.abilities.map(a=>({id:a.id,key:a.formKey||"base",name:a.name})),dots:u.dots.map(d=>`${d.tag}:${d.turns}`),marks:Object.keys(u.marks)}));
+  return [...battle.allies,...battle.enemies].map(u=>({id:u.id,name:u.name,bodyForm:u.bodyForm,hp:u.hp,shield:u.shield,invulnerable:u.invulnerable,stunned:u.stunned,weakened:u.weakened,exposed:u.exposed,charge:u.charge,counter:u.counter,sealAttack:u.sealAttack,sealSupport:u.sealSupport,healingBlock:u.healingBlock,reactives:u.reactives.map(r=>r.sourceId+":"+r.skillId),regens:u.regens.map(r=>r.sourceId+":"+r.skillId),forms:u.abilities.map(a=>({id:a.id,key:a.formKey||"base",name:a.name})),dots:u.dots.map(d=>`${d.tag}:${d.turns}`),marks:Object.keys(u.marks)}));
 }
 function battleChanges(before,battle) {
   const old=new Map(before.map(u=>[u.id,u]));
-  return [...battle.allies,...battle.enemies].map(u=>{const p=old.get(u.id),statuses=[["invulnerable","INVULNERÁVEL"],["stunned","ATORDOADO"],["weakened","ENFRAQUECIDO"],["exposed","EXPOSTO"],["counter","CONTRA-ATAQUE"],["charge","CARGA"],["sealAttack","OFENSIVA SELADA"],["sealSupport","APOIO SELADO"],["healingBlock","CURA REDUZIDA"]].filter(([key])=>u[key]>p[key]).map(([,label])=>label);if(u.reactives.some(r=>!p.reactives.includes(r.sourceId+":"+r.skillId)))statuses.push("EFEITO PREPARADO");if(u.regens.some(r=>!p.regens.includes(r.sourceId+":"+r.skillId)))statuses.push("REGENERAÇÃO");if(u.dots.some(d=>!p.dots.includes(`${d.tag}:${d.turns}`)))statuses.push("AFLIÇÃO");if(Object.keys(u.marks).some(key=>!p.marks.includes(key)))statuses.push("MARCADO");const forms=u.abilities.filter(a=>(p.forms.find(f=>f.id===a.id)?.key||"base")!==(a.formKey||"base")).map(a=>a.id);if(forms.length)statuses.push("TÉCNICA ALTERADA");const c={id:u.id,name:u.name,hp:u.hp-p.hp,shield:u.shield-p.shield,statuses,forms};return c.hp||c.shield||statuses.length?c:null;}).filter(Boolean);
+  return [...battle.allies,...battle.enemies].map(u=>{const p=old.get(u.id),statuses=[["invulnerable","INVULNERÁVEL"],["stunned","ATORDOADO"],["weakened","ENFRAQUECIDO"],["exposed","EXPOSTO"],["counter","CONTRA-ATAQUE"],["charge","CARGA"],["sealAttack","OFENSIVA SELADA"],["sealSupport","APOIO SELADO"],["healingBlock","CURA REDUZIDA"]].filter(([key])=>u[key]>p[key]).map(([,label])=>label);if(u.reactives.some(r=>!p.reactives.includes(r.sourceId+":"+r.skillId)))statuses.push("EFEITO PREPARADO");if(u.regens.some(r=>!p.regens.includes(r.sourceId+":"+r.skillId)))statuses.push("REGENERAÇÃO");if(u.dots.some(d=>!p.dots.includes(`${d.tag}:${d.turns}`)))statuses.push("AFLIÇÃO");if(Object.keys(u.marks).some(key=>!p.marks.includes(key)))statuses.push("MARCADO");const forms=u.abilities.filter(a=>(p.forms.find(f=>f.id===a.id)?.key||"base")!==(a.formKey||"base")).map(a=>a.id);if(u.bodyForm!==p.bodyForm)statuses.push(`FORMA · ${u.bodyFormName}`);else if(forms.length)statuses.push("TÉCNICA ALTERADA");const c={id:u.id,name:u.name,hp:u.hp-p.hp,shield:u.shield-p.shield,statuses,forms};return c.hp||c.shield||statuses.length?c:null;}).filter(Boolean);
 }
 function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
@@ -537,7 +534,14 @@ function teamView() {
     </div>`;
 }
 
+function bodyFormSelector(c){
+ if(!c.bodyForms?.length)return '';
+ const choices=[{key:'base',name:c.baseFormName||'Forma original',portrait:c.bodyForms&& (c.id===FINAL_BOSS.id?FINAL_BOSS.portrait:characterById[c.id]?.art?.portrait)},...c.bodyForms];
+ return `<section class="body-form-picker" aria-label="Formas de ${esc(c.name)}"><div class="eyebrow">FORMAS · ${esc(c.bodyFormName)}</div><div class="body-form-options">${choices.map(f=>`<button data-preview-form="${esc(c.id)}:${esc(f.key)}" aria-label="Ver ${esc(c.name)}: ${esc(f.name)}" aria-pressed="${c.bodyForm===f.key}"><img src="${esc(f.portrait)}" width="44" height="44" alt="" loading="lazy"><span>${esc(f.name)}</span></button>`).join('')}</div><small>Toque numa forma para ver seu retrato e suas técnicas.</small></section>`;
+}
+
 function codexView() {
+  const boss=previewBodyForm(createFinalBoss(),state.formPreviews[FINAL_BOSS.id]);
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const realm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
@@ -550,13 +554,14 @@ function codexView() {
     <section class="page-heading"><div><div class="eyebrow">100 ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>100</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
     <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem ou Elo"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div></div>
-    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(FINAL_BOSS.portrait)}" alt="Presença instável de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · ${esc(FINAL_BOSS.title).toUpperCase()}</div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim"><header><h3>Habilidades</h3><span>Quatro técnicas do Rei do Inferno</span></header><div class="codex-moves">${createFinalBossAbilities().map(ability=>`<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false"><img src="${esc(ability.art)}" alt="" loading="lazy"><b>${esc(ability.name)}</b>${costMarkup(FINAL_BOSS,ability)}</summary><p>${esc(ability.description)}</p><small>Recarga ${ability.cooldown || 0}T</small></details>`).join("")}</div></section></article>` : ""}
+    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · ${esc(FINAL_BOSS.title).toUpperCase()}</div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header><div class="codex-moves">${boss.abilities.map(ability=>`<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false"><img src="${esc(ability.art)}" alt="" loading="lazy"><b>${esc(ability.name)}</b>${costMarkup(boss,ability)}</summary><p>${esc(ability.description)}</p><small>Recarga ${ability.cooldown || 0}T</small></details>`).join("")}</div></section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = profile.ownedIds.includes(character.id);
+      character=previewBodyForm(character,state.formPreviews[character.id]);
       return `<article class="codex-card ${!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.eloId)}</span><small>${owned ? "RECRUTADA" : "A RECRUTAR"}</small></div>
         <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<p>${esc(character.role)} · ${esc(character.roleHint)}</p><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        <div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>${esc(form.classes.join(" · "))} · Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
+        ${bodyFormSelector(character)}<div class="codex-moves">${character.abilities.map((ability, index) => `<details class="codex-skill"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b>${costMarkup(character,ability)}</summary><p>${esc(ability.description)}</p>${!character.bodyForms?.length&&ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>${esc(form.classes.join(" · "))} · Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}<small>${esc(ability.classes.join(" · "))} · Recarga ${ability.cooldown}T</small></details>`).join("")}</div>
       </article>`;
     }).join("")}</div>`;
 }
@@ -565,7 +570,7 @@ function battleView() { return state.battle?.phase==="influence"&&!state.battleF
 
 function render() {
   const tab = state.tab;
-  const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill");
+  const focused=document.activeElement,focusAction=focused?.getAttribute?.("data-action"),focusSkill=focused?.getAttribute?.("data-use-skill"),focusForm=focused?.getAttribute?.("data-preview-form");
   document.body.dataset.tab = tab;
   app.innerHTML = `
     <div class="app-shell">
@@ -581,6 +586,7 @@ function render() {
   if(state.confirmTurn)app.querySelector('[data-action="cancel-review"]')?.focus({preventScroll:true});
   else if(focusAction)app.querySelector(`[data-action="${focusAction}"]`)?.focus({preventScroll:true});
   else if(focusSkill)app.querySelector(`[data-use-skill="${focusSkill}"]`)?.focus({preventScroll:true});
+  else if(focusForm)app.querySelector(`[data-preview-form="${focusForm}"]`)?.focus({preventScroll:true});
 }
 
 // Preview a technique without selecting an action or replacing the arena DOM.
@@ -649,6 +655,7 @@ app.addEventListener("click", (event) => {
     return;
   }
   if (target.dataset.crewRealm) { state.crewRealm = target.dataset.crewRealm; render(); return; }
+  if (target.dataset.previewForm) { const [id,key]=target.dataset.previewForm.split(':');state.formPreviews[id]=key;render();return; }
   if (target.dataset.addMember) {
     const id = target.dataset.addMember;
     if (!profile.ownedIds.includes(id)) return;

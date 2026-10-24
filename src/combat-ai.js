@@ -40,6 +40,7 @@ function scoreAttack(s, actor, a, target, rules) {
   const r = attackResult(s, actor, a, target, rules), combo = a.combo && rules.meetsCondition(target, a.combo.condition, actor);
   const newDot = a.dot && !target.dots.some(d => d.sourceId === actor.id && d.skillId === a.id);
   return r.dealt + r.blocked * .4 + (r.dealt >= target.hp ? 24 : 0)
+    + (a.lifesteal ? clampedHeal(actor,Math.floor(r.dealt*a.lifesteal))*1.1 : 0)
     + (newDot ? Math.min(target.hp - r.dealt, (a.dot.damage+(actor.worldAffliction||0)) * a.dot.turns) * .65 : 0)
     + ((a.stun || combo && a.combo.stun) && !target.stunned ? 13 : 0)
     + (a.mark && target.marks[a.mark]?.sourceId !== actor.id ? 6 : 0)
@@ -52,7 +53,7 @@ function scoreAttack(s, actor, a, target, rules) {
 
 function scoreAction(s, actor, a, targets, rules) {
   let score;
-  if (a.defense) score = actor.hp < actor.maxHp * .45 && !actor.invulnerable ? 28 : 0;
+  if (a.defense) score = actor.hp < actor.maxHp * .45 && !actor.invulnerable ? 28 + healing(s,actor,a,actor) : 0;
   else if (helpful(a)) score = targets.reduce((n, u) => n + scoreSupport(s, actor, a, u), 0);
   else score = targets.reduce((n, u) => n + scoreAttack(s, actor, a, u, rules), 0) + healing(s, actor, a, actor) * .7;
   // A visible trap is a real cost, but a lethal attack may still justify paying it.
@@ -63,6 +64,18 @@ function scoreAction(s, actor, a, targets, rules) {
     if (r.trigger === 'idle') score += risk * .8;
   }
   score += (a.shift || []).filter(v => v.form !== 'base' && (!v.condition || targets.some(t => rules.meetsCondition(t, v.condition, actor)))).length * 7;
+  // Value a transformation through its future kit using only visible state.
+  if(a.assumeForm){
+    const body=actor.bodyForms?.find(f=>f.key===a.assumeForm);
+    let potential=0;
+    for(const root of actor.skillBook||actor.abilities){
+      const next=root.forms?.find(f=>f.formKey===body?.when[root.id]);if(!next)continue;
+      const valid=rules.getValidTargets(s,actor,next),area=['team','all-enemies'].includes(next.target);
+      const values=valid.map(u=>helpful(next)?scoreSupport(s,actor,next,u):scoreAttack(s,actor,next,u,rules)+healing(s,actor,next,actor)*.7);
+      potential=Math.max(potential,area?values.reduce((n,v)=>n+v,0):Math.max(0,...values));
+    }
+    score+=Math.min(40,potential*.5);
+  }
   if (a.gainCharge && actor.charge < 3) score += Math.min(3 - actor.charge, a.gainCharge) * 3;
   score -= (a.selfDamage || 0) * .6;
   const cost = Object.values(rules.getAbilityResourceCosts(actor, a)).reduce((n, v) => n + v, 0);
@@ -129,3 +142,4 @@ export function planTeamActions(battle, side, rules) {
   }
   return plan;
 }
+

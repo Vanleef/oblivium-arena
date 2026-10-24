@@ -1,5 +1,6 @@
 // Runtime forms belong to one combatant. Slot ids and cooldowns remain stable.
 export function initializeSkillForms(unit){
+ unit.baseArt=unit.art?{...unit.art}:null;
  unit.skillBook=unit.abilities.map(a=>({...a}));unit.skillForms={};unit.skillUses={};
  unit.abilities=unit.skillBook.map(a=>({...a,_formRoot:a,formKey:'base'}));
 }
@@ -22,6 +23,9 @@ export function refreshSkillForms(s){
    const form=key==='base'?root:root.forms.find(a=>a.formKey===key)||root;
    return {...form,id:root.id,forms:root.forms,_formRoot:root,formKey:key,originName:root.name,formTargetId:state?.targetId,formExpiresAt:state?.expiresAt,usesLeft:root.maxUses?Math.max(0,root.maxUses-(u.skillUses[root.id]||0)):null};
   });
+  const body=u.bodyForms?.find(f=>Object.entries(f.when).every(([slot,key])=>u.abilities.some(a=>a.id===slot&&a.formKey===key)));
+  u.bodyForm=body?.key||'base';u.bodyFormName=body?.name||u.baseFormName||'Forma original';
+  if(u.bodyForms?.length)u.art={...u.baseArt,portrait:body?.portrait||u.baseArt?.portrait};
  }
 }
 export function applySkillShifts(s,actor,changes,targetId,condition){
@@ -35,3 +39,4 @@ export function applySkillShifts(s,actor,changes,targetId,condition){
 }
 export function formSummary(u){return u.abilities.map(a=>`${a.id}:${a.formKey||'base'}`);}
 export function scaleSkillForms(ability,scale){return {...scale(ability),...(ability.forms?{forms:ability.forms.map(a=>scaleSkillForms(a,scale))}:{})};}
+
