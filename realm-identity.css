@@ -76,6 +76,8 @@
 /* These portraits place the face lower than the default head-and-shoulders crop. */
 .codex-portrait[src$="/a-brasa-eterna/chama-completion-20261023/portrait.webp"],
 .codex-portrait[src$="/o-filho-da-cinza/chama-completion-20261023/portrait.webp"]{object-position:center 60%}
+/* Keep the Heir's high-set face visible above his unusually long neck. */
+.codex-portrait[src$="/o-herdeiro-cativo/anime-review-20261024/portrait.webp"]{object-position:center top}
 
 
 
