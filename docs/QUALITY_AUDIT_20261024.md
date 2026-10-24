@@ -1,4 +1,5 @@
 # Revisão de qualidade do PMA — 24/10/2026
+> Atualização: a main continha os 625 caminhos de arte referenciados; a antiga contagem de 494 ausentes decorria de um checkout parcial. O lote novo passa a 626/626 caminhos presentes. As métricas e achados abaixo registram o levantamento histórico; a continuação está em `PASSIVE_CONTINUATION_20261024.md`.
 
 ## Escopo e resultado
 

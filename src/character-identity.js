@@ -556,7 +556,7 @@ export const characterRevisions = {
   "a-regente-de-cinzas": {
     "name": "A Déspota",
     "role": "Comandante Tirânica",
-    "lore": "Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Coroa.",
+    "lore": "Matriarca colossal forjada nas cinzas de uma dinastia, traz no rosto envelhecido as marcas do império que ajudou a erguer. Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Coroa.",
     "terms": {
       "Ordem em Cinzas": "Ferro do Jugo",
       "Comando da Regente": "Ordem Absoluta",
@@ -921,6 +921,17 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'a-regente-de-cinzas') {
+    const base = `/art/characters/${id}/anime-review-20261024`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'o-principe-das-correntes') {
+    const base = `/art/characters/${id}/anime-review-20261024`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      forms:{...art.forms,impulso:{...art.forms?.impulso,drag:`${base}/skill-impulso-drag.webp`}}};
+  }
   const completedForm = chamaCompletionForms[id];
   if (completedForm) {
     const base = `/art/characters/${id}/chama-completion-20261023`;

@@ -1,3 +1,4 @@
+import { englishPassivePhrases } from "./passive-english.js";
 import { englishUpgradePhrases } from "./upgrade-english.js";
 import { englishCharacterPhrases } from "./character-english.js";
 import { englishWorldPhrases } from "./english-world-copy.js";
@@ -81,7 +82,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
 for (const [source, translated] of Object.entries(englishCharacterPhrases)) {
   phraseTranslations[source.normalize("NFC").toLocaleLowerCase("pt-BR")] = translated;
 }
-for (const [source, translated] of Object.entries({...englishWorldPhrases,...englishUpgradePhrases})) {
+for (const [source, translated] of Object.entries({...englishWorldPhrases,...englishUpgradePhrases,...englishPassivePhrases})) {
   phraseTranslations[source.normalize("NFC").toLocaleLowerCase("pt-BR")] = translated;
 }
 

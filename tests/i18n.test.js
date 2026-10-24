@@ -87,6 +87,7 @@ test("all character names and passive rules have English copy", () => {
     assert.notEqual(name, character.name, `missing English name for ${character.name}`);
     const lore = localizeText(character.lore, "en");
     assert.notEqual(lore, character.lore, `missing English lore for ${character.name}`);
+    if (character.id === "a-regente-de-cinzas") assert.match(lore, /colossal matriarch/i);
     assert.doesNotMatch(lore, untranslated, `untranslated lore for ${character.name}: ${lore}`);
     const combo = localizeText(character.combo, "en");
     assert.notEqual(combo, character.combo, `missing English play advice for ${character.name}`);

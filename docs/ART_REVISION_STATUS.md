@@ -1,4 +1,5 @@
 # Estado da revisão de artes — 22/10/2026
+> Estado conferido em 24/10/2026: 626/626 caminhos ativos presentes, incluindo a técnica alternativa nova do Príncipe. As contagens antigas de arquivos ausentes abaixo são históricas e refletem um checkout parcial. A revisão estilística continua por personagem.
 
 A integração une os kits, progressão, eventos, interface e online da branch de combate às artes da branch de revisão. A publicação é uma prévia própria; o serviço online mantém sua configuração existente.
 
@@ -131,3 +132,9 @@ O retrato estabelece sua identidade: cabelo prateado curto com trança, máscara
 ## O Suserano — kit base — 24/10/2026
 
 O retrato estabelece uma silhueta espectral vazia, com fenda âmbar no capuz, coroa quebrada flutuante, placas de ferro semelhantes ao espaldar de um trono, manto vinho e correntes prateadas. As cenas mostram uma guarda passiva pessoal, um decreto que sela a ofensiva de um inimigo, uma interdição que protege um aliado e rebate um golpe, proteção coletiva para exatamente três aliados e uma defesa inviolável individual. As seis imagens foram integradas como WebP 512 × 512, com prompts e hashes em `ART_SUSERANO_20261024.json`. A cobertura caiu de 500 para 494 caminhos ausentes; 83 personagens ainda têm referências ausentes.
+
+## Continuação em 24/10/2026
+
+O Príncipe recebeu sete imagens próprias em anime consistente, incluindo Apertar o Grilhão. A passiva acompanha a proteção obtida ao manter uma vítima marcada. Prompts e hashes: `ART_PRINCIPE_20261024.json`. Diretriz atual de diferenciação facial, corporal e sobrenatural: `CHARACTER_VISUAL_IDENTITIES.md`.
+
+A Déspota recebeu seis cenas próprias sob a diretriz de diversidade: corpo de matriarca colossal de cinza, rosto largo e envelhecido, um olho opaco, tranças arqueadas e silhueta trapezoidal. Ordem Absoluta mostra exatamente a Déspota, o Príncipe e o Suserano, preservando suas identidades e mãos descobertas do Príncipe. Prompts, versão corrigida e hashes: `ART_DESPOTA_20261024.json`.

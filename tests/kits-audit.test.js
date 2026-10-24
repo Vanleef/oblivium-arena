@@ -21,7 +21,7 @@ test('cada combo pode ser preparado pelo próprio kit e usado no turno seguinte'
 });
 
 test('cargas e marcas de todos os kits têm um uso mecânico',()=>{
- for(const c of characters){const ss=c.abilities,conditions=[...ss.map(a=>a.combo?.condition),c.passive.type==='hunter'?c.passive.condition:null];
+ for(const c of characters){const ss=c.abilities,conditions=[...ss.map(a=>a.combo?.condition),c.passive.requiresOwnMark?'marked':c.passive.type==='hunter'?c.passive.condition:null];
   if(ss.some(a=>a.gainCharge))assert.ok(ss.some(a=>a.perChargeDamage||a.perChargeHeal),`${c.name}: carga sem uso`);
   for(const a of ss)if(a.mark)assert.ok(conditions.some(v=>v==='marked'||v===`mark:${a.mark}`),`${c.name}: marca sem uso`);
   for(const a of ss)assert.equal(Object.values(getAbilityResourceCosts(c,a)).reduce((sum,n)=>sum+n,0),a.cost,`${c.name}/${a.name}: custo exibido`);

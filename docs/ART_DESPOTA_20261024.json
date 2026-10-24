@@ -1,0 +1,76 @@
+{
+  "title": "A Déspota — identidade individual e conjunto anime",
+  "date": "2026-10-24",
+  "generatedWith": "image_gen.imagegen",
+  "style": "Matriarca de cinza idosa e colossal; olhos distintos, placas de cinza na face, rosto largo e envelhecido, três arcos de tranças, ombros e braços volumosos. Contorno desenhado e cel shading anime. Mesmo rosto, corpo e acessórios em seis cenas.",
+  "export": "Imagens completas exportadas para WebP 512×512; sem recorte. PNGs de geração preservados.",
+  "assets": [
+    {
+      "key": "portrait",
+      "path": "art/characters/a-regente-de-cinzas/anime-review-20261024/portrait.webp",
+      "sourceFile": "exec-c2f6001d-f34d-4303-ae38-e1ea93f9552d.png",
+      "sourceSha256": "1a0dfc3fe6d186d010992610ac316949547617941d080d8ea8529c3c67cf8ff0",
+      "sha256": "b7f8ba43a7f63c19c209effbc3edea195341aeff7301e76fda4ebc674ae6213e",
+      "width": 512,
+      "height": 512,
+      "bytes": 88924,
+      "prompt": "Use case: stylized-concept. Create ONE square original character portrait for dark supernatural Japanese ANIME 2D game Post Mortem Arena. Character: A Déspota, an oppressive ash-forged giant matriarch from Coroa, the imperial Bond of domination in Inferno. She must be unmistakably different from a slim young prince, a faceless ghost king, and a conventional glamorous anime woman. Design identity: elderly mature woman, short relative to her massive width, very broad barrel chest and neck, thick powerful upper arms, heavy square jaw and full cheeks, wide flattened nose, deep charcoal-brown skin, natural age lines drawn simply in anime style, an irregular pale ash patch around the left temple and jaw, a diagonal old burn scar crossing her LEFT eyebrow, milky opaque LEFT eye, a smaller sharp amber RIGHT eye. Hair: black and silver coarse braids, sides closely shaved, three thick upright braided arches swept back into a low heavy knot; asymmetric haircut must be very readable. Her forearms have subtle cooled-ash cracks, her hands are broad BARE hands with exactly five fingers each. Costume: blocky blackened-bronze collar and shoulder plates, deep slate-green ceremonial coat with ivory geometric inner trim, a short rigid mantle that makes a strong trapezoid silhouette, heavy iron wrist shackles. No long white braid, no curls, no thin face, no big youthful eyes, no slim waist. Three-quarter view showing head, broad shoulders, torso and one bare hand resting on the head of a massive imperial branding hammer. She regards the viewer with tired absolute authority, not rage. Background: pale ruined imperial stone courtyard with iron prison gates, drifting ash but NO sea of flames, Coroa architecture rather than a volcanic fire realm. Muted slate-green, black bronze and pale ash, amber only in one eye. Strictly graphic hand-drawn anime contour linework and crisp cel shading; NOT realism, NOT painterly concept art, NOT 3D. No text, no UI, no frame, no crown identical to another character. Coherent anatomy; full face readable at thumbnail size."
+    },
+    {
+      "key": "passive",
+      "path": "art/characters/a-regente-de-cinzas/anime-review-20261024/passive.webp",
+      "sourceFile": "exec-ec5baa60-4267-4a33-b55c-f80a6c102913.png",
+      "sourceSha256": "ecac32ecba5523f41f2d934f57784ee2f21ec72951f95fe7fe225ac0995aedd0",
+      "sha256": "6baa874b88b35f18cbb09d1476f025b594b4f7b991158c6f7bf61a71228308ff",
+      "width": 512,
+      "height": 512,
+      "bytes": 83152,
+      "prompt": "Use case: stylized-concept. ONE square ability illustration for Post Mortem Arena, no text, no frame, no UI, no collage. Image 1 defines A Déspota's EXACT identity: elderly massive broad-bodied ash-giant woman, deep brown skin, wide flattened nose, heavy square jaw and cheeks, small amber RIGHT eye and milky LEFT eye, pale irregular ash patch on RIGHT temple and cheek, aged scarred forehead, three thick black-and-silver braided arches swept into heavy rear knot, shaved sides. Same trapezoid mantle and blocky blackened-bronze shoulders, slate-green coat with ivory geometric trim, iron wrist shackles, both hands BARE with exactly five coherent fingers, subtle ash cracks on exposed forearms. Same immense squared imperial branding hammer as reference. Preserve facial structure, age and huge width; never turn her into a slim youthful woman. Strictly drawn Japanese ANIME 2D, strong ink contours, clean cel-shaded color blocks, no realistic rendering, no oil paint, no 3D. Keep Coroa's imperial prison architecture rather than volcanic Chama scenery. Lealdade pelo Medo passive. Tight side-profile view at the right of frame emphasizing the huge old cheek, cloudy left eye, and distinctive braid arches. She looks down at ONE existing allied imperial guard in left background. A small blackened-bronze protective plate settles around that ally; a single small ember of pale gray ash flows from the plate BACK into her open bare palm, illustrating generating one Ash when support grants Defense. The ally is helped, not attacked. No burn on skin, no hammer strike, no healing beam. Setting: shaded imperial inspection balcony with pale stone and long chain shadows at noon. Only her and one ally, main face silhouette in profile, not the portrait's front three-quarter angle."
+    },
+    {
+      "key": "skill-impulso",
+      "path": "art/characters/a-regente-de-cinzas/anime-review-20261024/skill-impulso.webp",
+      "sourceFile": "exec-0911f769-dd61-4080-83af-135a8b268974.png",
+      "sourceSha256": "f616e3d882865b92ee5033c929d9fcee44a43175c6d9e8e262189d1422a66abb",
+      "sha256": "85585138dfa3ac0e6ec4616882c551aa77d24365193626173518bad0b78601ea",
+      "width": 512,
+      "height": 512,
+      "bytes": 80736,
+      "prompt": "Use case: stylized-concept. ONE square ability illustration for Post Mortem Arena, no text, no frame, no UI, no collage. Image 1 defines A Déspota's EXACT identity: elderly massive broad-bodied ash-giant woman, deep brown skin, wide flattened nose, heavy square jaw and cheeks, small amber RIGHT eye and milky LEFT eye, pale irregular ash patch on RIGHT temple and cheek, aged scarred forehead, three thick black-and-silver braided arches swept into heavy rear knot, shaved sides. Same trapezoid mantle and blocky blackened-bronze shoulders, slate-green coat with ivory geometric trim, iron wrist shackles, both hands BARE with exactly five coherent fingers, subtle ash cracks on exposed forearms. Same immense squared imperial branding hammer as reference. Preserve facial structure, age and huge width; never turn her into a slim youthful woman. Strictly drawn Japanese ANIME 2D, strong ink contours, clean cel-shaded color blocks, no realistic rendering, no oil paint, no 3D. Keep Coroa's imperial prison architecture rather than volcanic Chama scenery. Ferro do Jugo. Full ACTION side view, camera low behind ONE enemy guard's shoulder. The enormous Déspota occupies the left midground, both feet firmly planted; she swings the squared branding hammer horizontally into the guard's metal breastplate. A compact orange-hot geometric brand burns on the ARMOR at the contact point, a few sparks and thin black smoke show a lingering Burn. Modest physical blow, no crushing execution, no gore, no bare-skin injury. Enemy intact and recoiling. Pale imperial foundry yard with iron law pillars, cool daylight and muted slate-green banners. One attacker and exactly one target."
+    },
+    {
+      "key": "skill-voto",
+      "path": "art/characters/a-regente-de-cinzas/anime-review-20261024/skill-voto.webp",
+      "sourceFile": "exec-552931ad-d614-416b-befe-f8bd1929de01.png",
+      "sourceSha256": "93ea133f3bd1ac69c9c15965c8133dc28cb5ecbd29419783e3ef69e9160afca2",
+      "sha256": "b213ba2c0d67b774e7e0e459795bcf715228077e45907b5883ca5aac516bc3d5",
+      "width": 512,
+      "height": 512,
+      "bytes": 96490,
+      "prompt": "Use case: stylized-concept. ONE square ability illustration for Post Mortem Arena, no text, no frame, no UI, no collage. Image 1 defines A Déspota's EXACT identity: elderly massive broad-bodied ash-giant woman, deep brown skin, wide flattened nose, heavy square jaw and cheeks, small amber RIGHT eye and milky LEFT eye, pale irregular ash patch on RIGHT temple and cheek, aged scarred forehead, three thick black-and-silver braided arches swept into heavy rear knot, shaved sides. Same trapezoid mantle and blocky blackened-bronze shoulders, slate-green coat with ivory geometric trim, iron wrist shackles, both hands BARE with exactly five coherent fingers, subtle ash cracks on exposed forearms. Same immense squared imperial branding hammer as reference. Preserve facial structure, age and huge width; never turn her into a slim youthful woman. Strictly drawn Japanese ANIME 2D, strong ink contours, clean cel-shaded color blocks, no realistic rendering, no oil paint, no 3D. Keep Coroa's imperial prison architecture rather than volcanic Chama scenery. Esmagar a Resistência. Very wide tilted OVERHEAD diagonal shot down an imperial prison stairwell at blue-gray night. The very broad Déspota is at UPPER LEFT, distinctive black-silver braided arches and trapezoid mantle readable from above. Her huge squared branding hammer smashes through ONE enemy guard's raised iron SHIELD at LOWER RIGHT, breaking the shield into large angular metal fragments before the impact reaches the guard's armor. A pre-existing small glowing Burn brand on the guard's armor flares under the hammer to signify the stronger blow against an already Burning target. Exactly one intact target; no blood, no missing limbs, no giant group attack. Strong silhouette separation, bold drawn motion arc, enormous cold negative space of stairwell."
+    },
+    {
+      "key": "skill-tecnica",
+      "path": "art/characters/a-regente-de-cinzas/anime-review-20261024/skill-tecnica.webp",
+      "sourceFile": "exec-9e6f63ff-0738-49ca-9bd9-9b2d1e8f4bb5.png",
+      "sourceSha256": "a206d9a322c61799889fa80cf35e0bc1b427bc31dbb032729416464bf81b2263",
+      "sha256": "f2327ad90170c0b9b7588975040033fa57f93a67eda738d388464c5c58bcfe4c",
+      "width": 512,
+      "height": 512,
+      "bytes": 111512,
+      "prompt": "Use case: stylized-concept. ONE square ability illustration for Post Mortem Arena, no text, no frame, no UI, no collage. Image 1 defines A Déspota's EXACT identity: elderly massive broad-bodied ash-giant woman, deep brown skin, wide flattened nose, heavy square jaw and cheeks, small amber RIGHT eye and milky LEFT eye, pale irregular ash patch on RIGHT temple and cheek, aged scarred forehead, three thick black-and-silver braided arches swept into heavy rear knot, shaved sides. Same trapezoid mantle and blocky blackened-bronze shoulders, slate-green coat with ivory geometric trim, iron wrist shackles, both hands BARE with exactly five coherent fingers, subtle ash cracks on exposed forearms. Same immense squared imperial branding hammer as reference. Preserve facial structure, age and huge width; never turn her into a slim youthful woman. Strictly drawn Japanese ANIME 2D, strong ink contours, clean cel-shaded color blocks, no realistic rendering, no oil paint, no 3D. Keep Coroa's imperial prison architecture rather than volcanic Chama scenery. Ordem Absoluta. IMPORTANT input images 2 and 3 are ONLY identities of TWO allies, not style references: image 2 is the young slim Prince with one ivory braid; image 3 is the faceless hooded Overlord with narrow amber void and broken floating crown. Render ALL in consistent 2D ANIME. Show EXACTLY THREE allied souls total, A Déspota at front center, the Prince behind LEFT, and hooded Overlord behind RIGHT. High wide viewpoint of an imperial command terrace, no enemies. Her huge blackened-bronze mantle casts THREE distinct angular personal Defense plates around the three characters, including herself. Thin green recovery threads curl near each character's torso and restrained amber glints at their weapon or hand indicate a brief damage boost. Maintain their three very different silhouettes and exact faces. No fourth figure, no crowd, no large fireball, no attack on the allies. The matriarch gives a small firm command with one bare hand. Bright overcast white sky.",
+      "correction": "Make one precise continuity correction in this illustration. Change ONLY the black glove on the young Prince at the upper left: show his natural BARE medium-brown hand with correct anatomy and the exact same fist pose gripping the chain. Every visible hand of this Prince must be bare, matching his other ability artworks. Preserve ALL other elements and pixels as closely as possible: the elderly broad Déspota's face, body, clothing, large bare hand and hammer; the faceless hooded Overlord at upper right; three characters total; shields, healing threads, background, anime drawing, composition and color. Do not alter anyone's face, accessories, hair, skin patches or eye colors. No extra fingers or arms. No text or frame."
+    },
+    {
+      "key": "skill-despertar",
+      "path": "art/characters/a-regente-de-cinzas/anime-review-20261024/skill-despertar.webp",
+      "sourceFile": "exec-431beed9-50f8-4769-bfe4-64588918a278.png",
+      "sourceSha256": "c3a5acdc6632ede83514807ec05e725942a518cf05bd041a1ff99fb0adf20226",
+      "sha256": "8a073969af18c9088f1cc420ae025839e074ffc98f425b84efdd5f0c0757a381",
+      "width": 512,
+      "height": 512,
+      "bytes": 100882,
+      "prompt": "Use case: stylized-concept. ONE square ability illustration for Post Mortem Arena, no text, no frame, no UI, no collage. Image 1 defines A Déspota's EXACT identity: elderly massive broad-bodied ash-giant woman, deep brown skin, wide flattened nose, heavy square jaw and cheeks, small amber RIGHT eye and milky LEFT eye, pale irregular ash patch on RIGHT temple and cheek, aged scarred forehead, three thick black-and-silver braided arches swept into heavy rear knot, shaved sides. Same trapezoid mantle and blocky blackened-bronze shoulders, slate-green coat with ivory geometric trim, iron wrist shackles, both hands BARE with exactly five coherent fingers, subtle ash cracks on exposed forearms. Same immense squared imperial branding hammer as reference. Preserve facial structure, age and huge width; never turn her into a slim youthful woman. Strictly drawn Japanese ANIME 2D, strong ink contours, clean cel-shaded color blocks, no realistic rendering, no oil paint, no 3D. Keep Coroa's imperial prison architecture rather than volcanic Chama scenery. Privilégio Soberano. ONLY A Déspota visible, no other characters. Eye-level close full-body portrait from FRONT showing her wide, low, immovable stance and tremendous shoulders. Her slate-green mantle folds into rigid interlocking bronze-edged slabs around ONLY her own body as a thin angular amber outline turns away an incoming off-frame spear tip. An intact spear point touches the exterior shell, a few drawn sparks, she remains unharmed. No healing, no ally shields, no counterattack, no offensive hammer swing. Both aged bare hands remain inside the shell, one resting on hammer handle. Setting: small pale-stone imperial doorway with cold moonlight from behind. Keep the milky left eye, right ash patch and braided arches exactly as reference, no youthful face or slim waist."
+    }
+  ]
+}

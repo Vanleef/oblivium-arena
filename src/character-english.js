@@ -54,7 +54,7 @@ const characterCopy = {
     passive: "Inherited Shackle"
   },
   "a-regente-de-cinzas": {
-    lore: "Her authority is born from imposed submission. She uses red-hot iron as an example of what defiance costs, keeping her executioners standing to extend Crown's dominion.",
+    lore: "A colossal matriarch forged from a dynasty’s ashes, she bears the marks of the empire she helped build on her aged face. Her authority is built on forced submission. She uses heated iron as an example to others and keeps her enforcers standing to prolong the Crown’s dominion.",
     combo: "Burn through resistance with the yoke's iron, strengthen your executioners, and punish anyone already burning.",
     passive: "Loyalty Through Fear"
   },

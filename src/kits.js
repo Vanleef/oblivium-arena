@@ -149,19 +149,31 @@ const rosters = {
 // Triggered passives proc at most once per round unless the design says otherwise.
 const passiveRevisions = {
   sangria: {
-    0: T("Faro de Sangue", "consume", { generateEssence: { resource: "ruptura", amount: 1 } }, "Ao consumir Sangramento de um inimigo, gera 1 Ruptura para a equipe. Ativa uma vez por rodada."),
-    1: T("Luto Faminto", "kill", { heal: 8, generateEssence: { resource: "coringa", amount: 1 } }, "Quando um inimigo marcado pela Viúva cai, ela recupera 8 de Vida e a equipe recebe 1 Coringa. Ativa uma vez por rodada.", { requiresOwnMark: true })
+    2: T("Primeiro Troféu", "kill", { gainCharge: 1, shield: 4 }, "Ao eliminar um inimigo, ganha 1 carga e 4 de Defesa. Ativa uma vez por rodada."),
+    3: T("Ritmo dos Gêmeos", "hit", { heal: 3, generateEssence: { resource: "ruptura", amount: 1 } }, "Ao causar dano a um inimigo Exposto com Sangramento aplicado pelos Gêmeos, recupera 3 de Vida e gera 1 Ruptura. Ativa uma vez por rodada.", { requiresExposed: true, requiresOwnDot: "sangramento" }),
+    4: T("Sem Apelação", "hit", { drainEssence: { resource: "coringa", amount: 1 }, heal: 3 }, "Ao causar dano a um inimigo já Atordoado, recupera 3 de Vida e remove 1 Coringa da reserva adversária, se houver. Ativa uma vez por rodada.", { requiresStunned: true }),
+    5: T("Sangue que Acolhe", "support", { shieldTarget: 4, healSource: 3 }, "Quando um apoio restaura ao menos 10 de Vida de outro aliado, concede 4 de Defesa a ele e recupera 3 de Vida. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.", { minimumHeal: 10, requiresOtherAlly: true, nonDefensive: true }),
+    0: T("Faro de Sangue", "consume", { generateEssence: { resource: "ruptura", amount: 1 } }, "Ao consumir Sangramento de um inimigo, gera 1 Ruptura para a equipe. Ativa uma vez por rodada.", { condition: "bleed" }),
+    1: T("Luto Faminto", "kill", { heal: 8, generateEssence: { resource: "coringa", amount: 1 } }, "Quando um inimigo marcado pela Viúva cai, ela recupera 8 de Vida e a equipe recebe 1 Coringa. Ativa uma vez por rodada.", { requiresOwnMark: true, watchDeaths: true })
   },
   coroa: {
+    0: T("Autoridade Estilhaçada", "formChange", { shield: 6 }, "Ao assumir a Forma Coroa Soberana, recebe 6 de Defesa. Ativa uma vez por rodada; voltar à Forma original não ativa a passiva.", { ifForm: "edict" }),
+    1: T("Lei do Mais Forte", "hit", { drainEssence: { resource: "graca", amount: 1 }, shield: 2 }, "Ao causar dano a um inimigo Exposto, recebe 2 de Defesa e remove 1 Graça da reserva adversária, se houver. Ativa uma vez por rodada.", { requiresExposed: true }),
+    3: T("Grilhão Herdado", "hit", { shield: 4 }, "Ao causar dano a um inimigo que já tem uma Marca do Príncipe, recebe 4 de Defesa. Ativa uma vez por rodada; aplicar a primeira Marca não ativa a passiva.", { requiresOwnMark: true }),
+    4: T("Lealdade pelo Medo", "support", { generateEssence: { resource: "cinza", amount: 1 } }, "Quando um apoio concede ao menos 5 de Defesa a uma alma, gera 1 Cinza. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.", { minimumShield: 5, nonDefensive: true }),
     2: T("Autoridade Delegada", "turnStart", { shield: 4 }, "No início do turno, recebe 4 de Defesa se não atacou na rodada anterior ou perdeu Vida para uma habilidade. A defesa pessoal não conta como ataque.", { ifNoOffenseOrDamaged: true }),
     5: T("Ambição Acorrentada", "turnStart", { gainCharge: 1, selfDamage: 3 }, "Com 50 de Vida ou menos, ganha 1 carga no início do turno, mas perde 3 de Vida sem poder ser derrotado por esse custo.", { hpAtMost: 50 })
   },
   mentira: {
+    0: T("Segredo em Circulação", "hit", { convertEssence: { from: "essence", to: "coringa", amount: 1 } }, "Ao causar dano a um inimigo com seu Veneno, converte 1 Éter disponível em Coringa. Ativa uma vez por rodada; exige 1 Éter restante após pagar a técnica.", { requiresOwnDot: "veneno", ifResource: "essence", resourceMinimum: 1 }),
+    2: T("Trama Paciente", "hit", { weakenTarget: 1 }, "Ao causar dano a um inimigo que já tem uma Marca do Intrigante, deixa-o Enfraquecido por 1 turno. Ativa uma vez por rodada; aplicar a primeira Marca não ativa a passiva.", { requiresOwnMark: true }),
+    3: T("Verdade Fraturada", "hit", { heal: 4 }, "Ao causar dano perfurante a um inimigo Exposto, recupera 4 de Vida. Ativa uma vez por rodada; dano absorvido inteiramente pela Defesa não ativa a passiva.", { requiresExposed: true, damageTypes: ["piercing"] }),
+    4: T("Fé Desviada", "support", { shield: 3, generateEssence: { resource: "graca", amount: 1 } }, "Quando uma técnica própria restaura ao menos 10 de sua Vida, recebe 3 de Defesa e gera 1 Graça. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.", { minimumHeal: 10, requiresSelf: true, nonDefensive: true }),
     1: T("Segundo Rosto", "formChange", { generateEssence: { resourceFromForm: true, amount: 1 } }, "Ao assumir ou deixar uma Forma, gera 1 Essência do tipo da nova Forma; ao voltar ao corpo original, usa sua afinidade. Ativa uma vez por rodada."),
     5: T("Arquivo Roubado", "essenceSpent", { stealEssence: { amount: 1 } }, "Uma vez por rodada, ao pagar Éter por uma técnica, rouba 1 Essência da reserva adversária, se houver.", { spendResource: "essence" })
   },
   chama: {
-    1: T("Calor Persistente", "kill", { heal: 4, generateEssence: { resource: "ruptura", amount: 1 } }, "Quando um inimigo com sua Queimadura cai, recupera 4 de Vida e gera 1 Ruptura. Ativa uma vez por rodada.", { requiresOwnDot: "queimadura" }),
+    1: T("Calor Persistente", "kill", { heal: 4, generateEssence: { resource: "ruptura", amount: 1 } }, "Quando um inimigo com sua Queimadura cai, recupera 4 de Vida e gera 1 Ruptura. Ativa uma vez por rodada.", { requiresOwnDot: "queimadura", watchDeaths: true }),
     2: T("Raiva sem Freio", "turnStart", { selfDamage: 3 }, "Enquanto Ódio Solto estiver ativo, perde 3 de Vida no início do turno sem poder ser derrotado por esse custo. Técnicas transformadas que exigem Éter custam 1 a menos.", { ifForm: "rage", costDiscount: { form: "rage", resource: "essence", amount: 1 } })
   },
   fome: {
@@ -169,7 +181,7 @@ const passiveRevisions = {
     5: T("Lucro da Carência", "attack", { drainEssence: { resource: "coringa", amount: 1 }, weakenTarget: 1 }, "Ao atacar um inimigo que guarda ao menos 2 Coringas, remove 1 Coringa e reduz em 10 o dano causado por ele na próxima ação. Ativa uma vez por rodada.", { enemyResource: "coringa", enemyResourceMinimum: 2 })
   },
   podridao: {
-    0: T("Carne em Ruína", "consume", { generateEssence: { resource: "cinza", amount: 1 } }, "Ao consumir Decadência de um inimigo, gera 1 Cinza para a equipe. Ativa uma vez por rodada."),
+    0: T("Carne em Ruína", "consume", { generateEssence: { resource: "cinza", amount: 1 } }, "Ao consumir Decadência de um inimigo, gera 1 Cinza para a equipe. Ativa uma vez por rodada.", { condition: "decay" }),
     3: T("Colônia Viva", "turnStart", { gainCharge: 1 }, "Se a equipe tiver ao menos 2 Cinzas no início do turno, ganha 1 carga. Ativa uma vez por rodada.", { ifResource: "cinza", resourceMinimum: 2 })
   },
   silencio: {

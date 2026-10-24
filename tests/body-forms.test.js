@@ -101,7 +101,7 @@ test('Devorador e Máscara Dupla têm formas legíveis, artes próprias e retorn
  cast(mask,0);refreshSkillForms(mask);assert.equal(spirit.bodyForm,'betrayal');assert.notEqual(spirit.art.portrait,base);assert.equal(spirit.abilities[0].formKey,'other');
  const altSkill=spirit.abilities[0].art;assert.equal(altSkill,'/art/characters/a-mascara-dupla/body-forms-20261023/skill-impulso-other.webp');
  spirit.skillForms.impulso.expiresAt=mask.round;mask.round++;refreshSkillForms(mask);assert.equal(spirit.bodyForm,'base');assert.equal(spirit.art.portrait,base);
- for(const image of [beast.art.portrait,devForm.portrait,base,maskForm.portrait,altSkill])assert.ok(fs.existsSync(image.replace(/^\//,'')),image);
+ for(const image of [beast.art.portrait,devForm.portrait,base,maskForm.portrait,altSkill])assert.ok(fs.existsSync(new URL(`..${image}`, import.meta.url)),image);
 });
 
 test('preview de cada forma mostra o kit completo sem alterar o personagem ou o combate',()=>{

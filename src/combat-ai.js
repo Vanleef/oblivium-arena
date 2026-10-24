@@ -153,7 +153,7 @@ function forecast(s, actor, a, targets, rules) {
     }
     affected++;
     u.hp += healing(s, actor, a, u);
-    if (a.shield) u.shield = Math.min(80, u.shield + a.shield);
+    if (a.shield) u.shield = Math.min(Math.round(u.maxHp * .5), u.shield + a.shield);
     if (a.counter) { u.counter = a.counter; u.counterFilter = a.counterFilter; }
     if (a.reduce) u.reduction = Math.max(u.reduction, a.reduce);
     if (a.boost) u.boost = Math.max(u.boost, a.boost);

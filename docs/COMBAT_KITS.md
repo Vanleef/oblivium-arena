@@ -47,29 +47,29 @@ Os kits usam as identidades e os conceitos do PMA. Testes cobrem a execução de
 
 O arquétipo principal descreve a identidade de cada kit; os secundários registram outras ferramentas que ele explora. Cada alma pode combinar até cinco identidades. O contexto curto explica a função do arquétipo, e a variação abaixo nomeia a forma particular como aquele personagem o executa.
 
-- **☣ Especialista em Aflições** (13 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
-- **♥ Sustentador** (36 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
+- **☣ Especialista em Aflições** (11 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
+- **♥ Sustentador** (35 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
 - **◈ Metamorfo** (9 kits): Muda o papel de combate com uma forma, postura ou limiar que altera técnicas.
 - **◎ Preparador de Marcas** (44 kits): Marca uma abertura e decide quando consumir, explorar ou espalhar a preparação.
 - **▼ Berserker** (10 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
 - **⬡ Baluarte** (16 kits): Cria Defesa e transforma a guarda em tempo para uma resposta própria ou do trio.
-- **⇥ Manipulador de Essência** (17 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
+- **⇥ Manipulador de Essência** (19 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
 - **↶ Retaliador** (23 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
 - **⊠ Interditor** (15 kits): Atordoa, sela ou enfraquece para abrir uma janela de ação segura.
 - **ϟ Executor** (19 kits): Concentra dano em uma janela preparada, em um alvo ferido ou numa reserva gasta.
 - **▦ Pressionador de Área** (33 kits): Altera o ritmo de toda a linha inimiga ou fortalece o trio em conjunto.
-- **⊕ Gerador de Essência** (13 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
-- **⇄ Transmutador de Essência** (6 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
+- **⊕ Gerador de Essência** (15 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
+- **⇄ Transmutador de Essência** (7 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
 - **◉ Gastador de Essência** (6 kits): Transforma o pagamento ou sacrifício de Essência em dano, proteção, controle ou preparação.
 - **⌖ Quebra-Guarda** (27 kits): Remove Defesa ou converte as camadas do alvo em vantagem ofensiva.
 
 ## Elo Sangria
 
-### O Açougueiro — Gerador de Essência
+### O Açougueiro — Especialista em Aflições
 
 **Variação:** Execução encadeada · **Essência:** Ruptura
 
-**Outros arquétipos:** Preparador de Marcas, Interditor
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas, Interditor
 
 Abra Sangramento e escolha entre reabrir a mesma ferida ou consumi-la na Sentença.
 
@@ -111,7 +111,7 @@ Acumule troféus e escolha quando gastar as duas grandes execuções disponívei
 
 **Estrutura:** Munição limitada
 
-**Passiva — Primeiro Troféu:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
+**Passiva — Primeiro Troféu:** Ao eliminar um inimigo, ganha 1 carga e 4 de Defesa. Ativa uma vez por rodada.
 
 - **Laço de Caça** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
 - **Cobrança do Caçador** (1 Ruptura; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 15 de Defesa antes do dano.
@@ -119,52 +119,52 @@ Acumule troféus e escolha quando gastar as duas grandes execuções disponívei
 - **Caça sem Troféus** [variação] (1 Qualquer; recarga 0T): Causa 15 de dano físico a um inimigo. Consome as cargas: +3 de dano por carga.
 - **Sombra do Colecionador** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### Gêmeos do Cutelo — Especialista em Aflições
+### Gêmeos do Cutelo — Pressionador de Área
 
-**Variação:** Cadência cruzada · **Essência:** Cinza
+**Variação:** Cadência cruzada · **Essência:** Ruptura
 
-**Outros arquétipos:** Pressionador de Área, Preparador de Marcas
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas
 
 Use um corte para abrir o outro; escolha entre a continuação concentrada e o encontro das duas lâminas.
 
 **Estrutura:** Cadência cruzada
 
-**Passiva — Ritmo dos Gêmeos:** Suas habilidades causam +4 de dano se o alvo está Exposto.
+**Passiva — Ritmo dos Gêmeos:** Ao causar dano a um inimigo Exposto com Sangramento aplicado pelos Gêmeos, recupera 3 de Vida e gera 1 Ruptura. Ativa uma vez por rodada.
 
-- **Cutelo da Esquerda** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. No próximo turno, Cutelo da Direita vira Corte em Contratempo contra a mesma vítima.
-- **Cutelo da Direita** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos.
-- **Corte em Contratempo** [variação] (1 Cinza + 1 Éter; recarga 0T): Causa 15 de dano perfurante a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos. Se o alvo está Exposto: +5 dano. Após usar, restaura Cutelo da Direita.
-- **Encontro das Lâminas** (2 Cinza + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo está Exposto: +10 dano.
+- **Cutelo da Esquerda** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. No próximo turno, Cutelo da Direita vira Corte em Contratempo contra a mesma vítima.
+- **Cutelo da Direita** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos.
+- **Corte em Contratempo** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 15 de dano perfurante a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos. Se o alvo está Exposto: +5 dano. Após usar, restaura Cutelo da Direita.
+- **Encontro das Lâminas** (2 Ruptura + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo está Exposto: +10 dano.
 - **Dança Cruzada** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Carrasco — Executor
 
 **Variação:** Sentença contra apoio · **Essência:** Éter
 
-**Outros arquétipos:** Preparador de Marcas
+**Outros arquétipos:** Preparador de Marcas, Manipulador de Essência
 
 Marque uma sentença que pune apoio; interrompa a vítima ou guarde a execução para quando ela estiver ferida.
 
 **Estrutura:** Sentença contra apoio
 
-**Passiva — Sem Apelação:** Suas habilidades causam +5 de dano se o alvo está Atordoado.
+**Passiva — Sem Apelação:** Ao causar dano a um inimigo já Atordoado, recupera 3 de Vida e remove 1 Coringa da reserva adversária, se houver. Ativa uma vez por rodada.
 
 - **Sentença sem Nome** (1 Éter; recarga 0T): Causa 5 de dano físico a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 10 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Queda da Guilhotina** (1 Éter + 1 Qualquer; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Última Respiração** (2 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo tem 50 de Vida ou menos: +15 dano.
 - **Capuz do Esquecimento** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Mãe Rubra — Especialista em Aflições
+### A Mãe Rubra — Sustentador
 
 **Variação:** Cuidado com sacrifício · **Essência:** Graça
 
-**Outros arquétipos:** Sustentador, Pressionador de Área
+**Outros arquétipos:** Pressionador de Área
 
 Troque sua Vida por guarda e recuperação futura de um aliado; sustente-se drenando o inimigo.
 
 **Estrutura:** Cuidado com sacrifício
 
-**Passiva — Sangue que Acolhe:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Sangue que Acolhe:** Quando um apoio restaura ao menos 10 de Vida de outro aliado, concede 4 de Defesa a ele e recupera 3 de Vida. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Cordão Rubro** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado.
 - **Partilha da Mãe** (1 Graça; recarga 1T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. O usuário perde 5 de Vida (não o derrota).
@@ -183,7 +183,7 @@ Assuma a forma de domínio para espalhar decretos, enfraquecer a linha e erguer 
 
 **Estrutura:** Forma de domínio
 
-**Passiva — Autoridade Estilhaçada:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Autoridade Estilhaçada:** Ao assumir a Forma Coroa Soberana, recebe 6 de Defesa. Ativa uma vez por rodada; voltar à Forma original não ativa a passiva.
 
 - **Decreto do Rei Caído** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos.
 - **Decreto sobre Todos** [variação] (2 Éter; recarga 0T): Causa 10 de dano espiritual a todos os inimigos. Marca o alvo por 3 turnos.
@@ -197,13 +197,13 @@ Assuma a forma de domínio para espalhar decretos, enfraquecer a linha e erguer 
 
 **Variação:** Interdição de apoio · **Essência:** Éter
 
-**Outros arquétipos:** Quebra-Guarda
+**Outros arquétipos:** Manipulador de Essência, Quebra-Guarda
 
 Imponha uma acusação para expor e selar o apoio; interrompa a resistência antes da sentença perfurante.
 
 **Estrutura:** Interdição de apoio
 
-**Passiva — Lei do Mais Forte:** Suas habilidades causam +5 de dano se o alvo está Exposto.
+**Passiva — Lei do Mais Forte:** Ao causar dano a um inimigo Exposto, recebe 2 de Defesa e remove 1 Graça da reserva adversária, se houver. Ativa uma vez por rodada.
 
 - **Acusação Imposta** (2 Éter; recarga 2T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
 - **Interdição da Defesa** (1 Éter + 1 Qualquer; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove 10 de Defesa antes do dano.
@@ -237,7 +237,7 @@ Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas 
 
 **Estrutura:** Perseguição
 
-**Passiva — Grilhão Herdado:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Grilhão Herdado:** Ao causar dano a um inimigo que já tem uma Marca do Príncipe, recebe 4 de Defesa. Ativa uma vez por rodada; aplicar a primeira Marca não ativa a passiva.
 
 - **Primeiro Grilhão** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). No próximo turno, vira Apertar o Grilhão contra a mesma vítima.
 - **Apertar o Grilhão** [variação] (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Ganha 1 carga (máx. 3). Após usar, restaura Primeiro Grilhão.
@@ -245,21 +245,21 @@ Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas 
 - **Cárcere Dinástico** (2 Éter; recarga 2T): Causa 15 de dano físico a um inimigo. Atordoa por 1 turno. Consome as cargas: +8 de dano por carga.
 - **Corrente Exterior** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Déspota — Especialista em Aflições
+### A Déspota — Gerador de Essência
 
-**Variação:** Comando persistente · **Essência:** Graça
+**Variação:** Comando persistente · **Essência:** Cinza
 
-**Outros arquétipos:** Quebra-Guarda, Sustentador, Pressionador de Área
+**Outros arquétipos:** Quebra-Guarda, Pressionador de Área
 
 Queime a resistência com o ferro do jugo, fortaleça seus executores e castigue quem já carrega a Queimadura.
 
 **Estrutura:** Comando persistente
 
-**Passiva — Lealdade pelo Medo:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Lealdade pelo Medo:** Quando um apoio concede ao menos 5 de Defesa a uma alma, gera 1 Cinza. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
-- **Ferro do Jugo** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos.
-- **Ordem Absoluta** (1 Graça + 1 Qualquer; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Regeneração: restaura 2 de Vida no início dos próximos 2 turnos de cada aliado.
-- **Esmagar a Resistência** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +15 dano.
+- **Ferro do Jugo** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos.
+- **Ordem Absoluta** (1 Cinza + 1 Qualquer; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Regeneração: restaura 2 de Vida no início dos próximos 2 turnos de cada aliado.
+- **Esmagar a Resistência** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +15 dano.
 - **Privilégio Soberano** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Herdeiro — Executor
@@ -281,9 +281,9 @@ Use a Vida perdida para fortalecer o punho; recupere-se ou gaste as cargas na to
 
 ## Elo Mentira
 
-### O Sussurro — Especialista em Aflições
+### O Sussurro — Transmutador de Essência
 
-**Variação:** Segredo provocador · **Essência:** Cinza
+**Variação:** Segredo provocador · **Essência:** Coringa
 
 **Outros arquétipos:** Manipulador de Essência, Retaliador
 
@@ -291,11 +291,11 @@ Envenene um segredo que pune a próxima ofensiva da vítima e depois cobra Essê
 
 **Estrutura:** Segredo provocador
 
-**Passiva — Segredo em Circulação:** Suas habilidades causam +4 de dano se o alvo está com Veneno.
+**Passiva — Segredo em Circulação:** Ao causar dano a um inimigo com seu Veneno, converte 1 Éter disponível em Coringa. Ativa uma vez por rodada; exige 1 Éter restante após pagar a técnica.
 
-- **Palavra Envenenada** (1 Cinza; recarga 0T): Causa 5 de dano espiritual a um inimigo. Veneno: 5 de dano de aflição por 2 turnos. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
-- **Segredo Cobrado** (1 Cinza + 1 Qualquer; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo está com Veneno: +10 dano.
-- **Aviso Falso** (1 Cinza + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno.
+- **Palavra Envenenada** (1 Coringa; recarga 0T): Causa 5 de dano espiritual a um inimigo. Veneno: 5 de dano de aflição por 2 turnos. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
+- **Segredo Cobrado** (1 Coringa + 1 Qualquer; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo está com Veneno: +10 dano.
+- **Aviso Falso** (1 Coringa + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno.
 - **Voz sem Origem** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Máscara Dupla — Preparador de Marcas
@@ -326,7 +326,7 @@ Prenda o adversário na trama e escolha entre continuar o controle ou desatar a 
 
 **Estrutura:** Controle ou amparo
 
-**Passiva — Trama Paciente:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Trama Paciente:** Ao causar dano a um inimigo que já tem uma Marca do Intrigante, deixa-o Enfraquecido por 1 turno. Ativa uma vez por rodada; aplicar a primeira Marca não ativa a passiva.
 
 - **Fio de Engano** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Enfraquece por 1 turno do alvo: −10 de dano causado. No próximo turno, Rede de Falsidades vira Desatar a Trama.
 - **Rede de Falsidades** (1 Éter + 1 Qualquer; recarga 2T): Causa 10 de dano físico a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
@@ -344,29 +344,29 @@ Repetir o sibilo aumenta seu dano até o limite; Atordoamento quebra a sequênci
 
 **Estrutura:** Discurso crescente
 
-**Passiva — Verdade Fraturada:** Suas habilidades causam +4 de dano se o alvo está Exposto.
+**Passiva — Verdade Fraturada:** Ao causar dano perfurante a um inimigo Exposto, recupera 4 de Vida. Ativa uma vez por rodada; dano absorvido inteiramente pela Defesa não ativa a passiva.
 
 - **Sibilo Cortante** (1 Cinza; recarga 0T): Causa 15 de dano perfurante a um inimigo. Cada uso não anulado dá +3 de dano a esta técnica (máx. +9). Atordoamento zera esse bônus.
 - **Reflexo Traiçoeiro** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 unidade de Essência da reserva inimiga.
 - **Coro de Estilhaços** (2 Cinza + 1 Éter; recarga 2T): Causa 20 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano.
 - **Reflexo Desviado** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Impostor — Sustentador
+### O Impostor — Gerador de Essência
 
-**Variação:** Fé ou confissão · **Essência:** Coringa
+**Variação:** Fé ou confissão · **Essência:** Graça
 
-**Outros arquétipos:** Gerador de Essência, Preparador de Marcas
+**Outros arquétipos:** Sustentador, Preparador de Marcas
 
 Cultive cargas com a falsa bênção e escolha entre confessar para recuperar-se ou fabricar um milagre ofensivo.
 
 **Estrutura:** Fé ou confissão
 
-**Passiva — Fé Desviada:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Fé Desviada:** Quando uma técnica própria restaura ao menos 10 de sua Vida, recebe 3 de Defesa e gera 1 Graça. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
-- **Promessa do Profeta** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
-- **Bênção Falsa** (1 Coringa + 1 Qualquer; recarga 0T): Restaura 15 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Ganha 1 carga (máx. 3). Gera 1 Coringa para a reserva da equipe. Vira Confissão do Falso Santo por 2 turnos: gaste as cargas em cuidado ou preserve-as para o milagre.
-- **Confissão do Falso Santo** [variação] (1 Coringa + 1 Qualquer; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. Consome as cargas: +3 de cura por carga. Após usar, restaura Bênção Falsa.
-- **Milagre Fabricado** (1 Coringa + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
+- **Promessa do Profeta** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
+- **Bênção Falsa** (1 Graça + 1 Qualquer; recarga 0T): Restaura 15 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Ganha 1 carga (máx. 3). Gera 1 Coringa para a reserva da equipe. Vira Confissão do Falso Santo por 2 turnos: gaste as cargas em cuidado ou preserve-as para o milagre.
+- **Confissão do Falso Santo** [variação] (1 Graça + 1 Qualquer; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. Consome as cargas: +3 de cura por carga. Após usar, restaura Bênção Falsa.
+- **Milagre Fabricado** (1 Graça + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
 - **Imagem Sagrada** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Falsário — Manipulador de Essência
@@ -605,11 +605,11 @@ Drene a reserva inimiga e sustente um aliado ferido; o confisco pune inimigos j�
 
 ## Elo Podridão
 
-### O Apodrecido — Gerador de Essência
+### O Apodrecido — Especialista em Aflições
 
 **Variação:** Ruína da recuperação · **Essência:** Cinza
 
-**Outros arquétipos:** Quebra-Guarda
+**Outros arquétipos:** Gerador de Essência, Quebra-Guarda
 
 A decadência reduz a cura recebida; escolha entre degradar a guarda e concluir a decomposição.
 
