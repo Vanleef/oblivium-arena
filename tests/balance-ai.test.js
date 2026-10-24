@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { buffs, difficulties, elos } from "../src/data.js";
 import { getBuffChoices, getRelevantBuffs } from "../src/rules.js";
-import { chooseAction, createBattle, passTurn, skipStunnedAction } from "../src/engine.js";
+import { chooseAction, createBattle, createEnemyTeam, passTurn, skipStunnedAction } from "../src/engine.js";
 
 const team = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const simpleEnemy = (overrides = {}) => ({
@@ -40,6 +40,16 @@ test("Agonia cria inimigos mais resistentes e perigosos do que Travessia", () =>
   const hardLoss = hard.allies.reduce((sum, ally) => sum + 100 - ally.hp, 0);
   assert.ok(hardLoss > easyLoss);
   assert.ok(hard.enemyDamageMultiplier > easy.enemyDamageMultiplier);
+});
+
+test("chefes usam a concordância correta nos nomes dos Elos Silêncio e Vazio", () => {
+  for (const [eloId, expected] of [
+    ["silencio", ["Guardião do Elo do Silêncio", "Arauto do Silêncio", "Custódio do Silêncio"]],
+    ["vazio", ["Guardião do Elo do Vazio", "Arauto do Vazio", "Custódio do Vazio"]]
+  ]) {
+    const elo = elos.find((item) => item.id === eloId);
+    assert.deepEqual(createEnemyTeam(elo, team, "boss").map((enemy) => enemy.name), expected);
+  }
 });
 
 test("IA avançada cura um aliado crítico em vez de atacar sem necessidade", () => {

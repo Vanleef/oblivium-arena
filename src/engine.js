@@ -467,9 +467,10 @@ export function createEnemyTeam(elo, playerIds, encounter = "normal", sequence =
   const source = pool.length >= 3 ? pool : Object.values(characterById).filter((character) => character.eloId === elo.id);
   const boss = encounter === "boss";
   if (boss) {
+    const eloArticle = ["Silêncio", "Vazio"].includes(elo.name) ? "do" : "da";
     return [
       {
-        id: "guardiao-" + elo.id, name: "Guardião do Elo da " + elo.name,
+        id: "guardiao-" + elo.id, name: `Guardião do Elo ${eloArticle} ${elo.name}`,
         title: "Guardião principal", realm: elo.realm, elo: elo.name, eloId: elo.id, color: elo.color, symbol: "✹", role: "Guardião",
         affinity: realmResourceFor(elo.realm), risk: false, abilities: [
           { id: "basic", name: elo.moves[0], kind: "strike", cost: 0, damage: 23, target: "enemy" },
@@ -478,7 +479,7 @@ export function createEnemyTeam(elo, playerIds, encounter = "normal", sequence =
         ]
       },
       ...[0, 1].map((offset) => ({
-        id: "subordinado-" + elo.id + "-" + offset, name: ["Arauto", "Custódio"][offset] + " da " + elo.name,
+        id: "subordinado-" + elo.id + "-" + offset, name: `${["Arauto", "Custódio"][offset]} ${eloArticle} ${elo.name}`,
         title: "Subordinado do guardião", realm: elo.realm, elo: elo.name, eloId: elo.id, color: elo.color, symbol: elo.symbol, role: offset ? "Guardião" : "Apoio",
         affinity: realmResourceFor(elo.realm), risk: false, abilities: [
           { id: "basic", name: elo.moves[offset], kind: "strike", cost: 0, damage: 16, target: "enemy" },
