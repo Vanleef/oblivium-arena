@@ -115,6 +115,7 @@ export class CampaignService{
      const run=currentRun(profile,account);if(!run.battle)fail('Nenhum combate está ativo.');
      if(!Array.isArray(body.actions)||body.actions.length>3)fail('Fila inválida.');
      const battle=restoreBattle(run.battle);if(battle.phase!=='player')fail('Aguarde a decisão atual do combate.',409);
+     if(!Number.isSafeInteger(body.round)||body.round!==battle.round)fail('O turno mudou. A campanha foi atualizada.',409);
      const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId);if(!result.ok)fail(result.reason||'Ação inválida.');}
      const committed=commitTurn(battle,body.payment);if(!committed.ok)fail(committed.reason||'Pagamento inválido.');
      const events=runBattleToDecision(battle);run.battle=storeBattle(battle);extra={battle:run.battle,events};

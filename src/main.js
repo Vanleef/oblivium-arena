@@ -150,7 +150,7 @@ async function requestCampaign(payload,{animate=false}={}){
     if(animate&&previous&&data.events?.length){state.battle=previous;playCampaignEvents(data.events,data.battle||null);}
     else render();
     return data;
-  }catch(error){state.campaignBusy=false;toast(error.message);render();return null;}
+  }catch(error){if(error.status===409){try{syncCampaign(await campaignRequest({op:"sync"}));}catch{}}state.campaignBusy=false;toast(error.message);render();return null;}
 }
 
 
@@ -449,7 +449,7 @@ function resolveCombatStep() {
 function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
   if(state.battle.online){state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected});return;}
-  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId}));state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",actions,payment:payment.selected},{animate:true});return;}
+  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId}));state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected},{animate:true});return;}
   if(!commitTurn(state.battle,payment.selected).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {

@@ -53,7 +53,7 @@ test('combates de campanha usam o estado persistido no servidor e impedem vitór
  await accounts.update(session,{profile:{...influence.profile,run:forged,xp:999999,completedElos:['sangria']}});
  const current=await accounts.current(session),stored=current.profile;
  assert.equal(current.battle.phase,'player');assert.equal(stored.xp,0);assert.deepEqual(stored.completedElos,[]);
- await assert.rejects(campaign.request(session,{op:'turn',actions:[{actorId:'a-brasa-eterna',abilityId:'missing',targetId:'oponente-0-0'}],payment:{}}),{status:400});
+ await assert.rejects(campaign.request(session,{op:'turn',round:influence.battle.round,actions:[{actorId:'a-brasa-eterna',abilityId:'missing',targetId:'oponente-0-0'}],payment:{}}),{status:400});
  await assert.rejects(campaign.request(session,{op:'settle'}),{status:409});
 });
 
@@ -66,7 +66,7 @@ test('servidor valida custo Qualquer e a identidade da forma antes de consumir o
  const actor=battle.allies.find(unit=>unit.hp>0),ability=actor.abilities.find(item=>item.costs?.random>0);
  if(!ability)return;
  const target=ability.target==='self'?actor:battle.enemies.find(unit=>unit.hp>0);
- await assert.rejects(campaign.request(session,{op:'turn',actions:[{actorId:actor.id,abilityId:ability.id,targetId:target.id}],payment:{essence:999}}),{status:400});
+ await assert.rejects(campaign.request(session,{op:'turn',round:battle.round,actions:[{actorId:actor.id,abilityId:ability.id,targetId:target.id}],payment:{essence:999}}),{status:400});
  const refreshed=await accountsCurrent(campaign,session);assert.equal(refreshed.battle.phase,'player');
 });
 
@@ -75,12 +75,14 @@ test('turnos e sorteios continuam no servidor após serializar o combate entre r
  const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
  let battle=(await campaign.request(session,{op:'select-node',nodeId:node.id})).battle;
  await campaign.request(session,{op:'influence',eventId:battle.influenceDraft.options[0]});
- let result=await campaign.request(session,{op:'turn',actions:[],payment:{essence:0,cinza:0,graca:0,ruptura:0}});
- assert.ok(result.events.length>0);assert.notEqual(result.battle.phase,'resolving');
- if(result.battle.phase==='player'){
-  result=await campaign.request(session,{op:'turn',actions:[],payment:{essence:0,cinza:0,graca:0,ruptura:0}});
-  assert.ok(['player','influence','victory','defeat'].includes(result.battle.phase));
- }
+ const staleRound=battle.round;
+ let result=await campaign.request(session,{op:'turn',round:staleRound,actions:[],payment:{essence:0,cinza:0,graca:0,ruptura:0}});
+ assert.ok(result.events.length>0);assert.equal(result.battle.phase,'player');assert.equal(result.battle.round,staleRound+1);
+ const nextRound=result.battle.round;
+ await assert.rejects(campaign.request(session,{op:'turn',round:staleRound,actions:[],payment:{essence:0,cinza:0,graca:0,ruptura:0}}),{status:409});
+ assert.equal((await accountsCurrent(campaign,session)).battle.round,nextRound);
+ result=await campaign.request(session,{op:'turn',round:nextRound,actions:[],payment:{essence:0,cinza:0,graca:0,ruptura:0}});
+ assert.ok(['player','influence','victory','defeat'].includes(result.battle.phase));
 });
 
 async function accountsCurrent(campaign,session){
