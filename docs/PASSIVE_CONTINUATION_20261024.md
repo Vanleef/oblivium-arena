@@ -29,6 +29,8 @@ A simulação atual resolveu 300 confrontos, 32.424 etapas, 434 técnicas e 43 a
 
 Verificação deste lote: **293 testes aprovados**, nenhuma falha; build de produção concluído; 626 caminhos ativos de arte presentes, nenhum ausente. A identidade e os seis arquivos finais do Sussurro têm referências, unicidade, dimensões e hashes conferidos.
 
+Conferência em produção: deploy `dd49eb6421471491d32d3943fbc75451619eb550`, READY. A biografia foi conferida em português e inglês; Coringa aparece como Wildcard. As seis imagens do conjunto final carregaram e o rosto permanece inteiro no cartão. As 12 regras de Podridão e Silêncio foram verificadas em inglês. Evidência: `qa/sussurro-amphibian-codex-20261024.jpg`.
+
 ## Continuação — Herdeiro, Chama e Fome
 
 Mais sete passivas foram substituídas, completando as identidades mecânicas dos 12 personagens de Chama e Fome. O total passa de 49 para **56 de 100** passivas com gatilhos específicos ou recuperação por tipo de dano; **44** permanecem na fila. Custos e quatro espaços de técnica foram preservados.
