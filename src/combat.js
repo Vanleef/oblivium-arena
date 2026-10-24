@@ -119,6 +119,7 @@ function triggerPassive(s,unit,trigger,context={}){
  if(p.requiresLifeLoss&&!(context.dealt>0))return false;
  if(p.requiresOwnMark&&(!target||!Object.values(target.marks||{}).some(mark=>mark.sourceId===unit.id)))return false;
  if(p.requiresOwnDot&&(!target?.dots?.some(dot=>dot.tag===p.requiresOwnDot&&dot.sourceId===unit.id)))return false;
+ if(p.requiresAttackerOwnDot&&!attacker?.dots?.some(dot=>dot.tag===p.requiresAttackerOwnDot&&dot.sourceId===unit.id&&dot.turns>0))return false;
  if(p.requiresExposed&&!target?.exposed)return false;
  if(p.requiresStunned&&!target?.stunned)return false;
  if(p.requiresOtherAlly&&(!target||target.id===unit.id||target.side!==unit.side))return false;
@@ -128,6 +129,9 @@ function triggerPassive(s,unit,trigger,context={}){
  if(p.damageTypes&&!p.damageTypes.includes(context.damageType))return false;
  if(p.requiresRemainingShield&&!unit.shield)return false;
  if(p.minimumHeal&&(context.healed||0)<p.minimumHeal)return false;
+ if(p.minimumChargesSpent&&(context.chargesSpent||0)<p.minimumChargesSpent)return false;
+ if(p.minimumStripped&&(context.stripped||0)<p.minimumStripped)return false;
+ if(p.offensive&&!context.ability?.damage)return false;
  if(p.effect?.spendEssence){const spend=p.effect.spendEssence,resource=spend.resource==="affinity"?unit.bodyResource||unit.affinity:spend.resource,amount=Math.max(0,Math.floor(spend.amount||1));if((own[resource]||0)<amount)return false;own[resource]-=amount;}
 
  const effect=p.effect||{},changes=[];
@@ -190,7 +194,7 @@ function apply(s,actor,a,targetId,randomPayment){
       log(s,`${actor.name} usa ${a.name} em ${target.name}: ${r.dealt} dano${r.blocked?`, ${r.blocked} absorvido pela Defesa`:""}${combo?" · COMBO":""}.`);
       if(r.dealt&&target.passive?.type==="retaliate"&&(!target.passive.damageTypes||target.passive.damageTypes.includes(a.damageType||"physical"))&&actor.hp>0){hit(actor,target.passive.amount,{damageType:"affliction",ignoreInvulnerability:true});if(actor.hp<=0)notifyDefeat(s,actor,target);log(s,`${target.passive.name}: ${actor.name} sofre ${target.passive.amount} de aflição.`);}
     }
-    if(isFriendly){const support=applySupport(s,actor,a,target,charges);triggerPassive(s,actor,"support",{target,ability:a,healed:support.healed,shielded:support.shielded});}
+    if(isFriendly){const support=applySupport(s,actor,a,target,charges);triggerPassive(s,actor,"support",{target,ability:a,healed:support.healed,shielded:support.shielded,chargesSpent:a.spendCharge?charges:0});}
   }
   // Self benefits of an offensive area skill are granted once per cast.
   if(!isFriendly&&affected)applySupport(s,actor,{...a,reactive:null,regen:null,sealSupport:0,sealAttack:0,healingBlock:0,reduceCooldown:0},actor,charges);
@@ -204,6 +208,8 @@ function apply(s,actor,a,targetId,randomPayment){
   if(affected&&a.convertEssence){const converted=convertEssencePool(p,a.convertEssence);if(converted)log(s,`${actor.name} converte ${converted} unidade(s) de Essência.`);}
   if(affected&&a.generateEssence?.resource){const extra=eloSynergyPeers(team(s,actor.side),actor,"essence"),generated=gain(s,actor.side,a.generateEssence.resource,Math.max(0,Math.floor(a.generateEssence.amount||1)+extra));if(generated)log(s,`${actor.name} gera ${generated} ${a.generateEssence.resource==='coringa'?'Coringa':'Essência'} para a equipe.`);}
   if(a.selfDamage&&actor.hp>0)actor.hp=Math.max(1,actor.hp-Math.max(0,a.selfDamage+(actor.side==="player"?s.buffs.risk:0)));
+  if(affected&&a.spendCharge&&charges>0)triggerPassive(s,actor,"chargeSpent",{ability:a,chargesSpent:charges});
+  if(totalStripped>0)triggerPassive(s,actor,"stripShield",{ability:a,stripped:totalStripped});
   if(a.cooldown){actor.cooldowns[a.id]=Math.max(actor.cooldowns[a.id]||0,a.cooldown);actor.cooldownFresh.push(a.id);}
   const ownShift=affected&&a.shift?.some(t=>t.slot===a.id&&t.form!=="base");
   if(ownShift&&actor.skillForms[a.id]&&a.cooldown){actor.skillForms[a.id].returnCooldown=actor.cooldowns[a.id];delete actor.cooldowns[a.id];actor.cooldownFresh=actor.cooldownFresh.filter(id=>id!==a.id);}

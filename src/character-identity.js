@@ -359,7 +359,7 @@ export const characterRevisions = {
   "o-herdeiro-cativo": {
     "name": "O Herdeiro",
     "role": "Tirano Herdeiro",
-    "lore": "Nascido das dinastias de Coroa, carrega os grilhões que usará para subjugar os próximos. A dor fortalece sua vontade de dominar, em vez de torná-lo um libertador.",
+    "lore": "Uma alma dinástica habita esta efígie de porcelana viva, de pescoço longo e olhos rubros. O antebraço esquerdo de correntes sustenta as fraturas que armazenam sua ambição. Conserva os grilhões para subjugar os próximos; cada lasca perdida reforça sua pretensão ao trono de Coroa.",
     "terms": {
       "Vontade Cativa": "Ambição Acorrentada",
       "Aguentar o Decreto": "Resistência do Pretendente",
@@ -921,6 +921,11 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'o-herdeiro-cativo') {
+    const base = `/art/characters/${id}/anime-review-20261024`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (id === 'a-regente-de-cinzas') {
     const base = `/art/characters/${id}/anime-review-20261024`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,

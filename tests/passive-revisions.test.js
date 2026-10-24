@@ -16,9 +16,9 @@ function strike(battle, ability, targetId) {
   return actor;
 }
 
-test('49 passivas já usam gatilhos distintos ou recuperação ligada ao tipo de dano', () => {
+test('56 passivas já usam gatilhos distintos ou recuperação ligada ao tipo de dano', () => {
   const revised = characters.filter(c => c.passive.type === 'triggered' || c.passive.healByDamageType);
-  assert.equal(revised.length, 49);
+  assert.equal(revised.length, 56);
   for (const character of revised) assert.ok(character.passive.description.length > 35, character.name);
 });
 

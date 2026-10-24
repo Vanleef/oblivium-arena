@@ -173,10 +173,17 @@ const passiveRevisions = {
     5: T("Arquivo Roubado", "essenceSpent", { stealEssence: { amount: 1 } }, "Uma vez por rodada, ao pagar Éter por uma técnica, rouba 1 Essência da reserva adversária, se houver.", { spendResource: "essence" })
   },
   chama: {
+    0: T("Pavio Aceso", "consume", { generateEssence: { resource: "essence", amount: 1 }, shield: 3 }, "Ao consumir Queimadura de um inimigo, gera 1 Éter e recebe 3 de Defesa. Ativa uma vez por rodada.", { condition: "burn" }),
+    3: T("Rancor Latente", "support", { generateEssence: { resource: "cinza", amount: 1 } }, "Quando Nutrir o Rancor consome ao menos 1 carga e restaura ao menos 15 de sua Vida, gera 1 Cinza. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.", { requiresSelf: true, minimumHeal: 15, minimumChargesSpent: 1, nonDefensive: true }),
+    4: T("Rancor Encouraçado", "damaged", { damageAttacker: 4, shield: 3 }, "Ao perder Vida para uma habilidade de um inimigo com Queimadura aplicada pela Vingadora, devolve 4 de dano de aflição e recebe 3 de Defesa. Ativa uma vez por rodada.", { requiresLifeLoss: true, requiresAttackerOwnDot: "queimadura" }),
+    5: T("Pulso Irado", "chargeSpent", { heal: 6 }, "Após uma técnica ofensiva consumir ao menos 2 cargas, recupera 6 de Vida, depois do custo de Vida da técnica. Ativa uma vez por rodada; técnicas anuladas não ativam a passiva.", { minimumChargesSpent: 2, offensive: true }),
     1: T("Calor Persistente", "kill", { heal: 4, generateEssence: { resource: "ruptura", amount: 1 } }, "Quando um inimigo com sua Queimadura cai, recupera 4 de Vida e gera 1 Ruptura. Ativa uma vez por rodada.", { requiresOwnDot: "queimadura", watchDeaths: true }),
     2: T("Raiva sem Freio", "turnStart", { selfDamage: 3 }, "Enquanto Ódio Solto estiver ativo, perde 3 de Vida no início do turno sem poder ser derrotado por esse custo. Técnicas transformadas que exigem Éter custam 1 a menos.", { ifForm: "rage", costDiscount: { form: "rage", resource: "essence", amount: 1 } })
   },
   fome: {
+    2: T("Assimilação", "stripShield", { heal: 4 }, "Ao remover ao menos 10 de Defesa com uma técnica, recupera 4 de Vida. Ativa uma vez por rodada; absorver dano na Defesa não conta como removê-la.", { minimumStripped: 10 }),
+    3: T("Lucro da Privação", "support", { stealEssence: { amount: 1 } }, "Quando um apoio restaura ao menos 6 de Vida de outro aliado, rouba 1 Essência da reserva adversária, se houver. Ativa uma vez por rodada, mesmo ao curar o trio; a defesa pessoal não ativa a passiva.", { minimumHeal: 6, requiresOtherAlly: true, nonDefensive: true }),
+    4: T("Juros da Alma", "consume", { stealEssence: { amount: 1 }, heal: 2 }, "Ao consumir sua Marca de Dívida, rouba 1 Essência da reserva adversária, se houver, e recupera 2 de Vida. Ativa uma vez por rodada; Marcas de outro Credor não contam.", { condition: "mark:divida" }),
     1: T("Posse Insaciável", "firstHit", { stealEssence: { amount: 1 } }, "Na primeira habilidade ofensiva que causa dano no combate, rouba 1 Essência da reserva adversária, se houver.", { oncePerBattle: true }),
     5: T("Lucro da Carência", "attack", { drainEssence: { resource: "coringa", amount: 1 }, weakenTarget: 1 }, "Ao atacar um inimigo que guarda ao menos 2 Coringas, remove 1 Coringa e reduz em 10 o dano causado por ele na próxima ação. Ativa uma vez por rodada.", { enemyResource: "coringa", enemyResourceMinimum: 2 })
   },

@@ -59,7 +59,7 @@ const characterCopy = {
     passive: "Loyalty Through Fear"
   },
   "o-herdeiro-cativo": {
-    lore: "Born to Crown's dynasties, he bears the shackles he will use to subdue those who come after him. Pain strengthens his will to rule instead of turning him into a liberator.",
+    lore: "A dynastic soul inhabits this living porcelain effigy, with its long neck and crimson eyes. His chain-link left forearm holds together the fractures that store his ambition. He keeps the shackles to subdue those who follow; every lost shard strengthens his claim to Crown’s throne.",
     combo: "Turn lost Health into a stronger fist; recover or spend your Charges to seize the throne.",
     passive: "Chained Ambition"
   },

@@ -1,6 +1,28 @@
 # Continuação das passivas e artes — 24/10/2026
 
-## Passivas
+## Continuação — Herdeiro, Chama e Fome
+
+Mais sete passivas foram substituídas, completando as identidades mecânicas dos 12 personagens de Chama e Fome. O total passa de 49 para **56 de 100** passivas com gatilhos específicos ou recuperação por tipo de dano; **44** permanecem na fila. Custos e quatro espaços de técnica foram preservados.
+
+| Personagem | Novo gatilho e recompensa, uma vez por rodada |
+| --- | --- |
+| Incendiário | Consumir Queimadura gera 1 Éter e concede 3 de Defesa. |
+| Ressentido | Nutrir o Rancor precisa gastar carga e restaurar ao menos 15 de Vida real para gerar 1 Cinza. |
+| Vingadora | Perder Vida para agressor com Queimadura dela devolve 4 de aflição e concede 3 de Defesa. |
+| Colérico | Técnica ofensiva que gasta 2 ou mais cargas recupera 6 de Vida após o próprio custo de Vida. |
+| Insaciável | Remover efetivamente ao menos 10 de Defesa por técnica recupera 4 de Vida. |
+| Matriarca | Restaurar ao menos 6 de Vida de outro aliado rouba 1 Essência disponível, sem multiplicar pela cura do trio. |
+| Credor | Consumir a própria Dívida rouba 1 Essência disponível e recupera 2 de Vida. |
+
+O motor distingue Defesa removida de Defesa que absorve dano, registra cargas efetivamente gastas e verifica a autoria e a duração da Queimadura no agressor. Contra-ataques que anulam a técnica impedem as recompensas de remoção e gasto de cargas. As sete regras têm texto editorial em inglês.
+
+O Herdeiro recebe seis cenas anime de uma efígie dinástica de porcelana viva: rosto adunco, olhos rubros, pescoço longo, corpo estreito, crista de cerâmica e antebraço esquerdo de correntes. Biografia em português e inglês acompanha a identidade; o kit e a defesa pessoal foram preservados. Prompts, correções e hashes estão em `ART_HERDEIRO_20261024.json`.
+
+Nova simulação: 300 confrontos, 100 personagens, 32.263 etapas e 436 técnicas usadas. Normais: 47 vitórias / 50 derrotas / 3 limites; elites na Ruptura III: 3 / 96 / 1; chefes na Ruptura VI: 1 / 97 / 2. Os seis limites de 100 rodadas continuam registrados sem vencedor. Isso valida resolução e integridade do estado; a curva das Rupturas altas continua pendente de avaliação com builds e decisões humanas.
+
+Verificação deste lote: **273 testes aprovados**, nenhuma falha; build de produção concluído; 626 caminhos ativos de arte presentes, nenhum ausente. Relatório reproduzível de simulação: `PASSIVES_CHAMA_FOME_SIM_20261024.json`.
+
+## Lote anterior — Sangria, Coroa e Mentira
 
 Doze passivas genéricas de Sangria, Coroa e Mentira foram substituídas. Os 18 personagens desses três Elos agora têm gatilhos com assinaturas mecânicas distintas. O elenco soma 49 passivas com gatilhos específicos ou recuperação ligada ao tipo de dano; as outras 51 continuam na fila de revisão. Os 100 personagens foram preservados.
 

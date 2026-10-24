@@ -47,18 +47,18 @@ Os kits usam as identidades e os conceitos do PMA. Testes cobrem a execução de
 
 O arquétipo principal descreve a identidade de cada kit; os secundários registram outras ferramentas que ele explora. Cada alma pode combinar até cinco identidades. O contexto curto explica a função do arquétipo, e a variação abaixo nomeia a forma particular como aquele personagem o executa.
 
-- **☣ Especialista em Aflições** (11 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
+- **☣ Especialista em Aflições** (9 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
 - **♥ Sustentador** (35 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
 - **◈ Metamorfo** (9 kits): Muda o papel de combate com uma forma, postura ou limiar que altera técnicas.
 - **◎ Preparador de Marcas** (44 kits): Marca uma abertura e decide quando consumir, explorar ou espalhar a preparação.
 - **▼ Berserker** (10 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
 - **⬡ Baluarte** (16 kits): Cria Defesa e transforma a guarda em tempo para uma resposta própria ou do trio.
 - **⇥ Manipulador de Essência** (19 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
-- **↶ Retaliador** (23 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
+- **↶ Retaliador** (22 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
 - **⊠ Interditor** (15 kits): Atordoa, sela ou enfraquece para abrir uma janela de ação segura.
 - **ϟ Executor** (19 kits): Concentra dano em uma janela preparada, em um alvo ferido ou numa reserva gasta.
 - **▦ Pressionador de Área** (33 kits): Altera o ritmo de toda a linha inimiga ou fortalece o trio em conjunto.
-- **⊕ Gerador de Essência** (15 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
+- **⊕ Gerador de Essência** (17 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
 - **⇄ Transmutador de Essência** (7 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
 - **◉ Gastador de Essência** (6 kits): Transforma o pagamento ou sacrifício de Essência em dano, proteção, controle ou preparação.
 - **⌖ Quebra-Guarda** (27 kits): Remove Defesa ou converte as camadas do alvo em vantagem ofensiva.
@@ -392,13 +392,13 @@ Hipoteque uma memória e apague as opções de apoio da vítima antes de liquida
 
 **Variação:** Pavio que exige resposta · **Essência:** Cinza
 
-**Outros arquétipos:** Pressionador de Área
+**Outros arquétipos:** Pressionador de Área, Gerador de Essência
 
 O pavio pune quem não usa uma técnica; a vítima precisa agir enquanto você prepara a detonação.
 
 **Estrutura:** Pavio que exige resposta
 
-**Passiva — Pavio Aceso:** Suas habilidades causam +4 de dano se o alvo está com Queimadura.
+**Passiva — Pavio Aceso:** Ao consumir Queimadura de um inimigo, gera 1 Éter e recebe 3 de Defesa. Ativa uma vez por rodada.
 
 - **Pavio de Ódio** (1 Cinza; recarga 1T): Causa 10 de dano espiritual a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Fagulhas em Cadeia** (1 Cinza + 1 Qualquer; recarga 2T): Causa 10 de dano físico a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.
@@ -446,33 +446,33 @@ Alimente o ódio para transformar seus ataques por 2 turnos; o desfecho encerra 
 
 ### O Ressentido — Executor
 
-**Variação:** Limiar de cargas · **Essência:** Graça
+**Variação:** Limiar de cargas · **Essência:** Cinza
 
-**Outros arquétipos:** Especialista em Aflições, Sustentador
+**Outros arquétipos:** Sustentador, Gerador de Essência
 
 Acumule rancor até reacender a primeira técnica; escolha entre consumir as reservas para recuperar Vida ou devolver a chama.
 
 **Estrutura:** Limiar de cargas
 
-**Passiva — Rancor Latente:** No início do seu turno, restaura 4 de Vida.
+**Passiva — Rancor Latente:** Quando Nutrir o Rancor consome ao menos 1 carga e restaura ao menos 15 de sua Vida, gera 1 Cinza. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
-- **Brasa do Ressentimento** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Com 3 cargas, vira Rancor Reaceso até as cargas serem gastas.
-- **Rancor Reaceso** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 25 de dano espiritual a um inimigo. Remove aflições e condições prejudiciais do usuário. Consome as cargas: +3 de dano por carga.
-- **Nutrir o Rancor** (1 Graça; recarga 0T): Restaura 15 de Vida. Consome as cargas: +7 de cura por carga.
-- **Revide Incandescente** (1 Graça + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Remove aflições e condições prejudiciais do usuário.
+- **Brasa do Ressentimento** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Com 3 cargas, vira Rancor Reaceso até as cargas serem gastas.
+- **Rancor Reaceso** [variação] (1 Cinza + 1 Éter; recarga 0T): Causa 25 de dano espiritual a um inimigo. Remove aflições e condições prejudiciais do usuário. Consome as cargas: +3 de dano por carga.
+- **Nutrir o Rancor** (1 Cinza; recarga 0T): Restaura 15 de Vida. Consome as cargas: +7 de cura por carga.
+- **Revide Incandescente** (1 Cinza + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Remove aflições e condições prejudiciais do usuário.
 - **Dissolução em Cinzas** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Vingadora — Especialista em Aflições
+### A Vingadora — Retaliador
 
 **Variação:** Defesa em duas camadas · **Essência:** Cinza
 
-**Outros arquétipos:** Retaliador, Pressionador de Área, Quebra-Guarda
+**Outros arquétipos:** Pressionador de Área, Quebra-Guarda
 
 Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar sua proteção, abra a revanche contra o inimigo.
 
 **Estrutura:** Defesa em duas camadas
 
-**Passiva — Rancor Encouraçado:** No início do seu turno, recebe 3 de Defesa destrutível.
+**Passiva — Rancor Encouraçado:** Ao perder Vida para uma habilidade de um inimigo com Queimadura aplicada pela Vingadora, devolve 4 de dano de aflição e recebe 3 de Defesa. Ativa uma vez por rodada.
 
 - **Brasa Punitiva** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Queimadura: 6 de dano de aflição por 3 turnos.
 - **Revanche Ardente** [variação] (1 Cinza + 1 Éter; recarga 0T): Causa 20 de dano espiritual a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. Após usar, restaura Brasa Punitiva.
@@ -484,13 +484,13 @@ Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar s
 
 **Variação:** Pressão do coração · **Essência:** Ruptura
 
-**Outros arquétipos:** Retaliador
+**Outros arquétipos:** —
 
 A ebulição cresce com a Vida perdida, prepara o próximo golpe e disputa espaço com a descarga de cargas.
 
 **Estrutura:** Pressão do coração
 
-**Passiva — Pulso Irado:** Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor.
+**Passiva — Pulso Irado:** Após uma técnica ofensiva consumir ao menos 2 cargas, recupera 6 de Vida, depois do custo de Vida da técnica. Ativa uma vez por rodada; técnicas anuladas não ativam a passiva.
 
 - **Batida Escaldante** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
 - **Sangue em Ebulição** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Aumenta em 5 o dano do usuário até o fim do próximo turno do beneficiado. A cada 20 de Vida perdida pelo usuário: +2 de dano (máx. +10). O usuário perde 5 de Vida (não o derrota).
@@ -545,41 +545,41 @@ Consuma a Defesa inimiga para formar sua própria guarda; reúna reservas e gast
 
 **Estrutura:** Digestão de Defesa
 
-**Passiva — Assimilação:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Assimilação:** Ao remover ao menos 10 de Defesa com uma técnica, recupera 4 de Vida. Ativa uma vez por rodada; absorver dano na Defesa não conta como removê-la.
 
 - **Consumir a Guarda** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Converte 50% da Defesa removida em Defesa própria (máx. 15). Remove 20 de Defesa antes do dano. Ganha 1 carga (máx. 3).
 - **Reserva Consumida** (1 Graça; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno.
 - **Fome Devorante** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +8 de dano por carga.
 - **Corpo Recolhido** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Matriarca — Sustentador
+### A Matriarca — Manipulador de Essência
 
 **Variação:** Ração repartida · **Essência:** Cinza
 
-**Outros arquétipos:** Manipulador de Essência, Preparador de Marcas, Pressionador de Área
+**Outros arquétipos:** Sustentador, Preparador de Marcas, Pressionador de Área
 
 Drene Essência com a marca da privação, sustente seus aliados dependentes e cobre o tributo do alvo marcado.
 
 **Estrutura:** Ração repartida
 
-**Passiva — Lucro da Privação:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Lucro da Privação:** Quando um apoio restaura ao menos 6 de Vida de outro aliado, rouba 1 Essência da reserva adversária, se houver. Ativa uma vez por rodada, mesmo ao curar o trio; a defesa pessoal não ativa a passiva.
 
 - **Marca da Privação** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 1 unidade de Essência da reserva inimiga.
 - **Ração dos Submissos** (1 Cinza + 1 Qualquer; recarga 0T): Restaura 8 de Vida a cada aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.
 - **Tributo da Fome** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
 - **Celeiro Lacrado** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Credor — Preparador de Marcas
+### O Credor — Manipulador de Essência
 
 **Variação:** Dívida por ação · **Essência:** Ruptura
 
-**Outros arquétipos:** Manipulador de Essência
+**Outros arquétipos:** Preparador de Marcas
 
 Assine uma dívida que cobra a próxima técnica usada pela vítima; escolha entre juros e execução do contrato.
 
 **Estrutura:** Dívida por ação
 
-**Passiva — Juros da Alma:** Suas habilidades causam +5 de dano se o alvo tem uma marca sua.
+**Passiva — Juros da Alma:** Ao consumir sua Marca de Dívida, rouba 1 Essência da reserva adversária, se houver, e recupera 2 de Vida. Ativa uma vez por rodada; Marcas de outro Credor não contam.
 
 - **Assinar a Dívida** (1 Ruptura; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 4 turnos. Se o alvo usar uma técnica em sua próxima vez: causa 10 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Juros Acumulados** (1 Ruptura + 1 Qualquer; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem a marca desta preparação: +10 dano.
