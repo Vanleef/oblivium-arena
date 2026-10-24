@@ -47,3 +47,15 @@ Aleatório aparece como um marcador preto de custo. Não é um quinto recurso so
 O motor fixa a escolha por ação na confirmação e só debita quando ela realmente resolve. Atordoamento, queda, mudança da técnica ou perda de alvo não consomem o custo. Drenagem posterior que remova um recurso escolhido pode impedir a ação, sem trocar silenciosamente o pagamento. No duelo, o servidor recalcula os custos a partir do kit atual e valida a seleção agregada; campos de custo ou pagamento por ação enviados pelo cliente não têm autoridade. A IA também reserva recursos concretos existentes.
 
 As fichas removem cargos táticos inventados, classes decorativas, palavras-chave e blocos COMBO repetidos. Permanecem lore, passivas reais, descrições dos efeitos, recargas, custos e nomes dos corpos.
+
+
+### Conferência da interface de pagamento
+
+Prévia verificada: commit remoto `d78b48341fc2dd728851dcf55a7508d3cd6da1ff`. Na fila do segundo turno, Fome dos Reinos, Instinto Usurpado e Alimentar o Ódio reservaram 3 Ruptura e 1 Cinza. Os 2 Aleatório foram pagos manualmente com 1 Essência e 1 Graça, e os saldos após resolução e os três sorteios de Essência foram 11 Essência, 5 Cinza, 7 Graça e 5 Ruptura. Os retratos mudaram para Predador e Pele Usurpada, com técnicas em Ruptura.
+
+A revisão em 320 px ficou sem transbordamento horizontal: área de conteúdo 303 px, diálogo 283 px e botões de ajuste 44 × 44 px. Retirar uma unidade bloqueou Confirmar; completar com outra cor habilitou o botão. O Codex carregou os retratos e as três artes do Predador, incluindo Rastro Faminto restaurado.
+
+![Revisão com custos fixos reservados e Aleatório dividido entre Essência e Graça](resource-payment-20261024.jpg)
+
+
+O fluxo normal da campanha também foi conferido: Fortaleza de Luz foi enfileirada com o único recurso inicial, Cinza; retirar o pagamento bloqueou a confirmação e mover o foco para o controle disponível preservou o uso por teclado. Enter completou o pagamento e a confirmação executou a defesa, exibindo INVULNERÁVEL.
