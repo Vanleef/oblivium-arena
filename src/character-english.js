@@ -64,7 +64,7 @@ const characterCopy = {
     passive: "Chained Ambition"
   },
   "o-sussurro": {
-    lore: "He makes a secret feel like the victim's own discovery. A planted word poisons their next decision and opens a chance to claim what they still keep. His presence carries Deceit through the trust he can corrupt.",
+    lore: "This short, broad amphibian spirit trades secrets along Deceit’s canals. The vocal sac beneath his jaw mixes words with poison; his iron fan collects what the victim still keeps. Beneath heavy lids, his jade eyes follow the trust he has just corrupted.",
     combo: "Plant a secret that punishes the victim's next attack, then collect Essence.",
     passive: "Secret in Circulation"
   },

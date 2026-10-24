@@ -25,6 +25,14 @@ test('IA evita contra-ataque anunciado e respeita o filtro de tipo',()=>{
  assert.equal(getCombatPlan(b).length,0);
 });
 
+test('IA distingue uma resposta ativa de outra que exige Defesa ausente',()=>{
+ const b=battle([enemy('inimigo',[strike('golpe',20)])]);
+ for(const u of b.allies){u.counter=30;u.counterRequiresShield=true;u.shield=0;}
+ assert.equal(getCombatPlan(b).length,1);
+ for(const u of b.allies)u.shield=10;
+ assert.equal(getCombatPlan(b).length,0);
+});
+
 test('Essência disputada vai à ação mais útil, independente da ordem do trio',()=>{
  const weak=enemy('fraco',[strike('fraco',8)]),strong=enemy('forte',[strike('forte',24)]);
  for(const roster of [[weak,strong],[strong,weak]]){const b=battle(roster);b.enemyResources.essence=1;assert.equal(getCombatPlan(b)[0].actorId,'forte');}

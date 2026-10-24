@@ -62,7 +62,7 @@ export const characterRevisions = {
     "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Coroa só tem valor enquanto alguém permanece submetido."
   },
   "o-sussurro": {
-    "lore": "Faz um segredo parecer uma descoberta da própria vítima. A palavra plantada envenena a decisão seguinte e abre espaço para cobrar o que ela ainda conserva. Sua presença percorre Mentira pela confiança que consegue corromper."
+    "lore": "Este espírito anfíbio de corpo baixo e largo negocia segredos nos canais de Mentira. A bolsa vocal sob sua mandíbula mistura a palavra ao veneno; o leque de ferro cobra o que a vítima ainda conserva. Sob as pálpebras pesadas, seus olhos de jade acompanham a confiança que acabou de corromper."
   },
   "a-mascara-dupla": {
     "lore": "Oferece um rosto à confiança e reserva o outro para a traição. Cada máscara muda a resposta que prepara, enquanto a vítima acredita ter aprendido suas intenções. Vive das certezas que Mentira permite fabricar por um instante."
@@ -921,6 +921,11 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'o-sussurro') {
+    const base = `/art/characters/${id}/anime-review-20261024`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (id === 'o-herdeiro-cativo') {
     const base = `/art/characters/${id}/anime-review-20261024`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,

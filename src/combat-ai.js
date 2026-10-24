@@ -5,7 +5,7 @@ const team = (s, side) => side === 'player' ? s.allies : s.enemies;
 const opponents = (s, side) => side === 'player' ? s.enemies : s.allies;
 const pool = (s, side) => side === 'player' ? s.resources : s.enemyResources;
 const clampedHeal = (u, amount) => Math.min(u.maxHp - u.hp, Math.max(0, Math.floor(amount * (1 - (u.healingBlock || 0)))));
-const countered = (u, a) => u.counter > 0 && !a.ignoreCounters && (!u.counterFilter || u.counterFilter.includes(a.damageType || 'physical'));
+const countered = (u, a) => u.counter > 0 && !a.ignoreCounters && (!u.counterRequiresShield || u.shield > 0) && (!u.counterFilter || u.counterFilter.includes(a.damageType || 'physical'));
 const harmfulCount = u => u.dots.length + Object.keys(u.marks).length + u.reactives.filter(r => r.harmful).length + ['stunned', 'weakened', 'exposed', 'sealSupport', 'sealAttack', 'healingBlock'].filter(k => u[k] > 0).length;
 
 function healing(s, actor, a, u) {
@@ -154,7 +154,10 @@ function forecast(s, actor, a, targets, rules) {
     affected++;
     u.hp += healing(s, actor, a, u);
     if (a.shield) u.shield = Math.min(Math.round(u.maxHp * .5), u.shield + a.shield);
-    if (a.counter) { u.counter = a.counter; u.counterFilter = a.counterFilter; }
+    if (a.counter && a.counter + (actor.worldCounterPower || 0) >= u.counter) {
+      u.counter = a.counter + (actor.worldCounterPower || 0); u.counterFilter = a.counterFilter;
+      u.counterRequiresShield = Boolean(a.counterRequiresShield); u.counterDamageType = a.counterDamageType || 'physical';
+    }
     if (a.reduce) u.reduction = Math.max(u.reduction, a.reduce);
     if (a.boost) u.boost = Math.max(u.boost, a.boost);
     if (a.invulnerable) u.invulnerable = a.invulnerable;

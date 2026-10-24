@@ -47,18 +47,18 @@ Os kits usam as identidades e os conceitos do PMA. Testes cobrem a execução de
 
 O arquétipo principal descreve a identidade de cada kit; os secundários registram outras ferramentas que ele explora. Cada alma pode combinar até cinco identidades. O contexto curto explica a função do arquétipo, e a variação abaixo nomeia a forma particular como aquele personagem o executa.
 
-- **☣ Especialista em Aflições** (9 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
-- **♥ Sustentador** (35 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
+- **☣ Especialista em Aflições** (6 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
+- **♥ Sustentador** (34 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
 - **◈ Metamorfo** (9 kits): Muda o papel de combate com uma forma, postura ou limiar que altera técnicas.
 - **◎ Preparador de Marcas** (44 kits): Marca uma abertura e decide quando consumir, explorar ou espalhar a preparação.
-- **▼ Berserker** (10 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
+- **▼ Berserker** (9 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
 - **⬡ Baluarte** (16 kits): Cria Defesa e transforma a guarda em tempo para uma resposta própria ou do trio.
-- **⇥ Manipulador de Essência** (19 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
-- **↶ Retaliador** (22 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
+- **⇥ Manipulador de Essência** (20 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
+- **↶ Retaliador** (21 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
 - **⊠ Interditor** (15 kits): Atordoa, sela ou enfraquece para abrir uma janela de ação segura.
-- **ϟ Executor** (19 kits): Concentra dano em uma janela preparada, em um alvo ferido ou numa reserva gasta.
+- **ϟ Executor** (18 kits): Concentra dano em uma janela preparada, em um alvo ferido ou numa reserva gasta.
 - **▦ Pressionador de Área** (33 kits): Altera o ritmo de toda a linha inimiga ou fortalece o trio em conjunto.
-- **⊕ Gerador de Essência** (17 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
+- **⊕ Gerador de Essência** (20 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
 - **⇄ Transmutador de Essência** (7 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
 - **◉ Gastador de Essência** (6 kits): Transforma o pagamento ou sacrifício de Essência em dano, proteção, controle ou preparação.
 - **⌖ Quebra-Guarda** (27 kits): Remove Defesa ou converte as camadas do alvo em vantagem ofensiva.
@@ -622,17 +622,17 @@ A decadência reduz a cura recebida; escolha entre degradar a guarda e concluir 
 - **Decomposição Completa** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo está com Decadência: +15 dano.
 - **Casca Morta** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Pestilência — Especialista em Aflições
+### A Pestilência — Pressionador de Área
 
 **Variação:** Propagação e foco · **Essência:** Cinza
 
-**Outros arquétipos:** Pressionador de Área, Preparador de Marcas, Sustentador
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas
 
 Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta interrompe uma vítima já contaminada.
 
 **Estrutura:** Propagação e foco
 
-**Passiva — Hospedeira da Praga:** Após causar dano com uma habilidade, restaura 3 de Vida.
+**Passiva — Hospedeira da Praga:** Se ao menos 2 inimigos vivos ainda tiverem Veneno aplicado pela Pestilência no início do turno, recupera 3 de Vida e gera 1 Cinza. Ativa uma vez por rodada.
 
 - **Febre Andante** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Veneno: 6 de dano de aflição por 2 turnos.
 - **Contágio do Caminho** (1 Cinza + 1 Qualquer; recarga 2T): Causa 5 de dano físico a todos os inimigos. Veneno: 4 de dano de aflição por 3 turnos. Vira Febre de Retorno por 2 turnos: concentre o contágio em uma vítima.
@@ -640,17 +640,17 @@ Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta i
 - **Crise Pestilenta** (1 Cinza + 1 Éter; recarga 3T): Causa 20 de dano físico a um inimigo. Se o alvo está com Veneno: +15 dano e Atordoa por 1 turno.
 - **Névoa Contaminada** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Corrupto — Quebra-Guarda
+### O Corrupto — Manipulador de Essência
 
 **Variação:** Vantagem parasitária · **Essência:** Éter
 
-**Outros arquétipos:** Manipulador de Essência, Preparador de Marcas
+**Outros arquétipos:** Quebra-Guarda, Preparador de Marcas
 
 Quebre a confiança para converter parte do dano real em Defesa própria; cobre a corrupção marcada em aflição.
 
 **Estrutura:** Vantagem parasitária
 
-**Passiva — Lucro da Ruína:** Suas habilidades causam +4 de dano se o alvo tem Defesa.
+**Passiva — Lucro da Ruína:** Quando uma técnica remove bônus de dano, redução de dano ou Contra-ataque de um inimigo, rouba 1 Essência disponível e recebe 4 de Defesa. Ativa uma vez por rodada; atingir um alvo sem esses bônus não ativa a passiva.
 
 - **Acordo Podre** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 20 de Defesa antes do dano.
 - **Quebrar a Confiança** (1 Éter + 1 Qualquer; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Converte 50% do dano real causado em Defesa própria (máx. 20 por uso). Remove bônus de dano, redução e contra-ataque do alvo.
@@ -678,32 +678,32 @@ Semeie uma colônia e escolha sua colheita: proteger os vivos ou espalhar esporo
 
 ### O Inoculador — Sustentador
 
-**Variação:** Sutura viva · **Essência:** Graça
+**Variação:** Sutura viva · **Essência:** Cinza
 
-**Outros arquétipos:** Especialista em Aflições
+**Outros arquétipos:** Gerador de Essência
 
 Inocule Veneno para drenar o inimigo; conserve seus hospedeiros aliados com limpeza e regeneração.
 
 **Estrutura:** Sutura viva
 
-**Passiva — Simbiose Corrupta:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Simbiose Corrupta:** Quando um apoio remove ao menos 1 condição prejudicial e restaura ao menos 10 de Vida de outro aliado, recupera 4 de Vida e gera 1 Cinza. Ativa uma vez por rodada; autocura e defesa pessoal não ativam a passiva.
 
-- **Incisão Parasitária** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Veneno: 5 de dano de aflição por 3 turnos. Restaura ao usuário 50% do dano causado.
-- **Hospedeiro Renovado** (1 Graça + 1 Qualquer; recarga 1T): Restaura 15 de Vida. Regeneração: restaura 6 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
-- **Drenagem da Colônia** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 70% do dano causado. Se o alvo está com Veneno: +10 dano.
+- **Incisão Parasitária** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Veneno: 5 de dano de aflição por 3 turnos. Restaura ao usuário 50% do dano causado.
+- **Hospedeiro Renovado** (1 Cinza + 1 Qualquer; recarga 1T): Restaura 15 de Vida. Regeneração: restaura 6 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
+- **Drenagem da Colônia** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 70% do dano causado. Se o alvo está com Veneno: +10 dano.
 - **Corpo entre Vermes** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Definhador — Pressionador de Área
 
 **Variação:** Jardim de retaliação · **Essência:** Cinza
 
-**Outros arquétipos:** Especialista em Aflições, Retaliador
+**Outros arquétipos:** —
 
 Aplique Decadência, envolva o trio na trama e devolva parte da agressão em aflição; o definhar coletivo enfraquece inimigos contaminados.
 
 **Estrutura:** Jardim de retaliação
 
-**Passiva — Seiva Corrosiva:** Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor.
+**Passiva — Seiva Corrosiva:** Ao causar dano a um inimigo que já tem Decadência aplicada pelo Definhador, restaura 4 de Vida ao aliado vivo com menor porcentagem de Vida, incluindo o usuário. Ativa uma vez por rodada, mesmo em área.
 
 - **Raiz Necrosada** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Decadência: 4 de dano de aflição por 3 turnos.
 - **Trama Necrosada** (1 Cinza + 1 Qualquer; recarga 0T): Concede 12 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 5 de dano de aflição ao agressor. Ativa uma vez.
@@ -722,7 +722,7 @@ Registre a vítima, recuse a interferência e transforme as cargas de observaç�
 
 **Estrutura:** Testemunho reativo
 
-**Passiva — Indiferença Vigilante:** No início do seu turno, recebe 3 de Defesa destrutível.
+**Passiva — Indiferença Vigilante:** Quando um Contra-ataque preparado pelo Espectador anula uma técnica inimiga, ganha 1 carga e 3 de Defesa. Ativa uma vez por rodada; preparar a resposta sem ativá-la não concede a recompensa.
 
 - **Memória da Omissão** (1 Ruptura; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3).
 - **Recusar Interferência** (1 Ruptura + 1 Qualquer; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, Peso da Indiferença vira Retaliação do Espectador contra o agressor por 2 turnos. Efeito reativo: responde à condição indicada. Ativa uma vez.
@@ -751,13 +751,13 @@ Feche o apoio da vítima sem impedir sua ofensiva; marque a porta para interromp
 
 **Variação:** Interrupção e continuação · **Essência:** Éter
 
-**Outros arquétipos:** Berserker
+**Outros arquétipos:** —
 
 Enfraqueça a voz inimiga, interrompa sua ação e escolha entre prolongar a aflição ou liberar o decreto.
 
 **Estrutura:** Interrupção e continuação
 
-**Passiva — Clamor Sufocado:** Com 50 de Vida ou menos, suas habilidades causam +5 de dano.
+**Passiva — Clamor Sufocado:** Ao causar dano espiritual a um inimigo já Enfraquecido, sela suas técnicas de apoio por 1 turno. Ativa uma vez por rodada; aplicar Enfraquecido no mesmo golpe não basta.
 
 - **Impacto Abafado** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado.
 - **Clamor sem Retorno** [variação] (2 Éter; recarga 0T): Causa 20 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Após usar, restaura Impacto Abafado.
@@ -765,9 +765,9 @@ Enfraqueça a voz inimiga, interrompa sua ação e escolha entre prolongar a afl
 - **Decreto do Silêncio** (2 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo está Enfraquecido: +15 dano.
 - **Silêncio Absoluto** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Cúmplice — Executor
+### A Cúmplice — Gerador de Essência
 
-**Variação:** Vigília espiritual · **Essência:** Ruptura
+**Variação:** Vigília espiritual · **Essência:** Graça
 
 **Outros arquétipos:** Retaliador, Quebra-Guarda
 
@@ -775,11 +775,11 @@ A memória responde a técnicas espirituais ou de aflição, devolve dano e roub
 
 **Estrutura:** Vigília espiritual
 
-**Passiva — Cumplicidade Velada:** Suas habilidades causam +5 de dano se o alvo está Exposto.
+**Passiva — Cumplicidade Velada:** Quando um Contra-ataque preparado pela Cúmplice em outro aliado anula uma técnica inimiga, gera 1 Graça e concede 4 de Defesa ao protegido. Ativa uma vez por rodada; proteger a si própria não ativa a passiva.
 
-- **Segredo Exposto** (1 Ruptura; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
-- **Resposta Preparada** (1 Ruptura; recarga 0T): Anula a próxima habilidade inimiga espiritual ou de aflição recebida e contra-ataca com 20 de dano. Dura 1 turno. Ao ativar, rouba até 1 Essência da reserva adversária.
-- **Acusação Oportunista** (1 Ruptura + 1 Éter; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
+- **Segredo Exposto** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Resposta Preparada** (1 Graça; recarga 0T): Anula a próxima habilidade inimiga espiritual ou de aflição recebida e contra-ataca com 20 de dano. Dura 1 turno. Ao ativar, rouba até 1 Essência da reserva adversária.
+- **Acusação Oportunista** (1 Graça + 1 Éter; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
 - **Depoimento Retido** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Anfitrião — Manipulador de Essência
@@ -803,13 +803,13 @@ A presença vazia pune o próximo apoio da vítima com dano e perda de Essência
 
 **Variação:** Emboscada após defesa · **Essência:** Ruptura
 
-**Outros arquétipos:** Retaliador, Preparador de Marcas, Quebra-Guarda
+**Outros arquétipos:** Retaliador, Manipulador de Essência, Preparador de Marcas, Quebra-Guarda
 
 Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda contra o responsável.
 
 **Estrutura:** Emboscada após defesa
 
-**Passiva — Oportunismo:** Sua primeira habilidade ofensiva do combate causa +6 de dano.
+**Passiva — Oportunismo:** Uma vez por combate, ao causar dano físico a um inimigo já Exposto, recupera 6 de Vida e rouba 1 Ruptura da reserva adversária, se houver. Dano inteiramente absorvido e a primeira aplicação de Exposto não ativam a passiva.
 
 - **Passagem Desguarnecida** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Espera Cúmplice** (1 Ruptura + 1 Qualquer; recarga 0T): Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 25 de dano. Dura 1 turno. Ao ativar, expõe o agressor até o fim do próximo turno. Ao anular uma técnica física ou perfurante, expõe o agressor e Cobrar o Abandono vira Golpe da Retaguarda contra ele por 2 turnos.

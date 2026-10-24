@@ -63,6 +63,8 @@ function consume(u,condition,actor){if(condition.startsWith("mark:"))delete u.ma
 export function previewHit(u,n,options={}){if(u.hp<=0||(u.invulnerable&&!options.ignoreInvulnerability))return {dealt:0,blocked:0,immune:true};const type=options.damageType||"physical";let amount=Math.max(0,Math.round(n));if(type!=="affliction"&&u.exposed)amount+=10;if(!["piercing","affliction"].includes(type))amount=Math.max(0,amount-u.reduction-(u.armor||0));const blocked=type==="affliction"?0:Math.min(u.shield,amount);return {dealt:Math.min(u.hp,amount-blocked),blocked,immune:false};}
 function hit(u,n,options={}){const result=previewHit(u,n,options);u.shield-=result.blocked;u.hp-=result.dealt;return result;}
 function cleanse(u){u.dots=[];u.marks={};u.stunned=0;u.weakened=0;u.exposed=0;u.sealSupport=0;u.sealAttack=0;u.healingBlock=0;u.reactives=u.reactives.filter(r=>!r.harmful);}
+const activeTimed=effect=>effect?.turns==null||effect.turns>0;
+const harmfulEffectCount=u=>u.dots.filter(activeTimed).length+Object.values(u.marks).filter(activeTimed).length+['stunned','weakened','exposed','sealSupport','sealAttack','healingBlock'].filter(key=>u[key]>0).length+u.reactives.filter(r=>r.harmful&&activeTimed(r)).length;
 const effectsContext=reactions=>({hit,heal,shield,transfer,log,reactions,shift:applySkillShifts,condition:meetsCondition});
 // A preparation must survive long enough for its owner to take the next action.
 function applySupport(s,actor,a,receiver,charges){
@@ -75,10 +77,11 @@ function applySupport(s,actor,a,receiver,charges){
   const shielded=a.shield?shield(receiver,a.shield+(g.shieldPower||0)+(actor.worldShieldPower||0)+shieldBonus):0;
   if(a.reduce)receiver.reduction=Math.max(receiver.reduction,a.reduce);
   if(a.boost){receiver.boost=Math.max(receiver.boost,a.boost);receiver.boostFresh=receiver.side===actor.side;}
-  if(a.counter){receiver.counterFilter=a.counterFilter;receiver.counterRequiresShield=Boolean(a.counterRequiresShield);receiver.counterDamageType=a.counterDamageType||"physical";receiver.counterEffect=a.counterEffect||null;receiver.counter=Math.max(receiver.counter,a.counter+(actor.worldCounterPower||0));receiver.counterSourceId=actor.id;receiver.counterFormChanges=a.counterShift||[];}
+  if(a.counter&&a.counter+(actor.worldCounterPower||0)>=receiver.counter){receiver.counterFilter=a.counterFilter;receiver.counterRequiresShield=Boolean(a.counterRequiresShield);receiver.counterDamageType=a.counterDamageType||"physical";receiver.counterEffect=a.counterEffect||null;receiver.counter=a.counter+(actor.worldCounterPower||0);receiver.counterSourceId=actor.id;receiver.counterFormChanges=a.counterShift||[];}
+  const cleansed=a.cleanse?harmfulEffectCount(receiver):0;
   if(a.cleanse){cleanse(receiver);const creationShield=eloSynergyPeers(allies,actor,"cleanse");if(creationShield)shield(receiver,creationShield);}
   if(a.invulnerable)receiver.invulnerable=a.invulnerable;
-  return {healed,shielded};
+  return {healed,shielded,cleansed};
 }
 function passiveBonus(actor,target){const p=actor.passive;if(!p)return 0;if(p.type==="hunter"&&meetsCondition(target,p.condition,actor)||p.type==="firstHit"&&!actor.passiveUsed||p.type==="comeback"&&actor.hp<=50)return p.amount;return 0;}
 function attackValue(s,actor,a,target,charges=actor.charge){
@@ -113,15 +116,17 @@ function triggerPassive(s,unit,trigger,context={}){
  if(p.ifResource&&(own[p.ifResource]||0)<(p.resourceMinimum||1))return false;
  if(p.enemyResource&&(other[p.enemyResource]||0)<(p.enemyResourceMinimum||1))return false;
  if(p.ifEnemyAfflicted&&!enemies(s,unit.side).some(u=>u.hp>0&&u.dots.length))return false;
+ if(p.ownDotPopulation&&enemies(s,unit.side).filter(u=>u.hp>0&&u.dots.some(dot=>dot.tag===p.ownDotPopulation.tag&&dot.sourceId===unit.id&&dot.turns>0)).length<p.ownDotPopulation.minimum)return false;
  if(p.ifNoOffenseOrDamaged&&unit.offenseLastTurn&&!unit.damagedLastTurn)return false;
  if(p.ifDamagedLastTurn&&!unit.damagedLastTurn)return false;
  if(p.requireThreeAllies&&living(team(s,unit.side)).length<3)return false;
  if(p.requiresLifeLoss&&!(context.dealt>0))return false;
  if(p.requiresOwnMark&&(!target||!Object.values(target.marks||{}).some(mark=>mark.sourceId===unit.id)))return false;
- if(p.requiresOwnDot&&(!target?.dots?.some(dot=>dot.tag===p.requiresOwnDot&&dot.sourceId===unit.id)))return false;
+ if(p.requiresOwnDot&&(!target?.dots?.some(dot=>dot.tag===p.requiresOwnDot&&dot.sourceId===unit.id&&dot.turns>0)))return false;
  if(p.requiresAttackerOwnDot&&!attacker?.dots?.some(dot=>dot.tag===p.requiresAttackerOwnDot&&dot.sourceId===unit.id&&dot.turns>0))return false;
  if(p.requiresExposed&&!target?.exposed)return false;
  if(p.requiresStunned&&!target?.stunned)return false;
+ if(p.requiresWeakened&&!target?.weakened)return false;
  if(p.requiresOtherAlly&&(!target||target.id===unit.id||target.side!==unit.side))return false;
  if(p.requiresSelf&&target?.id!==unit.id)return false;
  if(p.nonDefensive&&context.ability?.defense)return false;
@@ -131,6 +136,8 @@ function triggerPassive(s,unit,trigger,context={}){
  if(p.minimumHeal&&(context.healed||0)<p.minimumHeal)return false;
  if(p.minimumChargesSpent&&(context.chargesSpent||0)<p.minimumChargesSpent)return false;
  if(p.minimumStripped&&(context.stripped||0)<p.minimumStripped)return false;
+ if(p.minimumPurged&&(context.purged||0)<p.minimumPurged)return false;
+ if(p.minimumCleansed&&(context.cleansed||0)<p.minimumCleansed)return false;
  if(p.offensive&&!context.ability?.damage)return false;
  if(p.effect?.spendEssence){const spend=p.effect.spendEssence,resource=spend.resource==="affinity"?unit.bodyResource||unit.affinity:spend.resource,amount=Math.max(0,Math.floor(spend.amount||1));if((own[resource]||0)<amount)return false;own[resource]-=amount;}
 
@@ -144,10 +151,12 @@ function triggerPassive(s,unit,trigger,context={}){
  if(effect.healSource){const amount=heal(unit,effect.healSource);if(amount)changes.push(`+${amount} Vida`);}
  if(effect.healTarget&&target){const amount=heal(target,effect.healTarget);if(amount)changes.push(`${target.name} +${amount} Vida`);}
  if(effect.healTeam){for(const ally of living(team(s,unit.side))){const amount=heal(ally,effect.healTeam);if(amount)changes.push(`${ally.name} +${amount} Vida`);}}
+ if(effect.healWeakestAlly){const ally=nearest(team(s,unit.side));if(ally){const amount=heal(ally,effect.healWeakestAlly);if(amount)changes.push(`${ally.name} +${amount} Vida`);}}
  if(effect.shield){const amount=shield(unit,effect.shield);if(amount)changes.push(`+${amount} Defesa`);}
  if(effect.shieldTarget&&target){const amount=shield(target,effect.shieldTarget);if(amount)changes.push(`${target.name} +${amount} Defesa`);}
  if(effect.shieldTeam){for(const ally of living(team(s,unit.side))){const amount=shield(ally,effect.shieldTeam);if(amount)changes.push(`${ally.name} +${amount} Defesa`);}}
  if(effect.weakenTarget&&target){target.weakened=Math.max(target.weakened,effect.weakenTarget);changes.push(`${target.name} Enfraquecido`);}
+ if(effect.sealSupportTarget&&target?.hp>0){target.sealSupport=Math.max(target.sealSupport,effect.sealSupportTarget);changes.push(`${target.name} Apoio selado`);}
  if(effect.damageAttacker&&attacker?.hp>0){const result=hit(attacker,effect.damageAttacker,{damageType:"affliction",ignoreInvulnerability:true});if(result.dealt)changes.push(`${attacker.name} −${result.dealt} Vida`);if(attacker.hp<=0)notifyDefeat(s,attacker,unit);}
  if(effect.selfDamage&&unit.hp>1){const amount=Math.min(unit.hp-1,Math.max(0,Math.floor(effect.selfDamage)));unit.hp-=amount;if(amount)changes.push(`−${amount} Vida`);}
  if(!p.oncePerBattle)unit.passiveTriggeredRound=s.round;else unit.passiveUsed=true;
@@ -172,15 +181,15 @@ function apply(s,actor,a,targetId,randomPayment){
   const emptyEloPeers=eloSynergyPeers(team(s,actor.side),actor,"essence");
   if(actor.eloId==="vazio"&&emptyEloPeers&&Object.values(costs).some(n=>n>0)){s.eloEssenceEchoRound||={};if(s.eloEssenceEchoRound[actor.side]!==s.round){gain(s,actor.side,actor.bodyResource||actor.affinity||"essence",1);s.eloEssenceEchoRound[actor.side]=s.round;log(s,`${actor.name} · Vazio alimentado: +1 Essência após um gasto partilhado.`);}}
   triggerPassive(s,actor,"essenceSpent",{costs,ability:a});
-  const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),priorBodyForm=actor.bodyForm||"base",charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,affected=0;const reactions=[];
+  const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),priorBodyForm=actor.bodyForm||"base",charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,totalPurged=0,affected=0;const reactions=[];
   for(const target of targets){
-    if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterRequiresShield||target.shield>0)&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter,effect=target.counterEffect;target.counter=0;const r=hit(actor,value,{damageType:target.counterDamageType||"physical",ignoreInvulnerability:true}),notes=[];if(effect?.drainEssence){const n=transfer(s,target.side,effect.drainEssence.amount||1,false,effect.drainEssence.resource||null);if(n)notes.push(`remove ${n} ${essenceName(effect.drainEssence.resource)}`);}if(effect?.stealEssence){const n=transfer(s,target.side,effect.stealEssence.amount||1,true,effect.stealEssence.resource||null);if(n)notes.push(`rouba ${n} Essência`);}if(effect?.generateEssence?.resource){const n=gain(s,target.side,effect.generateEssence.resource,effect.generateEssence.amount||1);if(n)notes.push(`gera ${n} ${essenceName(effect.generateEssence.resource)}`);}if(effect?.expose&&actor.hp>0){actor.exposed=Math.max(actor.exposed,effect.expose);actor.exposedFresh=true;notes.push("expõe o agressor");}if(effect?.mark&&actor.hp>0){actor.marks[effect.mark]={sourceId:target.id,turns:effect.markTurns||2,label:effect.label||"Contra-ataque"};notes.push("marca o agressor");}log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano${notes.length?` · ${notes.join(" · ")}`:""}.`);if(actor.hp<=0)notifyDefeat(s,actor,target);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);target.counterFormChanges=[];target.counterEffect=null;target.counterRequiresShield=false;continue;}
+    if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterRequiresShield||target.shield>0)&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter,effect=target.counterEffect;target.counter=0;const r=hit(actor,value,{damageType:target.counterDamageType||"physical",ignoreInvulnerability:true}),notes=[];if(effect?.drainEssence){const n=transfer(s,target.side,effect.drainEssence.amount||1,false,effect.drainEssence.resource||null);if(n)notes.push(`remove ${n} ${essenceName(effect.drainEssence.resource)}`);}if(effect?.stealEssence){const n=transfer(s,target.side,effect.stealEssence.amount||1,true,effect.stealEssence.resource||null);if(n)notes.push(`rouba ${n} Essência`);}if(effect?.generateEssence?.resource){const n=gain(s,target.side,effect.generateEssence.resource,effect.generateEssence.amount||1);if(n)notes.push(`gera ${n} ${essenceName(effect.generateEssence.resource)}`);}if(effect?.expose&&actor.hp>0){actor.exposed=Math.max(actor.exposed,effect.expose);actor.exposedFresh=true;notes.push("expõe o agressor");}if(effect?.mark&&actor.hp>0){actor.marks[effect.mark]={sourceId:target.id,turns:effect.markTurns||2,label:effect.label||"Contra-ataque"};notes.push("marca o agressor");}log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano${notes.length?` · ${notes.join(" · ")}`:""}.`);if(actor.hp<=0)notifyDefeat(s,actor,target);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);triggerPassive(s,owner||(!target.counterSourceId?target:null),"counter",{target,attacker:actor,ability:a,dealt:r.dealt});target.counterFormChanges=[];target.counterEffect=null;target.counterRequiresShield=false;continue;}
     affected++;
     const combo=a.combo&&meetsCondition(target,a.combo.condition,actor),value=attackValue(s,actor,a,target,charges);
     if(!isFriendly){
       if(a.damage)triggerPassive(s,actor,"attack",{target,ability:a,costs,damageType:a.damageType||"physical"});
       if(a.stripShield){totalStripped+=Math.min(target.shield,a.stripShield);target.shield=Math.max(0,target.shield-a.stripShield);}
-      if(a.purge){target.boost=0;target.reduction=0;target.counter=0;}
+      if(a.purge){totalPurged+=['boost','reduction','counter'].filter(key=>target[key]>0).length;target.boost=0;target.reduction=0;target.counter=0;}
       const r=a.damage?hit(target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability}):{dealt:0,blocked:0};totalDamage+=r.dealt;
       if(a.damage){actor.offenseUsedThisTurn=true;if(r.dealt)target.tookDamageThisTurn=true;if(r.dealt||r.blocked)triggerPassive(s,target,"damaged",{attacker:actor,ability:a,damageType:a.damageType||"physical",dealt:r.dealt,blocked:r.blocked});if(r.dealt)triggerPassive(s,actor,"hit",{target,ability:a,costs,dealt:r.dealt,blocked:r.blocked,damageType:a.damageType||"physical"});if(target.hp<=0)notifyDefeat(s,target,actor);}
       if(a.stun||combo&&a.combo.stun){target.stunned=Math.max(target.stunned,a.stun||a.combo.stun);target.skillGrowth={};}
@@ -194,7 +203,7 @@ function apply(s,actor,a,targetId,randomPayment){
       log(s,`${actor.name} usa ${a.name} em ${target.name}: ${r.dealt} dano${r.blocked?`, ${r.blocked} absorvido pela Defesa`:""}${combo?" · COMBO":""}.`);
       if(r.dealt&&target.passive?.type==="retaliate"&&(!target.passive.damageTypes||target.passive.damageTypes.includes(a.damageType||"physical"))&&actor.hp>0){hit(actor,target.passive.amount,{damageType:"affliction",ignoreInvulnerability:true});if(actor.hp<=0)notifyDefeat(s,actor,target);log(s,`${target.passive.name}: ${actor.name} sofre ${target.passive.amount} de aflição.`);}
     }
-    if(isFriendly){const support=applySupport(s,actor,a,target,charges);triggerPassive(s,actor,"support",{target,ability:a,healed:support.healed,shielded:support.shielded,chargesSpent:a.spendCharge?charges:0});}
+    if(isFriendly){const support=applySupport(s,actor,a,target,charges);triggerPassive(s,actor,"support",{target,ability:a,...support,chargesSpent:a.spendCharge?charges:0});}
   }
   // Self benefits of an offensive area skill are granted once per cast.
   if(!isFriendly&&affected)applySupport(s,actor,{...a,reactive:null,regen:null,sealSupport:0,sealAttack:0,healingBlock:0,reduceCooldown:0},actor,charges);
@@ -210,6 +219,7 @@ function apply(s,actor,a,targetId,randomPayment){
   if(a.selfDamage&&actor.hp>0)actor.hp=Math.max(1,actor.hp-Math.max(0,a.selfDamage+(actor.side==="player"?s.buffs.risk:0)));
   if(affected&&a.spendCharge&&charges>0)triggerPassive(s,actor,"chargeSpent",{ability:a,chargesSpent:charges});
   if(totalStripped>0)triggerPassive(s,actor,"stripShield",{ability:a,stripped:totalStripped});
+  if(totalPurged>0)triggerPassive(s,actor,"purge",{ability:a,purged:totalPurged});
   if(a.cooldown){actor.cooldowns[a.id]=Math.max(actor.cooldowns[a.id]||0,a.cooldown);actor.cooldownFresh.push(a.id);}
   const ownShift=affected&&a.shift?.some(t=>t.slot===a.id&&t.form!=="base");
   if(ownShift&&actor.skillForms[a.id]&&a.cooldown){actor.skillForms[a.id].returnCooldown=actor.cooldowns[a.id];delete actor.cooldowns[a.id];actor.cooldownFresh=actor.cooldownFresh.filter(id=>id!==a.id);}
@@ -275,7 +285,7 @@ export function moveQueuedAction(s,id,direction){if(s.phase!=="player")return fa
 export function commitTurn(s,selected){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};const payment=getTurnPayment(s,selected);if(!payment.ok)return {ok:false,reason:payment.reason};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...payment.actions,{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];s.pendingEssenceExchanges=[];return {ok:true};}
 function endOpposing(s,units){expireReactives(s,units,"opposing",effectsContext());for(const u of units){if(!u.healingBlockFresh)u.healingBlock=0;u.healingBlockFresh=false;u.invulnerable=0;u.counter=0;u.reduction=0;if(!u.exposedFresh)u.exposed=0;u.exposedFresh=false;}}
 function endActing(s,units,reactions=[]){expireReactives(s,units,"acting",effectsContext(reactions));for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
-function tickEffects(s){for(const u of [...s.allies,...s.enemies]){if(u.hp<=0)continue;for(const d of u.dots){const r=hit(u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);d.turns--;if(u.hp<=0){const source=[...s.allies,...s.enemies].find(unit=>unit.id===d.sourceId);notifyDefeat(s,u,source);break;}}u.dots=u.dots.filter(d=>d.turns>0);for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}}}
+function tickEffects(s){for(const u of [...s.allies,...s.enemies]){if(u.hp<=0)continue;for(const d of u.dots){const r=hit(u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);if(u.hp<=0){const source=[...s.allies,...s.enemies].find(unit=>unit.id===d.sourceId);notifyDefeat(s,u,source);}d.turns--;if(u.hp<=0)break;}u.dots=u.dots.filter(d=>d.turns>0);for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}}}
 function nextTurn(s,recoveries){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
 function resolveAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();

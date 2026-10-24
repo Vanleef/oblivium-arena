@@ -1,5 +1,26 @@
 # Continuação das passivas e artes — 24/10/2026
 
+## Continuação — Podridão, Silêncio e O Sussurro
+
+Oito passivas de Podridão e Silêncio ganharam gatilhos próprios. Com as seis regras já específicas de cada Elo, os 12 personagens destes dois Elos estão cobertos. O total da revisão passa de 56 para **64 de 100** passivas com gatilho específico ou recuperação ligada ao tipo de dano; **36** continuam na fila. Cada gatilho limita a recompensa a uma vez por rodada, exceto Oportunismo, que é uma vez por combate.
+
+| Personagem | Regra revisada |
+| --- | --- |
+| A Pestilência | Recupera 3 de Vida e gera Cinza quando dois inimigos vivos ainda têm Veneno próprio no início do turno. |
+| O Corrupto | Só recebe Defesa e rouba Essência se a técnica realmente remover um bônus, uma redução ou um Contra-ataque. |
+| O Inoculador | Exige limpeza de condição prejudicial e cura efetiva de ao menos 10 em outro aliado. |
+| O Definhador | Ferir alvo com Decadência própria cura o aliado vivo com menor porcentagem de Vida; área não duplica o efeito. |
+| O Espectador | Ganha carga e Defesa quando seu Contra-ataque realmente anula uma técnica inimiga. |
+| O Silenciador | Precisa causar dano espiritual efetivo a um alvo já Enfraquecido para selar apoio. |
+| A Cúmplice | O Contra-ataque precisa proteger outro aliado e anular uma ação para gerar Graça e Defesa ao protegido. |
+| O Desertor | Uma vez por combate, dano físico efetivo a um alvo já Exposto cura e tenta roubar Ruptura. |
+
+As passivas restantes de Podridão e Silêncio também foram conferidas: consumo de Decadência respeita sua condição; Colônia Viva e Abrigo dos Cúmplices verificam a reserva no começo do turno; Hospitalidade Negada verifica aflições persistentes. O teste negativo cobre alvos mortos, aflições de outro autor, efeitos expirados, dano absorvido, cura bloqueada, sobrecura, Contra-ataques incompatíveis e origem morta.
+
+O Sussurro recebe novo conjunto anime 2D: um espírito anfíbio baixo e largo, com rosto achatado, bolsa vocal, olhos estreitos assimétricos e trança curta com contas de jade. As seis artes mantêm esses marcadores e variam entre arcada sob chuva, arquivo alagado, teatro arruinado e plataforma subterrânea. O retrato, passiva e quatro técnicas foram exportados em WebP 512 × 512; regras e custos foram preservados. Prompts, caminhos e hashes: `ART_SUSSURRO_20261024.json`. A identidade visual foi registrada em `CHARACTER_VISUAL_IDENTITIES.md`.
+
+Validação final deste lote: **291 testes passaram**, o build gerou **902 arquivos**, e a auditoria encontrou **626/626 caminhos de arte presentes**.
+
 ## Continuação — Herdeiro, Chama e Fome
 
 Mais sete passivas foram substituídas, completando as identidades mecânicas dos 12 personagens de Chama e Fome. O total passa de 49 para **56 de 100** passivas com gatilhos específicos ou recuperação por tipo de dano; **44** permanecem na fila. Custos e quatro espaços de técnica foram preservados.
