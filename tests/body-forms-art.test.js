@@ -9,8 +9,22 @@ test('as 30 artes das transformações têm conteúdo íntegro e cobrem os retra
  const root=new URL('../',import.meta.url),manifest=JSON.parse(readFileSync(new URL('docs/BODY_FORMS_20261023.json',root),'utf8'));
  assert.equal(manifest.assets.length,30);const paths=new Set();
  for(const a of manifest.assets){const data=readFileSync(new URL(a.path,root));assert.ok(data.length>1000,a.path);assert.equal(data.length,a.bytes,a.path);assert.equal(data.toString('ascii',0,4),'RIFF',a.path);assert.equal(data.toString('ascii',8,12),'WEBP',a.path);assert.equal(createHash('sha256').update(data).digest('hex'),a.sha256,a.path);paths.add('/'+a.path);}
- for(const c of [createFinalBoss(),...characters.filter(c=>c.bodyForms)]){
+ for(const c of characters.filter(c=>c.bodyForms)){
   for(const body of c.bodyForms)assert.ok(paths.has(body.portrait),body.portrait);
   for(const skill of c.abilities.flatMap(a=>[a,...(a.forms||[])]))if(skill.art?.includes('/body-forms-20261023/'))assert.ok(paths.has(skill.art),skill.art);
  }
+});
+
+test('as 12 novas artes de O Fim têm hashes íntegros e cobrem as três formas',()=>{
+ const root=new URL('../',import.meta.url),manifest=JSON.parse(readFileSync(new URL('docs/ART_O_FIM_DISTINCT_20261024.json',root),'utf8'));
+ assert.equal(manifest.assets.length,12);const paths=new Set();
+ for(const asset of manifest.assets){
+  const data=readFileSync(new URL(`../${asset.path}`,import.meta.url));
+  assert.ok(data.length>1000,asset.path);assert.equal(data.length,asset.bytes,asset.path);
+  assert.equal(data.toString('ascii',0,4),'RIFF',asset.path);assert.equal(data.toString('ascii',8,12),'WEBP',asset.path);
+  assert.equal(createHash('sha256').update(data).digest('hex'),asset.sha256,asset.path);paths.add('/'+asset.path);
+ }
+ const boss=createFinalBoss();
+ for(const form of boss.bodyForms)assert.ok(paths.has(form.portrait),form.portrait);
+ for(const ability of boss.abilities.flatMap(ability=>[ability,...(ability.forms||[])]))if(ability.art?.includes('/body-forms-distinct-20261024/'))assert.ok(paths.has(ability.art),ability.art);
 });

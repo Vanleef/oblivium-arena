@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { buffs, characters, elos, realms, resources, routeStages } from "../src/data.js";
-import { FINAL_BOSS } from "../src/final-boss.js";
+import { createFinalBossAbilities, FINAL_BOSS } from "../src/final-boss.js";
 import { abilityConditions, abilityDuration, abilityQuickEffect } from "../src/ability-presentation.js";
 import { globalChoices, globalUpgradeCatalog, runMemoryCatalog } from "../src/progression.js";
 import { worldInfluences } from "../src/world-event-catalog.js";
@@ -132,6 +132,35 @@ test("all character names and passive rules have English copy", () => {
   assert.doesNotMatch(localizeText(FINAL_BOSS.artNote, "en"), untranslated);
   assert.doesNotMatch(localizeText(FINAL_BOSS.combo, "en"), untranslated);
   assert.equal(localizeText(FINAL_BOSS.bodyForms[0].name, "en"), "Tyrant");
+  const formLabels = { control: "Interditor", burst: "Executor", status: "Especialista em Aflições" };
+  const resourceLabels = { cinza: "Cinza", ruptura: "Ruptura", graca: "Graça" };
+  const expectedForms = [
+    ["Tyrant", "DISRUPTOR", "Ash", "Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation."],
+    ["Predator", "EXECUTOR", "Rupture", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
+    ["Ruin", "AFFLICTION SPECIALIST", "Grace", "Affliction Specialist · Grace affinity. Inflicts Decay, seals support, and wears down the enemy line. Fear of losing continuity."]
+  ];
+  assert.deepEqual(FINAL_BOSS.bodyForms.map(form => [
+    localizeText(form.name, "en"),
+    localizeText(formLabels[form.archetype], "en"),
+    localizeText(resourceLabels[form.resource], "en"),
+    localizeText(form.description, "en")
+  ]), expectedForms);
+  const bossAbilities = createFinalBossAbilities();
+  assert.deepEqual(bossAbilities.slice(0, 3).map(ability => localizeText(ability.description, "en")), [
+    "Assume the Tyrant, replace your first three techniques and portrait. Gain 10 Defense when entering this Form. Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation. This Form remains until you use Unreachable End.",
+    "Assume the Predator, replace your first three techniques and portrait. Gain +8 damage for your next strike on entry. Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted. This Form remains until you use Unreachable End.",
+    "Assume the Ruin, replace your first three techniques and portrait. Generate 1 Grace when entering this Form. Affliction Specialist · Grace affinity. Inflicts Decay, seals support, and wears down the enemy line. Fear of losing continuity. This Form remains until you use Unreachable End."
+  ]);
+  for (const ability of bossAbilities) {
+    assert.notEqual(localizeText(ability.name, "en"), ability.name, `missing English boss technique name: ${ability.name}`);
+    assert.notEqual(localizeText(ability.description, "en"), ability.description, `missing English boss technique: ${ability.name}`);
+    assert.doesNotMatch(localizeText(ability.description, "en"), untranslated, `untranslated boss technique: ${ability.name}`);
+    for (const form of ability.forms || []) {
+      assert.notEqual(localizeText(form.name, "en"), form.name, `missing English boss form technique: ${form.name}`);
+      assert.notEqual(localizeText(form.description, "en"), form.description, `missing English boss form effect: ${form.name}`);
+      assert.doesNotMatch(localizeText(form.description, "en"), untranslated, `untranslated boss form effect: ${form.name}`);
+    }
+  }
 });
 
 test("campaign, story, upgrades, and living-world events have English copy", () => {

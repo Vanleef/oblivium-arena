@@ -204,11 +204,19 @@ const passiveRevisions = {
     4: T("Hospitalidade Negada", "turnStart", { generateEssence: { resource: "cinza", amount: 1 } }, "Se algum inimigo tiver uma aflição no início do turno, gera 1 Cinza para a equipe. Ativa uma vez por rodada.", { ifEnemyAfflicted: true })
   },
   carne: {
+    0: T("Vínculo de Usurpação", "hit", { stealEssence: { amount: 1 }, heal: 4 }, "Ao causar dano a um inimigo que já tem sua Marca da Posse, rouba 1 Essência disponível da reserva adversária e recupera 4 de Vida. Ativa uma vez por rodada.", { requiresOwnMark: true }),
     1: T("Adaptação Predatória", "formChange", { generateEssence: { resourceFromForm: true, amount: 1 } }, "Cada troca de Forma gera 1 Essência correspondente ao novo corpo; voltar ao original usa a afinidade da Metamorfa. Ativa uma vez por rodada."),
-    4: T("Eco da Dor", "damaged", { damageAttacker: 5, generateEssence: { resource: "coringa", amount: 1 } }, "Ao perder Vida para uma habilidade espiritual, devolve 5 de dano de aflição ao agressor e gera 1 Coringa. Ativa uma vez por rodada.", { damageTypes: ["energy"], requiresLifeLoss: true })
+    2: T("Avidez Profana", "hit", { gainCharge: 1, shield: 3 }, "Ao causar dano perfurante a um alvo já Exposto enquanto tem 50 de Vida ou menos, ganha 1 carga e 3 de Defesa. Ativa uma vez por rodada.", { requiresExposed: true, damageTypes: ["piercing"], hpAtMost: 50 }),
+    3: T("Laço Enrijecido", "hit", { weakenTarget: 1 }, "Ao causar dano a um inimigo que já tem sua Marca Nervosa, deixa-o Enfraquecido por 1 turno. Ativa uma vez por rodada; aplicar a primeira marca não ativa a passiva.", { requiresOwnMark: true }),
+    4: T("Eco da Dor", "damaged", { damageAttacker: 5, generateEssence: { resource: "coringa", amount: 1 } }, "Ao perder Vida para uma habilidade espiritual, devolve 5 de dano de aflição ao agressor e gera 1 Coringa. Ativa uma vez por rodada.", { damageTypes: ["energy"], requiresLifeLoss: true }),
+    5: T("Sutura que Ancora", "support", { shieldTarget: 5, generateEssence: { resource: "graca", amount: 1 } }, "Quando uma técnica própria limpa ao menos 1 condição prejudicial e restaura ao menos 10 de Vida de outro aliado, concede a ele 5 de Defesa e gera 1 Graça. Ativa uma vez por rodada; autocura não ativa a passiva.", { minimumHeal: 10, minimumCleansed: 1, requiresOtherAlly: true, nonDefensive: true })
   },
   vazio: {
+    0: T("Prova da Negação", "purge", { drainEssence: { resource: "graca", amount: 1 }, gainCharge: 1 }, "Quando uma técnica remove ao menos 1 bônus, redução de dano ou Contra-ataque de um inimigo, drena 1 Graça disponível da reserva adversária e ganha 1 carga. Ativa uma vez por rodada.", { minimumPurged: 1 }),
     1: T("Falta de Substância", "damaged", { generateEssence: { resource: "coringa", amount: 1 } }, "Ao perder Vida para uma habilidade física, gera 1 Coringa. Ativa uma vez por rodada.", { damageTypes: ["physical"], requiresLifeLoss: true }),
+    2: T("Cobrança do Último Instante", "hit", { gainCharge: 1, generateEssence: { resource: "ruptura", amount: 1 } }, "Ao causar dano a um inimigo já Atordoado, ganha 1 carga e gera 1 Ruptura. Ativa uma vez por rodada.", { requiresStunned: true }),
+    3: T("Resíduo de Penumbra", "chargeSpent", { heal: 5, generateEssence: { resource: "coringa", amount: 1 } }, "Se tiver 50 de Vida ou menos, uma técnica ofensiva que consome ao menos 1 carga recupera 5 de Vida e gera 1 Coringa. Ativa uma vez por rodada.", { hpAtMost: 50, minimumChargesSpent: 1, offensive: true }),
+    4: T("Círculo de Apagamento", "consume", { gainCharge: 1, generateEssence: { resource: "cinza", amount: 1 } }, "Ao consumir sua Marca da Página, ganha 1 carga e gera 1 Cinza. Ativa uma vez por rodada.", { condition: "mark:pagina" }),
     5: T("Sustento do Apagamento", "turnStart", { convertEssence: { from: "cinza", to: "coringa", amount: 1 }, heal: 4 }, "Se tiver ao menos 2 Cinzas no início do turno, converte 1 em Coringa e recupera 4 de Vida. Ativa uma vez por rodada.", { ifResource: "cinza", resourceMinimum: 2 })
   },
   protecao: {
@@ -250,10 +258,6 @@ for (const [elo, revisions] of Object.entries(passiveRevisions)) {
 rosters.fome[0].passive = P("Fome Crescente", "leech", 4, "afflicted", {
   healByDamageType: { physical: 4, piercing: 6, energy: 2 },
   description: "Dano perfurante restaura 6 de Vida; dano físico restaura 4 e espiritual 2. Aflição não alimenta a Fome."
-});
-rosters.carne[0].passive = P("Vontade Parasita", "leech", 4, "afflicted", {
-  healByDamageType: { physical: 4, piercing: 4, energy: 7 },
-  description: "Dano espiritual restaura 7 de Vida; dano físico ou perfurante restaura 4. Aflição não alimenta a Vontade."
 });
 rosters["correntes-quebradas"][7].passive = P("Fome da Penumbra", "leech", 4, "afflicted", {
   healByDamageType: { physical: 2, energy: 4, affliction: 6 },

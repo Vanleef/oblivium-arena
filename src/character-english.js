@@ -219,7 +219,7 @@ Object.assign(characterCopy, {
   "o-que-possui": {
     lore: "He embodies Flesh's abusive possession. His spiritual bond imposes commands and takes vitality from anyone he marks.",
     combo: "Possession seals attacks for one action but still allows support; interrupt the marked victim or drain their Health.",
-    passive: "Parasitic Will"
+    passive: "Possessive Claim"
   },
   "a-pele-alheia": {
     lore: "She makes her own skin an instrument of invasion. She takes Forms from other souls, shifts between protection and blade, then discards each shell when it no longer serves her will to dominate.",
@@ -234,7 +234,7 @@ Object.assign(characterCopy, {
   "a-marionetista-de-nervos": {
     lore: "She fastens spiritual threads to another body's responses. She sustains her command while the victim tries to regain control, then chooses when to snap the link in pain. Every imposed gesture extends the abuse that empowers Flesh.",
     combo: "Connect the nerves, then keep control for one more action or snap the threads for a finishing blow.",
-    passive: "Tension of the Threads"
+    passive: "Tightened Strings"
   },
   "o-espelho-carnal": {
     lore: "He plants copies of his own substance inside other bodies, turning pain into a returning attack. His aid preserves the body as an instrument of control, extending the abuse that empowers Flesh.",
@@ -244,12 +244,12 @@ Object.assign(characterCopy, {
   "a-costureira": {
     lore: "She sees bodies and decisions as stitches she can tighten or undo. She repairs allies to keep control and opens the seams of a marked victim.",
     combo: "Mark and wound with the thread; mend your allies, then undo the victim's stitches with the finisher.",
-    passive: "Thread of Control"
+    passive: "Anchoring Stitch"
   },
   "o-que-apaga": {
     lore: "He removes whatever lets a soul sustain its resistance. He dissolves guards and advantages, marks what remains, then focuses his final nullification on that trace to widen Void's erasure.",
     combo: "Mark and strip away advantages; the setup unlocks a special nullification against that victim, while your second technique dissolves Defense.",
-    passive: "Advantage Denied"
+    passive: "Proof of Erasure"
   },
   "a-ausencia": {
     lore: "She leaves a gap where a soul expected to find support, vigor, or continuity. Her passage consumes a victim's reserve and deepens the loss when they hesitate to act. The emptiness spreads until her own presence is impossible to reach.",
@@ -262,17 +262,17 @@ Object.assign(characterCopy, {
   "o-fim-silencioso": {
     lore: "A manifestation of Void that heralds the loss of all continuity. Its blade breaks a victim's will before extinguishing their presence.",
     combo: "Save your two strongest sentences for wounded enemies; after they fall, Silence changes its shape.",
-    passive: "Final Moment"
+    passive: "Final Moment's Due"
   },
   "o-menino-sem-sombra": {
     lore: "An adult entity that chooses to extinguish every possibility of continuity. Whatever it touches loses shape and purpose; it rebuilds its presence from the traces of the certainties it destroyed.",
     combo: "Gather traces of ruin and consume them to erase an enemy's presence; at low Health, your recovery takes another Form.",
-    passive: "Growing Ruin"
+    passive: "Penumbra's Remnant"
   },
   "a-ultima-pagina": {
     lore: "She inscribes names on spiritual fragments to narrow a soul's possibilities. She erases the will to respond and ends the trace she marked, turning each lost continuity into strength for Void.",
     combo: "Inscribe and expose a victim, interrupt their offense, then consume the mark to end their trace.",
-    passive: "Terminal Trace"
+    passive: "Erasure Cycle"
   },
   "o-lugar-de-ninguem": {
     lore: "His presence unravels places that might have sheltered another soul. He erases the path's landmarks, weakens those who still resist, and absorbs what remains into his own outline, expanding Void.",
@@ -574,9 +574,9 @@ Object.assign(phrases, {
   "Lança da Primeira Luz": "Spear of the First Light",
   [FINAL_BOSS.title]: "King of Hell",
   [FINAL_BOSS.lore]: "The End has no fixed face or Form. It always takes the shape of its observer's greatest fear: each witness sees a unique manifestation, even when several souls look upon it at once.",
-  [FINAL_BOSS.artNote]: "The original Form keeps its approved appearance: a faceless sovereign with a crown, broken bonds, and ivory overtaken by roots. The Tyrant, Predator, and Ruin are other manifestations of fear. No appearance is its true Form.",
+  [FINAL_BOSS.artNote]: "The original Form keeps its approved appearance: a slender, faceless sovereign with a crown, broken bonds, and ivory overtaken by roots. The Tyrant becomes a prison bastion; the Predator, a low six-limbed beast; the Ruin, a broken, suspended cathedral arch. No appearance is its true Form.",
   [FINAL_BOSS.mechanic]: "Three Manifestations of Fear",
-  [FINAL_BOSS.combo]: "In its original Form, choose one manifestation: it replaces the first three techniques and the portrait. The shift uses your action. Unreachable End restores 10 Health and returns to the original Form. Cooldowns belong to each slot and carry across Forms.",
+  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant controls and protects with Ash; the Predator hunts and executes with Rupture; the Ruin wears down and seals with Grace. Unreachable End restores 10 Health and returns to the original Form. Cooldowns belong to each slot and carry across Forms.",
   "Forma original": "Original Form",
   "Assumir Tirano": "Assume the Tyrant",
   "Assumir Predador": "Assume the Predator",
@@ -586,9 +586,9 @@ Object.assign(phrases, {
 });
 
 const finalBossForms = [
-  ["Tirano", "Tyrant", "Controle por marcas, interrupção e guarda. Medo de ser subjugado.", "Control through Marks, interruption, and guard. Fear of being subjugated."],
-  ["Predador", "Predator", "Perseguição, drenagem de Vida e consumo de Essência. Medo de ser caçado.", "Pursuit, Health drain, and Essence consumption. Fear of being hunted."],
-  ["Ruína", "Ruin", "Aflições, interdição de apoio e dano coletivo. Medo de perder a própria continuidade.", "Afflictions, support interdiction, and team-wide damage. Fear of losing its own continuity."]
+  ["Tirano", "Tyrant", "Interditor · afinidade Cinza. Marca e interrompe um alvo, depois protege o trio. Medo de ser subjugado.", "Disruptor · Ash affinity. Marks and interrupts one target, then protects the team. Fear of subjugation."],
+  ["Predador", "Predator", "Executor · afinidade Ruptura. Persegue uma presa, recupera Vida e escolhe entre drená-la ou consumir sua marca. Medo de ser caçado.", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
+  ["Ruína", "Ruin", "Especialista em Aflições · afinidade Graça. Aplica Decadência, sela apoio e corrói a linha inimiga. Medo de perder a própria continuidade.", "Affliction Specialist · Grace affinity. Inflicts Decay, seals support, and wears down the enemy line. Fear of losing continuity."]
 ];
 for (const [sourceName, targetName, sourceDescription, targetDescription] of finalBossForms) {
   phrases[sourceName] = targetName;
@@ -600,12 +600,27 @@ const finalBossAbilityNames = {
   "Rastro Faminto": "Hungry Trail", "Ceifar o Vínculo": "Reap the Bond", "Fome dos Reinos": "Hunger of the Realms",
   "Cinza de Ninguém": "Ash of No One", "Nome Extinto": "Extinguished Name", "Última Fronteira": "Last Frontier"
 };
+const finalBossAbilityDescriptions = {
+  "Rasga a guarda e marca um inimigo por 3 turnos.": "Rends the guard and Marks one enemy for 3 turns.",
+  "Causa 20 de dano. Contra sua marca do Fim, causa +15 de dano, Atordoa por 1 turno e consome a marca.": "Deal 20 damage. Against your End Mark, deal +15 damage, Stun for 1 turn, and consume the Mark.",
+  "Concede 20 de Defesa destrutível ao trio.": "Grant the team 20 destructible Defense.",
+  "Causa 15 de dano físico, rouba 50% do dano causado como Vida e marca o alvo por 3 turnos.": "Deal 15 physical damage, restore 50% of damage dealt as Health, and Mark the target for 3 turns.",
+  "Causa 25 de dano perfurante e rouba 50% do dano causado como Vida. Contra sua marca de caça, causa +10 de dano e consome a marca.": "Deal 25 piercing damage and restore 50% of damage dealt as Health. Against your Hunt Mark, deal +10 damage and consume the Mark.",
+  "Causa 20 de dano de aflição a um inimigo e drena 1 Essência da reserva inimiga. Contra sua marca de caça, causa +15 de dano e a consome.": "Deal 20 affliction damage to one enemy and drain 1 Essence from the enemy reserve. Against your Hunt Mark, deal +15 damage and consume it.",
+  "Causa 10 de dano de aflição e aplica Decadência: 4 de dano por 3 turnos.": "Deal 10 affliction damage and inflict Decay: 4 damage for 3 turns.",
+  "Causa 15 de dano espiritual, deixa o alvo Exposto e sela suas habilidades de apoio por 1 turno.": "Deal 15 spiritual damage, Expose the target, and seal its support techniques for 1 turn.",
+  "Causa 20 de dano de aflição a cada inimigo; causa +5 contra alvos com aflições.": "Deal 20 affliction damage to each enemy; deal +5 damage to targets with an affliction."
+};
 for (const [index, ability] of createFinalBossAbilities().entries()) {
   if (index < finalBossForms.length) {
     const [, targetName, , targetDescription] = finalBossForms[index];
+    const entryEffect = ["Gain 10 Defense when entering this Form.", "Gain +8 damage for your next strike on entry.", "Generate 1 Grace when entering this Form."][index];
     phrases[ability.name] = `Assume the ${targetName}`;
-    phrases[ability.description] = `Assume the ${targetName}, gain 8 Defense, and replace your first three techniques and portrait. ${targetDescription} This Form remains until you use Unreachable End.`;
-    for (const form of ability.forms || []) if (finalBossAbilityNames[form.name]) phrases[form.name] = finalBossAbilityNames[form.name];
+    phrases[ability.description] = `Assume the ${targetName}, replace your first three techniques and portrait. ${entryEffect} ${targetDescription} This Form remains until you use Unreachable End.`;
+    for (const form of ability.forms || []) {
+      if (finalBossAbilityNames[form.name]) phrases[form.name] = finalBossAbilityNames[form.name];
+      if (finalBossAbilityDescriptions[form.description]) phrases[form.description] = finalBossAbilityDescriptions[form.description];
+    }
   } else {
     phrases[ability.name] = "Unreachable End";
   }

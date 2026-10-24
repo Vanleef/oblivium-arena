@@ -1,5 +1,30 @@
 # Continuação das passivas e artes — 24/10/2026
 
+## Continuação — Carne e Vazio
+
+Oito personagens receberam passivas próprias e os 12 integrantes de Carne e Vazio agora têm gatilhos explícitos, com texto em inglês. A contagem auditada sobe de 64 para **71 de 100**; **29** ainda aguardam revisão. O Usurpador já era contado na etapa anterior por sua recuperação personalizada por tipo de dano; a troca por um gatilho de Marca torna a regra mais específica sem inflar a contagem.
+
+| Personagem | Novo gatilho e recompensa, uma vez por rodada |
+| --- | --- |
+| O Usurpador | Ferir alguém que já tem a Marca da Posse rouba 1 Essência disponível e recupera 4 de Vida. |
+| O Profanador | Com 50 de Vida ou menos, atingir um alvo já Exposto com dano perfurante concede 1 carga e 3 de Defesa. |
+| A Marionetista | Ferir alguém que já tem sua Marca Nervosa deixa a vítima Enfraquecida por 1 turno. |
+| A Suturadora | Limpar uma condição e restaurar ao menos 10 de Vida de outro aliado também lhe concede 5 de Defesa e gera 1 Graça. |
+| O Anulador | Remover uma vantagem ativa drena 1 Graça disponível do inimigo e concede 1 carga. |
+| O Arauto | Ferir um alvo já Atordoado concede 1 carga e gera 1 Ruptura. |
+| O Desolador | Com 50 de Vida ou menos, uma técnica ofensiva que gasta carga recupera 5 de Vida e gera 1 Coringa. |
+| A Escriba | Consumir sua Marca da Página concede 1 carga e gera 1 Cinza. |
+
+As regras exigem dano real, Marca própria, limpeza e cura efetivas, remoção de bônus ativa ou gasto real de carga conforme cada gatilho. A auditoria confirma 12 assinaturas diferentes entre os dois Elos.
+
+## Continuação — O Fim
+
+O Fim recebeu três retratos com silhuetas distintas e nove ícones próprios. Tirano usa Cinza e o arquétipo Interditor; Predador usa Ruptura e Executor; Ruína usa Graça e Especialista em Aflições. A forma original mantém Éter e Metamorfo. Os benefícios de entrada são distintos, e o Predador agora concentra as três técnicas em uma presa.
+
+O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos seus nomes, arquétipos ou Essências. O inventário das artes e os resumos dos prompts estão em `ART_O_FIM_DISTINCT_20261024.json`; as regras e silhuetas estão em `O_FIM_FORMS_REVISION_20261024.md`.
+
+Verificação local deste lote: **304 testes aprovados**, nenhuma falha; build com **920 arquivos**; 626 caminhos ativos de arte presentes, nenhum ausente. O Codex também foi coberto em português e inglês para rótulos, buscas e descrições das formas. Conferência em produção será registrada após a publicação.
+
 ## Continuação — Podridão, Silêncio e O Sussurro
 
 Oito passivas de Podridão e Silêncio ganharam gatilhos próprios. Com as duas regras já específicas de cada Elo, os 12 personagens destes dois Elos estão cobertos. O total da revisão passa de 56 para **64 de 100** passivas com gatilho específico ou recuperação ligada ao tipo de dano; **36** continuam na fila. Cada gatilho limita a recompensa a uma vez por rodada, exceto Oportunismo, que é uma vez por combate.

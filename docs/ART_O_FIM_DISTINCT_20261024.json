@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-24",
+  "generator": "image_gen.imagegen (built-in)",
+  "scope": [
+    "Three visually distinct O Fim body forms with separate archetypes and Essence affinities",
+    "Nine technique illustrations matched to each form’s play pattern"
+  ],
+  "style": "Square 2D dark shonen anime illustration, strong ink contours, flat cel shadows, high contrast at small size, full bleed, no text, no UI, no watermark.",
+  "promptRecord": "Per-asset prompt summaries are recorded below; source generation PNGs and their hashes are retained in generated_images for provenance.",
+  "forms": {
+    "base": {
+      "archetype": "transformation",
+      "resource": "essence",
+      "label": "slender faceless sovereign"
+    },
+    "tyrant": {
+      "archetype": "control",
+      "resource": "cinza",
+      "label": "broad chained bastion"
+    },
+    "predator": {
+      "archetype": "burst",
+      "resource": "ruptura",
+      "label": "low six-limbed hunter"
+    },
+    "ruin": {
+      "archetype": "status",
+      "resource": "graca",
+      "label": "broken floating cathedral arch"
+    }
+  },
+  "assets": [
+    {
+      "key": "fim-tyrant",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/portrait-tyrant.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 93978,
+      "sha256": "8e9d0b4cdf117bbef436a4843e8ba42f5f3534e4a2496b989f9087dd6772dcf8",
+      "source": "exec-67655926-d3b3-40a6-baa7-5d6b12fa20aa.png",
+      "sourceSha256": "dc0331ba669a239efff5160b306c5a7c150e0b8c151b2b533cd7f52c8804dc12",
+      "promptSummary": "A broad, prison-bastion sovereign: ivory fortress armor, crown-tower silhouette, heavy chains, confined throne architecture. Fear of domination.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "fim-predator",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/portrait-predator.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 83748,
+      "sha256": "bb5f67d6025e2736f81dcfb6f21c2fbc185506890c83b25731c09fa5cb1e2a3f",
+      "source": "exec-7faeb35f-0e15-45d8-969b-71d6d33e2a65.png",
+      "sourceSha256": "b4dd372b24bef9845e2b9418bf864d6f60a8c781605b70d656bdafc9bfd54a92",
+      "promptSummary": "A very low six-limbed shadow hunter with an ivory ringed void maw and backward crown horns. Fear of being hunted.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "fim-ruin",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/portrait-ruin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 117312,
+      "sha256": "645b0d830f601bd7253b3a4464d7d850c8057922b25345e1024043b0c423b33d",
+      "source": "exec-63a497fa-8bf8-4e40-9f38-410b5ce305d2.png",
+      "sourceSha256": "8b228343a9d59fa014afed7ec83a29d926c1634c0cb1928187d5f580ab7ad008",
+      "promptSummary": "A faceless floating cathedral arch built from broken ivory stone, loose fragments and violet seams, with the twin gold rings preserved. Fear of losing continuity.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "tyrant-fenda",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-fenda.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 65268,
+      "sha256": "9ca5e2e9b84b257318ad41856bc4900e533e805f470a7bd550a9f29ac54b5185",
+      "source": "exec-8108e364-c19f-4acd-8068-0aea49236166.png",
+      "sourceSha256": "a0b2c52aec7833e4954545b0f627726e552aeec7cd31bb7fac616fa04c07ef77",
+      "promptSummary": "The Tyrant tears open a boundary as a chained ivory tower crashes through the veil onto one marked opponent.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "tyrant-decreto",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-decreto.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 64348,
+      "sha256": "91d83f5362282996c6d74c7cced05a1389bd71511106db20bed220aceea97ae6",
+      "source": "exec-7ecb59fc-8f77-425c-8f26-380ef3a92075.png",
+      "sourceSha256": "9b57d943a89cf332da7a705d43436ea859b87ff95026627468d4fcce97913b20",
+      "promptSummary": "The Tyrant closes a fortress gauntlet around one marked target, showing a focused decree and interruption.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "tyrant-coroa",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-coroa.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 68070,
+      "sha256": "2cca938a7ca9f7bc6e25e02bb9c3122140470a048d4718a399b212de15021a06",
+      "source": "exec-b36e133b-4336-449c-8a24-e25e606fa7ab.png",
+      "sourceSha256": "16898f170c9153ae67ae4cc1bc657c168cb4fdf5d9f9710a188d676b49fa675b",
+      "promptSummary": "Three small guard plates form around a trio before a towering chained bastion; defensive team protection.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "predator-rastro",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-rastro.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 46126,
+      "sha256": "4483f370ed2bbc4821027ba21e1b84dbac959e877dc1196a5c386de808a5f5b8",
+      "source": "exec-95872a6a-f9ef-4be2-ad51-6a01021674f9.png",
+      "sourceSha256": "5d6a65068a00c29cc21b0661dd2a5c0ae4eca78a159f21f947b37bffc7e8b20f",
+      "promptSummary": "The six-limbed Predator tracks one fleeing prey across a red-lit flooded alley, a narrow hunt mark connecting them.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "predator-ceifar",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-ceifar.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 55626,
+      "sha256": "0c55543d2d74e800acf675be3d2f769b312fe0389ca7048b278ee421d4e3b82e",
+      "source": "exec-dcc879ba-60df-422a-b271-d2db01846185.png",
+      "sourceSha256": "ba355947216fec53f37d1592f767b5618080f82dda0341f63391e2dc8c3d6158",
+      "promptSummary": "The Predator siphons a visible thread of life from a single helpless target through its ringed void maw.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "predator-fome",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-fome.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 56944,
+      "sha256": "33e517bd0ad9626a11b990eb135f0adbc60022802007a8f7e8e0a2e90df76c21",
+      "source": "exec-03699a8e-5561-49c7-8d7b-088143ca3910.png",
+      "sourceSha256": "45b70793a4aff22552691f7a2609dea1e3dc8a70d29f9d2427623c7836b839e6",
+      "promptSummary": "The Predator opens its hollow maw and draws a soul trace into darkness, focused on one target and its reserve.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "ruin-cinza",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-cinza.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 67972,
+      "sha256": "f2ac379ca95e033525db4ec44984e3909db84620d0552112ecc76ac39f75820a",
+      "source": "exec-22745260-e5aa-45e3-9a5b-4c18496933a0.png",
+      "sourceSha256": "f9e799ed94447edcd5407f754eea824b87c011a471d8daf803953b72583cb861",
+      "promptSummary": "A cathedral fragment decays into suspended ash as its edges break down over time.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "ruin-nome",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-nome.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 63042,
+      "sha256": "ca48443390dcc3908e2fc3204f68b9ef3b4eacc31415ad4674a34b9d5c9e9804",
+      "source": "exec-80991d2d-d56a-4d3f-8154-3a94fb10f871.png",
+      "sourceSha256": "821c2516c43c31dac0b24aa9e55bf981440ae3cde73d7168b0662d055436a839",
+      "promptSummary": "A lone figure faces a silent black arch; its name and route fade, sealing the way to support.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    },
+    {
+      "key": "ruin-fronteira",
+      "path": "art/characters/o-fim/body-forms-distinct-20261024/skill-fronteira.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 74058,
+      "sha256": "152048b25465afaf2fc2df52d50e943a388f8557c1d991971810b70c8e36b6ba",
+      "source": "exec-9b3545bc-7d97-430a-b363-b6cf8af656ac.png",
+      "sourceSha256": "6330b51321fcaf0012e9770f563f9e5288676fe9648fd4c880c83cd15c4c5f62",
+      "promptSummary": "A broken cathedral boundary fractures across the ground and divides the whole enemy line.",
+      "review": "Reviewed for silhouette/effect match; square export preserves the generated framing."
+    }
+  ]
+}

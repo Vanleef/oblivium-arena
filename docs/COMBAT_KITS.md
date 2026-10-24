@@ -47,18 +47,18 @@ Os kits usam as identidades e os conceitos do PMA. Testes cobrem a execução de
 
 O arquétipo principal descreve a identidade de cada kit; os secundários registram outras ferramentas que ele explora. Cada alma pode combinar até cinco identidades. O contexto curto explica a função do arquétipo, e a variação abaixo nomeia a forma particular como aquele personagem o executa.
 
-- **☣ Especialista em Aflições** (6 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
-- **♥ Sustentador** (34 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
+- **☣ Especialista em Aflições** (5 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
+- **♥ Sustentador** (33 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
 - **◈ Metamorfo** (9 kits): Muda o papel de combate com uma forma, postura ou limiar que altera técnicas.
 - **◎ Preparador de Marcas** (44 kits): Marca uma abertura e decide quando consumir, explorar ou espalhar a preparação.
-- **▼ Berserker** (9 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
+- **▼ Berserker** (8 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
 - **⬡ Baluarte** (16 kits): Cria Defesa e transforma a guarda em tempo para uma resposta própria ou do trio.
-- **⇥ Manipulador de Essência** (20 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
+- **⇥ Manipulador de Essência** (22 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
 - **↶ Retaliador** (21 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
 - **⊠ Interditor** (15 kits): Atordoa, sela ou enfraquece para abrir uma janela de ação segura.
 - **ϟ Executor** (18 kits): Concentra dano em uma janela preparada, em um alvo ferido ou numa reserva gasta.
 - **▦ Pressionador de Área** (33 kits): Altera o ritmo de toda a linha inimiga ou fortalece o trio em conjunto.
-- **⊕ Gerador de Essência** (20 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
+- **⊕ Gerador de Essência** (24 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
 - **⇄ Transmutador de Essência** (7 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
 - **◉ Gastador de Essência** (6 kits): Transforma o pagamento ou sacrifício de Essência em dano, proteção, controle ou preparação.
 - **⌖ Quebra-Guarda** (27 kits): Remove Defesa ou converte as camadas do alvo em vantagem ofensiva.
@@ -819,17 +819,17 @@ Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda co
 
 ## Elo Carne
 
-### O Usurpador — Preparador de Marcas
+### O Usurpador — Manipulador de Essência
 
 **Variação:** Posse da ofensiva · **Essência:** Éter
 
-**Outros arquétipos:** Sustentador, Interditor
+**Outros arquétipos:** Preparador de Marcas, Interditor
 
 A posse sela ataques por uma ação, mas permite apoio; decida entre interromper a vítima marcada ou drenar sua Vida.
 
 **Estrutura:** Posse da ofensiva
 
-**Passiva — Vontade Parasita:** Dano espiritual restaura 7 de Vida; dano físico ou perfurante restaura 4. Aflição não alimenta a Vontade.
+**Passiva — Vínculo de Usurpação:** Ao causar dano a um inimigo que já tem sua Marca da Posse, rouba 1 Essência disponível da reserva adversária e recupera 4 de Vida. Ativa uma vez por rodada.
 
 - **Selo da Posse** (2 Éter; recarga 2T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Sela técnicas ofensivas por 1 turno do alvo.
 - **Nervos Tomados** (1 Éter + 1 Qualquer; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
@@ -859,17 +859,17 @@ Alterne entre a forma original, a Pele Usurpada ofensiva e a Carapaça Usurpada 
 - **Espinhos Usurpados** [variação] (1 Graça + 1 Qualquer; recarga 2T): Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.
 - **Corpo Substituto** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam. Retorna à forma original sem reiniciar recargas.
 
-### O Profanador — Berserker
+### O Profanador — Executor
 
 **Variação:** Desejo de risco · **Essência:** Cinza
 
-**Outros arquétipos:** Executor, Manipulador de Essência
+**Outros arquétipos:** Manipulador de Essência, Berserker
 
 Converta sua Vida perdida em pressão ofensiva; invada a guarda alheia e consuma as cargas no golpe perfurante.
 
 **Estrutura:** Desejo de risco
 
-**Passiva — Avidez Profana:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
+**Passiva — Avidez Profana:** Ao causar dano perfurante a um alvo já Exposto enquanto tem 50 de Vida ou menos, ganha 1 carga e 3 de Defesa. Ativa uma vez por rodada.
 
 - **Ímpeto Profano** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +4 de dano (máx. +12). Ganha 1 carga (máx. 3). O usuário perde 5 de Vida (não o derrota).
 - **Contato Invasivo** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 unidade de Essência da reserva inimiga.
@@ -886,7 +886,7 @@ Conecte os nervos e escolha entre sustentar o controle por mais uma ação ou ro
 
 **Estrutura:** Controle com ligação
 
-**Passiva — Tensão dos Fios:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Laço Enrijecido:** Ao causar dano a um inimigo que já tem sua Marca Nervosa, deixa-o Enfraquecido por 1 turno. Ativa uma vez por rodada; aplicar a primeira marca não ativa a passiva.
 
 - **Fio Nervoso** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos.
 - **Puxar a Vontade** (1 Éter + 1 Qualquer; recarga 2T): Causa 10 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +5 dano e Atordoa por 1 turno. Se ativar o combo, vira Manter o Comando no próximo turno, apenas contra a mesma vítima. Atordoamento ou Invulnerável quebra a ligação.
@@ -915,13 +915,13 @@ Exponha o inimigo e sustente um aliado com o vínculo parasita; a dor recebida p
 
 **Variação:** Ciclo de cuidado · **Essência:** Graça
 
-**Outros arquétipos:** Especialista em Aflições, Preparador de Marcas
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas
 
 Use o fio para marcar e ferir; sustente seus aliados com suturas e desfaça os pontos da vítima no desfecho.
 
 **Estrutura:** Ciclo de cuidado
 
-**Passiva — Fio do Controle:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Sutura que Ancora:** Quando uma técnica própria limpa ao menos 1 condição prejudicial e restaura ao menos 10 de Vida de outro aliado, concede a ele 5 de Defesa e gera 1 Graça. Ativa uma vez por rodada; autocura não ativa a passiva.
 
 - **Ponto de Corte** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Sangramento: 4 de dano de aflição por 2 turnos.
 - **Sutura de Domínio** (1 Graça + 1 Qualquer; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. No próximo turno, vira Reforçar os Pontos: amparo sem nova limpeza.
@@ -935,13 +935,13 @@ Use o fio para marcar e ferir; sustente seus aliados com suturas e desfaça os p
 
 **Variação:** Apagamento dirigido · **Essência:** Ruptura
 
-**Outros arquétipos:** Executor, Quebra-Guarda
+**Outros arquétipos:** Executor, Quebra-Guarda, Manipulador de Essência
 
 Marque e remova vantagens; a preparação abre uma anulação exclusiva contra a mesma vítima, enquanto a segunda técnica dissolve Defesa.
 
 **Estrutura:** Apagamento dirigido
 
-**Passiva — Vantagem Negada:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Prova da Negação:** Quando uma técnica remove ao menos 1 bônus, redução de dano ou Contra-ataque de um inimigo, drena 1 Graça disponível da reserva adversária e ganha 1 carga. Ativa uma vez por rodada.
 
 - **Marca da Anulação** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove bônus de dano, redução e contra-ataque do alvo. Vira Anulação Definitiva por 2 turnos, apenas contra o alvo da marca.
 - **Anulação Definitiva** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano de aflição a um inimigo. Exige a marca desta preparação no alvo. Se o alvo tem a marca desta preparação: +5 dano; consome a preparação. Após usar, restaura Marca da Anulação.
@@ -968,33 +968,33 @@ Drene Essência e deixe a ausência cobrar mais se a vítima não usar uma técn
 
 ### O Arauto — Interditor
 
-**Variação:** Sentenças limitadas · **Essência:** Éter
+**Variação:** Sentenças limitadas · **Essência:** Ruptura
 
-**Outros arquétipos:** Preparador de Marcas, Quebra-Guarda
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas, Quebra-Guarda
 
 Guarde suas duas sentenças mais fortes para os feridos; depois delas, o silêncio muda de forma.
 
 **Estrutura:** Sentenças limitadas
 
-**Passiva — Último Instante:** Suas habilidades causam +6 de dano se o alvo tem 50 de Vida ou menos.
+**Passiva — Cobrança do Último Instante:** Ao causar dano a um inimigo já Atordoado, ganha 1 carga e gera 1 Ruptura. Ativa uma vez por rodada.
 
-- **Presságio de Extinção** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
-- **Cessar da Vontade** (1 Éter + 1 Qualquer; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove bônus de dano, redução e contra-ataque do alvo.
-- **Sem Últimas Palavras** (2 Éter; recarga 1T): Causa 28 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +12 dano. Pode ser usada 2 vezes por combate; depois vira Silêncio Residual.
-- **Silêncio Residual** [variação] (1 Éter; recarga 0T): Causa 20 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +5 dano.
+- **Presságio de Extinção** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Cessar da Vontade** (1 Ruptura + 1 Qualquer; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove bônus de dano, redução e contra-ataque do alvo.
+- **Sem Últimas Palavras** (1 Ruptura + 1 Éter; recarga 1T): Causa 28 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +12 dano. Pode ser usada 2 vezes por combate; depois vira Silêncio Residual.
+- **Silêncio Residual** [variação] (1 Ruptura; recarga 0T): Causa 20 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +5 dano.
 - **Instante sem Tempo** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Desolador — Berserker
+### O Desolador — Baluarte
 
 **Variação:** Refúgio por necessidade · **Essência:** Coringa
 
-**Outros arquétipos:** Baluarte, Sustentador
+**Outros arquétipos:** Sustentador, Gerador de Essência
 
 Acumule vestígios de ruína e consuma-os para extinguir a presença inimiga; com pouca Vida, a recomposição assume outra forma.
 
 **Estrutura:** Refúgio por necessidade
 
-**Passiva — Ruína Crescente:** Com 50 de Vida ou menos, suas habilidades causam +6 de dano.
+**Passiva — Resíduo de Penumbra:** Se tiver 50 de Vida ou menos, uma técnica ofensiva que consome ao menos 1 carga recupera 5 de Vida e gera 1 Coringa. Ativa uma vez por rodada.
 
 - **Toque da Desolação** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
 - **Recompor o Vazio** (1 Coringa; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno. Com 50 de Vida ou menos, vira Recolher a Presença, com custo e recuperação maiores.
@@ -1002,17 +1002,17 @@ Acumule vestígios de ruína e consuma-os para extinguir a presença inimiga; co
 - **Extinguir a Presença** (1 Coringa + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Presença Nula** (1 Qualquer; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### A Escriba — Preparador de Marcas
+### A Escriba — Gerador de Essência
 
 **Variação:** Rasura de ações · **Essência:** Éter
 
-**Outros arquétipos:** Interditor, Quebra-Guarda
+**Outros arquétipos:** Preparador de Marcas, Interditor, Quebra-Guarda
 
 Inscreva e exponha uma vítima, interrompa sua ofensiva e consuma a marca ao encerrar seu vestígio.
 
 **Estrutura:** Rasura de ações
 
-**Passiva — Traço Terminal:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
+**Passiva — Círculo de Apagamento:** Ao consumir sua Marca da Página, ganha 1 carga e gera 1 Cinza. Ativa uma vez por rodada.
 
 - **Inscrever o Fim** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Rasura Terminal** (1 Éter + 1 Qualquer; recarga 2T): Causa 5 de dano físico a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Remove bônus de dano, redução e contra-ataque do alvo.
