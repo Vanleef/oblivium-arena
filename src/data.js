@@ -118,6 +118,13 @@ export const resources = [
   { id: "ruptura", name: "Ruptura", shortName: "Ruptura", icon: "⟲", color: "limbo" }
 ];
 
+export const difficulties = [
+  { id: "story", name: "Travessia", mark: "◇", description: "Para conhecer o combate. A oposição usa ataques básicos e causa menos dano.", enemyHealth: 0.9, enemyDamage: 0.88, startingEssence: 0, startingAffinity: 0, aiLevel: 0, rewardMultiplier: 0.75 },
+  { id: "veteran", name: "Veterano", mark: "⚔", description: "Desafio equilibrado. A IA escolhe alvos vulneráveis e técnicas eficientes.", enemyHealth: 1, enemyDamage: 1, startingEssence: 1, startingAffinity: 1, aiLevel: 1, rewardMultiplier: 1 },
+  { id: "doomed", name: "Difícil", mark: "⛨", description: "A oposição protege aliados, cura feridos e coordena ataques para derrubar um alvo.", enemyHealth: 1.1, enemyDamage: 1.08, startingEssence: 1, startingAffinity: 1, aiLevel: 2, rewardMultiplier: 1.25 },
+  { id: "agony", name: "Agonia", mark: "☠", description: "IA especialista, recursos iniciais extras e Guardiões mais resistentes e letais.", enemyHealth: 1.16, enemyDamage: 1.1, startingEssence: 2, startingAffinity: 1, aiLevel: 3, rewardMultiplier: 1.5 }
+];
+
 export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Qualquer",color:"random"}};
 export const realmResource = { Inferno: "cinza", "Paraíso": "graca", Limbo: "ruptura" };
 
@@ -331,16 +338,43 @@ export function generateTrail(eloId, seed = 0, variant = "hunt") {
 }
 
 export const buffs = [
-  { id: "edge", title: "Fio Ressonante", text: "Todo o trio causa +12% de dano nesta trilha.", icon: "✧", effect: { damage: 0.12 } },
-  { id: "ward", title: "Escudo de Partida", text: "O trio começa cada combate com 12 de escudo.", icon: "⬡", effect: { shield: 12 } },
-  { id: "essence", title: "Núcleo de Essência", text: "Comece cada combate com 1 de Essência extra.", icon: "◈", effect: { essence: 1 } },
-  { id: "cinzas", title: "Cinzas da Travessia", text: "Comece cada combate com 1 Cinza extra.", icon: "✹", effect: { cinza: 1 } },
-  { id: "graca", title: "Graça Remanescente", text: "Comece cada combate com 1 Graça extra.", icon: "✧", effect: { graca: 1 } },
-  { id: "ruptura", title: "Fenda Contida", text: "Comece cada combate com 1 Ruptura extra.", icon: "⟲", effect: { ruptura: 1 } },
-  { id: "mend", title: "Fio de Vida", text: "Aumenta em 10 a Vida máxima de cada aliado na trilha.", icon: "✚", effect: { maxHp: 10 } },
-  { id: "echo", title: "Eco do Trio", text: "A Ressonância concede mais 5% de bônus.", icon: "∞", effect: { resonance: 0.05 } },
-  { id: "fracture", title: "Fissura Vigiada", text: "As habilidades de Limbo causam menos dano ao usuário.", icon: "⟲", effect: { risk: -4 } }
+  { id: "edge", title: "Fio Ressonante", category: "Ataque", text: "Todo o trio causa +10% de dano nesta trilha.", context: "Uma lâmina antiga vibra quando as almas lutam em uníssono.", icon: "⚒", effect: { damage: 0.1 } },
+  { id: "ward", title: "Escudo de Partida", category: "Defesa", text: "O trio começa cada combate com 10 de escudo.", context: "Uma muralha esquecida ainda guarda quem atravessa o véu.", icon: "⛨", effect: { shield: 10 } },
+  { id: "essence", title: "Núcleo de Essência", category: "Recursos", text: "Comece cada combate com 1 de Essência extra.", context: "O núcleo pulsa com o último fôlego de uma estrela morta.", icon: "◈", effect: { essence: 1 } },
+  { id: "cinzas", title: "Cinzas da Travessia", category: "Recursos", text: "Se houver alguém do Inferno no trio, comece com 1 Cinza extra.", context: "O fogo que consumiu um reino ainda pode aquecer uma mão.", icon: "♨", effect: { cinza: 1 } },
+  { id: "graca", title: "Graça Remanescente", category: "Recursos", text: "Se houver alguém do Paraíso no trio, comece com 1 Graça extra.", context: "Uma promessa cumprida deixou luz presa entre as pedras.", icon: "☼", effect: { graca: 1 } },
+  { id: "ruptura", title: "Fenda Contida", category: "Limbo", text: "Se houver alguém do Limbo no trio, comece com 1 Ruptura extra.", context: "A rachadura não fecha; aprende a obedecer por um instante.", icon: "⟲", effect: { ruptura: 1 } },
+  { id: "mend", title: "Fio de Vida", category: "Defesa", text: "Aumenta em 8 a Vida máxima de cada aliado na trilha.", context: "Um fio dourado costura as feridas sem apagar suas marcas.", icon: "✚", effect: { maxHp: 8 } },
+  { id: "echo", title: "Eco do Trio", category: "Sinergia", text: "Com Ressonância, aumenta em 5% o bônus de potência.", context: "Três vozes respondem uma à outra no fundo do abismo.", icon: "∞", effect: { resonance: 0.05 } },
+  { id: "fracture", title: "Fissura Vigiada", category: "Limbo", text: "No Limbo, reduz em 4 a cobrança de Vida das técnicas arriscadas.", context: "Uma sentinela observa a ruptura e segura a corrente por você.", icon: "⌛", effect: { risk: -4 } },
+  { id: "last-light", title: "Última Brasa", category: "Ataque", text: "Aliados abaixo de 40 de Vida causam +12% de dano.", context: "Quando a chama quase apaga, sua luz alcança mais longe.", icon: "◉", effect: { desperation: 0.12 } },
+  { id: "soul-thorns", title: "Espinhos da Alma", category: "Defesa", text: "Devolve 4 de dano ao inimigo que ferir um aliado.", context: "As correntes se fecham sobre quem tenta rompê-las à força.", icon: "⚜", effect: { thorns: 4 } },
+  { id: "kind-hand", title: "Mão Compassiva", category: "Apoio", text: "Técnicas de apoio recuperam 8 de Vida adicional.", context: "Uma mão segura a sua antes que a dor se torne silêncio.", icon: "❧", effect: { healing: 8 } },
+  { id: "silver-guard", title: "Guarda de Prata", category: "Defesa", text: "Técnicas de guarda e apoio concedem 5 de escudo adicional.", context: "Um voto antigo endurece cada proteção erguida pelo trio.", icon: "♢", effect: { shieldPower: 5 } },
+  { id: "quiet-wall", title: "Parede Silenciosa", category: "Defesa", text: "O trio recebe 8% menos dano dos inimigos.", context: "O golpe chega ao outro lado de um silêncio impossível.", icon: "◖", effect: { damageReduction: 0.08 } },
+  { id: "open-vein", title: "Ferida Exposta", category: "Ataque", text: "Causa 8 de dano adicional a inimigos abaixo de 35% de Vida.", context: "A cicatriz revela o ponto em que a alma ainda pode ceder.", icon: "⊗", effect: { execution: 8 } },
+  { id: "soul-feast", title: "Banquete de Almas", category: "Sustento", text: "Recupera 8% do dano causado como Vida para quem atacou.", context: "Cada golpe arranca do vazio um pouco de fôlego para o trio.", icon: "♧", effect: { lifesteal: 0.08 } },
+  { id: "death-bell", title: "Sino dos Caídos", category: "Recursos", text: "Derrubar um inimigo concede 1 de Essência.", context: "O sino toca uma vez por alma que enfim encontra descanso.", icon: "♬", effect: { killEssence: 1 } },
+  { id: "breathing-loom", title: "Tear que Respira", category: "Recursos", text: "O trio recebe +1 de Essência a cada nova rodada.", context: "Um tear invisível recompõe as forças entre um golpe e outro.", icon: "⎊", effect: { essencePerRound: 1 } },
+  { id: "woven-affinity", title: "Trama de Afinidade", category: "Recursos", text: "Cada aliado vivo gera +1 de sua afinidade por rodada.", context: "Os fios de cada reino se cruzam sem perder a própria cor.", icon: "⬟", effect: { affinityPerRound: 1 } },
+  { id: "first-breath", title: "Primeiro Fôlego", category: "Ataque", text: "O primeiro golpe de cada aliado em cada combate causa +8 de dano.", context: "O primeiro passo no além ecoa como uma promessa de retorno.", icon: "◒", effect: { firstStrike: 8 } },
+  { id: "victory-pulse", title: "Pulso da Vitória", category: "Sustento", text: "Derrubar um inimigo concede 6 de escudo a cada aliado vivo.", context: "Uma vitória reacende as correntes de quem ainda permanece.", icon: "⌘", effect: { killShield: 6 } },
+  { id: "opening-weakness", title: "Selo de Abertura", category: "Controle", text: "Todos os inimigos começam o combate enfraquecidos.", context: "O selo antecipa o primeiro movimento da oposição.", icon: "⌽", effect: { openingWeakness: 1 } },
+  { id: "deep-root", title: "Raiz Profunda", category: "Defesa", text: "Comece com 6 de escudo e receba 4% menos dano.", context: "Raízes atravessam a pedra para amparar os vivos por baixo.", icon: "❖", effect: { shield: 6, damageReduction: 0.04 } },
+  { id: "grave-echo", title: "Eco do Túmulo", category: "Sustento", text: "Cada aliado recebe +5 de Vida máxima e derrubar alguém concede Essência.", context: "Até os túmulos devolvem uma parte do que receberam.", icon: "⛬", effect: { maxHp: 5, killEssence: 1 } },
+  { id: "double-current", title: "Corrente Dupla", category: "Recursos", text: "Comece com +1 de Essência e +1 de cada afinidade presente no trio.", context: "Dois rios espirituais correm lado a lado sem se misturar.", icon: "☯", effect: { essence: 1, allAffinity: 1 } },
+  { id: "chainbreaker", title: "Quebra-Corrente", category: "Limbo", text: "No Limbo, reduz em 6 a cobrança de Vida das técnicas arriscadas.", context: "Uma corrente partida também pode abrir caminho para escapar.", icon: "⛓", effect: { risk: -6 } },
+  { id: "suture", title: "Sutura do Além", category: "Sustento", text: "No início de cada rodada, cura 4 de Vida do aliado mais ferido.", context: "A própria trilha fecha uma ferida enquanto ninguém olha.", icon: "⤴", effect: { roundHeal: 4 } },
+  { id: "last-vow", title: "Voto Derradeiro", category: "Sustento", text: "Uma vez por combate, impede que um aliado caia e o mantém com 18 de Vida.", context: "Alguém jurou ficar até o fim — e a promessa ainda pesa.", icon: "⚑", effect: { revive: 1 } },
+  { id: "hollow-edge", title: "Lâmina Oca", category: "Ataque", text: "15% do dano do trio atravessa escudos inimigos.", context: "A lâmina não rompe a guarda; atravessa o espaço que ela deixa.", icon: "◌", effect: { pierce: 0.15 } },
+  { id: "rallying-cry", title: "Chamado da Aurora", category: "Apoio", text: "A cada rodada, cura 2 de Vida e concede 1 de Essência ao trio.", context: "Uma voz chama os que ficaram para trás de volta à luta.", icon: "♩", effect: { roundHeal: 2, essencePerRound: 1 } },
+  { id: "ashen-bargain", title: "Pacto das Cinzas", category: "Risco", text: "Causa +15% de dano, mas o trio recebe 6% mais dano.", context: "A chama empresta poder sem esconder o preço da dívida.", icon: "♟", effect: { damage: 0.15, damageReduction: -0.06 } },
+  { id: "hunted-mark", title: "Marca da Caçada", category: "Ataque", text: "O primeiro golpe de cada aliado causa +4 de dano; finalizações causam +5.", context: "Uma marca escura reúne o trio sobre a mesma presa.", icon: "➶", effect: { firstStrike: 4, execution: 5 } },
+  { id: "shared-ward", title: "Vigília Partilhada", category: "Defesa", text: "Concede 4 de escudo adicional e reduz dano recebido em 3%.", context: "Ninguém segura a vigília sozinho por muito tempo.", icon: "♙", effect: { shieldPower: 4, damageReduction: 0.03 } },
+  { id: "eclipse-step", title: "Passo do Eclipse", category: "Controle", text: "Técnicas de controle causam +5 de dano.", context: "O instante entre luz e sombra torna o golpe inevitável.", icon: "◐", effect: { controlBonus: 5 } },
+  { id: "ashen-regrowth", title: "Rebrota nas Cinzas", category: "Sustento", text: "Cada aliado recebe +5 de Vida máxima e apoio cura +4 de Vida.", context: "Uma raiz verde rompe o solo onde tudo parecia consumido.", icon: "⚘", effect: { maxHp: 5, healing: 4 } }
 ];
+
 
 
 
