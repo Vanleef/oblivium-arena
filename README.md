@@ -19,12 +19,13 @@ Para conferir visualmente início, bifurcações e conselho em larguras de 320 a
 - Catálogo jogável com 100 personagens, 400 técnicas principais e 56 técnicas alternativas: 54 Inferno, 35 Paraíso e 11 Limbo.
 - Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
 - Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
-- Combate tático por turnos com uma ação por personagem, seleção de alvo, fila reordenável e confirmação antes da resposta adversária. Essência compartilhada e afinidades de Cinza, Graça e Ruptura; aliados vivos geram recursos para o trio.
-- Quatro dificuldades selecionáveis, de Travessia a Agonia, com recompensas proporcionais, inimigos mais resistentes e IA que respeita custos, foca alvos vulneráveis e usa cura e guarda quando necessário.
+- Combate tático por turnos com uma ação por personagem, seleção de alvo, fila reordenável e confirmação antes da resposta adversária. Essência compartilhada e afinidades de Cinza, Graça e Ruptura; aliados vivos geram Essência para o trio.
+- Dificuldade crescente do Véu intacto às Rupturas I–VI, com recompensas proporcionais e inimigos que ganham Vida, dano, Defesa e regeneração; a IA avalia os kits e foca ameaças visíveis.
 - Quatro técnicas por personagem com custos, recargas, aflições, marcas, cargas, Defesa destrutível e contra-ataques. A quarta técnica concede Invulnerável por 1 turno e tem recarga de 4 turnos.
 - Retrato, passiva e quatro artes de habilidade para 74 personagens: o trio inicial e 71 personagens de Sangria, Coroa, Mentira, Chama, Fome, Podridão, Silêncio, Carne, Vazio, Proteção, Cura e Justiça; O Fim tem retrato próprio.
 - Mapas de sete andares com conexões reais entre rotas, combates normais e de elite, eventos, aprimoramentos, descanso, tesouro, mercador, mini-boss e Guardião final.
-- Catálogo com 35 aprimoramentos de efeitos variados, cada um com símbolo, categoria e contexto próprios; as ofertas evitam repetir categorias quando possível.
+- Catálogo com 35 aprimoramentos de combate, cada um com símbolo, categoria e contexto próprios; as ofertas evitam repetir categorias quando possível.
+- Legados permanentes de campanha com efeitos cumulativos limitados e melhorias que escalam conforme a Ruptura.
 - Vida do trio persiste entre encontros; descanso, evento e mercador permitem recuperar a formação. Vitórias de elite recompensam um aprimoramento da trilha.
 - Escudos limitados a metade da Vida máxima por unidade para evitar acúmulo ilimitado e confrontos travados.
 - Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
@@ -49,7 +50,7 @@ Este é um protótipo jogável com 100 kits implementados; 74 já têm conjuntos
 
 `tests/kits-audit.test.js` executa as 76 continuações de combo com preparações do próprio personagem, verifica que marcas e cargas têm uso e cobre durações, anulações e benefícios em área. O balanceamento entre equipes e Rupturas continua sujeito a partidas de avaliação.
 
-O elenco de 100 kits recebeu estruturas de preparação, transformação, reação, crescimento e apoio, com 56 técnicas alternativas. Armadilhas, selos seletivos, regeneração e conversão de recursos acrescentam decisões sem mudar os quatro espaços. As estruturas estão documentadas em `docs/SKILL_FORMS.md` e verificadas em `tests/skill-forms.test.js`.
+O elenco de 100 kits recebeu estruturas de preparação, transformação, reação, crescimento e apoio, com 56 técnicas alternativas. Armadilhas, selos seletivos, regeneração e conversão de Essência acrescentam decisões sem mudar os quatro espaços. As estruturas estão documentadas em `docs/SKILL_FORMS.md` e verificadas em `tests/skill-forms.test.js`.
 
 `node scripts/simulate-combat.mjs` reproduz 300 partidas completas com sementes fixas e recursos normais. `docs/COMBAT_QA.md` registra cobertura e limites dessa avaliação. A IA compara ações do trio, proteção dos alvos e utilidade do apoio antes de reservar Essência; não usa a fila do jogador nem sorteios futuros. Efeitos ativos podem ser consultados ao inspecionar uma alma, incluindo origem e gatilho das reações.
 
