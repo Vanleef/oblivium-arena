@@ -103,7 +103,10 @@ function apply(s,actor,a,targetId,randomPayment){
 }
 function grantTurn(s,side,opening=false,recoveries=[]){
   const count=opening&&side==="player"?1:living(team(s,side)).length,draws=[];
-  for(let i=0;i<count;i++){const id=resources[Math.min(3,Math.floor(s.rng()*4))].id;gain(s,side,id);draws.push(id);}
+  for(let i=0;i<count;i++){
+    const roll=s.rngState===undefined?s.rng():((s.rngState=(Math.imul(s.rngState,1664525)+1013904223)>>>0)/4294967296);
+    const id=resources[Math.min(3,Math.floor(roll*4))].id;gain(s,side,id);draws.push(id);
+  }
   s.energyDraws[side]=draws;
   for(const u of living(team(s,side))){
     for(const regen of u.regens){const restored=heal(u,regen.heal),source=[...s.allies,...s.enemies].find(v=>v.id===regen.sourceId);if(restored)recoveries.push({kind:"recovery",actorId:source?.id||u.id,targetId:u.id,actorName:source?.name||u.name,label:regen.label,heal:restored});regen.turns--;}u.regens=u.regens.filter(r=>r.turns>0);
@@ -120,7 +123,7 @@ function planAI(s){s.intents=s.enemyPlanner(s);}
 export function createBattle(ids,enemyTeam,config={}){
   const global=config.globalEffects||{},resonance=getResonance(ids),buffValues=(config.buffs||[]).reduce((acc,id)=>{for(const [k,v]of Object.entries(buffs.find(b=>b.id===id)?.effect||{}))acc[k]=(acc[k]||0)+v;return acc;},{damage:0,shield:0,essence:0,cinza:0,graca:0,ruptura:0,maxHp:0,resonance:0,risk:0});resonance.bonus+=buffValues.resonance;
   const allies=ids.slice(0,3).map(id=>characterById[id]).filter(Boolean).map(c=>clone(c,"player",config));for(const u of allies){u.maxHp+=buffValues.maxHp+(global.maxHp||0);u.armor=global.armor||0;u.charge=Math.min(3,global.startingCharge||0);u.hp=config.teamHealth?.[u.id]==null?u.maxHp:Math.max(0,Math.min(u.maxHp,config.teamHealth[u.id]));u.shield=Math.min(80,buffValues.shield+(global.shield||0));initializeWorldUnit(u,Object.fromEntries(Object.keys(global).filter(key=>["woundedPower","markedPower","afflictedPower","executePower","shieldedPower","controlPower","chargePower","evolvedPower","lastStandPower","counterPower","supportShield","supportCharge","killShield","defenseHeal","shiftShield"].includes(key)).map(key=>[key,global[key]])));}
-  const s={enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,energyDraws:{player:[],enemy:[]},global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:buffValues,acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};grantTurn(s,"player",true);grantTurn(s,"enemy",true);refreshSkillForms(s);planAI(s);return s;
+  const s={enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,...(config.rngSeed===undefined?{}:{rngState:(Number(config.rngSeed)||1)>>>0}),energyDraws:{player:[],enemy:[]},global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:buffValues,acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};grantTurn(s,"player",true);grantTurn(s,"enemy",true);refreshSkillForms(s);planAI(s);return s;
 }
 export function chooseAction(s,actorId,abilityId,targetId){
   refreshSkillForms(s);

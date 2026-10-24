@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/account.js": { "maxDuration": 30 },
-    "api/arena.js": { "maxDuration": 30, "includeFiles": "{src,server}/**/*.js" }
+    "api/arena.js": { "maxDuration": 30, "includeFiles": "{src,server}/**/*.js" },
+    "api/campaign.js": { "maxDuration": 30, "includeFiles": "{src,server}/**/*.js" }
   },
   "headers": [
     { "source": "/api/(.*)", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },

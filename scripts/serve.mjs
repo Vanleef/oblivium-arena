@@ -7,6 +7,7 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 process.env.PMA_LOCAL_DATA_PATH ||= resolve(root, ".pma-dev-data.json");
 const apiHandlers = {
   "/api/account": (await import("../api/account.js")).default,
+  "/api/campaign": (await import("../api/campaign.js")).default,
   "/api/arena": (await import("../api/arena.js")).default
 };
 const types = {

@@ -20,7 +20,7 @@ import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpg
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
-import { accountRequest, currentAccount } from "./account-client.js";
+import { accountRequest, campaignRequest, currentAccount } from "./account-client.js";
 import { audioEnabled, playSfx, setAudioEnabled, startAmbience } from "./audio.js";
 import { tutorialView } from "./tutorial.js";
 import { storyMarkup } from "./story-content.js";
@@ -99,6 +99,7 @@ let state = {
   accountReady: typeof window === "undefined",
   account: null,
   accountError: "",
+  campaignBusy: false,
   authMode: "login",
   profileError: "",
   publicView: "login",
@@ -131,8 +132,26 @@ function authFrame(content,active){return `<div class="auth-screen">${publicHead
 function authView(){return `<div class="auth-screen">${publicHeader("login")}<main class="auth-layout"><section class="auth-intro"><div class="auth-moth-halo"><img class="auth-moth" src="/art/interface/moth-violet-20261023/brand-moth-384.webp" alt="Mariposa violeta de Post Mortem Arena"></div><div class="eyebrow"><span></span> TRÊS MUNDOS · UMA FRONTEIRA</div><h1>Escolha o que<br><em>atravessa o véu.</em></h1><p>Monte seu trio, descubra as formas e enfrente as almas que guardam cada Elo.</p><div class="auth-worlds"><span><i class="world-dot dot-inferno"></i>Inferno</span><span><i class="world-dot dot-paraiso"></i>Paraíso</span><span><i class="world-dot dot-limbo"></i>Limbo</span></div></section><section class="auth-card" aria-labelledby="auth-title"><div class="auth-card-heading"><span class="eyebrow">${state.authMode==="register"?"NOVA ALMA":"SUA CONTA"}</span><h2 id="auth-title">${state.authMode==="register"?"Criar conta":"Entrar"}</h2><p>${state.authMode==="register"?"Seu progresso fica salvo na conta.":"Continue de onde sua jornada parou."}</p></div><div class="auth-switch" role="group" aria-label="Acessar conta"><button type="button" data-auth-mode="login" aria-pressed="${state.authMode==="login"}" class="${state.authMode==="login"?"active":""}">Entrar</button><button type="button" data-auth-mode="register" aria-pressed="${state.authMode==="register"}" class="${state.authMode==="register"?"active":""}">Criar conta</button></div><form data-auth-form>${state.authMode==="register"?`<label>Nick único<input name="handle" autocomplete="username" minlength="3" maxlength="20" pattern="[\\p{L}\\p{N}_]{3,20}" required placeholder="Seu nome na Arena"><small>3–20 caracteres · letras, números e _</small></label>`:""}<label>E-mail<input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="voce@exemplo.com"></label><label>Senha<input name="password" type="password" autocomplete="${state.authMode==="register"?"new-password":"current-password"}" minlength="10" maxlength="256" required placeholder="${state.authMode==="register"?"Mínimo 10 caracteres":"Sua senha"}"></label><button class="button button-gold full-button" type="submit">${state.authMode==="register"?"CRIAR CONTA":"ENTRAR NA ARENA"}<span aria-hidden="true">↗</span></button></form><p class="auth-message" role="status">${esc(state.accountError||(!state.accountReady?"Conectando…":""))}</p><div class="auth-footnote">Campanha, roguelike e Arena exigem login.</div></section></main></div>`;}
 function profileView(){const unlocked=["soul",...profile.ownedIds],chosen=profile.avatarId||"soul";return `<section class="profile-page"><header class="profile-heading">${accountAvatar(chosen,"avatar-large")}<div><div class="eyebrow">IDENTIDADE DA ALMA</div><h1>Seu perfil</h1><p>Retrato e nick aparecem nas partidas.</p></div><button class="button button-outline" data-action="logout">SAIR</button></header><div class="profile-layout"><form data-profile-form class="profile-form"><label>Nick único<input name="handle" minlength="3" maxlength="20" required value="${esc(state.account?.handle||"")}"></label><label>Sobre você <small>até 160 caracteres</small><textarea name="bio" maxlength="160">${esc(profile.bio||"")}</textarea></label><fieldset><legend>Retrato de perfil</legend><div class="avatar-grid">${unlocked.map(id=>`<button type="button" data-avatar="${esc(id)}" aria-label="Escolher retrato ${esc(characterById[id]?.name||"Alma")}" aria-pressed="${id===chosen}">${accountAvatar(id,"avatar-choice")}<small>${esc(characterById[id]?.name||"Alma desperta")}</small></button>`).join("")}</div></fieldset><button class="button button-gold" type="submit">SALVAR PERFIL</button><p class="profile-message" role="status">${esc(state.profileError)}</p></form><aside class="profile-side"><h2>Progresso guardado</h2><p>${profile.completedElos.length} / ${elos.length} Elos concluídos</p><p>${profile.ownedIds.length} retratos disponíveis · ${profile.xp} XP</p><button class="button button-outline" data-action="open-tutorial">ABRIR TUTORIAL</button><button class="button button-outline" data-action="audio-toggle">${state.audioOn?"DESLIGAR SOM":"LIGAR SOM"}</button><small>Trilha ambiente e efeitos sonoros sintetizados.</small></aside></div></section>`;}
 
-function hydrateAccount(data){state.account=data.user||null;if(data.profile){Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=profile.run?.pending||null;}state.accountReady=true;state.accountError="";state.tutorialOpen=Boolean(state.account&&!profile.tutorialComplete);state.tab=state.account?"rota":state.tab;render();}
-function checkAccount(){if(typeof window==="undefined")return;currentAccount().then(hydrateAccount).catch(error=>{state.accountReady=true;state.accountError=error.message;render();});}
+function hydrateAccount(data){state.account=data.user||null;if(data.profile){Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=profile.run?.pending||null;state.battle=data.battle||profile.run?.battle||null;state.battleNode=profile.run?.currentNodeId?profile.run.map.flat().find(node=>node.id===profile.run.currentNodeId)||null:null;}state.accountReady=true;state.accountError="";state.tutorialOpen=Boolean(state.account&&!profile.tutorialComplete);state.tab=state.account?"rota":state.tab;render();}
+function syncCampaign(data){state.account=data.user||state.account;if(data.profile)Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=data.pending||profile.run?.pending||null;state.battle=Object.hasOwn(data,"battle")?data.battle:profile.run?.battle||null;state.battleNode=profile.run?.currentNodeId?profile.run.map.flat().find(node=>node.id===profile.run.currentNodeId)||null:null;}
+function checkAccount(){if(typeof window==="undefined")return;currentAccount().then(async data=>{if(data.user&&data.profile?.run?.serverOwned!==true){data=await campaignRequest({op:"sync"});}hydrateAccount(data);}).catch(error=>{state.accountReady=true;state.accountError=error.message;render();});}
+
+function playCampaignEvents(events,finalBattle,index=0){
+  if(index>=events.length){state.battle=finalBattle;state.battleFx=null;render();return;}
+  const event=events[index],before=battleSnapshot(state.battle||finalBattle);state.battle=finalBattle;
+  presentBattleEffect(before,event);
+  battleFxTimer=setTimeout(()=>{if(state.account){state.battleFx=null;playCampaignEvents(events,finalBattle,index+1);}},event?.mode==="turn"?750:1250);
+}
+async function requestCampaign(payload,{animate=false}={}){
+  if(state.campaignBusy)return null;
+  state.campaignBusy=true;const previous=state.battle;
+  try{
+    const data=await campaignRequest(payload);syncCampaign(data);state.campaignBusy=false;
+    if(animate&&previous&&data.events?.length){state.battle=previous;playCampaignEvents(data.events,data.battle||null);}
+    else render();
+    return data;
+  }catch(error){state.campaignBusy=false;toast(error.message);render();return null;}
+}
 
 
 function teamResourceLegend(teamIds) {
@@ -164,7 +183,7 @@ function toast(message) {
   state.toastTimer = setTimeout(() => { state.toast = ""; render(); }, 2400);
 }
 
-function startRun(eloId,variantId="hunt",difficulty) {
+async function startRun(eloId,variantId="hunt",difficulty) {
   if (profile.run) {
     if(profile.run.eloId===eloId){state.tab="rota";render();focusTrail();}
     else toast("Conclua ou abandone a trilha atual.");
@@ -172,11 +191,16 @@ function startRun(eloId,variantId="hunt",difficulty) {
   }
   if(profile.team.length!==3){state.tab="trio";toast("Escolha três almas.");return;}
   const elo=elos.find(e=>e.id===eloId);if(!elo)return;
-  try { profile.run=createExpedition(profile,elo,variantId,difficulty??maxDifficulty(profile,eloId)); }
-  catch(error){toast(error.message);return;}
+  if(state.account){
+    const result=await requestCampaign({op:"start",eloId,variantId,difficulty:difficulty??maxDifficulty(profile,eloId)});
+    if(!result)return;
+  }else{
+    try { profile.run=createExpedition(profile,elo,variantId,difficulty??maxDifficulty(profile,eloId)); }
+    catch(error){toast(error.message);return;}
+  }
   state.realmId=realms.find(r=>r.elos.some(e=>e.id===eloId)).id;
   state.eloId=eloId;state.pending=null;state.trailFx=null;state.battle=null;state.tab="rota";
-  profile.completionNotice=null;save();render();focusTrail();
+  if(!state.account){profile.completionNotice=null;save();}render();focusTrail();
 }
 
 function focusTrail() {
@@ -246,6 +270,7 @@ function startEncounter(node) {
 
 function resolveNode(node) {
   if (!profile.run) return;
+  if(profile.run.serverOwned){requestCampaign({op:"select-node",nodeId:node.id});return;}
   const nodeType = node.type || node.id;
   profile.run.currentNodeId = node.id;
   profile.run.storyBeat=({normal:"O eco anuncia um encontro",elite:"Um guardião de elite rompe o silêncio",mini:"Uma presença antiga se aproxima",boss:"A última barreira deste Elo se ergue",event:"Uma voz pede para ser ouvida",repair:"As correntes são remendadas",shop:"Um mercador oferece um trato",reward:"A vitória deixa um vestígio"})[nodeType]||"A trilha muda sob os pés do trio";
@@ -278,6 +303,7 @@ function resolveNode(node) {
 
 function chooseEvent(choice) {
   if(!profile.run||state.pending?.type!=="event")return;
+  if(profile.run.serverOwned){requestCampaign({op:"event",choice});return;}
   profile.eloProgress[profile.run.eloId].events++;
   if (choice === "repair") {
     healRunTeam(0.25+(aggregateGlobal(profile).restBonus||0));
@@ -293,6 +319,7 @@ function chooseEvent(choice) {
 
 function chooseBuff(id) {
   if (!profile.run || profile.run.buffs.includes(id) || !state.pending?.choices?.some(c=>c.id===id)) return;
+  if(profile.run.serverOwned){requestCampaign({op:"buff",buffId:id});return;}
   profile.run.buffs.push(id);
   continueRun(`Eco ${buffs.find(buff => buff.id === id)?.title || id} incorporado ao trio.`);
 }
@@ -314,6 +341,7 @@ function healRunTeam(ratio) {
 
 function chooseShop(action, buffId) {
   if (!profile.run) return;
+  if(profile.run.serverOwned){requestCampaign({op:"shop",action,buffId});return;}
   if (action === "heal" && profile.fragments >= 12) {
     profile.fragments -= 12;
     healRunTeam(0.35);
@@ -332,6 +360,11 @@ function rewardEncounterXp(node){return ["boss","mini","elite"].includes(node.ty
 function returnFromBattle() {
   if(state.battle?.online){sendOnline({op:"ack"});state.battle=null;state.tab="arena";render();return;}
   if (!state.battle) return;
+  if(profile.run?.serverOwned){
+    if(!["victory","defeat"].includes(state.battle.phase))return;
+    requestCampaign({op:"settle"}).then(data=>{if(!data)return;state.battle=null;state.tab="rota";state.pending=data.pending||null;render();if(data.reset)toast("As Correntes se romperam. Uma nova trilha pode ser iniciada.");else if(data.completed)toast("O Conselho do Elo foi vencido.");});
+    return;
+  }
   if (state.battle.phase === "victory") {
     if ((state.battleNode.type || state.battleNode.id) === "finale") {
       state.pending = { type: "finale-complete" };
@@ -416,6 +449,7 @@ function resolveCombatStep() {
 function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
   if(state.battle.online){state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected});return;}
+  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId}));state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",actions,payment:payment.selected},{animate:true});return;}
   if(!commitTurn(state.battle,payment.selected).ok)return;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {
@@ -672,7 +706,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.authMode){state.authMode=target.dataset.authMode;state.accountError="";render();return;}
   if(target.dataset.avatar){profile.avatarId=target.dataset.avatar;state.profileError="";render();return;}
   if(target.dataset.tutorial!==undefined){const next=Number(target.dataset.tutorial);if(!state.account&&state.publicView==="tutorial"){if(next>=6){state.publicView="login";state.publicTutorialStep=0;}else state.publicTutorialStep=Math.max(0,next);}else if(next>=6){state.tutorialOpen=false;profile.tutorialComplete=true;save();}else state.tutorialStep=Math.max(0,next);render();return;}
-  if(target.dataset.worldEvent){if(state.battleFx||state.online?.busy)return;if(state.battle?.online){sendOnline({op:"influence",eventId:target.dataset.worldEvent});return;}if(chooseInfluence(state.battle,target.dataset.worldEvent)){render();if(state.battle.phase==="resolving")resolveCombatStep();}return;}
+  if(target.dataset.worldEvent){if(state.battleFx||state.online?.busy)return;if(state.battle?.online){sendOnline({op:"influence",eventId:target.dataset.worldEvent});return;}if(profile.run?.serverOwned){requestCampaign({op:"influence",eventId:target.dataset.worldEvent},{animate:true});return;}if(chooseInfluence(state.battle,target.dataset.worldEvent)){render();if(state.battle.phase==="resolving")resolveCombatStep();}return;}
   if (target.dataset.codexSkill !== undefined) { event.preventDefault(); toggleCodexSkill(target); return; }
   if (state.tab === "battle" && (state.battle?.phase === "resolving" || state.battleFx)) return;
   if (state.trailBusy) return;
@@ -697,8 +731,8 @@ app.addEventListener("click", (event) => {
   }
   if(target.dataset.selectElo){state.eloId=target.dataset.selectElo;state.difficulty=null;render();if(typeof requestAnimationFrame==="function")requestAnimationFrame(()=>app.querySelector(".expedition-panel")?.scrollIntoView({behavior:"smooth",block:"center"}));return;}
   if(target.dataset.difficulty!==undefined){state.difficulty=Math.max(0,Math.min(maxDifficulty(profile,state.eloId),Number(target.dataset.difficulty)||0));render();return;}
-  if(target.dataset.globalUpgrade){const power=claimGlobalUpgrade(profile,target.dataset.globalUpgrade);if(power){save();toast(`Legado incorporado: ${power.title}`);}return;}
-  if(target.dataset.clearCompletion!==undefined){if(!profile.pendingGlobalReward){profile.completionNotice=null;save();render();}return;}
+  if(target.dataset.globalUpgrade){if(profile.run?.serverOwned||state.account){requestCampaign({op:"claim",id:target.dataset.globalUpgrade}).then(data=>{if(data?.claimed)toast(`Legado incorporado: ${data.claimed.title}`);});return;}const power=claimGlobalUpgrade(profile,target.dataset.globalUpgrade);if(power){save();toast(`Legado incorporado: ${power.title}`);}return;}
+  if(target.dataset.clearCompletion!==undefined){if(!profile.pendingGlobalReward){if(state.account)requestCampaign({op:"clear-notice"});else{profile.completionNotice=null;save();render();}}return;}
   if (target.dataset.startRun) { if(state.online?.match&&!state.online.match.settled){toast("Conclua sua partida online antes de iniciar uma trilha.");return;} startRun(target.dataset.startRun,target.dataset.trail||"hunt",target.dataset.runDifficulty===undefined?undefined:Number(target.dataset.runDifficulty)); return; }
   if (target.dataset.node) {
     if (!profile.run || state.pending) return;
@@ -748,7 +782,7 @@ app.addEventListener("click", (event) => {
   if (target.dataset.shopBuff) { chooseShop("buff", target.dataset.shopBuff); return; }
   if (target.dataset.abandonRun) {
     if (profile.run && confirm("Abandonar a trilha atual? A estabilidade será perdida.")) {
-      profile.run = null; save(); render();
+      if(profile.run.serverOwned)requestCampaign({op:"abandon"});else{profile.run = null; save(); render();}
     }
     return;
   }
@@ -764,7 +798,7 @@ app.addEventListener("click", (event) => {
 app.addEventListener("submit",async event=>{
  if(event.target.matches("[data-auth-form]")){
   event.preventDefault();const fields=new FormData(event.target),op=state.authMode==="register"?"register":"login";state.accountError="Conectando…";render();
-  try{const data=await accountRequest({op,email:fields.get("email"),password:fields.get("password"),...(op==="register"?{handle:fields.get("handle")}:{})});hydrateAccount(data);if(state.account){startAmbience();save();}}
+  try{let data=await accountRequest({op,email:fields.get("email"),password:fields.get("password"),...(op==="register"?{handle:fields.get("handle")}:{})});if(data.user)data=await campaignRequest({op:"sync"});hydrateAccount(data);if(state.account){startAmbience();save();}}
   catch(error){state.accountError=error.message;state.accountReady=true;render();}return;
  }
  if(event.target.matches("[data-profile-form]")){

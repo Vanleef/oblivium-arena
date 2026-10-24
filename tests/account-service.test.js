@@ -7,7 +7,7 @@ class MemoryStore{
  async transaction(work){const reads=new Map(),writes=new Map(),tx={get:async key=>{if(writes.has(key))return writes.get(key);if(!reads.has(key))reads.set(key,this.values.has(key)?structuredClone(this.values.get(key)):null);return structuredClone(reads.get(key));},set:async(key,value)=>{if(!reads.has(key))reads.set(key,this.values.has(key)?structuredClone(this.values.get(key)):null);writes.set(key,structuredClone(value));},delete:async key=>{if(!reads.has(key))reads.set(key,this.values.has(key)?structuredClone(this.values.get(key)):null);writes.set(key,null);}};const result=await work(tx);for(const [key,value]of writes)value===null?this.values.delete(key):this.values.set(key,value);return result;}
 }
 
-test('cadastro, login, nick exclusivo, retratos liberados e salvamento de campanha usam conta persistente',async()=>{
+test('cadastro, login, nick exclusivo, retratos liberados e salvamento de perfil usam conta persistente',async()=>{
  let now=100;const service=new AccountService(new MemoryStore(),{now:()=>now});
  const first=await service.register({email:'alma@example.test',handle:'Andarilho',password:'correntes-longas-2026'});
  assert.equal(first.user.handle,'Andarilho');assert.ok(first.profile.team.length===3);assert.equal((await service.current(first.session)).user.id,first.user.id);
@@ -16,8 +16,8 @@ test('cadastro, login, nick exclusivo, retratos liberados e salvamento de campan
  const login=await service.login({email:'ALMA@example.test',password:'correntes-longas-2026'});assert.equal(login.user.id,first.user.id);assert.notEqual(login.session,first.session);assert.equal(await service.current(first.session),null);
  await assert.rejects(service.update(login.session,{avatarId:'o-fim'}),/não foi desbloqueado/);
  const saved=await service.update(login.session,{handle:'Andarilho_1',avatarId:'o-escudo-vivo',bio:'No limiar.',profile:{...login.profile,xp:400,completedElos:['sangria'],ownedIds:['o-escudo-vivo','a-brasa-eterna','o-passo-interrompido','o-restaurador'],unlockedAvatars:['soul','o-escudo-vivo','a-brasa-eterna','o-passo-interrompido','o-restaurador']}});
- assert.equal(saved.profile.xp,400);assert.equal(saved.user.handle,'Andarilho_1');assert.equal(saved.user.avatarId,'o-escudo-vivo');assert.equal(saved.user.bio,'No limiar.');
- assert.equal((await service.current(login.session)).profile.completedElos[0],'sangria');await service.logout(login.session);assert.equal(await service.current(login.session),null);now++;
+ assert.equal(saved.profile.xp,0);assert.deepEqual(saved.profile.completedElos,[]);assert.equal(saved.user.handle,'Andarilho_1');assert.equal(saved.user.avatarId,'o-escudo-vivo');assert.equal(saved.user.bio,'No limiar.');
+ assert.deepEqual((await service.current(login.session)).profile.completedElos,[]);await service.logout(login.session);assert.equal(await service.current(login.session),null);now++;
 });
 
 test('cadastro valida o email, nick e comprimento mínimo da senha',async()=>{
@@ -36,8 +36,8 @@ test('limite de autenticação combina origem e identidade e normaliza nicks Uni
  await assert.rejects(service.register({email:'outro@example.test',handle:'Alma',password:'correntes-longas-2026'}),{status:409});
 });
 
-test('salvamento remove IDs desconhecidos, limita contadores e reconstrói retratos a partir da coleção',async()=>{
+test('salvamento de perfil ignora progresso enviado pelo cliente e deriva retratos da coleção do servidor',async()=>{
  const service=new AccountService(new MemoryStore()),created=await service.register({email:'progresso@example.test',handle:'Guardiao',password:'correntes-longas-2026'});
  const result=await service.update(created.session,{profile:{...created.profile,ownedIds:[...created.profile.ownedIds,'personagem-inexistente'],completedElos:['sangria','elo-falso'],xp:99999999999,fragments:-15,unlockedAvatars:['o-fim'],avatarId:'o-fim'}});
- assert.equal(result.profile.ownedIds.includes('personagem-inexistente'),false);assert.deepEqual(result.profile.completedElos,['sangria']);assert.equal(result.profile.xp,1000000000);assert.equal(result.profile.fragments,0);assert.deepEqual(result.profile.unlockedAvatars,['soul',...created.profile.ownedIds]);assert.equal(result.profile.avatarId,'soul');
+ assert.equal(result.profile.ownedIds.includes('personagem-inexistente'),false);assert.deepEqual(result.profile.completedElos,[]);assert.equal(result.profile.xp,0);assert.equal(result.profile.fragments,0);assert.deepEqual(result.profile.unlockedAvatars,['soul',...created.profile.ownedIds]);assert.equal(result.profile.avatarId,'soul');
 });
