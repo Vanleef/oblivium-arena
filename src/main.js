@@ -86,6 +86,11 @@ function activeElo() {
   return elos.find((elo) => elo.id === (profile.run?.eloId || state.eloId)) || elos[0];
 }
 
+function eloTitle(elo) {
+  const article = ["silencio", "vazio"].includes(elo.id) ? "do" : "da";
+  return `Elo ${article} ${elo.name}`;
+}
+
 function activeAffinityResource() {
   return resourceById[realmResource[activeElo().realm]];
 }
@@ -358,7 +363,7 @@ function routeView() {
       <div class="elo-grid">${realm.elos.map((elo) => `
         <article class="elo-card elo-${elo.color} ${currentRun?.eloId === elo.id ? "is-current" : ""}">
           <div class="elo-card-top"><span class="elo-symbol">${elo.symbol}</span><span class="elo-status ${profile.completedElos.includes(elo.id) ? "complete" : ""}">${profile.completedElos.includes(elo.id) ? "CONCLUÍDO" : "TRILHA"}</span></div>
-          <h3>Elo da ${esc(elo.name)}</h3><p class="elo-theme">${esc(elo.theme)}</p>
+          <h3>${esc(eloTitle(elo))}</h3><p class="elo-theme">${esc(elo.theme)}</p>
           <div class="elo-card-foot"><span>${esc(elo.strength)} <i>·</i> ${getEloRoster(elo.id).length} almas</span><button data-start-run="${elo.id}">${currentRun?.eloId === elo.id ? "RETOMAR" : "ENTRAR"} <b>↗</b></button></div>
         </article>`).join("")}</div>
       ${currentRun ? runMap() : ""}
@@ -373,7 +378,7 @@ function runMap() {
   const completed = run.stage >= routeStages.length;
   return `
     <section class="run-panel">
-      <div class="run-heading"><div><div class="eyebrow">TRILHA ATIVA · ${esc(elo.realm.toUpperCase())} · ${esc(difficulties.find((item) => item.id === run.difficulty)?.name || "Veterano")}</div><h3>Elo da ${esc(elo.name)}</h3></div><div class="run-strength"><span class="run-elo-symbol">${elo.symbol}</span><span><small>ESTABILIDADE DAS CORRENTES</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
+      <div class="run-heading"><div><div class="eyebrow">TRILHA ATIVA · ${esc(elo.realm.toUpperCase())} · ${esc(difficulties.find((item) => item.id === run.difficulty)?.name || "Veterano")}</div><h3>${esc(eloTitle(elo))}</h3></div><div class="run-strength"><span class="run-elo-symbol">${elo.symbol}</span><span><small>ESTABILIDADE DAS CORRENTES</small><b>${run.stability}/${run.maxStability}</b></span></div></div>
       <div class="path-grid">${routeStages.map((stage, stageIndex) => {
         const done = stageIndex < run.stage;
         const active = stageIndex === run.stage;
@@ -397,7 +402,7 @@ function pendingPanel() {
   if (pending.type === "upgrade") return `
     <section class="choice-panel"><div class="eyebrow">APRIMORAMENTO · ESCOLHA UM ECO</div><h3>O trio se adapta à trilha.</h3><div class="buff-choices">${pending.choices.map((buff) => `<button class="buff-card" data-choose-buff="${buff.id}"><span class="buff-icon">${esc(buff.icon)}</span><span class="buff-category">${esc(buff.category)}</span><b>${esc(buff.title)}</b><small>${esc(buff.text)}</small><em>${esc(buff.context)}</em></button>`).join("")}</div></section>`;
   if (pending.type === "complete") return `
-    <section class="notice-panel"><span class="notice-icon">✧</span><div><div class="eyebrow">TRILHA CONCLUÍDA</div><h3>Elo da ${esc(pending.elo.name)} atravessado.</h3><p>${getEloRoster(pending.elo.id).length} almas do Elo agora podem ser recrutadas. +250 XP e 24 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
+    <section class="notice-panel"><span class="notice-icon">✧</span><div><div class="eyebrow">TRILHA CONCLUÍDA</div><h3>${esc(eloTitle(pending.elo))} atravessado.</h3><p>${getEloRoster(pending.elo.id).length} almas do Elo agora podem ser recrutadas. +250 XP e 24 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-complete") return `
     <section class="notice-panel"><span class="notice-icon">☼</span><div><div class="eyebrow">O VÉU RESISTIU</div><h3>O Fim foi detido.</h3><p>O equilíbrio ainda exige cuidado, mas os três reinos podem respirar. +500 XP e 80 fragmentos.</p></div><button class="button button-outline" data-clear-notice>CONTINUAR</button></section>`;
   if (pending.type === "finale-defeat") return `
@@ -490,7 +495,7 @@ function battleView() {
   const node = state.battleNode;
   const visibleResources = resources.filter((resource) => resource.id === "essence" || battle.allies.some((ally) => ally.affinity === resource.id));
   return `
-    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · ${esc(battle.difficulty.name.toUpperCase())} · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · Elo da ${esc(activeElo().name)} · ${battle.resonance.title}</p></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
+    <section class="battle-header"><button class="back-link" data-action="leave-battle">← VOLTAR À TRILHA</button><div><div class="eyebrow">COMBATE TÁTICO 3v3 · ${esc(battle.difficulty.name.toUpperCase())} · RODADA ${battle.round}</div><h1>${esc(node.label)}</h1><p>${esc(activeElo().realm)} · ${esc(eloTitle(activeElo()))} · ${battle.resonance.title}</p></div><div class="combat-resource" aria-label="Recursos do trio">${visibleResources.map((resource) => `<span class="resource-meter resource-${resource.color}" title="${esc(resource.name)}"><span class="resource-symbol">${resource.icon}</span><span><small>${esc(resource.shortName.toUpperCase())}</small><b>${battle.resources[resource.id]}<i> / 5</i></b></span><span class="resource-track"><i style="width:${Math.min(100, battle.resources[resource.id] * 20)}%"></i></span></span>`).join("")}</div></section>
     <div class="battle-layout">
       <section class="battle-side"><div class="battle-side-heading"><span>SEU TRIO</span><small>${battle.allies.filter((unit) => unit.hp > 0).length} EM PÉ</small></div><div class="combat-grid">${battle.allies.map((unit, index) => unitCard(unit, "ally", index)).join("")}</div></section>
       <div class="battle-center"><span class="vs-mark">VS</span><div class="resonance-mini"><b>${battle.resonance.tier === "chaotic" ? "⟲" : "✧"}</b><small>${esc(battle.resonance.detail)}</small></div><button class="pass-turn" data-action="pass-turn" ${battle.phase !== "player" || result ? "disabled" : ""}>ENCERRAR TURNO <span>↗</span></button></div>

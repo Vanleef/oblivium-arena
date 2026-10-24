@@ -17,6 +17,9 @@ test("aplicação inicializa, abre uma trilha e resolve ações do combate", asy
   assert.match(app.innerHTML, /O Fim \(The End\)/);
   assert.equal((app.innerHTML.match(/class="elo-card /g) || []).length, 9);
   assert.match(app.innerHTML, /data-difficulty="agony"/);
+  assert.match(app.innerHTML, /Elo do Silêncio/);
+  assert.match(app.innerHTML, /Elo do Vazio/);
+  assert.doesNotMatch(app.innerHTML, /Elo da (?:Silêncio|Vazio)/);
 
   const click = (dataset) => handlers.click({ target: { dataset, closest() { return this; } } });
   click({ difficulty: "agony" });
