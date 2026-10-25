@@ -69,6 +69,8 @@ A pergunta que acompanha Nilo desde que saiu da fila de O Caminho é: **Quanto d
 
 ## Consequências para a direção visual
 
+- Os seres do Inferno são quase todos vis e movidos pela maldade. Não criar personagens bondosos nesse domínio. Alguns podem discordar de O Fim sem serem bondosos.
+
 - Não representar os Três Líderes como deuses comuns ou como chefes que podem morrer. Sua condição é dormir e despertar.
 - A destruição de uma entidade de Elo deve sugerir o retorno de fragmentos ao líder, não a morte de um ser independente.
 - A paz associada ao sono de O Fim é uma prisão para os vivos, não uma promessa de segurança.
