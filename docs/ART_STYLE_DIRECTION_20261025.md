@@ -23,6 +23,7 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Revelador: seis artes em rotas de pedra e nascentes de Paraíso; `O_REVELADOR_HYBRID_REWORK_20261025.json`.
 - O Vidente: seis artes em mirantes, caminhos marcados e abrigo sombreado; `O_VIDENTE_HYBRID_REWORK_20261025.json`.
 - A Asa Invertida: seis artes em passagens e ruínas suspensas do Limbo; `A_ASA_INVERTIDA_HYBRID_REWORK_20261025.json`.
+- O Apodrecido: seis artes no reino morto de mármore e raízes do Inferno/Podridão; `O_APODRECIDO_HYBRID_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 

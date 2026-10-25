@@ -12,7 +12,7 @@ Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente recon
 - Variar composição por habilidade: distância, altura da câmera, lado de ação, quantidade exata de beneficiados e ambiente ligado ao efeito e ao Elo.
 - Conservar o volume pintado, os contornos gráficos e as sombras desenhadas; usar semitom com moderação. Revisar mãos, articulações, continuidade de armas e correntes e conexão entre corpo, roupa e acessórios.
 
-## Identidades do lote atual
+## Identidades visuais recentes e revisadas
 
 | Personagem | Silhueta e rosto | Marcadores fixos | Linguagem de poder |
 | --- | --- | --- | --- |
@@ -21,5 +21,6 @@ Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente recon
 | O Suserano | Presença espectral sem corpo ou rosto humano, capuz vazio e ombros que lembram um espaldar de trono. | Fenda âmbar, coroa quebrada flutuante, placas negras, manto vinho e correntes. | Autoridade delegada, selo ofensivo e interdição protetora. |
 | O Sussurro | Espírito anfíbio baixo, largo e encurvado, cabeça calva muito ampla, boca fina e bolsa vocal translúcida sob a mandíbula. | Pele verde-petróleo com sardas cobre, olhos jade sob pálpebras pesadas, mãos palmadas, casaco ameixa de mangas dobradas, colete marfim, faixa azul-marinho, um tubo de mensagens de latão e um leque de ferro. | Voz envenenada, conversão de Éter em Coringa, golpe físico com roubo e aviso que prepara Contra-ataque em um aliado. |
 | O Herdeiro | Efígie dinástica de porcelana viva, muito alta e estreita, pescoço longo, nariz adunco e rosto anguloso. | Olhos rubros pequenos, crista curta de espinhos de cerâmica preta, fratura azul da bochecha direita à testa esquerda; antebraço esquerdo de correntes e direito de porcelana íntegra, algemas imperiais e ombreira preta à esquerda. | Fraturas acumulam ambição, perda de Vida fortalece o golpe físico, recomposição pessoal, carga gasta na sucessão e invulnerabilidade individual. |
+| O Apodrecido | Lenhador idoso, ligeiramente curvado, rosto gasto e estreito, olhar âmbar profundo. | Pele cinza-amarronzada como casca, barba de musgo, cabelo longo pálido como raízes, uma placa assimétrica de madeira no ombro, casaco gasto e um machado de poda curvo. | Decadência enfraquece guarda e recuperação; raízes, casca seca e líquen exprimem o poder sem gore. |
 
 A diferenciação deve orientar também as próximas revisões do elenco. A existência de uma imagem é registrada separadamente da conclusão de sua revisão estilística.

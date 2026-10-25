@@ -2338,41 +2338,41 @@
       "name": "O Apodrecido",
       "realm": "Inferno",
       "elo": "Podridão",
-      "identity": "Inferno/Podridão. Elderly male woodsman, bark-grey brown skin, weathered normal face, mossy beard, wooden shoulder armor over faded coat, hooked pruning axe. Dry bark and moss, no wounds.",
-      "status": "pending_varied_scenery_generation",
+      "identity": "Inferno/Podridão. Lenhador idoso de pele cinza-amarronzada como casca, rosto humano gasto, barba de musgo, cabelo longo pálido como raízes, placa assimétrica de madeira no ombro, casaco terroso gasto e um machado de poda curvo. Poder de decadência seca e líquen, sem feridas ou gore.",
+      "status": "integrated_hybrid_rework_20261025",
       "scenes": [
         {
           "slot": "portrait",
-          "action": "weathered face",
-          "setting": "laboratório de terrários e madeira verde-escura"
+          "action": "Testa uma raiz que rompe o piso de mármore; apoia a mão na parede e mantém o machado baixo.",
+          "setting": "arcada quebrada do reino morto, raízes sob o piso e árvores mortas além da parede"
         },
         {
           "slot": "passive",
-          "action": "fingers examine crumbling leaf beside axe",
-          "setting": "caverna de raízes expostas"
+          "action": "Observa a guarda de um único inimigo já marcado por líquen ceder antes de atacar.",
+          "setting": "subsolo sob o fórum de mármore, raízes elevando uma seção do chão"
         },
         {
           "slot": "impulso",
-          "action": "axe hits target with contact rot",
-          "setting": "clareira de troncos ao pôr do sol"
+          "action": "O machado de poda acerta a borda do escudo de um inimigo; Decadência começa a se espalhar pela armadura.",
+          "setting": "pátio aberto do reino morto, fonte de mármore quebrada e troncos secos"
         },
         {
           "slot": "tecnica",
-          "action": "short dead root trips foe",
-          "setting": "estufa de vidro rachado"
+          "action": "Uma raiz do chão derruba um inimigo enquanto o gancho do machado desloca seu escudo e abre a guarda.",
+          "setting": "galeria coberta de mármore com coluna caída e raízes sobre as lajes"
         },
         {
           "slot": "voto",
-          "action": "hand stamps lichen on armor",
-          "setting": "ruínas de torre entre árvores secas"
+          "action": "Aplica líquen sobre a armadura de um inimigo já decadente; a aflição se concentra sem ferida física.",
+          "setting": "galeria superior de uma torre de mármore partida, árvore morta atravessando o teto"
         },
         {
           "slot": "despertar",
-          "action": "self defense bark shoulder plate chips as spear stops outside body",
-          "setting": "bosque de cogumelos violetas"
+          "action": "Inclina o ombro de madeira; uma lança para na casca e a defesa envolve apenas o usuário.",
+          "setting": "passagem estreita na muralha colapsada, raízes correndo pela alvenaria"
         }
       ],
-      "generation_prompt": "Crie uma prancha de ANIME 2D DE TELEVISÃO, como seis frames de uma animação shounen desenhada à mão. Visual de cel de animação tradicional, desenho limpo e deliberadamente simplificado. Contornos pretos nítidos. Cores VIVAS E CHAPADAS. Uma cor-base e UMA sombra de borda dura por superfície. Rostos fortemente estilizados de anime: olhos expressivos e gráficos, nariz pequeno desenhado com um traço, boca simples, cabelo em mechas/massas gráficas. Pele completamente lisa com apenas duas cores. Roupa com poucas linhas de dobra. Metal com dois tons planos e um único brilho desenhado. Fundos também desenhados e simples. PROIBIDO: semirrealismo, concept art realista, pintura digital, texturas, granulação, hachuras, poros, veias, rugas detalhadas, ferrugem, desgaste fotográfico, luz volumétrica, bokeh, gradientes de pele, render 3D, anatomia hiperdefinida. O resultado precisa parecer captura limpa de anime, não ilustração de fantasia com aparência real. Sem texto. Prancha EXATA 3 colunas x 2 linhas, 1536x1024, seis quadros quadrados iguais sem margens.\nA referência visual define SOMENTE traço e identidade. Substituir todos os cenários; não copiar arquitetura, clima ou luz da referência. Cada quadro tem composição própria integrada ao seu ambiente. Não reutilizar o mesmo pátio, salão ou paisagem em quadros diferentes. Manter domínio, reino e ação da habilidade.\nInferno/Podridão. Elderly male woodsman, bark-grey brown skin, weathered normal face, mossy beard, wooden shoulder armor over faded coat, hooked pruning axe. Dry bark and moss, no wounds.\n1. portrait: ação: weathered face. Cenário exclusivo: laboratório de terrários e madeira verde-escura.\n2. passive: ação: fingers examine crumbling leaf beside axe. Cenário exclusivo: caverna de raízes expostas.\n3. impulso: ação: axe hits target with contact rot. Cenário exclusivo: clareira de troncos ao pôr do sol.\n4. tecnica: ação: short dead root trips foe. Cenário exclusivo: estufa de vidro rachado.\n5. voto: ação: hand stamps lichen on armor. Cenário exclusivo: ruínas de torre entre árvores secas.\n6. despertar: ação: self defense bark shoulder plate chips as spear stops outside body. Cenário exclusivo: bosque de cogumelos violetas.\nMãos com cinco dedos, empunhaduras coerentes e acessórios contínuos. Ataques não atravessam corpos sólidos. Último quadro com defesa pessoal legível."
+      "generation_prompt": "Revisão individual em estilo híbrido 3D/2D pintado, com contornos gráficos e semitom pontual. Consultar docs/O_APODRECIDO_HYBRID_REWORK_20261025.json para câmera, ação e alvos. As seis cenas pertencem ao reino morto de mármore e raízes descrito na história do Elo Podridão."
     },
     {
       "id": "a-praga-andante",

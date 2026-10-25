@@ -164,3 +164,11 @@ A revisão visual confirmou que as seis artes base de A Asa Invertida ainda tinh
 A mulher de pele escura, cachos brancos, mecha preta, capa plissada, faixa azul e fecho gravitacional mantém sua identidade. Passiva e habilidades distinguem leitura aérea, golpe físico baixo, contra-ataque em tecido, ataque perfurante em vista superior e evasão lateral. Todos os quadros se passam em caminhos costeiros e ruínas suspensas do Limbo. Alvos, efeitos e regras do kit não mudaram.
 
 Esta entrega revisa um conjunto de seis artes; não reexecuta a auditoria global nem conta as artes antigas presentes como estilisticamente concluídas.
+
+## O Apodrecido — revisão híbrida — 25/10/2026
+
+A inspeção visual identificou que as seis artes base ainda exibiam o antigo acabamento anime 2D, apesar de os arquivos estarem presentes. O jogo agora seleciona `art/characters/o-apodrecido/hybrid-rework-20261025/`; as seis fontes 1024 × 1024 e os recortes 512 × 512 estão em `art/source/o-apodrecido-hybrid-rework-20261025/`. Cenas e câmeras: `O_APODRECIDO_HYBRID_REWORK_20261025.json`.
+
+A identidade de lenhador idoso permanece reconhecível: pele cinza-amarronzada de casca, barba com musgo, cabelo pálido como raízes, placa de madeira assimétrica no ombro, casaco gasto e um único machado de poda curvo. As cenas ficam no reino morto descrito na história, com mármore rachado e raízes sob as ruínas; o kit mantém os alvos e efeitos atuais, sem gore.
+
+Esta atualização cobre um personagem e seis artes. A auditoria global de presença e a revisão visual dos demais conjuntos não foram recalculadas.
