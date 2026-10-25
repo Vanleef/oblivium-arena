@@ -1,5 +1,7 @@
 # Direção de arte — frames de anime para ícones
 
+> Documento histórico da direção anterior. Desde 25/10/2026, toda arte nova ou reformulada segue `ART_STYLE_DIRECTION_20261025.md`, com referência híbrida 3D/2D e linguagem gráfica pintada. As regras abaixo servem para entender lotes antigos, não como padrão vigente.
+
 ## Referências observadas em 22/10/2026
 
 Estudo visual de 42 recortes: retratos e habilidades de Naruto, Sakura e Sasuke em Naruto Arena; Ichigo, Rukia e Yoruichi em Soul Arena; primeiras 12 habilidades do atlas público de Haki Arena. São observações desta amostra, não regras universais dos jogos.

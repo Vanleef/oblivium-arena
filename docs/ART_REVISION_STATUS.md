@@ -1,5 +1,7 @@
 # Estado da revisão de artes — 22/10/2026
-> Estado conferido em 24/10/2026: 626/626 caminhos ativos presentes, incluindo a técnica alternativa nova do Príncipe. As contagens antigas de arquivos ausentes abaixo são históricas e refletem um checkout parcial. A revisão estilística continua por personagem.
+> Estado registrado em 24/10/2026: 626/626 caminhos ativos presentes, incluindo a técnica alternativa nova do Príncipe. Essa contagem mede existência de arquivos, não atualização estilística. As contagens antigas de ausências são históricas; a revisão visual segue por personagem.
+
+> **Nota de cobertura:** a contagem de caminhos existentes mede disponibilidade de arquivos, não atualização estilística. Há conjuntos legados ainda desatualizados; só os considerar revisados após inspeção visual sob a direção híbrida vigente. A auditoria global de presença não foi repetida nesta entrega.
 
 A integração une os kits, progressão, eventos, interface e online da branch de combate às artes da branch de revisão. A publicação é uma prévia própria; o serviço online mantém sua configuração existente.
 
@@ -155,3 +157,10 @@ A cosmologia dos três líderes, a natureza fragmentária das entidades dos Elos
 ## Estado da revisão — 25/10/2026
 
 A auditoria registrada no commit `27c0a24` confirmou 626 caminhos de arte válidos para o elenco. Os doze novos caminhos destes dois lotes foram anexados a arquivos existentes no repositório; a mudança é de conteúdo visual, mantendo as referências e alvos dos kits ativos. Reexecutar `npm run audit:art` no checkout continua sendo a forma de confirmar a cobertura atual.
+## A Asa Invertida — revisão híbrida — 25/10/2026
+
+A revisão visual confirmou que as seis artes base de A Asa Invertida ainda tinham acabamento anime 2D antigo, embora os caminhos estivessem presentes. As seis referências ativas agora apontam para `art/characters/a-asa-invertida/hybrid-rework-20261025/`; as fontes individuais 1024 × 1024 e os recortes 512 × 512 estão arquivados em `art/source/a-asa-invertida-hybrid-rework-20261025/`. O manifesto com cenas, câmeras e hashes é `A_ASA_INVERTIDA_HYBRID_REWORK_20261025.json`.
+
+A mulher de pele escura, cachos brancos, mecha preta, capa plissada, faixa azul e fecho gravitacional mantém sua identidade. Passiva e habilidades distinguem leitura aérea, golpe físico baixo, contra-ataque em tecido, ataque perfurante em vista superior e evasão lateral. Todos os quadros se passam em caminhos costeiros e ruínas suspensas do Limbo. Alvos, efeitos e regras do kit não mudaram.
+
+Esta entrega revisa um conjunto de seis artes; não reexecuta a auditoria global nem conta as artes antigas presentes como estilisticamente concluídas.

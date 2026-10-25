@@ -1,23 +1,28 @@
-# Direção visual híbrida 2D/3D — 25/10/2026
+# Direção visual híbrida 2D/3D — vigente desde 25/10/2026
 
-## Linguagem
+## Linha de arte
 
-Animação estilizada com volume tridimensional pintado em quadro 2D. Formas simples, planos de cor foscos, pinceladas irregulares e contornos com pequenas quebras. A imagem deve parecer um frame feito por artistas, com materiais e luz naturais; reduzir polimento, microtextura repetida, reflexos lisos e brilho de render.
+Aplicar esta linguagem a todas as artes novas e reformuladas do jogo. A referência indicada pelo usuário combina animação pintada com desenho gráfico de quadrinhos em movimento, como Arcane e Aranhaverso; usar os princípios gerais sem copiar personagens, quadros ou soluções visuais específicas.
 
-## Regras para personagem e ação
+- Construir volumes com leitura 3D e acabamento de pintura 2D por cima; deixar pinceladas e pequenas quebras no contorno visíveis.
+- Separar formas por planos de cor e sombras gráficas; evitar render liso, pele plástica, microtextura repetida e gradientes de aerógrafo.
+- Usar impressão/semitom, hachura, contorno deslocado e marcas de movimento como acentos localizados. Não aplicar uma textura uniforme sobre tudo.
+- Equilibrar luz cinematográfica, paletas de mundo e materiais foscos com silhuetas legíveis em miniatura.
+- Capturar esforço, reação e consequência no meio da ação. O personagem interage com alvo e terreno; não posa para a câmera.
+- Variar idade, corpo, rosto, cabelo, roupa, acessórios, silhueta, altura e ângulo entre personagens; variar também a câmera e a direção do movimento entre as habilidades.
+- Fazer cada cena corresponder ao kit atual e aos locais estabelecidos no mundo e no Elo. Consultar `src/data.js`, `src/story-content.js` e `docs/COSMOLOGY_AND_NILO.md`.
+- Respeitar o número exato de inimigos e aliados. Defesas pessoais mostram apenas o usuário protegido.
+- Conferir anatomia, mãos, articulações e continuidade de roupa/acessórios; exportar WebP 512 × 512 e manter fonte quadrada de 1024 × 1024.
 
-1. Criar identidade própria em rosto, idade, físico, cabelo, roupa, acessórios e silhueta; não variar só paleta e cenário.
-2. Mostrar habilidades no instante do uso, com movimento, interação e consequência. Evitar personagens posando para a câmera.
-3. Respeitar contagem exata de inimigos e aliados, efeitos e defesa individual definidos pelo kit.
-4. Fazer o cenário corresponder ao mundo, ao Elo e à lore. Consultar `src/data.js`, `src/story-content.js` e a documentação de cosmologia.
-5. Variar altura, distância, lado da ação, composição e movimento entre retrato e habilidades, e entre personagens sucessivos.
-6. Revisar anatomia e mãos, manter imagem quadrada sem texto/UI, exportar WebP 512 × 512 e arquivar fonte quadrada de 1024 × 1024.
+## Auditoria de artes antigas
 
-## Lotes desta direção
+A presença de um caminho ou imagem válida não significa que a arte esteja atualizada. Cada imagem ativa precisa ser comparada visualmente com esta direção, a identidade do personagem, a mecânica atual e a lore. Conjuntos antigos continuam pendentes até revisão visual; registrar os arquivos ativos e o resultado no manifesto e em `ART_REVISION_STATUS.md`.
 
-- O Revelador: seis imagens para retrato, passiva e quatro habilidades, em cenas de rotas de pedra e nascentes de Paraíso; manifesto `O_REVELADOR_HYBRID_REWORK_20261025.json`.
-- O Vidente: seis imagens com mirantes, caminhos marcados e abrigo sombreado; manifesto `O_VIDENTE_HYBRID_REWORK_20261025.json`.
+## Lotes sob esta direção
 
+- O Revelador: seis artes em rotas de pedra e nascentes de Paraíso; `O_REVELADOR_HYBRID_REWORK_20261025.json`.
+- O Vidente: seis artes em mirantes, caminhos marcados e abrigo sombreado; `O_VIDENTE_HYBRID_REWORK_20261025.json`.
+- A Asa Invertida: seis artes em passagens e ruínas suspensas do Limbo; `A_ASA_INVERTIDA_HYBRID_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 

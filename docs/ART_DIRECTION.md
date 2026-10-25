@@ -2,17 +2,17 @@
 
 ## Linguagem visual
 
-Direção vigente para as novas revisões desde 25/10/2026: animação estilizada híbrida 2D/3D, com volume pintado à mão, áreas de cor foscas e textura de pincel visível.
+Direção vigente para todas as artes desde 25/10/2026: híbrido 2D/3D de animação ilustrada, com volumes tridimensionais pintados por cima em 2D, pincel visível, contornos expressivos e linguagem gráfica de quadrinhos.
 
 - Simplificar volumes em planos de cor, mantendo silhuetas e anatomia legíveis.
-- Usar pinceladas de escalas variadas, contornos quebrados, hachura pontual e sombras gráficas.
+- Usar pinceladas de escalas variadas, contornos desenhados e quebrados, sombras gráficas e semitom localizado; reservar deslocamentos de cor e marcas de impressão para acentos.
 - Preferir luz natural irregular e reflexos contidos; evitar superfícies plásticas, brilho uniforme e acabamento polido de render.
 - Habilidades capturam ações em curso, com consequência e reação visíveis; não usar pose de foto.
 - Fazer alvos e beneficiários visíveis corresponderem ao kit. Defesas pessoais mostram só o usuário.
 - Variar idade, corpo, rosto, cabelo, roupa, materiais, silhueta e câmera entre personagens consecutivos.
 - Situar cada cena no mundo e Elo definidos em `src/data.js` e em `docs/COSMOLOGY_AND_NILO.md` e `src/story-content.js`; não inventar locais sem apoio no jogo.
 - Entregar WebP 512 × 512 sem texto/UI e manter uma fonte quadrada de 1024 × 1024 para auditoria.
-- Inspiração ampla em animação estilizada; não reproduzir personagens, enquadramentos, marcas ou cenários de franquias.
+- Referência ampla de animação pintada e quadrinhos em movimento, como Arcane e Aranhaverso; não reproduzir personagens, enquadramentos, marcas ou cenários específicos.
 
 A tabela de conjuntos abaixo documenta lotes anteriores e permanece como registro histórico; as novas artes seguem `ART_STYLE_DIRECTION_20261025.md`.
 
@@ -39,7 +39,7 @@ Cada personagem jogável inicial tem seis imagens quadradas: retrato, passiva e 
 | A Mão que Cura, O Restaurador, A Luz que Restaura, A Jardineira das Feridas e O Pulso Sereno | Cirurgiã com dedos de porcelana articulados, artesão idoso de kintsugi, espírito-mariposa não humano, botânica alta de manto vegetal e músico de pele escura com handpan | Diagnóstico atento, reparo dourado, asas restauradoras, cultivo medicinal e ondas sonoras; cada técnica usa enquadramento e efeito próprios | `art/characters/<id>/` |
 | O Equilíbrio, A Lâmina Justa, O que Pesa, A Testemunha Íntegra e O Julgador Gentil | Balança autômata com pássaros, duelista veterana de espada única, guardião humanoide de gravidade com pêndulo de ferro, anciã testemunha com lente âmbar e jovem magistrado com malho de madeira | Contrapeso, luz refletida, peso no terreno, revelação sem distorção e conciliação; imagens específicas para cada técnica | `art/characters/<id>/` |
 
-Cada personagem jogável listado tem seis imagens individuais em WebP; são 444 imagens para os 74 conjuntos completos. O chefe O Fim (The End) tem retrato próprio em `art/characters/o-fim/portrait.webp`: uma figura mascarada e não humana, com coroa de ferro queimado. A linguagem de anime conecta a coleção, enquanto as silhuetas, paletas e elementos de cada personagem continuam distintas.
+Cada personagem jogável listado tem seis imagens individuais em WebP; são 444 imagens para os 74 conjuntos completos. O chefe O Fim (The End) tem retrato próprio em `art/characters/o-fim/portrait.webp`: uma figura mascarada e não humana, com coroa de ferro queimado. Parte da coleção permanece em acabamento anime 2D de lotes antigos; isso é legado visual, não critério de conclusão. Silhuetas, paletas e elementos continuam distintos.
 
 Os recortes seguem os nomes `portrait.webp`, `passive.webp`, `skill-impulso.webp`, `skill-tecnica.webp`, `skill-voto.webp` e `skill-despertar.webp`. `skill-despertar.webp` é sempre a técnica defensiva e deve comunicar proteção, evasão, restauração ou redirecionamento.
 
@@ -48,7 +48,7 @@ Os recortes seguem os nomes `portrait.webp`, `passive.webp`, `skill-impulso.webp
 1. Defina antes a idade, o corpo, o rosto, o cabelo, a roupa e a silhueta do personagem. Compare esses itens com os designs existentes para evitar que pareçam variações do mesmo modelo.
 2. Faça um retrato só para a identidade do personagem. Não repita o rosto em todos os ícones de habilidade.
 3. Crie uma imagem por técnica, orientada pelo efeito mecânico e pelo nome. Varie enquadramento, geometria, escala e ponto de vista entre os quadros.
-4. Mantenha line art e cel shading consistentes entre a coleção; varie as cores e formas internas para refletir o reino e a habilidade.
+4. Mantenha a nova combinação de volume pintado e desenho 2D consistente entre a coleção; varie cores e formas internas para refletir o mundo e a habilidade.
 5. Confira o recorte quadrado em tamanho pequeno antes de integrar a folha. Evite repetir círculos, chamas, escudos ou explosões quando não forem a mecânica específica daquela habilidade.
 
 

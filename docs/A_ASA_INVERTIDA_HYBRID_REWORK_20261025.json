@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-25",
+  "characterId": "a-asa-invertida",
+  "name": "A Asa Invertida",
+  "currentDisplayName": "A Inversa",
+  "world": "Limbo",
+  "elo": "Correntes Quebradas",
+  "status": "active-revision",
+  "styleDirection": "Hybrid 3D/2D painted animation with expressive graphic contours, broad painterly shadow planes, restrained localized print texture, natural action, no direct franchise imitation.",
+  "preservedIdentity": [
+    "deep brown skin",
+    "short natural white curls",
+    "one long black forelock",
+    "cropped slate jacket",
+    "white pleated cape",
+    "cobalt waist wrap",
+    "single oval silver gravity clasp",
+    "athletic adult woman"
+  ],
+  "scenes": [
+    {
+      "slot": "portrait",
+      "camera": "low three-quarter close portrait",
+      "scene": "She climbs a vertical limestone ledge as a suspended coastline and broken stairs hang above the black sea."
+    },
+    {
+      "slot": "passive",
+      "camera": "overhead stair view",
+      "scene": "She braces across a basalt switchback while one weakened enemy loses footing and its shadow lifts in a silver-blue gravity plane."
+    },
+    {
+      "slot": "impulso",
+      "camera": "low lateral knee-height action",
+      "scene": "Her ochre-boot hook strikes one armored knee on a broken pale-stone causeway, buckling the enemy's stance."
+    },
+    {
+      "slot": "tecnica",
+      "camera": "tight high oblique",
+      "scene": "She twists her cape to redirect one incoming blade toward its attacker; self-only counter."
+    },
+    {
+      "slot": "voto",
+      "camera": "bird's-eye action",
+      "scene": "She drops sideways through a gravity seam and drives a narrow elbow-plane through one enemy's raised guard; the clasp dims to signal self-cost."
+    },
+    {
+      "slot": "despertar",
+      "camera": "distant side profile",
+      "scene": "She transfers onto the vertical inside of a broken arch as one spear crosses the position she vacated; self-only evasion."
+    }
+  ],
+  "assets": [
+    {
+      "slot": "portrait",
+      "sourcePath": "art/source/a-asa-invertida-hybrid-rework-20261025/portrait.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "8628b9f79880d621269f6515beb729818d3062a3d751dd0b4af42a8315aa53f0",
+      "runtimePath": "art/characters/a-asa-invertida/hybrid-rework-20261025/portrait.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "9f1a20e3d82ab844ab447bbd72587ef43809a0484fd8485cebf2a30e2c74c13d"
+    },
+    {
+      "slot": "passive",
+      "sourcePath": "art/source/a-asa-invertida-hybrid-rework-20261025/passive.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "1dacb75486e00bfabbdb2b5f1c9024b93cb3269c57133e9f173f1675eb063570",
+      "runtimePath": "art/characters/a-asa-invertida/hybrid-rework-20261025/passive.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "b4112b0bf53b6db38a33c65b406f4c6f4e56f2f929a0259d69d07df138366626"
+    },
+    {
+      "slot": "impulso",
+      "sourcePath": "art/source/a-asa-invertida-hybrid-rework-20261025/skill-impulso.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "233aa5f8a73f615e5d981cd58e7bf310a868ccd3df9689b1898a485a8c07985a",
+      "runtimePath": "art/characters/a-asa-invertida/hybrid-rework-20261025/skill-impulso.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "e08d8d7223a430de14df4905af939ba237bd47ec2b66bf96f2cdb48783f48179"
+    },
+    {
+      "slot": "tecnica",
+      "sourcePath": "art/source/a-asa-invertida-hybrid-rework-20261025/skill-tecnica.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "9d0934576c132a5e0394ff1a495cb642886a252acaaf905e5f70228950a7510d",
+      "runtimePath": "art/characters/a-asa-invertida/hybrid-rework-20261025/skill-tecnica.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "45559daee03d4027cde6aaebdc8e7568742e90597a0731f03cc494ee7a1b9e94"
+    },
+    {
+      "slot": "voto",
+      "sourcePath": "art/source/a-asa-invertida-hybrid-rework-20261025/skill-voto.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "a2cd9aa8dbd317fc05308497ebfab7c0e08d78bee3c33e706d3c5cd4cbcd009a",
+      "runtimePath": "art/characters/a-asa-invertida/hybrid-rework-20261025/skill-voto.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "641beb4ab2e5af2dd7f0005bfab17a92f562f85e5fd870e575315a96f1a5a35a"
+    },
+    {
+      "slot": "despertar",
+      "sourcePath": "art/source/a-asa-invertida-hybrid-rework-20261025/skill-despertar.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "400b88965bd330c41f48b88eae20885fe58c9fc50b3a40760d2920c91743f25b",
+      "runtimePath": "art/characters/a-asa-invertida/hybrid-rework-20261025/skill-despertar.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "8c3f2f7ffb67cdd9142ff96cf4687bfe477e9386d090701f785c002e8c79a601"
+    }
+  ]
+}

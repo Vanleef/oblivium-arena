@@ -1,6 +1,6 @@
 # Identidade visual do elenco
 
-Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente reconhecível em relação aos demais. Variar traços faciais, físico, cabelo, cicatrizes, olhos, etnias e naturezas sobrenaturais dentro do estilo anime e da identidade de cada Mundo e Elo.
+Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente reconhecível em relação aos demais. Variar traços faciais, físico, cabelo, cicatrizes, olhos, etnias e naturezas sobrenaturais dentro da linguagem híbrida 3D/2D definida em `ART_STYLE_DIRECTION_20261025.md` e da identidade de cada Mundo e Elo.
 
 ## Critérios de criação e revisão
 
@@ -10,7 +10,7 @@ Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente recon
 - Dar a cada personagem pelo menos três marcadores estruturais independentes da paleta e da roupa. Conferir a leitura em miniatura e em tons de cinza.
 - Manter os mesmos marcadores, acessórios, lateralidade e estrutura corporal no retrato, na passiva, nas técnicas e nas formas correspondentes.
 - Variar composição por habilidade: distância, altura da câmera, lado de ação, quantidade exata de beneficiados e ambiente ligado ao efeito e ao Elo.
-- Conservar contorno desenhado e sombras em cel shading. Revisar mãos, articulações, continuidade de armas e correntes e conexão entre corpo, roupa e acessórios.
+- Conservar o volume pintado, os contornos gráficos e as sombras desenhadas; usar semitom com moderação. Revisar mãos, articulações, continuidade de armas e correntes e conexão entre corpo, roupa e acessórios.
 
 ## Identidades do lote atual
 
