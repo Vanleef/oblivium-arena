@@ -2,22 +2,22 @@
 
 ## Linguagem visual
 
-Direção vigente para todas as artes desde 25/10/2026: híbrido 2D/3D de animação ilustrada, com volumes tridimensionais pintados por cima em 2D, pincel visível, contornos expressivos e linguagem gráfica de quadrinhos.
+Direção vigente para todas as artes desde 25/10/2026: pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta e formas construídas por planos pintados. O Fim, O Revelador e O Vidente são as três âncoras aprovadas. Arcane/Aranhaverso podem orientar energia e composição quando compatíveis com esse acabamento; não definem uma renderização de CGI ou cel-shading.
 
-- Simplificar volumes em planos de cor, mantendo silhuetas e anatomia legíveis.
-- Usar pinceladas de escalas variadas, contornos desenhados e quebrados, sombras gráficas e semitom localizado; reservar deslocamentos de cor e marcas de impressão para acentos.
-- Preferir luz natural irregular e reflexos contidos; evitar superfícies plásticas, brilho uniforme e acabamento polido de render.
+- Construir e simplificar volumes com pinceladas e planos de cor pintados, mantendo silhuetas e anatomia legíveis.
+- Usar pinceladas visíveis de escalas e direções variadas em personagem e cenário; desenhar contornos quebrados e sombras pintadas. Hachura e semitom entram como acentos localizados.
+- Preferir luz natural irregular, pigmento fosco e reflexos contidos; evitar superfícies plásticas, brilho uniforme e acabamento fotográfico ou polido de render.
 - Habilidades capturam ações em curso, com consequência e reação visíveis; não usar pose de foto.
 - Fazer alvos e beneficiários visíveis corresponderem ao kit. Defesas pessoais mostram só o usuário.
 - Variar idade, corpo, rosto, cabelo, roupa, materiais, silhueta e câmera entre personagens consecutivos.
 - Situar cada cena no mundo e Elo definidos em `src/data.js` e em `docs/COSMOLOGY_AND_NILO.md` e `src/story-content.js`; não inventar locais sem apoio no jogo.
 - Entregar WebP 512 × 512 sem texto/UI. Para folhas de 3 × 2, arquivar a folha original 1536 × 1024 e gerar seis recortes; para artes geradas individualmente, manter a fonte quadrada de 1024 × 1024.
-- Âncoras visuais aprovadas pelo usuário: O Fim, O Revelador e O Vidente. Usar essas imagens como referências de acabamento, sem copiar seus personagens, poses, cenários ou paletas.
+- Âncoras visuais aprovadas pelo usuário: O Fim, O Revelador e O Vidente. Usar essas imagens como referências de acabamento pictórico, sem copiar personagens, poses, cenários ou paletas.
 - A inspeção de conclusão é visual: presença de arquivos, nomes de pastas ou rótulos anteriores de “híbrido” não provam aderência à linha.
 - Variar quadro, distância, altura, ação e ambiente em cada habilidade. Mostrar ação, reação, consequência, efeito, objeto ou apenas parte do personagem quando fizer sentido; evitar repetir ataques frontais.
 - Corrigir anatomia e continuidade: membros e dedos, articulações, empunhadura e contato de armas/raízes/folhas/projéteis, proporção dos ferimentos e quantidade exata de pessoas. Expressões, suor, sujeira, cicatrizes, inchaço, marcas, olhos, cabelo e roupas devem corresponder ao momento e à identidade.
 - Preservar identidade, silhueta, idade, acessórios, lateralidade, mundo, Elo, lore e efeito mecânico de cada kit. Não alterar custos, alvos, efeitos ou regras para justificar uma cena.
-- Referência ampla de animação pintada e quadrinhos em movimento, como Arcane e Aranhaverso; não reproduzir personagens, enquadramentos, marcas ou cenários específicos.
+- As referências a Arcane e Aranhaverso orientam energia e composição apenas quando compatíveis com o acabamento pictórico definido pelo usuário; não reproduzir personagens, enquadramentos, marcas ou cenários.
 
 A tabela de conjuntos abaixo documenta lotes anteriores e permanece como registro histórico; as novas artes seguem `ART_STYLE_DIRECTION_20261025.md`.
 

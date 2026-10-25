@@ -104,7 +104,7 @@ export const characterRevisions = {
     "lore": "Converte a necessidade de outra alma em um contrato que nunca deixa de cobrar. Cada técnica da vítima pode produzir novos juros, até que a dívida se torne uma execução anunciada. Fome prospera nos vínculos de dependência que ele preserva."
   },
   "o-apodrecido": {
-    "lore": "Carrega uma decadência que avança pelas falhas da matéria espiritual. Seu contato prejudica a recuperação e deixa a guarda ceder antes da decomposição. O que parece resistir à primeira passagem continua se desfazendo sob a influência de Podridão."
+    "lore": "Desfruta a ruína que provoca e escolhe matéria espiritual já fragilizada para aprofundar sua decadência. Seu contato impede a recuperação, faz a guarda ceder e mantém a vítima se desfazendo sob a influência de Podridão."
   },
   "o-corrupto": {
     "lore": "Oferece acordos cuja confiança já nasceu comprometida. Marca a outra parte e converte a quebra do pacto em proteção para si, prolongando a vantagem obtida sobre quem acreditou nele. A ruína de cada compromisso alimenta Podridão."
@@ -926,7 +926,7 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-ausencia') {
-    const base = `/art/characters/${id}/hybrid-rework-20261025`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
@@ -936,12 +936,12 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-escudo-vivo') {
-    const base = `/art/characters/${id}/hybrid-rework-20261025`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-apodrecido') {
-    const base = `/art/characters/${id}/hybrid-rework-20261025`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }

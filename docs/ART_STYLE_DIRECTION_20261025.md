@@ -1,12 +1,12 @@
-# Direção visual híbrida 2D/3D — vigente desde 25/10/2026
+# Direção pictórica digital — vigente desde 25/10/2026
 
 ## Linha de arte
 
-Aplicar esta linguagem a todas as artes novas e reformuladas do jogo. A referência indicada pelo usuário combina animação pintada com desenho gráfico de quadrinhos em movimento, como Arcane e Aranhaverso; usar os princípios gerais sem copiar personagens, quadros ou soluções visuais específicas.
+Definição geral informada pelo usuário: pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta, bordas pintadas e volumes construídos por formas de cor. Aplicar a todas as artes do jogo, inclusive personagens e cenários. O Fim, O Revelador e O Vidente são as âncoras aprovadas para acabamento. As menções anteriores a Arcane e Aranhaverso servem como referências amplas para energia, silhueta e composição; não substituem o acabamento pictórico nem devem ser copiadas literalmente.
 
-- Construir volumes com leitura 3D e acabamento de pintura 2D por cima; deixar pinceladas e pequenas quebras no contorno visíveis.
-- Separar formas por planos de cor e sombras gráficas; evitar render liso, pele plástica, microtextura repetida e gradientes de aerógrafo.
-- Usar impressão/semitom, hachura, contorno deslocado e marcas de movimento como acentos localizados. Não aplicar uma textura uniforme sobre tudo.
+- Construir volume com massas pintadas em pinceladas de diferentes escalas, direção e opacidade; manter marcas de pincel perceptíveis na pele, roupa, materiais e ambiente, com contornos pintados e quebrados.
+- Separar formas por planos de cor e sombras pintadas; evitar aparência fotográfica, render 3D liso/brilhante, pele plástica, microtextura repetida e gradientes de aerógrafo.
+- Usar hachura, semitom ou marcas de movimento somente como acentos localizados quando servirem à cena. A linguagem principal é a pintura digital com pinceladas, sem exigir uma textura de impressão uniforme.
 - Equilibrar luz cinematográfica, paletas de mundo e materiais foscos com silhuetas legíveis em miniatura.
 - Capturar esforço, reação e consequência no meio da ação. O personagem interage com alvo e terreno; não posa para a câmera.
 - Variar a gramática visual entre habilidades: reação da vítima, consequência após o efeito, manifestação ambiental, detalhe de mão/arma/objeto, silhueta parcial, perspectiva da vítima ou ação fora de quadro. Reservar o ataque frontal para cenas em que ele comunica algo que as outras composições não comunicam; não repetir a mesma pose de dano entre personagens.
@@ -19,7 +19,7 @@ Aplicar esta linguagem a todas as artes novas e reformuladas do jogo. A referên
 
 ## Âncoras aprovadas pelo usuário
 
-Usar em toda arte de personagem: `art/characters/o-fim/hybrid-animation-20261025/portrait.webp`, `art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp` e `art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp`. O retrato próprio do personagem pode orientar identidade e figurino; as três imagens aprovadas orientam o acabamento visual. Aderência exige volumes pintados, textura de pincel perceptível, contornos gráficos e formas de sombra legíveis. Rejeitar acabamento liso/brilhante, fotorealismo e anime genérico, mesmo quando o arquivo ou manifesto indique uma revisão.
+Usar em toda arte: `art/characters/o-fim/hybrid-animation-20261025/portrait.webp`, `art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp` e `art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp`. O retrato próprio orienta identidade e figurino; as três imagens aprovadas orientam o acabamento pictórico. Aderência exige pinceladas perceptíveis, camadas de cor pintadas, silhuetas claras e sombras construídas à mão. Rejeitar acabamento liso/brilhante, fotorealismo, aparência de CGI polido e anime genérico, mesmo quando o arquivo ou manifesto indique uma revisão.
 
 ## Regra moral do Inferno
 

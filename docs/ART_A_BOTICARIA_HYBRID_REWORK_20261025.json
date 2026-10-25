@@ -2,8 +2,8 @@
   "title": "A Boticária — A Jardineira das Feridas — revisão híbrida",
   "date": "2026-10-25",
   "characterId": "a-jardineira-das-feridas",
-  "style": "Animação híbrida pintada 2D/3D, com volumes gráficos, contornos quebrados, sombras em planos e acentos localizados de pincel e semitom.",
-  "styleReference": "art/characters/o-fim-silencioso/hybrid-rework-20261025/portrait.webp (acabamento híbrido; identidade da Boticária mantida pelo retrato próprio).",
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReference": "As três imagens de styleReferencePaths orientam o acabamento pictórico; identidade e figurino da Boticária preservados pela referência própria.",
   "setting": "Paraíso/Cura: estufa de pedra e vidro, jardim úmido, corrimão antigo e luz natural filtrada.",
   "identity": "Mulher alta de cerca de 38 anos, pele castanha quente e olhos verdes; locs longos verde-escuros, poucas flores rosadas, casaco de botânica esmeralda, luvas de couro, faca curva embainhada e pequeno ramo medicinal.",
   "sceneVariety": "Composições distintas: retrato com ramo, consequência de cura num aliado sozinho, amarração de tornozelo em câmera baixa, cura de trio, reação fechada da vítima aos espinhos e esquiva defensiva com folha dobrada. Nem toda habilidade mostra a Boticária e nenhuma repete ataque frontal.",
@@ -100,5 +100,13 @@
       "expressionAndWear": "Olhos atentos, mandíbula firme, suor na têmpora, locs movidos pelo gesto, manga e barra com poeira e rasgo antigo; sem ferida nova.",
       "prompt": "Defesa própria com uma folha dobrada e central-vein visível, arma fora de quadro e anatomia clara."
     }
-  ]
+  ],
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "userArtDirectionClarification": "A linha geral é pintura digital pictórica/painterly, com pinceladas perceptíveis; Arcane/Aranhaverso são referências amplas de energia visual apenas.",
+  "world": "Paraíso",
+  "elo": "Cura"
 }

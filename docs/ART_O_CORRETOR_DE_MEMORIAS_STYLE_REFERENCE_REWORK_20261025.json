@@ -2,7 +2,7 @@
   "date": "2026-10-25",
   "characterId": "o-corretor-de-memorias",
   "name": "O Falsário — O Corretor de Memórias",
-  "style": "Reestilização ancorada nas três referências visuais confirmadas pelo usuário: animação pintada com formas dimensionais, pincel visível, planos de cor e contornos expressivos.",
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
   "styleReferencePaths": [
     "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
     "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
@@ -70,5 +70,9 @@
     }
   ],
   "sourceSheetPath": "art/source/o-corretor-de-memorias-style-reference-rework-20261025-sheet.webp",
-  "sourceDimensions": "1536x1024"
+  "sourceDimensions": "1536x1024",
+  "userArtDirectionClarification": "A linha geral é pintura digital pictórica/painterly, com pinceladas perceptíveis; Arcane/Aranhaverso são referências amplas de energia visual apenas.",
+  "world": "Inferno",
+  "elo": "Mentira",
+  "moralTone": "Ser do Inferno vil e guiado pela maldade. Pode discordar de O Fim, mas nunca é bondoso."
 }

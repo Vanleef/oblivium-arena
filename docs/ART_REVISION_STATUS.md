@@ -251,3 +251,18 @@ Três conjuntos estão em reformulação e revisão visual; os novos rascunhos d
 Foram substituídas 21 artes ativas: seis de O Sussurro, nove de A Máscara Dupla e seis de O Anulador. Os três conjuntos usam O Fim, O Revelador e O Vidente como referências de acabamento. A cena de reação do Sussurro mostra um mensageiro ouvindo o sussurro fora de quadro e uma ondulação sutil na água; a passiva do Anulador mostra um único viajante observando seu sigilo protetor se desfazer, sem figuras adicionais. A caracterização do Anulador segue a regra canônica de vileza infernal. Pranchas e fontes de quadros corrigidos estão nos manifestos correspondentes. Nenhum efeito, alvo, custo, duração ou recarga mudou.
 
 Estado atual da auditoria: O Fim, O Revelador e O Vidente são as três âncoras confirmadas pelo usuário. Seis conjuntos foram refeitos sob comparação direta com as âncoras; 91 conjuntos ainda aguardam auditoria visual. Esta contagem substitui os números históricos anteriores. A revisão global permanece aberta.
+
+
+## Definição pictórica confirmada pelo usuário — 25/10/2026
+
+A direção geral de todas as artes do jogo é pintura digital pictórica (painterly/oil painting), reconhecível pelas pinceladas e camadas de tinta. O Fim, O Revelador e O Vidente continuam como referências aprovadas para esse acabamento. Arcane e Aranhaverso são referências amplas de energia e composição, quando compatíveis com a superfície pintada. Aparência fotográfica, render 3D polido ou textura de pincel aplicada apenas como filtro não atendem ao padrão.
+
+A regra de cânone infernal também vale para toda arte: os seres do Inferno são quase todos vis e guiados pela maldade. Não há personagens bondosos nesse domínio; uma discordância de O Fim não torna ninguém bondoso.
+
+## Lote pictórico: O Apodrecido, A Ausência e O Escudo Vivo — 25/10/2026
+
+Dezoito artes foram revisadas e preparadas sob as três âncoras aprovadas. O Apodrecido e A Ausência estão situados no Inferno e mantêm a moralidade canônica; O Escudo Vivo permanece em Paraíso. O quadro passivo do Apodrecido foi substituído por uma composição com um único adversário visível, sem silhuetas humanas ambíguas ao fundo. A área de A Ausência mostra exatamente três inimigos; as defesas pessoais mostram somente o usuário protegido; a técnica do Escudo Vivo apoia exatamente um aliado. Os três kits e as regras permanecem intactos.
+
+## Estado atual da auditoria — 25/10/2026
+
+Três âncoras têm confirmação explícita do usuário. Nove conjuntos foram refeitos e comparados com as referências até este lote; 88 conjuntos ainda aguardam auditoria direta. As imagens antigas continuam pendentes até que cada conjunto seja comparado com a definição pictórica atual.
