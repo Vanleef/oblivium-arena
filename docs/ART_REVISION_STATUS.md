@@ -375,3 +375,12 @@ A Cúmplice, O Anfitrião e O Desertor receberam seis cenas-base cada, em 18 spr
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Quarenta e dois dos 100 conjuntos foram refeitos e comparados diretamente com elas; 55 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Lote pictórico de Carne: O Usurpador — 25/10/2026
+
+O Usurpador recebeu seis cenas-base em WebP 512 × 512, sob as três âncoras pictóricas aprovadas. A identidade preserva pele castanha escura, cabelo preto curto, olhos turquesa e casaco preto com bordado geométrico marfim. Suas três técnicas ofensivas mostram exatamente um inimigo cada; a defesa apresenta somente o próprio personagem. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_O_USURPADOR_PAINTERLY_REWORK_20261025.json`.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Quarenta e três dos 100 conjuntos foram refeitos e comparados diretamente com elas; 54 ainda aguardam auditoria visual. A revisão global permanece aberta.

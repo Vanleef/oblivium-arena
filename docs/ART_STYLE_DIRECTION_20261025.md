@@ -52,6 +52,8 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Incendiário, A Brasa Eterna e O Furor: dezoito cenas-base e cinco artes de formas alternativas para Chama no Inferno, preservando identidade, alvos e mecânicas; manifesto `CHAMA_PAINTERLY_REWORK_20261025.json`.
 - O Soberano, A Magistrada e O Suserano: dezoito artes pictóricas em Coroa no Inferno; ataques individuais mostram um alvo, defesas pessoais mostram somente o usuário, e Domínio sem Rei mostra exatamente três aliados. O Edicto de Interdição protege um vassalo e rebate um atacante; manifestos `ART_O_SOBERANO_QUEBRADO_STYLE_REFERENCE_REWORK_20261025.json`, `ART_A_JUIZA_DE_FERRO_STYLE_REFERENCE_REWORK_20261025.json` e `ART_O_TRONO_VAZIO_STYLE_REFERENCE_REWORK_20261025.json`.
 
+- O Usurpador: seis artes pictóricas em Carne no Inferno. Preservar pele castanha escura, cabelo preto curto, olhos turquesa e bordado geométrico marfim; as três técnicas ofensivas mostram um alvo e a defesa é pessoal. Manifesto: `ART_O_USURPADOR_PAINTERLY_REWORK_20261025.json`.
+
 ## Uso da cosmologia
 
 Consultar `COSMOLOGY_AND_NILO.md` antes de ilustrar O Fim, O Prólogo, O Caminho, uma entidade de Elo, Nilo ou almas nomeadas. Os líderes apenas dormem e despertam; uma entidade destruída retorna como fragmentos. A absorção de Essência por Nilo é involuntária. As consequências dos sonos ocorrem no mundo dos vivos e não devem ser convertidas automaticamente em clima ou geografia dos domínios.
