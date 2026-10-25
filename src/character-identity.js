@@ -8,6 +8,7 @@ const continuationArt = new Set(['a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['o-incendiario','a-brasa-eterna','o-odio-encarnado']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
+const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-dos-fungos']);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
@@ -922,6 +923,11 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (painterlyPodridaoArt.has(id)) {
+    const base = `/art/characters/${id}/painterly-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (painterlyFomeArt.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261025`;
     const forms = {...(art.forms || {})};

@@ -67,3 +67,5 @@ Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando
 
 
 - A Matriarca, O Credor e A Usurária: dezoito cenas pictóricas para Fome, com ração coercitiva, marcas de dívida, confisco e proteção pessoal. A Matriarca mantém tranças brancas, vestes vinho e joias; o Credor conserva bigode, monóculo violeta e abaco; a Usurária mantém corte curto, capa negra e livro-caixa. A cura de equipe mostra três aliados; o confisco em área mostra exatamente três inimigos. Manifesto: `ART_FOME_PAINTERLY_REWORK_20261025_02.json`.
+
+- A Pestilência, O Corrupto e A Rainha dos Fungos: dezoito cenas-base e três artes de formas alternativas para Podridão. A nuvem ambulante mantém identidade não humana; cenas de alvo único mostram uma vítima, áreas atingem exatamente três inimigos, o micélio da Rainha sustenta exatamente três aliados ao todo e as defesas mostram apenas o usuário. Manifesto `ART_PODRIDAO_PAINTERLY_REWORK_20261025.json`.

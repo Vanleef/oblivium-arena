@@ -187,6 +187,13 @@ function slug(text) {
 }
 
 const characterFormArt = {
+  "a-praga-andante": {
+    tecnica: { fever: "/art/characters/a-praga-andante/painterly-rework-20261025/skill-tecnica-fever.webp" }
+  },
+  "a-rainha-dos-fungos": {
+    tecnica: { bloom: "/art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-tecnica-bloom.webp" },
+    voto: { cloud: "/art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-voto-cloud.webp" }
+  },
   "o-devorador": {
     impulso: { starved: "/art/characters/o-devorador/painterly-rework-20261025/skill-impulso-starved.webp" }
   },

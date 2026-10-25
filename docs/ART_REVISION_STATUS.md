@@ -350,3 +350,11 @@ A Matriarca, O Credor e A Usurária receberam seis cenas-base cada, em 18 sprite
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta e três dos 100 conjuntos foram refeitos e comparados diretamente com elas; 64 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+## Lote pictórico de Podridão: Pestilência, Corrupto e Rainha dos Fungos — 25/10/2026
+
+A Pestilência, O Corrupto e A Rainha dos Fungos receberam seis cenas-base cada, em 18 sprites WebP 512 × 512, além de três imagens de formas alternativas. A Pestilência permanece uma nuvem fúngica não humana; os ataques de alvo único mostram uma vítima, a técnica de área mostra exatamente três inimigos e Febre de Retorno concentra a praga em um inimigo. O Corrupto mantém o nobre de cabelos longos, olhos dourados e espinho verde. O micélio da Rainha sustenta exatamente três aliados ao todo; Esporos da Última Colheita atinge exatamente três inimigos. As defesas pessoais mostram apenas o usuário. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_PODRIDAO_PAINTERLY_REWORK_20261025.json`.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta e seis dos 100 conjuntos foram refeitos e comparados diretamente com elas; 61 ainda aguardam auditoria visual. A revisão global permanece aberta.
