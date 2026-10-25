@@ -43,6 +43,7 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Escudo Vivo: seis artes no cruzamento protegido de Paraíso; `ART_O_ESCUDO_VIVO_HYBRID_REWORK_20261025.json`.
 - O Anulador: seis artes em locais diversos de Vazio no Inferno; `ART_O_ANULADOR_HYBRID_REWORK_20261025.json`.
 - A Ausência: seis artes em locais distintos de Vazio no Inferno; `ART_A_AUSENCIA_HYBRID_REWORK_20261025.json`.
+- O Açougueiro, A Viúva e O Colecionador: dezoito artes em Sangria no Inferno, com identidade e kits preservados; manifestos `ART_O_ACOUGUEIRO_STYLE_REFERENCE_REWORK_20261025.json`, `ART_A_VIUVA_ESCARLATE_STYLE_REFERENCE_REWORK_20261025.json` e `ART_O_COLECIONADOR_DE_CABECAS_STYLE_REFERENCE_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 

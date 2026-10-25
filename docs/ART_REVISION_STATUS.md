@@ -266,3 +266,12 @@ Dezoito artes foram revisadas e preparadas sob as três âncoras aprovadas. O Ap
 ## Estado atual da auditoria — 25/10/2026
 
 Três âncoras têm confirmação explícita do usuário. Nove conjuntos foram refeitos e comparados com as referências até este lote; 88 conjuntos ainda aguardam auditoria direta. As imagens antigas continuam pendentes até que cada conjunto seja comparado com a definição pictórica atual.
+
+
+## Lote pictórico de Sangria: Açougueiro, Viúva e Colecionador — 25/10/2026
+
+Dezoito artes foram refeitas em pintura digital pictórica, mantendo identidade, kit, alvos e efeitos. O Açougueiro foi redesenhado, conforme a correção do usuário, como criatura humanoide feita de carne e musculatura robusta; os alvos de todas as habilidades estão sem armadura. O Voto ganhou quadro individual com somente uma vítima e sem silhuetas de fundo. A Viúva mantém o fio ligado ao broche e a adaga-agulha; O Colecionador usa máscaras como troféus, sem cabeças literais. Os três pertencem ao Inferno e aparecem como vis, movidos pela maldade.
+
+## Estado atual da auditoria — 25/10/2026
+
+Três âncoras têm confirmação explícita do usuário. Doze conjuntos foram refeitos e comparados com as referências; 85 dos 100 conjuntos ainda aguardam auditoria visual direta. A revisão global continua aberta.

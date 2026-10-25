@@ -337,7 +337,7 @@ export const characterRevisions = {
     ]
   },
   "o-acougueiro": {
-    "lore": "Executor de Sangria: seu cutelo reconhece a essência de uma vítima ferida. Cada ferida alimenta seu faro e torna a próxima investida mais implacável.",
+    "lore": "Criatura de carne brutalmente robusta, O Açougueiro fareja o sangue de uma vítima ferida e torna a próxima investida mais implacável. Cada golpe alimenta a caçada de Sangria.",
     "terms": {
       "Separar Tendões": "Talho Imobilizante"
     }
@@ -920,6 +920,21 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'o-acougueiro') {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'a-viuva-escarlate') {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'o-colecionador-de-cabecas') {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (id === 'o-fim-silencioso') {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,

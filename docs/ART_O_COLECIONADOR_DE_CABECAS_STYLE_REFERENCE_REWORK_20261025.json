@@ -1,0 +1,179 @@
+{
+  "title": "O Colecionador — revisão pictórica por âncoras",
+  "date": "2026-10-25",
+  "characterId": "o-colecionador-de-cabecas",
+  "name": "O Colecionador",
+  "aliases": [
+    "O Colecionador de Cabeças"
+  ],
+  "kitPreserved": [
+    {
+      "slot": "passive",
+      "name": "Primeiro Troféu",
+      "effect": "Vantagem no primeiro golpe."
+    },
+    {
+      "slot": "impulso",
+      "name": "Laço de Caça",
+      "target": "um inimigo",
+      "effect": "Dano e uma carga de troféu."
+    },
+    {
+      "slot": "tecnica",
+      "name": "Cobrança do Caçador",
+      "target": "um inimigo",
+      "effect": "Dano e remoção de Defesa."
+    },
+    {
+      "slot": "voto",
+      "name": "Galeria de Troféus",
+      "target": "um inimigo",
+      "effect": "Dano concentrado por carga consumida."
+    },
+    {
+      "slot": "despertar",
+      "name": "Sombra do Colecionador",
+      "target": "si mesmo",
+      "effect": "Defesa pessoal."
+    }
+  ],
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "styleClarification": "Pintura digital pictórica é a direção principal; Arcane/Aranhaverso orientam apenas energia e composição quando compatíveis.",
+  "world": "Inferno",
+  "elo": "Sangria",
+  "moralTone": "Ser do Inferno vil e guiado pela maldade. Pode discordar de O Fim, mas nunca é bondoso.",
+  "gameplayChanged": false,
+  "styleReference": "As três imagens em styleReferencePaths orientam somente o acabamento pictórico; a descrição preserva a identidade do personagem.",
+  "setting": "Inferno/Sangria: arquivo gótico em ruínas, fuligem, ferro, ganchos vazios e acentos bordô.",
+  "identity": "Homem idoso magro de pele morena, cabelo prateado penteado para trás e preso na nuca, rosto anguloso marcado, casaco pálido de gola alta com forro bordô sobre roupa preta, luvas pretas, faixa diagonal com máscaras teatrais de marfim e etiquetas retangulares de latão. Máscaras simbolizam troféus; não usar cabeças literais.",
+  "sourceSheetPath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetDimensions": "1536x1024",
+  "sourceSheetBytes": 610550,
+  "sourceSheetSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+  "activeDirectory": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025/portrait.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 79774,
+      "activeSha256": "5c65b066d3df790713f47b3c12615f6b11e66bd518e211fd41992a6ddc558f52",
+      "sourcePath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 610550,
+      "sourceSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "O Colecionador avalia a sala de arquivo, com máscaras-troféu presas à faixa do casaco.",
+      "camera": "Meio-corpo em três quartos baixo.",
+      "targetCount": 0
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025/passive.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 69216,
+      "activeSha256": "9c140886beea5fb3e8b89c07ac9b030459a186b9bba851d49890a62c13c47776",
+      "sourcePath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 610550,
+      "sourceSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Prende uma única máscara de marfim à cintura; um pequeno brilho marca a vantagem obtida.",
+      "camera": "Close lateral.",
+      "targetCount": 0
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025/skill-impulso.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 76070,
+      "activeSha256": "51380ab6dcac8e4579fd93601a6cb571470e735ee1ba1d7ba2b20fef7e0971a4",
+      "sourcePath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 610550,
+      "sourceSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "Um cordão de caça vermelho prende o antebraço de um único inimigo, sem tocar o pescoço.",
+      "camera": "Sobre o ombro do Colecionador.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025/skill-tecnica.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 97770,
+      "activeSha256": "9c7dc7444b88c666e07cf92e42dbda3796536953b34e03ff6388793c8cc997cf",
+      "sourcePath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 610550,
+      "sourceSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "A etiqueta de latão e o cutelo quebram a proteção translúcida de um único inimigo.",
+      "camera": "Plano médio diagonal fechado.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025/skill-voto.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 110428,
+      "activeSha256": "f2dc610a381d5d7f94861dcb677fdfdb797136660066ae48dd6d8642a6399f42",
+      "sourcePath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 610550,
+      "sourceSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Três máscaras-troféu atravessam o quadro ao redor de um único alvo; as máscaras se desfazem em brasa e ganchos vazios revelam as cargas gastas.",
+      "camera": "Vista alta oblíqua aberta.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/o-colecionador-de-cabecas/style-reference-rework-20261025/skill-despertar.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 76366,
+      "activeSha256": "2819ac265ee9bb23f49e131a787cbdce2ee311b8b59026ed5b9157c80d663504",
+      "sourcePath": "art/source/o-colecionador-de-cabecas-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 610550,
+      "sourceSha256": "e80148eaa829231debfe93f8208d4ffd4df0dacabefd80601278822aafcb9237",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "O Colecionador entra na própria sombra de máscaras enquanto um ataque atravessa o espaço vazio; apenas ele recebe defesa.",
+      "camera": "Perfil lateral de corpo inteiro.",
+      "targetCount": 0,
+      "attackerCount": 1
+    }
+  ],
+  "visualReview": "Seis recortes inspecionados quanto a identidade, máscaras-troféu sem cabeças literais, cenas distintas e número exato de alvos. O Colecionador trata vítimas como troféus, não como aliados.",
+  "reviewStatus": "revisado visualmente contra as três âncoras e a direção pictórica atual"
+}
