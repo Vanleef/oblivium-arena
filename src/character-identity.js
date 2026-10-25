@@ -4,7 +4,7 @@ const eloArt = new Set(['o-estomago-sem-fundo','o-equilibrio','o-menino-sem-somb
 const entityArt = new Set(['a-balanca-vazia','a-muralha','o-lugar-de-ninguem']);
 const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura']);
 const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
-const continuationArt = new Set(['a-boca-de-vidro','a-semente','a-linha-partida']);
+const continuationArt = new Set(['a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
@@ -71,7 +71,7 @@ export const characterRevisions = {
     "aliases": [
       "O Tecelão de Mentiras"
     ],
-    "lore": "Organiza versões incompatíveis de um mesmo acontecimento em uma trama de fios espirituais. Prende quem tenta escapar das contradições e desfaz os próprios nós para libertar seus cúmplices das aflições que os alcançam. Sempre conserva uma ponta da intriga fora de vista."
+    "lore": "Organiza versões incompatíveis de um mesmo acontecimento em uma trama de fios espirituais. Prende quem tenta escapar das contradições e desata os vínculos que debilitam seus cúmplices apenas quando ainda podem servir à intriga. Não age por lealdade: conserva sempre uma ponta da trama fora de vista para voltar a prendê-los."
   },
   "o-falso-profeta": {
     "name": "O Impostor",
@@ -1001,6 +1001,11 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-sussurro') {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (['o-tecelao-de-mentiras','a-boca-de-vidro','o-falso-profeta'].includes(id)) {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};

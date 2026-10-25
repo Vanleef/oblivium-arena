@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-25",
+  "characterId": "o-falso-profeta",
+  "name": "O Impostor",
+  "style": "Pintura digital pictórica com pinceladas visíveis e tinta em camadas, comparada diretamente às três âncoras confirmadas pelo usuário.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "sourceSheet": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetPath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+  "sourceDimensions": "1536x1024",
+  "sourceSheetDimensions": "1536x1024",
+  "activeDirectory": "art/characters/o-falso-profeta/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "gameplayChanged": false,
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/portrait.webp",
+      "scene": "Retrato do Impostor diante de um santuário falso, com halo único, túnica ameixa e manto marfim.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/passive.webp",
+      "scene": "Fé desviada: o próprio halo cobre o Impostor de energia roubada de uma multidão desfocada.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "impulso",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/skill-impulso.webp",
+      "scene": "Uma promessa falsa marca exatamente um inimigo.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "tecnica",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/skill-tecnica.webp",
+      "scene": "Bênção falsa: um único mote de energia recupera a força do próprio Impostor.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "voto",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/skill-voto.webp",
+      "scene": "Milagre fabricado lança uma rajada focada contra um único alvo marcado.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "despertar",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/skill-despertar.webp",
+      "scene": "Imagem Sagrada: o halo e o manto formam uma carapaça defensiva em torno do próprio Impostor.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-tecnica-confess",
+      "activePath": "art/characters/o-falso-profeta/style-reference-rework-20261025/skill-tecnica-confess.webp",
+      "scene": "Confissão falsa e defesa própria: manchas de maldição desaparecem do manto do Impostor enquanto a energia cobre somente seu corpo.",
+      "sourcePath": "art/source/o-falso-profeta-style-reference-rework-20261025-skill-tecnica-confess.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Fonte individual quadrada; sprite ativo reduzido a 512 × 512.",
+      "activeDimensions": "512x512"
+    }
+  ],
+  "visualReview": "Prancha e recortes inspecionados para identidade, acabamento pictórico, continuidade das formas, anatomia, quantidade de alvos e direção moral infernal. Rotas de formas alternativas preservadas sob a nova pasta."
+}

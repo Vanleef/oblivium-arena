@@ -188,10 +188,10 @@ function slug(text) {
 
 const characterFormArt = {
   "o-tecelao-de-mentiras": {
-    tecnica: { unweave: "/art/characters/o-tecelao-de-mentiras/skill-tecnica-unweave.webp" }
+    tecnica: { unweave: "/art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-tecnica-unweave.webp" }
   },
   "o-falso-profeta": {
-    tecnica: { confess: "/art/characters/o-falso-profeta/skill-tecnica-confess.webp" }
+    tecnica: { confess: "/art/characters/o-falso-profeta/style-reference-rework-20261025/skill-tecnica-confess.webp" }
   }
 };
 

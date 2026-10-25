@@ -318,3 +318,12 @@ Vinte e um dos 100 conjuntos foram refeitos e comparados diretamente com O Fim, 
 
 A proposta de expansão de protagonistas, coadjuvantes, rivais e antagonistas está registrada em `docs/CHARACTER_ROSTER_EXPANSION_20261025.md`. Usar as origens, vínculos e quantidades de versões desse documento ao estruturar novos personagens e suas artes.
 
+## Lote pictórico de Mentira: Intrigante, Serpe e Impostor — 25/10/2026
+
+Dezoito artes principais foram refeitas sob as três âncoras confirmadas, preservando as identidades ativas, as formas alternativas e os kits. O Intrigante mantém a face de porcelana rachada e a trama de fios; sua forma de apoio desata os vínculos de exatamente três aliados infernais, incluindo o próprio usuário, por interesse calculado. A Serpe conserva anatomia inteiramente serpentina de vidro espiritual em todas as cenas. O Impostor mantém rosto, vestes e halo único, e suas bênçãos e confissões continuam atos de manipulação e autopreservação. Os alvos respeitam os kits: efeitos individuais mostram um alvo, áreas mostram exatamente três inimigos e defesas pessoais mostram o próprio usuário. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Vinte e quatro dos 100 conjuntos foram refeitos e comparados diretamente com elas; 73 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
