@@ -244,3 +244,10 @@ A troca ativa está em `style-reference-rework-20261025/`, com 18 WebP ativos, t
 Após o usuário considerar artificial a primeira habilidade, o sprite `skill-impulso` foi substituído por uma cena mais simples: um inimigo percebe um vulto de O Arauto, visível apenas como reflexo coerente numa poça. A fonte quadrada 1254 × 1254 e o recorte ativo 512 × 512 estão registrados no manifesto. A direção vigente também passou a registrar as três âncoras aprovadas e a moralidade dos seres do Inferno.
 
 Três conjuntos estão em reformulação e revisão visual; os novos rascunhos de O Sussurro, A Máscara Dupla e O Anulador foram descartados antes da integração. A auditoria global não está concluída: três âncoras têm confirmação explícita do usuário, três conjuntos permanecem em revisão e 94 conjuntos aguardam comparação direta.
+
+
+## Revisão visual por âncoras: Sussurro, Máscara Dupla e Anulador — 25/10/2026
+
+Foram substituídas 21 artes ativas: seis de O Sussurro, nove de A Máscara Dupla e seis de O Anulador. Os três conjuntos usam O Fim, O Revelador e O Vidente como referências de acabamento. A cena de reação do Sussurro mostra um mensageiro ouvindo o sussurro fora de quadro e uma ondulação sutil na água; a passiva do Anulador mostra um único viajante observando seu sigilo protetor se desfazer, sem figuras adicionais. A caracterização do Anulador segue a regra canônica de vileza infernal. Pranchas e fontes de quadros corrigidos estão nos manifestos correspondentes. Nenhum efeito, alvo, custo, duração ou recarga mudou.
+
+Estado atual da auditoria: O Fim, O Revelador e O Vidente são as três âncoras confirmadas pelo usuário. Seis conjuntos foram refeitos sob comparação direta com as âncoras; 91 conjuntos ainda aguardam auditoria visual. Esta contagem substitui os números históricos anteriores. A revisão global permanece aberta.
