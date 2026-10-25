@@ -201,7 +201,7 @@ As seis artes ativas de A Ausência agora seguem a linha híbrida em `art/charac
 
 As cenas usam cidade lunar, bacia de sal, canal submerso, passagem de banho, praça aberta e escadaria vertical. Toque Ausente mostra uma vítima drenada; Ataque a Ninguém rebate a investida de um único atacante; Ausência Contagiosa afeta exatamente três inimigos; Não Estar protege somente a própria entidade. Reações, suor e desgaste aparecem apenas nos alvos quando a ação os justifica. Regras, custos, alvos e recargas permanecem iguais.
 
-Onze de 100 conjuntos estão completos sob a direção híbrida de 25/10; 89 ainda aguardam revisão visual nesta linha.
+Doze de 100 conjuntos estão completos sob a direção híbrida de 25/10; 88 ainda aguardam revisão visual nesta linha.
 
 ## O Arauto — revisão híbrida — 25/10/2026
 
@@ -222,3 +222,10 @@ A identidade preserva o corpo anfíbio baixo e largo, a cabeça calva, as pálpe
 As seis artes principais e as três artes da transformação foram refeitas em animação híbrida pintada 2D/3D. O jogo seleciona `art/characters/a-mascara-dupla/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_A_MASCARA_DUPLA_HYBRID_REWORK_20261025.json`.
 
 A personagem mantém pele castanha escura, cachos curtos prateados, capa branca, roupa preta com fechos dourados e máscaras marfim. Na forma de traição, o cabelo alonga e escurece; a meia máscara ocupa somente um lado do rosto e o olho âmbar permanece real. As composições alternam retrato, troca de forma no espelho, marca vista pela vítima, contra-ataque pela sombra, roubo após o golpe, proteção de objeto, retrato da forma base, retrato da forma alternativa e reação do atacante ao gesto alternativo. Reflexos foram mantidos alinhados ao corpo e as vítimas foram distinguidas visualmente da personagem. A revisão preserva alvos, custos, efeitos e recargas do kit.
+
+
+## A Boticária — A Jardineira das Feridas — revisão híbrida — 25/10/2026
+
+As seis artes ativas foram refeitas em animação híbrida pintada 2D/3D. O jogo seleciona `art/characters/a-jardineira-das-feridas/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_A_BOTICARIA_HYBRID_REWORK_20261025.json`.
+
+A identidade preserva pele castanha quente, olhos verdes, locs longos verde-escuros com poucas flores, casaco esmeralda, luvas de couro, faca curva embainhada e ramo medicinal. As seis cenas separam retrato, recuperação de um aliado, raiz que prende um tornozelo, infusão aplicada a exatamente três pessoas, espinhos no braço de uma vítima e defesa própria com uma folha rígida. As mãos, articulações, contato das raízes, leitura da folha e contagem de corpos foram revisados. Suor, sujeira, marcas, feridas e sangue acompanham o momento de cada personagem. Custos, alvos, efeitos e recargas do kit permanecem preservados.
