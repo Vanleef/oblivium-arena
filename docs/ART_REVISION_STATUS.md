@@ -237,3 +237,10 @@ O usuário confirmou O Fim, O Revelador e O Vidente como referências que seguem
 Nesta revisão, os três conjuntos apontados foram refeitos com seis cenas próprias cada, usando os três exemplos confirmados apenas como referências de acabamento. As novas imagens variam retrato, consequência, reação, efeito e defesa; foram conferidas em recortes de 512 × 512 quanto a identidade, anatomia, continuidade e quantidade de alvos. O Falsário (O Corretor de Memórias) teve a defesa corrigida para um único projétil. Nenhum kit, custo, alvo, efeito, duração ou recarga foi alterado.
 
 A troca ativa está em `style-reference-rework-20261025/`, com 18 WebP ativos, três folhas originais e três manifestos. Estado global da auditoria visual: três âncoras confirmadas pelo usuário, mais três conjuntos refeitos e comparados nesta entrega; 94 conjuntos restantes ainda precisam de comparação direta e reformulação quando necessário. Não marcar a revisão global como concluída até que os 100 conjuntos sejam avaliados contra as âncoras.
+
+
+## Correção visual de O Arauto — 25/10/2026
+
+Após o usuário considerar artificial a primeira habilidade, o sprite `skill-impulso` foi substituído por uma cena mais simples: um inimigo percebe um vulto de O Arauto, visível apenas como reflexo coerente numa poça. A fonte quadrada 1254 × 1254 e o recorte ativo 512 × 512 estão registrados no manifesto. A direção vigente também passou a registrar as três âncoras aprovadas e a moralidade dos seres do Inferno.
+
+Três conjuntos estão em reformulação e revisão visual; os novos rascunhos de O Sussurro, A Máscara Dupla e O Anulador foram descartados antes da integração. A auditoria global não está concluída: três âncoras têm confirmação explícita do usuário, três conjuntos permanecem em revisão e 94 conjuntos aguardam comparação direta.
