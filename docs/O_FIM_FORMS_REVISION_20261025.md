@@ -2,11 +2,11 @@
 
 ## Direção visual
 
-As transformações mudam a silhueta e preservam apenas poucos sinais de O Fim: rosto-vazio, fendas rubras, elos dourados e fragmentos de marfim com raízes. Os adornos brancos deixam de cobrir o corpo como no desenho original. Entre as três transformações, só Tirano usa coroa, redesenhada como uma diadema de guerra baixa, larga e assimétrica. A coroa da forma original aprovada permanece no retrato original.
+As transformações mudam a silhueta e preservam apenas poucos sinais de O Fim: rosto-vazio, fendas rubras, elos dourados e fragmentos de marfim com raízes. Os adornos brancos deixam de cobrir o corpo como no desenho original. Tirano é a única forma com coroa, redesenhada como uma diadema de guerra baixa, larga e assimétrica. A forma original mantém sua silhueta aprovada, mas agora sem coroa.
 
 | Forma | Silhueta | Arquétipo | Essência | Efeito ao entrar |
 | --- | --- | --- | --- | --- |
-| Original | Soberano esguio, manto escuro, coroa e marfim enraizado | Metamorfo | Éter | Escolhe uma manifestação |
+| Original | Soberano esguio, manto escuro e marfim enraizado; sem coroa | Metamorfo | Éter | Escolhe uma manifestação |
 | Tirano | Colosso curvado, centro de massa baixo, braços enormes e punhos maciços; coroa de guerra própria | Berserker | Cinza | Recebe 10 de Defesa |
 | Predador | Fera rasteira de seis membros, com boca anelar de vazio | Executor | Ruptura | Prepara +8 de dano para o próximo golpe |
 | Ruína | Corpo flutuante sem pernas, torso fragmentado e quatro braços espectrais; sem coroa | Interditor | Graça | Gera 1 Graça |
@@ -25,10 +25,10 @@ O seletor do Codex mostra arquétipo e afinidade. A busca e os filtros também l
 
 ## Arte
 
-Os oito arquivos novos substituem as versões anteriores do Tirano e da Ruína: dois retratos e seis cenas de combate. O Tirano aparece como um bruto de pedra e cinza com uma coroa de guerra exclusiva, sem o manto e a cobertura de marfim do original. A Ruína perde a coroa, o manto e as placas simétricas; sua forma fragmentada de quatro braços usa fios violetas para marcar, prender e interditar. Predador permanece inalterado.
+Os oito arquivos novos substituem as versões anteriores do Tirano e da Ruína: dois retratos e seis cenas de combate. O Tirano aparece como um bruto de pedra e cinza com uma coroa de guerra exclusiva, sem o manto e a cobertura de marfim do original. A Ruína perde a coroa, o manto e as placas simétricas; sua forma fragmentada de quatro braços usa fios violetas para marcar, prender e interditar. Predador permanece inalterado. Dois arquivos adicionais atualizam o retrato original e a cena Fim Inalcançável sem a coroa; as formas mantêm os aros dourados, o manto e os detalhes enraizados de marfim.
 
-Inventário, prompts resumidos, dimensões e hashes: `ART_O_FIM_TRANSFORMED_20261025.json`. Os inventários anteriores continuam preservados em `ART_O_FIM_COHESIVE_20261024.json` e `ART_O_FIM_DISTINCT_20261024.json`.
+Inventário, prompts resumidos, dimensões e hashes das transformações: `ART_O_FIM_TRANSFORMED_20261025.json`. Os dois arquivos originais sem coroa estão em `ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json`. Os inventários anteriores continuam preservados em `ART_O_FIM_COHESIVE_20261024.json` e `ART_O_FIM_DISTINCT_20261024.json`.
 
 ## Verificação
 
-Verificação local: **304 testes aprovados**, build com **936 arquivos**, auditoria de 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. Os oito arquivos WebP têm dimensões e hashes conferidos. Deploy e conferência pública serão registrados após a publicação desta revisão.
+Verificação local: testes, build, auditoria de arte e conferência pública serão registrados após a publicação desta revisão.

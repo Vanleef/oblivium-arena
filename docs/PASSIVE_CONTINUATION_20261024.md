@@ -19,13 +19,13 @@ As regras exigem dano real, Marca própria, limpeza e cura efetivas, remoção d
 
 ## Continuação — O Fim
 
-O Fim preserva a forma original aprovada e agora transforma de fato a silhueta nas manifestações. Entre as formas transformadas, só o Tirano usa coroa: uma diadema de guerra baixa, larga e assimétrica; o corpo vira um colosso curvado de punhos enormes, com um único fragmento de marfim. O Predador mantém seu visual rasteiro, furtivo e móvel, sem coroa. A Ruína flutua sem coroa, sem manto e sem placas simétricas, com torso fragmentado, quatro braços e fios violetas. Rosto-vazio, olhos rubros discretos, elos dourados e poucos detalhes de marfim mantêm o parentesco com O Fim.
+O Fim preserva a silhueta aprovada da forma original, agora sem coroa, e transforma de fato o corpo nas manifestações. Tirano é a única forma com coroa: uma diadema de guerra baixa, larga e assimétrica; o corpo vira um colosso curvado de punhos enormes, com um único fragmento de marfim. O Predador mantém seu visual rasteiro, furtivo e móvel, sem coroa. A Ruína flutua sem coroa, sem manto e sem placas simétricas, com torso fragmentado, quatro braços e fios violetas. Rosto-vazio, olhos rubros discretos, elos dourados e poucos detalhes de marfim mantêm o parentesco com O Fim.
 
 Os papéis mecânicos seguem distintos: Tirano (Berserker · Cinza) quebra Defesa e ganha força conforme perde Vida; Predador (Executor · Ruptura) marca, persegue e drena; Ruína (Interditor · Graça) prende, interrompe e sela apoio. Os efeitos de entrada permanecem diferentes. O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos nomes, arquétipos ou Essências.
 
-Os oito novos retratos e cenas do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_TRANSFORMED_20261025.json`; as silhuetas e os kits estão em `O_FIM_FORMS_REVISION_20261025.md`. O conjunto do Predador permanece inalterado.
+Os oito retratos e cenas novos do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_TRANSFORMED_20261025.json`; os dois arquivos da forma original sem coroa estão em `ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json`. As silhuetas e os kits estão em `O_FIM_FORMS_REVISION_20261025.md`. O conjunto do Predador permanece inalterado.
 
-Verificação desta revisão: testes, build, auditoria de arte, deploy e conferência pública serão registrados após a publicação.
+Verificação da revisão anterior: 304 testes aprovados, build com 936 arquivos, auditoria de 100 personagens e 675 referências (626 caminhos presentes, nenhum ausente); commit `27c0a24` publicado na `main`, deploy de produção `READY` e Codex público conferido em 25/10/2026. Esta revisão retira a coroa também da forma original; os testes e o deploy correspondentes serão registrados após sua publicação.
 
 ## Continuação — Podridão, Silêncio e O Sussurro
 

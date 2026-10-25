@@ -1,7 +1,7 @@
 {
   "date": "2026-10-25",
   "generator": "image_gen.imagegen (built-in)",
-  "scope": "Redesign Tyrant and Ruin as distinct transformations of O Fim; keep Tyrant as the only transformed form with a crown and preserve the existing Predator art.",
+  "scope": "Redesign Tyrant and Ruin as distinct transformations; reserve the only crown across O Fim's forms for Tyrant, with the original crown removal documented in ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json; preserve the existing Predator art.",
   "references": [
     "approved-elo-union-20261023/portrait.webp",
     "body-forms-distinct-20261024/portrait-predator.webp"

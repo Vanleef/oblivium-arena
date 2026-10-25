@@ -1,4 +1,4 @@
-const approved = '/art/characters/o-fim/approved-elo-union-20261023';
+const originalCrownless = '/art/characters/o-fim/original-crownless-20261025';
 const formsArt = '/art/characters/o-fim/body-forms-distinct-20261024';
 const transformedArt = '/art/characters/o-fim/body-forms-transformed-20261025';
 const slots = ['fenda','decreto','coroa'];
@@ -8,9 +8,9 @@ const skill = (id,name,description,effects={},art=`${formsArt}/skill-${id}.webp`
 export const FINAL_BOSS = Object.freeze({
  id:'the-end',name:'O Fim',nameEn:'The End',title:'Rei do Inferno',role:'Rei do Inferno',
  realm:'Inferno',elo:'Vazio',eloId:'vazio',color:'void',symbol:'◍',affinity:'essence',maxHp:100,
- portrait:`${approved}/portrait.webp`,baseFormName:'Forma original',
+ portrait:`${originalCrownless}/portrait.webp`,baseFormName:'Forma original',
  lore:'O Fim não tem rosto nem forma fixos. Assume sempre a forma do maior medo de quem o olha: cada observador encara uma manifestação única, mesmo quando várias almas o veem ao mesmo tempo.',
- artNote:'A forma original conserva a manifestação aprovada: um soberano esguio de rosto vazio, coroa, aros dourados e mantos escuros com marfim enraizado. Entre as transformações, só Tirano usa coroa: uma diadema de guerra baixa, larga e assimétrica. Tirano vira um colosso curvado de punhos enormes e conserva só um fragmento de marfim; Predador segue uma fera rasteira e móvel; Ruína flutua sem coroa, com torso fragmentado, quatro braços espectrais e fios de contenção. Cada forma guarda apenas poucos sinais de O Fim. Nenhuma aparência é sua forma verdadeira.',
+ artNote:'A forma original conserva a silhueta aprovada: um soberano esguio de rosto vazio, aros dourados e mantos escuros com marfim enraizado, agora sem coroa. Tirano é a única forma com coroa: uma diadema de guerra baixa, larga e assimétrica. Ele vira um colosso curvado de punhos enormes e conserva só um fragmento de marfim; Predador segue uma fera rasteira e móvel; Ruína flutua sem coroa, com torso fragmentado, quatro braços espectrais e fios de contenção. Cada forma guarda apenas poucos sinais de O Fim. Nenhuma aparência é sua forma verdadeira.',
  mechanic:'Três manifestações do medo',
  baseArchetype:'transformation',archetype:'transformation',archetypes:['transformation'],baseArchetypes:['transformation'],
  combo:'Na forma original, escolha uma manifestação. Cada uma muda retrato, técnicas, arquétipo, Essência e efeito de entrada. Tirano esmaga guardas e ganha força conforme perde Vida com Cinza; Predador caça com Ruptura; Ruína prende e interrompe com magia espectral e Graça. Fim Inalcançável restaura 10 de Vida e a forma original. As recargas pertencem às posições e continuam entre formas.',
@@ -42,7 +42,7 @@ export function createFinalBossAbilities(){
  const entryDescriptions={tyrant:'Recebe 10 de Defesa ao entrar nesta forma.',predator:'Prepara +8 de dano para o próximo golpe ao entrar nesta forma.',ruin:'Gera 1 Graça ao entrar nesta forma.'};
  return [
   ...FINAL_BOSS.bodyForms.map((f,i)=>skill(slots[i],`Assumir ${f.name}`,`Assume ${f.name}, substitui as três primeiras técnicas e o retrato. ${entryDescriptions[f.key]} ${f.description} Permanece assim até usar Fim Inalcançável.`,{target:'self',...entryEffects[f.key],kind:'support',classes:['Transformação','Instantânea'],assumeForm:f.key,shift:shiftTo(f.key),forms:FINAL_BOSS.bodyForms.map(form=>({...kits[form.key][i],id:slots[i],formKey:form.key}))},f.portrait)),
-  skill('despertar','Fim Inalcançável','Fica Invulnerável a novas habilidades inimigas por 1 turno, recupera 10 de Vida e retorna à forma original. Aflições já ativas continuam. Não reinicia recargas.',{target:'self',heal:10,invulnerable:1,defense:true,kind:'defense',costs:{random:1},cooldown:4,shift:shiftTo('base'),classes:['Estratégica','Instantânea']},`${approved}/skill-despertar.webp`)
+  skill('despertar','Fim Inalcançável','Fica Invulnerável a novas habilidades inimigas por 1 turno, recupera 10 de Vida e retorna à forma original. Aflições já ativas continuam. Não reinicia recargas.',{target:'self',heal:10,invulnerable:1,defense:true,kind:'defense',costs:{random:1},cooldown:4,shift:shiftTo('base'),classes:['Estratégica','Instantânea']},`${originalCrownless}/skill-despertar.webp`)
  ];
 }
 export function createFinalBoss(){return {...FINAL_BOSS,art:{portrait:FINAL_BOSS.portrait},abilities:createFinalBossAbilities()};}
