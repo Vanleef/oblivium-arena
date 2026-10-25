@@ -25,7 +25,7 @@ O seletor do Codex mostra arquétipo e afinidade. A busca e os filtros também l
 
 ## Arte
 
-Os oito arquivos novos substituem as versões anteriores do Tirano e da Ruína: dois retratos e seis cenas de combate. O Tirano aparece como um bruto de pedra e cinza com uma coroa de guerra exclusiva, sem o manto e a cobertura de marfim do original. A Ruína perde a coroa, o manto e as placas simétricas; sua forma fragmentada de quatro braços usa fios violetas para marcar, prender e interditar. Predador permanece inalterado. Dois arquivos adicionais atualizam o retrato original e a cena Fim Inalcançável sem a coroa; as formas mantêm os aros dourados, o manto e os detalhes enraizados de marfim.
+Os oito arquivos novos substituem as versões anteriores do Tirano e da Ruína: dois retratos e seis cenas de combate. O Tirano aparece como um bruto de pedra e cinza com uma coroa de guerra exclusiva e placas localizadas de marfim, sem o manto ou a cobertura extensa do original. A Ruína perde a coroa, o manto e as placas simétricas; sua forma fragmentada de quatro braços usa fios violetas para marcar, prender e interditar, com fragmentos brancos no tórax e nos braços. Predador permanece inalterado. Dois arquivos adicionais atualizam o retrato original e a cena Fim Inalcançável sem a coroa; as formas mantêm os aros dourados, o manto e os detalhes enraizados de marfim.
 
 ### Detalhes de marfim
 
