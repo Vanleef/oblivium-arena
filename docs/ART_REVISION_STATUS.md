@@ -172,3 +172,9 @@ A inspeção visual identificou que as seis artes base ainda exibiam o antigo ac
 A identidade de lenhador idoso permanece reconhecível: pele cinza-amarronzada de casca, barba com musgo, cabelo pálido como raízes, placa de madeira assimétrica no ombro, casaco gasto e um único machado de poda curvo. As cenas ficam no reino morto descrito na história, com mármore rachado e raízes sob as ruínas; o kit mantém os alvos e efeitos atuais, sem gore.
 
 Esta atualização cobre um personagem e seis artes. A auditoria global de presença e a revisão visual dos demais conjuntos não foram recalculadas.
+
+## O Fim — revisão híbrida — 25/10/2026
+
+A inspeção visual encontrou a arte ativa dividida entre revisões antigas; o jogo agora seleciona `art/characters/o-fim/hybrid-animation-20261025/`. Foram refeitos os 14 quadros ativos: retrato original, retorno da forma original, três retratos de manifestações e nove cenas de habilidades. As fontes quadradas 1024 × 1024 ficam em `art/source/o-fim-hybrid-rework-20261025/`; os recortes 512 × 512 usados pelo jogo ficam no diretório ativo. Manifesto, cenas e hashes: `ART_O_FIM_HYBRID_REWORK_20261025.json`.
+
+O Fim segue sem corpo verdadeiro ou rosto fixo; cada observador vê seu maior medo. A forma original é uma presença espectral de manto, vazio facial, aros dourados e raízes de marfim. Tirano retoma a primeira abordagem monstruosa aprovada: corpo colossal, grotesco e assimétrico, pele consumida por chamas, chifres irregulares e diadema exclusiva. A anatomia mantém dois braços e duas pernas legíveis. Predador é uma fera quadrúpede de caça; Ruína, um arco de pedra flutuante com quatro braços espectrais. As cenas mostram ações e alvos em locais do Inferno, com câmeras variadas; para Tirano, foram excluídos uniforme, manto, bastão, pontes e tribunais. IDs, recursos, custos, alvos, efeitos, duração e recargas não mudaram. Esta entrega revisa os 14 quadros de O Fim e não recalcula a auditoria global.
