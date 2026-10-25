@@ -54,3 +54,9 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 ## Uso da cosmologia
 
 Consultar `COSMOLOGY_AND_NILO.md` antes de ilustrar O Fim, O Prólogo, O Caminho, uma entidade de Elo, Nilo ou almas nomeadas. Os líderes apenas dormem e despertam; uma entidade destruída retorna como fragmentos. A absorção de Essência por Nilo é involuntária. As consequências dos sonos ocorrem no mundo dos vivos e não devem ser convertidas automaticamente em clima ou geografia dos domínios.
+
+
+## Lote pictórico de Coroa II: Príncipe, Déspota e Herdeiro — 25/10/2026
+
+Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando as identidades efetivamente ativas no jogo, os nomes de personagem e o kit. O Príncipe inclui também a arte separada da forma Apertar o Grilhão. A Déspota conserva a matriarca idosa e colossal, as três tranças altas e o martelo imperial; Comando da Regente mostra exatamente três aliados. O Herdeiro conserva a efígie dinástica de porcelana viva, alta e estreita, com olhos rubros, fratura cobalto e antebraço esquerdo de correntes. As cenas refletem a vileza infernal e não apresentam nenhum deles como bondoso. Alvos, efeitos, custos, durações, recargas e regras permanecem iguais.
+

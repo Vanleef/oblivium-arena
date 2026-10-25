@@ -9,12 +9,12 @@ test('Herdeiro integra seis cenas da efígie dinástica e preserva riscos e defe
  const c=characterById['o-herdeiro-cativo'];
  const assets=[c.art.portrait,c.art.passive,...c.abilities.map(a=>a.art)];
  assert.equal(new Set(assets).size,6);
- const manifest=JSON.parse(await readFile(new URL('../docs/ART_HERDEIRO_20261024.json',import.meta.url)));
+ const manifest=JSON.parse(await readFile(new URL('../docs/ART_O_HERDEIRO_CATIVO_STYLE_REFERENCE_REWORK_20261025.json',import.meta.url)));
  assert.equal(manifest.assets.length,6);
  for(const asset of manifest.assets){
-  assert.ok(assets.includes('/'+asset.path));const bytes=await readFile(new URL('../'+asset.path,import.meta.url));
-  assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);
-  assert.equal(asset.width,512);assert.equal(asset.height,512);
+  assert.ok(assets.includes('/'+asset.activePath));const bytes=await readFile(new URL('../'+asset.activePath,import.meta.url));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.activeSha256);
+  assert.equal(asset.activeDimensions,'512x512');assert.equal(asset.activeBytes,bytes.length);
  }
  assert.match(c.lore,/porcelana viva/);assert.match(c.lore,/antebraço esquerdo de correntes/);
  assert.equal(c.abilities[0].missingHpDamage.cap,9);
@@ -27,3 +27,4 @@ test('Herdeiro integra seis cenas da efígie dinástica e preserva riscos e defe
   assert.equal(b.allies[0].hp,expected);assert.equal(b.allies[0].charge,charge);
  }
 });
+

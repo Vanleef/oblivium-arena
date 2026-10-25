@@ -1006,17 +1006,17 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-herdeiro-cativo') {
-    const base = `/art/characters/${id}/anime-review-20261024`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-regente-de-cinzas') {
-    const base = `/art/characters/${id}/anime-review-20261024`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-principe-das-correntes') {
-    const base = `/art/characters/${id}/anime-review-20261024`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       forms:{...art.forms,impulso:{...art.forms?.impulso,drag:`${base}/skill-impulso-drag.webp`}}};
@@ -1095,4 +1095,5 @@ export function reviseKitIdentity(kit, revision) {
     passive:{...kit.passive,name:text(kit.passive.name),description:text(kit.passive.description)},
     abilities:kit.abilities.map(ability)};
 }
+
 

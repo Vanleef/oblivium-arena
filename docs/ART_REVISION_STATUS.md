@@ -302,3 +302,19 @@ O usuário esclareceu que os dois precisam ser imediatamente reconhecíveis como
 ## Estado atual da auditoria — 25/10/2026
 
 Dezoito conjuntos foram refeitos e comparados diretamente com as três âncoras aprovadas; 79 dos 100 conjuntos ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Lote pictórico de Coroa II: Príncipe, Déspota e Herdeiro — 25/10/2026
+
+Dezenove artes foram refeitas sob as três âncoras confirmadas, mantendo as identidades ativas e os kits. O Príncipe tem seis imagens principais e uma imagem própria para a forma Apertar o Grilhão. A Déspota mantém o corpo colossal de matriarca e seu Comando da Regente mostra exatamente três aliados. O Herdeiro mantém a efígie alta de porcelana viva, com fratura azul-cobalto, olhos rubros e braço esquerdo de correntes. As três figuras são infernais e cruéis. Nenhum alvo, efeito, custo, duração, recarga ou regra do kit mudou.
+
+## Estado atual da auditoria — 25/10/2026
+
+Vinte e um dos 100 conjuntos foram refeitos e comparados diretamente com O Fim, O Revelador e O Vidente; 76 ainda aguardam auditoria visual. As três âncoras aprovadas ficam fora da contagem de conjuntos. A revisão global permanece aberta.
+
+
+
+## Referência de elenco para lotes futuros — 25/10/2026
+
+A proposta de expansão de protagonistas, coadjuvantes, rivais e antagonistas está registrada em `docs/CHARACTER_ROSTER_EXPANSION_20261025.md`. Usar as origens, vínculos e quantidades de versões desse documento ao estruturar novos personagens e suas artes.
+
