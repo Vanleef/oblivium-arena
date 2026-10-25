@@ -12,7 +12,8 @@ Aplicar esta linguagem a todas as artes novas e reformuladas do jogo. A referên
 - Variar idade, corpo, rosto, cabelo, roupa, acessórios, silhueta, altura e ângulo entre personagens; variar também a câmera e a direção do movimento entre as habilidades.
 - Fazer cada cena corresponder ao kit atual e aos locais estabelecidos no mundo e no Elo. Consultar `src/data.js`, `src/story-content.js` e `docs/COSMOLOGY_AND_NILO.md`.
 - Respeitar o número exato de inimigos e aliados. Defesas pessoais mostram apenas o usuário protegido.
-- Conferir anatomia, mãos, articulações e continuidade de roupa/acessórios; exportar WebP 512 × 512 e manter fonte quadrada de 1024 × 1024.
+- Conferir anatomia, mãos, articulações e continuidade de roupa/acessórios. Ajustar expressão e microexpressões ao instante da cena; calibrar suor, fuligem, feridas e sangue somente quando a ação justificar, evitando rostos ou poses artificiais.
+- Exportar WebP 512 × 512 e manter fonte quadrada de 1024 × 1024.
 
 ## Auditoria de artes antigas
 
@@ -26,6 +27,7 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Apodrecido: seis artes no reino morto de mármore e raízes do Inferno/Podridão; `O_APODRECIDO_HYBRID_REWORK_20261025.json`.
 - O Fim: quatorze quadros entre forma original, manifestações e habilidades no Inferno; `ART_O_FIM_HYBRID_REWORK_20261025.json`.
 - O Escudo Vivo: seis artes no cruzamento protegido de Paraíso; `ART_O_ESCUDO_VIVO_HYBRID_REWORK_20261025.json`.
+- O Anulador: seis artes em locais diversos de Vazio no Inferno; `ART_O_ANULADOR_HYBRID_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 

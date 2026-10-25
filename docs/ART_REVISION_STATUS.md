@@ -185,3 +185,12 @@ O Fim segue sem corpo verdadeiro ou rosto fixo; cada observador vê seu maior me
 As seis artes ativas foram refeitas em animação híbrida pintada 2D/3D: retrato, passiva e quatro técnicas. O jogo seleciona agora `art/characters/o-escudo-vivo/hybrid-rework-20261025/`; as fontes quadradas 1024 × 1024 estão em `art/source/o-escudo-vivo-hybrid-rework-20261025/`. Prompts, cenas, câmeras e hashes: `ART_O_ESCUDO_VIVO_HYBRID_REWORK_20261025.json`.
 
 O personagem preserva a armadura clara, o visor e o peito de vitral azul, a filigrana dourada, o pano marfim e o escudo oval. As ações usam a passagem de Paraíso descrita pela muralha com marcas de mãos e canais rasos. Os quadros distinguem a guarda própria, o impacto contra um adversário, o amparo a exatamente um aliado, o contra-ataque a um inimigo e a defesa pessoal. IDs, alvos, custos, efeitos, duração e recarga do kit permanecem iguais. A revisão híbrida dos demais conjuntos ativos continua pendente; presença de arquivo não conta como aprovação estilística.
+
+
+## O Anulador — revisão híbrida — 25/10/2026
+
+As seis artes ativas de O que Apaga foram refeitas sob o nome atual do personagem, O Anulador. O jogo seleciona `art/characters/o-que-apaga/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_O_ANULADOR_HYBRID_REWORK_20261025.json`. A revisão preserva o homem mais velho de pele escura, cabelo branco curto, faixa clara, túnica índigo e antebraço segmentado negro.
+
+As cenas variam entre passagem em ruínas, arcada de mercado, cisterna alagada, escadaria vertical e bacia de cinzas. Traço Apagado e Branco sobre a Guarda mostram um adversário cada; Extinguir o Traço consome a marca no mesmo alvo. Fora da Existência protege somente O Anulador. Expressões, suor, fuligem e pequenos ferimentos acompanham a força de cada ação, sem sangue ou gore quando a cena não justifica. Identidade, alvos, custos, efeitos, duração e recarga do kit não mudaram.
+
+Sete de 100 conjuntos estão agora concluídos sob a direção híbrida de 25/10; 93 continuam pendentes. Os conjuntos revisados na antiga linha anime ainda precisam passar pela adaptação híbrida.
