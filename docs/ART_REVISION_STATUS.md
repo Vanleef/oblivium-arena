@@ -275,3 +275,12 @@ Dezoito artes foram refeitas em pintura digital pictórica, mantendo identidade,
 ## Estado atual da auditoria — 25/10/2026
 
 Três âncoras têm confirmação explícita do usuário. Doze conjuntos foram refeitos e comparados com as referências; 85 dos 100 conjuntos ainda aguardam auditoria visual direta. A revisão global continua aberta.
+
+
+## Lote pictórico de Sangria, parte II: Gêmeos, Carrasco e Mãe Rubra — 25/10/2026
+
+Dezoito artes foram refeitas sob as três âncoras aprovadas, preservando as identidades e os kits. A cena de Voto dos Gêmeos foi substituída por um quadro individual com exatamente três inimigos sem armadura. O Carrasco mantém o capuz como vazio sem face e a armação compacta de execução. A Mãe Rubra usa fios como controle possessivo ao sustentar um aliado; sua lore deixa claro que esse suporte prolonga a caçada dos predadores de Sangria. Os três são vis e guiados pela maldade. O Açougueiro permanece como criatura humanoide de carne e musculatura robustas, e seus alvos de cutelo continuam sem armadura. Nenhum kit, custo, alvo, efeito, duração ou recarga mudou.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente são as três âncoras confirmadas pelo usuário. Quinze conjuntos foram refeitos e comparados diretamente com elas; 82 dos 100 conjuntos ainda aguardam auditoria visual. A revisão global permanece aberta.

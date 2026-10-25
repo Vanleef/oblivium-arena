@@ -25,6 +25,10 @@ Usar em toda arte: `art/characters/o-fim/hybrid-animation-20261025/portrait.webp
 
 Representar os seres do Inferno como quase todos vis e movidos pela maldade. Não criar personagens bondosos no Inferno. Alguns podem discordar de O Fim; essa divergência não os torna bondosos. Mostrar a vileza em expressões, postura, relação com as vítimas e escolhas de cena, preservando a personalidade específica e a lore canônica.
 
+## O Açougueiro: anatomia e alvos do cutelo
+
+O Açougueiro é uma criatura infernal humanoide feita de carne e musculatura robustas, com volume e peso próprios; não deve parecer um homem comum fantasiado. Cada quadro mantém um único cutelo. Em qualquer habilidade que use essa lâmina, o alvo está sem armadura, elmo, escudo ou placas rígidas. Compor os golpes para alcançar carne exposta, tecido ou uma abertura, sem mostrar o cutelo batendo em metal.
+
 ## Fontes e recortes
 
 Para uma prancha 3 × 2, guardar a imagem original 1536 × 1024 e recortar seis células quadradas de 512 × 512. Para outras grades, conservar as dimensões reais da fonte e registrar tamanho da folha e dos recortes no manifesto. Para arte individual, manter a fonte quadrada de 1024 × 1024. Não inventar dimensões de fonte nem tratar uma etiqueta no manifesto como validação visual.
@@ -44,6 +48,7 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Anulador: seis artes em locais diversos de Vazio no Inferno; `ART_O_ANULADOR_HYBRID_REWORK_20261025.json`.
 - A Ausência: seis artes em locais distintos de Vazio no Inferno; `ART_A_AUSENCIA_HYBRID_REWORK_20261025.json`.
 - O Açougueiro, A Viúva e O Colecionador: dezoito artes em Sangria no Inferno, com identidade e kits preservados; manifestos `ART_O_ACOUGUEIRO_STYLE_REFERENCE_REWORK_20261025.json`, `ART_A_VIUVA_ESCARLATE_STYLE_REFERENCE_REWORK_20261025.json` e `ART_O_COLECIONADOR_DE_CABECAS_STYLE_REFERENCE_REWORK_20261025.json`.
+- Gêmeos do Cutelo, O Carrasco sem Rosto e A Mãe Rubra: dezoito artes em Sangria no Inferno; identidades, alvos exatos e moralidade vil preservados. O Voto dos Gêmeos mostra exatamente três inimigos sem armadura; a técnica da Mãe Rubra sustenta um aliado por fios de posse, não por afeto. Manifestos `ART_GEMEOS_DO_CUTELO_STYLE_REFERENCE_REWORK_20261025.json`, `ART_O_CARRASCO_SEM_ROSTO_STYLE_REFERENCE_REWORK_20261025.json` e `ART_A_MAE_RUBRA_STYLE_REFERENCE_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 

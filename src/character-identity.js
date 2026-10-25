@@ -44,7 +44,7 @@ export const characterRevisions = {
     "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. Sangria reconhece seus atos pela lâmina que desce."
   },
   "a-mae-rubra": {
-    "lore": "Estende aos seus um cordão de essência retirado das vítimas. Cede a própria vitalidade para conservar esse círculo e recupera o que perdeu ao drenar outra alma. A proteção que concede mantém os predadores de Sangria em combate."
+    "lore": "Estende um cordão de essência roubada para manter seus predadores em movimento; para ela, proteção é posse. Cede vitalidade para sustentar os lacaios que escolheu e recupera o custo drenando outra alma. Sob seu domínio, Sangria continua a caçada."
   },
   "o-soberano-quebrado": {
     "name": "O Soberano",
@@ -931,6 +931,11 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-colecionador-de-cabecas') {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (['gemeos-do-cutelo','o-carrasco-sem-rosto','a-mae-rubra'].includes(id)) {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
