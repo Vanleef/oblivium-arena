@@ -358,3 +358,11 @@ A Pestilência, O Corrupto e A Rainha dos Fungos receberam seis cenas-base cada,
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta e seis dos 100 conjuntos foram refeitos e comparados diretamente com elas; 61 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+## Lote pictórico de Silêncio I: Espectador, Carcereira e Silenciador — 25/10/2026
+
+O Espectador, A Carcereira e O Silenciador receberam seis cenas-base cada, em 18 sprites WebP 512 × 512, além de duas imagens de formas alternativas. O Espectador conserva a lente-monóculo, a barba branca e a indiferença predatória; a Carcereira mantém os cachos grisalhos, o casaco azul e as chaves, favorecendo cúmplices e trancando as vítimas do lado de fora; o Silenciador mantém a máscara acústica e os detalhes ciano. Os ataques individuais mostram um único alvo; a Guarida Seletiva protege uma aliada; defesas pessoais mostram apenas o usuário. Retaliação do Espectador e Clamor sem Retorno atingem uma vítima cada. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_SILENCIO_PAINTERLY_REWORK_20261025.json`.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta e nove dos 100 conjuntos foram refeitos e comparados diretamente com elas; 58 ainda aguardam auditoria visual. A revisão global permanece aberta.

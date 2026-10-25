@@ -187,6 +187,12 @@ function slug(text) {
 }
 
 const characterFormArt = {
+  "o-que-observou": {
+    voto: { witness: "/art/characters/o-que-observou/painterly-rework-20261025/skill-voto-witness.webp" }
+  },
+  "o-surdo": {
+    impulso: { echo: "/art/characters/o-surdo/painterly-rework-20261025/skill-impulso-echo.webp" }
+  },
   "a-praga-andante": {
     tecnica: { fever: "/art/characters/a-praga-andante/painterly-rework-20261025/skill-tecnica-fever.webp" }
   },
