@@ -60,3 +60,8 @@ Os recortes seguem os nomes `portrait.webp`, `passive.webp`, `skill-impulso.webp
 ## Revisão de seis conjuntos — 21/10/2026
 
 Mensageira: cartas, origamis e evasão; O que Revela: monóculo transparente e prismas; Olho Desarmado: leitura de vestígios, impacto de palma e esquiva baixa; Guardiã: cordas de juramento e capa tecida defensiva; O que Pesa: pêndulo e gravidade; Trono Vazio: soberana espectral, correntes e intangibilidade. Cada conjunto contém retrato, passiva e quatro cenas distintas. A defesa da Guardiã foi corrigida por geração de imagem para mostrar a lança desviada pela capa.
+
+
+## Âncoras visuais e lore infernal — 25/10/2026
+
+As imagens aprovadas pelo usuário para a linha de arte são os retratos de O Fim, O Revelador e O Vidente. Toda arte de personagem deve ser comparada a essas três referências; um rótulo “híbrido” ou um caminho atualizado não substitui inspeção visual. Os seres do Inferno são cruéis e movidos pela maldade. Quem discorda de O Fim pode ter rivalidade ou interesses próprios sem ser bondoso. Aplicar a regra conforme a origem e a lore canônicas.
