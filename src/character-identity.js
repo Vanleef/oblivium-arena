@@ -34,7 +34,7 @@ export const characterRevisions = {
     "lore": "Retém a assinatura espiritual de cada vítima como um troféu. Persegue quem já deixou uma abertura e reúne os vestígios da caçada para uma execução preparada com cuidado. Seu acervo cresce com a carnificina que alimenta Sangria."
   },
   "gemeos-do-cutelo": {
-    "lore": "Duas presenças de Sangria dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. A alternância entre os gêmeos torna cada aproximação uma ameaça dupla."
+    "lore": "Gêmeos fraternos de Sangria, semelhantes no olhar e no desenho do rosto apesar das diferenças de pele e cabelo, dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. Sua cumplicidade cruel transforma cada aproximação em ameaça dupla."
   },
   "o-carrasco-sem-rosto": {
     "name": "O Carrasco",
@@ -936,6 +936,11 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (['gemeos-do-cutelo','o-carrasco-sem-rosto','a-mae-rubra'].includes(id)) {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (['o-soberano-quebrado','a-juiza-de-ferro','o-trono-vazio'].includes(id)) {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};

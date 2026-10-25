@@ -284,3 +284,21 @@ Dezoito artes foram refeitas sob as três âncoras aprovadas, preservando as ide
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente são as três âncoras confirmadas pelo usuário. Quinze conjuntos foram refeitos e comparados diretamente com elas; 82 dos 100 conjuntos ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Lote pictórico de Coroa: Soberano, Magistrada e Suserano — 25/10/2026
+
+Dezoito artes foram refeitas pelas três âncoras aprovadas, mantendo as identidades ativas, a vileza infernal e os kits. O Soberano recebeu retrato e defesa individual sem figuras secundárias; sua Coroa sobre Ruínas continua sendo um efeito pessoal. A passiva da Magistrada foi corrigida para conter apenas ela e um alvo Exposto. O Suserano protege um único vassalo ao rebater um atacante, e Domínio sem Rei mostra exatamente três aliados. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente seguem como as três âncoras confirmadas pelo usuário. Dezoito conjuntos foram refeitos e comparados diretamente com elas; 79 dos 100 conjuntos ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Correção da identidade dos Gêmeos do Cutelo — 25/10/2026
+
+O usuário esclareceu que os dois precisam ser imediatamente reconhecíveis como gêmeos. A prancha e os seis recortes ativos foram refeitos para reforçar idade, estrutura facial, olhos e postura espelhada compartilhados, preservando as diferenças já estabelecidas de pele, cabelo, cicatriz e roupa. O Voto continua mostrando exatamente três alvos sem armadura. O kit não mudou.
+
+## Estado atual da auditoria — 25/10/2026
+
+Dezoito conjuntos foram refeitos e comparados diretamente com as três âncoras aprovadas; 79 dos 100 conjuntos ainda aguardam auditoria visual. A revisão global permanece aberta.
