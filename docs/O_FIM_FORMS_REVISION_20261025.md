@@ -27,8 +27,14 @@ O seletor do Codex mostra arquétipo e afinidade. A busca e os filtros também l
 
 Os oito arquivos novos substituem as versões anteriores do Tirano e da Ruína: dois retratos e seis cenas de combate. O Tirano aparece como um bruto de pedra e cinza com uma coroa de guerra exclusiva, sem o manto e a cobertura de marfim do original. A Ruína perde a coroa, o manto e as placas simétricas; sua forma fragmentada de quatro braços usa fios violetas para marcar, prender e interditar. Predador permanece inalterado. Dois arquivos adicionais atualizam o retrato original e a cena Fim Inalcançável sem a coroa; as formas mantêm os aros dourados, o manto e os detalhes enraizados de marfim.
 
-Inventário, prompts resumidos, dimensões e hashes das transformações: `ART_O_FIM_TRANSFORMED_20261025.json`. Os dois arquivos originais sem coroa estão em `ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json`. Os inventários anteriores continuam preservados em `ART_O_FIM_COHESIVE_20261024.json` e `ART_O_FIM_DISTINCT_20261024.json`.
+### Detalhes de marfim
+
+O Tirano e a Ruína receberam detalhes localizados de osso branco, usando o Predador como referência de material. No Tirano, as placas maiores ficam no ombro e no antebraço, com fragmentos menores nas mãos; na Ruína, os fragmentos aparecem junto à clavícula, em um antebraço e no torso. A cobertura não se repete pelo corpo, preservando o contraste com a silhueta escura e com os efeitos próprios de cada forma. As seis cenas de habilidade acompanham os retratos.
+
+Os oito arquivos desta atualização estão em `ART_O_FIM_IVORY_DETAILS_20261025.json`; as versões transformadas anteriores continuam arquivadas em `ART_O_FIM_TRANSFORMED_20261025.json`.
+
+Inventário, prompts resumidos, dimensões e hashes das artes atuais: `ART_O_FIM_IVORY_DETAILS_20261025.json`. As versões transformadas anteriores estão em `ART_O_FIM_TRANSFORMED_20261025.json`. Os dois arquivos originais sem coroa estão em `ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json`. Os inventários anteriores continuam preservados em `ART_O_FIM_COHESIVE_20261024.json` e `ART_O_FIM_DISTINCT_20261024.json`.
 
 ## Verificação
 
-Verificação: build com **938 arquivos**; auditoria de 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**; `git diff --check` sem erros. A suíte não foi reexecutada após esta última alteração visual; a revisão anterior teve **304 testes aprovados**. O commit `6471ab162d189a1123b430ef2024923e23157636` está publicado na `main`, com deploy de produção `READY`. No Codex público, os retratos carregaram: forma original sem coroa, Tirano com diadema de guerra, Predador com a arte preservada e Ruína sem coroa, flutuante e com quatro braços. Fim Inalcançável também usa a arte original sem coroa.
+Verificação desta atualização: build com **946 arquivos**; auditoria de 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**; `git diff --check` sem erros. A suíte de testes não foi executada nesta revisão visual. A forma original e Fim Inalcançável continuam sem coroa; Tirano mantém a coroa exclusiva; Predador permanece inalterado; Ruína continua sem coroa e com quatro braços.

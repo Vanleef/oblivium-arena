@@ -1,6 +1,6 @@
 const originalCrownless = '/art/characters/o-fim/original-crownless-20261025';
 const formsArt = '/art/characters/o-fim/body-forms-distinct-20261024';
-const transformedArt = '/art/characters/o-fim/body-forms-transformed-20261025';
+const transformedArt = '/art/characters/o-fim/body-forms-ivory-20261025';
 const slots = ['fenda','decreto','coroa'];
 const shiftTo = form => slots.map(slot=>({slot,form}));
 const skill = (id,name,description,effects={},art=`${formsArt}/skill-${id}.webp`) => ({id,name,description,target:'enemy',costs:{affinity:1},cooldown:0,kind:'strike',classes:['Espiritual','Instantânea'],art,...effects});
