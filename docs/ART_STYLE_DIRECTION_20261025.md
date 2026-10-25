@@ -17,3 +17,8 @@ Animação estilizada com volume tridimensional pintado em quadro 2D. Formas sim
 
 - O Revelador: seis imagens para retrato, passiva e quatro habilidades, em cenas de rotas de pedra e nascentes de Paraíso; manifesto `O_REVELADOR_HYBRID_REWORK_20261025.json`.
 - O Vidente: seis imagens com mirantes, caminhos marcados e abrigo sombreado; manifesto `O_VIDENTE_HYBRID_REWORK_20261025.json`.
+
+
+## Uso da cosmologia
+
+Consultar `COSMOLOGY_AND_NILO.md` antes de ilustrar O Fim, O Prólogo, O Caminho, uma entidade de Elo, Nilo ou almas nomeadas. Os líderes apenas dormem e despertam; uma entidade destruída retorna como fragmentos. A absorção de Essência por Nilo é involuntária. As consequências dos sonos ocorrem no mundo dos vivos e não devem ser convertidas automaticamente em clima ou geografia dos domínios.

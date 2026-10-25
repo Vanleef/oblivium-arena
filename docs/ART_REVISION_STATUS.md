@@ -117,13 +117,10 @@ O teste do trio inicial também verifica o retrato aprovado de O Fim em seu cami
 
 O Soberano Quebrado, A Brasa Eterna e O Eco sem Dono receberam uma segunda forma jogável com três técnicas substitutas e um retrato alternativo próprio. Os retratos-base dessas formas também foram adicionados para manter a transição visual. A suíte específica de formas verifica mudança de kit, retrato, retorno e afinidade; a auditoria após essa entrega encontrou 91 dos 600 caminhos base, com 509 ausentes em 86 personagens. A lacuna de arte das técnicas e passivas do restante do elenco permanece separada desta entrega.
 
-## Estado atual da revisão — 25/10/2026
+## Estado do checkout — 24/10/2026 (registro histórico)
 
-A auditoria registrada no commit `27c0a24` confirmou 626 caminhos de arte válidos para o elenco. As revisões híbridas abaixo substituem os caminhos visuais usados pelo kit e preservam os arquivos WebP 512 × 512, os alvos e as mecânicas. Os totais históricos acima registram auditorias de estados anteriores do checkout.
+As contagens acima são registros de cada lote, não uma garantia de que todos os arquivos estejam presentes na versão atual. `npm run audit:art` percorre agora 625 caminhos únicos referenciados pelos 100 personagens: 600 de arte base e caminhos de formas, com sobreposições entre categorias. No checkout atual, 131 arquivos existem e 494 faltam; 83 personagens têm ao menos uma referência ausente. O fallback vetorial evita espaços de imagem quebrados, mas não substitui a conclusão das ilustrações. Use a auditoria executável como fonte atual de cobertura.
 
-## O Revelador — reestilização híbrida — 25/10/2026
-
-Seis artes preservam o personagem mais velho, negro e de ombros largos, com cachos grisalhos, manto de pedra clara, casaco azul-acinzentado e prisma manual. Rotas gravadas e nascentes situam a ação em Paraíso e Verdade. Nada a Esconder recolhe Éter de uma vítima exposta; Luz sem Mentira e Verdade Incisiva mostram um adversário cada; Clareza Partilhada mostra o Revelador e dois aliados; Transparência Absoluta protege somente o próprio usuário. Fontes WebP 1024 × 1024, saídas WebP 512 × 512 e cenas/câmeras: `O_REVELADOR_HYBRID_REWORK_20261025.json`.
 ## O Soberano — técnicas da forma base — 24/10/2026
 
 Passiva e quatro técnicas receberam artes 2D anime próprias, geradas a partir do retrato-base aprovado. A Autoridade Estilhaçada usa fragmentos de coroa diante de uma única marca; Decreto do Rei Caído marca um inimigo com corrente; Ajoelhar representa o controle físico do alvo; Coroa sobre Ruínas protege O Soberano e dois aliados; Trono Interior mostra uma defesa pessoal. As cinco imagens foram integradas como WebP 512 × 512, com hashes e resumos de cena em `ART_SOBERANO_20261024.json`. A cobertura caiu de 511 para 506 caminhos ausentes.
@@ -143,6 +140,18 @@ O Príncipe recebeu sete imagens próprias em anime consistente, incluindo Apert
 A Déspota recebeu seis cenas próprias sob a diretriz de diversidade: corpo de matriarca colossal de cinza, rosto largo e envelhecido, um olho opaco, tranças arqueadas e silhueta trapezoidal. Ordem Absoluta mostra exatamente a Déspota, o Príncipe e o Suserano, preservando suas identidades e mãos descobertas do Príncipe. Prompts, versão corrigida e hashes: `ART_DESPOTA_20261024.json`.
 
 
+## O Revelador — reestilização híbrida — 25/10/2026
+
+Seis artes preservam o personagem mais velho, negro e de ombros largos, com cachos grisalhos, manto de pedra clara, casaco azul-acinzentado e prisma manual. Rotas gravadas e nascentes situam a ação em Paraíso e Verdade. Nada a Esconder recolhe Éter de uma vítima exposta; Luz sem Mentira e Verdade Incisiva mostram um adversário cada; Clareza Partilhada mostra o Revelador e dois aliados; Transparência Absoluta protege somente o próprio usuário. Fontes WebP 1024 × 1024, saídas WebP 512 × 512 e cenas/câmeras: `O_REVELADOR_HYBRID_REWORK_20261025.json`.
+
 ## O Vidente — reestilização híbrida — 25/10/2026
 
 Seis artes criam para O Vidente uma silhueta jovem, baixa e esguia, com cabelo preto liso, túnica cor de argila e faixa verde-musgo, distinta do Revelador mais velho e de ombros largos. Mirantes, caminhos marcados, passagens sombreadas e abrigo simples situam as cenas em Paraíso e Verdade. Olhar Desarmante e Intenção Desvendada mostram um inimigo cada; Amparo da Clareza mostra somente o Vidente e o aliado atendido; Véu da Serenidade protege só o usuário. A passiva representa a recuperação própria após amparar outra alma. Ações, câmeras, efeitos e alvos do kit preservados. Fontes e hashes: `O_VIDENTE_HYBRID_REWORK_20261025.json`.
+
+## Cosmologia e Nilo — 25/10/2026
+
+A cosmologia dos três líderes, a natureza fragmentária das entidades dos Elos, o estado receptivo involuntário de Nilo, os Nomeados e as quatro versões de sua existência foram registrados em `COSMOLOGY_AND_NILO.md`. Aplicar esse texto como referência canônica para as próximas cenas e revisões de lore.
+
+## Estado da revisão — 25/10/2026
+
+A auditoria registrada no commit `27c0a24` confirmou 626 caminhos de arte válidos para o elenco. Os doze novos caminhos destes dois lotes foram anexados a arquivos existentes no repositório; a mudança é de conteúdo visual, mantendo as referências e alvos dos kits ativos. Reexecutar `npm run audit:art` no checkout continua sendo a forma de confirmar a cobertura atual.

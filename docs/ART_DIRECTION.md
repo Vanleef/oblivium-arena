@@ -10,7 +10,7 @@ Direção vigente para as novas revisões desde 25/10/2026: animação estilizad
 - Habilidades capturam ações em curso, com consequência e reação visíveis; não usar pose de foto.
 - Fazer alvos e beneficiários visíveis corresponderem ao kit. Defesas pessoais mostram só o usuário.
 - Variar idade, corpo, rosto, cabelo, roupa, materiais, silhueta e câmera entre personagens consecutivos.
-- Situar cada cena no mundo e Elo definidos em `src/data.js` e na documentação de lore; não inventar locais sem apoio no jogo.
+- Situar cada cena no mundo e Elo definidos em `src/data.js` e em `docs/COSMOLOGY_AND_NILO.md` e `src/story-content.js`; não inventar locais sem apoio no jogo.
 - Entregar WebP 512 × 512 sem texto/UI e manter uma fonte quadrada de 1024 × 1024 para auditoria.
 - Inspiração ampla em animação estilizada; não reproduzir personagens, enquadramentos, marcas ou cenários de franquias.
 
