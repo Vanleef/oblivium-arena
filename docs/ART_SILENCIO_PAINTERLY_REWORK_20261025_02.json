@@ -1,0 +1,303 @@
+{
+  "date": "2026-10-25",
+  "title": "Lote pictórico de Silêncio II: A Cúmplice, O Anfitrião e O Desertor",
+  "style": "Pintura digital pictórica com pinceladas visíveis, camadas de tinta, bordas pintadas e volumes construídos por formas de cor.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "counts": {
+    "baseCharacters": 3,
+    "baseAssets": 18,
+    "alternateFormAssets": 1,
+    "sourceFiles": 4
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cell": "512x512"
+  },
+  "characters": [
+    {
+      "id": "a-testemunha-cega",
+      "name": "A Cúmplice",
+      "identity": "Mulher de pele escura, cabeça raspada, venda lilás, casaco branco de gola alta e medalhão de latão. Ela sabe o que ocorreu e retém o testemunho até que a omissão favoreça sua própria sobrevivência.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/a-testemunha-cega/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/a-testemunha-cega/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato fechado da Cúmplice com a venda lilás, o casaco branco e o medalhão.",
+          "sourcePath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/a-testemunha-cega/painterly-rework-20261025/passive.webp",
+          "scene": "A mão segura o medalhão contra marcas espectrais que se apagam; sem alvos definidos.",
+          "sourcePath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "skill-impulso",
+          "activePath": "art/characters/a-testemunha-cega/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Presença Denunciada: a bengala intercepta a arma de um único inimigo, revelando a agressão.",
+          "sourcePath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-tecnica",
+          "activePath": "art/characters/a-testemunha-cega/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Memória do Golpe: a Cúmplice prepara a resposta de exatamente uma aliada ferida; nenhuma vítima inimiga aparece.",
+          "sourcePath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-voto",
+          "activePath": "art/characters/a-testemunha-cega/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Testemunho Final: a Cúmplice aponta a bengala contra um único inimigo exposto.",
+          "sourcePath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-despertar",
+          "activePath": "art/characters/a-testemunha-cega/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "Campo sem Testemunha: a Cúmplice se fecha num redemoinho de cinzas e tecido, sem aliados visíveis.",
+          "sourcePath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "o-quarto-vazio",
+      "name": "O Anfitrião",
+      "identity": "Hospedeiro espectral de rosto pálido, cabelo castanho-avermelhado e casaco preto de gola alta com chave de latão. Oferece uma entrada e nega qualquer acolhimento, projetando corredores onde ninguém encontra ajuda.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-quarto-vazio/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-quarto-vazio/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato do Anfitrião com rosto pálido, cabelo castanho-avermelhado, gola preta e chave de latão.",
+          "sourcePath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-quarto-vazio/painterly-rework-20261025/passive.webp",
+          "scene": "O Anfitrião abre uma pequena sala vazia entre as mãos; não há personagens secundários.",
+          "sourcePath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "skill-impulso",
+          "activePath": "art/characters/o-quarto-vazio/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Ausência Pesada: uma chave pressiona a guarda de um único inimigo.",
+          "sourcePath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-tecnica",
+          "activePath": "art/characters/o-quarto-vazio/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Ninguém Vem: a presença do Anfitrião comprime exatamente três inimigos num salão visto de cima.",
+          "sourcePath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 3
+        },
+        {
+          "slot": "skill-voto",
+          "activePath": "art/characters/o-quarto-vazio/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Quarto sem Retorno: o Anfitrião ergue a chave diante de um único alvo isolado.",
+          "sourcePath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-despertar",
+          "activePath": "art/characters/o-quarto-vazio/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "Quarto Inacessível: o Anfitrião fica sozinho no limiar da porta que se fecha.",
+          "sourcePath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "o-vigia-ausente",
+      "name": "O Desertor",
+      "identity": "Predador de cabelo branco desgrenhado, capa negra e lanterna de latão presa por corrente. Abandonou deliberadamente quem deveria guardar e espera a recusa de ajuda para atacar pela retaguarda.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-vigia-ausente/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato fechado do Desertor com cabelo branco, capa negra e lanterna acesa.",
+          "sourcePath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/passive.webp",
+          "scene": "O Desertor ajusta sozinho o pavio e a corrente da lanterna.",
+          "sourcePath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "skill-impulso",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Passagem Desguarnecida: o Desertor surpreende um único inimigo armado entre ruínas.",
+          "sourcePath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-tecnica",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Vigia na Sombra: o Desertor prepara sozinho o contra-ataque, sem outra figura visível.",
+          "sourcePath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        },
+        {
+          "slot": "skill-voto",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Chegar Depois: o Desertor alcança a retaguarda de um único alvo exposto.",
+          "sourcePath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "skill-despertar",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "Posto Vazio: a capa do Desertor desvia sozinha um golpe que chega de fora do quadro.",
+          "sourcePath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp"
+    }
+  ],
+  "alternateForms": [
+    {
+      "characterId": "o-vigia-ausente",
+      "character": "O Desertor",
+      "form": "ambush",
+      "name": "Golpe da Retaguarda",
+      "assets": [
+        {
+          "slot": "skill-voto-ambush",
+          "activePath": "art/characters/o-vigia-ausente/painterly-rework-20261025/skill-voto-ambush.webp",
+          "sourcePath": "art/source/o-vigia-ausente-skill-voto-ambush-source.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual de 1254 × 1254 reduzida para 512 × 512.",
+          "scene": "Após anular a agressão, o Desertor ataca a retaguarda de exatamente um agressor com a lanterna e a lâmina.",
+          "targetCount": 1
+        }
+      ]
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "art/source/a-testemunha-cega-painterly-rework-20261025-sheet.webp",
+      "dimensions": "1536x1024",
+      "format": "WebP"
+    },
+    {
+      "path": "art/source/o-quarto-vazio-painterly-rework-20261025-sheet.webp",
+      "dimensions": "1536x1024",
+      "format": "WebP"
+    },
+    {
+      "path": "art/source/o-vigia-ausente-painterly-rework-20261025-sheet.webp",
+      "dimensions": "1536x1024",
+      "format": "WebP"
+    },
+    {
+      "path": "art/source/o-vigia-ausente-skill-voto-ambush-source.webp",
+      "dimensions": "1254x1254",
+      "format": "WebP"
+    }
+  ],
+  "visualReview": "As três pranchas, os recortes e a fonte quadrada do contra-ataque foram conferidos quanto a identidade, acabamento pictórico, anatomia, expressões, enquadramentos e quantidade de alvos. Memória do Golpe mostra exatamente uma aliada; Ninguém Vem mostra exatamente três inimigos; ataques individuais mostram um alvo; o contra-ataque alternativo mostra um agressor; as defesas são pessoais. A forma Golpe da Retaguarda usa a abertura de contra-ataque já existente. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou."
+}

@@ -366,3 +366,12 @@ O Espectador, A Carcereira e O Silenciador receberam seis cenas-base cada, em 18
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta e nove dos 100 conjuntos foram refeitos e comparados diretamente com elas; 58 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Lote pictórico de Silêncio II: Cúmplice, Anfitrião e Desertor — 25/10/2026
+
+A Cúmplice, O Anfitrião e O Desertor receberam seis cenas-base cada, em 18 sprites WebP 512 × 512, mais uma arte da forma Golpe da Retaguarda. A Cúmplice mantém a venda lilás, o casaco branco de gola alta e o medalhão; Memória do Golpe prepara exatamente uma aliada. O Anfitrião mantém o rosto pálido, o cabelo castanho-avermelhado, a chave de latão e a hospitalidade negada; Ninguém Vem mostra exatamente três inimigos. O Desertor conserva o cabelo branco, a capa escura e a lanterna de corrente; o contra-ataque abre Golpe da Retaguarda contra exatamente um agressor. Ataques individuais mostram um alvo e defesas pessoais mostram apenas o usuário. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_SILENCIO_PAINTERLY_REWORK_20261025_02.json`.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Quarenta e dois dos 100 conjuntos foram refeitos e comparados diretamente com elas; 55 ainda aguardam auditoria visual. A revisão global permanece aberta.
