@@ -201,7 +201,7 @@ As seis artes ativas de A Ausência agora seguem a linha híbrida em `art/charac
 
 As cenas usam cidade lunar, bacia de sal, canal submerso, passagem de banho, praça aberta e escadaria vertical. Toque Ausente mostra uma vítima drenada; Ataque a Ninguém rebate a investida de um único atacante; Ausência Contagiosa afeta exatamente três inimigos; Não Estar protege somente a própria entidade. Reações, suor e desgaste aparecem apenas nos alvos quando a ação os justifica. Regras, custos, alvos e recargas permanecem iguais.
 
-Dez de 100 conjuntos estão completos sob a direção híbrida de 25/10; 90 ainda aguardam revisão visual nesta linha.
+Onze de 100 conjuntos estão completos sob a direção híbrida de 25/10; 89 ainda aguardam revisão visual nesta linha.
 
 ## O Arauto — revisão híbrida — 25/10/2026
 
@@ -215,3 +215,10 @@ A identidade preserva o rosto pálido e anguloso, o cabelo prateado sobre um olh
 As seis artes ativas foram refeitas em animação híbrida pintada 2D/3D. O jogo seleciona `art/characters/o-sussurro/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_O_SUSSURRO_HYBRID_REWORK_20261025.json`.
 
 A identidade preserva o corpo anfíbio baixo e largo, a cabeça calva, as pálpebras pesadas, a bolsa vocal translúcida, as mãos palmadas, o casaco ameixa, o colete marfim, a faixa azul-marinho, o tubo de latão e o leque de ferro. As cenas variam entre retrato, conversão de essência, reação de vítima ao veneno, consequência do golpe e roubo, desvio com contra-ataque e dissolução defensiva. Anatomia, postura, suor, sujeira, feridas e sangue foram avaliados de acordo com cada momento. A revisão preserva alvos, custos, efeitos e recargas do kit.
+
+
+## A Máscara Dupla — revisão híbrida — 25/10/2026
+
+As seis artes principais e as três artes da transformação foram refeitas em animação híbrida pintada 2D/3D. O jogo seleciona `art/characters/a-mascara-dupla/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_A_MASCARA_DUPLA_HYBRID_REWORK_20261025.json`.
+
+A personagem mantém pele castanha escura, cachos curtos prateados, capa branca, roupa preta com fechos dourados e máscaras marfim. Na forma de traição, o cabelo alonga e escurece; a meia máscara ocupa somente um lado do rosto e o olho âmbar permanece real. As composições alternam retrato, troca de forma no espelho, marca vista pela vítima, contra-ataque pela sombra, roubo após o golpe, proteção de objeto, retrato da forma base, retrato da forma alternativa e reação do atacante ao gesto alternativo. Reflexos foram mantidos alinhados ao corpo e as vítimas foram distinguidas visualmente da personagem. A revisão preserva alvos, custos, efeitos e recargas do kit.

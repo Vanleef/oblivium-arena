@@ -1,6 +1,6 @@
 import { applyArchetypeForm } from "./archetypes.js";
 
-const folder=id=>`/art/characters/${id}/body-forms-20261023`;
+const folder=id=>id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':`/art/characters/${id}/body-forms-20261023`;
 const slots=['impulso','tecnica','voto'];
 const shift=form=>slots.map(slot=>({slot,form}));
 const back=shift('base');

@@ -123,7 +123,7 @@ test('Devorador e Máscara Dupla têm formas legíveis, artes próprias e retorn
  beast.hp=beast.maxHp;refreshSkillForms(dev);assert.equal(beast.bodyForm,'base');
  const mask=morphBattle('a-mascara-dupla'),spirit=mask.allies[0],maskForm=characterById['a-mascara-dupla'].bodyForms[0],base=spirit.art.portrait;
  cast(mask,0);refreshSkillForms(mask);assert.equal(spirit.bodyForm,'betrayal');assert.notEqual(spirit.art.portrait,base);assert.equal(spirit.abilities[0].formKey,'other');
- const altSkill=spirit.abilities[0].art;assert.equal(altSkill,'/art/characters/a-mascara-dupla/body-forms-20261023/skill-impulso-other.webp');
+ const altSkill=spirit.abilities[0].art;assert.equal(altSkill,'/art/characters/a-mascara-dupla/hybrid-rework-20261025/skill-impulso-other.webp');
  spirit.skillForms.impulso.expiresAt=mask.round;mask.round++;refreshSkillForms(mask);assert.equal(spirit.bodyForm,'base');assert.equal(spirit.art.portrait,base);
  for(const image of [beast.art.portrait,devForm.portrait,base,maskForm.portrait,altSkill])assert.ok(fs.existsSync(new URL(`..${image}`, import.meta.url)),image);
 });
