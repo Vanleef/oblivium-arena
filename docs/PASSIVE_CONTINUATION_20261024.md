@@ -19,11 +19,13 @@ As regras exigem dano real, Marca própria, limpeza e cura efetivas, remoção d
 
 ## Continuação — O Fim
 
-O Fim agora tem uma identidade visual compartilhada nas três transformações: rosto-vazio, coroa, aros dourados, manto e marfim rachado com raízes. Tirano cresce para a força bruta (Berserker · Cinza), Predador mantém a caça móvel (Executor · Ruptura) e Ruína fica esguia para prender inimigos com magia espectral (Interditor · Graça). Os efeitos de entrada continuam distintos; os kits do Tirano e da Ruína foram alinhados a esses papéis.
+O Fim preserva a forma original aprovada e agora transforma de fato a silhueta nas manifestações. Entre as formas transformadas, só o Tirano usa coroa: uma diadema de guerra baixa, larga e assimétrica; o corpo vira um colosso curvado de punhos enormes, com um único fragmento de marfim. O Predador mantém seu visual rasteiro, furtivo e móvel, sem coroa. A Ruína flutua sem coroa, sem manto e sem placas simétricas, com torso fragmentado, quatro braços e fios violetas. Rosto-vazio, olhos rubros discretos, elos dourados e poucos detalhes de marfim mantêm o parentesco com O Fim.
 
-O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos seus nomes, arquétipos ou Essências. O Predador mantém as artes existentes. As oito artes novas do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_COHESIVE_20261024.json`; as regras e silhuetas estão em `O_FIM_FORMS_REVISION_20261024.md`.
+Os papéis mecânicos seguem distintos: Tirano (Berserker · Cinza) quebra Defesa e ganha força conforme perde Vida; Predador (Executor · Ruptura) marca, persegue e drena; Ruína (Interditor · Graça) prende, interrompe e sela apoio. Os efeitos de entrada permanecem diferentes. O seletor do Codex expõe arquétipo e afinidade por forma; filtros e busca encontram as manifestações pelos nomes, arquétipos ou Essências.
 
-Validação local: **304 testes aprovados**, build com **928 arquivos**, auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. O deploy de artes e kits `4618cbfe1360369a01c42b9bb060544384547f2d` ficou READY; nele conferi retratos, sinais compartilhados, arquétipos, Essências e técnicas. A correção dos resumos condicionais foi publicada no commit `59a5d49bfe42646d5e22513d28968cd8e2fd794a`, também READY. No Codex público, conferi o bônus e o Atordoamento condicionais em português e inglês, além do Enfraquecer e selo de apoio da Ruína.
+Os oito novos retratos e cenas do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_TRANSFORMED_20261025.json`; as silhuetas e os kits estão em `O_FIM_FORMS_REVISION_20261025.md`. O conjunto do Predador permanece inalterado.
+
+Verificação desta revisão: testes, build, auditoria de arte, deploy e conferência pública serão registrados após a publicação.
 
 ## Continuação — Podridão, Silêncio e O Sussurro
 

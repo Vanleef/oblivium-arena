@@ -135,9 +135,9 @@ test("all character names and passive rules have English copy", () => {
   const formLabels = { berserker: "Berserker", burst: "Executor", control: "Interditor" };
   const resourceLabels = { cinza: "Cinza", ruptura: "Ruptura", graca: "Graça" };
   const expectedForms = [
-    ["Tyrant", "BERSERKER", "Ash", "Berserker · Ash affinity. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
+    ["Tyrant", "BERSERKER", "Ash", "Berserker · Ash affinity. A hunched colossus with massive fists and a war diadem. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
     ["Predator", "EXECUTOR", "Rupture", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
-    ["Ruin", "DISRUPTOR", "Grace", "Disruptor · Grace affinity. Binds one target with spectral magic, Stuns and seals support; a circle spreads the restraint. Fear of losing continuity."]
+    ["Ruin", "DISRUPTOR", "Grace", "Disruptor · Grace affinity. Crownless, it floats with a fragmented torso and four spectral arms, weaving threads that bind and interrupt. Fear of losing continuity."]
   ];
   assert.deepEqual(FINAL_BOSS.bodyForms.map(form => [
     localizeText(form.name, "en"),
@@ -152,9 +152,9 @@ test("all character names and passive rules have English copy", () => {
   ]);
   const bossAbilities = createFinalBossAbilities();
   assert.deepEqual(bossAbilities.slice(0, 3).map(ability => localizeText(ability.description, "en")), [
-    "Assume the Tyrant, replace your first three techniques and portrait. Gain 10 Defense when entering this Form. Berserker · Ash affinity. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation. This Form remains until you use Unreachable End.",
+    "Assume the Tyrant, replace your first three techniques and portrait. Gain 10 Defense when entering this Form. Berserker · Ash affinity. A hunched colossus with massive fists and a war diadem. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation. This Form remains until you use Unreachable End.",
     "Assume the Predator, replace your first three techniques and portrait. Gain +8 damage for your next strike on entry. Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted. This Form remains until you use Unreachable End.",
-    "Assume the Ruin, replace your first three techniques and portrait. Generate 1 Grace when entering this Form. Disruptor · Grace affinity. Binds one target with spectral magic, Stuns and seals support; a circle spreads the restraint. Fear of losing continuity. This Form remains until you use Unreachable End."
+    "Assume the Ruin, replace your first three techniques and portrait. Generate 1 Grace when entering this Form. Disruptor · Grace affinity. Crownless, it floats with a fragmented torso and four spectral arms, weaving threads that bind and interrupt. Fear of losing continuity. This Form remains until you use Unreachable End."
   ]);
   for (const ability of bossAbilities) {
     assert.notEqual(localizeText(ability.name, "en"), ability.name, `missing English boss technique name: ${ability.name}`);

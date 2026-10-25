@@ -574,7 +574,7 @@ Object.assign(phrases, {
   "Lança da Primeira Luz": "Spear of the First Light",
   [FINAL_BOSS.title]: "King of Hell",
   [FINAL_BOSS.lore]: "The End has no fixed face or Form. It always takes the shape of its observer's greatest fear: each witness sees a unique manifestation, even when several souls look upon it at once.",
-  [FINAL_BOSS.artNote]: "The original Form keeps its approved appearance: a slender, faceless sovereign with a crown, gold rings, mantle, and ivory overtaken by roots. All three Forms retain those traits. The Tyrant grows into brute force; the Predator becomes a low, mobile beast; the Ruin floats as a slender spectral caster. No appearance is its true Form.",
+  [FINAL_BOSS.artNote]: "The original Form keeps its approved appearance: a slender, faceless sovereign with a crown, gold rings, and dark mantles with rooted ivory. Among the transformations, only the Tyrant wears a crown: a low, broad, asymmetrical war diadem. The Tyrant becomes a hunched colossus with enormous fists and keeps only one ivory fragment; the Predator remains a low, mobile beast; the Ruin floats without a crown, with a fragmented torso, four spectral arms, and binding threads. Each Form keeps only a few traces of the original. No appearance is its true Form.",
   [FINAL_BOSS.mechanic]: "Three Manifestations of Fear",
   [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant breaks guards with brute force and grows stronger as Health falls, using Ash; the Predator hunts with Rupture; the Ruin binds and interrupts with spectral magic and Grace. Unreachable End restores 10 Health and returns to the original Form. Cooldowns belong to each slot and carry across Forms.",
   "Forma original": "Original Form",
@@ -586,9 +586,9 @@ Object.assign(phrases, {
 });
 
 const finalBossForms = [
-  ["Tirano", "Tyrant", "Berserker · afinidade Cinza. Golpes pesados quebram Defesa e ganham força conforme perde Vida. Medo de ser subjugado.", "Berserker · Ash affinity. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
+  ["Tirano", "Tyrant", "Berserker · afinidade Cinza. Colosso curvado, punhos maciços e diadema de guerra. Golpes pesados quebram Defesa e ganham força conforme perde Vida. Medo de ser subjugado.", "Berserker · Ash affinity. A hunched colossus with massive fists and a war diadem. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
   ["Predador", "Predator", "Executor · afinidade Ruptura. Persegue uma presa, recupera Vida e escolhe entre drená-la ou consumir sua marca. Medo de ser caçado.", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
-  ["Ruína", "Ruin", "Interditor · afinidade Graça. Prende um alvo com magia espectral, atordoa e sela apoio; um círculo espalha a contenção. Medo de perder a própria continuidade.", "Disruptor · Grace affinity. Binds one target with spectral magic, Stuns and seals support; a circle spreads the restraint. Fear of losing continuity."]
+  ["Ruína", "Ruin", "Interditor · afinidade Graça. Sem coroa, flutua com torso fragmentado e quatro braços espectrais. Tece fios que prendem e interrompem. Medo de perder a própria continuidade.", "Disruptor · Grace affinity. Crownless, it floats with a fragmented torso and four spectral arms, weaving threads that bind and interrupt. Fear of losing continuity."]
 ];
 for (const [sourceName, targetName, sourceDescription, targetDescription] of finalBossForms) {
   phrases[sourceName] = targetName;
