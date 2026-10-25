@@ -341,3 +341,12 @@ O Devorador, A Saqueadora e O Insaciável receberam seis cenas-base cada, em 18 
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta dos 100 conjuntos foram refeitos e comparados diretamente com elas; 67 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Lote pictórico de Fome II: Matriarca, Credor e Usurária — 25/10/2026
+
+A Matriarca, O Credor e A Usurária receberam seis cenas-base cada, em 18 sprites WebP 512 × 512. As identidades ativas foram preservadas: trança branca e vestes vinho da Matriarca, monóculo violeta do Credor e cabelo curto e capa negra da Usurária. O apoio da Matriarca mostra exatamente três aliados ao todo; Adiantamento Vital sustenta um aliado e Confisco Coletivo atinge exatamente três inimigos. Ataques individuais mostram um alvo, e as defesas são pessoais. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_FOME_PAINTERLY_REWORK_20261025_02.json`.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta e três dos 100 conjuntos foram refeitos e comparados diretamente com elas; 64 ainda aguardam auditoria visual. A revisão global permanece aberta.

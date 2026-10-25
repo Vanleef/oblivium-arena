@@ -64,3 +64,6 @@ Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando
 
 
 - O Devorador, A Saqueadora e O Insaciável: dezoito cenas-base pictóricas e duas imagens para Fome sem Corpo. O Devorador conserva a forma quadrúpede; a Saqueadora mantém a mão espectral separada de seus dois braços reais; o Insaciável conserva a identidade ativa e incorpora guardas ao corpo. Ataques mostram um alvo e defesas pessoais não incluem aliados. Manifesto: `ART_FOME_PAINTERLY_REWORK_20261025.json`.
+
+
+- A Matriarca, O Credor e A Usurária: dezoito cenas pictóricas para Fome, com ração coercitiva, marcas de dívida, confisco e proteção pessoal. A Matriarca mantém tranças brancas, vestes vinho e joias; o Credor conserva bigode, monóculo violeta e abaco; a Usurária mantém corte curto, capa negra e livro-caixa. A cura de equipe mostra três aliados; o confisco em área mostra exatamente três inimigos. Manifesto: `ART_FOME_PAINTERLY_REWORK_20261025_02.json`.

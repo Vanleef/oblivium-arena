@@ -7,7 +7,7 @@ const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono'])
 const continuationArt = new Set(['a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['o-incendiario','a-brasa-eterna','o-odio-encarnado']);
-const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo']);
+const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
