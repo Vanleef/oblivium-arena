@@ -64,4 +64,4 @@ Mensageira: cartas, origamis e evasão; O que Revela: monóculo transparente e p
 
 ## Âncoras visuais e lore infernal — 25/10/2026
 
-As imagens aprovadas pelo usuário para a linha de arte são os retratos de O Fim, O Revelador e O Vidente. Toda arte de personagem deve ser comparada a essas três referências; um rótulo “híbrido” ou um caminho atualizado não substitui inspeção visual. Os seres do Inferno são cruéis e movidos pela maldade. Quem discorda de O Fim pode ter rivalidade ou interesses próprios sem ser bondoso. Aplicar a regra conforme a origem e a lore canônicas.
+As imagens aprovadas pelo usuário para a linha de arte são os retratos de O Fim, O Revelador e O Vidente. Toda arte de personagem deve ser comparada a essas três referências; um rótulo “híbrido” ou um caminho atualizado não substitui inspeção visual. Os seres do Inferno são quase todos vis e movidos pela maldade; não criar personagens bondosos nesse domínio. Alguns podem discordar de O Fim sem serem bondosos. Aplicar a regra conforme a origem e a lore canônicas.
