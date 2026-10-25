@@ -11,7 +11,12 @@ Direção vigente para todas as artes desde 25/10/2026: híbrido 2D/3D de anima�
 - Fazer alvos e beneficiários visíveis corresponderem ao kit. Defesas pessoais mostram só o usuário.
 - Variar idade, corpo, rosto, cabelo, roupa, materiais, silhueta e câmera entre personagens consecutivos.
 - Situar cada cena no mundo e Elo definidos em `src/data.js` e em `docs/COSMOLOGY_AND_NILO.md` e `src/story-content.js`; não inventar locais sem apoio no jogo.
-- Entregar WebP 512 × 512 sem texto/UI e manter uma fonte quadrada de 1024 × 1024 para auditoria.
+- Entregar WebP 512 × 512 sem texto/UI. Para folhas de 3 × 2, arquivar a folha original 1536 × 1024 e gerar seis recortes; para artes geradas individualmente, manter a fonte quadrada de 1024 × 1024.
+- Âncoras visuais aprovadas pelo usuário: O Fim, O Revelador e O Vidente. Usar essas imagens como referências de acabamento, sem copiar seus personagens, poses, cenários ou paletas.
+- A inspeção de conclusão é visual: presença de arquivos, nomes de pastas ou rótulos anteriores de “híbrido” não provam aderência à linha.
+- Variar quadro, distância, altura, ação e ambiente em cada habilidade. Mostrar ação, reação, consequência, efeito, objeto ou apenas parte do personagem quando fizer sentido; evitar repetir ataques frontais.
+- Corrigir anatomia e continuidade: membros e dedos, articulações, empunhadura e contato de armas/raízes/folhas/projéteis, proporção dos ferimentos e quantidade exata de pessoas. Expressões, suor, sujeira, cicatrizes, inchaço, marcas, olhos, cabelo e roupas devem corresponder ao momento e à identidade.
+- Preservar identidade, silhueta, idade, acessórios, lateralidade, mundo, Elo, lore e efeito mecânico de cada kit. Não alterar custos, alvos, efeitos ou regras para justificar uma cena.
 - Referência ampla de animação pintada e quadrinhos em movimento, como Arcane e Aranhaverso; não reproduzir personagens, enquadramentos, marcas ou cenários específicos.
 
 A tabela de conjuntos abaixo documenta lotes anteriores e permanece como registro histórico; as novas artes seguem `ART_STYLE_DIRECTION_20261025.md`.

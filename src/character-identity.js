@@ -921,7 +921,7 @@ export const characterRevisions = {
 export function revisedArtFor(id, art) {
   if (!art) return art;
   if (id === 'o-fim-silencioso') {
-    const base = `/art/characters/${id}/hybrid-rework-20261025`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
@@ -961,7 +961,12 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-jardineira-das-feridas') {
-    const base = `/art/characters/${id}/hybrid-rework-20261025`;
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'o-corretor-de-memorias') {
+    const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }

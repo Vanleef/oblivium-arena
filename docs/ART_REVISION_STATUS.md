@@ -229,3 +229,11 @@ A personagem mantém pele castanha escura, cachos curtos prateados, capa branca,
 As seis artes ativas foram refeitas em animação híbrida pintada 2D/3D. O jogo seleciona `art/characters/a-jardineira-das-feridas/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_A_BOTICARIA_HYBRID_REWORK_20261025.json`.
 
 A identidade preserva pele castanha quente, olhos verdes, locs longos verde-escuros com poucas flores, casaco esmeralda, luvas de couro, faca curva embainhada e ramo medicinal. As seis cenas separam retrato, recuperação de um aliado, raiz que prende um tornozelo, infusão aplicada a exatamente três pessoas, espinhos no braço de uma vítima e defesa própria com uma folha rígida. As mãos, articulações, contato das raízes, leitura da folha e contagem de corpos foram revisados. Suor, sujeira, marcas, feridas e sangue acompanham o momento de cada personagem. Custos, alvos, efeitos e recargas do kit permanecem preservados.
+
+## Correção de aceite visual após comparação com o usuário — 25/10/2026
+
+O usuário confirmou O Fim, O Revelador e O Vidente como referências que seguem claramente a linha Arcane/Aranhaverso. Também esclareceu que as versões anteriores de A Boticária, O Arauto e O Corretor de Memórias não seguem essa linha. Portanto, a contagem histórica “12/100 híbridos” registra rótulos/lotes antigos, não aceite visual.
+
+Nesta revisão, os três conjuntos apontados foram refeitos com seis cenas próprias cada, usando os três exemplos confirmados apenas como referências de acabamento. As novas imagens variam retrato, consequência, reação, efeito e defesa; foram conferidas em recortes de 512 × 512 quanto a identidade, anatomia, continuidade e quantidade de alvos. O Falsário (O Corretor de Memórias) teve a defesa corrigida para um único projétil. Nenhum kit, custo, alvo, efeito, duração ou recarga foi alterado.
+
+A troca ativa está em `style-reference-rework-20261025/`, com 18 WebP ativos, três folhas originais e três manifestos. Estado global da auditoria visual: três âncoras confirmadas pelo usuário, mais três conjuntos refeitos e comparados nesta entrega; 94 conjuntos restantes ainda precisam de comparação direta e reformulação quando necessário. Não marcar a revisão global como concluída até que os 100 conjuntos sejam avaliados contra as âncoras.

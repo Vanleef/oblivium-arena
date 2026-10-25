@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-25",
+  "characterId": "o-fim-silencioso",
+  "name": "O Arauto",
+  "style": "Reestilização ancorada nas três referências visuais confirmadas pelo usuário: animação pintada com formas dimensionais, pincel visível, planos de cor e contornos expressivos.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "sourceSheet": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+  "activeDirectory": "art/characters/o-fim-silencioso/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "sourceSheetDimensions": "1536x1024",
+  "gameplayChanged": false,
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-fim-silencioso/style-reference-rework-20261025/portrait.webp",
+      "scene": "Retrato sob arco e sino, olho violeta parcialmente coberto pelo cabelo.",
+      "sourcePath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Original generated 3x2 sheet preserved; active 512px images are direct crops."
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-fim-silencioso/style-reference-rework-20261025/passive.webp",
+      "scene": "Vigilância sobre um único inimigo debilitado no pátio inundado.",
+      "sourcePath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Original generated 3x2 sheet preserved; active 512px images are direct crops."
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/o-fim-silencioso/style-reference-rework-20261025/skill-impulso.webp",
+      "scene": "Close da vítima percebendo o presságio no reflexo violeta.",
+      "sourcePath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Original generated 3x2 sheet preserved; active 512px images are direct crops."
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/o-fim-silencioso/style-reference-rework-20261025/skill-tecnica.webp",
+      "scene": "Aftermath de inimigo atordoado com arma caída no salão inundado.",
+      "sourcePath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Original generated 3x2 sheet preserved; active 512px images are direct crops."
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/o-fim-silencioso/style-reference-rework-20261025/skill-voto.webp",
+      "scene": "Consequência contra um alvo ferido na praça em ruínas.",
+      "sourcePath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Original generated 3x2 sheet preserved; active 512px images are direct crops."
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/o-fim-silencioso/style-reference-rework-20261025/skill-despertar.webp",
+      "scene": "Esquiva pessoal a uma estocada sob arcos noturnos.",
+      "sourcePath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Original generated 3x2 sheet preserved; active 512px images are direct crops."
+    }
+  ],
+  "sourceSheetPath": "art/source/o-fim-silencioso-style-reference-rework-20261025-sheet.webp",
+  "sourceDimensions": "1536x1024"
+}
