@@ -152,7 +152,7 @@ const powers=[
   ['cinders','Pacto da Brasa','✹','exploration',d=>({cinza:1+Math.floor(d/3)}),e=>`+${e.cinza} Cinza no início de cada combate.`],
   ['grace','Fragmento do Alto','✧','exploration',d=>({graca:1+Math.floor(d/3)}),e=>`+${e.graca} Graça no início de cada combate.`],
   ['rupture','Nó Impossível','⟲','exploration',d=>({ruptura:1+Math.floor(d/3)}),e=>`+${e.ruptura} Ruptura no início de cada combate.`],
-  ['wild','Semente Coringa','✥','exploration',d=>({coringa:1+Math.floor(d/3)}),e=>`+${e.coringa} Coringa no início de cada combate.`],
+  ['wild','Semente Volátil','✥','exploration',d=>({randomEssence:1+Math.floor(d/3)}),e=>`+${e.randomEssence} Essência aleatória no início de cada combate.`],
   ['shelter','Santuário Errante','☽','exploration',d=>({restBonus:Math.min(.6,.1+.03*d)}),e=>`Descansos e eventos curam +${Math.round(e.restBonus*100)}% da Vida máxima.`],
   ['spoils','Memória das Ruínas','◇','exploration',d=>({fragments:2+d}),e=>`+${e.fragments} fragmentos por vitória.`],
   ['chains','Corrente Ancestral','∞','exploration',d=>({stability:1+Math.floor(d/5)}),e=>`Novas trilhas começam com +${e.stability} Corrente da Alma.`],

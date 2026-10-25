@@ -6,7 +6,7 @@ O trabalho de clareza, arquétipos, progressão, campanha autoritativa, IA e tra
 
 O checkpoint local continha 23 poderes de trilha e a main continha 35. A união preserva os 49 identificadores distintos. Cada poder tem contexto narrativo, ícone e glifo SVG próprios e tradução editorial em inglês. Os efeitos de 26 poderes antigos foram associados a efeitos efetivamente suportados pelo motor; suas descrições foram ajustadas junto das regras, evitando promessas de efeitos não executados. Ofertas continuam priorizando categorias distintas e respeitando a composição viva do trio.
 
-O catálogo de eventos de combate continua com 51 eventos, e os 50 Legados de campanha permanecem separados dos poderes de trilha. A geração de Essência segue os cinco tipos e a troca 5:1. Coringa é Wildcard em inglês; Post Mortem Arena permanece igual nos dois idiomas.
+O catálogo de eventos de combate continua com 51 eventos, e os 50 Legados de campanha permanecem separados dos poderes de trilha. A geração usa as quatro Essências — Éter, Cinza, Graça e Ruptura — e mantém a troca 5:1. Coringa é custo flexível. Coringa é Wildcard em inglês; Post Mortem Arena permanece igual nos dois idiomas.
 
 ## Defesa e publicação
 

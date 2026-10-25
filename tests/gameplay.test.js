@@ -22,7 +22,7 @@ test("todos os caminhos gerados chegam ao Guardião sem conexões inválidas",()
  for(const elo of elos){const map=generateTrail(elo.id,17),byId=new Map(map.flat().map(n=>[n.id,n])),reached=new Set();const visit=id=>{if(reached.has(id))return;reached.add(id);for(const next of byId.get(id).nextIds){assert.equal(byId.get(next).row,byId.get(id).row+1);visit(next);}};visit(map[0][0].id);assert.equal(reached.size,map.flat().length);assert.equal(map.at(-1)[0].type,"boss");}
 });
 test("selecionar reserva Essência sem executar; remover e substituir devolve a reserva",()=>{
- const b=createBattle(ids,[dummy()]);b.resources={essence:1,cinza:1,graca:1,ruptura:1,coringa:1};const hp=b.enemies[0].hp,pool={...b.resources};
+ const b=createBattle(ids,[dummy()]);b.resources={essence:1,cinza:1,graca:1,ruptura:1};const hp=b.enemies[0].hp,pool={...b.resources};
  assert.equal(chooseAction(b,ids[0],"impulso","treino").ok,true);assert.equal(b.enemies[0].hp,hp);assert.deepEqual(b.resources,pool);assert.equal(getAvailableResources(b).graca,0);
  assert.equal(chooseAction(b,ids[0],"despertar",ids[0]).ok,true);assert.equal(b.queue.length,1);assert.equal(getAvailableResources(b).graca,1);assert.equal(getAvailableResources(b).essence,1);assert.equal(getTurnPayment(b).required,1);assert.equal(getTurnPayment(b).ok,true);
  removeQueuedAction(b,ids[0]);assert.deepEqual(getAvailableResources(b),pool);

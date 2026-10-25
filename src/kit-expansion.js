@@ -44,7 +44,7 @@ export function expandKit(elo,index,spec){
   set(0,{damage:15,escalating:G(3,9)});
   identity('Discurso crescente','Repetir a sílaba aumenta seu dano até um limite; ser Atordoada quebra o ritmo do discurso.');break;
  case 'mentira:4':
-  set(1,{heal:15,regen:{heal:3,turns:2},cost:2,generateEssence:{resource:'coringa',amount:1}});
+  set(1,{heal:15,regen:{heal:3,turns:2},cost:2,generateEssence:{resource:'random',amount:1}});
   form(1,'confess',S('Confissão do Falso Santo',{heal:25,cleanse:true,perChargeHeal:3,spendCharge:true,shift:B(1)},2));
   after(1,[T(1,'confess',2)],'Vira Confissão do Falso Santo por 2 turnos: gaste as cargas em cuidado ou preserve-as para o milagre.');
   identity('Fé ou confissão','Cultive cargas com a falsa bênção e escolha entre confessar para recuperar-se ou fabricar um milagre ofensivo.');break;
@@ -203,7 +203,7 @@ export function expandKit(elo,index,spec){
   after(1,[T(0,'return',1)],'No próximo turno, Abertura Impossível vira Passagem de Retorno para amparar um aliado.');
   identity('Travessia de volta','Proteja quem atravessa para abrir um retorno de amparo; escolha essa volta ou feche a passagem no inimigo marcado.');break;
  case 'correntes-quebradas:4':
-  set(0,{damage:5,reactive:R('support',{drain:1,damage:5}),convertEssence:{from:'any',to:'coringa',amount:1}});
+  set(0,{damage:5,reactive:R('support',{drain:1,damage:5}),convertEssence:{from:'any',to:'random',amount:1}});
   identity('Nome que cobra amparo','O nome perdido drena agora e deixa uma cobrança para o próximo apoio da vítima; apagar a forma prepara o desfecho de aflição.');break;
  case 'correntes-quebradas:6':
   form(0,'weight',A('Peso da Asa',15,2,{damageType:'energy',sealAttack:1,shift:B(0),cooldown:2}));

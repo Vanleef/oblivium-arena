@@ -9,10 +9,12 @@ Aplicar esta linguagem a todas as artes novas e reformuladas do jogo. A referên
 - Usar impressão/semitom, hachura, contorno deslocado e marcas de movimento como acentos localizados. Não aplicar uma textura uniforme sobre tudo.
 - Equilibrar luz cinematográfica, paletas de mundo e materiais foscos com silhuetas legíveis em miniatura.
 - Capturar esforço, reação e consequência no meio da ação. O personagem interage com alvo e terreno; não posa para a câmera.
+- Variar a gramática visual entre habilidades: reação da vítima, consequência após o efeito, manifestação ambiental, detalhe de mão/arma/objeto, silhueta parcial, perspectiva da vítima ou ação fora de quadro. Reservar o ataque frontal para cenas em que ele comunica algo que as outras composições não comunicam; não repetir a mesma pose de dano entre personagens.
+- Fazer auditoria anatômica quadro a quadro: contar braços, pernas e mãos, conferir dedos e articulações, apoiar o peso no chão ou no objeto correto e preservar o lado e a continuidade de cada membro. Corrigir fusões, membros extras, membros ausentes e objetos que atravessam o corpo.
 - Variar idade, corpo, rosto, cabelo, roupa, acessórios, silhueta, altura e ângulo entre personagens; variar também a câmera e a direção do movimento entre as habilidades.
 - Fazer cada cena corresponder ao kit atual e aos locais estabelecidos no mundo e no Elo. Consultar `src/data.js`, `src/story-content.js` e `docs/COSMOLOGY_AND_NILO.md`.
 - Respeitar o número exato de inimigos e aliados. Defesas pessoais mostram apenas o usuário protegido.
-- Conferir anatomia, mãos, articulações e continuidade de roupa/acessórios. Ajustar expressão e microexpressões ao instante da cena; calibrar suor, fuligem, feridas e sangue somente quando a ação justificar, evitando rostos ou poses artificiais.
+- Conferir anatomia, mãos, articulações e continuidade de roupa/acessórios. Ajustar expressão e microexpressões ao instante da cena: direção do olhar, pálpebras, pupilas, sobrancelhas, tensão da mandíbula e dentes. Calibrar suor, fuligem, hematomas, inchaço, cicatrizes, marcas, feridas e sangue somente quando a ação justificar; observar também cabelo, unhas, rasgos e sujeira na roupa. Manter marcas permanentes consistentes entre imagens e evitar sinais de desgaste artificiais ou sem causa.
 - Exportar WebP 512 × 512 e manter fonte quadrada de 1024 × 1024.
 
 ## Auditoria de artes antigas

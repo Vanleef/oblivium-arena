@@ -1,9 +1,11 @@
 import { seededRandom, shuffled } from './progression.js';
-import { elos } from './data.js';
+import { elos, resources } from './data.js';
 import { worldInfluences } from './world-event-catalog.js';
 export { worldInfluences } from './world-event-catalog.js';
 import { initializeWorldUnit } from './world-rules.js';
+const essenceIds=resources.map(resource=>resource.id);
 const units=s=>[...s.allies,...s.enemies];
+function randomEssenceId(s,salt=''){const seed=[...String(salt)].reduce((n,ch)=>(n*31+ch.charCodeAt(0))>>>0,Number(s.worldSeed)||1),rng=seededRandom(seed);return essenceIds[Math.floor(rng()*essenceIds.length)];}
 const techniques=u=>u.abilities.flatMap(a=>[a,...(a.forms||[])]);
 const helpful=a=>['self','ally','friendly','team'].includes(a.target)&&!a.defense;
 const predicates={
@@ -40,7 +42,7 @@ export function applyInfluence(s,id,side){
   if(e.effect.maxHp){const ratio=u.hp/u.maxHp;u.maxHp+=e.effect.maxHp;u.hp=Math.max(1,Math.round(u.maxHp*ratio));}
   u.shield=Math.min(80,u.shield+(e.effect.shield||0));initializeWorldUnit(u,e.effect);
  }
- if(e.effect.essence)for(const [side,list]of [['player',s.allies],['enemy',s.enemies]])if(list.some(u=>eligible.includes(u))){const pool=side==='player'?s.resources:s.enemyResources;for(const [id,n]of Object.entries(e.effect.essence))pool[id]=(pool[id]||0)+n;}
+ if(e.effect.essence)for(const [side,list]of [['player',s.allies],['enemy',s.enemies]])if(list.some(u=>eligible.includes(u))){const pool=side==='player'?s.resources:s.enemyResources;for(const [id,n]of Object.entries(e.effect.essence)){if(id==='coringa'||id==='random'){for(let i=0;i<n;i++){const target=randomEssenceId(s,`${e.id}:${side}:${i}`);pool[target]=(pool[target]||0)+1;}}else if(essenceIds.includes(id))pool[id]=(pool[id]||0)+n;}}
  (s.worldEvents||=[]).push({id,side,title:e.title,tier:e.tier});
 }
 export function persistentCombatHp(u){return u.hp<=0?0:Math.max(1,Math.round(u.hp*(u.persistentMaxHp||u.maxHp)/u.maxHp));}
@@ -62,13 +64,13 @@ export function checkDeathInfluences(s){
  const fallen=units(s).filter(u=>u.hp<=0&&!s.eventDeaths.includes(u.id));if(!fallen.length)return false;
  s.eventDeaths.push(...fallen.map(u=>u.id));
  for(const unit of fallen){
-  const side=unit.side==='enemy'?'enemy':'player',pool=side==='player'?s.resources:s.enemyResources,resource=unit.bodyResource||unit.affinity;
-  if(resource&&pool){pool[resource]=(pool[resource]||0)+1;}
+  const side=unit.side==='enemy'?'enemy':'player',pool=side==='player'?s.resources:s.enemyResources,source=unit.bodyResource||unit.affinity,resource=source==='coringa'?randomEssenceId(s,unit.id):source;
+  if(resource&&pool&&essenceIds.includes(resource)){pool[resource]=(pool[resource]||0)+1;}
   const survivors=(side==='player'?s.allies:s.enemies).filter(ally=>ally.hp>0&&ally.eloId===unit.eloId);
   s.deathEchoStacks||={player:0,enemy:0};
   const echo=survivors.length>0&&s.deathEchoStacks[side]<3;
   if(echo){s.deathEchoStacks[side]++;for(const ally of survivors)ally.worldDamage=(ally.worldDamage||0)+1;}
-  const name=({essence:'Éter',cinza:'Cinza',ruptura:'Ruptura',graca:'Graça',coringa:'Coringa'})[resource]||'Essência';
+  const name=({essence:'Éter',cinza:'Cinza',ruptura:'Ruptura',graca:'Graça'})[resource]||'Essência';
   const fragments=[resource?`+1 ${name} para ${side==='player'?'seu trio':'a oposição'}`:'',echo?`${survivors.length} aliado(s) do Elo recebem +1 dano (limite +3)`:''].filter(Boolean);
   if(fragments.length)s.log?.unshift(`${unit.name} deixa uma herança: ${fragments.join(' · ')}.`);
  }

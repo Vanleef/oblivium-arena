@@ -12,7 +12,7 @@ Oito personagens receberam passivas próprias e os 12 integrantes de Carne e Vaz
 | A Suturadora | Limpar uma condição e restaurar ao menos 10 de Vida de outro aliado também lhe concede 5 de Defesa e gera 1 Graça. |
 | O Anulador | Remover uma vantagem ativa drena 1 Graça disponível do inimigo e concede 1 carga. |
 | O Arauto | Ferir um alvo já Atordoado concede 1 carga e gera 1 Ruptura. |
-| O Desolador | Com 50 de Vida ou menos, uma técnica ofensiva que gasta carga recupera 5 de Vida e gera 1 Coringa. |
+| O Desolador | Com 50 de Vida ou menos, uma técnica ofensiva que gasta carga recupera 5 de Vida e gera 1 Essência aleatória. |
 | A Escriba | Consumir sua Marca da Página concede 1 carga e gera 1 Cinza. |
 
 As regras exigem dano real, Marca própria, limpeza e cura efetivas, remoção de bônus ativa ou gasto real de carga conforme cada gatilho. A auditoria confirma 12 assinaturas diferentes entre os dois Elos.
@@ -90,13 +90,13 @@ Doze passivas genéricas de Sangria, Coroa e Mentira foram substituídas. Os 18 
 | --- | --- |
 | O Colecionador | Um abate concede carga e Defesa, uma vez por rodada. |
 | Gêmeos do Cutelo | Ferir alvo Exposto com Sangramento dos Gêmeos recupera Vida e gera Ruptura. |
-| O Carrasco | Ferir vítima já Atordoada recupera Vida e remove um Coringa disponível da oposição. |
+| O Carrasco | Ferir vítima já Atordoada recupera Vida e remove 1 Essência disponível da oposição. |
 | A Mãe Rubra | Cura efetiva de outro aliado também o protege e recupera parte da Vida da usuária. |
 | O Soberano | Assumir Coroa Soberana concede uma proteção adicional. |
 | A Magistrada | Ferir alvo Exposto concede Defesa e remove Graça disponível da oposição. |
 | O Príncipe | Ferir vítima que já carrega sua Marca concede Defesa. |
 | A Déspota | Apoio que efetivamente concede Defesa gera Cinza. |
-| O Sussurro | Ferir vítima com seu Veneno converte Éter restante em Coringa. |
+| O Sussurro | Ferir vítima com seu Veneno converte o Éter restante em 1 Essência aleatória de outro tipo. |
 | O Intrigante | Ferir vítima que já carrega sua Marca enfraquece sua resposta. |
 | A Serpe | Dano perfurante efetivo contra alvo Exposto recupera Vida. |
 | O Impostor | Recuperação pessoal efetiva por técnica concede Defesa e gera Graça. |

@@ -12,14 +12,14 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 
 1. Escolha uma habilidade e um alvo destacado.
 2. Cada personagem usa uma ação por turno. A fila reserva Essência.
-3. Reordene ou remova ações, revise, escolha o pagamento Qualquer e confirme em Pronto.
+3. Reordene ou remova ações, revise, escolha o pagamento Coringa e confirme em Pronto.
 4. As ações aliadas e a resposta adversária resolvem uma a uma.
 5. Aflições e durações são atualizadas antes do próximo planejamento.
 
 ## Afinidades e Essência
 
-- A quarta técnica das 100 almas concede Invulnerável por uma resposta adversária. Custa 1 Qualquer; fica indisponível nos quatro turnos próprios seguintes.
-- A reserva de Essência tem cinco tipos: Éter, Cinza, Graça, Ruptura e Coringa. Qualquer é um custo flexível pago com qualquer combinação desses tipos; não é um sexto tipo sorteado.
+- A quarta técnica das 100 almas concede Invulnerável por uma resposta adversária. Custa 1 Coringa; fica indisponível nos quatro turnos próprios seguintes.
+- A reserva tem quatro Essências: Éter, Cinza, Graça e Ruptura. Coringa é um custo flexível; escolha uma dessas quatro Essências para cada unidade pedida.
 - A afinidade de cada alma é definida pelas técnicas, passivas e formas do kit. Personagens do mesmo reino podem usar tipos diferentes; o Elo não determina a afinidade.
 - Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo no começo de cada rodada. Cada tipo tem 20% de chance por sorteio e o saldo acumula sem limite. Com 5 unidades, escolha quais pips gastar e troque-os por 1 unidade de um tipo específico; a conversão reduz o saldo líquido em 4.
 - Gerar, converter, gastar e roubar/drenar Essência são identidades separadas no Codex: Gerador de Essência cria uma reserva, Transmutador troca tipos, Gastador transforma pagamento em efeito e Manipulador de Essência interfere na reserva adversária.

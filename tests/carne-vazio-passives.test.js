@@ -4,7 +4,7 @@ import {characters} from '../src/data.js';
 import {createBattle,chooseAction,commitTurn,resolveNextAction} from '../src/combat.js';
 import {localizeText} from '../src/i18n.js';
 
-const essenceIds=['essence','cinza','graca','ruptura','coringa'];
+const essenceIds=['essence','cinza','graca','ruptura'];
 const empty=()=>Object.fromEntries(essenceIds.map(id=>[id,0]));
 const dummy=(id='a')=>({id,name:id,realm:'Inferno',maxHp:1000,abilities:[]});
 function setup(id,team=[id]){
@@ -105,7 +105,7 @@ test('O Desolador converte carga em fôlego e Coringa no limiar de Vida',()=>{
   cast(battle,{spendCharge:true});
   const active=mode==='valid';
   assert.equal(actor.hp,active?55:mode==='healthy'?51:50,mode);
-  assert.equal(battle.resources.coringa,active?1:0,mode);
+  assert.equal(battle.resources.essence,active?1:0,mode);
  }
 });
 

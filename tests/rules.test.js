@@ -42,7 +42,7 @@ test("arquétipos e afinidades variam dentro de cada reino e cobrem o elenco", (
   }
 });
 
-test("custos fixos combinam tipos de Essência do reino, a segunda técnica oferece flexibilidade e defesa usa Qualquer", () => {
+test("custos fixos combinam tipos de Essência do reino, a segunda técnica oferece flexibilidade e defesa usa Coringa", () => {
   assert.deepEqual(getAbilityResourceCosts(byName("A Brasa Eterna"), byName("A Brasa Eterna").abilities[1]), { ruptura: 1, random: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Escudo Vivo"), byName("O Escudo Vivo").abilities[2]), { essence: 1, graca: 1 });
   assert.deepEqual(getAbilityResourceCosts(byName("O Passo Interrompido"), byName("O Passo Interrompido").abilities[3]), { random: 1 });

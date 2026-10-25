@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buffs, characters, elos, realms, resources, routeStages } from "../src/data.js";
+import { buffs, characters, elos, realms, resources, resourceById, routeStages } from "../src/data.js";
 import { createFinalBossAbilities, FINAL_BOSS } from "../src/final-boss.js";
 import { abilityConditions, abilityDuration, abilityQuickEffect } from "../src/ability-presentation.js";
 import { globalChoices, globalUpgradeCatalog, runMemoryCatalog } from "../src/progression.js";
@@ -37,7 +37,7 @@ test("English is a persistent locale and Post Mortem Arena keeps its name", () =
   assert.equal(localizeText("GUIA INTERATIVO · 2 / 6", "en"), "INTERACTIVE GUIDE · 2 / 6");
   assert.equal(localizeText("PMA: Post Mortem Arena, início", "en"), "PMA: Post Mortem Arena, home");
   assert.equal(localizeText("Defesa destrutível: absorve dano antes da Vida.", "en"), "Destructible Defense: absorbs damage before Health.");
-  assert.equal(localizeText("Total de Essência. Desde a abertura, cada lado recebe uma unidade aleatória por alma viva. Os cinco tipos têm a mesma chance.", "en"), "Total Essence. From the start, each side gains one random Essence for every living character. All five types have an equal chance.");
+  assert.equal(localizeText("Total de Essência. Desde a abertura, cada lado recebe uma unidade aleatória por alma viva. Os quatro tipos têm a mesma chance.", "en"), "Total Essence. From the start, each side gains one random Essence for every living character. All four types have an equal chance.");
   assert.equal(localizeText("Post Mortem Arena", "pt-BR"), "Post Mortem Arena");
   assert.equal(localizeText("Escolha três almas."), "Choose three souls.");
   assert.equal(localizeText("Suas habilidades causam +5 de dano se o alvo está Atordoado."), "Your abilities deal +5 damage to Stunned targets.");
@@ -52,9 +52,10 @@ test("English is a persistent locale and Post Mortem Arena keeps its name", () =
 
 test("Wildcard terminology stays consistent across resource and character text", () => {
   globalThis.localStorage = { getItem: () => "en", setItem() {} };
-  const wildcard = resources.find(resource => resource.id === "coringa");
-  assert.equal(wildcard.name, "Coringa");
-  assert.equal(localizeText(wildcard.name, "en"), "Wildcard");
+  assert.deepEqual(resources.map(resource => resource.id), ["essence", "cinza", "graca", "ruptura"]);
+  assert.equal(resources.some(resource => resource.id === "coringa"), false);
+  assert.equal(resourceById.random.name, "Coringa");
+  assert.equal(localizeText(resourceById.random.name, "en"), "Wildcard");
   const copy = [];
   for (const character of characters) {
     copy.push(character.name, character.lore, character.combo, character.passive?.name, character.passive?.description);

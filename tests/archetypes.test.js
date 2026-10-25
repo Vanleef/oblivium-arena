@@ -19,9 +19,9 @@ test('cada arquétipo tem presença ampla e identidade com contexto e ícone', (
   }
 });
 
-test('os cinco tipos de Essência dependem dos kits e variam em cada reino', () => {
-  assert.deepEqual(resources.map((resource) => resource.id), ['essence', 'cinza', 'graca', 'ruptura', 'coringa']);
-  assert.equal(new Set(characters.map((character) => character.affinity)).size, 5);
+test('as quatro Essências dependem dos kits e variam em cada reino', () => {
+  assert.deepEqual(resources.map((resource) => resource.id), ['essence', 'cinza', 'graca', 'ruptura']);
+  assert.equal(new Set(characters.map((character) => character.affinity)).size, 4);
   for (const realm of new Set(characters.map((character) => character.realm))) {
     assert.ok(new Set(characters.filter((character) => character.realm === realm).map((character) => character.affinity)).size > 1, realm);
   }

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {characters,characterById} from '../src/data.js';
 import {createBattle,chooseAction,commitTurn,resolveNextAction} from '../src/combat.js';
 import {localizeText} from '../src/i18n.js';
-const empty=()=>({essence:0,cinza:0,graca:0,ruptura:0,coringa:0});
+const empty=()=>({essence:0,cinza:0,graca:0,ruptura:0});
 const dummy=id=>({id,name:id,realm:'Limbo',maxHp:1000,abilities:[]});
 function setup(id,team=[id],enemies=[dummy('a'),dummy('b'),dummy('c')]){
  const b=createBattle(team,enemies,{rngSeed:123,enemyPlanner:()=>[]});
@@ -85,9 +85,9 @@ test('Insaciável conta Defesa removida de fato, não dano absorvido nem valor n
 test('Matriarca recompensa outro aliado sem multiplicar o roubo pela cura do trio',()=>{
  for(const mode of ['team','self','overheal','defense','empty']){
   const b=setup('a-senhora-do-ultimo-pao',['a-senhora-do-ultimo-pao','o-incendiario','o-credor']);
-  for(const u of b.allies)u.hp=mode==='overheal'?99:50;b.enemyResources.coringa=mode==='empty'?0:3;
+  for(const u of b.allies)u.hp=mode==='overheal'?99:50;b.enemyResources.essence=mode==='empty'?0:3;
   cast(b,{damage:0,target:mode==='self'?'self':'team',heal:8,defense:mode==='defense'},b.allies[0].id);
-  assert.equal(b.resources.coringa,mode==='team'?1:0,mode);assert.equal(b.enemyResources.coringa,mode==='team'?2:mode==='empty'?0:3,mode);
+  assert.equal(b.resources.essence,mode==='team'?1:0,mode);assert.equal(b.enemyResources.essence,mode==='team'?2:mode==='empty'?0:3,mode);
  }
 });
 

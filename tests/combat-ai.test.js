@@ -6,7 +6,7 @@ import {renderBattleDetail} from '../src/battle-view.js';
 import {simulateMatch} from '../scripts/simulate-combat.mjs';
 const strike=(id,damage,extra={})=>({id,name:id,target:'enemy',damage,costs:{essence:1},...extra});
 const enemy=(id,abilities)=>({id,name:id,realm:'Inferno',abilities});
-function battle(enemies){const b=createBattle([characters[0].id,characters[1].id,characters[2].id],enemies,{rng:()=>0});b.enemyResources={essence:3,cinza:0,graca:0,ruptura:0,coringa:0};for(const u of [...b.allies,...b.enemies]){u.passive=null;u.shield=0;}return b;}
+function battle(enemies){const b=createBattle([characters[0].id,characters[1].id,characters[2].id],enemies,{rng:()=>0});b.enemyResources={essence:3,cinza:0,graca:0,ruptura:0};for(const u of [...b.allies,...b.enemies]){u.passive=null;u.shield=0;}return b;}
 
 test('IA considera redução, Defesa, perfurante e aflição ao escolher seu ataque',()=>{
  const b=battle([enemy('inimigo',[strike('físico',25),strike('perfurante',15,{damageType:'piercing'}),strike('aflição',12,{damageType:'affliction'})])]);
@@ -77,9 +77,9 @@ test('planejamento não modifica combate, não lê fila do jogador nem sorteia E
 });
 
 test('a previsão de conversão financia a próxima ação sem alterar a reserva real',()=>{
- const converter=enemy('converter',[{id:'converter',name:'Converter Essência',target:'enemy',damage:20,costs:{essence:1,coringa:1},convertEssence:{from:'essence',to:'coringa',amount:1}}]);
- const follow=enemy('eco',[strike('golpe-coringa',5,{costs:{coringa:1}})]),b=battle([converter,follow]);
- b.enemyResources={essence:2,cinza:0,graca:0,ruptura:0,coringa:1};
+ const converter=enemy('converter',[{id:'converter',name:'Converter Essência',target:'enemy',damage:20,costs:{essence:1,random:1},convertEssence:{from:'essence',to:'random',amount:1}}]);
+ const follow=enemy('eco',[strike('golpe-coringa',5,{costs:{random:1}})]),b=battle([converter,follow]);
+ b.enemyResources={essence:3,cinza:0,graca:0,ruptura:0};
  const before=JSON.stringify(b.enemyResources),plan=getCombatPlan(b);
  assert.deepEqual(plan.map(action=>action.abilityId),['converter','golpe-coringa']);
  assert.equal(JSON.stringify(b.enemyResources),before,'planejamento não debita nem converte a reserva real');

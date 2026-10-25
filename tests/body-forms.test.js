@@ -9,7 +9,7 @@ import {refreshSkillForms} from '../src/skill-state.js';
 import {portraitMarkup} from '../src/view-utils.js';
 import {renderBattle} from '../src/battle-view.js';
 const dummy=id=>({id,name:id,realm:'Inferno',maxHp:1000,abilities:[]});
-const refill=b=>{b.resources={essence:20,cinza:20,graca:20,ruptura:20,coringa:20};b.enemyResources={...b.resources};};
+const refill=b=>{b.resources={essence:20,cinza:20,graca:20,ruptura:20};b.enemyResources={...b.resources};};
 function bossBattle(){const b=createBattle([starters[0].id],[createFinalBoss(),dummy('alvo')],{rng:()=>0,enemyPlanner:()=>[]});const boss=b.enemies.shift();boss.side='player';b.allies=[boss];refill(b);return b;}
 function finish(b){let n=0;while(b.phase==='resolving'&&n++<20)resolveNextAction(b);assert.ok(n<20);}
 function cast(b,index){refill(b);const u=b.allies[0],a=u.abilities[index],target=getValidTargets(b,u,a)[0];assert.equal(chooseAction(b,u.id,a.id,target?.id).ok,true,a.name);commitTurn(b);const result=resolveNextAction(b);assert.equal(result.event?.skipped,false,a.name);return result;}

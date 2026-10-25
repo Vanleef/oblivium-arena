@@ -201,4 +201,10 @@ As seis artes ativas de A Ausência agora seguem a linha híbrida em `art/charac
 
 As cenas usam cidade lunar, bacia de sal, canal submerso, passagem de banho, praça aberta e escadaria vertical. Toque Ausente mostra uma vítima drenada; Ataque a Ninguém rebate a investida de um único atacante; Ausência Contagiosa afeta exatamente três inimigos; Não Estar protege somente a própria entidade. Reações, suor e desgaste aparecem apenas nos alvos quando a ação os justifica. Regras, custos, alvos e recargas permanecem iguais.
 
-Oito de 100 conjuntos estão completos sob a direção híbrida de 25/10; 92 ainda aguardam revisão visual nesta linha.
+Nove de 100 conjuntos estão completos sob a direção híbrida de 25/10; 91 ainda aguardam revisão visual nesta linha.
+
+## O Arauto — revisão híbrida — 25/10/2026
+
+As seis artes ativas de O Arauto foram refeitas em animação híbrida pintada 2D/3D. O jogo seleciona `art/characters/o-fim-silencioso/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_O_ARAUTO_HYBRID_REWORK_20261025.json`.
+
+A identidade preserva o rosto pálido e anguloso, o cabelo prateado sobre um olho, o olhar violeta, a gola escura com colarinho marfim e a espada fina. As composições alternam retrato, vigília, percepção de presságio pela vítima, reação de um alvo atordoado e consequência após a ação. As expressões, postura, suor, sujeira e ferimentos acompanham a intensidade de cada cena; o sangue aparece apenas quando justificável. A revisão preserva exatamente os alvos e efeitos do kit e não altera custos, recargas ou regras.

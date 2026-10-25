@@ -12,7 +12,7 @@ if(!params.has('render')){
  const meta='a-pele-alheia',furor='o-odio-encarnado',osc='a-sombra-inconstante';
  const b=createBattle([params.get('party')==='limbo'?osc:starters[0].id,meta,furor],[createFinalBoss(),...createEnemyTeam(elos[0],[]).slice(0,params.get('party')==='limbo'?2:3)],{rng:()=>.1});
  if(params.get('party')!=='limbo'){const boss=b.enemies.shift();boss.side='player';b.allies[0]=boss;}
- b.resources={essence:8,cinza:8,graca:8,ruptura:8,coringa:8};b.enemyResources={...b.resources};
+ b.resources={essence:8,cinza:8,graca:8,ruptura:8};b.enemyResources={...b.resources};
  const state={battle:b,battleNode:{label:'Transformações · cenário de verificação'},battleFx:null};
  const draw=()=>document.body.innerHTML=`<div class="app-shell"><main class="main-content">${renderBattle(state,elos[0])}</main></div>`;
  document.body.addEventListener('click',event=>{

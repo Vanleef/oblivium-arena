@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {characters,characterById} from '../src/data.js';
 import {createBattle,chooseAction,commitTurn,resolveNextAction,passTurn} from '../src/combat.js';
 import {localizeText} from '../src/i18n.js';
-const empty=()=>({essence:0,cinza:0,graca:0,ruptura:0,coringa:0});
+const empty=()=>({essence:0,cinza:0,graca:0,ruptura:0});
 const dummy=id=>({id,name:id,realm:'Inferno',maxHp:1000,abilities:[]});
 function setup(id,team=[id],enemies=[dummy('a'),dummy('b'),dummy('c')]){
  const b=createBattle(team,enemies,{rng:()=>0,enemyPlanner:()=>[]});b.resources=empty();b.enemyResources=empty();b.resonance.bonus=0;
@@ -50,9 +50,9 @@ test('a população de Veneno conserva autoria e reserva do lado adversário',()
 
 test('Corrupto exige remoção real de bônus e concede um roubo por técnica em área',()=>{
  for(const mode of ['buff','none','shield','canceled']){
-  const b=setup('o-corrupto');b.enemyResources.coringa=3;
+  const b=setup('o-corrupto');b.enemyResources.essence=3;
   for(const v of b.enemies){v.boost=mode==='buff'||mode==='canceled'?5:0;v.reduction=mode==='buff'?2:0;v.shield=mode==='shield'?20:0;if(mode==='canceled')v.counter=1}
-  cast(b,{target:'all-enemies',purge:true});assert.equal(b.resources.coringa,mode==='buff'?1:0,mode);assert.equal(b.allies[0].shield,mode==='buff'?4:0,mode);
+  cast(b,{target:'all-enemies',purge:true});assert.equal(b.resources.essence,mode==='buff'?1:0,mode);assert.equal(b.allies[0].shield,mode==='buff'?4:0,mode);
  }
 });
 

@@ -33,7 +33,7 @@ As artes novas estão nas pastas versionadas `art/characters/{id}/body-forms-202
 A verificação anterior no navegador confirmou as transformações de Tirano, Carapaça Usurpada e Ódio Solto, além do retorno dos retratos de O Fim e Metamorfa, Contorno de Abrigo, Pele Usurpada e a escolha de Ruína pela IA. Nesta revisão, os cinco arquivos novos de O Devorador e A Máscara Dupla passaram por validação de dimensão, integridade WebP e hash. Os testes funcionais cobrem a mudança e o retorno dos dois retratos.
 
 
-## Tipos de Essência por corpo e custo Qualquer
+## Tipos de Essência por corpo e custo Coringa
 
 | Personagem | Original | Formas |
 | --- | --- | --- |
@@ -44,9 +44,9 @@ A verificação anterior no navegador confirmou as transformações de Tirano, C
 | Devorador | Cinza | Fome sem Corpo: Cinza, ao atingir 50 de Vida |
 | Máscara Dupla | Cinza | Máscara da Traição: Cinza, por 2 turnos |
 
-O tipo de Essência principal acompanha o corpo e retorna com ele. Custos complementares das manifestações de O Fim e dos corpos alternativos de Metamorfa usam Qualquer. As 100 defesas pessoais e a quarta técnica de O Fim custam exatamente 1 Qualquer; 77 personagens também usam esse tipo de custo em ao menos uma habilidade normal, preservando o total de pontos e a escala de cada kit.
+O tipo de Essência principal acompanha o corpo e retorna com ele. O custo Coringa complementa as Essências fixas: cada unidade é paga escolhendo uma entre Éter, Cinza, Graça e Ruptura. Custos complementares das manifestações de O Fim e dos corpos alternativos de Metamorfa usam Coringa. As 100 defesas pessoais e a quarta técnica de O Fim custam exatamente 1 Coringa; 77 personagens também usam esse custo em ao menos uma habilidade normal, preservando o total de pontos e a escala de cada kit.
 
-Qualquer aparece como um marcador preto de custo. Não é um sexto tipo de Essência sorteado: qualquer combinação de Éter, Cinza, Graça, Ruptura e Coringa pode pagá-lo. A confirmação reserva primeiro todos os custos fixos da fila, sugere os tipos mais abundantes restantes e oferece controles de menos/mais, saldo preservado e seleção automática. O jogador pode alterar a ordem sem refazer uma escolha de pagamento válida. Remover uma ação recalcula a sugestão. A confirmação fica desabilitada até completar o pagamento.
+Coringa aparece como marcador de custo flexível. Não é um tipo de Essência: escolha a quantidade pedida entre Éter, Cinza, Graça e Ruptura. A confirmação reserva primeiro todos os custos fixos da fila, sugere os tipos mais abundantes restantes e oferece controles de menos/mais, saldo preservado e seleção automática. O jogador pode alterar a ordem sem refazer uma escolha de pagamento válida. Remover uma ação recalcula a sugestão. A confirmação fica desabilitada até completar o pagamento.
 
 O motor fixa a escolha por ação na confirmação e só debita quando ela realmente resolve. Atordoamento, queda, mudança da técnica ou perda de alvo não consomem o custo. Drenagem posterior que remova um tipo de Essência escolhido pode impedir a ação, sem trocar silenciosamente o pagamento. No duelo, o servidor recalcula os custos a partir do kit atual e valida a seleção agregada; campos de custo ou pagamento por ação enviados pelo cliente não têm autoridade. A IA também reserva tipos de Essência existentes.
 
@@ -55,11 +55,11 @@ As fichas removem cargos táticos inventados, classes decorativas, palavras-chav
 
 ### Conferência da interface de pagamento
 
-Prévia verificada: commit remoto `d78b48341fc2dd728851dcf55a7508d3cd6da1ff`. Na fila do segundo turno, Fome dos Reinos, Instinto Usurpado e Alimentar o Ódio reservaram 3 Ruptura e 1 Cinza. Os 2 Qualquer foram pagos manualmente com 1 Éter e 1 Graça; os saldos após resolução foram 11 Éter, 5 Cinza, 7 Graça e 5 Ruptura, após três sorteios de tipos de Essência. Os retratos mudaram para Predador e Pele Usurpada, com técnicas em Ruptura.
+Prévia verificada: commit remoto `d78b48341fc2dd728851dcf55a7508d3cd6da1ff`. Na fila do segundo turno, Fome dos Reinos, Instinto Usurpado e Alimentar o Ódio reservaram 3 Ruptura e 1 Cinza. As 2 unidades de custo Coringa foram pagas manualmente com 1 Éter e 1 Graça; os saldos após resolução foram 11 Éter, 5 Cinza, 7 Graça e 5 Ruptura, após três sorteios de tipos de Essência. Os retratos mudaram para Predador e Pele Usurpada, com técnicas em Ruptura.
 
 A revisão em 320 px ficou sem transbordamento horizontal: área de conteúdo 303 px, diálogo 283 px e botões de ajuste 44 × 44 px. Retirar uma unidade bloqueou Confirmar; completar com outra cor habilitou o botão. O Codex carregou os retratos e as três artes do Predador, incluindo Rastro Faminto restaurado.
 
-![Revisão com custos fixos reservados e Qualquer dividido entre Éter e Graça](resource-payment-20261024.jpg)
+![Revisão com custos fixos reservados e Coringa dividido entre Éter e Graça](resource-payment-20261024.jpg)
 
 
 O fluxo normal da campanha também foi conferido: Fortaleza de Luz foi enfileirada com a única unidade inicial de Essência, do tipo Cinza; retirar o pagamento bloqueou a confirmação e mover o foco para o controle disponível preservou o uso por teclado. Enter completou o pagamento e a confirmação executou a defesa, exibindo INVULNERÁVEL.

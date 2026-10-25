@@ -5,7 +5,7 @@ import { getLanguage } from "./i18n.js";
 
 const damageTypeNames = { physical: "físico", energy: "espiritual", piercing: "perfurante", affliction: "de aflição" };
 const statusNames = { sangramento: "Sangramento", queimadura: "Queimadura", veneno: "Veneno", decadencia: "Decadência" };
-const resourceNamesEn = { essence: "Aether", cinza: "Ash", ruptura: "Rupture", graca: "Grace", coringa: "Wildcard" };
+const resourceNamesEn = { essence: "Aether", cinza: "Ash", ruptura: "Rupture", graca: "Grace", random: "Wildcard" };
 const conditionNames = {
   bleed: "alvo com Sangramento", burn: "alvo com Queimadura", poison: "alvo com Veneno", decay: "alvo com Decadência",
   afflicted: "alvo com uma aflição", exposed: "alvo Exposto", stunned: "alvo Atordoado", weakened: "alvo Enfraquecido",
@@ -123,7 +123,7 @@ function abilityQuickEffectEnglish(ability = {}) {
 
 export function abilityCostLabel(actor, ability) {
   const costs = getAbilityResourceCosts(actor, ability);
-  const parts = Object.entries(costs).flatMap(([id, amount]) => amount ? [`${amount} ${resourceById[id]?.shortName || "Essência"}`] : []);
+  const parts = Object.entries(costs).flatMap(([id, amount]) => amount ? [`${amount} ${getLanguage()==="en"?(resourceNamesEn[id]||resourceById[id]?.shortName||"Essence"):(resourceById[id]?.shortName||"Essência")}`] : []);
   return parts.length ? parts.join(" + ") : "Livre";
 }
 

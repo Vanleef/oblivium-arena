@@ -38,7 +38,7 @@ export function evolveKit(elo,index,source){
   identity('Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas no cárcere.','Perseguição');break;
  case 'mentira:1':
   form(0,'other',attack('Gesto de Outro Rosto',10,2,{counter:15,damageType:'energy',shift:back(0)}));
-  s[2].convertEssence={from:'any',to:'coringa',amount:1};
+  s[2].convertEssence={from:'any',to:'random',amount:1};
   after(0,[shift(0,'other',2)],'Vira Gesto de Outro Rosto por 2 turnos: um ataque que prepara um contra-ataque pessoal.');
   identity('Empreste um rosto para marcar, mude a resposta e revele a traição quando o adversário baixar a guarda.','Alternância de intenções');break;
  case 'mentira:2':
@@ -165,7 +165,7 @@ export function evolveKit(elo,index,source){
   form(0,'stolen',attack('Eco sem Origem',10,1,{damageType:'energy',gainCharge:1}));
   form(1,'stolen',support('Voz Devolvida',{target:'team',shield:10,cleanse:true},2));
   form(2,'stolen',attack('Ressonância Roubada',15,3,{target:'all-enemies',damageType:'energy',perChargeDamage:5,spendCharge:true,shift:back(2),cooldown:2}));
-  s[2].convertEssence={from:'ruptura',to:'coringa',amount:1};
+  s[2].convertEssence={from:'ruptura',to:'random',amount:1};
   counter(1,[shift(0,'stolen',2),shift(1,'stolen',2),shift(2,'stolen',2)],'Se o contra-ataque ativar, assuma por 2 turnos o corpo ecoante: golpe, amparo e ressonância coletiva.');
   identity('Colete ecos e devolva uma agressão para mudar o trio inteiro de postura: golpe leve, limpeza coletiva e ressonância que gasta cargas.','Forma de ressonância');break;
  case 'correntes-quebradas:5':

@@ -117,11 +117,10 @@ export const resources = [
   { id: "essence", name: "Éter", shortName: "Éter", icon: "◈", color: "essence" },
   { id: "cinza", name: "Cinza", shortName: "Cinza", icon: "✹", color: "inferno" },
   { id: "graca", name: "Graça", shortName: "Graça", icon: "✧", color: "paraiso" },
-  { id: "ruptura", name: "Ruptura", shortName: "Ruptura", icon: "⟲", color: "limbo" },
-  { id: "coringa", name: "Coringa", shortName: "Coringa", icon: "✥", color: "coringa" }
+  { id: "ruptura", name: "Ruptura", shortName: "Ruptura", icon: "⟲", color: "limbo" }
 ];
 
-export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Qualquer",color:"random"}};
+export const resourceById = {...Object.fromEntries(resources.map((resource) => [resource.id, resource])),random:{id:"random",name:"Coringa",shortName:"Coringa",icon:"✥",color:"random"}};
 // Kept for legacy saves and the old world-level reward rules. Character affinities are kit-based.
 export const realmResource = { Inferno: "cinza", "Paraíso": "graca", Limbo: "ruptura" };
 
@@ -415,14 +414,14 @@ export const buffs = [
   },
   {
     "id": "coringa",
-    "title": "Estilhaço Coringa",
-    "text": "Comece cada combate com 1 Coringa extra.",
+    "title": "Estilhaço Volátil",
+    "text": "Comece cada combate com 1 Essência aleatória extra.",
     "lore": "Uma centelha sem nome toma a forma de que você precisar.",
     "glyph": "wild",
     "category": "essence",
     "icon": "✥",
     "effect": {
-      "coringa": 1
+      "randomEssence": 1
     },
     "context": "Uma centelha sem nome toma a forma de que você precisar."
   },
@@ -835,12 +834,12 @@ export const buffs = [
     "id": "double-current",
     "title": "Corrente Dupla",
     "category": "essence",
-    "text": "Comece cada combate com 1 Éter e 1 Coringa extras.",
+    "text": "Comece cada combate com 1 Éter e 1 Essência aleatória extras.",
     "context": "Dois rios espirituais correm lado a lado sem se misturar.",
     "icon": "☯",
     "effect": {
       "essence": 1,
-      "coringa": 1
+      "randomEssence": 1
     },
     "lore": "Dois rios espirituais correm lado a lado sem se misturar.",
     "glyph": "chain"

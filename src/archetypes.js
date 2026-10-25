@@ -1,4 +1,4 @@
-const orderedTypes = ["essence", "cinza", "ruptura", "graca", "coringa"];
+const orderedTypes = ["essence", "cinza", "ruptura", "graca"];
 
 export const archetypeCatalog = {
   status: { name: "Especialista em Aflições", icon: "☣", context: "Aplica e prolonga condições para que a equipe converta desgaste em pressão." },
@@ -66,13 +66,12 @@ function rank(character) {
 }
 
 function affinityFor(character, info) {
-  const a = info.abilities, scores = { essence: 0, cinza: 0, ruptura: 0, graca: 0, coringa: 0 };
+  const a = info.abilities, scores = { essence: 0, cinza: 0, ruptura: 0, graca: 0 };
   const effects = character.passive?.effect || {};
   scores.essence += info.marks * 2 + info.combos + count(a, (x) => x.stun || x.weaken || x.sealAttack || x.sealSupport) * 1.2;
   scores.cinza += hasDot(a) * 3 + count(a, (x) => x.drain) * 6 + count(a, (x) => x.healingBlock || x.dot?.tag === "decadencia") * 2;
   scores.ruptura += count(a, (x) => x.damage >= 20 || x.damageType === "piercing") * 2 + count(a, (x) => x.selfDamage || x.missingHpDamage) * 2;
   scores.graca += count(a, (x) => x.heal || x.cleanse || x.regen || x.shield || x.reduce) * 2 + info.allyCare * 2;
-  scores.coringa += info.formShifts * 2 + (character.bodyForms?.length || 0) * 3 + count(a, (x) => x.gainCharge || x.spendCharge || x.steal || x.convertEssence || x.generateEssence);
   const generated = effects.generateEssence?.resource;
   const converted = effects.convertEssence?.to;
   const spent = effects.spendEssence?.resource;
@@ -114,14 +113,12 @@ export function assignCharacterArchetypes(character) {
     ...form,
     archetype: profile?.forms?.[form.key] || primary,
     resource: form.key === "starved" ? "cinza"
-      : form.key === "betrayal" ? "coringa"
       : form.key === "rage" ? "ruptura"
       : form.key === "shelter" ? "graca"
       : form.key === "skin" ? "ruptura"
       : form.key === "shell" ? "graca"
       : form.key === "edict" ? "essence"
       : form.key === "smother" ? "ruptura"
-      : form.key === "stolen" ? "coringa"
       : form.resource || affinity
   }));
   return {

@@ -7,7 +7,7 @@ import {refreshSkillForms} from '../src/skill-state.js';
 import {renderBattleDetail,renderBattle} from '../src/battle-view.js';
 const char=name=>characters.find(c=>c.name===name||c.previousName===name);
 const dummy=(id='alvo')=>({id,name:id,realm:'Inferno',affinity:'cinza',maxHp:10000,abilities:[]});
-function battle(name,enemies=[dummy()]){const c=char(name),b=createBattle([c.id],enemies,{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100,coringa:100};return b;}
+function battle(name,enemies=[dummy()]){const c=char(name),b=createBattle([c.id],enemies,{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};return b;}
 const skill=(b,i)=>b.allies[0].abilities[i];
 function cast(b,i,targetId){const a=skill(b,i);assert.equal(chooseAction(b,b.allies[0].id,a.id,targetId||getValidTargets(b,b.allies[0],a)[0]?.id).ok,true,a.name);assert.equal(passTurn(b),true);return a;}
 function finish(b){let n=0;while(b.phase==='resolving'&&n++<20)resolveNextAction(b);assert.ok(n<20);}
@@ -120,7 +120,7 @@ test('contra-ataque só abre a resposta quando é ativado, contra o agressor cor
 });
 
 test('contra-ataque concedido a um aliado evolui o kit de quem o criou',()=>{
- const owner=char('O Espelho'),ally=char('O Escudo Vivo'),b=createBattle([owner.id,ally.id],[dummy()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100,coringa:100};const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',costs:{},target:'enemy',damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:'hit',targetId:ally.id,side:'enemy'}];
+ const owner=char('O Espelho'),ally=char('O Escudo Vivo'),b=createBattle([owner.id,ally.id],[dummy()],{rng:()=>0});b.resources={essence:100,cinza:100,graca:100,ruptura:100};const e=b.enemies[0];e.abilities=[{id:'hit',name:'Golpe',costs:{},target:'enemy',damage:10}];b.enemyPlanner=s=>s.intents;b.intents=[{actorId:e.id,abilityId:'hit',targetId:ally.id,side:'enemy'}];
  chooseAction(b,owner.id,'tecnica',ally.id);passTurn(b);assert.equal(b.allies[0].abilities[0].name,'Estilhaço Devolvido');assert.equal(b.allies[1].abilities[0].name,'Golpe do Bastião');
 });
 
@@ -134,7 +134,7 @@ test('munição esgotada muda o golpe e a recarga continua pertencendo ao espaç
 });
 
 test('forma que muda após confirmação cancela a ação e preserva sua Essência',()=>{
- const d=char('O Devorador'),h=char('O Escudo Vivo'),b=createBattle([d.id,h.id],[dummy()],{rng:()=>0});b.resources={essence:10,cinza:10,graca:10,ruptura:10,coringa:10};b.allies[0].hp=45;
+ const d=char('O Devorador'),h=char('O Escudo Vivo'),b=createBattle([d.id,h.id],[dummy()],{rng:()=>0});b.resources={essence:10,cinza:10,graca:10,ruptura:10};b.allies[0].hp=45;
  b.allies[1].abilities[0]={id:'heal',name:'Cura',target:'ally',costs:{},heal:30};chooseAction(b,d.id,'impulso','alvo');chooseAction(b,h.id,'heal',d.id);moveQueuedAction(b,h.id,-1);commitTurn(b);resolveNextAction(b);const essence={...b.resources},event=resolveNextAction(b).event;assert.equal(event.skipped,true);assert.match(event.summary,/forma mudou/);assert.deepEqual(b.resources,essence);finish(b);
 });
 

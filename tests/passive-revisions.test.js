@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { characters, characterById } from '../src/data.js';
 import { createBattle, chooseAction, commitTurn, resolveNextAction, getAbilityResourceCosts } from '../src/combat.js';
 
-const essenceIds = ['essence', 'cinza', 'graca', 'ruptura', 'coringa'];
+const essenceIds = ['essence', 'cinza', 'graca', 'ruptura'];
 const emptyPool = () => Object.fromEntries(essenceIds.map(id => [id, 0]));
 const dummy = (id='alvo') => ({ id, name: 'Alvo', realm: 'Inferno', maxHp: 1000, abilities: [] });
 const rich = battle => { for (const id of essenceIds) battle.resources[id] = 30; };
@@ -44,7 +44,7 @@ test('a Viúva recebe Vida e Coringa ao eliminar a própria vítima marcada', ()
   target.marks.fio = { sourceId: actor.id, turns: 2, label: 'Fio Escarlate' };
   strike(battle, {}, target.id);
   assert.equal(actor.hp, 58);
-  assert.equal(battle.resources.coringa, 1);
+  assert.equal(battle.resources.essence, 1);
 });
 
 test('a recuperação de três devoradores muda conforme o tipo de dano', () => {
@@ -161,10 +161,10 @@ test('o Colecionador ganha carga e Defesa pelo abate e o Carrasco exige Atordoam
   castRevision(collector,{});
   assert.equal(collector.allies[0].charge,1);assert.equal(collector.allies[0].shield,4);
   for(const stunned of [0,1]){
-    const b=setupRevision('o-carrasco-sem-rosto');b.allies[0].hp=50;b.enemies[0].stunned=stunned;b.enemyResources.coringa=1;
+    const b=setupRevision('o-carrasco-sem-rosto');b.allies[0].hp=50;b.enemies[0].stunned=stunned;b.enemyResources.essence=1;
     castRevision(b,{stun:1});
     assert.equal(b.allies[0].hp,stunned?53:50);
-    assert.equal(b.enemyResources.coringa,stunned?0:1);
+    assert.equal(b.enemyResources.essence,stunned?0:1);
   }
 });
 
@@ -203,7 +203,7 @@ test('Domínio do Soberano recebe Defesa extra; Magistrada e Déspota têm econo
 
 test('Mentira distingue conversão, Enfraquecido, cura perfurante e bênção pessoal', () => {
   const whisper=setupRevision('o-sussurro');whisper.resources.essence=2;whisper.enemies[0].dots=[{tag:'veneno',sourceId:whisper.allies[0].id,damage:1,turns:2}];
-  castRevision(whisper,{costs:{essence:1}});assert.equal(whisper.resources.essence,0);assert.equal(whisper.resources.coringa,1);
+  castRevision(whisper,{costs:{essence:1}});assert.equal(whisper.resources.essence,0);assert.equal(whisper.resources.cinza,1);
   const schemer=setupRevision('o-tecelao-de-mentiras');schemer.enemies[0].marks.trama={sourceId:schemer.allies[0].id,turns:3};
   castRevision(schemer,{});assert.equal(schemer.enemies[0].weakened,1);
   for(const type of ['physical','piercing']){
@@ -217,9 +217,9 @@ test('Mentira distingue conversão, Enfraquecido, cura perfurante e bênção pe
 
 test('golpe inteiramente absorvido não dispara passiva de causar dano nem roubo do primeiro acerto', () => {
   for(const id of ['a-mao-que-toma','a-boca-de-vidro']){
-    const b=setupRevision(id);b.allies[0].hp=50;b.enemyResources.coringa=1;b.enemies[0].shield=50;b.enemies[0].exposed=1;
+    const b=setupRevision(id);b.allies[0].hp=50;b.enemyResources.essence=1;b.enemies[0].shield=50;b.enemies[0].exposed=1;
     castRevision(b,{damageType:'piercing'});
-    assert.equal(b.allies[0].hp,50);assert.equal(b.enemyResources.coringa,1);assert.equal(b.allies[0].passiveUsed,false);
+    assert.equal(b.allies[0].hp,50);assert.equal(b.enemyResources.essence,1);assert.equal(b.allies[0].passiveUsed,false);
   }
 });
 

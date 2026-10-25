@@ -1,4 +1,4 @@
-import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange} from "./resource-costs.js";
+import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
 export {getAbilityResourceCosts} from "./resource-costs.js";
 import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
 import { checkDeathInfluences } from "./world-influences.js";
@@ -15,27 +15,51 @@ const nearest = units=>[...living(units)].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)
 const friendly = a=>["self","ally","friendly","team"].includes(a.target);
 const team = (s,side)=>side==="player" ? s.allies : s.enemies;
 const enemies = (s,side)=>side==="player" ? s.enemies : s.allies;
-const pool = (s,side)=>side==="player" ? s.resources : s.enemyResources;
+function nextRandom(s){
+  if(s?.rngState!==undefined)return (s.rngState=(Math.imul(s.rngState,1664525)+1013904223)>>>0)/4294967296;
+  return (s?.rng||Math.random)();
+}
+function randomResourceId(s,excluded=[]){
+  const blocked=new Set(Array.isArray(excluded)?excluded:[excluded]),candidates=resourceIds.filter(id=>!blocked.has(id));
+  const choices=candidates.length?candidates:resourceIds,roll=Math.min(.999999999,Math.max(0,nextRandom(s)));
+  return choices[Math.floor(roll*choices.length)];
+}
+const totalEssence=p=>resourceIds.reduce((sum,id)=>sum+Math.max(0,Number(p?.[id])||0),0);
+function normalizePool(s,side){
+  const key=side==="player"?"resources":"enemyResources",p=s[key]&&typeof s[key]==="object"?s[key]:(s[key]={});
+  const legacy=Math.max(0,Math.floor(Number(p.coringa)||0));delete p.coringa;
+  for(let i=0;i<legacy;i++){const id=randomResourceId(s);p[id]=(p[id]||0)+1;}
+  for(const id of Object.keys(p))if(!resourceIds.includes(id))delete p[id];
+  for(const id of resourceIds)if(!Number.isFinite(p[id])||p[id]<0)p[id]=0;
+  return p;
+}
+const pool = (s,side)=>normalizePool(s,side);
 const sameRealmCount=(s,side,realm)=>living(team(s,side)).filter(unit=>unit.realm===realm).length;
 const log=(s,message)=>{s.log.unshift(message);s.log=s.log.slice(0,30);};
 const heal=(u,n)=>{const before=u.hp;if(u.hp>0)u.hp=Math.min(u.maxHp,u.hp+Math.max(0,Math.floor(n*(1-(u.healingBlock||0)))));return u.hp-before;};
 const shield=(u,n)=>{const before=u.shield;u.shield=Math.min(Math.round(u.maxHp*0.5),u.shield+n);return u.shield-before;};
-function gain(s,side,id,n=1){const p=pool(s,side),before=p[id]||0;p[id]=before+n;return p[id]-before;}
-function convertEssencePool(p,spec){
-  const amount=Math.max(0,Math.floor(spec.amount||1));
-  const source=spec.from==='any'?Object.keys(p).filter(id=>id!==spec.to&&p[id]>0).sort((a,b)=>p[b]-p[a])[0]:spec.from;
-  if(!source||source===spec.to||amount<1||!(p[source]>=amount))return 0;
-  p[source]-=amount;p[spec.to]=(p[spec.to]||0)+amount;return amount;
+function gain(s,side,id,n=1){
+  const p=pool(s,side),amount=Math.max(0,Math.floor(Number(n)||0));
+  if(id==="random"||id==="coringa"){for(let i=0;i<amount;i++){const target=randomResourceId(s);p[target]=(p[target]||0)+1;}return amount;}
+  if(!resourceIds.includes(id))return 0;
+  p[id]=(p[id]||0)+amount;return amount;
+}
+function convertEssencePool(s,p,spec){
+  const amount=Math.max(0,Math.floor(spec.amount||1)),fromAny=["any","random","coringa"].includes(spec.from);
+  const source=fromAny?resourceIds.filter(id=>id!==spec.to&&(p[id]||0)>0).sort((a,b)=>(p[b]||0)-(p[a]||0))[0]:spec.from;
+  const target=["random","coringa"].includes(spec.to)?randomResourceId(s,[source]):spec.to;
+  if(!resourceIds.includes(source)||!resourceIds.includes(target)||source===target||amount<1||!(p[source]>=amount))return 0;
+  p[source]-=amount;p[target]=(p[target]||0)+amount;return amount;
 }
 function clone(c,side,config={}) {const maxHp=c.maxHp||100;const unit={...c,side,maxHp,hp:Math.max(0,Math.min(maxHp,config.teamHealth?.[c.id]??maxHp)),affinity:c.affinity||realmResource[c.realm],abilities:c.abilities.map(a=>({...a})),shield:Math.min(Math.round(maxHp*.5),c.startingShield||0),armor:c.armor||0,regeneration:c.regeneration||0,globalStrikeUsed:false,weakened:0,stunned:0,exposed:0,invulnerable:0,reduction:0,boost:0,counter:0,counterEffect:null,counterRequiresShield:false,counterDamageType:"physical",charge:0,dots:[],marks:{},cooldowns:{},cooldownFresh:[],passiveUsed:false,passiveTriggeredRound:null,offenseUsedThisTurn:false,offenseLastTurn:false,tookDamageThisTurn:false,damagedLastTurn:false};initializeSkillForms(unit);initializeCombatEffects(unit);return unit;}
-export function getAvailableResources(s,except=null){const out={...s.resources};for(const action of s.queue||[]){if(action.actorId===except)continue;const actor=byId(s.allies,action.actorId),ability=actor?.abilities.find(a=>a.id===action.abilityId);if(ability)for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,ability)))if(id!=="random")out[id]-=n;}return out;}
-export function getTurnPayment(s,selected){return allocateQueuePayment(s.queue||[],s.allies,s.resources,selected);}
+export function getAvailableResources(s,except=null){const out={...pool(s,"player")};for(const action of s.queue||[]){if(action.actorId===except)continue;const actor=byId(s.allies,action.actorId),ability=actor?.abilities.find(a=>a.id===action.abilityId);if(ability)for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,ability)))if(id!=="random")out[id]-=n;}return out;}
+export function getTurnPayment(s,selected){return allocateQueuePayment(s.queue||[],s.allies,pool(s,"player"),selected);}
 export function exchangeEssence(s,target,selected){
  if(s.phase!=="player")return {ok:false,reason:"Aguarde o início do seu turno."};
  if(s.queue?.length)return {ok:false,reason:"Remova as ações da fila antes de trocar Essência."};
- const result=resolveEssenceExchange(s.resources,target,selected);if(!result.ok)return result;
+ const result=resolveEssenceExchange(pool(s,"player"),target,selected);if(!result.ok)return result;
  s.resources=result.pool;s.pendingEssenceExchanges??=[];s.pendingEssenceExchanges.push({target,payment:result.selected});
- const names={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura",coringa:"Coringa"};
+ const names={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura"};
  log(s,`5 Essências foram trocadas por 1 ${names[target]}.`);
  return result;
 }
@@ -48,14 +72,14 @@ export function applyEssenceExchanges(s,side,exchanges){
   next=result.pool;resolved.push({target:result.target,payment:result.selected});
  }
  Object.assign(pool(s,side),next);
- const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',coringa:'Coringa'};
+ const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura'};
  for(const exchange of resolved)log(s,`5 Essências foram trocadas por 1 ${names[exchange.target]}.`);
  return {ok:true,exchanges:resolved};
 }
 export function canAffordAbility(s,actor,ability){
- if(actor.side==='enemy')return resolveResourcePayment(getAbilityResourceCosts(actor,ability),s.enemyResources).ok;
+ if(actor.side==='enemy')return resolveResourcePayment(getAbilityResourceCosts(actor,ability),pool(s,"enemy")).ok;
  const actions=(s.queue||[]).filter(a=>a.actorId!==actor.id).concat({actorId:actor.id,abilityId:ability.id});
- return allocateQueuePayment(actions,s.allies,s.resources).ok;
+ return allocateQueuePayment(actions,s.allies,pool(s,"player")).ok;
 }
 export function getValidTargets(s,actor,ability){if(!actor||!ability)return [];if(ability.target==="self")return actor.hp>0?[actor]:[];return living(friendly(ability)?team(s,actor.side):enemies(s,actor.side)).filter(u=>friendly(ability)||!u.invulnerable||ability.ignoreInvulnerability).filter(u=>!ability.formTargetId||u.id===ability.formTargetId).filter(u=>!ability.requiredMark||u.marks[ability.requiredMark]?.sourceId===actor.id);}
 export function meetsCondition(u,condition,actor){if(!u||!condition)return false;if(condition.startsWith("mark:"))return u.marks[condition.slice(5)]?.sourceId===actor.id;const tags={bleed:"sangramento",burn:"queimadura",poison:"veneno",decay:"decadencia"};if(tags[condition])return u.dots.some(d=>d.tag===tags[condition]&&d.turns>0);if(condition==="afflicted")return u.dots.length>0;if(condition==="marked")return Object.values(u.marks).some(m=>m.sourceId===actor.id);if(condition==="wounded")return u.hp<=50;if(condition==="selfWounded")return actor.hp<=50;if(condition==="selfShielded")return actor.shield>0;if(condition==="shielded")return u.shield>0;return (u[condition]||0)>0;}
@@ -102,19 +126,19 @@ function attackValue(s,actor,a,target,charges=actor.charge){
   const multiplier=actor.side==="player"?1+s.resonance.bonus+s.buffs.damage:s.humanSides?1+(s.enemyResonance?.bonus||0):1;
   return Math.max(0,Math.round((a.damage+worldDamageBonus(s,actor,a,target,charges)+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+eloComboBonus+passiveBonus(actor,target)+actor.boost-(actor.weakened?10:0))*multiplier));
 }
-function transfer(s,side,n,steal,resource=null){const other=side==="player"?"enemy":"player",p=pool(s,other);let count=0;for(let i=0;i<n;i++){const id=resource?(p[resource]>0?resource:null):Object.keys(p).sort((a,b)=>p[b]-p[a]).find(k=>p[k]>0);if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
-const essenceName=id=>({essence:"Éter",cinza:"Cinza",ruptura:"Ruptura",graca:"Graça",coringa:"Coringa"}[id]||"Essência");
+function transfer(s,side,n,steal,resource=null){const other=side==="player"?"enemy":"player",p=pool(s,other),requested=["random","coringa"].includes(resource)?null:resource;let count=0;for(let i=0;i<n;i++){const id=requested?(p[requested]>0?requested:null):resourceIds.filter(key=>(p[key]||0)>0).sort((a,b)=>(p[b]||0)-(p[a]||0))[0];if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
+const essenceName=id=>({essence:"Éter",cinza:"Cinza",ruptura:"Ruptura",graca:"Graça",random:"Essência aleatória",coringa:"Essência aleatória"}[id]||"Essência");
 function triggerPassive(s,unit,trigger,context={}){
  const p=unit?.passive;if(!p||p.trigger!==trigger||unit.hp<=0)return false;
  if(p.oncePerBattle&&unit.passiveUsed)return false;
  if(!p.oncePerBattle&&unit.passiveTriggeredRound===s.round)return false;
  const own=pool(s,unit.side),other=pool(s,unit.side==="player"?"enemy":"player"),target=context.target,attacker=context.attacker;
- if(p.spendResource&&!(context.costs?.[p.spendResource]>0))return false;
+ if(p.spendResource&&!(p.spendResource==="random"||p.spendResource==="coringa"?((context.ability?.costs?.random||0)+(context.ability?.costs?.coringa||0)>0):(context.costs?.[p.spendResource]>0)))return false;
  if(p.condition&&context.condition!==p.condition)return false;
  if(p.hpAtMost!=null&&unit.hp>p.hpAtMost)return false;
  if(p.ifForm&&unit.bodyForm!==p.ifForm)return false;
- if(p.ifResource&&(own[p.ifResource]||0)<(p.resourceMinimum||1))return false;
- if(p.enemyResource&&(other[p.enemyResource]||0)<(p.enemyResourceMinimum||1))return false;
+ if(p.ifResource&&(p.ifResource==="random"||p.ifResource==="coringa"?totalEssence(own):(own[p.ifResource]||0))<(p.resourceMinimum||1))return false;
+ if(p.enemyResource&&(p.enemyResource==="random"||p.enemyResource==="coringa"?totalEssence(other):(other[p.enemyResource]||0))<(p.enemyResourceMinimum||1))return false;
  if(p.ifEnemyAfflicted&&!enemies(s,unit.side).some(u=>u.hp>0&&u.dots.length))return false;
  if(p.ownDotPopulation&&enemies(s,unit.side).filter(u=>u.hp>0&&u.dots.some(dot=>dot.tag===p.ownDotPopulation.tag&&dot.sourceId===unit.id&&dot.turns>0)).length<p.ownDotPopulation.minimum)return false;
  if(p.ifNoOffenseOrDamaged&&unit.offenseLastTurn&&!unit.damagedLastTurn)return false;
@@ -139,11 +163,11 @@ function triggerPassive(s,unit,trigger,context={}){
  if(p.minimumPurged&&(context.purged||0)<p.minimumPurged)return false;
  if(p.minimumCleansed&&(context.cleansed||0)<p.minimumCleansed)return false;
  if(p.offensive&&!context.ability?.damage)return false;
- if(p.effect?.spendEssence){const spend=p.effect.spendEssence,resource=spend.resource==="affinity"?unit.bodyResource||unit.affinity:spend.resource,amount=Math.max(0,Math.floor(spend.amount||1));if((own[resource]||0)<amount)return false;own[resource]-=amount;}
+ if(p.effect?.spendEssence){const spend=p.effect.spendEssence,resource=spend.resource==="affinity"?unit.bodyResource||unit.affinity:spend.resource,amount=Math.max(0,Math.floor(spend.amount||1)),any=["random","coringa"].includes(resource);if(any?totalEssence(own)<amount:(own[resource]||0)<amount)return false;if(any){for(let i=0;i<amount;i++){const id=randomResourceId(s,resourceIds.filter(key=>!(own[key]>0)));own[id]--;}}else own[resource]-=amount;}
 
  const effect=p.effect||{},changes=[];
  if(effect.generateEssence){const resource=effect.generateEssence.resourceFromForm?(unit.bodyForm==="base"?unit.affinity:unit.bodyResource||unit.affinity):effect.generateEssence.resource;const amount=Math.max(0,Math.floor(effect.generateEssence.amount||1));if(resource&&amount){gain(s,unit.side,resource,amount);changes.push(`+${amount} ${essenceName(resource)}`);}}
- if(effect.convertEssence){const converted=convertEssencePool(own,effect.convertEssence);if(converted)changes.push(`${converted} Essência convertida`);}
+ if(effect.convertEssence){const converted=convertEssencePool(s,own,effect.convertEssence);if(converted)changes.push(`${converted} Essência convertida`);}
  if(effect.drainEssence){const drained=transfer(s,unit.side,effect.drainEssence.amount||1,false,effect.drainEssence.resource||null);if(drained)changes.push(`${drained} Essência drenada`);}
  if(effect.stealEssence){const stolen=transfer(s,unit.side,effect.stealEssence.amount||1,true,effect.stealEssence.resource||null);if(stolen)changes.push(`${stolen} Essência roubada`);}
  if(effect.gainCharge){const before=unit.charge;unit.charge=Math.min(3,unit.charge+Math.max(0,Math.floor(effect.gainCharge)));if(unit.charge>before)changes.push(`+${unit.charge-before} carga`);}
@@ -214,8 +238,8 @@ function apply(s,actor,a,targetId,randomPayment){
   if(a.damage&&affected&&actor.passive?.type==="firstHit")actor.passiveUsed=true;
   if(totalDamage>0&&actor.passive?.trigger==="firstHit")triggerPassive(s,actor,"firstHit",{target:targets.find(target=>target.hp>0)||targets[0],ability:a,costs});
   if(affected){if(a.spendCharge)actor.charge=0;actor.charge=Math.min(3,actor.charge+(a.gainCharge||0));if(a.maxUses)actor.skillUses[a.id]=(actor.skillUses[a.id]||0)+1;applySkillShifts(s,actor,a.shift,targetId,meetsCondition);}
-  if(affected&&a.convertEssence){const converted=convertEssencePool(p,a.convertEssence);if(converted)log(s,`${actor.name} converte ${converted} unidade(s) de Essência.`);}
-  if(affected&&a.generateEssence?.resource){const extra=eloSynergyPeers(team(s,actor.side),actor,"essence"),generated=gain(s,actor.side,a.generateEssence.resource,Math.max(0,Math.floor(a.generateEssence.amount||1)+extra));if(generated)log(s,`${actor.name} gera ${generated} ${a.generateEssence.resource==='coringa'?'Coringa':'Essência'} para a equipe.`);}
+  if(affected&&a.convertEssence){const converted=convertEssencePool(s,p,a.convertEssence);if(converted)log(s,`${actor.name} converte ${converted} unidade(s) de Essência.`);}
+  if(affected&&a.generateEssence?.resource){const extra=eloSynergyPeers(team(s,actor.side),actor,"essence"),generated=gain(s,actor.side,a.generateEssence.resource,Math.max(0,Math.floor(a.generateEssence.amount||1)+extra));if(generated)log(s,`${actor.name} gera ${generated} ${a.generateEssence.resource==='coringa'||a.generateEssence.resource==='random'?'Essência aleatória':'Essência'} para a equipe.`);}
   if(a.selfDamage&&actor.hp>0)actor.hp=Math.max(1,actor.hp-Math.max(0,a.selfDamage+(actor.side==="player"?s.buffs.risk:0)));
   if(affected&&a.spendCharge&&charges>0)triggerPassive(s,actor,"chargeSpent",{ability:a,chargesSpent:charges});
   if(totalStripped>0)triggerPassive(s,actor,"stripShield",{ability:a,stripped:totalStripped});
@@ -226,15 +250,14 @@ function apply(s,actor,a,targetId,randomPayment){
   triggerReactives(s,actor,a.defense?"defense":isFriendly?"support":"attack",null,effectsContext(reactions));
   refreshSkillForms(s);if((actor.bodyForm||"base")!==priorBodyForm)triggerPassive(s,actor,"formChange",{from:priorBodyForm,to:actor.bodyForm||"base",costs,ability:a});const shifted=priorForms!==actor.abilities.map(a=>a.formKey||"base").join(":");worldAfterAction(s,actor,a,{affected,totalDamage,killed:targets.some(u=>u.hp<=0),shifted,helpful:isFriendly},{heal,shield,log,reactions});const synergies=team(s,actor.side);if(shifted){const formGuard=eloSynergyPeers(synergies,actor,"form")*2;if(formGuard){const gained=shield(actor,formGuard);if(gained){reactions.push({kind:"world",actorId:actor.id,targetId:actor.id,actorName:actor.name,label:"Pele em vigília",shield:gained});log(s,`${actor.name} · Pele em vigília: +${gained} Defesa.`);}}}if(isFriendly&&!a.defense){const supportGuard=eloSynergyPeers(synergies,actor,"support");if(supportGuard){const gained=shield(actor,supportGuard);if(gained){reactions.push({kind:"world",actorId:actor.id,targetId:actor.id,actorName:actor.name,label:"Promessa partilhada",shield:gained});log(s,`${actor.name} · Promessa partilhada: +${gained} Defesa.`);}}}
   if(actor.side==="player"&&targets.some(unit=>unit.hp<=0)&&s.global.essenceOnKill){s.essenceKillRound||={};if(s.essenceKillRound.player!==s.round){const amount=gain(s,"player","ruptura",s.global.essenceOnKill);s.essenceKillRound.player=s.round;if(amount)log(s,`${actor.name} · Espólio da queda: +${amount} Ruptura.`);}}
-  if(actor.side==="player"&&shifted&&s.global.formEssence){s.formEssenceRound||={};if(s.formEssenceRound.player!==s.round){const amount=gain(s,"player",actor.bodyResource||actor.affinity||"coringa",s.global.formEssence);s.formEssenceRound.player=s.round;if(amount)log(s,`${actor.name} · Reflexo faminto: +${amount} Essência após mudar de Forma.`);}}
+  if(actor.side==="player"&&shifted&&s.global.formEssence){s.formEssenceRound||={};if(s.formEssenceRound.player!==s.round){const amount=gain(s,"player",actor.bodyResource||actor.affinity||"essence",s.global.formEssence);s.formEssenceRound.player=s.round;if(amount)log(s,`${actor.name} · Reflexo faminto: +${amount} Essência após mudar de Forma.`);}}
   if(actor.side==="player"&&isFriendly&&!a.defense&&s.global.supportEssence){s.supportEssenceRound||={};if(s.supportEssenceRound.player!==s.round){const amount=gain(s,"player","graca",s.global.supportEssence);s.supportEssenceRound.player=s.round;if(amount)log(s,`${actor.name} · Refrão de apoio: +${amount} Graça.`);}}
   return {skipped:false,totalDamage,reactions,abilityArt:a.art,formKey:a.formKey||"base"};
 }
 function drawEssence(s,side){
   const count=living(team(s,side)).length,draws=[];
   for(let i=0;i<count;i++){
-    const roll=s.rngState===undefined?s.rng():((s.rngState=(Math.imul(s.rngState,1664525)+1013904223)>>>0)/4294967296);
-    const id=resources[Math.min(resources.length-1,Math.floor(roll*resources.length))].id;gain(s,side,id);draws.push(id);
+    const id=randomResourceId(s);gain(s,side,id);draws.push(id);
   }
   s.essenceDraws[side]=draws;
 }
@@ -259,17 +282,19 @@ function grantTurn(s,recoveries=[]){
 }
 // Planning reads public combat state only; the player's queue and future draws are never consulted.
 export function getCombatPlan(s,side="enemy"){
+ pool(s,side);
  return planTeamActions(s,side,{getAbilityResourceCosts,getValidTargets,meetsCondition,attackValue,previewHit,skillSealReason});
 }
 function planAI(s){s.intents=s.enemyPlanner(s);}
 export function createBattle(ids,enemyTeam,config={}){
-  const global={...(config.globalEffects||{})},memoryEffects=aggregateRunMemories({memories:config.memories||[]}),resonance=getResonance(ids),buffValues=(config.buffs||[]).reduce((acc,id)=>{for(const [k,v]of Object.entries(buffs.find(b=>b.id===id)?.effect||{}))acc[k]=(acc[k]||0)+v;return acc;},{damage:0,shield:0,essence:0,cinza:0,graca:0,ruptura:0,coringa:0,maxHp:0,resonance:0,risk:0});
+  const global={...(config.globalEffects||{})},legacyRandomEssence=Math.max(0,Math.floor(Number(config.globalEffects?.coringa)||0)),memoryEffects=aggregateRunMemories({memories:config.memories||[]}),resonance=getResonance(ids),buffValues=(config.buffs||[]).reduce((acc,id)=>{for(const [key,v]of Object.entries(buffs.find(b=>b.id===id)?.effect||{})){const k=key==="coringa"?"randomEssence":key;acc[k]=(acc[k]||0)+v;}return acc;},{damage:0,shield:0,essence:0,cinza:0,graca:0,ruptura:0,randomEssence:0,maxHp:0,resonance:0,risk:0});delete global.coringa;
   const runWorldKeys=["armor","regeneration","startingCharge","healPower","shieldPower","afflictionPower","woundedPower","markedPower","afflictedPower","executePower","shieldedPower","controlPower","chargePower","evolvedPower","lastStandPower","counterPower","firstStrike","lifesteal","supportShield","supportCharge","killShield","defenseHeal","shiftShield","essenceOnKill","formEssence","supportEssence"];
   for(const key of runWorldKeys)if(buffValues[key])global[key]=(global[key]||0)+buffValues[key];
   for(const [key,value] of Object.entries(memoryEffects))global[key]=(global[key]||0)+value;
   resonance.bonus+=buffValues.resonance+(memoryEffects.resonance||0);
   const allies=ids.slice(0,3).map(id=>characterById[id]).filter(Boolean).map(c=>clone(c,"player",config));for(const u of allies){u.maxHp+=buffValues.maxHp+(global.maxHp||0);u.armor=global.armor||0;u.charge=Math.min(3,global.startingCharge||0);u.hp=config.teamHealth?.[u.id]==null?u.maxHp:Math.max(0,Math.min(u.maxHp,config.teamHealth[u.id]));u.shield=Math.min(Math.round(u.maxHp*.5),buffValues.shield+(global.shield||0));initializeWorldUnit(u,Object.fromEntries(Object.keys(global).filter(key=>["woundedPower","markedPower","afflictedPower","executePower","shieldedPower","controlPower","chargePower","evolvedPower","lastStandPower","counterPower","supportShield","supportCharge","killShield","defenseHeal","shiftShield"].includes(key)).map(key=>[key,global[key]])));}
   const s={enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,...(config.rngSeed===undefined?{}:{rngState:(Number(config.rngSeed)||1)>>>0}),essenceDraws:{player:[],enemy:[]},pendingEssenceExchanges:[],global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:{...buffValues,...memoryEffects},deathEchoStacks:{player:0,enemy:0},acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};
+  for(let i=0;i<(buffValues.randomEssence||0)+legacyRandomEssence+(global.randomEssence||0);i++)gain(s,"player",randomResourceId(s));
   for(const [side,units] of [["player",s.allies],["enemy",s.enemies]]){const counts=new Map();for(const unit of living(units)){const affinity=unit.affinity||unit.bodyResource;if(affinity)counts.set(affinity,(counts.get(affinity)||0)+1);}const [affinity,count]=[...counts].sort((a,b)=>b[1]-a[1])[0]||[];if(count>=2){gain(s,side,affinity,1);log(s,`${side==="player"?"Seu trio":"A oposição"} · Afinidade convergente: +1 ${essenceName(affinity)} no início do combate.`);}}
   grantTurn(s);planAI(s);return s;
 }
@@ -292,7 +317,7 @@ function resolveAction(s){
   if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
   if(action.type==="essence-exchange"){
    const result=resolveEssenceExchange(s.enemyResources,action.target,action.payment);
-   if(result.ok){s.enemyResources=result.pool;const names={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura",coringa:"Coringa"};log(s,`A oposição troca 5 Essências por 1 ${names[action.target]}.`);return {done:false,event:{...action,mode:"exchange",title:"Essência convertida",summary:`5 Essências convertidas em 1 ${names[action.target]}.`}};}
+   if(result.ok){s.enemyResources=result.pool;const names={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura"};log(s,`A oposição troca 5 Essências por 1 ${names[action.target]}.`);return {done:false,event:{...action,mode:"exchange",title:"Essência convertida",summary:`5 Essências convertidas em 1 ${names[action.target]}.`}};}
    return {done:false,event:{...action,mode:"exchange",skipped:true,title:"Troca cancelada",summary:result.reason}};
   }
   if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
@@ -349,7 +374,7 @@ export function submitDuelTurn(s,side,actions,selected,exchanges=[]){
  const nextPool={...pool(s,side)},resolvedExchanges=[];
  for(const exchange of exchanges){const result=resolveEssenceExchange(nextPool,exchange?.target,exchange?.payment);if(!result.ok)throw new Error(result.reason);Object.assign(nextPool,result.pool);resolvedExchanges.push(result);}
  const payment=allocateQueuePayment(queue,team(s,side),nextPool,selected);if(!payment.ok)throw new Error(payment.reason);
- Object.assign(pool(s,side),nextPool);const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',coringa:'Coringa'};for(const exchange of resolvedExchanges)log(s,`5 Essências foram trocadas por 1 ${names[exchange.target]}.`);s.pendingEssenceExchanges=[];
+ Object.assign(pool(s,side),nextPool);const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura'};for(const exchange of resolvedExchanges)log(s,`5 Essências foram trocadas por 1 ${names[exchange.target]}.`);s.pendingEssenceExchanges=[];
  s.phase='resolving';s.resolution=[...payment.actions,{type:'duel-end',side}];s.queue=[];continueDuel(s);
 }
 export function continueDuel(s){

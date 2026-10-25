@@ -14,9 +14,9 @@ Foram resolvidas 34868 etapas, com 429 técnicas distintas, 37 alternativas e 24
 
 ## Geração e troca de Essência
 
-Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo. Os cinco tipos têm a mesma chance. O jogador e a IA podem trocar 5 unidades disponíveis por 1 do tipo escolhido. Com cinco tipos, cinco sorteios produzem em média uma unidade de cada tipo; a troca reduz o saldo em quatro e transforma essa variância em certeza, sem criar Essência.
+Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo. Os quatro tipos — Éter, Cinza, Graça e Ruptura — têm a mesma chance. O jogador e a IA podem trocar 5 unidades disponíveis por 1 do tipo escolhido. Com quatro tipos, quatro sorteios produzem em média uma unidade de cada tipo; a troca reduz o saldo em quatro e transforma essa variância em certeza, sem criar Essência.
 
-Na curva isolada antiga, os resultados de Ruptura I–VI refletem 200 partidas por nível sem Legados e antes da revisão da Essência inicial. Eles não são uma previsão de taxa de vitória humana nem uma medição atual. A simulação comparativa atual, com a geração simétrica e um cenário de Legados por progressão, pode ser reproduzida com `node scripts/simulate-combat.mjs --difficulty-ladder`:
+A tabela abaixo preserva simulações feitas antes da correção do modelo de Essência e não mede a distribuição atual entre os quatro tipos. Os resultados de Ruptura I–VI refletem 200 partidas por nível sem Legados e antes da revisão da Essência inicial; não são uma previsão de taxa de vitória humana nem uma medição atual. A simulação comparativa atual, com a geração simétrica e um cenário de Legados por progressão, pode ser reproduzida com `node scripts/simulate-combat.mjs --difficulty-ladder`:
 
 | Ruptura | Vitórias antigas | Derrotas | Limites | Média de turnos | Trocas médias por partida |
 | --- | ---: | ---: | ---: | ---: | ---: |

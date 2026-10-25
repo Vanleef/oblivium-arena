@@ -1,14 +1,14 @@
-// Qualquer is a flexible cost; Coringa is a real fifth type in the shared Essência pool.
-export const resourceIds=['essence','cinza','graca','ruptura','coringa'];
+// Coringa is a flexible cost selected from the four actual Essência pools.
+export const resourceIds=['essence','cinza','graca','ruptura'];
 export function getAbilityResourceCosts(actor,ability){
  const out=Object.entries(ability.costs||(ability.cost?{essence:ability.cost}:{})).reduce((result,[id,n])=>{
-  const key=id==='affinity'?(actor.bodyForms?.find(f=>ability.formKey&&f.when[ability.id]===ability.formKey)?.resource||actor.bodyResource||actor.affinity):id;
+  const raw=id==='affinity'?(actor.bodyForms?.find(f=>ability.formKey&&f.when[ability.id]===ability.formKey)?.resource||actor.bodyResource||actor.affinity):id;const key=raw==='coringa'?'random':raw;
   if(key&&n>0)result[key]=(result[key]||0)+n;return result;
  },{});
  const discount=actor.passive?.costDiscount;
  if(discount&&actor.bodyForm===discount.form&&ability.formKey&&ability.formKey!=='base'){
-  const key=discount.resource==='affinity'?(actor.bodyResource||actor.affinity):discount.resource;
-  if(resourceIds.includes(key))out[key]=Math.max(0,(out[key]||0)-Math.max(0,Math.floor(discount.amount||1)));
+  const key=discount.resource==='affinity'?(actor.bodyResource||actor.affinity):discount.resource==='coringa'?'random':discount.resource;
+  if(key==='random'||resourceIds.includes(key))out[key]=Math.max(0,(out[key]||0)-Math.max(0,Math.floor(discount.amount||1)));
  }
  return out;
 }
@@ -31,15 +31,27 @@ export function resolveEssenceExchange(pool,target,selected){
  return {ok:true,target,selected:payment.selected,pool:next,totalBefore:total(pool),totalAfter:total(next)};
 }
 export function resolveResourcePayment(costs,pool,selected){
+ costs={...costs,random:(costs.random||0)+(costs.coringa||0)};delete costs.coringa;
  const fixed=Object.fromEntries(resourceIds.map(id=>[id,costs[id]||0]));
  const available=Object.fromEntries(resourceIds.map(id=>[id,(pool[id]||0)-fixed[id]]));
  const required=costs.random||0;
  if(Object.values(costs).some(n=>!Number.isSafeInteger(n)||n<0)||Object.keys(costs).some(id=>!resourceIds.includes(id)&&id!=='random')||Object.values(available).some(n=>n<0)||total(available)<required)return {ok:false,reason:'Essência insuficiente.',fixed,available,required};
- const suggestion=suggestRandomPayment(available,required),payment=selected===undefined||selected===null?suggestion:selected;
+ let normalizedSelected=selected;
+ if(selected&&typeof selected==='object'&&!Array.isArray(selected)&&Object.prototype.hasOwnProperty.call(selected,'coringa')){
+  normalizedSelected={...selected};const legacy=normalizedSelected.coringa;delete normalizedSelected.coringa;
+  if(!Number.isSafeInteger(legacy)||legacy<0)normalizedSelected.coringa=legacy;
+  else if(legacy>0){
+   const remaining=Object.fromEntries(resourceIds.map(id=>[id,Math.max(0,available[id]-(Number(normalizedSelected[id])||0))]));
+   const migrated=suggestRandomPayment(remaining,legacy);
+   if(migrated)for(const id of resourceIds)normalizedSelected[id]=(normalizedSelected[id]||0)+migrated[id];
+   else normalizedSelected.coringa=legacy;
+  }
+ }
+ const suggestion=suggestRandomPayment(available,required),payment=normalizedSelected===undefined||normalizedSelected===null?suggestion:normalizedSelected;
  const invalid=!payment||typeof payment!=='object'||Array.isArray(payment)||Object.keys(payment).some(id=>!resourceIds.includes(id))||resourceIds.some(id=>!Number.isSafeInteger(payment[id]??0)||(payment[id]||0)<0||(payment[id]||0)>available[id]);
  const chosen=invalid?{}:Object.fromEntries(resourceIds.map(id=>[id,payment[id]||0]));
  const missing=required-total(chosen);
- return {ok:!invalid&&missing===0,reason:invalid?'Seleção de tipos de Essência inválida.':missing?'Complete o custo Qualquer.':'',fixed,available,required,selected:chosen,suggestion,missing,costs:Object.fromEntries(resourceIds.map(id=>[id,fixed[id]+(chosen[id]||0)]))};
+ return {ok:!invalid&&missing===0,reason:invalid?'Seleção de tipos de Essência inválida.':missing?'Complete o custo Coringa.':'',fixed,available,required,selected:chosen,suggestion,missing,costs:Object.fromEntries(resourceIds.map(id=>[id,fixed[id]+(chosen[id]||0)]))};
 }
 export function allocateQueuePayment(actions,units,pool,selected){
  const specs=actions.map(action=>{
