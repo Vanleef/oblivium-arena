@@ -23,7 +23,7 @@ Usar em toda arte de personagem: `art/characters/o-fim/hybrid-animation-20261025
 
 ## Regra moral do Inferno
 
-Representar os seres do Inferno como vis, cruéis e movidos pela maldade. Personagens que discordam de O Fim podem fazê-lo por rivalidade, ambição, conveniência ou autopreservação; essa divergência não lhes confere bondade. Mostrar a crueldade em expressões, postura, relação com as vítimas e escolhas de cena, preservando a personalidade específica de cada um. Aplicar a regra conforme a origem e a lore canônicas do personagem.
+Representar os seres do Inferno como quase todos vis e movidos pela maldade. Não criar personagens bondosos no Inferno. Alguns podem discordar de O Fim; essa divergência não os torna bondosos. Mostrar a vileza em expressões, postura, relação com as vítimas e escolhas de cena, preservando a personalidade específica e a lore canônica.
 
 ## Fontes e recortes
 
