@@ -6,6 +6,7 @@ const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura
 const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
 const continuationArt = new Set(['a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
+const painterlyChamaArt = new Set(['o-incendiario','a-brasa-eterna','o-odio-encarnado']);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
@@ -920,6 +921,20 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (painterlyChamaArt.has(id)) {
+    const base = `/art/characters/${id}/painterly-rework-20261025`;
+    const forms = {...(art.forms || {})};
+    if (id === 'a-brasa-eterna') {
+      forms.impulso = {...forms.impulso,smother:`${base}/skill-impulso-smother.webp`};
+    }
+    if (id === 'o-odio-encarnado') {
+      forms.impulso = {...forms.impulso,rage:`${base}/skill-impulso-rage.webp`};
+      forms.voto = {...forms.voto,eruption:`${base}/skill-voto-eruption.webp`};
+    }
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
+  }
   if (id === 'o-acougueiro') {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,

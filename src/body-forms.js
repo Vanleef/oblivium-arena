@@ -1,6 +1,6 @@
 import { applyArchetypeForm } from "./archetypes.js";
 
-const folder=id=>id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':`/art/characters/${id}/body-forms-20261023`;
+const folder=id=>id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':['a-brasa-eterna','o-odio-encarnado'].includes(id)?`/art/characters/${id}/painterly-rework-20261025`:`/art/characters/${id}/body-forms-20261023`;
 const slots=['impulso','tecnica','voto'];
 const shift=form=>slots.map(slot=>({slot,form}));
 const back=shift('base');
@@ -18,7 +18,7 @@ export function withBodyForms(c){
  }
  if(c.id==='o-odio-encarnado')return {...c,baseFormName:'Fúria contida',bodyForms:[{key:'rage',resource:'ruptura',name:'Ódio Solto',portrait:`${base}/portrait-rage.webp`,when:{impulso:'rage',voto:'eruption'},description:'Transformação por 2 turnos. Ressentimento sem Freio encerra a forma e restaura o retrato.'}]};
  if(c.id==='o-soberano-quebrado')return {...c,art:{...c.art,portrait:`${base}/portrait-base.webp`},baseFormName:'Coroa Fraturada',mechanic:'Forma de domínio',bodyForms:[{key:'edict',resource:'essence',name:'Coroa Soberana',portrait:`${base}/portrait-edict.webp`,when:{impulso:'edict',tecnica:'edict',voto:'edict'},description:'O decreto assume as três técnicas por 2 turnos: marcar a linha, enfraquecê-la em área e erguer Defesa para o trio.'}]};
- if(c.id==='a-brasa-eterna')return {...c,art:{...c.art,portrait:`${base}/portrait-base.webp`},baseFormName:'Brasa Velada',mechanic:'Forma de sufocamento',bodyForms:[{key:'smother',resource:'ruptura',name:'Fornalha Sepulcral',portrait:`${base}/portrait-smother.webp`,when:{impulso:'smother',tecnica:'smother',voto:'smother'},description:'Com Queimadura preparada, muda as três técnicas por 2 turnos: labareda focada, cinzas em área e consumo da condição.'}]};
+ if(c.id==='a-brasa-eterna')return {...c,art:{...c.art,portrait:`${base}/${base.endsWith('/painterly-rework-20261025')?'portrait':'portrait-base'}.webp`},baseFormName:'Brasa Velada',mechanic:'Forma de sufocamento',bodyForms:[{key:'smother',resource:'ruptura',name:'Fornalha Sepulcral',portrait:`${base}/portrait-smother.webp`,when:{impulso:'smother',tecnica:'smother',voto:'smother'},description:'Com Queimadura preparada, muda as três técnicas por 2 turnos: labareda focada, cinzas em área e consumo da condição.'}]};
  if(c.id==='o-eco-sem-dono')return {...c,art:{...c.art,portrait:`${base}/portrait-base.webp`},baseFormName:'Eco Encarnado',mechanic:'Forma de ressonância',bodyForms:[{key:'stolen',resource:'coringa',name:'Ressonância Roubada',portrait:`${base}/portrait-stolen.webp`,when:{impulso:'stolen',tecnica:'stolen',voto:'stolen'},description:'Anular uma técnica física abre por 2 turnos um kit inteiro de resposta: golpe que gera carga, amparo coletivo e descarga em área.'}]};
  if(c.id==='a-sombra-inconstante')return {...c,baseFormName:'Sombra errante',bodyForms:[{key:'shelter',resource:'graca',name:'Contorno de Abrigo',portrait:`${base}/portrait-shelter.webp`,when:{impulso:'feign',tecnica:'resume'},description:'Troca a ofensiva inicial por recuperação e contra-ataque até Retomar a Sombra.'}]};
  if(c.id!=='a-pele-alheia')return c;

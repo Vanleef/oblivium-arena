@@ -324,6 +324,11 @@ Dezoito artes principais foram refeitas sob as três âncoras confirmadas, prese
 
 ## Estado atual da auditoria — 25/10/2026
 
-O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Vinte e quatro dos 100 conjuntos foram refeitos e comparados diretamente com elas; 73 ainda aguardam auditoria visual. A revisão global permanece aberta.
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Vinte e sete dos 100 conjuntos foram refeitos e comparados diretamente com elas; 70 ainda aguardam auditoria visual. A revisão global permanece aberta.
 
 
+
+
+## Lote pictórico de Chama: Incendiário, Brasa e Furor — 25/10/2026
+
+O Incendiário, A Brasa Eterna e O Furor receberam seis cenas-base cada, em 18 sprites WebP 512 × 512, além de cinco imagens de formas alternativas. A Brasa permanece uma fera felina quadrúpede; O Furor mantém a cabeça vazia e o corpo de basalto na forma Ódio Solto. As cenas variam entre detalhes, reações, consequências e ações em ângulos diferentes. A área de Fagulhas em Cadeia mostra exatamente três inimigos; técnicas individuais mostram um alvo, efeitos próprios mostram o usuário e as defesas são pessoais. As rotas das formas de sufocamento e fúria foram mantidas. Nenhum custo, alvo, efeito, duração, recarga ou regra foi alterado. Manifesto: `CHAMA_PAINTERLY_REWORK_20261025.json`.
