@@ -15,7 +15,19 @@ Aplicar esta linguagem a todas as artes novas e reformuladas do jogo. A referên
 - Fazer cada cena corresponder ao kit atual e aos locais estabelecidos no mundo e no Elo. Consultar `src/data.js`, `src/story-content.js` e `docs/COSMOLOGY_AND_NILO.md`.
 - Respeitar o número exato de inimigos e aliados. Defesas pessoais mostram apenas o usuário protegido.
 - Conferir anatomia, mãos, articulações e continuidade de roupa/acessórios. Ajustar expressão e microexpressões ao instante da cena: direção do olhar, pálpebras, pupilas, sobrancelhas, tensão da mandíbula e dentes. Calibrar suor, fuligem, hematomas, inchaço, cicatrizes, marcas, feridas e sangue somente quando a ação justificar; observar também cabelo, unhas, rasgos e sujeira na roupa. Manter marcas permanentes consistentes entre imagens e evitar sinais de desgaste artificiais ou sem causa.
-- Exportar WebP 512 × 512 e manter fonte quadrada de 1024 × 1024.
+- Exportar cada sprite como WebP 512 × 512; preservar a fonte original e documentar suas dimensões no manifesto conforme `Fontes e recortes`.
+
+## Âncoras aprovadas pelo usuário
+
+Usar em toda arte de personagem: `art/characters/o-fim/hybrid-animation-20261025/portrait.webp`, `art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp` e `art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp`. O retrato próprio do personagem pode orientar identidade e figurino; as três imagens aprovadas orientam o acabamento visual. Aderência exige volumes pintados, textura de pincel perceptível, contornos gráficos e formas de sombra legíveis. Rejeitar acabamento liso/brilhante, fotorealismo e anime genérico, mesmo quando o arquivo ou manifesto indique uma revisão.
+
+## Regra moral do Inferno
+
+Representar os seres do Inferno como vis, cruéis e movidos pela maldade. Personagens que discordam de O Fim podem fazê-lo por rivalidade, ambição, conveniência ou autopreservação; essa divergência não lhes confere bondade. Mostrar a crueldade em expressões, postura, relação com as vítimas e escolhas de cena, preservando a personalidade específica de cada um. Aplicar a regra conforme a origem e a lore canônicas do personagem.
+
+## Fontes e recortes
+
+Para uma prancha 3 × 2, guardar a imagem original 1536 × 1024 e recortar seis células quadradas de 512 × 512. Para outras grades, conservar as dimensões reais da fonte e registrar tamanho da folha e dos recortes no manifesto. Para arte individual, manter a fonte quadrada de 1024 × 1024. Não inventar dimensões de fonte nem tratar uma etiqueta no manifesto como validação visual.
 
 ## Auditoria de artes antigas
 
