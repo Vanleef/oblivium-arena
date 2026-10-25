@@ -25,7 +25,7 @@ Os papéis mecânicos seguem distintos: Tirano (Berserker · Cinza) quebra Defes
 
 Os oito retratos e cenas novos do Tirano e da Ruína e seus hashes estão em `ART_O_FIM_TRANSFORMED_20261025.json`; os dois arquivos da forma original sem coroa estão em `ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json`. As silhuetas e os kits estão em `O_FIM_FORMS_REVISION_20261025.md`. O conjunto do Predador permanece inalterado.
 
-Verificação da revisão anterior: 304 testes aprovados, build com 936 arquivos, auditoria de 100 personagens e 675 referências (626 caminhos presentes, nenhum ausente); commit `27c0a24` publicado na `main`, deploy de produção `READY` e Codex público conferido em 25/10/2026. Esta revisão retira a coroa também da forma original; os testes e o deploy correspondentes serão registrados após sua publicação.
+Verificação: build com 938 arquivos; auditoria de 100 personagens e 675 referências (626 caminhos presentes, nenhum ausente); commit `6471ab162d189a1123b430ef2024923e23157636` na `main` e deploy de produção `READY`. O Codex público confirma a forma original e Fim Inalcançável sem coroa; Tirano com sua nova diadema; Predador com a arte preservada; Ruína sem coroa, com quatro braços espectrais. A suíte não foi reexecutada após este ajuste visual; a revisão anterior teve 304 testes aprovados.
 
 ## Continuação — Podridão, Silêncio e O Sussurro
 

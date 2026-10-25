@@ -31,4 +31,4 @@ Inventário, prompts resumidos, dimensões e hashes das transformações: `ART_O
 
 ## Verificação
 
-Verificação local: testes, build, auditoria de arte e conferência pública serão registrados após a publicação desta revisão.
+Verificação: build com **938 arquivos**; auditoria de 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**; `git diff --check` sem erros. A suíte não foi reexecutada após esta última alteração visual; a revisão anterior teve **304 testes aprovados**. O commit `6471ab162d189a1123b430ef2024923e23157636` está publicado na `main`, com deploy de produção `READY`. No Codex público, os retratos carregaram: forma original sem coroa, Tirano com diadema de guerra, Predador com a arte preservada e Ruína sem coroa, flutuante e com quatro braços. Fim Inalcançável também usa a arte original sem coroa.
