@@ -61,3 +61,6 @@ Consultar `COSMOLOGY_AND_NILO.md` antes de ilustrar O Fim, O Prólogo, O Caminho
 
 Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando as identidades efetivamente ativas no jogo, os nomes de personagem e o kit. O Príncipe inclui também a arte separada da forma Apertar o Grilhão. A Déspota conserva a matriarca idosa e colossal, as três tranças altas e o martelo imperial; Comando da Regente mostra exatamente três aliados. O Herdeiro conserva a efígie dinástica de porcelana viva, alta e estreita, com olhos rubros, fratura cobalto e antebraço esquerdo de correntes. As cenas refletem a vileza infernal e não apresentam nenhum deles como bondoso. Alvos, efeitos, custos, durações, recargas e regras permanecem iguais.
 
+
+
+- O Devorador, A Saqueadora e O Insaciável: dezoito cenas-base pictóricas e duas imagens para Fome sem Corpo. O Devorador conserva a forma quadrúpede; a Saqueadora mantém a mão espectral separada de seus dois braços reais; o Insaciável conserva a identidade ativa e incorpora guardas ao corpo. Ataques mostram um alvo e defesas pessoais não incluem aliados. Manifesto: `ART_FOME_PAINTERLY_REWORK_20261025.json`.

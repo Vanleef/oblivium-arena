@@ -332,3 +332,12 @@ O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora d
 ## Lote pictórico de Chama: Incendiário, Brasa e Furor — 25/10/2026
 
 O Incendiário, A Brasa Eterna e O Furor receberam seis cenas-base cada, em 18 sprites WebP 512 × 512, além de cinco imagens de formas alternativas. A Brasa permanece uma fera felina quadrúpede; O Furor mantém a cabeça vazia e o corpo de basalto na forma Ódio Solto. As cenas variam entre detalhes, reações, consequências e ações em ângulos diferentes. A área de Fagulhas em Cadeia mostra exatamente três inimigos; técnicas individuais mostram um alvo, efeitos próprios mostram o usuário e as defesas são pessoais. As rotas das formas de sufocamento e fúria foram mantidas. Nenhum custo, alvo, efeito, duração, recarga ou regra foi alterado. Manifesto: `CHAMA_PAINTERLY_REWORK_20261025.json`.
+
+
+## Lote pictórico de Fome I: Devorador, Saqueadora e Insaciável — 25/10/2026
+
+O Devorador, A Saqueadora e O Insaciável receberam seis cenas-base cada, em 18 sprites WebP 512 × 512, além de duas artes da forma Fome sem Corpo. O Devorador mantém a anatomia quadrúpede e ganha retrato próprio para a forma faminta; a mordida alternativa mostra exatamente um alvo. As cenas variam entre detalhe, reação, transferência de Essência, perda de guarda, consequência e defesa pessoal. Ataques são individuais, efeitos próprios mostram o usuário e defesas não cobrem aliados. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_FOME_PAINTERLY_REWORK_20261025.json`.
+
+## Estado atual da auditoria — 25/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Trinta dos 100 conjuntos foram refeitos e comparados diretamente com elas; 67 ainda aguardam auditoria visual. A revisão global permanece aberta.

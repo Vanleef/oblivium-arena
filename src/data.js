@@ -187,6 +187,9 @@ function slug(text) {
 }
 
 const characterFormArt = {
+  "o-devorador": {
+    impulso: { starved: "/art/characters/o-devorador/painterly-rework-20261025/skill-impulso-starved.webp" }
+  },
   "o-tecelao-de-mentiras": {
     tecnica: { unweave: "/art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-tecnica-unweave.webp" }
   },
