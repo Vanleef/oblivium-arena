@@ -24,6 +24,8 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Vidente: seis artes em mirantes, caminhos marcados e abrigo sombreado; `O_VIDENTE_HYBRID_REWORK_20261025.json`.
 - A Asa Invertida: seis artes em passagens e ruínas suspensas do Limbo; `A_ASA_INVERTIDA_HYBRID_REWORK_20261025.json`.
 - O Apodrecido: seis artes no reino morto de mármore e raízes do Inferno/Podridão; `O_APODRECIDO_HYBRID_REWORK_20261025.json`.
+- O Fim: quatorze quadros entre forma original, manifestações e habilidades no Inferno; `ART_O_FIM_HYBRID_REWORK_20261025.json`.
+- O Escudo Vivo: seis artes no cruzamento protegido de Paraíso; `ART_O_ESCUDO_VIVO_HYBRID_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 
