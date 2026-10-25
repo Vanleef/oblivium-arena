@@ -28,6 +28,7 @@ A presença de um caminho ou imagem válida não significa que a arte esteja atu
 - O Fim: quatorze quadros entre forma original, manifestações e habilidades no Inferno; `ART_O_FIM_HYBRID_REWORK_20261025.json`.
 - O Escudo Vivo: seis artes no cruzamento protegido de Paraíso; `ART_O_ESCUDO_VIVO_HYBRID_REWORK_20261025.json`.
 - O Anulador: seis artes em locais diversos de Vazio no Inferno; `ART_O_ANULADOR_HYBRID_REWORK_20261025.json`.
+- A Ausência: seis artes em locais distintos de Vazio no Inferno; `ART_A_AUSENCIA_HYBRID_REWORK_20261025.json`.
 
 ## Uso da cosmologia
 

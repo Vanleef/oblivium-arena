@@ -194,3 +194,11 @@ As seis artes ativas de O que Apaga foram refeitas sob o nome atual do personage
 As cenas variam entre passagem em ruínas, arcada de mercado, cisterna alagada, escadaria vertical e bacia de cinzas. Traço Apagado e Branco sobre a Guarda mostram um adversário cada; Extinguir o Traço consome a marca no mesmo alvo. Fora da Existência protege somente O Anulador. Expressões, suor, fuligem e pequenos ferimentos acompanham a força de cada ação, sem sangue ou gore quando a cena não justifica. Identidade, alvos, custos, efeitos, duração e recarga do kit não mudaram.
 
 Sete de 100 conjuntos estão agora concluídos sob a direção híbrida de 25/10; 93 continuam pendentes. Os conjuntos revisados na antiga linha anime ainda precisam passar pela adaptação híbrida.
+
+## A Ausência — revisão híbrida — 25/10/2026
+
+As seis artes ativas de A Ausência agora seguem a linha híbrida em `art/characters/a-ausencia/hybrid-rework-20261025/`; fontes WebP 1024 × 1024 e saídas WebP 512 × 512 estão registradas em `ART_A_AUSENCIA_HYBRID_REWORK_20261025.json`. O jogo preserva a entidade alta, esguia e andrógina, de interior negro sem rosto, recortes no contorno e borda ciano-branca. Como não possui face ou corpo biológico, intenção aparece na inclinação da cabeça, postura e tensão do contorno; não há suor, sangue ou feridas artificiais na entidade.
+
+As cenas usam cidade lunar, bacia de sal, canal submerso, passagem de banho, praça aberta e escadaria vertical. Toque Ausente mostra uma vítima drenada; Ataque a Ninguém rebate a investida de um único atacante; Ausência Contagiosa afeta exatamente três inimigos; Não Estar protege somente a própria entidade. Reações, suor e desgaste aparecem apenas nos alvos quando a ação os justifica. Regras, custos, alvos e recargas permanecem iguais.
+
+Oito de 100 conjuntos estão completos sob a direção híbrida de 25/10; 92 ainda aguardam revisão visual nesta linha.
