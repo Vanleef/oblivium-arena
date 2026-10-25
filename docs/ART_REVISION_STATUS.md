@@ -141,3 +141,8 @@ O retrato estabelece uma silhueta espectral vazia, com fenda âmbar no capuz, co
 O Príncipe recebeu sete imagens próprias em anime consistente, incluindo Apertar o Grilhão. A passiva acompanha a proteção obtida ao manter uma vítima marcada. Prompts e hashes: `ART_PRINCIPE_20261024.json`. Diretriz atual de diferenciação facial, corporal e sobrenatural: `CHARACTER_VISUAL_IDENTITIES.md`.
 
 A Déspota recebeu seis cenas próprias sob a diretriz de diversidade: corpo de matriarca colossal de cinza, rosto largo e envelhecido, um olho opaco, tranças arqueadas e silhueta trapezoidal. Ordem Absoluta mostra exatamente a Déspota, o Príncipe e o Suserano, preservando suas identidades e mãos descobertas do Príncipe. Prompts, versão corrigida e hashes: `ART_DESPOTA_20261024.json`.
+
+
+## O Vidente — reestilização híbrida — 25/10/2026
+
+Seis artes criam para O Vidente uma silhueta jovem, baixa e esguia, com cabelo preto liso, túnica cor de argila e faixa verde-musgo, distinta do Revelador mais velho e de ombros largos. Mirantes, caminhos marcados, passagens sombreadas e abrigo simples situam as cenas em Paraíso e Verdade. Olhar Desarmante e Intenção Desvendada mostram um inimigo cada; Amparo da Clareza mostra somente o Vidente e o aliado atendido; Véu da Serenidade protege só o usuário. A passiva representa a recuperação própria após amparar outra alma. Ações, câmeras, efeitos e alvos do kit preservados. Fontes e hashes: `O_VIDENTE_HYBRID_REWORK_20261025.json`.

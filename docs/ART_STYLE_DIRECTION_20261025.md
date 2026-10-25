@@ -16,3 +16,4 @@ Animação estilizada com volume tridimensional pintado em quadro 2D. Formas sim
 ## Lotes desta direção
 
 - O Revelador: seis imagens para retrato, passiva e quatro habilidades, em cenas de rotas de pedra e nascentes de Paraíso; manifesto `O_REVELADOR_HYBRID_REWORK_20261025.json`.
+- O Vidente: seis imagens com mirantes, caminhos marcados e abrigo sombreado; manifesto `O_VIDENTE_HYBRID_REWORK_20261025.json`.
