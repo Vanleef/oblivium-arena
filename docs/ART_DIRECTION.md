@@ -2,12 +2,20 @@
 
 ## Linguagem visual
 
-- Anime japonês 2D de ação sobrenatural, com line art expressiva, silhuetas claras, cel shading e efeitos desenhados à mão.
-- Fantasia sombria legível e vibrante; evitar pintura realista, acabamento fotográfico ou 3D.
-- As cores indicam os reinos, mas identidade vem também de rosto, idade, porte, cabelo, roupa, postura e formas dos efeitos.
-- Retratos mostram a identidade específica do personagem. Passivas e habilidades podem mostrar o efeito ou símbolo sem repetir o retrato.
-- Cada imagem deve continuar reconhecível em miniaturas de 25 a 64 px.
-- Sem letras, logotipos, personagens de franquias conhecidas, gore ou texto embutido.
+Direção vigente para as novas revisões desde 25/10/2026: animação estilizada híbrida 2D/3D, com volume pintado à mão, áreas de cor foscas e textura de pincel visível.
+
+- Simplificar volumes em planos de cor, mantendo silhuetas e anatomia legíveis.
+- Usar pinceladas de escalas variadas, contornos quebrados, hachura pontual e sombras gráficas.
+- Preferir luz natural irregular e reflexos contidos; evitar superfícies plásticas, brilho uniforme e acabamento polido de render.
+- Habilidades capturam ações em curso, com consequência e reação visíveis; não usar pose de foto.
+- Fazer alvos e beneficiários visíveis corresponderem ao kit. Defesas pessoais mostram só o usuário.
+- Variar idade, corpo, rosto, cabelo, roupa, materiais, silhueta e câmera entre personagens consecutivos.
+- Situar cada cena no mundo e Elo definidos em `src/data.js` e na documentação de lore; não inventar locais sem apoio no jogo.
+- Entregar WebP 512 × 512 sem texto/UI e manter uma fonte quadrada de 1024 × 1024 para auditoria.
+- Inspiração ampla em animação estilizada; não reproduzir personagens, enquadramentos, marcas ou cenários de franquias.
+
+A tabela de conjuntos abaixo documenta lotes anteriores e permanece como registro histórico; as novas artes seguem `ART_STYLE_DIRECTION_20261025.md`.
+
 
 ## Conjuntos já produzidos
 
