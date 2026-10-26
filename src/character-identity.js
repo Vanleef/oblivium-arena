@@ -16,7 +16,7 @@ const painterlyBatchArt = new Set([
   'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
   'o-carrasco-sem-rosto','a-mae-rubra','o-soberano-quebrado','a-juiza-de-ferro',
   'o-trono-vazio','o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
-  'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro','o-falso-profeta','o-corretor-de-memorias'
+  'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
 ]);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
@@ -938,6 +938,14 @@ export function revisedArtFor(id, art) {
     forms.impulso = {...forms.impulso,reply:`${base}/skill-impulso-reply.webp`};
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (['o-falso-profeta','o-corretor-de-memorias'].includes(id)) {
+    const base = `/art/characters/${id}`;
+    const forms = {...(art.forms || {})};
+    if (id === 'o-falso-profeta') forms.tecnica = {...forms.tecnica,confess:`${base}/skill-tecnica-confess.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
   }
   if (painterlyRework20261026Art.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261026`;
