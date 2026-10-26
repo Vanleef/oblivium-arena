@@ -1,4 +1,6 @@
-# Direção pictórica digital — vigente desde 25/10/2026
+# Direção pictórica digital — registro histórico de 25/10/2026
+
+> Esta direção foi substituída em 26/10/2026 pela linha anime 2.5D aprovada em ART_DIRECTION.md. Mantenha este arquivo como registro do trabalho anterior.
 
 ## Linha de arte
 

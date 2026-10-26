@@ -1,28 +1,29 @@
 # Direção de arte de PMA
 
-## Linguagem visual
+## Linha vigente: anime 2.5D (26/10/2026)
 
-Direção vigente para todas as artes desde 25/10/2026: pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta e formas construídas por planos pintados. O Fim, O Revelador e O Vidente são as três âncoras aprovadas. Arcane/Aranhaverso podem orientar energia e composição quando compatíveis com esse acabamento; não definem uma renderização de CGI ou cel-shading.
+O usuário aprovou a prancha de A Porta que Flutua e pediu que todo o jogo siga essa linha. Use art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp como referência visual principal. O acabamento pictórico digital descrito em ART_STYLE_DIRECTION_20261025.md é histórico e não define a nova linha.
 
-- Construir e simplificar volumes com pinceladas e planos de cor pintados, mantendo silhuetas e anatomia legíveis.
-- Usar pinceladas visíveis de escalas e direções variadas em personagem e cenário; desenhar contornos quebrados e sombras pintadas. Hachura e semitom entram como acentos localizados.
-- Preferir luz natural irregular, pigmento fosco e reflexos contidos; evitar superfícies plásticas, brilho uniforme e acabamento fotográfico ou polido de render.
-- Habilidades capturam ações em curso, com consequência e reação visíveis; não usar pose de foto.
-- Fazer alvos e beneficiários visíveis corresponderem ao kit. Defesas pessoais mostram só o usuário.
-- Variar idade, corpo, rosto, cabelo, roupa, materiais, silhueta e câmera entre personagens consecutivos.
-- Situar cada cena no mundo e Elo definidos em `src/data.js` e em `docs/COSMOLOGY_AND_NILO.md` e `src/story-content.js`; não inventar locais sem apoio no jogo.
-- Entregar WebP 512 × 512 sem texto/UI. Para folhas de 3 × 2, arquivar a folha original 1536 × 1024 e gerar seis recortes; para artes geradas individualmente, manter a fonte quadrada de 1024 × 1024.
-- Âncoras visuais aprovadas pelo usuário: O Fim, O Revelador e O Vidente. Usar essas imagens como referências de acabamento pictórico, sem copiar personagens, poses, cenários ou paletas.
-- A inspeção de conclusão é visual: presença de arquivos, nomes de pastas ou rótulos anteriores de “híbrido” não provam aderência à linha.
-- Variar quadro, distância, altura, ação e ambiente em cada habilidade. Mostrar ação, reação, consequência, efeito, objeto ou apenas parte do personagem quando fizer sentido; evitar repetir ataques frontais.
-- Corrigir anatomia e continuidade: membros e dedos, articulações, empunhadura e contato de armas/raízes/folhas/projéteis, proporção dos ferimentos e quantidade exata de pessoas. Expressões, suor, sujeira, cicatrizes, inchaço, marcas, olhos, cabelo e roupas devem corresponder ao momento e à identidade.
-- Preservar identidade, silhueta, idade, acessórios, lateralidade, mundo, Elo, lore e efeito mecânico de cada kit. Não alterar custos, alvos, efeitos ou regras para justificar uma cena.
-- As referências a Arcane e Aranhaverso orientam energia e composição apenas quando compatíveis com o acabamento pictórico definido pelo usuário; não reproduzir personagens, enquadramentos, marcas ou cenários.
+- Anime-forward 2.5D com rostos expressivos e formas estilizadas.
+- Contornos desenhados firmes, sombras em planos angulares de cel shading e silhuetas legíveis em miniatura.
+- Materiais e cenários com textura e profundidade pictórica, sem transformar rostos e corpos em retratos naturalistas.
+- Contraste dramático e cor de acordo com o mundo, Elo, identidade e ação do personagem.
+- Evitar fotorealismo, CGI liso ou brilhante, aparência fotográfica e pincelada a óleo que torne a imagem naturalista.
+- Variar câmera, distância, ângulo, movimento e foco entre as seis cenas; mostrar ação, reação ou consequência de modo claro.
+- Manter anatomia, mãos, articulações, empunhadura e contato de armas coerentes. Preservar idade, rosto, cabelo, roupa, acessórios, lateralidade e marcas permanentes.
+- Retrato, passiva e quatro habilidades permanecem seis sprites WebP de 512 × 512. Para folhas 3 × 2, arquivar também a fonte original de 1536 × 1024 e registrar qualquer correção.
+- Fazer a contagem de inimigos e aliados corresponder exatamente ao kit. Defesas pessoais mostram apenas o usuário; apoios mostram somente os beneficiários corretos.
+- Não alterar custo, alvo, efeito, duração, recarga, regra de combate ou lore para justificar uma cena.
+- Aplicar a direção a personagens, formas alternativas, cenários e qualquer outra arte do jogo. A migração só conta como concluída depois da inspeção visual de cada arte ativa.
 
-A tabela de conjuntos abaixo documenta lotes anteriores e permanece como registro histórico; as novas artes seguem `ART_STYLE_DIRECTION_20261025.md`.
+## Migração em andamento
 
+Há 100 conjuntos base de personagem (600 sprites base). Os conjuntos revisados sob a linha anterior não contam como migrados até passarem por essa direção e por revisão visual. As formas alternativas e outras artes do jogo também precisam entrar na auditoria.
 
-## Conjuntos já produzidos
+Manifesto da primeira integração: ART_ANIME_FIRST_REWORK_20261026_02.json.
+Registro histórico da direção anterior: ART_STYLE_DIRECTION_20261025.md.
+
+## Histórico de conjuntos produzidos sob direções anteriores
 
 Cada personagem jogável inicial tem seis imagens quadradas: retrato, passiva e quatro técnicas. As imagens estão em WebP individuais; as folhas 3×2 originais ficam em `art/source/`.
 

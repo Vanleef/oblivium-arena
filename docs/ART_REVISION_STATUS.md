@@ -468,3 +468,12 @@ O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Setenta d
 ## Correção pictórica de Chama — A Vingadora (A Pira Errante) — 26/10/2026
 
 A Vingadora recebeu seis cenas novas e a variação Revanche Ardente no conjunto pictórico 2.5D a óleo. Cerco Incandescente agora mostra três inimigos e a perda de suas defesas sem a mão em primeiro plano que causava a inconsistência. O retrato, a trança vermelho-laranja, o bracer direito e a lanterna de quadril preservam a identidade ativa. Manifesto: ART_CORRENTES_PAINTERLY_REWORK_20261026_ERRANTE.json.
+
+## Migração para anime 2.5D — 26/10/2026
+
+O usuário aprovou a prancha de A Porta que Flutua e pediu que todas as artes do jogo adotem essa linha. O novo padrão usa contornos gráficos, rostos estilizados e expressivos, sombras em planos de anime e materiais/cenários com profundidade texturizada.
+
+Cinco conjuntos base foram convertidos e integrados: A Porta que Flutua, A Viúva Escarlate, O Colecionador de Cabeças, Gêmeos do Cutelo e O Carrasco sem Rosto. São 30 de 600 sprites base, com as seis rotas ativas por personagem. Gêmeos do Cutelo teve a cena de área corrigida para mostrar exatamente três inimigos. Nenhuma regra de combate foi alterada. Manifesto: ART_ANIME_FIRST_REWORK_20261026_02.json.
+
+Restam 95 dos 100 conjuntos base e 570 sprites base; as formas alternativas e as demais artes do jogo também precisam passar pela migração. Os 70/100 registrados nas auditorias anteriores medem a direção pictórica antiga e não contam como concluídos nesta linha. Os três conjuntos anime-first registrados em ART_ANIME_FIRST_REWORK_20261026.json ainda precisam de conferência visual contra a nova referência.
+
