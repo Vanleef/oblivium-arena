@@ -270,85 +270,75 @@ const protagonistProfiles = [
     "color": "limbo",
     "symbol": "⟲",
     "affinity": "ruptura",
-    "role": "Ressonância sem Identidade",
-    "englishRole": "Resonance Without Identity",
-    "combo": "Devolver o que foi tomado",
-    "englishCombo": "Return What Was Taken",
-    "mechanic": "A forma final encadeia aflição, quebra de guarda e exposição; ao ferir alvos expostos, drena Essência e acumula carga para o golpe seguinte.",
-    "englishMechanic": "The final form chains affliction, guard breaking, and exposure; hitting Exposed targets drains Essence and builds charge for the next strike.",
-    "lore": "A corrupção consumiu o nome. O que resta absorveu Éter, Cinza, Graça e Ruptura até se tornar uma presença própria, capaz de repetir e recombinar cada gesto aprendido.",
-    "englishLore": "Corruption consumed the name. What remains absorbed Aether, Ash, Grace, and Rupture until it became its own presence, able to repeat and recombine every learned gesture.",
+    "role": "Ritualista da Dor",
+    "englishRole": "Ritualist of Pain",
+    "combo": "Marque, vincule e fira a si mesmo",
+    "englishCombo": "Mark, link, and wound yourself",
+    "mechanic": "A foice marca um alvo, o ritual vincula as Vidas e o próprio sacrifício transfere a ferida. Dano recebido pelo Eco também recai sobre o alvo vinculado.",
+    "englishMechanic": "The scythe marks a target, the ritual links their lives, and self-sacrifice transfers the wound. Damage taken by the Echo also falls on the linked target.",
+    "lore": "A corrupção consumiu o nome. O que resta absorveu Éter, Cinza, Graça e Ruptura e transforma essa mistura em um ritual: marca outra alma, partilha a dor e avança mesmo ferido.",
+    "englishLore": "Corruption consumed the name. What remains absorbed Aether, Ash, Grace, and Rupture and shaped them into a ritual: mark another soul, share its pain, and press on while wounded.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
     "passive": {
-      "name": "Ressonância Devolvida",
-      "englishName": "Returned Resonance",
-      "trigger": "hit",
-      "requiresExposed": true,
+      "name": "Dor Partilhada",
+      "englishName": "Shared Pain",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "requiresCurseLink": true,
       "oncePerRound": true,
       "effect": {
-        "drainEssence": {
-          "amount": 1
-        },
         "gainCharge": 1
       },
-      "description": "Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga e gera 1 carga.",
-      "englishDescription": "Once per round, hitting an Exposed target drains 1 Essence from the enemy reserve and grants 1 charge."
+      "description": "Uma vez por rodada, receber dano direto enquanto o vínculo ritual está ativo gera 1 carga.",
+      "englishDescription": "Once per round, taking direct damage while the ritual link is active grants 1 charge."
     },
     "skills": [
       {
-        "name": "Dissolução em Cinza",
-        "englishName": "Ash Dissolution",
-        "damage": 8,
+        "name": "Marca da Foice",
+        "englishName": "Scythe Mark",
+        "damage": 9,
         "costs": {
           "cinza": 1
         },
-        "damageType": "affliction",
-        "mark": true,
+        "damageType": "piercing",
+        "mark": "sangue",
         "markTurns": 2,
-        "dot": {
-          "tag": "decadencia",
-          "damage": 3,
-          "turns": 2
-        },
-        "englishDescription": "Deals 8 affliction damage, Marks one enemy for 2 turns, and applies Decay for 3 damage over 2 turns."
+        "englishDescription": "Deals 9 piercing damage to one enemy and marks it for 2 turns, preparing the ritual."
       },
       {
-        "name": "Contorno de Graça",
-        "englishName": "Grace Outline",
-        "damage": 9,
+        "name": "Círculo de Retorno",
+        "englishName": "Circle of Return",
         "costs": {
           "essence": 1,
           "graca": 1
         },
-        "damageType": "piercing",
-        "stripShield": 10,
-        "expose": 1,
-        "englishDescription": "Removes 10 Defense, deals 9 piercing damage, and Exposes one enemy for 1 turn."
+        "requiredMark": "sangue",
+        "curseLink": {
+          "turns": 2
+        },
+        "englishDescription": "Requires your Blood Mark and links the target's life to the Echo for 2 turns. Health damage taken by the Echo is transferred to that target as affliction."
       },
       {
-        "name": "Pulso sem Nome",
-        "englishName": "Nameless Pulse",
-        "damage": 12,
+        "name": "Autossacrifício",
+        "englishName": "Ritual Self-Wound",
+        "target": "self",
         "costs": {
           "ruptura": 1
         },
-        "damageType": "energy",
-        "combo": {
-          "condition": "exposed",
-          "bonusDamage": 5,
-          "consume": true
-        },
-        "perChargeDamage": 2,
+        "requiresCurseLink": true,
+        "selfDamage": 12,
+        "curseStrike": true,
+        "perChargeDamage": 3,
         "spendCharge": true,
-        "englishDescription": "Deals 12 spiritual damage, plus 5 against an Exposed target and 2 per charge spent; consumes Exposed."
+        "englishDescription": "Requires an active ritual link. The Echo loses 12 Health, plus 3 for each charge spent, and transfers that wound to the linked target as affliction."
       }
     ],
     "defense": {
-      "name": "Forma de Retorno",
-      "englishName": "Returning Form",
-      "shield": 5
+      "name": "Corpo Imortal",
+      "englishName": "Immortal Body",
+      "shield": 4
     }
   },
   {

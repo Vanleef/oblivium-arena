@@ -63,7 +63,7 @@ A proximidade com uma alma nomeada é especialmente perigosa para Nilo. Quanto m
 - **Nilo:** cada alma que atravessa seu caminho deixa um resíduo. Ele começa roubando e descarregando Essência, mas o corpo já absorve tipos aleatórios.
 - **Nilo, o Prefácio:** os contatos seguintes deixam Éter, Cinza, Graça e Ruptura. Marcas e custos de cores diferentes mostram que a corrupção está ganhando espaço.
 - **Nilo, o Epílogo:** perto do fim da campanha das Correntes Quebradas, o jogador pode aceitar o expurgo da alma. Nilo fica livre da corrupção e mais fraco; todas as habilidades pagas usam custos Coringa, e o kit recompensa preparação, controle e escolha cuidadosa de quando gastar cargas.
-- **O Eco sem Nome:** se o jogador escolher continuar absorvendo, a corrupção consome o nome. A forma final combina as quatro Essências em um kit de maior complexidade, com aflição, exposição, drenagem e cargas.
+- **O Eco sem Nome:** se o jogador escolher continuar absorvendo, a corrupção consome o nome. A forma final usa as quatro Essências para preparar uma Marca de Sangue, criar um vínculo ritual e transferir a Vida perdida para o alvo. Dano direto recebido alimenta cargas para seu próprio autossacrifício.
 
 A decisão acontece em um nó especial antes do guardião final das Correntes Quebradas, depois de recrutar Nilo, o Prefácio. Ela define qual forma final é liberada. A pergunta que acompanha Nilo desde que saiu da fila de O Caminho é: **Quanto de mim ainda sou eu?**
 

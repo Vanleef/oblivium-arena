@@ -50,7 +50,8 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "⟲ Aceitar o Expurgo": "⟲ Accept the Purge",
   "Limpa a alma e libera Nilo, o Epílogo: uma forma enfraquecida, com custos Coringa e respostas estratégicas.": "Cleanses the soul and unlocks Nilo, the Epilogue: a weakened form with Wildcard costs and strategic responses.",
   "◈ Continuar absorvendo": "◈ Keep Absorbing",
-  "A corrupção consome o nome e libera O Eco sem Nome, que encadeia os quatro tipos de Essência.": "Corruption consumes the name and unlocks the Nameless Echo, which chains all four Essence types.",
+  "A corrupção consome o nome e libera O Eco sem Nome: marca um alvo, vincula as Vidas e transfere a própria dor.": "Corruption consumes the name and unlocks the Nameless Echo: mark a target, link your lives, and transfer your own pain.",
+  "Vínculo ritual": "Ritual link", "Alvo do ritual": "Ritual target",
   "A alma de Nilo chega ao ponto de decisão": "Nilo's soul reaches its decision point",
   "Nilo aceitou o Expurgo. O Epílogo foi liberado.": "Nilo accepted the Purge. The Epilogue has been unlocked.",
   "A corrupção venceu. O Eco sem Nome despertou.": "Corruption won. The Nameless Echo has awakened.",
@@ -565,6 +566,12 @@ Object.assign(wordTranslations, Object.fromEntries(Object.entries({
 }).map(([source, translated]) => [normalize(source), translated])));
 
 const combatPatterns = [
+  [/^(.+?) liga sua Vida à de (.+?) por (\d+) turnos?\.$/i, (_, source, target, turns) => `${translateWords(source)} links its Health to ${translateWords(target)} for ${turns} turn${turns === "1" ? "" : "s"}.`],
+  [/^(.+?) sofre (\d+) de dano; o ritual transfere (\d+) de aflição a (.+?)\.$/i, (_, source, taken, transferred, target) => `${translateWords(source)} takes ${taken} damage; the ritual transfers ${transferred} affliction damage to ${translateWords(target)}.`],
+  [/^(.+?) sofre (\d+) de ferida ritual\.$/i, (_, source, amount) => `${translateWords(source)} suffers ${amount} ritual damage.`],
+  [/^(.+?) perde o vínculo ritual\.$/i, (_, source) => `${translateWords(source)}'s ritual link ends.`],
+  [/^Sua perda de Vida também atinge (.+?) como aflição por mais (\d+) turnos?\.$/i, (_, target, turns) => `Your lost Health also hits ${translateWords(target)} as affliction for ${turns} more turn${turns === "1" ? "" : "s"}.`],
+  [/^(.+?) transfere para você a Vida que perder enquanto o vínculo durar\.$/i, (_, source) => `${translateWords(source)} transfers its lost Health to you while the link lasts.`],
   [/Apoio selado/gi, () => "Support sealed"],
   [/A cada (\d+) de Vida perdida pelo usuário: \+(\d+) de dano \(máx\. \+(\d+)\)\./gi, (_, lost, damage, max) => `For every ${lost} Health you have lost, gain +${damage} damage (max +${max}).`],
   [/A cada (\d+) de Vida faltante do beneficiado: \+(\d+) de cura \(máx\. \+(\d+)\)\./gi, (_, missing, healing, max) => `For every ${missing} missing Health, healing increases by +${healing} (max +${max}).`],

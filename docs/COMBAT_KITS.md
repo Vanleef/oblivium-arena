@@ -2424,22 +2424,22 @@ O fim que ainda responde
 - **Resposta Precisa** (2 Coringas; recarga 0T): Causa 9 de dano perfurante. Contra um alvo Marcado, causa +3 de dano e consome a Marca. Cada carga gasta acrescenta 2 de dano; o alvo fica Enfraquecido por 1 turno.
 - **Fecho Incompleto** (1 Coringa; recarga 4T): Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Eco sem Nome — Manipulador de Essência
+### O Eco sem Nome — Ritualista da Dor
 
-**Variação:** A forma final encadeia aflição, quebra de guarda e exposição; ao ferir alvos expostos, drena Essência e acumula carga para o golpe seguinte. · **Essência:** Ruptura
+**Variação:** A forma final mistura Éter, Cinza, Graça e Ruptura em um ritual de vínculo. A Vida perdida pelo Eco recai sobre o alvo marcado; o dano direto que ele recebe alimenta cargas para seu próprio sacrifício. · **Essência:** Ruptura
 
-**Outros arquétipos:** Quebra-Guarda, Interditor, Gastador de Essência
+**Outros arquétipos:** Preparador de Marcas, Retaliador, Gastador de Essência
 
-Devolver o que foi tomado
+Marque, vincule e fira a si mesmo
 
-**Estrutura:** O kit usa Éter, Cinza, Graça e Ruptura em custos coloridos. Marque o alvo, exponha-o e consuma essa abertura com cargas acumuladas.
+**Estrutura:** Marque o alvo com a foice, ative o Círculo por 2 turnos e transforme a Vida perdida em dano de aflição no oponente vinculado. Enquanto o ritual durar, receber dano direto gera 1 carga por rodada. Autossacrifício consome as cargas e transfere a ferida ampliada.
 
-**Passiva — Ressonância Devolvida:** Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga e gera 1 carga.
+**Passiva — Dor Partilhada:** Uma vez por rodada, receber dano direto enquanto o vínculo ritual está ativo gera 1 carga.
 
-- **Dissolução em Cinza** (1 Cinza; recarga 0T): Causa 8 de dano de aflição, Marca o alvo por 2 turnos e aplica Decadência: 3 de dano por 2 turnos.
-- **Contorno de Graça** (1 Éter + 1 Graça; recarga 0T): Remove 10 de Defesa, causa 9 de dano perfurante e deixa o alvo Exposto por 1 turno.
-- **Pulso sem Nome** (1 Ruptura; recarga 0T): Causa 12 de dano espiritual. Contra um alvo Exposto, causa +5 de dano e consome Exposto. Cada carga gasta acrescenta 2 de dano.
-- **Forma de Retorno** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Marca da Foice** (1 Cinza; recarga 0T): Causa 9 de dano perfurante e Marca o alvo por 2 turnos.
+- **Círculo de Retorno** (1 Éter + 1 Graça; recarga 0T): Exige a Marca de Sangue e liga a Vida do alvo à do Eco por 2 turnos. A Vida perdida pelo Eco é transferida ao alvo como aflição.
+- **Autossacrifício** (1 Ruptura; recarga 0T): Exige um vínculo ativo. O Eco perde 12 de Vida, mais 3 por carga consumida; o vínculo transfere a mesma ferida ao alvo. O custo não pode derrotar o Eco.
+- **Corpo Imortal** (1 Coringa; recarga 4T): Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### Kael — Gerador de Essência
 
