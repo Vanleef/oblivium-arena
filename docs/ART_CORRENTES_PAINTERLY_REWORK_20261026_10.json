@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-26",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "gameplay": false,
+  "characters": [
+    {
+      "id": "o-falso-profeta",
+      "name": "O Falso Profeta",
+      "realm": "Inferno",
+      "elo": "Mentira",
+      "prompt": "Identity-preserving 2.5D oil-painted six-panel sheet based on the exact portrait reference. Keep the bald dark-brown adult man, gold nostril hoop, amber eyes, chipped segmented copper halo, brass collar, burgundy tunic, ivory robe and navy ribbons consistent. Visible oil strokes and impasto across skin, fabric, metal and stone; dramatic copper/teal lighting, deep shadows, expressive anime forms, irregular graphic contours and subtle halftone energy. Six distinct compositions: debating pavilion portrait; passive self-restoration at a relic workbench; target-only reaction to a prophecy mark; solo self-heal and charge in a dry cistern; marked target's aftermath after one physical finisher in a clock court; solo personal defense against a dart in a bell alcove. Natural connected anatomy and five-finger hands; no extra limbs, duplicate faces, text, gore or watermark.",
+      "generationFile": "exec-a1f9c4be-8694-4ced-9567-8bb985fee509.png",
+      "source": "art/source/o-falso-profeta-sheet.webp",
+      "assets": [
+        "art/characters/o-falso-profeta/portrait.webp",
+        "art/characters/o-falso-profeta/passive.webp",
+        "art/characters/o-falso-profeta/skill-impulso.webp",
+        "art/characters/o-falso-profeta/skill-tecnica.webp",
+        "art/characters/o-falso-profeta/skill-voto.webp",
+        "art/characters/o-falso-profeta/skill-despertar.webp"
+      ],
+      "identityReference": {
+        "commit": "8debf7f59140ff42acf1399991fa8d0ac1f110b5",
+        "path": "art/characters/o-falso-profeta/style-reference-rework-20261025/portrait.webp"
+      },
+      "alternativeArt": {
+        "slot": "tecnica",
+        "formKey": "confess",
+        "name": "Confissão do Falso Santo",
+        "target": "self",
+        "path": "art/characters/o-falso-profeta/skill-tecnica-confess.webp",
+        "source": "art/source/o-falso-profeta-confess.webp",
+        "generationFile": "exec-694e56f9-1e91-40de-a43b-eb97de34cdfc.png",
+        "prompt": "Standalone square self-heal and cleanse scene: the prophet sits alone in a dark teal confessional alcove, one hand at his own collar and the other over his sternum. Three copper charges dim and release an inward healing pulse; thin dark-violet affliction strips loosen from his shoulder. Preserve the same face, nose hoop, segmented halo, robe and proportions. Hand-painted oil impasto with dramatic 2.5D anime forms, rich copper and teal, coherent natural five-finger hands, no victim, shield, extra limbs, text or gore."
+      }
+    },
+    {
+      "id": "o-corretor-de-memorias",
+      "name": "O Corretor de Memórias",
+      "realm": "Inferno",
+      "elo": "Mentira",
+      "prompt": "Identity-preserving 2.5D oil-painted six-panel sheet based on the exact portrait reference. Keep the elderly warm-brown man, white topknot and beard, deep teal robe, ivory memory slips, one wooden card box, natural left hand and exactly one five-digit articulated gold RIGHT prosthetic. Visible oil strokes and impasto on skin, beard, robe, paper, wood and metal; dramatic jade/teal/gold light, deep shadows, irregular graphic contours and subtle halftone energy. Six distinct compositions: auction balcony portrait; gold hand selecting one blank slip in a vault; target-only reaction with memory mark and departing resource; guard collapsing in a teahouse; marked target's aftermath in a stone archive; solo paper afterimage defense in a bookbinder loft. Coherent joints and hands, no detached prosthesis, duplicate bodies, printed text, gore or watermark.",
+      "generationFile": "exec-f8a0d64a-aeb6-419a-9fa5-91e537927466.png",
+      "source": "art/source/o-corretor-de-memorias-sheet.webp",
+      "assets": [
+        "art/characters/o-corretor-de-memorias/portrait.webp",
+        "art/characters/o-corretor-de-memorias/passive.webp",
+        "art/characters/o-corretor-de-memorias/skill-impulso.webp",
+        "art/characters/o-corretor-de-memorias/skill-tecnica.webp",
+        "art/characters/o-corretor-de-memorias/skill-voto.webp",
+        "art/characters/o-corretor-de-memorias/skill-despertar.webp"
+      ],
+      "identityReference": {
+        "commit": "3aa953bb50b781e0f0a96e4d3bdaf6e803fc0e35",
+        "path": "art/characters/o-corretor-de-memorias/style-reference-rework-20261025/portrait.webp"
+      },
+      "corrections": [
+        {
+          "slot": "impulso",
+          "path": "art/characters/o-corretor-de-memorias/skill-impulso.webp",
+          "source": "art/source/o-corretor-de-memorias-impulso-review.webp",
+          "generationFile": "exec-5b615815-0f89-4dda-bc77-84c3c47a4c54.png",
+          "reason": "Replaced a frame-edge prosthetic hand with a target-only reaction so the hand stays anatomically connected and the single-target resource drain reads clearly."
+        }
+      ]
+    }
+  ],
+  "review": [
+    "Six distinct locations and compositions per character, with target reactions and consequences mixed with the character's own actions.",
+    "O Falso Profeta retains his nose hoop, chipped copper halo, robe palette and consistent body identity; alternate Confissão art now routes to the painterly base asset.",
+    "O Corretor retains one five-digit right gold prosthesis, one natural left hand, one wooden card box and blank cards.",
+    "The Corretor's Impulso tile was replaced with a one-target reaction scene; the reviewed image contains no detached hand.",
+    "All delivered scene assets are 512x512 WebP; two source sheets are 1536x1024 WebP. No gameplay rules or costs changed."
+  ]
+}
