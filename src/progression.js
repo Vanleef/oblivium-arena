@@ -37,7 +37,7 @@ export function trailVariants(profile,elo) {
   ];
 }
 export function recruitCandidates(profile,elo,variantId) {
-  const all=roster(elo.id),split=Math.ceil(all.length/2),preferred=variantId==='hunt'?all.slice(0,split):variantId==='pilgrimage'?all.slice(split):all;
+  const all=roster(elo.id).filter(c=>!c.npcOnly),split=Math.ceil(all.length/2),preferred=variantId==='hunt'?all.slice(0,split):variantId==='pilgrimage'?all.slice(split):all;
   const missing=preferred.filter(c=>!profile.ownedIds.includes(c.id));
   return missing.length?missing:all.filter(c=>!profile.ownedIds.includes(c.id)).length?all.filter(c=>!profile.ownedIds.includes(c.id)):preferred;
 }
@@ -250,7 +250,7 @@ export function completeExpedition(profile,run) {
   if(run.completionApplied)return null;
   if(run.stage<run.map.length||!run.clearedNodeIds.includes(run.map.at(-1)[0].id))throw Error('A trilha ainda não foi concluída.');
   run.completionApplied=true;
-  const p=profile.eloProgress[run.eloId],first=!p.clearedDifficulties.includes(run.difficulty),eligible=(run.bossIds||[]).filter(id=>characterById[id]?.eloId===run.eloId&&!profile.ownedIds.includes(id)),rng=seededRandom(run.seed+p.wins);
+  const p=profile.eloProgress[run.eloId],first=!p.clearedDifficulties.includes(run.difficulty),eligible=(run.bossIds||[]).filter(id=>characterById[id]?.eloId===run.eloId&&!characterById[id]?.npcOnly&&!profile.ownedIds.includes(id)),rng=seededRandom(run.seed+p.wins);
   const recruitId=shuffled(eligible,rng)[0]||null;
   if(recruitId)profile.ownedIds.push(recruitId);
   p.wins++;p.variants=[...new Set([...p.variants,run.variantId])];p.clearedDifficulties=[...new Set([...p.clearedDifficulties,run.difficulty])].sort((a,b)=>a-b);

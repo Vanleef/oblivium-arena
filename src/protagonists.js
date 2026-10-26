@@ -1,6 +1,6 @@
 import { describeAbility } from "./kits.js";
 
-const profiles = [
+const protagonistProfiles = [
   {
     "id": "nilo",
     "name": "Nilo",
@@ -1148,9 +1148,1980 @@ const profiles = [
   }
 ];
 
+const supportingProfiles = [
+  {
+    "id": "teras",
+    "name": "Teras",
+    "englishName": "Teras",
+    "family": "teras",
+    "version": 1,
+    "eloId": "vazio",
+    "elo": "Vazio",
+    "englishElo": "Void",
+    "realm": "Inferno",
+    "color": "void",
+    "symbol": "◍",
+    "affinity": "essence",
+    "role": "Observador do Vazio",
+    "englishRole": "Void Observer",
+    "combo": "Observar antes de intervir",
+    "englishCombo": "Observe Before Intervening",
+    "mechanic": "Teras lê as aflições deixadas pelo trio inimigo e converte observação em Essência.",
+    "englishMechanic": "Teras reads afflictions left by the opposing team and turns observation into Essence.",
+    "lore": "Teras entende apenas uma parte do que Nilo é. Observa as almas sem pressa, como se procurasse no vazio uma regra que ainda não foi escrita.",
+    "englishLore": "Teras understands only part of what Nilo is. He watches souls without hurry, as if searching the void for a rule that has not yet been written.",
+    "synergyEloIds": [
+      "vazio",
+      "correntes-quebradas"
+    ],
+    "passive": {
+      "name": "Nota de Campo",
+      "englishName": "Field Note",
+      "trigger": "turnStart",
+      "ifEnemyAfflicted": true,
+      "ownDotPopulation": {
+        "tag": "decadencia",
+        "minimum": 1
+      },
+      "effect": {
+        "generateEssence": {
+          "resource": "essence",
+          "amount": 1
+        },
+        "drainEssence": {
+          "amount": 1
+        }
+      },
+      "description": "No início do turno, se ao menos um inimigo ainda tiver Decadência de Teras, gera 1 Éter e drena 1 Essência inimiga; uma vez por rodada.",
+      "englishDescription": "At turn start, if at least one enemy still has Teras's Decay, he generates 1 Aether and drains 1 enemy Essence, once per round."
+    },
+    "skills": [
+      {
+        "name": "Olhar de Anomalia",
+        "englishName": "Anomaly's Gaze",
+        "damage": 10,
+        "cost": 1,
+        "damageType": "energy",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 10 spiritual damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Registro de Decadência",
+        "englishName": "Decay Record",
+        "damage": 11,
+        "cost": 2,
+        "damageType": "affliction",
+        "dot": {
+          "tag": "decadencia",
+          "damage": 4,
+          "turns": 2
+        },
+        "expose": 1,
+        "englishDescription": "Deals 11 affliction damage, applies Decay for 4 damage over 2 turns, and Exposes one enemy."
+      },
+      {
+        "name": "Pergunta sem Resposta",
+        "englishName": "Question Without an Answer",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "energy",
+        "sealSupport": 1,
+        "cooldown": 1,
+        "englishDescription": "Deals 15 spiritual damage to one enemy and seals its support for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Vigília Imóvel",
+      "englishName": "Unmoving Watch",
+      "shield": 5
+    }
+  },
+  {
+    "id": "teras-o-observador",
+    "name": "Teras, o Observador",
+    "englishName": "Teras, the Observer",
+    "family": "teras",
+    "version": 2,
+    "eloId": "vazio",
+    "elo": "Vazio",
+    "englishElo": "Void",
+    "realm": "Inferno",
+    "color": "void",
+    "symbol": "◍",
+    "affinity": "essence",
+    "role": "Leitor de Fendas",
+    "englishRole": "Rift Reader",
+    "combo": "Revelar sem se expor",
+    "englishCombo": "Reveal Without Exposure",
+    "mechanic": "Teras prepara um alvo Exposto e toma a Essência que escapa pela fenda.",
+    "englishMechanic": "Teras prepares an Exposed target and takes the Essence escaping through the rift.",
+    "lore": "Ao compreender que Nilo não pertence a nenhum Elo, Teras deixa de apenas observar. Esta forma passa a testar a fronteira para descobrir o que tenta atravessá-la.",
+    "englishLore": "After realizing Nilo belongs to no Bond, Teras stops merely observing. This form tests the boundary to learn what is trying to cross it.",
+    "synergyEloIds": [
+      "vazio",
+      "correntes-quebradas"
+    ],
+    "passive": {
+      "name": "Leitura da Fenda",
+      "englishName": "Rift Reading",
+      "trigger": "hit",
+      "requiresExposed": true,
+      "effect": {
+        "stealEssence": {
+          "amount": 1
+        },
+        "gainCharge": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo Exposto rouba 1 Essência inimiga e concede 1 carga.",
+      "englishDescription": "Once per round, hitting an Exposed target steals 1 enemy Essence and grants 1 charge."
+    },
+    "skills": [
+      {
+        "name": "Margem Exposta",
+        "englishName": "Exposed Margin",
+        "damage": 12,
+        "cost": 1,
+        "damageType": "piercing",
+        "expose": 1,
+        "englishDescription": "Deals 12 piercing damage to one enemy and Exposes it."
+      },
+      {
+        "name": "Vazio em Suspenso",
+        "englishName": "Suspended Void",
+        "damage": 16,
+        "cost": 2,
+        "damageType": "energy",
+        "combo": {
+          "condition": "exposed",
+          "bonusDamage": 8
+        },
+        "englishDescription": "Deals 16 spiritual damage to one enemy, plus 8 against an Exposed target."
+      },
+      {
+        "name": "Coleta Silenciosa",
+        "englishName": "Silent Collection",
+        "damage": 10,
+        "cost": 2,
+        "damageType": "energy",
+        "steal": 1,
+        "weaken": 1,
+        "englishDescription": "Deals 10 spiritual damage, steals 1 Essence, and Weakens one enemy for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Passo para Trás",
+      "englishName": "Step Back",
+      "shield": 5
+    }
+  },
+  {
+    "id": "victor",
+    "name": "Victor",
+    "englishName": "Victor",
+    "family": "victor",
+    "version": 1,
+    "eloId": "coroa",
+    "elo": "Coroa",
+    "englishElo": "Crown",
+    "realm": "Inferno",
+    "color": "crown",
+    "symbol": "♜",
+    "affinity": "ruptura",
+    "role": "Regente sem Reino",
+    "englishRole": "Ruler Without a Realm",
+    "combo": "Comandar o que restou",
+    "englishCombo": "Command What Remains",
+    "mechanic": "Victor protege a formação e converte a agressão recebida em autoridade para a próxima ação.",
+    "englishMechanic": "Victor protects the formation and turns incoming aggression into authority for the next action.",
+    "lore": "Victor já liderou algo que não existe mais. A Coroa que carrega não lhe devolve o reino; apenas lembra que ainda há pessoas sob sua responsabilidade.",
+    "englishLore": "Victor once led something that no longer exists. The Crown he carries will not restore his realm; it only reminds him that people still depend on him.",
+    "synergyEloIds": [
+      "coroa",
+      "protecao"
+    ],
+    "passive": {
+      "name": "Autoridade Residual",
+      "englishName": "Residual Authority",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "effect": {
+        "shieldTeam": 2,
+        "gainCharge": 1
+      },
+      "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Victor concede 2 de Defesa ao trio e ganha 1 carga.",
+      "englishDescription": "Once per round, after losing Health to an ability, Victor grants the team 2 Defense and gains 1 charge."
+    },
+    "skills": [
+      {
+        "name": "Decreto Final",
+        "englishName": "Final Decree",
+        "damage": 14,
+        "cost": 1,
+        "damageType": "physical",
+        "weaken": 1,
+        "englishDescription": "Deals 14 physical damage to one enemy and Weakens it for 1 turn."
+      },
+      {
+        "name": "Trono sem Reino",
+        "englishName": "Throne Without a Realm",
+        "target": "team",
+        "shield": 8,
+        "cost": 2,
+        "englishDescription": "Grants each ally 8 Defense."
+      },
+      {
+        "name": "Sucessão Forçada",
+        "englishName": "Forced Succession",
+        "damage": 16,
+        "cost": 2,
+        "damageType": "piercing",
+        "stripShield": 12,
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Removes 12 Defense, then deals 16 piercing damage to one enemy and Marks it for 2 turns."
+      }
+    ],
+    "defense": {
+      "name": "Último Mandato",
+      "englishName": "Last Mandate",
+      "shield": 6
+    }
+  },
+  {
+    "id": "silas",
+    "name": "Silas",
+    "englishName": "Silas",
+    "family": "silas",
+    "version": 1,
+    "eloId": "carne",
+    "elo": "Carne",
+    "englishElo": "Flesh",
+    "realm": "Inferno",
+    "color": "flesh",
+    "symbol": "⌘",
+    "affinity": "cinza",
+    "role": "Guarda de Nervos",
+    "englishRole": "Nerve Guard",
+    "combo": "Fidelidade que protege",
+    "englishCombo": "Loyalty That Protects",
+    "mechanic": "Silas prende a ameaça e protege quem escolheu manter ao seu lado.",
+    "englishMechanic": "Silas binds the threat and protects those he has chosen to keep beside him.",
+    "lore": "Silas encontrou na lealdade uma forma de resistir à Carne. Cada laço que cria é uma promessa de que não vai abandonar quem confiou nele.",
+    "englishLore": "Silas found a way to resist Flesh through loyalty. Every bond he forms is a promise that he will not abandon those who trust him.",
+    "synergyEloIds": [
+      "carne",
+      "uniao"
+    ],
+    "passive": {
+      "name": "Laço de Vigília",
+      "englishName": "Vigil Bond",
+      "trigger": "support",
+      "requiresOtherAlly": true,
+      "effect": {
+        "shieldTarget": 3
+      },
+      "description": "Uma vez por rodada, apoiar outro aliado também lhe concede 3 de Defesa.",
+      "englishDescription": "Once per round, supporting another ally also grants them 3 Defense."
+    },
+    "skills": [
+      {
+        "name": "Laço de Tendão",
+        "englishName": "Tendon Bond",
+        "damage": 11,
+        "cost": 1,
+        "damageType": "affliction",
+        "weaken": 1,
+        "englishDescription": "Deals 11 affliction damage to one enemy and Weakens it for 1 turn."
+      },
+      {
+        "name": "Pele de Vigia",
+        "englishName": "Watchful Skin",
+        "target": "ally",
+        "shield": 10,
+        "counter": 10,
+        "cost": 2,
+        "englishDescription": "Grants one ally 10 Defense and prepares a Counter that retaliates for 10 damage."
+      },
+      {
+        "name": "Nervo Contido",
+        "englishName": "Bound Nerve",
+        "damage": 16,
+        "cost": 2,
+        "damageType": "piercing",
+        "sealAttack": 1,
+        "cooldown": 1,
+        "englishDescription": "Deals 16 piercing damage to one enemy and seals its offensive abilities for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Corpo entre Nós",
+      "englishName": "Body Between Us",
+      "shield": 6
+    }
+  },
+  {
+    "id": "silas-o-leal",
+    "name": "Silas, o Leal",
+    "englishName": "Silas, the Loyal",
+    "family": "silas",
+    "version": 2,
+    "eloId": "carne",
+    "elo": "Carne",
+    "englishElo": "Flesh",
+    "realm": "Inferno",
+    "color": "flesh",
+    "symbol": "⌘",
+    "affinity": "graca",
+    "role": "Protetor Vinculado",
+    "englishRole": "Bound Protector",
+    "combo": "Responder pelo outro",
+    "englishCombo": "Answer for Another",
+    "mechanic": "O dano sofrido por Silas reforça o trio; sua defesa também prepara respostas coletivas.",
+    "englishMechanic": "Damage taken by Silas strengthens the team; his guard also prepares group responses.",
+    "lore": "O Leal já não protege por dívida ou medo. A forma que assume nasce da escolha de ficar, mesmo quando o corpo é puxado para longe de quem ama.",
+    "englishLore": "The Loyal no longer protects out of debt or fear. This form comes from choosing to stay, even when his body is pulled away from those he loves.",
+    "synergyEloIds": [
+      "carne",
+      "uniao"
+    ],
+    "passive": {
+      "name": "Promessa que Aguenta",
+      "englishName": "A Promise That Holds",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "effect": {
+        "shieldTeam": 2,
+        "heal": 3
+      },
+      "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Silas concede 2 de Defesa ao trio e recupera 3 de Vida.",
+      "englishDescription": "Once per round, after losing Health to an ability, Silas grants the team 2 Defense and restores 3 Health."
+    },
+    "skills": [
+      {
+        "name": "Pele Partilhada",
+        "englishName": "Shared Skin",
+        "target": "ally",
+        "shield": 12,
+        "reduce": 4,
+        "cost": 1,
+        "englishDescription": "Grants one ally 12 Defense and reduces damage they take by 4 for 1 turn."
+      },
+      {
+        "name": "Nó de Lealdade",
+        "englishName": "Knot of Loyalty",
+        "target": "team",
+        "shield": 6,
+        "cleanse": true,
+        "cost": 2,
+        "englishDescription": "Grants each ally 6 Defense and removes harmful conditions from the team."
+      },
+      {
+        "name": "Devolver a Agressão",
+        "englishName": "Return the Aggression",
+        "damage": 18,
+        "cost": 2,
+        "damageType": "physical",
+        "combo": {
+          "condition": "weakened",
+          "bonusDamage": 7
+        },
+        "englishDescription": "Deals 18 physical damage to one enemy, plus 7 against a Weakened target."
+      }
+    ],
+    "defense": {
+      "name": "Abrigo Vinculado",
+      "englishName": "Bound Shelter",
+      "shield": 7
+    }
+  },
+  {
+    "id": "orion",
+    "name": "Orion",
+    "englishName": "Orion",
+    "family": "orion",
+    "version": 1,
+    "eloId": "verdade",
+    "elo": "Verdade",
+    "englishElo": "Truth",
+    "realm": "Paraíso",
+    "color": "truth",
+    "symbol": "✧",
+    "affinity": "essence",
+    "role": "Caçador de Anomalias",
+    "englishRole": "Anomaly Hunter",
+    "combo": "Revelar e decidir",
+    "englishCombo": "Reveal and Decide",
+    "mechanic": "Orion marca o que considera impossível e precisa escolher entre capturar ou ajudar.",
+    "englishMechanic": "Orion Marks what he considers impossible and must choose whether to capture it or help it.",
+    "lore": "Orion rastreia almas que escapam às regras dos Elos. Às vezes ajuda Nilo; às vezes parece estar calculando a forma mais segura de capturá-lo.",
+    "englishLore": "Orion tracks souls that escape the Bonds' rules. Sometimes he helps Nilo; sometimes he seems to be calculating the safest way to capture him.",
+    "synergyEloIds": [
+      "verdade",
+      "correntes-quebradas"
+    ],
+    "passive": {
+      "name": "Prova Irrefutável",
+      "englishName": "Irrefutable Evidence",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "effect": {
+        "weakenTarget": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca própria também o Enfraquece por 1 turno.",
+      "englishDescription": "Once per round, hitting a target with Orion's Mark also Weakens it for 1 turn."
+    },
+    "skills": [
+      {
+        "name": "Rastro de Éter",
+        "englishName": "Aether Trail",
+        "damage": 10,
+        "cost": 1,
+        "damageType": "piercing",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 10 piercing damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Captura Vetorial",
+        "englishName": "Vector Capture",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "energy",
+        "stun": 1,
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 6,
+          "consume": true
+        },
+        "englishDescription": "Deals 14 spiritual damage to one enemy. Against a Marked target, it deals 6 bonus damage, consumes the Mark, and Stuns for 1 turn."
+      },
+      {
+        "name": "Dúvida Calculada",
+        "englishName": "Calculated Doubt",
+        "target": "ally",
+        "shield": 8,
+        "cleanse": true,
+        "cost": 2,
+        "englishDescription": "Grants one ally 8 Defense and removes harmful conditions."
+      }
+    ],
+    "defense": {
+      "name": "Janela de Contenção",
+      "englishName": "Containment Window",
+      "shield": 6
+    }
+  },
+  {
+    "id": "doggo",
+    "name": "Doggo",
+    "englishName": "Doggo",
+    "family": "doggo",
+    "version": 1,
+    "eloId": "fome",
+    "elo": "Fome",
+    "englishElo": "Hunger",
+    "realm": "Inferno",
+    "color": "hunger",
+    "symbol": "◉",
+    "affinity": "cinza",
+    "role": "Sobrevivente Pragmático",
+    "englishRole": "Practical Survivor",
+    "combo": "Tomar só o necessário",
+    "englishCombo": "Take Only What Is Needed",
+    "mechanic": "Doggo rouba recursos de quem ameaça o grupo e usa o que obtém para continuar de pé.",
+    "englishMechanic": "Doggo steals resources from anyone threatening the group and uses what he gets to stay standing.",
+    "lore": "Doggo não finge que é nobre. Faz contas, encontra comida e sabe exatamente quando fugir — até perceber que alguém do grupo não consegue acompanhá-lo.",
+    "englishLore": "Doggo does not pretend to be noble. He counts, finds food, and knows exactly when to run, until he realizes someone in the group cannot keep up.",
+    "synergyEloIds": [
+      "fome"
+    ],
+    "passive": {
+      "name": "Ração de Emergência",
+      "englishName": "Emergency Ration",
+      "trigger": "kill",
+      "effect": {
+        "heal": 5,
+        "generateEssence": {
+          "resource": "cinza",
+          "amount": 1
+        }
+      },
+      "description": "Ao derrubar uma alma, recupera 5 de Vida e gera 1 Cinza; uma vez por rodada.",
+      "englishDescription": "When he defeats a soul, Doggo restores 5 Health and generates 1 Ash, once per round."
+    },
+    "skills": [
+      {
+        "name": "Mordida de Cobrança",
+        "englishName": "Collection Bite",
+        "damage": 12,
+        "cost": 1,
+        "damageType": "physical",
+        "lifesteal": 0.2,
+        "englishDescription": "Deals 12 physical damage to one enemy and restores 20% of damage dealt as Health."
+      },
+      {
+        "name": "Mão que Toma",
+        "englishName": "Taking Hand",
+        "damage": 10,
+        "cost": 2,
+        "damageType": "piercing",
+        "steal": 1,
+        "englishDescription": "Deals 10 piercing damage to one enemy and steals 1 Essence."
+      },
+      {
+        "name": "Reserva Escondida",
+        "englishName": "Hidden Stash",
+        "target": "self",
+        "heal": 8,
+        "shield": 8,
+        "generateEssence": {
+          "resource": "cinza",
+          "amount": 1
+        },
+        "cost": 2,
+        "englishDescription": "Restores 8 Health to Doggo, grants him 8 Defense, and generates 1 Ash."
+      }
+    ],
+    "defense": {
+      "name": "Fingir de Morto",
+      "englishName": "Play Dead",
+      "shield": 5
+    }
+  },
+  {
+    "id": "hans",
+    "name": "Hans",
+    "englishName": "Hans",
+    "family": "hans",
+    "version": 1,
+    "eloId": "podridao",
+    "elo": "Podridão",
+    "englishElo": "Rot",
+    "realm": "Inferno",
+    "color": "rot",
+    "symbol": "✹",
+    "affinity": "cinza",
+    "role": "Informante da Podridão",
+    "englishRole": "Rot Informant",
+    "combo": "Deixar a praga falar",
+    "englishCombo": "Let the Blight Speak",
+    "mechanic": "Hans espalha Decadência e transforma a persistência das aflições em Cinza.",
+    "englishMechanic": "Hans spreads Decay and turns persistent afflictions into Ash.",
+    "lore": "Hans troca informação por abrigo e comenta a desgraça alheia com humor ácido. Ele conhece a Podridão o bastante para saber que nada apodrece sozinho.",
+    "englishLore": "Hans trades information for shelter and comments on other people's misery with acid humor. He knows Rot well enough to know that nothing decays alone.",
+    "synergyEloIds": [
+      "podridao"
+    ],
+    "passive": {
+      "name": "Juros de Decadência",
+      "englishName": "Decay Interest",
+      "trigger": "turnStart",
+      "ifEnemyAfflicted": true,
+      "ownDotPopulation": {
+        "tag": "decadencia",
+        "minimum": 2
+      },
+      "effect": {
+        "generateEssence": {
+          "resource": "cinza",
+          "amount": 1
+        },
+        "heal": 3
+      },
+      "description": "Se dois ou mais inimigos vivos mantêm Decadência de Hans, no início do turno ele gera 1 Cinza e recupera 3 de Vida; uma vez por rodada.",
+      "englishDescription": "If at least two living enemies still have Hans's Decay, he generates 1 Ash and restores 3 Health at turn start, once per round."
+    },
+    "skills": [
+      {
+        "name": "Informação Venenosa",
+        "englishName": "Poisoned Information",
+        "damage": 8,
+        "cost": 1,
+        "damageType": "affliction",
+        "dot": {
+          "tag": "veneno",
+          "damage": 4,
+          "turns": 2
+        },
+        "englishDescription": "Deals 8 affliction damage and applies Poison for 4 damage over 2 turns."
+      },
+      {
+        "name": "Decadência Compartilhada",
+        "englishName": "Shared Decay",
+        "damage": 12,
+        "cost": 2,
+        "damageType": "energy",
+        "dot": {
+          "tag": "decadencia",
+          "damage": 5,
+          "turns": 2
+        },
+        "target": "all-enemies",
+        "englishDescription": "Deals 12 spiritual damage to all enemies and applies Decay for 5 damage over 2 turns."
+      },
+      {
+        "name": "Hospitalidade Negada",
+        "englishName": "Hospitality Denied",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "piercing",
+        "healingBlock": 0.5,
+        "sealSupport": 1,
+        "cooldown": 1,
+        "englishDescription": "Deals 14 piercing damage, halves healing received, and seals support for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Esconderijo Insalubre",
+      "englishName": "Unwholesome Hideout",
+      "shield": 5
+    }
+  },
+  {
+    "id": "xian",
+    "name": "Xian",
+    "englishName": "Xian",
+    "family": "xian",
+    "version": 1,
+    "eloId": "silencio",
+    "elo": "Silêncio",
+    "englishElo": "Silence",
+    "realm": "Inferno",
+    "color": "silence",
+    "symbol": "◌",
+    "affinity": "essence",
+    "role": "Isolado que Revida",
+    "englishRole": "Isolated Retaliator",
+    "combo": "Silêncio como resposta",
+    "englishCombo": "Silence as an Answer",
+    "mechanic": "Xian pune quem rompe sua quietude e sela a próxima abertura do agressor.",
+    "englishMechanic": "Xian punishes anyone who breaks his quiet and seals the aggressor's next opening.",
+    "lore": "Xian quase nunca fala. Não é timidez: aprendeu que cada palavra vira uma promessa que alguém pode usar contra ele.",
+    "englishLore": "Xian almost never speaks. It is not shyness; he learned that every word becomes a promise someone can use against him.",
+    "synergyEloIds": [
+      "silencio"
+    ],
+    "passive": {
+      "name": "Resposta Muda",
+      "englishName": "Silent Answer",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "effect": {
+        "damageAttacker": 5
+      },
+      "description": "Uma vez por rodada, quando perde Vida para uma habilidade, causa 5 de dano de aflição ao agressor.",
+      "englishDescription": "Once per round, when an ability makes Xian lose Health, he deals 5 affliction damage to the attacker."
+    },
+    "skills": [
+      {
+        "name": "Passo sem Ruído",
+        "englishName": "Soundless Step",
+        "damage": 11,
+        "cost": 1,
+        "damageType": "piercing",
+        "weaken": 1,
+        "englishDescription": "Deals 11 piercing damage to one enemy and Weakens it for 1 turn."
+      },
+      {
+        "name": "Porta Fechada",
+        "englishName": "Closed Door",
+        "damage": 13,
+        "cost": 2,
+        "damageType": "energy",
+        "sealSupport": 1,
+        "englishDescription": "Deals 13 spiritual damage to one enemy and seals its support for 1 turn."
+      },
+      {
+        "name": "Vácuo de Resposta",
+        "englishName": "Response Vacuum",
+        "target": "self",
+        "counter": 13,
+        "cost": 2,
+        "counterEffect": {
+          "drainEssence": {
+            "amount": 1
+          }
+        },
+        "englishDescription": "Counters the next incoming enemy ability, retaliates for 13 damage, and drains 1 Essence when it triggers."
+      }
+    ],
+    "defense": {
+      "name": "Quarto Vazio",
+      "englishName": "Empty Room",
+      "shield": 5
+    }
+  },
+  {
+    "id": "xian-o-imovel",
+    "name": "Xian, o Imóvel",
+    "englishName": "Xian, the Unmoving",
+    "family": "xian",
+    "version": 2,
+    "eloId": "silencio",
+    "elo": "Silêncio",
+    "englishElo": "Silence",
+    "realm": "Inferno",
+    "color": "silence",
+    "symbol": "◌",
+    "affinity": "ruptura",
+    "role": "Sentinela do Vazio",
+    "englishRole": "Void Sentinel",
+    "combo": "Permanecer até a ameaça cessar",
+    "englishCombo": "Stay Until the Threat Ends",
+    "mechanic": "Xian aguenta a pressão, interrompe respostas e recolhe Essência do silêncio deixado.",
+    "englishMechanic": "Xian withstands pressure, interrupts responses, and gathers Essence from the silence left behind.",
+    "lore": "O Imóvel é Xian depois de desistir de fugir. Não fala, não recua e não oferece aos outros a reação que esperam encontrar.",
+    "englishLore": "The Unmoving one is Xian after giving up on running. He does not speak, retreat, or offer others the reaction they expect.",
+    "synergyEloIds": [
+      "silencio",
+      "correntes-quebradas"
+    ],
+    "passive": {
+      "name": "Quietude Inquebrável",
+      "englishName": "Unbroken Quiet",
+      "trigger": "counter",
+      "effect": {
+        "gainCharge": 1,
+        "generateEssence": {
+          "resource": "ruptura",
+          "amount": 1
+        },
+        "sealSupportTarget": 1
+      },
+      "description": "Uma vez por rodada, ativar um Contra-ataque concede 1 carga, gera 1 Ruptura e sela o apoio do agressor por 1 turno.",
+      "englishDescription": "Once per round, activating a Counter grants 1 charge, generates 1 Rupture, and seals the attacker's support for 1 turn."
+    },
+    "skills": [
+      {
+        "name": "Vigília de Pedra",
+        "englishName": "Stone Vigil",
+        "target": "self",
+        "counter": 15,
+        "counterFilter": [
+          "physical",
+          "piercing"
+        ],
+        "cost": 1,
+        "englishDescription": "Counters the next incoming physical or piercing ability and retaliates for 15 damage."
+      },
+      {
+        "name": "Selo de Omissão",
+        "englishName": "Seal of Omission",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "energy",
+        "sealAttack": 1,
+        "englishDescription": "Deals 14 spiritual damage to one enemy and seals its offensive abilities for 1 turn."
+      },
+      {
+        "name": "Ninguém Responde",
+        "englishName": "No One Answers",
+        "damage": 18,
+        "cost": 2,
+        "damageType": "piercing",
+        "combo": {
+          "condition": "weakened",
+          "bonusDamage": 8
+        },
+        "englishDescription": "Deals 18 piercing damage to one enemy, plus 8 against a Weakened target."
+      }
+    ],
+    "defense": {
+      "name": "Não Dar um Passo",
+      "englishName": "Not One Step",
+      "shield": 7
+    }
+  },
+  {
+    "id": "seraphim",
+    "name": "Seraphim",
+    "englishName": "Seraphim",
+    "family": "seraphim",
+    "version": 1,
+    "eloId": "protecao",
+    "elo": "Graça",
+    "englishElo": "Grace",
+    "realm": "Paraíso",
+    "color": "guard",
+    "symbol": "⬡",
+    "affinity": "graca",
+    "role": "Eco de Paraíso",
+    "englishRole": "Paradise Echo",
+    "combo": "Amparar sem exigir fé",
+    "englishCombo": "Shelter Without Demanding Faith",
+    "mechanic": "Seraphim fortalece a defesa e restaura quem recebeu o peso do combate.",
+    "englishMechanic": "Seraphim strengthens defenses and restores those who have borne the weight of battle.",
+    "lore": "Seraphim é um eco de Paraíso, uma presença de pureza que incomoda até quem acredita estar fazendo o bem. Seu cuidado não pergunta se a pessoa merece.",
+    "englishLore": "Seraphim is an echo of Paradise, a presence of purity that unsettles even those who believe they are doing good. Its care does not ask whether someone deserves it.",
+    "synergyEloIds": [
+      "protecao",
+      "cura"
+    ],
+    "passive": {
+      "name": "Graça sem Julgamento",
+      "englishName": "Grace Without Judgment",
+      "trigger": "support",
+      "minimumHeal": 1,
+      "effect": {
+        "generateEssence": {
+          "resource": "graca",
+          "amount": 1
+        },
+        "healWeakestAlly": 3
+      },
+      "description": "Uma vez por rodada, depois de uma cura efetiva, gera 1 Graça e restaura 3 de Vida ao aliado vivo mais ferido.",
+      "englishDescription": "Once per round, after effective healing, Seraphim generates 1 Grace and restores 3 Health to the living ally with the lowest Health percentage."
+    },
+    "skills": [
+      {
+        "name": "Manto de Asas",
+        "englishName": "Wing Mantle",
+        "target": "team",
+        "shield": 7,
+        "cost": 1,
+        "englishDescription": "Grants each ally 7 Defense."
+      },
+      {
+        "name": "Toque sem Culpa",
+        "englishName": "Blameless Touch",
+        "target": "ally",
+        "heal": 12,
+        "cleanse": true,
+        "cost": 2,
+        "englishDescription": "Restores 12 Health to one ally and removes harmful conditions."
+      },
+      {
+        "name": "Luz que Permanece",
+        "englishName": "Light That Remains",
+        "target": "team",
+        "regen": {
+          "heal": 4,
+          "turns": 2
+        },
+        "shield": 5,
+        "cost": 2,
+        "englishDescription": "Grants each ally 5 Defense and regenerates 4 Health for 2 turns."
+      }
+    ],
+    "defense": {
+      "name": "Asa Fechada",
+      "englishName": "Folded Wing",
+      "shield": 7
+    }
+  },
+  {
+    "id": "seraphim-o-eco",
+    "name": "Seraphim, o Eco",
+    "englishName": "Seraphim, the Echo",
+    "family": "seraphim",
+    "version": 2,
+    "eloId": "protecao",
+    "elo": "Graça",
+    "englishElo": "Grace",
+    "realm": "Paraíso",
+    "color": "guard",
+    "symbol": "⬡",
+    "affinity": "graca",
+    "role": "Vigília Celeste",
+    "englishRole": "Celestial Vigil",
+    "combo": "Converter proteção em retorno",
+    "englishCombo": "Turn Protection Into Recovery",
+    "mechanic": "Cada guarda erguida por Seraphim prepara cura para quem ainda está ferido.",
+    "englishMechanic": "Every guard Seraphim raises prepares healing for those still wounded.",
+    "lore": "O Eco é o que resta quando a presença de Seraphim se afasta. A pureza permanece, mas agora parece uma lembrança que cada aliado precisa aprender a carregar.",
+    "englishLore": "The Echo is what remains when Seraphim's presence withdraws. Its purity remains, now like a memory each ally must learn to carry.",
+    "synergyEloIds": [
+      "protecao",
+      "cura"
+    ],
+    "passive": {
+      "name": "Refrão de Vigília",
+      "englishName": "Vigil Chorus",
+      "trigger": "support",
+      "minimumShield": 5,
+      "effect": {
+        "healTeam": 2
+      },
+      "description": "Uma vez por rodada, depois de conceder ao menos 5 de Defesa em uma habilidade de apoio, restaura 2 de Vida a cada aliado.",
+      "englishDescription": "Once per round, after granting at least 5 Defense with a support ability, Seraphim restores 2 Health to each ally."
+    },
+    "skills": [
+      {
+        "name": "Círculo de Guarda",
+        "englishName": "Circle of Guard",
+        "target": "team",
+        "shield": 9,
+        "cost": 1,
+        "englishDescription": "Grants each ally 9 Defense."
+      },
+      {
+        "name": "Reverso da Queda",
+        "englishName": "Fall Reversed",
+        "target": "ally",
+        "heal": 10,
+        "shield": 8,
+        "cost": 2,
+        "englishDescription": "Restores 10 Health to one ally and grants them 8 Defense."
+      },
+      {
+        "name": "Cântico de Retorno",
+        "englishName": "Return Hymn",
+        "target": "team",
+        "heal": 5,
+        "cleanse": true,
+        "cost": 2,
+        "englishDescription": "Restores 5 Health to each ally and removes harmful conditions from the team."
+      }
+    ],
+    "defense": {
+      "name": "Última Vigília",
+      "englishName": "Last Vigil",
+      "shield": 8
+    }
+  },
+  {
+    "id": "eiremir",
+    "name": "Eiremir",
+    "englishName": "Eiremir",
+    "family": "eiremir",
+    "version": 1,
+    "eloId": "correntes-quebradas",
+    "elo": "Limbo",
+    "englishElo": "Limbo",
+    "realm": "Limbo",
+    "color": "limbo",
+    "symbol": "⟲",
+    "affinity": "ruptura",
+    "role": "Anomalia Espelhada",
+    "englishRole": "Mirrored Anomaly",
+    "combo": "Devolver a Essência recebida",
+    "englishCombo": "Return the Essence Received",
+    "mechanic": "Eiremir marca o fluxo e converte a energia absorvida em Ruptura.",
+    "englishMechanic": "Eiremir Marks the flow and converts absorbed energy into Rupture.",
+    "lore": "Eiremir é outra anomalia rara do Limbo. Para Nilo, pode ser a primeira prova de que ele não está sozinho — ou um espelho de tudo que pode se tornar.",
+    "englishLore": "Eiremir is another rare Limbo anomaly. To Nilo, they may be the first proof that he is not alone, or a mirror of everything he might become.",
+    "synergyEloIds": [
+      "correntes-quebradas",
+      "vazio"
+    ],
+    "passive": {
+      "name": "Reflexo de Essência",
+      "englishName": "Essence Reflection",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "effect": {
+        "generateEssence": {
+          "resource": "ruptura",
+          "amount": 1
+        }
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca própria gera 1 Ruptura.",
+      "englishDescription": "Once per round, hitting a target with Eiremir's Mark generates 1 Rupture."
+    },
+    "skills": [
+      {
+        "name": "Fenda que Observa",
+        "englishName": "Watching Rift",
+        "damage": 11,
+        "cost": 1,
+        "damageType": "energy",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 11 spiritual damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Fluxo Reverso",
+        "englishName": "Reverse Flow",
+        "damage": 12,
+        "cost": 2,
+        "damageType": "piercing",
+        "convertEssence": {
+          "from": "any",
+          "to": "ruptura",
+          "amount": 1
+        },
+        "englishDescription": "Converts 1 available Essence into Rupture, then deals 12 piercing damage to one enemy."
+      },
+      {
+        "name": "Ressonância Impossível",
+        "englishName": "Impossible Resonance",
+        "damage": 17,
+        "cost": 2,
+        "damageType": "energy",
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 8,
+          "consume": true
+        },
+        "englishDescription": "Deals 17 spiritual damage to one enemy. Against a Marked target, it deals 8 bonus damage and consumes the Mark."
+      }
+    ],
+    "defense": {
+      "name": "Reflexo de Limbo",
+      "englishName": "Limbo Reflection",
+      "shield": 6
+    }
+  },
+  {
+    "id": "eiremir-o-espelho-partido",
+    "name": "Eiremir, o Espelho Partido",
+    "englishName": "Eiremir, the Broken Mirror",
+    "family": "eiremir",
+    "version": 2,
+    "eloId": "correntes-quebradas",
+    "elo": "Limbo",
+    "englishElo": "Limbo",
+    "realm": "Limbo",
+    "color": "limbo",
+    "symbol": "⟲",
+    "affinity": "ruptura",
+    "role": "Fenda de Retorno",
+    "englishRole": "Returning Rift",
+    "combo": "Devolver a ruptura",
+    "englishCombo": "Return the Rupture",
+    "mechanic": "Quando Eiremir é ferido, a fenda devolve carga e Ruptura ao trio.",
+    "englishMechanic": "When Eiremir is hurt, the rift returns charge and Rupture to the team.",
+    "lore": "O Espelho Partido absorveu fragmentos de muitas almas e já não sabe qual delas iniciou o reflexo. Sua forma lembra Nilo, mas cada repetição parece levá-lo a um resultado diferente.",
+    "englishLore": "The Broken Mirror absorbed fragments from many souls and no longer knows which one began the reflection. Its form recalls Nilo, but each repetition seems to lead somewhere else.",
+    "synergyEloIds": [
+      "correntes-quebradas",
+      "vazio"
+    ],
+    "passive": {
+      "name": "Estilhaço Reativo",
+      "englishName": "Reactive Shard",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "effect": {
+        "gainCharge": 1,
+        "generateEssence": {
+          "resource": "ruptura",
+          "amount": 1
+        }
+      },
+      "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Eiremir ganha 1 carga e gera 1 Ruptura.",
+      "englishDescription": "Once per round, after losing Health to an ability, Eiremir gains 1 charge and generates 1 Rupture."
+    },
+    "skills": [
+      {
+        "name": "Estilhaço de Retorno",
+        "englishName": "Returning Shard",
+        "damage": 13,
+        "cost": 1,
+        "damageType": "piercing",
+        "expose": 1,
+        "englishDescription": "Deals 13 piercing damage to one enemy and Exposes it."
+      },
+      {
+        "name": "Espelho de Correntes",
+        "englishName": "Chain Mirror",
+        "target": "self",
+        "counter": 14,
+        "cost": 2,
+        "counterEffect": {
+          "generateEssence": {
+            "resource": "ruptura",
+            "amount": 1
+          },
+          "expose": 1
+        },
+        "englishDescription": "Counters the next incoming enemy ability, retaliates for 14 damage, generates 1 Rupture, and Exposes the attacker when triggered."
+      },
+      {
+        "name": "Ruptura Recursiva",
+        "englishName": "Recursive Rupture",
+        "damage": 19,
+        "cost": 2,
+        "damageType": "piercing",
+        "perChargeDamage": 3,
+        "spendCharge": true,
+        "englishDescription": "Deals 19 piercing damage to one enemy, plus 3 for each charge spent."
+      }
+    ],
+    "defense": {
+      "name": "Caco Invulnerável",
+      "englishName": "Invulnerable Shard",
+      "shield": 7
+    }
+  }
+];
+
+const antagonistProfiles = [
+  {
+    "id": "cain",
+    "name": "Cain",
+    "englishName": "Cain",
+    "family": "cain",
+    "version": 1,
+    "eloId": "sangria",
+    "elo": "Sangria",
+    "englishElo": "Bloodshed",
+    "realm": "Inferno",
+    "color": "blood",
+    "symbol": "✦",
+    "affinity": "cinza",
+    "npcOnly": true,
+    "role": "Espelho de Violência",
+    "englishRole": "Mirror of Violence",
+    "combo": "Cobrar a culpa em sangue",
+    "englishCombo": "Make Guilt Pay in Blood",
+    "mechanic": "Cain marca o alvo, fere a própria guarda e acelera a execução quando encontra uma abertura.",
+    "englishMechanic": "Cain Marks a target, wounds his own guard, and speeds up execution when he finds an opening.",
+    "lore": "Cain é o espelho sombrio de Kael: a violência que não busca reparar o erro e transforma culpa em justificativa para continuar.",
+    "englishLore": "Cain is Kael's dark mirror: violence that seeks no repair and turns guilt into an excuse to continue.",
+    "synergyEloIds": [
+      "sangria",
+      "correntes-quebradas"
+    ],
+    "passive": {
+      "name": "Culpa que Morde",
+      "englishName": "Biting Guilt",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "effect": {
+        "gainCharge": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca de Cain concede 1 carga.",
+      "englishDescription": "Once per round, hitting a target with Cain's Mark grants 1 charge."
+    },
+    "skills": [
+      {
+        "name": "Marca do Primeiro Erro",
+        "englishName": "Mark of the First Mistake",
+        "damage": 12,
+        "cost": 1,
+        "damageType": "physical",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 12 physical damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Repetir a Sentença",
+        "englishName": "Repeat the Sentence",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "piercing",
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 8,
+          "consume": true
+        },
+        "englishDescription": "Deals 15 piercing damage to one enemy. Against a Marked target, it deals 8 bonus damage and consumes the Mark."
+      },
+      {
+        "name": "Ferida Consentida",
+        "englishName": "Willing Wound",
+        "damage": 20,
+        "cost": 2,
+        "damageType": "physical",
+        "selfDamage": 5,
+        "englishDescription": "Deals 20 physical damage to one enemy; Cain loses 5 Health."
+      }
+    ],
+    "defense": {
+      "name": "Cicatriz de Sangue",
+      "englishName": "Blood Scar",
+      "shield": 6
+    }
+  },
+  {
+    "id": "lilith",
+    "name": "Lilith",
+    "englishName": "Lilith",
+    "family": "lilith",
+    "version": 1,
+    "eloId": "vazio",
+    "elo": "Vazio",
+    "englishElo": "Void",
+    "realm": "Inferno",
+    "color": "void",
+    "symbol": "◍",
+    "affinity": "cinza",
+    "npcOnly": true,
+    "role": "Negação Radical",
+    "englishRole": "Radical Refusal",
+    "combo": "Apagar a esperança do plano",
+    "englishCombo": "Erase Hope from the Plan",
+    "mechanic": "Lilith interrompe apoio e castiga aliados que tentam se recuperar.",
+    "englishMechanic": "Lilith interrupts support and punishes allies who try to recover.",
+    "lore": "Lilith é a antítese de Naomi. Onde Naomi insiste em permanecer, Lilith recusa qualquer promessa de que ficar possa mudar alguma coisa.",
+    "englishLore": "Lilith is Naomi's antithesis. Where Naomi insists on staying, Lilith refuses any promise that remaining can change anything.",
+    "synergyEloIds": [
+      "vazio",
+      "esperanca"
+    ],
+    "passive": {
+      "name": "Amanhã Negado",
+      "englishName": "Tomorrow Denied",
+      "trigger": "hit",
+      "requiresExposed": true,
+      "effect": {
+        "sealSupportTarget": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo Exposto sela o apoio dele por 1 turno.",
+      "englishDescription": "Once per round, hitting an Exposed target seals its support for 1 turn."
+    },
+    "skills": [
+      {
+        "name": "Recusa de Aurora",
+        "englishName": "Dawn Refusal",
+        "damage": 11,
+        "cost": 1,
+        "damageType": "energy",
+        "weaken": 1,
+        "englishDescription": "Deals 11 spiritual damage to one enemy and Weakens it for 1 turn."
+      },
+      {
+        "name": "Esperança Interrompida",
+        "englishName": "Interrupted Hope",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "piercing",
+        "sealSupport": 1,
+        "englishDescription": "Deals 14 piercing damage to one enemy and seals its support for 1 turn."
+      },
+      {
+        "name": "Nada a Restaurar",
+        "englishName": "Nothing to Restore",
+        "damage": 18,
+        "cost": 2,
+        "damageType": "affliction",
+        "healingBlock": 0.5,
+        "dot": {
+          "tag": "decadencia",
+          "damage": 4,
+          "turns": 2
+        },
+        "englishDescription": "Deals 18 affliction damage, halves healing received, and applies Decay for 4 damage over 2 turns."
+      }
+    ],
+    "defense": {
+      "name": "Véu sem Amanhã",
+      "englishName": "Veil Without Tomorrow",
+      "shield": 5
+    }
+  },
+  {
+    "id": "caliope",
+    "name": "Calíope",
+    "englishName": "Calliope",
+    "family": "caliope",
+    "version": 1,
+    "eloId": "mentira",
+    "elo": "Mentira",
+    "englishElo": "Deceit",
+    "realm": "Inferno",
+    "color": "mirror",
+    "symbol": "◇",
+    "affinity": "essence",
+    "npcOnly": true,
+    "role": "Artista da Mentira",
+    "englishRole": "Artist of Deceit",
+    "combo": "Escrever a abertura antes da vítima",
+    "englishCombo": "Write the Opening Before the Victim",
+    "mechanic": "Calíope monta uma máscara, expõe o alvo e converte a própria marca em roubo.",
+    "englishMechanic": "Calliope builds a mask, Exposes the target, and turns her Mark into theft.",
+    "lore": "Calíope trata a mentira como arte e considera Vaas um imitador que parou antes de aprender a composição inteira.",
+    "englishLore": "Calliope treats deception as an art and considers Vaas an imitator who stopped before learning the full composition.",
+    "synergyEloIds": [
+      "mentira",
+      "silencio"
+    ],
+    "passive": {
+      "name": "Assinatura Falsa",
+      "englishName": "False Signature",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "effect": {
+        "stealEssence": {
+          "amount": 1
+        }
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.",
+      "englishDescription": "Once per round, hitting a target with Calliope's Mark steals 1 Essence from the enemy reserve."
+    },
+    "skills": [
+      {
+        "name": "Verso Plantado",
+        "englishName": "Planted Verse",
+        "damage": 9,
+        "cost": 1,
+        "damageType": "energy",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 9 spiritual damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Rima de Exposição",
+        "englishName": "Exposing Rhyme",
+        "damage": 13,
+        "cost": 2,
+        "damageType": "piercing",
+        "expose": 1,
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 6
+        },
+        "englishDescription": "Deals 13 piercing damage and Exposes one enemy, plus 6 damage if it has Calliope's Mark."
+      },
+      {
+        "name": "Refrão Roubado",
+        "englishName": "Stolen Refrain",
+        "damage": 16,
+        "cost": 2,
+        "damageType": "affliction",
+        "steal": 1,
+        "sealSupport": 1,
+        "englishDescription": "Deals 16 affliction damage, steals 1 Essence, and seals the target's support for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Cortina de Espelhos",
+      "englishName": "Mirror Curtain",
+      "shield": 5
+    }
+  },
+  {
+    "id": "serena",
+    "name": "Serena",
+    "englishName": "Serena",
+    "family": "serena",
+    "version": 1,
+    "eloId": "carne",
+    "elo": "Carne",
+    "englishElo": "Flesh",
+    "realm": "Inferno",
+    "color": "flesh",
+    "symbol": "⌘",
+    "affinity": "cinza",
+    "npcOnly": true,
+    "role": "Sombra do Passado",
+    "englishRole": "Shadow of the Past",
+    "combo": "Transformar perda em controle",
+    "englishCombo": "Turn Loss Into Control",
+    "mechanic": "Serena usa marcas nervosas e bloqueio de cura para reabrir as feridas de Diana.",
+    "englishMechanic": "Serena uses nerve Marks and healing denial to reopen Diana's wounds.",
+    "lore": "Serena liga-se ao passado de Diana e conhece a perda que ensinou a médica a proteger os outros. Usa essa lembrança como uma arma precisa.",
+    "englishLore": "Serena is tied to Diana's past and knows the loss that taught the doctor to protect others. She uses that memory as a precise weapon.",
+    "synergyEloIds": [
+      "carne",
+      "cura"
+    ],
+    "passive": {
+      "name": "Lembrança Invasiva",
+      "englishName": "Intrusive Memory",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "effect": {
+        "weakenTarget": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca Nervosa própria o Enfraquece por 1 turno.",
+      "englishDescription": "Once per round, hitting a target with Serena's Nerve Mark Weakens it for 1 turn."
+    },
+    "skills": [
+      {
+        "name": "Marca Nervosa",
+        "englishName": "Nerve Mark",
+        "damage": 10,
+        "cost": 1,
+        "damageType": "affliction",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 10 affliction damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Memória Reaberta",
+        "englishName": "Reopened Memory",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "piercing",
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 7
+        },
+        "englishDescription": "Deals 14 piercing damage to one enemy, plus 7 against a target with Serena's Mark."
+      },
+      {
+        "name": "Pulso de Interdição",
+        "englishName": "Pulse of Interdiction",
+        "damage": 18,
+        "cost": 2,
+        "damageType": "energy",
+        "healingBlock": 0.5,
+        "sealSupport": 1,
+        "englishDescription": "Deals 18 spiritual damage, halves healing received, and seals support for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Pele de Lembrança",
+      "englishName": "Skin of Memory",
+      "shield": 6
+    }
+  },
+  {
+    "id": "placido",
+    "name": "Plácido",
+    "englishName": "Placido",
+    "family": "placido",
+    "version": 1,
+    "eloId": "coroa",
+    "elo": "Coroa",
+    "englishElo": "Crown",
+    "realm": "Inferno",
+    "color": "crown",
+    "symbol": "♜",
+    "affinity": "ruptura",
+    "npcOnly": true,
+    "role": "Arquiteto da Ordem",
+    "englishRole": "Architect of Order",
+    "combo": "Manter o sistema a qualquer custo",
+    "englishCombo": "Preserve the System at Any Cost",
+    "mechanic": "Plácido marca uma infração, sela o apoio e protege a estrutura que pretende conservar.",
+    "englishMechanic": "Placido Marks an infraction, seals support, and protects the structure he means to preserve.",
+    "lore": "Plácido defende a ordem dos Elos a qualquer custo. Para ele, uma regra injusta ainda é preferível a um mundo que não possa ser controlado.",
+    "englishLore": "Placido defends the order of the Bonds at any cost. To him, an unjust rule is still preferable to a world he cannot control.",
+    "synergyEloIds": [
+      "coroa",
+      "justica"
+    ],
+    "passive": {
+      "name": "Regra Aplicada",
+      "englishName": "Rule Enforced",
+      "trigger": "attack",
+      "requiresOwnMark": true,
+      "effect": {
+        "sealSupportTarget": 1
+      },
+      "description": "Uma vez por rodada, atacar um alvo com a Marca de Plácido também sela o apoio dele por 1 turno.",
+      "englishDescription": "Once per round, attacking a target with Placido's Mark also seals its support for 1 turn."
+    },
+    "skills": [
+      {
+        "name": "Artigo de Ferro",
+        "englishName": "Iron Article",
+        "damage": 12,
+        "cost": 1,
+        "damageType": "physical",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 12 physical damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Interdição Formal",
+        "englishName": "Formal Interdiction",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "piercing",
+        "sealAttack": 1,
+        "englishDescription": "Deals 15 piercing damage to one enemy and seals its offensive abilities for 1 turn."
+      },
+      {
+        "name": "Cláusula de Continuidade",
+        "englishName": "Continuity Clause",
+        "target": "team",
+        "shield": 8,
+        "reduce": 3,
+        "cost": 2,
+        "englishDescription": "Grants each ally 8 Defense and reduces damage they take by 3 for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Estado de Exceção",
+      "englishName": "State of Exception",
+      "shield": 7
+    }
+  },
+  {
+    "id": "baal",
+    "name": "Baal",
+    "englishName": "Baal",
+    "family": "baal",
+    "version": 1,
+    "eloId": "chama",
+    "elo": "Chama",
+    "englishElo": "Flame",
+    "realm": "Inferno",
+    "color": "ember",
+    "symbol": "♨",
+    "affinity": "cinza",
+    "npcOnly": true,
+    "role": "Fanático de Inferno",
+    "englishRole": "Inferno Zealot",
+    "combo": "Queimar para provar devoção",
+    "englishCombo": "Burn to Prove Devotion",
+    "mechanic": "Baal espalha Queimadura, sacrifica a própria Vida e ganha força quando alguém cai.",
+    "englishMechanic": "Baal spreads Burn, sacrifices his own Health, and gains strength when someone falls.",
+    "lore": "Baal é um fanático de Inferno. A crueldade é sua devoção; ele não busca redenção nem acredita que a violência precise de uma justificativa.",
+    "englishLore": "Baal is an Inferno zealot. Cruelty is his devotion; he seeks no redemption and believes violence needs no justification.",
+    "synergyEloIds": [
+      "chama",
+      "coroa"
+    ],
+    "passive": {
+      "name": "Liturgia da Brasa",
+      "englishName": "Ember Liturgy",
+      "trigger": "kill",
+      "effect": {
+        "generateEssence": {
+          "resource": "cinza",
+          "amount": 1
+        },
+        "gainCharge": 1
+      },
+      "description": "Ao derrubar uma alma, gera 1 Cinza e ganha 1 carga; uma vez por rodada.",
+      "englishDescription": "When he defeats a soul, Baal generates 1 Ash and gains 1 charge, once per round."
+    },
+    "skills": [
+      {
+        "name": "Sermão Incendiário",
+        "englishName": "Incendiary Sermon",
+        "damage": 9,
+        "cost": 1,
+        "damageType": "affliction",
+        "dot": {
+          "tag": "queimadura",
+          "damage": 5,
+          "turns": 2
+        },
+        "englishDescription": "Deals 9 affliction damage and applies Burn for 5 damage over 2 turns."
+      },
+      {
+        "name": "Fé a Ferro e Fogo",
+        "englishName": "Faith by Fire and Iron",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "physical",
+        "selfDamage": 4,
+        "dot": {
+          "tag": "queimadura",
+          "damage": 4,
+          "turns": 2
+        },
+        "englishDescription": "Deals 15 physical damage, applies Burn for 4 damage over 2 turns, and costs Baal 4 Health."
+      },
+      {
+        "name": "Pira dos Fiéis",
+        "englishName": "Pyre of the Faithful",
+        "target": "all-enemies",
+        "damage": 10,
+        "cost": 2,
+        "damageType": "energy",
+        "dot": {
+          "tag": "queimadura",
+          "damage": 3,
+          "turns": 2
+        },
+        "englishDescription": "Deals 10 spiritual damage to all enemies and applies Burn for 3 damage over 2 turns."
+      }
+    ],
+    "defense": {
+      "name": "Manto de Cinzas",
+      "englishName": "Ash Mantle",
+      "shield": 5
+    }
+  },
+  {
+    "id": "atlas",
+    "name": "Atlas",
+    "englishName": "Atlas",
+    "family": "atlas",
+    "version": 1,
+    "eloId": "coroa",
+    "elo": "Coroa",
+    "englishElo": "Crown",
+    "realm": "Inferno",
+    "color": "crown",
+    "symbol": "♜",
+    "affinity": "ruptura",
+    "npcOnly": true,
+    "role": "Carregador do Sistema",
+    "englishRole": "Bearer of the System",
+    "combo": "Conter tudo sob um único comando",
+    "englishCombo": "Contain Everything Under One Command",
+    "mechanic": "Atlas acumula carga, protege o trio e converte pressão em dano pesado.",
+    "englishMechanic": "Atlas builds charge, protects the team, and converts pressure into heavy damage.",
+    "lore": "Atlas quer carregar ou controlar o sistema inteiro. Acredita que, se suportar peso suficiente, ninguém mais precisará escolher o que fazer.",
+    "englishLore": "Atlas wants to carry or control the entire system. He believes that if he bears enough weight, no one else will need to choose what to do.",
+    "synergyEloIds": [
+      "coroa",
+      "vazio"
+    ],
+    "passive": {
+      "name": "Peso Acumulado",
+      "englishName": "Accumulated Weight",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "effect": {
+        "gainCharge": 1,
+        "shield": 3
+      },
+      "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.",
+      "englishDescription": "Once per round, after losing Health to an ability, Atlas gains 1 charge and 3 Defense."
+    },
+    "skills": [
+      {
+        "name": "Ombro do Mundo",
+        "englishName": "World-Bearing Shoulder",
+        "target": "team",
+        "shield": 8,
+        "cost": 1,
+        "englishDescription": "Grants each ally 8 Defense."
+      },
+      {
+        "name": "Peso sem Medida",
+        "englishName": "Measureless Weight",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "physical",
+        "shieldToDamage": {
+          "ratio": 0.25,
+          "cap": 10,
+          "consume": true
+        },
+        "englishDescription": "Deals 15 physical damage, adds 25% of Atlas's Defense to the hit (up to 10), and consumes his Defense."
+      },
+      {
+        "name": "Colapso de Autoridade",
+        "englishName": "Collapse of Authority",
+        "damage": 21,
+        "cost": 2,
+        "damageType": "piercing",
+        "stun": 1,
+        "combo": {
+          "condition": "exposed",
+          "bonusDamage": 6
+        },
+        "englishDescription": "Deals 21 piercing damage and Stuns one enemy for 1 turn, plus 6 damage against an Exposed target."
+      }
+    ],
+    "defense": {
+      "name": "Sustentar o Céu",
+      "englishName": "Hold Up the Sky",
+      "shield": 8
+    }
+  },
+  {
+    "id": "merlindrope",
+    "name": "Merlindrope",
+    "englishName": "Merlindrope",
+    "family": "merlindrope",
+    "version": 1,
+    "eloId": "coroa",
+    "elo": "Coroa",
+    "englishElo": "Crown",
+    "realm": "Inferno",
+    "color": "crown",
+    "symbol": "♜",
+    "affinity": "essence",
+    "npcOnly": true,
+    "role": "Arquiteto de Prisões",
+    "englishRole": "Architect of Prisons",
+    "combo": "Escrever a regra e fechar a saída",
+    "englishCombo": "Write the Rule and Close the Exit",
+    "mechanic": "Merlindrope altera o acesso a apoio, controla a reserva e prende o alvo em condições sucessivas.",
+    "englishMechanic": "Merlindrope restricts access to support, controls the reserve, and traps targets in successive conditions.",
+    "lore": "Merlindrope arquitetou regras e prisões existenciais. Não precisa vencer uma disputa se puder redesenhar o espaço em que ela acontece.",
+    "englishLore": "Merlindrope designed rules and existential prisons. He does not need to win a contest if he can redesign the space where it takes place.",
+    "synergyEloIds": [
+      "coroa",
+      "silencio"
+    ],
+    "passive": {
+      "name": "Cláusula de Prisão",
+      "englishName": "Prison Clause",
+      "trigger": "hit",
+      "minimumShield": 5,
+      "effect": {
+        "sealSupportTarget": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca própria sela o apoio dele por 1 turno.",
+      "englishDescription": "Once per round, hitting a target with Merlindrope's Mark seals its support for 1 turn.",
+      "requiresOwnMark": true
+    },
+    "skills": [
+      {
+        "name": "Grade de Éter",
+        "englishName": "Aether Grate",
+        "damage": 11,
+        "cost": 1,
+        "damageType": "energy",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 11 spiritual damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Porta que Não Abre",
+        "englishName": "Door That Will Not Open",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "piercing",
+        "sealSupport": 1,
+        "sealAttack": 1,
+        "cooldown": 1,
+        "englishDescription": "Deals 14 piercing damage and seals offensive abilities and support for 1 turn."
+      },
+      {
+        "name": "Celas Concêntricas",
+        "englishName": "Concentric Cells",
+        "target": "all-enemies",
+        "damage": 9,
+        "cost": 2,
+        "damageType": "energy",
+        "weaken": 1,
+        "englishDescription": "Deals 9 spiritual damage to all enemies and Weakens them for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Parede de Regras",
+      "englishName": "Wall of Rules",
+      "shield": 7
+    }
+  },
+  {
+    "id": "bulkir",
+    "name": "Bulkir",
+    "englishName": "Bulkir",
+    "family": "bulkir",
+    "version": 1,
+    "eloId": "fome",
+    "elo": "Fome",
+    "englishElo": "Hunger",
+    "realm": "Inferno",
+    "color": "hunger",
+    "symbol": "◉",
+    "affinity": "ruptura",
+    "npcOnly": true,
+    "role": "Devorador de Identidade",
+    "englishRole": "Identity Devourer",
+    "combo": "Quebrar até o nome desaparecer",
+    "englishCombo": "Break Until the Name Disappears",
+    "mechanic": "Bulkir quebra Defesa, ganha carga e concentra dano no alvo que já está ferido.",
+    "englishMechanic": "Bulkir breaks Defense, gains charge, and concentrates damage on an already wounded target.",
+    "lore": "Bulkir consome identidade pela força bruta. O golpe não termina quando o corpo cai: ele continua até que ninguém lembre quem estava ali.",
+    "englishLore": "Bulkir consumes identity through brute force. The blow does not end when the body falls; it continues until no one remembers who was there.",
+    "synergyEloIds": [
+      "fome",
+      "carne"
+    ],
+    "passive": {
+      "name": "Fome de Nomes",
+      "englishName": "Hunger for Names",
+      "trigger": "kill",
+      "effect": {
+        "heal": 6,
+        "gainCharge": 1
+      },
+      "description": "Ao derrubar uma alma, Bulkir recupera 6 de Vida e ganha 1 carga; uma vez por rodada.",
+      "englishDescription": "When he defeats a soul, Bulkir restores 6 Health and gains 1 charge, once per round."
+    },
+    "skills": [
+      {
+        "name": "Punho que Apaga",
+        "englishName": "Erasing Fist",
+        "damage": 15,
+        "cost": 1,
+        "damageType": "physical",
+        "stripShield": 10,
+        "englishDescription": "Removes 10 Defense, then deals 15 physical damage to one enemy."
+      },
+      {
+        "name": "Mordida de Identidade",
+        "englishName": "Identity Bite",
+        "damage": 17,
+        "cost": 2,
+        "damageType": "piercing",
+        "lifesteal": 0.15,
+        "englishDescription": "Deals 17 piercing damage to one enemy and restores 15% of damage dealt as Health."
+      },
+      {
+        "name": "Esmagar o Último Vestígio",
+        "englishName": "Crush the Last Trace",
+        "damage": 23,
+        "cost": 2,
+        "damageType": "physical",
+        "missingHpDamage": {
+          "step": 25,
+          "amount": 3,
+          "cap": 9
+        },
+        "englishDescription": "Deals 23 physical damage to one enemy, plus 3 damage for each 25 Health Bulkir has lost, up to 9."
+      }
+    ],
+    "defense": {
+      "name": "Carapaça Faminta",
+      "englishName": "Hungry Carapace",
+      "shield": 7
+    }
+  },
+  {
+    "id": "voronir",
+    "name": "Voronir",
+    "englishName": "Voronir",
+    "family": "voronir",
+    "version": 1,
+    "eloId": "vazio",
+    "elo": "Vazio",
+    "englishElo": "Void",
+    "realm": "Inferno",
+    "color": "void",
+    "symbol": "◍",
+    "affinity": "essence",
+    "npcOnly": true,
+    "role": "Caçador de Receptáculos",
+    "englishRole": "Vessel Hunter",
+    "combo": "Rastrear o que não pertence",
+    "englishCombo": "Track What Does Not Belong",
+    "mechanic": "Voronir marca anomalias, rouba Essência e sela a tentativa de escapar.",
+    "englishMechanic": "Voronir Marks anomalies, steals Essence, and seals attempts to escape.",
+    "lore": "Voronir caça almas receptivas e representa uma ameaça direta a Nilo. Não quer entender a anomalia; quer capturá-la antes que ela contamine o sistema.",
+    "englishLore": "Voronir hunts receptive souls and poses a direct threat to Nilo. He does not want to understand the anomaly; he wants to capture it before it contaminates the system.",
+    "synergyEloIds": [
+      "vazio",
+      "correntes-quebradas"
+    ],
+    "passive": {
+      "name": "Rastreamento de Anomalia",
+      "englishName": "Anomaly Tracking",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "effect": {
+        "stealEssence": {
+          "amount": 1
+        },
+        "gainCharge": 1
+      },
+      "description": "Uma vez por rodada, ferir um alvo com a Marca de Voronir rouba 1 Essência e concede 1 carga.",
+      "englishDescription": "Once per round, hitting a target with Voronir's Mark steals 1 Essence and grants 1 charge."
+    },
+    "skills": [
+      {
+        "name": "Marca de Captura",
+        "englishName": "Capture Mark",
+        "damage": 10,
+        "cost": 1,
+        "damageType": "piercing",
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 10 piercing damage to one enemy and Marks it for 2 turns."
+      },
+      {
+        "name": "Rede de Contenção",
+        "englishName": "Containment Net",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "energy",
+        "stun": 1,
+        "englishDescription": "Deals 15 spiritual damage to one enemy and Stuns it for 1 turn."
+      },
+      {
+        "name": "Captura do Receptáculo",
+        "englishName": "Vessel Capture",
+        "damage": 18,
+        "cost": 2,
+        "damageType": "piercing",
+        "steal": 1,
+        "sealSupport": 1,
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 7
+        },
+        "englishDescription": "Deals 18 piercing damage, steals 1 Essence, seals support for 1 turn, and deals 7 bonus damage to a Marked target."
+      }
+    ],
+    "defense": {
+      "name": "Armadilha de Vazio",
+      "englishName": "Void Snare",
+      "shield": 6
+    }
+  },
+  {
+    "id": "icarus",
+    "name": "Icarus",
+    "englishName": "Icarus",
+    "family": "icarus",
+    "version": 1,
+    "eloId": "correntes-quebradas",
+    "elo": "Limbo",
+    "englishElo": "Limbo",
+    "realm": "Limbo",
+    "color": "limbo",
+    "symbol": "⟲",
+    "affinity": "ruptura",
+    "npcOnly": true,
+    "role": "Portador da Fenda",
+    "englishRole": "Rift Bearer",
+    "combo": "Tocar o proibido e arrastar outros",
+    "englishCombo": "Touch the Forbidden and Drag Others Along",
+    "mechanic": "Icarus usa a própria ruptura como arma e espalha o risco para o trio inimigo.",
+    "englishMechanic": "Icarus uses his own rupture as a weapon and spreads the risk to the opposing team.",
+    "lore": "Icarus quis tocar algo que não devia. A fenda que abriu nunca se fechou por completo e agora arrasta outras almas para perto do mesmo limite.",
+    "englishLore": "Icarus tried to touch something he should not have. The rift he opened never fully closed and now drags other souls toward the same edge.",
+    "synergyEloIds": [
+      "correntes-quebradas",
+      "chama"
+    ],
+    "passive": {
+      "name": "Queda Compartilhada",
+      "englishName": "Shared Fall",
+      "trigger": "damaged",
+      "requiresLifeLoss": true,
+      "effect": {
+        "generateEssence": {
+          "resource": "ruptura",
+          "amount": 1
+        },
+        "damageAttacker": 4
+      },
+      "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Icarus gera 1 Ruptura e causa 4 de dano de aflição ao agressor.",
+      "englishDescription": "Once per round, after losing Health to an ability, Icarus generates 1 Rupture and deals 4 affliction damage to the attacker."
+    },
+    "skills": [
+      {
+        "name": "Asa Fraturada",
+        "englishName": "Fractured Wing",
+        "damage": 13,
+        "cost": 1,
+        "damageType": "piercing",
+        "expose": 1,
+        "englishDescription": "Deals 13 piercing damage to one enemy and Exposes it."
+      },
+      {
+        "name": "Sol Proibido",
+        "englishName": "Forbidden Sun",
+        "damage": 16,
+        "cost": 2,
+        "damageType": "energy",
+        "selfDamage": 4,
+        "stun": 1,
+        "englishDescription": "Deals 16 spiritual damage to one enemy, Stuns it for 1 turn, and costs Icarus 4 Health."
+      },
+      {
+        "name": "Fenda que Arrasta",
+        "englishName": "Dragging Rift",
+        "target": "all-enemies",
+        "damage": 12,
+        "cost": 2,
+        "damageType": "affliction",
+        "dot": {
+          "tag": "queimadura",
+          "damage": 4,
+          "turns": 2
+        },
+        "englishDescription": "Deals 12 affliction damage to all enemies and applies Burn for 4 damage over 2 turns."
+      }
+    ],
+    "defense": {
+      "name": "Altitude Impossível",
+      "englishName": "Impossible Altitude",
+      "shield": 6
+    }
+  }
+];
+
 const slotIds = ["impulso", "tecnica", "voto", "despertar"];
 const phraseCopy = {};
-export const protagonistCharacterNames = Object.fromEntries(profiles.map((profile) => [profile.name, profile.englishName]));
+export const protagonistCharacterNames = Object.fromEntries([...protagonistProfiles, ...supportingProfiles, ...antagonistProfiles].map((profile) => [profile.name, profile.englishName]));
 
 function costsFor(ability) {
   if (ability.costs) return ability.costs;
@@ -1182,7 +3153,12 @@ function compileProfile(profile, index) {
       description: describeAbility(ability)
     };
     registerPhrase(source.name, englishName);
-    registerPhrase(compiled.description, englishDescription);
+    const translatedDescription = englishDescription || [
+      ability.heal ? "Restores " + ability.heal + " Health." : "",
+      ability.shield ? "Grants " + ability.shield + " destructible Defense." : "",
+      ability.invulnerable ? "The user is Invulnerable to new enemy abilities for 1 turn; existing afflictions remain active." : ""
+    ].filter(Boolean).join(" ");
+    registerPhrase(compiled.description, translatedDescription);
     return compiled;
   });
   registerPhrase(profile.name, profile.englishName);
@@ -1216,20 +3192,27 @@ function compileProfile(profile, index) {
     maxHp: 100,
     starter: false,
     unlockedByDefault: false,
-    protagonist: true,
+    protagonist: profile.protagonist !== false,
+    storyCharacter: true,
     protagonistFamily: profile.family,
     protagonistVersion: profile.version,
+    storyFamily: profile.family,
+    storyVersion: profile.version,
     synergyEloIds: [...new Set([profile.eloId, ...profile.synergyEloIds])],
     flavor: profile.lore,
     lore: profile.lore,
-    risk: profile.realm === "Limbo"
+    risk: profile.realm === "Limbo",
+    npcOnly: Boolean(profile.npcOnly)
   };
 }
 
-const indexes = { "correntes-quebradas": 11, esperanca: 5, mentira: 6, cura: 5 };
-export const protagonistCharacters = profiles.map((profile) => {
+const indexes = { "correntes-quebradas": 11, esperanca: 5, mentira: 6, cura: 5, vazio: 6, coroa: 6, carne: 6, verdade: 5, fome: 6, podridao: 6, silencio: 6, protecao: 5, sangria: 6, chama: 6 };
+const compileList = list => list.map(profile => {
   const index = indexes[profile.eloId] || 0;
   indexes[profile.eloId] = index + 1;
   return compileProfile(profile, index);
 });
+export const protagonistCharacters = compileList(protagonistProfiles);
+export const supportingCharacters = compileList(supportingProfiles.map(profile => ({ ...profile, protagonist: false })));
+export const antagonistCharacters = compileList(antagonistProfiles.map(profile => ({ ...profile, protagonist: false, npcOnly: true })));
 export const protagonistEnglishPhrases = Object.freeze({ ...phraseCopy });

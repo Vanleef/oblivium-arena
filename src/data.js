@@ -1,6 +1,6 @@
 import {withFlexibleCosts} from './flexible-costs.js';
 import { buildCharacterKit } from "./kits.js";
-import { protagonistCharacters } from "./protagonists.js";
+import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
 import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
 import { assignCharacterArchetypes } from "./archetypes.js";
@@ -283,7 +283,9 @@ const reactiveKits={
 function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>kit[a.id]&&!a.reactive?{...a,reactive:kit[a.id],description:`${a.description} Efeito reativo: responde à condição indicada. Ativa uma vez.`}:a)};}
 export const characters = [
   ...elos.flatMap((elo) => elo.forms.map((name, index) => assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))))),
-  ...protagonistCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character)))
+  ...protagonistCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character))),
+  ...supportingCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character))),
+  ...antagonistCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character)))
 ];
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);

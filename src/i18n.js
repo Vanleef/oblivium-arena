@@ -19,7 +19,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "Reúna três almas. Atravesse os Elos. Restaure o véu.": "Gather three souls. Cross the Bonds. Restore the veil.",
   "O outro lado espera.": "The other side awaits.", "As barreiras cedem. O trio escolhe o que atravessa.": "The barriers give way. Your team chooses what crosses.",
   "Codex de Elos": "Bond Codex", "Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.": "Discover the forces crossing the veil. Win trails to recruit new souls.",
-  "ALMAS CONHECIDAS": "KNOWN SOULS", "115 ALMAS · 17 ELOS · 3 REINOS": "115 SOULS · 17 BONDS · 3 REALMS", "115 PERSONAGENS": "115 CHARACTERS",
+  "ALMAS CONHECIDAS": "KNOWN SOULS", "140 ALMAS · 17 ELOS · 3 REINOS": "140 SOULS · 17 BONDS · 3 REALMS", "140 PERSONAGENS": "140 CHARACTERS",
   "Buscar nome, arquétipo ou Essência": "Search name, archetype, or Essence", "Buscar personagem, Elo ou Essência": "Search character, Bond, or Essence",
   "Todos os Elos": "All Bonds", "Todos os arquétipos": "All archetypes", "Todas as funções": "All roles", "ARQUÉTIPO PRINCIPAL": "PRIMARY ARCHETYPE",
   "AFINIDADE PRINCIPAL DE ESSÊNCIA": "PRIMARY ESSENCE AFFINITY", "COMO JOGAR": "HOW TO PLAY", "COMO ESTE PERSONAGEM QUER SER JOGADO": "HOW THIS CHARACTER PLAYS",
