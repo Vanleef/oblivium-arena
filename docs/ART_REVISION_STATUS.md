@@ -384,3 +384,10 @@ O Usurpador recebeu seis cenas-base em WebP 512 × 512, sob as três âncoras pi
 ## Estado atual da auditoria — 25/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora da contagem. Quarenta e três dos 100 conjuntos foram refeitos e comparados diretamente com elas; 54 ainda aguardam auditoria visual. A revisão global permanece aberta.
+
+
+## Lote pictórico de Carne: revisão animal e três retrabalhos — 26/10/2026
+
+A Metamorfa recebeu 18 sprites ativos para a forma humanoide e as duas quimeras animalescas. A Marionetista, O Simulacro e A Suturadora receberam seis cenas cada, totalizando mais 18 sprites. Ataques individuais mostram um alvo, ações de apoio mostram um aliado e defesas pessoais mostram somente o próprio personagem. As artes seguem as referências pictóricas aprovadas; os kits e as regras permaneceram intactos. Manifestos: `ART_METAMORFA_ANIMAL_FORMS_20261026.json` e `ART_CARNE_PAINTERLY_REWORK_20261026_02.json`.
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Quarenta e oito dos 100 conjuntos de auditoria estão concluídos; 49 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.

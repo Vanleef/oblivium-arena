@@ -11,6 +11,7 @@
     "sourceSheets": 4,
     "gameplayChanged": false
   },
+  "revisionStatus": "Historical art pass. A Metamorfa's 18 main scenes and eight alternate variants are archived and superseded by ART_METAMORFA_ANIMAL_FORMS_20261026.json. O Profanador remains active in this manifest.",
   "sourceGrid": {
     "layout": "3x2",
     "dimensions": "1536x1024",
@@ -406,5 +407,5 @@
       "sha256": "d07450a39087a215634fcf2522849b54f4ebaae728bae4948ca1fd3bc12a6fb4"
     }
   ],
-  "visualReview": "Revisão visual posterior: identidade e legibilidade de ação preservadas; o lote ainda tem quadros com acabamento polido e expressões repetidas em relação às âncoras aprovadas. A variação alternativa de Impacto da Carapaça foi refeita em tomada lateral, com a reação de um único alvo e expressão de esforço. Recortes finais 512x512 WebP RGB; kits, alvos e regras não mudaram."
+  "visualReview": "Revisão visual posterior: identidade e legibilidade de ação preservadas; o lote ainda tem quadros com acabamento polido e expressões repetidas em relação às âncoras aprovadas. A variação alternativa de Impacto da Carapaça foi refeita em tomada lateral, com a reação de um único alvo e expressão de esforço. Recortes finais 512x512 WebP RGB. As artes de A Metamorfa foram substituídas pela revisão de formas animalescas de 26/10; os arquivos antigos permanecem apenas como histórico."
 }

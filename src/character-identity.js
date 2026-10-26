@@ -9,7 +9,7 @@ const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['o-incendiario','a-brasa-eterna','o-odio-encarnado']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
-const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],['a-pele-alheia','painterly-rework-20261026'],['o-desejo-quebrado','painterly-rework-20261026']]);
+const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],['a-pele-alheia','painterly-rework-20261026-animal'],['o-desejo-quebrado','painterly-rework-20261026'],['a-marionetista-de-nervos','painterly-rework-20261026'],['o-espelho-carnal','painterly-rework-20261026'],['a-costureira','painterly-rework-20261026']]);
 const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-dos-fungos']);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
@@ -851,18 +851,18 @@ export const characterRevisions = {
   },
   "a-pele-alheia": {
     "name": "A Metamorfa",
-    "role": "Usurpadora de Formas",
-    "lore": "Faz da própria pele um instrumento de invasão. Incorpora formas que tomou de outras almas, alterna proteção e lâmina e descarta cada molde assim que ele deixa de servir à sua vontade de dominar.",
+    "role": "Quimera de Carne",
+    "lore": "Seu corpo infernal é um bestiário vivo: ela se converte em feras demoníacas de lobo, serpente, ave de rapina e javali couraçado. Troca garras, presas, penas e placas no meio do combate para caçar, romper a guarda e subjugar quem resiste.",
     "terms": {
-      "Pele que Aprende": "Adaptação Predatória",
-      "Lâmina de Epiderme": "Gume Mutável",
-      "Lâmina da Pele Nova": "Gume Transfigurado",
-      "Camada Substituta": "Pele Usurpada",
+      "Pele que Aprende": "Instinto Bestial",
+      "Lâmina de Epiderme": "Garras Cambiantes",
+      "Lâmina da Pele Nova": "Garras Predatórias",
+      "Camada Substituta": "Quimera Predatória",
       "Descartar a Forma": "Descartar o Molde",
       "Forma de Retaliação": "Instinto de Revide",
       "Troca de Pele": "Corpo Substituto"
     },
-    "roleHint": "Assuma a pele usurpada para trocar a lâmina e a técnica; descarte o molde para recuperar Vida e retomar a forma anterior.",
+    "roleHint": "Alterne entre o corpo humanoide, a quimera predatória de lobo-serpente-ave e a quimera couraçada de javali-pangolim-besouro. Ataque na forma predatória, sustente a defesa na couraçada e descarte o molde para recuperar Vida.",
     "aliases": [
       "A Pele Alheia"
     ]

@@ -75,10 +75,26 @@ Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando
 - O Espectador, A Carcereira e O Silenciador: dezoito cenas pictóricas para Silêncio e duas artes de formas alternativas. O Espectador preserva a lente-monóculo; a Carcereira, os cachos grisalhos e as chaves; o Silenciador, a máscara acústica e a energia ciano. Ataques individuais e formas mostram uma vítima; Guarida Seletiva protege uma aliada e as defesas são pessoais. Manifesto `ART_SILENCIO_PAINTERLY_REWORK_20261025.json`.
 
 
-## Lote pictórico de Carne — 26/10/2026
+## Lote pictórico inicial de Carne — 26/10/2026
 
-- A Metamorfa: 18 cenas principais para a forma original, Pele Usurpada e Carapaça Usurpada; oito artes alternativas adicionais para as duas formas transformadas.
+- A Metamorfa teve 18 cenas iniciais para a forma original, Pele Usurpada e Carapaça Usurpada, mais oito artes alternativas. Esse primeiro conceito foi substituído pela revisão de formas animalescas registrada abaixo.
 - O Profanador: seis cenas para retrato, passiva e quatro técnicas.
 - As novas artes usam pintura matte com pinceladas aparentes, contornos desenhados, blocos gráficos, semitom moderado e luz cinematográfica contida.
 - Recortes finais RGB WebP em 512 × 512. Os arquivos ativos seguem art/characters/{id}/painterly-rework-20261026/; folhas e descrição das cenas estão em art/source/ e docs/ART_CARNE_PAINTERLY_REWORK_20261026.json.
-- src/character-identity.js e src/body-forms.js selecionam os novos caminhos para A Metamorfa e O Profanador. Kits e mecânicas não mudaram.
+- O Profanador mantém os caminhos deste lote. A Metamorfa usa a revisão abaixo.
+
+## Revisão de A Metamorfa — formas animais — 26/10/2026
+
+- A direção anterior de formas humanoides com placas foi substituída. A Metamorfa é uma quimera infernal capaz de assumir corpos animalescos demoníacos de várias espécies.
+- A forma predatória mistura lobo, serpente e ave de rapina; a forma couraçada mistura javali, pangolim e besouro. A forma humanoide preserva pele lavanda, cachos curtos platinados e olhos âmbar como sinais de identidade.
+- Dezoito sprites ativos foram refeitos e selecionados em `painterly-rework-20261026-animal`. O retrato predatório e a passiva couraçada receberam correções após inspeção visual. Os oito estudos opcionais de 26/10 permanecem arquivados e não ativos.
+- `character-identity.js` e `body-forms.js` atualizam lore, nomes de formas e descrições. Dano, defesa, cura, alvos, recargas, durações e regras de combate foram preservados.
+- Manifesto: `ART_METAMORFA_ANIMAL_FORMS_20261026.json`.
+
+
+## Lote pictórico de Carne: A Marionetista, O Simulacro e A Suturadora — 26/10/2026
+
+- Os três personagens receberam seis cenas cada, em 18 sprites WebP 512 × 512. A Marionetista mantém pele escura, tranças, casaco amarelo e fios teal; O Simulacro mantém o corpo de argila pálida, rosto sem feições e olhos violetas estreitos; A Suturadora mantém cabelo prateado preso, óculos, xale azul-marinho e blusa coral.
+- Ataques mostram um único inimigo; apoio mostra um único aliado; as defesas pessoais mostram apenas o usuário. Os fios e as cópias do Simulacro preservam a crueldade infernal de Carne.
+- As cenas usam pintura matte com pinceladas visíveis e contornos quebrados, sob as referências aprovadas O Fim, O Revelador e O Vidente. Custos, alvos, valores, efeitos, durações, recargas e regras de combate foram preservados.
+- Manifesto: `ART_CARNE_PAINTERLY_REWORK_20261026_02.json`.
