@@ -427,3 +427,12 @@ O Artífice (O que Cria), A Semente e O Cultivador receberam 18 sprites WebP 512
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Cinquenta e oito dos 100 conjuntos de auditoria estão concluídos; 39 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Criação II: A Arquiteta e O Ressonante — 26/10/2026
+
+A Arquiteta (A Arquiteta Verde) e O Ressonante (O Primeiro Canto) receberam 12 sprites WebP 512 × 512, além das duas pranchas-fonte. A Abóbada Verde e o Refrão da Vida mostram três aliados ao todo; Canto que Abre o Mundo atinge exatamente três inimigos. Ataques focados mostram um único alvo, inclusive Convergência dos Pilares após correção visual; defesas pessoais mostram somente o usuário. Identidades, kits, custos, efeitos, duração, recarga e regras foram preservados. Manifesto: `ART_CRIACAO_PAINTERLY_REWORK_20261026_02.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta dos 100 conjuntos de auditoria estão concluídos; 37 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.

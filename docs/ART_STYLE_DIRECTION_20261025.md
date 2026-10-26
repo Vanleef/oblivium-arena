@@ -118,3 +118,8 @@ Os três personagens receberam seis sprites cada, totalizando 18 imagens WebP 51
 ## Lote pictórico de Criação: O Artífice, A Semente e O Cultivador — 26/10/2026
 
 Os três personagens receberam seis sprites cada, totalizando 18 imagens WebP 512 × 512. O Artífice dá forma a aves pequenas de argila e ramificações cerâmicas; A Semente preserva a identidade de uma mulher adulta com baixa estatura; O Cultivador trabalha raízes ordenadas em terraços. Apoios mostram um aliado ou o trio completo conforme a habilidade; ataques mostram um inimigo e defesas pessoais mostram somente o usuário. As regras dos kits foram mantidas. Manifesto: `ART_CRIACAO_PAINTERLY_REWORK_20261026.json`.
+
+
+## Lote pictórico de Criação II: A Arquiteta e O Ressonante — 26/10/2026
+
+A Arquiteta (antes A Arquiteta Verde) e O Ressonante (antes O Primeiro Canto) receberam seis cenas cada, totalizando 12 sprites WebP 512 × 512. A Arquiteta organiza bambu vivo em geometrias arquitetônicas; O Ressonante usa flauta de junco, canto e pássaros de papel luminosos. Abóbada Verde e Refrão da Vida mostram três aliados ao todo; Canto que Abre o Mundo mostra exatamente três inimigos. Ataques individuais mantêm um alvo e as defesas pessoais mostram somente o usuário. Após inspeção, Convergência dos Pilares recebeu correção do recorte para remover silhuetas ambíguas e preservar o único inimigo marcado. Os custos e as regras dos kits permaneceram intactos. Manifesto: `ART_CRIACAO_PAINTERLY_REWORK_20261026_02.json`.
