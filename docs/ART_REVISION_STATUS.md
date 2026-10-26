@@ -506,3 +506,10 @@ A migração soma agora quinze dos 100 conjuntos base (90 de 600 sprites); resta
 A Serpe (A Boca de Vidro) e O Falso Profeta receberam doze sprites base anime 2.5D. A Serpe mantém sua anatomia inteiramente serpentina de vidro espiritual nos seis quadros; Discurso em Estilhaços mostra exatamente três inimigos, ataques individuais mostram um, e Reflexo da Boca mostra somente a usuária. O Falso Profeta preserva rosto, vestes, halo segmentado e fitas azuis; Confissão do Falso Santo recebeu também uma arte alternativa própria para autocura e purificação. Rotas, identidades, alvos e efeitos dos kits foram preservados. Nenhuma regra de combate mudou. Manifesto: `ART_ANIME_FIRST_REWORK_20261026_07.json`.
 
 A migração anime-first soma agora 17 dos 100 conjuntos base, com 102 dos 600 sprites base. Restam 83 conjuntos base. O Falso Profeta foi conferido contra a nova linha; O Corretor de Memórias e A Pira Errante ainda precisam dessa conferência. Artes de formas alternativas, as formas corporais da Máscara Dupla e demais imagens do jogo continuam pendentes.
+
+
+## Conferência anime-first — O Corretor de Memórias e A Pira Errante — 26/10/2026
+
+O Corretor de Memórias recebeu uma nova prancha 3×2 e seis sprites WebP de 512 × 512. A revisão aproxima o rosto e a pele da referência aprovada com traços de anime mais gráficos, contornos definidos e sombras em planos, preservando idade, identidade, cenas, alvos, efeitos, roupa, caixa de memórias e prótese dourada na mão direita. A Pira Errante foi conferida contra a mesma linha anime-forward e aprovada sem nova substituição. As duas rotas anime-first já estavam ativas; nenhuma mecânica, alvo, efeito, custo, duração ou recarga mudou.
+
+A migração anime-first soma agora 19 dos 100 conjuntos base (114 de 600 sprites). Restam 81 conjuntos base; formas alternativas e demais artes do jogo continuam pendentes. Prancha e revisão: `ART_ANIME_FIRST_REWORK_20261026_08.json`.
