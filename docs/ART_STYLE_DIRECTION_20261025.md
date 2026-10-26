@@ -98,3 +98,8 @@ Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando
 - Ataques mostram um único inimigo; apoio mostra um único aliado; as defesas pessoais mostram apenas o usuário. Os fios e as cópias do Simulacro preservam a crueldade infernal de Carne.
 - As cenas usam pintura matte com pinceladas visíveis e contornos quebrados, sob as referências aprovadas O Fim, O Revelador e O Vidente. Custos, alvos, valores, efeitos, durações, recargas e regras de combate foram preservados.
 - Manifesto: `ART_CARNE_PAINTERLY_REWORK_20261026_02.json`.
+
+
+## Revisão pictórica de Esperança: O Alvorecer — 26/10/2026
+
+O Alvorecer, antes chamado O Portador da Aurora, recebeu seis sprites ativos no acabamento matte pictórico. A sequência cobre retrato, primeiro horizonte, lança de luz, apoio a uma aliada, golpe que consome cargas e defesa pessoal. As composições variam em distância, ângulo e foco; cada ataque mostra um inimigo, o apoio mostra uma aliada e a defesa mostra somente o personagem. Custos, alvos, efeitos e regras do kit permaneceram intactos. Manifesto: `ART_ESPERANCA_PAINTERLY_REWORK_20261026.json`.

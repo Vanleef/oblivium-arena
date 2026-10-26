@@ -391,3 +391,12 @@ O Fim, O Revelador e O Vidente permanecem como âncoras aprovadas e ficam fora d
 A Metamorfa recebeu 18 sprites ativos para a forma humanoide e as duas quimeras animalescas. A Marionetista, O Simulacro e A Suturadora receberam seis cenas cada, totalizando mais 18 sprites. Ataques individuais mostram um alvo, ações de apoio mostram um aliado e defesas pessoais mostram somente o próprio personagem. As artes seguem as referências pictóricas aprovadas; os kits e as regras permaneceram intactos. Manifestos: `ART_METAMORFA_ANIMAL_FORMS_20261026.json` e `ART_CARNE_PAINTERLY_REWORK_20261026_02.json`.
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Quarenta e oito dos 100 conjuntos de auditoria estão concluídos; 49 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Esperança: O Alvorecer — 26/10/2026
+
+O Alvorecer (O Portador da Aurora) recebeu seis sprites WebP 512 × 512, sob as três referências pictóricas aprovadas. A sequência mostra a geração de carga no primeiro golpe, a luz concentrada contra um inimigo, a recuperação de uma aliada e a defesa pessoal. Os ataques mostram exatamente um inimigo; o apoio mostra uma aliada; a defesa não exibe o agressor. Custos, alvos, efeitos, durações, recargas e regras foram preservados. Manifesto: `ART_ESPERANCA_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Quarenta e nove dos 100 conjuntos de auditoria estão concluídos; 48 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
