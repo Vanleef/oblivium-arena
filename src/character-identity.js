@@ -11,6 +11,12 @@ const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
 const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],['a-pele-alheia','painterly-rework-20261026-animal'],['o-desejo-quebrado','painterly-rework-20261026'],['a-marionetista-de-nervos','painterly-rework-20261026'],['o-espelho-carnal','painterly-rework-20261026'],['a-costureira','painterly-rework-20261026']]);
 const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-dos-fungos']);
+const painterlyBatchArt = new Set([
+  'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
+  'o-carrasco-sem-rosto','a-mae-rubra','o-soberano-quebrado','a-juiza-de-ferro',
+  'o-trono-vazio','o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
+  'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
+]);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
 const spiritSlots = {
   'o-espelho-carnal':['tecnica'],
@@ -925,6 +931,16 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (painterlyBatchArt.has(id)) {
+    const base = `/art/characters/${id}`;
+    const forms = {...(art.forms || {})};
+    if (id === 'o-principe-das-correntes') {
+      forms.impulso = {...forms.impulso,drag:`${base}/skill-tecnica.webp`};
+    }
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
+  }
   const painterlyCarneFolder = painterlyCarneArt.get(id);
   if (painterlyCarneFolder) {
     const base = `/art/characters/${id}/${painterlyCarneFolder}`;
