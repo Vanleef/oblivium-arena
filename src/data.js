@@ -3,6 +3,7 @@ import { buildCharacterKit } from "./kits.js";
 import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
 import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
+import { revisePassive } from "./passive-revisions.js";
 import { assignCharacterArchetypes } from "./archetypes.js";
 const inferno = [
   {
@@ -237,7 +238,7 @@ function characterFrom(elo, name, index) {
   const id = slug(name), revision = characterRevisions[id];
   const affinity = "essence"; // Temporary compatibility fallback; archetypes assign the actual type below.
   const art = revisedArtFor(id, artForCharacter(name));
-  const kit = reviseKitIdentity(buildCharacterKit(elo.id, index, art), revision);
+  const kit = revisePassive(reviseKitIdentity(buildCharacterKit(elo.id, index, art), revision), id);
   const starter = ["O Escudo Vivo", "A Brasa Eterna", "O Passo Interrompido"].includes(name);
   return {
     id, name:revision?.name || name, ...(revision?.name ? {previousName:name} : {}), aliases:revision?.aliases || [], realm: elo.realm, elo: elo.name, eloId: elo.id,

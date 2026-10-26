@@ -36,6 +36,8 @@ const bodyArchetypeProfiles = {
 function rank(character) {
   const abilities = list(character), roots = character.abilities.slice(0, 3);
   const passiveEffect = character.passive?.effect || {};
+  const passiveType = character.passive?.archetypeType || character.passive?.type;
+  const passiveCondition = character.passive?.archetypeCondition || character.passive?.condition;
   const has = (key) => count(abilities, (a) => Boolean(a[key]));
   const allEnemies = count(abilities, (a) => a.target === "all-enemies");
   const teamSupport = count(abilities, (a) => a.target === "team");
@@ -43,15 +45,15 @@ function rank(character) {
   const marks = has("mark"), combos = has("combo");
   const formShifts = roots.filter((a) => a.formRule || a.shift?.some((x) => x.form !== "base")).length;
   const scores = {
-    status: has("dot") * 4 + has("healingBlock") * 2 + Number(character.passive?.condition && ["bleed", "burn", "poison", "decay", "afflicted"].includes(character.passive.condition)) * 2,
-    sustain: has("lifesteal") * 2 + (character.passive?.type === "leech" ? 3 : 0) + count(abilities, (a) => a.target === "self" && (a.heal || a.regen)),
+    status: has("dot") * 4 + has("healingBlock") * 2 + Number(passiveCondition && ["bleed", "burn", "poison", "decay", "afflicted"].includes(passiveCondition)) * 2,
+    sustain: has("lifesteal") * 2 + (passiveType === "leech" ? 3 : 0) + count(abilities, (a) => a.target === "self" && (a.heal || a.regen)),
     transformation: (character.bodyForms?.length || 0) * 5 + formShifts * 2 + Number(/forma|postura|transform|metamorf/i.test(character.mechanic || "")) * 2,
     setup: marks * 2 + combos * 2 + has("requiredMark") * 3,
-    berserker: Number(character.passive?.type === "comeback") * 5 + has("missingHpDamage") * 3 + has("selfDamage") * 2,
+    berserker: Number(passiveType === "comeback") * 5 + has("missingHpDamage") * 3 + has("selfDamage") * 2,
     bulwark: has("shield") * 2.5 + has("reduce") * 3 + has("shieldToDamage") * 3 + has("shieldFromStripped") * 4,
     drain: has("drain") * 6 + has("sealAttack") * 2 + has("sealSupport") * 2 + Number(Boolean(passiveEffect.drainEssence)) * 5,
-    counter: has("counter") * 3 + has("reactive") * 2 + Number(character.passive?.type === "retaliate") * 3,
-    healer: has("heal") + has("cleanse") * 1.5 + has("regen") + allyCare + Number(character.passive?.type === "support"),
+    counter: has("counter") * 3 + has("reactive") * 2 + Number(passiveType === "retaliate") * 3,
+    healer: has("heal") + has("cleanse") * 1.5 + has("regen") + allyCare + Number(passiveType === "support"),
     control: has("stun") * 4 + has("sealAttack") * 3 + has("sealSupport") * 3 + has("weaken") * 2 + has("expose"),
     burst: count(abilities, (a) => a.damage >= 25) * 3.5 + has("perChargeDamage") * 2 + has("missingHpDamage") * 2 + has("executeBonus") * 2,
     stealth: has("ignoreCounters") * 3 + count(abilities, (a) => a.evasion || a.hidden) * 4 + Number(/evas|sombra|ausência|infiltr/i.test(character.role || "")) * 2,
