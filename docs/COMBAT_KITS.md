@@ -12,7 +12,7 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com `node scripts/genera
 
 ## Afinidades e Essência
 
-- A quarta técnica das 100 almas concede Invulnerável por uma resposta adversária. Custa 1 Coringa; fica indisponível nos quatro turnos próprios seguintes.
+- A quarta técnica de cada personagem concede Invulnerável por uma resposta adversária. Custa 1 Coringa; fica indisponível nos quatro turnos próprios seguintes.
 - A reserva tem quatro Essências: Éter, Cinza, Graça e Ruptura. Coringa é um custo flexível; escolha uma dessas quatro Essências para cada unidade pedida.
 - A afinidade de cada alma é definida pelas técnicas, passivas e formas do kit. Personagens do mesmo reino podem usar tipos diferentes; o Elo não determina a afinidade.
 - Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo no começo de cada rodada. Cada tipo tem 20% de chance por sorteio e o saldo acumula sem limite. Com 5 unidades, escolha quais pips gastar e troque-os por 1 unidade de um tipo específico; a conversão reduz o saldo líquido em 4.
@@ -48,20 +48,20 @@ Os kits usam as identidades e os conceitos do PMA. Testes cobrem a execução de
 O arquétipo principal descreve a identidade de cada kit; os secundários registram outras ferramentas que ele explora. Cada alma pode combinar até cinco identidades. O contexto curto explica a função do arquétipo, e a variação abaixo nomeia a forma particular como aquele personagem o executa.
 
 - **☣ Especialista em Aflições** (5 kits): Aplica e prolonga condições para que a equipe converta desgaste em pressão.
-- **♥ Sustentador** (33 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
+- **♥ Sustentador** (41 kits): Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano.
 - **◈ Metamorfo** (9 kits): Muda o papel de combate com uma forma, postura ou limiar que altera técnicas.
-- **◎ Preparador de Marcas** (44 kits): Marca uma abertura e decide quando consumir, explorar ou espalhar a preparação.
-- **▼ Berserker** (8 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
-- **⬡ Baluarte** (16 kits): Cria Defesa e transforma a guarda em tempo para uma resposta própria ou do trio.
-- **⇥ Manipulador de Essência** (22 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
-- **↶ Retaliador** (21 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
-- **⊠ Interditor** (15 kits): Atordoa, sela ou enfraquece para abrir uma janela de ação segura.
+- **◎ Preparador de Marcas** (52 kits): Marca uma abertura e decide quando consumir, explorar ou espalhar a preparação.
+- **▼ Berserker** (10 kits): Troca segurança por força e ganha opções quando a Vida cai ou é sacrificada.
+- **⬡ Baluarte** (23 kits): Cria Defesa e transforma a guarda em tempo para uma resposta própria ou do trio.
+- **⇥ Manipulador de Essência** (33 kits): Drena ou rouba Essência e transforma a reserva roubada numa decisão tática.
+- **↶ Retaliador** (28 kits): Atrai, evita ou devolve uma resposta com bloqueio, reação ou contra-ataque.
+- **⊠ Interditor** (33 kits): Atordoa, sela ou enfraquece para abrir uma janela de ação segura.
 - **ϟ Executor** (18 kits): Concentra dano em uma janela preparada, em um alvo ferido ou numa reserva gasta.
-- **▦ Pressionador de Área** (33 kits): Altera o ritmo de toda a linha inimiga ou fortalece o trio em conjunto.
-- **⊕ Gerador de Essência** (24 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
-- **⇄ Transmutador de Essência** (7 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
-- **◉ Gastador de Essência** (6 kits): Transforma o pagamento ou sacrifício de Essência em dano, proteção, controle ou preparação.
-- **⌖ Quebra-Guarda** (27 kits): Remove Defesa ou converte as camadas do alvo em vantagem ofensiva.
+- **▦ Pressionador de Área** (49 kits): Altera o ritmo de toda a linha inimiga ou fortalece o trio em conjunto.
+- **⊕ Gerador de Essência** (43 kits): Cria Essência por ação, condição ou evento para alimentar as próximas técnicas do trio.
+- **⇄ Transmutador de Essência** (8 kits): Troca um tipo de Essência por outro para adaptar a reserva à necessidade imediata.
+- **◉ Gastador de Essência** (7 kits): Transforma o pagamento ou sacrifício de Essência em dano, proteção, controle ou preparação.
+- **⌖ Quebra-Guarda** (31 kits): Remove Defesa ou converte as camadas do alvo em vantagem ofensiva.
 
 ## Elo Sangria
 
@@ -171,6 +171,23 @@ Troque sua Vida por guarda e recuperação futura de um aliado; sustente-se dren
 - **Berço de Sangue** (1 Graça + 1 Éter; recarga 2T): Causa 10 de dano físico a todos os inimigos. Sangramento: 4 de dano de aflição por 2 turnos.
 - **Casulo Rubro** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
+### Cain — Preparador de Marcas
+
+**Variação:** Cain marca o alvo, fere a própria guarda e acelera a execução quando encontra uma abertura. · **Essência:** Ruptura
+
+**Outros arquétipos:** —
+
+Cobrar a culpa em sangue
+
+**Estrutura:** Cain marca o alvo, fere a própria guarda e acelera a execução quando encontra uma abertura.
+
+**Passiva — Culpa que Morde:** Uma vez por rodada, ferir um alvo com a Marca de Cain concede 1 carga.
+
+- **Marca do Primeiro Erro** (1 Ruptura; recarga 0T): Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.
+- **Repetir a Sentença** (1 Ruptura + 1 Coringa; recarga 0T): Causa 15 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 dano; consome a preparação.
+- **Ferida Consentida** (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. O usuário perde 5 de Vida (não o derrota).
+- **Cicatriz de Sangue** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
 ## Elo Coroa
 
 ### O Soberano — Preparador de Marcas
@@ -279,11 +296,79 @@ Use a Vida perdida para fortalecer o punho; recupere-se ou gaste as cargas na to
 - **Tomada do Trono** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Guarda Dinástica** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
+### Victor — Quebra-Guarda
+
+**Variação:** Victor protege a formação e converte a agressão recebida em autoridade para a próxima ação. · **Essência:** Éter
+
+**Outros arquétipos:** Pressionador de Área
+
+Comandar o que restou
+
+**Estrutura:** Victor protege a formação e converte a agressão recebida em autoridade para a próxima ação.
+
+**Passiva — Autoridade Residual:** Uma vez por rodada, depois de perder Vida para uma habilidade, Victor concede 2 de Defesa ao trio e ganha 1 carga.
+
+- **Decreto Final** (1 Éter; recarga 0T): Causa 14 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Trono sem Reino** (1 Éter + 1 Coringa; recarga 0T): Concede 8 de Defesa destrutível ao trio.
+- **Sucessão Forçada** (2 Éter; recarga 0T): Causa 16 de dano perfurante a um inimigo. Marca o alvo por 2 turnos. Remove 12 de Defesa antes do dano.
+- **Último Mandato** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Plácido — Baluarte
+
+**Variação:** Plácido marca uma infração, sela o apoio e protege a estrutura que pretende conservar. · **Essência:** Éter
+
+**Outros arquétipos:** Interditor, Pressionador de Área
+
+Manter o sistema a qualquer custo
+
+**Estrutura:** Plácido marca uma infração, sela o apoio e protege a estrutura que pretende conservar.
+
+**Passiva — Regra Aplicada:** Uma vez por rodada, atacar um alvo com a Marca de Plácido também sela o apoio dele por 1 turno.
+
+- **Artigo de Ferro** (1 Éter; recarga 0T): Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.
+- **Interdição Formal** (1 Éter + 1 Coringa; recarga 0T): Causa 15 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
+- **Cláusula de Continuidade** (2 Éter; recarga 0T): Concede 8 de Defesa destrutível ao trio. Reduz em 3 o dano recebido por 1 turno.
+- **Estado de Exceção** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Atlas — Baluarte
+
+**Variação:** Atlas acumula carga, protege o trio e converte pressão em dano pesado. · **Essência:** Éter
+
+**Outros arquétipos:** Interditor, Pressionador de Área, Quebra-Guarda
+
+Conter tudo sob um único comando
+
+**Estrutura:** Atlas acumula carga, protege o trio e converte pressão em dano pesado.
+
+**Passiva — Peso Acumulado:** Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.
+
+- **Ombro do Mundo** (1 Éter; recarga 0T): Concede 8 de Defesa destrutível ao trio.
+- **Peso sem Medida** (1 Éter + 1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Acrescenta 25% da Defesa do usuário ao dano (máx. +10) e consome toda a sua Defesa.
+- **Colapso de Autoridade** (2 Éter; recarga 0T): Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 dano.
+- **Sustentar o Céu** (1 Coringa; recarga 4T): Concede 8 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Merlindrope — Interditor
+
+**Variação:** Merlindrope altera o acesso a apoio, controla a reserva e prende o alvo em condições sucessivas. · **Essência:** Éter
+
+**Outros arquétipos:** Pressionador de Área, Manipulador de Essência
+
+Escrever a regra e fechar a saída
+
+**Estrutura:** Merlindrope altera o acesso a apoio, controla a reserva e prende o alvo em condições sucessivas.
+
+**Passiva — Cláusula de Prisão:** Uma vez por rodada, ferir um alvo com a Marca própria sela o apoio dele por 1 turno.
+
+- **Grade de Éter** (1 Éter; recarga 0T): Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
+- **Porta que Não Abre** (1 Éter + 1 Coringa; recarga 1T): Causa 14 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Sela técnicas ofensivas por 1 turno do alvo.
+- **Celas Concêntricas** (2 Éter; recarga 0T): Causa 9 de dano espiritual a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Parede de Regras** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
 ## Elo Mentira
 
 ### O Sussurro — Transmutador de Essência
 
-**Variação:** Segredo provocador · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Segredo provocador · **Essência:** Cinza
 
 **Outros arquétipos:** Manipulador de Essência, Retaliador
 
@@ -291,16 +376,16 @@ Envenene um segredo que pune a próxima ofensiva da vítima e depois cobra Essê
 
 **Estrutura:** Segredo provocador
 
-**Passiva — Segredo em Circulação:** Ao causar dano a um inimigo com seu Veneno, converte 1 Éter disponível em uma Essência aleatória de outro tipo. Ativa uma vez por rodada; exige 1 Éter restante após pagar a técnica.
+**Passiva — Segredo em Circulação:** Ao causar dano a um inimigo com seu Veneno, converte 1 Éter disponível em uma Essência aleatória diferente. Ativa uma vez por rodada; exige 1 Éter restante após pagar a técnica.
 
-- **Palavra Envenenada** (1 Coringa; recarga 0T): Causa 5 de dano espiritual a um inimigo. Veneno: 5 de dano de aflição por 2 turnos. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
-- **Segredo Cobrado** (1 Coringa + 1 Coringa; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo está com Veneno: +10 dano.
-- **Aviso Falso** (1 Coringa + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno.
+- **Palavra Envenenada** (1 Cinza; recarga 0T): Causa 5 de dano espiritual a um inimigo. Veneno: 5 de dano de aflição por 2 turnos. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
+- **Segredo Cobrado** (1 Cinza + 1 Coringa; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo está com Veneno: +10 dano.
+- **Aviso Falso** (1 Cinza + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno.
 - **Voz sem Origem** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Máscara Dupla — Preparador de Marcas
 
-**Variação:** Duas máscaras, duas respostas · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Duas máscaras, duas respostas · **Essência:** Éter
 
 **Outros arquétipos:** Metamorfo, Retaliador, Transmutador de Essência, Manipulador de Essência
 
@@ -310,10 +395,10 @@ Empreste um rosto para marcar, mude a resposta e revele a traição quando o adv
 
 **Passiva — Segundo Rosto:** Ao assumir ou deixar uma Forma, gera 1 Essência do tipo da nova Forma; ao voltar ao corpo original, usa sua afinidade. Ativa uma vez por rodada.
 
-- **Rosto Emprestado** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Vira Gesto de Outro Rosto por 2 turnos: um ataque que prepara um contra-ataque pessoal.
-- **Gesto de Outro Rosto** [variação] (1 Coringa + 1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno. Após usar, restaura Rosto Emprestado.
-- **O Outro Rosto** (1 Coringa + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
-- **Traição Revelada** (1 Coringa + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Converte 1 Essência disponível em uma Essência aleatória de outro tipo na reserva da equipe. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
+- **Rosto Emprestado** (1 Éter; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Vira Gesto de Outro Rosto por 2 turnos: um ataque que prepara um contra-ataque pessoal.
+- **Gesto de Outro Rosto** [variação] (2 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno. Após usar, restaura Rosto Emprestado.
+- **O Outro Rosto** (1 Éter + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
+- **Traição Revelada** (2 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Converte 1 um tipo disponível em uma Essência aleatória de outro tipo na reserva da equipe. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Troca de Máscara** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Intrigante — Pressionador de Área
@@ -385,6 +470,57 @@ Hipoteque uma memória e apague as opções de apoio da vítima antes de liquida
 - **Esquecer a Defesa** (1 Éter + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Remove bônus de dano, redução e contra-ataque do alvo. Remove 15 de Defesa antes do dano.
 - **Liquidação do Passado** (2 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Memória Substituta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Vaas — Manipulador de Essência
+
+**Variação:** Vaas marca intenções, enfraquece respostas e transforma custo em roubo. · **Essência:** Cinza
+
+**Outros arquétipos:** —
+
+Preparar a máscara
+
+**Estrutura:** Vaas marca intenções, enfraquece respostas e transforma custo em roubo.
+
+**Passiva — Máscara Predatória:** Uma vez por rodada, uma habilidade ofensiva contra um alvo com a Marca de Vaas também o Enfraquece por 1 turno.
+
+- **Verdade Plantada** (1 Cinza; recarga 0T): Causa 9 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.
+- **Véu de Veneno** (1 Cinza + 1 Coringa; recarga 0T): Causa 11 de dano espiritual a um inimigo. Veneno: 4 de dano de aflição por 2 turnos. Rouba 1 unidade de Essência da reserva inimiga.
+- **O Rosto que Falta** (1 Cinza + 1 Éter; recarga 0T): Concede 8 de Defesa destrutível. Remove aflições e condições prejudiciais.
+- **Última Máscara** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Vaas, o Sem Rosto — Manipulador de Essência
+
+**Variação:** Vaas prepara uma abertura para selar apoio, roubar Essência e atravessar Contra-ataques. · **Essência:** Ruptura
+
+**Outros arquétipos:** Interditor, Retaliador
+
+A máscara não precisa de rosto
+
+**Estrutura:** Vaas prepara uma abertura para selar apoio, roubar Essência e atravessar Contra-ataques.
+
+**Passiva — Confisco de Identidade:** Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.
+
+- **Sussurro sem Dono** (1 Ruptura; recarga 0T): Causa 12 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Silêncio Comprado** (1 Ruptura + 1 Coringa; recarga 1T): Causa 16 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Rouba 1 unidade de Essência da reserva inimiga.
+- **Ruptura da Máscara** (2 Ruptura + 1 Éter; recarga 0T): Causa 22 de dano perfurante a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo tem uma marca sua: +8 dano.
+- **Ausência Calculada** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Calíope — Manipulador de Essência
+
+**Variação:** Calíope monta uma máscara, expõe o alvo e converte a própria marca em roubo. · **Essência:** Éter
+
+**Outros arquétipos:** Preparador de Marcas, Interditor
+
+Escrever a abertura antes da vítima
+
+**Estrutura:** Calíope monta uma máscara, expõe o alvo e converte a própria marca em roubo.
+
+**Passiva — Assinatura Falsa:** Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.
+
+- **Verso Plantado** (1 Éter; recarga 0T): Causa 9 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
+- **Rima de Exposição** (1 Éter + 1 Coringa; recarga 0T): Causa 13 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Se o alvo tem uma marca sua: +6 dano.
+- **Refrão Roubado** (2 Éter; recarga 0T): Causa 16 de dano de aflição a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Rouba 1 unidade de Essência da reserva inimiga.
+- **Cortina de Espelhos** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Chama
 
@@ -497,6 +633,23 @@ A ebulição cresce com a Vida perdida, prepara o próximo golpe e disputa espa�
 - **Coração em Erupção** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Consome as cargas: +10 de dano por carga. O usuário perde 8 de Vida (não o derrota).
 - **Pulso Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
+### Baal — Pressionador de Área
+
+**Variação:** Baal espalha Queimadura, sacrifica a própria Vida e ganha força quando alguém cai. · **Essência:** Cinza
+
+**Outros arquétipos:** Gerador de Essência
+
+Queimar para provar devoção
+
+**Estrutura:** Baal espalha Queimadura, sacrifica a própria Vida e ganha força quando alguém cai.
+
+**Passiva — Liturgia da Brasa:** Ao derrubar uma alma, gera 1 Cinza e ganha 1 carga; uma vez por rodada.
+
+- **Sermão Incendiário** (1 Cinza; recarga 0T): Causa 9 de dano de aflição a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos.
+- **Fé a Ferro e Fogo** (1 Cinza + 1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. O usuário perde 4 de Vida (não o derrota).
+- **Pira dos Fiéis** (1 Cinza + 1 Éter; recarga 0T): Causa 10 de dano espiritual a todos os inimigos. Queimadura: 3 de dano de aflição por 2 turnos.
+- **Manto de Cinzas** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
 ## Elo Fome
 
 ### O Devorador — Sustentador
@@ -519,7 +672,7 @@ A fome muda com sua Vida: ferido, você atravessa a Defesa e drena Essência; re
 
 ### A Saqueadora — Manipulador de Essência
 
-**Variação:** Reserva conversível · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Reserva conversível · **Essência:** Graça
 
 **Outros arquétipos:** Quebra-Guarda
 
@@ -529,15 +682,15 @@ Roube Essência e acumule espólios; gaste as reservas para recuperar Vida ou re
 
 **Passiva — Posse Insaciável:** Na primeira habilidade ofensiva que causa dano no combate, rouba 1 Essência da reserva adversária, se houver.
 
-- **Dedos da Cobiça** (1 Coringa; recarga 1T): Causa 10 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.
+- **Dedos da Cobiça** (1 Graça; recarga 1T): Causa 10 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.
 - **Entesourar** (1 Coringa; recarga 0T): Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Vira Abrir o Cofre por 2 turnos; gastar as reservas restaura esta técnica.
-- **Abrir o Cofre** [variação] (1 Coringa + 1 Coringa; recarga 0T): Restaura 20 de Vida. Consome as cargas: +5 de cura por carga. Após usar, restaura Entesourar.
-- **Confisco da Alma** (1 Coringa + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano. Consome as cargas: +7 de dano por carga.
+- **Abrir o Cofre** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Consome as cargas: +5 de cura por carga. Após usar, restaura Entesourar.
+- **Confisco da Alma** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano. Consome as cargas: +7 de dano por carga.
 - **Espólio Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Insaciável — Baluarte
 
-**Variação:** Digestão de Defesa · **Essência:** Graça
+**Variação:** Digestão de Defesa · **Essência:** Ruptura
 
 **Outros arquétipos:** Quebra-Guarda
 
@@ -547,9 +700,9 @@ Consuma a Defesa inimiga para formar sua própria guarda; reúna reservas e gast
 
 **Passiva — Assimilação:** Ao remover ao menos 10 de Defesa com uma técnica, recupera 4 de Vida. Ativa uma vez por rodada; absorver dano na Defesa não conta como removê-la.
 
-- **Consumir a Guarda** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Converte 50% da Defesa removida em Defesa própria (máx. 15). Remove 20 de Defesa antes do dano. Ganha 1 carga (máx. 3).
-- **Reserva Consumida** (1 Graça; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno.
-- **Fome Devorante** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +8 de dano por carga.
+- **Consumir a Guarda** (1 Ruptura; recarga 0T): Causa 10 de dano físico a um inimigo. Converte 50% da Defesa removida em Defesa própria (máx. 15). Remove 20 de Defesa antes do dano. Ganha 1 carga (máx. 3).
+- **Reserva Consumida** (1 Ruptura; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno.
+- **Fome Devorante** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +8 de dano por carga.
 - **Corpo Recolhido** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Matriarca — Manipulador de Essência
@@ -602,6 +755,40 @@ Drene a reserva inimiga e sustente um aliado ferido; o confisco pune inimigos j�
 - **Adiantamento Vital** (1 Cinza + 1 Coringa; recarga 0T): Restaura 15 de Vida. A cada 20 de Vida faltante do beneficiado: +3 de cura (máx. +12). Remove aflições e condições prejudiciais.
 - **Confisco Coletivo** (1 Cinza + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo tem 50 de Vida ou menos: +10 dano.
 - **Penhor Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Doggo — Gerador de Essência
+
+**Variação:** Doggo rouba recursos de quem ameaça o grupo e usa o que obtém para continuar de pé. · **Essência:** Cinza
+
+**Outros arquétipos:** Manipulador de Essência, Sustentador
+
+Tomar só o necessário
+
+**Estrutura:** Doggo rouba recursos de quem ameaça o grupo e usa o que obtém para continuar de pé.
+
+**Passiva — Ração de Emergência:** Ao derrubar uma alma, recupera 5 de Vida e gera 1 Cinza; uma vez por rodada.
+
+- **Mordida de Cobrança** (1 Cinza; recarga 0T): Causa 12 de dano físico a um inimigo. Restaura ao usuário 20% do dano causado.
+- **Mão que Toma** (1 Cinza + 1 Coringa; recarga 0T): Causa 10 de dano perfurante a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.
+- **Reserva Escondida** (1 Cinza + 1 Éter; recarga 0T): Restaura 8 de Vida. Concede 8 de Defesa destrutível. Gera 1 Cinza para a reserva da equipe.
+- **Fingir de Morto** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Bulkir — Quebra-Guarda
+
+**Variação:** Bulkir quebra Defesa, ganha carga e concentra dano no alvo que já está ferido. · **Essência:** Ruptura
+
+**Outros arquétipos:** Berserker
+
+Quebrar até o nome desaparecer
+
+**Estrutura:** Bulkir quebra Defesa, ganha carga e concentra dano no alvo que já está ferido.
+
+**Passiva — Fome de Nomes:** Ao derrubar uma alma, Bulkir recupera 6 de Vida e ganha 1 carga; uma vez por rodada.
+
+- **Punho que Apaga** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Remove 10 de Defesa antes do dano.
+- **Mordida de Identidade** (1 Ruptura + 1 Coringa; recarga 0T): Causa 17 de dano perfurante a um inimigo. Restaura ao usuário 15% do dano causado.
+- **Esmagar o Último Vestígio** (1 Ruptura + 1 Éter; recarga 0T): Causa 23 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +3 de dano (máx. +9).
+- **Carapaça Faminta** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Podridão
 
@@ -659,7 +846,7 @@ Quebre a confiança para converter parte do dano real em Defesa própria; cobre 
 
 ### A Rainha dos Fungos — Pressionador de Área
 
-**Variação:** Desfechos exclusivos · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Desfechos exclusivos · **Essência:** Graça
 
 **Outros arquétipos:** Baluarte
 
@@ -669,11 +856,11 @@ Semeie uma colônia e escolha sua colheita: proteger os vivos ou espalhar esporo
 
 **Passiva — Colônia Viva:** Se a equipe tiver ao menos 2 Cinzas no início do turno, ganha 1 carga. Ativa uma vez por rodada.
 
-- **Semear Esporos** (1 Coringa; recarga 0T): Causa 10 de dano físico a um inimigo. Decadência: 5 de dano de aflição por 2 turnos. Ganha 1 carga (máx. 3). Abre Florescer para os Vivos e Esporos da Última Colheita por 2 turnos. Usar uma das duas encerra ambas.
-- **Micélio de Amparo** (1 Coringa + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Consome as cargas: +4 de cura por carga a cada aliado.
-- **Florescer para os Vivos** [variação] (1 Coringa + 1 Coringa; recarga 0T): Restaura 8 de Vida a cada aliado. Concede 8 de Defesa destrutível ao trio. Consome as cargas: +4 de cura por carga a cada aliado. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
-- **Florir da Colônia** (1 Coringa + 1 Éter; recarga 1T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +7 de dano por carga.
-- **Esporos da Última Colheita** [variação] (2 Coringa + 1 Éter; recarga 2T): Causa 15 de dano de aflição a todos os inimigos. Consome as cargas: +3 de dano por carga. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
+- **Semear Esporos** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Decadência: 5 de dano de aflição por 2 turnos. Ganha 1 carga (máx. 3). Abre Florescer para os Vivos e Esporos da Última Colheita por 2 turnos. Usar uma das duas encerra ambas.
+- **Micélio de Amparo** (1 Graça + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Consome as cargas: +4 de cura por carga a cada aliado.
+- **Florescer para os Vivos** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 8 de Vida a cada aliado. Concede 8 de Defesa destrutível ao trio. Consome as cargas: +4 de cura por carga a cada aliado. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
+- **Florir da Colônia** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +7 de dano por carga.
+- **Esporos da Última Colheita** [variação] (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano de aflição a todos os inimigos. Consome as cargas: +3 de dano por carga. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
 - **Coroa de Esporos** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Inoculador — Sustentador
@@ -709,6 +896,23 @@ Aplique Decadência, envolva o trio na trama e devolva parte da agressão em afl
 - **Trama Necrosada** (1 Cinza + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 5 de dano de aflição ao agressor. Ativa uma vez.
 - **Definhar** (2 Cinza + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo está com Decadência: +10 dano.
 - **Casca Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Hans — Pressionador de Área
+
+**Variação:** Hans espalha Decadência e transforma a persistência das aflições em Cinza. · **Essência:** Cinza
+
+**Outros arquétipos:** Gerador de Essência, Interditor
+
+Deixar a praga falar
+
+**Estrutura:** Hans espalha Decadência e transforma a persistência das aflições em Cinza.
+
+**Passiva — Juros de Decadência:** Se dois ou mais inimigos vivos mantêm Decadência de Hans, no início do turno ele gera 1 Cinza e recupera 3 de Vida; uma vez por rodada.
+
+- **Informação Venenosa** (1 Cinza; recarga 0T): Causa 8 de dano de aflição a um inimigo. Veneno: 4 de dano de aflição por 2 turnos.
+- **Decadência Compartilhada** (1 Cinza + 1 Coringa; recarga 0T): Causa 12 de dano espiritual a todos os inimigos. Decadência: 5 de dano de aflição por 2 turnos.
+- **Hospitalidade Negada** (1 Cinza + 1 Éter; recarga 1T): Causa 14 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
+- **Esconderijo Insalubre** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Silêncio
 
@@ -816,6 +1020,40 @@ Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda co
 - **Cobrar o Abandono** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo está Exposto: +15 dano.
 - **Golpe da Retaguarda** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo está Exposto: +15 dano. Após usar, restaura Cobrar o Abandono.
 - **Posto Vazio** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Xian — Interditor
+
+**Variação:** Xian pune quem rompe sua quietude e sela a próxima abertura do agressor. · **Essência:** Éter
+
+**Outros arquétipos:** Retaliador
+
+Silêncio como resposta
+
+**Estrutura:** Xian pune quem rompe sua quietude e sela a próxima abertura do agressor.
+
+**Passiva — Resposta Muda:** Uma vez por rodada, quando perde Vida para uma habilidade, causa 5 de dano de aflição ao agressor.
+
+- **Passo sem Ruído** (1 Éter; recarga 0T): Causa 11 de dano perfurante a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Porta Fechada** (1 Éter + 1 Coringa; recarga 0T): Causa 13 de dano espiritual a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
+- **Vácuo de Resposta** (2 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 13 de dano. Dura 1 turno. Ao ativar, remove até 1 Essência da reserva adversária.
+- **Quarto Vazio** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Xian, o Imóvel — Gerador de Essência
+
+**Variação:** Xian aguenta a pressão, interrompe respostas e recolhe Essência do silêncio deixado. · **Essência:** Ruptura
+
+**Outros arquétipos:** Retaliador, Interditor
+
+Permanecer até a ameaça cessar
+
+**Estrutura:** Xian aguenta a pressão, interrompe respostas e recolhe Essência do silêncio deixado.
+
+**Passiva — Quietude Inquebrável:** Uma vez por rodada, ativar um Contra-ataque concede 1 carga, gera 1 Ruptura e sela o apoio do agressor por 1 turno.
+
+- **Vigília de Pedra** (1 Ruptura; recarga 0T): Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 15 de dano. Dura 1 turno.
+- **Selo de Omissão** (1 Ruptura + 1 Coringa; recarga 0T): Causa 14 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
+- **Ninguém Responde** (1 Ruptura + 1 Éter; recarga 0T): Causa 18 de dano perfurante a um inimigo. Se o alvo está Enfraquecido: +8 dano.
+- **Não Dar um Passo** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Carne
 
@@ -929,6 +1167,57 @@ Use o fio para marcar e ferir; sustente seus aliados com suturas e desfaça os p
 - **Desfazer os Pontos** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Costura de Ausência** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
+### Silas — Interditor
+
+**Variação:** Silas prende a ameaça e protege quem escolheu manter ao seu lado. · **Essência:** Éter
+
+**Outros arquétipos:** Retaliador
+
+Fidelidade que protege
+
+**Estrutura:** Silas prende a ameaça e protege quem escolheu manter ao seu lado.
+
+**Passiva — Laço de Vigília:** Uma vez por rodada, apoiar outro aliado também lhe concede 3 de Defesa.
+
+- **Laço de Tendão** (1 Éter; recarga 0T): Causa 11 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Pele de Vigia** (1 Éter + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 10 de dano. Dura 1 turno.
+- **Nervo Contido** (2 Éter; recarga 1T): Causa 16 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
+- **Corpo entre Nós** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Silas, o Leal — Baluarte
+
+**Variação:** O dano sofrido por Silas reforça o trio; sua defesa também prepara respostas coletivas. · **Essência:** Graça
+
+**Outros arquétipos:** Pressionador de Área
+
+Responder pelo outro
+
+**Estrutura:** O dano sofrido por Silas reforça o trio; sua defesa também prepara respostas coletivas.
+
+**Passiva — Promessa que Aguenta:** Uma vez por rodada, depois de perder Vida para uma habilidade, Silas concede 2 de Defesa ao trio e recupera 3 de Vida.
+
+- **Pele Partilhada** (1 Graça; recarga 0T): Concede 12 de Defesa destrutível. Reduz em 4 o dano recebido por 1 turno.
+- **Nó de Lealdade** (1 Graça + 1 Coringa; recarga 0T): Concede 6 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
+- **Devolver a Agressão** (1 Graça + 1 Éter; recarga 0T): Causa 18 de dano físico a um inimigo. Se o alvo está Enfraquecido: +7 dano.
+- **Abrigo Vinculado** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Serena — Preparador de Marcas
+
+**Variação:** Serena usa marcas nervosas e bloqueio de cura para reabrir as feridas de Diana. · **Essência:** Éter
+
+**Outros arquétipos:** Interditor
+
+Transformar perda em controle
+
+**Estrutura:** Serena usa marcas nervosas e bloqueio de cura para reabrir as feridas de Diana.
+
+**Passiva — Lembrança Invasiva:** Uma vez por rodada, ferir um alvo com a Marca Nervosa própria o Enfraquece por 1 turno.
+
+- **Marca Nervosa** (1 Éter; recarga 0T): Causa 10 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.
+- **Memória Reaberta** (1 Éter + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +7 dano.
+- **Pulso de Interdição** (2 Éter; recarga 0T): Causa 18 de dano espiritual a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
+- **Pele de Lembrança** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
 ## Elo Vazio
 
 ### O Anulador — Preparador de Marcas
@@ -986,7 +1275,7 @@ Guarde suas duas sentenças mais fortes para os feridos; depois delas, o silênc
 
 ### O Desolador — Baluarte
 
-**Variação:** Refúgio por necessidade · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Refúgio por necessidade · **Essência:** Graça
 
 **Outros arquétipos:** Sustentador, Gerador de Essência
 
@@ -996,10 +1285,10 @@ Acumule vestígios de ruína e consuma-os para extinguir a presença inimiga; co
 
 **Passiva — Resíduo de Penumbra:** Se tiver 50 de Vida ou menos, uma técnica ofensiva que consome ao menos 1 carga recupera 5 de Vida e gera 1 Essência aleatória. Ativa uma vez por rodada.
 
-- **Toque da Desolação** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
-- **Recompor o Vazio** (1 Coringa; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno. Com 50 de Vida ou menos, vira Recolher a Presença, com custo e recuperação maiores.
-- **Recolher a Presença** [variação] (1 Coringa + 1 Éter; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
-- **Extinguir a Presença** (1 Coringa + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
+- **Toque da Desolação** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
+- **Recompor o Vazio** (1 Graça; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno. Com 50 de Vida ou menos, vira Recolher a Presença, com custo e recuperação maiores.
+- **Recolher a Presença** [variação] (1 Graça + 1 Éter; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
+- **Extinguir a Presença** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Presença Nula** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Escriba — Gerador de Essência
@@ -1029,12 +1318,80 @@ Apague o terreno para punir a inatividade; marque uma coordenada, enfraqueça a 
 
 **Estrutura:** Território que exige movimento
 
-**Passiva — Sustento do Apagamento:** Se tiver ao menos 2 Cinzas no início do turno, converte 1 em uma Essência aleatória de outro tipo e recupera 4 de Vida. Ativa uma vez por rodada.
+**Passiva — Sustento do Apagamento:** Se tiver ao menos 2 Cinzas no início do turno, converte 1 em uma Essência aleatória diferente e recupera 4 de Vida. Ativa uma vez por rodada.
 
 - **Apagar o Terreno** (1 Cinza + 1 Éter; recarga 1T): Causa 5 de dano físico a todos os inimigos. Decadência: 4 de dano de aflição por 2 turnos. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Coordenada Nula** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Eliminar o Vestígio** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
 - **Contorno Inexistente** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Teras — Manipulador de Essência
+
+**Variação:** Teras lê as aflições deixadas pelo trio inimigo e converte observação em Essência. · **Essência:** Éter
+
+**Outros arquétipos:** Gerador de Essência, Interditor
+
+Observar antes de intervir
+
+**Estrutura:** Teras lê as aflições deixadas pelo trio inimigo e converte observação em Essência.
+
+**Passiva — Nota de Campo:** No início do turno, se ao menos um inimigo ainda tiver Decadência de Teras, gera 1 Éter e drena 1 Essência inimiga; uma vez por rodada.
+
+- **Olhar de Anomalia** (1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
+- **Registro de Decadência** (1 Éter + 1 Coringa; recarga 0T): Causa 11 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Pergunta sem Resposta** (2 Éter; recarga 1T): Causa 15 de dano espiritual a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
+- **Vigília Imóvel** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Teras, o Observador — Manipulador de Essência
+
+**Variação:** Teras prepara um alvo Exposto e toma a Essência que escapa pela fenda. · **Essência:** Éter
+
+**Outros arquétipos:** Interditor
+
+Revelar sem se expor
+
+**Estrutura:** Teras prepara um alvo Exposto e toma a Essência que escapa pela fenda.
+
+**Passiva — Leitura da Fenda:** Uma vez por rodada, ferir um alvo Exposto rouba 1 Essência inimiga e concede 1 carga.
+
+- **Margem Exposta** (1 Éter; recarga 0T): Causa 12 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Vazio em Suspenso** (1 Éter + 1 Coringa; recarga 0T): Causa 16 de dano espiritual a um inimigo. Se o alvo está Exposto: +8 dano.
+- **Coleta Silenciosa** (2 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Rouba 1 unidade de Essência da reserva inimiga.
+- **Passo para Trás** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Lilith — Interditor
+
+**Variação:** Lilith interrompe apoio e castiga aliados que tentam se recuperar. · **Essência:** Cinza
+
+**Outros arquétipos:** —
+
+Apagar a esperança do plano
+
+**Estrutura:** Lilith interrompe apoio e castiga aliados que tentam se recuperar.
+
+**Passiva — Amanhã Negado:** Uma vez por rodada, ferir um alvo Exposto sela o apoio dele por 1 turno.
+
+- **Recusa de Aurora** (1 Cinza; recarga 0T): Causa 11 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Esperança Interrompida** (1 Cinza + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
+- **Nada a Restaurar** (1 Cinza + 1 Éter; recarga 0T): Causa 18 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
+- **Véu sem Amanhã** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Voronir — Manipulador de Essência
+
+**Variação:** Voronir marca anomalias, rouba Essência e sela a tentativa de escapar. · **Essência:** Éter
+
+**Outros arquétipos:** Interditor, Preparador de Marcas
+
+Rastrear o que não pertence
+
+**Estrutura:** Voronir marca anomalias, rouba Essência e sela a tentativa de escapar.
+
+**Passiva — Rastreamento de Anomalia:** Uma vez por rodada, ferir um alvo com a Marca de Voronir rouba 1 Essência e concede 1 carga.
+
+- **Marca de Captura** (1 Éter; recarga 0T): Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.
+- **Rede de Contenção** (1 Éter + 1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Atordoa por 1 turno.
+- **Captura do Receptáculo** (2 Éter; recarga 0T): Causa 18 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem uma marca sua: +7 dano.
+- **Armadilha de Vazio** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Proteção
 
@@ -1048,7 +1405,7 @@ Erga a própria guarda e escolha entre o avanço curto e a Resposta da Égide ma
 
 **Estrutura:** Guarda em avanço
 
-**Passiva — Ficarei Aqui:** No início do seu turno, recebe 5 de Defesa destrutível.
+**Passiva — Ficarei Aqui:** Ao causar dano a um inimigo enquanto ainda tem Defesa, recebe 4 de Defesa. Ativa uma vez por rodada.
 
 - **Golpe do Bastião** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Concede 10 de Defesa destrutível ao usuário. Vira Avanço da Égide por 2 turnos; usá-lo restaura Golpe do Bastião.
 - **Avanço da Égide** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 20 de dano perfurante a um inimigo. Concede 5 de Defesa destrutível ao usuário. Se o usuário tem Defesa: +5 dano. Após usar, restaura Golpe do Bastião.
@@ -1058,7 +1415,7 @@ Erga a própria guarda e escolha entre o avanço curto e a Resposta da Égide ma
 
 ### A Muralha — Baluarte
 
-**Variação:** Muralha que converge · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Muralha que converge · **Essência:** Ruptura
 
 **Outros arquétipos:** Pressionador de Área, Quebra-Guarda
 
@@ -1068,9 +1425,9 @@ Fortifique o trio e acumule cargas; a investida consome sua Defesa para expor um
 
 **Passiva — Pedra sobre Pedra:** Recebe 6 de Defesa no início do turno somente se perdeu Vida para uma habilidade na rodada anterior.
 
-- **Impacto do Baluarte** (1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
-- **Muralha Partilhada** (1 Coringa + 1 Coringa; recarga 2T): Concede 18 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: concede 8 de Defesa ao usuário. Ativa uma vez.
-- **Investida do Baluarte** (1 Coringa + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Acrescenta 25% da Defesa do usuário ao dano (máx. +15) e consome toda a sua Defesa. Consome as cargas: +6 de dano por carga.
+- **Impacto do Baluarte** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
+- **Muralha Partilhada** (1 Ruptura + 1 Coringa; recarga 2T): Concede 18 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: concede 8 de Defesa ao usuário. Ativa uma vez.
+- **Investida do Baluarte** (1 Ruptura + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Acrescenta 25% da Defesa do usuário ao dano (máx. +15) e consome toda a sua Defesa. Consome as cargas: +6 de dano por carga.
 - **Baluarte Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### O Abnegado — Sustentador
@@ -1083,7 +1440,7 @@ Ceda parte da sua Vida para amparar um aliado e sustente-se na resposta ofensiva
 
 **Estrutura:** Permanência vital
 
-**Passiva — Presença que Sustenta:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Presença que Sustenta:** Quando um apoio restaura ao menos 10 de Vida de outro aliado, concede 5 de Defesa a ele. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Não Recuar** (1 Ruptura; recarga 0T): Causa 20 de dano físico a um inimigo. Reduz em 5 o dano recebido por 1 turno pelo usuário.
 - **Amparo Abnegado** (1 Ruptura + 1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Regeneração: restaura 5 de Vida no início dos próximos 2 turnos do beneficiado. O usuário perde 5 de Vida (não o derrota). Efeito reativo: responde à condição indicada. Ativa uma vez.
@@ -1117,12 +1474,46 @@ Concentre a linha em um aliado para protegê-lo e reduzir a recarga de suas téc
 
 **Estrutura:** Proteção de tempo
 
-**Passiva — Olhar de Vigília:** Suas habilidades causam +4 de dano se o alvo está Exposto.
+**Passiva — Olhar de Vigília:** Ao causar dano a um inimigo Exposto, ganha 1 carga. Ativa uma vez por rodada.
 
 - **Sinal Azul** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Linha de Proteção** (1 Ruptura + 1 Coringa; recarga 3T): Concede 15 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno. Reduz em 1 turno as recargas não defensivas do beneficiado.
 - **Lança do Horizonte** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
 - **Vigília Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Seraphim — Pressionador de Área
+
+**Variação:** Seraphim fortalece a defesa e restaura quem recebeu o peso do combate. · **Essência:** Graça
+
+**Outros arquétipos:** Sustentador, Baluarte, Gerador de Essência
+
+Amparar sem exigir fé
+
+**Estrutura:** Seraphim fortalece a defesa e restaura quem recebeu o peso do combate.
+
+**Passiva — Graça sem Julgamento:** Uma vez por rodada, depois de uma cura efetiva, gera 1 Graça e restaura 3 de Vida ao aliado vivo mais ferido.
+
+- **Manto de Asas** (1 Graça; recarga 0T): Concede 7 de Defesa destrutível ao trio.
+- **Toque sem Culpa** (1 Graça + 1 Coringa; recarga 0T): Restaura 12 de Vida. Remove aflições e condições prejudiciais.
+- **Luz que Permanece** (1 Graça + 1 Éter; recarga 0T): Concede 5 de Defesa destrutível ao trio. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos de cada aliado.
+- **Asa Fechada** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Seraphim, o Eco — Pressionador de Área
+
+**Variação:** Cada guarda erguida por Seraphim prepara cura para quem ainda está ferido. · **Essência:** Graça
+
+**Outros arquétipos:** Sustentador, Baluarte
+
+Converter proteção em retorno
+
+**Estrutura:** Cada guarda erguida por Seraphim prepara cura para quem ainda está ferido.
+
+**Passiva — Refrão de Vigília:** Uma vez por rodada, depois de conceder ao menos 5 de Defesa em uma habilidade de apoio, restaura 2 de Vida a cada aliado.
+
+- **Círculo de Guarda** (1 Graça; recarga 0T): Concede 9 de Defesa destrutível ao trio.
+- **Reverso da Queda** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 8 de Defesa destrutível.
+- **Cântico de Retorno** (1 Graça + 1 Éter; recarga 0T): Restaura 5 de Vida a cada aliado. Remove aflições e condições prejudiciais.
+- **Última Vigília** (1 Coringa; recarga 4T): Concede 8 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Cura
 
@@ -1136,7 +1527,7 @@ Limpar condições prejudiciais também produz Defesa; use a compaixão marcada 
 
 **Estrutura:** Cuidado que recompõe
 
-**Passiva — A Dor é Vista:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — A Dor é Vista:** Quando um apoio remove ao menos uma aflição de outro aliado, recupera 4 de Vida. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Toque da Compaixão** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
 - **Mãos Restauradoras** (1 Graça + 1 Coringa; recarga 0T): Restaura 25 de Vida. Cada condição removida concede 4 de Defesa ao beneficiado (máx. 15). Remove aflições e condições prejudiciais. Efeito reativo: responde à condição indicada. Ativa uma vez.
@@ -1165,13 +1556,13 @@ Prepare Vida até a reserva se tornar uma restauração coletiva mais cara, capa
 
 **Variação:** Luz dos feridos · **Essência:** Graça
 
-**Outros arquétipos:** —
+**Outros arquétipos:** Gerador de Essência
 
 Exponha o agressor, restitua o vigor de um aliado ferido e use o fluxo vital para atacar e recuperar sua própria Vida.
 
 **Estrutura:** Luz dos feridos
 
-**Passiva — Amparo Recíproco:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Amparo Recíproco:** Quando um apoio restaura ao menos 20 de Vida de outro aliado, gera 1 Graça para a equipe. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Clarão Incisivo** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Restituir Vigor** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. A cada 25 de Vida faltante do beneficiado: +3 de cura (máx. +9).
@@ -1205,12 +1596,63 @@ Desarme a agressão: se a vítima ainda atacar, o usuário recupera Vida; a quie
 
 **Estrutura:** Serenidade provocada
 
-**Passiva — Ritmo Sereno:** No início do seu turno, recebe 3 de Defesa destrutível.
+**Passiva — Ritmo Sereno:** Ao causar dano a um inimigo Enfraquecido, restaura 5 de Vida ao aliado mais ferido. Ativa uma vez por rodada.
 
 - **Pulsação Desarmante** (1 Graça; recarga 1T): Causa 10 de dano espiritual a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado. Se o alvo usar uma técnica ofensiva em sua próxima vez: restaura 8 de Vida ao usuário. Ativa uma vez.
 - **Respirar Novamente** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Reduz em 10 o dano recebido por 1 turno.
 - **Quietude Profunda** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Enfraquecido: +10 dano e Atordoa por 1 turno.
 - **Pausa do Coração** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Diana — Sustentador
+
+**Variação:** Diana combina cura imediata, limpeza e recuperação gradual para manter o trio ativo. · **Essência:** Graça
+
+**Outros arquétipos:** —
+
+Cuidar sem prometer milagre
+
+**Estrutura:** Diana combina cura imediata, limpeza e recuperação gradual para manter o trio ativo.
+
+**Passiva — A Dor é Vista:** Uma vez por rodada, depois de uma cura efetiva, Diana restaura 3 de Vida ao aliado vivo proporcionalmente mais ferido.
+
+- **Pulso Restaurador** (1 Graça; recarga 0T): Restaura 12 de Vida.
+- **Diagnóstico Preciso** (1 Graça + 1 Coringa; recarga 0T): Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.
+- **Sutura de Campo** (1 Graça + 1 Éter; recarga 0T): Restaura 10 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
+- **Respirar Primeiro** (1 Coringa; recarga 4T): Restaura 5 de Vida. Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Diana, a Guarda — Baluarte
+
+**Variação:** Diana protege um aliado, recebe parte da pressão e abre um contra-ataque. · **Essência:** Graça
+
+**Outros arquétipos:** Retaliador, Pressionador de Área
+
+Tomar o impacto e responder
+
+**Estrutura:** Diana protege um aliado, recebe parte da pressão e abre um contra-ataque.
+
+**Passiva — O Impacto é Dividido:** Uma vez por rodada, quando perde Vida para uma habilidade, Diana concede 2 de Defesa ao trio.
+
+- **Guarda de Campo** (1 Graça; recarga 0T): Concede 12 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno.
+- **Braço de Contenção** (1 Graça + 1 Coringa; recarga 0T): Causa 13 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Círculo de Retorno** (1 Graça + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 10 de dano. Dura 1 turno.
+- **Ficar entre** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Diana, a Que Ainda Segura — Sustentador
+
+**Variação:** Diana converte cura ampla em Graça e prolonga o fôlego de todos. · **Essência:** Graça
+
+**Outros arquétipos:** Pressionador de Área, Gerador de Essência
+
+Última mão a soltar
+
+**Estrutura:** Diana converte cura ampla em Graça e prolonga o fôlego de todos.
+
+**Passiva — A Mão Ainda Segura:** Uma vez por rodada, curar ao menos 10 de Vida de outro aliado gera 1 Graça e restaura 4 de Vida ao aliado vivo mais ferido.
+
+- **Cuidado que Atravessa** (1 Graça; recarga 0T): Restaura 6 de Vida a cada aliado.
+- **Sutura do Elo** (1 Graça + 1 Coringa; recarga 0T): Restaura 14 de Vida. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
+- **Ninguém Cai Só** (1 Graça + 1 Éter; recarga 0T): Restaura 8 de Vida a cada aliado. Concede 6 de Defesa destrutível ao trio.
+- **Ainda Segurando** (1 Coringa; recarga 4T): Restaura 5 de Vida. Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Justiça
 
@@ -1224,7 +1666,7 @@ Exponha o excesso, ofereça amparo e abra a resposta equânime; o veredito perfu
 
 **Estrutura:** Amparo e cobrança
 
-**Passiva — Medida Justa:** Suas habilidades causam +4 de dano se o alvo está Exposto.
+**Passiva — Medida Justa:** Ao causar dano a um inimigo Exposto, enfraquece-o por 1 turno. Ativa uma vez por rodada.
 
 - **Peso do Excesso** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Amparo Equânime** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. No próximo turno, vira Resposta Equânime: dano que restaura Vida ao usuário.
@@ -1242,7 +1684,7 @@ O corte ganha precisão ao ser repetido, até um limite; Atordoamento quebra a d
 
 **Estrutura:** Disciplina da lâmina
 
-**Passiva — Fio do Princípio:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
+**Passiva — Fio do Princípio:** Na primeira habilidade ofensiva que causa dano no combate, ganha 1 carga e 4 de Defesa. Uma vez por combate.
 
 - **Corte de Princípio** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Cada uso não anulado dá +2 de dano a esta técnica (máx. +8). Atordoamento zera esse bônus.
 - **Parada Equânime** (1 Éter + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
@@ -1271,13 +1713,13 @@ Pese, julgue e recupere o equilíbrio: a decisão abre uma preparação diferent
 
 **Variação:** Prova contra vantagens · **Essência:** Éter
 
-**Outros arquétipos:** Preparador de Marcas, Retaliador, Quebra-Guarda
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas, Retaliador, Quebra-Guarda
 
 A prova pune bônus de dano, redução e contra-ataque ativos antes de removê-los; o registro prepara o testemunho coletivo.
 
 **Estrutura:** Prova contra vantagens
 
-**Passiva — Voz sem Distorção:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Voz sem Distorção:** Ao causar dano a um inimigo que já tem sua Marca, gera 1 Graça. Ativa uma vez por rodada.
 
 - **Registrar a Verdade** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Prova Irrefutável** (1 Éter + 1 Coringa; recarga 1T): Causa 15 de dano espiritual a um inimigo. Não pode ser anulado por Contra-ataque. Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta 4 ao dano (máx. +12). Remove bônus de dano, redução e contra-ataque do alvo.
@@ -1348,7 +1790,7 @@ Inicie um hino para marcar vários inimigos com o coro ou encerre-o para recuper
 
 **Estrutura:** Postura de coro
 
-**Passiva — Coro de Coragem:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Coro de Coragem:** Quando um apoio concede ao menos 10 de Defesa, restaura 3 de Vida a cada aliado vivo. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Palavra de Coragem** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
 - **Coro de Muitas Vozes** [variação] (1 Éter + 1 Coringa; recarga 0T): Causa 10 de dano espiritual a todos os inimigos. Marca o alvo por 3 turnos.
@@ -1367,7 +1809,7 @@ A aurora limpa, fortalece e reduz recargas não defensivas de um aliado; as carg
 
 **Estrutura:** Aurora que adianta
 
-**Passiva — Primeiro Horizonte:** Sua primeira habilidade ofensiva do combate causa +5 de dano.
+**Passiva — Primeiro Horizonte:** Na primeira habilidade ofensiva que causa dano no combate, ganha 1 carga. Uma vez por combate.
 
 - **Lança da Primeira Luz** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
 - **Carregar a Aurora** (2 Graça + 1 Coringa; recarga 3T): Restaura 15 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Reduz em 1 turno as recargas não defensivas do beneficiado. Remove aflições e condições prejudiciais.
@@ -1384,13 +1826,64 @@ Envie alento para abrir uma resposta que converte dano em recuperação do aliad
 
 **Estrutura:** Entrega que retorna
 
-**Passiva — Promessa de Chegada:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Promessa de Chegada:** Quando um apoio restaura ao menos 10 de Vida a outro aliado, concede 5 de Defesa a ele. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Sinal do Amanhã** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Mensagem Recebida** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 15 de dano espiritual a um inimigo. Restaura ao aliado proporcionalmente mais ferido 50% do dano real causado (máx. 15 por uso). Após usar, restaura Sinal do Amanhã.
 - **Mensagem de Alento** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. Sinal do Amanhã vira Mensagem Recebida por 2 turnos: dano que recupera o aliado proporcionalmente mais ferido.
 - **O Amanhã Chegou** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Passagem da Mensagem** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Naomi — Sustentador
+
+**Variação:** Naomi mantém o trio de pé e converte apoio em proteção compartilhada. · **Essência:** Graça
+
+**Outros arquétipos:** Pressionador de Área
+
+Permanecer para amparar
+
+**Estrutura:** Naomi mantém o trio de pé e converte apoio em proteção compartilhada.
+
+**Passiva — Ninguém Fica para Trás:** Uma vez por rodada, apoiar outro aliado concede 2 de Defesa a cada membro vivo do trio.
+
+- **Brasa que Permanece** (1 Graça; recarga 0T): Causa 11 de dano físico a um inimigo. Marca o alvo por 2 turnos.
+- **Mão Estendida** (1 Graça + 1 Coringa; recarga 0T): Restaura 13 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
+- **Roda de Esperança** (1 Graça + 1 Éter; recarga 0T): Concede 7 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
+- **Voto de Permanência** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Naomi, a Que Permanece — Sustentador
+
+**Variação:** Curas efetivas alimentam a Graça; Naomi continua na linha enquanto restaura os outros. · **Essência:** Graça
+
+**Outros arquétipos:** Gerador de Essência, Pressionador de Área
+
+Curar sem se retirar
+
+**Estrutura:** Curas efetivas alimentam a Graça; Naomi continua na linha enquanto restaura os outros.
+
+**Passiva — O Cuidado Retorna:** Uma vez por rodada, curar pelo menos 10 de Vida de outro aliado gera 1 Graça.
+
+- **Passo que Levanta** (1 Graça; recarga 0T): Causa 10 de dano perfurante a um inimigo. Restaura 5 de Vida ao usuário.
+- **Vigília Compartilhada** (1 Graça + 1 Coringa; recarga 0T): Restaura 8 de Vida. Concede 10 de Defesa destrutível.
+- **Promessa Renovada** (1 Graça + 1 Éter; recarga 0T): Regeneração: restaura 4 de Vida no início dos próximos 2 turnos de cada aliado. Remove aflições e condições prejudiciais.
+- **Ainda Aqui** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Naomi, a Raiz — Sustentador
+
+**Variação:** A guarda de Naomi se espalha quando ela recebe dano e prepara a recuperação do trio. · **Essência:** Graça
+
+**Outros arquétipos:** Pressionador de Área
+
+Apoio que atravessa a queda
+
+**Estrutura:** A guarda de Naomi se espalha quando ela recebe dano e prepara a recuperação do trio.
+
+**Passiva — Raiz sob Pressão:** Uma vez por rodada, depois de perder Vida para uma habilidade, Naomi concede 3 de Defesa ao trio.
+
+- **Ramo Ascendente** (1 Graça; recarga 0T): Causa 12 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Raízes de Amparo** (1 Graça + 1 Coringa; recarga 0T): Restaura 5 de Vida a cada aliado. Concede 8 de Defesa destrutível ao trio.
+- **Florescer apesar de Tudo** (1 Graça + 1 Éter; recarga 0T): Restaura 16 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
+- **Tronco Imóvel** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo Verdade
 
@@ -1438,7 +1931,7 @@ Mostre uma abertura e devolva a intenção: uma agressão ao espelho libera o es
 
 **Estrutura:** Reflexo preparado
 
-**Passiva — Reflexo Honesto:** Ao perder Vida por uma habilidade inimiga, causa 4 de dano de aflição ao agressor.
+**Passiva — Reflexo Honesto:** Ao perder Vida para uma habilidade física ou perfurante e ainda manter Defesa, causa 4 de dano de aflição ao agressor. Ativa uma vez por rodada.
 
 - **Imagem Verdadeira** (1 Ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Estilhaço Devolvido** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Após usar, restaura Imagem Verdadeira.
@@ -1456,7 +1949,7 @@ Trace a abertura e revele o atalho de amparo; reúna as cargas para concentrar a
 
 **Estrutura:** Rota de apoio
 
-**Passiva — Rota sem Engano:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Rota sem Engano:** Ao causar dano a um inimigo que já tem sua Marca, ganha 1 carga. Ativa uma vez por rodada.
 
 - **Traçar a Abertura** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Ganha 1 carga (máx. 3). No próximo turno, Caminho Seguro vira Atalho da Clareza: amparo concentrado em um aliado.
 - **Caminho Seguro** (1 Graça + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
@@ -1474,12 +1967,29 @@ A leitura enfraquece, expõe e pune a próxima ofensiva da vítima; escolha entr
 
 **Estrutura:** Intenção observada
 
-**Passiva — Ver sem Ferir:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Ver sem Ferir:** Quando um apoio remove ao menos uma aflição de outro aliado, concede 4 de Defesa a ele. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Olhar Desarmante** (1 Graça; recarga 0T): Causa 5 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Amparo da Clareza** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Remove aflições e condições prejudiciais.
 - **Intenção Desvendada** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Exposto: +10 dano e Atordoa por 1 turno.
 - **Véu da Serenidade** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Orion — Preparador de Marcas
+
+**Variação:** Orion marca o que considera impossível e precisa escolher entre capturar ou ajudar. · **Essência:** Éter
+
+**Outros arquétipos:** Interditor
+
+Revelar e decidir
+
+**Estrutura:** Orion marca o que considera impossível e precisa escolher entre capturar ou ajudar.
+
+**Passiva — Prova Irrefutável:** Uma vez por rodada, ferir um alvo com a Marca própria também o Enfraquece por 1 turno.
+
+- **Rastro de Éter** (1 Éter; recarga 0T): Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.
+- **Captura Vetorial** (1 Éter + 1 Coringa; recarga 0T): Causa 14 de dano espiritual a um inimigo. Atordoa por 1 turno. Se o alvo tem uma marca sua: +6 dano; consome a preparação.
+- **Dúvida Calculada** (2 Éter; recarga 0T): Concede 8 de Defesa destrutível. Remove aflições e condições prejudiciais.
+- **Janela de Contenção** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ## Elo União
 
@@ -1493,7 +2003,7 @@ O laço ofensivo converte parte do dano real em recuperação do aliado mais fer
 
 **Estrutura:** Vínculo que distribui Vida
 
-**Passiva — Força Compartilhada:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Força Compartilhada:** Ao causar dano a um inimigo que já tem sua Marca, restaura 4 de Vida ao aliado mais ferido. Ativa uma vez por rodada.
 
 - **Laço do Elo** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Restaura ao aliado proporcionalmente mais ferido 50% do dano real causado (máx. 15 por uso).
 - **Promessa de Combate** (1 Éter + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
@@ -1527,7 +2037,7 @@ Uma agressão é anulada pelo pacto; se outra ferir o aliado, ele e o usuário r
 
 **Estrutura:** Pacto de retorno
 
-**Passiva — Pacto de Permanência:** No início do seu turno, recebe 4 de Defesa destrutível.
+**Passiva — Pacto de Permanência:** Se perdeu Vida para uma habilidade na rodada anterior, recebe 5 de Defesa no início do turno. Ativa uma vez por rodada.
 
 - **Selo do Pacto** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Responder pelo Outro** (1 Graça + 1 Coringa; recarga 0T): Concede 15 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: restaura 6 de Vida ao usuário e ao beneficiado, uma vez por alma. Ativa uma vez.
@@ -1536,7 +2046,7 @@ Uma agressão é anulada pelo pacto; se outra ferir o aliado, ele e o usuário r
 
 ### Os Três Irmãos — Pressionador de Área
 
-**Variação:** Cadeia de três técnicas · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Cadeia de três técnicas · **Essência:** Graça
 
 **Outros arquétipos:** —
 
@@ -1546,11 +2056,11 @@ Alterne três vozes no mesmo espaço: ataque, amparo e desfecho, sem perder as o
 
 **Passiva — Passo de Irmandade:** Enquanto os três irmãos estiverem vivos, cada um concede 1 de Defesa destrutível a todo o trio no início do turno.
 
-- **Primeira Cadência** (1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3). Vira Segunda Voz por 2 turnos; ela abre Terceira Voz por mais 2 turnos.
-- **Segunda Voz** [variação] (1 Coringa; recarga 0T): Restaura 15 de Vida. Ganha 1 carga (máx. 3). Abre Terceira Voz por 2 turno(s).
-- **Terceira Voz** [variação] (1 Coringa + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Após usar, restaura Primeira Cadência.
-- **Segunda Cadência** (1 Coringa + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Ganha 1 carga (máx. 3).
-- **Terceira Cadência** (2 Coringa + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Consome as cargas: +5 de dano por carga.
+- **Primeira Cadência** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3). Vira Segunda Voz por 2 turnos; ela abre Terceira Voz por mais 2 turnos.
+- **Segunda Voz** [variação] (1 Graça; recarga 0T): Restaura 15 de Vida. Ganha 1 carga (máx. 3). Abre Terceira Voz por 2 turno(s).
+- **Terceira Voz** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Após usar, restaura Primeira Cadência.
+- **Segunda Cadência** (1 Graça + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Ganha 1 carga (máx. 3).
+- **Terceira Cadência** (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Consome as cargas: +5 de dano por carga.
 - **Passo em Uníssono** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Juramentada — Sustentador
@@ -1563,7 +2073,7 @@ Honre o pacto com um aliado; se ele perder Vida durante a resposta inimiga, abra
 
 **Estrutura:** Promessa provada
 
-**Passiva — Promessa Cumprida:** Após usar uma habilidade de apoio, o usuário restaura 5 de Vida.
+**Passiva — Promessa Cumprida:** Quando um apoio concede ao menos 20 de Defesa a outro aliado, restaura 5 de Vida a ele. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Selo do Juramento** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
 - **Honrar o Pacto** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 25 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
@@ -1575,7 +2085,7 @@ Honre o pacto com um aliado; se ele perder Vida durante a resposta inimiga, abra
 
 ### O Artífice — Executor
 
-**Variação:** Construção alternativa · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Construção alternativa · **Essência:** Ruptura
 
 **Outros arquétipos:** Transmutador de Essência, Gastador de Essência
 
@@ -1585,15 +2095,15 @@ Crie amparo para abrir uma forma perfurante; escolha entre ela e a Obra Converge
 
 **Passiva — Ideia Persistente:** Uma vez por rodada, ao pagar Coringa por uma técnica, pode converter 1 Cinza disponível em Éter.
 
-- **Fragmento Nascente** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
-- **Forma que Rompe** [variação] (1 Coringa + 1 Éter; recarga 0T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga. Após usar, restaura Fragmento Nascente.
+- **Fragmento Nascente** (1 Ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
+- **Forma que Rompe** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga. Após usar, restaura Fragmento Nascente.
 - **Forma de Amparo** (1 Coringa; recarga 0T): Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Fragmento Nascente vira Forma que Rompe por 2 turnos.
-- **Obra Convergente** (1 Coringa + 1 Éter; recarga 2T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +9 de dano por carga.
+- **Obra Convergente** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +9 de dano por carga.
 - **Forma Impossível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Semente — Baluarte
 
-**Variação:** Amadurecimento · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Amadurecimento · **Essência:** Ruptura
 
 **Outros arquétipos:** Gerador de Essência, Sustentador, Preparador de Marcas, Gastador de Essência
 
@@ -1601,25 +2111,25 @@ A semente amadurece com as cargas: colha amparo para si ou conserve a marca para
 
 **Estrutura:** Amadurecimento
 
-**Passiva — Potência Latente:** Com ao menos 2 Essências disponíveis, consome 1 no início do turno para gerar 1 Ruptura e ganhar 1 carga.
+**Passiva — Potência Latente:** Com ao menos 2 Essências, consome 1 Essência disponível no início do turno para gerar 1 Ruptura e ganhar 1 carga.
 
-- **Marca Germinal** (1 Coringa; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). Com 3 cargas, vira Fruto do Porvir: gaste a reserva em cuidado pessoal ou use outra técnica.
-- **Fruto do Porvir** [variação] (1 Coringa + 1 Éter; recarga 0T): Restaura 20 de Vida. Concede 10 de Defesa destrutível. Consome todas as cargas.
-- **Abrigo do Broto** (1 Coringa + 1 Coringa; recarga 0T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Consome as cargas: +5 de cura por carga.
-- **Florescer da Marca** (1 Coringa + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
+- **Marca Germinal** (1 Ruptura; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). Com 3 cargas, vira Fruto do Porvir: gaste a reserva em cuidado pessoal ou use outra técnica.
+- **Fruto do Porvir** [variação] (1 Ruptura + 1 Éter; recarga 0T): Restaura 20 de Vida. Concede 10 de Defesa destrutível. Consome todas as cargas.
+- **Abrigo do Broto** (1 Ruptura + 1 Coringa; recarga 0T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Consome as cargas: +5 de cura por carga.
+- **Florescer da Marca** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
 - **Casulo de Origem** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Cultivador — Quebra-Guarda
+### O Cultivador — Gerador de Essência
 
 **Variação:** Cultivo partilhado · **Essência:** Graça
 
-**Outros arquétipos:** Sustentador, Pressionador de Área
+**Outros arquétipos:** Quebra-Guarda, Sustentador, Pressionador de Área
 
 Arar a alma já recupera o aliado mais ferido; acumule reservas para escolher a colheita coletiva ou os ramos ofensivos.
 
 **Estrutura:** Cultivo partilhado
 
-**Passiva — Ciclo da Colheita:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Ciclo da Colheita:** Ao consumir ao menos 1 carga com uma habilidade ofensiva, gera 1 Graça. Ativa uma vez por rodada.
 
 - **Arar a Alma** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Restaura ao aliado proporcionalmente mais ferido 40% do dano real causado (máx. 15 por uso). Ganha 1 carga (máx. 3).
 - **Colheita de Fôlego** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida a cada aliado. Consome as cargas: +6 de cura por carga a cada aliado.
@@ -1636,7 +2146,7 @@ Erga a abóbada para abrir amparo concentrado ou um colapso coletivo que consome
 
 **Estrutura:** Arquitetura de escolhas
 
-**Passiva — Fundação Viva:** No início do seu turno, recebe 5 de Defesa destrutível.
+**Passiva — Fundação Viva:** Ao remover pelo menos 10 de Defesa com uma habilidade, concede 3 de Defesa ao trio. Ativa uma vez por rodada.
 
 - **Pilar Ascendente** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Viga de Apoio** [variação] (1 Graça; recarga 0T): Concede 15 de Defesa destrutível. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Após usar, restaura Pilar Ascendente.
@@ -1655,7 +2165,7 @@ O refrão encurta as recargas não defensivas do trio; escolha quando pagar seu 
 
 **Estrutura:** Cadência que adianta
 
-**Passiva — Eco de Nascimento:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Eco de Nascimento:** Quando um apoio restaura ao menos 15 de Vida, ganha 1 carga. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Nota Primordial** (1 Graça + 1 Éter; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Gera 1 Graça para a reserva da equipe.
 - **Refrão da Vida** (2 Graça + 1 Coringa; recarga 3T): Restaura 8 de Vida a cada aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Reduz em 1 turno as recargas não defensivas do beneficiado. Efeito reativo: responde à condição indicada. Ativa uma vez.
@@ -1666,7 +2176,7 @@ O refrão encurta as recargas não defensivas do trio; escolha quando pagar seu 
 
 ### O Descontínuo — Executor
 
-**Variação:** Sequência temporal · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Sequência temporal · **Essência:** Ruptura
 
 **Outros arquétipos:** Gerador de Essência, Preparador de Marcas, Gastador de Essência
 
@@ -1676,11 +2186,11 @@ Percorra uma sequência de três passos contra a mesma vítima ou gaste suas car
 
 **Passiva — Passo que Retorna:** Uma vez por rodada, ao pagar Ruptura por uma técnica, gera 1 Essência aleatória.
 
-- **Fissura do Passo** (1 Coringa; recarga 0T): Causa 15 de dano perfurante a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). Vira Passo Seguinte contra a mesma vítima por 2 turnos; ele abre Passo Anterior por 1 turno.
-- **Passo Seguinte** [variação] (1 Coringa + 1 Éter; recarga 0T): Causa 20 de dano perfurante a um inimigo. Ganha 1 carga (máx. 3). Abre Passo Anterior por 1 turno(s).
-- **Passo Anterior** [variação] (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado. Após usar, restaura Fissura do Passo.
-- **Entre Dois Instantes** (1 Coringa + 1 Coringa; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Golpe Descontínuo** (1 Coringa + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
+- **Fissura do Passo** (1 Ruptura; recarga 0T): Causa 15 de dano perfurante a um inimigo. Marca o alvo por 3 turnos. Ganha 1 carga (máx. 3). Vira Passo Seguinte contra a mesma vítima por 2 turnos; ele abre Passo Anterior por 1 turno.
+- **Passo Seguinte** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano perfurante a um inimigo. Ganha 1 carga (máx. 3). Abre Passo Anterior por 1 turno(s).
+- **Passo Anterior** [variação] (1 Ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado. Após usar, restaura Fissura do Passo.
+- **Entre Dois Instantes** (1 Ruptura + 1 Coringa; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
+- **Golpe Descontínuo** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Passo Fora do Tempo** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### A Cindida — Baluarte
@@ -1693,7 +2203,7 @@ Abra uma extremidade no inimigo e escolha entre reatar o fio para proteger ou pu
 
 **Estrutura:** Ruptura e reparação
 
-**Passiva — Tensão da Ruptura:** Suas habilidades causam +4 de dano se o alvo tem uma marca sua.
+**Passiva — Tensão da Ruptura:** Ao causar dano a um inimigo que já tem sua Marca, recupera 4 de Vida e ganha 1 carga. Ativa uma vez por rodada.
 
 - **Extremidade Solta** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 15 de Defesa antes do dano. No próximo turno, vira Reatar a Linha: transforme a ruptura em proteção para um aliado.
 - **Reatar a Linha** [variação] (1 Graça; recarga 0T): Concede 15 de Defesa destrutível. Remove aflições e condições prejudiciais. Após usar, restaura Extremidade Solta.
@@ -1703,7 +2213,7 @@ Abra uma extremidade no inimigo e escolha entre reatar o fio para proteger ou pu
 
 ### O Eco — Retaliador
 
-**Variação:** Forma de ressonância · **Afinidade:** calculada pelo kit entre os quatro tipos
+**Variação:** Forma de ressonância · **Essência:** Graça
 
 **Outros arquétipos:** Pressionador de Área, Metamorfo, Transmutador de Essência
 
@@ -1711,13 +2221,13 @@ Colete ecos e devolva uma agressão para mudar o trio inteiro de postura: golpe 
 
 **Estrutura:** Forma de ressonância
 
-**Passiva — Ressonância sem Dono:** Ao perder Vida por uma habilidade inimiga, causa 3 de dano de aflição ao agressor.
+**Passiva — Ressonância sem Dono:** Se ainda tem Defesa após perder Vida para uma habilidade inimiga, causa 5 de dano de aflição ao agressor. Ativa uma vez por rodada.
 
-- **Eco Residual** (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
+- **Eco Residual** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
 - **Eco sem Origem** [variação] (1 Coringa; recarga 0T): Causa 10 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
-- **Devolver a Voz** (1 Coringa + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, assuma por 2 turnos o corpo ecoante: golpe, amparo e ressonância coletiva.
-- **Voz Devolvida** [variação] (1 Coringa + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
-- **Coro sem Origem** (2 Coringa + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Converte 1 Ruptura em uma Essência aleatória de outro tipo na reserva da equipe. Consome as cargas: +5 de dano por carga. O usuário perde 5 de Vida (não o derrota).
+- **Devolver a Voz** (1 Graça + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, assuma por 2 turnos o corpo ecoante: golpe, amparo e ressonância coletiva.
+- **Voz Devolvida** [variação] (2 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
+- **Coro sem Origem** (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Converte 1 Ruptura em uma Essência aleatória de outro tipo na reserva da equipe. Consome as cargas: +5 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Ressonância Roubada** [variação] (2 Coringa + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Consome as cargas: +5 de dano por carga. Após usar, restaura Coro sem Origem.
 - **Eco Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
@@ -1731,7 +2241,7 @@ Abra uma passagem, use o atalho para amparar um aliado e retorne; fechar a rota 
 
 **Estrutura:** Travessia de volta
 
-**Passiva — Limite Suspenso:** Após usar uma habilidade de apoio, o usuário restaura 4 de Vida.
+**Passiva — Limite Suspenso:** Quando um apoio remove ao menos uma aflição de um aliado, recupera 3 de Vida para cada aliado vivo. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva.
 
 - **Abertura Impossível** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Passagem de Retorno** [variação] (1 Graça; recarga 0T): Restaura 10 de Vida. Concede 10 de Defesa destrutível. Após usar, restaura Abertura Impossível.
@@ -1743,15 +2253,15 @@ Abra uma passagem, use o atalho para amparar um aliado e retorne; fechar a rota 
 
 **Variação:** Nome que cobra amparo · **Essência:** Cinza
 
-**Outros arquétipos:** Transmutador de Essência, Preparador de Marcas, Quebra-Guarda
+**Outros arquétipos:** Transmutador de Essência, Gerador de Essência, Preparador de Marcas, Quebra-Guarda
 
 O nome perdido drena agora e deixa uma cobrança para o próximo apoio da vítima; apagar a forma prepara o desfecho de aflição.
 
 **Estrutura:** Nome que cobra amparo
 
-**Passiva — Nome que se Dissolve:** No início do seu turno, restaura 3 de Vida.
+**Passiva — Nome que se Dissolve:** Com 50 de Vida ou menos, recupera 3 de Vida e gera 1 Ruptura no início do turno. Ativa uma vez por rodada.
 
-- **Sílaba Perdida** (1 Cinza; recarga 1T): Causa 5 de dano físico a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 5 de dano de aflição ao próprio alvo e remove 1 unidade de Essência da reserva adversária. Ativa uma vez. Remove 1 unidade de Essência da reserva inimiga. Converte 1 Essência disponível em uma Essência aleatória de outro tipo na reserva da equipe.
+- **Sílaba Perdida** (1 Cinza; recarga 1T): Causa 5 de dano físico a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 5 de dano de aflição ao próprio alvo e remove 1 unidade de Essência da reserva adversária. Ativa uma vez. Remove 1 unidade de Essência da reserva inimiga. Converte 1 um tipo disponível em uma Essência aleatória de outro tipo na reserva da equipe.
 - **Esquecer a Forma** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Ninguém Responde** (1 Cinza + 1 Coringa; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
 - **Nome Fora da Memória** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
@@ -1784,7 +2294,7 @@ Devolva uma agressão física para abrir um golpe que sela a ofensiva do agresso
 
 **Estrutura:** Inversão de impulso
 
-**Passiva — Queda Ascendente:** Suas habilidades causam +5 de dano se o alvo está Enfraquecido.
+**Passiva — Queda Ascendente:** Ao causar dano a um inimigo Enfraquecido, ganha 1 carga. Ativa uma vez por rodada.
 
 - **Pena ao Contrário** (1 Ruptura; recarga 0T): Causa 10 de dano físico a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado.
 - **Peso da Asa** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 15 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Após usar, restaura Pena ao Contrário.
@@ -1819,7 +2329,7 @@ Entre num contorno de abrigo para recuperar-se e contra-atacar, depois retome a 
 
 **Estrutura:** Sombra que se recolhe
 
-**Passiva — Fome da Penumbra:** Após causar dano com uma habilidade, restaura 4 de Vida.
+**Passiva — Fome da Penumbra:** Ao causar dano a um inimigo que já tem sua Marca, restaura 5 de Vida. Ativa uma vez por rodada.
 
 - **Sombra Atrás da Alma** (1 Graça; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Rouba 1 unidade de Essência da reserva inimiga.
 - **Fingir Presença** [variação] (1 Graça; recarga 0T): Restaura 10 de Vida. Anula a próxima habilidade inimiga recebida e contra-ataca com 10 de dano. Dura 1 turno.
@@ -1832,13 +2342,13 @@ Entre num contorno de abrigo para recuperar-se e contra-atacar, depois retome a 
 
 **Variação:** Ponte de contragolpe · **Essência:** Ruptura
 
-**Outros arquétipos:** Berserker, Quebra-Guarda
+**Outros arquétipos:** Manipulador de Essência, Berserker, Quebra-Guarda
 
 Quem atravessa a proteção da ponte revela uma abertura; aproveite-a na travessia coletiva antes que desapareça.
 
 **Estrutura:** Ponte de contragolpe
 
-**Passiva — Vão Persistente:** Suas habilidades causam +4 de dano se o alvo está Exposto.
+**Passiva — Vão Persistente:** Ao causar dano a um inimigo Exposto, remove 1 Essência disponível da reserva adversária, se houver. Ativa uma vez por rodada.
 
 - **Romper o Apoio** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Ponte de Emergência** (1 Ruptura + 1 Coringa; recarga 0T): Concede 15 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: expõe o agressor até o fim do próximo turno do usuário. Ativa uma vez. O usuário perde 5 de Vida (não o derrota).
@@ -1855,11 +2365,181 @@ Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ru
 
 **Estrutura:** Suspensão partilhada
 
-**Passiva — Âncora Persistente:** No início do seu turno, restaura 4 de Vida.
+**Passiva — Âncora Persistente:** Se perdeu Vida para uma habilidade na rodada anterior, recupera 5 de Vida e ganha 1 carga no início do turno. Ativa uma vez por rodada.
 
 - **Pulso Suspenso** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Com 3 cargas, vira Fôlego Emprestado: gaste a reserva para recuperar um aliado ou use a descarga ofensiva.
 - **Fôlego Emprestado** [variação] (1 Graça + 1 Éter; recarga 0T): Restaura 25 de Vida. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Consome todas as cargas.
 - **Ancorar o Fôlego** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. O usuário perde 5 de Vida (não o derrota).
 - **Soltar a Âncora** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Suspensão Absoluta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Nilo — Manipulador de Essência
+
+**Variação:** Nilo absorve Essências ao gastar recursos; alterna entre roubo, guarda e descarga. · **Essência:** Graça
+
+**Outros arquétipos:** Gerador de Essência, Gastador de Essência
+
+Absorção sem escolha
+
+**Estrutura:** Nilo absorve Essências ao gastar recursos; alterna entre roubo, guarda e descarga.
+
+**Passiva — Receptáculo Aberto:** A primeira vez por rodada que Nilo gasta Essência, gera 1 Essência de sua afinidade.
+
+- **Sucção de Éter** (1 Graça; recarga 0T): Causa 10 de dano espiritual a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.
+- **Recipiente Rachado** (1 Graça + 1 Coringa; recarga 0T): Concede 9 de Defesa destrutível. Ganha 1 carga (máx. 3).
+- **Descarga Indócil** (1 Graça + 1 Éter; recarga 0T): Causa 16 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga.
+- **Pele do Limbo** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Nilo, o Prefácio — Gerador de Essência
+
+**Variação:** As primeiras ações de Nilo marcam a rota e alimentam a próxima escolha. · **Essência:** Éter
+
+**Outros arquétipos:** Preparador de Marcas
+
+A primeira palavra
+
+**Estrutura:** As primeiras ações de Nilo marcam a rota e alimentam a próxima escolha.
+
+**Passiva — Primeira Centelha:** O primeiro golpe ofensivo de Nilo em cada combate gera 1 Éter.
+
+- **Palavra Inicial** (1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
+- **Frase de Passagem** (1 Éter + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +7 dano; consome a preparação.
+- **Margem Reescrita** (2 Éter; recarga 0T): Concede 8 de Defesa destrutível. Gera 1 Essência aleatória para a reserva da equipe.
+- **Pausa entre Linhas** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Nilo, o Epílogo — Berserker
+
+**Variação:** A agressão sofrida vira carga e permite devolver a pressão sem apagar o custo. · **Essência:** Cinza
+
+**Outros arquétipos:** —
+
+O fim que ainda responde
+
+**Estrutura:** A agressão sofrida vira carga e permite devolver a pressão sem apagar o custo.
+
+**Passiva — Depois do Impacto:** Uma vez por rodada, depois de perder Vida para uma habilidade, Nilo ganha 1 carga e recupera 4 de Vida.
+
+- **Última Nota** (1 Cinza; recarga 0T): Causa 8 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos.
+- **Fôlego Recolhido** (1 Cinza + 1 Coringa; recarga 0T): Restaura 8 de Vida. Concede 8 de Defesa destrutível.
+- **Ponto sem Retorno** (1 Cinza + 1 Éter; recarga 0T): Causa 18 de dano perfurante a um inimigo. A cada 25 de Vida perdida pelo usuário: +3 de dano (máx. +9).
+- **Fecho Incompleto** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### O Eco de Nilo — Manipulador de Essência
+
+**Variação:** O Eco explora alvos preparados e devolve parte da Essência que atravessou Nilo. · **Essência:** Éter
+
+**Outros arquétipos:** Quebra-Guarda, Interditor
+
+Devolver o que foi tomado
+
+**Estrutura:** O Eco explora alvos preparados e devolve parte da Essência que atravessou Nilo.
+
+**Passiva — Ressonância Devolvida:** Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga.
+
+- **Réplica Instável** (1 Éter; recarga 0T): Causa 12 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
+- **Roubo de Contorno** (1 Éter + 1 Coringa; recarga 0T): Causa 11 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 12 de Defesa antes do dano.
+- **Pulso Repetido** (2 Éter; recarga 0T): Causa 17 de dano espiritual a um inimigo. Se o alvo está Exposto: +8 dano.
+- **Forma de Retorno** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Kael — Gerador de Essência
+
+**Variação:** Kael abre uma brecha, prepara a execução e aceita a Ruptura como preço. · **Essência:** Ruptura
+
+**Outros arquétipos:** Preparador de Marcas
+
+Marca, alcance e consequência
+
+**Estrutura:** Kael abre uma brecha, prepara a execução e aceita a Ruptura como preço.
+
+**Passiva — Culpa que Alimenta:** Uma vez por rodada, ferir um alvo com a Marca de Kael gera 1 Ruptura e 1 carga.
+
+- **Dever Mal Cumprido** (1 Ruptura; recarga 0T): Causa 13 de dano físico a um inimigo. Marca o alvo por 2 turnos.
+- **Passo do Executor** (1 Ruptura + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 dano; consome a preparação.
+- **Preço da Ordem** (1 Ruptura + 1 Éter; recarga 0T): Causa 21 de dano físico a um inimigo. O usuário perde 5 de Vida (não o derrota).
+- **Ajoelhar não é Ceder** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Kael, o Quebrado — Gerador de Essência
+
+**Variação:** Kael prepara respostas e transforma uma interrupção inimiga em carga. · **Essência:** Ruptura
+
+**Outros arquétipos:** Interditor, Retaliador
+
+Resistir ao próprio golpe
+
+**Estrutura:** Kael prepara respostas e transforma uma interrupção inimiga em carga.
+
+**Passiva — Resposta à Ruptura:** Uma vez por rodada, ativar um Contra-ataque gera 1 Ruptura e 1 carga.
+
+- **Guarda Estilhaçada** (1 Ruptura; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 12 de dano. Dura 1 turno.
+- **Interrupção Tardia** (1 Ruptura + 1 Coringa; recarga 1T): Causa 12 de dano perfurante a um inimigo. Atordoa por 1 turno.
+- **Punho sem Ordem** (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. Consome as cargas: +3 de dano por carga.
+- **Fragmento de Escudo** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Kael, o Filhote de Ferro — Baluarte
+
+**Variação:** Com pouca Vida, Kael sustenta a linha e compra tempo para o trio. · **Essência:** Graça
+
+**Outros arquétipos:** Pressionador de Área
+
+Ficar de pé quando ninguém pede
+
+**Estrutura:** Com pouca Vida, Kael sustenta a linha e compra tempo para o trio.
+
+**Passiva — Último de Pé:** Com 50 de Vida ou menos, Kael recebe 5 de Defesa no início do próprio turno, uma vez por rodada.
+
+- **Pequeno Baluarte** (1 Graça; recarga 0T): Concede 12 de Defesa destrutível. Reduz em 4 o dano recebido por 1 turno.
+- **Garra de Ferro** (1 Graça + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Promessa de Aço** (1 Graça + 1 Éter; recarga 0T): Concede 7 de Defesa destrutível ao trio. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.
+- **Abrigo de Ferro** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Eiremir — Transmutador de Essência
+
+**Variação:** Eiremir marca o fluxo e converte a energia absorvida em Ruptura. · **Essência:** Ruptura
+
+**Outros arquétipos:** Gerador de Essência, Preparador de Marcas
+
+Devolver a Essência recebida
+
+**Estrutura:** Eiremir marca o fluxo e converte a energia absorvida em Ruptura.
+
+**Passiva — Reflexo de Essência:** Uma vez por rodada, ferir um alvo com a Marca própria gera 1 Ruptura.
+
+- **Fenda que Observa** (1 Ruptura; recarga 0T): Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
+- **Fluxo Reverso** (1 Ruptura + 1 Coringa; recarga 0T): Causa 12 de dano perfurante a um inimigo. Converte 1 um tipo disponível em Ruptura na reserva da equipe.
+- **Ressonância Impossível** (1 Ruptura + 1 Éter; recarga 0T): Causa 17 de dano espiritual a um inimigo. Se o alvo tem uma marca sua: +8 dano; consome a preparação.
+- **Reflexo de Limbo** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Eiremir, o Espelho Partido — Gerador de Essência
+
+**Variação:** Quando Eiremir é ferido, a fenda devolve carga e Ruptura ao trio. · **Essência:** Ruptura
+
+**Outros arquétipos:** Retaliador
+
+Devolver a ruptura
+
+**Estrutura:** Quando Eiremir é ferido, a fenda devolve carga e Ruptura ao trio.
+
+**Passiva — Estilhaço Reativo:** Uma vez por rodada, depois de perder Vida para uma habilidade, Eiremir ganha 1 carga e gera 1 Ruptura.
+
+- **Estilhaço de Retorno** (1 Ruptura; recarga 0T): Causa 13 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Espelho de Correntes** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 14 de dano. Dura 1 turno. Ao ativar, gera 1 Ruptura. Ao ativar, expõe o agressor até o fim do próximo turno.
+- **Ruptura Recursiva** (1 Ruptura + 1 Éter; recarga 0T): Causa 19 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga.
+- **Caco Invulnerável** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+
+### Icarus — Interditor
+
+**Variação:** Icarus usa a própria ruptura como arma e espalha o risco para o trio inimigo. · **Essência:** Ruptura
+
+**Outros arquétipos:** Pressionador de Área, Gerador de Essência
+
+Tocar o proibido e arrastar outros
+
+**Estrutura:** Icarus usa a própria ruptura como arma e espalha o risco para o trio inimigo.
+
+**Passiva — Queda Compartilhada:** Uma vez por rodada, depois de perder Vida para uma habilidade, Icarus gera 1 Ruptura e causa 4 de dano de aflição ao agressor.
+
+- **Asa Fraturada** (1 Ruptura; recarga 0T): Causa 13 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
+- **Sol Proibido** (1 Ruptura + 1 Coringa; recarga 0T): Causa 16 de dano espiritual a um inimigo. Atordoa por 1 turno. O usuário perde 4 de Vida (não o derrota).
+- **Fenda que Arrasta** (1 Ruptura + 1 Éter; recarga 0T): Causa 12 de dano de aflição a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.
+- **Altitude Impossível** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 

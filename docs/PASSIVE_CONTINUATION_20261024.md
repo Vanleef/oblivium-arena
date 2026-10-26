@@ -1,8 +1,16 @@
 # Continuação das passivas e artes — 24/10/2026
 
+## Estado atual — 25/10/2026
+
+A revisão das passivas do elenco original está completa: **100 de 100** têm gatilho próprio ou recuperação vinculada ao tipo de dano. Esta etapa fechou as 29 restantes — 21 dos Elos do Paraíso e 8 do Limbo. Vinte e sete recompensas estão limitadas a uma ativação por rodada; as duas passivas de primeiro acerto são uma vez por combate.
+
+As regras estão em `src/passive-revisions.js`, com traduções em `src/passive-english.js`. A revisão preserva os quatro espaços de habilidade e os custos existentes. O classificador de arquétipos mantém as categorias originais.
+
+Commit de implementação: `27493bb`.
+
 ## Continuação — Carne e Vazio
 
-Oito personagens receberam passivas próprias e os 12 integrantes de Carne e Vazio agora têm gatilhos explícitos, com texto em inglês. A contagem auditada sobe de 64 para **71 de 100**; **29** ainda aguardam revisão. O Usurpador já era contado na etapa anterior por sua recuperação personalizada por tipo de dano; a troca por um gatilho de Marca torna a regra mais específica sem inflar a contagem.
+Oito personagens receberam passivas próprias e os 12 integrantes de Carne e Vazio agora têm gatilhos explícitos, com texto em inglês. Na etapa intermediária registrada em 24/10, a contagem chegou a **71 de 100**; as 29 restantes foram concluídas no Estado atual acima. O Usurpador já era contado na etapa anterior por sua recuperação personalizada por tipo de dano; a troca por um gatilho de Marca torna a regra mais específica sem inflar a contagem.
 
 | Personagem | Novo gatilho e recompensa, uma vez por rodada |
 | --- | --- |

@@ -18,7 +18,7 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 
 ## Afinidades e Essência
 
-- A quarta técnica das 100 almas concede Invulnerável por uma resposta adversária. Custa 1 Coringa; fica indisponível nos quatro turnos próprios seguintes.
+- A quarta técnica de cada personagem concede Invulnerável por uma resposta adversária. Custa 1 Coringa; fica indisponível nos quatro turnos próprios seguintes.
 - A reserva tem quatro Essências: Éter, Cinza, Graça e Ruptura. Coringa é um custo flexível; escolha uma dessas quatro Essências para cada unidade pedida.
 - A afinidade de cada alma é definida pelas técnicas, passivas e formas do kit. Personagens do mesmo reino podem usar tipos diferentes; o Elo não determina a afinidade.
 - Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo no começo de cada rodada. Cada tipo tem 20% de chance por sorteio e o saldo acumula sem limite. Com 5 unidades, escolha quais pips gastar e troque-os por 1 unidade de um tipo específico; a conversão reduz o saldo líquido em 4.
