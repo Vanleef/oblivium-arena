@@ -494,3 +494,9 @@ A migração soma agora dez dos 100 conjuntos base (60 de 600 sprites). Restam 9
 A Regente de Cinzas e O Herdeiro Cativo receberam 12 sprites ativos anime 2.5D, folhas-fonte e retratos de identidade arquivados. A arte preserva a distinção entre apoio individual, apoio de equipe, ataques focados e defesa pessoal. Nenhuma regra de combate mudou. Manifesto: ART_ANIME_FIRST_REWORK_20261026_05.json.
 
 A migração soma agora doze dos 100 conjuntos base (72 de 600 sprites). Restam 88 conjuntos base; formas alternativas e demais artes do jogo continuam pendentes.
+
+## Núcleo de Mentira I — 26/10/2026
+
+O Sussurro, A Máscara Dupla e O Tecelão de Mentiras receberam 18 sprites base ativos na nova linha. A arte alternativa Desatar a Trama do Tecelão também foi atualizada e mostra o conjurador com exatamente duas aliadas. A fonte antiga de A Máscara Dupla estava vazia; o retrato original foi arquivado e preservado como referência de identidade. Manifesto: ART_ANIME_FIRST_REWORK_20261026_06.json.
+
+A migração soma agora quinze dos 100 conjuntos base (90 de 600 sprites); restam 85 conjuntos base. As artes de formas corporais de A Máscara Dupla, demais formas alternativas e outras artes do jogo continuam pendentes.
