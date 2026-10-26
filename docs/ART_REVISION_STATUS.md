@@ -418,3 +418,12 @@ O Fraterno (O Elo Dourado), A Tecelã (A que Une) e O Altruísta (O Vínculo) re
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Cinquenta e cinco dos 100 conjuntos de auditoria estão concluídos; 42 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Criação: O Artífice, A Semente e O Cultivador — 26/10/2026
+
+O Artífice (O que Cria), A Semente e O Cultivador receberam 18 sprites WebP 512 × 512. As cenas diferenciam argila moldada, germinação e raízes cultivadas. Apoios individuais mostram um aliado e o apoio de grupo mostra três aliados ao todo. Ataques mostram um único inimigo; defesas pessoais mostram apenas o próprio personagem. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_CRIACAO_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Cinquenta e oito dos 100 conjuntos de auditoria estão concluídos; 39 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.

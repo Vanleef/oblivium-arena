@@ -113,3 +113,8 @@ A Lúcida (antes A Luz Nua), O Espelho e A Cartógrafa (antes A Cartógrafa da C
 ## Lote pictórico de União: O Fraterno, A Tecelã e O Altruísta — 26/10/2026
 
 Os três personagens receberam seis sprites cada, totalizando 18 imagens WebP 512 × 512. O Fraterno une elos físicos para fortalecer a cooperação; A Tecelã repara superfícies e preserva a autonomia das pessoas; O Altruísta usa ressonância consentida para proteger e responder ao agressor. As cenas de equipe mostram três aliados ao todo; apoio individual mostra uma aliada; ataques mostram um inimigo; defesas pessoais mostram apenas o usuário. Os custos e as regras permaneceram intactos. Manifesto: `ART_UNIAO_PAINTERLY_REWORK_20261026.json`.
+
+
+## Lote pictórico de Criação: O Artífice, A Semente e O Cultivador — 26/10/2026
+
+Os três personagens receberam seis sprites cada, totalizando 18 imagens WebP 512 × 512. O Artífice dá forma a aves pequenas de argila e ramificações cerâmicas; A Semente preserva a identidade de uma mulher adulta com baixa estatura; O Cultivador trabalha raízes ordenadas em terraços. Apoios mostram um aliado ou o trio completo conforme a habilidade; ataques mostram um inimigo e defesas pessoais mostram somente o usuário. As regras dos kits foram mantidas. Manifesto: `ART_CRIACAO_PAINTERLY_REWORK_20261026.json`.
