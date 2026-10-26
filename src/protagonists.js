@@ -270,74 +270,75 @@ const protagonistProfiles = [
     "color": "limbo",
     "symbol": "⟲",
     "affinity": "ruptura",
-    "role": "Ritualista da Dor",
-    "englishRole": "Ritualist of Pain",
-    "combo": "Marque, vincule e fira a si mesmo",
-    "englishCombo": "Mark, link, and wound yourself",
-    "mechanic": "A foice marca um alvo, o ritual vincula as Vidas e o próprio sacrifício transfere a ferida. Dano recebido pelo Eco também recai sobre o alvo vinculado.",
-    "englishMechanic": "The scythe marks a target, the ritual links their lives, and self-sacrifice transfers the wound. Damage taken by the Echo also falls on the linked target.",
-    "lore": "A corrupção consumiu o nome. O que resta absorveu Éter, Cinza, Graça e Ruptura e transforma essa mistura em um ritual: marca outra alma, partilha a dor e avança mesmo ferido.",
-    "englishLore": "Corruption consumed the name. What remains absorbed Aether, Ash, Grace, and Rupture and shaped them into a ritual: mark another soul, share its pain, and press on while wounded.",
+    "role": "Condutor de Ecos",
+    "englishRole": "Echo Conduit",
+    "combo": "Assimile um vestígio e reverbere a dor",
+    "englishCombo": "Absorb a trace and echo the pain",
+    "mechanic": "Na forma final, Nilo perde o nome e se torna O Eco sem Nome. Ele assimila traços das quatro Essências, grava a presença de um alvo e faz sua própria dor repercutir nele. Forçar essa ressonância amplia a resposta, mas consome a Vida que lhe resta.",
+    "englishMechanic": "In the final form, Nilo loses his name and becomes the Nameless Echo. It absorbs traces of all four Essences, records a target's presence, and makes its own pain reverberate through them. Forcing this resonance strengthens the response at the cost of the Echo's remaining Health.",
+    "lore": "A corrupção consumiu o nome. O que resta assimilou Éter, Cinza, Graça e Ruptura; as Essências permanecem em atrito dentro dele. Ao captar um vestígio de outra alma, o Eco faz a dor repercutir entre ambos e converte golpes diretos recebidos em cargas enquanto a ressonância dura.",
+    "englishLore": "Corruption consumed the name. What remains absorbed Aether, Ash, Grace, and Rupture; the Essences remain in tension within it. By catching a trace of another soul, the Echo makes pain reverberate between them and turns direct hits into charges while the resonance lasts.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
     "passive": {
-      "name": "Dor Partilhada",
-      "englishName": "Shared Pain",
+      "name": "Ressonância Dolorosa",
+      "englishName": "Painful Resonance",
       "trigger": "damaged",
       "requiresLifeLoss": true,
-      "requiresCurseLink": true,
+      "requiresEchoLink": true,
       "oncePerRound": true,
       "effect": {
         "gainCharge": 1
       },
-      "description": "Uma vez por rodada, receber dano direto enquanto o vínculo ritual está ativo gera 1 carga.",
-      "englishDescription": "Once per round, taking direct damage while the ritual link is active grants 1 charge."
+      "description": "Uma vez por rodada, receber dano direto enquanto a ressonância está ativa gera 1 carga.",
+      "englishDescription": "Once per round, taking direct damage while the resonance is active grants 1 charge."
     },
     "skills": [
       {
-        "name": "Marca da Foice",
-        "englishName": "Scythe Mark",
+        "name": "Vestígio Assimilado",
+        "englishName": "Absorbed Trace",
         "damage": 9,
         "costs": {
           "cinza": 1
         },
-        "damageType": "piercing",
-        "mark": "sangue",
+        "damageType": "energy",
+        "mark": "vestigio",
+        "markDescription": "Assimila um vestígio residual do alvo por 2 turnos.",
         "markTurns": 2,
-        "englishDescription": "Deals 9 piercing damage to one enemy and marks it for 2 turns, preparing the ritual."
+        "englishDescription": "Deals 9 spiritual damage to one enemy and absorbs a residual trace for 2 turns."
       },
       {
-        "name": "Círculo de Retorno",
-        "englishName": "Circle of Return",
+        "name": "Ressonância Inversa",
+        "englishName": "Inverted Resonance",
         "costs": {
           "essence": 1,
           "graca": 1
         },
-        "requiredMark": "sangue",
-        "curseLink": {
+        "requiredMark": "vestigio",
+        "echoLink": {
           "turns": 2
         },
-        "englishDescription": "Requires your Blood Mark and links the target's life to the Echo for 2 turns. Health damage taken by the Echo is transferred to that target as affliction."
+        "englishDescription": "Requires your Absorbed Trace and synchronizes the Echo with that target for 2 turns. Health damage the Echo loses reverberates on the target as affliction."
       },
       {
-        "name": "Autossacrifício",
-        "englishName": "Ritual Self-Wound",
+        "name": "Dissonância Projetada",
+        "englishName": "Projected Dissonance",
         "target": "self",
         "costs": {
           "ruptura": 1
         },
-        "requiresCurseLink": true,
+        "requiresEchoLink": true,
         "selfDamage": 12,
-        "curseStrike": true,
+        "resonantWound": true,
         "perChargeDamage": 3,
         "spendCharge": true,
-        "englishDescription": "Requires an active ritual link. The Echo loses 12 Health, plus 3 for each charge spent, and transfers that wound to the linked target as affliction."
+        "englishDescription": "Requires an active resonance. The Echo loses 12 Health, plus 3 for each charge spent, and projects that dissonance through the target as affliction."
       }
     ],
     "defense": {
-      "name": "Corpo Imortal",
-      "englishName": "Immortal Body",
+      "name": "Desfase Essencial",
+      "englishName": "Essence Slip",
       "shield": 4
     }
   },

@@ -275,9 +275,9 @@ export function describeAbility(a) {
   const parts = [];
   const victim = a.target === "all-enemies" ? "a todos os inimigos" : "a um inimigo";
   if(a.damage) parts.push(`Causa ${a.damage} de dano ${a.damageType === "affliction" ? "de aflição" : a.damageType === "piercing" ? "perfurante" : a.damageType === "energy" ? "espiritual" : "físico"} ${victim}.`);
-  if(a.mark) parts.push(`Marca o alvo por ${a.markTurns || 3} turnos.`);
-  if(a.curseLink) parts.push(`Vincula a Vida do usuário à do alvo por ${a.curseLink.turns || 2} turnos; a Vida perdida pelo usuário é transferida ao alvo como aflição.`);
-  if(a.requiresCurseLink) parts.push("Exige um vínculo ritual ativo.");
+  if(a.mark) parts.push(a.markDescription || `Marca o alvo por ${a.markTurns || 3} turnos.`);
+  if(a.echoLink) parts.push(`Sincroniza a Essência do usuário com a do alvo por ${a.echoLink.turns || 2} turnos; a Vida perdida pelo usuário repercute no alvo como aflição.`);
+  if(a.requiresEchoLink) parts.push("Exige uma ressonância ativa com o alvo.");
   if(a.dot) parts.push(`${dotLabels[a.dot.tag]}: ${a.dot.damage} de dano de aflição por ${a.dot.turns} turnos.`);
   if(a.stun) parts.push(`Atordoa por ${a.stun} turno.`);
   if(a.weaken) parts.push(`Enfraquece por ${a.weaken} turno${a.weaken > 1 ? "s" : ""} do alvo: −10 de dano causado.`);
@@ -313,12 +313,12 @@ export function describeAbility(a) {
   const essenceNames={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Essência aleatória'};
   if(a.generateEssence)parts.push(`Gera ${a.generateEssence.amount||1} ${essenceNames[a.generateEssence.resource]||'Essência'} para a reserva da equipe.`);
   if(a.convertEssence){const source=a.convertEssence.from==='any'?'um tipo disponível':essenceNames[a.convertEssence.from]||'Essência';const target=a.convertEssence.to==='random'?'uma Essência aleatória de outro tipo':essenceNames[a.convertEssence.to]||'outro tipo de Essência';parts.push(`Converte ${a.convertEssence.amount||1} ${source} em ${target} na reserva da equipe.`);}
-  if(a.perChargeDamage&&!a.curseStrike) parts.push(`${a.spendCharge ? "Consome as cargas:" : "Por carga:"} +${a.perChargeDamage} de dano por carga.`);
+  if(a.perChargeDamage&&!a.resonantWound) parts.push(`${a.spendCharge ? "Consome as cargas:" : "Por carga:"} +${a.perChargeDamage} de dano por carga.`);
   if(a.perChargeHeal) parts.push(`Consome as cargas: +${a.perChargeHeal} de cura por carga${a.target === "team" ? " a cada aliado" : ""}.`);
   if(a.spendCharge&&!a.perChargeDamage&&!a.perChargeHeal) parts.push("Consome todas as cargas.");
   if(a.requiredMark) parts.push("Exige a marca desta preparação no alvo.");
   if(a.combo) parts.push(`Se ${conditionLabel(a.combo.condition)}: +${a.combo.bonusDamage || 0} dano${a.combo.stun ? " e Atordoa por 1 turno" : ""}${a.combo.consume ? "; consome a preparação" : ""}.`);
-  if(a.curseStrike) parts.push(`O usuário perde ${a.selfDamage} de Vida, mais ${a.perChargeDamage||0} por carga consumida; o vínculo transfere a mesma ferida ao alvo.`);
+  if(a.resonantWound) parts.push(`O usuário perde ${a.selfDamage} de Vida, mais ${a.perChargeDamage||0} por carga consumida; a dissonância repercute no alvo ressonante.`);
   else if(a.selfDamage) parts.push(`O usuário perde ${a.selfDamage} de Vida (não o derrota).`);
   if(a.invulnerable) parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.");
   return parts.join(" ");
