@@ -482,3 +482,9 @@ Restam 95 dos 100 conjuntos base e 570 sprites base; as formas alternativas e as
 A Mãe Rubra recebeu seis sprites anime 2.5D nas rotas ativas. Partilha da Mãe mostra uma única aliada; Berço de Sangue mostra exatamente três inimigos; Casulo Rubro protege somente a própria personagem. A identidade, o kit e as regras de combate foram preservados. Manifesto: ART_ANIME_FIRST_REWORK_20261026_03.json.
 
 Com este lote, seis dos 100 conjuntos base (36 dos 600 sprites base) seguem a nova linha. Restam 94 conjuntos base; as formas alternativas e demais artes do jogo também permanecem na migração.
+
+## Lote Coroa I — 26/10/2026
+
+O Soberano Quebrado, A Juíza de Ferro, O Trono Vazio e O Príncipe das Correntes receberam 24 sprites ativos anime 2.5D e pranchas-fonte arquivadas. Alvos, aliados, cenas de equipe e defesas pessoais foram conferidos contra os kits. Nenhuma regra de combate mudou. Manifesto: ART_ANIME_FIRST_REWORK_20261026_04.json.
+
+A migração soma agora dez dos 100 conjuntos base (60 de 600 sprites). Restam 90 conjuntos base; formas alternativas e demais artes do jogo seguem pendentes de revisão.
