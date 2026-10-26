@@ -445,3 +445,12 @@ O Descontínuo (O Passo Interrompido), A Cindida (A Linha Partida) e O Eco (O Ec
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta e três dos 100 conjuntos de auditoria estão concluídos; 34 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Coroa III: A Magistrada, O Suserano e O Príncipe — 26/10/2026
+
+Dezenove sprites WebP 512 × 512 foram integrados: retrato, passiva e quatro habilidades para cada personagem, mais a forma alternativa Apertar o Grilhão do Príncipe. A contagem dos alvos e aliados corresponde aos kits; não houve mudanças de combate. Manifesto: `ART_COROA_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta e seis dos 100 conjuntos de auditoria estão concluídos; 31 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.

@@ -1,0 +1,423 @@
+{
+  "title": "Lote pictórico de Coroa III — Magistrada, Suserano e Príncipe",
+  "date": "2026-10-26",
+  "world": "Inferno",
+  "elo": "Coroa",
+  "style": "Pintura digital pictórica matte com pinceladas visíveis, planos de cor pintados, sombras manuais e contornos expressivos; anime 2.5D com composição cinematográfica, sem acabamento fotográfico ou CGI polido.",
+  "gameplayChanged": false,
+  "identities": [
+    {
+      "characterId": "a-juiza-de-ferro",
+      "name": "A Magistrada",
+      "identity": "Magistrada infernal adulta de pele clara, bob curto prateado com uma trança estreita, olhos âmbar; máscara de ferro preta com fendas verticais, gola alta assimétrica de placas, robe oxblood sobre armadura de carvão e algema quebrada acorrentada ao antebraço. Tirânica e cruel.",
+      "setting": "Tribunal de basalto, cofres de provas vazios, grades de ferro e janelas estreitas cor de brasa."
+    },
+    {
+      "characterId": "o-trono-vazio",
+      "name": "O Suserano",
+      "identity": "Presença espectral sem rosto ou corpo humano comum: capuz negro vazio com fenda âmbar estreita, coroa prateada quebrada flutuante, manto vinho profundo, placas de ferro negro como espaldar e correntes finas de prata no peito. Nunca é uma cadeira literal; autoridade coerciva e maliciosa.",
+      "setting": "Salão imperial de basalto frio, arcadas vazias e planos arquitetônicos impossíveis no Inferno/Coroa."
+    },
+    {
+      "characterId": "o-principe-das-correntes",
+      "name": "O Príncipe",
+      "identity": "Jovem adulto de pele marrom, cachos pretos curtos e apertados, uma trança longa clara atrás da orelha, olhos âmbar-dourados e pequeno piercing prateado na sobrancelha. Atlético, casaco preto com forro vinho sobre camisa marfim e corrente pesada de ferro contínua atravessada nos ombros; postura cruel e arrogante.",
+      "setting": "Pontes molhadas de basalto, torres de vigia, pátio de moeda abandonado, cisterna dinástica e portões de ferro sob céu de cinzas."
+    }
+  ],
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/a-juiza-de-ferro/painterly-rework-20261026/portrait.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 66126,
+      "activeSha256": "031c3e489c7ec4f84cbe7853dc504440d5131a1adc62dfd26a1b0a7c6ee7038c",
+      "sourcePath": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 526858,
+      "sourceSha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 2
+      },
+      "scene": "Retrato em três quartos da Magistrada solitária sob a máscara, a gola de ferro e o manto oxblood.",
+      "camera": "Close em três quartos, câmera ligeiramente baixa.",
+      "targetCount": 0
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/a-juiza-de-ferro/painterly-rework-20261026/passive.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 64906,
+      "activeSha256": "ca98e900414bd974a928c09d966a4d208828cda54880668b6a93616ae0b4c149",
+      "sourcePath": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 526858,
+      "sourceSha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 2
+      },
+      "scene": "Ela mede a abertura no ombro de um único inimigo Exposto sem atacá-lo; nenhum outro prisioneiro aparece.",
+      "camera": "Plano lateral próximo, vítima em primeiro plano.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/a-juiza-de-ferro/painterly-rework-20261026/skill-impulso.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 81442,
+      "activeSha256": "b092f3bfbcd84f983667e28274bcad373e6137e0d319c86c9a9eb1bd79017c35",
+      "sourcePath": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 526858,
+      "sourceSha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 2
+      },
+      "scene": "A algema quebrada projeta contenção estreita de ferro sobre um inimigo.",
+      "camera": "Plano médio diagonal, corrente ligada à algema e ao alvo.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/a-juiza-de-ferro/painterly-rework-20261026/skill-tecnica.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 78678,
+      "activeSha256": "31ce72a79e7c86c0dd7b0b7ab0a7a2d523d395799866db4716d3928646dd298d",
+      "sourcePath": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 526858,
+      "sourceSha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 2
+      },
+      "scene": "Um inimigo perde a guarda e cai atordoado atrás de painéis de ferro que se fecham; alvo completo e claramente legível.",
+      "camera": "Câmera rente ao impacto, uma vítima.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/a-juiza-de-ferro/painterly-rework-20261026/skill-voto.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 72404,
+      "activeSha256": "7f02a907b0a8f09b37e3ac0ad1c1c314fcac84927c907023bf035dffd5d8f0df",
+      "sourcePath": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 526858,
+      "sourceSha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 2
+      },
+      "scene": "Raio angular perfura a abertura da armadura de um único alvo Exposto, sem gore.",
+      "camera": "Close diagonal sobre a abertura e o raio.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/a-juiza-de-ferro/painterly-rework-20261026/skill-despertar.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 67584,
+      "activeSha256": "ac6ff41593a71f464905fe8ea805ecef66f6f96da049fd8e0789b6ba54d75579",
+      "sourcePath": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 526858,
+      "sourceSha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 2
+      },
+      "scene": "Planos de ferro fecham uma sala defensiva ao redor apenas da Magistrada.",
+      "camera": "Plano frontal baixo; só ela no quadro.",
+      "targetCount": 0
+    },
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-trono-vazio/painterly-rework-20261026/portrait.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 82258,
+      "activeSha256": "a285dbed4923471b6d1de11e23732bef57cda51becc4ec35535464efbbc85f54",
+      "sourcePath": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 675658,
+      "sourceSha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 2
+      },
+      "scene": "O Suserano solitário: capuz vazio, fenda âmbar, coroa quebrada e manto vinho.",
+      "camera": "Retrato frontal fechado.",
+      "targetCount": 0
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-trono-vazio/painterly-rework-20261026/passive.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 96136,
+      "activeSha256": "c4d0d1a655d6a7907097f1feb16a9cace3a73a8997e9803564d9476ea900f5c4",
+      "sourcePath": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 675658,
+      "sourceSha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 2
+      },
+      "scene": "Fragmentos violetas e prateados assentam sobre o peito dele e formam sua guarda automática.",
+      "camera": "Plano médio central, ninguém mais.",
+      "targetCount": 0
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/o-trono-vazio/painterly-rework-20261026/skill-impulso.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 92458,
+      "activeSha256": "65a104e79d62e9034619c7e8e84706c483277c01c54e5b677fb5fac281546fd8",
+      "sourcePath": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 675658,
+      "sourceSha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 2
+      },
+      "scene": "Faixa estreita de ausência violeta interrompe a investida de um único inimigo.",
+      "camera": "Plano diagonal; dois personagens contáveis.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/o-trono-vazio/painterly-rework-20261026/skill-tecnica.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 102268,
+      "activeSha256": "8260c568bb5c5a1660e401837bf8a85dc744153a919ebc550de217c375bafa7d",
+      "sourcePath": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 675658,
+      "sourceSha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 2
+      },
+      "scene": "Exatamente três figuras: O Suserano protege um vassalo por corrente próxima enquanto um inimigo recebe o contra-golpe refletido. Sem figurantes.",
+      "camera": "Plano lateral largo; Suserano, um aliado e um inimigo.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/o-trono-vazio/painterly-rework-20261026/skill-voto.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 97142,
+      "activeSha256": "da2a6c8168f38862a9f6b6b760fe4a4162b05b08ac4457f766c7315476d9c2cc",
+      "sourcePath": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 675658,
+      "sourceSha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 2
+      },
+      "scene": "Exatamente três aliados no total: O Suserano e dois vassalos sob cobertura violeta; nenhum inimigo.",
+      "camera": "Plano frontal amplo e elevado, trio inteiro legível.",
+      "targetCount": 3
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/o-trono-vazio/painterly-rework-20261026/skill-despertar.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 87100,
+      "activeSha256": "08850400f569464c6aa84411ad6d65c90ca87a71aa624ad15d6198730d24585d",
+      "sourcePath": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 675658,
+      "sourceSha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 2
+      },
+      "scene": "Palácio impossível se dobra ao redor somente do Suserano; defesa pessoal.",
+      "camera": "Plano médio distante, apenas ele.",
+      "targetCount": 0
+    },
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/portrait.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 65422,
+      "activeSha256": "3e7f2a2ffc4a87c08dbdd49e0fe4a3ee3fce6f6b4e098480210cfd07fed0ba99",
+      "sourcePath": "art/source/o-principe-das-correntes-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 554474,
+      "sourceSha256": "9b096de50ba78ed0eaeb4314eaf581192d0503f2de57e2172af9631ba9180fce",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 2
+      },
+      "scene": "Retrato baixo em três quartos; rosto, trança clara, corrente de ombro e roupa nítidos.",
+      "camera": "Plano baixo em três quartos, busto.",
+      "targetCount": 0
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/passive.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 68044,
+      "activeSha256": "d5b7626a028fe954af3bc2385382ccef45140764ea8c6d45f5b5d3e57e041bcb",
+      "sourcePath": "art/source/o-principe-das-correntes-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 554474,
+      "sourceSha256": "9b096de50ba78ed0eaeb4314eaf581192d0503f2de57e2172af9631ba9180fce",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 2
+      },
+      "scene": "Uma vítima marcada por grilhão âmbar no pulso; marca correspondente brilha no pulso do Príncipe.",
+      "camera": "Sobre o ombro do Príncipe; uma vítima.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/skill-impulso.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 78556,
+      "activeSha256": "180fa87016737527f9dcce2793ab2748c12e7c8d5219495d8201784a49636a62",
+      "sourcePath": "art/source/o-principe-das-correntes-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 554474,
+      "sourceSha256": "9b096de50ba78ed0eaeb4314eaf581192d0503f2de57e2172af9631ba9180fce",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 2
+      },
+      "scene": "A mão fechada do Príncipe conecta uma corrente contínua ao antebraço de um único inimigo; um elo âmbar acende.",
+      "camera": "Ação lateral rente ao chão.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/skill-tecnica.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 80880,
+      "activeSha256": "94e2a5f74f1986f0bb44974d9d1e7a57a1108ca28f908fca8376de014b8d6dfd",
+      "sourcePath": "art/source/o-principe-arrasto-20261026.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceBytes": 424916,
+      "sourceSha256": "332d3e74de0780d711f0cb4f73f3b3aca4f8a7a8909db4fb5aa14e847e253f88",
+      "sourceCell": null,
+      "scene": "Ele firma os pés e arrasta um único inimigo pelo pátio; corrente contínua tensionada, braço armado da vítima cede, fundo vazio sem figurantes.",
+      "camera": "Plano diagonal baixo e próximo; dois corpos.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/skill-voto.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 86838,
+      "activeSha256": "974a8ae4f8c6a147b7af781df7b0e4097134cbe92676e947f7ca0ca23a418ccb",
+      "sourcePath": "art/source/o-principe-das-correntes-painterly-rework-20261026-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 554474,
+      "sourceSha256": "9b096de50ba78ed0eaeb4314eaf581192d0503f2de57e2172af9631ba9180fce",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 2
+      },
+      "scene": "Laços contínuos comprimem torso e braços de uma única vítima atordoada; corrente não toca o pescoço.",
+      "camera": "Plano largo na cisterna; uma vítima.",
+      "targetCount": 1
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/skill-despertar.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 64032,
+      "activeSha256": "fdfcb262f119e69417e026d4ab1fad2e0bb7b15a3309f463668fec251813e34b",
+      "sourcePath": "art/source/o-principe-corrente-exterior-20261026.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceBytes": 335620,
+      "sourceSha256": "f93e848cf1f7d2fbc113eb3bbd2be9909291052b30e797331718237bb7153ae5",
+      "sourceCell": null,
+      "scene": "O Príncipe sozinho desvia uma espada que entra pela borda do quadro usando sua própria corrente; sem corpo de atacante.",
+      "camera": "Close em três quartos, defesa pessoal.",
+      "targetCount": 0
+    },
+    {
+      "slot": "form-impulso-drag",
+      "activePath": "art/characters/o-principe-das-correntes/painterly-rework-20261026/skill-impulso-drag.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 82460,
+      "activeSha256": "5a1456436209aaefaec2354d6a2209333eb1679d427b359e529b5a80721a852e",
+      "sourcePath": "art/source/o-principe-apertar-grilhao-20261026.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceBytes": 422440,
+      "sourceSha256": "31c920d9d3d36aba1cce9df16584d96631e916cd5180f26b277ea6345dfaae74",
+      "sourceCell": null,
+      "scene": "O Príncipe puxa a mesma vítima marcada por uma corrente contínua ligada à mão, prendendo antebraço, torso e braços sem tocar o pescoço; a arma baixa e a vítima perde equilíbrio.",
+      "camera": "Ação diagonal próxima, dois personagens contáveis.",
+      "targetCount": 1,
+      "sourceRevision": "ilustração individual da forma Apertar o Grilhão"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "art/source/a-magistrada-painterly-rework-20261026-sheet.webp",
+      "dimensions": "1536x1024",
+      "bytes": 526858,
+      "sha256": "4442224875464a230770e5d9f6802a9b7516b6012868c13c6fe64b454e57925e"
+    },
+    {
+      "path": "art/source/o-suserano-painterly-rework-20261026-sheet.webp",
+      "dimensions": "1536x1024",
+      "bytes": 675658,
+      "sha256": "3817640c68c27bbde17e7afbdc7326a014cc05e4efda85748ddb3b0ece9c2383"
+    },
+    {
+      "path": "art/source/o-principe-das-correntes-painterly-rework-20261026-sheet.webp",
+      "dimensions": "1536x1024",
+      "bytes": 554474,
+      "sha256": "9b096de50ba78ed0eaeb4314eaf581192d0503f2de57e2172af9631ba9180fce"
+    },
+    {
+      "path": "art/source/o-principe-arrasto-20261026.webp",
+      "dimensions": "1254x1254",
+      "bytes": 424916,
+      "sha256": "332d3e74de0780d711f0cb4f73f3b3aca4f8a7a8909db4fb5aa14e847e253f88"
+    },
+    {
+      "path": "art/source/o-principe-corrente-exterior-20261026.webp",
+      "dimensions": "1254x1254",
+      "bytes": 335620,
+      "sha256": "f93e848cf1f7d2fbc113eb3bbd2be9909291052b30e797331718237bb7153ae5"
+    },
+    {
+      "path": "art/source/o-principe-apertar-grilhao-20261026.webp",
+      "dimensions": "1254x1254",
+      "bytes": 422440,
+      "sha256": "31c920d9d3d36aba1cce9df16584d96631e916cd5180f26b277ea6345dfaae74"
+    }
+  ],
+  "supersedes": [
+    "art/characters/a-juiza-de-ferro/style-reference-rework-20261025/*",
+    "art/characters/o-trono-vazio/style-reference-rework-20261025/*",
+    "art/characters/o-principe-das-correntes/style-reference-rework-20261025/*"
+  ]
+}

@@ -989,8 +989,13 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (['o-soberano-quebrado','a-juiza-de-ferro','o-trono-vazio'].includes(id)) {
+  if (id === 'o-soberano-quebrado') {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (['a-juiza-de-ferro','o-trono-vazio'].includes(id)) {
+    const base = `/art/characters/${id}/painterly-rework-20261026`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
@@ -1070,7 +1075,7 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-principe-das-correntes') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/painterly-rework-20261026`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       forms:{...art.forms,impulso:{...art.forms?.impulso,drag:`${base}/skill-impulso-drag.webp`}}};
