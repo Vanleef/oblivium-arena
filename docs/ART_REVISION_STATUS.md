@@ -409,3 +409,12 @@ Os três personagens receberam 18 sprites WebP 512 × 512. As cenas mantêm as i
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Cinquenta e dois dos 100 conjuntos de auditoria estão concluídos; 45 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de União: O Fraterno, A Tecelã e O Altruísta — 26/10/2026
+
+O Fraterno (O Elo Dourado), A Tecelã (A que Une) e O Altruísta (O Vínculo) receberam 18 sprites WebP 512 × 512. As cenas mantêm a cooperação entre aliados: apoios de grupo mostram três personagens ao todo, apoios individuais mostram uma aliada e defesas pessoais mostram apenas o usuário. Ataques individuais mostram um inimigo. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_UNIAO_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Cinquenta e cinco dos 100 conjuntos de auditoria estão concluídos; 42 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.

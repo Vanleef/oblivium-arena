@@ -108,3 +108,8 @@ O Alvorecer, antes chamado O Portador da Aurora, recebeu seis sprites ativos no 
 ## Lote pictórico de Verdade: A Lúcida, O Espelho e A Cartógrafa — 26/10/2026
 
 A Lúcida (antes A Luz Nua), O Espelho e A Cartógrafa (antes A Cartógrafa da Clareza) receberam seis sprites cada, totalizando 18 imagens WebP 512 × 512. A Lúcida expõe guardas e ilusões; O Espelho converte a agressão em retaliação e protege um aliado; a Cartógrafa revela rotas e ampara o trio. Ataques mostram um inimigo, a proteção de grupo mostra três aliados ao todo e as defesas pessoais mostram apenas o usuário. As identidades e os kits foram preservados. Manifesto: `ART_VERDADE_PAINTERLY_REWORK_20261026.json`.
+
+
+## Lote pictórico de União: O Fraterno, A Tecelã e O Altruísta — 26/10/2026
+
+Os três personagens receberam seis sprites cada, totalizando 18 imagens WebP 512 × 512. O Fraterno une elos físicos para fortalecer a cooperação; A Tecelã repara superfícies e preserva a autonomia das pessoas; O Altruísta usa ressonância consentida para proteger e responder ao agressor. As cenas de equipe mostram três aliados ao todo; apoio individual mostra uma aliada; ataques mostram um inimigo; defesas pessoais mostram apenas o usuário. Os custos e as regras permaneceram intactos. Manifesto: `ART_UNIAO_PAINTERLY_REWORK_20261026.json`.
