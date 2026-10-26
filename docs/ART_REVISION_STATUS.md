@@ -462,4 +462,9 @@ O Falso Profeta, O Corretor de Memórias e O Incendiário receberam 19 sprites p
 
 ## Estado atual da auditoria — 26/10/2026
 
-O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta e nove dos 100 conjuntos de auditoria estão concluídos; 28 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Setenta dos 100 conjuntos de auditoria estão concluídos; 27 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Correção pictórica de Chama — A Vingadora (A Pira Errante) — 26/10/2026
+
+A Vingadora recebeu seis cenas novas e a variação Revanche Ardente no conjunto pictórico 2.5D a óleo. Cerco Incandescente agora mostra três inimigos e a perda de suas defesas sem a mão em primeiro plano que causava a inconsistência. O retrato, a trança vermelho-laranja, o bracer direito e a lanterna de quadril preservam a identidade ativa. Manifesto: ART_CORRENTES_PAINTERLY_REWORK_20261026_ERRANTE.json.

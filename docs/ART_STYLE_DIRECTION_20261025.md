@@ -138,3 +138,10 @@ A Magistrada, O Suserano e O Príncipe receberam seis cenas cada, totalizando 18
 ## Lote pictórico de Mentira e Chama — O Falso Profeta, O Corretor e O Incendiário — 26/10/2026
 
 O Falso Profeta, O Corretor de Memórias e O Incendiário receberam 18 sprites principais e uma arte alternativa para Confissão do Falso Santo. As novas cenas preservam as identidades e os kits atuais: auréola segmentada, argola nasal e traje do Profeta; mão mecânica direita, mão esquerda natural e arquivo único do Corretor; cabelo cobre raspado de um lado, projetor único e chama negra com bordas alaranjadas do Incendiário. Os quadros usam locações e enquadramentos diferentes dentro de Mentira e Chama. Ataques focados mostram um inimigo; Fagulhas em Cadeia mostra exatamente três; passivas e defesas pessoais mostram apenas os alvos exigidos pelo efeito. Confissão mostra autocura e purificação, distinta da Bênção Falsa. Custos, alvos, efeitos, duração, recarga e regras permaneceram intactos. Manifesto: `ART_MENTIRA_CHAMA_PAINTERLY_REWORK_20261026.json`.
+
+
+## Revisões pictóricas — 26/10/2026
+
+A Vingadora (A Pira Errante) agora usa seis cenas em óleo 2.5D e a arte alternativa Revanche Ardente. Cerco Incandescente mostra exatamente três inimigos e remove o enquadramento de mão em primeiro plano; o jogo aponta para painterly-rework-20261026.
+
+O Impostor e O Falsário usam as imagens revisadas do lote X nos caminhos base, incluindo Confissão do Falso Santo e o quadro de Impulso do Falsário com reação de alvo, sem prótese entrando pelo limite do quadro. O lote anterior permanece preservado na pasta versionada. Manifestos: ART_CORRENTES_PAINTERLY_REWORK_20261026_10.json e ART_CORRENTES_PAINTERLY_REWORK_20261026_ERRANTE.json.

@@ -4,8 +4,8 @@
   "counts": {
     "roster": 100,
     "available": 100,
-    "revised": 48,
-    "existingPending": 52,
+    "revised": 49,
+    "existingPending": 51,
     "missing": 0
   },
   "revised": [
@@ -885,6 +885,54 @@
         "commit": "3aa953bb50b781e0f0a96e4d3bdaf6e803fc0e35",
         "path": "art/characters/o-incendiario/portrait.webp"
       }
+    },
+    {
+      "id": "a-pira-errante",
+      "source": "art/source/a-pira-errante-painterly-20261026-sheet.webp",
+      "assets": [
+        "art/characters/a-pira-errante/painterly-rework-20261026/portrait.webp",
+        "art/characters/a-pira-errante/painterly-rework-20261026/passive.webp",
+        "art/characters/a-pira-errante/painterly-rework-20261026/skill-impulso.webp",
+        "art/characters/a-pira-errante/painterly-rework-20261026/skill-tecnica.webp",
+        "art/characters/a-pira-errante/painterly-rework-20261026/skill-voto.webp",
+        "art/characters/a-pira-errante/painterly-rework-20261026/skill-despertar.webp"
+      ],
+      "alternativeAssets": [
+        "art/characters/a-pira-errante/painterly-rework-20261026/skill-impulso-reply.webp"
+      ],
+      "prompt": "Revisão pictórica 2.5D a óleo da identidade ativa de A Vingadora: pele morena, olhos âmbar, cabelo preto assimétrico com têmpora direita raspada, trança vermelho-laranja, manto e faixa carmesins, bracer de ferro direito rachado e lanterna-cage na anca esquerda. Seis cenas diversas com anatomia natural; Cerco Incandescente usa uma vista de efeito com exatamente três inimigos e sem mão em primeiro plano.",
+      "sceneReview": [
+        {
+          "slot": "portrait",
+          "action": "retrato em três quartos com trança, bracer e lanterna reconhecíveis",
+          "setting": "calçada de basalto ao anoitecer"
+        },
+        {
+          "slot": "passive",
+          "action": "brasa retorna do inimigo queimado e forma guarda curta",
+          "setting": "fundição em ruínas"
+        },
+        {
+          "slot": "impulso",
+          "action": "reação de um único alvo ao golpe físico e à queimadura",
+          "setting": "escadaria de pedra"
+        },
+        {
+          "slot": "tecnica",
+          "action": "guarda pessoal rebate uma lâmina e devolve um contra-arco",
+          "setting": "arcada de ferro"
+        },
+        {
+          "slot": "voto",
+          "action": "exatamente três inimigos perdem a proteção por faixas compactas de fogo; sem mão em primeiro plano",
+          "setting": "arena de basalto vista de cima"
+        },
+        {
+          "slot": "despertar",
+          "action": "evasão pessoal com lança atravessando o véu de cinzas vazio",
+          "setting": "túnel de cinzas"
+        }
+      ]
     }
   ],
   "inventory": [
@@ -1180,7 +1228,7 @@
       "id": "a-pira-errante",
       "name": "A Pira Errante",
       "artAvailable": true,
-      "styleReview": "pending_existing_art"
+      "styleReview": "revised_2026_10_26"
     },
     {
       "id": "o-coracao-em-furia",
@@ -1488,5 +1536,6 @@
       "artAvailable": true,
       "styleReview": "revised_2026_10_22"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-26"
 }
