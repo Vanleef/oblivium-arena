@@ -8,6 +8,7 @@ const continuationArt = new Set(['a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
 const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-incendiario']);
+const animeFirstRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','a-pira-errante']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
 const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],['a-pele-alheia','painterly-rework-20261026-animal'],['o-desejo-quebrado','painterly-rework-20261026'],['a-marionetista-de-nervos','painterly-rework-20261026'],['o-espelho-carnal','painterly-rework-20261026'],['a-costureira','painterly-rework-20261026']]);
@@ -932,6 +933,15 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (animeFirstRework20261026Art.has(id)) {
+    const base = `/art/characters/${id}/anime-first-rework-20261026`;
+    const forms = {...(art.forms || {})};
+    if (id === 'o-falso-profeta') forms.tecnica = {...forms.tecnica,confess:`${base}/skill-tecnica-confess.webp`};
+    if (id === 'a-pira-errante') forms.impulso = {...forms.impulso,reply:`${base}/skill-impulso-reply.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
+  }
   if (id === 'a-pira-errante') {
     const base = `/art/characters/${id}/painterly-rework-20261026`;
     const forms = {...(art.forms || {})};

@@ -145,3 +145,15 @@ O Falso Profeta, O Corretor de Memórias e O Incendiário receberam 18 sprites p
 A Vingadora (A Pira Errante) agora usa seis cenas em óleo 2.5D e a arte alternativa Revanche Ardente. Cerco Incandescente mostra exatamente três inimigos e remove o enquadramento de mão em primeiro plano; o jogo aponta para painterly-rework-20261026.
 
 O Impostor e O Falsário usam as imagens revisadas do lote X nos caminhos base, incluindo Confissão do Falso Santo e o quadro de Impulso do Falsário com reação de alvo, sem prótese entrando pelo limite do quadro. O lote anterior permanece preservado na pasta versionada. Manifestos: ART_CORRENTES_PAINTERLY_REWORK_20261026_10.json e ART_CORRENTES_PAINTERLY_REWORK_20261026_ERRANTE.json.
+
+## Prioridade atual: anime primeiro, pintura como acabamento — 26/10/2026
+
+A partir desta revisão, a leitura de animação anime é a prioridade. A pintura a óleo digital, o volume 2.5D, a luz cinematográfica e a atmosfera permanecem como acabamento e profundidade, sem puxar rostos, pele ou proporções para o realismo.
+
+- Usar proporções faciais claramente estilizadas, olhos e sobrancelhas expressivos, silhuetas fortes e contornos gráficos irregulares; simplificar nariz, boca e planos do rosto como desenho de animação.
+- Construir sombras em planos gráficos de cor e manter o desenho legível como um quadro de anime; reservar pinceladas, impasto e variação de tinta para roupa, cabelo, pele, materiais e fundo.
+- Manter cores ricas, contraste dramático, profundidade tonal e energia gráfica inspirada nas referências já definidas. A textura pictórica deve coexistir com formas de anime bem definidas.
+- Evitar pele fotográfica, poros, anatomia facial realista, proporções naturalistas, iluminação de fotografia e acabamento 3D. O resultado deve parecer anime 2.5D pintado à mão.
+- Preservar a variedade de composição das habilidades e a auditoria de mãos, dedos, articulações e continuidade dos membros descritas acima.
+
+Esta prioridade anime-first foi aplicada às revisões de O Falso Profeta, O Corretor de Memórias e A Pira Errante em `anime-first-rework-20261026`.
