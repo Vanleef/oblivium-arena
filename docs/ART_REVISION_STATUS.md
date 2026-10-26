@@ -488,3 +488,9 @@ Com este lote, seis dos 100 conjuntos base (36 dos 600 sprites base) seguem a no
 O Soberano Quebrado, A Juíza de Ferro, O Trono Vazio e O Príncipe das Correntes receberam 24 sprites ativos anime 2.5D e pranchas-fonte arquivadas. Alvos, aliados, cenas de equipe e defesas pessoais foram conferidos contra os kits. Nenhuma regra de combate mudou. Manifesto: ART_ANIME_FIRST_REWORK_20261026_04.json.
 
 A migração soma agora dez dos 100 conjuntos base (60 de 600 sprites). Restam 90 conjuntos base; formas alternativas e demais artes do jogo seguem pendentes de revisão.
+
+## Lote Coroa II — 26/10/2026
+
+A Regente de Cinzas e O Herdeiro Cativo receberam 12 sprites ativos anime 2.5D, folhas-fonte e retratos de identidade arquivados. A arte preserva a distinção entre apoio individual, apoio de equipe, ataques focados e defesa pessoal. Nenhuma regra de combate mudou. Manifesto: ART_ANIME_FIRST_REWORK_20261026_05.json.
+
+A migração soma agora doze dos 100 conjuntos base (72 de 600 sprites). Restam 88 conjuntos base; formas alternativas e demais artes do jogo continuam pendentes.
