@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-26",
+  "revision": "20261026-lot7",
+  "title": "Lote pictórico de Correntes Quebradas VII: A Magistrada, O Suserano e O Príncipe",
+  "generator": "image_gen.imagegen (ferramenta integrada)",
+  "style": "Pintura a óleo com pinceladas e impasto visíveis, formas de anime 2.5D, iluminação contrastada, contornos expressivos e sobreposição de textura gráfica e pictórica. Arcane e Spider-Verse como referências de atmosfera e energia; sem aparência flat, fotorrealismo ou render 3D.",
+  "counts": {
+    "characters": 3,
+    "mainScenes": 18,
+    "sourceSheets": 3,
+    "gameplayChanged": false
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cellDimensions": "512x512",
+    "cropMethod": "Recorte central de 500x500 px com margem de 6 px por célula, ampliado para 512x512; RGB WebP quality 91."
+  },
+  "characters": [
+    {
+      "id": "a-juiza-de-ferro",
+      "name": "A Magistrada",
+      "aliases": [
+        "A Juíza de Ferro"
+      ],
+      "activeDirectory": "art/characters/a-juiza-de-ferro",
+      "sourceSheet": "art/source/a-juiza-de-ferro-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {
+          "activePath": "/art/characters/a-juiza-de-ferro/portrait.webp",
+          "slot": "portrait",
+          "scene": "Close baixo da Magistrada de cabelo branco, olhos âmbar e máscara segmentada de ferro sob o teto quebrado do tribunal.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-juiza-de-ferro/passive.webp",
+          "slot": "passive",
+          "scene": "Close da abertura exposta na guarda de um inimigo; o perfil mascarado da Magistrada se reflete no metal sem desferir golpe.",
+          "targetCount": "1 inimigo Exposto",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-juiza-de-ferro/skill-impulso.webp",
+          "slot": "skill-impulso",
+          "scene": "Um selo angular de ferro racha o talismã de apoio na couraça de um único alvo e revela uma costura da armadura.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-juiza-de-ferro/skill-tecnica.webp",
+          "slot": "skill-tecnica",
+          "scene": "A marreta atinge o escudo translúcido de um único inimigo; a defesa se desfaz primeiro e o alvo cambaleia atordoado.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-juiza-de-ferro/skill-voto.webp",
+          "slot": "skill-voto",
+          "scene": "Uma lâmina estreita de força de ferro atravessa a guarda já exposta de um único inimigo, com faíscas brancas no metal e sem gore.",
+          "targetCount": "1 inimigo Exposto",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-juiza-de-ferro/skill-despertar.webp",
+          "slot": "skill-despertar",
+          "scene": "A Magistrada fica sozinha entre planos finos de ferro enquanto um projétil se achata do lado de fora.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "O Suserano",
+      "aliases": [
+        "O Trono Vazio"
+      ],
+      "activeDirectory": "art/characters/o-trono-vazio",
+      "sourceSheet": "art/source/o-trono-vazio-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {
+          "activePath": "/art/characters/o-trono-vazio/portrait.webp",
+          "slot": "portrait",
+          "scene": "O vulto espectral de manto negro e vinho, coroa suspensa, um único olho âmbar e correntes finas na sacada do observatório imperial.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-trono-vazio/passive.webp",
+          "slot": "passive",
+          "scene": "Planos retangulares violetas se acumulam ao redor do próprio torso do Suserano na galeria abandonada.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-trono-vazio/skill-impulso.webp",
+          "slot": "skill-impulso",
+          "scene": "Uma linha violeta dobra a lâmina de um único espadachim inimigo sobre o aqueduto em ruínas e sela seu ataque.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-trono-vazio/skill-tecnica.webp",
+          "slot": "skill-tecnica",
+          "scene": "Exatamente três figuras: o Suserano, um aliado sob proteção violeta e um atacante cujo golpe retorna na própria direção.",
+          "targetCount": "1 aliado e 1 atacante",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-trono-vazio/skill-voto.webp",
+          "slot": "skill-voto",
+          "scene": "Vista alta de um trio aliado: o Suserano e dois companheiros recebem proteções individuais violetas, sem inimigos.",
+          "targetCount": "trio aliado: Suserano + 2 aliados",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-trono-vazio/skill-despertar.webp",
+          "slot": "skill-despertar",
+          "scene": "O Suserano entra numa fenda arquitetônica violeta e deixa um único projétil atravessar seu afterimage.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "O Príncipe",
+      "aliases": [
+        "O Príncipe das Correntes"
+      ],
+      "activeDirectory": "art/characters/o-principe-das-correntes",
+      "sourceSheet": "art/source/o-principe-das-correntes-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {
+          "activePath": "/art/characters/o-principe-das-correntes/portrait.webp",
+          "slot": "portrait",
+          "scene": "Retrato do jovem de cachos negros, mecha trançada clara, olhos âmbar e casaco escuro com corrente de ferro contínua sobre o ombro.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-principe-das-correntes/passive.webp",
+          "slot": "passive",
+          "scene": "Um único inimigo já marcado exibe um grilhão rubro-âmbar no pulso enquanto um elo herdado do Príncipe cintila.",
+          "targetCount": "1 inimigo marcado",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-principe-das-correntes/skill-impulso.webp",
+          "slot": "skill-impulso",
+          "scene": "Uma corrente contínua conecta a mão fechada do Príncipe ao antebraço de um único inimigo; um elo âmbar se acende como carga.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-principe-das-correntes/skill-tecnica.webp",
+          "slot": "skill-tecnica",
+          "scene": "Vista alta do Príncipe puxando o grilhão e arrastando um único inimigo de lado pelo pátio, com o braço armado enfraquecido.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-principe-das-correntes/skill-voto.webp",
+          "slot": "skill-voto",
+          "scene": "Três laços carregados da mesma corrente se fecham em torno de um único inimigo atordoado, consumindo os elos âmbar.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-principe-das-correntes/skill-despertar.webp",
+          "slot": "skill-despertar",
+          "scene": "O Príncipe desvia uma espada contra o próprio corpo com um arco compacto de sua corrente externa.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    }
+  ]
+}
