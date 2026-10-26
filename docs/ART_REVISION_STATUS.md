@@ -400,3 +400,12 @@ O Alvorecer (O Portador da Aurora) recebeu seis sprites WebP 512 × 512, sob as 
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Quarenta e nove dos 100 conjuntos de auditoria estão concluídos; 48 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Verdade: A Lúcida, O Espelho e A Cartógrafa — 26/10/2026
+
+Os três personagens receberam 18 sprites WebP 512 × 512. As cenas mantêm as identidades atuais e representam os kits: ataques individuais contra um inimigo, apoio de O Espelho a um aliado, proteção da Cartógrafa para o trio completo e defesas pessoais sem agressor visível. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou. Manifesto: `ART_VERDADE_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Cinquenta e dois dos 100 conjuntos de auditoria estão concluídos; 45 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
