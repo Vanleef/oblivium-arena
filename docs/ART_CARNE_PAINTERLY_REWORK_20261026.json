@@ -80,6 +80,16 @@
         "Violação da Forma",
         "Forma Intangível"
       ]
+    },
+    {
+      "path": "pma-art-output/art/source/a-pele-alheia-impacto-carapaca-variant-alt-20261026.webp",
+      "title": "A Metamorfa — variação de Impacto da Carapaça",
+      "dimensions": "1254x1254",
+      "bytes": 521768,
+      "sha256": "48009d652b55572cfc1a1204211fea34ae5b62f05769fd091283361330121931",
+      "cellOrder": [
+        "Impacto da Carapaça — Carapaça Usurpada"
+      ]
     }
   ],
   "characters": [
@@ -370,12 +380,12 @@
     },
     {
       "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-impulso-shell-alt.webp",
-      "scene": "Impacto da Carapaça contra um inimigo.",
+      "scene": "Impacto da Carapaça em tomada lateral: a Metamorfa colide contra a guarda de um inimigo; rosto e esforço visíveis.",
       "targetCount": "1",
       "width": 512,
       "height": 512,
-      "bytes": 99444,
-      "sha256": "b215eb9b3d6bd0596557790c39951b46bf68280125711961014e2329b3ed47c9"
+      "bytes": 101234,
+      "sha256": "170bc839d4936c759eb07720964419e776a9e654d342da8b0eeb2b6fbe82c880"
     },
     {
       "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-tecnica-shell-alt.webp",
@@ -396,5 +406,5 @@
       "sha256": "d07450a39087a215634fcf2522849b54f4ebaae728bae4948ca1fd3bc12a6fb4"
     }
   ],
-  "visualReview": "As quatro pranchas e oito variações quadradas foram revisadas visualmente quanto a identidade, silhueta, acabamento pictórico, anatomia e quantidade de alvos. Os recortes foram validados em 512x512 WebP RGB. Kits, alvos e regras permanecem sem mudanças."
+  "visualReview": "Revisão visual posterior: identidade e legibilidade de ação preservadas; o lote ainda tem quadros com acabamento polido e expressões repetidas em relação às âncoras aprovadas. A variação alternativa de Impacto da Carapaça foi refeita em tomada lateral, com a reação de um único alvo e expressão de esforço. Recortes finais 512x512 WebP RGB; kits, alvos e regras não mudaram."
 }
