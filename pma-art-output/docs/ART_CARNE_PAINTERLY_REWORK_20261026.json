@@ -1,0 +1,411 @@
+{
+  "date": "2026-10-26",
+  "title": "Lote pictórico de Carne: A Metamorfa e O Profanador",
+  "generator": "image_gen.imagegen (ferramenta integrada)",
+  "style": "Pintura matte digital com pinceladas visíveis, camadas de tinta, contornos desenhados à mão, blocos gráficos de cor, semitom moderado, volumes tridimensionais construídos por marcas 2D, luz cinematográfica contida e atuação natural.",
+  "counts": {
+    "characters": 2,
+    "metamorfaMainScenes": 18,
+    "profanadorMainScenes": 6,
+    "alternateFormVariants": 8,
+    "sourceSheets": 4,
+    "gameplayChanged": false
+  },
+  "revisionStatus": "Historical art pass. A Metamorfa's 18 main scenes and eight alternate variants are archived and superseded by ART_METAMORFA_ANIMAL_FORMS_20261026.json. O Profanador remains active in this manifest.",
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cellDimensions": "512x512",
+    "cropMethod": "Recorte central de 500x500 px com margem de 6 px por célula, ampliado para 512x512; RGB WebP quality 91."
+  },
+  "styleReferencePaths": [
+    "art/characters/o-desejo-quebrado/portrait.webp (referência apenas da identidade do Profanador)"
+  ],
+  "sourceFiles": [
+    {
+      "path": "pma-art-output/art/source/a-pele-alheia-painterly-rework-20261026-sheet.webp",
+      "title": "A Metamorfa — forma original",
+      "dimensions": "1536x1024",
+      "bytes": 447982,
+      "sha256": "92b69aa4b2988691d973595febd273157cf81263e553a315436101d18b8f586d",
+      "cellOrder": [
+        "Retrato",
+        "Adaptação Predatória",
+        "Gume Mutável",
+        "Pele Usurpada",
+        "Carapaça Usurpada",
+        "Corpo Substituto"
+      ]
+    },
+    {
+      "path": "pma-art-output/art/source/a-pele-alheia-painterly-rework-20261026-skin-sheet.webp",
+      "title": "A Metamorfa — Pele Usurpada",
+      "dimensions": "1536x1024",
+      "bytes": 532444,
+      "sha256": "c5c142eb35c64851c2a4f137cc081aa6656b2f28d03d733d61f6f1571311e10d",
+      "cellOrder": [
+        "Retrato",
+        "Adaptação Predatória",
+        "Gume Transfigurado",
+        "Instinto Usurpado",
+        "Descartar o Molde",
+        "Corpo Substituto"
+      ]
+    },
+    {
+      "path": "pma-art-output/art/source/a-pele-alheia-painterly-rework-20261026-shell-sheet.webp",
+      "title": "A Metamorfa — Carapaça Usurpada",
+      "dimensions": "1536x1024",
+      "bytes": 560860,
+      "sha256": "96861de16505d9c3b91d17c90ff4d2efd5bd733f039aee829f2a26003576b622",
+      "cellOrder": [
+        "Retrato",
+        "Adaptação Predatória",
+        "Impacto da Carapaça",
+        "Espinhos Usurpados",
+        "Descamar a Armadura",
+        "Corpo Substituto"
+      ]
+    },
+    {
+      "path": "pma-art-output/art/source/o-desejo-quebrado-painterly-rework-20261026-sheet.webp",
+      "title": "O Profanador",
+      "dimensions": "1536x1024",
+      "bytes": 516210,
+      "sha256": "ae8a0ee153095bfc24a111f0f0e81ed6b6ce6e4b980dd4a9d70471d3a73000f0",
+      "cellOrder": [
+        "Retrato",
+        "Avidez Profana",
+        "Ímpeto Profano",
+        "Contato Invasivo",
+        "Violação da Forma",
+        "Forma Intangível"
+      ]
+    },
+    {
+      "path": "pma-art-output/art/source/a-pele-alheia-impacto-carapaca-variant-alt-20261026.webp",
+      "title": "A Metamorfa — variação de Impacto da Carapaça",
+      "dimensions": "1254x1254",
+      "bytes": 521768,
+      "sha256": "48009d652b55572cfc1a1204211fea34ae5b62f05769fd091283361330121931",
+      "cellOrder": [
+        "Impacto da Carapaça — Carapaça Usurpada"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "a-pele-alheia",
+      "name": "A Metamorfa",
+      "activeDirectory": "pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026",
+      "sourceSheets": [
+        "pma-art-output/art/source/a-pele-alheia-painterly-rework-20261026-sheet.webp",
+        "pma-art-output/art/source/a-pele-alheia-painterly-rework-20261026-skin-sheet.webp",
+        "pma-art-output/art/source/a-pele-alheia-painterly-rework-20261026-shell-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/passive-shell.webp",
+          "scene": "Fio de essência surge de junta de quitina.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 81388,
+          "sha256": "e1e9ec3f1e6d10157d61d6712a81f054e50bfa543d2069d6033a1af450e20db0"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/passive-skin.webp",
+          "scene": "Lasca da forma ofensiva libera fio de essência.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 70736,
+          "sha256": "a9e6f299fbad9522701e1bd98438ea4080f4a75a9c29ffcb72da8c3823854e47"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/passive.webp",
+          "scene": "Mão recolhe fio de essência de uma lasca da própria pele.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 54572,
+          "sha256": "e4bdd8c1e1eb1f03033ff432cc8d813c29398cd4f13a620d9baee2f279d7d98b"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/portrait-shell.webp",
+          "scene": "Retrato da Carapaça Usurpada, silhueta ampla e rosto preservado.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 88874,
+          "sha256": "acd43ec69b035740e40d8b498a03921ae4d4de20974970fed3f558603b7b5f43"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/portrait-skin.webp",
+          "scene": "Retrato da Pele Usurpada, lâmina e placas predatórias visíveis.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 82222,
+          "sha256": "c43343cc195c754a30c24059ee2203922816661b68f2210a2586d43790483b70"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/portrait.webp",
+          "scene": "Retrato da forma original, rosto e ombros legíveis.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 68970,
+          "sha256": "1e9e969a620c92c3b95cd6131908a12e8734e0498c3b76f56a1a1da9509d570b"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-despertar-shell.webp",
+          "scene": "Corpo Substituto: silhueta de quitina evita um ataque.",
+          "targetCount": "self/1",
+          "width": 512,
+          "height": 512,
+          "bytes": 82266,
+          "sha256": "77b303ac650ce9f29c1ba9ed689fdc510923f59ad91a8e4a8aa3b953f60ae7cb"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-despertar-skin.webp",
+          "scene": "Corpo Substituto desvia um ataque; marcas de aflição continuam.",
+          "targetCount": "self/1",
+          "width": 512,
+          "height": 512,
+          "bytes": 83012,
+          "sha256": "86c211368ca342a0d37d7a670c2ec123b4c81c2e8ad2d145e675879f3c9a7fec"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-despertar.webp",
+          "scene": "Corpo Substituto: retorno à forma original ao sair de pele vazia.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 75186,
+          "sha256": "58b1d9d29889cd29f892443d74f1b05b0b7daed6281c5e3cece9456974cf4fc5"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-impulso-shell.webp",
+          "scene": "Impacto da Carapaça contra um inimigo com guarda própria reforçada.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 90850,
+          "sha256": "76ad0af0e137ec8c0fe02669e85a2f01c10613b3459d06633ec35bbb3f2acfa7"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-impulso-skin.webp",
+          "scene": "Gume Transfigurado perfura a guarda de um oponente.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 82174,
+          "sha256": "5d3d633540f2b047767b392dce7c3f540935df405b2e27c3de69d5bcd94846ca"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-impulso.webp",
+          "scene": "Gume Mutável rompe a guarda de um inimigo.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 67038,
+          "sha256": "af02b77304919b897af8a936cc834a5af957b382de9caffe6ae17ef6fa17ad5e"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-tecnica-shed.webp",
+          "scene": "Descartar o Molde retorna à forma original e recupera Vida.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 81196,
+          "sha256": "6420ed56a190fdd7807a45cea7d477e2c10527e4ea97417516d3f9d8a1ec2cef"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-tecnica-shell.webp",
+          "scene": "Descamar a Armadura retorna à forma original com recuperação pessoal.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 91944,
+          "sha256": "936a76458b84d3512284cd8aa8caa2c23237cba0a2aba4a02e8d0c3da959e7bc"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-tecnica.webp",
+          "scene": "Pele Usurpada envolve os próprios ombros.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 74684,
+          "sha256": "aef7274b012c32dcd7326a7430f1707b95a4e7ae604da082224463e5c5186d5a"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-voto-shell.webp",
+          "scene": "Espinhos Usurpados bloqueia e revida contra o mesmo atacante.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 96168,
+          "sha256": "82bfba2da749a10cfa298c0340fadb8e14e7e126d652473d424862ef914c4d10"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-voto-skin.webp",
+          "scene": "Instinto Usurpado prepara revide pessoal contra um inimigo.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 81300,
+          "sha256": "5844d2f7a0f7ede3c4ee1cc7f2fdfcd250906f1f3e7def56db6677a018ef692d"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/skill-voto.webp",
+          "scene": "Carapaça Usurpada forma quitina marfim nos próprios ombros e antebraço.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 75080,
+          "sha256": "fea251960f3b54d598cf27b8d92efe0817e1b5236437f12dd6efc0fadbb8d26a"
+        }
+      ]
+    },
+    {
+      "id": "o-desejo-quebrado",
+      "name": "O Profanador",
+      "activeDirectory": "pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026",
+      "sourceSheets": [
+        "pma-art-output/art/source/o-desejo-quebrado-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026/passive.webp",
+          "scene": "Coração de cristal e marca exposta geram pequeno fragmento de guarda.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 68786,
+          "sha256": "4e5a6c96bfeb1edcf0b75f7e5c5c0026db5e0ddfeb0c8d5b9f0350d4ddec7366"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026/portrait.webp",
+          "scene": "Retrato do Profanador com coração de cristal fraturado.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 81634,
+          "sha256": "17cd5f8859b0c58982069c136080d304b0110e156b03300cb61f8b487d7a42ca"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-despertar.webp",
+          "scene": "Forma Intangível desvia um golpe; aflições permanecem.",
+          "targetCount": "self/1",
+          "width": 512,
+          "height": 512,
+          "bytes": 86334,
+          "sha256": "a8d56b92f7b62974dc2f6b569efd16df9df4013f925f1036f5e3bf4b0340818b"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-impulso.webp",
+          "scene": "Ímpeto Profano mostra custo de Vida e acúmulo de carga sem gore.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 92138,
+          "sha256": "dd67379a6b0d02f0734341051f3e35658581615bbd38a578b89e46db946adbb4"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-tecnica.webp",
+          "scene": "Contato Invasivo marca um inimigo e extrai um mote de essência.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 83066,
+          "sha256": "3071024260632cd52e1ebcb5d8e8c9801017bbc833e0b8423b7340270e64ee76"
+        },
+        {
+          "activePath": "/pma-art-output/art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-voto.webp",
+          "scene": "Violação da Forma concentra cargas contra um único alvo.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 82904,
+          "sha256": "d6dbbdcb0211aba3f06dba3820f4d2bbd8eb0f1331695e78adcece1ed22e08c1"
+        }
+      ]
+    }
+  ],
+  "alternateFormVariants": [
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/portrait-skin-alt.webp",
+      "scene": "Retrato alternativo da Pele Usurpada.",
+      "targetCount": "self",
+      "width": 512,
+      "height": 512,
+      "bytes": 81480,
+      "sha256": "f1fe93c5242ee77223c3492bf24bf8d4f01829ef6265794f33dfc5bd778f4fee"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-impulso-skin-alt.webp",
+      "scene": "Gume Transfigurado rompe o escudo de um inimigo.",
+      "targetCount": "1",
+      "width": 512,
+      "height": 512,
+      "bytes": 90630,
+      "sha256": "e27929d887e35143eedff31bc2ef6ee8ac62999e5a83ed027cbf7c0fa49d1f11"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-voto-skin-alt.webp",
+      "scene": "Instinto Usurpado apara a lâmina de um adversário e devolve o corte.",
+      "targetCount": "1",
+      "width": 512,
+      "height": 512,
+      "bytes": 108382,
+      "sha256": "ed97db8a9509abbf36f5c68d2276db7a68ebde3d0583825839538f5a103ff7bb"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-tecnica-shed-alt.webp",
+      "scene": "Descartar o Molde remove a pele vazia e retorna à forma original.",
+      "targetCount": "self",
+      "width": 512,
+      "height": 512,
+      "bytes": 90160,
+      "sha256": "3f2eae9514b576e478a3e070ac1d43aeb45f3e17cda27d72b71c4cf3ed6c2207"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/portrait-shell-alt.webp",
+      "scene": "Retrato alternativo da Carapaça Usurpada.",
+      "targetCount": "self",
+      "width": 512,
+      "height": 512,
+      "bytes": 89854,
+      "sha256": "72024e0f89ff2cdeb4bab6496b72a73ed5538c7c83ec58a7241c9cd4ec106412"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-impulso-shell-alt.webp",
+      "scene": "Impacto da Carapaça em tomada lateral: a Metamorfa colide contra a guarda de um inimigo; rosto e esforço visíveis.",
+      "targetCount": "1",
+      "width": 512,
+      "height": 512,
+      "bytes": 101234,
+      "sha256": "170bc839d4936c759eb07720964419e776a9e654d342da8b0eeb2b6fbe82c880"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-tecnica-shell-alt.webp",
+      "scene": "Descamar a Armadura revela o ombro original restaurado.",
+      "targetCount": "self",
+      "width": 512,
+      "height": 512,
+      "bytes": 88042,
+      "sha256": "4f0db921bd0a61ed9ec9ea7c263df9f97dcff4d62b60d320968822c01f6eeb9c"
+    },
+    {
+      "activePath": "/pma-art-output/art/characters/a-pele-alheia/painterly-rework-20261026/variants/skill-voto-shell-alt.webp",
+      "scene": "Espinhos Usurpados bloqueia e revida contra o mesmo atacante.",
+      "targetCount": "1",
+      "width": 512,
+      "height": 512,
+      "bytes": 97992,
+      "sha256": "d07450a39087a215634fcf2522849b54f4ebaae728bae4948ca1fd3bc12a6fb4"
+    }
+  ],
+  "visualReview": "Revisão visual posterior: identidade e legibilidade de ação preservadas; o lote ainda tem quadros com acabamento polido e expressões repetidas em relação às âncoras aprovadas. A variação alternativa de Impacto da Carapaça foi refeita em tomada lateral, com a reação de um único alvo e expressão de esforço. Recortes finais 512x512 WebP RGB. As artes de A Metamorfa foram substituídas pela revisão de formas animalescas de 26/10; os arquivos antigos permanecem apenas como histórico."
+}

@@ -1,0 +1,219 @@
+{
+  "files": 30,
+  "art_assets": 24,
+  "source_sheets": 4,
+  "bytes": 19882859,
+  "outputs": [
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/passive-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 104152,
+      "sha256": "30c2b215645a1e76452513831e75112922d5f1a6b03c2c1a7a0ed2bfb1492e85"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/passive-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 98780,
+      "sha256": "28ac24b5f753a25f6197ed7c7402d3ce1155aaf07ce2f4761a78b57c966b03ab"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/passive.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 104346,
+      "sha256": "0c90be9fca639aab482bbeec4a49e57a0985458f642cbe2ff7f3dc6b579890cf"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/portrait-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 98306,
+      "sha256": "e252d1e5a5e65401f434216eabbb66bb7a56b6fd6a7571249b032348204b5e11"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/portrait-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 120094,
+      "sha256": "610a2806094c1532d7d59297f72611f8547941d0f445d9f8b5dba759a5c7e38a"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/portrait.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 98756,
+      "sha256": "7ee37034a24ecda16b915c0965944948da9d329b456730a83520701c31359f6b"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-despertar-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 97360,
+      "sha256": "d5ddad51e4b4be49ccf423cdc94ae06ffd54913e406dc04a061cd8537461fd03"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-despertar-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 110576,
+      "sha256": "ef5a7b7eb135b381a723c488c8688d57a486913c3cab455c127a463b87446c5d"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-despertar.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 111416,
+      "sha256": "3ee18c20e40a18a65967a8f43ff1a004f83670c76a3703468b8c2d2898175ca7"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-impulso-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 107228,
+      "sha256": "08b5bba8abed5ab3f5c2ddeac4b04e301fd931700b3006b847ffa839384c5ebb"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-impulso-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 109194,
+      "sha256": "0dd237dbd735027eb05d498f00b9138daa0e5ccbafb208961f78a37bc4442e5e"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-impulso.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 111292,
+      "sha256": "3cdb15fc7a701681a0c6a27bb7b11a333fe1989604f788cee37c144949ee7266"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-tecnica-shed.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 112254,
+      "sha256": "e895166b7c45e38c0c3497432c7994544cd5a000975ea72514464e622adbb124"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-tecnica-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 103830,
+      "sha256": "78c4f9ebdc2e7a308e22a7db4b75704731505c86eb4e199150fed6da4d4a587d"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-tecnica.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 112412,
+      "sha256": "0b7d4d4bbb9ac339fc8cc4e75b9ff166fd1e9e0711cf22a9aafbbff8c82fead1"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-voto-shell.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 108958,
+      "sha256": "f16d468181f738726ca1c35579c36bf1caa67255f3c8493abf768676b28300f4"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-voto-skin.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 102972,
+      "sha256": "b4efd919ad28a1a73a25973c8413797ee69609535150a1f45188d8599f50eaa9"
+    },
+    {
+      "path": "art/characters/a-pele-alheia/painterly-rework-20261026-animal/skill-voto.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 115212,
+      "sha256": "6125f3434174a39e6f94cc31940795cd6603a5a91e2ad61198e4ea17cc99bed5"
+    },
+    {
+      "path": "art/characters/o-desejo-quebrado/painterly-rework-20261026/passive.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 68786,
+      "sha256": "4e5a6c96bfeb1edcf0b75f7e5c5c0026db5e0ddfeb0c8d5b9f0350d4ddec7366"
+    },
+    {
+      "path": "art/characters/o-desejo-quebrado/painterly-rework-20261026/portrait.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 81634,
+      "sha256": "17cd5f8859b0c58982069c136080d304b0110e156b03300cb61f8b487d7a42ca"
+    },
+    {
+      "path": "art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-despertar.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 86334,
+      "sha256": "a8d56b92f7b62974dc2f6b569efd16df9df4013f925f1036f5e3bf4b0340818b"
+    },
+    {
+      "path": "art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-impulso.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 92138,
+      "sha256": "dd67379a6b0d02f0734341051f3e35658581615bbd38a578b89e46db946adbb4"
+    },
+    {
+      "path": "art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-tecnica.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 83066,
+      "sha256": "3071024260632cd52e1ebcb5d8e8c9801017bbc833e0b8423b7340270e64ee76"
+    },
+    {
+      "path": "art/characters/o-desejo-quebrado/painterly-rework-20261026/skill-voto.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 82904,
+      "sha256": "d6dbbdcb0211aba3f06dba3820f4d2bbd8eb0f1331695e78adcece1ed22e08c1"
+    },
+    {
+      "path": "art/source/a-pele-alheia-painterly-rework-20261026-animal-armored-passive-paw.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2785563,
+      "sha256": "9ee501348ca1ca106dd8b2ade9b3a256a20153594fafb2dc35d2119b0206bdc9"
+    },
+    {
+      "path": "art/source/a-pele-alheia-painterly-rework-20261026-animal-armored-sheet.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3582771,
+      "sha256": "4ab8c89c6087e594aa988c2fb08af7a143277061f2b9ae0a6db0d17ad26a52a4"
+    },
+    {
+      "path": "art/source/a-pele-alheia-painterly-rework-20261026-animal-base-sheet.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3717713,
+      "sha256": "9d54d60ab460d99cb8b172907f08631d9db00e2d70eab9f8e3f9e2bfa74c9520"
+    },
+    {
+      "path": "art/source/a-pele-alheia-painterly-rework-20261026-animal-predatory-portrait.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3198880,
+      "sha256": "a54e31a95c2695fd4626ccd570b62d6c8d5845bde1ebf7a526dff2777bb88ed1"
+    },
+    {
+      "path": "art/source/a-pele-alheia-painterly-rework-20261026-animal-predatory-sheet.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3659722,
+      "sha256": "3062619dd0c367e0d8971316e45f0f7777e0f5ce3f91166b8b94065022c39c1e"
+    },
+    {
+      "path": "art/source/o-desejo-quebrado-painterly-rework-20261026-sheet.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 516210,
+      "sha256": "ae8a0ee153095bfc24a111f0f0e81ed6b6ce6e4b980dd4a9d70471d3a73000f0"
+    }
+  ],
+  "source_artifacts": 6
+}
