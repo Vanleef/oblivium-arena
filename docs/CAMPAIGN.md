@@ -10,6 +10,8 @@ Na primeira vitória por par Elo/dificuldade, escolha um entre três Legados per
 
 A geração básica de energia segue Naruto Arena: o jogador inicial recebe uma energia aleatória; a oposição recebe uma por personagem vivo. Nos turnos seguintes cada lado recebe uma energia por personagem vivo, sorteada entre os quatro tipos com probabilidade de 25% cada. Energia não utilizada acumula. Não há geração garantida de afinidade nem limite artificial de cinco. Legados e Ecos de energia são bônus de abertura, apresentados em suas descrições, sem alterar a distribuição da geração básica.
 
+Nas Correntes Quebradas, depois que Nilo, o Prefácio, foi recrutado, surge antes do guardião final uma decisão especial sobre o destino dele. Aceitar o expurgo libera Nilo, o Epílogo, com habilidades enfraquecidas e custos Coringa em todo o kit; continuar absorvendo libera O Eco sem Nome, que combina Éter, Cinza, Graça e Ruptura. A decisão fica registrada e as duas formas finais deixam de entrar no recrutamento aleatório antes da escolha.
+
 O trio de uma travessia é fixado ao partir. Alterações na formação preparam a próxima travessia. Vida, Correntes, Ecos, escolhas pendentes, missão e progressão são persistidos localmente. Este projeto continua sendo um cliente estático; não há autenticação ou sincronização de campanha entre dispositivos nesta entrega.
 
 

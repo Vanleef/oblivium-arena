@@ -6,8 +6,8 @@ import { eloCrest } from "./crests.js";
 import { esc, portraitMarkup } from "./view-utils.js";
 import { trailLayout, trailCurve, trailIcon } from "./trail-layout.js";
 
-const labels={normal:"Combate",elite:"Elite",mini:"Guardião menor",boss:"Guardião",repair:"Descanso",treasure:"Tesouro",event:"Encontro",shop:"Mercador",upgrade:"Eco"};
-const rewards={normal:"Fragmentos",elite:"Eco + fragmentos",mini:"Eco + fragmentos",boss:"Recrute uma alma",repair:"Vida + Correntes",treasure:"Eco + fragmentos",event:"Uma decisão",shop:"Cura e Ecos",upgrade:"Escolha um Eco"};
+const labels={normal:"Combate",elite:"Elite",mini:"Guardião menor",boss:"Guardião",repair:"Descanso",treasure:"Tesouro",event:"Encontro",shop:"Mercador",upgrade:"Eco","nilo-choice":"Fenda da Alma"};
+const rewards={normal:"Fragmentos",elite:"Eco + fragmentos",mini:"Eco + fragmentos",boss:"Recrute uma alma",repair:"Vida + Correntes",treasure:"Eco + fragmentos",event:"Uma decisão",shop:"Cura e Ecos",upgrade:"Escolha um Eco","nilo-choice":"Escolha o destino de Nilo"};
 const number=n=>String(n).padStart(2,"0");
 
 function partyMarkup(run,profile,teamHealth){

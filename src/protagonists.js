@@ -18,10 +18,10 @@ const protagonistProfiles = [
     "englishRole": "Unstable Vessel",
     "combo": "Absorção sem escolha",
     "englishCombo": "Unchosen Absorption",
-    "mechanic": "Nilo absorve Essências ao gastar recursos; alterna entre roubo, guarda e descarga.",
-    "englishMechanic": "Nilo absorbs Essence when he spends resources, shifting between theft, guard, and discharge.",
-    "lore": "Passou a vida em coma e nunca pôde ser vinculado a um Elo. No Limbo, seu corpo se tornou receptivo às quatro Essências — mesmo quando ele tenta recusá-las.",
-    "englishLore": "He spent his life in a coma and could never be bound to a Bond. In Limbo, his body became receptive to all four Essences, even when he tried to refuse them.",
+    "mechanic": "Os primeiros contatos deixam resíduos de Essência: Nilo rouba, protege-se e descarrega a energia que não consegue conter.",
+    "englishMechanic": "Early encounters leave Essence residue: Nilo steals, guards himself, and discharges energy he cannot contain.",
+    "lore": "Cada alma que atravessa o caminho de Nilo deixa um resíduo. Ele ainda tenta controlar a absorção, mas o Limbo já mistura Essências em seu corpo sem pedir licença.",
+    "englishLore": "Every soul Nilo meets leaves a trace. He still tries to control the absorption, but Limbo mixes Essences inside him without permission.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
@@ -29,21 +29,24 @@ const protagonistProfiles = [
       "name": "Receptáculo Aberto",
       "englishName": "Open Vessel",
       "trigger": "essenceSpent",
+      "oncePerRound": true,
       "effect": {
         "generateEssence": {
-          "resourceFromForm": true,
+          "resource": "random",
           "amount": 1
         }
       },
-      "description": "A primeira vez por rodada que Nilo gasta Essência, gera 1 Essência de sua afinidade.",
-      "englishDescription": "The first time each round Nilo spends Essence, he generates 1 Essence matching his affinity."
+      "description": "A primeira vez por rodada que Nilo gasta Essência, seu corpo absorve 1 Essência aleatória.",
+      "englishDescription": "The first time each round Nilo spends Essence, his body absorbs 1 random Essence."
     },
     "skills": [
       {
         "name": "Sucção de Éter",
         "englishName": "Aether Draw",
         "damage": 10,
-        "cost": 1,
+        "costs": {
+          "essence": 1
+        },
         "damageType": "energy",
         "steal": 1,
         "englishDescription": "Deals 10 spiritual damage to one enemy and steals 1 Essence from the enemy reserve."
@@ -52,20 +55,26 @@ const protagonistProfiles = [
         "name": "Recipiente Rachado",
         "englishName": "Cracked Vessel",
         "target": "self",
-        "shield": 9,
+        "shield": 8,
         "gainCharge": 1,
-        "cost": 2,
-        "englishDescription": "Grants Nilo 9 Defense and 1 charge."
+        "costs": {
+          "ruptura": 1,
+          "random": 1
+        },
+        "englishDescription": "Grants Nilo 8 Defense and 1 charge."
       },
       {
         "name": "Descarga Indócil",
         "englishName": "Unruly Discharge",
-        "damage": 16,
-        "cost": 2,
+        "damage": 14,
+        "costs": {
+          "ruptura": 1,
+          "essence": 1
+        },
         "damageType": "piercing",
         "perChargeDamage": 3,
         "spendCharge": true,
-        "englishDescription": "Deals 16 piercing damage to one enemy, plus 3 for each charge spent."
+        "englishDescription": "Deals 14 piercing damage to one enemy, plus 3 for each charge spent."
       }
     ],
     "defense": {
@@ -91,62 +100,70 @@ const protagonistProfiles = [
     "englishRole": "Unlikely Opening",
     "combo": "A primeira palavra",
     "englishCombo": "The First Word",
-    "mechanic": "As primeiras ações de Nilo marcam a rota e alimentam a próxima escolha.",
-    "englishMechanic": "Nilo's opening actions mark the route and fuel the next choice.",
-    "lore": "O Prefácio é a lembrança de Nilo antes de qualquer nome para o que lhe acontecia: uma alma desperta, ainda sem saber o que o Limbo cobraria.",
-    "englishLore": "The Preface is Nilo's memory from before he had a name for what was happening: an awakened soul, still unaware of what Limbo would demand.",
+    "mechanic": "Novos contatos deixam cores diferentes na alma; Nilo marca um alvo e combina Essências para converter a abertura em pressão.",
+    "englishMechanic": "New encounters leave different colors in his soul; Nilo marks a target and combines Essences to turn the opening into pressure.",
+    "lore": "No Prefácio, os encontros já não deixam apenas Éter. Cinza, Graça e Ruptura também atravessam Nilo, e cada marca que ele escreve tenta organizar a corrupção antes que ela fale por ele.",
+    "englishLore": "In the Preface, encounters leave more than Aether. Ash, Grace, and Rupture also pass through Nilo, and each mark he writes tries to organize the corruption before it speaks for him.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
     "passive": {
-      "name": "Primeira Centelha",
-      "englishName": "First Spark",
+      "name": "Centelha Contaminada",
+      "englishName": "Contaminated Spark",
       "trigger": "firstHit",
       "oncePerBattle": true,
       "effect": {
         "generateEssence": {
-          "resource": "essence",
+          "resource": "random",
           "amount": 1
         }
       },
-      "description": "O primeiro golpe ofensivo de Nilo em cada combate gera 1 Éter.",
-      "englishDescription": "Nilo's first offensive hit in each battle generates 1 Aether."
+      "description": "O primeiro golpe ofensivo de Nilo em cada combate absorve 1 Essência aleatória.",
+      "englishDescription": "Nilo's first offensive hit in each battle absorbs 1 random Essence."
     },
     "skills": [
       {
         "name": "Palavra Inicial",
         "englishName": "Opening Word",
-        "damage": 10,
-        "cost": 1,
+        "damage": 9,
+        "costs": {
+          "essence": 1
+        },
         "damageType": "energy",
         "mark": true,
         "markTurns": 2,
-        "englishDescription": "Deals 10 spiritual damage to one enemy and Marks it for 2 turns."
+        "englishDescription": "Deals 9 spiritual damage to one enemy and Marks it for 2 turns."
       },
       {
         "name": "Frase de Passagem",
         "englishName": "Passage Phrase",
-        "damage": 14,
-        "cost": 2,
+        "damage": 12,
+        "costs": {
+          "cinza": 1,
+          "graca": 1
+        },
         "damageType": "piercing",
         "combo": {
           "condition": "marked",
-          "bonusDamage": 7,
+          "bonusDamage": 6,
           "consume": true
         },
-        "englishDescription": "Deals 14 piercing damage to one enemy. Against a Marked target, it deals 7 bonus damage and consumes the setup."
+        "englishDescription": "Deals 12 piercing damage to one enemy. Against a Marked target, it deals 6 bonus damage and consumes the setup."
       },
       {
         "name": "Margem Reescrita",
         "englishName": "Rewritten Margin",
         "target": "self",
-        "shield": 8,
+        "shield": 7,
         "generateEssence": {
           "resource": "random",
           "amount": 1
         },
-        "cost": 2,
-        "englishDescription": "Grants Nilo 8 Defense and generates 1 random Essence."
+        "costs": {
+          "ruptura": 1,
+          "random": 1
+        },
+        "englishDescription": "Grants Nilo 7 Defense and absorbs 1 random Essence."
       }
     ],
     "defense": {
@@ -167,77 +184,83 @@ const protagonistProfiles = [
     "realm": "Limbo",
     "color": "limbo",
     "symbol": "⟲",
-    "affinity": "ruptura",
-    "role": "Sobrevivente do Eco",
-    "englishRole": "Echo Survivor",
+    "affinity": "essence",
+    "role": "Sobrevivente do Expurgo",
+    "englishRole": "Purge Survivor",
     "combo": "O fim que ainda responde",
     "englishCombo": "An Ending That Answers",
-    "mechanic": "A agressão sofrida vira carga e permite devolver a pressão sem apagar o custo.",
-    "englishMechanic": "Incoming harm becomes charge, letting Nilo return pressure without erasing its cost.",
-    "lore": "Quando a travessia parecia terminada, Nilo continuou respondendo. O Epílogo não encerra a história: ele transforma o que restou em força para o próximo ato.",
-    "englishLore": "When the crossing seemed over, Nilo kept answering. The Epilogue does not end the story; it turns what remains into strength for the next act.",
+    "mechanic": "Mais fraco e livre da corrupção: usa custos Coringa para preparar marcas, proteger-se e escolher o momento de responder.",
+    "englishMechanic": "Weaker and free of corruption: uses Wildcard costs to set marks, protect himself, and choose when to answer.",
+    "lore": "Perto do fim da travessia, Nilo aceita o expurgo de sua alma. As Essências são limpas de seu interior, mas o deixam enfraquecido; cada gasto Coringa exige uma escolha cuidadosa.",
+    "englishLore": "Near the end of the crossing, Nilo accepts the purge of his soul. The Essences are cleansed from within him, but leave him weakened; every Wildcard spend calls for a careful choice.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
     "passive": {
-      "name": "Depois do Impacto",
-      "englishName": "After the Impact",
-      "trigger": "damaged",
-      "requiresLifeLoss": true,
+      "name": "Selo do Vazio",
+      "englishName": "Void Seal",
+      "trigger": "essenceSpent",
+      "spendResource": "random",
+      "oncePerRound": true,
       "effect": {
-        "gainCharge": 1,
-        "heal": 4
+        "gainCharge": 1
       },
-      "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Nilo ganha 1 carga e recupera 4 de Vida.",
-      "englishDescription": "Once per round, after losing Health to an ability, Nilo gains 1 charge and restores 4 Health."
+      "description": "Uma vez por rodada, ao pagar um custo Coringa, Nilo ganha 1 carga para uma resposta futura.",
+      "englishDescription": "Once per round, when paying a Wildcard cost, Nilo gains 1 charge for a later response."
     },
     "skills": [
       {
-        "name": "Última Nota",
-        "englishName": "Last Note",
-        "damage": 8,
-        "cost": 1,
+        "name": "Marca de Cinza",
+        "englishName": "Ashen Mark",
+        "damage": 7,
+        "costs": {
+          "random": 1
+        },
         "damageType": "affliction",
-        "dot": {
-          "tag": "decadencia",
-          "damage": 4,
-          "turns": 2
-        },
-        "englishDescription": "Deals 8 affliction damage to one enemy and applies Decay for 4 damage over 2 turns."
+        "mark": true,
+        "markTurns": 2,
+        "englishDescription": "Deals 7 affliction damage to one enemy and Marks it for 2 turns."
       },
       {
-        "name": "Fôlego Recolhido",
-        "englishName": "Gathered Breath",
+        "name": "Círculo de Contenção",
+        "englishName": "Circle of Restraint",
         "target": "self",
-        "heal": 8,
-        "shield": 8,
-        "cost": 2,
-        "englishDescription": "Restores 8 Health to Nilo and grants him 8 Defense."
+        "shield": 6,
+        "cleanse": true,
+        "costs": {
+          "random": 1
+        },
+        "englishDescription": "Grants Nilo 6 Defense and removes harmful conditions from him."
       },
       {
-        "name": "Ponto sem Retorno",
-        "englishName": "Point of No Return",
-        "damage": 18,
-        "cost": 2,
-        "damageType": "piercing",
-        "missingHpDamage": {
-          "step": 25,
-          "amount": 3,
-          "cap": 9
+        "name": "Resposta Precisa",
+        "englishName": "Measured Answer",
+        "damage": 9,
+        "costs": {
+          "random": 2
         },
-        "englishDescription": "Deals 18 piercing damage to one enemy, plus 3 damage for each 25 Health Nilo has lost, up to 9."
+        "damageType": "piercing",
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 3,
+          "consume": true
+        },
+        "perChargeDamage": 2,
+        "spendCharge": true,
+        "weaken": 1,
+        "englishDescription": "Deals 9 piercing damage, plus 3 against a Marked target and 2 per charge spent; consumes the Mark and Weakens the target for 1 turn."
       }
     ],
     "defense": {
       "name": "Fecho Incompleto",
       "englishName": "Unfinished Close",
-      "shield": 6
+      "shield": 4
     }
   },
   {
     "id": "o-eco-de-nilo",
-    "name": "O Eco de Nilo",
-    "englishName": "Nilo's Echo",
+    "name": "O Eco sem Nome",
+    "englishName": "The Nameless Echo",
     "family": "nilo",
     "version": 4,
     "eloId": "correntes-quebradas",
@@ -247,14 +270,14 @@ const protagonistProfiles = [
     "color": "limbo",
     "symbol": "⟲",
     "affinity": "ruptura",
-    "role": "Ressonância Anômala",
-    "englishRole": "Anomalous Resonance",
+    "role": "Ressonância sem Identidade",
+    "englishRole": "Resonance Without Identity",
     "combo": "Devolver o que foi tomado",
     "englishCombo": "Return What Was Taken",
-    "mechanic": "O Eco explora alvos preparados e devolve parte da Essência que atravessou Nilo.",
-    "englishMechanic": "The Echo exploits prepared targets and returns some of the Essence that passed through Nilo.",
-    "lore": "Já não é possível separar Nilo do que ele absorveu. O Eco luta como uma presença própria, repetindo os gestos que Nilo ainda não reconhece como seus.",
-    "englishLore": "Nilo can no longer be separated from what he absorbed. The Echo fights as its own presence, repeating gestures Nilo does not yet recognize as his.",
+    "mechanic": "A forma final encadeia aflição, quebra de guarda e exposição; ao ferir alvos expostos, drena Essência e acumula carga para o golpe seguinte.",
+    "englishMechanic": "The final form chains affliction, guard breaking, and exposure; hitting Exposed targets drains Essence and builds charge for the next strike.",
+    "lore": "A corrupção consumiu o nome. O que resta absorveu Éter, Cinza, Graça e Ruptura até se tornar uma presença própria, capaz de repetir e recombinar cada gesto aprendido.",
+    "englishLore": "Corruption consumed the name. What remains absorbed Aether, Ash, Grace, and Rupture until it became its own presence, able to repeat and recombine every learned gesture.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
@@ -263,45 +286,63 @@ const protagonistProfiles = [
       "englishName": "Returned Resonance",
       "trigger": "hit",
       "requiresExposed": true,
+      "oncePerRound": true,
       "effect": {
         "drainEssence": {
           "amount": 1
-        }
+        },
+        "gainCharge": 1
       },
-      "description": "Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga.",
-      "englishDescription": "Once per round, hitting an Exposed target drains 1 Essence from the enemy reserve."
+      "description": "Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga e gera 1 carga.",
+      "englishDescription": "Once per round, hitting an Exposed target drains 1 Essence from the enemy reserve and grants 1 charge."
     },
     "skills": [
       {
-        "name": "Réplica Instável",
-        "englishName": "Unstable Replica",
-        "damage": 12,
-        "cost": 1,
-        "damageType": "energy",
-        "weaken": 1,
-        "englishDescription": "Deals 12 spiritual damage to one enemy and Weakens it for 1 turn."
+        "name": "Dissolução em Cinza",
+        "englishName": "Ash Dissolution",
+        "damage": 8,
+        "costs": {
+          "cinza": 1
+        },
+        "damageType": "affliction",
+        "mark": true,
+        "markTurns": 2,
+        "dot": {
+          "tag": "decadencia",
+          "damage": 3,
+          "turns": 2
+        },
+        "englishDescription": "Deals 8 affliction damage, Marks one enemy for 2 turns, and applies Decay for 3 damage over 2 turns."
       },
       {
-        "name": "Roubo de Contorno",
-        "englishName": "Borrowed Outline",
-        "damage": 11,
-        "cost": 2,
+        "name": "Contorno de Graça",
+        "englishName": "Grace Outline",
+        "damage": 9,
+        "costs": {
+          "essence": 1,
+          "graca": 1
+        },
         "damageType": "piercing",
-        "stripShield": 12,
+        "stripShield": 10,
         "expose": 1,
-        "englishDescription": "Removes 12 Defense from one enemy, then deals 11 piercing damage and Exposes it."
+        "englishDescription": "Removes 10 Defense, deals 9 piercing damage, and Exposes one enemy for 1 turn."
       },
       {
-        "name": "Pulso Repetido",
-        "englishName": "Repeated Pulse",
-        "damage": 17,
-        "cost": 2,
+        "name": "Pulso sem Nome",
+        "englishName": "Nameless Pulse",
+        "damage": 12,
+        "costs": {
+          "ruptura": 1
+        },
         "damageType": "energy",
         "combo": {
           "condition": "exposed",
-          "bonusDamage": 8
+          "bonusDamage": 5,
+          "consume": true
         },
-        "englishDescription": "Deals 17 spiritual damage to one enemy, plus 8 against an Exposed target."
+        "perChargeDamage": 2,
+        "spendCharge": true,
+        "englishDescription": "Deals 12 spiritual damage, plus 5 against an Exposed target and 2 per charge spent; consumes Exposed."
       }
     ],
     "defense": {

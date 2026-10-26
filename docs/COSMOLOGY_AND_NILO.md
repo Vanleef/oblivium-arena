@@ -60,12 +60,12 @@ A proximidade com uma alma nomeada é especialmente perigosa para Nilo. Quanto m
 
 ## As Versões de Nilo
 
-- **Nilo:** ainda é predominantemente ele mesmo, embora já poroso.
-- **Nilo, o Prefácio:** outras Essências começam a escrever sobre ele.
-- **Nilo, o Epílogo:** sua tentativa final de continuar sendo alguém antes que o nome se dissolva.
-- **O Eco de Nilo:** o nome desapareceu e resta a ressonância do que um dia foi uma única alma.
+- **Nilo:** cada alma que atravessa seu caminho deixa um resíduo. Ele começa roubando e descarregando Essência, mas o corpo já absorve tipos aleatórios.
+- **Nilo, o Prefácio:** os contatos seguintes deixam Éter, Cinza, Graça e Ruptura. Marcas e custos de cores diferentes mostram que a corrupção está ganhando espaço.
+- **Nilo, o Epílogo:** perto do fim da campanha das Correntes Quebradas, o jogador pode aceitar o expurgo da alma. Nilo fica livre da corrupção e mais fraco; todas as habilidades pagas usam custos Coringa, e o kit recompensa preparação, controle e escolha cuidadosa de quando gastar cargas.
+- **O Eco sem Nome:** se o jogador escolher continuar absorvendo, a corrupção consome o nome. A forma final combina as quatro Essências em um kit de maior complexidade, com aflição, exposição, drenagem e cargas.
 
-A pergunta que acompanha Nilo desde que saiu da fila de O Caminho é: **Quanto de mim ainda sou eu?**
+A decisão acontece em um nó especial antes do guardião final das Correntes Quebradas, depois de recrutar Nilo, o Prefácio. Ela define qual forma final é liberada. A pergunta que acompanha Nilo desde que saiu da fila de O Caminho é: **Quanto de mim ainda sou eu?**
 
 ## Consequências para a direção visual
 

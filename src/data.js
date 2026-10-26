@@ -328,7 +328,7 @@ export const routeStages = [
   [{ id: "boss", label: "Conselho do Elo", icon: "✹", desc: "Vença o trio e recrute uma das almas derrotadas.", col: 1 }]
 ];
 
-export function generateTrail(eloId, seed = 0, variant = "hunt") {
+export function generateTrail(eloId, seed = 0, variant = "hunt", options = {}) {
   const numericSeed = Math.abs(Math.trunc(Number(seed) || 0));
   const rows = routeStages.map((stage, rowIndex) => stage.map((template, nodeIndex) => {
     const rotation = stage.length === 3 ? (numericSeed + rowIndex * 2) % 3 : 0;
@@ -345,6 +345,10 @@ export function generateTrail(eloId, seed = 0, variant = "hunt") {
       nextIds: []
     };
   }));
+  if(options.includeNiloChoice&&eloId==="correntes-quebradas"){
+    const rowIndex=5,content={id:"nilo-choice",label:"Fenda da Alma",icon:"◉",desc:"Decida se Nilo expurga a corrupção ou a incorpora por completo.",col:1};
+    rows[rowIndex]=[{...content,row:rowIndex,type:content.id,id:`${eloId}-r${rowIndex}-c1-nilo-choice-0`,nextIds:[]}];
+  }
   for (let rowIndex = 0; rowIndex < rows.length - 1; rowIndex += 1) {
     const nextRow = rows[rowIndex + 1];
     for (const node of rows[rowIndex]) {

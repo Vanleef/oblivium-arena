@@ -5,7 +5,7 @@ import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
 import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty } from '../src/progression.js';
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice } from '../src/progression.js';
 
 const cloneJson=value=>JSON.parse(JSON.stringify(value));
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -109,7 +109,10 @@ export class CampaignService{
       const affinity=affinityForTeam(run.team,characterById);
       profile.fragments+=12;const id=affinityBuff(affinity);if(id&&buffs.some(buff=>buff.id===id)&&!run.buffs.includes(id))run.buffs.push(id);finishNode(profile,run,node,account);
      }else if(node.type==='event')setPending(run,'event');
-     else if(node.type==='shop')setPending(run,'shop',buffChoices(run,1));
+     else if(node.type==='nilo-choice'){
+      if(!canChooseNiloPath(profile,run))fail('A escolha de Nilo não está disponível.');
+      setPending(run,'nilo-choice');
+     }else if(node.type==='shop')setPending(run,'shop',buffChoices(run,1));
      else if(node.type==='upgrade'||node.type==='reward')setPending(run,node.type,buffChoices(run,2));
      else fail('Este encontro não pode ser resolvido.');
      break;
@@ -155,7 +158,13 @@ export class CampaignService{
      break;
     }
     case 'event':{
-     const run=currentRun(profile,account),pending=run.pending;if(pending?.type!=='event')fail('Não há evento pendente.');
+     const run=currentRun(profile,account),pending=run.pending;
+     if(pending?.type==='nilo-choice'){
+      const node=currentNode(run);if(!node||node.type!=='nilo-choice')fail('Decisão de Nilo inválida.');
+      if(!resolveNiloPathChoice(profile,body.choice,run))fail('Escolha inválida ou indisponível.');
+      profile.eloProgress[run.eloId].events++;finishNode(profile,run,node,account);break;
+     }
+     if(pending?.type!=='event')fail('Não há evento pendente.');
      if(!['repair','echo'].includes(body.choice))fail('Escolha inválida.');profile.eloProgress[run.eloId].events++;
      const node=currentNode(run);if(!node||node.type!=='event')fail('Evento inválido.');
      if(body.choice==='repair'){healTeam(profile,run,.25+(aggregateGlobal(profile).restBonus||0));run.stability=Math.min(run.maxStability,run.stability+1);}

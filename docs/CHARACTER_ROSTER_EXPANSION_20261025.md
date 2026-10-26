@@ -9,7 +9,7 @@ Esta ficha reúne os protagonistas, coadjuvantes e antagonistas propostos para a
 
 | Personagem | Versões | Elo principal | Conceito |
 |---|---:|---|---|
-| Nilo | 4 | Anômalo (Limbo) | Alma receptiva que absorve Essências e luta para não se dissolver. |
+| Nilo | 4 | Anômalo (Limbo) | Alma receptiva que absorve Essências; a decisão pelo expurgo ou pela absorção completa define sua forma final. |
 | Naomi | 3 | Esperança / União | Perdeu tudo e ainda escolhe permanecer. |
 | Kael | 3 | Ruptura | Violência contida e culpa que nunca cicatriza. |
 | Vaas | 2 | Mentira / Silêncio | Manipulador que se cansou de mentir, mas não sabe parar. |
@@ -19,7 +19,7 @@ Esta ficha reúne os protagonistas, coadjuvantes e antagonistas propostos para a
 
 ### Nilo
 
-Já definido: passou a vida em coma, não pôde ser vinculado a nenhum Elo e permaneceu em estado receptivo.
+Já definido: passou a vida em coma, não pôde ser vinculado a nenhum Elo e permaneceu em estado receptivo. Seus contatos no Limbo deixam Essências de forma involuntária. Perto do fim das Correntes Quebradas, o jogador escolhe se Nilo expurga a corrupção e permanece enfraquecido como o Epílogo, ou se a absorção consome seu nome e o transforma no Eco sem Nome.
 
 ### Naomi
 

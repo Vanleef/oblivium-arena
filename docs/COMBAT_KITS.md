@@ -2375,70 +2375,70 @@ Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ru
 
 ### Nilo — Manipulador de Essência
 
-**Variação:** Nilo absorve Essências ao gastar recursos; alterna entre roubo, guarda e descarga. · **Essência:** Graça
+**Variação:** Os primeiros contatos deixam resíduos de Essência: Nilo rouba, protege-se e descarrega a energia que não consegue conter. · **Essência:** Éter
 
 **Outros arquétipos:** Gerador de Essência, Gastador de Essência
 
 Absorção sem escolha
 
-**Estrutura:** Nilo absorve Essências ao gastar recursos; alterna entre roubo, guarda e descarga.
+**Estrutura:** Cada alma que atravessa o caminho de Nilo deixa um resíduo. A passiva absorve uma Essência aleatória na primeira vez que ele gasta Essência em cada rodada.
 
-**Passiva — Receptáculo Aberto:** A primeira vez por rodada que Nilo gasta Essência, gera 1 Essência de sua afinidade.
+**Passiva — Receptáculo Aberto:** A primeira vez por rodada que Nilo gasta Essência, seu corpo absorve 1 Essência aleatória.
 
-- **Sucção de Éter** (1 Graça; recarga 0T): Causa 10 de dano espiritual a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.
-- **Recipiente Rachado** (1 Graça + 1 Coringa; recarga 0T): Concede 9 de Defesa destrutível. Ganha 1 carga (máx. 3).
-- **Descarga Indócil** (1 Graça + 1 Éter; recarga 0T): Causa 16 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga.
+- **Sucção de Éter** (1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Rouba 1 Essência da reserva inimiga.
+- **Recipiente Rachado** (1 Ruptura + 1 Coringa; recarga 0T): Concede 8 de Defesa destrutível e 1 carga.
+- **Descarga Indócil** (1 Ruptura + 1 Éter; recarga 0T): Causa 14 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga.
 - **Pele do Limbo** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### Nilo, o Prefácio — Gerador de Essência
+### Nilo, o Prefácio — Preparador de Marcas
 
-**Variação:** As primeiras ações de Nilo marcam a rota e alimentam a próxima escolha. · **Essência:** Éter
+**Variação:** Novos contatos deixam cores diferentes na alma; Nilo marca um alvo e combina Essências para converter a abertura em pressão. · **Essência:** Éter
 
-**Outros arquétipos:** Preparador de Marcas
+**Outros arquétipos:** Gerador de Essência
 
 A primeira palavra
 
-**Estrutura:** As primeiras ações de Nilo marcam a rota e alimentam a próxima escolha.
+**Estrutura:** Cinza, Graça e Ruptura também atravessam Nilo. Marcas e custos de cores diferentes tentam organizar a corrupção antes que ela fale por ele.
 
-**Passiva — Primeira Centelha:** O primeiro golpe ofensivo de Nilo em cada combate gera 1 Éter.
+**Passiva — Centelha Contaminada:** O primeiro golpe ofensivo de Nilo em cada combate absorve 1 Essência aleatória.
 
-- **Palavra Inicial** (1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
-- **Frase de Passagem** (1 Éter + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +7 dano; consome a preparação.
-- **Margem Reescrita** (2 Éter; recarga 0T): Concede 8 de Defesa destrutível. Gera 1 Essência aleatória para a reserva da equipe.
+- **Palavra Inicial** (1 Éter; recarga 0T): Causa 9 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
+- **Frase de Passagem** (1 Cinza + 1 Graça; recarga 0T): Causa 12 de dano perfurante. Contra um alvo Marcado, causa +6 de dano e consome a preparação.
+- **Margem Reescrita** (1 Ruptura + 1 Coringa; recarga 0T): Concede 7 de Defesa destrutível e absorve 1 Essência aleatória.
 - **Pausa entre Linhas** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### Nilo, o Epílogo — Berserker
+### Nilo, o Epílogo — Tático de Contenção
 
-**Variação:** A agressão sofrida vira carga e permite devolver a pressão sem apagar o custo. · **Essência:** Cinza
+**Variação:** Depois do expurgo, Nilo está enfraquecido e livre da corrupção. Seus custos Coringa e suas respostas de controle premiam preparação e escolha de tempo. · **Essência:** Coringa
 
-**Outros arquétipos:** —
+**Outros arquétipos:** Preparador de Marcas, Interditor
 
 O fim que ainda responde
 
-**Estrutura:** A agressão sofrida vira carga e permite devolver a pressão sem apagar o custo.
+**Estrutura:** Todos os custos pagos do kit são Coringa. O Selo do Vazio converte cada gasto em carga; Nilo prepara uma Marca, protege-se e escolhe quando liberar uma resposta precisa.
 
-**Passiva — Depois do Impacto:** Uma vez por rodada, depois de perder Vida para uma habilidade, Nilo ganha 1 carga e recupera 4 de Vida.
+**Passiva — Selo do Vazio:** Uma vez por rodada, ao pagar um custo Coringa, Nilo ganha 1 carga para uma resposta futura.
 
-- **Última Nota** (1 Cinza; recarga 0T): Causa 8 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos.
-- **Fôlego Recolhido** (1 Cinza + 1 Coringa; recarga 0T): Restaura 8 de Vida. Concede 8 de Defesa destrutível.
-- **Ponto sem Retorno** (1 Cinza + 1 Éter; recarga 0T): Causa 18 de dano perfurante a um inimigo. A cada 25 de Vida perdida pelo usuário: +3 de dano (máx. +9).
-- **Fecho Incompleto** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Marca de Cinza** (1 Coringa; recarga 0T): Causa 7 de dano de aflição a um inimigo e o Marca por 2 turnos.
+- **Círculo de Contenção** (1 Coringa; recarga 0T): Concede 6 de Defesa destrutível e remove condições nocivas de Nilo.
+- **Resposta Precisa** (2 Coringas; recarga 0T): Causa 9 de dano perfurante. Contra um alvo Marcado, causa +3 de dano e consome a Marca. Cada carga gasta acrescenta 2 de dano; o alvo fica Enfraquecido por 1 turno.
+- **Fecho Incompleto** (1 Coringa; recarga 4T): Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### O Eco de Nilo — Manipulador de Essência
+### O Eco sem Nome — Manipulador de Essência
 
-**Variação:** O Eco explora alvos preparados e devolve parte da Essência que atravessou Nilo. · **Essência:** Éter
+**Variação:** A forma final encadeia aflição, quebra de guarda e exposição; ao ferir alvos expostos, drena Essência e acumula carga para o golpe seguinte. · **Essência:** Ruptura
 
-**Outros arquétipos:** Quebra-Guarda, Interditor
+**Outros arquétipos:** Quebra-Guarda, Interditor, Gastador de Essência
 
 Devolver o que foi tomado
 
-**Estrutura:** O Eco explora alvos preparados e devolve parte da Essência que atravessou Nilo.
+**Estrutura:** O kit usa Éter, Cinza, Graça e Ruptura em custos coloridos. Marque o alvo, exponha-o e consuma essa abertura com cargas acumuladas.
 
-**Passiva — Ressonância Devolvida:** Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga.
+**Passiva — Ressonância Devolvida:** Uma vez por rodada, ferir um alvo Exposto drena 1 Essência da reserva inimiga e gera 1 carga.
 
-- **Réplica Instável** (1 Éter; recarga 0T): Causa 12 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
-- **Roubo de Contorno** (1 Éter + 1 Coringa; recarga 0T): Causa 11 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 12 de Defesa antes do dano.
-- **Pulso Repetido** (2 Éter; recarga 0T): Causa 17 de dano espiritual a um inimigo. Se o alvo está Exposto: +8 dano.
+- **Dissolução em Cinza** (1 Cinza; recarga 0T): Causa 8 de dano de aflição, Marca o alvo por 2 turnos e aplica Decadência: 3 de dano por 2 turnos.
+- **Contorno de Graça** (1 Éter + 1 Graça; recarga 0T): Remove 10 de Defesa, causa 9 de dano perfurante e deixa o alvo Exposto por 1 turno.
+- **Pulso sem Nome** (1 Ruptura; recarga 0T): Causa 12 de dano espiritual. Contra um alvo Exposto, causa +5 de dano e consome Exposto. Cada carga gasta acrescenta 2 de dano.
 - **Forma de Retorno** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
 ### Kael — Gerador de Essência

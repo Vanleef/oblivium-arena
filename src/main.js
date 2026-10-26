@@ -18,7 +18,7 @@ import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty } from "./progression.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, resolveNiloPathChoice } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
@@ -96,7 +96,7 @@ function ensureRunMap() {
   run.difficulty ||= 0; run.variantId ||= "hunt"; run.variantTitle ||= "Caçada"; run.team ||= [...profile.team];
   const rosterIds=getEloRoster(run.eloId).map(c=>c.id),opponentIds=rosterIds.filter(id=>!(run.team||profile.team).includes(id));
   run.bossIds ||= selectBossRoster(run.team||profile.team,opponentIds.length>=3?opponentIds:rosterIds,run.seed);
-  if (!Array.isArray(run.map) || !run.map.length) run.map = generateTrail(run.eloId, run.seed || 0);
+  if (!Array.isArray(run.map) || !run.map.length) run.map = generateTrail(run.eloId, run.seed || 0,run.variantId||"hunt",{includeNiloChoice:run.eloId==="correntes-quebradas"&&!profile.niloPath&&(profile.ownedIds||[]).includes("nilo-o-prefacio")});
   run.stage = Math.min(Math.max(0, run.stage || 0), run.map.length);
   run.clearedNodeIds ||= [];
   run.availableNodeIds ||= run.map[run.stage]?.map((node) => node.id) || [];
@@ -152,7 +152,7 @@ let battleFxSequence = 0;
 let trailFxTimer = null;
 
 function save() {
-  if(profile.run) profile.run.pending = ["event","reward","upgrade","shop"].includes(state.pending?.type) ? state.pending : null;
+  if(profile.run) profile.run.pending = ["event","nilo-choice","reward","upgrade","shop"].includes(state.pending?.type) ? state.pending : null;
   profile.unlockedAvatars = [...new Set(["soul", ...(profile.ownedIds||[])])];
   localStorage.setItem(SAVE_KEY, JSON.stringify({ ...profile, version: 1 }));
   if(state.account) {
@@ -313,7 +313,7 @@ function resolveNode(node) {
   if(profile.run.serverOwned){requestCampaign({op:"select-node",nodeId:node.id});return;}
   const nodeType = node.type || node.id;
   profile.run.currentNodeId = node.id;
-  profile.run.storyBeat=({normal:"O eco anuncia um encontro",elite:"Um guardião de elite rompe o silêncio",mini:"Uma presença antiga se aproxima",boss:"A última barreira deste Elo se ergue",event:"Uma voz pede para ser ouvida",repair:"As correntes são remendadas",shop:"Um mercador oferece um trato",reward:"A vitória deixa um vestígio"})[nodeType]||"A trilha muda sob os pés do trio";
+  profile.run.storyBeat=({normal:"O eco anuncia um encontro",elite:"Um guardião de elite rompe o silêncio",mini:"Uma presença antiga se aproxima",boss:"A última barreira deste Elo se ergue",event:"Uma voz pede para ser ouvida",repair:"As correntes são remendadas",shop:"Um mercador oferece um trato",reward:"A vitória deixa um vestígio","nilo-choice":"A alma de Nilo chega ao ponto de decisão"})[nodeType]||"A trilha muda sob os pés do trio";
   if (["normal", "elite", "mini", "boss", "finale"].includes(nodeType)) {
     startEncounter(node);
     return;
@@ -333,6 +333,7 @@ function resolveNode(node) {
     return;
   }
   if (nodeType === "event") state.pending = { type: "event" };
+  if (nodeType === "nilo-choice") state.pending = { type: "nilo-choice" };
   if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+1) };
   if (nodeType === "upgrade") {
     const choices = getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+2);
@@ -342,8 +343,16 @@ function resolveNode(node) {
 }
 
 function chooseEvent(choice) {
-  if(!profile.run||state.pending?.type!=="event")return;
+  const niloChoice=state.pending?.type==="nilo-choice";
+  if(!profile.run||(!niloChoice&&state.pending?.type!=="event"))return;
   if(profile.run.serverOwned){requestCampaign({op:"event",choice});return;}
+  if(niloChoice){
+    if(!resolveNiloPathChoice(profile,choice,profile.run))return;
+    profile.eloProgress[profile.run.eloId].events++;
+    continueRun();
+    toast(choice==="purged"?"Nilo aceitou o Expurgo. O Epílogo foi liberado.":"A corrupção venceu. O Eco sem Nome despertou.");
+    return;
+  }
   profile.eloProgress[profile.run.eloId].events++;
   if (choice === "repair") {
     healRunTeam(0.25+(aggregateGlobal(profile).restBonus||0));
@@ -603,6 +612,8 @@ function activeRunEchoMarkup(run=profile.run){
 function pendingPanel() {
   const pending = state.pending;
   if (!pending) return "";
+  if (pending.type === "nilo-choice") return `
+    <section class="choice-panel nilo-choice-panel"><div class="eyebrow">A ALMA DE NILO · DECISÃO NO LIMIAR</div><h3>O que ainda pode ser salvo?</h3><p>As Essências absorvidas disputam o que resta da alma. A escolha define a forma que atravessará o próximo Elo.</p><div class="choice-actions"><button data-event-choice="purged"><b>⟲ Aceitar o Expurgo</b><small>Limpa a alma e libera Nilo, o Epílogo: uma forma enfraquecida, com custos Coringa e respostas estratégicas.</small></button><button data-event-choice="embraced"><b>◈ Continuar absorvendo</b><small>A corrupção consome o nome e libera O Eco sem Nome, que encadeia os quatro tipos de Essência.</small></button></div></section>`;
   if (pending.type === "event") return `
     <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade e 25% de Vida</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e ${esc(activeAffinityResource().shortName)} inicial nos próximos combates</small></button></div></section>`;
   if (["upgrade", "reward"].includes(pending.type)) return `

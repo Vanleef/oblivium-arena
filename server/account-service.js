@@ -4,14 +4,14 @@ import { characters, starters, elos } from '../src/data.js';
 const scrypt=promisify(scryptCallback),hash=value=>createHash('sha256').update(value).digest('hex');
 const cleanHandle=value=>String(value||'').trim().normalize('NFKC');
 const key=(kind,value)=>`account:${kind}:${hash(value)}`;
-const starterProfile=()=>({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:[],xp:0,fragments:0,run:null,unlockedAvatars:['soul',...starters.map(c=>c.id)],avatarId:'soul',bio:''});
-const profileFields=['version','ownedIds','team','completedElos','xp','fragments','run','unlockedAvatars','avatarId','bio','tutorialComplete','eloProgress','campaignVersion','globalUpgrades','pendingGlobalReward','completionNotice'];
+const starterProfile=()=>({version:1,ownedIds:starters.map(c=>c.id),team:starters.map(c=>c.id),completedElos:[],xp:0,fragments:0,run:null,niloPath:null,unlockedAvatars:['soul',...starters.map(c=>c.id)],avatarId:'soul',bio:''});
+const profileFields=['version','ownedIds','team','completedElos','xp','fragments','run','unlockedAvatars','avatarId','bio','tutorialComplete','eloProgress','campaignVersion','globalUpgrades','pendingGlobalReward','completionNotice','niloPath'];
 function publicProfile(profile){const value=JSON.parse(JSON.stringify(profile||{}));if(value.run)delete value.run.battle;return value;}
 function cleanProfile(input,current={}){
  if(!input||typeof input!=='object'||Array.isArray(input))throw Object.assign(Error('Progresso inválido.'),{status:400});
  let serialized;try{serialized=JSON.stringify(input);}catch{throw Object.assign(Error('Progresso inválido.'),{status:400});}
  if(serialized.length>120000)throw Object.assign(Error('Progresso muito grande.'),{status:413});
- const serverOwned=['ownedIds','completedElos','xp','fragments','run','eloProgress','campaignVersion','globalUpgrades','pendingGlobalReward','completionNotice'];
+ const serverOwned=['ownedIds','completedElos','xp','fragments','run','eloProgress','campaignVersion','globalUpgrades','pendingGlobalReward','completionNotice','niloPath'];
  const out=Object.fromEntries(profileFields.filter(field=>input[field]!==undefined&&!serverOwned.includes(field)).map(field=>[field,input[field]]));
  for(const field of serverOwned)if(current[field]!==undefined)out[field]=current[field];
  const knownIds=new Set(characters.map(c=>c.id)),knownElos=new Set(elos.map(e=>e.id));
