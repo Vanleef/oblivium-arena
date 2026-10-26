@@ -1,0 +1,71 @@
+{
+  "id": "anime-first-line-rework-20261026-07",
+  "date": "2026-10-26",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "style": "Anime-forward 2.5D: bold drawn contours, expressive stylized faces, angular cel-shadow planes, textured fabric and environments, dimensional depth; less naturalistic facial rendering and no photorealism.",
+  "approvedStyleAnchor": "art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp",
+  "sourceFormat": {
+    "sheet": "1536x1024 WebP",
+    "grid": "3x2 square panels",
+    "crop": "504x504 with 4px inset, resized to 512x512 WebP",
+    "identityPortrait": "original 500x500 WebP archived separately"
+  },
+  "alternativeSourceFormat": "1024x1024 WebP",
+  "characters": {
+    "a-boca-de-vidro": {
+      "name": "A Boca de Vidro (A Serpe)",
+      "identityReference": "art/source/a-boca-de-vidro-identity-portrait-before-anime-20261026.webp",
+      "sourceSheet": "art/source/a-boca-de-vidro-anime-first-line-20261026-sheet.webp",
+      "generationFile": "output/artworks/a-boca-de-vidro-anime-2-5d-v2.png",
+      "activeAssets": [
+        "art/characters/a-boca-de-vidro/portrait.webp",
+        "art/characters/a-boca-de-vidro/passive.webp",
+        "art/characters/a-boca-de-vidro/skill-impulso.webp",
+        "art/characters/a-boca-de-vidro/skill-tecnica.webp",
+        "art/characters/a-boca-de-vidro/skill-voto.webp",
+        "art/characters/a-boca-de-vidro/skill-despertar.webp"
+      ],
+      "review": [
+        "All six scenes show her continuous coiling lower body as translucent spiritual glass; no human legs or hips.",
+        "The passive shows essence falling away from the exposed enemy without transferring it to A Serpe.",
+        "Single-target attacks show one enemy; Discurso em Estilhaços shows exactly three enemies.",
+        "Reflexo da Boca is personal defense and shows only A Serpe."
+      ]
+    },
+    "o-falso-profeta": {
+      "name": "O Falso Profeta",
+      "identityReference": "art/source/o-falso-profeta-identity-portrait-before-anime-20261026.webp",
+      "sourceSheet": "art/source/o-falso-profeta-anime-first-line-20261026-sheet.webp",
+      "generationFile": "output/artworks/o-falso-profeta-anime-2-5d-v1.png",
+      "activeAssets": [
+        "art/characters/o-falso-profeta/anime-first-rework-20261026/portrait.webp",
+        "art/characters/o-falso-profeta/anime-first-rework-20261026/passive.webp",
+        "art/characters/o-falso-profeta/anime-first-rework-20261026/skill-impulso.webp",
+        "art/characters/o-falso-profeta/anime-first-rework-20261026/skill-tecnica.webp",
+        "art/characters/o-falso-profeta/anime-first-rework-20261026/skill-voto.webp",
+        "art/characters/o-falso-profeta/anime-first-rework-20261026/skill-despertar.webp"
+      ],
+      "alternativeArt": {
+        "name": "Confissão do Falso Santo",
+        "target": "self",
+        "effect": "healing and cleansing",
+        "identityReference": "art/source/o-falso-profeta-identity-portrait-before-anime-20261026.webp",
+        "activeAsset": "art/characters/o-falso-profeta/anime-first-rework-20261026/skill-tecnica-confess.webp",
+        "source": "art/source/o-falso-profeta-confess-anime-first-line-20261026.webp",
+        "generationFile": "output/artworks/o-falso-profeta-confess-anime-2-5d-v1.png"
+      },
+      "review": [
+        "Six stable anime-first base sprites were reviewed against the identity portrait and current kit targets.",
+        "Confissão do Falso Santo has a distinct self-healing and cleansing image; the base technique path remains independent.",
+        "The personal defense shows only the user; no combat rules, target, costs, duration or cooldown changed."
+      ]
+    }
+  },
+  "review": [
+    "Twelve base sprites and one alternative-form sprite were prepared for integration.",
+    "A Serpe's revised canonical anatomy and target counts were checked in the final 512x512 crops.",
+    "O Falso Profeta remains on the custom active route used by src/character-identity.js."
+  ],
+  "pendingScope": "Seventeen of 100 base character sets now follow the anime-first line (102 of 600 base sprites). Eighty-three base sets remain; alternative forms, A Máscara Dupla's body-form art, and other game visuals also remain in scope."
+}

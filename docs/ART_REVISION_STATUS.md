@@ -500,3 +500,9 @@ A migração soma agora doze dos 100 conjuntos base (72 de 600 sprites). Restam 
 O Sussurro, A Máscara Dupla e O Tecelão de Mentiras receberam 18 sprites base ativos na nova linha. A arte alternativa Desatar a Trama do Tecelão também foi atualizada e mostra o conjurador com exatamente duas aliadas. A fonte antiga de A Máscara Dupla estava vazia; o retrato original foi arquivado e preservado como referência de identidade. Manifesto: ART_ANIME_FIRST_REWORK_20261026_06.json.
 
 A migração soma agora quinze dos 100 conjuntos base (90 de 600 sprites); restam 85 conjuntos base. As artes de formas corporais de A Máscara Dupla, demais formas alternativas e outras artes do jogo continuam pendentes.
+
+## Mentira II — A Boca de Vidro e O Falso Profeta — 26/10/2026
+
+A Serpe (A Boca de Vidro) e O Falso Profeta receberam doze sprites base anime 2.5D. A Serpe mantém sua anatomia inteiramente serpentina de vidro espiritual nos seis quadros; Discurso em Estilhaços mostra exatamente três inimigos, ataques individuais mostram um, e Reflexo da Boca mostra somente a usuária. O Falso Profeta preserva rosto, vestes, halo segmentado e fitas azuis; Confissão do Falso Santo recebeu também uma arte alternativa própria para autocura e purificação. Rotas, identidades, alvos e efeitos dos kits foram preservados. Nenhuma regra de combate mudou. Manifesto: `ART_ANIME_FIRST_REWORK_20261026_07.json`.
+
+A migração anime-first soma agora 17 dos 100 conjuntos base, com 102 dos 600 sprites base. Restam 83 conjuntos base. O Falso Profeta foi conferido contra a nova linha; O Corretor de Memórias e A Pira Errante ainda precisam dessa conferência. Artes de formas alternativas, as formas corporais da Máscara Dupla e demais imagens do jogo continuam pendentes.
