@@ -436,3 +436,12 @@ A Arquiteta (A Arquiteta Verde) e O Ressonante (O Primeiro Canto) receberam 12 s
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta dos 100 conjuntos de auditoria estão concluídos; 37 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Limbo I: O Descontínuo, A Cindida e O Eco — 26/10/2026
+
+O Descontínuo (O Passo Interrompido), A Cindida (A Linha Partida) e O Eco (O Eco sem Dono) receberam 18 sprites-base WebP 512 × 512 e duas artes suplementares de formas ativas. Reatar a Linha protege uma aliada; o retrato da Ressonância Roubada do Eco acrescenta apenas uma pós-imagem ciano. A costura espacial da Cindida não fere corpos e o sino do Eco permanece sem badalo. Apoios mostram um aliado; Coro sem Origem mostra exatamente três inimigos. Ataques focados mostram um único alvo, inclusive Golpe Descontínuo após correção visual; defesas são pessoais. Nenhum custo, alvo, valor, efeito, duração, recarga ou regra foi alterado. Manifesto: `ART_CORRENTES_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta e três dos 100 conjuntos de auditoria estão concluídos; 34 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
