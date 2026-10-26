@@ -73,3 +73,12 @@ Os dezenove quadros foram refeitos pelas três âncoras pictóricas, preservando
 - A Pestilência, O Corrupto e A Rainha dos Fungos: dezoito cenas-base e três artes de formas alternativas para Podridão. A nuvem ambulante mantém identidade não humana; cenas de alvo único mostram uma vítima, áreas atingem exatamente três inimigos, o micélio da Rainha sustenta exatamente três aliados ao todo e as defesas mostram apenas o usuário. Manifesto `ART_PODRIDAO_PAINTERLY_REWORK_20261025.json`.
 
 - O Espectador, A Carcereira e O Silenciador: dezoito cenas pictóricas para Silêncio e duas artes de formas alternativas. O Espectador preserva a lente-monóculo; a Carcereira, os cachos grisalhos e as chaves; o Silenciador, a máscara acústica e a energia ciano. Ataques individuais e formas mostram uma vítima; Guarida Seletiva protege uma aliada e as defesas são pessoais. Manifesto `ART_SILENCIO_PAINTERLY_REWORK_20261025.json`.
+
+
+## Lote pictórico de Carne — 26/10/2026
+
+- A Metamorfa: 18 cenas principais para a forma original, Pele Usurpada e Carapaça Usurpada; oito artes alternativas adicionais para as duas formas transformadas.
+- O Profanador: seis cenas para retrato, passiva e quatro técnicas.
+- As novas artes usam pintura matte com pinceladas aparentes, contornos desenhados, blocos gráficos, semitom moderado e luz cinematográfica contida.
+- Recortes finais RGB WebP em 512 × 512. Os arquivos ativos seguem art/characters/{id}/painterly-rework-20261026/; folhas e descrição das cenas estão em art/source/ e docs/ART_CARNE_PAINTERLY_REWORK_20261026.json.
+- src/character-identity.js e src/body-forms.js selecionam os novos caminhos para A Metamorfa e O Profanador. Kits e mecânicas não mudaram.

@@ -1,6 +1,6 @@
 import { applyArchetypeForm } from "./archetypes.js";
 
-const folder=id=>id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':['a-brasa-eterna','o-odio-encarnado','o-devorador'].includes(id)?`/art/characters/${id}/painterly-rework-20261025`:`/art/characters/${id}/body-forms-20261023`;
+const folder=id=>id==='a-pele-alheia'?'/art/characters/a-pele-alheia/painterly-rework-20261026':id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':['a-brasa-eterna','o-odio-encarnado','o-devorador'].includes(id)?`/art/characters/${id}/painterly-rework-20261025`:`/art/characters/${id}/body-forms-20261023`;
 const slots=['impulso','tecnica','voto'];
 const shift=form=>slots.map(slot=>({slot,form}));
 const back=shift('base');
