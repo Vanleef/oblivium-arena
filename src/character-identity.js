@@ -932,6 +932,13 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'a-pira-errante') {
+    const base = `/art/characters/${id}/painterly-rework-20261026`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...forms.impulso,reply:`${base}/skill-impulso-reply.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
   if (painterlyRework20261026Art.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261026`;
     const forms = {...(art.forms || {})};
