@@ -171,7 +171,12 @@ const powers=[
   ['longstep','Passo Antes da Queda','⇢','exploration',d=>({startingCharge:Math.min(2,1+Math.floor(d/4)),supportCharge:1}),e=>`Comece com ${e.startingCharge} carga e receba 1 carga ao usar apoio, até o limite de 3.`],
   ['keepsake','Bolso dos Ausentes','▰','exploration',d=>({stability:1+Math.floor(d/5),fragments:2+2*d}),e=>`Trilhas começam com +${e.stability} Corrente da Alma; vitórias rendem +${e.fragments} fragmentos.`],
   ['turnstile','Maré de Retorno','◷','exploration',d=>({restBonus:Math.min(.4,.08+.03*d),stability:1}),e=>`Descansos e eventos curam +${Math.round(e.restBonus*100)}% da Vida máxima; receba +${e.stability} Corrente.`],
-  ['soulforge','Forja de Éter','⚒','exploration',d=>({essence:1+Math.floor(d/4),maxHp:4+Math.floor(d/2)}),e=>`Combates começam com +${e.essence} Éter; cada aliado recebe +${e.maxHp} Vida máxima.`]
+  ['soulforge','Forja de Éter','⚒','exploration',d=>({essence:1+Math.floor(d/4),maxHp:4+Math.floor(d/2)}),e=>`Combates começam com +${e.essence} Éter; cada aliado recebe +${e.maxHp} Vida máxima.`],
+  ['nilo-echo','Eco Receptivo','◍','exploration',d=>({randomEssence:1}),e=>`Comece cada combate com +${e.randomEssence} Essência aleatória.`],
+  ['naomi-root','Raiz que Permanece','❋','defense',d=>({maxHp:5+2*d,regeneration:1+Math.floor(d/3)}),e=>`Cada aliado recebe +${e.maxHp} Vida máxima; regenere ${e.regeneration} Vida por turno a partir do segundo.`],
+  ['kael-iron','Dívida de Ferro','⛨','offense',d=>({woundedPower:2+Math.floor(d/2),counterPower:1+Math.floor(d/2)}),e=>`+${e.woundedPower} dano com até metade da Vida; Contra-ataques causam +${e.counterPower} dano.`],
+  ['vaas-masks','Máscaras Sobrepostas','◇','offense',d=>({markedPower:2+Math.floor(d/2),controlPower:1+Math.floor(d/3)}),e=>`+${e.markedPower} dano contra alvos com Marca própria; técnicas de controle causam +${e.controlPower} dano.`],
+  ['diana-vigil','Vigília de Graça','✚','defense',d=>({healPower:1+d,supportShield:2+Math.floor(d/2)}),e=>`Curas restauram +${e.healPower} Vida; usar apoio concede ${e.supportShield} Defesa ao usuário.`]
 ];
 const upgradeVisuals={
  wounded:{glyph:'scar',lore:'As marcas deixadas por cada queda viram vontade para continuar lutando.'},
@@ -223,7 +228,12 @@ const upgradeVisuals={
  longstep:{glyph:'footsteps',lore:'Um passo antecipado deixa carga para a resposta seguinte.'},
  keepsake:{glyph:'purse',lore:'Pequenos vestígios dos ausentes sustentam a trilha e seu custo.'},
  turnstile:{glyph:'tideclock',lore:'A corrente do Limbo abre um breve caminho de volta.'},
- soulforge:{glyph:'forge',lore:'A essência recebida toma forma e reforça quem a carrega.'}
+ soulforge:{glyph:'forge',lore:'A essência recebida toma forma e reforça quem a carrega.'},
+ 'nilo-echo':{glyph:'echo',lore:'O corpo de Nilo devolve uma centelha do que absorveu sem escolher.'},
+ 'naomi-root':{glyph:'seed',lore:'A raiz de Naomi guarda espaço para cada pessoa que ainda precisa de abrigo.'},
+ 'kael-iron':{glyph:'anvil',lore:'A culpa vira metal, mas nenhum golpe apaga o que Kael precisa reparar.'},
+ 'vaas-masks':{glyph:'mirror',lore:'Uma máscara reflete a outra até que a abertura revele quem está olhando.'},
+ 'diana-vigil':{glyph:'lantern',lore:'A luz de Diana continua acesa enquanto alguém ainda pede ajuda.'}
 };
 export const globalUpgradeCatalog=Object.freeze(powers.map(([kind,title,,category])=>Object.freeze({kind,title,category,...upgradeVisuals[kind]})));
 export function globalChoices(profile,eloId,difficulty,seed=1) {

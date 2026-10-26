@@ -23,10 +23,13 @@ export const eloSynergyCatalog = Object.freeze({
 const membersOf = value => (Array.isArray(value) ? value : []).map(item => typeof item === "string" ? characterById[item] : item).filter(Boolean);
 const countAlive = units => units.filter(unit => (unit.hp ?? 1) > 0);
 const matchingPeers = (units, actor, field) => Math.min(2, countAlive(units).filter(unit => unit.id !== actor?.id && unit[field] === actor?.[field]).length);
+const linkedEloIds = unit => [...new Set([unit?.eloId, ...(unit?.synergyEloIds || [])].filter(Boolean))];
 
 export function eloSynergyPeers(units, actor, kind) {
-  const mode = eloSynergyCatalog[actor?.eloId]?.kind;
-  return mode === kind ? matchingPeers(units, actor, "eloId") : 0;
+  const actorElos = linkedEloIds(actor);
+  const sharedPeerCount = countAlive(units).filter(unit => unit.id !== actor?.id
+    && actorElos.some(eloId => eloSynergyCatalog[eloId]?.kind === kind && linkedEloIds(unit).includes(eloId))).length;
+  return Math.min(2, sharedPeerCount);
 }
 
 export function realmSynergyPeers(units, actor, kind) {
@@ -50,12 +53,20 @@ export function activeTeamSynergies(team) {
     active.push({ id: `realm-${realm}`, name: realm, icon: realm === "Inferno" ? "♨" : realm === "Paraíso" ? "✧" : "⟲", detail, count });
   }
   const byElo = new Map();
-  for (const unit of living) byElo.set(unit.eloId, (byElo.get(unit.eloId) || 0) + 1);
-  for (const [eloId, count] of byElo) {
+  for (const unit of living) {
+    for (const eloId of linkedEloIds(unit)) {
+      if (!eloSynergyCatalog[eloId]) continue;
+      const members = byElo.get(eloId) || new Set();
+      members.add(unit.id);
+      byElo.set(eloId, members);
+    }
+  }
+  for (const [eloId, members] of byElo) {
+    const count = members.size;
     if (count < 2) continue;
     const elo = elos.find(item => item.id === eloId);
     const rule = eloSynergyCatalog[eloId];
-    if (rule) active.push({ id: `elo-${eloId}`, name: elo?.name || eloId, icon: rule.icon, detail: `${rule.detail} Máximo +2.`, count });
+    active.push({ id: `elo-${eloId}`, name: elo?.name || eloId, icon: rule.icon, detail: `${rule.detail} Máximo +2.`, count });
   }
   const byAffinity=new Map();
   for(const unit of living){const affinity=unit.affinity||unit.bodyResource;if(affinity)byAffinity.set(affinity,(byAffinity.get(affinity)||0)+1);}

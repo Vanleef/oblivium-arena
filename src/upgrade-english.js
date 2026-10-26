@@ -79,5 +79,20 @@ export const englishUpgradePhrases = {
   "O instante entre luz e sombra torna o golpe inevitável.": "The instant between light and shadow makes the strike inevitable.",
   "Rebrota nas Cinzas": "Ashen Regrowth",
   "Cada aliado recebe +5 de Vida máxima; habilidades de cura restauram +4 de Vida.": "Each ally gains +5 maximum Health; healing abilities restore +4 Health.",
-  "Uma raiz verde rompe o solo onde tudo parecia consumido.": "A green root breaks through soil where everything seemed lost."
+  "Uma raiz verde rompe o solo onde tudo parecia consumido.": "A green root breaks through soil where everything seemed lost.",
+  "Eco Receptivo": "Receptive Echo",
+  "Comece cada combate com +1 Essência aleatória.": "Start each battle with +1 random Essence.",
+  "O corpo de Nilo devolve uma centelha do que absorveu sem escolher.": "Nilo's body returns a spark of what it absorbed without choosing.",
+  "Raiz que Permanece": "Root That Remains",
+  "Cada aliado recebe +5 Vida máxima; regenere 1 Vida por turno a partir do segundo.": "Each ally gains +5 maximum Health; regenerate 1 Health per turn starting on turn 2.",
+  "A raiz de Naomi guarda espaço para cada pessoa que ainda precisa de abrigo.": "Naomi's root keeps room for everyone who still needs shelter.",
+  "Dívida de Ferro": "Iron Debt",
+  "+2 dano com até metade da Vida; Contra-ataques causam +1 dano.": "+2 damage at half Health or below; Counterattacks deal +1 damage.",
+  "A culpa vira metal, mas nenhum golpe apaga o que Kael precisa reparar.": "Guilt turns to metal, but no strike erases what Kael must repair.",
+  "Máscaras Sobrepostas": "Overlapping Masks",
+  "+2 dano contra alvos com Marca própria; técnicas de controle causam +1 dano.": "+2 damage against targets with your Mark; control techniques deal +1 damage.",
+  "Uma máscara reflete a outra até que a abertura revele quem está olhando.": "One mask reflects another until the opening reveals who is watching.",
+  "Vigília de Graça": "Graceful Vigil",
+  "Curas restauram +1 Vida; usar apoio concede 2 Defesa ao usuário.": "Healing restores +1 Health; using support grants the user 2 Defense.",
+  "A luz de Diana continua acesa enquanto alguém ainda pede ajuda.": "Diana's light stays lit while someone still asks for help."
 };

@@ -2,6 +2,7 @@ import { englishPassivePhrases } from "./passive-english.js";
 import { englishUpgradePhrases } from "./upgrade-english.js";
 import { englishCharacterPhrases } from "./character-english.js";
 import { englishWorldPhrases } from "./english-world-copy.js";
+import { protagonistCharacterNames, protagonistEnglishPhrases } from "./protagonists.js";
 import { characters } from "./data.js";
 
 const LANGUAGE_KEY = "pma-language";
@@ -18,7 +19,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "Reúna três almas. Atravesse os Elos. Restaure o véu.": "Gather three souls. Cross the Bonds. Restore the veil.",
   "O outro lado espera.": "The other side awaits.", "As barreiras cedem. O trio escolhe o que atravessa.": "The barriers give way. Your team chooses what crosses.",
   "Codex de Elos": "Bond Codex", "Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.": "Discover the forces crossing the veil. Win trails to recruit new souls.",
-  "ALMAS CONHECIDAS": "KNOWN SOULS", "100 ALMAS · 17 ELOS · 3 REINOS": "100 SOULS · 17 BONDS · 3 REALMS", "100 PERSONAGENS": "100 CHARACTERS",
+  "ALMAS CONHECIDAS": "KNOWN SOULS", "115 ALMAS · 17 ELOS · 3 REINOS": "115 SOULS · 17 BONDS · 3 REALMS", "115 PERSONAGENS": "115 CHARACTERS",
   "Buscar nome, arquétipo ou Essência": "Search name, archetype, or Essence", "Buscar personagem, Elo ou Essência": "Search character, Bond, or Essence",
   "Todos os Elos": "All Bonds", "Todos os arquétipos": "All archetypes", "Todas as funções": "All roles", "ARQUÉTIPO PRINCIPAL": "PRIMARY ARCHETYPE",
   "AFINIDADE PRINCIPAL DE ESSÊNCIA": "PRIMARY ESSENCE AFFINITY", "COMO JOGAR": "HOW TO PLAY", "COMO ESTE PERSONAGEM QUER SER JOGADO": "HOW THIS CHARACTER PLAYS",
@@ -31,7 +32,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "Curas concedidas recebem +1 de Vida por aliado adicional do mesmo Mundo, até +2.": "Healing restores +1 Health per additional ally from the same Realm, up to +2.",
   "O trio recebe +1 Defesa por aliado adicional do Limbo (máx. +2); controle recebe +1 dano por parceiro e 2+ aliados geram 1 Ruptura a cada dois turnos.": "Your team gains +1 Defense per additional Limbo ally (max +2); control deals +1 damage per partner, and 2+ allies generate 1 Rupture every other turn.",
   "Duas ou mais almas com a mesma afinidade principal começam cada combate com +1 daquela Essência. O bônus vale para cada lado, inclusive a oposição.": "Two or more souls sharing a primary affinity start each battle with +1 of that Essence. This bonus applies to both sides, including opponents.",
-  "SINERGIAS PASSIVAS ATIVAS": "ACTIVE PASSIVE SYNERGIES", "ESCALAM COM ALIADOS VIVOS": "SCALE WITH LIVING ALLIES",
+  "SINERGIAS PASSIVAS ATIVAS": "ACTIVE PASSIVE SYNERGIES", "SINERGIAS DE ELO": "BOND SYNERGIES", "ESCALAM COM ALIADOS VIVOS": "SCALE WITH LIVING ALLIES",
   "Primeira Run Guiada": "Guided First Run", "PARA QUEM ESTÁ COMEÇANDO": "FOR NEW PLAYERS", "Começar guia": "Start guide",
   "Dicas contextuais ligadas": "Context tips on", "Dicas contextuais desligadas": "Context tips off", "Dica da travessia": "Trail tip",
   "Selecione uma técnica para ver custo, efeito e recarga. A quarta técnica protege o trio; reserve Essência para a janela certa.": "Select a technique to see its cost, effect, and cooldown. The fourth technique protects your team; save Essence for the right moment.",
@@ -82,11 +83,12 @@ const phraseTranslations = Object.fromEntries(Object.entries({
 for (const [source, translated] of Object.entries(englishCharacterPhrases)) {
   phraseTranslations[source.normalize("NFC").toLocaleLowerCase("pt-BR")] = translated;
 }
-for (const [source, translated] of Object.entries({...englishWorldPhrases,...englishUpgradePhrases,...englishPassivePhrases})) {
+for (const [source, translated] of Object.entries({...englishWorldPhrases,...englishUpgradePhrases,...englishPassivePhrases,...protagonistEnglishPhrases})) {
   phraseTranslations[source.normalize("NFC").toLocaleLowerCase("pt-BR")] = translated;
 }
 
 const characterNames = {
+  ...protagonistCharacterNames,
   "O Açougueiro":"The Butcher", "A Viúva":"The Widow", "O Colecionador":"The Collector", "Gêmeos do Cutelo":"The Cleaver Twins", "O Carrasco":"The Executioner", "A Mãe Rubra":"The Red Mother",
   "O Soberano":"The Sovereign", "A Magistrada":"The Magistrate", "O Suserano":"The Overlord", "O Príncipe":"The Prince", "A Déspota":"The Despot", "O Herdeiro":"The Heir",
   "O Sussurro":"The Whisper", "A Máscara Dupla":"The Double Mask", "O Intrigante":"The Schemer", "A Serpe":"The Serpent", "O Impostor":"The Impostor", "O Falsário":"The Forger",
