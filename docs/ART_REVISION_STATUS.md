@@ -477,3 +477,8 @@ Cinco conjuntos base foram convertidos e integrados: A Porta que Flutua, A Viúv
 
 Restam 95 dos 100 conjuntos base e 570 sprites base; as formas alternativas e as demais artes do jogo também precisam passar pela migração. Os 70/100 registrados nas auditorias anteriores medem a direção pictórica antiga e não contam como concluídos nesta linha. Os três conjuntos anime-first registrados em ART_ANIME_FIRST_REWORK_20261026.json ainda precisam de conferência visual contra a nova referência.
 
+## Lote Sangria II — A Mãe Rubra — 26/10/2026
+
+A Mãe Rubra recebeu seis sprites anime 2.5D nas rotas ativas. Partilha da Mãe mostra uma única aliada; Berço de Sangue mostra exatamente três inimigos; Casulo Rubro protege somente a própria personagem. A identidade, o kit e as regras de combate foram preservados. Manifesto: ART_ANIME_FIRST_REWORK_20261026_03.json.
+
+Com este lote, seis dos 100 conjuntos base (36 dos 600 sprites base) seguem a nova linha. Restam 94 conjuntos base; as formas alternativas e demais artes do jogo também permanecem na migração.
