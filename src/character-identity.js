@@ -6,7 +6,8 @@ const spiritArt = new Set(['a-pira-errante','o-jardim-morto','a-luz-que-restaura
 const diverseArt = new Set(['o-devorador','o-ultimo-guardiao','o-eco-sem-dono']);
 const continuationArt = new Set(['a-semente','a-linha-partida']);
 const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
-const painterlyChamaArt = new Set(['o-incendiario','a-brasa-eterna','o-odio-encarnado']);
+const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
+const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-incendiario']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
 const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],['a-pele-alheia','painterly-rework-20261026-animal'],['o-desejo-quebrado','painterly-rework-20261026'],['a-marionetista-de-nervos','painterly-rework-20261026'],['o-espelho-carnal','painterly-rework-20261026'],['a-costureira','painterly-rework-20261026']]);
@@ -931,6 +932,14 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (painterlyRework20261026Art.has(id)) {
+    const base = `/art/characters/${id}/painterly-rework-20261026`;
+    const forms = {...(art.forms || {})};
+    if (id === 'o-falso-profeta') forms.tecnica = {...forms.tecnica,confess:`${base}/skill-tecnica-confess.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
+  }
   if (painterlyBatchArt.has(id)) {
     const base = `/art/characters/${id}`;
     const forms = {...(art.forms || {})};
@@ -1063,11 +1072,6 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (id === 'o-corretor-de-memorias') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
-    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
-      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
-  }
   if (id === 'a-mascara-dupla') {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
@@ -1078,7 +1082,7 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (['o-tecelao-de-mentiras','a-boca-de-vidro','o-falso-profeta'].includes(id)) {
+  if (['o-tecelao-de-mentiras','a-boca-de-vidro'].includes(id)) {
     const base = `/art/characters/${id}/style-reference-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};

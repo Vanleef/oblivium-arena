@@ -454,3 +454,12 @@ Dezenove sprites WebP 512 × 512 foram integrados: retrato, passiva e quatro hab
 ## Estado atual da auditoria — 26/10/2026
 
 O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta e seis dos 100 conjuntos de auditoria estão concluídos; 31 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.
+
+
+## Lote pictórico de Mentira e Chama — 26/10/2026
+
+O Falso Profeta, O Corretor de Memórias e O Incendiário receberam 19 sprites pictóricos ativos: seis por personagem e a arte alternativa de Confissão do Falso Santo. As cenas preservam as identidades, a chama negra, a mão mecânica dourada e os efeitos visuais próprios dos kits. A arte de Fagulhas em Cadeia mostra exatamente três inimigos; ataques individuais mostram um; defesas pessoais não mostram agressores. Nenhuma regra de combate foi alterada. Manifesto: `ART_MENTIRA_CHAMA_PAINTERLY_REWORK_20261026.json`.
+
+## Estado atual da auditoria — 26/10/2026
+
+O Fim, O Revelador e O Vidente permanecem como referências aprovadas. Sessenta e nove dos 100 conjuntos de auditoria estão concluídos; 28 aguardam revisão, além das três referências aprovadas. A revisão global permanece aberta.

@@ -209,7 +209,7 @@ const characterFormArt = {
     tecnica: { unweave: "/art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-tecnica-unweave.webp" }
   },
   "o-falso-profeta": {
-    tecnica: { confess: "/art/characters/o-falso-profeta/style-reference-rework-20261025/skill-tecnica-confess.webp" }
+    tecnica: { confess: "/art/characters/o-falso-profeta/painterly-rework-20261026/skill-tecnica-confess.webp" }
   },
   "o-vigia-ausente": {
     voto: { ambush: "/art/characters/o-vigia-ausente/painterly-rework-20261025/skill-voto-ambush.webp" }
