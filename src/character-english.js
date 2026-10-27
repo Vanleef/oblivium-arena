@@ -4,7 +4,7 @@ import { FINAL_BOSS, createFinalBossAbilities } from "./final-boss.js";
 // Hand-edited character copy keeps lore and play advice natural in English.
 const characterCopy = {
   "o-acougueiro": {
-    lore: "Dario is a brutally sturdy creature of flesh. He scents wounded prey and turns his next lunge into a more relentless strike; every blow deepens the hunt that feeds Bloodshed.",
+    lore: "Balthasar Gérard is a brutally sturdy creature of flesh. He scents wounded prey and turns his next lunge into a more relentless strike; every blow deepens the hunt that feeds Bloodshed.",
     combo: "Apply Bleed, then choose whether to reopen the same wound or consume it with the Sentence.",
     passive: "Blood Instinct"
   },
