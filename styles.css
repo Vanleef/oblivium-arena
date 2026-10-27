@@ -330,21 +330,6 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .codex-card-body .eyebrow { font-size: 7px; }
 .codex-card-body h3 { margin: 5px 0; font-family: Georgia, serif; font-size: 16px; font-weight: 400; }
 .codex-card-body > p { margin: 0; color: var(--muted); font-size: 9px; }
-.codex-archetype { display: grid; grid-template-columns: 28px minmax(0,1fr); align-items: center; gap: 8px; margin-top: 10px; padding: 8px; border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line)); background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 8%, transparent), rgba(255,255,255,.018)); }
-.codex-archetype > i { width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line)); color: var(--accent); font-size: 17px; font-style: normal; }
-.codex-archetype > div { display: grid; gap: 3px; min-width: 0; }
-.codex-archetype small { color: #91849a; font-size: 6px; letter-spacing: .1em; text-transform: uppercase; }
-.codex-archetype b { color: #eadcbf; font-size: 9px; }
-.codex-archetype span { color: #a99bb0; font-size: 8px; line-height: 1.35; }
-.archetype-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
-.archetype-tags > span { display: inline-flex; align-items: center; gap: 4px; padding: 3px 5px; border: 1px solid rgba(225,211,187,.12); background: rgba(255,255,255,.02); color: #c3b6c8; font-size: 7px; }
-.archetype-tags i { color: #d6be86; font-size: 10px; font-style: normal; }
-.codex-archetype[data-archetype="status"] { --accent: #d98576; }
-.codex-archetype[data-archetype="healer"] { --accent: #9fd0af; }
-.codex-archetype[data-archetype="control"] { --accent: #c0a2d8; }
-.codex-archetype[data-archetype="converter"] { --accent: #88c5ad; }
-.unit-archetype { display: flex; align-items: center; gap: 4px; overflow: hidden; margin-top: 3px; color: #d8c99e; text-overflow: ellipsis; white-space: nowrap; font-size: 6px; }
-.unit-archetype i { color: #e5c77e; font-size: 9px; font-style: normal; }
 .codex-passive { display: grid; grid-template-columns: 36px minmax(0,1fr); align-items: center; gap: 8px; margin-top: 10px; padding: 8px 9px; border-left: 1px solid var(--accent); background: rgba(255,255,255,.025); }
 .codex-passive img, .passive-fallback { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--line); object-fit: cover; color: var(--accent); }
 .codex-passive > div { display: grid; gap: 3px; min-width: 0; }
