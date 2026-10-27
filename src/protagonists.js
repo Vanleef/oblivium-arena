@@ -4320,7 +4320,6 @@ function compileProfile(profile, index) {
       costs: costsFor(ability),
       cooldown: ability.cooldown || 0,
       kind: abilityKind(ability),
-      classes: [ability.damage ? ability.damageType === "physical" ? "Física" : ability.damageType === "piercing" ? "Perfurante" : ability.damageType === "affliction" ? "Aflição" : "Espiritual" : "Estratégica", ability.dot ? "Persistente" : "Instantânea"],
       description: describeAbility(ability)
     };
     registerPhrase(source.name, englishName);
