@@ -99,9 +99,9 @@ test('Codex abre e fecha descrições por clique, Enter e Espaço sem perder a b
  assert.match(app.innerHTML,/Codex/);
 });
 
-test('Codex destaca afinidade, estratégia e filtra por Elo, arquétipo e função',async()=>{
+test('Codex omite resumos redundantes e filtra por Elo, arquétipo e função',async()=>{
  const {app,handlers,click}=setup();await import('../src/main.js?codex-filters=1');click({tab:'codex'});
- assert.match(app.innerHTML,/AFINIDADE PRINCIPAL DE ESSÊNCIA/);assert.match(app.innerHTML,/COMO JOGAR/);
+ assert.doesNotMatch(app.innerHTML,/AFINIDADE PRINCIPAL DE ESSÊNCIA|COMO JOGAR/);
  assert.match(app.innerHTML,/data-codex-elo/);assert.match(app.innerHTML,/data-codex-archetype/);assert.match(app.innerHTML,/data-codex-function/);
  handlers.change({target:{matches(selector){return selector==='[data-codex-elo]';},value:'sangria'}});
  const cards=app.innerHTML.match(/<article class="codex-card[\s\S]*?<\/article>/g)||[];

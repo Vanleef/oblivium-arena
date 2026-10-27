@@ -31,10 +31,6 @@ import { abilityCostMarkup, abilityDetailMarkup, highlightKeywords } from "./abi
 import { getLanguage, localizeMarkup, localizeText, setLanguage } from "./i18n.js";
 
 const app = document.querySelector("#app");
-function playstyleSummary(character){
- const summary=character.combo||character.roleHint||character.mechanic||"";
- return localizeText(summary,getLanguage());
-}
 function codexCooldownLabel(ability){
  const cooldown=ability.cooldown||0;
  if(getLanguage()==="en")return cooldown?`CD ${cooldown} ${cooldown===1?"turn":"turns"}`:"No cooldown";
@@ -690,7 +686,7 @@ function codexView() {
       const synergyNames=[...new Set((character.synergyEloIds||[]).map(id=>elos.find(elo=>elo.id===id)).filter(elo=>elo&&elo.id!==character.eloId).map(elo=>localizeText(elo.name,getLanguage())))];
       return `<article class="codex-card ${state.account&&!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.eloId)}</span><small>${character.npcOnly?"OPOSIÇÃO":!state.account?"ALMA DO PMA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<div class="codex-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i><span><small>AFINIDADE PRINCIPAL DE ESSÊNCIA</small><b>${esc(resourceById[character.affinity]?.name||"Essência")}</b></span></div>${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE ELO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-playstyle"><small>COMO JOGAR</small><p>${esc(playstyleSummary(character))}</p></div><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE ELO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
         ${bodyFormSelector(character)}${codexSkillList(character,character.abilities)}
       </article>`;
     }).join("")}</div>`;

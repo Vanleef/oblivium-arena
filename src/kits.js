@@ -392,7 +392,7 @@ export function describeAbility(a) {
   if(a.combo)parts.push(`Se ${conditionLabel(a.combo.condition)}: +${a.combo.bonusDamage||0} de dano${a.combo.stun?` e Atordoa por ${a.combo.stun} ${a.combo.stun===1?"turno":"turnos"}`:""}${a.combo.consume?"; consome a preparação":""}.`);
   if(a.resonantWound)parts.push(`O usuário perde ${a.selfDamage} de Vida, mais ${a.perChargeDamage||0} por Carga consumida; a dissonância repercute no alvo ressonante. O custo não pode derrotar o usuário.`);
   else if(a.selfDamage)parts.push(`O usuário perde ${a.selfDamage} de Vida (não pode ser derrotado por este custo).`);
-  if(a.invulnerable)parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno.");
+  if(a.invulnerable)parts.push("O usuário fica Invulnerável por 1 turno.");
   return parts.join(" ");
 }
 function describePassive(p) {

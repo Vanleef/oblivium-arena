@@ -901,7 +901,7 @@ const protagonistProfiles = [
       "englishName": "Ashen Silence",
       "shield": 4,
       "silenceMarkedHealing": true,
-      "englishDescription": "Grants 4 destructible Defense, and makes the user Invulnerable to new enemy skills for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn; existing afflictions continue."
+      "englishDescription": "Grants 4 destructible Defense, and makes the user Invulnerable for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn."
     }
   },
   {
@@ -1054,7 +1054,7 @@ const protagonistProfiles = [
       "englishName": "Sacred Threshold",
       "shield": 4,
       "cleanseOneAffliction": true,
-      "englishDescription": "Grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable to new enemy skills for 1 turn. Existing afflictions continue."
+      "englishDescription": "Grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable for 1 turn."
     }
   },
   {
@@ -1218,7 +1218,7 @@ const protagonistProfiles = [
       "shield": 4,
       "nextSkillBonus": 5,
       "nextSkillExpose": 1,
-      "englishDescription": "Grants 4 destructible Defense, and makes Nilo Invulnerable to new enemy skills for 1 turn. His next skill deals +5 damage and Exposes its target. Existing afflictions continue."
+      "englishDescription": "Grants 4 destructible Defense, and makes Nilo Invulnerable for 1 turn. His next skill deals +5 damage and Exposes its target."
     }
   },
   {
@@ -4326,7 +4326,7 @@ function compileProfile(profile, index) {
     const translatedDescription = englishDescription || [
       ability.heal ? "Restores " + ability.heal + " Health." : "",
       ability.shield ? "Grants " + ability.shield + " destructible Defense." : "",
-      ability.invulnerable ? "The user is Invulnerable to new enemy abilities for 1 turn." : ""
+      ability.invulnerable ? "The user is Invulnerable for 1 turn." : ""
     ].filter(Boolean).join(" ");
     registerPhrase(compiled.description, translatedDescription);
     return compiled;

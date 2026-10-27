@@ -81,7 +81,7 @@ Abra Sangramento e escolha entre reabrir a mesma ferida ou consumi-la na Senten�
 - **Reabrir a Ferida** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. Se o alvo está com Sangramento: +10 dano; consome a preparação. Após usar, restaura Incisão de Abate.
 - **Talho Imobilizante** (1 Ruptura + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno.
 - **Sentença do Cutelo** (1 Ruptura + 1 Éter; recarga 1T): Causa 28 de dano físico a um inimigo. Se o alvo está com Sangramento: +12 dano; consome a preparação.
-- **Passo entre Lâminas** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo entre Lâminas** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Viúva — Executor
 
@@ -99,7 +99,7 @@ Atraia uma agressão ao véu para abrir uma cobrança de Vida contra quem o atac
 - **Fio Reverso** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano perfurante a um inimigo. Restaura ao usuário 50% do dano causado. Após usar, restaura Fio Escarlate.
 - **Véu da Viúva** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, Fio Escarlate vira Fio Reverso contra o agressor por 2 turnos.
 - **Beijo da Última Noite** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +15 dano.
-- **Véu de Sangue** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Véu de Sangue** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Colecionador — Executor
 
@@ -117,7 +117,7 @@ Acumule troféus e escolha quando gastar as duas grandes execuções disponívei
 - **Cobrança do Caçador** (1 Ruptura; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 15 de Defesa antes do dano.
 - **Galeria de Troféus** (1 Ruptura + 1 Coringa; recarga 2T): Causa 20 de dano físico a um inimigo. Consome as cargas: +8 de dano por carga. Pode ser usada 2 vezes por combate; depois vira Caça sem Troféus.
 - **Caça sem Troféus** [variação] (1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Consome as cargas: +3 de dano por carga.
-- **Sombra do Colecionador** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Sombra do Colecionador** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Gêmeos do Cutelo — Pressionador de Área
 
@@ -135,7 +135,7 @@ Use um corte para abrir o outro; escolha entre a continuação concentrada e o e
 - **Cutelo da Direita** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos.
 - **Corte em Contratempo** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 15 de dano perfurante a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos. Se o alvo está Exposto: +5 dano. Após usar, restaura Cutelo da Direita.
 - **Encontro das Lâminas** (2 Ruptura + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo está Exposto: +10 dano.
-- **Dança Cruzada** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Dança Cruzada** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Carrasco — Executor
 
@@ -152,7 +152,7 @@ Marque uma sentença que pune apoio; interrompa a vítima ou guarde a execução
 - **Sentença sem Nome** (1 Éter; recarga 0T): Causa 5 de dano físico a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 10 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Queda da Guilhotina** (1 Éter + 1 Coringa; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Última Respiração** (2 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo tem 50 de Vida ou menos: +15 dano.
-- **Capuz do Esquecimento** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Capuz do Esquecimento** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Mãe Rubra — Sustentador
 
@@ -169,7 +169,7 @@ Troque sua Vida por guarda e recuperação futura de um aliado; sustente-se dren
 - **Cordão Rubro** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado.
 - **Partilha da Mãe** (1 Graça; recarga 1T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. O usuário perde 5 de Vida (não o derrota).
 - **Berço de Sangue** (1 Graça + 1 Éter; recarga 2T): Causa 10 de dano físico a todos os inimigos. Sangramento: 4 de dano de aflição por 2 turnos.
-- **Casulo Rubro** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Casulo Rubro** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Cain — Preparador de Marcas
 
@@ -186,7 +186,7 @@ Cobrar a culpa em sangue
 - **Marca do Primeiro Erro** (1 Ruptura; recarga 0T): Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.
 - **Repetir a Sentença** (1 Ruptura + 1 Coringa; recarga 0T): Causa 15 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 dano; consome a preparação.
 - **Ferida Consentida** (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. O usuário perde 5 de Vida (não o derrota).
-- **Cicatriz de Sangue** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Cicatriz de Sangue** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Coroa
 
@@ -208,7 +208,7 @@ Assuma a forma de domínio para espalhar decretos, enfraquecer a linha e erguer 
 - **Cadeia de Juramento** [variação] (1 Éter + 1 Coringa; recarga 0T): Causa 10 de dano espiritual a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Coroa sobre Ruínas** (2 Éter; recarga 0T): Concede 25 de Defesa destrutível. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Durante 2 turnos, as três primeiras técnicas assumem o kit de domínio coletivo; depois, voltam sem reiniciar recargas.
 - **Trono Incontestável** [variação] (2 Éter; recarga 0T): Concede 12 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
-- **Trono Interior** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Trono Interior** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Magistrada — Interditor
 
@@ -225,7 +225,7 @@ Imponha uma acusação para expor e selar o apoio; interrompa a resistência ant
 - **Acusação Imposta** (2 Éter; recarga 2T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
 - **Interdição da Defesa** (1 Éter + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove 10 de Defesa antes do dano.
 - **Sentença de Submissão** (2 Éter; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
-- **Toga Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Toga Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Suserano — Retaliador
 
@@ -242,7 +242,7 @@ Sele a ofensiva inimiga, imponha uma resposta em favor de um aliado e fortaleça
 - **Decreto de Submissão** (1 Graça + 1 Éter; recarga 1T): Causa 15 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
 - **Interdição Soberana** (1 Graça + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Ao ativar, remove até 1 Essência da reserva adversária. Ao ativar, expõe o agressor até o fim do próximo turno.
 - **Guarda dos Vassalos** (1 Graça + 1 Éter; recarga 0T): Concede 15 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
-- **Suserania Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Suserania Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Príncipe — Interditor
 
@@ -260,7 +260,7 @@ Prenda uma vítima e escolha entre apertar o mesmo grilhão ou gastar as cargas 
 - **Apertar o Grilhão** [variação] (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Ganha 1 carga (máx. 3). Após usar, restaura Primeiro Grilhão.
 - **Arrasto do Príncipe** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Cárcere Dinástico** (2 Éter; recarga 2T): Causa 15 de dano físico a um inimigo. Atordoa por 1 turno. Consome as cargas: +8 de dano por carga.
-- **Corrente Exterior** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Corrente Exterior** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Déspota — Gerador de Essência
 
@@ -277,7 +277,7 @@ Queime a resistência com o ferro do jugo, fortaleça seus executores e castigue
 - **Ferro do Jugo** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos.
 - **Ordem Absoluta** (1 Cinza + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Regeneração: restaura 2 de Vida no início dos próximos 2 turnos de cada aliado.
 - **Esmagar a Resistência** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +15 dano.
-- **Privilégio Soberano** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Privilégio Soberano** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Herdeiro — Executor
 
@@ -294,7 +294,7 @@ Use a Vida perdida para fortalecer o punho; recupere-se ou gaste as cargas na to
 - **Punho Acorrentado** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +3 de dano (máx. +9). Ganha 1 carga (máx. 3).
 - **Resistência do Pretendente** (1 Ruptura; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno.
 - **Tomada do Trono** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
-- **Guarda Dinástica** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Guarda Dinástica** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Victor — Quebra-Guarda
 
@@ -311,7 +311,7 @@ Comandar o que restou
 - **Decreto Final** (1 Éter; recarga 0T): Causa 14 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Trono sem Reino** (1 Éter + 1 Coringa; recarga 0T): Concede 8 de Defesa destrutível ao trio.
 - **Sucessão Forçada** (2 Éter; recarga 0T): Causa 16 de dano perfurante a um inimigo. Marca o alvo por 2 turnos. Remove 12 de Defesa antes do dano.
-- **Último Mandato** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Último Mandato** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Plácido — Baluarte
 
@@ -328,7 +328,7 @@ Manter o sistema a qualquer custo
 - **Artigo de Ferro** (1 Éter; recarga 0T): Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.
 - **Interdição Formal** (1 Éter + 1 Coringa; recarga 0T): Causa 15 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
 - **Cláusula de Continuidade** (2 Éter; recarga 0T): Concede 8 de Defesa destrutível ao trio. Reduz em 3 o dano recebido por 1 turno.
-- **Estado de Exceção** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Estado de Exceção** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Atlas — Baluarte
 
@@ -345,7 +345,7 @@ Conter tudo sob um único comando
 - **Ombro do Mundo** (1 Éter; recarga 0T): Concede 8 de Defesa destrutível ao trio.
 - **Peso sem Medida** (1 Éter + 1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Acrescenta 25% da Defesa do usuário ao dano (máx. +10) e consome toda a sua Defesa.
 - **Colapso de Autoridade** (2 Éter; recarga 0T): Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 dano.
-- **Sustentar o Céu** (1 Coringa; recarga 4T): Concede 8 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Sustentar o Céu** (1 Coringa; recarga 4T): Concede 8 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Merlindrope — Interditor
 
@@ -362,7 +362,7 @@ Escrever a regra e fechar a saída
 - **Grade de Éter** (1 Éter; recarga 0T): Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
 - **Porta que Não Abre** (1 Éter + 1 Coringa; recarga 1T): Causa 14 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Sela técnicas ofensivas por 1 turno do alvo.
 - **Celas Concêntricas** (2 Éter; recarga 0T): Causa 9 de dano espiritual a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
-- **Parede de Regras** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Parede de Regras** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Mentira
 
@@ -381,7 +381,7 @@ Envenene um segredo que pune a próxima ofensiva da vítima e depois cobra Essê
 - **Palavra Envenenada** (1 Cinza; recarga 0T): Causa 5 de dano espiritual a um inimigo. Veneno: 5 de dano de aflição por 2 turnos. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Segredo Cobrado** (1 Cinza + 1 Coringa; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo está com Veneno: +10 dano.
 - **Aviso Falso** (1 Cinza + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno.
-- **Voz sem Origem** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Voz sem Origem** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Máscara Dupla — Preparador de Marcas
 
@@ -399,7 +399,7 @@ Empreste um rosto para marcar, mude a resposta e revele a traição quando o adv
 - **Gesto de Outro Rosto** [variação] (2 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Anula a próxima habilidade inimiga recebida e contra-ataca com 15 de dano. Dura 1 turno. Após usar, restaura Rosto Emprestado.
 - **O Outro Rosto** (1 Éter + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
 - **Traição Revelada** (2 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Converte 1 um tipo disponível em uma Essência aleatória de outro tipo na reserva da equipe. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Troca de Máscara** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Troca de Máscara** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Intrigante — Pressionador de Área
 
@@ -417,7 +417,7 @@ Prenda o adversário na trama e escolha entre continuar o controle ou desatar a 
 - **Rede de Falsidades** (1 Éter + 1 Coringa; recarga 2T): Causa 10 de dano físico a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Desatar a Trama** [variação] (1 Éter + 1 Coringa; recarga 0T): Restaura 8 de Vida a cada aliado. Remove aflições e condições prejudiciais. Após usar, restaura Rede de Falsidades.
 - **Nó da Contradição** (2 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Fora da Trama** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fora da Trama** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Serpe — Manipulador de Essência
 
@@ -434,7 +434,7 @@ Repetir o sibilo aumenta seu dano até o limite; Atordoamento quebra a sequênci
 - **Sibilo Cortante** (1 Cinza; recarga 0T): Causa 15 de dano perfurante a um inimigo. Cada uso não anulado dá +3 de dano a esta técnica (máx. +9). Atordoamento zera esse bônus.
 - **Reflexo Traiçoeiro** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 unidade de Essência da reserva inimiga.
 - **Coro de Estilhaços** (2 Cinza + 1 Éter; recarga 2T): Causa 20 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano.
-- **Reflexo Desviado** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Reflexo Desviado** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Impostor — Gerador de Essência
 
@@ -452,7 +452,7 @@ Cultive cargas com a falsa bênção e escolha entre confessar para recuperar-se
 - **Bênção Falsa** (1 Graça + 1 Coringa; recarga 0T): Restaura 15 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Ganha 1 carga (máx. 3). Gera 1 Essência aleatória para a reserva da equipe. Vira Confissão do Falso Santo por 2 turnos: gaste as cargas em cuidado ou preserve-as para o milagre.
 - **Confissão do Falso Santo** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. Consome as cargas: +3 de cura por carga. Após usar, restaura Bênção Falsa.
 - **Milagre Fabricado** (1 Graça + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
-- **Imagem Sagrada** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Imagem Sagrada** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Falsário — Manipulador de Essência
 
@@ -469,7 +469,7 @@ Hipoteque uma memória e apague as opções de apoio da vítima antes de liquida
 - **Lembrança Hipotecada** (1 Éter; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Rouba 1 unidade de Essência da reserva inimiga.
 - **Esquecer a Defesa** (1 Éter + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Remove bônus de dano, redução e contra-ataque do alvo. Remove 15 de Defesa antes do dano.
 - **Liquidação do Passado** (2 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
-- **Memória Substituta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Memória Substituta** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Vaas — Manipulador de Essência
 
@@ -486,7 +486,7 @@ Preparar a máscara
 - **Verdade Plantada** (1 Cinza; recarga 0T): Causa 9 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.
 - **Véu de Veneno** (1 Cinza + 1 Coringa; recarga 0T): Causa 11 de dano espiritual a um inimigo. Veneno: 4 de dano de aflição por 2 turnos. Rouba 1 unidade de Essência da reserva inimiga.
 - **O Rosto que Falta** (1 Cinza + 1 Éter; recarga 0T): Concede 8 de Defesa destrutível. Remove aflições e condições prejudiciais.
-- **Última Máscara** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Última Máscara** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Vaas, o Sem Rosto — Manipulador de Essência
 
@@ -503,7 +503,7 @@ A máscara não precisa de rosto
 - **Sussurro sem Dono** (1 Ruptura; recarga 0T): Causa 12 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Silêncio Comprado** (1 Ruptura + 1 Coringa; recarga 1T): Causa 16 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Rouba 1 unidade de Essência da reserva inimiga.
 - **Ruptura da Máscara** (2 Ruptura + 1 Éter; recarga 0T): Causa 22 de dano perfurante a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo tem uma marca sua: +8 dano.
-- **Ausência Calculada** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ausência Calculada** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Calíope — Manipulador de Essência
 
@@ -520,7 +520,7 @@ Escrever a abertura antes da vítima
 - **Verso Plantado** (1 Éter; recarga 0T): Causa 9 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
 - **Rima de Exposição** (1 Éter + 1 Coringa; recarga 0T): Causa 13 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Se o alvo tem uma marca sua: +6 dano.
 - **Refrão Roubado** (2 Éter; recarga 0T): Causa 16 de dano de aflição a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Rouba 1 unidade de Essência da reserva inimiga.
-- **Cortina de Espelhos** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Cortina de Espelhos** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Chama
 
@@ -539,7 +539,7 @@ O pavio pune quem não usa uma técnica; a vítima precisa agir enquanto você p
 - **Pavio de Ódio** (1 Cinza; recarga 1T): Causa 10 de dano espiritual a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 8 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Fagulhas em Cadeia** (1 Cinza + 1 Coringa; recarga 2T): Causa 10 de dano físico a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.
 - **Detonação Negra** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo está com Queimadura: +15 dano; consome a preparação.
-- **Corpo de Fumaça** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Corpo de Fumaça** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Brasa Eterna — Especialista em Aflições
 
@@ -559,7 +559,7 @@ Mantenha a Queimadura e assuma o corpo de sufocamento: pressão em área, contro
 - **Cinzas de Sufoco** [variação] (1 Ruptura + 1 Coringa; recarga 2T): Causa 10 de dano espiritual a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.
 - **Fornalha Interior** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Por carga: +5 de dano por carga.
 - **Fornalha Sepulcral** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 25 de dano espiritual a um inimigo. Se o alvo está com Queimadura: +10 dano; consome a preparação.
-- **Manto de Cinzas** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Manto de Cinzas** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Furor — Berserker
 
@@ -578,7 +578,7 @@ Alimente o ódio para transformar seus ataques por 2 turnos; o desfecho encerra 
 - **Alimentar o Ódio** (1 Ruptura; recarga 0T): Concede 10 de Defesa destrutível. Aumenta em 10 o dano até o fim do próximo turno do beneficiado. O usuário perde 5 de Vida (não o derrota). Libera duas técnicas mais arriscadas por 2 turnos. Ressentimento sem Freio encerra a transformação.
 - **Explosão do Ressentimento** (1 Ruptura + 1 Éter; recarga 1T): Causa 27 de dano espiritual a um inimigo. Se o usuário tem 50 de Vida ou menos: +10 dano. O usuário perde 5 de Vida (não o derrota).
 - **Ressentimento sem Freio** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 30 de dano espiritual a um inimigo. Se o usuário tem 50 de Vida ou menos: +10 dano. O usuário perde 10 de Vida (não o derrota). Após usar, restaura Punho de Rancor. Após usar, restaura Explosão do Ressentimento.
-- **Fúria Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fúria Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Ressentido — Executor
 
@@ -596,7 +596,7 @@ Acumule rancor até reacender a primeira técnica; escolha entre consumir as res
 - **Rancor Reaceso** [variação] (1 Cinza + 1 Éter; recarga 0T): Causa 25 de dano espiritual a um inimigo. Remove aflições e condições prejudiciais do usuário. Consome as cargas: +3 de dano por carga.
 - **Nutrir o Rancor** (1 Cinza; recarga 0T): Restaura 15 de Vida. Consome as cargas: +7 de cura por carga.
 - **Revide Incandescente** (1 Cinza + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Remove aflições e condições prejudiciais do usuário.
-- **Dissolução em Cinzas** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Dissolução em Cinzas** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Vingadora — Retaliador
 
@@ -614,7 +614,7 @@ Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar s
 - **Revanche Ardente** [variação] (1 Cinza + 1 Éter; recarga 0T): Causa 20 de dano espiritual a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. Após usar, restaura Brasa Punitiva.
 - **Guarda Vingativa** (1 Cinza + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
 - **Cerco Incandescente** (2 Cinza + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Remove 15 de Defesa antes do dano. Se o alvo está com Queimadura: +10 dano.
-- **Passo entre Brasas** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo entre Brasas** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Colérico — Berserker
 
@@ -631,7 +631,7 @@ A ebulição cresce com a Vida perdida, prepara o próximo golpe e disputa espa�
 - **Batida Escaldante** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
 - **Sangue em Ebulição** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Aumenta em 5 o dano do usuário até o fim do próximo turno do beneficiado. A cada 20 de Vida perdida pelo usuário: +2 de dano (máx. +10). O usuário perde 5 de Vida (não o derrota).
 - **Coração em Erupção** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Consome as cargas: +10 de dano por carga. O usuário perde 8 de Vida (não o derrota).
-- **Pulso Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Pulso Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Baal — Pressionador de Área
 
@@ -648,7 +648,7 @@ Queimar para provar devoção
 - **Sermão Incendiário** (1 Cinza; recarga 0T): Causa 9 de dano de aflição a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos.
 - **Fé a Ferro e Fogo** (1 Cinza + 1 Coringa; recarga 0T): Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. O usuário perde 4 de Vida (não o derrota).
 - **Pira dos Fiéis** (1 Cinza + 1 Éter; recarga 0T): Causa 10 de dano espiritual a todos os inimigos. Queimadura: 3 de dano de aflição por 2 turnos.
-- **Manto de Cinzas** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Manto de Cinzas** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Fome
 
@@ -668,7 +668,7 @@ A fome muda com sua Vida: ferido, você atravessa a Defesa e drena Essência; re
 - **Fome sem Corpo** [variação] (1 Cinza + 1 Éter; recarga 1T): Causa 15 de dano de aflição a um inimigo. Remove 1 unidade de Essência da reserva inimiga. Restaura ao usuário 60% do dano causado.
 - **Saliva Corrosiva** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Engolir a Essência** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem 50 de Vida ou menos: +15 dano.
-- **Couraça Voraz** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Couraça Voraz** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Saqueadora — Manipulador de Essência
 
@@ -686,7 +686,7 @@ Roube Essência e acumule espólios; gaste as reservas para recuperar Vida ou re
 - **Entesourar** (1 Coringa; recarga 0T): Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Vira Abrir o Cofre por 2 turnos; gastar as reservas restaura esta técnica.
 - **Abrir o Cofre** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Consome as cargas: +5 de cura por carga. Após usar, restaura Entesourar.
 - **Confisco da Alma** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano. Consome as cargas: +7 de dano por carga.
-- **Espólio Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Espólio Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Insaciável — Baluarte
 
@@ -703,7 +703,7 @@ Consuma a Defesa inimiga para formar sua própria guarda; reúna reservas e gast
 - **Consumir a Guarda** (1 Ruptura; recarga 0T): Causa 10 de dano físico a um inimigo. Converte 50% da Defesa removida em Defesa própria (máx. 15). Remove 20 de Defesa antes do dano. Ganha 1 carga (máx. 3).
 - **Reserva Consumida** (1 Ruptura; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno.
 - **Fome Devorante** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +8 de dano por carga.
-- **Corpo Recolhido** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Corpo Recolhido** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Matriarca — Manipulador de Essência
 
@@ -720,7 +720,7 @@ Drene Essência com a marca da privação, sustente seus aliados dependentes e c
 - **Marca da Privação** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 1 unidade de Essência da reserva inimiga.
 - **Ração dos Submissos** (1 Cinza + 1 Coringa; recarga 0T): Restaura 8 de Vida a cada aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.
 - **Tributo da Fome** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Celeiro Lacrado** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Celeiro Lacrado** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Credor — Manipulador de Essência
 
@@ -737,7 +737,7 @@ Assine uma dívida que cobra a próxima técnica usada pela vítima; escolha ent
 - **Assinar a Dívida** (1 Ruptura; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 4 turnos. Se o alvo usar uma técnica em sua próxima vez: causa 10 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Juros Acumulados** (1 Ruptura + 1 Coringa; recarga 1T): Causa 20 de dano físico a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem a marca desta preparação: +10 dano.
 - **Execução do Contrato** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Cláusula de Ausência** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Cláusula de Ausência** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Usurária — Manipulador de Essência
 
@@ -754,7 +754,7 @@ Drene a reserva inimiga e sustente um aliado ferido; o confisco pune inimigos j�
 - **Cobrança da Penúria** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Remove 1 unidade de Essência da reserva inimiga.
 - **Adiantamento Vital** (1 Cinza + 1 Coringa; recarga 0T): Restaura 15 de Vida. A cada 20 de Vida faltante do beneficiado: +3 de cura (máx. +12). Remove aflições e condições prejudiciais.
 - **Confisco Coletivo** (1 Cinza + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Se o alvo tem 50 de Vida ou menos: +10 dano.
-- **Penhor Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Penhor Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Doggo — Gerador de Essência
 
@@ -771,7 +771,7 @@ Tomar só o necessário
 - **Mordida de Cobrança** (1 Cinza; recarga 0T): Causa 12 de dano físico a um inimigo. Restaura ao usuário 20% do dano causado.
 - **Mão que Toma** (1 Cinza + 1 Coringa; recarga 0T): Causa 10 de dano perfurante a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.
 - **Reserva Escondida** (1 Cinza + 1 Éter; recarga 0T): Restaura 8 de Vida. Concede 8 de Defesa destrutível. Gera 1 Cinza para a reserva da equipe.
-- **Fingir de Morto** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fingir de Morto** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Bulkir — Quebra-Guarda
 
@@ -788,7 +788,7 @@ Quebrar até o nome desaparecer
 - **Punho que Apaga** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Remove 10 de Defesa antes do dano.
 - **Mordida de Identidade** (1 Ruptura + 1 Coringa; recarga 0T): Causa 17 de dano perfurante a um inimigo. Restaura ao usuário 15% do dano causado.
 - **Esmagar o Último Vestígio** (1 Ruptura + 1 Éter; recarga 0T): Causa 23 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +3 de dano (máx. +9).
-- **Carapaça Faminta** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Carapaça Faminta** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Podridão
 
@@ -807,7 +807,7 @@ A decadência reduz a cura recebida; escolha entre degradar a guarda e concluir 
 - **Contato da Ruína** (1 Cinza; recarga 0T): Causa 5 de dano físico a um inimigo. Decadência: 4 de dano de aflição por 3 turnos. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
 - **Tecido Cedido** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Remove 15 de Defesa antes do dano.
 - **Decomposição Completa** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo está com Decadência: +15 dano.
-- **Casca Morta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Casca Morta** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Pestilência — Pressionador de Área
 
@@ -825,7 +825,7 @@ Espalhe Veneno e concentre o contágio na forma de retorno; a crise pestilenta i
 - **Contágio do Caminho** (1 Cinza + 1 Coringa; recarga 2T): Causa 5 de dano físico a todos os inimigos. Veneno: 4 de dano de aflição por 3 turnos. Vira Febre de Retorno por 2 turnos: concentre o contágio em uma vítima.
 - **Febre de Retorno** [variação] (1 Cinza + 1 Coringa; recarga 1T): Causa 15 de dano de aflição a um inimigo. Se o alvo está com Veneno: +10 dano. Após usar, restaura Contágio do Caminho.
 - **Crise Pestilenta** (1 Cinza + 1 Éter; recarga 3T): Causa 20 de dano físico a um inimigo. Se o alvo está com Veneno: +15 dano e Atordoa por 1 turno.
-- **Névoa Contaminada** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Névoa Contaminada** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Corrupto — Manipulador de Essência
 
@@ -842,7 +842,7 @@ Quebre a confiança para converter parte do dano real em Defesa própria; cobre 
 - **Acordo Podre** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Remove 20 de Defesa antes do dano.
 - **Quebrar a Confiança** (1 Éter + 1 Coringa; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Converte 50% do dano real causado em Defesa própria (máx. 20 por uso). Remove bônus de dano, redução e contra-ataque do alvo.
 - **Preço da Corrupção** (2 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem a marca desta preparação: +10 dano.
-- **Privilégio Oculto** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Privilégio Oculto** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Rainha dos Fungos — Pressionador de Área
 
@@ -861,7 +861,7 @@ Semeie uma colônia e escolha sua colheita: proteger os vivos ou espalhar esporo
 - **Florescer para os Vivos** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 8 de Vida a cada aliado. Concede 8 de Defesa destrutível ao trio. Consome as cargas: +4 de cura por carga a cada aliado. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
 - **Florir da Colônia** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +7 de dano por carga.
 - **Esporos da Última Colheita** [variação] (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano de aflição a todos os inimigos. Consome as cargas: +3 de dano por carga. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
-- **Coroa de Esporos** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Coroa de Esporos** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Inoculador — Sustentador
 
@@ -878,7 +878,7 @@ Inocule Veneno para drenar o inimigo; conserve seus hospedeiros aliados com limp
 - **Incisão Parasitária** (1 Cinza; recarga 0T): Causa 10 de dano físico a um inimigo. Veneno: 5 de dano de aflição por 3 turnos. Restaura ao usuário 50% do dano causado.
 - **Hospedeiro Renovado** (1 Cinza + 1 Coringa; recarga 1T): Restaura 15 de Vida. Regeneração: restaura 6 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
 - **Drenagem da Colônia** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 70% do dano causado. Se o alvo está com Veneno: +10 dano.
-- **Corpo entre Vermes** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Corpo entre Vermes** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Definhador — Pressionador de Área
 
@@ -895,7 +895,7 @@ Aplique Decadência, envolva o trio na trama e devolva parte da agressão em afl
 - **Raiz Necrosada** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Decadência: 4 de dano de aflição por 3 turnos.
 - **Trama Necrosada** (1 Cinza + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 5 de dano de aflição ao agressor. Ativa uma vez.
 - **Definhar** (2 Cinza + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo está com Decadência: +10 dano.
-- **Casca Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Casca Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Hans — Pressionador de Área
 
@@ -912,7 +912,7 @@ Deixar a praga falar
 - **Informação Venenosa** (1 Cinza; recarga 0T): Causa 8 de dano de aflição a um inimigo. Veneno: 4 de dano de aflição por 2 turnos.
 - **Decadência Compartilhada** (1 Cinza + 1 Coringa; recarga 0T): Causa 12 de dano espiritual a todos os inimigos. Decadência: 5 de dano de aflição por 2 turnos.
 - **Hospitalidade Negada** (1 Cinza + 1 Éter; recarga 1T): Causa 14 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
-- **Esconderijo Insalubre** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Esconderijo Insalubre** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Silêncio
 
@@ -932,7 +932,7 @@ Registre a vítima, recuse a interferência e transforme as cargas de observaç�
 - **Recusar Interferência** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Se o contra-ataque ativar, Peso da Indiferença vira Retaliação do Espectador contra o agressor por 2 turnos. Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Peso da Indiferença** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. Se o alvo tem a marca desta preparação: +10 dano.
 - **Retaliação do Espectador** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 30 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. Após usar, restaura Peso da Indiferença.
-- **Fora do Acontecimento** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fora do Acontecimento** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Carcereira — Manipulador de Essência
 
@@ -949,7 +949,7 @@ Feche o apoio da vítima sem impedir sua ofensiva; marque a porta para interromp
 - **Batida sem Resposta** (1 Éter; recarga 1T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
 - **Guarida Seletiva** (1 Éter; recarga 0T): Concede 25 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno.
 - **Não Há Saída** (2 Éter; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Limiar Interdito** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Limiar Interdito** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Silenciador — Interditor
 
@@ -967,7 +967,7 @@ Enfraqueça a voz inimiga, interrompa sua ação e escolha entre prolongar a afl
 - **Clamor sem Retorno** [variação] (2 Éter; recarga 0T): Causa 20 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Após usar, restaura Impacto Abafado.
 - **Interditar a Voz** (1 Éter + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. No próximo turno, Impacto Abafado vira Clamor sem Retorno contra o alvo interrompido.
 - **Decreto do Silêncio** (2 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo está Enfraquecido: +15 dano.
-- **Silêncio Absoluto** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Silêncio Absoluto** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Cúmplice — Gerador de Essência
 
@@ -984,7 +984,7 @@ A memória responde a técnicas espirituais ou de aflição, devolve dano e roub
 - **Segredo Exposto** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Resposta Preparada** (1 Graça; recarga 0T): Anula a próxima habilidade inimiga espiritual ou de aflição recebida e contra-ataca com 20 de dano. Dura 1 turno. Ao ativar, rouba até 1 Essência da reserva adversária.
 - **Acusação Oportunista** (1 Graça + 1 Éter; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
-- **Depoimento Retido** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Depoimento Retido** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Anfitrião — Manipulador de Essência
 
@@ -1001,7 +1001,7 @@ A presença vazia pune o próximo apoio da vítima com dano e perda de Essência
 - **Convite ao Isolamento** (1 Cinza; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 8 de dano de aflição ao próprio alvo e remove 1 unidade de Essência da reserva adversária. Ativa uma vez.
 - **Ninguém Vem** (1 Cinza + 1 Coringa; recarga 2T): Causa 10 de dano físico a todos os inimigos. Remove 1 unidade de Essência da reserva inimiga uma única vez.
 - **Estadia sem Retorno** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Porta do Desamparo** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Porta do Desamparo** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Desertor — Executor
 
@@ -1019,7 +1019,7 @@ Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda co
 - **Espera Cúmplice** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 25 de dano. Dura 1 turno. Ao ativar, expõe o agressor até o fim do próximo turno. Ao anular uma técnica física ou perfurante, expõe o agressor e Cobrar o Abandono vira Golpe da Retaguarda contra ele por 2 turnos.
 - **Cobrar o Abandono** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo está Exposto: +15 dano.
 - **Golpe da Retaguarda** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo está Exposto: +15 dano. Após usar, restaura Cobrar o Abandono.
-- **Posto Vazio** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Posto Vazio** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Xian — Interditor
 
@@ -1036,7 +1036,7 @@ Silêncio como resposta
 - **Passo sem Ruído** (1 Éter; recarga 0T): Causa 11 de dano perfurante a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Porta Fechada** (1 Éter + 1 Coringa; recarga 0T): Causa 13 de dano espiritual a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
 - **Vácuo de Resposta** (2 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 13 de dano. Dura 1 turno. Ao ativar, remove até 1 Essência da reserva adversária.
-- **Quarto Vazio** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Quarto Vazio** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Xian, o Imóvel — Gerador de Essência
 
@@ -1053,7 +1053,7 @@ Permanecer até a ameaça cessar
 - **Vigília de Pedra** (1 Ruptura; recarga 0T): Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 15 de dano. Dura 1 turno.
 - **Selo de Omissão** (1 Ruptura + 1 Coringa; recarga 0T): Causa 14 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
 - **Ninguém Responde** (1 Ruptura + 1 Éter; recarga 0T): Causa 18 de dano perfurante a um inimigo. Se o alvo está Enfraquecido: +8 dano.
-- **Não Dar um Passo** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Não Dar um Passo** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Carne
 
@@ -1072,7 +1072,7 @@ A posse sela ataques por uma ação, mas permite apoio; decida entre interromper
 - **Selo da Posse** (2 Éter; recarga 2T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Sela técnicas ofensivas por 1 turno do alvo.
 - **Nervos Tomados** (1 Éter + 1 Coringa; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Espoliação Vital** (2 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 60% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Desligar o Corpo** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Desligar o Corpo** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Metamorfa — Preparador de Marcas
 
@@ -1095,7 +1095,7 @@ Alterne entre a forma original, a Pele Usurpada ofensiva e a Carapaça Usurpada 
 - **Carapaça Usurpada** (1 Graça + 1 Éter; recarga 0T): Recebe 20 de Defesa e assume a Carapaça Usurpada. Troca as três primeiras técnicas e o retrato até descamar ou usar Corpo Substituto.
 - **Instinto Usurpado** [variação] (1 Ruptura + 1 Coringa; recarga 2T): Causa 25 de dano físico e prepara um contra-ataque pessoal de 10 de dano por 1 turno.
 - **Espinhos Usurpados** [variação] (1 Graça + 1 Coringa; recarga 2T): Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.
-- **Corpo Substituto** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam. Retorna à forma original sem reiniciar recargas.
+- **Corpo Substituto** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno. Retorna à forma original sem reiniciar recargas.
 
 ### O Profanador — Executor
 
@@ -1112,7 +1112,7 @@ Converta sua Vida perdida em pressão ofensiva; invada a guarda alheia e consuma
 - **Ímpeto Profano** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. A cada 25 de Vida perdida pelo usuário: +4 de dano (máx. +12). Ganha 1 carga (máx. 3). O usuário perde 5 de Vida (não o derrota).
 - **Contato Invasivo** (1 Cinza; recarga 1T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 1 unidade de Essência da reserva inimiga.
 - **Violação da Forma** (1 Cinza + 1 Éter; recarga 2T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga.
-- **Forma Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Forma Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Marionetista — Preparador de Marcas
 
@@ -1130,7 +1130,7 @@ Conecte os nervos e escolha entre sustentar o controle por mais uma ação ou ro
 - **Puxar a Vontade** (1 Éter + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +5 dano e Atordoa por 1 turno. Se ativar o combo, vira Manter o Comando no próximo turno, apenas contra a mesma vítima. Atordoamento ou Invulnerável quebra a ligação.
 - **Manter o Comando** [variação] (1 Éter + 1 Coringa; recarga 3T): Causa 15 de dano físico a um inimigo. Atordoa por 1 turno. Exige a marca desta preparação no alvo. Após usar, restaura Puxar a Vontade.
 - **Romper o Comando** (2 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Fios Fora de Fase** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fios Fora de Fase** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Simulacro — Gerador de Essência
 
@@ -1147,7 +1147,7 @@ Exponha o inimigo e sustente um aliado com o vínculo parasita; a dor recebida p
 - **Molde Vulnerável** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Vínculo Parasita** (1 Graça; recarga 0T): Restaura 10 de Vida. Concede 10 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: causa 8 de dano de aflição ao agressor. Ativa uma vez.
 - **Romper o Molde** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Remove 20 de Defesa antes do dano. Se o alvo está Exposto: +10 dano.
-- **Duplicata Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Duplicata Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Suturadora — Sustentador
 
@@ -1165,7 +1165,7 @@ Use o fio para marcar e ferir; sustente seus aliados com suturas e desfaça os p
 - **Sutura de Domínio** (1 Graça + 1 Coringa; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. No próximo turno, vira Reforçar os Pontos: amparo sem nova limpeza.
 - **Reforçar os Pontos** [variação] (1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Após usar, restaura Sutura de Domínio.
 - **Desfazer os Pontos** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Costura de Ausência** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Costura de Ausência** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Silas — Interditor
 
@@ -1182,7 +1182,7 @@ Fidelidade que protege
 - **Laço de Tendão** (1 Éter; recarga 0T): Causa 11 de dano de aflição a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Pele de Vigia** (1 Éter + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 10 de dano. Dura 1 turno.
 - **Nervo Contido** (2 Éter; recarga 1T): Causa 16 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.
-- **Corpo entre Nós** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Corpo entre Nós** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Silas, o Leal — Baluarte
 
@@ -1199,7 +1199,7 @@ Responder pelo outro
 - **Pele Partilhada** (1 Graça; recarga 0T): Concede 12 de Defesa destrutível. Reduz em 4 o dano recebido por 1 turno.
 - **Nó de Lealdade** (1 Graça + 1 Coringa; recarga 0T): Concede 6 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
 - **Devolver a Agressão** (1 Graça + 1 Éter; recarga 0T): Causa 18 de dano físico a um inimigo. Se o alvo está Enfraquecido: +7 dano.
-- **Abrigo Vinculado** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Abrigo Vinculado** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Serena — Preparador de Marcas
 
@@ -1216,7 +1216,7 @@ Transformar perda em controle
 - **Marca Nervosa** (1 Éter; recarga 0T): Causa 10 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.
 - **Memória Reaberta** (1 Éter + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +7 dano.
 - **Pulso de Interdição** (2 Éter; recarga 0T): Causa 18 de dano espiritual a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
-- **Pele de Lembrança** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Pele de Lembrança** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Vazio
 
@@ -1236,7 +1236,7 @@ Marque e remova vantagens; a preparação abre uma anulação exclusiva contra a
 - **Anulação Definitiva** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano de aflição a um inimigo. Exige a marca desta preparação no alvo. Se o alvo tem a marca desta preparação: +5 dano; consome a preparação. Após usar, restaura Marca da Anulação.
 - **Dissolver a Guarda** (1 Ruptura; recarga 0T): Causa 20 de dano físico a um inimigo. Remove 30 de Defesa antes do dano.
 - **Extinguir o Traço** (1 Ruptura + 1 Éter; recarga 1T): Causa 30 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +10 dano.
-- **Fora da Existência** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fora da Existência** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Ausência — Retaliador
 
@@ -1253,7 +1253,7 @@ Drene Essência e deixe a ausência cobrar mais se a vítima não usar uma técn
 - **Toque Ausente** (1 Cinza; recarga 1T): Causa 10 de dano físico a um inimigo. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 5 de dano de aflição ao próprio alvo e remove 1 unidade de Essência da reserva adversária. Ativa uma vez. Remove 1 unidade de Essência da reserva inimiga.
 - **Ataque a Ninguém** (1 Cinza + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno.
 - **Ausência Contagiosa** (1 Cinza + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Enfraquece por 1 turno do alvo: −10 de dano causado.
-- **Não Estar** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Não Estar** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Arauto — Interditor
 
@@ -1271,7 +1271,7 @@ Guarde suas duas sentenças mais fortes para os feridos; depois delas, o silênc
 - **Cessar da Vontade** (1 Ruptura + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Sem Últimas Palavras** (1 Ruptura + 1 Éter; recarga 1T): Causa 28 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +12 dano. Pode ser usada 2 vezes por combate; depois vira Silêncio Residual.
 - **Silêncio Residual** [variação] (1 Ruptura; recarga 0T): Causa 20 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +5 dano.
-- **Instante sem Tempo** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Instante sem Tempo** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Desolador — Baluarte
 
@@ -1289,7 +1289,7 @@ Acumule vestígios de ruína e consuma-os para extinguir a presença inimiga; co
 - **Recompor o Vazio** (1 Graça; recarga 0T): Restaura 15 de Vida. Reduz em 10 o dano recebido por 1 turno. Com 50 de Vida ou menos, vira Recolher a Presença, com custo e recuperação maiores.
 - **Recolher a Presença** [variação] (1 Graça + 1 Éter; recarga 0T): Restaura 20 de Vida. Reduz em 5 o dano recebido por 1 turno. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
 - **Extinguir a Presença** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
-- **Presença Nula** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Presença Nula** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Escriba — Gerador de Essência
 
@@ -1306,7 +1306,7 @@ Inscreva e exponha uma vítima, interrompa sua ofensiva e consuma a marca ao enc
 - **Inscrever o Fim** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Rasura Terminal** (1 Éter + 1 Coringa; recarga 2T): Causa 5 de dano físico a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Encerrar o Vestígio** (2 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Folha Nula** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Folha Nula** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Obliterador — Transmutador de Essência
 
@@ -1323,7 +1323,7 @@ Apague o terreno para punir a inatividade; marque uma coordenada, enfraqueça a 
 - **Apagar o Terreno** (1 Cinza + 1 Éter; recarga 1T): Causa 5 de dano físico a todos os inimigos. Decadência: 4 de dano de aflição por 2 turnos. Se o alvo não usar nenhuma técnica em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Coordenada Nula** (1 Cinza; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Eliminar o Vestígio** (1 Cinza + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Contorno Inexistente** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Contorno Inexistente** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Teras — Manipulador de Essência
 
@@ -1340,7 +1340,7 @@ Observar antes de intervir
 - **Olhar de Anomalia** (1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
 - **Registro de Decadência** (1 Éter + 1 Coringa; recarga 0T): Causa 11 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Pergunta sem Resposta** (2 Éter; recarga 1T): Causa 15 de dano espiritual a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
-- **Vigília Imóvel** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Vigília Imóvel** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Teras, o Observador — Manipulador de Essência
 
@@ -1357,7 +1357,7 @@ Revelar sem se expor
 - **Margem Exposta** (1 Éter; recarga 0T): Causa 12 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Vazio em Suspenso** (1 Éter + 1 Coringa; recarga 0T): Causa 16 de dano espiritual a um inimigo. Se o alvo está Exposto: +8 dano.
 - **Coleta Silenciosa** (2 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Rouba 1 unidade de Essência da reserva inimiga.
-- **Passo para Trás** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo para Trás** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Lilith — Interditor
 
@@ -1374,7 +1374,7 @@ Apagar a esperança do plano
 - **Recusa de Aurora** (1 Cinza; recarga 0T): Causa 11 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Esperança Interrompida** (1 Cinza + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível.
 - **Nada a Restaurar** (1 Cinza + 1 Éter; recarga 0T): Causa 18 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.
-- **Véu sem Amanhã** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Véu sem Amanhã** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Voronir — Manipulador de Essência
 
@@ -1391,7 +1391,7 @@ Rastrear o que não pertence
 - **Marca de Captura** (1 Éter; recarga 0T): Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.
 - **Rede de Contenção** (1 Éter + 1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Atordoa por 1 turno.
 - **Captura do Receptáculo** (2 Éter; recarga 0T): Causa 18 de dano perfurante a um inimigo. Sela técnicas de apoio por 1 turno do alvo. A defesa pessoal continua disponível. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem uma marca sua: +7 dano.
-- **Armadilha de Vazio** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Armadilha de Vazio** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Proteção
 
@@ -1411,7 +1411,7 @@ Erga a própria guarda e escolha entre o avanço curto e a Resposta da Égide ma
 - **Avanço da Égide** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 20 de dano perfurante a um inimigo. Concede 5 de Defesa destrutível ao usuário. Se o usuário tem Defesa: +5 dano. Após usar, restaura Golpe do Bastião.
 - **Voto de Amparo** (1 Graça; recarga 0T): Concede 25 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno. Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Resposta da Égide** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o usuário tem Defesa: +15 dano.
-- **Fortaleza de Luz** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fortaleza de Luz** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Muralha — Baluarte
 
@@ -1428,7 +1428,7 @@ Fortifique o trio e acumule cargas; a investida consome sua Defesa para expor um
 - **Impacto do Baluarte** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Ganha 1 carga (máx. 3).
 - **Muralha Partilhada** (1 Ruptura + 1 Coringa; recarga 2T): Concede 18 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: concede 8 de Defesa ao usuário. Ativa uma vez.
 - **Investida do Baluarte** (1 Ruptura + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Acrescenta 25% da Defesa do usuário ao dano (máx. +15) e consome toda a sua Defesa. Consome as cargas: +6 de dano por carga.
-- **Baluarte Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Baluarte Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Abnegado — Sustentador
 
@@ -1445,7 +1445,7 @@ Ceda parte da sua Vida para amparar um aliado e sustente-se na resposta ofensiva
 - **Não Recuar** (1 Ruptura; recarga 0T): Causa 20 de dano físico a um inimigo. Reduz em 5 o dano recebido por 1 turno pelo usuário.
 - **Amparo Abnegado** (1 Ruptura + 1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 15 de Defesa destrutível. Regeneração: restaura 5 de Vida no início dos próximos 2 turnos do beneficiado. O usuário perde 5 de Vida (não o derrota). Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Permanecer de Pé** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 30% do dano causado. Se o usuário tem 50 de Vida ou menos: +15 dano.
-- **Promessa Inquebrável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Promessa Inquebrável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Guardião — Preparador de Marcas
 
@@ -1462,7 +1462,7 @@ Com Defesa destrutível ainda presente, anula uma técnica física ou perfurante
 - **Investida Vigilante** (1 Ruptura; recarga 0T): Causa 20 de dano físico a um inimigo. Marca o alvo por 3 turnos.
 - **Sentinela de Resposta** (1 Ruptura + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível. Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 30 de dano. Dura 1 turno. Só ativa se o beneficiado ainda tiver Defesa destrutível. Ao ativar, gera 1 Graça.
 - **Revide Radiante** (1 Ruptura + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Guarda Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Guarda Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Sentinela — Baluarte
 
@@ -1479,7 +1479,7 @@ Concentre a linha em um aliado para protegê-lo e reduzir a recarga de suas téc
 - **Sinal Azul** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Linha de Proteção** (1 Ruptura + 1 Coringa; recarga 3T): Concede 15 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno. Reduz em 1 turno as recargas não defensivas do beneficiado.
 - **Lança do Horizonte** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
-- **Vigília Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Vigília Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Seraphim — Pressionador de Área
 
@@ -1496,7 +1496,7 @@ Amparar sem exigir fé
 - **Manto de Asas** (1 Graça; recarga 0T): Concede 7 de Defesa destrutível ao trio.
 - **Toque sem Culpa** (1 Graça + 1 Coringa; recarga 0T): Restaura 12 de Vida. Remove aflições e condições prejudiciais.
 - **Luz que Permanece** (1 Graça + 1 Éter; recarga 0T): Concede 5 de Defesa destrutível ao trio. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos de cada aliado.
-- **Asa Fechada** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Asa Fechada** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Seraphim, o Eco — Pressionador de Área
 
@@ -1513,7 +1513,7 @@ Converter proteção em retorno
 - **Círculo de Guarda** (1 Graça; recarga 0T): Concede 9 de Defesa destrutível ao trio.
 - **Reverso da Queda** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 8 de Defesa destrutível.
 - **Cântico de Retorno** (1 Graça + 1 Éter; recarga 0T): Restaura 5 de Vida a cada aliado. Remove aflições e condições prejudiciais.
-- **Última Vigília** (1 Coringa; recarga 4T): Concede 8 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Última Vigília** (1 Coringa; recarga 4T): Concede 8 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Cura
 
@@ -1532,7 +1532,7 @@ Limpar condições prejudiciais também produz Defesa; use a compaixão marcada 
 - **Toque da Compaixão** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
 - **Mãos Restauradoras** (1 Graça + 1 Coringa; recarga 0T): Restaura 25 de Vida. Cada condição removida concede 4 de Defesa ao beneficiado (máx. 15). Remove aflições e condições prejudiciais. Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Reequilibrar a Dor** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano espiritual a um inimigo. Restaura ao usuário 80% do dano causado. Se o alvo tem a marca desta preparação: +10 dano.
-- **Luz sem Ferida** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Luz sem Ferida** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Restaurador — Sustentador
 
@@ -1550,7 +1550,7 @@ Prepare Vida até a reserva se tornar uma restauração coletiva mais cara, capa
 - **Restituir a Forma** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 10 de Defesa destrutível. Remove aflições e condições prejudiciais.
 - **Reserva Restauradora** (1 Graça + 1 Éter; recarga 0T): Restaura 10 de Vida a cada aliado. Consome as cargas: +5 de cura por carga a cada aliado. Com pelo menos 2 cargas, vira Reserva Imaculada: mais cura e limpeza coletiva, com custo maior.
 - **Reserva Imaculada** [variação] (2 Graça + 1 Éter; recarga 0T): Restaura 15 de Vida a cada aliado. Remove aflições e condições prejudiciais. Consome as cargas: +5 de cura por carga a cada aliado.
-- **Forma Preservada** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Forma Preservada** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Sanadora — Sustentador
 
@@ -1567,7 +1567,7 @@ Exponha o agressor, restitua o vigor de um aliado ferido e use o fluxo vital par
 - **Clarão Incisivo** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Restituir Vigor** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. A cada 25 de Vida faltante do beneficiado: +3 de cura (máx. +9).
 - **Fluxo Vital** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Restaura ao usuário 50% do dano causado. Se o alvo está Exposto: +10 dano.
-- **Forma Luminosa** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Forma Luminosa** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Boticária — Gerador de Essência
 
@@ -1584,7 +1584,7 @@ Prepare as raízes para acumular reservas; use a infusão para recuperar o trio 
 - **Raiz Contundente** (1 Graça; recarga 0T): Causa 13 de dano espiritual a um inimigo. Cada uso não anulado dá +2 de dano a esta técnica (máx. +8). Atordoamento zera esse bônus. Ganha 1 carga (máx. 3).
 - **Infusão Restauradora** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida a cada aliado. Consome as cargas: +6 de cura por carga a cada aliado.
 - **Espinhos Sedativos** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Consome as cargas: +7 de dano por carga.
-- **Pétalas de Refúgio** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Pétalas de Refúgio** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Sereno — Baluarte
 
@@ -1601,7 +1601,7 @@ Desarme a agressão: se a vítima ainda atacar, o usuário recupera Vida; a quie
 - **Pulsação Desarmante** (1 Graça; recarga 1T): Causa 10 de dano espiritual a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado. Se o alvo usar uma técnica ofensiva em sua próxima vez: restaura 8 de Vida ao usuário. Ativa uma vez.
 - **Respirar Novamente** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Reduz em 10 o dano recebido por 1 turno.
 - **Quietude Profunda** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Enfraquecido: +10 dano e Atordoa por 1 turno.
-- **Pausa do Coração** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Pausa do Coração** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Diana — Sustentador
 
@@ -1618,7 +1618,7 @@ Cuidar sem prometer milagre
 - **Pulso Restaurador** (1 Graça; recarga 0T): Restaura 12 de Vida.
 - **Diagnóstico Preciso** (1 Graça + 1 Coringa; recarga 0T): Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.
 - **Sutura de Campo** (1 Graça + 1 Éter; recarga 0T): Restaura 10 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
-- **Respirar Primeiro** (1 Coringa; recarga 4T): Restaura 5 de Vida. Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Respirar Primeiro** (1 Coringa; recarga 4T): Restaura 5 de Vida. Concede 4 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Diana, a Guarda — Baluarte
 
@@ -1635,7 +1635,7 @@ Tomar o impacto e responder
 - **Guarda de Campo** (1 Graça; recarga 0T): Concede 12 de Defesa destrutível. Reduz em 5 o dano recebido por 1 turno.
 - **Braço de Contenção** (1 Graça + 1 Coringa; recarga 0T): Causa 13 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Círculo de Retorno** (1 Graça + 1 Éter; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 10 de dano. Dura 1 turno.
-- **Ficar entre** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ficar entre** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Diana, a Que Ainda Segura — Sustentador
 
@@ -1652,7 +1652,7 @@ Tomar o impacto e responder
 - **Cuidado que Atravessa** (1 Graça; recarga 0T): Restaura 6 de Vida a cada aliado.
 - **Sutura do Elo** (1 Graça + 1 Coringa; recarga 0T): Restaura 14 de Vida. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
 - **Ninguém Cai Só** (1 Graça + 1 Éter; recarga 0T): Restaura 8 de Vida a cada aliado. Concede 6 de Defesa destrutível ao trio.
-- **Ainda Segurando** (1 Coringa; recarga 4T): Restaura 5 de Vida. Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ainda Segurando** (1 Coringa; recarga 4T): Restaura 5 de Vida. Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Justiça
 
@@ -1672,7 +1672,7 @@ Exponha o excesso, ofereça amparo e abra a resposta equânime; o veredito perfu
 - **Amparo Equânime** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. No próximo turno, vira Resposta Equânime: dano que restaura Vida ao usuário.
 - **Resposta Equânime** [variação] (1 Coringa; recarga 0T): Causa 15 de dano espiritual a um inimigo. Restaura 10 de Vida ao usuário. Após usar, restaura Amparo Equânime.
 - **Veredito Proporcional** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Exposto: +15 dano.
-- **Posição Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Posição Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Íntegra — Preparador de Marcas
 
@@ -1689,7 +1689,7 @@ O corte ganha precisão ao ser repetido, até um limite; Atordoamento quebra a d
 - **Corte de Princípio** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Marca o alvo por 3 turnos. Cada uso não anulado dá +2 de dano a esta técnica (máx. +8). Atordoamento zera esse bônus.
 - **Parada Equânime** (1 Éter + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
 - **Sentença da Lâmina** (2 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
-- **Passo Equânime** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo Equânime** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Ponderador — Preparador de Marcas
 
@@ -1707,7 +1707,7 @@ Pese, julgue e recupere o equilíbrio: a decisão abre uma preparação diferent
 - **Prato Ascendente** [variação] (2 Éter; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Concede 10 de Defesa destrutível ao usuário. Ganha 1 carga (máx. 3). Após usar, restaura Pesar os Atos.
 - **Reduzir o Excesso** (1 Éter; recarga 0T): Causa 15 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Decisão Ponderada** (2 Éter; recarga 3T): Causa 20 de dano físico a um inimigo. Consome as cargas: +6 de dano por carga. Se o alvo tem a marca desta preparação: +5 dano e Atordoa por 1 turno; consome a preparação. Pesar os Atos vira Prato Ascendente por 2 turnos, preparando uma nova decisão com Defesa.
-- **Entre os Pratos** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Entre os Pratos** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Testemunha — Pressionador de Área
 
@@ -1724,7 +1724,7 @@ A prova pune bônus de dano, redução e contra-ataque ativos antes de removê-l
 - **Registrar a Verdade** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Prova Irrefutável** (1 Éter + 1 Coringa; recarga 1T): Causa 15 de dano espiritual a um inimigo. Não pode ser anulado por Contra-ataque. Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta 4 ao dano (máx. +12). Remove bônus de dano, redução e contra-ataque do alvo.
 - **Testemunho Íntegro** (2 Éter; recarga 2T): Causa 20 de dano espiritual a todos os inimigos. Se o alvo tem a marca desta preparação: +10 dano.
-- **Testemunho Protegido** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Testemunho Protegido** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Juiz — Sustentador
 
@@ -1741,7 +1741,7 @@ Repare Vida e condições enquanto reduz recargas não defensivas; conserve o En
 - **Advertência do Juiz** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado.
 - **Reparação Justa** (1 Graça + 1 Coringa; recarga 3T): Restaura 20 de Vida. Reduz em 1 turno as recargas não defensivas do beneficiado. Remove aflições e condições prejudiciais.
 - **Limite da Clemência** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Enfraquecido: +10 dano e Atordoa por 1 turno.
-- **Trégua Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Trégua Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ## Elo Esperança
 
@@ -1761,7 +1761,7 @@ Recupere o fôlego para reacender um ataque diferente ou guarde as cargas para a
 - **Chama do Recomeço** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano espiritual a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Restaura 5 de Vida ao usuário. Após usar, restaura Fagulha do Amanhã.
 - **Não se Apagar** (1 Ruptura; recarga 0T): Restaura 20 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Fagulha do Amanhã vira Chama do Recomeço por 2 turnos.
 - **Aurora Imorredoura** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Consome as cargas: +7 de dano por carga.
-- **Chama Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Chama Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Inquebrantável — Executor
 
@@ -1778,7 +1778,7 @@ Erga um aliado e recupere seu próprio fôlego se ele perder Vida por uma nova h
 - **Passo de Retorno** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Concede 10 de Defesa destrutível ao usuário.
 - **Erguer o Companheiro** (1 Graça + 1 Coringa; recarga 0T): Restaura 25 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: restaura 5 de Vida ao usuário. Ativa uma vez.
 - **Enquanto Eu Respirar** (1 Graça + 1 Éter; recarga 1T): Causa 30 de dano físico a um inimigo. Se o usuário tem 50 de Vida ou menos: +10 dano.
-- **Instante de Superação** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Instante de Superação** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Voz — Pressionador de Área
 
@@ -1797,7 +1797,7 @@ Inicie um hino para marcar vários inimigos com o coro ou encerre-o para recuper
 - **Hino da Perseverança** (1 Éter + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Abre Coro de Muitas Vozes até usar Encerrar o Hino.
 - **Encerrar o Hino** [variação] (1 Coringa; recarga 0T): Restaura 15 de Vida. Após usar, restaura Palavra de Coragem. Após usar, restaura Hino da Perseverança.
 - **Não Seremos Calados** (2 Éter; recarga 2T): Causa 20 de dano espiritual a todos os inimigos. Se o alvo tem a marca desta preparação: +10 dano.
-- **Nota Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Nota Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Alvorecer — Sustentador
 
@@ -1814,7 +1814,7 @@ A aurora limpa, fortalece e reduz recargas não defensivas de um aliado; as carg
 - **Lança da Primeira Luz** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3).
 - **Carregar a Aurora** (2 Graça + 1 Coringa; recarga 3T): Restaura 15 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Reduz em 1 turno as recargas não defensivas do beneficiado. Remove aflições e condições prejudiciais.
 - **Abrir o Horizonte** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano perfurante a um inimigo. Consome as cargas: +9 de dano por carga.
-- **Além do Horizonte** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Além do Horizonte** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Mensageira — Preparador de Marcas
 
@@ -1832,7 +1832,7 @@ Envie alento para abrir uma resposta que converte dano em recuperação do aliad
 - **Mensagem Recebida** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 15 de dano espiritual a um inimigo. Restaura ao aliado proporcionalmente mais ferido 50% do dano real causado (máx. 15 por uso). Após usar, restaura Sinal do Amanhã.
 - **Mensagem de Alento** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. Sinal do Amanhã vira Mensagem Recebida por 2 turnos: dano que recupera o aliado proporcionalmente mais ferido.
 - **O Amanhã Chegou** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
-- **Passagem da Mensagem** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passagem da Mensagem** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Naomi — Sustentador
 
@@ -1849,7 +1849,7 @@ Permanecer para amparar
 - **Brasa que Permanece** (1 Graça; recarga 0T): Causa 11 de dano físico a um inimigo. Marca o alvo por 2 turnos.
 - **Mão Estendida** (1 Graça + 1 Coringa; recarga 0T): Restaura 13 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
 - **Roda de Esperança** (1 Graça + 1 Éter; recarga 0T): Concede 7 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
-- **Voto de Permanência** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Voto de Permanência** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Naomi, a Que Permanece — Sustentador
 
@@ -1866,7 +1866,7 @@ Curar sem se retirar
 - **Passo que Levanta** (1 Graça; recarga 0T): Causa 10 de dano perfurante a um inimigo. Restaura 5 de Vida ao usuário.
 - **Vigília Compartilhada** (1 Graça + 1 Coringa; recarga 0T): Restaura 8 de Vida. Concede 10 de Defesa destrutível.
 - **Promessa Renovada** (1 Graça + 1 Éter; recarga 0T): Regeneração: restaura 4 de Vida no início dos próximos 2 turnos de cada aliado. Remove aflições e condições prejudiciais.
-- **Ainda Aqui** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ainda Aqui** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Naomi, a Raiz — Sustentador
 
@@ -1883,7 +1883,7 @@ Apoio que atravessa a queda
 - **Ramo Ascendente** (1 Graça; recarga 0T): Causa 12 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado.
 - **Raízes de Amparo** (1 Graça + 1 Coringa; recarga 0T): Restaura 5 de Vida a cada aliado. Concede 8 de Defesa destrutível ao trio.
 - **Florescer apesar de Tudo** (1 Graça + 1 Éter; recarga 0T): Restaura 16 de Vida. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
-- **Tronco Imóvel** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Tronco Imóvel** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo Verdade
 
@@ -1902,7 +1902,7 @@ A luz remove vantagens e expõe mesmo diante de um contra-ataque; Invulnerável 
 - **Luz sem Mentira** (1 Graça + 1 Éter; recarga 1T): Causa 10 de dano espiritual a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Não pode ser anulado por Contra-ataque. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Clareza Partilhada** (1 Graça + 1 Coringa; recarga 0T): Remove aflições e condições prejudiciais.
 - **Verdade Incisiva** (1 Graça + 1 Éter; recarga 1T): Causa 30 de dano perfurante a um inimigo. Se o alvo está Exposto: +10 dano.
-- **Transparência Absoluta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Transparência Absoluta** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Lúcida — Quebra-Guarda
 
@@ -1919,7 +1919,7 @@ Revele uma marca, remova a guarda e as vantagens do alvo; o clarão concentra da
 - **Foco da Clareza** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.
 - **Desvelar a Guarda** (1 Graça + 1 Coringa; recarga 1T): Causa 10 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta 3 ao dano (máx. +12). Remove bônus de dano, redução e contra-ataque do alvo. Remove 20 de Defesa antes do dano.
 - **Clarão sem Véu** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
-- **Feixe Inatingível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Feixe Inatingível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Espelho — Executor
 
@@ -1937,7 +1937,7 @@ Mostre uma abertura e devolva a intenção: uma agressão ao espelho libera o es
 - **Estilhaço Devolvido** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Após usar, restaura Imagem Verdadeira.
 - **Devolver a Intenção** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno. Se o contra-ataque ativar, Imagem Verdadeira vira Estilhaço Devolvido contra o agressor por 2 turnos.
 - **Fratura da Ilusão** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Se o alvo está Exposto: +10 dano.
-- **Dentro do Reflexo** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Dentro do Reflexo** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Cartógrafa — Sustentador
 
@@ -1955,7 +1955,7 @@ Trace a abertura e revele o atalho de amparo; reúna as cargas para concentrar a
 - **Caminho Seguro** (1 Graça + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
 - **Atalho da Clareza** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 15 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Remove aflições e condições prejudiciais. Após usar, restaura Caminho Seguro.
 - **Convergência das Rotas** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +8 de dano por carga.
-- **Fora das Coordenadas** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fora das Coordenadas** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Vidente — Sustentador
 
@@ -1972,7 +1972,7 @@ A leitura enfraquece, expõe e pune a próxima ofensiva da vítima; escolha entr
 - **Olhar Desarmante** (1 Graça; recarga 0T): Causa 5 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Se o alvo usar uma técnica ofensiva em sua próxima vez: causa 5 de dano de aflição ao próprio alvo. Ativa uma vez.
 - **Amparo da Clareza** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Remove aflições e condições prejudiciais.
 - **Intenção Desvendada** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano físico a um inimigo. Se o alvo está Exposto: +10 dano e Atordoa por 1 turno.
-- **Véu da Serenidade** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Véu da Serenidade** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Orion — Preparador de Marcas
 
@@ -1989,7 +1989,7 @@ Revelar e decidir
 - **Rastro de Éter** (1 Éter; recarga 0T): Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.
 - **Captura Vetorial** (1 Éter + 1 Coringa; recarga 0T): Causa 14 de dano espiritual a um inimigo. Atordoa por 1 turno. Se o alvo tem uma marca sua: +6 dano; consome a preparação.
 - **Dúvida Calculada** (2 Éter; recarga 0T): Concede 8 de Defesa destrutível. Remove aflições e condições prejudiciais.
-- **Janela de Contenção** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Janela de Contenção** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ## Elo União
 
@@ -2008,7 +2008,7 @@ O laço ofensivo converte parte do dano real em recuperação do aliado mais fer
 - **Laço do Elo** (1 Éter; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Restaura ao aliado proporcionalmente mais ferido 50% do dano real causado (máx. 15 por uso).
 - **Promessa de Combate** (1 Éter + 1 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
 - **Corrente Dourada** (2 Éter; recarga 1T): Causa 25 de dano espiritual a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
-- **Elo Inquebrável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Elo Inquebrável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Tecelã — Sustentador
 
@@ -2025,7 +2025,7 @@ Reconstrua os fragmentos com limpeza, guarda e recuperação futura; escolha o a
 - **Fio de Encontro** (1 Graça; recarga 0T): Causa 15 de dano espiritual a um inimigo. Restaura ao usuário 50% do dano causado.
 - **Reunir os Fragmentos** (1 Graça + 1 Coringa; recarga 0T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais.
 - **Fôlego Coletivo** (1 Graça + 1 Éter; recarga 0T): Restaura 15 de Vida a cada aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
-- **Entrelaçar de Luz** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Entrelaçar de Luz** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Altruísta — Retaliador
 
@@ -2042,7 +2042,7 @@ Uma agressão é anulada pelo pacto; se outra ferir o aliado, ele e o usuário r
 - **Selo do Pacto** (1 Graça; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Responder pelo Outro** (1 Graça + 1 Coringa; recarga 0T): Concede 15 de Defesa destrutível. Anula a próxima habilidade inimiga recebida e contra-ataca com 20 de dano. Dura 1 turno. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: restaura 6 de Vida ao usuário e ao beneficiado, uma vez por alma. Ativa uma vez.
 - **Resposta da Aliança** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano físico a um inimigo. Restaura ao usuário 30% do dano causado. Se o alvo está Exposto: +10 dano.
-- **Laço Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Laço Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### Os Três Irmãos — Pressionador de Área
 
@@ -2061,7 +2061,7 @@ Alterne três vozes no mesmo espaço: ataque, amparo e desfecho, sem perder as o
 - **Terceira Voz** [variação] (1 Graça + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. Consome as cargas: +5 de dano por carga. Após usar, restaura Primeira Cadência.
 - **Segunda Cadência** (1 Graça + 1 Coringa; recarga 0T): Concede 12 de Defesa destrutível ao trio. Ganha 1 carga (máx. 3).
 - **Terceira Cadência** (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano físico a todos os inimigos. Consome as cargas: +5 de dano por carga.
-- **Passo em Uníssono** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo em Uníssono** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Juramentada — Sustentador
 
@@ -2079,7 +2079,7 @@ Honre o pacto com um aliado; se ele perder Vida durante a resposta inimiga, abra
 - **Honrar o Pacto** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida. Concede 25 de Defesa destrutível. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: abre uma técnica alternativa para o usuário por 2 turnos. Ativa uma vez.
 - **Renovar o Pacto** [variação] (1 Graça + 1 Coringa; recarga 0T): Restaura 25 de Vida. Remove aflições e condições prejudiciais. Após usar, restaura Honrar o Pacto.
 - **Resposta do Juramento** (1 Graça + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
-- **Pacto Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Pacto Inviolável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ## Elo Criação
 
@@ -2099,7 +2099,7 @@ Crie amparo para abrir uma forma perfurante; escolha entre ela e a Obra Converge
 - **Forma que Rompe** [variação] (1 Ruptura + 1 Éter; recarga 0T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga. Após usar, restaura Fragmento Nascente.
 - **Forma de Amparo** (1 Coringa; recarga 0T): Concede 20 de Defesa destrutível. Ganha 1 carga (máx. 3). Fragmento Nascente vira Forma que Rompe por 2 turnos.
 - **Obra Convergente** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +9 de dano por carga.
-- **Forma Impossível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Forma Impossível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Semente — Baluarte
 
@@ -2117,7 +2117,7 @@ A semente amadurece com as cargas: colha amparo para si ou conserve a marca para
 - **Fruto do Porvir** [variação] (1 Ruptura + 1 Éter; recarga 0T): Restaura 20 de Vida. Concede 10 de Defesa destrutível. Consome todas as cargas.
 - **Abrigo do Broto** (1 Ruptura + 1 Coringa; recarga 0T): Restaura 15 de Vida. Concede 10 de Defesa destrutível. Consome as cargas: +5 de cura por carga.
 - **Florescer da Marca** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano; consome a preparação.
-- **Casulo de Origem** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Casulo de Origem** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Cultivador — Gerador de Essência
 
@@ -2134,7 +2134,7 @@ Arar a alma já recupera o aliado mais ferido; acumule reservas para escolher a 
 - **Arar a Alma** (1 Graça; recarga 0T): Causa 10 de dano físico a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Restaura ao aliado proporcionalmente mais ferido 40% do dano real causado (máx. 15 por uso). Ganha 1 carga (máx. 3).
 - **Colheita de Fôlego** (1 Graça + 1 Coringa; recarga 0T): Restaura 10 de Vida a cada aliado. Consome as cargas: +6 de cura por carga a cada aliado.
 - **Ramos da Resposta** (1 Graça + 1 Éter; recarga 1T): Causa 20 de dano físico a um inimigo. Remove 15 de Defesa antes do dano. Consome as cargas: +8 de dano por carga.
-- **Abrigo das Raízes** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Abrigo das Raízes** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Arquiteta — Baluarte
 
@@ -2153,7 +2153,7 @@ Erga a abóbada para abrir amparo concentrado ou um colapso coletivo que consome
 - **Abóbada Verde** (1 Graça + 1 Coringa; recarga 0T): Concede 18 de Defesa destrutível ao trio. Abre Viga de Apoio e Colapsar a Abóbada por 2 turnos. O colapso encerra as duas variações e gasta sua Defesa.
 - **Convergência dos Pilares** (1 Graça + 1 Éter; recarga 2T): Causa 25 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Colapsar a Abóbada** [variação] (2 Graça + 1 Éter; recarga 2T): Causa 20 de dano físico a todos os inimigos. Acrescenta 25% da Defesa do usuário ao dano (máx. +10) e consome toda a sua Defesa. Após usar, restaura Pilar Ascendente. Após usar, restaura Convergência dos Pilares.
-- **Geometria Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Geometria Intocável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Ressonante — Pressionador de Área
 
@@ -2170,7 +2170,7 @@ O refrão encurta as recargas não defensivas do trio; escolha quando pagar seu 
 - **Nota Primordial** (1 Graça + 1 Éter; recarga 0T): Causa 15 de dano espiritual a um inimigo. Ganha 1 carga (máx. 3). Gera 1 Graça para a reserva da equipe.
 - **Refrão da Vida** (2 Graça + 1 Coringa; recarga 3T): Restaura 8 de Vida a cada aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Reduz em 1 turno as recargas não defensivas do beneficiado. Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Canto que Abre o Mundo** (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Consome as cargas: +5 de dano por carga.
-- **Pausa Anterior ao Som** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Pausa Anterior ao Som** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ## Elo Correntes Quebradas
 
@@ -2191,7 +2191,7 @@ Percorra uma sequência de três passos contra a mesma vítima ou gaste suas car
 - **Passo Anterior** [variação] (1 Ruptura; recarga 0T): Causa 15 de dano espiritual a um inimigo. Enfraquece por 2 turnos do alvo: −10 de dano causado. Após usar, restaura Fissura do Passo.
 - **Entre Dois Instantes** (1 Ruptura + 1 Coringa; recarga 2T): Causa 15 de dano físico a um inimigo. Se o alvo tem a marca desta preparação: +10 dano e Atordoa por 1 turno.
 - **Golpe Descontínuo** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Consome as cargas: +8 de dano por carga. O usuário perde 5 de Vida (não o derrota).
-- **Passo Fora do Tempo** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo Fora do Tempo** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Cindida — Baluarte
 
@@ -2209,7 +2209,7 @@ Abra uma extremidade no inimigo e escolha entre reatar o fio para proteger ou pu
 - **Reatar a Linha** [variação] (1 Graça; recarga 0T): Concede 15 de Defesa destrutível. Remove aflições e condições prejudiciais. Após usar, restaura Extremidade Solta.
 - **Nó de Emergência** (1 Graça; recarga 0T): Restaura 20 de Vida. Concede 10 de Defesa destrutível. O usuário perde 5 de Vida (não o derrota). Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Puxar o Fim da Linha** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
-- **Linha Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Linha Inalcançável** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Eco — Retaliador
 
@@ -2229,7 +2229,7 @@ Colete ecos e devolva uma agressão para mudar o trio inteiro de postura: golpe 
 - **Voz Devolvida** [variação] (2 Coringa; recarga 0T): Concede 10 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais.
 - **Coro sem Origem** (2 Graça + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Converte 1 Ruptura em uma Essência aleatória de outro tipo na reserva da equipe. Consome as cargas: +5 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Ressonância Roubada** [variação] (2 Coringa + 1 Éter; recarga 2T): Causa 15 de dano espiritual a todos os inimigos. Consome as cargas: +5 de dano por carga. Após usar, restaura Coro sem Origem.
-- **Eco Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Eco Intangível** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Errante — Sustentador
 
@@ -2247,7 +2247,7 @@ Abra uma passagem, use o atalho para amparar um aliado e retorne; fechar a rota 
 - **Passagem de Retorno** [variação] (1 Graça; recarga 0T): Restaura 10 de Vida. Concede 10 de Defesa destrutível. Após usar, restaura Abertura Impossível.
 - **Atalho Suspenso** (1 Graça + 1 Coringa; recarga 0T): Concede 25 de Defesa destrutível. Remove aflições e condições prejudiciais. No próximo turno, Abertura Impossível vira Passagem de Retorno para amparar um aliado.
 - **Fechar a Passagem** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +10 dano. O usuário perde 5 de Vida (não o derrota).
-- **Do Outro Lado** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Do Outro Lado** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Esquecido — Manipulador de Essência
 
@@ -2264,7 +2264,7 @@ O nome perdido drena agora e deixa uma cobrança para o próximo apoio da vítim
 - **Sílaba Perdida** (1 Cinza; recarga 1T): Causa 5 de dano físico a um inimigo. Marca o alvo por 3 turnos. Se o alvo usar uma técnica de apoio em sua próxima vez: causa 5 de dano de aflição ao próprio alvo e remove 1 unidade de Essência da reserva adversária. Ativa uma vez. Remove 1 unidade de Essência da reserva inimiga. Converte 1 um tipo disponível em uma Essência aleatória de outro tipo na reserva da equipe.
 - **Esquecer a Forma** (1 Cinza; recarga 0T): Causa 15 de dano espiritual a um inimigo. Enfraquece por 1 turno do alvo: −10 de dano causado. Remove bônus de dano, redução e contra-ataque do alvo.
 - **Ninguém Responde** (1 Cinza + 1 Coringa; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
-- **Nome Fora da Memória** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Nome Fora da Memória** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Cronista — Executor
 
@@ -2282,7 +2282,7 @@ Acumule segundos e pare um alvo para abrir uma janela curta de descarga concentr
 - **Ponteiro Imóvel** (1 Ruptura + 1 Coringa; recarga 2T): Causa 10 de dano físico a um inimigo. Atordoa por 1 turno. No próximo turno, Devolver os Segundos vira Retomar o Instante contra o alvo interrompido. Efeito reativo: responde à condição indicada. Ativa uma vez.
 - **Devolver os Segundos** (1 Ruptura + 1 Éter; recarga 2T): Causa 20 de dano espiritual a um inimigo. Consome as cargas: +10 de dano por carga. O usuário perde 8 de Vida (não o derrota).
 - **Retomar o Instante** [variação] (2 Ruptura + 1 Éter; recarga 2T): Causa 35 de dano espiritual a um inimigo. Consome as cargas: +5 de dano por carga. O usuário perde 5 de Vida (não o derrota). Após usar, restaura Devolver os Segundos.
-- **Instante Submerso** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Instante Submerso** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Inversa — Interditor
 
@@ -2300,7 +2300,7 @@ Devolva uma agressão física para abrir um golpe que sela a ofensiva do agresso
 - **Peso da Asa** [variação] (1 Ruptura + 1 Éter; recarga 2T): Causa 15 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Após usar, restaura Pena ao Contrário.
 - **Voo Reverso** (1 Ruptura + 1 Coringa; recarga 0T): Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Anula a próxima habilidade inimiga física ou perfurante recebida e contra-ataca com 20 de dano. Dura 1 turno. Ao anular uma técnica física ou perfurante, Pena ao Contrário vira Peso da Asa contra o agressor por 2 turnos.
 - **Cair para o Alto** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo está Enfraquecido: +15 dano. O usuário perde 5 de Vida (não o derrota).
-- **Asa Fora do Plano** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Asa Fora do Plano** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Andarilho — Especialista em Aflições
 
@@ -2317,7 +2317,7 @@ Cada pegada reforça a próxima até um limite; Atordoamento rompe a sequência,
 - **Pegada de Vidro** (1 Ruptura; recarga 0T): Causa 10 de dano físico a um inimigo. Marca o alvo por 3 turnos. Sangramento: 4 de dano de aflição por 2 turnos. Cada uso não anulado dá +2 de dano a esta técnica (máx. +6). Atordoamento zera esse bônus.
 - **Reflexo do Andarilho** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 25 de dano. Dura 1 turno.
 - **Travessia Estilhaçada** (1 Ruptura + 1 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 8 de Vida (não o derrota).
-- **Passo Transparente** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Passo Transparente** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Oscilante — Retaliador
 
@@ -2336,7 +2336,7 @@ Entre num contorno de abrigo para recuperar-se e contra-atacar, depois retome a 
 - **Mudar de Contorno** (1 Graça; recarga 0T): Restaura 15 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Remove aflições e condições prejudiciais. Assume uma postura de abrigo: troca o primeiro golpe por Fingir Presença até usar Retomar a Sombra.
 - **Retomar a Sombra** [variação] (1 Graça; recarga 0T): Restaura 10 de Vida. Remove aflições e condições prejudiciais. Após usar, restaura Sombra Atrás da Alma. Após usar, restaura Mudar de Contorno.
 - **A Sombra se Fecha** (1 Graça + 1 Éter; recarga 1T): Causa 25 de dano de aflição a um inimigo. Se o alvo tem a marca desta preparação: +15 dano. O usuário perde 5 de Vida (não o derrota).
-- **Contorno Imaterial** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Contorno Imaterial** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### A Peregrina — Pressionador de Área
 
@@ -2353,7 +2353,7 @@ Quem atravessa a proteção da ponte revela uma abertura; aproveite-a na travess
 - **Romper o Apoio** (1 Ruptura; recarga 0T): Causa 15 de dano físico a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição. Remove 20 de Defesa antes do dano.
 - **Ponte de Emergência** (1 Ruptura + 1 Coringa; recarga 0T): Concede 15 de Defesa destrutível ao trio. Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado: expõe o agressor até o fim do próximo turno do usuário. Ativa uma vez. O usuário perde 5 de Vida (não o derrota).
 - **Queda da Travessia** (2 Ruptura + 1 Éter; recarga 2T): Causa 15 de dano perfurante a todos os inimigos. Se o alvo está Exposto: +10 dano. O usuário perde 5 de Vida (não o derrota).
-- **Entre as Margens** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Entre as Margens** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ### O Ancorado — Sustentador
 
@@ -2371,7 +2371,7 @@ Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ru
 - **Fôlego Emprestado** [variação] (1 Graça + 1 Éter; recarga 0T): Restaura 25 de Vida. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Consome todas as cargas.
 - **Ancorar o Fôlego** (1 Graça + 1 Coringa; recarga 0T): Restaura 20 de Vida. Concede 15 de Defesa destrutível. O usuário perde 5 de Vida (não o derrota).
 - **Soltar a Âncora** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
-- **Suspensão Absoluta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Suspensão Absoluta** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
 ## Nilo — progressão de Essências
 
@@ -2526,7 +2526,7 @@ Marca, alcance e consequência
 - **Dever Mal Cumprido** (1 Ruptura; recarga 0T): Causa 13 de dano físico a um inimigo. Marca o alvo por 2 turnos.
 - **Passo do Executor** (1 Ruptura + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 dano; consome a preparação.
 - **Preço da Ordem** (1 Ruptura + 1 Éter; recarga 0T): Causa 21 de dano físico a um inimigo. O usuário perde 5 de Vida (não o derrota).
-- **Ajoelhar não é Ceder** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Ajoelhar não é Ceder** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Kael, o Quebrado — Gerador de Essência
 
@@ -2543,7 +2543,7 @@ Resistir ao próprio golpe
 - **Guarda Estilhaçada** (1 Ruptura; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 12 de dano. Dura 1 turno.
 - **Interrupção Tardia** (1 Ruptura + 1 Coringa; recarga 1T): Causa 12 de dano perfurante a um inimigo. Atordoa por 1 turno.
 - **Punho sem Ordem** (1 Ruptura + 1 Éter; recarga 0T): Causa 20 de dano físico a um inimigo. Consome as cargas: +3 de dano por carga.
-- **Fragmento de Escudo** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Fragmento de Escudo** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Kael, o Filhote de Ferro — Baluarte
 
@@ -2560,7 +2560,7 @@ Ficar de pé quando ninguém pede
 - **Pequeno Baluarte** (1 Graça; recarga 0T): Concede 12 de Defesa destrutível. Reduz em 4 o dano recebido por 1 turno.
 - **Garra de Ferro** (1 Graça + 1 Coringa; recarga 0T): Causa 14 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Promessa de Aço** (1 Graça + 1 Éter; recarga 0T): Concede 7 de Defesa destrutível ao trio. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.
-- **Abrigo de Ferro** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Abrigo de Ferro** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Eiremir — Transmutador de Essência
 
@@ -2577,7 +2577,7 @@ Devolver a Essência recebida
 - **Fenda que Observa** (1 Ruptura; recarga 0T): Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
 - **Fluxo Reverso** (1 Ruptura + 1 Coringa; recarga 0T): Causa 12 de dano perfurante a um inimigo. Converte 1 um tipo disponível em Ruptura na reserva da equipe.
 - **Ressonância Impossível** (1 Ruptura + 1 Éter; recarga 0T): Causa 17 de dano espiritual a um inimigo. Se o alvo tem uma marca sua: +8 dano; consome a preparação.
-- **Reflexo de Limbo** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Reflexo de Limbo** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Eiremir, o Espelho Partido — Gerador de Essência
 
@@ -2594,7 +2594,7 @@ Devolver a ruptura
 - **Estilhaço de Retorno** (1 Ruptura; recarga 0T): Causa 13 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Espelho de Correntes** (1 Ruptura + 1 Coringa; recarga 0T): Anula a próxima habilidade inimiga recebida e contra-ataca com 14 de dano. Dura 1 turno. Ao ativar, gera 1 Ruptura. Ao ativar, expõe o agressor até o fim do próximo turno.
 - **Ruptura Recursiva** (1 Ruptura + 1 Éter; recarga 0T): Causa 19 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga.
-- **Caco Invulnerável** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Caco Invulnerável** (1 Coringa; recarga 4T): Concede 7 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 
 ### Icarus — Interditor
 
@@ -2611,5 +2611,5 @@ Tocar o proibido e arrastar outros
 - **Asa Fraturada** (1 Ruptura; recarga 0T): Causa 13 de dano perfurante a um inimigo. Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.
 - **Sol Proibido** (1 Ruptura + 1 Coringa; recarga 0T): Causa 16 de dano espiritual a um inimigo. Atordoa por 1 turno. O usuário perde 4 de Vida (não o derrota).
 - **Fenda que Arrasta** (1 Ruptura + 1 Éter; recarga 0T): Causa 12 de dano de aflição a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.
-- **Altitude Impossível** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Altitude Impossível** (1 Coringa; recarga 4T): Concede 6 de Defesa destrutível. O usuário fica Invulnerável por 1 turno.
 

@@ -171,7 +171,7 @@ export const englishWorldPhrases = {
   "Causa 15 de dano físico, rouba 50% do dano causado como Vida e marca o alvo por 3 turnos.": "Deal 15 physical damage, steal Health equal to 50% of damage dealt, and Mark the target for 3 turns.",
   "Causa 25 de dano perfurante e rouba 50% do dano causado como Vida. Contra sua marca de caça, causa +10 de dano e consome a marca.": "Deal 25 piercing damage and steal Health equal to 50% of damage dealt. Against your Hunt Mark, deal +10 damage and consume the Mark.",
   "Causa 15 de dano espiritual a cada inimigo e drena 1 unidade de Essência da reserva inimiga, uma vez por uso.": "Deal 15 spiritual damage to each enemy and drain 1 Essence from the enemy reserve once per use.",
-  "Fica Invulnerável a novas habilidades inimigas por 1 turno, recupera 10 de Vida e retorna à forma original.": "Become Invulnerable to new enemy abilities for 1 turn, restore 10 Health, and return to the original Form.",
+  "Fica Invulnerável por 1 turno, recupera 10 de Vida e retorna à forma original.": "Become Invulnerable for 1 turn, restore 10 Health, and return to the original Form.",
   "Tirano": "Tyrant",
   "Predador": "Predator",
   "Ruína": "Ruin",
