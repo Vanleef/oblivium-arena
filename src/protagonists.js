@@ -3421,8 +3421,8 @@ const supportingProfiles = [
   },
   {
     "id": "khoren-caminho",
-    "name": "Khoren",
-    "englishName": "Khoren",
+    "name": "Aion",
+    "englishName": "Aion",
     "identityTitle": "O Caminho",
     "englishIdentityTitle": "The Path",
     "family": "cosmic-leaders",
@@ -3438,10 +3438,10 @@ const supportingProfiles = [
     "englishRole": "Lord of Limbo",
     "combo": "Marque um alvo, acerte-o para ganhar uma Carga e escolha quando consumi-la.",
     "englishCombo": "Mark a target, hit it to gain a Charge, and choose when to spend it.",
-    "mechanic": "Khoren abre uma Rota ao marcar um inimigo. Atingir esse alvo gera uma Carga uma vez por rodada; sua técnica final pode consumi-las para ampliar o golpe.",
-    "englishMechanic": "Khoren opens a Route by Marking an enemy. Hitting that target grants a Charge once per round; his final technique can spend them to strengthen the strike.",
-    "lore": "Khoren é o Lorde do Limbo e vigia as passagens entre existências. Não escolhe destinos: revela as rotas e cobra de quem força a travessia.",
-    "englishLore": "Khoren is the Lord of Limbo and watches the passages between lives. He does not choose destinations; he reveals the routes and exacts a price from those who force their way through.",
+    "mechanic": "Aion abre uma Rota ao marcar um inimigo. Atingir esse alvo gera uma Carga uma vez por rodada; sua técnica final pode consumi-las para ampliar o golpe.",
+    "englishMechanic": "Aion opens a Route by Marking an enemy. Hitting that target grants a Charge once per round; his final technique can spend them to strengthen the strike.",
+    "lore": "Aion é o Lorde do Limbo e vigia as passagens entre existências. Não escolhe destinos: revela as rotas e cobra de quem força a travessia.",
+    "englishLore": "Aion is the Lord of Limbo and watches the passages between lives. He does not choose destinations; he reveals the routes and exacts a price from those who force their way through.",
     "synergyEloIds": [
       "correntes-quebradas",
       "vazio"
@@ -3456,7 +3456,7 @@ const supportingProfiles = [
         "gainCharge": 1
       },
       "description": "Ao causar dano a um inimigo com sua Marca, ganha 1 Carga. Ativa uma vez por rodada.",
-      "englishDescription": "Once per round, dealing damage to an enemy with his Mark grants Khoren 1 Charge."
+      "englishDescription": "Once per round, dealing damage to an enemy with his Mark grants Aion 1 Charge."
     },
     "skills": [
       {
@@ -3488,7 +3488,7 @@ const supportingProfiles = [
           "random": 1
         },
         "cooldown": 1,
-        "englishDescription": "Deals 12 piercing damage and Exposes one enemy. Against Khoren's Route, it deals 5 more damage."
+        "englishDescription": "Deals 12 piercing damage and Exposes one enemy. Against Aion's Route, it deals 5 more damage."
       },
       {
         "name": "Desfecho de Trajeto",
