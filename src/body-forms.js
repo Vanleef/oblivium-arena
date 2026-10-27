@@ -4,7 +4,7 @@ const folder=id=>id==='a-pele-alheia'?'/art/characters/a-pele-alheia/painterly-r
 const slots=['impulso','tecnica','voto'];
 const shift=form=>slots.map(slot=>({slot,form}));
 const back=shift('base');
-const form=(id,key,name,description,effects={})=>({id,formKey:key,name,description,cost:1,costs:{affinity:1},target:'enemy',damageType:'physical',damage:0,cooldown:0,kind:'strike',classes:['Física','Instantânea'],...effects});
+const form=(id,key,name,description,effects={})=>({id,formKey:key,name,description,cost:1,costs:{affinity:1},target:'enemy',damageType:'physical',damage:0,cooldown:0,kind:'strike',...effects});
 // Only characters whose mechanics actually change their body receive these portraits.
 export function withBodyForms(c){
  const base=folder(c.id);
@@ -24,14 +24,14 @@ export function withBodyForms(c){
  if(c.id==='a-sombra-inconstante')return {...c,baseFormName:'Sombra errante',bodyForms:[{key:'shelter',resource:'graca',name:'Contorno de Abrigo',portrait:`${base}/portrait-shelter.webp`,when:{impulso:'feign',tecnica:'resume'},description:'Troca a ofensiva inicial por recuperação e contra-ataque até Retomar a Sombra.'}]};
  if(c.id!=='a-pele-alheia')return c;
  const pred=[
-  form('impulso','skin','Garras Predatórias','Causa 15 de dano perfurante e remove 15 de Defesa antes do dano.',{damage:15,damageType:'piercing',stripShield:15,classes:['Perfurante','Instantânea']}),
-  form('tecnica','shed','Descartar o Molde','Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Predatória e Quimera Couraçada. Não reinicia recargas.',{target:'self',heal:15,cleanse:true,shift:back,kind:'support',classes:['Estratégica','Instantânea']}),
+  form('impulso','skin','Garras Predatórias','Causa 15 de dano perfurante e remove 15 de Defesa antes do dano.',{damage:15,damageType:'piercing',stripShield:15,}),
+  form('tecnica','shed','Descartar o Molde','Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Predatória e Quimera Couraçada. Não reinicia recargas.',{target:'self',heal:15,cleanse:true,shift:back,kind:'support',}),
   form('voto','skin','Instinto de Revide','Causa 25 de dano físico e prepara um contra-ataque pessoal de 10 de dano por 1 turno.',{damage:25,counter:10,cost:2,costs:{affinity:1,random:1},cooldown:2})
  ];
  const shell=[
   form('impulso','shell','Impacto Couraçado','Causa 20 de dano físico e concede 5 de Defesa ao usuário.',{damage:20,shield:5}),
-  form('tecnica','shell','Descamar o Casco','Recupera 10 de Vida e restaura a forma humanoide e suas três técnicas. Não reinicia recargas.',{target:'self',heal:10,shift:back,kind:'support',classes:['Estratégica','Instantânea']}),
-  form('voto','shell','Espinhos Couraçados','Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.',{target:'self',shield:15,counter:20,cost:2,costs:{affinity:1,random:1},cooldown:2,kind:'guard',classes:['Estratégica','Instantânea']})
+  form('tecnica','shell','Descamar o Casco','Recupera 10 de Vida e restaura a forma humanoide e suas três técnicas. Não reinicia recargas.',{target:'self',heal:10,shift:back,kind:'support',}),
+  form('voto','shell','Espinhos Couraçados','Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.',{target:'self',shield:15,counter:20,cost:2,costs:{affinity:1,random:1},cooldown:2,kind:'guard',})
  ];
  const abilities=c.abilities.map(a=>({...a}));
  Object.assign(abilities[1],{shield:15,assumeForm:'skin',shift:[{slot:'impulso',form:'skin'},{slot:'tecnica',form:'shed'},{slot:'voto',form:'skin'}],description:'Recebe 15 de Defesa, limpa aflições e condições prejudiciais e assume a Quimera Predatória, de traços lupinos, serpentinos e de ave de rapina. Troca as três primeiras técnicas e o retrato até usar Descartar o Molde ou Corpo Substituto.'});
