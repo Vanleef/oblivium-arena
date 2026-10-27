@@ -340,8 +340,8 @@ export function describeAbility(a) {
   if(a.silenceMarkedHealing)parts.push("Inimigos com uma Marca de Nilo não podem recuperar Vida no próximo turno.");
   if(a.clearEchoLink)parts.push("Remove o Vínculo de Ressonância após o ataque.");
   if(a.stun)parts.push(`Atordoa por ${a.stun} ${a.stun===1?"turno":"turnos"}.`);
-  if(a.weaken)parts.push(`Enfraquece o alvo por ${a.weaken} ${a.weaken===1?"turno":"turnos"}: ele causa 10 de dano a menos.`);
-  if(a.expose)parts.push("Expõe o alvo até o fim do próximo turno deste lado: ele recebe +10 de dano, exceto aflição.");
+  if(a.weaken)parts.push(`Enfraquece o alvo por ${a.weaken} ${a.weaken===1?"turno":"turnos"}.`);
+  if(a.expose)parts.push("Expõe o alvo até o fim do próximo turno deste lado.");
   if(a.heal)parts.push(`Restaura ${a.heal} de Vida ${targetFor(a.target || (a.damage ? "self" : "ally"),a)}.`);
   if(a.shield)parts.push(`Concede ${a.shield} de Defesa destrutível ${targetFor(a.target || (a.damage ? "self" : "ally"))}.`);
   if(a.reduce)parts.push(`Reduz em ${a.reduce} o dano recebido por 1 turno${a.target==="self"||a.damage?" pelo usuário":" pelo beneficiado"}.`);
@@ -366,7 +366,7 @@ export function describeAbility(a) {
     }
   }
   if(a.regen)parts.push(`Regeneração: restaura ${a.regen.heal} de Vida no início dos próximos ${a.regen.turns} turnos${a.target==="team"?" de cada aliado":" do beneficiado"}.`);
-  if(a.sealSupport)parts.push(`Sela técnicas de apoio por ${a.sealSupport} ${a.sealSupport===1?"turno":"turnos"} do alvo. A defesa pessoal continua disponível.`);
+  if(a.sealSupport)parts.push(`Sela as técnicas de apoio do alvo por ${a.sealSupport} ${a.sealSupport===1?"turno":"turnos"}.`);
   if(a.sealAttack)parts.push(`Sela técnicas ofensivas por ${a.sealAttack} ${a.sealAttack===1?"turno":"turnos"} do alvo.`);
   if(a.healingBlock)parts.push(`Reduz a cura recebida em ${Math.round(a.healingBlock*100)}% até o fim do próximo turno deste lado.`);
   if(a.reduceCooldown)parts.push(`Reduz em ${a.reduceCooldown} ${a.reduceCooldown===1?"turno":"turnos"} as recargas não defensivas do beneficiado.`);
@@ -392,7 +392,7 @@ export function describeAbility(a) {
   if(a.combo)parts.push(`Se ${conditionLabel(a.combo.condition)}: +${a.combo.bonusDamage||0} de dano${a.combo.stun?` e Atordoa por ${a.combo.stun} ${a.combo.stun===1?"turno":"turnos"}`:""}${a.combo.consume?"; consome a preparação":""}.`);
   if(a.resonantWound)parts.push(`O usuário perde ${a.selfDamage} de Vida, mais ${a.perChargeDamage||0} por Carga consumida; a dissonância repercute no alvo ressonante. O custo não pode derrotar o usuário.`);
   else if(a.selfDamage)parts.push(`O usuário perde ${a.selfDamage} de Vida (não pode ser derrotado por este custo).`);
-  if(a.invulnerable)parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.");
+  if(a.invulnerable)parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno.");
   return parts.join(" ");
 }
 function describePassive(p) {

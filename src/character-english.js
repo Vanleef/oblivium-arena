@@ -582,7 +582,7 @@ Object.assign(phrases, {
   "Assumir Predador": "Assume the Predator",
   "Assumir Ruína": "Assume Ruin",
   "Fim Inalcançável": "Unreachable End",
-  "Fica Invulnerável a novas habilidades inimigas por 1 turno, recupera 10 de Vida e retorna à forma original. Aflições já ativas continuam. Não reinicia recargas.": "Become Invulnerable to new enemy abilities for 1 turn, restore 10 Health, and return to your original Form. Existing afflictions remain active. Cooldowns do not reset."
+  "Fica Invulnerável a novas habilidades inimigas por 1 turno, recupera 10 de Vida e retorna à forma original.": "Become Invulnerable to new enemy abilities for 1 turn, restore 10 Health, and return to your original Form."
 });
 
 const finalBossForms = [
@@ -643,14 +643,15 @@ Object.assign(phrases, {
   "Descamar o Casco": "Shed the Carapace",
   "Espinhos Couraçados": "Armored Spines",
   "Causa 15 de dano perfurante e remove 15 de Defesa antes do dano.": "Deal 15 piercing damage, removing 15 Defense before damage.",
-  "Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Predatória e Quimera Couraçada. Não reinicia recargas.": "Restore 15 Health and cleanse afflictions and harmful conditions. After use, restore Shifting Claws and the Predatory and Armored Chimera forms. Cooldowns do not reset.",
+  "Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Predatória e Quimera Couraçada.": "Restore 15 Health and cleanse afflictions and harmful conditions. After use, restore Shifting Claws and the Predatory and Armored Chimera forms.",
   "Causa 25 de dano físico e prepara um contra-ataque pessoal de 10 de dano por 1 turno.": "Deal 25 physical damage and prepare a personal 10-damage counterattack for 1 turn.",
   "Causa 20 de dano físico e concede 5 de Defesa ao usuário.": "Deal 20 physical damage and grant yourself 5 Defense.",
-  "Recupera 10 de Vida e restaura a forma humanoide e suas três técnicas. Não reinicia recargas.": "Restore 10 Health and return to your humanoid form and its three techniques. Cooldowns do not reset.",
+  "Recupera 10 de Vida e restaura a forma humanoide e suas três técnicas.": "Restore 10 Health and return to your humanoid form and its three techniques.",
   "Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.": "Gain 15 Defense, negate the next enemy ability you receive, and counterattack for 20 damage. Lasts 1 turn.",
   "Recebe 15 de Defesa, limpa aflições e condições prejudiciais e assume a Quimera Predatória, de traços lupinos, serpentinos e de ave de rapina. Troca as três primeiras técnicas e o retrato até usar Descartar o Molde ou Corpo Substituto.": "Gain 15 Defense, cleanse afflictions and harmful conditions, and assume the Predatory Chimera with wolf, serpent, and raptor traits. Replaces your first three techniques and portrait until you use Shed the Mold or Substitute Body.",
   "Recebe 20 de Defesa e assume a Quimera Couraçada, uma fera de presas de javali e placas de pangolim e besouro. Troca as três primeiras técnicas e o retrato até descamar ou usar Corpo Substituto.": "Gain 20 Defense and assume the Armored Chimera, a beast with boar tusks and pangolin and beetle plates. Replaces your first three techniques and portrait until you shed the carapace or use Substitute Body.",
   "Alterne entre o corpo humanoide, a Quimera Predatória (lobo-serpente-ave) e a Quimera Couraçada (javali-pangolim-besouro). Cada corpo tem três técnicas e um retrato próprios; descartar o molde ou usar Corpo Substituto restaura a forma humanoide.": "Switch between your humanoid body, the Predatory Chimera (wolf-serpent-raptor), and the Armored Chimera (boar-pangolin-beetle). Each body has three techniques and its own portrait; shed the mold or use Substitute Body to return to your humanoid form.",
+  "O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Retorna à forma original.": "You are Invulnerable to new enemy abilities for 1 turn. Return to your original Form.",
   "Metamorfose de feras infernais": "Infernal Beast Metamorphosis",
   "Forma humanoide": "Humanoid Form"
 });

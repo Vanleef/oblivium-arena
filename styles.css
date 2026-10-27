@@ -1463,7 +1463,8 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .ability-detail-grid small { color: #c9ad6d; font-size: 7px; letter-spacing: .11em; }
 .ability-detail-grid p,.ability-detail-grid b { display: block; margin: 4px 0 0; color: #c1b6c6; font-size: 9px; line-height: 1.45; }
 .ability-detail-grid b { color: #eee0c7; }
-.combat-keyword { padding: 0 2px; color: #f1db9e; background: #d4b36620; }
+.combat-keyword { padding: 0 2px; color: #f1db9e; background: #d4b36620; border-bottom: 1px dotted currentColor; cursor: help; text-underline-offset: 2px; }
+.combat-keyword:focus-visible { outline: 1px solid #f1db9e; outline-offset: 2px; }
 .battle-log ol { display: grid; gap: 3px; max-height: 230px; overflow: auto; padding: 8px 12px; list-style: none; }
 .battle-log li { display: grid; grid-template-columns: 16px minmax(0,1fr); gap: 8px; align-items: start; color: #b9aeba; font-size: 9px; line-height: 1.45; }
 .battle-log li > i { color: #d3b978; font-style: normal; text-align: center; }

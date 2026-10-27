@@ -1,5 +1,5 @@
 import {withFlexibleCosts} from './flexible-costs.js';
-import { buildCharacterKit } from "./kits.js";
+import { buildCharacterKit, describeAbility } from "./kits.js";
 import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
 import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
@@ -282,7 +282,7 @@ const reactiveKits={
  "o-relogio-afogado":{tecnica:{trigger:"idle",heal:10,turns:1}},
  "a-linha-partida":{tecnica:{trigger:"damaged",damage:12,turns:1}}
 };
-function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>kit[a.id]&&!a.reactive?{...a,reactive:kit[a.id],description:`${a.description} Efeito reativo: responde à condição indicada. Ativa uma vez.`}:a)};}
+function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>{const reactive=kit[a.id];if(!reactive||a.reactive)return a;const next={...a,reactive};return {...next,description:describeAbility(next)};})};}
 export const characters = [
   ...elos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))))))),
   ...protagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),

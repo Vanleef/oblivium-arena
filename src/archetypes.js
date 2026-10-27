@@ -1,5 +1,3 @@
-const orderedTypes = ["essence", "cinza", "ruptura", "graca"];
-
 export const archetypeCatalog = {
   status: { name: "Especialista em Aflições", icon: "☣", context: "Aplica e prolonga condições para que a equipe converta desgaste em pressão." },
   sustain: { name: "Sustentador", icon: "♥", context: "Mantém o trio de pé com cura, limpeza e recuperação ligada ao próprio dano." },
@@ -67,29 +65,56 @@ function rank(character) {
   return { abilities, scores, marks, combos, allEnemies, teamSupport, allyCare, formShifts };
 }
 
-function affinityFor(character, info) {
-  const a = info.abilities, scores = { essence: 0, cinza: 0, ruptura: 0, graca: 0 };
-  const effects = character.passive?.effect || {};
-  scores.essence += info.marks * 2 + info.combos + count(a, (x) => x.stun || x.weaken || x.sealAttack || x.sealSupport) * 1.2;
-  scores.cinza += hasDot(a) * 3 + count(a, (x) => x.drain) * 6 + count(a, (x) => x.healingBlock || x.dot?.tag === "decadencia") * 2;
-  scores.ruptura += count(a, (x) => x.damage >= 20 || x.damageType === "piercing") * 2 + count(a, (x) => x.selfDamage || x.missingHpDamage) * 2;
-  scores.graca += count(a, (x) => x.heal || x.cleanse || x.regen || x.shield || x.reduce) * 2 + info.allyCare * 2;
-  const generated = effects.generateEssence?.resource;
-  const converted = effects.convertEssence?.to;
-  const spent = effects.spendEssence?.resource;
-  if (scores[generated] !== undefined) scores[generated] += 4;
-  if (scores[converted] !== undefined) scores[converted] += 3;
-  if (scores[spent] !== undefined) scores[spent] += 2;
-  const max = Math.max(...Object.values(scores));
-  const tied = orderedTypes.filter((id) => scores[id] === max);
-  if (tied.length === 1) return tied[0];
-  // Kit features decide the affinity; this stable Elo/name rotation only resolves exact ties.
-  const seed = `${character.eloId}:${character.id}`;
-  const hash = [...seed].reduce((n, ch) => (n * 31 + ch.charCodeAt(0)) >>> 0, 7);
-  return tied[hash % tied.length];
-}
+// Cost affinity follows a character's source of power and story concept.
+// Elo defaults keep related kits coherent; exceptions cover support, mental, and liminal powers.
+const affinityByElo = {
+  sangria: "cinza", coroa: "cinza", mentira: "cinza", chama: "cinza", fome: "cinza",
+  podridao: "cinza", silencio: "ruptura", carne: "cinza", vazio: "ruptura",
+  protecao: "graca", cura: "graca", justica: "graca", esperanca: "graca",
+  verdade: "graca", uniao: "graca", criacao: "graca", "correntes-quebradas": "ruptura"
+};
 
-function hasDot(abilities) { return count(abilities, (a) => Boolean(a.dot)); }
+const affinityOverrides = {
+  "a-mae-rubra": "graca",
+  "o-trono-vazio": "graca",
+  "o-herdeiro-cativo": "ruptura",
+  "a-mascara-dupla": "essence",
+  "o-tecelao-de-mentiras": "essence",
+  "o-falso-profeta": "cinza",
+  "o-corretor-de-memorias": "essence",
+  "a-rainha-dos-fungos": "graca",
+  "a-carcereira": "essence",
+  "o-silenciador": "essence",
+  "a-testemunha-cega": "essence",
+  "o-anfitriao": "cinza",
+  "o-que-possui": "essence",
+  "a-pele-alheia": "graca",
+  "a-marionetista-de-nervos": "essence",
+  "o-espelho-carnal": "graca",
+  "a-costureira": "graca",
+  "a-ultima-pagina": "essence",
+  "a-lamina-justa": "essence",
+  "o-que-pesa": "essence",
+  "a-testemunha-integra": "essence",
+  "o-espelho": "ruptura",
+  "o-que-cria": "ruptura",
+  "o-eco-sem-dono": "essence",
+  "a-alma-em-suspenso": "graca"
+};
+
+const validAffinities = new Set(["essence", "cinza", "ruptura", "graca"]);
+
+function affinityFor(character) {
+  // Story characters declare their affinity directly in their authored profile.
+  if ((character.storyCharacter || character.protagonistFamily) && validAffinities.has(character.affinity)) {
+    return character.affinity;
+  }
+  // Unique characters such as O Fim keep their explicit affinity.
+  if (!Object.prototype.hasOwnProperty.call(character, "indexInElo") && validAffinities.has(character.affinity)) {
+    return character.affinity;
+  }
+  return affinityOverrides[character.id] || affinityByElo[character.eloId] || "essence";
+}
 
 export function assignCharacterArchetypes(character) {
   const info = rank(character);
@@ -110,17 +135,17 @@ export function assignCharacterArchetypes(character) {
     else selected.push('counter');
   }
   const archetypes = [...new Set([primary,...selected])];
-  const affinity = affinityFor(character, info);
+  const affinity = affinityFor(character);
   const bodyForms = (character.bodyForms || []).map((form) => ({
     ...form,
     archetype: profile?.forms?.[form.key] || primary,
     resource: form.key === "starved" ? "cinza"
-      : form.key === "rage" ? "ruptura"
+      : form.key === "rage" ? "cinza"
       : form.key === "shelter" ? "graca"
       : form.key === "skin" ? "ruptura"
       : form.key === "shell" ? "graca"
       : form.key === "edict" ? "essence"
-      : form.key === "smother" ? "ruptura"
+      : form.key === "smother" ? "cinza"
       : form.resource || affinity
   }));
   return {

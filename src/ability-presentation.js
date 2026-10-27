@@ -1,7 +1,7 @@
 import { esc } from "./view-utils.js";
 import { getAbilityResourceCosts } from "./resource-costs.js";
 import { resourceById } from "./data.js";
-import { getLanguage } from "./i18n.js";
+import { getLanguage, localizeText } from "./i18n.js";
 
 const damageTypeNames = { physical: "físico", energy: "espiritual", piercing: "perfurante", affliction: "de aflição" };
 const statusNames = { sangramento: "Sangramento", queimadura: "Queimadura", veneno: "Veneno", decadencia: "Decadência" };
@@ -13,15 +13,83 @@ const conditionNames = {
   marked: "alvo com sua Marca", wounded: "alvo com até 50% de Vida", selfWounded: "usuário com até 50% de Vida",
   shielded: "alvo com Defesa", selfShielded: "usuário com Defesa"
 };
-const keywords = ["Invulnerável", "Sangramento", "Queimadura", "Decadência", "Atordoado", "Enfraquecido", "Exposto", "Essência", "Coringa", "Ruptura", "Marca", "Veneno", "Defesa", "Éter", "Cinza", "Graça"];
-const keywordsEn = ["Invulnerable", "Bleed", "Burn", "Decay", "Stunned", "Weakened", "Exposed", "Essence", "Wildcard", "Rupture", "Mark", "Poison", "Defense", "Aether", "Ash", "Grace", "Health", "Counterattack", "Affliction"];
+const glossaryTerms = [
+  { pt: ["Invulnerável", "Invulnerabilidade"], en: ["Invulnerable", "Invulnerability"], ptTip: "Novas habilidades inimigas não podem escolher este personagem enquanto durar. Efeitos já aplicados, incluindo aflições, continuam.", enTip: "New enemy abilities cannot choose this character while this lasts. Effects already applied, including afflictions, continue." },
+  { pt: ["Aflição", "Aflições"], en: ["Affliction", "Afflictions"], ptTip: "Dano persistente que ignora Defesa. Cada aflição também pode aplicar uma condição própria.", enTip: "Persistent damage that ignores Defense. Each affliction can also apply its own condition." },
+  { pt: ["Sangramento"], en: ["Bleed"], ptTip: "Aflição que causa o dano indicado a cada turno; ignora Defesa.", enTip: "Affliction that deals the listed damage each turn; it ignores Defense." },
+  { pt: ["Queimadura"], en: ["Burn"], ptTip: "Aflição que causa o dano indicado a cada turno; ignora Defesa.", enTip: "Affliction that deals the listed damage each turn; it ignores Defense." },
+  { pt: ["Veneno"], en: ["Poison"], ptTip: "Aflição que causa o dano indicado a cada turno; ignora Defesa.", enTip: "Affliction that deals the listed damage each turn; it ignores Defense." },
+  { pt: ["Decadência"], en: ["Decay"], ptTip: "Aflição que causa o dano indicado a cada turno; ignora Defesa.", enTip: "Affliction that deals the listed damage each turn; it ignores Defense." },
+  { pt: ["Atordoado", "Atordoamento", "Atordoa"], en: ["Stunned", "Stun"], ptTip: "Impede o personagem de usar uma habilidade pelo turno indicado.", enTip: "Prevents the character from using an ability for the listed turn." },
+  { pt: ["Enfraquecido", "Enfraquecimento", "Enfraquece"], en: ["Weakened", "Weaken"], ptTip: "O personagem causa 10 de dano a menos enquanto o efeito durar.", enTip: "The character deals 10 less damage while this effect lasts." },
+  { pt: ["Exposto", "Exposta", "Expõe"], en: ["Exposed", "Expose"], ptTip: "Recebe 10 de dano físico, espiritual ou perfurante a mais. Dano de aflição não recebe esse bônus.", enTip: "Takes 10 more physical, spiritual, or piercing damage. Affliction damage does not get this bonus." },
+  { pt: ["dano de aflição", "dano de aflições"], en: ["affliction damage"], ptTip: "Dano persistente que ignora Defesa.", enTip: "Persistent damage that ignores Defense." },
+  { pt: ["dano perfurante"], en: ["piercing damage"], ptTip: "Ignora Defesa e reduções de dano.", enTip: "Ignores Defense and damage reduction." },
+  { pt: ["dano espiritual"], en: ["spiritual damage"], ptTip: "Dano absorvido por Defesa; pode interagir com efeitos que distinguem tipos de dano.", enTip: "Damage absorbed by Defense; it can interact with effects that distinguish damage types." },
+  { pt: ["dano físico"], en: ["physical damage"], ptTip: "Dano absorvido por Defesa e afetado por reduções físicas.", enTip: "Damage absorbed by Defense and affected by physical damage reduction." },
+  { pt: ["físico", "física"], en: ["physical"], ptTip: "Tipo de dano absorvido por Defesa e afetado por reduções físicas.", enTip: "Damage type absorbed by Defense and affected by physical damage reduction." },
+  { pt: ["espiritual"], en: ["spiritual"], ptTip: "Tipo de dano absorvido por Defesa e reconhecido por efeitos espirituais.", enTip: "Damage type absorbed by Defense and recognized by spiritual effects." },
+  { pt: ["perfurante"], en: ["piercing"], ptTip: "Tipo de dano que ignora Defesa e reduções de dano.", enTip: "Damage type that ignores Defense and damage reduction." },
+  { pt: ["Essência", "Essências"], en: ["Essence"], ptTip: "Recurso usado para pagar habilidades. O jogo tem quatro tipos: Éter, Cinza, Graça e Ruptura.", enTip: "Resource spent to use abilities. The game has four types: Aether, Ash, Grace, and Rupture." },
+  { pt: ["Afinidade"], en: ["Affinity"], ptTip: "Tipo principal de Essência do personagem. Custos de afinidade usam esse tipo ou o recurso da Forma ativa.", enTip: "The character's primary Essence type. Affinity costs use this type or the resource of the active Form." },
+  { pt: ["Coringa"], en: ["Wildcard"], ptTip: "Unidade de custo flexível: pode ser paga com qualquer tipo de Essência.", enTip: "Flexible cost: it can be paid with any type of Essence." },
+  { pt: ["Éter"], en: ["Aether"], ptTip: "Essência neutra, ligada a técnicas de memória, percepção e manipulação.", enTip: "Neutral Essence, tied to memory, perception, and manipulation." },
+  { pt: ["Cinza"], en: ["Ash"], ptTip: "Essência do Inferno, associada a corrupção, sangue, fogo e desgaste.", enTip: "Essence of Inferno, associated with corruption, blood, fire, and attrition." },
+  { pt: ["Graça"], en: ["Grace"], ptTip: "Essência do Paraíso, associada a cura, proteção e sustentação.", enTip: "Essence of Paradise, associated with healing, protection, and support." },
+  { pt: ["Ruptura"], en: ["Rupture"], ptTip: "Essência do Limbo, associada a fraturas, instabilidade e respostas.", enTip: "Essence of Limbo, associated with fractures, instability, and responses." },
+  { pt: ["Defesa"], en: ["Defense"], ptTip: "Camada destrutível que absorve dano antes da Vida. Dano perfurante e de aflição a ignoram.", enTip: "A destructible layer that absorbs damage before Health. Piercing and affliction damage ignore it." },
+  { pt: ["Vida"], en: ["Health"], ptTip: "Recurso de sobrevivência do personagem. Ao chegar a zero, ele cai.", enTip: "A character's survival resource. At zero, they are defeated." },
+  { pt: ["Marca Infernal"], en: ["Infernal Mark"], ptTip: "Marca própria de Nilo. Habilidades indicadas podem consumir ou explorar esse efeito.", enTip: "Nilo's personal Mark. Abilities marked for it can consume or exploit this effect." },
+  { pt: ["Marca de Caça"], en: ["Hunt Mark"], ptTip: "Marca que prepara as habilidades indicadas contra o alvo marcado.", enTip: "A Mark that sets up the listed abilities against its target." },
+  { pt: ["Marca", "marcado", "marcada"], en: ["Mark", "Marked"], ptTip: "Efeito aplicado a um alvo. Habilidades podem exigir, consumir ou reagir à Marca.", enTip: "An effect applied to a target. Abilities can require, consume, or react to the Mark." },
+  { pt: ["Contra-ataque", "contra-atacar"], en: ["Counterattack"], ptTip: "Resposta preparada que anula a próxima habilidade válida e causa o dano indicado.", enTip: "A prepared response that negates the next valid ability and deals the listed damage." },
+  { pt: ["Furtividade"], en: ["Stealth"], ptTip: "O personagem não pode ser escolhido como alvo de habilidades inimigas pela duração indicada.", enTip: "The character cannot be chosen as the target of enemy abilities for the listed duration." },
+  { pt: ["Carga de Intervenção", "Cargas de Intervenção"], en: ["Intervention Charge", "Intervention Charges"], ptTip: "Recurso de Nilo gasto para anular a próxima habilidade inimiga dirigida a um Pilar.", enTip: "Nilo's resource, spent to negate the next enemy ability aimed at a Pillar." },
+  { pt: ["Intervenção"], en: ["Intervention"], ptTip: "Resposta de Nilo que protege um Pilar de uma habilidade inimiga.", enTip: "Nilo's response that protects a Pillar from an enemy ability." },
+  { pt: ["Pilar", "Pilares"], en: ["Pillar", "Pillars"], ptTip: "Aliado escolhido por Nilo para receber proteção e habilitar suas respostas de Intervenção.", enTip: "An ally chosen by Nilo to receive protection and enable his Intervention responses." },
+  { pt: ["Resíduo", "Resíduos"], en: ["Residue"], ptTip: "Recurso de Nilo que certas habilidades podem gastar para fortalecer um efeito.", enTip: "Nilo's resource that specific abilities can spend to strengthen an effect." },
+  { pt: ["Fratura", "Fraturas"], en: ["Fracture", "Fractures"], ptTip: "Contagem de status distintos no alvo, usada por técnicas específicas de Nilo.", enTip: "A count of distinct statuses on a target, used by specific Nilo abilities." },
+  { pt: ["Ressonância"], en: ["Resonance"], ptTip: "Vínculo que permite a habilidades específicas compartilhar perda de Vida ou converter efeitos.", enTip: "A link that lets specific abilities share Health loss or convert effects." },
+  { pt: ["Vínculo de Ressonância"], en: ["Resonance Link"], ptTip: "Vínculo de Nilo com um alvo: a perda de Vida de Nilo repercute nele como dano de aflição.", enTip: "Nilo's link to a target: his Health loss reverberates onto it as affliction damage." },
+  { pt: ["Expansão de Cinza"], en: ["Ash Expansion"], ptTip: "Estado de Nilo que aumenta o dano e cobra Vida a cada habilidade ofensiva durante a duração.", enTip: "Nilo's state that increases damage and costs Health for each offensive ability during its duration." },
+  { pt: ["Colapso"], en: ["Collapse"], ptTip: "Estado de Nilo que aumenta o dano e cobra Vida por habilidade de dano. O nível define os valores.", enTip: "Nilo's state that increases damage and costs Health per damage ability. The level sets the amounts." },
+  { pt: ["Forma de Graça"], en: ["Grace Form"], ptTip: "Forma de Nilo que habilita técnicas de controle e resposta em torno dos Pilares.", enTip: "Nilo's Form that enables control and response abilities around his Pillars." },
+  { pt: ["Forma"], en: ["Form"], ptTip: "Estado alternativo que pode trocar técnicas, retrato, custo ou efeitos do personagem.", enTip: "An alternate state that can change a character's abilities, portrait, cost, or effects." },
+  { pt: ["Recarga", "Recargas"], en: ["Cooldown", "Cooldowns", "CD"], ptTip: "Turnos que uma habilidade aguarda antes de poder ser usada novamente. Trocar de Forma não reinicia a recarga do espaço.", enTip: "Turns an ability waits before it can be used again. Changing Form does not reset the slot's cooldown." },
+  { pt: ["Regeneração"], en: ["Regeneration"], ptTip: "Recupera a quantidade indicada de Vida no início de cada turno pela duração definida.", enTip: "Restores the listed amount of Health at the start of each turn for the stated duration." },
+  { pt: ["Apoio", "técnicas de apoio", "técnica de apoio"], en: ["Support", "support abilities", "support ability"], ptTip: "Habilidade de cura, proteção ou preparação. Selar apoio ainda permite usar a defesa pessoal.", enTip: "Healing, protection, or setup ability. Sealing support still allows the personal defense." },
+  { pt: ["Execução", "Executa", "Executar"], en: ["Execution", "Executes", "Execute"], ptTip: "Efeito que derrota o alvo ao cumprir a condição de Vida descrita pela habilidade.", enTip: "Effect that defeats the target when it meets the Health condition listed by the ability." }
+];
 
-export function highlightKeywords(value = "") {
-  const activeKeywords = [...(getLanguage() === "en" ? keywordsEn : keywords)].sort((a, b) => b.length - a.length);
-  const keywordPattern = new RegExp(`(${activeKeywords.map(word => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "gi");
-  return esc(value).replace(keywordPattern, match => `<mark class="combat-keyword">${match}</mark>`);
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^$(){}|[\]\\]/g, "\\$&");
 }
 
+export function highlightKeywords(value = "") {
+  const source = String(value ?? "");
+  const english = getLanguage() === "en";
+  const terms = [];
+  for (const entry of glossaryTerms) {
+    const words = english ? entry.en : entry.pt;
+    const description = english ? entry.enTip : entry.ptTip;
+    for (const word of words) terms.push({ word, description });
+  }
+  terms.sort((a, b) => b.word.length - a.word.length);
+  const definitions = new Map(terms.map(({ word, description }) => [word.toLocaleLowerCase(), description]));
+  const pattern = new RegExp("(^|[^\\p{L}\\p{N}_])(" + terms.map(term => escapeRegExp(term.word)).join("|") + ")(?=$|[^\\p{L}\\p{N}_])", "giu");
+  let html = "";
+  let cursor = 0;
+  for (const match of source.matchAll(pattern)) {
+    const [whole, prefix, term] = match;
+    const start = match.index;
+    const termStart = start + prefix.length;
+    html += esc(source.slice(cursor, termStart));
+    const description = definitions.get(term.toLocaleLowerCase()) || "";
+    html += '<span class="combat-keyword" tabindex="0" title="' + esc(description) + '" aria-label="' + esc(term + ": " + description) + '">' + esc(term) + "</span>";
+    cursor = termStart + term.length;
+  }
+  return html + esc(source.slice(cursor));
+}
 export function abilityQuickEffect(ability = {}) {
   if (getLanguage() === "en") return abilityQuickEffectEnglish(ability);
   if (ability.invulnerable) {
@@ -205,16 +273,19 @@ export function abilityCostMarkup(actor, ability) {
   const costs = getAbilityResourceCosts(actor, ability);
   const entries = Object.entries(costs).filter(([, amount]) => amount > 0);
   const label = abilityCostLabel(actor, ability);
-  if (!entries.length) return `<span class="codex-skill-cost is-free"><small>${getLanguage() === "en" ? "COST" : "CUSTO"}</small><strong>${esc(label)}</strong></span>`;
+  if (!entries.length) return `<span class="codex-skill-cost is-free"><small>${getLanguage() === "en" ? "COST" : "CUSTO"}</small><strong>${highlightKeywords(label)}</strong></span>`;
   const pips = entries.flatMap(([id, amount]) => Array.from({ length: amount }, () => `<i class="cost-pip pip-${esc(id)}" aria-hidden="true"></i>`)).join("");
   const costLabel = getLanguage() === "en" ? "COST" : "CUSTO";
-  return `<span class="codex-skill-cost" aria-label="${esc(costLabel)}: ${esc(label)}"><small>${costLabel}</small><span class="codex-cost-pips" aria-hidden="true">${pips}</span><strong>${esc(label)}</strong></span>`;
+  return `<span class="codex-skill-cost" aria-label="${esc(costLabel)}: ${esc(label)}"><small>${costLabel}</small><span class="codex-cost-pips" aria-hidden="true">${pips}</span><strong>${highlightKeywords(label)}</strong></span>`;
 }
 
 export function abilityDetailMarkup(actor, ability) {
-  const description = ability.description || abilityQuickEffect(ability);
-  return `<div class="ability-detail-grid"><p class="codex-skill-description">${esc(description)}</p></div>`;
+  const source = ability.description || abilityQuickEffect(ability);
+  const description = getLanguage() === "en" ? localizeText(source, "en") : source;
+  return `<div class="ability-detail-grid"><p class="codex-skill-description">${highlightKeywords(description)}</p></div>`;
 }
 export function abilityQuickMarkup(actor, ability) {
-  return `<span class="skill-quick-info"><b>${highlightKeywords(abilityQuickEffect(ability))}</b><small>${esc(abilityCostLabel(actor, ability))} · CD ${ability.cooldown || 0}</small></span>`;
+  const english = getLanguage() === "en";
+  const cooldown = english ? `CD ${ability.cooldown || 0}` : `Recarga ${ability.cooldown || 0}`;
+  return `<span class="skill-quick-info"><b>${highlightKeywords(abilityQuickEffect(ability))}</b><small>${highlightKeywords(abilityCostLabel(actor, ability) + " · " + cooldown)}</small></span>`;
 }

@@ -4326,7 +4326,7 @@ function compileProfile(profile, index) {
     const translatedDescription = englishDescription || [
       ability.heal ? "Restores " + ability.heal + " Health." : "",
       ability.shield ? "Grants " + ability.shield + " destructible Defense." : "",
-      ability.invulnerable ? "The user is Invulnerable to new enemy abilities for 1 turn; existing afflictions remain active." : ""
+      ability.invulnerable ? "The user is Invulnerable to new enemy abilities for 1 turn." : ""
     ].filter(Boolean).join(" ");
     registerPhrase(compiled.description, translatedDescription);
     return compiled;

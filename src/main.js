@@ -27,7 +27,7 @@ import { audioEnabled, playSfx, setAudioEnabled, startAmbience } from "./audio.j
 import { tutorialView } from "./tutorial.js";
 import { storyMarkup } from "./story-content.js";
 import { handleArtworkError } from "./art-fallback.js";
-import { abilityCostMarkup, abilityDetailMarkup } from "./ability-presentation.js";
+import { abilityCostMarkup, abilityDetailMarkup, highlightKeywords } from "./ability-presentation.js";
 import { getLanguage, localizeMarkup, localizeText, setLanguage } from "./i18n.js";
 
 const app = document.querySelector("#app");
@@ -43,8 +43,8 @@ function codexCooldownLabel(ability){
 
 function codexSkillCard(actor,ability,color=actor.color){
  const artwork=ability.art?`<img src='${esc(ability.art)}' alt='' loading='lazy'>`:`<i class='move-fallback color-${esc(color)}'>${abilityIcon(ability)}</i>`;
- const variants=!actor.bodyForms?.length&&ability.forms?.length?`<details class='codex-skill-variants'><summary>${getLanguage()==="en"?"Technique variations":"Variações da técnica"} · ${ability.forms.length}</summary>${ability.forms.map(form=>`<section class='codex-skill-variant'><header>${form.art?`<img src='${esc(form.art)}' alt='' loading='lazy'>`:""}<b>↻ ${esc(form.name)}</b>${abilityCostMarkup(actor,form)}<small>${esc(codexCooldownLabel(form))}</small></header>${abilityDetailMarkup(actor,form)}</section>`).join("")}</details>`:"";
- return `<article class='codex-skill codex-skill-described'><header class='codex-skill-header'>${artwork}<span class='codex-skill-heading'><b>${esc(ability.name)}</b><small>${esc(codexCooldownLabel(ability))}</small></span>${abilityCostMarkup(actor,ability)}</header>${abilityDetailMarkup(actor,ability)}${variants}</article>`;
+ const variants=!actor.bodyForms?.length&&ability.forms?.length?`<details class='codex-skill-variants'><summary>${getLanguage()==="en"?"Technique variations":"Variações da técnica"} · ${ability.forms.length}</summary>${ability.forms.map(form=>`<section class='codex-skill-variant'><header>${form.art?`<img src='${esc(form.art)}' alt='' loading='lazy'>`:""}<b>↻ ${esc(form.name)}</b>${abilityCostMarkup(actor,form)}<small>${highlightKeywords(codexCooldownLabel(form))}</small></header>${abilityDetailMarkup(actor,form)}</section>`).join("")}</details>`:"";
+ return `<article class='codex-skill codex-skill-described'><header class='codex-skill-header'>${artwork}<span class='codex-skill-heading'><b>${esc(ability.name)}</b><small>${highlightKeywords(codexCooldownLabel(ability))}</small></span>${abilityCostMarkup(actor,ability)}</header>${abilityDetailMarkup(actor,ability)}${variants}</article>`;
 }
 function codexSkillList(actor,abilities,color=actor.color){
  return `<div class='codex-moves'>${abilities.map(ability=>codexSkillCard(actor,ability,color)).join("")}</div>`;
