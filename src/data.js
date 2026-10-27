@@ -6,12 +6,13 @@ import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./characte
 import { revisePassive } from "./passive-revisions.js";
 import { assignCharacterArchetypes } from "./archetypes.js";
 import { attachArenaKitAssignment } from "./arena-kit-assignments.js";
+import { kingdomCatalog, kingdomById as kingdomDefinitionsById, defaultKingdomByTrack, legacyToKingdom, kingdomOverrides, characterTitleOverrides, englishCharacterTitleOverrides } from "./kingdoms.js";
 const inferno = [
   {
     id: "sangria", name: "Sangria", realm: "Inferno", theme: "Sangue, lâminas e carnificina", strength: "Máxima",
     symbol: "✦", color: "blood", forms: ["O Açougueiro", "A Viúva Escarlate", "O Colecionador de Cabeças", "Gêmeos do Cutelo", "O Carrasco sem Rosto", "A Mãe Rubra"],
     moves: ["Corte Rubro", "Marca do Açougue", "Rasgo Escarlate", "Maré de Sangue"], passive: "Ferida Aberta",
-    flavor: "A violência extrema alimenta este Elo. Cada golpe deixa uma marca que torna o próximo mais perigoso."
+    flavor: "A violência extrema alimenta cada golpe e deixa uma marca que torna o próximo mais perigoso."
   },
   {
     id: "coroa", name: "Coroa", realm: "Inferno", theme: "Tirania, correntes e domínio", strength: "Máxima",
@@ -53,13 +54,13 @@ const inferno = [
     id: "carne", name: "Carne", realm: "Inferno", theme: "Abuso, desejo corrupto e deformação", strength: "Média",
     symbol: "⌘", color: "flesh", forms: ["O que Possui", "A Pele Alheia", "O Desejo Quebrado", "A Marionetista de Nervos", "O Espelho Carnal", "A Costureira"],
     moves: ["Laço de Tendão", "Pele Tomada", "Pulso Convulso", "Forma Deformada"], passive: "Corpo Mutável",
-    flavor: "Este Elo corrompe a forma e rouba o controle. Sua força exige proximidade e cautela."
+    flavor: "A corrupção distorce a forma e rouba o controle. Sua força exige proximidade e cautela."
   },
   {
     id: "vazio", name: "Vazio", realm: "Inferno", theme: "Niilismo, desespero e apagamento", strength: "Especial",
     symbol: "◍", color: "void", forms: ["O que Apaga", "A Ausência", "O Fim Silencioso", "O Menino sem Sombra", "A Última Página", "O Lugar de Ninguém"],
     moves: ["Estilhaço Nulo", "Frio Abissal", "Fenda de Ausência", "Extinção Branca"], passive: "Nada Permanece",
-    flavor: "O desespero contagioso apaga certezas. Este Elo é raro, instável e temido pelos outros."
+    flavor: "O desespero contagioso apaga certezas. Esta força é rara, instável e temida pelos outros."
   }
 ];
 
@@ -246,8 +247,8 @@ function characterFrom(elo, name, index) {
     name:revision?.name || name,
     ...(revision?.name ? {previousName:name} : {}),
     aliases:[...new Set([...(revision?.aliases || []), name])],
-    realm: elo.realm, elo: elo.name, eloId: elo.id,
-    title: kit.role + " do Elo " + elo.name, ...kit,
+    realm: elo.realm, elo: elo.name, eloId: elo.id, legacyEloId: elo.id,
+    title: kit.role, ...kit,
     identityTitle:revision?.title || null,
     englishName:revision?.englishName || null,
     englishIdentityTitle:revision?.englishTitle || null,
@@ -258,28 +259,7 @@ function characterFrom(elo, name, index) {
     flavor: revision?.lore || elo.flavor, lore:revision?.lore || null, risk: elo.realm === "Limbo"
   };
 }
-export const elos = [...inferno, ...paradise, ...limbo];
-export function getElo(eloId) {
-  return elos.find((elo) => elo.id === eloId) || elos[0];
-}
-export const realms = [
-  {
-    id: "inferno", name: "Inferno", title: "Os Nove Elos da Maldade",
-    description: "Reinos alimentados pelos atos de maldade praticados entre os vivos.", color: "inferno",
-    elos: inferno
-  },
-  {
-    id: "paraiso", name: "Paraíso", title: "Os Sete Elos da Bondade",
-    description: "Reinos fortalecidos por atos de bondade, cuidado e coragem.", color: "paraiso",
-    elos: paradise
-  },
-  {
-    id: "limbo", name: "Limbo", title: "O Elo Quebrado",
-    description: "Um território instável entre os reinos, atravessado por Correntes Quebradas.", color: "limbo",
-    elos: limbo
-  }
-];
-
+export const legacyElos = [...inferno, ...paradise, ...limbo];
 const reactiveKits={
  "o-escudo-vivo":{tecnica:{trigger:"damaged",damage:14,turns:1}},
  "a-mao-que-cura":{tecnica:{trigger:"damaged",healSource:12,turns:1}},
@@ -290,13 +270,79 @@ const reactiveKits={
  "o-relogio-afogado":{tecnica:{trigger:"idle",heal:10,turns:1}},
  "a-linha-partida":{tecnica:{trigger:"damaged",damage:12,turns:1}}
 };
-function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>{const reactive=kit[a.id];if(!reactive||a.reactive)return a;const next={...a,reactive};return {...next,description:describeAbility(next)};})};}
-export const characters = [
-  ...elos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))))))),
+
+const rawCharacters = [
+  ...legacyElos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))))))),
   ...protagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
 ];
+export const characters = rawCharacters.map(character => {
+  const legacyEloId = character.legacyEloId || character.eloId;
+  const kingdomId = kingdomOverrides[character.id] || defaultKingdomByTrack[legacyEloId]
+    || (character.realm === "Limbo" ? "vestibulo" : character.realm === "Paraíso" ? "estelar" : "flagelo");
+  const kingdom = kingdomDefinitionsById[kingdomId];
+  if (!kingdom) throw new Error(`Reino ausente para ${character.id}: ${kingdomId}`);
+  const identityTitle = character.identityTitle || characterTitleOverrides[character.id]
+    || (character.storyCharacter && !character.name.includes(",") ? character.role : null);
+  const englishIdentityTitle = character.englishIdentityTitle || englishCharacterTitleOverrides[character.id]
+    || (character.storyCharacter && identityTitle ? character.englishRole : null);
+  const synergyKingdomIds = [...new Set([
+    kingdomId,
+    ...(character.synergyEloIds || []).map(id => legacyToKingdom[id]).filter(Boolean)
+  ])];
+  return {
+    ...character,
+    legacyEloId,
+    legacyEloName: character.elo,
+    kingdomId,
+    kingdom: kingdom.name,
+    englishKingdom: kingdom.englishName,
+    realm: kingdom.realm,
+    flavor: character.lore || (character.storyCharacter ? character.flavor : kingdom.theme),
+    elo: kingdom.name,
+    englishElo: kingdom.englishName,
+    color: kingdom.color,
+    symbol: kingdom.symbol,
+    title: identityTitle || character.role || character.title,
+    identityTitle,
+    englishIdentityTitle,
+    synergyKingdomIds,
+    risk: kingdom.realm === "Limbo"
+  };
+});
+export const elos = kingdomCatalog.map(kingdom => ({
+  ...kingdom,
+  forms: characters.filter(character => character.kingdomId === kingdom.id).map(character => character.name),
+  legacyEloIds: [...new Set(characters.filter(character => character.kingdomId === kingdom.id).map(character => character.legacyEloId))]
+}));
+export const kingdoms = elos;
+export const kingdomById = Object.fromEntries(elos.map(kingdom => [kingdom.id, kingdom]));
+export function getElo(eloId) {
+  return kingdomById[eloId] || legacyElos.find(elo => elo.id === eloId) || elos[0];
+}
+export const realms = [
+  {
+    id: "inferno", name: "Inferno", title: "Os Nove Reinos do Inferno",
+    description: "Nove reinos que dão forma às consequências da violência, do excesso e da traição.", color: "inferno",
+    elos: elos.filter(kingdom => kingdom.realm === "Inferno"),
+    kingdoms: elos.filter(kingdom => kingdom.realm === "Inferno")
+  },
+  {
+    id: "paraiso", name: "Paraíso", title: "As Nove Esferas do Paraíso",
+    description: "Nove esferas que guardam virtudes, sabedoria, esperança e amparo.", color: "paraiso",
+    elos: elos.filter(kingdom => kingdom.realm === "Paraíso"),
+    kingdoms: elos.filter(kingdom => kingdom.realm === "Paraíso")
+  },
+  {
+    id: "limbo", name: "Limbo", title: "Os Quatro Reinos do Limbo",
+    description: "Quatro passagens entre mundos, onde as almas aguardam, atravessam ou se transformam.", color: "limbo",
+    elos: elos.filter(kingdom => kingdom.realm === "Limbo"),
+    kingdoms: elos.filter(kingdom => kingdom.realm === "Limbo")
+  }
+];
+for (const track of legacyElos) track.forms = characters.filter(character => character.legacyEloId === track.id).map(character => character.name);
+function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>{const reactive=kit[a.id];if(!reactive||a.reactive)return a;const next={...a,reactive};return {...next,description:describeAbility(next)};})};}
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));
@@ -334,7 +380,7 @@ export const routeStages = [
     { id: "treasure", label: "Tesouro", icon: "◇", desc: "Um Eco e fragmentos antigos.", col: 1 },
     { id: "upgrade", label: "Poder", icon: "⬆", desc: "Escolha um Eco para esta trilha.", col: 2 }
   ],
-  [{ id: "boss", label: "Conselho do Elo", icon: "✹", desc: "Vença o trio e recrute uma das almas derrotadas.", col: 1 }]
+  [{ id: "boss", label: "Conselho do Reino", icon: "✹", desc: "Vença o trio e recrute uma das almas derrotadas.", col: 1 }]
 ];
 
 export function generateTrail(eloId, seed = 0, variant = "hunt", options = {}) {
@@ -354,7 +400,7 @@ export function generateTrail(eloId, seed = 0, variant = "hunt", options = {}) {
       nextIds: []
     };
   }));
-  if(options.includeNiloChoice&&eloId==="correntes-quebradas"){
+  if(options.includeNiloChoice&&["vestibulo","correntes-quebradas"].includes(eloId)){
     const rowIndex=5,content={id:"nilo-choice",label:"Fenda da Alma",icon:"◉",desc:"Decida se Nilo expurga a corrupção ou a incorpora por completo.",col:1};
     rows[rowIndex]=[{...content,row:rowIndex,type:content.id,id:`${eloId}-r${rowIndex}-c1-nilo-choice-0`,nextIds:[]}];
   }

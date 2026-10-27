@@ -1,5 +1,5 @@
 import { randomBytes } from 'node:crypto';
-import { elos, characterById, buffs } from '../src/data.js';
+import { elos, characterById, buffs, getElo } from '../src/data.js';
 import { affinityForTeam } from '../src/archetypes.js';
 import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
@@ -53,8 +53,8 @@ function buffChoices(run,offset=0){
  return getRelevantBuffChoices(run.team,run.buffs,(run.seed||1)+run.encounter*991+offset*101);
 }
 function startBattle(profile,run,node){
- const elo=elos.find(item=>item.id===run.eloId);if(!elo)fail('Elo inválido.');
- const roster=Object.values(characterById).filter(character=>character.eloId===elo.id).map(character=>character.id),opponents=roster.filter(id=>!(run.team||profile.team).includes(id));
+ const elo=getElo(run.eloId);if(!elo)fail('Reino inválido.');
+ const roster=Object.values(characterById).filter(character=>character.kingdomId===elo.id||character.legacyEloId===elo.id||character.eloId===elo.id).map(character=>character.id),opponents=roster.filter(id=>!(run.team||profile.team).includes(id));
  run.bossIds||=selectBossRoster(run.team||profile.team,opponents.length>=3?opponents:roster,run.seed);
  run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
@@ -90,7 +90,7 @@ export class CampaignService{
      if(profile.run&&(!account.campaignRunId||profile.run.serverRunId!==account.campaignRunId))profile.run=null;
      if(profile.run)fail('Conclua ou abandone a trilha atual.');
      if(profile.team?.length!==3||new Set(profile.team).size!==3||profile.team.some(id=>!profile.ownedIds.includes(id)))fail('Escolha três almas recrutadas.');
-     const elo=elos.find(item=>item.id===body.eloId);if(!elo)fail('Elo inválido.');
+     const elo=elos.find(item=>item.id===body.eloId);if(!elo)fail('Reino inválido.');
      const seed=randomBytes(4).readUInt32BE(0)||1;
      account.campaignRunId=randomBytes(24).toString('hex');
      profile.run=createExpedition(profile,elo,String(body.variantId||'hunt'),body.difficulty===undefined?maxDifficulty(profile,elo.id):Number(body.difficulty),seed,{guided:Boolean(body.guided)});

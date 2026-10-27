@@ -1,4 +1,6 @@
-// One unframed symbol per Elo; the same silhouette is used at every scale.
+import { kingdomById } from "./kingdoms.js";
+
+// One unframed symbol per Kingdom; the same silhouette is used at every scale.
 const designs = {
   sangria: {
     solid: 'M104 20 91 58 72 78 80 84C62 101 55 121 64 143 73 168 102 180 124 166 149 151 145 125 132 107L126 120 117 94 124 86 109 61ZM39 70 50 61 77 115 67 130ZM161 70 150 61 132 96 139 110Z',
@@ -75,9 +77,20 @@ const palettes = {
   protecao:'#eadcc3',cura:'#c9d2b0',justica:'#e6ca8a',esperanca:'#f4dc9e',
   verdade:'#eee3d6',uniao:'#ddd0ed',criacao:'#c7c89f','correntes-quebradas':'#bb8aed'
 };
+const kingdomDesignIds = Object.freeze({
+  oblivio:'verdade', tormenta:'carne', putrido:'podridao', magma:'fome', estige:'chama',
+  flagelo:'sangria', blasfemia:'vazio', malebolge:'mentira', tartaro:'silencio',
+  lua:'protecao', mercurio:'criacao', venus:'uniao', sol:'verdade', marte:'protecao',
+  jupiter:'justica', saturno:'cura', estelar:'esperanca', empireo:'criacao',
+  purgatorio:'correntes-quebradas', vestibulo:'correntes-quebradas',
+  aqueronte:'correntes-quebradas', umbral:'correntes-quebradas'
+});
+const designFor = id => kingdomDesignIds[id] || id;
 const sanctuary = new Set(['protecao','cura','justica','esperanca','verdade','uniao','criacao']);
 function familyFor(id) {
-  return id === 'correntes-quebradas' ? 'fracture' : sanctuary.has(id) ? 'sanctuary' : 'infernal';
+  const realm = kingdomById[id]?.realm;
+  return realm === 'Limbo' || id === 'correntes-quebradas' ? 'fracture'
+    : realm === 'Paraíso' || sanctuary.has(id) ? 'sanctuary' : 'infernal';
 }
 const materials = {
   infernal: {ink:'#25101d',shade:'#793d56',light:'#f5d5bd',join:'miter'},
@@ -86,19 +99,19 @@ const materials = {
 };
 let serial = 0;
 export function eloVisual(id) {
-  const design = designs[id];
-  return design ? {path:design.solid,accent:palettes[id]} : null;
+  const key = designFor(id), design = designs[key];
+  return design ? {path:design.solid,accent:palettes[key]} : null;
 }
 export function eloSigil(id,extraClass='') {
   const visual = eloVisual(id);
   if (!visual) return '';
   return `<svg class="elo-sigil sigil-${familyFor(id)} ${extraClass}" viewBox="0 0 200 200" style="color:${visual.accent}" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="${visual.path}"/></svg>`;
 }
-export function eloCrest(elo,extraClass='') {
-  const key = designs[elo.id] ? elo.id : 'vazio';
-  const design = designs[key],accent = palettes[key],family = familyFor(key),material = materials[family];
-  const id = `elo-symbol-${key}-${++serial}`;
-  return `<svg class="elo-crest crest-${family} ${extraClass}" viewBox="0 0 200 200" role="img" aria-label="Brasão do Elo ${elo.name}" focusable="false"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="${material.light}"/><stop offset=".32" stop-color="${accent}"/><stop offset=".62" stop-color="${accent}"/><stop offset=".63" stop-color="${material.shade}"/><stop offset="1" stop-color="${accent}"/></linearGradient></defs><path class="elo-symbol" fill-rule="evenodd" d="${design.solid}" fill="url(#${id})" stroke="${material.ink}" stroke-width="3" stroke-linejoin="${material.join}"/><path class="elo-symbol-etch" d="${design.etch}" fill="none" stroke="${material.light}" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>`;
+export function eloCrest(kingdom,extraClass='') {
+  const kingdomId = kingdom.id, key = designs[designFor(kingdomId)] ? designFor(kingdomId) : 'vazio';
+  const design = designs[key],accent = palettes[key],family = familyFor(kingdomId),material = materials[family];
+  const id = `kingdom-symbol-${key}-${++serial}`;
+  return `<svg class="elo-crest crest-${family} ${extraClass}" viewBox="0 0 200 200" role="img" aria-label="Brasão do Reino ${kingdom.name}" focusable="false"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="${material.light}"/><stop offset=".32" stop-color="${accent}"/><stop offset=".62" stop-color="${accent}"/><stop offset=".63" stop-color="${material.shade}"/><stop offset="1" stop-color="${accent}"/></linearGradient></defs><path class="elo-symbol" fill-rule="evenodd" d="${design.solid}" fill="url(#${id})" stroke="${material.ink}" stroke-width="3" stroke-linejoin="${material.join}"/><path class="elo-symbol-etch" d="${design.etch}" fill="none" stroke="${material.light}" stroke-width="2.6" stroke-linecap="round" opacity=".8"/></svg>`;
 }
 
 

@@ -1,5 +1,6 @@
 import { seededRandom, shuffled } from './progression.js';
 import { elos, resources } from './data.js';
+
 import { worldInfluences } from './world-event-catalog.js';
 export { worldInfluences } from './world-event-catalog.js';
 import { initializeWorldUnit } from './world-rules.js';
@@ -18,8 +19,8 @@ const predicates={
 };
 const typeLabels={healer:'Cura',guardian:'Barreiras e redução',afflicter:'Aflições',marker:'Marcas',support:'Apoio',controller:'Controle',counter:'Contra-ataques',charger:'Cargas',shifter:'Habilidades mutáveis'};
 const matchesType=(e,u)=>!e.type||techniques(u).some(predicates[e.type]||(()=>false));
-export const influenceTargets=(e,list)=>list.filter(u=>u.hp>0&&matchesType(e,u)&&(!e.eloIds.length||e.eloIds.includes(u.eloId)));
-export const influenceScope=e=>[e.eloIds.length?e.eloIds.map(id=>elos.find(e=>e.id===id)?.name||id).join(' · '):'',typeLabels[e.type]||''].filter(Boolean).join(' / ')||'Todos os Elos';
+export const influenceTargets=(e,list)=>list.filter(u=>u.hp>0&&matchesType(e,u)&&(!e.eloIds.length||e.eloIds.includes(u.legacyEloId||u.eloId)||elos.some(kingdom=>kingdom.id===u.kingdomId&&kingdom.legacyEloIds.some(id=>e.eloIds.includes(id)))));
+export const influenceScope=e=>[e.eloIds.length?elos.filter(kingdom=>kingdom.legacyEloIds.some(id=>e.eloIds.includes(id))).map(kingdom=>kingdom.name).join(' · '):'',typeLabels[e.type]||''].filter(Boolean).join(' / ')||'Todos os Reinos';
 export function draftTier(seed,stage=0){const n=seededRandom(seed+stage*4099)();return n<Math.max(.2,.7-stage*.18)?'silver':n<Math.max(.65,.95-stage*.1)?'gold':'prismatic';}
 export function influenceOffers(s,seed=1,tier=null){
  const eligible=worldInfluences.filter(e=>(!tier||e.tier===tier)&&influenceTargets(e,units(s)).length);
@@ -66,12 +67,12 @@ export function checkDeathInfluences(s){
  for(const unit of fallen){
   const side=unit.side==='enemy'?'enemy':'player',pool=side==='player'?s.resources:s.enemyResources,source=unit.bodyResource||unit.affinity,resource=source==='coringa'?randomEssenceId(s,unit.id):source;
   if(resource&&pool&&essenceIds.includes(resource)){pool[resource]=(pool[resource]||0)+1;}
-  const survivors=(side==='player'?s.allies:s.enemies).filter(ally=>ally.hp>0&&ally.eloId===unit.eloId);
+  const survivors=(side==='player'?s.allies:s.enemies).filter(ally=>ally.hp>0&&ally.kingdomId===unit.kingdomId);
   s.deathEchoStacks||={player:0,enemy:0};
   const echo=survivors.length>0&&s.deathEchoStacks[side]<3;
   if(echo){s.deathEchoStacks[side]++;for(const ally of survivors)ally.worldDamage=(ally.worldDamage||0)+1;}
   const name=({essence:'Éter',cinza:'Cinza',ruptura:'Ruptura',graca:'Graça'})[resource]||'Essência';
-  const fragments=[resource?`+1 ${name} para ${side==='player'?'seu trio':'a oposição'}`:'',echo?`${survivors.length} aliado(s) do Elo recebem +1 dano (limite +3)`:''].filter(Boolean);
+  const fragments=[resource?`+1 ${name} para ${side==='player'?'seu trio':'a oposição'}`:'',echo?`${survivors.length} aliado(s) do Reino recebem +1 dano (limite +3)`:''].filter(Boolean);
   if(fragments.length)s.log?.unshift(`${unit.name} deixa uma herança: ${fragments.join(' · ')}.`);
  }
  if(s.worldSeed===undefined)return false;
