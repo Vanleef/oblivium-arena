@@ -6,7 +6,7 @@ import { getLanguage } from "./i18n.js";
 const damageTypeNames = { physical: "físico", energy: "espiritual", piercing: "perfurante", affliction: "de aflição" };
 const statusNames = { sangramento: "Sangramento", queimadura: "Queimadura", veneno: "Veneno", decadencia: "Decadência" };
 const resourceNamesEn = { essence: "Aether", cinza: "Ash", ruptura: "Rupture", graca: "Grace", random: "Wildcard" };
-const abilityClassNamesEn = { "Física": "Physical", "Perfurante": "Piercing", "Espiritual": "Spiritual", "Aflição": "Affliction", "Estratégica": "Strategic", "Persistente": "Persistent", "Instantânea": "Instant", "Transformação": "Transformation", physical: "Physical", piercing: "Piercing", affliction: "Affliction" };
+const resourceNamesPt = { essence: "Éter", cinza: "Cinza", ruptura: "Ruptura", graca: "Graça", random: "Coringa" };
 const conditionNames = {
   bleed: "alvo com Sangramento", burn: "alvo com Queimadura", poison: "alvo com Veneno", decay: "alvo com Decadência",
   afflicted: "alvo com uma aflição", exposed: "alvo Exposto", stunned: "alvo Atordoado", weakened: "alvo Enfraquecido",
@@ -140,7 +140,9 @@ function abilityQuickEffectEnglish(ability = {}) {
 
 export function abilityCostLabel(actor, ability) {
   const costs = getAbilityResourceCosts(actor, ability);
-  const parts = Object.entries(costs).flatMap(([id, amount]) => amount ? [`${amount} ${getLanguage()==="en"?(resourceNamesEn[id]||resourceById[id]?.shortName||"Essence"):(resourceById[id]?.shortName||"Essência")}`] : []);
+  const english = getLanguage() === "en";
+  const names = english ? resourceNamesEn : resourceNamesPt;
+  const parts = Object.entries(costs).flatMap(([id, amount]) => amount ? [`${amount} ${names[id] || (english ? resourceById[id]?.shortName : resourceById[id]?.name) || (english ? "Essence" : "Essência")}${!english && id === "random" && amount > 1 ? "s" : ""}`] : []);
   return parts.length ? parts.join(" + ") : "Livre";
 }
 
@@ -199,14 +201,19 @@ function abilityDurationEnglish(ability = {}) {
   return parts.length ? parts.join(" · ") : "Instant effect";
 }
 
+export function abilityCostMarkup(actor, ability) {
+  const costs = getAbilityResourceCosts(actor, ability);
+  const entries = Object.entries(costs).filter(([, amount]) => amount > 0);
+  const label = abilityCostLabel(actor, ability);
+  if (!entries.length) return `<span class="codex-skill-cost is-free"><small>${getLanguage() === "en" ? "COST" : "CUSTO"}</small><strong>${esc(label)}</strong></span>`;
+  const pips = entries.flatMap(([id, amount]) => Array.from({ length: amount }, () => `<i class="cost-pip pip-${esc(id)}" aria-hidden="true"></i>`)).join("");
+  const costLabel = getLanguage() === "en" ? "COST" : "CUSTO";
+  return `<span class="codex-skill-cost" aria-label="${esc(costLabel)}: ${esc(label)}"><small>${costLabel}</small><span class="codex-cost-pips" aria-hidden="true">${pips}</span><strong>${esc(label)}</strong></span>`;
+}
+
 export function abilityDetailMarkup(actor, ability) {
   const description = ability.description || abilityQuickEffect(ability);
-  const classes = [...new Set((ability.classes || []).map(name => getLanguage() === "en" ? (abilityClassNamesEn[name] || name) : name))].join(" · ");
-  const descriptionLabel = getLanguage() === "en" ? "DESCRIPTION" : "DESCRIÇÃO";
-  return `<div class="ability-detail-grid">
-    <div><small>${descriptionLabel}</small><p>${highlightKeywords(description)}</p></div>
-    ${classes ? `<div><small>CLASSES</small><p>${highlightKeywords(classes)}</p></div>` : ""}
-  </div>`;
+  return `<div class="ability-detail-grid"><p class="codex-skill-description">${highlightKeywords(description)}</p></div>`;
 }
 export function abilityQuickMarkup(actor, ability) {
   return `<span class="skill-quick-info"><b>${highlightKeywords(abilityQuickEffect(ability))}</b><small>${esc(abilityCostLabel(actor, ability))} · CD ${ability.cooldown || 0}</small></span>`;
