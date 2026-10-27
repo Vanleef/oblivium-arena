@@ -420,7 +420,7 @@ export function buildCharacterKit(eloId, index, art) {
     const costs=a.costs || (a.cost===0 ? {} : a.cost===1 ? {affinity:1} : a.cost===2 ? {affinity:1,essence:1} : {affinity:2,essence:1});
     const kind=a.defense ? "defense" : a.damage ? a.stun || a.weaken || a.mark ? "control" : "strike" : a.shield || a.counter || a.reduce ? "guard" : "support";
     const next=a.evolutionNote||a.shift?.map(t=>t.form==="base"?`Após usar, restaura ${raw[ids.indexOf(t.slot)].name}.`:`Abre ${raw[ids.indexOf(t.slot)].forms.find(f=>f.formKey===t.form)?.name}${t.turns?` por ${t.turns} turno(s)`:""}.`).join(" ")||"";
-    return {...a,id:ids[i],costs,cooldown:a.cooldown||0,kind,classes:[a.damage ? a.damageType==="physical" ? "Física" : a.damageType==="piercing" ? "Perfurante" : a.damageType==="affliction" ? "Aflição" : "Espiritual" : "Estratégica",a.dot ? "Persistente" : "Instantânea"],description:[describeAbility(a),next].filter(Boolean).join(" "),art:art?.forms?.[ids[i]]?.[a.formKey] || art?.abilities[ids[i]],...(a.forms?{forms:a.forms.map(f=>compile(f,i))}:{})};
+    return {...a,id:ids[i],costs,cooldown:a.cooldown||0,kind,description:[describeAbility(a),next].filter(Boolean).join(" "),art:art?.forms?.[ids[i]]?.[a.formKey] || art?.abilities[ids[i]],...(a.forms?{forms:a.forms.map(f=>compile(f,i))}:{})};
   };
   const abilities=raw.map(compile);
   return {role:spec.role,roleHint:spec.combo,combo:spec.combo,mechanic:spec.mechanic,passive:{...spec.passive,description:describePassive(spec.passive),art:art?.passive},abilities};
