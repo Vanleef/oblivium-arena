@@ -6,11 +6,11 @@ import { beginInfluences, chooseInfluence, persistentCombatHp } from "./world-in
 import { renderInfluences, renderWorldHistory } from "./influence-view.js";
 import { playerLevel } from "./player-level.js";
 import { characters, characterById, elos, realms, generateTrail, buffs, starters, resources, resourceById } from "./data.js";
-import { affinityForTeam, archetypeCatalog } from "./archetypes.js";
+import { affinityForTeam } from "./archetypes.js";
 import { getResonance, getEloRoster, getRelevantBuffChoices } from "./rules.js";
 import { canAffordAbility, chooseAction, createBattle, createEnemyTeam, getEloById, getTurnPayment, commitTurn, resolveNextAction, removeQueuedAction, moveQueuedAction, exchangeEssence } from "./engine.js";
 import { suggestEssenceExchangePayment } from "./resource-costs.js";
-import { esc, portraitMarkup, costMarkup } from "./view-utils.js";
+import { esc, portraitMarkup } from "./view-utils.js";
 import { normalizeTrail, advanceTrail } from "./trail.js";
 import { renderTrail } from "./trail-view.js";
 import { highlightTrailChoice } from "./trail-motion.js";
@@ -27,33 +27,32 @@ import { audioEnabled, playSfx, setAudioEnabled, startAmbience } from "./audio.j
 import { tutorialView } from "./tutorial.js";
 import { storyMarkup } from "./story-content.js";
 import { handleArtworkError } from "./art-fallback.js";
-import { abilityDetailMarkup, abilityQuickEffect } from "./ability-presentation.js";
+import { abilityCostMarkup, abilityDetailMarkup } from "./ability-presentation.js";
 import { getLanguage, localizeMarkup, localizeText, setLanguage } from "./i18n.js";
 
 const app = document.querySelector("#app");
-function archetypeSearchText(character){return [character.archetypeName,...(character.archetypes||[]).map(id=>character.archetypeDetails?.find(tag=>tag.id===id)?.name),...(character.bodyForms||[]).map(form=>archetypeCatalog[form.archetype]?.name)].filter(Boolean).join(" ");}
-const functionArchetypes={
-  "Dano":["status","berserker","burst","area","defenseBreak"],
-  "Suporte":["sustain","bulwark"],
-  "Controle":["setup","counter","control"],
-  "Essência":["resourceControl","essenceGenerator","essenceConverter","essenceSpender"],
-  "Formas":["transformation"]
-};
-function codexFunctions(character){const ids=[...(character.archetypes||[character.archetype]),...(character.bodyForms||[]).map(form=>form.archetype)].filter(Boolean);return Object.entries(functionArchetypes).filter(([,supported])=>supported.some(id=>ids.includes(id))).map(([label])=>label);}
 function playstyleSummary(character){
  const summary=character.combo||character.roleHint||character.mechanic||"";
  return localizeText(summary,getLanguage());
 }
 function codexCooldownLabel(ability){
  const cooldown=ability.cooldown||0;
- return getLanguage()==="en"?`CD ${cooldown} ${cooldown===1?"turn":"turns"}`:`Recarga ${cooldown}T`;
+ if(getLanguage()==="en")return cooldown?`CD ${cooldown} ${cooldown===1?"turn":"turns"}`:"No cooldown";
+ return cooldown?`Recarga ${cooldown} ${cooldown===1?"turno":"turnos"}`:"Sem recarga";
+}
+
+function codexSkillCard(actor,ability,color=actor.color){
+ const artwork=ability.art?`<img src='${esc(ability.art)}' alt='' loading='lazy'>`:`<i class='move-fallback color-${esc(color)}'>${abilityIcon(ability)}</i>`;
+ const variants=!actor.bodyForms?.length&&ability.forms?.length?`<details class='codex-skill-variants'><summary>${getLanguage()==="en"?"Technique variations":"Variações da técnica"} · ${ability.forms.length}</summary>${ability.forms.map(form=>`<section class='codex-skill-variant'><header>${form.art?`<img src='${esc(form.art)}' alt='' loading='lazy'>`:""}<b>↻ ${esc(form.name)}</b>${abilityCostMarkup(actor,form)}<small>${esc(codexCooldownLabel(form))}</small></header>${abilityDetailMarkup(actor,form)}</section>`).join("")}</details>`:"";
+ return `<article class='codex-skill codex-skill-described'><header class='codex-skill-header'>${artwork}<span class='codex-skill-heading'><b>${esc(ability.name)}</b><small>${esc(codexCooldownLabel(ability))}</small></span>${abilityCostMarkup(actor,ability)}</header>${abilityDetailMarkup(actor,ability)}${variants}</article>`;
+}
+function codexSkillList(actor,abilities,color=actor.color){
+ return `<div class='codex-moves'>${abilities.map(ability=>codexSkillCard(actor,ability,color)).join("")}</div>`;
 }
 function matchesCodexFilters(character){
- const query=[character.name,character.previousName,...(character.aliases||[]),character.elo,character.realm,character.role,archetypeSearchText(character),resourceById[character.affinity]?.name].filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ").toLowerCase();
+ const query=[character.name,character.previousName,...(character.aliases||[]),character.elo,character.realm,resourceById[character.affinity]?.name,...character.abilities.flatMap(ability=>[ability.name,ability.description])].filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ").toLowerCase();
  return (state.crewRealm==="Todos"||character.realm===state.crewRealm)
   &&(state.crewElo==="Todos"||character.eloId===state.crewElo)
-  &&(state.crewArchetype==="Todos"||character.archetype===state.crewArchetype)
-  &&(state.crewFunction==="Todas"||codexFunctions(character).includes(state.crewFunction))
   &&(!state.crewSearch||query.includes(state.crewSearch.toLowerCase()));
 }
 const SAVE_KEY = "pma-post-mortem-arena-v1";
@@ -113,8 +112,6 @@ let state = {
   eloId: "sangria",
   crewRealm: "Todos",
   crewElo: "Todos",
-  crewArchetype: "Todos",
-  crewFunction: "Todas",
   formPreviews: {},
   crewSearch: "",
   targetId: null,
@@ -636,7 +633,7 @@ function teamView() {
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const matchesRealm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const matchesSearch = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo + " " + character.realm + " " + archetypeSearchText(character) + " " + resourceById[character.affinity]?.name).toLowerCase().includes(state.crewSearch.toLowerCase());
+    const matchesSearch = !state.crewSearch || (character.name + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.elo + " " + character.realm + " " + resourceById[character.affinity]?.name).toLowerCase().includes(state.crewSearch.toLowerCase());
     return matchesRealm && matchesSearch && (owned || state.crewRealm === "Todos");
   });
   return `
@@ -662,7 +659,7 @@ function teamView() {
           const selected = profile.team.includes(character.id);
           const disabled = !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)} · ${esc(character.archetypeName)}</small><small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}</b><small>${esc(character.elo)}</small><small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -671,34 +668,30 @@ function teamView() {
 
 function bodyFormSelector(c){
  if(!c.bodyForms?.length)return '';
- const choices=[{key:'base',name:c.baseFormName||'Forma original',resource:c.affinity,archetype:c.baseArchetype||c.archetype,portrait:c.bodyForms&& (c.id===FINAL_BOSS.id?FINAL_BOSS.portrait:characterById[c.id]?.art?.portrait)},...c.bodyForms];
- return `<section class="body-form-picker" aria-label="Formas de ${esc(c.name)}"><div class="eyebrow">FORMAS · <span>${esc(c.bodyFormName)}</span></div><div class="body-form-options">${choices.map(f=>{const archetype=archetypeCatalog[f.archetype];return `<button data-preview-form="${esc(c.id)}:${esc(f.key)}" aria-label="Ver ${esc(c.name)}: ${esc(f.name)} · ${esc(archetype?.name||'Arquétipo')}" aria-pressed="${c.bodyForm===f.key}"><img src="${esc(f.portrait)}" width="44" height="44" alt="" loading="lazy"><span>${esc(f.name)}<small class="body-resource"><i class="cost-pip pip-${esc(f.resource)}" aria-hidden="true"></i>${esc(resourceById[f.resource]?.name)}</small><small class="body-archetype"><i aria-hidden="true">${esc(archetype?.icon||'◈')}</i>${esc(archetype?.name||'Arquétipo')}</small></span></button>`;}).join('')}</div><small>Toque numa forma para ver seu retrato, arquétipo, Essência e técnicas.</small></section>`;
+ const choices=[{key:'base',name:c.baseFormName||'Forma original',resource:c.affinity,portrait:c.id===FINAL_BOSS.id?FINAL_BOSS.portrait:characterById[c.id]?.art?.portrait},...c.bodyForms];
+ return `<section class='body-form-picker' aria-label='Formas de ${esc(c.name)}'><div class='eyebrow body-form-kicker'><span>${getLanguage()==="en"?"FORMS":"FORMAS"}</span><b>${esc(c.bodyFormName)}</b></div><div class='body-form-options'>${choices.map(form=>`<button data-preview-form='${esc(c.id)}:${esc(form.key)}' aria-label='${getLanguage()==="en"?"View":"Ver"} ${esc(c.name)}: ${esc(form.name)}' aria-pressed='${c.bodyForm===form.key}'><img src='${esc(form.portrait)}' width='44' height='44' alt='' loading='lazy'><span><b>${esc(form.name)}</b><small class='body-resource'><i class='cost-pip pip-${esc(form.resource)}' aria-hidden='true'></i>${esc(resourceById[form.resource]?.name||"Essência")}</small></span></button>`).join('')}</div><small class='body-form-hint'>${getLanguage()==="en"?"Choose a form to see its portrait, affinity, and techniques.":"Escolha uma forma para ver seu retrato, afinidade e habilidades."}</small></section>`;
 }
-
 function codexView() {
   const boss=previewBodyForm(createFinalBoss(),state.formPreviews[FINAL_BOSS.id]);
-  const bossArchetypes=[FINAL_BOSS.baseArchetype,...FINAL_BOSS.bodyForms.map(form=>form.archetype)];
-  const bossSearch=[FINAL_BOSS.name,FINAL_BOSS.title,...FINAL_BOSS.bodyForms.flatMap(form=>[form.name,form.description,resourceById[form.resource]?.name,archetypeCatalog[form.archetype]?.name])].filter(Boolean).flatMap(value=>[value,localizeText(value,'pt-BR'),localizeText(value,'en')]).join(' ').toLowerCase();
+  const bossSearch=[FINAL_BOSS.name,FINAL_BOSS.title,...FINAL_BOSS.bodyForms.flatMap(form=>[form.name,form.description,resourceById[form.resource]?.name]),...boss.abilities.flatMap(ability=>[ability.name,ability.description])].filter(Boolean).flatMap(value=>[value,localizeText(value,'pt-BR'),localizeText(value,'en')]).join(' ').toLowerCase();
   const filtered = characters.filter(matchesCodexFilters);
   const showFinalBoss = (state.crewRealm === "Todos" || state.crewRealm === "Inferno")
     &&(state.crewElo==="Todos"||state.crewElo===FINAL_BOSS.eloId)
-    &&(state.crewArchetype==="Todos"||bossArchetypes.includes(state.crewArchetype))
-    &&(state.crewFunction==="Todas"||codexFunctions(FINAL_BOSS).includes(state.crewFunction))
     &&(!state.crewSearch||bossSearch.includes(state.crewSearch.toLowerCase()));
   return `
     <section class="page-heading"><div><div class="eyebrow">${characters.length} ALMAS · 17 ELOS · 3 REINOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>${characters.length}</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Elo" : "Elos"}</small></article>`).join("")}</div>
     <aside class="realm-synergy-guide" aria-label="Sinergias discretas de Elo, Mundo e afinidade"><small>SINERGIAS DE ELO, MUNDO E AFINIDADE · ESCALAM COM ALIADOS VIVOS</small><div><b>◎ Elo</b><span>Cada Elo tem um efeito próprio: aflições, controle, Marcas, apoio, Formas ou Essência. Máximo +2 por aliado adicional.</span></div><div class="stat-inferno"><b>♨ Inferno</b><span>Aflições aplicadas recebem +1 de dano por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-paraiso"><b>✧ Paraíso</b><span>Curas concedidas recebem +1 de Vida por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-limbo"><b>⟲ Limbo</b><span>O trio recebe +1 Defesa por aliado adicional do Limbo (máx. +2); controle recebe +1 dano por parceiro e 2+ aliados geram 1 Ruptura a cada dois turnos.</span></div><div><b>◈ Afinidade</b><span>Duas ou mais almas com a mesma afinidade principal começam cada combate com +1 daquela Essência. O bônus vale para cada lado, inclusive a oposição.</span></div></aside>
-    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Elo ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>ELO</small><select data-codex-elo><option value="Todos">Todos os Elos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label><label><small>ARQUÉTIPO PRINCIPAL</small><select data-codex-archetype><option value="Todos">Todos os arquétipos</option>${Object.entries(archetypeCatalog).map(([id,item])=>`<option value="${esc(id)}" ${state.crewArchetype===id?"selected":""}>${esc(item.name)}</option>`).join("")}</select></label><label><small>FUNÇÃO</small><select data-codex-function><option value="Todas">Todas as funções</option>${Object.keys(functionArchetypes).map(label=>`<option value="${esc(label)}" ${state.crewFunction===label?"selected":""}>${esc(label)}</option>`).join("")}</select></label></div></div>
-    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow">ENTIDADE · <span>${esc(FINAL_BOSS.title)}</span></div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header><div class="codex-moves">${boss.abilities.map(ability=>`<details class="codex-skill codex-skill-described"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false"><img src="${esc(ability.art)}" alt="" loading="lazy"><b>${esc(ability.name)}</b><small class="codex-skill-quick">${esc(abilityQuickEffect(ability))}</small>${costMarkup(boss,ability)}<small class="codex-cooldown">${esc(codexCooldownLabel(ability))}</small></summary>${abilityDetailMarkup(boss,ability)}</details>`).join("")}</div></section></article>` : ""}
+    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Elo ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>ELO</small><select data-codex-elo><option value="Todos">Todos os Elos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label></div></div>
+    ${showFinalBoss ? `<article class="codex-entity" aria-label="O Fim · Rei do Inferno"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de O Fim, sem rosto fixo" loading="lazy"><div><div class="eyebrow codex-entity-kicker"><span>ENTIDADE</span><b>${esc(FINAL_BOSS.title)}</b></div><h2>${esc(FINAL_BOSS.name)}</h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="Habilidades de O Fim">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header>${codexSkillList(boss,boss.abilities)}</section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = !state.account || profile.ownedIds.includes(character.id);
       character=previewBodyForm(character,state.formPreviews[character.id]);
       const synergyNames=[...new Set((character.synergyEloIds||[]).map(id=>elos.find(elo=>elo.id===id)).filter(elo=>elo&&elo.id!==character.eloId).map(elo=>localizeText(elo.name,getLanguage())))];
       return `<article class="codex-card ${state.account&&!owned ? "unowned" : ""}">
         <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.eloId)}</span><small>${character.npcOnly?"OPOSIÇÃO":!state.account?"ALMA DO PMA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<div class="codex-archetype" data-archetype="${esc(character.archetype)}"><i aria-hidden="true">${esc(character.archetypeIcon)}</i><div><small>ARQUÉTIPO PRINCIPAL · <span>${esc(character.archetypeVariant)}</span></small><b>${esc(character.archetypeName)}</b></div></div><div class="codex-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i><span><small>AFINIDADE PRINCIPAL DE ESSÊNCIA</small><b>${esc(resourceById[character.affinity]?.name||"Essência")}</b></span></div>${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE ELO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-playstyle"><small>COMO JOGAR</small><p>${esc(playstyleSummary(character))}</p></div><div class="archetype-tags" aria-label="Outros arquétipos deste kit">${character.archetypeDetails.slice(1).map(tag=>`<span title="${esc(tag.context)}"><i>${esc(tag.icon)}</i>${esc(tag.name)}</span>`).join("")}</div><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
-        ${bodyFormSelector(character)}<div class="codex-moves">${character.abilities.map((ability) => `<details class="codex-skill codex-skill-described"><summary role="button" tabindex="0" data-codex-skill aria-expanded="false">${ability.art ? `<img src="${esc(ability.art)}" alt="" loading="lazy">` : `<i class="move-fallback color-${esc(character.color)}">${abilityIcon(ability)}</i>`}<b>${esc(ability.name)}</b><small class="codex-skill-quick">${esc(abilityQuickEffect(ability))}</small>${costMarkup(character,ability)}<small class="codex-cooldown">${esc(codexCooldownLabel(ability))}</small></summary>${abilityDetailMarkup(character,ability)}${!character.bodyForms?.length&&ability.forms?.length?`<div class="codex-forms">${ability.forms.map(form=>`<section><header class="${form.art && form.art !== ability.art ? "has-form-art" : ""}">${form.art && form.art !== ability.art ? `<img class="codex-form-art" src="${esc(form.art)}" alt="" loading="lazy">` : ""}<b>↻ ${esc(form.name)}</b>${costMarkup(character,form)}</header><p>${esc(form.description)}</p><small>Recarga ${form.cooldown}T</small></section>`).join("")}</div>`:""}</details>`).join("")}</div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · ELO ${esc(character.elo).toUpperCase()}</div><h3>${esc(character.name)}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}<div class="codex-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i><span><small>AFINIDADE PRINCIPAL DE ESSÊNCIA</small><b>${esc(resourceById[character.affinity]?.name||"Essência")}</b></span></div>${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE ELO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-playstyle"><small>COMO JOGAR</small><p>${esc(playstyleSummary(character))}</p></div><div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        ${bodyFormSelector(character)}${codexSkillList(character,character.abilities)}
       </article>`;
     }).join("")}</div>`;
 }
@@ -902,8 +895,6 @@ app.addEventListener("input", (event) => {
 app.addEventListener("change",event=>{
  const target=event.target;
  if(target.matches("[data-codex-elo]"))state.crewElo=target.value;
- else if(target.matches("[data-codex-archetype]"))state.crewArchetype=target.value;
- else if(target.matches("[data-codex-function]"))state.crewFunction=target.value;
  else return;
  render();
 });
