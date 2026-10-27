@@ -19,7 +19,7 @@ Revisão dos nomes e retratos dos 100 personagens, com correções selecionadas 
 | O que Possui | O Usurpador | Inferno / Carne |
 | A Costureira | A Suturadora | Inferno / Carne |
 | O Fim Silencioso | O Arauto | Inferno / Vazio |
-| O que Pesa | O Ponderador | Paraíso / Justiça |
+| Aristides | O Regulador | Inferno / Oblívio |
 | O Julgador Gentil | O Juiz | Paraíso / Justiça |
 | O que Levanta | O Inquebrantável | Paraíso / Esperança |
 | A Voz | A Voz | Paraíso / Esperança |

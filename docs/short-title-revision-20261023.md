@@ -133,7 +133,7 @@ O catálogo de combate foi regenerado dos dados jogáveis e mantém 100 kits e 4
 | O Sereno | Paraíso | Cura |
 | O Árbitro | Paraíso | Justiça |
 | A Íntegra | Paraíso | Justiça |
-| O Ponderador | Paraíso | Justiça |
+| Aristides, O Regulador | Inferno | Oblívio |
 | A Testemunha | Paraíso | Justiça |
 | O Juiz | Paraíso | Justiça |
 | A Perseverante | Paraíso | Esperança |

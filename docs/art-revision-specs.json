@@ -1,6 +1,6 @@
 {
   "status": "Replaced by art-scene-plan.json; image generation pending.",
-  "style": "Crie uma prancha de ANIME 2D DE TELEVISÃO, como seis frames de uma animação shounen desenhada à mão. Visual de cel de animação tradicional, desenho limpo e deliberadamente simplificado. Contornos pretos nítidos. Cores VIVAS E CHAPADAS. Uma cor-base e UMA sombra de borda dura por superfície. Rostos fortemente estilizados de anime: olhos expressivos e gráficos, nariz pequeno desenhado com um traço, boca simples, cabelo em mechas/massas gráficas. Pele completamente lisa com apenas duas cores. Roupa com poucas linhas de dobra. Metal com dois tons planos e um único brilho desenhado. Fundos também desenhados e simples. PROIBIDO: semirrealismo, concept art realista, pintura digital, texturas, granulação, hachuras, poros, veias, rugas detalhadas, ferrugem, desgaste fotográfico, luz volumétrica, bokeh, gradientes de pele, render 3D, anatomia hiperdefinida. O resultado precisa parecer captura limpa de anime, não ilustração de fantasia com aparência real. Sem texto. Prancha EXATA 3 colunas x 2 linhas, 1536x1024, seis quadros quadrados iguais sem margens.",
+  "style": "Crie uma prancha de ANIME 2D DE TELEVISÃO, como seis frames de uma animação shounen desenhada à mão. Visual de cel de animação tradicional, desenho limpo e deliberadamente simplificado. Contornos pretos nítidos. Cores VIVAS E CHAPADAS. Uma cor-base e UMA sombra de borda dura por superfície. Rostos fortemente estilizados de anime: olhos expressivos e gráficos, nariz pequeno desenhado com um traço, boca simples, cabelo em mechas/massas gráficas. Pele completamente lisa com apenas duas cores. Roupa com poucas linhas de dobra. Metal com dois tons planos e um único brilho desenhado. Fundos também desenhados e simples. PROIBIDO: semirrealismo, concept art realista, pintura digital, texturas, granulação, hachuras, poros, veias, rugas detalhadas, ferrugem, desgaste fotográfico, luz volumétrica, bokeh, gradientes de pele, render 3D, anatomia hiperdefinida. O resultado precisa parecer captura limpa de anime, não ilustração de fantasia com aparência real. Sem texto. Prancha EXATA 3 colunas x 2 linhas, 1536x1024, seis quadros quadrados iguais sem margens. All characters assigned to Inferno must read immediately as demonic or visibly infernal rather than ordinary humans, holy figures, or neutral civilians. Existing human features are identity anchors only: retain face, age, costume and signature props where possible, but translate them into a unique infernal silhouette and surface tied to their kingdom and kit. Use distinct cues instead of a single horned template; avoid gore. For every ability illustration, use infernal ghouls or identifiable protagonists, supporting characters, and enemies from the cast as targets. Never use generic armored soldiers; preserve the exact target count and show recognizable character silhouettes or ghouls. For Aristides, O Regulador, the art must use golden infernal energy and unique sigils only: no horns, physical balance scales, pans, weights, or pendulums.",
   "characters": [
     {
       "id": "a-chama-que-nao-apaga",
@@ -1350,15 +1350,15 @@
     },
     {
       "id": "o-que-pesa",
-      "name": "O que Pesa",
-      "design": "Paraíso/Justiça. Adult huge humanoid guardian man55, dark brown skin, bald head, thick white eyebrows, broad square nose, blue robe and gold sash, short iron pendulum staff. Gravity and measured weight, no animal parts.",
+      "name": "Aristides, O Regulador",
+      "design": "Inferno / Oblívio. Aristides, O Regulador: mature powerful infernal entity, broad square dark-brown basalt face, bald head, heavy white brows, molten-gold slit eyes, pointed ears, fine ember fissures across temples and forearms. No horns. Preserve the navy robe and ochre sash as charred, ash-stained regalia. Golden infernal energy and unique angular signs express his power; no physical balance scales, pans, weights, pendulums, halos, or saintly symbols. He is visibly demonic, never a normal man or holy judge.",
       "scenes": [
-        "steady face",
-        "hand balances small stone beside pendulum",
-        "heel stomp breaks pavement under target",
-        "high view gravity pins foe to floor",
-        "open palm makes enemy armor heavy",
-        "self defense gravity curves arrows down before they reach him"
+        "Infernal close portrait: broad basalt face, ember eyes, pointed ears, gold fissures, ash-stained regalia; no horns",
+        "He gathers a charge as two angular golden infernal signs ignite between his palms",
+        "He redirects one ghoul's strike and places a unique gold infernal sigil on that single target",
+        "He folds down one ghoul's raised arm with sharp golden pressure signs; its attack falters",
+        "A measured impact hits one marked ghoul as a jagged gold infernal sign erupts behind it",
+        "Personal defense: O Regulador stands alone inside floating golden signs and hard-edged infernal energy plates"
       ],
       "revision": true
     },

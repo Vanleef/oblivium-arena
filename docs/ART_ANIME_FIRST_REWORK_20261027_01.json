@@ -1,0 +1,180 @@
+{
+  "id": "anime-first-inferno-rework-20261027-01",
+  "date": "2026-10-27",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "style": "Anime-forward 2.5D, infernal character design, gold infernal energies and sigils, exact target counts; never generic armored soldiers.",
+  "approvedStyleAnchors": [
+    "art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp"
+  ],
+  "characters": {
+    "o-que-pesa": {
+      "name": "Aristides, O Regulador",
+      "realm": "Inferno / Oblívio",
+      "identityPreserved": [
+        "bald broad face",
+        "thick white eyebrows",
+        "dark-brown basalt complexion",
+        "navy robe and ochre sash, reinterpreted as ash-burned regalia"
+      ],
+      "infernalTraits": [
+        "basalt skin",
+        "molten fissures",
+        "ember eyes",
+        "pointed ears",
+        "no horns"
+      ],
+      "baseSet": {
+        "sourceSheet": "art/source/o-que-pesa-anime-first-20261027-sheet.webp",
+        "activeAssets": [
+          "art/characters/o-que-pesa/anime-first-rework-20261027/portrait.webp",
+          "art/characters/o-que-pesa/anime-first-rework-20261027/passive.webp",
+          "art/characters/o-que-pesa/anime-first-rework-20261027/skill-impulso.webp",
+          "art/characters/o-que-pesa/anime-first-rework-20261027/skill-tecnica.webp",
+          "art/characters/o-que-pesa/anime-first-rework-20261027/skill-voto.webp",
+          "art/characters/o-que-pesa/anime-first-rework-20261027/skill-despertar.webp"
+        ],
+        "slots": {
+          "portrait": "Aristides as infernal entity",
+          "passive": "Paciência da Balança: golden infernal signs gathering between his hands; no literal scale",
+          "impulso": "Pesar os Atos: mark one ghoul with a gold infernal sigil",
+          "tecnica": "Reduzir o Excesso: gold pressure sigils force one ghoul's raised arm down",
+          "voto": "Decisão Ponderada: measured impact against one marked ghoul",
+          "despertar": "Entre os Pratos: personal defense from floating sigils and energy plates; no ally or target"
+        }
+      },
+      "alternativeArt": {
+        "name": "Prato Ascendente",
+        "slot": "impulso",
+        "formKey": "balance",
+        "source": "art/source/o-que-pesa-prato-ascendente-anime-first-20261027.webp",
+        "activeAsset": "art/characters/o-que-pesa/anime-first-rework-20261027/skill-impulso-balance.webp",
+        "description": "Golden infernal sigils add a protective energy plate and mark one ghoul. No literal scale or balance object."
+      },
+      "reviewStatus": "reviewed visually",
+      "review": [
+        "Six base sprites at 512x512; source sheet archived at 1536x1024.",
+        "All scenes preserve the same infernal design and use no horns.",
+        "No physical scale, pan, weight, or pendulum appears; gold infernal energy and unique signs carry the visual language.",
+        "Targets are infernal ghouls, never generic armored soldiers; single-target scenes show one ghoul.",
+        "Passive/ability/form artwork follows current kit names and effects; no gameplay values changed."
+      ]
+    }
+  },
+  "logo": {
+    "masterSources": [
+      "art/source/pma-moth-emblem-anime-first-20261027.webp",
+      "art/source/pma-moth-emblem-violet-anime-first-20261027.webp"
+    ],
+    "activeAssets": [
+      "art/interface/brand.webp",
+      "art/interface/brand-moth.webp",
+      "art/interface/brand-moth-192.webp",
+      "art/interface/brand-moth-384.webp",
+      "art/interface/moth-violet-20261027/brand-moth.webp",
+      "art/interface/moth-violet-20261027/brand-moth-192.webp",
+      "art/interface/moth-violet-20261027/brand-moth-384.webp"
+    ],
+    "applicationIcons": [
+      "favicon-32.png",
+      "favicon-64.png",
+      "icon-192.png",
+      "icon-512.png",
+      "apple-touch-icon.png",
+      "icon.svg"
+    ],
+    "updated": true
+  },
+  "coverage": {
+    "animeFirst": {
+      "previousCompletedBaseSets": 19,
+      "completedBaseSets": 20,
+      "totalBaseSets": 100,
+      "completedBaseSprites": 120,
+      "totalBaseSprites": 600,
+      "pendingBaseSets": 80,
+      "pendingBaseSprites": 480
+    },
+    "inferno": {
+      "assignedCharacters": 55,
+      "redesignedAndReviewed": 1,
+      "characterId": "o-que-pesa",
+      "pendingVisualReview": 54,
+      "characterIds": [
+        "o-acougueiro",
+        "a-viuva-escarlate",
+        "o-colecionador-de-cabecas",
+        "gemeos-do-cutelo",
+        "o-carrasco-sem-rosto",
+        "a-mae-rubra",
+        "o-soberano-quebrado",
+        "a-juiza-de-ferro",
+        "o-principe-das-correntes",
+        "a-regente-de-cinzas",
+        "o-herdeiro-cativo",
+        "o-sussurro",
+        "a-mascara-dupla",
+        "o-tecelao-de-mentiras",
+        "a-boca-de-vidro",
+        "o-falso-profeta",
+        "o-corretor-de-memorias",
+        "o-incendiario",
+        "a-brasa-eterna",
+        "o-odio-encarnado",
+        "o-filho-da-cinza",
+        "a-pira-errante",
+        "o-coracao-em-furia",
+        "o-devorador",
+        "a-mao-que-toma",
+        "o-estomago-sem-fundo",
+        "a-senhora-do-ultimo-pao",
+        "o-credor",
+        "a-balanca-vazia",
+        "o-apodrecido",
+        "a-praga-andante",
+        "o-corrupto",
+        "a-rainha-dos-fungos",
+        "o-medico-de-vermes",
+        "o-jardim-morto",
+        "o-que-observou",
+        "a-porta-fechada",
+        "o-surdo",
+        "a-testemunha-cega",
+        "o-quarto-vazio",
+        "o-vigia-ausente",
+        "o-que-possui",
+        "a-pele-alheia",
+        "o-desejo-quebrado",
+        "a-marionetista-de-nervos",
+        "o-espelho-carnal",
+        "a-costureira",
+        "o-que-apaga",
+        "a-ausencia",
+        "o-fim-silencioso",
+        "o-menino-sem-sombra",
+        "a-ultima-pagina",
+        "o-lugar-de-ninguem",
+        "o-que-pesa",
+        "o-trono-vazio"
+      ]
+    },
+    "alternatives": {
+      "completedAssets": 1,
+      "totalAssets": "inventory pending"
+    },
+    "brand": {
+      "logoFilesUpdated": 7,
+      "logoFilesTotal": 7,
+      "appIconFilesUpdated": 6,
+      "appIconFilesTotal": 6
+    },
+    "remainingVisuals": [
+      "54 Inferno character designs require inspection against the new demonic-read rule.",
+      "80 base character sets remain under anime-first art direction.",
+      "All other active alternative forms require inventory/review.",
+      "Realm banners, realm emblems, the veil gate, and remaining interface/visual effects require inventory/review.",
+      "All skill art targets require inspection so no generic armored soldiers remain."
+    ]
+  },
+  "gameplayChanged": false
+}

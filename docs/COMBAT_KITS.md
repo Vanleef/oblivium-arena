@@ -1691,7 +1691,7 @@ O corte ganha precisão ao ser repetido, até um limite; Atordoamento quebra a d
 - **Sentença da Lâmina** (2 Éter; recarga 1T): Causa 25 de dano perfurante a um inimigo. Se o alvo tem a marca desta preparação: +15 dano.
 - **Passo Equânime** (1 Coringa; recarga 4T): O usuário fica Invulnerável por 1 turno.
 
-### O Ponderador — Preparador de Marcas
+### Aristides, O Regulador — Preparador de Marcas
 
 **Variação:** Ciclo de julgamento · **Essência:** Éter
 

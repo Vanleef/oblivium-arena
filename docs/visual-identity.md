@@ -70,3 +70,6 @@ A segunda versão refinada escolhida por Eduardo é a referência única da marc
 - `icon-192.png`, `icon-512.png`: ícones do aplicativo instalado, com manifest atualizado e versão de cache.
 
 A imagem aprovada foi criada pela ferramenta integrada de geração de imagens. O preparo para a interface apenas remove margem transparente excedente e exporta os tamanhos com transparência e proporções preservadas.
+
+
+Em 27/10/2026, a mariposa principal e sua variante violeta foram redesenhadas na linha anime 2.5D. Os arquivos de 192, 384 e 768 px mantêm o mesmo emblema e fundo transparente; `brand.webp` permanece por compatibilidade.
