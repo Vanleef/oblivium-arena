@@ -217,7 +217,7 @@ const protagonistProfiles = [
       "trigger": "markApplied",
       "effect": {
         "markNextSkill": {
-          "bonusDamage": 4,
+          "bonusDamage": 5,
           "heal": 2
         }
       },
@@ -1430,7 +1430,7 @@ const protagonistProfiles = [
       {
         "name": "Convergência sem Nome",
         "englishName": "Nameless Convergence",
-        "damage": 18,
+        "damage": 22,
         "costs": {
           "cinza": 1,
           "graca": 1,
@@ -1443,7 +1443,7 @@ const protagonistProfiles = [
           "condition": "marked",
           "bonusDamage": 4
         },
-        "englishDescription": "Costs 1 of each Essence type, deals 18 piercing damage, plus 4 against a target marked by the Echo."
+        "englishDescription": "Costs 1 of each Essence type, deals 22 piercing damage, plus 5 against a target marked by the Echo."
       },
       {
         "name": "Desatar a Ressonância",
