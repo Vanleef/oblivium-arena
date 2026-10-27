@@ -1732,7 +1732,7 @@ const protagonistProfiles = [
     "mechanic": "Kael abre uma brecha, prepara a execução e aceita a Ruptura como preço.",
     "englishMechanic": "Kael opens a breach, prepares an execution, and accepts Rupture as its price.",
     "lore": "Kael serviu como soldado e executor até matar a pessoa errada. Entregou-se à morte logo depois; a culpa manteve seu nome inteiro quando a travessia tentou dissolvê-lo.",
-    "englishLore": "Kael served as a soldier and enforcer until he killed the wrong person. He surrendered to death soon after; guilt kept his name intact when the Bond tried to dissolve him.",
+    "englishLore": "Kael served as a soldier and enforcer until he killed the wrong person. He surrendered to death soon after; guilt kept his name intact when the crossing tried to dissolve him.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
@@ -2431,7 +2431,7 @@ const supportingProfiles = [
     "mechanic": "Teras prepara um alvo Exposto e toma a Essência que escapa pela fenda.",
     "englishMechanic": "Teras prepares an Exposed target and takes the Essence escaping through the rift.",
     "lore": "Ao compreender que Nilo não pertence a nenhum Reino, Teras deixa de apenas observar. Esta forma passa a testar a fronteira para descobrir o que tenta atravessá-la.",
-    "englishLore": "After realizing Nilo belongs to no Bond, Teras stops merely observing. This form tests the boundary to learn what is trying to cross it.",
+    "englishLore": "After realizing Nilo belongs to no Kingdom, Teras stops merely observing. This form tests the boundary to learn what is trying to cross it.",
     "synergyEloIds": [
       "vazio",
       "correntes-quebradas"
@@ -2729,7 +2729,7 @@ const supportingProfiles = [
     "mechanic": "Orion marca o que considera impossível e precisa escolher entre capturar ou ajudar.",
     "englishMechanic": "Orion Marks what he considers impossible and must choose whether to capture it or help it.",
     "lore": "Orion rastreia almas que escapam às regras dos Reinos. Às vezes ajuda Nilo; às vezes parece estar calculando a forma mais segura de capturá-lo.",
-    "englishLore": "Orion tracks souls that escape the Bonds' rules. Sometimes he helps Nilo; sometimes he seems to be calculating the safest way to capture him.",
+    "englishLore": "Orion tracks souls that escape the Kingdoms' rules. Sometimes he helps Nilo; sometimes he seems to be calculating the safest way to capture him.",
     "synergyEloIds": [
       "verdade",
       "correntes-quebradas"
@@ -3936,7 +3936,7 @@ const antagonistProfiles = [
     "mechanic": "Plácido marca uma infração, sela o apoio e protege a estrutura que pretende conservar.",
     "englishMechanic": "Placido Marks an infraction, seals support, and protects the structure he means to preserve.",
     "lore": "Plácido defende a ordem dos Reinos a qualquer custo. Para ele, uma regra injusta ainda é preferível a um mundo que não possa ser controlado.",
-    "englishLore": "Placido defends the order of the Bonds at any cost. To him, an unjust rule is still preferable to a world he cannot control.",
+    "englishLore": "Placido defends the order of the Kingdoms at any cost. To him, an unjust rule is still preferable to a world he cannot control.",
     "synergyEloIds": [
       "coroa",
       "justica"
