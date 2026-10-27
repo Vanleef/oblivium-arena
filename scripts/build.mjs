@@ -76,6 +76,26 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of rootFiles) await cp(join(root, file), join(output, file));
 for (const directory of staticRoots) await cp(join(root, directory), join(output, directory), { recursive: true });
+
+const encodedArtRoot = join(root, "docs", "art-encoded", "hybrid-rework-20261027");
+let decodedArtAssets = 0;
+for (const manifestPath of await walk(encodedArtRoot)) {
+  if (extname(manifestPath) !== ".json") continue;
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (manifest.schemaVersion !== 1 || manifest.encoding !== "base64-webp" || !manifest.artifacts) {
+    throw new Error(`Invalid encoded-art manifest: ${relative(root, manifestPath)}`);
+  }
+  for (const [assetPath, encoded] of Object.entries(manifest.artifacts)) {
+    if (!assetPath.startsWith("art/") || assetPath.split("/").includes("..")) {
+      throw new Error(`Invalid encoded-art output path: ${assetPath}`);
+    }
+    const destination = resolve(output, assetPath);
+    if (!destination.startsWith(`${output}${sep}`)) throw new Error(`Encoded art escapes build output: ${assetPath}`);
+    await mkdir(dirname(destination), { recursive: true });
+    await writeFile(destination, Buffer.from(encoded, "base64"));
+    decodedArtAssets++;
+  }
+}
 const sourcePackage = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
 await writeFile(join(output, "package.json"), `${JSON.stringify({
   name: sourcePackage.name,
@@ -97,7 +117,8 @@ const manifest = {
   version: JSON.parse(await readFile(join(root, "package.json"), "utf8")).version,
   entrypoint: "index.html",
   runtime: ["src/", "art/"],
-  fileCount: builtFiles.length
+  fileCount: builtFiles.length,
+  decodedArtAssets
 };
 await writeFile(join(output, "build-manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 process.stdout.write(`Build concluído: ${builtFiles.length} arquivos em dist/ (entrada: index.html).\n`);
