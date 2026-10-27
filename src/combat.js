@@ -227,19 +227,18 @@ function triggerPassive(s,unit,trigger,context={}){
  if(p.minimumPurged&&(context.purged||0)<p.minimumPurged)return false;
  if(p.minimumCleansed&&(context.cleansed||0)<p.minimumCleansed)return false;
  if(p.offensive&&!context.ability?.damage)return false;
- if(p.effect?.spendEssence){const spend=p.effect.spendEssence,resource=spend.resource==="affinity"?unit.bodyResource||unit.affinity:spend.resource,amount=Math.max(0,Math.floor(spend.amount||1)),any=["random","coringa"].includes(resource);if(any?totalEssence(own)<amount:(own[resource]||0)<amount)return false;if(any){for(let i=0;i<amount;i++){const id=randomResourceId(s,resourceIds.filter(key=>!(own[key]>0)));own[id]--;}}else own[resource]-=amount;}
-
  const effect=p.effect||{},changes=[];
+ if(effect.spendEssence){const spend=effect.spendEssence,resource=spend.resource==="affinity"?unit.bodyResource||unit.affinity:spend.resource,amount=Math.max(0,Math.floor(spend.amount||1)),any=["random","coringa"].includes(resource);if(any?totalEssence(own)<amount:(own[resource]||0)<amount)return false;if(any){for(let i=0;i<amount;i++){const id=randomResourceId(s,resourceIds.filter(key=>!(own[key]>0)));own[id]--;}}else own[resource]-=amount;changes.push(`−${amount} ${any?"Essência":essenceName(resource)}`);}
  if(effect.gainResidue){const before=unit.residue||0;unit.residue=Math.min(3,before+Math.max(0,Math.floor(effect.gainResidue)));if(unit.residue>before)changes.push(`+${unit.residue-before} Resíduo`);}
- if(effect.armNextHitIgnoreDefense&&target){unit.feridaAbertaTargets||={};unit.feridaAbertaTargets[target.id]=Math.max(unit.feridaAbertaTargets[target.id]||0,effect.armNextHitIgnoreDefense);changes.push(`próximo dano ignora ${effect.armNextHitIgnoreDefense} Defesa`);}
+ if(effect.armNextHitIgnoreDefense&&target){unit.feridaAbertaTargets||={};const before=unit.feridaAbertaTargets[target.id]||0,next=Math.max(before,effect.armNextHitIgnoreDefense);if(next>before){unit.feridaAbertaTargets[target.id]=next;changes.push(`próximo dano ignora ${effect.armNextHitIgnoreDefense} Defesa`);}}
  if(effect.markNextSkill&&target){unit.markNextTargetId=target.id;unit.markNextBonus=effect.markNextSkill.bonusDamage||0;unit.markNextHeal=effect.markNextSkill.heal||0;unit.markNextFresh=true;changes.push(`prepara resposta contra ${target.name}`);}
  if(effect.clarity){unit.clarityDamage=effect.clarity.damage||0;unit.clarityHeal=effect.clarity.heal||0;changes.push("prepara Clareza");}
  if(effect.gainInterventionCharge){const before=unit.interventionCharge||0;unit.interventionCharge=Math.min(2,before+effect.gainInterventionCharge);if(unit.interventionCharge>before)changes.push(`+${unit.interventionCharge-before} Carga de Intervenção`);}
- if(effect.shadowChoice){unit.shadowChoicePending=true;changes.push("escolha a resposta da Sombra Preparada");}
+ if(effect.shadowChoice&&!unit.shadowChoicePending){unit.shadowChoicePending=true;changes.push("escolha a resposta da Sombra Preparada");}
  if(effect.trackFourEssences){
   if(unit.echoEssenceRound!==s.round){unit.echoEssenceRound=s.round;unit.echoEssenceTypes=[];}
   for(const id of resourceIds)if((context.costs?.[id]||0)>0&&!unit.echoEssenceTypes.includes(id))unit.echoEssenceTypes.push(id);
-  if(resourceIds.every(id=>unit.echoEssenceTypes.includes(id))&&unit.echoHarmonyRound!==s.round){unit.charge=Math.min(3,(unit.charge||0)+1);unit.echoHarmonyRound=s.round;changes.push("Harmonia completa: +1 Carga");}
+  if(resourceIds.every(id=>unit.echoEssenceTypes.includes(id))&&unit.echoHarmonyRound!==s.round){const before=unit.charge||0;unit.charge=Math.min(3,before+1);unit.echoHarmonyRound=s.round;if(unit.charge>before)changes.push("Harmonia completa: +1 Carga");}
  }
  if(effect.generateEssence){const resource=effect.generateEssence.resourceFromForm?(unit.bodyForm==="base"?unit.affinity:unit.bodyResource||unit.affinity):effect.generateEssence.resource;const amount=Math.max(0,Math.floor(effect.generateEssence.amount||1));if(resource&&amount){gain(s,unit.side,resource,amount);changes.push(`+${amount} ${essenceName(resource)}`);}}
  if(effect.convertEssence){const converted=convertEssencePool(s,own,effect.convertEssence);if(converted)changes.push(`${converted} Essência convertida`);}
@@ -254,12 +253,14 @@ function triggerPassive(s,unit,trigger,context={}){
  if(effect.shield){const amount=shield(unit,effect.shield);if(amount)changes.push(`+${amount} Defesa`);}
  if(effect.shieldTarget&&target){const amount=shield(target,effect.shieldTarget);if(amount)changes.push(`${target.name} +${amount} Defesa`);}
  if(effect.shieldTeam){for(const ally of living(team(s,unit.side))){const amount=shield(ally,effect.shieldTeam);if(amount)changes.push(`${ally.name} +${amount} Defesa`);}}
- if(effect.weakenTarget&&target){target.weakened=Math.max(target.weakened,effect.weakenTarget);changes.push(`${target.name} Enfraquecido`);}
- if(effect.sealSupportTarget&&target?.hp>0){target.sealSupport=Math.max(target.sealSupport,effect.sealSupportTarget);changes.push(`${target.name} Apoio selado`);}
+ if(effect.weakenTarget&&target){const before=target.weakened||0,next=Math.max(before,effect.weakenTarget);if(next>before){target.weakened=next;changes.push(`${target.name} Enfraquecido`);}}
+ if(effect.sealSupportTarget&&target?.hp>0){const before=target.sealSupport||0,next=Math.max(before,effect.sealSupportTarget);if(next>before){target.sealSupport=next;changes.push(`${target.name} Apoio selado`);}}
  if(effect.damageAttacker&&attacker?.hp>0){const result=hit(s,attacker,effect.damageAttacker,{damageType:"affliction",ignoreInvulnerability:true});if(result.dealt)changes.push(`${attacker.name} −${result.dealt} Vida`);if(attacker.hp<=0)notifyDefeat(s,attacker,unit);}
  if(effect.selfDamage&&unit.hp>1){const amount=Math.min(unit.hp-1,Math.max(0,Math.floor(effect.selfDamage))),wound=hit(s,unit,amount,{damageType:"affliction",ignoreInvulnerability:true});if(wound.dealt)changes.push(`−${wound.dealt} Vida`);}
+ // Hidden tracking effects may update state without firing; only a real proc spends its activation limit.
+ if(!changes.length)return false;
  if(!p.oncePerBattle)unit.passiveTriggeredRound=s.round;else unit.passiveUsed=true;
- if(changes.length)log(s,`${unit.name} · ${p.name}: ${changes.join(" · ")}.`);
+ log(s,`${unit.name} · ${p.name}: ${changes.join(" · ")}.`);
  return true;
 }
 function notifyDefeat(s,target,killer){
