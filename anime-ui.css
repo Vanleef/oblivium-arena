@@ -364,7 +364,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   background:#0a0b11;
   box-shadow:inset 0 1px 3px #000b;
 }
-.health-track i{box-shadow:inset 0 1px rgba(255,255,255,.24),0 0 8px color-mix(in srgb,currentColor 18%,transparent)}
+.health-track i{box-shadow:inset 0 1px rgba(255,255,255,.24)}
 .health-track i.hp-hell{background:linear-gradient(90deg,#bf4d57,#ed7965)}
 .health-track i.hp-heaven{background:linear-gradient(90deg,#9e8bba,#d6c4e4)}
 .health-track i.hp-limbo{background:linear-gradient(90deg,#7157b3,#b899f1)}
