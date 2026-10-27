@@ -284,7 +284,7 @@ const reactiveKits={
 };
 function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>kit[a.id]&&!a.reactive?{...a,reactive:kit[a.id],description:`${a.description} Efeito reativo: responde à condição indicada. Ativa uma vez.`}:a)};}
 export const characters = [
-  ...elos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))))),
+  ...elos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))))))
   ...protagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
