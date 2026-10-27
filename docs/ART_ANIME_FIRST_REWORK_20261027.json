@@ -111,6 +111,69 @@
         "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-tecnica-smother.webp",
         "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-voto-smother.webp"
       ]
+    },
+    "o-colecionador-de-cabecas": {
+      "displayName": "O Colecionador",
+      "activeRoute": "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-colecionador-de-cabecas-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "gemeos-do-cutelo": {
+      "displayName": "Gêmeos do Cutelo",
+      "activeRoute": "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/gemeos-do-cutelo-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/passive.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "o-carrasco-sem-rosto": {
+      "displayName": "O Carrasco",
+      "activeRoute": "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-carrasco-sem-rosto-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "a-mae-rubra": {
+      "displayName": "A Matriarca",
+      "aliases": [
+        "A Mãe Rubra"
+      ],
+      "activeRoute": "/art/characters/a-mae-rubra/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/a-mae-rubra-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/passive.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {
@@ -122,7 +185,13 @@
       "Personal invulnerability frames show only the user.",
       "O Impostor's confession and O Intrigante's unweave alternates have standalone art; O Falsário's Liquidação panel is corrected to one target.",
       "O Incendiário's Fagulhas em Cadeia and A Brasa Eterna's Cinzas de Sufoco show exactly three ghouls.",
-      "A Brasa Eterna's three suffocation-form variants have separate art; O Incendiário's area icon and A Brasa Eterna's single-target Sufoco icon have corrected sources."
+      "A Brasa Eterna's three suffocation-form variants have separate art; O Incendiário's area icon and A Brasa Eterna's single-target Sufoco icon have corrected sources.",
+      "O Colecionador’s Galeria keeps one target; trophy echoes do not depict extra enemies.",
+      "Gêmeos do Cutelo remain one playable character represented by two adult male twins with shared features and distinct silhouettes; each holds one cleaver.",
+      "Gêmeos do Cutelo’s all-enemy scene shows exactly three ghouls.",
+      "O Carrasco sem Rosto retains a completely blank hood; attacks show ghouls and personal defense shows only the user.",
+      "A Matriarca’s Cordão Rubro shows one ghoul, Partilha da Mãe supports one ally, Berço de Sangue shows exactly three ghouls, and Casulo Rubro protects only her.",
+      "Hand anatomy, weapon grips, character continuity, ability correspondence, infernal environments and varied scene framing were reviewed across the four sets."
     ]
   }
 }

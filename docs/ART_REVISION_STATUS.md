@@ -53,7 +53,7 @@ Os títulos representam entidades humanoides distintas. As cenas respeitam os al
 
 ## Sétimo lote: reformulação de Sangria
 
-O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Mãe Rubra recebem 24 imagens novas. Com O Açougueiro e A Viúva Escarlate, Sangria passa a ter seus seis conjuntos revisados. Os rostos, idades, roupas e acessórios de referência foram preservados, com ações e câmeras distintas por habilidade.
+O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Matriarca recebem 24 imagens novas. Com O Açougueiro e A Viúva Escarlate, Sangria passa a ter seus seis conjuntos revisados. Os rostos, idades, roupas e acessórios de referência foram preservados, com ações e câmeras distintas por habilidade.
 
 O caçador acumula e consome troféus, os dois gêmeos alternam ataques, o carrasco sentencia uma vítima e a Mãe Rubra diferencia drenagem, apoio com sacrifício e ataque em área. As defesas pessoais não protegem aliados. Os kits e a limpeza anterior de molduras permanecem preservados. Prompts e arquivos: `ART_LOT_20261022_07.json`.
 
@@ -111,7 +111,7 @@ Os seis personagens de Chama passam a ter 36 imagens básicas e cinco artes excl
 
 ## Atualização de integridade — 24/10/2026
 
-O Escudo Vivo, O Descontínuo, O Açougueiro, A Viúva Escarlate, O Colecionador, Gêmeos do Cutelo, O Carrasco sem Rosto e A Mãe Rubra receberam 48 arquivos WebP próprios, em 512 × 512, para restaurar os caminhos usados por seus kits. As cenas distinguem defesa pessoal de apoio, camadas temporais, véu e broche, caça a motes espirituais, cadência dos gêmeos, sentenças do Carrasco e sustentação por fios da Mãe Rubra; ações de Sangria não mostram gore. Prompts resumidos, caminhos, fontes e hashes: `ART_RESTORATION_20261024.json`.
+O Escudo Vivo, O Descontínuo, O Açougueiro, A Viúva Escarlate, O Colecionador, Gêmeos do Cutelo, O Carrasco sem Rosto e A Matriarca receberam 48 arquivos WebP próprios, em 512 × 512, para restaurar os caminhos usados por seus kits. As cenas distinguem defesa pessoal de apoio, camadas temporais, véu e broche, caça a motes espirituais, cadência dos gêmeos, sentenças do Carrasco e sustentação por fios da Mãe Rubra; ações de Sangria não mostram gore. Prompts resumidos, caminhos, fontes e hashes: `ART_RESTORATION_20261024.json`.
 
 O teste do trio inicial também verifica o retrato aprovado de O Fim em seu caminho versionado. Na auditoria feita após esse lote, 89 dos 600 caminhos base de retrato, passiva e quatro técnicas existiam; faltavam 511 em 86 personagens. Naquela execução, a suíte registrou 193 de 194 testes aprovados, com o retrato de O Soberano Quebrado como bloqueio.
 
@@ -279,7 +279,7 @@ Três âncoras têm confirmação explícita do usuário. Doze conjuntos foram r
 
 ## Lote pictórico de Sangria, parte II: Gêmeos, Carrasco e Mãe Rubra — 25/10/2026
 
-Dezoito artes foram refeitas sob as três âncoras aprovadas, preservando as identidades e os kits. A cena de Voto dos Gêmeos foi substituída por um quadro individual com exatamente três inimigos sem armadura. O Carrasco mantém o capuz como vazio sem face e a armação compacta de execução. A Mãe Rubra usa fios como controle possessivo ao sustentar um aliado; sua lore deixa claro que esse suporte prolonga a caçada dos predadores de Sangria. Os três são vis e guiados pela maldade. O Açougueiro permanece como criatura humanoide de carne e musculatura robustas, e seus alvos de cutelo continuam sem armadura. Nenhum kit, custo, alvo, efeito, duração ou recarga mudou.
+Dezoito artes foram refeitas sob as três âncoras aprovadas, preservando as identidades e os kits. A cena de Voto dos Gêmeos foi substituída por um quadro individual com exatamente três inimigos sem armadura. O Carrasco mantém o capuz como vazio sem face e a armação compacta de execução. A Matriarca usa fios como controle possessivo ao sustentar um aliado; sua lore deixa claro que esse suporte prolonga a caçada dos predadores de Sangria. Os três são vis e guiados pela maldade. O Açougueiro permanece como criatura humanoide de carne e musculatura robustas, e seus alvos de cutelo continuam sem armadura. Nenhum kit, custo, alvo, efeito, duração ou recarga mudou.
 
 ## Estado atual da auditoria — 25/10/2026
 
@@ -477,9 +477,9 @@ Cinco conjuntos base foram convertidos e integrados: A Porta que Flutua, A Viúv
 
 Restam 95 dos 100 conjuntos base e 570 sprites base; as formas alternativas e as demais artes do jogo também precisam passar pela migração. Os 70/100 registrados nas auditorias anteriores medem a direção pictórica antiga e não contam como concluídos nesta linha. Os três conjuntos anime-first registrados em ART_ANIME_FIRST_REWORK_20261026.json ainda precisam de conferência visual contra a nova referência.
 
-## Lote Sangria II — A Mãe Rubra — 26/10/2026
+## Lote Sangria II — A Matriarca — 26/10/2026
 
-A Mãe Rubra recebeu seis sprites anime 2.5D nas rotas ativas. Partilha da Mãe mostra uma única aliada; Berço de Sangue mostra exatamente três inimigos; Casulo Rubro protege somente a própria personagem. A identidade, o kit e as regras de combate foram preservados. Manifesto: ART_ANIME_FIRST_REWORK_20261026_03.json.
+A Matriarca recebeu seis sprites anime 2.5D nas rotas ativas. Partilha da Mãe mostra uma única aliada; Berço de Sangue mostra exatamente três inimigos; Casulo Rubro protege somente a própria personagem. A identidade, o kit e as regras de combate foram preservados. Manifesto: ART_ANIME_FIRST_REWORK_20261026_03.json.
 
 Com este lote, seis dos 100 conjuntos base (36 dos 600 sprites base) seguem a nova linha. Restam 94 conjuntos base; as formas alternativas e demais artes do jogo também permanecem na migração.
 
@@ -513,3 +513,8 @@ A migração anime-first soma agora 17 dos 100 conjuntos base, com 102 dos 600 s
 O Corretor de Memórias recebeu uma nova prancha 3×2 e seis sprites WebP de 512 × 512. A revisão aproxima o rosto e a pele da referência aprovada com traços de anime mais gráficos, contornos definidos e sombras em planos, preservando idade, identidade, cenas, alvos, efeitos, roupa, caixa de memórias e prótese dourada na mão direita. A Pira Errante foi conferida contra a mesma linha anime-forward e aprovada sem nova substituição. As duas rotas anime-first já estavam ativas; nenhuma mecânica, alvo, efeito, custo, duração ou recarga mudou.
 
 A migração anime-first soma agora 19 dos 100 conjuntos base (114 de 600 sprites). Restam 81 conjuntos base; formas alternativas e demais artes do jogo continuam pendentes. Prancha e revisão: `ART_ANIME_FIRST_REWORK_20261026_08.json`.
+
+
+## Lote anime-first de Sangria
+
+O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Matriarca receberam seis artes novas cada, com folhas fonte arquivadas. Os Gêmeos são dois homens adultos de traços semelhantes e continuam sendo um único personagem jogável. Os alvos, anatomia, empunhaduras, defesas pessoais e cenários de Inferno foram revisados.

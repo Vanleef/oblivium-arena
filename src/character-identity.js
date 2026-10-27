@@ -9,7 +9,7 @@ const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
 const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias']);
 const animeFirstRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','a-pira-errante']);
-const animeFirstRework20261027Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-tecelao-de-mentiras','a-boca-de-vidro','o-incendiario','a-brasa-eterna']);
+const animeFirstRework20261027Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-tecelao-de-mentiras','a-boca-de-vidro','o-incendiario','a-brasa-eterna','o-colecionador-de-cabecas','gemeos-do-cutelo','o-carrasco-sem-rosto','a-mae-rubra']);
 const hybridInfernoRework20261027Art = new Set(['o-que-pesa','o-incendiario']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
@@ -68,10 +68,10 @@ export const characterRevisions = {
   },
   "a-mae-rubra": {
     "name": "Julia Maesa",
-    "title": "A Mãe Rubra",
+    "title": "A Matriarca",
     "englishName": "Julia Maesa",
-    "englishTitle": "The Red Mother",
-    "aliases": ["A Mãe Rubra"],
+    "englishTitle": "The Matriarch",
+    "aliases": ["A Matriarca", "A Mãe Rubra"],
     "lore": "Estende um cordão de essência roubada para manter seus predadores em movimento; para ela, proteção é posse. Cede vitalidade para sustentar os lacaios que escolheu e recupera o custo drenando outra alma. Sob seu domínio, Sangria continua a caçada."
   },
   "o-soberano-quebrado": {
