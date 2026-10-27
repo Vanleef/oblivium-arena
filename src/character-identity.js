@@ -57,9 +57,9 @@ export const characterRevisions = {
     "lore": "Gêmeos fraternos de Sangria, semelhantes no olhar e no desenho do rosto apesar das diferenças de pele e cabelo, dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. Sua cumplicidade cruel transforma cada aproximação em ameaça dupla."
   },
   "o-carrasco-sem-rosto": {
-    "name": "Charles-Henri Sanson",
+    "name": "Sanson",
     "title": "O Carrasco",
-    "englishName": "Charles-Henri Sanson",
+    "englishName": "Sanson",
     "englishTitle": "The Executioner",
     "aliases": ["O Carrasco sem Rosto","O Carrasco"],
     "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. Sangria reconhece seus atos pela lâmina que desce."
@@ -89,7 +89,7 @@ export const characterRevisions = {
     "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Coroa só tem valor enquanto alguém permanece submetido."
   },
   "o-sussurro": {
-    "name": "Harpagus",
+    "name": "Hárpago",
     "title": "O Sussurro",
     "englishName": "Harpagus",
     "englishTitle": "The Whisper",
@@ -97,7 +97,7 @@ export const characterRevisions = {
     "lore": "Este espírito anfíbio de corpo baixo e largo negocia segredos nos canais de Mentira. A bolsa vocal sob sua mandíbula mistura a palavra ao veneno; o leque de ferro cobra o que a vítima ainda conserva. Sob as pálpebras pesadas, seus olhos de jade acompanham a confiança que acabou de corromper."
   },
   "a-mascara-dupla": {
-    "name": "Zopyrus",
+    "name": "Zópiro",
     "title": "A Máscara Dupla",
     "englishName": "Zopyrus",
     "englishTitle": "The Double Mask",
@@ -114,9 +114,9 @@ export const characterRevisions = {
   },
   "o-falso-profeta": {
     "name": "Joanna Southcott",
-    "title": "O Impostor",
+    "title": "O Falso Profeta",
     "englishName": "Joanna Southcott",
-    "englishTitle": "The Impostor",
+    "englishTitle": "The False Prophet",
     "aliases": ["O Falso Profeta","O Impostor"],
     "lore": "Apresenta como revelação aquilo que preparou para obter obediência. Acumula força com bênçãos fabricadas e transforma a expectativa dos outros em um milagre ofensivo. Quando a farsa ameaça ruir, a confissão lhe devolve fôlego para recomeçar."
   },
@@ -129,7 +129,7 @@ export const characterRevisions = {
     "lore": "Adultera lembranças e negocia as versões que sobreviveram à falsificação. Hipoteca um passado, retira dele os amparos que sustentavam a vítima e cobra a memória que deixou marcada. Seus arquivos guardam as histórias que Mentira tornou convenientes."
   },
   "o-incendiario": {
-    "name": "Herostratus",
+    "name": "Heróstrato",
     "title": "O Incendiário",
     "englishName": "Herostratus",
     "englishTitle": "The Arsonist",
@@ -145,7 +145,7 @@ export const characterRevisions = {
     "lore": "Conserva o calor de uma ofensa muito depois de sua origem desaparecer. A queimadura persiste sob as cinzas, sufoca a resistência e se reúne em uma fornalha quando o rancor encontra saída. Sua constância dá ao ódio de Chama tempo para consumir."
   },
   "o-odio-encarnado": {
-    "name": "Fritigern",
+    "name": "Fritigerno",
     "title": "O Furor",
     "englishName": "Fritigern",
     "englishTitle": "The Fury",
@@ -153,23 +153,23 @@ export const characterRevisions = {
     "lore": "Dá passagem a uma fúria que muda a violência de seus próprios golpes. Quanto mais a alimenta, mais difícil se torna sustentar a forma que a contém. O desfecho devolve a pressão sobre sua integridade, espalhando o ódio que fortalece Chama."
   },
   "o-credor": {
-    "name": "Gessius Florus",
+    "name": "Florus",
     "title": "O Credor",
-    "englishName": "Gessius Florus",
+    "englishName": "Florus",
     "englishTitle": "The Creditor",
     "aliases": ["O Credor"],
     "lore": "Converte a necessidade de outra alma em um contrato que nunca deixa de cobrar. Cada técnica da vítima pode produzir novos juros, até que a dívida se torne uma execução anunciada. Fome prospera nos vínculos de dependência que ele preserva."
   },
   "o-apodrecido": {
-    "name": "Pherecydes",
+    "name": "Zósimo",
     "title": "O Apodrecido",
-    "englishName": "Pherecydes",
+    "englishName": "Zosimus",
     "englishTitle": "The Rotted One",
     "aliases": ["O Apodrecido"],
     "lore": "Desfruta a ruína que provoca e escolhe matéria espiritual já fragilizada para aprofundar sua decadência. Seu contato impede a recuperação, faz a guarda ceder e mantém a vítima se desfazendo sob a influência de Podridão."
   },
   "o-corrupto": {
-    "name": "Harpalus",
+    "name": "Hárpalo",
     "title": "O Corrupto",
     "englishName": "Harpalus",
     "englishTitle": "The Corrupted One",
@@ -225,9 +225,9 @@ export const characterRevisions = {
     "lore": "Percebe a dor que uma alma tenta ocultar e a alcança com cuidado. Remove as aflições que interrompem a recuperação e recompõe uma guarda ao redor do que ainda está frágil. A compaixão que oferece também lhe permite recuperar o próprio fôlego."
   },
   "o-restaurador": {
-    "name": "Ibn Sina",
+    "name": "Avicena",
     "title": "O Restaurador",
-    "englishName": "Ibn Sina",
+    "englishName": "Avicenna",
     "englishTitle": "The Restorer",
     "aliases": ["O Restaurador"],
     "lore": "Reúne aos poucos a vitalidade dispersa pelo sofrimento. Conserva essa reserva até poder devolvê-la em uma restauração que alcança seus companheiros e desfaz as aflições que os prendem. Cada retorno sustenta a continuidade da vida."
@@ -241,7 +241,7 @@ export const characterRevisions = {
     "lore": "Escuta o descompasso que antecede uma agressão e responde com um ritmo capaz de contê-la. Sua quietude enfraquece a violência, devolve fôlego e interrompe o impulso que ameaça romper o cuidado. Cura se manifesta nele como presença paciente."
   },
   "a-lamina-justa": {
-    "name": "Viriathus",
+    "name": "Viriato",
     "title": "A Íntegra",
     "englishName": "Viriathus",
     "englishTitle": "The Upright One",
@@ -249,9 +249,9 @@ export const characterRevisions = {
     "lore": "Submete a própria lâmina à disciplina do princípio que escolheu seguir. Cada corte reafirma a medida do anterior, até encontrar a precisão necessária para deter o agressor. Sua força em Justiça depende da constância com que sustenta essa decisão."
   },
   "a-testemunha-integra": {
-    "name": "al-Maqrizi",
+    "name": "Maqrizi",
     "title": "A Testemunha",
-    "englishName": "al-Maqrizi",
+    "englishName": "Maqrizi",
     "englishTitle": "The Witness",
     "aliases": ["A Testemunha Íntegra","A Testemunha"],
     "lore": "Conserva o registro que o poder gostaria de fazer desaparecer. Expõe a vantagem construída sobre o abuso e reúne a prova necessária para que outras almas possam responder. Seu testemunho dá a Justiça uma voz que permanece íntegra sob pressão."
@@ -345,9 +345,9 @@ export const characterRevisions = {
     "lore": "Restaram-lhe sílabas de um nome que nenhuma lembrança consegue completar. Sua passagem faz outras almas perderem referências e dispersa a essência de que ainda dispunham. No Limbo, tenta sustentar o próprio contorno entre recordações que continuam cedendo."
   },
   "a-asa-invertida": {
-    "name": "Ibn Firnas",
+    "name": "Firnas",
     "title": "A Inversa",
-    "englishName": "Ibn Firnas",
+    "englishName": "Firnas",
     "englishTitle": "The Inverted One",
     "aliases": ["A Asa Invertida","A Inversa"],
     "lore": "Encontra impulso nas direções em que outras presenças apenas cairiam. Inverte a trajetória de uma agressão e usa a abertura para devolver o desequilíbrio ao responsável. Sua relação instável com a gravidade acompanha as fraturas do Limbo."
@@ -464,9 +464,9 @@ export const characterRevisions = {
     "terms": {},
   },
   "o-acougueiro": {
-    "name": "Balthasar Gérard",
+    "name": "Baltasar",
     "title": "O Açougueiro",
-    "englishName": "Balthasar Gérard",
+    "englishName": "Balthasar",
     "englishTitle": "The Butcher",
     "aliases": ["O Açougueiro"],
     "lore": "Uma criatura de carne brutalmente robusta, Balthasar Gérard fareja o sangue de vítimas feridas e transforma a próxima investida em uma sequência mais implacável. Cada golpe aprofunda a caçada que alimenta Sangria.",
@@ -603,9 +603,9 @@ export const characterRevisions = {
     "roleHint": "Enfraqueça a voz inimiga, interrompa sua ação e escolha entre prolongar a aflição ou liberar o decreto."
   },
   "a-testemunha-cega": {
-    "name": "Flavius Josephus",
+    "name": "Josefo",
     "title": "A Cúmplice",
-    "englishName": "Flavius Josephus",
+    "englishName": "Josephus",
     "englishTitle": "The Accomplice",
     "aliases": ["A Cúmplice","A Testemunha Cega"],
     "role": "Cúmplice do Silêncio",
@@ -659,9 +659,9 @@ export const characterRevisions = {
     "roleHint": "Use o fio para marcar e ferir; sustente seus aliados com suturas e desfaça os pontos da vítima no desfecho."
   },
   "o-fim-silencioso": {
-    "name": "Tiglath-Pileser III",
+    "name": "Tiglate",
     "title": "O Arauto",
-    "englishName": "Tiglath-Pileser III",
+    "englishName": "Tiglath",
     "englishTitle": "The Herald",
     "aliases": ["O Arauto","O Fim Silencioso"],
     "lore": "Uma manifestação do Vazio que anuncia a perda de toda continuidade. Sua lâmina interrompe a vontade antes de extinguir a presença da vítima.",
@@ -671,9 +671,9 @@ export const characterRevisions = {
   },
   "o-que-pesa": {
     "name": "Aristides",
-    "title": "O Ponderador",
+    "title": "O Justo",
     "englishName": "Aristides",
-    "englishTitle": "The Weigher",
+    "englishTitle": "The Just",
     "aliases": ["O Ponderador","O que Pesa"],
     "lore": "Encara a consequência antes de julgar. Acumula o peso dos atos para deter o excesso com uma decisão proporcional, sem recorrer à opressão de Coroa."
   },
@@ -691,9 +691,9 @@ export const characterRevisions = {
   },
   "o-que-levanta": {
     "name": "Sundiata",
-    "title": "O Inquebrantável",
+    "title": "O Tenaz",
     "englishName": "Sundiata",
-    "englishTitle": "The Unbroken One",
+    "englishTitle": "The Steadfast",
     "aliases": ["O Inquebrantável","O que Levanta"],
     "lore": "Representa a perseverança de Esperança. Retorna ao combate e ergue um companheiro sem prometer que a travessia será indolor."
   },
@@ -706,9 +706,9 @@ export const characterRevisions = {
     "lore": "O canto transforma em coragem a confiança que uma alma empresta à outra. Seu apoio sustenta o trio e se amplia quando a perseverança se torna coletiva."
   },
   "o-olho-desarmado": {
-    "name": "Ibn al-Haytham",
+    "name": "Haytham",
     "title": "O Vidente",
-    "englishName": "Ibn al-Haytham",
+    "englishName": "Haytham",
     "englishTitle": "The Seer",
     "aliases": ["O Vidente","O Olho Desarmado"],
     "lore": "Revela a intenção por trás do gesto, sem confundir clareza com crueldade. Usa esse conhecimento para conter o agressor e amparar quem ficou exposto.",
@@ -726,7 +726,7 @@ export const characterRevisions = {
     "lore": "Tece alianças que preservam a vontade de cada alma. Seus fios unem sem tomar o controle, distinguindo a União da manipulação de Carne e Mentira."
   },
   "o-que-cria": {
-    "name": "Sostratus",
+    "name": "Sóstrato",
     "title": "O Artífice",
     "englishName": "Sostratus",
     "englishTitle": "The Artificer",
@@ -734,9 +734,9 @@ export const characterRevisions = {
     "lore": "Dá forma à matéria espiritual para preservar novas possibilidades. Cada construção pode amparar uma alma ou abrir espaço contra quem destrói."
   },
   "a-porta-que-flutua": {
-    "name": "Ibn Battuta",
+    "name": "Battuta",
     "title": "A Errante",
-    "englishName": "Ibn Battuta",
+    "englishName": "Battuta",
     "englishTitle": "The Wanderer",
     "aliases": ["A Guardiã","A Guardiã do Limiar","A Porta que Flutua","A Errante"],
     "role": "Viajante do Limiar",
@@ -747,7 +747,7 @@ export const characterRevisions = {
     "roleHint": "Abra uma passagem, use o atalho para amparar um aliado e retorne; fechar a rota no inimigo também cobra sua Vida.",
   },
   "o-relogio-afogado": {
-    "name": "Hipparchus",
+    "name": "Hiparco",
     "title": "O Cronista",
     "englishName": "Hipparchus",
     "englishTitle": "The Chronicler",
@@ -793,9 +793,9 @@ export const characterRevisions = {
     "roleHint": "Roube Essência e acumule espólios; gaste as reservas para recuperar Vida ou reforçar o confisco.",
   },
   "o-medico-de-vermes": {
-    "name": "al-Zahrawi",
+    "name": "Zahrawi",
     "title": "O Inoculador",
-    "englishName": "al-Zahrawi",
+    "englishName": "Zahrawi",
     "englishTitle": "The Inoculator",
     "aliases": ["O Médico de Vermes","O Inoculador"],
     "role": "Cultivador de Parasitas",
@@ -807,7 +807,7 @@ export const characterRevisions = {
     "roleHint": "Inocule Veneno para drenar o inimigo; conserve seus hospedeiros aliados com limpeza e regeneração.",
   },
   "o-vigia-ausente": {
-    "name": "Ephialtes",
+    "name": "Efialtes",
     "title": "O Desertor",
     "englishName": "Ephialtes",
     "englishTitle": "The Deserter",
@@ -823,9 +823,9 @@ export const characterRevisions = {
     "roleHint": "Explore a guarda abandonada; anular uma agressão abre um golpe de retaguarda contra o responsável.",
   },
   "o-desejo-quebrado": {
-    "name": "Sextus Tarquinius",
+    "name": "Tarquínio",
     "title": "O Profanador",
-    "englishName": "Sextus Tarquinius",
+    "englishName": "Tarquinius",
     "englishTitle": "The Defiler",
     "aliases": ["O Desejo Quebrado","O Profanador"],
     "role": "Violador de Limites",
@@ -984,9 +984,9 @@ export const characterRevisions = {
     "roleHint": "Revele uma marca, remova a guarda e as vantagens do alvo; o clarão concentra dano no inimigo que você marcou.",
   },
   "a-cartografa-da-clareza": {
-    "name": "al-Idrisi",
+    "name": "Idrisi",
     "title": "A Cartógrafa",
-    "englishName": "al-Idrisi",
+    "englishName": "Idrisi",
     "englishTitle": "The Cartographer",
     "aliases": ["A Cartógrafa da Clareza","A Cartógrafa"],
     "role": "Guia da Clareza",
@@ -1028,7 +1028,7 @@ export const characterRevisions = {
     "roleHint": "Aplique Queimadura e erga a guarda vingativa; se uma nova agressão atravessar sua proteção, abra a revanche contra o inimigo.",
   },
   "o-jardim-morto": {
-    "name": "Theophrastus",
+    "name": "Teofrasto",
     "title": "O Definhador",
     "englishName": "Theophrastus",
     "englishTitle": "The Witherer",
@@ -1130,10 +1130,10 @@ export const characterRevisions = {
     "roleHint": "Marque e remova vantagens; a preparação abre uma anulação exclusiva contra a mesma vítima, enquanto a segunda técnica dissolve Defesa.",
   },
   "a-alma-em-suspenso": {
-    "name": "Simeon Stylites",
-    "title": "O Ancorado",
-    "englishName": "Simeon Stylites",
-    "englishTitle": "The Anchored One",
+    "name": "Simeão",
+    "title": "O Eremita",
+    "englishName": "Simeon",
+    "englishTitle": "The Hermit",
     "aliases": ["A Alma em Suspenso","O Ancorado"],
     "role": "Âncora Vital",
     "lore": "Uma alma retida num instante que não terminou. Reúne fôlego nas fraturas do Limbo e o prende a outra presença, cedendo parte da própria integridade; ao soltar a âncora, converte a reserva acumulada em ruptura.",
