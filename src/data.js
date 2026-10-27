@@ -260,6 +260,17 @@ function characterFrom(elo, name, index) {
   };
 }
 export const legacyElos = [...inferno, ...paradise, ...limbo];
+const reactiveKits={
+ "o-escudo-vivo":{tecnica:{trigger:"damaged",damage:14,turns:1}},
+ "a-mao-que-cura":{tecnica:{trigger:"damaged",healSource:12,turns:1}},
+ "a-pele-alheia":{tecnica:{trigger:"damaged",damage:16,turns:1}},
+ "o-primeiro-canto":{tecnica:{trigger:"damaged",heal:8,turns:1}},
+ "o-que-ficou":{tecnica:{trigger:"damaged",shieldSource:12,turns:1}},
+ "o-que-observou":{tecnica:{trigger:"attack",exposeAttacker:true,turns:1}},
+ "o-relogio-afogado":{tecnica:{trigger:"idle",heal:10,turns:1}},
+ "a-linha-partida":{tecnica:{trigger:"damaged",damage:12,turns:1}}
+};
+
 const rawCharacters = [
   ...legacyElos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))))))),
   ...protagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
@@ -331,23 +342,7 @@ export const realms = [
   }
 ];
 for (const track of legacyElos) track.forms = characters.filter(character => character.legacyEloId === track.id).map(character => character.name);
-const reactiveKits={
- "o-escudo-vivo":{tecnica:{trigger:"damaged",damage:14,turns:1}},
- "a-mao-que-cura":{tecnica:{trigger:"damaged",healSource:12,turns:1}},
- "a-pele-alheia":{tecnica:{trigger:"damaged",damage:16,turns:1}},
- "o-primeiro-canto":{tecnica:{trigger:"damaged",heal:8,turns:1}},
- "o-que-ficou":{tecnica:{trigger:"damaged",shieldSource:12,turns:1}},
- "o-que-observou":{tecnica:{trigger:"attack",exposeAttacker:true,turns:1}},
- "o-relogio-afogado":{tecnica:{trigger:"idle",heal:10,turns:1}},
- "a-linha-partida":{tecnica:{trigger:"damaged",damage:12,turns:1}}
-};
 function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>{const reactive=kit[a.id];if(!reactive||a.reactive)return a;const next={...a,reactive};return {...next,description:describeAbility(next)};})};}
-export const characters = [
-  ...elos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index)))))))),
-  ...protagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
-  ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
-  ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
-];
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));

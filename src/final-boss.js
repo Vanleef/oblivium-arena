@@ -4,9 +4,9 @@ const shiftTo = form => slots.map(slot=>({slot,form}));
 const skill = (id,name,description,effects={},art=`${hybridArt}/skill-${id}.webp`) => ({id,name,description,target:'enemy',costs:{affinity:1},cooldown:0,kind:'strike',art,...effects});
 // Manifestations of different observers' fears, never a canonical true body.
 export const FINAL_BOSS = Object.freeze({
- id:'the-end',name:'Naram-Sin',nameEn:'Naram-Sin',title:'Rei do Inferno',titleEn:'King of Hell',role:'Personificação do Fim',aliases:['O Fim'],
+ id:'the-end',name:'Naram-Sin',nameEn:'Naram-Sin',title:'O Fim',titleEn:'The End',role:'Personificação do Fim',aliases:['O Fim'],
  realm:'Inferno',elo:'Tártaro',kingdomId:'tartaro',eloId:'vazio',legacyEloId:'vazio',color:'silence',symbol:'◌',affinity:'essence',maxHp:100,
- portrait:`${hybridArt}/portrait.webp`,baseFormName:'Forma original',
+ portrait:'/art/characters/o-fim/anime-line-20261027/portrait.webp',baseFormName:'Forma original',
  lore:'Naram-Sin não tem rosto nem forma fixos. Assume a forma do maior medo de quem o observa: cada pessoa encara uma manifestação única, mesmo quando várias almas o veem ao mesmo tempo.',
  artNote:'Nenhuma silhueta representa o corpo verdadeiro de Naram-Sin: cada observador vê uma manifestação de seu maior medo. A manifestação original é uma presença soberana espectral, esguia, coberta por um manto que se desfaz em sombra, com rosto vazio, aros dourados e poucas raízes de marfim. Tirano é o medo de ser subjugado: um colosso grotesco e assimétrico, com pele consumida por chamas, rosto em vazio e diadema de chifres exclusiva; tem dois braços e duas pernas legíveis, sem uniforme, manto ou bastão. Predador é uma fera quadrúpede baixa e veloz; Ruína flutua como um arco de pedra partido com quatro braços espectrais e fios violeta. As manifestações preservam poucos sinais de Naram-Sin sem fixar uma anatomia canônica.',
  mechanic:'Três manifestações do medo',
