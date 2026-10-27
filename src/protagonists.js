@@ -234,7 +234,7 @@ const protagonistProfiles = [
           "graca": 1
         },
         "absorption": "graca",
-        "englishDescription": "Restores 10 Health to Nilo."
+        "englishDescription": "Costs 1 Grace and restores 10 Health to Nilo."
       },
       {
         "name": "Marca de Caça",
@@ -470,7 +470,7 @@ const protagonistProfiles = [
         },
         "activateAshExpansion": 2,
         "absorption": "cinza",
-        "englishDescription": "Activates Ash Expansion for 2 turns. It can be used once per combat."
+        "englishDescription": "Costs 1 Ash and activates Ash Expansion for 2 turns. It can be used once per combat."
       },
       {
         "name": "Carne Aberta",
@@ -503,7 +503,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "executeIfHpAtMost": 15,
         "absorption": "cinza",
-        "englishDescription": "Deals 18 damage. Executes the target if it has 15 Health or less after the hit."
+        "englishDescription": "Costs 2 Ash and 1 Aether, deals 18 damage, and executes the target if it has 15 Health or less after the hit."
       }
     ],
     "defense": {
@@ -559,7 +559,7 @@ const protagonistProfiles = [
           "graca": 1
         },
         "absorption": "graca",
-        "englishDescription": "Restores 11 Health to Nilo."
+        "englishDescription": "Costs 1 Grace and restores 11 Health to Nilo."
       },
       {
         "name": "Revelação",
@@ -664,7 +664,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "stealth": 1,
         "absorption": "ruptura",
-        "englishDescription": "Deals 12 damage and grants Stealth for 1 turn."
+        "englishDescription": "Costs 1 Rupture, deals 12 damage, and grants Stealth for 1 turn."
       },
       {
         "name": "Corte Silencioso",
@@ -893,7 +893,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "executeIfHpAtMost": 15,
         "absorption": "cinza",
-        "englishDescription": "Deals 21 damage. Executes the target if it has 15 Health or less after the hit."
+        "englishDescription": "Costs 2 Ash and 1 Aether, deals 21 damage, and executes the target if it has 15 Health or less after the hit."
       }
     ],
     "defense": {
@@ -901,7 +901,7 @@ const protagonistProfiles = [
       "englishName": "Ashen Silence",
       "shield": 4,
       "silenceMarkedHealing": true,
-      "englishDescription": "Grants 4 destructible Defense and makes the user Invulnerable to new enemy skills for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn; existing afflictions continue."
+      "englishDescription": "Costs 1 Wildcard, grants 4 destructible Defense, and makes the user Invulnerable to new enemy skills for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn; existing afflictions continue."
     }
   },
   {
@@ -950,7 +950,7 @@ const protagonistProfiles = [
         },
         "setPillar": true,
         "absorption": "graca",
-        "englishDescription": "Restores 12 Health to an ally and makes them one of Nilo's Pillars. He can have at most 2."
+        "englishDescription": "Costs 1 Grace, restores 12 Health to an ally, and makes them one of Nilo's Pillars. He can have at most 2."
       },
       {
         "name": "Julgamento",
@@ -994,7 +994,7 @@ const protagonistProfiles = [
         },
         "activateGraceForm": 3,
         "absorption": "graca",
-        "englishDescription": "Activates Grace Form for 3 turns."
+        "englishDescription": "Costs 1 Grace and activates Grace Form for 3 turns."
       },
       {
         "name": "Campo de Controle",
@@ -1054,7 +1054,7 @@ const protagonistProfiles = [
       "englishName": "Sacred Threshold",
       "shield": 4,
       "cleanseOneAffliction": true,
-      "englishDescription": "Grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable to new enemy skills for 1 turn. Existing afflictions continue."
+      "englishDescription": "Costs 1 Wildcard, grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable to new enemy skills for 1 turn. Existing afflictions continue."
     }
   },
   {
@@ -1101,7 +1101,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "stealth": 1,
         "absorption": "ruptura",
-        "englishDescription": "Deals 13 damage and grants Stealth for 1 turn."
+        "englishDescription": "Costs 1 Rupture, deals 13 damage, and grants Stealth for 1 turn."
       },
       {
         "name": "Corte do Interstício",
@@ -1218,7 +1218,7 @@ const protagonistProfiles = [
       "shield": 4,
       "nextSkillBonus": 5,
       "nextSkillExpose": 1,
-      "englishDescription": "Grants 4 destructible Defense and makes Nilo Invulnerable to new enemy skills for 1 turn. His next skill deals +5 damage and Exposes its target. Existing afflictions continue."
+      "englishDescription": "Costs 1 Wildcard, grants 4 destructible Defense, and makes Nilo Invulnerable to new enemy skills for 1 turn. His next skill deals +5 damage and Exposes its target. Existing afflictions continue."
     }
   },
   {
