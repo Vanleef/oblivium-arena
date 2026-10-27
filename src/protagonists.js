@@ -217,7 +217,7 @@ const protagonistProfiles = [
       "trigger": "markApplied",
       "effect": {
         "markNextSkill": {
-          "bonusDamage": 5,
+          "bonusDamage": 4,
           "heal": 2
         }
       },
@@ -1441,7 +1441,7 @@ const protagonistProfiles = [
         "damageType": "piercing",
         "combo": {
           "condition": "marked",
-          "bonusDamage": 4
+          "bonusDamage": 5
         },
         "englishDescription": "Costs 1 of each Essence type, deals 22 piercing damage, plus 5 against a target marked by the Echo."
       },
