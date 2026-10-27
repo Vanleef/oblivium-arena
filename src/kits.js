@@ -274,79 +274,125 @@ const dotLabels = { sangramento:"Sangramento", queimadura:"Queimadura", veneno:"
 export function describeAbility(a) {
   const parts = [];
   const victim = a.target === "all-enemies" ? "a todos os inimigos" : "a um inimigo";
-  if(a.damage) parts.push(`Causa ${a.damage} de dano ${a.damageType === "affliction" ? "de aflição" : a.damageType === "piercing" ? "perfurante" : a.damageType === "energy" ? "espiritual" : "físico"} ${victim}.`);
-  if(a.mark) parts.push(a.markDescription || `Marca o alvo por ${a.markTurns || 3} turnos.`);
-  if(a.echoLink) parts.push(`Sincroniza a Essência do usuário com a do alvo por ${a.echoLink.turns || 2} turnos; a Vida perdida pelo usuário repercute no alvo como aflição.`);
-  if(a.requiresEchoLink) parts.push("Exige uma ressonância ativa com o alvo.");
-  for(const dot of (a.dots||[a.dot].filter(Boolean)))parts.push(`${dotLabels[dot.tag]}: ${dot.damage} de dano de aflição por ${dot.turns} turnos.`);
+  const damageNames = { physical:"físico", piercing:"perfurante", energy:"espiritual", affliction:"de aflição" };
+  const targetFor = (kind, ability) => kind === "team" ? "ao trio" : kind === "ally" ? "ao aliado" : kind === "self" || ability?.damage ? "ao usuário" : kind === "enemy" ? "ao alvo" : "ao beneficiado";
+  if(a.damage) parts.push(`Causa ${a.damage} de dano ${damageNames[a.damageType] || "físico"} ${victim}.`);
+  if(a.echoLink) {
+    const mark = a.mark ? `Marca o alvo por ${a.markTurns || 3} turnos e ` : "";
+    parts.push(`${mark}sincroniza a Essência do usuário com a do alvo por ${a.echoLink.turns || 2} turnos; a Vida perdida pelo usuário repercute no alvo como aflição.`);
+  } else if(a.mark && a.reactive) {
+    // The reactive text below includes the mark, avoiding duplicate descriptions.
+  } else if(a.mark) {
+    parts.push(a.markDescription || `Marca o alvo por ${a.markTurns || 3} turnos.`);
+  }
+  if(a.requiresEchoLink)parts.push("Exige uma ressonância ativa com o alvo.");
+  for(const dot of (a.dots||[a.dot].filter(Boolean)))parts.push(`${dotLabels[dot.tag] || "Aflição"}: ${dot.damage} de dano de aflição por ${dot.turns} turnos.`);
   if(a.bonusIfDotTags)parts.push(`Causa +${a.bonusDamage||0} se o alvo tiver Sangramento ou Queimadura.`);
-  if(a.bonusIfAnyStatus)parts.push(`Causa +${a.bonusIfAnyStatus} se o alvo tiver qualquer status.`);
+  if(a.bonusIfAnyStatus)parts.push(`Causa +${a.bonusIfAnyStatus} de dano se o alvo tiver qualquer status.`);
   if(a.bonusIfOwnMark)parts.push(`Causa +${a.bonusDamage||0} se o alvo tiver a Marca Infernal de Nilo.`);
+  if(a.purgeBuffs) {
+    const purgeText = a.purgeBuffs === "all" ? "Remove todos os buffs do alvo." : a.purgeBuffs === 1 ? "Remove 1 buff do alvo." : `Remove até ${a.purgeBuffs} buffs do alvo.`;
+    parts.push(purgeText);
+  }
   if(a.damageIfPurged)parts.push(`Se remover pelo menos um buff, causa +${a.damageIfPurged} de dano.`);
-  if(a.executeIfHpAtMost)parts.push(`Executa o alvo se ele terminar com ${a.executeIfHpAtMost} de Vida ou menos.`);
-  if(a.spendResidueMax)parts.push(`Pode gastar até ${a.spendResidueMax} Resíduos; cada um aumenta o contra-ataque em ${a.residueCounterBonus||a.residueBonusDamage||0}.`);
-  if(a.spendFracturesMax)parts.push(`Pode gastar até ${a.spendFracturesMax} Fraturas; cada uma aumenta o dano em ${a.fractureBonusDamage||0}.`);
-  if(a.stealth)parts.push(`Nilo fica em Furtividade por ${a.stealth} turno.`);
+  if(a.executeIfHpAtMost)parts.push(`Executa o alvo se, após o dano, ele ficar com ${a.executeIfHpAtMost} de Vida ou menos.`);
+  if(a.spendResidueMax) {
+    if(a.residueCounterBonus)parts.push(`Pode gastar até ${a.spendResidueMax} Resíduos; cada um acrescenta +${a.residueCounterBonus} ao contra-ataque.`);
+    else if(a.residueBonusDamage)parts.push(`Pode gastar até ${a.spendResidueMax} Resíduos; cada um acrescenta +${a.residueBonusDamage} ao dano.`);
+  }
+  if(a.spendFracturesMax)parts.push(`Pode gastar até ${a.spendFracturesMax} Fraturas por alvo; cada uma acrescenta +${a.fractureBonusDamage||0} de dano.`);
+  if(a.stealth)parts.push(`Nilo fica em Furtividade por ${a.stealth} ${a.stealth===1?"turno":"turnos"}.`);
   if(a.stealthBonus)parts.push(`Se Nilo estiver em Furtividade, causa +${a.stealthBonus} de dano.`);
   if(a.requiresAshExpansion)parts.push("Exige Expansão de Cinza ativa.");
+  if(a.requiresCollapseI&&a.activateCollapse!==2)parts.push("Exige Colapso I ativo.");
   if(a.requiresAnyCollapse)parts.push("Exige um Estado de Colapso ativo.");
-  if(a.activateAshExpansion)parts.push(`Ativa Expansão de Cinza por ${a.activateAshExpansion} turnos; dano +7 e custo de 5 de Vida por skill de dano.`);
-  if(a.activateCollapse===1)parts.push("Abre Colapso I por 3 turnos: +6 de dano e custa 4 de Vida por skill de dano.");
-  if(a.activateCollapse===2)parts.push("Abre Colapso II por 2 turnos: +10 de dano e custa 7 de Vida por skill de dano.");
+  if(a.activateAshExpansion)parts.push(`Ativa Expansão de Cinza por ${a.activateAshExpansion} turnos. Uma vez por combate, enquanto ativa, skills de dano causam +7 e custam 5 de Vida a Nilo.`);
+  if(a.activateCollapse===1)parts.push("Abre Colapso I por 3 turnos: skills de dano causam +6 e custam 4 de Vida a Nilo.");
+  if(a.activateCollapse===2)parts.push("Só pode ser usado após ativar Colapso I. Abre Colapso II por 2 turnos: skills de dano causam +10 e custam 7 de Vida a Nilo.");
   if(a.closeCollapse)parts.push("Encerra o Colapso ativo imediatamente.");
   if(a.setPillar)parts.push("Transforma o aliado em Pilar; Nilo pode manter até 2.");
-  if(a.pillarJudgment)parts.push(`Se o alvo feriu um Pilar neste combate, causa +${a.pillarJudgment.bonusDamage} e o Enfraquece.`);
+  if(a.pillarJudgment)parts.push(`Se o alvo feriu um Pilar neste combate, causa +${a.pillarJudgment.bonusDamage} de dano e o Enfraquece.`);
   if(a.requiresGraceForm)parts.push("Exige Forma de Graça ativa.");
   if(a.activateGraceForm)parts.push(`Ativa Forma de Graça por ${a.activateGraceForm} turnos.`);
   if(a.requiresPillar)parts.push("Só pode ser usado em um Pilar de Nilo.");
-  if(a.requiresInterventionCharge)parts.push("Gasta 1 Carga de Intervenção.");
-  if(a.markTurns&&a.mark)parts.push(`A marca permanece por ${a.markTurns} turnos.`);
-  if(a.reactive?.damage)parts.push(`Se o alvo usar uma skill enquanto marcado, sofre ${a.reactive.damage} de aflição.`);
+  if(a.requiresInterventionCharge||a.spendInterventionCharge)parts.push("Gasta 1 Carga de Intervenção.");
+  if(a.mark && a.reactive) {
+    const markText = a.markDescription || `Marca o alvo por ${a.markTurns || 3} turnos.`;
+    const trigger = {attack:"Se o alvo usar uma skill ofensiva na próxima vez",support:"Se o alvo usar uma skill de apoio na próxima vez",skill:"Se o alvo usar uma skill na próxima vez",idle:"Se o alvo não usar uma skill na próxima vez",damaged:"Na próxima resposta adversária, se uma skill tirar Vida do beneficiado"}[a.reactive.trigger] || "Na próxima vez do alvo";
+    const r = a.reactive;
+    const effects = [
+      r.damage ? `causa ${r.damage} de dano de aflição ${r.trigger === "damaged" ? "ao agressor" : "ao próprio alvo"}` : "",
+      r.drain ? `remove ${r.drain} Essência da reserva inimiga` : "",
+      r.healSource ? `restaura ${r.healSource} de Vida ao usuário` : "",
+      r.healBoth ? `restaura ${r.healBoth} de Vida ao usuário e ao beneficiado` : "",
+      r.shieldSource ? `concede ${r.shieldSource} de Defesa ao usuário` : "",
+      r.exposeAttacker ? "expõe o agressor" : "",
+      (r.stealth||r.stealthSource) ? "concede Furtividade a Nilo" : "",
+      r.dot ? `aplica ${dotLabels[r.dot.tag] || "Aflição"}: ${r.dot.damage} de dano por ${r.dot.turns} turnos` : ""
+    ].filter(Boolean);
+    parts.push(`${markText} ${trigger}: ${effects.join(" e ")}. Ativa uma vez.`);
+  } else if(a.reactive) {
+    const r=a.reactive,trigger={attack:"Se o alvo usar uma técnica ofensiva em sua próxima vez",support:"Se o alvo usar uma técnica de apoio em sua próxima vez",skill:"Se o alvo usar uma técnica em sua próxima vez",idle:"Se o alvo não usar nenhuma técnica em sua próxima vez",damaged:"Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado"}[r.trigger] || "Na próxima vez do alvo";
+    const effects=[r.damage?`causa ${r.damage} de dano de aflição ${r.trigger==="damaged"?"ao agressor":"ao próprio alvo"}`:"",r.drain?`remove ${r.drain} Essência da reserva adversária`:"",r.healSource?`restaura ${r.healSource} de Vida ao usuário`:"",r.healBoth?`restaura ${r.healBoth} de Vida ao usuário e ao beneficiado`:"",r.shieldSource?`concede ${r.shieldSource} de Defesa ao usuário`:"",r.exposeAttacker?"expõe o agressor até o fim do próximo turno do usuário":"",r.stealth?"concede Furtividade a Nilo":"",r.dot?`aplica ${dotLabels[r.dot.tag] || "Aflição"}: ${r.dot.damage} de dano por ${r.dot.turns} turnos`:""].filter(Boolean);
+    parts.push(`${trigger}: ${effects.join(" e ")}. Ativa uma vez.`);
+  }
   if(a.cleanseOneAffliction)parts.push("Remove 1 aflição do usuário.");
-  if(a.silenceMarkedHealing)parts.push("Inimigos com uma Marca de Nilo não recuperam Vida no próximo turno.");
+  if(a.silenceMarkedHealing)parts.push("Inimigos com uma Marca de Nilo não podem recuperar Vida no próximo turno.");
   if(a.clearEchoLink)parts.push("Remove o Vínculo de Ressonância após o ataque.");
-  if(a.stun) parts.push(`Atordoa por ${a.stun} turno.`);
-  if(a.weaken) parts.push(`Enfraquece por ${a.weaken} turno${a.weaken > 1 ? "s" : ""} do alvo: −10 de dano causado.`);
-  if(a.expose) parts.push("Expõe até o fim do próximo turno deste lado: +10 de dano recebido, exceto aflição.");
-  if(a.heal) parts.push(`Restaura ${a.heal} de Vida${a.damage ? " ao usuário" : a.target === "team" ? " a cada aliado" : ""}.`);
-  if(a.shield) parts.push(`Concede ${a.shield} de Defesa destrutível${a.damage ? " ao usuário" : a.target === "team" ? " ao trio" : ""}.`);
-  if(a.reduce) parts.push(`Reduz em ${a.reduce} o dano recebido por 1 turno${a.damage ? " pelo usuário" : ""}.`);
-  if(a.boost) parts.push(`Aumenta em ${a.boost} o dano${a.damage ? " do usuário" : ""} até o fim do próximo turno do beneficiado.`);
-  if(a.counter){parts.push(`Anula a próxima habilidade inimiga ${a.counterFilter?a.counterFilter.map(t=>({physical:"física",piercing:"perfurante",energy:"espiritual",affliction:"de aflição"})[t]).join(" ou ")+" ":""}recebida e contra-ataca com ${a.counter} de dano. Dura 1 turno.`);if(a.counterRequiresShield)parts.push("Só ativa se o beneficiado ainda tiver Defesa destrutível.");if(a.counterEffect?.stealEssence)parts.push(`Ao ativar, rouba até ${a.counterEffect.stealEssence.amount||1} Essência da reserva adversária.`);if(a.counterEffect?.drainEssence)parts.push(`Ao ativar, remove até ${a.counterEffect.drainEssence.amount||1} Essência da reserva adversária.`);if(a.counterEffect?.generateEssence)parts.push(`Ao ativar, gera ${a.counterEffect.generateEssence.amount||1} ${({essence:"Éter",cinza:"Cinza",ruptura:"Ruptura",graca:"Graça",random:"Essência aleatória"})[a.counterEffect.generateEssence.resource]||"Essência"}.`);if(a.counterEffect?.expose)parts.push("Ao ativar, expõe o agressor até o fim do próximo turno.");if(a.counterEffect?.mark)parts.push("Ao ativar, marca o agressor por 2 turnos.");}
-  if(a.regen) parts.push(`Regeneração: restaura ${a.regen.heal} de Vida no início dos próximos ${a.regen.turns} turnos${a.target==="team"?" de cada aliado":" do beneficiado"}.`);
-  if(a.sealSupport) parts.push(`Sela técnicas de apoio por ${a.sealSupport} turno do alvo. A defesa pessoal continua disponível.`);
-  if(a.sealAttack) parts.push(`Sela técnicas ofensivas por ${a.sealAttack} turno do alvo.`);
-  if(a.healingBlock) parts.push(`Reduz a cura recebida em ${Math.round(a.healingBlock*100)}% até o fim do próximo turno deste lado.`);
-  if(a.reduceCooldown) parts.push(`Reduz em ${a.reduceCooldown} turno as recargas não defensivas do beneficiado.`);
-  if(a.ignoreCounters) parts.push("Não pode ser anulado por Contra-ataque.");
-  if(a.escalating) parts.push(`Cada uso não anulado dá +${a.escalating.amount} de dano a esta técnica (máx. +${a.escalating.max}). Atordoamento zera esse bônus.`);
-  if(a.missingHpDamage) parts.push(`A cada ${a.missingHpDamage.step} de Vida perdida pelo usuário: +${a.missingHpDamage.amount} de dano (máx. +${a.missingHpDamage.cap}).`);
-  if(a.missingHpHeal) parts.push(`A cada ${a.missingHpHeal.step} de Vida faltante do beneficiado: +${a.missingHpHeal.amount} de cura (máx. +${a.missingHpHeal.cap}).`);
-  if(a.shieldToDamage) parts.push(`Acrescenta ${Math.round(a.shieldToDamage.ratio*100)}% da Defesa do usuário ao dano (máx. +${a.shieldToDamage.cap})${a.shieldToDamage.consume?" e consome toda a sua Defesa":""}.`);
-  if(a.shieldFromStripped) parts.push(`Converte ${Math.round(a.shieldFromStripped*100)}% da Defesa removida em Defesa própria (máx. 15).`);
-  if(a.wardFromDamage) parts.push(`Converte ${Math.round(a.wardFromDamage*100)}% do dano real causado em Defesa própria (máx. 20 por uso).`);
-  if(a.siphonToAlly) parts.push(`Restaura ao aliado proporcionalmente mais ferido ${Math.round(a.siphonToAlly*100)}% do dano real causado (máx. 15 por uso).`);
-  if(a.cleanseBonusShield) parts.push(`Cada condição removida concede ${a.cleanseBonusShield} de Defesa ao beneficiado (máx. 15).`);
-  if(a.purgeBonusDamage) parts.push(`Antes da remoção, cada bônus de dano, redução ou contra-ataque ativo no alvo acrescenta ${a.purgeBonusDamage} ao dano (máx. +12).`);
-  if(a.reactive){const r=a.reactive,trigger={attack:"Se o alvo usar uma técnica ofensiva em sua próxima vez",support:"Se o alvo usar uma técnica de apoio em sua próxima vez",skill:"Se o alvo usar uma técnica em sua próxima vez",idle:"Se o alvo não usar nenhuma técnica em sua próxima vez",damaged:"Na próxima resposta adversária, se uma nova habilidade tirar Vida do beneficiado"}[r.trigger];const effects=[r.damage?`causa ${r.damage} de dano de aflição ${r.trigger==="damaged"?"ao agressor":"ao próprio alvo"}`:"",r.drain?`remove ${r.drain} ${r.drain===1?"unidade":"unidades"} de Essência da reserva adversária`:"",r.healSource?`restaura ${r.healSource} de Vida ao usuário`:"",r.healBoth?`restaura ${r.healBoth} de Vida ao usuário e ao beneficiado, uma vez por alma`:"",r.shieldSource?`concede ${r.shieldSource} de Defesa ao usuário`:"",r.exposeAttacker?"expõe o agressor até o fim do próximo turno do usuário":"",r.shift?"abre uma técnica alternativa para o usuário por 2 turnos":""].filter(Boolean);parts.push(`${trigger}: ${effects.join(" e ")}. Ativa uma vez.`);}
-  if(a.cleanse) parts.push(`Remove aflições e condições prejudiciais${a.damage ? " do usuário" : ""}.`);
-  if(a.purge) parts.push("Remove bônus de dano, redução e contra-ataque do alvo.");
-  if(a.stripShield) parts.push(`Remove ${a.stripShield} de Defesa antes do dano.`);
-  if(a.drain) parts.push(`Remove ${a.drain} ${a.drain===1?"unidade":"unidades"} de Essência da reserva inimiga${a.target === "all-enemies" ? " uma única vez" : ""}.`);
-  if(a.steal) parts.push(`Rouba ${a.steal} ${a.steal===1?"unidade":"unidades"} de Essência da reserva inimiga.`);
-  if(a.lifesteal) parts.push(`Restaura ao usuário ${Math.round(a.lifesteal*100)}% do dano causado.`);
-  if(a.gainCharge) parts.push(`Ganha ${a.gainCharge} carga (máx. 3).`);
-  const essenceNames={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Essência aleatória'};
-  if(a.generateEssence)parts.push(`Gera ${a.generateEssence.amount||1} ${essenceNames[a.generateEssence.resource]||'Essência'} para a reserva da equipe.`);
-  if(a.convertEssence){const source=a.convertEssence.from==='any'?'um tipo disponível':essenceNames[a.convertEssence.from]||'Essência';const target=a.convertEssence.to==='random'?'uma Essência aleatória de outro tipo':essenceNames[a.convertEssence.to]||'outro tipo de Essência';parts.push(`Converte ${a.convertEssence.amount||1} ${source} em ${target} na reserva da equipe.`);}
-  if(a.perChargeDamage&&!a.resonantWound) parts.push(`${a.spendCharge ? "Consome as cargas:" : "Por carga:"} +${a.perChargeDamage} de dano por carga.`);
-  if(a.perChargeHeal) parts.push(`Consome as cargas: +${a.perChargeHeal} de cura por carga${a.target === "team" ? " a cada aliado" : ""}.`);
-  if(a.spendCharge&&!a.perChargeDamage&&!a.perChargeHeal) parts.push("Consome todas as cargas.");
-  if(a.requiredMark) parts.push("Exige a marca desta preparação no alvo.");
-  if(a.combo) parts.push(`Se ${conditionLabel(a.combo.condition)}: +${a.combo.bonusDamage || 0} dano${a.combo.stun ? " e Atordoa por 1 turno" : ""}${a.combo.consume ? "; consome a preparação" : ""}.`);
-  if(a.resonantWound) parts.push(`O usuário perde ${a.selfDamage} de Vida, mais ${a.perChargeDamage||0} por carga consumida; a dissonância repercute no alvo ressonante.`);
-  else if(a.selfDamage) parts.push(`O usuário perde ${a.selfDamage} de Vida (não o derrota).`);
-  if(a.invulnerable) parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.");
+  if(a.stun)parts.push(`Atordoa por ${a.stun} ${a.stun===1?"turno":"turnos"}.`);
+  if(a.weaken)parts.push(`Enfraquece o alvo por ${a.weaken} ${a.weaken===1?"turno":"turnos"}: ele causa 10 de dano a menos.`);
+  if(a.expose)parts.push("Expõe o alvo até o fim do próximo turno deste lado: ele recebe +10 de dano, exceto aflição.");
+  if(a.heal)parts.push(`Restaura ${a.heal} de Vida ${targetFor(a.target || (a.damage ? "self" : "ally"),a)}.`);
+  if(a.shield)parts.push(`Concede ${a.shield} de Defesa destrutível ${targetFor(a.target || (a.damage ? "self" : "ally"))}.`);
+  if(a.reduce)parts.push(`Reduz em ${a.reduce} o dano recebido por 1 turno${a.target==="self"||a.damage?" pelo usuário":" pelo beneficiado"}.`);
+  if(a.boost)parts.push(`Aumenta em ${a.boost} o dano${a.damage?" do usuário":""} até o fim do próximo turno do beneficiado.`);
+  if(a.nextSkillBonus||a.nextSkillExpose)parts.push(`A próxima skill de Nilo causa +${a.nextSkillBonus||0} de dano${a.nextSkillExpose?" e aplica Exposto ao alvo":""}.`);
+  if(a.counter) {
+    const rawFilters = a.counterFilter || [];
+    const filterLabels = rawFilters.map(t=>damageNames[t] || t);
+    const filterList = filterLabels.length>1 ? filterLabels.slice(0,-1).join(", ")+" ou "+filterLabels[filterLabels.length-1] : filterLabels[0] || "";
+    const filters = !rawFilters.length || rawFilters.length===4 ? "de qualquer tipo" : `do tipo ${filterList}`;
+    const counterType = a.counterDamageType ? ` de dano ${damageNames[a.counterDamageType] || a.counterDamageType}` : " de dano";
+    parts.push(`Anula a próxima habilidade inimiga ${filters} recebida e contra-ataca com ${a.counter}${counterType}. Dura 1 turno.`);
+    if(a.counterRequiresShield)parts.push("Só ativa enquanto o beneficiado tiver Defesa destrutível.");
+    if(a.counterEffect?.stealEssence)parts.push(`Ao ativar, rouba até ${a.counterEffect.stealEssence.amount||1} Essência da reserva adversária.`);
+    if(a.counterEffect?.drainEssence)parts.push(`Ao ativar, remove até ${a.counterEffect.drainEssence.amount||1} Essência da reserva adversária.`);
+    if(a.counterEffect?.generateEssence)parts.push(`Ao ativar, gera ${a.counterEffect.generateEssence.amount||1} ${({essence:"Éter",cinza:"Cinza",ruptura:"Ruptura",graca:"Graça",random:"Essência aleatória"})[a.counterEffect.generateEssence.resource]||"Essência"}.`);
+    if(a.counterEffect?.expose)parts.push("Ao ativar, expõe o agressor até o fim do próximo turno.");
+    if(a.counterEffect?.mark)parts.push("Ao ativar, marca o agressor por 2 turnos.");
+    if(a.counterEffect?.dot) {
+      const dot=a.counterEffect.dot;
+      parts.push(`Ao ativar, aplica ${dotLabels[dot.tag]||"Aflição"}: ${dot.damage} de dano de aflição por ${dot.turns} turnos.`);
+    }
+  }
+  if(a.regen)parts.push(`Regeneração: restaura ${a.regen.heal} de Vida no início dos próximos ${a.regen.turns} turnos${a.target==="team"?" de cada aliado":" do beneficiado"}.`);
+  if(a.sealSupport)parts.push(`Sela técnicas de apoio por ${a.sealSupport} ${a.sealSupport===1?"turno":"turnos"} do alvo. A defesa pessoal continua disponível.`);
+  if(a.sealAttack)parts.push(`Sela técnicas ofensivas por ${a.sealAttack} ${a.sealAttack===1?"turno":"turnos"} do alvo.`);
+  if(a.healingBlock)parts.push(`Reduz a cura recebida em ${Math.round(a.healingBlock*100)}% até o fim do próximo turno deste lado.`);
+  if(a.reduceCooldown)parts.push(`Reduz em ${a.reduceCooldown} ${a.reduceCooldown===1?"turno":"turnos"} as recargas não defensivas do beneficiado.`);
+  if(a.ignoreCounters)parts.push("Não pode ser anulado por Contra-ataque.");
+  if(a.cleanse)parts.push(`Remove aflições e condições prejudiciais${a.damage ? " do usuário" : a.target==="team" ? " do trio" : " do beneficiado"}.`);
+  if(a.purge)parts.push("Remove bônus de dano, redução e contra-ataque do alvo.");
+  if(a.stripShield)parts.push(`Remove ${a.stripShield} de Defesa antes do dano.`);
+  if(a.drain)parts.push(`Remove ${a.drain} ${a.drain===1?"unidade":"unidades"} de Essência da reserva inimiga${a.target==="all-enemies"?" uma única vez":""}.`);
+  if(a.steal)parts.push(`Rouba ${a.steal} ${a.steal===1?"unidade":"unidades"} de Essência da reserva inimiga.`);
+  if(a.lifesteal)parts.push(`Restaura ao usuário ${Math.round(a.lifesteal*100)}% do dano causado.`);
+  if(a.gainCharge)parts.push(`Ganha ${a.gainCharge} ${a.gainCharge===1?"Carga":"Cargas"} (máx. 3).`);
+  const essenceNames={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura",random:"Essência aleatória"};
+  if(a.generateEssence)parts.push(`Gera ${a.generateEssence.amount||1} ${essenceNames[a.generateEssence.resource]||"Essência"} para a reserva da equipe.`);
+  if(a.convertEssence) {
+    const source=a.convertEssence.from==="any"?"um tipo disponível":essenceNames[a.convertEssence.from]||"Essência";
+    const target=a.convertEssence.to==="random"?"uma Essência aleatória de outro tipo":essenceNames[a.convertEssence.to]||"outro tipo de Essência";
+    parts.push(`Converte ${a.convertEssence.amount||1} ${source} em ${target} na reserva da equipe.`);
+  }
+  if(a.perChargeDamage&&!a.resonantWound)parts.push(`${a.spendCharge?"Consome Cargas:":"Por Carga:"} +${a.perChargeDamage} de dano por Carga.`);
+  if(a.perChargeHeal)parts.push(`Consome Cargas: +${a.perChargeHeal} de cura por Carga${a.target==="team"?" para cada aliado":""}.`);
+  if(a.spendCharge&&!a.perChargeDamage&&!a.perChargeHeal)parts.push("Consome todas as Cargas.");
+  if(a.requiredMark)parts.push("Exige a Marca criada por esta preparação no alvo.");
+  if(a.combo)parts.push(`Se ${conditionLabel(a.combo.condition)}: +${a.combo.bonusDamage||0} de dano${a.combo.stun?` e Atordoa por ${a.combo.stun} ${a.combo.stun===1?"turno":"turnos"}`:""}${a.combo.consume?"; consome a preparação":""}.`);
+  if(a.resonantWound)parts.push(`O usuário perde ${a.selfDamage} de Vida, mais ${a.perChargeDamage||0} por Carga consumida; a dissonância repercute no alvo ressonante. O custo não pode derrotar o usuário.`);
+  else if(a.selfDamage)parts.push(`O usuário perde ${a.selfDamage} de Vida (não pode ser derrotado por este custo).`);
+  if(a.invulnerable)parts.push("O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.");
   return parts.join(" ");
 }
 function describePassive(p) {

@@ -893,7 +893,8 @@ const protagonistProfiles = [
       "name": "Silêncio de Cinza",
       "englishName": "Ashen Silence",
       "shield": 4,
-      "silenceMarkedHealing": true
+      "silenceMarkedHealing": true,
+      "englishDescription": "Grants 4 destructible Defense and makes the user Invulnerable to new enemy skills for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn; existing afflictions continue."
     }
   },
   {
@@ -1044,7 +1045,8 @@ const protagonistProfiles = [
       "name": "Limiar Sagrado",
       "englishName": "Sacred Threshold",
       "shield": 4,
-      "cleanseOneAffliction": true
+      "cleanseOneAffliction": true,
+      "englishDescription": "Grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable to new enemy skills for 1 turn. Existing afflictions continue."
     }
   },
   {
@@ -1206,7 +1208,8 @@ const protagonistProfiles = [
       "englishName": "Final Impulse",
       "shield": 4,
       "nextSkillBonus": 9,
-      "nextSkillExpose": 1
+      "nextSkillExpose": 1,
+      "englishDescription": "Grants 4 destructible Defense and makes Nilo Invulnerable to new enemy skills for 1 turn. His next skill deals +9 damage and Exposes its target. Existing afflictions continue."
     }
   },
   {
