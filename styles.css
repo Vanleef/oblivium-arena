@@ -336,9 +336,9 @@ button:disabled { cursor: not-allowed !important; opacity: .45; }
 .codex-passive b { color: #d4c49e; font-size: 8px; font-weight: 600; }
 .codex-passive span { color: #8d7996; font-size: 8px; line-height: 1.4; }
 .codex-moves { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 0 14px 13px; }
-.codex-moves span { min-width: 0; display: grid; grid-template-columns: 25px minmax(0,1fr); align-items: center; gap: 5px; overflow: hidden; color: #bfb3c4; font-size: 8px; }
-.codex-moves span img, .move-fallback { width: 25px; height: 25px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); object-fit: cover; color: var(--accent); font-size: 7px; font-style: normal; }
-.codex-moves b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 8px; font-weight: 500; }
+.codex-moves > span { min-width: 0; display: grid; grid-template-columns: 25px minmax(0,1fr); align-items: center; gap: 5px; overflow: hidden; color: #bfb3c4; font-size: 8px; }
+.codex-moves > span img, .codex-moves > span .move-fallback { width: 25px; height: 25px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); object-fit: cover; color: var(--accent); font-size: 7px; font-style: normal; }
+.codex-moves > span b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 8px; font-weight: 500; }
 .battle-header { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 15px; padding: 12px 0 19px; border-bottom: 1px solid var(--line); }
 .back-link { grid-column: 1 / -1; justify-self: start; padding: 0; cursor: pointer; border: 0; background: none; color: var(--muted); font-size: 8px; letter-spacing: .12em; }
 .back-link:hover { color: var(--gold); }
@@ -1465,6 +1465,7 @@ body[data-tab="battle"] .battle-header h1 { font-size: 28px; margin: 5px 0; }
 .ability-detail-grid b { color: #eee0c7; }
 .combat-keyword { padding: 0 2px; color: #f1db9e; background: #d4b36620; border-bottom: 1px dotted currentColor; cursor: help; text-underline-offset: 2px; }
 .combat-keyword:focus-visible { outline: 1px solid #f1db9e; outline-offset: 2px; }
+.codex-skill .combat-keyword { display: inline; }
 .battle-log ol { display: grid; gap: 3px; max-height: 230px; overflow: auto; padding: 8px 12px; list-style: none; }
 .battle-log li { display: grid; grid-template-columns: 16px minmax(0,1fr); gap: 8px; align-items: start; color: #b9aeba; font-size: 9px; line-height: 1.45; }
 .battle-log li > i { color: #d3b978; font-style: normal; text-align: center; }
