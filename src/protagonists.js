@@ -48,7 +48,7 @@ const protagonistProfiles = [
         "target": "enemy",
         "damageType": "energy",
         "drain": 1,
-        "englishDescription": "Costs 1 Wildcard, deals 12 spiritual damage, and removes 1 Essence from the enemy reserve."
+        "englishDescription": "Deals 12 spiritual damage, and removes 1 Essence from the enemy reserve."
       },
       {
         "name": "Fio de Memória",
@@ -67,7 +67,7 @@ const protagonistProfiles = [
           "harmful": true,
           "turns": 1
         },
-        "englishDescription": "Costs 1 Wildcard and marks a target for 2 turns. If it uses a skill next turn, it takes 6 affliction damage."
+        "englishDescription": "Marks a target for 2 turns. If it uses a skill next turn, it takes 6 affliction damage."
       },
       {
         "name": "Devolver o Eco",
@@ -81,7 +81,7 @@ const protagonistProfiles = [
         "damageType": "energy",
         "spendResidueMax": 2,
         "residueBonusDamage": 3,
-        "englishDescription": "Costs 1 Wildcard and 1 Aether, deals 13 damage, and may spend up to 2 Residue for +3 damage each."
+        "englishDescription": "Deals 13 damage, and may spend up to 2 Residue for +3 damage each."
       }
     ],
     "defense": {
@@ -142,7 +142,7 @@ const protagonistProfiles = [
           "turns": 2
         },
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 12 physical damage, and applies Bleed for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 12 physical damage, and applies Bleed for 3 affliction damage over 2 turns."
       },
       {
         "name": "Brasa Direta",
@@ -160,7 +160,7 @@ const protagonistProfiles = [
           "turns": 2
         },
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 13 spiritual damage, and applies Burn for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 13 spiritual damage, and applies Burn for 3 affliction damage over 2 turns."
       },
       {
         "name": "Ferida que Consome",
@@ -178,7 +178,7 @@ const protagonistProfiles = [
         ],
         "bonusDamage": 5,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Aether, deals 15 physical damage, plus 5 if the target has Bleed or Burn."
+        "englishDescription": "Deals 15 physical damage, plus 5 if the target has Bleed or Burn."
       }
     ],
     "defense": {
@@ -234,7 +234,7 @@ const protagonistProfiles = [
           "graca": 1
         },
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and restores 10 Health to Nilo."
+        "englishDescription": "Restores 10 Health to Nilo."
       },
       {
         "name": "Marca de Caça",
@@ -250,7 +250,7 @@ const protagonistProfiles = [
         "markTurns": 2,
         "expose": 1,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and 1 Wildcard, deals 10 spiritual damage, marks the target for 2 turns, and Exposes it."
+        "englishDescription": "Deals 10 spiritual damage, marks the target for 2 turns, and Exposes it."
       },
       {
         "name": "Luz Contida",
@@ -267,7 +267,7 @@ const protagonistProfiles = [
           "bonusDamage": 4
         },
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and 1 Aether, deals 12 spiritual damage, plus 4 against a target marked by Nilo."
+        "englishDescription": "Deals 12 spiritual damage, plus 4 against a target marked by Nilo."
       }
     ],
     "defense": {
@@ -328,7 +328,7 @@ const protagonistProfiles = [
           "turns": 2
         },
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, deals 10 physical damage, and applies Bleed for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 10 physical damage, and applies Bleed for 3 affliction damage over 2 turns."
       },
       {
         "name": "Marca do Vazio",
@@ -347,7 +347,7 @@ const protagonistProfiles = [
           "turns": 2
         },
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, deals 10 spiritual damage, Exposes the target, and applies Decay for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 10 spiritual damage, Exposes the target, and applies Decay for 3 affliction damage over 2 turns."
       },
       {
         "name": "Resposta do Intervalo",
@@ -366,7 +366,7 @@ const protagonistProfiles = [
         "spendResidueMax": 3,
         "residueCounterBonus": 2,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, counters the next physical or piercing skill for 12 damage. May spend up to 3 Residue for +2 counter damage each."
+        "englishDescription": "Counters the next physical or piercing skill for 12 damage. May spend up to 3 Residue for +2 counter damage each."
       },
       {
         "name": "Estilhaço",
@@ -379,7 +379,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "bonusIfAnyStatus": 4,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Wildcard, deals 12 physical damage, plus 4 if the target has any status."
+        "englishDescription": "Deals 12 physical damage, plus 4 if the target has any status."
       }
     ],
     "defense": {
@@ -444,7 +444,7 @@ const protagonistProfiles = [
           }
         ],
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 12 physical damage, and applies Bleed and Burn, each for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 12 physical damage, and applies Bleed and Burn, each for 3 affliction damage over 2 turns."
       },
       {
         "name": "Golpe Mentiroso",
@@ -459,7 +459,7 @@ const protagonistProfiles = [
         "purgeBuffs": 1,
         "damageIfPurged": 5,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 14 physical damage and removes 1 enemy buff. If it removes a buff, it deals 5 more damage."
+        "englishDescription": "Deals 14 physical damage and removes 1 enemy buff. If it removes a buff, it deals 5 more damage."
       },
       {
         "name": "Ativar Expansão",
@@ -470,7 +470,7 @@ const protagonistProfiles = [
         },
         "activateAshExpansion": 2,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and activates Ash Expansion for 2 turns. It can be used once per combat."
+        "englishDescription": "Activates Ash Expansion for 2 turns. It can be used once per combat."
       },
       {
         "name": "Carne Aberta",
@@ -489,7 +489,7 @@ const protagonistProfiles = [
         },
         "requiresAshExpansion": true,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Aether, deals 14 piercing damage, and applies Bleed for 3 affliction damage over 2 turns. Requires Ash Expansion."
+        "englishDescription": "Deals 14 piercing damage, and applies Bleed for 3 affliction damage over 2 turns. Requires Ash Expansion."
       },
       {
         "name": "Execução Prematura",
@@ -503,7 +503,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "executeIfHpAtMost": 15,
         "absorption": "cinza",
-        "englishDescription": "Costs 2 Ash and 1 Aether, deals 18 damage, and executes the target if it has 15 Health or less after the hit."
+        "englishDescription": "Deals 18 damage, and executes the target if it has 15 Health or less after the hit."
       }
     ],
     "defense": {
@@ -559,7 +559,7 @@ const protagonistProfiles = [
           "graca": 1
         },
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and restores 11 Health to Nilo."
+        "englishDescription": "Restores 11 Health to Nilo."
       },
       {
         "name": "Revelação",
@@ -575,7 +575,7 @@ const protagonistProfiles = [
         "purgeBuffs": 1,
         "expose": 1,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace, 1 Wildcard, and 1 Aether, deals 11 spiritual damage, removes 1 enemy buff, and Exposes the target."
+        "englishDescription": "Deals 11 spiritual damage, removes 1 enemy buff, and Exposes the target."
       },
       {
         "name": "Punho de Clareza",
@@ -592,7 +592,7 @@ const protagonistProfiles = [
           "bonusDamage": 4
         },
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and 1 Aether, deals 13 physical damage, plus 4 if the target is Exposed."
+        "englishDescription": "Deals 13 physical damage, plus 4 if the target is Exposed."
       },
       {
         "name": "Verdade que Prende",
@@ -609,7 +609,7 @@ const protagonistProfiles = [
           "bonusDamage": 4
         },
         "absorption": "graca",
-        "englishDescription": "Costs 2 Grace, deals 11 spiritual damage and Weakens the target, plus 4 damage if it is Exposed."
+        "englishDescription": "Deals 11 spiritual damage and Weakens the target, plus 4 damage if it is Exposed."
       }
     ],
     "defense": {
@@ -664,7 +664,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "stealth": 1,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture, deals 12 damage, and grants Stealth for 1 turn."
+        "englishDescription": "Deals 12 damage, and grants Stealth for 1 turn."
       },
       {
         "name": "Corte Silencioso",
@@ -683,7 +683,7 @@ const protagonistProfiles = [
         },
         "stealthBonus": 5,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, deals 12 physical damage, and applies Bleed for 3 affliction damage over 2 turns. If Nilo is Stealthed, it deals 5 more damage."
+        "englishDescription": "Deals 12 physical damage, and applies Bleed for 3 affliction damage over 2 turns. If Nilo is Stealthed, it deals 5 more damage."
       },
       {
         "name": "Armadilha de Sombra",
@@ -704,7 +704,7 @@ const protagonistProfiles = [
           "turns": 1
         },
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, marks the target for 2 turns, and triggers when it attacks: it takes 9 affliction damage and becomes Exposed."
+        "englishDescription": "Marks the target for 2 turns, and triggers when it attacks: it takes 9 affliction damage and becomes Exposed."
       },
       {
         "name": "Resposta do Vazio",
@@ -731,7 +731,7 @@ const protagonistProfiles = [
           }
         },
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture, 1 Aether, and 1 Wildcard. Counters the next enemy skill of any type for 12 physical damage and applies Decay for 3 affliction damage over 2 turns."
+        "englishDescription": "Counters the next enemy skill of any type for 12 physical damage and applies Decay for 3 affliction damage over 2 turns."
       }
     ],
     "defense": {
@@ -785,7 +785,7 @@ const protagonistProfiles = [
         "mark": "infernal",
         "markTurns": 3,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash, deals 12 spiritual damage, and marks the target for 3 turns."
+        "englishDescription": "Deals 12 spiritual damage, and marks the target for 3 turns."
       },
       {
         "name": "Devastação",
@@ -810,7 +810,7 @@ const protagonistProfiles = [
           }
         ],
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 13 physical damage, and applies Bleed and Burn, each for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 13 physical damage, and applies Bleed and Burn, each for 3 affliction damage over 2 turns."
       },
       {
         "name": "Abrir Colapso I",
@@ -858,7 +858,7 @@ const protagonistProfiles = [
         "purgeBuffs": "all",
         "damageIfPurged": 6,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash, 1 Aether, and 1 Wildcard, deals 14 physical damage and removes all enemy buffs. If it removes a buff, it deals 6 more damage."
+        "englishDescription": "Deals 14 physical damage and removes all enemy buffs. If it removes a buff, it deals 6 more damage."
       },
       {
         "name": "Podridão Devoradora",
@@ -879,7 +879,7 @@ const protagonistProfiles = [
         "bonusIfOwnMark": "infernal",
         "bonusDamage": 5,
         "absorption": "cinza",
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 11 affliction damage and applies Decay for 3 affliction damage over 2 turns. It deals 5 more if the target bears Nilo's Infernal Mark and gains the active Collapse bonus."
+        "englishDescription": "Deals 11 affliction damage and applies Decay for 3 affliction damage over 2 turns. It deals 5 more if the target bears Nilo's Infernal Mark and gains the active Collapse bonus."
       },
       {
         "name": "Execução Infernal",
@@ -893,7 +893,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "executeIfHpAtMost": 15,
         "absorption": "cinza",
-        "englishDescription": "Costs 2 Ash and 1 Aether, deals 21 damage, and executes the target if it has 15 Health or less after the hit."
+        "englishDescription": "Deals 21 damage, and executes the target if it has 15 Health or less after the hit."
       }
     ],
     "defense": {
@@ -901,7 +901,7 @@ const protagonistProfiles = [
       "englishName": "Ashen Silence",
       "shield": 4,
       "silenceMarkedHealing": true,
-      "englishDescription": "Costs 1 Wildcard, grants 4 destructible Defense, and makes the user Invulnerable to new enemy skills for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn; existing afflictions continue."
+      "englishDescription": "Grants 4 destructible Defense, and makes the user Invulnerable to new enemy skills for 1 turn. Enemies with a Mark from Nilo cannot recover Health on their next turn; existing afflictions continue."
     }
   },
   {
@@ -950,7 +950,7 @@ const protagonistProfiles = [
         },
         "setPillar": true,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace, restores 12 Health to an ally, and makes them one of Nilo's Pillars. He can have at most 2."
+        "englishDescription": "Restores 12 Health to an ally, and makes them one of Nilo's Pillars. He can have at most 2."
       },
       {
         "name": "Julgamento",
@@ -967,7 +967,7 @@ const protagonistProfiles = [
           "weaken": 1
         },
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and 1 Aether, deals 13 spiritual damage. If the target damaged a Pillar this combat, it deals 6 more and Weakens the target."
+        "englishDescription": "Deals 13 spiritual damage. If the target damaged a Pillar this combat, it deals 6 more and Weakens the target."
       },
       {
         "name": "Revelação Forte",
@@ -983,7 +983,7 @@ const protagonistProfiles = [
         "purgeBuffs": 2,
         "expose": 1,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace, 1 Wildcard, and 1 Aether, deals 10 spiritual damage, removes up to 2 enemy buffs, and Exposes the target."
+        "englishDescription": "Deals 10 spiritual damage, removes up to 2 enemy buffs, and Exposes the target."
       },
       {
         "name": "Forma de Graça",
@@ -994,7 +994,7 @@ const protagonistProfiles = [
         },
         "activateGraceForm": 3,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and activates Grace Form for 3 turns."
+        "englishDescription": "Activates Grace Form for 3 turns."
       },
       {
         "name": "Campo de Controle",
@@ -1009,7 +1009,7 @@ const protagonistProfiles = [
         "weaken": 1,
         "requiresGraceForm": true,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and 1 Aether, deals 8 spiritual damage to all enemies and Weakens them for 1 turn. Requires Grace Form."
+        "englishDescription": "Deals 8 spiritual damage to all enemies and Weakens them for 1 turn. Requires Grace Form."
       },
       {
         "name": "Intervenção",
@@ -1032,7 +1032,7 @@ const protagonistProfiles = [
         "counterDamageType": "affliction",
         "spendInterventionCharge": 1,
         "absorption": "graca",
-        "englishDescription": "Costs 1 Grace and 1 Wildcard. While Grace Form is active, spend an Intervention Charge on a Pillar to counter the next enemy skill of any type for 11 affliction damage."
+        "englishDescription": "While Grace Form is active, spend an Intervention Charge on a Pillar to counter the next enemy skill of any type for 11 affliction damage."
       },
       {
         "name": "Verdade Absoluta",
@@ -1046,7 +1046,7 @@ const protagonistProfiles = [
           "essence": 1
         },
         "absorption": "graca",
-        "englishDescription": "Costs 2 Grace and 1 Aether, restores 12 Health to a Pillar, and removes its harmful effects."
+        "englishDescription": "Restores 12 Health to a Pillar, and removes its harmful effects."
       }
     ],
     "defense": {
@@ -1054,7 +1054,7 @@ const protagonistProfiles = [
       "englishName": "Sacred Threshold",
       "shield": 4,
       "cleanseOneAffliction": true,
-      "englishDescription": "Costs 1 Wildcard, grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable to new enemy skills for 1 turn. Existing afflictions continue."
+      "englishDescription": "Grants 4 destructible Defense, removes 1 affliction from Nilo, and makes him Invulnerable to new enemy skills for 1 turn. Existing afflictions continue."
     }
   },
   {
@@ -1101,7 +1101,7 @@ const protagonistProfiles = [
         "damageType": "physical",
         "stealth": 1,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture, deals 13 damage, and grants Stealth for 1 turn."
+        "englishDescription": "Deals 13 damage, and grants Stealth for 1 turn."
       },
       {
         "name": "Corte do Interstício",
@@ -1120,7 +1120,7 @@ const protagonistProfiles = [
         },
         "stealthBonus": 5,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, deals 12 piercing damage and applies Bleed for 3 affliction damage over 2 turns. If Nilo is Stealthed, it deals 5 more damage."
+        "englishDescription": "Deals 12 piercing damage and applies Bleed for 3 affliction damage over 2 turns. If Nilo is Stealthed, it deals 5 more damage."
       },
       {
         "name": "Marca Residual",
@@ -1147,7 +1147,7 @@ const protagonistProfiles = [
         "mark": "residual",
         "markTurns": 3,
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture and 1 Aether. Marks the target for 3 turns, Exposes it, and applies Bleed and Decay, each for 3 affliction damage over 2 turns."
+        "englishDescription": "Marks the target for 3 turns, Exposes it, and applies Bleed and Decay, each for 3 affliction damage over 2 turns."
       },
       {
         "name": "Armadilha Profunda",
@@ -1168,7 +1168,7 @@ const protagonistProfiles = [
           "turns": 1
         },
         "absorption": "ruptura",
-        "englishDescription": "Costs 1 Rupture, marks the target for 2 turns, and triggers when it uses a skill: it takes 11 affliction damage and Nilo gains Stealth."
+        "englishDescription": "Marks the target for 2 turns, and triggers when it uses a skill: it takes 11 affliction damage and Nilo gains Stealth."
       },
       {
         "name": "Resposta Partida",
@@ -1194,7 +1194,7 @@ const protagonistProfiles = [
           }
         },
         "absorption": "ruptura",
-        "englishDescription": "Costs 2 Rupture and 1 Aether. Counters the next enemy skill of any type for 13 physical damage and applies Bleed for 3 affliction damage over 2 turns."
+        "englishDescription": "Counters the next enemy skill of any type for 13 physical damage and applies Bleed for 3 affliction damage over 2 turns."
       },
       {
         "name": "Despedaçamento",
@@ -1209,7 +1209,7 @@ const protagonistProfiles = [
         "spendFracturesMax": 1,
         "fractureBonusDamage": 3,
         "absorption": "ruptura",
-        "englishDescription": "Costs 2 Rupture and 1 Aether, deals 9 physical damage to all enemies, and may spend 1 Fracture per target for +3 damage."
+        "englishDescription": "Deals 9 physical damage to all enemies, and may spend 1 Fracture per target for +3 damage."
       }
     ],
     "defense": {
@@ -1218,7 +1218,7 @@ const protagonistProfiles = [
       "shield": 4,
       "nextSkillBonus": 5,
       "nextSkillExpose": 1,
-      "englishDescription": "Costs 1 Wildcard, grants 4 destructible Defense, and makes Nilo Invulnerable to new enemy skills for 1 turn. His next skill deals +5 damage and Exposes its target. Existing afflictions continue."
+      "englishDescription": "Grants 4 destructible Defense, and makes Nilo Invulnerable to new enemy skills for 1 turn. His next skill deals +5 damage and Exposes its target. Existing afflictions continue."
     }
   },
   {
@@ -1263,7 +1263,7 @@ const protagonistProfiles = [
         },
         "shield": 4,
         "reduce": 4,
-        "englishDescription": "Costs 2 Wildcards, grants 4 Defense, and reduces incoming damage by 4 for 1 turn."
+        "englishDescription": "Grants 4 Defense, and reduces incoming damage by 4 for 1 turn."
       },
       {
         "name": "Restituir Vestígio",
@@ -1274,7 +1274,7 @@ const protagonistProfiles = [
         },
         "heal": 8,
         "cleanseOneAffliction": true,
-        "englishDescription": "Costs 1 Wildcard, restores 8 Health, and removes 1 affliction from Nilo."
+        "englishDescription": "Restores 8 Health, and removes 1 affliction from Nilo."
       },
       {
         "name": "Resposta Serena",
@@ -1291,7 +1291,7 @@ const protagonistProfiles = [
           "affliction"
         ],
         "counterDamageType": "affliction",
-        "englishDescription": "Costs 2 Wildcards and counters the next incoming skill of any type for 9 affliction damage."
+        "englishDescription": "Counters the next incoming skill of any type for 9 affliction damage."
       }
     ],
     "defense": {
@@ -1351,7 +1351,7 @@ const protagonistProfiles = [
           "damage": 3,
           "turns": 2
         },
-        "englishDescription": "Costs 1 Ash and 1 Wildcard, deals 11 physical damage, and applies Burn for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 11 physical damage, and applies Burn for 3 affliction damage over 2 turns."
       },
       {
         "name": "Amparo Remanescente",
@@ -1363,7 +1363,7 @@ const protagonistProfiles = [
         },
         "heal": 8,
         "shield": 4,
-        "englishDescription": "Costs 1 Grace and 1 Wildcard, restores 8 Health and grants 4 Defense to an ally."
+        "englishDescription": "Restores 8 Health and grants 4 Defense to an ally."
       },
       {
         "name": "Fenda Suspensa",
@@ -1381,7 +1381,7 @@ const protagonistProfiles = [
           "damage": 3,
           "turns": 2
         },
-        "englishDescription": "Costs 1 Rupture and 1 Wildcard, deals 10 spiritual damage, Exposes the target, and applies Decay for 3 affliction damage over 2 turns."
+        "englishDescription": "Deals 10 spiritual damage, Exposes the target, and applies Decay for 3 affliction damage over 2 turns."
       },
       {
         "name": "Fragmento de Éter",
@@ -1394,7 +1394,7 @@ const protagonistProfiles = [
         "target": "enemy",
         "damageType": "energy",
         "steal": 1,
-        "englishDescription": "Costs 1 Aether and 1 Wildcard, deals 10 spiritual damage, and steals 1 enemy Essence."
+        "englishDescription": "Deals 10 spiritual damage, and steals 1 enemy Essence."
       },
       {
         "name": "Vínculo de Ressonância",
@@ -1412,7 +1412,7 @@ const protagonistProfiles = [
         },
         "mark": "ressonancia",
         "markTurns": 2,
-        "englishDescription": "Costs 1 Ash, 1 Rupture, and 1 Wildcard, deals 8 piercing damage, marks the target for 2 turns, and echoes damage Nilo takes to that target for 1 turn."
+        "englishDescription": "Deals 8 piercing damage, marks the target for 2 turns, and echoes damage Nilo takes to that target for 1 turn."
       },
       {
         "name": "Recompor o Intervalo",
@@ -1425,7 +1425,7 @@ const protagonistProfiles = [
         },
         "shield": 3,
         "cleanse": true,
-        "englishDescription": "Costs 1 Grace, 1 Aether, and 1 Wildcard, grants 3 Defense to the team, and removes their debuffs."
+        "englishDescription": "Grants 3 Defense to the team, and removes their debuffs."
       },
       {
         "name": "Convergência sem Nome",
@@ -1443,7 +1443,7 @@ const protagonistProfiles = [
           "condition": "marked",
           "bonusDamage": 5
         },
-        "englishDescription": "Costs 1 of each Essence type, deals 22 piercing damage, plus 5 against a target marked by the Echo."
+        "englishDescription": "Deals 22 piercing damage, plus 5 against a target marked by the Echo."
       },
       {
         "name": "Desatar a Ressonância",
@@ -1472,7 +1472,7 @@ const protagonistProfiles = [
         "damageType": "energy",
         "perChargeDamage": 3,
         "spendCharge": true,
-        "englishDescription": "Costs 2 Wildcards, deals 10 spiritual damage, plus 3 per Charge spent."
+        "englishDescription": "Deals 10 spiritual damage, plus 3 per Charge spent."
       }
     ],
     "defense": {
