@@ -60,12 +60,27 @@ A proximidade com uma alma nomeada é especialmente perigosa para Nilo. Quanto m
 
 ## As Versões de Nilo
 
-- **Nilo:** cada alma que atravessa seu caminho deixa um resíduo. Ele começa roubando e descarregando Essência, mas o corpo já absorve tipos aleatórios.
-- **Nilo, o Prefácio:** os contatos seguintes deixam Éter, Cinza, Graça e Ruptura. Marcas e custos de cores diferentes mostram que a corrupção está ganhando espaço.
-- **Nilo, o Epílogo:** perto do fim da campanha das Correntes Quebradas, o jogador pode aceitar o expurgo da alma. Nilo fica livre da corrupção e mais fraco; todas as habilidades pagas usam custos Coringa, e o kit recompensa preparação, controle e escolha cuidadosa de quando gastar cargas.
-- **O Eco sem Nome:** se o jogador escolher continuar absorvendo, a corrupção consome o nome. A forma final assimila as quatro Essências e capta um vestígio do alvo; pela ressonância inversa, a dor que o Eco recebe repercute nele. O Eco pode forçar essa ressonância à custa da própria Vida, convertendo cargas em uma resposta mais forte.
+A corrupção agora é acompanhada por três barras de absorção durante a campanha das Correntes Quebradas:
 
-A decisão acontece em um nó especial antes do guardião final das Correntes Quebradas, depois de recrutar Nilo, o Prefácio. Ela define qual forma final é liberada. A pergunta que acompanha Nilo desde que saiu da fila de O Caminho é: **Quanto de mim ainda sou eu?**
+| Barra | Essência | O que a faz subir |
+| --- | --- | --- |
+| Cinza | Inferno | Aplicar Sangramento ou Queimadura; derrotar inimigos em encontros do Inferno. |
+| Graça | Paraíso | Curar, proteger ou remover aflições de aliados. |
+| Ruptura | Limbo | Aplicar status, usar Furtividade ou preparar respostas. |
+
+Ações qualificadas acrescentam 5 pontos; uma derrota em combate do Inferno também acrescenta 5 a Cinza. Cada barra libera o Prefácio em 30, o Epílogo em 70 e a forma Final em 100. O jogador escolhe quais formas equipar entre travessias. Se uma barra atingir 100, Nilo fica ligado àquele caminho até o fim da travessia e as outras duas barras são apagadas.
+
+Se as três barras alcançarem 70 antes de uma delas chegar a 100, elas se fundem e liberam **O Eco sem Nome**. O Eco já não usa o nome Nilo e conduz Éter, Cinza, Graça e Ruptura em um kit de maior complexidade.
+
+Se nenhuma barra chegar a 70, a Fenda da Alma surge antes do guardião final. O jogador decide se aceita o Expurgo. Ao aceitar, libera **Nilo Purificado**, uma forma enfraquecida e livre da corrupção, com custo Coringa em todas as skills e foco em contenção e respostas. Recusar mantém a forma atual e não libera Nilo Purificado nesta travessia. As barras reiniciam na próxima run.
+
+- **Nilo Base:** registra Resíduos quando inimigos gastam Essência e escolhe quando convertê-los.
+- **Caminho de Cinza:** prepara feridas, amplia dano por janelas temporárias e pode trocar Vida por Colapso.
+- **Caminho de Graça:** marca para responder, recompensa limpeza e organiza Pilares e Intervenções.
+- **Caminho de Ruptura:** acumula Resíduos ou Fraturas, usa Furtividade, armadilhas e respostas escolhidas.
+- **O Eco sem Nome:** mistura as quatro Essências, vincula alvos por ressonância e converte Cargas em dano.
+
+A escolha do Expurgo acontece perto do fim da história, mas o jogador também pode evitar essa decisão ao fazer uma barra chegar a 70 ou equilibrar as três. A pergunta de Nilo permanece: **Quanto de mim ainda sou eu?**
 
 ## Consequências para a direção visual
 

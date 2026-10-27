@@ -10,6 +10,17 @@ const supported = new Set(["pt-BR", "en"]);
 
 const phraseTranslations = Object.fromEntries(Object.entries({
   "Post Mortem Arena": "Post Mortem Arena",
+  "IDENTIDADE · O ECO SEM NOME": "IDENTITY · THE NAMELESS ECHO",
+  "As três barras se fundiram em uma forma só.": "The three bars have merged into one form.",
+  "30 · Prefácio 70 · Epílogo 100 · Final": "30 · Preface 70 · Epilogue 100 · Final",
+  "RESÍDUO": "RESIDUE", "INTERVENÇÕES": "INTERVENTIONS", "CARGAS": "CHARGES",
+  "Prefácio": "Preface", "Epílogo": "Epilogue", "Fraturas": "Fractures",
+  "Escolha uma resposta": "Choose a response",
+  "Sombra Preparada · escolha uma resposta": "Prepared Shadow · choose a response",
+  "+5 na próxima skill de dano": "+5 on the next damage skill",
+  "A próxima resposta anula qualquer tipo": "The next response cancels any type",
+  "O jogador decide se quer gastá-los": "The player chooses whether to spend them",
+  "CAMINHO FIXADO": "PATH LOCKED",
   "Sinergias discretas de Elo, Mundo e afinidade": "Subtle Bond, Realm, and affinity synergies",
   "O Fim · Rei do Inferno": "The End · King of Hell",
   "ARQUÉTIPO PRINCIPAL ·": "PRIMARY ARCHETYPE ·",
@@ -330,7 +341,12 @@ const exactSentencePatterns = [
   ,[/^quando (.+) cai, recupera (\d+) de vida e a equipe recebe (\d+) (.+)\.$/i, (_, target, heal, amount, resource) => `When ${translateWords(target)} falls, restore ${heal} Health and your team gains ${amount} ${translateWords(resource)}.`]
   ,[/^ao atacar um inimigo que guarda ao menos (\d+) (.+), remove (\d+) (.+) e reduz em (\d+) o dano causado por ele na próxima ação\. ativa uma vez por rodada\.$/i, (_, minimum, resource, amount, removed, damage) => `When attacking an enemy with at least ${minimum} ${translateWords(resource)}, remove ${amount} ${translateWords(removed)} and reduce their next action's damage by ${damage}. Once per round.`]
   ,[/^quando um apoio restaura ao menos (\d+) de vida de um aliado, (.+)\.$/i, (_, amount, effect) => `When a support ability restores at least ${amount} Health to an ally, ${translateWords(effect)}.`]
-  ,[/^ao perder vida para uma habilidade espiritual, devolve (\d+) de dano de aflição ao agressor e gera (\d+) essência aleatória\. ativa uma vez por rodada\.$/i, (_, amount, essence) => `When a spiritual ability damages you, deal ${amount} affliction damage to the attacker and generate ${essence} random Essence. Once per round.`]
+  ,[/^ao perder vida para uma habilidade espiritual, devolve (\d+) de dano de aflição ao agressor e gera (\d+) essência aleatória\. ativa uma vez por rodada\.$/i, (_, amount, essence) => `When a spiritual ability damages you, deal ${amount} affliction damage to the attacker and generate ${essence} random Essence. Once per round.`],
+  [/^resíduo · (\d+) disponível$/i, (_, amount) => `Residue · ${amount} available`],
+  [/^fraturas · até (\d+) por alvo$/i, (_, amount) => `Fractures · up to ${amount} per target`],
+  [/^caminho fixado · (cinza|graça|ruptura)$/i, (_, path) => `PATH LOCKED · ${({cinza:"Ash",graça:"Grace",ruptura:"Rupture"})[normalize(path)]}`],
+  [/^resíduo (\d+) · intervenções (\d+) · cargas (\d+)$/i, (_, residue, intervention, charges) => `RESIDUE ${residue} · INTERVENTIONS ${intervention} · CHARGES ${charges}`],
+  [/^30\s*·\s*prefácio\s+70\s*·\s*epílogo\s+100\s*·\s*final$/i, () => "30 · Preface 70 · Epilogue 100 · Final"],
 ];
 
 const tokenPattern = /[\p{L}]+(?:[-’'][\p{L}]+)*/gu;

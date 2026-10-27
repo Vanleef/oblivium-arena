@@ -18,7 +18,7 @@ import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, resolveNiloPathChoice } from "./progression.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
@@ -96,13 +96,13 @@ function ensureRunMap() {
   run.difficulty ||= 0; run.variantId ||= "hunt"; run.variantTitle ||= "Caçada"; run.team ||= [...profile.team];
   const rosterIds=getEloRoster(run.eloId).map(c=>c.id),opponentIds=rosterIds.filter(id=>!(run.team||profile.team).includes(id));
   run.bossIds ||= selectBossRoster(run.team||profile.team,opponentIds.length>=3?opponentIds:rosterIds,run.seed);
-  if (!Array.isArray(run.map) || !run.map.length) run.map = generateTrail(run.eloId, run.seed || 0,run.variantId||"hunt",{includeNiloChoice:run.eloId==="correntes-quebradas"&&!profile.niloPath&&(profile.ownedIds||[]).includes("nilo-o-prefacio")});
+  if (!Array.isArray(run.map) || !run.map.length) run.map = generateTrail(run.eloId, run.seed || 0,run.variantId||"hunt",{includeNiloChoice:run.eloId==="correntes-quebradas"&&(profile.ownedIds||[]).includes("nilo")});
   run.stage = Math.min(Math.max(0, run.stage || 0), run.map.length);
   run.clearedNodeIds ||= [];
   run.availableNodeIds ||= run.map[run.stage]?.map((node) => node.id) || [];
   run.teamHealth ||= Object.fromEntries((run.team || profile.team).map((id) => [id, 100]));
   run.buffs ||= [];
-  run.memories ||= [];run.memoryNodeIds ||= [];run.guided=Boolean(run.guided);
+  run.memories ||= [];run.memoryNodeIds ||= [];run.guided=Boolean(run.guided);if(run.niloAbsorption===undefined)run.niloAbsorption=run.eloId==="correntes-quebradas"?{cinza:0,graca:0,ruptura:0}:null;run.niloUnlockedIds||=[];run.niloPath||=null;run.niloPurificationChoiceResolved||=false;
   normalizeTrail(run);
 }
 ensureRunMap();
@@ -295,7 +295,7 @@ function startEncounter(node) {
   }
   state.battleNode = node;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
-  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0 });
+  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption });
   beginInfluences(state.battle,(profile.run?.seed||1)+(profile.run?.encounter||0)*97);
   state.targetId = null;
   state.battleFx = null;
@@ -333,7 +333,7 @@ function resolveNode(node) {
     return;
   }
   if (nodeType === "event") state.pending = { type: "event" };
-  if (nodeType === "nilo-choice") state.pending = { type: "nilo-choice" };
+  if (nodeType === "nilo-choice") { if(canChooseNiloPath(profile,profile.run))state.pending = { type: "nilo-choice" }; else { continueRun(); return; } }
   if (nodeType === "shop") state.pending = { type: "shop", choices: getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+1) };
   if (nodeType === "upgrade") {
     const choices = getRelevantBuffChoices(profile.run.team, profile.run.buffs, profile.run.seed+profile.run.encounter*71+2);
@@ -347,10 +347,10 @@ function chooseEvent(choice) {
   if(!profile.run||(!niloChoice&&state.pending?.type!=="event"))return;
   if(profile.run.serverOwned){requestCampaign({op:"event",choice});return;}
   if(niloChoice){
-    if(!resolveNiloPathChoice(profile,choice,profile.run))return;
+    const resolved=resolveNiloPathChoice(profile,choice,profile.run);if(!resolved)return;
     profile.eloProgress[profile.run.eloId].events++;
     continueRun();
-    toast(choice==="purged"?"Nilo aceitou o Expurgo. O Epílogo foi liberado.":"A corrupção venceu. O Eco sem Nome despertou.");
+    toast(resolved.id?"Expurgo aceito. Nilo Purificado foi liberado.":"Nilo recusou o Expurgo e mantém sua identidade atual.");
     return;
   }
   profile.eloProgress[profile.run.eloId].events++;
@@ -492,6 +492,7 @@ function presentBattleEffect(before,event) {
 }
 function resolveCombatStep() {
   const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);
+  if(profile.run&&!profile.run.serverOwned&&battle.niloAbsorption){const unlocked=syncNiloAbsorption(profile,profile.run,battle.niloAbsorption);if(unlocked.length)save();}
   if(!result.event){state.battleFx=null;render();return;}presentBattleEffect(before,result.event);
   battleFxTimer=setTimeout(()=>{if(state.battle!==battle)return;state.battleFx=null;if(result.done)render();else resolveCombatStep();},result.event.mode==="turn"?750:1250);
 }
@@ -499,7 +500,7 @@ function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
   const exchanges=state.battle.pendingEssenceExchanges||[];
   if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected,exchanges});return;}
-  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
+  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend})=>({actorId,abilityId,targetId,residueSpend,fractureSpend}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
   if(!commitTurn(state.battle,payment.selected).ok)return;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {
@@ -514,7 +515,7 @@ function updateBattle(actorId,abilityId) {
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
   if(!state.selectedSkill){state.inspectUnitId=targetId;state.focusSkill=null;render();return;}
-  const {actorId,abilityId}=state.selectedSkill,result=chooseAction(state.battle,actorId,abilityId,targetId);
+  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0});
   if(!result.ok){toast(result.reason);return;}state.exchangeOpen=false;state.exchangePayment=null;state.selectedSkill=null;render();
 }
 
@@ -613,7 +614,7 @@ function pendingPanel() {
   const pending = state.pending;
   if (!pending) return "";
   if (pending.type === "nilo-choice") return `
-    <section class="choice-panel nilo-choice-panel"><div class="eyebrow">A ALMA DE NILO · DECISÃO NO LIMIAR</div><h3>O que ainda pode ser salvo?</h3><p>As Essências absorvidas disputam o que resta da alma. A escolha define a forma que atravessará o próximo Elo.</p><div class="choice-actions"><button data-event-choice="purged"><b>⟲ Aceitar o Expurgo</b><small>Limpa a alma e libera Nilo, o Epílogo: uma forma enfraquecida, com custos Coringa e respostas estratégicas.</small></button><button data-event-choice="embraced"><b>◈ Continuar absorvendo</b><small>A corrupção consome o nome e libera O Eco sem Nome: assimila um vestígio, sincroniza sua Essência com um alvo e faz a dor repercutir.</small></button></div></section>`;
+    <section class="choice-panel nilo-choice-panel"><div class="eyebrow">A ALMA DE NILO · ESCOLHA PRÓXIMA AO FIM</div><h3>O que ainda pode ser salvo?</h3><p>Nenhuma essência chegou a 70%. O jogador pode aceitar o Expurgo e libertar a alma da corrupção, ou recusá-lo e continuar com a forma atual.</p><div class="choice-actions"><button data-event-choice="purged"><b>⟲ Aceitar o Expurgo</b><small>Libera Nilo Purificado: mais fraco, com todas as skills pagas em Coringa e foco em respostas estratégicas.</small></button><button data-event-choice="decline"><b>◈ Recusar o Expurgo</b><small>Preserva a forma atual; Nilo Purificado não será liberado nesta travessia.</small></button></div></section>`;
   if (pending.type === "event") return `
     <section class="choice-panel"><div class="eyebrow">EVENTO · UMA ALMA À BEIRA DA TRILHA</div><h3>Uma corrente pede cuidado.</h3><p>Um viajante oferece fragmentos para continuar ou ajuda o trio a remendar uma fissura.</p><div class="choice-actions"><button data-event-choice="repair"><b>⟲ Reparar uma corrente</b><small>Recupere 1 de estabilidade e 25% de Vida</small></button><button data-event-choice="echo"><b>◈ Guardar um eco</b><small>Receba 8 fragmentos e ${esc(activeAffinityResource().shortName)} inicial nos próximos combates</small></button></div></section>`;
   if (["upgrade", "reward"].includes(pending.type)) return `
@@ -763,11 +764,13 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-language], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
+  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
   if (!target) return;
   if(state.account&&state.audioOn)startAmbience();
   playSfx("click");
   if(target.dataset.language){setLanguage(target.dataset.language);render();return;}
+  if(target.dataset.spendChoice){const [actorId,abilityId,kind,value]=target.dataset.spendChoice.split(":");state.spendChoices||={};state.spendChoices[`${actorId}:${abilityId}:${kind}`]=Number(value)||0;render();return;}
+  if(target.dataset.shadowChoice){const [actorId,choice]=target.dataset.shadowChoice.split(":");const actor=state.battle?.allies.find(unit=>unit.id===actorId);if(actor?.shadowChoicePending){actor.shadowChoicePending=false;if(choice==="damage")actor.shadowDamageBonus=5;else actor.shadowBroadCounter=true;render();}return;}
   if(target.dataset.publicView){state.publicView=target.dataset.publicView;if(target.dataset.publicView==="tutorial")state.publicTutorialStep=0;render();return;}
   if(target.dataset.authMode){state.authMode=target.dataset.authMode;state.accountError="";render();return;}
   if(target.dataset.avatar){profile.avatarId=target.dataset.avatar;state.profileError="";render();return;}

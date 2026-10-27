@@ -5,14 +5,20 @@ export function shuffled(items,rng=Math.random) { const out=[...items];for(let i
 const roster=id=>characters.filter(c=>c.eloId===id);
 const recruitEligible=(profile,character)=>{
   if(!character||character.npcOnly)return false;
-  if(character.id==='nilo-o-prefacio')return (profile.ownedIds||[]).includes('nilo');
-  if(character.id==='nilo-o-epilogo')return profile.niloPath==='purged';
-  if(character.id==='o-eco-de-nilo')return profile.niloPath==='embraced';
+  if(character.protagonistFamily==="nilo"&&character.id!=="nilo")return (profile.ownedIds||[]).includes(character.id);
   return true;
 };
 export function normalizeCampaign(profile) {
+  profile.ownedIds ||= [];
+  profile.unlockedAvatars ||= ["soul",...profile.ownedIds];
   profile.eloProgress ||= {};
   profile.globalUpgrades ||= [];
+  if(profile.run){
+    if(profile.run.niloAbsorption===undefined)profile.run.niloAbsorption=profile.run.eloId==="correntes-quebradas"?{cinza:0,graca:0,ruptura:0}:null;
+    profile.run.niloUnlockedIds||=[];
+    profile.run.niloPath||=null;
+    profile.run.niloPurificationChoiceResolved||=false;
+  }
   if(!['purged','embraced'].includes(profile.niloPath))profile.niloPath=(profile.ownedIds||[]).includes('o-eco-de-nilo')?'embraced':(profile.ownedIds||[]).includes('nilo-o-epilogo')?'purged':null;
   for(const elo of elos) {
     const legacy=!profile.campaignVersion&&profile.completedElos?.includes(elo.id);
@@ -25,16 +31,45 @@ export function normalizeCampaign(profile) {
   return profile;
 }
 export function canChooseNiloPath(profile,run=profile?.run) {
-  const node=run?.map?.flat?.().find(item=>item.id===run.currentNodeId);
-  return Boolean(run&&run.eloId==='correntes-quebradas'&&!profile?.niloPath&&profile?.ownedIds?.includes('nilo-o-prefacio')&&node?.type==='nilo-choice');
+  const node=run?.map?.flat?.().find(item=>item.id===run.currentNodeId),bars=run?.niloAbsorption||{};
+  const noThreshold=["cinza","graca","ruptura"].every(key=>(bars[key]||0)<70);
+  return Boolean(run&&run.eloId==="correntes-quebradas"&&!run.niloPath&&!run.niloPurificationChoiceResolved&&noThreshold&&profile?.ownedIds?.includes("nilo")&&node?.type==="nilo-choice");
 }
 export function resolveNiloPathChoice(profile,choice,run=profile?.run) {
-  if(!['purged','embraced'].includes(choice)||!canChooseNiloPath(profile,run))return null;
-  const id=choice==='purged'?'nilo-o-epilogo':'o-eco-de-nilo';
-  profile.niloPath=choice;
+  if(!canChooseNiloPath(profile,run))return null;
+  if(!["purged","purified","decline","embraced"].includes(choice))return null;
+  run.niloPurificationChoiceResolved=true;
+  if(choice==="decline"||choice==="embraced")return {choice,id:null};
+  const id="nilo-o-epilogo";
+  profile.niloPath="purged";
   profile.ownedIds=[...new Set([...(profile.ownedIds||[]),id])];
-  profile.unlockedAvatars=[...new Set([...(profile.unlockedAvatars||['soul']),id])];
-  return {choice,id};
+  profile.unlockedAvatars=[...new Set([...(profile.unlockedAvatars||["soul"]),id])];
+  return {choice:"purified",id};
+}
+const niloMilestones={
+ cinza:{30:"nilo-o-prefacio",70:"nilo-cinza-epilogo",100:"nilo-cinza-final"},
+ graca:{30:"nilo-graca-prefacio",70:"nilo-graca-epilogo",100:"nilo-graca-final"},
+ ruptura:{30:"nilo-ruptura-prefacio",70:"nilo-ruptura-epilogo",100:"nilo-ruptura-final"}
+};
+function unlockNiloForm(profile,run,id){
+ profile.ownedIds=[...new Set([...(profile.ownedIds||[]),id])];
+ profile.unlockedAvatars=[...new Set([...(profile.unlockedAvatars||["soul"]),id])];
+ run.niloUnlockedIds=[...new Set([...(run.niloUnlockedIds||[]),id])];
+}
+export function syncNiloAbsorption(profile,run,bars=run?.niloAbsorption){
+ if(!run||run.eloId!=="correntes-quebradas"||run.niloPath||!bars)return [];
+ const current={cinza:Math.max(0,Math.min(100,Number(bars.cinza)||0)),graca:Math.max(0,Math.min(100,Number(bars.graca)||0)),ruptura:Math.max(0,Math.min(100,Number(bars.ruptura)||0))};
+ run.niloAbsorption=current;const unlocked=[];
+ for(const [path,thresholds]of Object.entries(niloMilestones))for(const [threshold,id]of Object.entries(thresholds))if(current[path]>=Number(threshold)&&!(run.niloUnlockedIds||[]).includes(id)){unlockNiloForm(profile,run,id);unlocked.push(id);}
+ if(["cinza","graca","ruptura"].every(key=>current[key]>=70)){
+  run.niloPath="embraced";run.niloAbsorption=null;unlockNiloForm(profile,run,"o-eco-de-nilo");unlocked.push("o-eco-de-nilo");return unlocked;
+ }
+ const finalPath=Object.keys(niloMilestones).find(key=>current[key]>=100);
+ if(finalPath){
+  run.niloPath=finalPath;run.niloAbsorption={cinza:finalPath==="cinza"?100:0,graca:finalPath==="graca"?100:0,ruptura:finalPath==="ruptura"?100:0};
+  const id=niloMilestones[finalPath][100];if(!(run.niloUnlockedIds||[]).includes(id)){unlockNiloForm(profile,run,id);unlocked.push(id);}
+ }
+ return unlocked;
 }
 export function maxDifficulty(profile,id) { const cleared=profile.eloProgress[id]?.clearedDifficulties||[];let next=0;while(cleared.includes(next))next++;return next; }
 export function eloAccess(profile,elo) {
@@ -130,8 +165,8 @@ export function createExpedition(profile,elo,variantId='hunt',difficulty=maxDiff
   if(!Number.isInteger(difficulty)||difficulty<0||difficulty>maxDifficulty(profile,elo.id))throw Error('Dificuldade bloqueada.');
   const rng=seededRandom(seed),candidates=shuffled(recruitCandidates(profile,elo,variantId),rng),recruitable=candidates.filter(c=>!profile.ownedIds.includes(c.id)),nonTeamRoster=shuffled(roster(elo.id).filter(c=>!profile.team.includes(c.id)&&recruitEligible(profile,c)),rng),bossPool=[...new Set([...(nonTeamRoster.length>=3?nonTeamRoster:shuffled(roster(elo.id).filter(c=>recruitEligible(profile,c)),rng)).map(c=>c.id),...recruitable.map(c=>c.id)])],variantSeed=[...variantId].reduce((hash,char)=>(Math.imul(hash,31)+char.charCodeAt(0))>>>0,seed>>>0),bossIds=selectBossRoster(profile.team,bossPool,variantSeed);
   if(recruitable.length&&!bossIds.some(id=>recruitable.some(c=>c.id===id)))bossIds[2]=recruitable[Math.floor(rng()*recruitable.length)].id;
-  const map=generateTrail(elo.id,seed,variantId,{includeNiloChoice:elo.id==='correntes-quebradas'&&!profile.niloPath&&(profile.ownedIds||[]).includes('nilo-o-prefacio')}),g=aggregateGlobal(profile),maxStability=3+(g.stability||0);
-  const run={eloId:elo.id,variantId,variantTitle:variant.title,difficulty,seed,map,bossIds,team:[...profile.team],stage:0,stability:maxStability,maxStability,buffs:[],memories:[],memoryNodeIds:[],guided:Boolean(options.guided),encounter:0,tried:0,rewardedNodeIds:[],teamHealth:{},availableNodeIds:map[0].map(n=>n.id),revealedNodeIds:map[0].map(n=>n.id),clearedNodeIds:[],currentNodeId:null};
+  const map=generateTrail(elo.id,seed,variantId,{includeNiloChoice:elo.id==="correntes-quebradas"&&(profile.ownedIds||[]).includes("nilo")}),g=aggregateGlobal(profile),maxStability=3+(g.stability||0);
+  const run={eloId:elo.id,variantId,variantTitle:variant.title,difficulty,seed,map,bossIds,team:[...profile.team],stage:0,stability:maxStability,maxStability,buffs:[],memories:[],memoryNodeIds:[],guided:Boolean(options.guided),encounter:0,tried:0,rewardedNodeIds:[],niloAbsorption:elo.id==="correntes-quebradas"?{cinza:0,graca:0,ruptura:0}:null,niloPath:null,niloUnlockedIds:[],niloPurificationChoiceResolved:false,teamHealth:{},availableNodeIds:map[0].map(n=>n.id),revealedNodeIds:map[0].map(n=>n.id),clearedNodeIds:[],currentNodeId:null};
   run.teamHealth=Object.fromEntries(run.team.map(id=>[id,runMaxHp(profile,run,id)]));return run;
 }
 export function recordEncounter(profile,run,node) {

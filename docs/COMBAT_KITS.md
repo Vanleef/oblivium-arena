@@ -2373,74 +2373,144 @@ Acumule três cargas para emprestar fôlego a um aliado ou gaste a reserva na ru
 - **Soltar a Âncora** (1 Graça + 1 Éter; recarga 2T): Causa 20 de dano de aflição a um inimigo. Consome as cargas: +9 de dano por carga. O usuário perde 5 de Vida (não o derrota).
 - **Suspensão Absoluta** (1 Coringa; recarga 4T): O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
 
-### Nilo — Manipulador de Essência
+## Nilo — progressão de Essências
 
-**Variação:** Os primeiros contatos deixam resíduos de Essência: Nilo rouba, protege-se e descarrega a energia que não consegue conter. · **Essência:** Éter
+As barras de **Cinza**, **Graça** e **Ruptura** acompanham uma travessia pelas Correntes Quebradas. Cada ação que se encaixa claramente em um caminho acrescenta 5 pontos à barra correspondente; derrotar um inimigo em um encontro do Inferno também acrescenta 5 a Cinza. Os limites liberam Prefácio em 30, Epílogo em 70 e Final em 100. As formas liberadas entram na coleção do jogador.
 
-**Outros arquétipos:** Gerador de Essência, Gastador de Essência
+Ao chegar a 100 em uma barra, Nilo fica fixado naquele caminho até o fim da travessia e as outras barras são zeradas. Se as três barras chegarem a 70 antes disso, elas se fundem e liberam **O Eco sem Nome**. No fim da travessia, se nenhuma barra chegou a 70, a Fenda da Alma oferece uma escolha: aceitar o Expurgo para liberar **Nilo Purificado** ou recusá-lo e manter a forma atual. As barras recomeçam zeradas na travessia seguinte.
 
-Absorção sem escolha
+### Nilo — Receptáculo Instável
 
-**Estrutura:** Cada alma que atravessa o caminho de Nilo deixa um resíduo. A passiva absorve uma Essência aleatória na primeira vez que ele gasta Essência em cada rodada.
+**Passiva — Registro Aberto:** sempre que um inimigo gastar 2 ou mais Essências, Nilo grava 1 Resíduo, até 3. Resíduos só podem ser gastos em **Devolver o Eco**, e o jogador decide se quer gastá-los.
 
-**Passiva — Receptáculo Aberto:** A primeira vez por rodada que Nilo gasta Essência, seu corpo absorve 1 Essência aleatória.
+- **Toque Receptivo** (1 Coringa): 11 de dano espiritual e remove 1 Essência da reserva inimiga.
+- **Fio de Memória** (1 Coringa + 1 Qualquer): marca por 3 turnos. Se o alvo usar uma skill no próximo turno, sofre 7 de dano de aflição.
+- **Devolver o Eco** (1 Coringa + 1 Éter): 14 de dano; pode gastar até 2 Resíduos para causar +4 por Resíduo.
+- **Limiar** (1 Qualquer): Invulnerável.
 
-- **Sucção de Éter** (1 Éter; recarga 0T): Causa 10 de dano espiritual a um inimigo. Rouba 1 Essência da reserva inimiga.
-- **Recipiente Rachado** (1 Ruptura + 1 Coringa; recarga 0T): Concede 8 de Defesa destrutível e 1 carga.
-- **Descarga Indócil** (1 Ruptura + 1 Éter; recarga 0T): Causa 14 de dano perfurante a um inimigo. Consome as cargas: +3 de dano por carga.
-- **Pele do Limbo** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+### Prefácio de Cinza — Ferida em Sequência
 
-### Nilo, o Prefácio — Preparador de Marcas
+**Passiva — Ferida Aberta:** depois que Nilo aplica Sangramento ou Queimadura, o próximo dano que causar àquele alvo ignora 5 de Defesa. É uma sequência preparada, sem dano automático.
 
-**Variação:** Novos contatos deixam cores diferentes na alma; Nilo marca um alvo e combina Essências para converter a abertura em pressão. · **Essência:** Éter
+- **Corte Escarro** (1 Cinza): 14 de dano e Sangramento (4 por 2 turnos).
+- **Brasa Direta** (1 Cinza + 1 Qualquer): 15 de dano espiritual e Queimadura (4 por 2 turnos).
+- **Ferida que Consome** (1 Cinza + 1 Éter): 16 de dano; se o alvo tiver Sangramento ou Queimadura, causa +6.
+- **Limiar** (1 Qualquer): Invulnerável.
 
-**Outros arquétipos:** Gerador de Essência
+### Epílogo de Cinza — Expansão Autodestrutiva
 
-A primeira palavra
+**Passiva — Expansão de Cinza:** uma vez por combate, Nilo pode ativar a Expansão por 2 turnos. Skills de dano causam +7, mas Nilo perde 5 de Vida por uso. O jogador escolhe quando ativar e quando guardar a janela.
 
-**Estrutura:** Cinza, Graça e Ruptura também atravessam Nilo. Marcas e custos de cores diferentes tentam organizar a corrupção antes que ela fale por ele.
+- **Lâmina de Sangue e Fogo** (1 Cinza): 15 de dano, Sangramento e Queimadura.
+- **Golpe Mentiroso** (1 Cinza + 1 Qualquer): 16 de dano e remove 1 buff; se remover, causa +6.
+- **Ativar Expansão** (1 Cinza): ativa a Expansão por 2 turnos.
+- **Carne Aberta** (durante Expansão; 1 Cinza + 1 Éter): 19 de dano perfurante e Sangramento.
+- **Execução Prematura** (2 Cinza + 1 Éter): 18 de dano; executa se o alvo terminar com 15 de Vida ou menos.
+- **Limiar** (1 Qualquer): Invulnerável.
 
-**Passiva — Centelha Contaminada:** O primeiro golpe ofensivo de Nilo em cada combate absorve 1 Essência aleatória.
+### Final de Cinza — Nilo, o Sem Rastro
 
-- **Palavra Inicial** (1 Éter; recarga 0T): Causa 9 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.
-- **Frase de Passagem** (1 Cinza + 1 Graça; recarga 0T): Causa 12 de dano perfurante. Contra um alvo Marcado, causa +6 de dano e consome a preparação.
-- **Margem Reescrita** (1 Ruptura + 1 Coringa; recarga 0T): Concede 7 de Defesa destrutível e absorve 1 Essência aleatória.
-- **Pausa entre Linhas** (1 Coringa; recarga 4T): Concede 5 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+**Passiva — Limiar de Colapso:** Nilo pode abrir Colapso I e depois Colapso II, um estado por vez. O jogador escolhe quando subir de nível ou encerrar o Colapso; dano e custo de Vida aumentam juntos.
 
-### Nilo, o Epílogo — Tático de Contenção
+- **Marca Infernal** (1 Cinza): 13 de dano espiritual e Marca Infernal por 3 turnos.
+- **Devastação** (1 Cinza + 1 Qualquer): 18 de dano, Sangramento e Queimadura.
+- **Abrir Colapso I** (1 Cinza): dura 3 turnos; skills de dano causam +6 e custam 4 de Vida.
+- **Abrir Colapso II** (requer Colapso I; 2 Cinza): dura 2 turnos; skills de dano causam +10 e custam 7 de Vida.
+- **Encerrar Colapso** (sem custo): encerra o estado atual.
+- **Mentira Letal** (1 Cinza + 1 Éter): 17 de dano e remove todos os buffs; se remover pelo menos um, causa +8.
+- **Podridão Devoradora** (durante qualquer Colapso; 1 Cinza + 1 Qualquer): 16 de dano de aflição e Decadência; causa +9 contra um alvo com Marca Infernal.
+- **Execução Infernal** (2 Cinza + 1 Éter): 21 de dano; executa se o alvo terminar com 15 de Vida ou menos.
+- **Silêncio de Cinza** (1 Qualquer): Invulnerável; inimigos com Marca Infernal não recuperam Vida no próximo turno.
 
-**Variação:** Depois do expurgo, Nilo está enfraquecido e livre da corrupção. Seus custos Coringa e suas respostas de controle premiam preparação e escolha de tempo. · **Essência:** Coringa
+### Prefácio de Graça — Marcação e Resposta
 
-**Outros arquétipos:** Preparador de Marcas, Interditor
+**Passiva — Marca de Caça:** quando Nilo marca um alvo, sua próxima skill contra ele causa +5 e restaura 3 de Vida. É preciso marcar antes de atacar.
 
-O fim que ainda responde
+- **Toque de Clareza** (1 Graça): restaura 10 de Vida.
+- **Marca de Caça** (1 Graça + 1 Qualquer): 12 de dano espiritual, marca por 3 turnos e aplica Exposto.
+- **Luz Contida** (1 Graça + 1 Éter): 13 de dano espiritual; causa +5 contra alvo marcado.
+- **Limiar** (1 Qualquer): Invulnerável.
 
-**Estrutura:** Todos os custos pagos do kit são Coringa. O Selo do Vazio converte cada gasto em carga; Nilo prepara uma Marca, protege-se e escolhe quando liberar uma resposta precisa.
+### Epílogo de Graça — Clareza Momentânea
 
-**Passiva — Selo do Vazio:** Uma vez por rodada, ao pagar um custo Coringa, Nilo ganha 1 carga para uma resposta futura.
+**Passiva — Clareza Momentânea:** depois que Nilo remove um buff inimigo ou uma aflição de aliado, a próxima skill causa +6 ou restaura +4 de Vida, conforme a função da skill.
 
-- **Marca de Cinza** (1 Coringa; recarga 0T): Causa 7 de dano de aflição a um inimigo e o Marca por 2 turnos.
-- **Círculo de Contenção** (1 Coringa; recarga 0T): Concede 6 de Defesa destrutível e remove condições nocivas de Nilo.
-- **Resposta Precisa** (2 Coringas; recarga 0T): Causa 9 de dano perfurante. Contra um alvo Marcado, causa +3 de dano e consome a Marca. Cada carga gasta acrescenta 2 de dano; o alvo fica Enfraquecido por 1 turno.
-- **Fecho Incompleto** (1 Coringa; recarga 4T): Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+- **Sustento** (1 Graça): restaura 11 de Vida.
+- **Revelação** (1 Graça + 1 Qualquer): 13 de dano espiritual, remove 1 buff e aplica Exposto.
+- **Punho de Clareza** (1 Graça + 1 Éter): 16 de dano; contra alvo Exposto, causa +7.
+- **Verdade que Prende** (2 Graça): 14 de dano espiritual e Enfraquecimento; causa +6 contra alvo Exposto.
+- **Limiar** (1 Qualquer): Invulnerável.
 
-### O Eco sem Nome — Condutor de Ecos
+### Final de Graça — Nilo, o que Mantém de Pé
 
-**Variação:** A forma final mistura Éter, Cinza, Graça e Ruptura para assimilar um vestígio e criar uma ressonância inversa. A Vida que o Eco perde repercute no alvo como aflição; forçar a própria dissonância amplia essa resposta. · **Essência:** Ruptura
+**Passiva — Pilares Vivos:** Nilo pode manter até 2 Pilares. Quando uma skill inimiga tira Vida de um Pilar, Nilo ganha 1 Carga de Intervenção, até 2. As Cargas são gastas para anular respostas contra os Pilares.
 
-**Outros arquétipos:** Preparador de Vestígios, Reflexivo, Gastador de Essência
+- **Erguer Pilar** (1 Graça): restaura 12 de Vida a um aliado e o torna Pilar.
+- **Julgamento** (1 Graça + 1 Éter): 15 de dano espiritual; se o alvo feriu um Pilar neste combate, causa +8 e Enfraquecimento.
+- **Revelação Forte** (1 Graça + 1 Qualquer): 14 de dano, remove até 2 buffs e aplica Exposto.
+- **Forma de Graça** (1 Graça): ativa por 3 turnos.
+- **Campo de Controle** (durante a Forma; 1 Graça + 1 Éter): 12 de dano espiritual a todos os inimigos e Enfraquecimento por 1 turno.
+- **Intervenção** (durante a Forma; gasta 1 Carga; 1 Graça + 1 Qualquer): anula a próxima skill inimiga que atingir um Pilar e causa 13 de dano ao agressor.
+- **Verdade Absoluta** (2 Graça + 1 Éter): restaura 14 de Vida a um Pilar e remove todos os debuffs dele.
+- **Limiar Sagrado** (1 Qualquer): Invulnerável e remove 1 aflição de Nilo.
 
-Assimile um vestígio; faça a dor repercutir
+### Prefácio de Ruptura — Resíduo de Status
 
-**Estrutura:** Vestígio Assimilado prepara o alvo. Ressonância Inversa sincroniza as Essências por 2 turnos e faz a Vida perdida pelo Eco repercutir como aflição. Dano direto recebido gera 1 carga por rodada. Dissonância Projetada converte Vida e cargas em uma resposta mais forte.
+**Passiva — Resíduo de Status:** sempre que Nilo aplica um status, grava 1 Resíduo, até 3. Resíduos só podem ser gastos na skill de resposta; o gasto é opcional.
 
-**Passiva — Ressonância Dolorosa:** Uma vez por rodada, receber dano direto enquanto a ressonância está ativa gera 1 carga.
+- **Corte Residual** (1 Ruptura): 12 de dano e Sangramento (4 por 2 turnos).
+- **Marca do Vazio** (1 Ruptura + 1 Qualquer): 11 de dano, Exposto e Decadência (3 por 2 turnos).
+- **Resposta do Intervalo** (1 Ruptura + 1 Éter): anula a próxima skill física ou perfurante e contra-ataca com 13 de dano; pode gastar até 3 Resíduos para +3 por Resíduo.
+- **Estilhaço** (1 Qualquer): 14 de dano; se o alvo tiver qualquer status, causa +6.
+- **Limiar** (1 Qualquer): Invulnerável.
 
-- **Vestígio Assimilado** (1 Cinza; recarga 0T): Causa 9 de dano espiritual e deixa no alvo um vestígio por 2 turnos.
-- **Ressonância Inversa** (1 Éter + 1 Graça; recarga 0T): Exige um vestígio seu no alvo. Sincroniza as Essências por 2 turnos; a Vida perdida pelo Eco repercute no alvo como aflição.
-- **Dissonância Projetada** (1 Ruptura; recarga 0T): Exige uma ressonância ativa. O Eco perde 12 de Vida, mais 3 por carga consumida, e projeta essa dissonância no alvo como aflição. O custo não pode derrotar o Eco.
-- **Desfase Essencial** (1 Coringa; recarga 4T): Concede 4 de Defesa destrutível. O usuário fica Invulnerável a novas habilidades inimigas por 1 turno. Aflições já ativas continuam.
+### Epílogo de Ruptura — Sombra Preparada
 
+**Passiva — Sombra Preparada:** depois de usar uma skill de Furtividade, escolha +5 de dano na próxima skill ou faça a próxima skill de resposta anular qualquer tipo.
+
+- **Passo no Vazio** (1 Ruptura): 12 de dano e Furtividade por 1 turno.
+- **Corte Silencioso** (1 Ruptura + 1 Qualquer): 14 de dano e Sangramento; se Nilo estiver em Furtividade, causa +7.
+- **Armadilha de Sombra** (1 Ruptura + 1 Éter): marca o alvo; se usar uma skill ofensiva, sofre 11 de aflição e fica Exposto.
+- **Resposta do Vazio** (2 Ruptura): anula a próxima skill recebida e contra-ataca com 15 de dano e Decadência.
+- **Limiar** (1 Qualquer): Invulnerável.
+
+### Final de Ruptura — Nilo, o que se Parte
+
+**Passiva — Contagem de Fraturas:** cada status diferente no alvo conta como 1 Fratura, até 3. Skills específicas podem gastá-las por efeitos extras. O bônus nunca é automático.
+
+- **Sombra Rachada** (1 Ruptura): 13 de dano e Furtividade por 1 turno.
+- **Corte do Interstício** (1 Ruptura + 1 Qualquer): 16 de dano perfurante e Sangramento; em Furtividade, causa +8.
+- **Marca Residual** (1 Ruptura + 1 Éter): aplica Exposto, Sangramento e Decadência.
+- **Armadilha Profunda** (1 Ruptura): marca o alvo; se usar uma skill, sofre 13 de aflição e Nilo ganha Furtividade.
+- **Resposta Partida** (2 Ruptura + 1 Éter): anula a próxima skill e contra-ataca com 17 de dano e Sangramento.
+- **Despedaçamento** (2 Ruptura): 15 de dano a todos; pode gastar até 3 Fraturas por alvo para +4 por Fratura.
+- **Último Impulso** (1 Qualquer): Invulnerável; a próxima skill causa +9 e aplica Exposto.
+
+### Nilo Purificado — Livre da Corrupção
+
+**Passiva — Alma sem Essências:** todas as skills custam Coringa. Nilo é mais fraco, mas privilegia cura, contenção e respostas.
+
+- **Âncora Vazia** (1 Coringa): concede 6 de Defesa e reduz o próximo dano recebido em 6.
+- **Restituir Vestígio** (1 Coringa): restaura 8 de Vida e remove 1 aflição.
+- **Resposta Serena** (1 Coringa): anula a próxima skill recebida e devolve 11 de dano de aflição.
+- **Pausa sem Corrupção** (1 Coringa): Invulnerável.
+
+### O Eco sem Nome — Condutor de Ressonâncias
+
+O Eco deixou de se chamar Nilo. Seu kit é o mais complexo, usa os quatro tipos de Essência e combina pressões elementares, proteção, carga e ressonância. A identidade visual e mecânica do Eco nasce das marcas, da ressonância e das quatro cores de Essência do PMA.
+
+**Passiva — Harmonia das Quatro Essências:** cada tipo diferente gasto no turno forma Harmonia. Ao gastar Éter, Cinza, Graça e Ruptura no mesmo turno, o Eco ganha 1 Carga, até 3. Guarde as Cargas para skills que as convertem em dano.
+
+- **Vestígio de Cinza** (1 Cinza): 13 de dano e Queimadura.
+- **Amparo Remanescente** (1 Graça): restaura 9 de Vida e concede 5 de Defesa a um aliado.
+- **Fenda Suspensa** (1 Ruptura): 12 de dano espiritual, Exposto e Decadência.
+- **Fragmento de Éter** (1 Éter): 14 de dano espiritual e rouba 1 Essência.
+- **Vínculo de Ressonância** (1 Cinza + 1 Ruptura): 11 de dano perfurante e sincroniza a Vida perdida pelo Eco com o alvo por 2 turnos.
+- **Recompor o Intervalo** (1 Graça + 1 Éter): concede 5 de Defesa ao trio e remove seus debuffs.
+- **Convergência sem Nome** (1 de cada Essência): 22 de dano perfurante; contra alvo marcado, causa +6.
+- **Desatar a Ressonância** (1 Coringa; exige Vínculo): 16 de dano de aflição, +4 contra alvo com status e +4 por Carga gasta; encerra o Vínculo.
+- **Avaliar o Nome** (1 Coringa): 12 de dano espiritual e +4 por Carga gasta.
+- **Fecho Incompleto** (1 Coringa): Invulnerável.
 ### Kael — Gerador de Essência
 
 **Variação:** Kael abre uma brecha, prepara a execução e aceita a Ruptura como preço. · **Essência:** Ruptura

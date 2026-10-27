@@ -36,6 +36,7 @@ export function abilityQuickEffect(ability = {}) {
     const comboQualifier = ability.combo?.condition?.startsWith("mark:") ? "se marcado" : "quando a condição é atendida";
     const additions = [
       ability.dot && `${statusNames[ability.dot.tag] || "Aflição"} ${ability.dot.damage}/T`,
+      ...(ability.dots||[]).map(dot=>`${statusNames[dot.tag]||"Aflição"} ${dot.damage}/T`),
       ability.stun && `Atordoa ${ability.stun}T`,
       ability.expose && "Expõe",
       ability.mark && "Marca",
@@ -61,6 +62,13 @@ export function abilityQuickEffect(ability = {}) {
   if (ability.heal) return `Cura ${ability.heal} Vida`;
   if (ability.shield) return `+${ability.shield} Defesa`;
   if (ability.boost) return `Prepara +${ability.boost} de dano para o próximo golpe`;
+  if (ability.mark&&ability.reactive) return `Marca; reage com ${ability.reactive.damage||0} de aflição se o alvo agir`;
+  if (ability.mark) return `Marca por ${ability.markTurns||3} turnos`;
+  if (ability.activateAshExpansion) return `Ativa Expansão de Cinza · ${ability.activateAshExpansion} turnos`;
+  if (ability.activateCollapse) return `Abre Colapso ${ability.activateCollapse}`;
+  if (ability.closeCollapse) return "Encerra Colapso";
+  if (ability.activateGraceForm) return `Ativa Forma de Graça · ${ability.activateGraceForm} turnos`;
+  if (ability.setPillar) return `Cura ${ability.heal} · ergue Pilar`;
   if (ability.reduce) return `Reduz ${ability.reduce} dano`;
   if (ability.regen) return `Regenera ${ability.regen.heal} Vida`;
   if (ability.shift?.length || ability.forms?.length) return "Muda a técnica";
@@ -87,6 +95,7 @@ function abilityQuickEffectEnglish(ability = {}) {
     const comboQualifier = ability.combo?.condition?.startsWith("mark:") ? "if marked" : "when the condition is met";
     const additions = [
       ability.dot && `${statusNamesEn[ability.dot.tag] || "Affliction"} ${ability.dot.damage} affliction damage/turn`,
+      ...(ability.dots||[]).map(dot=>`${statusNamesEn[dot.tag]||"Affliction"} ${dot.damage} affliction damage/turn`),
       ability.stun && `Stun · ${ability.stun} ${ability.stun === 1 ? "turn" : "turns"}`,
       ability.expose && "Expose",
       ability.mark && "Mark",
@@ -112,6 +121,13 @@ function abilityQuickEffectEnglish(ability = {}) {
   if (ability.heal) return `Restore ${ability.heal} Health`;
   if (ability.shield) return `+${ability.shield} Defense`;
   if (ability.boost) return `Prepare +${ability.boost} damage for your next strike`;
+  if (ability.mark&&ability.reactive) return `Mark; triggers ${ability.reactive.damage||0} affliction damage if the target acts`;
+  if (ability.mark) return `Mark for ${ability.markTurns||3} turns`;
+  if (ability.activateAshExpansion) return `Activate Ash Expansion · ${ability.activateAshExpansion} turns`;
+  if (ability.activateCollapse) return `Open Collapse ${ability.activateCollapse}`;
+  if (ability.closeCollapse) return "End Collapse";
+  if (ability.activateGraceForm) return `Activate Grace Form · ${ability.activateGraceForm} turns`;
+  if (ability.setPillar) return `Restore ${ability.heal} · raise Pillar`;
   if (ability.reduce) return `Reduce damage by ${ability.reduce}`;
   if (ability.regen) return `Regenerate ${ability.regen.heal} Health`;
   if (ability.shift?.length || ability.forms?.length) return "Change technique";

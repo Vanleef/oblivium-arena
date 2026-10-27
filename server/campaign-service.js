@@ -5,7 +5,7 @@ import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
 import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice } from '../src/progression.js';
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from '../src/progression.js';
 
 const cloneJson=value=>JSON.parse(JSON.stringify(value));
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -59,7 +59,7 @@ function startBattle(profile,run,node){
  run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
  const enemies=createEnemyTeam(elo,run.team,nodeType,run.encounter,{difficulty:run.difficulty||0,bossIds:run.bossIds});
- const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed});
+ const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed,campaignRealm:elo.realm,niloAbsorption:run.niloAbsorption});
  beginInfluences(battle,seed);
  run.currentNodeId=node.id;run.battle=storeBattle(battle);
  return campaignState(profile,{battle:run.battle,node});
@@ -110,7 +110,7 @@ export class CampaignService{
       profile.fragments+=12;const id=affinityBuff(affinity);if(id&&buffs.some(buff=>buff.id===id)&&!run.buffs.includes(id))run.buffs.push(id);finishNode(profile,run,node,account);
      }else if(node.type==='event')setPending(run,'event');
      else if(node.type==='nilo-choice'){
-      if(!canChooseNiloPath(profile,run))fail('A escolha de Nilo não está disponível.');
+      if(!canChooseNiloPath(profile,run)){finishNode(profile,run,node,account);extra={completed:profile.run===null};break;}
       setPending(run,'nilo-choice');
      }else if(node.type==='shop')setPending(run,'shop',buffChoices(run,1));
      else if(node.type==='upgrade'||node.type==='reward')setPending(run,node.type,buffChoices(run,2));
@@ -123,9 +123,9 @@ export class CampaignService{
      const battle=restoreBattle(run.battle);if(battle.phase!=='player')fail('Aguarde a decisão atual do combate.',409);
      if(!Number.isSafeInteger(body.round)||body.round!==battle.round)fail('O turno mudou. A campanha foi atualizada.',409);
      const exchanges=applyEssenceExchanges(battle,'player',body.exchanges||[]);if(!exchanges.ok)fail(exchanges.reason||'Troca de Essência inválida.');
-     const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId);if(!result.ok)fail(result.reason||'Ação inválida.');}
+     const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId,{residueSpend:ref?.residueSpend,fractureSpend:ref?.fractureSpend});if(!result.ok)fail(result.reason||'Ação inválida.');}
      const committed=commitTurn(battle,body.payment);if(!committed.ok)fail(committed.reason||'Pagamento inválido.');
-     const events=runBattleToDecision(battle);run.battle=storeBattle(battle);extra={battle:run.battle,events};
+     const events=runBattleToDecision(battle);syncNiloAbsorption(profile,run,battle.niloAbsorption);run.battle=storeBattle(battle);extra={battle:run.battle,events};
      break;
     }
     case 'influence':{
@@ -139,7 +139,7 @@ export class CampaignService{
     }
     case 'settle':{
      const run=currentRun(profile,account);if(!run.battle)fail('Nenhum combate está ativo.');
-     const battle=restoreBattle(run.battle);if(!['victory','defeat'].includes(battle.phase))fail('O combate ainda não terminou.',409);
+     const battle=restoreBattle(run.battle);if(!['victory','defeat'].includes(battle.phase))fail('O combate ainda não terminou.',409);syncNiloAbsorption(profile,run,battle.niloAbsorption);
      const node=currentNode(run);if(!node)fail('Nó de trilha inválido.');
      if(battle.phase==='victory'){
       run.teamHealth=Object.fromEntries(battle.allies.map(ally=>[ally.id,persistentCombatHp(ally)]));

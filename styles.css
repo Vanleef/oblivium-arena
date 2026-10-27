@@ -1562,3 +1562,35 @@ body:has(.journey-shell) { min-width: 0; }
 
 .language-control{display:inline-flex;align-items:center;gap:3px;padding:4px;border:1px solid var(--line-strong);border-radius:4px;background:rgba(17,12,21,.72);white-space:nowrap}.language-control small{margin:0 4px;color:var(--dim);font-size:8px;font-weight:700;letter-spacing:.12em}.language-control button{min-width:30px;min-height:28px;padding:0 7px;border:1px solid transparent;border-radius:3px;background:transparent;color:var(--muted);font-size:9px;font-weight:800;cursor:pointer}.language-control button:hover,.language-control button.active{border-color:#b58bce66;background:#382942;color:#f1e3fa}
 @media(max-width:680px){.topbar .language-control{align-self:center}.topbar .language-control small{display:none}.topbar .language-control button{min-width:28px;padding-inline:5px}}
+
+
+/* Nilo's campaign absorption and optional tactical spends. */
+.nilo-absorption { display: grid; gap: 10px; margin-top: 14px; padding: 12px; border: 1px solid #b7aabd24; background: #100c172e; }
+.nilo-absorption-row { display: grid; grid-template-columns: 56px 1fr; align-items: center; gap: 4px 9px; }
+.nilo-absorption-row > span { color: #c8bdce; font-size: 8px; letter-spacing: .13em; }
+.nilo-absorption-track { position: relative; height: 7px; background: #e5d7e20f; }
+.nilo-absorption-track > i { display: block; height: 100%; transition: width .35s; }
+.nilo-absorption-track > b { position: absolute; right: 4px; top: -5px; color: #f2eaf5; font-size: 8px; font-weight: 700; text-shadow: 0 1px 4px #09070c; }
+.absorption-ash { background: linear-gradient(90deg,#7e3029,#e47b4d); }
+.absorption-grace { background: linear-gradient(90deg,#547d68,#d7c27b); }
+.absorption-rupture { background: linear-gradient(90deg,#534b91,#bd7ad0); }
+.nilo-absorption-row small { grid-column: 2; color: #7f7488; font-size: 7px; }
+.nilo-absorption-lock { color: #d9ad77; font-size: 8px; letter-spacing: .12em; }
+.nilo-absorption-echo { color: #e2ca92; }
+.nilo-absorption-echo b,.nilo-absorption-echo small { display:block; }
+.nilo-absorption-echo b { font-size: 8px; letter-spacing: .13em; }
+.nilo-absorption-echo small { margin-top: 5px; color: #93879e; font-size: 9px; }
+.journey-party-roster { display: grid; gap: 13px; margin-top: 16px; }
+.nilo-combat-resources { display: block; margin: 6px 0; color: #b3a8bb; font-size: 8px; letter-spacing: .11em; }
+.skill-spend-control { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 10px 0; padding: 8px 10px; border: 1px solid #b9a4c52c; background: #0d0a122e; }
+.skill-spend-control b { color: #bcb1c5; font-size: 9px; font-weight: 500; }
+.skill-spend-control > div { display: flex; gap: 4px; }
+.skill-spend-control button,.shadow-choice-panel button { border: 1px solid #c0a9cc35; background: #261c30; color: #ded3e4; padding: 5px 8px; font-size: 9px; cursor: pointer; }
+.skill-spend-control button[aria-pressed="true"] { border-color: #e3c177; background: #4a3927; color: #fff0c6; }
+.shadow-choice-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; padding: 9px; border: 1px solid #bc82cb55; background: #21142999; }
+.shadow-choice-panel b { flex-basis: 100%; color: #dfc5e8; font-size: 9px; }
+.shadow-choice-panel button { flex: 1; }
+@media (max-width: 520px) {
+ .skill-spend-control { align-items: flex-start; flex-direction: column; }
+ .nilo-absorption-row { grid-template-columns: 48px 1fr; }
+}

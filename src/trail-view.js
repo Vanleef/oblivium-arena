@@ -10,8 +10,14 @@ const labels={normal:"Combate",elite:"Elite",mini:"Guardião menor",boss:"Guardi
 const rewards={normal:"Fragmentos",elite:"Eco + fragmentos",mini:"Eco + fragmentos",boss:"Recrute uma alma",repair:"Vida + Correntes",treasure:"Eco + fragmentos",event:"Uma decisão",shop:"Cura e Ecos",upgrade:"Escolha um Eco","nilo-choice":"Escolha o destino de Nilo"};
 const number=n=>String(n).padStart(2,"0");
 
+function absorptionMarkup(run){
+  if(run.eloId!=="correntes-quebradas")return "";
+  if(run.niloPath==="embraced")return `<div class="nilo-absorption nilo-absorption-echo"><b>IDENTIDADE · O ECO SEM NOME</b><small>As três barras se fundiram em uma forma só.</small></div>`;
+  const bars=run.niloAbsorption||{cinza:0,graca:0,ruptura:0},items=[["cinza","CINZA","ash"],["graca","GRAÇA","grace"],["ruptura","RUPTURA","rupture"]];
+  return `<div class="nilo-absorption" aria-label="Absorção de Nilo">${items.map(([id,label,color])=>`<div class="nilo-absorption-row"><span>${label}</span><div class="nilo-absorption-track"><i class="absorption-${color}" style="width:${Math.max(0,Math.min(100,bars[id]||0))}%"></i><b>${Math.max(0,Math.min(100,bars[id]||0))}%</b></div><small>30 · Prefácio&nbsp;&nbsp; 70 · Epílogo&nbsp;&nbsp; 100 · Final</small></div>`).join("")}${run.niloPath?`<small class="nilo-absorption-lock">CAMINHO FIXADO · ${run.niloPath.toUpperCase()}</small>`:""}</div>`;
+}
 function partyMarkup(run,profile,teamHealth){
-  return `<section class="journey-party" aria-label="Trio da travessia"><div class="journey-section-label">SEU TRIO</div><div>${(run.team||[]).map(id=>{
+  return `<section class="journey-party" aria-label="Trio da travessia"><div class="journey-section-label">SEU TRIO</div>${absorptionMarkup(run)}<div class="journey-party-roster">${(run.team||[]).map(id=>{
     const c=characterById[id];if(!c)return "";
     const max=runMaxHp(profile,run,id),hp=Math.max(0,Math.min(max,teamHealth?.[id]??run.teamHealth?.[id]??max));
     return `<article class="journey-soul" title="${esc(c.name)} · ${hp}/${max} Vida">${portraitMarkup(c,"journey-portrait")}<div><b>${esc(c.name)}</b><span class="journey-health"><i style="width:${hp/max*100}%"></i></span><small>${hp}<span> / ${max}</span></small></div></article>`;
