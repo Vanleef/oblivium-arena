@@ -1,8 +1,9 @@
 import { elos, realms, characters, characterById, generateTrail, buffs } from './data.js';
+import { defaultKingdomByTrack } from './kingdoms.js';
 
 export function seededRandom(seed=1) { let value=(Number(seed)||1)>>>0;return ()=>{value=(Math.imul(value,1664525)+1013904223)>>>0;return value/4294967296;}; }
 export function shuffled(items,rng=Math.random) { const out=[...items];for(let i=out.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out; }
-const roster=id=>characters.filter(c=>c.eloId===id);
+const roster=id=>characters.filter(c=>c.kingdomId===id||c.legacyEloId===id);
 const recruitEligible=(profile,character)=>{
   if(!character||character.npcOnly)return false;
   if(character.protagonistFamily==="nilo"&&character.id!=="nilo")return (profile.ownedIds||[]).includes(character.id);
@@ -14,26 +15,52 @@ export function normalizeCampaign(profile) {
   profile.eloProgress ||= {};
   profile.globalUpgrades ||= [];
   if(profile.run){
-    if(profile.run.niloAbsorption===undefined)profile.run.niloAbsorption=profile.run.eloId==="correntes-quebradas"?{cinza:0,graca:0,ruptura:0}:null;
+    const activeId=profile.run.eloId;
+    if(activeId&&!elos.some(kingdom=>kingdom.id===activeId)&&defaultKingdomByTrack[activeId]){
+      profile.run.legacyEloId=activeId;
+      profile.run.eloId=defaultKingdomByTrack[activeId];
+      if(!profile.run.battle)delete profile.run.bossIds;
+    }
+    if(profile.run.niloAbsorption===undefined)profile.run.niloAbsorption=["vestibulo","correntes-quebradas"].includes(profile.run.eloId)||profile.run.legacyEloId==="correntes-quebradas"?{cinza:0,graca:0,ruptura:0}:null;
     profile.run.niloUnlockedIds||=[];
     profile.run.niloPath||=null;
     profile.run.niloPurificationChoiceResolved||=false;
   }
   if(!['purged','embraced'].includes(profile.niloPath))profile.niloPath=(profile.ownedIds||[]).includes('o-eco-de-nilo')?'embraced':(profile.ownedIds||[]).includes('nilo-o-epilogo')?'purged':null;
-  for(const elo of elos) {
-    const legacy=!profile.campaignVersion&&profile.completedElos?.includes(elo.id);
-    const p=profile.eloProgress[elo.id] ||= {};
-    p.clearedDifficulties=[...new Set(p.clearedDifficulties|| (legacy?[0]:[]))].filter(n=>Number.isInteger(n)&&n>=0).sort((a,b)=>a-b);
-    p.variants ||= [];p.wins ||= legacy?1:0;p.combats ||= 0;p.elites ||= 0;p.events ||= 0;
+  if(profile.kingdomProgressVersion!==1){
+    const previous=profile.eloProgress||{},completed=new Set(profile.completedElos||[]);
+    for(const kingdom of elos){
+      const sourceIds=[...new Set(characters.filter(character=>character.kingdomId===kingdom.id).map(character=>character.legacyEloId).filter(Boolean))];
+      const sourceProgress=sourceIds.map(id=>previous[id]).filter(Boolean);
+      const inheritedClear=sourceIds.some(id=>completed.has(id));
+      const current=previous[kingdom.id]||{};
+      const clearedDifficulties=[...new Set([...(current.clearedDifficulties||[]),...sourceProgress.flatMap(p=>p.clearedDifficulties||[]),...(inheritedClear?[0]:[])])].filter(n=>Number.isInteger(n)&&n>=0).sort((a,b)=>a-b);
+      const variants=[...new Set([...(current.variants||[]),...sourceProgress.flatMap(p=>p.variants||[])])];
+      profile.eloProgress[kingdom.id]={
+        ...current,
+        clearedDifficulties,
+        variants,
+        wins:Math.max(0,...[current,...sourceProgress].map(p=>Number(p.wins)||0),inheritedClear?1:0),
+        combats:Math.max(0,...[current,...sourceProgress].map(p=>Number(p.combats)||0)),
+        elites:Math.max(0,...[current,...sourceProgress].map(p=>Number(p.elites)||0)),
+        events:Math.max(0,...[current,...sourceProgress].map(p=>Number(p.events)||0))
+      };
+    }
+    profile.kingdomProgressVersion=1;
   }
-  profile.completedElos=elos.filter(e=>profile.eloProgress[e.id].clearedDifficulties.length).map(e=>e.id);
-  profile.campaignVersion=2;
+  for(const kingdom of elos) {
+    const p=profile.eloProgress[kingdom.id] ||= {};
+    p.clearedDifficulties=[...new Set(p.clearedDifficulties||[])].filter(n=>Number.isInteger(n)&&n>=0).sort((a,b)=>a-b);
+    p.variants ||= [];p.wins ||= 0;p.combats ||= 0;p.elites ||= 0;p.events ||= 0;
+  }
+  profile.completedElos=elos.filter(kingdom=>profile.eloProgress[kingdom.id].clearedDifficulties.length).map(kingdom=>kingdom.id);
+  profile.campaignVersion=3;
   return profile;
 }
 export function canChooseNiloPath(profile,run=profile?.run) {
   const node=run?.map?.flat?.().find(item=>item.id===run.currentNodeId),bars=run?.niloAbsorption||{};
   const noThreshold=["cinza","graca","ruptura"].every(key=>(bars[key]||0)<70);
-  return Boolean(run&&run.eloId==="correntes-quebradas"&&!run.niloPath&&!run.niloPurificationChoiceResolved&&noThreshold&&profile?.ownedIds?.includes("nilo")&&node?.type==="nilo-choice");
+  return Boolean(run&&(run.eloId==="vestibulo"||run.legacyEloId==="correntes-quebradas")&&!run.niloPath&&!run.niloPurificationChoiceResolved&&noThreshold&&profile?.ownedIds?.includes("nilo")&&node?.type==="nilo-choice");
 }
 export function resolveNiloPathChoice(profile,choice,run=profile?.run) {
   if(!canChooseNiloPath(profile,run))return null;
@@ -57,7 +84,7 @@ function unlockNiloForm(profile,run,id){
  run.niloUnlockedIds=[...new Set([...(run.niloUnlockedIds||[]),id])];
 }
 export function syncNiloAbsorption(profile,run,bars=run?.niloAbsorption){
- if(!run||run.eloId!=="correntes-quebradas"||run.niloPath||!bars)return [];
+ if(!run||(run.eloId!=="vestibulo"&&run.legacyEloId!=="correntes-quebradas")||run.niloPath||!bars)return [];
  const current={cinza:Math.max(0,Math.min(100,Number(bars.cinza)||0)),graca:Math.max(0,Math.min(100,Number(bars.graca)||0)),ruptura:Math.max(0,Math.min(100,Number(bars.ruptura)||0))};
  run.niloAbsorption=current;const unlocked=[];
  for(const [path,thresholds]of Object.entries(niloMilestones))for(const [threshold,id]of Object.entries(thresholds))if(current[path]>=Number(threshold)&&!(run.niloUnlockedIds||[]).includes(id)){unlockNiloForm(profile,run,id);unlocked.push(id);}
@@ -111,7 +138,7 @@ export const runMemoryCatalog=Object.freeze({
  inferno:{title:'Brasa que recorda',icon:'♨',glyph:'ember',text:'Aflições aplicadas causam +1 de dano por turno por Eco; máximo +3.',lore:'O trio atravessou as chamas junto. Cada ferida deixa uma brasa para a próxima luta.',effect:{afflictionPower:1}},
  paraiso:{title:'Cuidado que permanece',icon:'✧',glyph:'lotus',text:'Curas concedidas restauram +1 de Vida por Eco; máximo +3.',lore:'A mão que amparou uma alma continua presente quando a trilha se fecha.',effect:{healPower:1}},
  limbo:{title:'Ruptura que responde',icon:'⟲',glyph:'shatter',text:'Técnicas de controle causam +1 de dano por Eco; máximo +3.',lore:'A fronteira se lembra de quem tentou contê-la e devolve um pouco de controle.',effect:{controlPower:1}},
- accord:{title:'Ressonância lembrada',icon:'∞',glyph:'chorus',text:'A Ressonância aumenta em 2% por Eco; máximo +6%.',lore:'Almas do mesmo Elo aprenderam a ouvir o ritmo umas das outras.',effect:{resonance:.02}},
+ accord:{title:'Ressonância lembrada',icon:'∞',glyph:'chorus',text:'A Ressonância aumenta em 2% por Eco; máximo +6%.',lore:'Almas do mesmo Reino aprenderam a ouvir o ritmo umas das outras.',effect:{resonance:.02}},
  essence:{title:'Reserva dos ausentes',icon:'◈',glyph:'soul',text:'Comece cada combate com +1 Éter por Eco; máximo +2.',lore:'A memória de quem partiu preserva uma centelha para o próximo encontro.',effect:{essence:1}}
 });
 function memoryForTeam(teamIds){
@@ -159,14 +186,14 @@ export function selectBossRoster(teamIds,candidateIds,seed=1){
 }
 export function createExpedition(profile,elo,variantId='hunt',difficulty=maxDifficulty(profile,elo.id),seed=Date.now(),options={}) {
   if(profile.pendingGlobalReward)throw Error('Escolha seu Legado antes de iniciar outra trilha.');
-  if(!eloAccess(profile,elo).unlocked)throw Error('Elo bloqueado.');
+  if(!eloAccess(profile,elo).unlocked)throw Error('Reino bloqueado.');
   const variant=trailVariants(profile,elo).find(v=>v.id===variantId);
   if(!variant||variant.locked)throw Error('Trilha bloqueada.');
   if(!Number.isInteger(difficulty)||difficulty<0||difficulty>maxDifficulty(profile,elo.id))throw Error('Dificuldade bloqueada.');
   const rng=seededRandom(seed),candidates=shuffled(recruitCandidates(profile,elo,variantId),rng),recruitable=candidates.filter(c=>!profile.ownedIds.includes(c.id)),nonTeamRoster=shuffled(roster(elo.id).filter(c=>!profile.team.includes(c.id)&&recruitEligible(profile,c)),rng),bossPool=[...new Set([...(nonTeamRoster.length>=3?nonTeamRoster:shuffled(roster(elo.id).filter(c=>recruitEligible(profile,c)),rng)).map(c=>c.id),...recruitable.map(c=>c.id)])],variantSeed=[...variantId].reduce((hash,char)=>(Math.imul(hash,31)+char.charCodeAt(0))>>>0,seed>>>0),bossIds=selectBossRoster(profile.team,bossPool,variantSeed);
   if(recruitable.length&&!bossIds.some(id=>recruitable.some(c=>c.id===id)))bossIds[2]=recruitable[Math.floor(rng()*recruitable.length)].id;
-  const map=generateTrail(elo.id,seed,variantId,{includeNiloChoice:elo.id==="correntes-quebradas"&&(profile.ownedIds||[]).includes("nilo")}),g=aggregateGlobal(profile),maxStability=3+(g.stability||0);
-  const run={eloId:elo.id,variantId,variantTitle:variant.title,difficulty,seed,map,bossIds,team:[...profile.team],stage:0,stability:maxStability,maxStability,buffs:[],memories:[],memoryNodeIds:[],guided:Boolean(options.guided),encounter:0,tried:0,rewardedNodeIds:[],niloAbsorption:elo.id==="correntes-quebradas"?{cinza:0,graca:0,ruptura:0}:null,niloPath:null,niloUnlockedIds:[],niloPurificationChoiceResolved:false,teamHealth:{},availableNodeIds:map[0].map(n=>n.id),revealedNodeIds:map[0].map(n=>n.id),clearedNodeIds:[],currentNodeId:null};
+  const map=generateTrail(elo.id,seed,variantId,{includeNiloChoice:elo.id==="vestibulo"&&(profile.ownedIds||[]).includes("nilo")}),g=aggregateGlobal(profile),maxStability=3+(g.stability||0);
+  const run={eloId:elo.id,variantId,variantTitle:variant.title,difficulty,seed,map,bossIds,team:[...profile.team],stage:0,stability:maxStability,maxStability,buffs:[],memories:[],memoryNodeIds:[],guided:Boolean(options.guided),encounter:0,tried:0,rewardedNodeIds:[],niloAbsorption:elo.id==="vestibulo"?{cinza:0,graca:0,ruptura:0}:null,niloPath:null,niloUnlockedIds:[],niloPurificationChoiceResolved:false,teamHealth:{},availableNodeIds:map[0].map(n=>n.id),revealedNodeIds:map[0].map(n=>n.id),clearedNodeIds:[],currentNodeId:null};
   run.teamHealth=Object.fromEntries(run.team.map(id=>[id,runMaxHp(profile,run,id)]));return run;
 }
 export function recordEncounter(profile,run,node) {
@@ -306,7 +333,7 @@ export function completeExpedition(profile,run) {
   if(run.completionApplied)return null;
   if(run.stage<run.map.length||!run.clearedNodeIds.includes(run.map.at(-1)[0].id))throw Error('A trilha ainda não foi concluída.');
   run.completionApplied=true;
-  const p=profile.eloProgress[run.eloId],first=!p.clearedDifficulties.includes(run.difficulty),eligible=(run.bossIds||[]).filter(id=>characterById[id]?.eloId===run.eloId&&recruitEligible(profile,characterById[id])&&!profile.ownedIds.includes(id)),rng=seededRandom(run.seed+p.wins);
+  const p=profile.eloProgress[run.eloId],first=!p.clearedDifficulties.includes(run.difficulty),eligible=(run.bossIds||[]).filter(id=>characterById[id]?.kingdomId===run.eloId&&recruitEligible(profile,characterById[id])&&!profile.ownedIds.includes(id)),rng=seededRandom(run.seed+p.wins);
   const recruitId=shuffled(eligible,rng)[0]||null;
   if(recruitId)profile.ownedIds.push(recruitId);
   p.wins++;p.variants=[...new Set([...p.variants,run.variantId])];p.clearedDifficulties=[...new Set([...p.clearedDifficulties,run.difficulty])].sort((a,b)=>a-b);

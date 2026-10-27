@@ -9,22 +9,23 @@ export function getResonance(teamIds) {
   const counts = new Map();
   for (const member of team) {
     if (member.realm === "Limbo") continue;
-    counts.set(member.eloId, (counts.get(member.eloId) || 0) + 1);
+    const kingdomId = member.kingdomId || member.eloId;
+    counts.set(kingdomId, (counts.get(kingdomId) || 0) + 1);
   }
   const [eloId, count] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0] || [null, 0];
   const limboCount = team.filter((member) => member.realm === "Limbo").length;
   const chaotic = limboCount > 0;
 
   if (count >= 3) {
-    return { tier: "complete", count: 3, eloId, chaotic, bonus: 0.15, title: "Ressonância Completa", detail: "Trio do mesmo Elo: +15% de potência." };
+    return { tier: "complete", count: 3, eloId, chaotic, bonus: 0.15, title: "Ressonância Completa", detail: "Trio do mesmo Reino: +15% de potência." };
   }
   if (count === 2) {
-    return { tier: "partial", count: 2, eloId, chaotic, bonus: 0.08 + (chaotic ? 0.03 : 0), title: chaotic ? "Ressonância Quebrada" : "Ressonância Parcial", detail: chaotic ? "Dois aliados do mesmo Elo e uma Corrente Quebrada: +11% de potência caótica." : "Dupla do mesmo Elo: +8% de potência." };
+    return { tier: "partial", count: 2, eloId, chaotic, bonus: 0.08 + (chaotic ? 0.03 : 0), title: chaotic ? "Ressonância Instável" : "Ressonância Parcial", detail: chaotic ? "Dois aliados do mesmo Reino e uma alma do Limbo: +11% de potência." : "Dupla do mesmo Reino: +8% de potência." };
   }
   if (chaotic) {
-    return { tier: "chaotic", count: limboCount, eloId: null, chaotic: true, bonus: 0.06, title: "Ressonância Caótica", detail: "Uma Corrente Quebrada dobra as regras: +6% de potência." };
+    return { tier: "chaotic", count: limboCount, eloId: null, chaotic: true, bonus: 0.06, title: "Ressonância Caótica", detail: "A presença de uma alma do Limbo concede +6% de potência." };
   }
-  return { tier: "none", count: 0, eloId: null, chaotic: false, bonus: 0, title: "Sem Ressonância", detail: "Elos diferentes: sem bônus, com combinações livres." };
+  return { tier: "none", count: 0, eloId: null, chaotic: false, bonus: 0, title: "Sem Ressonância", detail: "Reinos diferentes: sem bônus, com combinações livres." };
 }
 
 export function getOwnedCharacters(ownedIds) {
@@ -33,7 +34,7 @@ export function getOwnedCharacters(ownedIds) {
 }
 
 export function getEloRoster(eloId) {
-  return Object.values(characterById).filter((character) => character.eloId === eloId);
+  return Object.values(characterById).filter((character) => character.kingdomId === eloId || character.legacyEloId === eloId || character.eloId === eloId);
 }
 
 export function getRosterCounts(characters) {

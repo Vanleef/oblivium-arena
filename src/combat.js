@@ -461,8 +461,8 @@ function resolveAction(s){
 }
 export function passTurn(s){if(!commitTurn(s).ok)return false;let guard=0;while(s.phase==="resolving"&&guard++<20)resolveNextAction(s);return true;}
 export function createEnemyTeam(elo,playerIds,encounter="normal",sequence=0,config={}){
-  const roster=Object.values(characterById).filter(c=>c.eloId===elo.id),other=roster.filter(c=>!playerIds.includes(c.id)),source=other.length>=3?other:roster,m=difficultyModifiers(config.difficulty),multiplier=encounter==="elite"?1.12:encounter==="mini"?1.2:encounter==="boss"?1.16:1;
-  const boss=config.bossIds?.map(id=>characterById[id]).filter(c=>c?.eloId===elo.id);
+  const roster=Object.values(characterById).filter(c=>c.kingdomId===elo.id||c.legacyEloId===elo.id||c.eloId===elo.id),other=roster.filter(c=>!playerIds.includes(c.id)),source=other.length>=3?other:roster,m=difficultyModifiers(config.difficulty),multiplier=encounter==="elite"?1.12:encounter==="mini"?1.2:encounter==="boss"?1.16:1;
+  const boss=config.bossIds?.map(id=>characterById[id]).filter(c=>c&&(c.kingdomId===elo.id||c.legacyEloId===elo.id||c.eloId===elo.id));
   return [0,1,2].map(i=>{
     const c=encounter==="boss"&&boss?.length===3?boss[i]:source[(sequence*3+i)%source.length],baseHp=encounter==="boss"?i===0?135:115:encounter==="mini"?130:encounter==="elite"?120:100;
     return {...c,sourceId:c.id,id:`oponente-${sequence}-${i}`,name:encounter==="elite"?`Elite · ${c.name}`:c.name,maxHp:Math.round(baseHp*m.hp),startingShield:m.shield,armor:m.armor,regeneration:m.regen,abilities:c.abilities.map(a=>scaleSkillForms(a,form=>({...form,damage:Math.round((form.damage||0)*multiplier*m.damage),...(form.dot?{dot:{...form.dot,damage:form.dot.damage+m.affliction}}:{}),...(form.reactive?.damage?{reactive:{...form.reactive,damage:Math.round(form.reactive.damage*multiplier*m.damage)+m.affliction}}:{})})))};

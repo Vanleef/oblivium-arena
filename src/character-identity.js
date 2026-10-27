@@ -206,7 +206,7 @@ export const characterRevisions = {
     "englishName": "Themistocles",
     "englishTitle": "The Living Shield",
     "aliases": ["O Escudo Vivo"],
-    "lore": "Escolheu permanecer entre a ameaça e quem precisa atravessar. Reúne a própria guarda antes de avançar e transforma a resistência acumulada em uma resposta da égide. Seu amparo dá ao Elo Proteção uma linha que ainda pode ser sustentada."
+    "lore": "Escolheu permanecer entre a ameaça e quem precisa atravessar. Reúne a própria guarda antes de avançar e transforma a resistência acumulada em uma resposta da égide. Seu amparo mantém aberta uma linha de defesa para quem ainda precisa atravessar."
   },
   "a-sentinela-azul": {
     "name": "Sittas",
@@ -230,7 +230,7 @@ export const characterRevisions = {
     "englishName": "Ibn Sina",
     "englishTitle": "The Restorer",
     "aliases": ["O Restaurador"],
-    "lore": "Reúne aos poucos a vitalidade dispersa pelo sofrimento. Conserva essa reserva até poder devolvê-la em uma restauração que alcança seus companheiros e desfaz as aflições que os prendem. Cada retorno fortalece a continuidade de Cura."
+    "lore": "Reúne aos poucos a vitalidade dispersa pelo sofrimento. Conserva essa reserva até poder devolvê-la em uma restauração que alcança seus companheiros e desfaz as aflições que os prendem. Cada retorno sustenta a continuidade da vida."
   },
   "o-pulso-sereno": {
     "name": "Asclepiades",
@@ -531,7 +531,7 @@ export const characterRevisions = {
     "englishTitle": "The Matriarch",
     "aliases": ["A Matriarca","A Senhora do Último Pão"],
     "role": "Soberana da Privação",
-    "lore": "Acumula o sustento que falta aos outros. Só alimenta os seus para conservar a dependência; cada ração concedida sustenta o poder do Elo da Fome.",
+    "lore": "Acumula o sustento que falta aos outros. Só alimenta os seus para conservar a dependência; cada ração concedida reforça o domínio sobre quem depende dela.",
     "terms": {
       "Última Migalha": "Lucro da Privação",
       "Dividir o Último Pão": "Ração dos Submissos",
@@ -639,7 +639,7 @@ export const characterRevisions = {
     "englishName": "Andriscus",
     "englishTitle": "The Usurper",
     "aliases": ["O Usurpador","O que Possui"],
-    "lore": "Manifesta a posse abusiva do Elo da Carne. Sua ligação espiritual impõe comandos e toma a vitalidade de quem foi marcado.",
+    "lore": "Manifesta a posse abusiva sobre outro corpo. Sua ligação espiritual impõe comandos e toma a vitalidade de quem foi marcado.",
     "terms": {
       "Usufruto Vital": "Espoliação Vital"
     }
