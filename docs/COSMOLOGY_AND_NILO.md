@@ -10,7 +10,7 @@ Acima dos mundos e dos Elos existem três seres além da existência comum. Não
 | --- | --- | --- |
 | Vesper, Rei do Inferno | O Fim | Inferno |
 | Elaris, O Prólogo | Guardião do Paraíso | Paraíso |
-| Aion, O Caminho | Lorde do Limbo | Limbo |
+| Zalmoxis, O Caminho | Lorde do Limbo | Limbo |
 
 Os três não morrem. Apenas adormecem. O sono de cada um provoca consequências profundas e duradouras no mundo dos vivos:
 
@@ -26,7 +26,7 @@ Quando uma entidade de Elo é destruída, seus fragmentos retornam ao líder cor
 
 ## Hierarquia
 
-1. **Os Três Líderes:** Vesper, Rei do Inferno; Elaris, O Prólogo; e Aion, O Caminho. Princípios personificados que não morrem; apenas adormecem.
+1. **Os Três Líderes:** Vesper, Rei do Inferno; Elaris, O Prólogo; e Zalmoxis, O Caminho. Princípios personificados que não morrem; apenas adormecem.
 2. **Entidades dos Elos:** fragmentos da alma de um dos líderes que governam os Elos e retornam a ele quando destruídos.
 3. **Almas comuns:** habitantes dos três mundos, incluindo casos anômalos.
 
