@@ -1,4 +1,4 @@
-# PMA: Post Mortem Arena
+# Oblivium Arena
 
 Protótipo original de combate tático 3v3 e progressão roguelite. Almas despertam no conflito entre Inferno, Paraíso e Limbo, formam Trios e atravessam trilhas de poder.
 
@@ -36,7 +36,7 @@ Para conferir visualmente início, bifurcações e conselho em larguras de 320 a
 - Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
 - Salvamento de equipe e progresso em localStorage.
 
-PMA: Post Mortem Arena — três reinos, um trio de almas e o destino do além em jogo.
+Oblivium Arena — três reinos, um trio de almas e o destino do além em jogo.
 
 ## Direção visual
 

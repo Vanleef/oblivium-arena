@@ -9,7 +9,7 @@ const LANGUAGE_KEY = "pma-language";
 const supported = new Set(["pt-BR", "en"]);
 
 const phraseTranslations = Object.fromEntries(Object.entries({
-  "Post Mortem Arena": "Post Mortem Arena",
+  "Oblivium Arena": "Oblivium Arena",
   "IDENTIDADE · SAEL, O ECO DAS QUATRO ESSÊNCIAS": "IDENTITY · SAEL, THE ECHO OF FOUR ESSENCES",
   "As três barras se fundiram em uma forma só.": "The three bars have merged into one form.",
   "30 · Prefácio 70 · Epílogo 100 · Final": "30 · Preface 70 · Epilogue 100 · Final",
@@ -24,7 +24,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "Sinergias discretas de Reino, Mundo e afinidade": "Subtle Kingdom, Realm, and affinity synergies",
   "O Fim · Rei do Inferno": "The End · King of Hell",
   "ARQUÉTIPO PRINCIPAL ·": "PRIMARY ARCHETYPE ·",
-  "ALMA DO PMA": "PMA SOUL", "DO PMA": "IN PMA",
+  "ALMA DO Oblivium Arena": "Oblivium Arena SOUL", "DO Oblivium Arena": "IN Oblivium Arena",
   "Grande Rota": "Grand Route", "Formar Trio": "Build Team", "Seu trio": "Your Team", "Trio selecionado": "Selected Team",
   "O véu está se rompendo": "The Veil Is Breaking", "Três mundos": "Three Worlds", "Uma fronteira": "One Border",
   "Reúna três almas. Atravesse os Reinos. Restaure o véu.": "Gather three souls. Cross the Kingdoms. Restore the veil.",
@@ -80,7 +80,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "TRÊS MUNDOS · UMA FRONTEIRA": "THREE REALMS · ONE BORDER", "Escolha o que atravessa o véu.": "Choose what crosses the veil.",
   "Monte seu trio, descubra as formas e enfrente as almas que guardam cada Reino.": "Build your team, discover its Forms, and face the souls guarding each Kingdom.",
   "SUA CONTA": "YOUR ACCOUNT", "NOVA ALMA": "NEW SOUL", "Criar conta": "Create account", "ENTRAR NA ARENA": "ENTER THE ARENA", "CRIAR CONTA": "CREATE ACCOUNT",
-  "Campanha, roguelike e Arena exigem login.": "Campaign, Roguelike, and Arena require sign-in.", "Conteúdo público": "Public content", "Início PMA": "PMA home",
+  "Campanha, roguelike e Arena exigem login.": "Campaign, Roguelike, and Arena require sign-in.", "Conteúdo público": "Public content", "Início Oblivium Arena": "Oblivium Arena home",
   "SUA ALMA, SUA TRAJETÓRIA": "YOUR SOUL, YOUR JOURNEY", "Nível da trajetória": "Journey Level", "RANQUEAMENTO ONLINE": "ONLINE RANKING", "Não classificado": "Unranked",
   "Conecte à Arena para consultar a classificação e buscar um adversário.": "Connect to the Arena to view the leaderboard and find an opponent.",
   "Partidas entre jogadores usam resultados validados pelo servidor.": "Player matches use server-validated results.", "AJUSTAR TRIO": "EDIT TEAM", "CONECTAR À ARENA": "CONNECT TO ARENA", "BUSCAR PARTIDA RANQUEADA": "FIND RANKED MATCH",
@@ -402,7 +402,7 @@ function addTranslations(entries) {
 }
 
 Object.assign(wordTranslations, { [normalize("retrato")]: "portrait", [normalize("retratos")]: "portraits", [normalize("jogador")]: "player", [normalize("inspecionar")]: "inspect", [normalize("fila")]: "queue", [normalize("cinco")]: "five", [normalize("unidade")]: "unit", [normalize("unidades")]: "units", [normalize("livres")]: "free", [normalize("reservadas")]: "reserved", [normalize("reservados")]: "reserved" });
-addTranslations({ "SAIR": "SIGN OUT", "PMA: Post Mortem Arena, início": "PMA: Post Mortem Arena, home", "Essências compartilhadas": "Shared Essence", "Defesa destrutível: absorve dano antes da Vida.": "Destructible Defense: absorbs damage before Health.", "Total de Essência. Desde a abertura, cada lado recebe uma unidade aleatória por alma viva. Os quatro tipos têm a mesma chance.": "Total Essence. From the start, each side gains one random Essence for every living character. All four types have an equal chance." });
+addTranslations({ "SAIR": "SIGN OUT", "Oblivium Arena, início": "Oblivium Arena, home", "Essências compartilhadas": "Shared Essence", "Defesa destrutível: absorve dano antes da Vida.": "Destructible Defense: absorbs damage before Health.", "Total de Essência. Desde a abertura, cada lado recebe uma unidade aleatória por alma viva. Os quatro tipos têm a mesma chance.": "Total Essence. From the start, each side gains one random Essence for every living character. All four types have an equal chance." });
 addTranslations({
   "Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.": "Gain 15 Defense and negate the next incoming enemy ability, then counterattack for 20 damage. Lasts 1 turn.",
   "Restaura 15 de Vida. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Remove aflições e condições prejudiciais. Assume uma postura de abrigo: troca o primeiro golpe por Fingir Presença até usar Retomar a Sombra.": "Restore 15 Health. Increase damage by 5 until the recipient's next turn ends. Remove afflictions and harmful conditions. Adopt a sheltering stance: your first strike becomes Feign Presence until you use Resume the Shadow.",
@@ -555,8 +555,8 @@ addTranslations({
   "Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno.":"Choose a technique, select a target, and confirm your action queue to take your turn.",
   "Reserva Imaculada":"Untarnished Reserve",
   "Com pelo menos 2 cargas, vira Reserva Imaculada: mais cura e limpeza coletiva, com custo maior.":"With at least 2 Charges, it shifts into Untarnished Reserve: stronger healing and a team-wide cleanse at a higher cost.",
-  "PMA: Post Mortem Arena — reúna um trio, atravesse os Reinos e escolha o destino dos três mundos.":"PMA: Post Mortem Arena — build a team, cross the Kingdoms, and choose the fate of the three realms.",
-  "Mariposa violeta de Post Mortem Arena":"Violet moth of Post Mortem Arena"
+  "Oblivium Arena — reúna um trio, atravesse os Reinos e escolha o destino dos três mundos.":"Oblivium Arena — build a team, cross the Kingdoms, and choose the fate of the three realms.",
+  "Símbolo de Oblivium Arena":"Oblivium Arena emblem"
 });
 
 // Exact interface and kit copy for text composed outside the character catalog.

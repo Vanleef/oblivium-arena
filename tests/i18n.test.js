@@ -35,7 +35,7 @@ test("English is a persistent locale and Post Mortem Arena keeps its name", () =
   assert.equal(localizeText("JOGADOR", "en"), "PLAYER");
   assert.equal(localizeText("Tutorial do jogo", "en"), "Game tutorial");
   assert.equal(localizeText("GUIA INTERATIVO · 2 / 6", "en"), "INTERACTIVE GUIDE · 2 / 6");
-  assert.equal(localizeText("PMA: Post Mortem Arena, início", "en"), "PMA: Post Mortem Arena, home");
+  assert.equal(localizeText("Oblivium Arena, início", "en"), "Oblivium Arena, home");
   assert.equal(localizeText("Defesa destrutível: absorve dano antes da Vida.", "en"), "Destructible Defense: absorbs damage before Health.");
   assert.equal(localizeText("Total de Essência. Desde a abertura, cada lado recebe uma unidade aleatória por alma viva. Os quatro tipos têm a mesma chance.", "en"), "Total Essence. From the start, each side gains one random Essence for every living character. All four types have an equal chance.");
   assert.equal(localizeText("Post Mortem Arena", "pt-BR"), "Post Mortem Arena");

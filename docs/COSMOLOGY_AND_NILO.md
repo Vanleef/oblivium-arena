@@ -1,4 +1,4 @@
-# Cosmologia de Post Mortem Arena
+# Cosmologia de Oblivium Arena
 
 Versão completa e corrigida da cosmologia e da história de Nilo, fornecida pelo autor em 25/10/2026.
 

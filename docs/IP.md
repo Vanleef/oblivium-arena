@@ -1,4 +1,4 @@
-# PMA: Post Mortem Arena — bíblia inicial da IP
+# Oblivium Arena — bíblia inicial da IP
 
 ## Premissa
 

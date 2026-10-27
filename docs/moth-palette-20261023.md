@@ -1,4 +1,4 @@
-# PMA — habilidades de O Fim e paleta da mariposa
+# Oblivium Arena — habilidades de O Fim e paleta da mariposa
 
 Data: 23/10/2026.
 

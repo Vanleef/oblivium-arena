@@ -1,4 +1,4 @@
-# PMA — O Véu / identidade anime
+# Oblivium Arena — O Véu / identidade anime
 
 Reformulação de identidade da interface, preservando o catálogo de personagens, suas artes de retrato, passiva e habilidades. Nenhum arquivo de `art/characters/` ou de definição dos kits é substituído nesta entrega. Bônus de eventos e Legados são modificadores de partida, não reformulações das habilidades-base.
 
@@ -8,7 +8,7 @@ Arquitetura monumental de um além distópico, portais partidos, correntes, esma
 
 17 brasões vetoriais inéditos em `src/crests.js`, cada um com desenho central próprio e moldura da família do seu reino. Ícones vetoriais da interface em `src/ui-icons.js`; glifos dos aprimoramentos em `src/augment-cards.js`, compartilhados com os nove tipos de nós.
 
-Os eventos, Ecos e Legados usam a mesma família de cartas: ícone central, raridade, efeito com números destacados, destinatários e duração. A referência de apresentação é ARAM Mayhem; nenhuma ilustração, moldura, ícone ou texto da Riot é usada como asset do PMA.
+Os eventos, Ecos e Legados usam a mesma família de cartas: ícone central, raridade, efeito com números destacados, destinatários e duração. A referência de apresentação é ARAM Mayhem; nenhuma ilustração, moldura, ícone ou texto da Riot é usada como asset do Oblivium Arena.
 
 ## Arquivos finais de arte gerada
 
@@ -31,11 +31,11 @@ Todos foram produzidos com a ferramenta integrada de geração de imagens, sem C
 
 ### Portal
 
-Use case: stylized-concept. Production background illustration for original dark dystopian anime tactical roguelite PMA: Post Mortem Arena. Original panoramic landscape 3:2 environment, no UI, no typography, no people or characters. A monumental broken circular gate suspended above a drowned brutalist necropolis, enormous suspended chains, central thin molten ivory fissure, restrained bronze and oxidized teal accents, distant ash embers. Strong sophisticated anime background painting, clean expressive shapes, detailed cinematic painted cel shading, absolutely not photorealism. Gate on right half, left half mostly atmospheric charcoal fog for HTML heading. Dark rich values, readable focal hierarchy, solemn mystery. Entirely original architecture and art. No skull wallpaper, no gore, no existing franchise assets.
+Use case: stylized-concept. Production background illustration for original dark dystopian anime tactical roguelite Oblivium Arena. Original panoramic landscape 3:2 environment, no UI, no typography, no people or characters. A monumental broken circular gate suspended above a drowned brutalist necropolis, enormous suspended chains, central thin molten ivory fissure, restrained bronze and oxidized teal accents, distant ash embers. Strong sophisticated anime background painting, clean expressive shapes, detailed cinematic painted cel shading, absolutely not photorealism. Gate on right half, left half mostly atmospheric charcoal fog for HTML heading. Dark rich values, readable focal hierarchy, solemn mystery. Entirely original architecture and art. No skull wallpaper, no gore, no existing franchise assets.
 
 ### Cenários dos mundos
 
-Prefixo comum: Use case: stylized-concept. Asset type: production environment art for original dark dystopian anime tactical roguelite PMA: Post Mortem Arena.
+Prefixo comum: Use case: stylized-concept. Asset type: production environment art for original dark dystopian anime tactical roguelite Oblivium Arena.
 
 - Inferno: INFERNO, the realm of consequences and oppression. A colossal black iron citadel arranged above an abyss, immense angular cages suspended over deep crimson molten ravines, rivers of subdued ember light, terrifying scale and architectural symmetry, copper metal and ash in charcoal atmosphere. The buildings are material manifestations of violence and tyranny, no literal torture, no creatures.
 - Paraíso: PARAISO, a solemn afterlife sanctuary of memory, justice and rebuilding rather than cheerful heaven. Ivory monumental arches, dark weathered marble, floating cloisters, an enormous fractured pale disc suspended above tranquil mist, abandoned elevated gardens with muted jade leaves, subtle warm gold veins, solemn melancholic luminous sanctuary emerging from deep blue shadows. No religious crosses, no gods, no characters.
@@ -49,7 +49,7 @@ Conceitos individuais: marca anterior, portal circular de três segmentos (jade/
 
 Após gerar esses conceitos como imagens separadas, cada um foi redesenhado usando este prompt final, com sua própria imagem como referência de edição:
 
-Use case: style-transfer. Redraw this exact original PMA game insignia as unmistakable 2D ANIME GAME ART. Preserve its core silhouette, symbolism and colors, and actual transparent background. Strong clean dark ink contours, bold simplified shapes, crisp flat cel shading with only two or three clearly separated values per material, graphic sharp-edged highlights and stylized supernatural energy. Remove ALL realistic surface grain, realistic metal scratches, photographic texture, painterly noise, smooth 3D rendering and photorealistic lighting. The result must look hand-drawn for a high-quality anime tactical game interface, not a photographed or 3D rendered physical object. Reduce tiny filigree, give large readable negative spaces, compact iconic composition at small sizes. Preserve original dark dystopian identity. No typography, no added characters, no backdrop. Center entire symbol, transparent safe margin.
+Use case: style-transfer. Redraw this exact original Oblivium Arena game insignia as unmistakable 2D ANIME GAME ART. Preserve its core silhouette, symbolism and colors, and actual transparent background. Strong clean dark ink contours, bold simplified shapes, crisp flat cel shading with only two or three clearly separated values per material, graphic sharp-edged highlights and stylized supernatural energy. Remove ALL realistic surface grain, realistic metal scratches, photographic texture, painterly noise, smooth 3D rendering and photorealistic lighting. The result must look hand-drawn for a high-quality anime tactical game interface, not a photographed or 3D rendered physical object. Reduce tiny filigree, give large readable negative spaces, compact iconic composition at small sizes. Preserve original dark dystopian identity. No typography, no added characters, no backdrop. Center entire symbol, transparent safe margin.
 
 ## Expansão de jogo
 
@@ -73,3 +73,8 @@ A imagem aprovada foi criada pela ferramenta integrada de geração de imagens. 
 
 
 Em 27/10/2026, a mariposa principal e sua variante violeta foram redesenhadas na linha anime 2.5D. Os arquivos de 192, 384 e 768 px mantêm o mesmo emblema e fundo transparente; `brand.webp` permanece por compatibilidade.
+
+
+### Fundo transparente da marca
+
+O emblema ativo `art/interface/moth-violet-20261027/brand-moth-192.webp` preserva canal alpha. Componentes de marca devem manter fundo transparente e não acrescentar placas, molduras ou halos opacos ao redor do recorte.

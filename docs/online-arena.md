@@ -4,7 +4,7 @@ A API em `api/arena.js` usa Redis REST persistente. Sem as duas variáveis abaix
 
 ## Ativação no projeto existente
 
-Conectar Upstash Redis ao projeto **pma-post-mortem-arena** no Vercel Marketplace, habilitar o ambiente Preview da branch `feature/combat-trails-20261021` e disponibilizar as variáveis `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN`. Redeployar essa branch. Credenciais ficam apenas no ambiente do servidor. Não inserir no frontend, em commits ou em mensagens.
+Conectar Upstash Redis ao projeto **oblivium-arena** no Vercel Marketplace, habilitar o ambiente Preview da branch `feature/combat-trails-20261021` e disponibilizar as variáveis `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN`. Redeployar essa branch. Credenciais ficam apenas no ambiente do servidor. Não inserir no frontend, em commits ou em mensagens.
 
 A integração consultada nesta sessão retornou 403 para listar instalações. Por isso a conexão não foi criada automaticamente. A API preparada é uma implementação em preview; não foi validada contra um banco real nem liberada em produção.
 

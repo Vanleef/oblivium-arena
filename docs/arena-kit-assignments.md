@@ -1,21 +1,21 @@
-# Atribuição dos kits de Arena aos personagens do PMA
+# Atribuição dos kits de Arena aos personagens do Oblivium Arena
 
 ## Critério
 
-Cada personagem do PMA recebe uma referência única entre os catálogos consultados: **148 personagens, 148 referências sem repetição**, escolhidas no conjunto de 331 perfis (193 de Soul Arena e 138 de Naruto Arena). Como o catálogo é maior que o elenco, a atribuição é um-para-um do personagem PMA para uma referência; não é um pareamento de todos os 331 perfis. A escolha considera a função e o ciclo de combate do PMA junto da lore do personagem correspondente. A coluna “PMA / encaixe de lore” registra a razão do encaixe; “Passiva e diálogo” descreve o efeito atual e como sua condição sustenta o ciclo.
+Cada personagem do Oblivium Arena recebe uma referência única entre os catálogos consultados: **148 personagens, 148 referências sem repetição**, escolhidas no conjunto de 331 perfis (193 de Soul Arena e 138 de Naruto Arena). Como o catálogo é maior que o elenco, a atribuição é um-para-um do personagem Oblivium Arena para uma referência; não é um pareamento de todos os 331 perfis. A escolha considera a função e o ciclo de combate do Oblivium Arena junto da lore do personagem correspondente. A coluna “Oblivium Arena / encaixe de lore” registra a razão do encaixe; “Passiva e diálogo” descreve o efeito atual e como sua condição sustenta o ciclo.
 
-A referência é usada no nível de estrutura tática — preparação, marca, reação, drenagem, risco, apoio ou finalização. Ela não substitui o kit PMA nem importa habilidades, números, custos, nomes, estética, acessórios ou trejeitos dos jogos-fonte. O metadado é editorial e não aparece na interface de combate. Os catálogos consultados são [Soul Arena](https://soul-arena.io/characters-and-skills) e [Naruto Arena](https://naruto-arena.online/characters-and-skills).
+A referência é usada no nível de estrutura tática — preparação, marca, reação, drenagem, risco, apoio ou finalização. Ela não substitui o kit Oblivium Arena nem importa habilidades, números, custos, nomes, estética, acessórios ou trejeitos dos jogos-fonte. O metadado é editorial e não aparece na interface de combate. Os catálogos consultados são [Soul Arena](https://soul-arena.io/characters-and-skills) e [Naruto Arena](https://naruto-arena.online/characters-and-skills).
 
 ## Tradução de conceitos
 
-| Conceito de origem | Tradução no PMA |
+| Conceito de origem | Tradução no Oblivium Arena |
 |---|---|
-| Reservas de chakra ou reiatsu | Essências do PMA: Éter, Cinza, Graça e Ruptura; Coringa quando a regra permitir. |
-| Técnicas de ninjutsu, kidō ou energia espiritual | Habilidades físicas, perfurantes, espirituais ou de aflição, descritas com os termos do PMA. |
+| Reservas de chakra ou reiatsu | Essências do Oblivium Arena: Éter, Cinza, Graça e Ruptura; Coringa quando a regra permitir. |
+| Técnicas de ninjutsu, kidō ou energia espiritual | Habilidades físicas, perfurantes, espirituais ou de aflição, descritas com os termos do Oblivium Arena. |
 | Ilusões, leitura de movimentos e ocultação | Engano, Marca, Exposto, Furtividade e respostas. |
 | Formas liberadas ou transformações | Forma, Despertar, Expansão de Cinza ou Colapso, quando o personagem e a campanha justificam a mudança. |
 | Selos, maldições e vínculos | Marcas, Fraturas, Vínculo de Ressonância, Interdição ou controle de Essência. |
-| Invocações, bonecos e duplicatas | Pilares, ecos, projeções ou estruturas apenas se fizerem sentido para a lore do PMA. |
+| Invocações, bonecos e duplicatas | Pilares, ecos, projeções ou estruturas apenas se fizerem sentido para a lore do Oblivium Arena. |
 
 A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincular, repercutir dano e concluir a sequência**. O Vínculo de Ressonância não usa ritual, foice, símbolos ou acessórios do kit-fonte; a passiva de Harmonia recompensa combinar as quatro Essências antes de gastar Cargas no desfecho.
 
@@ -23,7 +23,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Sangria
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Açougueiro | Soul Arena — Shrieker | Sangue, lâminas e carnificina. Executor: Abra um sangramento e consuma a ferida no golpe final. | Suas habilidades causam +5 de dano se o alvo estiver Sangramento. Diálogo de kit: Faro de Sangue recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Abra um sangramento e consuma a ferida no golpe final. |
 | A Viúva Escarlate | Soul Arena — Matsumoto Rangiku | Sangue, lâminas e carnificina. Duelista: O fio escarlate expõe a vítima; a viúva rouba Vida quando cobra sua promessa. | Após causar dano com uma habilidade, restaura 4 de Vida. Diálogo de kit: Luto Faminto devolve Vida depois que o dano conecta e sustenta a pressão; isso sustenta a decisão central: O fio escarlate expõe a vítima; a viúva rouba Vida quando cobra sua promessa. |
@@ -34,7 +34,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Coroa
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Soberano Quebrado | Naruto Arena — Deva Path Pein (S) | Tirania, correntes e domínio. Dominador: Um decreto marca a vítima; o domínio transforma a marca em interrupção. | Suas habilidades causam +4 de dano se o alvo estiver Marcado. Diálogo de kit: Autoridade Estilhaçada recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Um decreto marca a vítima; o domínio transforma a marca em interrupção. |
 | A Juíza de Ferro | Naruto Arena — Morino Ibiki (S) | Tirania, correntes e domínio. Controladora: A acusação revela excessos; a sentença pune quem permanece exposto. | Suas habilidades causam +5 de dano se o alvo estiver Exposto. Diálogo de kit: Peso da Lei recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: A acusação revela excessos; a sentença pune quem permanece exposto. |
@@ -45,7 +45,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Mentira
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Sussurro | Naruto Arena — Aburame Torune (S) | Traição, ilusão e veneno. Sabotador: Uma palavra venenosa prepara o próximo sussurro para roubar Essência. | Suas habilidades causam +4 de dano se o alvo estiver Veneno. Diálogo de kit: Segredo em Circulação recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Uma palavra venenosa prepara o próximo sussurro para roubar Essência. |
 | A Máscara Dupla | Naruto Arena — Itachi Body Double (S) | Traição, ilusão e veneno. Ilusionista: Alterne entre marcar um alvo e desarmar sua tentativa de resposta. | Após causar dano com uma habilidade, restaura 3 de Vida. Diálogo de kit: Segundo Rosto devolve Vida depois que o dano conecta e sustenta a pressão; isso sustenta a decisão central: Alterne entre marcar um alvo e desarmar sua tentativa de resposta. |
@@ -56,7 +56,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Chama
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Incendiário | Soul Arena — Shiba Kuukaku | Ódio, vingança e fogo negro. Incendiário: Espalhe queimaduras e consuma a combustão para uma explosão concentrada. | Suas habilidades causam +4 de dano se o alvo estiver Queimadura. Diálogo de kit: Pavio Aceso recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Espalhe queimaduras e consuma a combustão para uma explosão concentrada. |
 | A Brasa Eterna | Naruto Arena — Nii Yugito (S) | Ódio, vingança e fogo negro. Controladora de Chamas: Mantenha a chama no alvo e interrompa sua ação enquanto a brasa se fortalece. | Suas habilidades causam +5 de dano se o alvo estiver Queimadura. Diálogo de kit: Calor Persistente recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Mantenha a chama no alvo e interrompa sua ação enquanto a brasa se fortalece. |
@@ -67,7 +67,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Fome
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Devorador | Soul Arena — Ayasegawa Yumichika | Ganância, consumo e corrosão. Predador: Drene Vida e finalize inimigos feridos para sustentar a própria presença. | Após causar dano com uma habilidade, restaura 4 de Vida. Diálogo de kit: Fome Crescente devolve Vida depois que o dano conecta e sustenta a pressão; isso sustenta a decisão central: Drene Vida e finalize inimigos feridos para sustentar a própria presença. |
 | A Mão que Toma | Naruto Arena — Akadou Yoroi | Ganância, consumo e corrosão. Usurpadora: A mão rouba Essência enquanto a cobrança destrói as defesas do adversário. | A primeira habilidade ofensiva do combate causa +4 de dano. Diálogo de kit: Posse Insaciável valoriza a iniciativa na abertura do combate; isso sustenta a decisão central: A mão rouba Essência enquanto a cobrança destrói as defesas do adversário. |
@@ -78,7 +78,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Podridão
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Apodrecido | Soul Arena — Resurreccion Barragan | Corrupção, decadência e praga. Aflição: A decadência enfraquece a guarda e prepara a decomposição do alvo. | Suas habilidades causam +4 de dano se o alvo estiver Decadência. Diálogo de kit: Carne em Ruína recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: A decadência enfraquece a guarda e prepara a decomposição do alvo. |
 | A Praga Andante | Naruto Arena — Aburame Shino (S) | Corrupção, decadência e praga. Propagadora: Contamine o trio inimigo e concentre a febre em quem já está doente. | Após causar dano com uma habilidade, restaura 3 de Vida. Diálogo de kit: Hospedeira da Praga devolve Vida depois que o dano conecta e sustenta a pressão; isso sustenta a decisão central: Contamine o trio inimigo e concentre a febre em quem já está doente. |
@@ -89,7 +89,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Silêncio
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O que Observou | Naruto Arena — Human Path Pein (S) | Omissão, abandono e vazio. Observador: Registre a falha, acumule testemunhos e prepare uma resposta precisa. | No início do turno, recebe 3 de Defesa destrutível. Diálogo de kit: Olhos que Não Piscam premia erguer Defesa antes do impacto; isso sustenta a decisão central: Registre a falha, acumule testemunhos e prepare uma resposta precisa. |
 | A Porta Fechada | Soul Arena — Ushoda Hachigen | Omissão, abandono e vazio. Carcereira: Feche o caminho de um alvo e use a exclusão para proteger um aliado. | Após usar apoio, o usuário restaura 4 de Vida. Diálogo de kit: Lado de Dentro vincula seu efeito a uma escolha de apoio ao trio; isso sustenta a decisão central: Feche o caminho de um alvo e use a exclusão para proteger um aliado. |
@@ -100,7 +100,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Carne
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O que Possui | Soul Arena — Kon | Abuso, desejo corrupto e deformação. Possessor: Inscreva a posse e use a ligação para interromper a vítima ou drenar sua Vida. | Após causar dano com uma habilidade, restaura 4 de Vida. Diálogo de kit: Vontade Parasita devolve Vida depois que o dano conecta e sustenta a pressão; isso sustenta a decisão central: Inscreva a posse e use a ligação para interromper a vítima ou drenar sua Vida. |
 | A Pele Alheia | Soul Arena — Royd Lloyd | Abuso, desejo corrupto e deformação. Metamorfa: Recomponha a pele e castigue quem ataca uma forma que já não é a verdadeira. | No início do turno, recebe 4 de Defesa destrutível. Diálogo de kit: Pele que Aprende premia erguer Defesa antes do impacto; isso sustenta a decisão central: Recomponha a pele e castigue quem ataca uma forma que já não é a verdadeira. |
@@ -111,7 +111,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Vazio
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O que Apaga | Naruto Arena — Preta Path Pein (S) | Niilismo, desespero e apagamento. Anulador: Apague proteções antes de extinguir a marca deixada na alma do alvo. | Suas habilidades causam +4 de dano se o alvo estiver Marcado. Diálogo de kit: Nada se Sustenta recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Apague proteções antes de extinguir a marca deixada na alma do alvo. |
 | A Ausência | Soul Arena — Guenael Lee | Niilismo, desespero e apagamento. Evasão: O adversário perde Essência tentando preencher a ausência; a falta vira dano. | No início do turno, recebe 4 de Defesa destrutível. Diálogo de kit: Falta de Substância premia erguer Defesa antes do impacto; isso sustenta a decisão central: O adversário perde Essência tentando preencher a ausência; a falta vira dano. |
@@ -122,7 +122,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Proteção
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Escudo Vivo | Soul Arena — Runuganga | Sacrifício, defesa e amparo. Protetor: Proteja um aliado e use a própria guarda como base para o contra-golpe. | Ao causar dano a um inimigo enquanto ainda tem Defesa, recebe 4 de Defesa. Ativa uma vez por rodada. Diálogo de kit: Ficarei Aqui premia erguer Defesa antes do impacto; isso sustenta a decisão central: Proteja um aliado e use a própria guarda como base para o contra-golpe. |
 | A Muralha | Naruto Arena — Gaara Rehabilitated | Sacrifício, defesa e amparo. Fortificação: Erga a muralha para o trio e carregue força para romper a linha adversária. | No início do turno, recebe 4 de Defesa destrutível. Diálogo de kit: Pedra sobre Pedra premia erguer Defesa antes do impacto; isso sustenta a decisão central: Erga a muralha para o trio e carregue força para romper a linha adversária. |
@@ -132,7 +132,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Cura
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | A Mão que Cura | Naruto Arena — Haruno Sakura (S) | Restauração, compaixão e cuidado. Curadora: Cure e limpe um aliado; o golpe contra um inimigo marcado devolve Vida ao usuário. | Quando um apoio remove ao menos uma aflição de outro aliado, recupera 4 de Vida. Ativa uma vez por rodada; a defesa pessoal não ativa a passiva. Diálogo de kit: A Dor é Vista vincula seu efeito a uma escolha de apoio ao trio; isso sustenta a decisão central: Cure e limpe um aliado; o golpe contra um inimigo marcado devolve Vida ao usuário. |
 | O Restaurador | Soul Arena — Isane (TYBW) | Restauração, compaixão e cuidado. Restaurador: Remova aflições para manter o trio ativo e prepare reservas de Vida para a crise. | No início do turno, restaura 4 de Vida. Diálogo de kit: Recomposição Contínua transforma a recuperação em fôlego para continuar a sequência; isso sustenta a decisão central: Remova aflições para manter o trio ativo e prepare reservas de Vida para a crise. |
@@ -142,7 +142,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Justiça
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Equilíbrio | Soul Arena — Genryusai Yamamoto | Equilíbrio, julgamento e ordem. Equilíbrio: Exponha o excesso e mantenha o trio protegido enquanto prepara a medida final. | Ao causar dano a um inimigo Exposto, enfraquece-o por 1 turno. Ativa uma vez por rodada. Diálogo de kit: Medida Justa recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Exponha o excesso e mantenha o trio protegido enquanto prepara a medida final. |
 | A Lâmina Justa | Soul Arena — Bankai Ikkaku | Equilíbrio, julgamento e ordem. Duelista Justa: A lâmina marca o ofensor; o golpe seguinte atravessa a guarda sem perder a medida. | Na primeira habilidade ofensiva que causa dano no combate, ganha 1 carga e 4 de Defesa. Uma vez por combate. Diálogo de kit: Fio do Princípio valoriza a iniciativa na abertura do combate; isso sustenta a decisão central: A lâmina marca o ofensor; o golpe seguinte atravessa a guarda sem perder a medida. |
@@ -152,7 +152,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Esperança
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | A Chama que Não Apaga | Naruto Arena — Rock Lee (S) | Perseverança, fé e inspiração. Perseverança: Mantenha a chama acesa e responda com mais força quando a própria Vida baixar. | Com 50 de Vida ou menos, as habilidades causam +6 de dano. Diálogo de kit: Ainda Há Amanhã amplia as opções quando a Vida está baixa; isso sustenta a decisão central: Mantenha a chama acesa e responda com mais força quando a própria Vida baixar. |
 | O que Levanta | Naruto Arena — Maito Gai | Perseverança, fé e inspiração. Resiliência: Sustente quem caiu em risco e transforme a própria resistência em resposta. | No início do turno, restaura 4 de Vida. Diálogo de kit: Levantar Outra Vez transforma a recuperação em fôlego para continuar a sequência; isso sustenta a decisão central: Sustente quem caiu em risco e transforme a própria resistência em resposta. |
@@ -162,7 +162,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Verdade
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O que Revela | Soul Arena — NaNaNa Najahkoop | Honestidade, revelação e clareza. Revelador: Remova vantagens ocultas e use a exposição para um golpe que ignora redução. | Suas habilidades causam +5 de dano se o alvo estiver Exposto. Diálogo de kit: Nada a Esconder recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Remova vantagens ocultas e use a exposição para um golpe que ignora redução. |
 | A Luz Nua | Naruto Arena — Uchiha Sasuke | Honestidade, revelação e clareza. Claridade: A luz marca o adversário e rompe a defesa antes do clarão definitivo. | A primeira habilidade ofensiva do combate causa +4 de dano. Diálogo de kit: Sem Disfarce valoriza a iniciativa na abertura do combate; isso sustenta a decisão central: A luz marca o adversário e rompe a defesa antes do clarão definitivo. |
@@ -172,7 +172,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### União
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Elo Dourado | Naruto Arena — Killer Bee (S) | Aliança, lealdade e comunidade. Vínculo Ofensivo: Marque o elo adversário e fortaleça os aliados antes de fechar a corrente. | Ao causar dano a um inimigo que já tem sua Marca, restaura 4 de Vida ao aliado mais ferido. Ativa uma vez por rodada. Diálogo de kit: Força Compartilhada vincula seu efeito a uma escolha de apoio ao trio; isso sustenta a decisão central: Marque o elo adversário e fortaleça os aliados antes de fechar a corrente. |
 | A que Une | Soul Arena — Lilynette Gingerbuck | Aliança, lealdade e comunidade. Vínculo Vital: Uma união cuidadosa recupera e limpa o aliado enquanto a ligação drena o inimigo. | Após usar apoio, o usuário restaura 5 de Vida. Diálogo de kit: Cuidar em Conjunto vincula seu efeito a uma escolha de apoio ao trio; isso sustenta a decisão central: Uma união cuidadosa recupera e limpa o aliado enquanto a ligação drena o inimigo. |
@@ -182,7 +182,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Criação
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O que Cria | Naruto Arena — Sai (S) | Inovação, vida e preservação. Artífice: Crie formas de ataque e proteção para acumular cargas e concluir a obra ofensiva. | No início do turno, recebe 4 de Defesa destrutível. Diálogo de kit: Ideia Persistente premia erguer Defesa antes do impacto; isso sustenta a decisão central: Crie formas de ataque e proteção para acumular cargas e concluir a obra ofensiva. |
 | A Semente | Naruto Arena — Guren (S) | Inovação, vida e preservação. Germinação: Semeie o futuro no alvo: use as cargas para amparar um aliado ou consuma a marca para romper a guarda. | No início do turno, restaura 3 de Vida. Diálogo de kit: Potência Latente transforma a recuperação em fôlego para continuar a sequência; isso sustenta a decisão central: Semeie o futuro no alvo: use as cargas para amparar um aliado ou consuma a marca para romper a guarda. |
@@ -192,7 +192,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Correntes Quebradas
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | O Passo Interrompido | Naruto Arena — Namikaze Minato | Instabilidade, risco e ruptura. Duelista Temporal: Marque uma descontinuidade e converta o passo preparado em interrupção. | A primeira habilidade ofensiva do combate causa +5 de dano. Diálogo de kit: Passo que Retorna valoriza a iniciativa na abertura do combate; isso sustenta a decisão central: Marque uma descontinuidade e converta o passo preparado em interrupção. |
 | A Linha Partida | Naruto Arena — Kin Tsuchi | Instabilidade, risco e ruptura. Ruptura de Vínculos: Corte a proteção e amarre a falha do inimigo a uma linha que ainda não terminou. | Ao causar dano a um inimigo que já tem sua Marca, recupera 4 de Vida e ganha 1 carga. Ativa uma vez por rodada. Diálogo de kit: Tensão da Ruptura recompensa aplicar a condição antes do golpe concentrado; isso sustenta a decisão central: Corte a proteção e amarre a falha do inimigo a uma linha que ainda não terminou. |
@@ -210,7 +210,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Nilo, o Eco e o Expurgo
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | Nilo | Naruto Arena — Hoshigaki Kisame | Cada alma deixa um vestígio, mas Nilo ainda pode escolher quais ecos transformar em força. Receptáculo Instável: Registre o gasto de Essência inimigo, marque um alvo e escolha quando gastar Resíduos. | Sempre que um inimigo gastar 2 ou mais Essências, Nilo grava 1 Resíduo (máx. 3). Só Devolver o Eco pode gastar Resíduos; gastar é opcional. Diálogo de kit: Registro Aberto registra o custo alto pago pelo inimigo e converte essa leitura em Resíduo; isso sustenta a decisão central: Registre o gasto de Essência inimigo, marque um alvo e escolha quando gastar Resíduos. |
 | Nilo, Prefácio de Cinza | Soul Arena — Edrad Liones | O contato com o Inferno endurece a corrupção em cortes e calor persistente. Nilo ainda tenta conduzir cada efeito antes que a essência o conduza. Ferida em Sequência: Aplique uma aflição e escolha quando converter a abertura em dano. | Depois de aplicar Sangramento ou Queimadura, o próximo dano de Nilo contra esse alvo ignora 5 de Defesa. Exige sequência; não concede dano automático. Diálogo de kit: Ferida Aberta recompensa aplicar Sangramento ou Queimadura antes do golpe que ignora Defesa; isso sustenta a decisão central: Aplique uma aflição e escolha quando converter a abertura em dano. |
@@ -227,7 +227,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Naomi, Kael, Vaas e Diana
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | Naomi | Naruto Arena — Haruno Sakura | Depois de perder a família, Naomi continuou cuidando de desconhecidos. Morreu de exaustão, ainda tentando manter alguém de pé; a esperança dela não aceitou terminar ali. Guardiã da Persistência: Permanecer para amparar | Uma vez por rodada, apoiar outro aliado concede 2 de Defesa a cada membro vivo do trio. Diálogo de kit: Ninguém Fica para Trás vincula seu efeito a uma escolha de apoio ao trio; isso sustenta a decisão central: Permanecer para amparar |
 | Naomi, a Que Permanece | Soul Arena — Mask de Masculine | Naomi escolheu ficar mesmo quando cada perda parecia pedir que ela desistisse. Esta forma guarda o instante em que o cuidado deixou de ser obrigação e se tornou escolha. Sustentadora Inabalável: Curar sem se retirar | Uma vez por rodada, curar pelo menos 10 de Vida de outro aliado gera 1 Graça. Diálogo de kit: O Cuidado Retorna vincula seu efeito a uma escolha de apoio ao trio; isso sustenta a decisão central: Curar sem se retirar |
@@ -243,7 +243,7 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ### Aliados e antagonistas
 
-| Personagem PMA | Kit de referência | PMA / encaixe de lore | Passiva e diálogo com o kit |
+| Personagem Oblivium Arena | Kit de referência | Oblivium Arena / encaixe de lore | Passiva e diálogo com o kit |
 |---|---|---|---|
 | Teras | Naruto Arena — Nara Shikamaru (S) | Teras entende apenas uma parte do que Nilo é. Observa as almas sem pressa, como se procurasse no vazio uma regra que ainda não foi escrita. Observador do Vazio: Observar antes de intervir | No início do turno, se ao menos um inimigo ainda tiver Decadência de Teras, gera 1 Éter e drena 1 Essência inimiga; uma vez por rodada. Diálogo de kit: Nota de Campo recompensa manter a condição até o começo do turno; isso sustenta a decisão central: Observar antes de intervir |
 | Teras, o Observador | Soul Arena — Ise Nanao | Ao compreender que Nilo não pertence a nenhum Elo, Teras deixa de apenas observar. Esta forma passa a testar a fronteira para descobrir o que tenta atravessá-la. Leitor de Fendas: Revelar sem se expor | Uma vez por rodada, ferir um alvo Exposto rouba 1 Essência inimiga e concede 1 carga. Diálogo de kit: Leitura da Fenda aciona sua recompensa ao atingir o alvo marcado ou preparado; isso sustenta a decisão central: Revelar sem se expor |
@@ -273,6 +273,6 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 
 ## Ligação de passivas
 
-As passivas continuam usando as regras próprias do PMA e agora ficam vinculadas à referência de kit por metadados de design. Cada passiva explicita qual decisão sustenta: condição aplicada, marca, gasto de Essência, apoio, sobrevivência, furtividade ou resposta. As regras permanecem condicionais; não há bônus importado como efeito automático.
+As passivas continuam usando as regras próprias do Oblivium Arena e agora ficam vinculadas à referência de kit por metadados de design. Cada passiva explicita qual decisão sustenta: condição aplicada, marca, gasto de Essência, apoio, sobrevivência, furtividade ou resposta. As regras permanecem condicionais; não há bônus importado como efeito automático.
 
-Para o personagem em combate, `kitDesignReference` registra a referência de catálogo, o ciclo adaptado, a passiva relacionada e a indicação de que esses dados são editoriais. As descrições apresentadas durante o combate continuam com nomes e efeitos do PMA.
+Para o personagem em combate, `kitDesignReference` registra a referência de catálogo, o ciclo adaptado, a passiva relacionada e a indicação de que esses dados são editoriais. As descrições apresentadas durante o combate continuam com nomes e efeitos do Oblivium Arena.
