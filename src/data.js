@@ -5,6 +5,7 @@ import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
 import { revisePassive } from "./passive-revisions.js";
 import { assignCharacterArchetypes } from "./archetypes.js";
+import { attachArenaKitAssignment } from "./arena-kit-assignments.js";
 const inferno = [
   {
     id: "sangria", name: "Sangria", realm: "Inferno", theme: "Sangue, lâminas e carnificina", strength: "Máxima",
@@ -283,10 +284,10 @@ const reactiveKits={
 };
 function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>kit[a.id]&&!a.reactive?{...a,reactive:kit[a.id],description:`${a.description} Efeito reativo: responde à condição indicada. Ativa uma vez.`}:a)};}
 export const characters = [
-  ...elos.flatMap((elo) => elo.forms.map((name, index) => assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))))),
-  ...protagonistCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character))),
-  ...supportingCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character))),
-  ...antagonistCharacters.map((character) => assignCharacterArchetypes(withFlexibleCosts(character)))
+  ...elos.flatMap((elo) => elo.forms.map((name, index) => attachArenaKitAssignment(assignCharacterArchetypes(addReactiveKit(withFlexibleCosts(withBodyForms(characterFrom(elo, name, index))))))),
+  ...protagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
+  ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
+  ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
 ];
 // Expose current display names after deriving permanent IDs from the original roster.
 for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
