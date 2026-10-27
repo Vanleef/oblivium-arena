@@ -9,6 +9,7 @@ const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
 const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias']);
 const animeFirstRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','a-pira-errante']);
+const animeFirstRework20261027Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-tecelao-de-mentiras','a-boca-de-vidro']);
 const hybridInfernoRework20261027Art = new Set(['o-que-pesa','o-incendiario']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
@@ -1173,6 +1174,15 @@ export function revisedArtFor(id, art) {
     if (id === "o-que-pesa") {
       forms.impulso = {...(forms.impulso || {}),balance:`${base}/skill-impulso-balance.webp`};
     }
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
+  }
+  if (animeFirstRework20261027Art.has(id)) {
+    const base = `/art/characters/${id}/anime-first-rework-20261027`;
+    const forms = {...(art.forms || {})};
+    if (id === 'o-falso-profeta') forms.tecnica = {...forms.tecnica,confess:`${base}/skill-tecnica-confess.webp`};
+    if (id === 'o-tecelao-de-mentiras') forms.tecnica = {...forms.tecnica,unweave:`${base}/skill-tecnica-unweave.webp`};
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       ...(Object.keys(forms).length ? {forms} : {})};

@@ -25,7 +25,7 @@ O usuário aprovou a prancha de A Porta que Flutua e pediu que todo o jogo siga 
 - A auditoria anime-first anterior registrava 19/100 conjuntos e 114/600 sprites. Com Aristides, são 20/100 conjuntos e 120/600 sprites. Restam 80 conjuntos base para refazer e revisar.
 - O kit de Aristides inclui seis sprites base e uma arte própria para a forma alternativa `balance` / **Prato Ascendente**. Sem chifres nem balanças na arte: usar energia infernal dourada e signos.
 - O emblema principal, a variante violeta, os sete arquivos de marca e seis ícones de aplicação foram atualizados. As artes de Reino e do portal, demais formas alternativas e o restante da interface continuam na auditoria.
-- O catálogo tem 55 personagens do Inferno. O Regulador inicia esta rodada de reformulação infernal; os outros 54 precisam de inspeção visual e redesign quando a arte não transmitir essa leitura.
+- O Regulador, O Impostor, O Falsário, O Intrigante e A Serpe passaram por revisão infernal; restam 50 personagens do Inferno para inspeção visual e redesign quando a arte não transmitir essa leitura.
 - Em qualquer arte de habilidade, alvos são ghouls ou personagens identificáveis do elenco (protagonistas, coadjuvantes ou inimigos); nunca soldados genéricos de armadura. Respeitar a quantidade exata de alvos.
 - Progresso infernal e progresso anime-first são contagens diferentes: um conjunto só conclui ambos quando os seis sprites e suas formas ativas forem inspecionados sob as duas regras.
 
