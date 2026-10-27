@@ -71,16 +71,58 @@
         "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/skill-voto.webp",
         "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/skill-despertar.webp"
       ]
+    },
+    "o-incendiario": {
+      "displayName": "O Incendiário",
+      "activeRoute": "/art/characters/o-incendiario/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-incendiario-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/o-incendiario-fagulhas-em-cadeia-correction-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/o-incendiario/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "a-brasa-eterna": {
+      "displayName": "A Brasa Eterna",
+      "activeRoute": "/art/characters/a-brasa-eterna/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/a-brasa-eterna-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/a-brasa-eterna-sufoco-das-cinzas-correction-20261027.webp",
+        "art/source/a-brasa-eterna-labareda-sufocante-anime-first-rework-20261027.webp",
+        "art/source/a-brasa-eterna-cinzas-de-sufoco-anime-first-rework-20261027.webp",
+        "art/source/a-brasa-eterna-fornalha-sepulcral-anime-first-rework-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/passive.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-despertar.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-impulso-smother.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-tecnica-smother.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-voto-smother.webp"
+      ]
     }
   },
   "visualReview": {
     "status": "reviewed",
     "checks": [
-      "All four active six-sprite sets inspected for anime-first 2.5D style, identity consistency, anatomy and distinct framing.",
-      "Infernal environments match Malebolge and the Mentira roster; no industrial technology or generic armored soldiers.",
-      "Single-target attacks show one ghoul; area attacks show three enemies; O Intrigante's cleanse alternate shows three allies.",
+      "All six active character sets inspected for anime-first 2.5D style, identity consistency, anatomy and distinct framing.",
+      "Infernal environments match Malebolge, the Mentira roster and Chama; no industrial technology or generic armored soldiers.",
+      "Single-target frames show one ghoul; area frames show three opponents; O Intrigante's cleanse alternate shows three allies.",
       "Personal invulnerability frames show only the user.",
-      "O Impostor's confession and O Intrigante's unweave alternates have standalone art; O Falsário's Liquidação panel was corrected to one target."
+      "O Impostor's confession and O Intrigante's unweave alternates have standalone art; O Falsário's Liquidação panel is corrected to one target.",
+      "O Incendiário's Fagulhas em Cadeia and A Brasa Eterna's Cinzas de Sufoco show exactly three ghouls.",
+      "A Brasa Eterna's three suffocation-form variants have separate art; O Incendiário's area icon and A Brasa Eterna's single-target Sufoco icon have corrected sources."
     ]
   }
 }
