@@ -6,6 +6,7 @@ import { getLanguage } from "./i18n.js";
 const damageTypeNames = { physical: "físico", energy: "espiritual", piercing: "perfurante", affliction: "de aflição" };
 const statusNames = { sangramento: "Sangramento", queimadura: "Queimadura", veneno: "Veneno", decadencia: "Decadência" };
 const resourceNamesEn = { essence: "Aether", cinza: "Ash", ruptura: "Rupture", graca: "Grace", random: "Wildcard" };
+const abilityClassNamesEn = { "Física": "Physical", "Perfurante": "Piercing", "Espiritual": "Spiritual", "Aflição": "Affliction", "Estratégica": "Strategic", "Persistente": "Persistent", "Instantânea": "Instant", "Transformação": "Transformation", physical: "Physical", piercing: "Piercing", affliction: "Affliction" };
 const conditionNames = {
   bleed: "alvo com Sangramento", burn: "alvo com Queimadura", poison: "alvo com Veneno", decay: "alvo com Decadência",
   afflicted: "alvo com uma aflição", exposed: "alvo Exposto", stunned: "alvo Atordoado", weakened: "alvo Enfraquecido",
@@ -200,15 +201,13 @@ function abilityDurationEnglish(ability = {}) {
 
 export function abilityDetailMarkup(actor, ability) {
   const description = ability.description || abilityQuickEffect(ability);
+  const classes = [...new Set((ability.classes || []).map(name => getLanguage() === "en" ? (abilityClassNamesEn[name] || name) : name))].join(" · ");
+  const descriptionLabel = getLanguage() === "en" ? "DESCRIPTION" : "DESCRIÇÃO";
   return `<div class="ability-detail-grid">
-    <div><small>CUSTO</small><b>${esc(abilityCostLabel(actor, ability))}</b></div>
-    <div><small>EFEITO PRINCIPAL</small><p>${highlightKeywords(abilityQuickEffect(ability))}</p></div>
-    <div><small>CONDIÇÕES</small><p>${highlightKeywords(abilityConditions(ability))}</p></div>
-    <div><small>INTERAÇÕES E EFEITOS SECUNDÁRIOS</small><p>${highlightKeywords(description)}</p></div>
-    <div><small>DURAÇÃO · RECARGA</small><p>${highlightKeywords(abilityDuration(ability))} · ${ability.cooldown || 0} ${getLanguage() === "en" ? (ability.cooldown === 1 ? "turn" : "turns") + " cooldown" : "turno(s) de recarga"}</p></div>
+    <div><small>${descriptionLabel}</small><p>${highlightKeywords(description)}</p></div>
+    ${classes ? `<div><small>CLASSES</small><p>${highlightKeywords(classes)}</p></div>` : ""}
   </div>`;
 }
-
 export function abilityQuickMarkup(actor, ability) {
   return `<span class="skill-quick-info"><b>${highlightKeywords(abilityQuickEffect(ability))}</b><small>${esc(abilityCostLabel(actor, ability))} · CD ${ability.cooldown || 0}</small></span>`;
 }
