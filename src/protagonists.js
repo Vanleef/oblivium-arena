@@ -1302,8 +1302,11 @@ const protagonistProfiles = [
   },
   {
     "id": "o-eco-de-nilo",
-    "name": "O Eco sem Nome",
-    "englishName": "The Nameless Echo",
+    "name": "Sael",
+    "englishName": "Sael",
+    "aliases": ["O Eco sem Nome"],
+    "identityTitle": "O Eco das Quatro Essências",
+    "englishIdentityTitle": "The Echo of Four Essences",
     "family": "nilo",
     "version": 4,
     "eloId": "correntes-quebradas",
@@ -1319,8 +1322,8 @@ const protagonistProfiles = [
     "englishCombo": "Mix all four Essences, link a target, and choose when to let loss reverberate.",
     "mechanic": "Cada tipo de Essência gasto no mesmo turno forma Harmonia. O Eco alterna pressão por elemento, Vínculo de Ressonância, proteção e ataques que convertem estados em repercussão.",
     "englishMechanic": "Each Essence type spent in the same turn builds Harmony. The Echo alternates elemental pressure, Resonance Link, protection, and attacks that convert statuses into reverberation.",
-    "lore": "Nilo deixou de existir como nome. O Eco sem Nome conduz Cinza, Graça, Ruptura e Éter em uma única forma difícil de controlar.",
-    "englishLore": "Nilo ceased to exist as a name. The Nameless Echo conducts Ash, Grace, Rupture, and Aether in one difficult-to-control form.",
+    "lore": "Quando a absorção consome o nome Nilo, a consciência que resta escolhe Sael e passa a conduzir Cinza, Graça, Ruptura e Éter em uma única forma difícil de controlar.",
+    "englishLore": "When absorption consumes Nilo's name, the remaining consciousness chooses Sael and conducts Ash, Grace, Rupture, and Aether through one difficult-to-control form.",
     "synergyEloIds": [
       "correntes-quebradas"
     ],
@@ -4332,6 +4335,7 @@ function compileProfile(profile, index) {
     return compiled;
   });
   registerPhrase(profile.name, profile.englishName);
+  if (profile.identityTitle && profile.englishIdentityTitle) registerPhrase(profile.identityTitle, profile.englishIdentityTitle);
   registerPhrase(profile.elo, profile.englishElo);
   registerPhrase(profile.role, profile.englishRole);
   registerPhrase(profile.combo, profile.englishCombo);
@@ -4343,11 +4347,14 @@ function compileProfile(profile, index) {
   return {
     id: profile.id,
     name: profile.name,
-    aliases: [],
+    aliases: profile.aliases || [],
     realm: profile.realm,
     elo: profile.elo,
     eloId: profile.eloId,
     title: profile.role + " do Elo " + profile.elo,
+    englishName: profile.englishName,
+    identityTitle: profile.identityTitle || null,
+    englishIdentityTitle: profile.englishIdentityTitle || null,
     role: profile.role,
     roleHint: profile.combo,
     combo: profile.combo,

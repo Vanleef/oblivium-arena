@@ -19,7 +19,7 @@ Esta ficha reúne os protagonistas, coadjuvantes e antagonistas propostos para a
 
 ### Nilo
 
-Já definido: passou a vida em coma, não pôde ser vinculado a nenhum Elo e permaneceu em estado receptivo. Seus contatos no Limbo deixam Essências de forma involuntária. Perto do fim das Correntes Quebradas, o jogador escolhe se Nilo expurga a corrupção e permanece enfraquecido como o Epílogo, ou se a absorção consome seu nome e o transforma no Eco sem Nome.
+Já definido: passou a vida em coma, não pôde ser vinculado a nenhum Elo e permaneceu em estado receptivo. Seus contatos no Limbo deixam Essências de forma involuntária. Perto do fim das Correntes Quebradas, o jogador escolhe se Nilo expurga a corrupção e permanece enfraquecido como o Epílogo, ou se a absorção consome o nome Nilo e a consciência restante escolhe Sael, conhecido como o Eco das Quatro Essências.
 
 ### Naomi
 

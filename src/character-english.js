@@ -572,7 +572,9 @@ for (const character of characters) {
 
 Object.assign(phrases, {
   "Lança da Primeira Luz": "Spear of the First Light",
-  [FINAL_BOSS.title]: "King of Hell",
+  [FINAL_BOSS.name]: FINAL_BOSS.nameEn,
+  [FINAL_BOSS.title]: FINAL_BOSS.titleEn,
+  [`${FINAL_BOSS.name} · ${FINAL_BOSS.title}`]: `${FINAL_BOSS.nameEn} · ${FINAL_BOSS.titleEn}`,
   [FINAL_BOSS.lore]: "The End has no fixed face or Form. It always takes the shape of its observer's greatest fear: each witness sees a unique manifestation, even when several souls look upon it at once.",
   [FINAL_BOSS.artNote]: "The original Form keeps its approved silhouette: a slender, faceless sovereign with gold rings and dark mantles with rooted ivory, now without a crown. The Tyrant is the only Form with a crown: a low, broad, asymmetrical war diadem. It becomes a hunched colossus with enormous fists and localized ivory plates and fragments on one shoulder, forearm, and hands; the Predator remains a low, mobile beast; the Ruin floats without a crown, with a fragmented torso, four spectral arms, binding threads, and bone-white fragments on its chest and arms. Each Form keeps only a few traces of The End. No appearance is its true Form.",
   [FINAL_BOSS.mechanic]: "Three Manifestations of Fear",

@@ -6,11 +6,11 @@ Versão completa e corrigida da cosmologia e da história de Nilo, fornecida pel
 
 Acima dos mundos e dos Elos existem três seres além da existência comum. Não são deuses no sentido tradicional, nem criaturas que possam ser mortas de forma convencional. São princípios personificados, vastos demais para caber em uma única forma estável.
 
-| Líder | Título | Domínio |
+| Nome próprio | Título e domínio | Mundo |
 | --- | --- | --- |
-| O Fim | Rei do Inferno | Inferno |
-| O Prólogo | Guardiã do Paraíso | Paraíso |
-| O Caminho | Lorde do Limbo | Limbo |
+| Návar | O Fim, líder do Inferno | Inferno |
+| Elaris | O Prólogo, guardiã do Paraíso | Paraíso |
+| Khoren | O Caminho, lorde do Limbo | Limbo |
 
 Os três não morrem. Apenas adormecem. O sono de cada um provoca consequências profundas e duradouras no mundo dos vivos:
 
@@ -26,7 +26,7 @@ Quando uma entidade de Elo é destruída, seus fragmentos retornam ao líder cor
 
 ## Hierarquia
 
-1. **Os Três Líderes:** O Fim, O Prólogo e O Caminho. Princípios personificados que não morrem; apenas adormecem.
+1. **Os Três Líderes:** Návar, conhecido como O Fim; Elaris, O Prólogo; e Khoren, O Caminho. Princípios personificados que não morrem; apenas adormecem.
 2. **Entidades dos Elos:** fragmentos da alma de um dos líderes que governam os Elos e retornam a ele quando destruídos.
 3. **Almas comuns:** habitantes dos três mundos, incluindo casos anômalos.
 
@@ -70,7 +70,7 @@ A corrupção agora é acompanhada por três barras de absorção durante a camp
 
 Ações qualificadas acrescentam 5 pontos; uma derrota em combate do Inferno também acrescenta 5 a Cinza. Cada barra libera o Prefácio em 30, o Epílogo em 70 e a forma Final em 100. O jogador escolhe quais formas equipar entre travessias. Se uma barra atingir 100, Nilo fica ligado àquele caminho até o fim da travessia e as outras duas barras são apagadas.
 
-Se as três barras alcançarem 70 antes de uma delas chegar a 100, elas se fundem e liberam **O Eco sem Nome**. O Eco já não usa o nome Nilo e conduz Éter, Cinza, Graça e Ruptura em um kit de maior complexidade.
+Se as três barras alcançarem 70 antes de uma delas chegar a 100, elas se fundem e liberam **Sael, o Eco das Quatro Essências**. A absorção consome o nome Nilo; a consciência que resta escolhe Sael e conduz Éter, Cinza, Graça e Ruptura em um kit de maior complexidade.
 
 Se nenhuma barra chegar a 70, a Fenda da Alma surge antes do guardião final. O jogador decide se aceita o Expurgo. Ao aceitar, libera **Nilo Purificado**, uma forma enfraquecida e livre da corrupção, com custo Coringa em todas as skills e foco em contenção e respostas. Recusar mantém a forma atual e não libera Nilo Purificado nesta travessia. As barras reiniciam na próxima run.
 
@@ -78,7 +78,7 @@ Se nenhuma barra chegar a 70, a Fenda da Alma surge antes do guardião final. O 
 - **Caminho de Cinza:** prepara feridas, amplia dano por janelas temporárias e pode trocar Vida por Colapso.
 - **Caminho de Graça:** marca para responder, recompensa limpeza e organiza Pilares e Intervenções.
 - **Caminho de Ruptura:** acumula Resíduos ou Fraturas, usa Furtividade, armadilhas e respostas escolhidas.
-- **O Eco sem Nome:** mistura as quatro Essências, vincula alvos por ressonância e converte Cargas em dano.
+- **Sael, o Eco das Quatro Essências:** mistura as quatro Essências, vincula alvos por ressonância e converte Cargas em dano.
 
 A escolha do Expurgo acontece perto do fim da história, mas o jogador também pode evitar essa decisão ao fazer uma barra chegar a 70 ou equilibrar as três. A pergunta de Nilo permanece: **Quanto de mim ainda sou eu?**
 

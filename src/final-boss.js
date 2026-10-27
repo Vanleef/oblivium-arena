@@ -4,7 +4,7 @@ const shiftTo = form => slots.map(slot=>({slot,form}));
 const skill = (id,name,description,effects={},art=`${hybridArt}/skill-${id}.webp`) => ({id,name,description,target:'enemy',costs:{affinity:1},cooldown:0,kind:'strike',art,...effects});
 // Manifestations of different observers' fears, never a canonical true body.
 export const FINAL_BOSS = Object.freeze({
- id:'the-end',name:'O Fim',nameEn:'The End',title:'Rei do Inferno',role:'Rei do Inferno',
+ id:'the-end',name:'Návar',nameEn:'Navar',title:'O Fim',titleEn:'The End',role:'Manifestação do Fim',
  realm:'Inferno',elo:'Vazio',eloId:'vazio',color:'void',symbol:'◍',affinity:'essence',maxHp:100,
  portrait:`${hybridArt}/portrait.webp`,baseFormName:'Forma original',
  lore:'O Fim não tem rosto nem forma fixos. Assume sempre a forma do maior medo de quem o olha: cada observador encara uma manifestação única, mesmo quando várias almas o veem ao mesmo tempo.',
