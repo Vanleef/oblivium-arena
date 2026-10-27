@@ -553,3 +553,49 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   .codex-skill-cost>strong{text-align:left}
   .body-form-options{grid-template-columns:repeat(auto-fit,minmax(min(100%,135px),1fr))}
 }
+
+
+/* Codex skill cards: keep headings, cost, and effects in separate readable rows. */
+.codex-entity-kicker>span,
+.body-form-kicker>span{
+  flex:0 0 auto;
+  width:auto;
+  height:auto;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+.codex-entity-kit .codex-moves{
+  grid-template-columns:minmax(0,1fr);
+  gap:8px;
+}
+.codex-skill-header{
+  padding-bottom:8px;
+  border-bottom:1px solid var(--pma-line);
+}
+.codex-skill-header>.codex-skill-cost{
+  padding-left:12px;
+  border-left:1px solid var(--pma-line);
+}
+.codex-skill-heading>b{
+  min-width:0;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:clip;
+  overflow-wrap:anywhere;
+}
+.codex-skill .ability-detail-grid{
+  width:100%;
+  max-width:none;
+}
+.codex-skill-description{
+  display:block;
+  width:100%;
+  max-width:none;
+}
+@media(max-width:520px){
+  .codex-skill-header>.codex-skill-cost{
+    padding-left:0;
+    border-left:0;
+  }
+}

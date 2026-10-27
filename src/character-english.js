@@ -586,14 +586,15 @@ Object.assign(phrases, {
 });
 
 const finalBossForms = [
-  ["Tirano", "Tyrant", "Berserker · afinidade Cinza. Colosso curvado, punhos maciços e diadema de guerra. Golpes pesados quebram Defesa e ganham força conforme perde Vida. Medo de ser subjugado.", "Berserker · Ash affinity. A hunched colossus with massive fists and a war diadem. Heavy strikes break Defense and grow stronger as Health falls. Fear of subjugation."],
-  ["Predador", "Predator", "Executor · afinidade Ruptura. Persegue uma presa, recupera Vida e escolhe entre drená-la ou consumir sua marca. Medo de ser caçado.", "Executor · Rupture affinity. Hunts one prey, restores Health, and chooses between draining it or consuming its Mark. Fear of being hunted."],
-  ["Ruína", "Ruin", "Interditor · afinidade Graça. Sem coroa, flutua com torso fragmentado e quatro braços espectrais. Tece fios que prendem e interrompem. Medo de perder a própria continuidade.", "Disruptor · Grace affinity. Crownless, it floats with a fragmented torso and four spectral arms, weaving threads that bind and interrupt. Fear of losing continuity."]
+  ["Tirano", "Tyrant"],
+  ["Predador", "Predator"],
+  ["Ruína", "Ruin"]
 ];
-for (const [sourceName, targetName, sourceDescription, targetDescription] of finalBossForms) {
-  phrases[sourceName] = targetName;
-  phrases[sourceDescription] = targetDescription;
-}
+const finalBossTransformDescriptions = [
+  "Assume the Tyrant, replacing your first three techniques and portrait. Gain 10 Defense on entry. This Form lasts until Unreachable End is used.",
+  "Assume the Predator, replacing your first three techniques and portrait. Prepare +8 damage for your next strike on entry. This Form lasts until Unreachable End is used.",
+  "Assume Ruin, replacing your first three techniques and portrait. Generate 1 Grace on entry. This Form lasts until Unreachable End is used."
+];
 
 const finalBossAbilityNames = {
   "Punho de Cinza": "Ashen Fist", "Quebra do Trono": "Thronebreaker", "Queda Implacável": "Relentless Fall",
@@ -613,10 +614,9 @@ const finalBossAbilityDescriptions = {
 };
 for (const [index, ability] of createFinalBossAbilities().entries()) {
   if (index < finalBossForms.length) {
-    const [, targetName, , targetDescription] = finalBossForms[index];
-    const entryEffect = ["Gain 10 Defense when entering this Form.", "Gain +8 damage for your next strike on entry.", "Generate 1 Grace when entering this Form."][index];
+    const [, targetName] = finalBossForms[index];
     phrases[ability.name] = `Assume the ${targetName}`;
-    phrases[ability.description] = `Assume the ${targetName}, replace your first three techniques and portrait. ${entryEffect} ${targetDescription} This Form remains until you use Unreachable End.`;
+    phrases[ability.description] = finalBossTransformDescriptions[index];
     for (const form of ability.forms || []) {
       if (finalBossAbilityNames[form.name]) phrases[form.name] = finalBossAbilityNames[form.name];
       if (finalBossAbilityDescriptions[form.description]) phrases[form.description] = finalBossAbilityDescriptions[form.description];
@@ -627,10 +627,8 @@ for (const [index, ability] of createFinalBossAbilities().entries()) {
 }
 for (const [index, form] of FINAL_BOSS.bodyForms.entries()) {
   phrases[form.name] = finalBossForms[index][1];
-  phrases[form.description] = finalBossForms[index][3];
   phrases[`${form.name} de O Fim, sem rosto fixo`] = `The End in its ${finalBossForms[index][1]} Form, faceless`;
 }
-
 
 Object.assign(phrases, {
   "Instinto Bestial": "Bestial Instinct",

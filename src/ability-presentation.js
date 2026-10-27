@@ -213,7 +213,7 @@ export function abilityCostMarkup(actor, ability) {
 
 export function abilityDetailMarkup(actor, ability) {
   const description = ability.description || abilityQuickEffect(ability);
-  return `<div class="ability-detail-grid"><p class="codex-skill-description">${highlightKeywords(description)}</p></div>`;
+  return `<div class="ability-detail-grid"><p class="codex-skill-description">${esc(description)}</p></div>`;
 }
 export function abilityQuickMarkup(actor, ability) {
   return `<span class="skill-quick-info"><b>${highlightKeywords(abilityQuickEffect(ability))}</b><small>${esc(abilityCostLabel(actor, ability))} · CD ${ability.cooldown || 0}</small></span>`;

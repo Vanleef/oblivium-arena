@@ -39,7 +39,7 @@ export function createFinalBossAbilities(){
  const entryEffects={tyrant:{shield:10},predator:{boost:8},ruin:{generateEssence:{resource:'graca',amount:1}}};
  const entryDescriptions={tyrant:'Recebe 10 de Defesa ao entrar nesta forma.',predator:'Prepara +8 de dano para o próximo golpe ao entrar nesta forma.',ruin:'Gera 1 Graça ao entrar nesta forma.'};
  return [
-  ...FINAL_BOSS.bodyForms.map((f,i)=>skill(slots[i],`Assumir ${f.name}`,`Assume ${f.name}, substitui as três primeiras técnicas e o retrato. ${entryDescriptions[f.key]} ${f.description} Permanece assim até usar Fim Inalcançável.`,{target:'self',...entryEffects[f.key],kind:'support',assumeForm:f.key,shift:shiftTo(f.key),forms:FINAL_BOSS.bodyForms.map(form=>({...kits[form.key][i],id:slots[i],formKey:form.key}))},f.portrait)),
+  ...FINAL_BOSS.bodyForms.map((f,i)=>skill(slots[i],`Assumir ${f.name}`,`Assume ${f.name}; substitui as três primeiras técnicas e o retrato. ${entryDescriptions[f.key]} Permanece até usar Fim Inalcançável.`,{target:'self',...entryEffects[f.key],kind:'support',assumeForm:f.key,shift:shiftTo(f.key),forms:FINAL_BOSS.bodyForms.map(form=>({...kits[form.key][i],id:slots[i],formKey:form.key}))},f.portrait)),
   skill('despertar','Fim Inalcançável','Fica Invulnerável a novas habilidades inimigas por 1 turno, recupera 10 de Vida e retorna à forma original. Aflições já ativas continuam. Não reinicia recargas.',{target:'self',heal:10,invulnerable:1,defense:true,kind:'defense',costs:{random:1},cooldown:4,shift:shiftTo('base')},`${hybridArt}/skill-despertar.webp`)
  ];
 }
