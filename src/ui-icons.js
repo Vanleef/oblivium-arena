@@ -22,7 +22,7 @@ const paths={
  spore:'M16 10A6 6 0 1 0 16 22 6 6 0 1 0 16 10M16 2V7M16 25V30M2 16H7M25 16H30M5 5 9 9M23 23 27 27M5 27 9 23M23 9 27 5',
  chevron:'M10 5 22 16 10 27'
 };
-export function uiIcon(name,extraClass=''){const viewBox=name==='chains'?'-3 -1 38 34':name==='trio'?'-1 -1 34 34':'0 0 32 32';return `<svg class="ui-icon ${extraClass}" viewBox="${viewBox}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${paths[name]||paths.seal}"/></svg>`;}
+export function uiIcon(name,extraClass=''){const viewBox=name==='chains'?'-3 -1 38 34':name==='trio'?'-1 -1 34 34':'0 0 32 32';return `<svg class="ui-icon ${extraClass}" viewBox="${viewBox}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${paths[name]||paths.seal}"/></svg>`;}
 export function realmEmblem(id,className='realm-emblem'){return `<img class="${className}" src="/art/interface/realm-${id}.svg" alt="" width="128" height="128" loading="lazy">`;}
 export function statusIcon(label){const name=/carga/i.test(label)?'charge':/afli|sangramento|queimadura|veneno|decad/i.test(label)?'spore':/marca/i.test(label)?'mark':/cura|regenera/i.test(label)?'heart':/contra/i.test(label)?'counter':/selad|atordo/i.test(label)?'lock':/exposto/i.test(label)?'eye':/defesa|armadura|redução|invulner/i.test(label)?'shield':'seal';return uiIcon(name);}
 
