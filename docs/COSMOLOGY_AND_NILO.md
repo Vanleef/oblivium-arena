@@ -6,11 +6,11 @@ Versão completa e corrigida da cosmologia e da história de Nilo, fornecida pel
 
 Acima dos mundos e dos Elos existem três seres além da existência comum. Não são deuses no sentido tradicional, nem criaturas que possam ser mortas de forma convencional. São princípios personificados, vastos demais para caber em uma única forma estável.
 
-| Nome próprio | Título e domínio | Mundo |
+| Nome exibido | Epíteto ou domínio | Mundo |
 | --- | --- | --- |
-| Návar | O Fim, líder do Inferno | Inferno |
-| Elaris | O Prólogo, guardiã do Paraíso | Paraíso |
-| Khoren | O Caminho, lorde do Limbo | Limbo |
+| Nadir, Rei do Inferno | O Fim | Inferno |
+| Elaris, O Prólogo | Guardião do Paraíso | Paraíso |
+| Khoren, O Caminho | Lorde do Limbo | Limbo |
 
 Os três não morrem. Apenas adormecem. O sono de cada um provoca consequências profundas e duradouras no mundo dos vivos:
 
@@ -26,7 +26,7 @@ Quando uma entidade de Elo é destruída, seus fragmentos retornam ao líder cor
 
 ## Hierarquia
 
-1. **Os Três Líderes:** Návar, conhecido como O Fim; Elaris, O Prólogo; e Khoren, O Caminho. Princípios personificados que não morrem; apenas adormecem.
+1. **Os Três Líderes:** Nadir, Rei do Inferno; Elaris, O Prólogo; e Khoren, O Caminho. Princípios personificados que não morrem; apenas adormecem.
 2. **Entidades dos Elos:** fragmentos da alma de um dos líderes que governam os Elos e retornam a ele quando destruídos.
 3. **Almas comuns:** habitantes dos três mundos, incluindo casos anômalos.
 

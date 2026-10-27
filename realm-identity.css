@@ -82,7 +82,5 @@
 
 
 
-.codex-character-title{display:block;margin:.2rem 0 .75rem;color:var(--moth-gold,#d4b78a);font-size:.76rem;font-weight:600;line-height:1.4;letter-spacing:.025em;overflow-wrap:anywhere}
-.codex-entity h2+.codex-character-title{margin-top:-.2rem}
-
-.roster-card-copy .roster-character-title{color:var(--moth-gold,#d4b78a);font-size:10px;line-height:1.35;overflow-wrap:anywhere}
+.codex-character-title{display:inline;margin:0;color:var(--moth-gold,#d4b78a);font-size:.82em;font-weight:600;line-height:inherit;letter-spacing:.025em;overflow-wrap:anywhere}
+.roster-card-copy .roster-character-title,.team-character-title{display:inline;color:var(--moth-gold,#d4b78a);font-size:.86em;font-weight:500;line-height:inherit;overflow-wrap:anywhere}

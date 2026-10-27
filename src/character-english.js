@@ -4,7 +4,7 @@ import { FINAL_BOSS, createFinalBossAbilities } from "./final-boss.js";
 // Hand-edited character copy keeps lore and play advice natural in English.
 const characterCopy = {
   "o-acougueiro": {
-    lore: "Bloodshed's executioner: his cleaver recognizes the Essence of a wounded victim. Every wound sharpens his instinct and makes the next lunge more ruthless.",
+    lore: "Dario is a brutally sturdy creature of flesh. He scents wounded prey and turns his next lunge into a more relentless strike; every blow deepens the hunt that feeds Bloodshed.",
     combo: "Apply Bleed, then choose whether to reopen the same wound or consume it with the Sentence.",
     passive: "Blood Instinct"
   },
@@ -330,7 +330,7 @@ Object.assign(characterCopy, {
     passive: "Serene Rhythm"
   },
   "o-equilibrio": {
-    lore: "A spiritual construct that measures damage before intervening. Its measuring rod sets the bounds of repair and interrupts excess; its authority serves Justice's balance without demanding submission.",
+    lore: "A spiritual construct that measures damage before intervening. Its measuring rod sets the bounds of repair and interrupts excess; its authority applies Justice's measure without demanding submission.",
     combo: "Expose excess, offer shelter, and unlock an even-handed response; the piercing verdict punishes the opening you reveal.",
     passive: "Just Measure"
   },
@@ -365,12 +365,12 @@ Object.assign(characterCopy, {
     passive: "Rise Again"
   },
   "a-voz": {
-    lore: "Song gives shape to the courage one soul lends another. Her voice supports the team and grows louder when perseverance becomes shared.",
+    lore: "Song gives shape to the courage one soul lends another. Her music supports the team and grows stronger when perseverance becomes shared.",
     combo: "Begin a hymn to mark several enemies with the chorus, or end it to recover your own voice.",
     passive: "Choir of Courage"
   },
   "o-portador-da-aurora": {
-    lore: "He carries the promise of a horizon beyond the present fight. His light restores an ally's clarity, vigor, and time to respond before focusing on the threat. The dawn he brings lets Hope take one more step.",
+    lore: "He carries the promise of a horizon beyond the present fight. His light restores an ally's clarity, vigor, and time to respond before focusing on the threat. The hope he grants lets the team advance one more step.",
     combo: "Dawn cleanses, strengthens, and reduces an ally's non-defensive cooldowns; Charges still fuel a piercing horizon.",
     passive: "First Horizon"
   },
@@ -574,11 +574,11 @@ Object.assign(phrases, {
   "Lança da Primeira Luz": "Spear of the First Light",
   [FINAL_BOSS.name]: FINAL_BOSS.nameEn,
   [FINAL_BOSS.title]: FINAL_BOSS.titleEn,
-  [`${FINAL_BOSS.name} · ${FINAL_BOSS.title}`]: `${FINAL_BOSS.nameEn} · ${FINAL_BOSS.titleEn}`,
-  [FINAL_BOSS.lore]: "The End has no fixed face or Form. It always takes the shape of its observer's greatest fear: each witness sees a unique manifestation, even when several souls look upon it at once.",
-  [FINAL_BOSS.artNote]: "The original Form keeps its approved silhouette: a slender, faceless sovereign with gold rings and dark mantles with rooted ivory, now without a crown. The Tyrant is the only Form with a crown: a low, broad, asymmetrical war diadem. It becomes a hunched colossus with enormous fists and localized ivory plates and fragments on one shoulder, forearm, and hands; the Predator remains a low, mobile beast; the Ruin floats without a crown, with a fragmented torso, four spectral arms, binding threads, and bone-white fragments on its chest and arms. Each Form keeps only a few traces of The End. No appearance is its true Form.",
+  [`${FINAL_BOSS.name}, ${FINAL_BOSS.title}`]: `${FINAL_BOSS.nameEn}, ${FINAL_BOSS.titleEn}`,
+  [FINAL_BOSS.lore]: "Nadir has no fixed face or Form. It takes the shape of the greatest fear of whoever observes it: each person sees a unique manifestation, even when several souls look upon it at once.",
+  [FINAL_BOSS.artNote]: "The original Form keeps its approved silhouette: a slender, faceless sovereign with gold rings and dark mantles with rooted ivory, now without a crown. The Tyrant is the only Form with a crown: a low, broad, asymmetrical war diadem. It becomes a hunched colossus with enormous fists and localized ivory plates and fragments on one shoulder, forearm, and hands; the Predator remains a low, mobile beast; the Ruin floats without a crown, with a fragmented torso, four spectral arms, binding threads, and bone-white fragments on its chest and arms. Each Form keeps only a few traces of Nadir. No appearance is its true Form.",
   [FINAL_BOSS.mechanic]: "Three Manifestations of Fear",
-  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant breaks guards with brute force and grows stronger as Health falls, using Ash; the Predator hunts with Rupture; the Ruin binds and interrupts with spectral magic and Grace. Unreachable End restores 10 Health and returns to the original Form. Cooldowns belong to each slot and carry across Forms.",
+  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant breaks guards with brute force and grows stronger as Health falls, using Ash; the Predator hunts with Rupture; the Ruin binds and interrupts with spectral magic and Grace. Unreachable End restores 10 Health and returns Nadir to the original Form. Cooldowns belong to each slot and carry across Forms.",
   "Forma original": "Original Form",
   "Assumir Tirano": "Assume the Tyrant",
   "Assumir Predador": "Assume the Predator",

@@ -3418,6 +3418,188 @@ const supportingProfiles = [
       "englishName": "Invulnerable Shard",
       "shield": 7
     }
+  },
+  {
+    "id": "khoren-caminho",
+    "name": "Khoren",
+    "englishName": "Khoren",
+    "identityTitle": "O Caminho",
+    "englishIdentityTitle": "The Path",
+    "family": "cosmic-leaders",
+    "version": 1,
+    "eloId": "correntes-quebradas",
+    "elo": "Anômalo",
+    "englishElo": "Anomaly",
+    "realm": "Limbo",
+    "color": "limbo",
+    "symbol": "⟲",
+    "affinity": "ruptura",
+    "role": "Lorde do Limbo",
+    "englishRole": "Lord of Limbo",
+    "combo": "Marque um alvo, acerte-o para ganhar uma Carga e escolha quando consumi-la.",
+    "englishCombo": "Mark a target, hit it to gain a Charge, and choose when to spend it.",
+    "mechanic": "Khoren abre uma Rota ao marcar um inimigo. Atingir esse alvo gera uma Carga uma vez por rodada; sua técnica final pode consumi-las para ampliar o golpe.",
+    "englishMechanic": "Khoren opens a Route by Marking an enemy. Hitting that target grants a Charge once per round; his final technique can spend them to strengthen the strike.",
+    "lore": "Khoren é o Lorde do Limbo e vigia as passagens entre existências. Não escolhe destinos: revela as rotas e cobra de quem força a travessia.",
+    "englishLore": "Khoren is the Lord of Limbo and watches the passages between lives. He does not choose destinations; he reveals the routes and exacts a price from those who force their way through.",
+    "synergyEloIds": [
+      "correntes-quebradas",
+      "vazio"
+    ],
+    "passive": {
+      "name": "Marco de Passagem",
+      "englishName": "Waymark",
+      "trigger": "hit",
+      "requiresOwnMark": true,
+      "requiresLifeLoss": true,
+      "effect": {
+        "gainCharge": 1
+      },
+      "description": "Ao causar dano a um inimigo com sua Marca, ganha 1 Carga. Ativa uma vez por rodada.",
+      "englishDescription": "Once per round, dealing damage to an enemy with his Mark grants Khoren 1 Charge."
+    },
+    "skills": [
+      {
+        "name": "Traçar Rota",
+        "englishName": "Trace a Route",
+        "damage": 10,
+        "target": "enemy",
+        "damageType": "energy",
+        "mark": "rota-caminho",
+        "markTurns": 2,
+        "costs": {
+          "ruptura": 1
+        },
+        "englishDescription": "Deals 10 spiritual damage to one enemy and Marks it with a Route for 2 turns."
+      },
+      {
+        "name": "Cobrar Travessia",
+        "englishName": "Exact the Crossing",
+        "damage": 12,
+        "target": "enemy",
+        "damageType": "piercing",
+        "expose": 1,
+        "combo": {
+          "condition": "mark:rota-caminho",
+          "bonusDamage": 5
+        },
+        "costs": {
+          "ruptura": 1,
+          "random": 1
+        },
+        "cooldown": 1,
+        "englishDescription": "Deals 12 piercing damage and Exposes one enemy. Against Khoren's Route, it deals 5 more damage."
+      },
+      {
+        "name": "Desfecho de Trajeto",
+        "englishName": "Route's End",
+        "damage": 13,
+        "target": "enemy",
+        "damageType": "piercing",
+        "perChargeDamage": 4,
+        "spendCharge": true,
+        "costs": {
+          "ruptura": 1,
+          "random": 1
+        },
+        "cooldown": 2,
+        "englishDescription": "Deals 13 piercing damage, plus 4 for each Charge spent."
+      }
+    ],
+    "defense": {
+      "name": "Travessia Reversa",
+      "englishName": "Reversed Crossing",
+      "shield": 7
+    }
+  },
+  {
+    "id": "elaris-prologo",
+    "name": "Elaris",
+    "englishName": "Elaris",
+    "identityTitle": "O Prólogo",
+    "englishIdentityTitle": "The Prologue",
+    "family": "cosmic-leaders",
+    "version": 1,
+    "eloId": "criacao",
+    "elo": "Criação",
+    "englishElo": "Creation",
+    "realm": "Paraíso",
+    "color": "creation",
+    "symbol": "✧",
+    "affinity": "graca",
+    "role": "Guardião do Paraíso",
+    "englishRole": "Guardian of Paradise",
+    "combo": "Restaure um aliado para gerar Graça; proteja-o ou enfraqueça a ameaça.",
+    "englishCombo": "Restore an ally to generate Grace; protect them or weaken the threat.",
+    "mechanic": "Elaris converte o primeiro amparo bem-sucedido de cada rodada em Graça. A equipe decide entre sustentar aliados, remover aflições ou interromper a ofensiva inimiga.",
+    "englishMechanic": "Once per round, Elaris turns a successful act of support into Grace. The team chooses between restoring allies, cleansing afflictions, and interrupting enemy pressure.",
+    "lore": "Elaris protege o Paraíso e preserva a possibilidade de recomeçar. Sua tutela não apaga as perdas, mas impede que elas determinem o próximo passo.",
+    "englishLore": "Elaris protects Paradise and preserves the possibility of a new beginning. This shelter does not erase loss, but keeps it from deciding the next step.",
+    "synergyEloIds": [
+      "criacao",
+      "cura",
+      "esperanca"
+    ],
+    "passive": {
+      "name": "Primeira Graça",
+      "englishName": "First Grace",
+      "trigger": "support",
+      "minimumHeal": 10,
+      "requiresOtherAlly": true,
+      "nonDefensive": true,
+      "effect": {
+        "generateEssence": {
+          "resource": "graca",
+          "amount": 1
+        }
+      },
+      "description": "Uma vez por rodada, curar ao menos 10 de Vida de outro aliado gera 1 Graça.",
+      "englishDescription": "Once per round, healing another ally for at least 10 Health generates 1 Grace."
+    },
+    "skills": [
+      {
+        "name": "Primeiro Fôlego",
+        "englishName": "First Breath",
+        "target": "ally",
+        "heal": 12,
+        "costs": {
+          "graca": 1
+        },
+        "englishDescription": "Restores 12 Health to one ally."
+      },
+      {
+        "name": "Véu do Amanhecer",
+        "englishName": "Dawn Veil",
+        "target": "ally",
+        "shield": 9,
+        "cleanse": true,
+        "costs": {
+          "graca": 1,
+          "random": 1
+        },
+        "cooldown": 1,
+        "englishDescription": "Grants one ally 9 Defense and removes harmful conditions from them."
+      },
+      {
+        "name": "Adiar o Crepúsculo",
+        "englishName": "Defer the Dusk",
+        "target": "enemy",
+        "damage": 12,
+        "damageType": "energy",
+        "weaken": 1,
+        "costs": {
+          "graca": 1,
+          "random": 1
+        },
+        "cooldown": 1,
+        "englishDescription": "Deals 12 spiritual damage to one enemy and Weakens it for 1 turn."
+      }
+    ],
+    "defense": {
+      "name": "Amparo Primordial",
+      "englishName": "Primordial Shelter",
+      "shield": 8
+    }
   }
 ];
 
