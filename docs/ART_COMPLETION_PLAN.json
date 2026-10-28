@@ -1,9 +1,9 @@
 {
   "goal": "Complete all runtime characters, every ability including additional skills, ability variants and body-form portraits.",
-  "status": "blocked_image_generation_quota",
+  "status": "in_progress",
   "executionStatus": {
     "complete": false,
-    "status": "blocked_image_generation_quota",
+    "status": "in_progress",
     "tool": "built-in image_gen",
     "errorType": "usage_limit_reached",
     "httpStatus": 429,
@@ -10197,7 +10197,7 @@
           "status": "pending_generation"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "nilo-o-prefacio",
@@ -23438,8 +23438,8 @@
       "name": "Retrato",
       "art": "/art/characters/nilo/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "needs_correction",
-      "correction": "Simplify detailed stone surfaces in the background while preserving the character."
+      "status": "reviewed",
+      "source": "/art/source/nilo-anime-first-completion-20261028-portrait.webp"
     },
     {
       "key": "nilo:base:passive",
@@ -23450,8 +23450,8 @@
       "description": "Sempre que um inimigo gastar 2 ou mais Essências, Nilo grava 1 Resíduo (máx. 3). Só Devolver o Eco pode gastar Resíduos; gastar é opcional.",
       "art": "/art/characters/nilo/anime-first-completion-20261028/passive.webp",
       "exists": true,
-      "status": "needs_correction",
-      "correction": "Simplify detailed stone surfaces in the background while preserving the action and identity."
+      "status": "reviewed",
+      "source": "/art/source/nilo-anime-first-completion-20261028-passive.webp"
     },
     {
       "key": "nilo:base:impulso",
@@ -23463,8 +23463,10 @@
       "name": "Toque Receptivo",
       "description": "Causa 12 de dano espiritual a um inimigo. Remove 1 unidade de Essência da reserva inimiga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-anime-first-completion-20261028-skill-impulso.webp"
     },
     {
       "key": "nilo:base:tecnica",
@@ -23478,8 +23480,8 @@
       "target": "enemy",
       "art": "/art/characters/nilo/anime-first-completion-20261028/skill-tecnica.webp",
       "exists": true,
-      "status": "needs_correction",
-      "correction": "Simplify detailed stone surfaces in the background while preserving the mark, gaze and anatomy."
+      "status": "reviewed",
+      "source": "/art/source/nilo-anime-first-completion-20261028-skill-tecnica.webp"
     },
     {
       "key": "nilo:base:voto",
@@ -23493,8 +23495,8 @@
       "target": "enemy",
       "art": "/art/characters/nilo/anime-first-completion-20261028/skill-voto.webp",
       "exists": true,
-      "status": "needs_correction",
-      "correction": "Simplify detailed stone surfaces in the background while preserving the single target and echo effect."
+      "status": "reviewed",
+      "source": "/art/source/nilo-anime-first-completion-20261028-skill-voto.webp"
     },
     {
       "key": "nilo:base:despertar",
@@ -23506,8 +23508,10 @@
       "name": "Limiar",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/nilo-anime-first-completion-20261028-skill-despertar.webp"
     },
     {
       "key": "nilo-o-prefacio:base:portrait",

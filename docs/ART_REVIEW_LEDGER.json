@@ -1,5 +1,5 @@
 {
-  "reviewDefinition": "Manual review of identity, clean anime cel rendering, gaze/action alignment, anatomy and target counts. File existence alone is not a style approval.",
+  "reviewDefinition": "Revisão visual manual de identidade e diversidade, mundo e imagética específicos, legibilidade de anime 2.5D com acabamento pictórico, ação natural e legível, anatomia coerente, contagem correta de alvos/formas e ausência de tecnologia, mecanismos ou steampunk. A presença do arquivo não é aprovação.",
   "reviewedAssetKeys": [
     "o-soberano-quebrado:base:portrait",
     "o-soberano-quebrado:base:passive",
@@ -27,25 +27,15 @@
     "diana:base:portrait",
     "teras:base:portrait",
     "naomi:base:impulso",
-    "naomi:base:tecnica"
+    "naomi:base:tecnica",
+    "nilo:base:portrait",
+    "nilo:base:passive",
+    "nilo:base:impulso",
+    "nilo:base:tecnica",
+    "nilo:base:voto",
+    "nilo:base:despertar"
   ],
   "pendingCorrections": [
-    {
-      "key": "nilo:base:portrait",
-      "reason": "Simplify detailed stone surfaces in the background while preserving the character."
-    },
-    {
-      "key": "nilo:base:passive",
-      "reason": "Simplify detailed stone surfaces in the background while preserving the action and identity."
-    },
-    {
-      "key": "nilo:base:tecnica",
-      "reason": "Simplify detailed stone surfaces in the background while preserving the mark, gaze and anatomy."
-    },
-    {
-      "key": "nilo:base:voto",
-      "reason": "Simplify detailed stone surfaces in the background while preserving the single target and echo effect."
-    },
     {
       "key": "vaas:base:portrait",
       "reason": "Remove tiny background figures so the portrait contains only the character."
