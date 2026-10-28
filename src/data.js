@@ -191,6 +191,11 @@ function slug(text) {
 }
 
 const characterFormArt = {
+  "o-soberano-quebrado": {
+    impulso: { edict: "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-impulso-edict.webp" },
+    tecnica: { edict: "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-tecnica-edict.webp" },
+    voto: { edict: "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-voto-edict.webp" }
+  },
   "o-que-observou": {
     voto: { witness: "/art/characters/o-que-observou/painterly-rework-20261025/skill-voto-witness.webp" }
   },

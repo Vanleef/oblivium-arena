@@ -38,6 +38,56 @@
         "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-voto.webp",
         "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-despertar.webp"
       ]
+    },
+    "o-soberano-quebrado": {
+      "displayName": "O Soberano",
+      "activeRoute": "/art/characters/o-soberano-quebrado/anime-first-rework-20261028",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "kingdomTheme": "Greed and waste crushed beneath colossal weights.",
+      "sourceAssets": [
+        "art/source/o-soberano-anime-first-rework-20261028-portrait.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-passive.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-impulso.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-impulso-edict.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-tecnica.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-tecnica-edict.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-voto.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-voto-edict.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/portrait.webp",
+        "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/passive.webp",
+        "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-impulso.webp",
+        "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-tecnica.webp",
+        "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-voto.webp",
+        "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-despertar.webp"
+      ],
+      "alternateFormAssets": [
+        {
+          "ability": "impulso.edict",
+          "path": "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-impulso-edict.webp"
+        },
+        {
+          "ability": "tecnica.edict",
+          "path": "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-tecnica-edict.webp"
+        },
+        {
+          "ability": "voto.edict",
+          "path": "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/skill-voto-edict.webp"
+        }
+      ],
+      "abilityTargetReview": {
+        "skill-impulso.webp": "one enemy",
+        "skill-impulso-edict.webp": "three enemies",
+        "skill-tecnica.webp": "one marked enemy",
+        "skill-tecnica-edict.webp": "three enemies",
+        "skill-voto.webp": "self",
+        "skill-voto-edict.webp": "O Soberano and two allies",
+        "skill-despertar.webp": "self"
+      },
+      "kitStatus": "Unchanged"
     }
   },
   "visualReview": {
@@ -47,7 +97,11 @@
       "O Açougueiro's single-target skills show one unarmored ghoul; his personal defense shows only him.",
       "O Açougueiro's Talho Imobilizante crop uses a side view with a normal-scale ghoul hand; no oversized foreground hand.",
       "A Viúva's Fio Escarlate and Beijo da Última Noite each show one ghoul; Véu da Viúva and Véu de Sangue show only the user.",
-      "No generic armored soldiers or extra targets appear."
+      "No generic armored soldiers or extra targets appear.",
+      "O Soberano preserves his established identity and follows Magma's theme of greed and waste crushed under colossal weights.",
+      "His single-target scenes show one ghoul; both area variants show exactly three enemies; self-focused defenses show only him.",
+      "The group ward shows O Soberano, A Magistrada, and O Príncipe bracing beneath a falling basalt slab in an angled combat scene.",
+      "No generic armored soldiers, extra targets, or gameplay changes were introduced."
     ]
   }
 }

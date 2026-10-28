@@ -523,3 +523,12 @@ O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Matriarc
 ## Lote anime-first de Sangria — 28/10/2026
 
 O Açougueiro e A Viúva receberam seis sprites cada na direção anime-forward 2.5D. A arte segue os kits: alvos únicos são ghouls, defesas pessoais mostram somente o usuário e a técnica do Açougueiro foi reenquadrada para tirar a mão do ghoul do primeiro plano. As pranchas-fonte e a correção estão arquivadas.
+
+
+## O Soberano — anime-first em Magma (28/10/2026)
+
+O Soberano recebeu seis artes base e três imagens adicionais para as variantes de **Forma de Domínio**: Decreto sobre Todos, Cadeia de Juramento e Trono Incontestável. A direção situa o conjunto em Magma, onde ganância e desperdício são esmagados por pesos colossais, preservando a identidade do rei, sua coroa quebrada, barba branca, capa marfim e correntes.
+
+As cenas foram revisadas contra os alvos do kit: impulso e técnica base mostram um ghoul cada; as duas variantes de área mostram exatamente três inimigos; as defesas pessoais mostram apenas O Soberano. A arte de apoio de equipe mostra O Soberano, A Magistrada e O Príncipe sustentando uma laje de basalto em queda, numa composição lateral de combate.
+
+O kit e seus valores permanecem iguais. A contagem anime-first permanece em 28/100 conjuntos (168/600 sprites); a revisão visual de Inferno passa a 14/55 personagens, com 41 pendentes.
