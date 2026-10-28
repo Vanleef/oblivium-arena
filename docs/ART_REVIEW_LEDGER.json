@@ -119,7 +119,16 @@
     "nilo-graca-final:base:tecnica-5",
     "nilo-graca-final:base:tecnica-6",
     "nilo-graca-final:base:tecnica-7",
-    "nilo-graca-final:base:despertar-8"
+    "nilo-graca-final:base:despertar-8",
+    "nilo-ruptura-final:base:portrait",
+    "nilo-ruptura-final:base:passive",
+    "nilo-ruptura-final:base:impulso",
+    "nilo-ruptura-final:base:tecnica",
+    "nilo-ruptura-final:base:voto",
+    "nilo-ruptura-final:base:despertar-4",
+    "nilo-ruptura-final:base:tecnica-5",
+    "nilo-ruptura-final:base:tecnica-6",
+    "nilo-ruptura-final:base:despertar-7"
   ],
   "pendingCorrections": []
 }

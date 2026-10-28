@@ -521,6 +521,54 @@
       "slot": "despertar-8",
       "scene": "Nilo sozinho nas escadarias do Empíreo, com uma fina lâmina de luz-pedra junto ao manto; pétalas e poeira param no limite de sua proteção.",
       "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "passive",
+      "scene": "Nilo conta três marcas distintas no tecido de um condenado: um fio vermelho, pó violeta e uma costura clara exposta, representando Fraturas por status.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "impulso",
+      "scene": "Nilo desliza para o lado e toca o ombro de uma condenada robusta; a sombra atrás dele se divide na fenda da pedra e engole a barra do manto, sugerindo Furtividade.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "tecnica",
+      "scene": "Nilo surge da névoa atrás de um homem alto de cabelos brancos; uma linha espacial corta a costura do ombro e deixa um traço vermelho discreto no tecido.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "voto",
+      "scene": "Um fio carmesim-violeta marca a manga de um condenado de pele escura e tranças longas; pó de decadência e costura exposta mantêm os três efeitos separados.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "despertar-4",
+      "scene": "Um jovem condenado ruivo tenta conjurar e a própria sombra o prende pelo braço; ao fundo, Nilo se mistura à sombra da parede.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "tecnica-5",
+      "scene": "Nilo intercepta uma força escura com o plano de sombra do manto, pivota e devolve um golpe de palma que deixa um fio vermelho no tecido do agressor.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "tecnica-6",
+      "scene": "Vista elevada de Nilo no centro de três fendas abertas pelo piso, cada uma derrubando a postura de um condenado distinto com marcas de cor diferentes.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "slot": "despertar-7",
+      "scene": "Nilo sozinho no limiar sem porta, manto recolhido e uma placa angular de sombra-pedra junto ao corpo; fragmentos param na borda enquanto a mão livre se prepara para avançar.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -553,6 +601,14 @@
     "nilo-graca-final:tecnica-5",
     "nilo-graca-final:tecnica-6",
     "nilo-graca-final:tecnica-7",
-    "nilo-graca-final:despertar-8"
+    "nilo-graca-final:despertar-8",
+    "nilo-ruptura-final:passive",
+    "nilo-ruptura-final:impulso",
+    "nilo-ruptura-final:tecnica",
+    "nilo-ruptura-final:voto",
+    "nilo-ruptura-final:despertar-4",
+    "nilo-ruptura-final:tecnica-5",
+    "nilo-ruptura-final:tecnica-6",
+    "nilo-ruptura-final:despertar-7"
   ]
 }

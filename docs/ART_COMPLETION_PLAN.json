@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 19,
-    "newAbilityScenesSaved": 87,
+    "newPortraitsSaved": 20,
+    "newAbilityScenesSaved": 95,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -11164,8 +11164,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "nilo-ruptura-final:base:passive",
@@ -11174,8 +11176,10 @@
           "slot": "passive",
           "name": "Contagem de Fraturas",
           "description": "Cada status diferente no alvo conta como 1 Fratura (máx. 3). Nilo pode gastar Fraturas em skills específicas; o bônus não é automático.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "nilo-ruptura-final:base:impulso",
@@ -11187,8 +11191,10 @@
           "name": "Sombra Rachada",
           "description": "Causa 13 de dano físico a um inimigo. Nilo fica em Furtividade por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "nilo-ruptura-final:base:tecnica",
@@ -11200,8 +11206,10 @@
           "name": "Corte do Interstício",
           "description": "Causa 12 de dano perfurante a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos. Se Nilo estiver em Furtividade, causa +5 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "nilo-ruptura-final:base:voto",
@@ -11213,8 +11221,10 @@
           "name": "Marca Residual",
           "description": "Marca o alvo por 3 turnos. Sangramento: 3 de dano de aflição por 2 turnos. Decadência: 3 de dano de aflição por 2 turnos. Expõe o alvo até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "nilo-ruptura-final:base:despertar-4",
@@ -11226,8 +11236,10 @@
           "name": "Armadilha Profunda",
           "description": "Marca o alvo por 2 turnos. Se o alvo usar uma skill na próxima vez: causa 11 de dano de aflição ao próprio alvo e concede Furtividade a Nilo. Ativa uma vez.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-despertar-4.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-despertar-4.webp"
         },
         {
           "key": "nilo-ruptura-final:base:tecnica-5",
@@ -11239,8 +11251,10 @@
           "name": "Resposta Partida",
           "description": "Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 13 de dano físico. Dura 1 turno. Ao ativar, aplica Sangramento: 3 de dano de aflição por 2 turnos.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-tecnica-5.webp"
         },
         {
           "key": "nilo-ruptura-final:base:tecnica-6",
@@ -11252,8 +11266,10 @@
           "name": "Despedaçamento",
           "description": "Causa 9 de dano físico a todos os inimigos. Pode gastar até 1 Fraturas por alvo; cada uma acrescenta +3 de dano.",
           "target": "all-enemies",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-tecnica-6.webp"
         },
         {
           "key": "nilo-ruptura-final:base:despertar-7",
@@ -11265,11 +11281,13 @@
           "name": "Último Impulso",
           "description": "Concede 4 de Defesa destrutível ao usuário. A próxima skill de Nilo causa +5 de dano e aplica Exposto ao alvo. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-despertar-7.webp",
+          "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-despertar-7.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "nilo-o-epilogo",
@@ -24549,8 +24567,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "nilo-ruptura-final:base:passive",
@@ -24559,8 +24579,10 @@
       "slot": "passive",
       "name": "Contagem de Fraturas",
       "description": "Cada status diferente no alvo conta como 1 Fratura (máx. 3). Nilo pode gastar Fraturas em skills específicas; o bônus não é automático.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "nilo-ruptura-final:base:impulso",
@@ -24572,8 +24594,10 @@
       "name": "Sombra Rachada",
       "description": "Causa 13 de dano físico a um inimigo. Nilo fica em Furtividade por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "nilo-ruptura-final:base:tecnica",
@@ -24585,8 +24609,10 @@
       "name": "Corte do Interstício",
       "description": "Causa 12 de dano perfurante a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos. Se Nilo estiver em Furtividade, causa +5 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "nilo-ruptura-final:base:voto",
@@ -24598,8 +24624,10 @@
       "name": "Marca Residual",
       "description": "Marca o alvo por 3 turnos. Sangramento: 3 de dano de aflição por 2 turnos. Decadência: 3 de dano de aflição por 2 turnos. Expõe o alvo até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "nilo-ruptura-final:base:despertar-4",
@@ -24611,8 +24639,10 @@
       "name": "Armadilha Profunda",
       "description": "Marca o alvo por 2 turnos. Se o alvo usar uma skill na próxima vez: causa 11 de dano de aflição ao próprio alvo e concede Furtividade a Nilo. Ativa uma vez.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-despertar-4.webp"
     },
     {
       "key": "nilo-ruptura-final:base:tecnica-5",
@@ -24624,8 +24654,10 @@
       "name": "Resposta Partida",
       "description": "Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 13 de dano físico. Dura 1 turno. Ao ativar, aplica Sangramento: 3 de dano de aflição por 2 turnos.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-tecnica-5.webp"
     },
     {
       "key": "nilo-ruptura-final:base:tecnica-6",
@@ -24637,8 +24669,10 @@
       "name": "Despedaçamento",
       "description": "Causa 9 de dano físico a todos os inimigos. Pode gastar até 1 Fraturas por alvo; cada uma acrescenta +3 de dano.",
       "target": "all-enemies",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-tecnica-6.webp"
     },
     {
       "key": "nilo-ruptura-final:base:despertar-7",
@@ -24650,8 +24684,10 @@
       "name": "Último Impulso",
       "description": "Concede 4 de Defesa destrutível ao usuário. A próxima skill de Nilo causa +5 de dano e aplica Exposto ao alvo. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-despertar-7.webp",
+      "source": "/art/source/nilo-ruptura-final-anime-first-completion-20261028/skill-despertar-7.webp"
     },
     {
       "key": "nilo-o-epilogo:base:portrait",
