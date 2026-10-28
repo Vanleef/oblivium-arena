@@ -46,15 +46,15 @@
       "kingdom": "Magma",
       "kingdomTheme": "Greed and waste crushed beneath colossal weights.",
       "sourceAssets": [
-        "art/source/o-soberano-anime-first-rework-20261028-portrait.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-passive.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-impulso.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-impulso-edict.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-tecnica.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-tecnica-edict.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-voto.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-voto-edict.webp",
-        "art/source/o-soberano-anime-first-rework-20261028-skill-despertar.webp"
+        "art/source/o-soberano-anime-first-flat-20261028-portrait.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-passive.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-impulso.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-impulso-edict.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-tecnica.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-tecnica-edict.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-voto.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-voto-edict.webp",
+        "art/source/o-soberano-anime-first-flat-20261028-skill-despertar.webp"
       ],
       "assets": [
         "/art/characters/o-soberano-quebrado/anime-first-rework-20261028/portrait.webp",
@@ -87,7 +87,65 @@
         "skill-voto-edict.webp": "O Soberano and two allies",
         "skill-despertar.webp": "self"
       },
-      "kitStatus": "Unchanged"
+      "kitStatus": "Unchanged",
+      "priorSourceAssets": [
+        "art/source/o-soberano-anime-first-rework-20261028-portrait.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-passive.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-impulso.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-impulso-edict.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-tecnica.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-tecnica-edict.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-voto.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-voto-edict.webp",
+        "art/source/o-soberano-anime-first-rework-20261028-skill-despertar.webp"
+      ],
+      "renderingStyle": "Anime-first: clean ink contours, broad flat colors, hard-edged cel shadows, matte materials, simplified layered backgrounds and restrained effects.",
+      "styleReview": {
+        "status": "visually_reviewed",
+        "localDate": "2026-10-27",
+        "activeAssetsReviewed": 9,
+        "checks": [
+          "Identity and costume continuity",
+          "Anime cel planes on characters and ghouls",
+          "Simplified backgrounds and materials",
+          "Readable action and target counts at 512px",
+          "Gaze aligned with target or movement"
+        ]
+      },
+      "previousGeneration": null,
+      "generation": {
+        "tool": "built-in image_gen",
+        "revision": "anime-first-flat-redraw",
+        "inputCommit": "051c11e8f28746cb7b23498af8e6201a0bf017f1",
+        "commonStylePrompt": "Completely REDRAW IMAGE 1 in the clean 2D anime cel-animation style of IMAGE 2. Image 1 is the scene/identity target. Image 2 supplies rendering style ONLY. Preserve the composition, physical action, character identities, target counts, weapon, and corrected eye/head directions of image 1. Replace highly rendered fantasy painting with confident clean black contours, broad FLAT color fills, 1-2 large hard-edged shadow shapes per surface, sparse small flat highlights. Simplify forms on characters AND ghouls consistently. Group hair in graphic tufts, reduce clothing folds, use flat matte iron and simple ochre gold. Remove scratches, grain, realistic reflections, busy rock cracks, tendon microdetail, gradients, bloom, glowing rims, blur, volumetric light and dense particles. Background: Magma's colossal basalt weights, ash and wasted gold, drawn as quiet broad matte silhouettes with much lower contrast and far fewer elements; 75 percent less environmental detail. Orange/gold effects should be small, flat, clearly shaped accents, never flood the image. Focus on recognizable expressive anime faces, strong silhouettes and readable action at 512px. Normal anatomy, naturally sized hands and fingers, aligned wrists. Every fighter's eyes must follow the actual action/target; no camera-facing gaze during attacks. Maintain one square image. No text, lettering, panels or UI.",
+        "styleAnchor": "art/source/a-magistrada-anime-first-flat-20261028-portrait.webp",
+        "scenePrompts": {
+          "passive": "Exactly ONE Soberano. Domain transition: a few large angular basalt guard plates surround his torso. Guard plates broad flat charcoal/ochre shapes, sparse thin amber seams. Keep his face and body readable; no blazing rock cage, no excessive particles. Do not add enemies.",
+          "skill-impulso": "Exactly TWO figures: Soberano and ONE unarmored ghoul. Preserve the close diagonal physical strike and one distinct angular mark on the target. Soberano's head and eyes must aim down-right at the ghoul he hits. Keep hands anatomically normal scale, target readable and action silhouette clear. Only one small flat amber impact burst, no forest of lightning lines.",
+          "skill-impulso-edict": "Exactly FOUR figures: Soberano and THREE unarmored ghoul enemies. His decree affects all three: one small clear flat amber angular mark on each enemy. Preserve three distinct enemy silhouettes and the open-handed decree gesture. Shrink any exaggerated foreground hand to natural perspective while keeping arm gesture. His eyes attend to enemies. Simplify dust and effects to a few flat wedges, no all-over yellow glare.",
+          "skill-tecnica": "Exactly TWO figures: Soberano and ONE marked unarmored ghoul kneeling in submission. Soberano's hand presses above the target head, his eyes and head follow this lower target. One simple flat amber mark on the ghoul, restrained angular control lines, broad dark floor and clearly separated silhouettes. No yellow glowing cage or detailed blazing cracks.",
+          "skill-tecnica-edict": "Exactly FOUR figures: Soberano and THREE distinct unarmored ghoul enemies weakened and bowing. Exactly three simple angular oath chains link them, drawn with flat muted ochre and just a few bright accents. His gaze follows the enemy group. Every ghoul has graphic anime contours and simple shadow planes; no sculptural tendon textures. Strong silhouette separation.",
+          "skill-voto": "Exactly ONE Soberano, personal defense and domain preparation. Preserve his compact forward arm and angular basalt shield plates. Reduce the very large foreground fist to natural believable perspective so it does not dwarf his head. A few broad shield facets, restrained amber seams, no spark web. Keep face the main focal point. No other figures.",
+          "skill-voto-edict": "Exactly THREE allies: Soberano, Magistrada and Principe, all bracing under a FALLING BASALT SLAB. Preserve the dynamic angled defensive action, no posed group portrait. Soberano is older male white hair and beard; Magistrada has copper curls; Principe black curls with one pale braid. Each head and eyes focus toward the threatening slab or their effort, never out toward viewer. Simplify protective ward to a single thin angular amber outline with a pale flat transparent plane, preserve black basalt slab overhead. Remove blazing filigree and dense fragments; allies' faces and gestures must dominate. No bubbles or halos.",
+          "skill-despertar": "Exactly ONE Soberano. Personal invulnerability: a few angular basalt shield plates deflect one incoming force wedge at the side. Clear king silhouette and anime face; one restrained flat impact star. No massive yellow glow, no faceted-rock microdetail, no extra characters."
+        },
+        "portraitPrompt": "Exactly ONE older MALE king, O Soberano: dark brown skin, short WHITE hair and WHITE beard, broken angular GOLD crown, black high-collar coat with gold trim, IVORY cape and round gold brooch and chain. Preserve his male face, age, beard and costume from IMAGE 1. Do NOT transfer the female character or orange hair from style image 2. Chest-up portrait. Simplify cape into ivory and muted gray cel planes, gold into ochre plus one flat highlight. No enormous luminous outlines.",
+        "identityPrompt": "Preserve Soberano from image 1: older MALE dark-brown-skinned king, short WHITE hair and WHITE beard, broken angular gold crown, black high-collar coat with gold edging, ivory cape, round gold brooch and chain. Keep facial age, proportions, beard silhouette and costume recognizable. Gold is matte ochre with one flat highlight; ivory cape has broad flat shadows. Use anime facial shapes and fully drawn clean contours.",
+        "finalCorrections": [
+          {
+            "slot": "skill-impulso-edict",
+            "prompt": "The ghoul on the LEFT has an erroneous duplicated head. Redraw only that left ghoul's upper shoulders/neck/head as ONE single-headed ghoul: keep the head near x=230,y=390, completely remove the smaller extra head near x=140,y=400 and fill behind it with the existing background. It must have exactly ONE neck and ONE head. Final image must contain exactly THREE ghouls total: one left, one bottom-center, one bottom-right, each single-headed. Also tilt the king's head and eyes down-right toward the BOTTOM-RIGHT ghoul. His face must attend to that enemy, not stare upward or at camera."
+          },
+          {
+            "slot": "skill-tecnica",
+            "prompt": "Change ONLY the KING's head, eye direction and minimum neck rotation. He must LOOK DOWN at the marked ghoul kneeling directly beneath his hand. Strongly lower his chin and rotate the face toward the target at bottom-center. Show a downward-facing three-quarter/profile head, pupils visibly directed DOWN toward the ghoul's bald head. No looking outward at viewer, no gaze toward horizon. Keep the pressing hand, body and ghoul exactly fixed."
+          },
+          {
+            "slot": "skill-despertar",
+            "prompt": "Change ONLY the king's eye direction and head/neck orientation. He must turn toward and WATCH the incoming black wedge hit his shield at the RIGHT (impact near x=880,y=550). Face turns right into clearer profile, chin slightly down, BOTH pupils aimed directly at the yellow impact to his right. No eye contact with viewer. Preserve his stern expression, beard, crown, shield plates and effect exactly."
+          }
+        ]
+      }
     },
     "a-juiza-de-ferro": {
       "displayName": "A Magistrada",
@@ -96,12 +154,12 @@
       "kingdom": "Magma",
       "kingdomTheme": "Greed and waste crushed beneath colossal weights.",
       "sourceAssets": [
-        "art/source/a-magistrada-anime-first-rework-20261028-portrait.webp",
-        "art/source/a-magistrada-anime-first-rework-20261028-passive.webp",
-        "art/source/a-magistrada-anime-first-rework-20261028-skill-impulso.webp",
-        "art/source/a-magistrada-anime-first-rework-20261028-skill-tecnica.webp",
-        "art/source/a-magistrada-anime-first-rework-20261028-skill-voto.webp",
-        "art/source/a-magistrada-anime-first-rework-20261028-skill-despertar.webp"
+        "art/source/a-magistrada-anime-first-flat-20261028-portrait.webp",
+        "art/source/a-magistrada-anime-first-flat-20261028-passive.webp",
+        "art/source/a-magistrada-anime-first-flat-20261028-skill-impulso.webp",
+        "art/source/a-magistrada-anime-first-flat-20261028-skill-tecnica.webp",
+        "art/source/a-magistrada-anime-first-flat-20261028-skill-voto.webp",
+        "art/source/a-magistrada-anime-first-flat-20261028-skill-despertar.webp"
       ],
       "assets": [
         "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/portrait.webp",
@@ -121,6 +179,58 @@
       },
       "kitStatus": "Unchanged",
       "generation": {
+        "tool": "built-in image_gen",
+        "revision": "anime-first-flat-redraw",
+        "inputCommit": "051c11e8f28746cb7b23498af8e6201a0bf017f1",
+        "commonStylePrompt": "Completely REDRAW IMAGE 1 in the clean 2D anime cel-animation style of IMAGE 2. Image 1 is the scene/identity target. Image 2 supplies rendering style ONLY. Preserve the composition, physical action, character identities, target counts, weapon, and corrected eye/head directions of image 1. Replace highly rendered fantasy painting with confident clean black contours, broad FLAT color fills, 1-2 large hard-edged shadow shapes per surface, sparse small flat highlights. Simplify forms on characters AND ghouls consistently. Group hair in graphic tufts, reduce clothing folds, use flat matte iron and simple ochre gold. Remove scratches, grain, realistic reflections, busy rock cracks, tendon microdetail, gradients, bloom, glowing rims, blur, volumetric light and dense particles. Background: Magma's colossal basalt weights, ash and wasted gold, drawn as quiet broad matte silhouettes with much lower contrast and far fewer elements; 75 percent less environmental detail. Orange/gold effects should be small, flat, clearly shaped accents, never flood the image. Focus on recognizable expressive anime faces, strong silhouettes and readable action at 512px. Normal anatomy, naturally sized hands and fingers, aligned wrists. Every fighter's eyes must follow the actual action/target; no camera-facing gaze during attacks. Maintain one square image. No text, lettering, panels or UI.",
+        "styleAnchor": "art/source/a-magistrada-anime-first-flat-20261028-portrait.webp",
+        "scenePrompts": [
+          {
+            "slot": "passive",
+            "prompt": "Exactly the Magistrada and ONE ghoul enemy. Preserve her copper curls, white temple strands, rectangular earrings, iron neck and burgundy judicial coat. Her eyes follow the ghoul or impact point."
+          },
+          {
+            "slot": "skill-impulso",
+            "prompt": "Exactly the Magistrada and ONE ghoul enemy. Preserve her copper curls, white temple strands, rectangular earrings, iron neck and burgundy judicial coat. Her eyes follow the ghoul or impact point."
+          },
+          {
+            "slot": "skill-tecnica",
+            "prompt": "Exactly the Magistrada and ONE ghoul enemy. Preserve her copper curls, white temple strands, rectangular earrings, iron neck and burgundy judicial coat. Her eyes follow the ghoul or impact point."
+          },
+          {
+            "slot": "skill-voto",
+            "prompt": "Exactly the Magistrada and ONE ghoul enemy. Preserve her copper curls, white temple strands, rectangular earrings, iron neck and burgundy judicial coat. Her eyes follow the ghoul or impact point."
+          },
+          {
+            "slot": "skill-despertar",
+            "prompt": "Exactly one Magistrada; her gaze follows her walking path right. Her iron toga deflects small debris."
+          }
+        ],
+        "portraitPrompt": "Redraw this ONE portrait as a clean hand-drawn 2D ANIME animation key visual. This is a complete style redraw, not a texture filter. Keep this exact adult Magistrada's recognizable identity: warm brown skin, short copper-orange curls with white temple streaks, amber narrow anime eyes, rectangular silver earrings, iron-faceted neck, burgundy-black judicial coat, ivory neckcloth, asymmetrical high collar. Keep the chest-up composition and expression. Drastically simplify ALL rendering: clean decisive black linework; broad FLAT COLOR fills; one large hard-edged shadow tone per surface and only a few small flat highlights. Face and hair use clearly designed graphic shapes and expressive anime features. Hair curls are grouped into bold tufts, not individually rendered strands. No skin texture, no scratches, no brushed metal grain, no realistic reflections, no painterly dabs, no gradients or volumetric light, no photorealism, no western semi-realistic concept-art rendering. Matte iron collar with 2 tones only; cloth broad burgundy and black shapes with few fold lines. Background is Magma: just a few immense suspended rectangular basalt weights and flattened wasted gold represented by simple ochre masses, broad dark silhouettes against pale ash gray. Background lower contrast than character, spacious negative areas. Orange restricted to small ember accents, no neon rim lighting, no bloom, no dense particles. The face must be the first thing noticed at 512px. No text, no border. Produce one square illustration.",
+        "finalCorrections": []
+      },
+      "priorSourceAssets": [
+        "art/source/a-magistrada-anime-first-rework-20261028-portrait.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-passive.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-impulso.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-tecnica.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-voto.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-despertar.webp"
+      ],
+      "renderingStyle": "Anime-first: clean ink contours, broad flat colors, hard-edged cel shadows, matte materials, simplified layered backgrounds and restrained effects.",
+      "styleReview": {
+        "status": "visually_reviewed",
+        "localDate": "2026-10-27",
+        "activeAssetsReviewed": 6,
+        "checks": [
+          "Identity and costume continuity",
+          "Anime cel planes on characters and ghouls",
+          "Simplified backgrounds and materials",
+          "Readable action and target counts at 512px",
+          "Gaze aligned with target or movement"
+        ]
+      },
+      "previousGeneration": {
         "tool": "built-in image_gen",
         "identityReference": "art/characters/a-juiza-de-ferro/portrait.webp",
         "stylePrompt": "Anime-forward 2.5D, drawn ink contours, flat cel-shadow planes, expressive stylized face, painted environment depth. Preserve copper curls with pale temple strands, warm dark brown skin, amber eyes, rectangular earrings, iron collar, burgundy-black judicial coat and ivory neckcloth. Iron-faceted jaw/neck and ember fissures reinforce infernal identity. Magma: colossal basalt weights and crushed wasted gold. Normal anatomy, no text, no extra targets, no generic soldiers.",
@@ -169,7 +279,17 @@
       "His single-target scenes show one ghoul; both area variants show exactly three enemies; self-focused defenses show only him.",
       "The group ward shows O Soberano, A Magistrada, and O Príncipe bracing beneath a falling basalt slab in an angled combat scene.",
       "No generic armored soldiers, extra targets, or gameplay changes were introduced.",
-      "A Magistrada: six scenes reviewed for identity, single-target actions, self-only invulnerability, anatomy and gaze alignment. Five scenes received targeted corrections to eyes, head angle and neck orientation."
-    ]
+      "A Magistrada: six scenes reviewed for identity, single-target actions, self-only invulnerability, anatomy and gaze alignment. Five scenes received targeted corrections to eyes, head angle and neck orientation.",
+      "The fifteen active images of O Soberano and A Magistrada were redrawn with flat anime cel planes, matte materials and quieter backgrounds. Both sets were reviewed together at game resolution for style consistency, gaze and target counts."
+    ],
+    "styleRevision": {
+      "characters": [
+        "o-soberano-quebrado",
+        "a-juiza-de-ferro"
+      ],
+      "activeAssetCount": 15,
+      "status": "visually_reviewed",
+      "localDate": "2026-10-27"
+    }
   }
 }

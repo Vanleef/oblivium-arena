@@ -538,3 +538,10 @@ O kit e seus valores permanecem iguais. A contagem anime-first permanece em 28/1
 Seis artes de A Magistrada foram refeitas em Magma. O retrato conserva os cachos cobre, fios claros nas têmporas, brincos retangulares e toga de ferro; o pescoço facetado e as fissuras de brasa reforçam sua presença infernal. Passiva e ataques mostram exatamente um ghoul por cena. Acusação Imposta evidencia exposição e interdição do apoio; Interdição da Defesa rompe a guarda; Sentença de Submissão concentra o golpe perfurante; Toga Inviolável mostra apenas a usuária.
 
 Cinco quadros receberam correção específica de olhos, cabeça e pescoço: a atenção acompanha o alvo ou o caminho de deslocamento. A revisão de olhar agora integra a direção geral de arte. As regras do kit permanecem iguais. Revisão de Inferno: 15/55 personagens, 40 pendentes. A contagem anime-first permanece 28/100 conjuntos base.
+
+
+## Correção anime-first — O Soberano e A Magistrada em Magma
+
+A revisão estilística dos dois conjuntos foi reaberta. As quinze artes ativas foram redesenhadas: seis de A Magistrada e nove de O Soberano, incluindo as três variantes da Forma de Domínio. O acabamento usa contornos limpos, áreas amplas de cor, sombras recortadas e materiais foscos. O cenário e os efeitos foram simplificados, e os ghouls receberam a mesma linguagem desenhada dos protagonistas.
+
+A revisão conjunta em resolução de jogo conferiu identidades, silhuetas, direção de olhos e cabeça, alvos únicos, três inimigos nas ações de área e três aliados no apoio de equipe. Fontes anteriores seguem arquivadas; as novas fontes e os prompts estão no manifesto ART_ANIME_FIRST_REWORK_20261028.json. As quinze WebPs ativas permanecem em 512 × 512. A substituição não acrescenta personagens às contagens: 28/100 conjuntos anime-first e 15/55 personagens de Inferno revisados.

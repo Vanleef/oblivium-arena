@@ -83,3 +83,10 @@ As imagens aprovadas pelo usuário para a linha de arte são os retratos de O Fi
 ## Direção do olhar — 28/10/2026
 
 Em cenas de ação, alinhar pupilas, orientação da cabeça e inclinação do pescoço à posição real do alvo, impacto, objeto observado ou direção do movimento. Conferir esse alinhamento na composição completa e no recorte de uso. O olhar para a câmera depende de intenção explícita da cena; retratos podem manter essa escolha. Incluir a revisão de olhar junto da anatomia, empunhadura, identidade e contagem de alvos.
+
+
+## Critério visual anime-first — acabamento e legibilidade
+
+Personagens e inimigos devem apresentar desenho anime reconhecível: contornos claros, formas expressivas, áreas amplas de cor e sombras grandes de borda definida. Modelar volume com poucos planos de sombra. Metais, tecidos, pele e pedra exigem simplificação; detalhes de superfície, reflexos realistas e pinceladas densas não podem conduzir a imagem.
+
+A profundidade 2.5D deve vir da perspectiva, sobreposição e separação de planos. Cenários usam massas mais tranquilas e contraste abaixo da ação principal. Limitar brilho, partículas e efeitos às formas necessárias para comunicar a habilidade. Conferir o conjunto em 512 × 512: rosto, silhueta, alvo e ação precisam ser legíveis. Revisar também olhos, cabeça, anatomia, acessórios e quantidade de personagens. O termo anime-first no prompt não substitui a conferência visual do resultado.
