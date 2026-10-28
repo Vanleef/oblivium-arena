@@ -206,7 +206,13 @@
     "silas:base:impulso",
     "silas:base:tecnica",
     "silas:base:voto",
-    "silas:base:despertar"
+    "silas:base:despertar",
+    "silas-o-leal:base:portrait",
+    "silas-o-leal:base:passive",
+    "silas-o-leal:base:impulso",
+    "silas-o-leal:base:tecnica",
+    "silas-o-leal:base:voto",
+    "silas-o-leal:base:despertar"
   ],
   "pendingCorrections": []
 }

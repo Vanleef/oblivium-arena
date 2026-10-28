@@ -1019,6 +1019,44 @@
         "mulher adulta oliva de trança cinza grossa",
         "jovem negro de manto azul"
       ]
+    },
+    {
+      "id": "silas-o-leal",
+      "slot": "passive",
+      "scene": "Exatamente três figuras no jardim de Vênus. Depois de um golpe, Silas segura o próprio flanco e respira com esforço; dois aliados distintos, uma mulher idosa de trança cinza e um jovem de pele escura, mantêm-se próximos dentro de um arco de luz suave. Um fio vinho conecta os pulsos, pequenas manchas de luz mostram a recuperação. Anatomia natural, sem ferida gráfica.",
+      "allies": [
+        "mulher idosa de trança cinza e túnica violeta",
+        "jovem de pele escura, cachos curtos e manto azul-cinza"
+      ]
+    },
+    {
+      "id": "silas-o-leal",
+      "slot": "impulso",
+      "scene": "Exatamente duas figuras junto a uma balaustrada de mármore. Silas segura o manto marfim aberto sobre uma aliada de pele castanha e cachos prateados enquanto ela recupera o equilíbrio; fios vinho sustentam o tecido no ombro e a seda reduz o impacto. Close lateral, postura física possível, mãos naturais, sem terceiros.",
+      "allies": [
+        "mulher adulta de pele castanha, cachos prateados e túnica violeta"
+      ]
+    },
+    {
+      "id": "silas-o-leal",
+      "slot": "tecnica",
+      "scene": "Exatamente três pessoas no jardim geométrico: Silas, uma mulher idosa de trança cinza e um jovem de pele escura. Uma linha vinho percorre os pulsos e fecha um nó simples entre os três; resíduos escuros de aflições se desprendem e viram pétalas claras sobre a água. Vista alta, mãos legíveis, sem figuras adicionais.",
+      "allies": [
+        "mulher idosa de trança cinza e túnica violeta",
+        "jovem de pele escura, cachos curtos e manto azul-cinza"
+      ]
+    },
+    {
+      "id": "silas-o-leal",
+      "slot": "voto",
+      "scene": "Somente duas figuras junto à piscina de mármore. Uma alma pálida de cabelo negro encaracolado, já enfraquecida e apoiada numa mão, perde o equilíbrio quando Silas devolve seu impulso por uma faixa de seda vinho; plano diagonal baixo, água espirrando, sem impacto frontal nem ferimentos gráficos.",
+      "allies": []
+    },
+    {
+      "id": "silas-o-leal",
+      "slot": "despertar",
+      "scene": "Silas sozinho sob um arco de mármore em Vênus. Ele se senta após o esforço, fecha o próprio manto bordado sobre o torso e prende o tecido com uma mão; fios vinho e luz filtrada arredondam o pano como abrigo contra uma sombra de pétalas na margem. Sem aliados ou armas, pose estável e expressão concentrada.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1125,6 +1163,11 @@
     "silas:impulso",
     "silas:tecnica",
     "silas:voto",
-    "silas:despertar"
+    "silas:despertar",
+    "silas-o-leal:passive",
+    "silas-o-leal:impulso",
+    "silas-o-leal:tecnica",
+    "silas-o-leal:voto",
+    "silas-o-leal:despertar"
   ]
 }

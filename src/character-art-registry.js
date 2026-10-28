@@ -365,5 +365,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/silas/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/silas/anime-first-completion-20261028/skill-despertar.webp"
     }
+  },
+  "silas-o-leal": {
+    "portrait": "/art/characters/silas-o-leal/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/silas-o-leal/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/silas-o-leal/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/silas-o-leal/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/silas-o-leal/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/silas-o-leal/anime-first-completion-20261028/skill-despertar.webp"
+    }
   }
 };
