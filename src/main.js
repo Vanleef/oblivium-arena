@@ -46,7 +46,7 @@ function codexSkillList(actor,abilities,color=actor.color){
  return `<div class='codex-moves'>${abilities.map(ability=>codexSkillCard(actor,ability,color)).join("")}</div>`;
 }
 function normalizedSearchText(value){
- return String(value ?? "").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLocaleLowerCase();
+ return String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase();
 }
 function searchMatches(query,values){
  if(!query)return true;
