@@ -670,6 +670,43 @@
       "slot": "despertar-10",
       "scene": "Sael sozinho sob um arco quebrado ergue o braço enquanto dois planos de tecido e fios coloridos barram cinza e névoa no limite, sem formar uma bolha; postura estável e concentrada.",
       "allies": []
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "slot": "passive",
+      "scene": "Vista alta de Naomi terminando de ajeitar o manto de uma aliada idosa de pele oliva e trança branca; a companheira se ergue estável de um banco e uma pequena Graça marfim retorna da manga à palma aberta de Naomi.",
+      "allies": [
+        "aliada idosa"
+      ]
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "slot": "impulso",
+      "scene": "Ângulo baixo lateral: Naomi avança de um passo firme e empurra com a palma o ombro de um alvo anônimo; o manto do alvo desvia sem ferida, enquanto uma luz quente regressa ao peito de Naomi.",
+      "allies": []
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "slot": "tecnica",
+      "scene": "Em uma escadaria clara, Naomi ampara por trás um aliado jovem de cabelo preto liso e veste índigo; a mão pousa no ombro e uma única faceta marfim envolve o peito do companheiro.",
+      "allies": [
+        "aliado jovem"
+      ]
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "slot": "voto",
+      "scene": "Vista ampla diagonal do trio em movimento pelo jardim do Estelar: Naomi conduz o caminho, um aliado idoso de trança prateada levanta-se à esquerda e uma jovem de cachos acobreados avança à direita; duas pulsações marfim percorrem o chão e fitas escuras se desfazem das três roupas.",
+      "allies": [
+        "aliado idoso",
+        "aliada ruiva"
+      ]
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "slot": "despertar",
+      "scene": "Naomi sozinha em postura defensiva sobre um terraço vazio; o manto e dois planos geométricos de luz marfim-ouro detêm névoa e pétalas na borda, deixando a figura livre e firme.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -726,6 +763,11 @@
     "o-eco-de-nilo:tecnica-7",
     "o-eco-de-nilo:tecnica-8",
     "o-eco-de-nilo:tecnica-9",
-    "o-eco-de-nilo:despertar-10"
+    "o-eco-de-nilo:despertar-10",
+    "naomi-a-que-permanece:passive",
+    "naomi-a-que-permanece:impulso",
+    "naomi-a-que-permanece:tecnica",
+    "naomi-a-que-permanece:voto",
+    "naomi-a-que-permanece:despertar"
   ]
 }

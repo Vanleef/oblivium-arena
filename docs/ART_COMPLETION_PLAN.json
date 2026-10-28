@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 22,
-    "newAbilityScenesSaved": 111,
+    "newPortraitsSaved": 23,
+    "newAbilityScenesSaved": 116,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -11679,8 +11679,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "naomi-a-que-permanece:base:passive",
@@ -11689,8 +11691,10 @@
           "slot": "passive",
           "name": "O Cuidado Retorna",
           "description": "Uma vez por rodada, curar pelo menos 10 de Vida de outro aliado gera 1 Graça.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "naomi-a-que-permanece:base:impulso",
@@ -11702,8 +11706,10 @@
           "name": "Passo que Levanta",
           "description": "Causa 10 de dano perfurante a um inimigo. Restaura 5 de Vida ao usuário.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "naomi-a-que-permanece:base:tecnica",
@@ -11715,8 +11721,10 @@
           "name": "Vigília Compartilhada",
           "description": "Restaura 8 de Vida ao aliado. Concede 10 de Defesa destrutível ao aliado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "naomi-a-que-permanece:base:voto",
@@ -11728,8 +11736,10 @@
           "name": "Promessa Renovada",
           "description": "Regeneração: restaura 4 de Vida no início dos próximos 2 turnos de cada aliado. Remove aflições e condições prejudiciais do trio.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "naomi-a-que-permanece:base:despertar",
@@ -11741,11 +11751,13 @@
           "name": "Ainda Aqui",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "naomi-a-raiz",
@@ -25067,8 +25079,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "naomi-a-que-permanece:base:passive",
@@ -25077,8 +25091,10 @@
       "slot": "passive",
       "name": "O Cuidado Retorna",
       "description": "Uma vez por rodada, curar pelo menos 10 de Vida de outro aliado gera 1 Graça.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "naomi-a-que-permanece:base:impulso",
@@ -25090,8 +25106,10 @@
       "name": "Passo que Levanta",
       "description": "Causa 10 de dano perfurante a um inimigo. Restaura 5 de Vida ao usuário.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "naomi-a-que-permanece:base:tecnica",
@@ -25103,8 +25121,10 @@
       "name": "Vigília Compartilhada",
       "description": "Restaura 8 de Vida ao aliado. Concede 10 de Defesa destrutível ao aliado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "naomi-a-que-permanece:base:voto",
@@ -25116,8 +25136,10 @@
       "name": "Promessa Renovada",
       "description": "Regeneração: restaura 4 de Vida no início dos próximos 2 turnos de cada aliado. Remove aflições e condições prejudiciais do trio.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "naomi-a-que-permanece:base:despertar",
@@ -25129,8 +25151,10 @@
       "name": "Ainda Aqui",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/naomi-a-que-permanece-anime-first-completion-20261028/skill-despertar.webp"
     },
     {
       "key": "naomi-a-raiz:base:portrait",

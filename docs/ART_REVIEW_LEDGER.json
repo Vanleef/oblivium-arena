@@ -146,7 +146,13 @@
     "o-eco-de-nilo:base:tecnica-7",
     "o-eco-de-nilo:base:tecnica-8",
     "o-eco-de-nilo:base:tecnica-9",
-    "o-eco-de-nilo:base:despertar-10"
+    "o-eco-de-nilo:base:despertar-10",
+    "naomi-a-que-permanece:base:portrait",
+    "naomi-a-que-permanece:base:passive",
+    "naomi-a-que-permanece:base:impulso",
+    "naomi-a-que-permanece:base:tecnica",
+    "naomi-a-que-permanece:base:voto",
+    "naomi-a-que-permanece:base:despertar"
   ],
   "pendingCorrections": []
 }
