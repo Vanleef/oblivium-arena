@@ -42,6 +42,11 @@
       "name": "Nilo — Prefácio de Graça",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados e cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Manto de linho marfim com bordados discretos em ouro antigo, camadas carvão e faixa índigo. Roupa funcional e marcada por poeira e rasgos de viagem; sem armadura. A Graça traz luz contida e disciplina, não asas ou halo.",
       "scene": "Paraíso elevado de mármore, colunatas, água imóvel e jardins geométricos. Luz filtrada e silêncio solene, com sombras azul-marinho e brilho marfim-dourado. Sem aparelhos, armas ou criaturas angelicais genéricas."
+    },
+    "nilo-ruptura-prefacio": {
+      "name": "Nilo — Prefácio de Ruptura",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. No Limbo, usa manto em camadas carvão e ardósia, faixa índigo e cachecol de cinza clara com uma borda rasgada; pequenas fraturas opalescentes aparecem no punho. A silhueta é leve, alerta e instável, sem armadura ou arma.",
+      "scene": "Umbral: corredores de pedra que terminam no vazio, portas sem folhas, degraus suspensos, filas indistintas ao longe e névoa violeta. A fratura é espacial e arcana, feita de pedra, luz e tecido; evite feridas abertas, duplicação do corpo e maquinaria."
     }
   }
 }

@@ -64,6 +64,20 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/skill-despertar.webp"
     }
   },
+  "nilo-ruptura-prefacio": {
+    "portrait": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-5.webp"
+    },
+    "abilityIndices": {
+      "3": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-4.webp",
+      "4": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-5.webp"
+    }
+  },
   "naomi": {
     "portrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",

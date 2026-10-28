@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 13,
-    "newAbilityScenesSaved": 43,
+    "newPortraitsSaved": 14,
+    "newAbilityScenesSaved": 49,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -10384,8 +10384,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "nilo-ruptura-prefacio:base:passive",
@@ -10394,8 +10396,10 @@
           "slot": "passive",
           "name": "Resíduo de Status",
           "description": "Sempre que Nilo aplica um status, grava 1 Resíduo (máx. 3). Resíduos só podem ser gastos na skill de resposta e o gasto é opcional.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "nilo-ruptura-prefacio:base:impulso",
@@ -10407,8 +10411,10 @@
           "name": "Corte Residual",
           "description": "Causa 10 de dano físico a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "nilo-ruptura-prefacio:base:tecnica",
@@ -10420,8 +10426,10 @@
           "name": "Marca do Vazio",
           "description": "Causa 10 de dano espiritual a um inimigo. Decadência: 3 de dano de aflição por 2 turnos. Expõe o alvo até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "nilo-ruptura-prefacio:base:voto",
@@ -10433,8 +10441,10 @@
           "name": "Resposta do Intervalo",
           "description": "Pode gastar até 3 Resíduos; cada um acrescenta +2 ao contra-ataque. Anula a próxima habilidade inimiga do tipo físico ou perfurante recebida e contra-ataca com 12 de dano físico. Dura 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "nilo-ruptura-prefacio:base:despertar-4",
@@ -10446,8 +10456,10 @@
           "name": "Estilhaço",
           "description": "Causa 12 de dano físico a um inimigo. Causa +4 de dano se o alvo tiver qualquer status.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-4.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-despertar-4.webp"
         },
         {
           "key": "nilo-ruptura-prefacio:base:despertar-5",
@@ -10459,11 +10471,13 @@
           "name": "Limiar",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-5.webp",
+          "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-despertar-5.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "nilo-cinza-epilogo",
@@ -23741,8 +23755,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "nilo-ruptura-prefacio:base:passive",
@@ -23751,8 +23767,10 @@
       "slot": "passive",
       "name": "Resíduo de Status",
       "description": "Sempre que Nilo aplica um status, grava 1 Resíduo (máx. 3). Resíduos só podem ser gastos na skill de resposta e o gasto é opcional.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "nilo-ruptura-prefacio:base:impulso",
@@ -23764,8 +23782,10 @@
       "name": "Corte Residual",
       "description": "Causa 10 de dano físico a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "nilo-ruptura-prefacio:base:tecnica",
@@ -23777,8 +23797,10 @@
       "name": "Marca do Vazio",
       "description": "Causa 10 de dano espiritual a um inimigo. Decadência: 3 de dano de aflição por 2 turnos. Expõe o alvo até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "nilo-ruptura-prefacio:base:voto",
@@ -23790,8 +23812,10 @@
       "name": "Resposta do Intervalo",
       "description": "Pode gastar até 3 Resíduos; cada um acrescenta +2 ao contra-ataque. Anula a próxima habilidade inimiga do tipo físico ou perfurante recebida e contra-ataca com 12 de dano físico. Dura 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "nilo-ruptura-prefacio:base:despertar-4",
@@ -23803,8 +23827,10 @@
       "name": "Estilhaço",
       "description": "Causa 12 de dano físico a um inimigo. Causa +4 de dano se o alvo tiver qualquer status.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-despertar-4.webp"
     },
     {
       "key": "nilo-ruptura-prefacio:base:despertar-5",
@@ -23816,8 +23842,10 @@
       "name": "Limiar",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-prefacio/anime-first-completion-20261028/skill-despertar-5.webp",
+      "source": "/art/source/nilo-ruptura-prefacio-anime-first-completion-20261028/skill-despertar-5.webp"
     },
     {
       "key": "nilo-cinza-epilogo:base:portrait",

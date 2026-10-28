@@ -257,6 +257,42 @@
       "slot": "despertar",
       "scene": "Nilo sozinho numa postura defensiva estável; um plano de luz marfim curvado junto ao lintel impede que pétalas e fragmentos de mármore o alcancem. Colunatas e jardim geométrico silencioso.",
       "allies": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "slot": "passive",
+      "scene": "Após aplicar um estado, Nilo observa três pequenos fragmentos violeta opalescentes registrados junto ao punho; um único alvo indistinto se afasta em corredor suspenso. Composição quieta de close, sem cópia de Nilo.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "slot": "impulso",
+      "scene": "Nilo guia uma fenda fina de pedra-luz que corta o manto de um único condenado sem armadura; aparece uma linha mínima de Sangramento, sem gore.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "slot": "tecnica",
+      "scene": "Sigilo violeta raso sobre o tecido do peito de um condenado; a sombra dele se solta da silhueta, deixando uma linha exposta. Nilo aparece distante à esquerda, em corredor que termina na névoa.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "slot": "voto",
+      "scene": "Contra-ataque oblíquo: um golpe desarmado atinge um plano violeta junto ao peito de Nilo e é devolvido ao atacante; três resíduos somem dentro da fenda.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "slot": "despertar-4",
+      "scene": "Fragmento de pedra de soleira atinge a costura do ombro de um alvo já marcado e o faz ceder; Nilo orienta o fragmento ao longe, o foco é a consequência.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "slot": "despertar-5",
+      "scene": "Nilo sozinho atravessa uma porta incompleta no Umbral; uma borda da capa e do ombro se torna translúcida e deixa pequenos fragmentos passarem, sem duplicar o corpo.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
