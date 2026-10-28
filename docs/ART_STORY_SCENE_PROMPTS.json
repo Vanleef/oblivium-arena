@@ -227,6 +227,36 @@
       "slot": "despertar",
       "scene": "Nilo se protege atrás de cinco planos de cinza e seda vermelha que desviam estilhaços numa passagem infernal; postura firme e barreira arcana.",
       "allies": []
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "slot": "passive",
+      "scene": "Uma marca em forma de pétala aparece no ombro de um único condenado sem armadura; um fio de luz liga a marca ao peito de Nilo, preparando o próximo golpe e uma pequena restauração. Ninguém ataca.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "slot": "impulso",
+      "scene": "Nilo sozinho descansa em degrau de mármore depois do confronto, uma mão sobre as costelas e outra no esterno; luz marfim-dourada fecha a própria dor, sem poção ou aparelho.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "slot": "tecnica",
+      "scene": "Visão oblíqua elevada de Nilo marcando pelas costas um condenado sem armadura; a sombra do alvo se abre como uma fenda e revela a vulnerabilidade.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "slot": "voto",
+      "scene": "Composição aérea sobre espelho d'água: Nilo direciona um único feixe de luz estreito e contido à marca já aplicada no alvo; a sombra do condenado se rompe e ele recua.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "slot": "despertar",
+      "scene": "Nilo sozinho numa postura defensiva estável; um plano de luz marfim curvado junto ao lintel impede que pétalas e fragmentos de mármore o alcancem. Colunatas e jardim geométrico silencioso.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [

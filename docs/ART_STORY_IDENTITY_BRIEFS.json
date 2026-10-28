@@ -37,6 +37,11 @@
       "name": "Nilo — Prefácio de Cinza",
       "identity": "Mesmo jovem adulto de 24 anos da identidade-base: pele castanha média, cabelo azul-negro curto e volumoso com mecha marfim sobre a sobrancelha direita, olhos cinza-azulados e físico esguio atlético. No Inferno, o manto de linho carvão e cinza-fuligem tem bordas queimadas; faixa índigo e um cordão de seda vermelho-pomegranate permanecem como marcas visuais. Cinza e fuligem no rosto, com um corte fino cicatrizado. Sem armadura e sem arma.",
       "scene": "Estige e Malebolge do Inferno de Dante: rios escuros avermelhados, arcos de pedra antiga, colunatas quebradas, condenado sem armadura e cinza suspensa. Fogo em pontos quentes, sombras profundas e seda ritual vermelha; a cena comunica ferida, aflição e resistência."
+    },
+    "nilo-graca-prefacio": {
+      "name": "Nilo — Prefácio de Graça",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados e cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Manto de linho marfim com bordados discretos em ouro antigo, camadas carvão e faixa índigo. Roupa funcional e marcada por poeira e rasgos de viagem; sem armadura. A Graça traz luz contida e disciplina, não asas ou halo.",
+      "scene": "Paraíso elevado de mármore, colunatas, água imóvel e jardins geométricos. Luz filtrada e silêncio solene, com sombras azul-marinho e brilho marfim-dourado. Sem aparelhos, armas ou criaturas angelicais genéricas."
     }
   }
 }

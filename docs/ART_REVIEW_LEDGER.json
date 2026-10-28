@@ -63,7 +63,13 @@
     "nilo-o-prefacio:base:impulso",
     "nilo-o-prefacio:base:tecnica",
     "nilo-o-prefacio:base:voto",
-    "nilo-o-prefacio:base:despertar"
+    "nilo-o-prefacio:base:despertar",
+    "nilo-graca-prefacio:base:portrait",
+    "nilo-graca-prefacio:base:passive",
+    "nilo-graca-prefacio:base:impulso",
+    "nilo-graca-prefacio:base:tecnica",
+    "nilo-graca-prefacio:base:voto",
+    "nilo-graca-prefacio:base:despertar"
   ],
   "pendingCorrections": []
 }
