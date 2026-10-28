@@ -47,7 +47,12 @@
     "kael:base:impulso",
     "kael:base:tecnica",
     "kael:base:voto",
-    "kael:base:despertar"
+    "kael:base:despertar",
+    "diana:base:passive",
+    "diana:base:impulso",
+    "diana:base:tecnica",
+    "diana:base:voto",
+    "diana:base:despertar"
   ],
   "pendingCorrections": []
 }

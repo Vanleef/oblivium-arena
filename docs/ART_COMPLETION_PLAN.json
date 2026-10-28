@@ -12132,7 +12132,8 @@
           "name": "Retrato",
           "art": "/art/characters/diana/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "reviewed",
+          "source": "/art/source/diana-anime-first-completion-20261028-portrait.webp"
         },
         {
           "key": "diana:base:passive",
@@ -12141,8 +12142,10 @@
           "slot": "passive",
           "name": "A Dor é Vista",
           "description": "Uma vez por rodada, depois de uma cura efetiva, Diana restaura 3 de Vida ao aliado vivo proporcionalmente mais ferido.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/diana/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/diana-anime-first-completion-20261028-passive.webp"
         },
         {
           "key": "diana:base:impulso",
@@ -12154,8 +12157,10 @@
           "name": "Pulso Restaurador",
           "description": "Restaura 12 de Vida ao aliado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/diana/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/diana-anime-first-completion-20261028-skill-impulso.webp"
         },
         {
           "key": "diana:base:tecnica",
@@ -12167,8 +12172,10 @@
           "name": "Diagnóstico Preciso",
           "description": "Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/diana/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/diana-anime-first-completion-20261028-skill-tecnica.webp"
         },
         {
           "key": "diana:base:voto",
@@ -12180,8 +12187,10 @@
           "name": "Sutura de Campo",
           "description": "Restaura 10 de Vida ao aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais do beneficiado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/diana/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/diana-anime-first-completion-20261028-skill-voto.webp"
         },
         {
           "key": "diana:base:despertar",
@@ -12193,11 +12202,13 @@
           "name": "Respirar Primeiro",
           "description": "Restaura 5 de Vida ao usuário. Concede 4 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/diana/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/diana-anime-first-completion-20261028-skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "diana-a-guarda",
@@ -25236,7 +25247,8 @@
       "name": "Retrato",
       "art": "/art/characters/diana/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "reviewed"
+      "status": "reviewed",
+      "source": "/art/source/diana-anime-first-completion-20261028-portrait.webp"
     },
     {
       "key": "diana:base:passive",
@@ -25245,8 +25257,10 @@
       "slot": "passive",
       "name": "A Dor é Vista",
       "description": "Uma vez por rodada, depois de uma cura efetiva, Diana restaura 3 de Vida ao aliado vivo proporcionalmente mais ferido.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/diana/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/diana-anime-first-completion-20261028-passive.webp"
     },
     {
       "key": "diana:base:impulso",
@@ -25258,8 +25272,10 @@
       "name": "Pulso Restaurador",
       "description": "Restaura 12 de Vida ao aliado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/diana/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/diana-anime-first-completion-20261028-skill-impulso.webp"
     },
     {
       "key": "diana:base:tecnica",
@@ -25271,8 +25287,10 @@
       "name": "Diagnóstico Preciso",
       "description": "Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/diana/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/diana-anime-first-completion-20261028-skill-tecnica.webp"
     },
     {
       "key": "diana:base:voto",
@@ -25284,8 +25302,10 @@
       "name": "Sutura de Campo",
       "description": "Restaura 10 de Vida ao aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Remove aflições e condições prejudiciais do beneficiado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/diana/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/diana-anime-first-completion-20261028-skill-voto.webp"
     },
     {
       "key": "diana:base:despertar",
@@ -25297,8 +25317,10 @@
       "name": "Respirar Primeiro",
       "description": "Restaura 5 de Vida ao usuário. Concede 4 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/diana/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/diana-anime-first-completion-20261028-skill-despertar.webp"
     },
     {
       "key": "diana-a-guarda:base:portrait",
