@@ -11996,7 +11996,7 @@
           "status": "pending_generation"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "vaas-o-sem-rosto",
@@ -25037,8 +25037,8 @@
       "name": "Retrato",
       "art": "/art/characters/vaas/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "needs_correction",
-      "correction": "Remove tiny background figures so the portrait contains only the character."
+      "status": "reviewed",
+      "source": "/art/source/vaas-anime-first-completion-20261028-portrait.webp"
     },
     {
       "key": "vaas:base:passive",
@@ -25047,8 +25047,10 @@
       "slot": "passive",
       "name": "Máscara Predatória",
       "description": "Uma vez por rodada, uma habilidade ofensiva contra um alvo com a Marca de Vaas também o Enfraquece por 1 turno.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/vaas-anime-first-completion-20261028-passive.webp"
     },
     {
       "key": "vaas:base:impulso",
@@ -25060,8 +25062,10 @@
       "name": "Verdade Plantada",
       "description": "Causa 9 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/vaas-anime-first-completion-20261028-skill-impulso.webp"
     },
     {
       "key": "vaas:base:tecnica",
@@ -25073,8 +25077,10 @@
       "name": "Véu de Veneno",
       "description": "Causa 11 de dano espiritual a um inimigo. Veneno: 4 de dano de aflição por 2 turnos. Rouba 1 unidade de Essência da reserva inimiga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/vaas-anime-first-completion-20261028-skill-tecnica.webp"
     },
     {
       "key": "vaas:base:voto",
@@ -25086,8 +25092,10 @@
       "name": "O Rosto que Falta",
       "description": "Concede 8 de Defesa destrutível ao usuário. Remove aflições e condições prejudiciais do beneficiado.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/vaas-anime-first-completion-20261028-skill-voto.webp"
     },
     {
       "key": "vaas:base:despertar",
@@ -25099,8 +25107,10 @@
       "name": "Última Máscara",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/vaas-anime-first-completion-20261028-skill-despertar.webp"
     },
     {
       "key": "vaas-o-sem-rosto:base:portrait",

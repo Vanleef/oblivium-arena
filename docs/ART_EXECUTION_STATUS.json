@@ -6,13 +6,12 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 7,
-  "newAbilityScenesSaved": 13,
+  "newPortraitsSaved": 8,
+  "newAbilityScenesSaved": 18,
   "scenesBlockedByQuota": [],
-  "unstartedInCurrentBatch": 12,
+  "unstartedInCurrentBatch": 6,
   "nextActions": [
-    "Corrigir o retrato de Vaas, removendo pequenas figuras ao fundo.",
-    "Continuar a fila integral de 150 personagens, variantes de habilidades e retratos de formas."
+    "Continuar a fila completa de artes para os demais personagens, variantes de habilidades e retratos de formas."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion."
 }

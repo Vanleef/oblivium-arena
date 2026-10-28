@@ -36,12 +36,13 @@
     "nilo:base:despertar",
     "naomi:base:passive",
     "naomi:base:voto",
-    "naomi:base:despertar"
+    "naomi:base:despertar",
+    "vaas:base:portrait",
+    "vaas:base:passive",
+    "vaas:base:impulso",
+    "vaas:base:tecnica",
+    "vaas:base:voto",
+    "vaas:base:despertar"
   ],
-  "pendingCorrections": [
-    {
-      "key": "vaas:base:portrait",
-      "reason": "Remove tiny background figures so the portrait contains only the character."
-    }
-  ]
+  "pendingCorrections": []
 }
