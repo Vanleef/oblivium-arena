@@ -33,7 +33,10 @@
     "nilo:base:impulso",
     "nilo:base:tecnica",
     "nilo:base:voto",
-    "nilo:base:despertar"
+    "nilo:base:despertar",
+    "naomi:base:passive",
+    "naomi:base:voto",
+    "naomi:base:despertar"
   ],
   "pendingCorrections": [
     {

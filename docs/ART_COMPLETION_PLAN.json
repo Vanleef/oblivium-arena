@@ -11495,7 +11495,7 @@
           "status": "pending_generation"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "naomi-a-que-permanece",
@@ -24610,8 +24610,10 @@
       "slot": "passive",
       "name": "Ninguém Fica para Trás",
       "description": "Uma vez por rodada, apoiar outro aliado concede 2 de Defesa a cada membro vivo do trio.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/naomi-anime-first-completion-20261028-passive.webp"
     },
     {
       "key": "naomi:base:impulso",
@@ -24651,8 +24653,10 @@
       "name": "Roda de Esperança",
       "description": "Concede 7 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais do trio.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/naomi-anime-first-completion-20261028-skill-voto.webp"
     },
     {
       "key": "naomi:base:despertar",
@@ -24664,8 +24668,10 @@
       "name": "Voto de Permanência",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/naomi/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/naomi-anime-first-completion-20261028-skill-despertar.webp"
     },
     {
       "key": "naomi-a-que-permanece:base:portrait",

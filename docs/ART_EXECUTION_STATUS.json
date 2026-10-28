@@ -7,20 +7,10 @@
     "logicalArtSlots": 998
   },
   "newPortraitsSaved": 7,
-  "newAbilityScenesSaved": 10,
-  "scenesBlockedByQuota": [
-    {
-      "id": "naomi",
-      "slot": "passive"
-    },
-    {
-      "id": "naomi",
-      "slot": "voto"
-    }
-  ],
-  "unstartedInCurrentBatch": 15,
+  "newAbilityScenesSaved": 13,
+  "scenesBlockedByQuota": [],
+  "unstartedInCurrentBatch": 12,
   "nextActions": [
-    "Concluir as artes que faltam do kit de Naomi: passiva, proteção da equipe e defesa pessoal.",
     "Corrigir o retrato de Vaas, removendo pequenas figuras ao fundo.",
     "Continuar a fila integral de 150 personagens, variantes de habilidades e retratos de formas."
   ],
