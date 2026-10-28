@@ -1976,16 +1976,9 @@
       "kingdom": "Vestíbulo",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "eiremir:base:portrait",
-        "eiremir:base:passive",
-        "eiremir:base:impulso",
-        "eiremir:base:tecnica",
-        "eiremir:base:voto",
-        "eiremir:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "eiremir-o-espelho-partido",

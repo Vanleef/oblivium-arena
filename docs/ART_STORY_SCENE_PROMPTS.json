@@ -1269,6 +1269,36 @@
       "slot": "despertar",
       "scene": "Seraphim avança para deter uma coluna de sombra; o manto e uma película clara se mantêm intactos enquanto a onda se parte. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.",
       "allies": []
+    },
+    {
+      "id": "eiremir",
+      "slot": "passive",
+      "scene": "Uma essência violeta retorna da marca no ombro de uma alma pálida até a palma aberta de Eiremir; mão e alvo ficam claramente distintos. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.",
+      "allies": []
+    },
+    {
+      "id": "eiremir",
+      "slot": "impulso",
+      "scene": "Eiremir observa de perfil enquanto uma linha de ruptura marca uma única alma ao longe entre arcos suspensos do Limbo. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.",
+      "allies": []
+    },
+    {
+      "id": "eiremir",
+      "slot": "tecnica",
+      "scene": "Eiremir inverte o fluxo violeta do alvo até a mão e atravessa a sombra da alma com uma fenda estreita; o alvo é uma figura idosa de pele cinza-pálida e veste clara, diferente de Eiremir. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.",
+      "allies": []
+    },
+    {
+      "id": "eiremir",
+      "slot": "voto",
+      "scene": "A marca violeta da alma condenada se acende no peito e se consome numa ressonância impossível, enquanto Eiremir permanece ao fundo entre fragmentos de pedra. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.",
+      "allies": []
+    },
+    {
+      "id": "eiremir",
+      "slot": "despertar",
+      "scene": "Eiremir fecha o manto sobre o próprio corpo e segura a postura enquanto uma onda de sombra se parte numa película violeta de defesa pessoal. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1415,6 +1445,11 @@
     "seraphim-o-eco:impulso",
     "seraphim-o-eco:tecnica",
     "seraphim-o-eco:voto",
-    "seraphim-o-eco:despertar"
+    "seraphim-o-eco:despertar",
+    "eiremir:passive",
+    "eiremir:impulso",
+    "eiremir:tecnica",
+    "eiremir:voto",
+    "eiremir:despertar"
   ]
 }
