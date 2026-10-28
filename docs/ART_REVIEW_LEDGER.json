@@ -52,7 +52,12 @@
     "diana:base:impulso",
     "diana:base:tecnica",
     "diana:base:voto",
-    "diana:base:despertar"
+    "diana:base:despertar",
+    "teras:base:passive",
+    "teras:base:impulso",
+    "teras:base:tecnica",
+    "teras:base:voto",
+    "teras:base:despertar"
   ],
   "pendingCorrections": []
 }

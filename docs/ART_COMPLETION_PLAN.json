@@ -12393,7 +12393,8 @@
           "name": "Retrato",
           "art": "/art/characters/teras/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "reviewed",
+          "source": "/art/source/teras-anime-first-completion-20261028-portrait.webp"
         },
         {
           "key": "teras:base:passive",
@@ -12402,8 +12403,10 @@
           "slot": "passive",
           "name": "Nota de Campo",
           "description": "No início do turno, se ao menos um inimigo ainda tiver Decadência de Teras, gera 1 Éter e drena 1 Essência inimiga; uma vez por rodada.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/teras-anime-first-completion-20261028-passive.webp"
         },
         {
           "key": "teras:base:impulso",
@@ -12415,8 +12418,10 @@
           "name": "Olhar de Anomalia",
           "description": "Causa 10 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/teras-anime-first-completion-20261028-skill-impulso.webp"
         },
         {
           "key": "teras:base:tecnica",
@@ -12428,8 +12433,10 @@
           "name": "Registro de Decadência",
           "description": "Causa 11 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Expõe o alvo até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/teras-anime-first-completion-20261028-skill-tecnica.webp"
         },
         {
           "key": "teras:base:voto",
@@ -12441,8 +12448,10 @@
           "name": "Pergunta sem Resposta",
           "description": "Causa 15 de dano espiritual a um inimigo. Sela as técnicas de apoio do alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/teras-anime-first-completion-20261028-skill-voto.webp"
         },
         {
           "key": "teras:base:despertar",
@@ -12454,11 +12463,13 @@
           "name": "Vigília Imóvel",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/teras-anime-first-completion-20261028-skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "teras-o-observador",
@@ -25472,7 +25483,8 @@
       "name": "Retrato",
       "art": "/art/characters/teras/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "reviewed"
+      "status": "reviewed",
+      "source": "/art/source/teras-anime-first-completion-20261028-portrait.webp"
     },
     {
       "key": "teras:base:passive",
@@ -25481,8 +25493,10 @@
       "slot": "passive",
       "name": "Nota de Campo",
       "description": "No início do turno, se ao menos um inimigo ainda tiver Decadência de Teras, gera 1 Éter e drena 1 Essência inimiga; uma vez por rodada.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/teras-anime-first-completion-20261028-passive.webp"
     },
     {
       "key": "teras:base:impulso",
@@ -25494,8 +25508,10 @@
       "name": "Olhar de Anomalia",
       "description": "Causa 10 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/teras-anime-first-completion-20261028-skill-impulso.webp"
     },
     {
       "key": "teras:base:tecnica",
@@ -25507,8 +25523,10 @@
       "name": "Registro de Decadência",
       "description": "Causa 11 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Expõe o alvo até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/teras-anime-first-completion-20261028-skill-tecnica.webp"
     },
     {
       "key": "teras:base:voto",
@@ -25520,8 +25538,10 @@
       "name": "Pergunta sem Resposta",
       "description": "Causa 15 de dano espiritual a um inimigo. Sela as técnicas de apoio do alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/teras-anime-first-completion-20261028-skill-voto.webp"
     },
     {
       "key": "teras:base:despertar",
@@ -25533,8 +25553,10 @@
       "name": "Vigília Imóvel",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/teras-anime-first-completion-20261028-skill-despertar.webp"
     },
     {
       "key": "teras-o-observador:base:portrait",
