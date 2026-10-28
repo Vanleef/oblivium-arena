@@ -554,3 +554,13 @@ Seis artes receberam nova rota versionada. A identidade recupera a presença sem
 Autoridade Delegada e Suserania Inviolável mostram somente o usuário. Decreto de Submissão afeta um ghoul; Interdição Soberana protege A Magistrada contra um único agressor e devolve o ataque; Guarda dos Vassalos protege exatamente O Suserano, A Magistrada e O Príncipe. A orientação do capuz no ataque e os acessórios próprios do Príncipe foram revisados. Os seis ativos WebP foram conferidos em 512 × 512, com fontes de 960 × 960 e prompts no manifesto ART_ANIME_FIRST_REWORK_20261028.json.
 
 Nenhuma regra do kit mudou. A revisão de Inferno passa a 16/55 personagens, com 39 pendentes. A contagem anime-first permanece em 28/100 conjuntos, pois este conjunto base já constava da migração anterior.
+
+
+## Auditoria do elenco completo e inclusão das artes ausentes
+
+O elenco em execução contém 150 entradas: 100 do catálogo original e 50 perfis narrativos, incluindo versões de protagonistas, coadjuvantes e antagonistas. A cobertura completa exige 923 imagens base (incluindo técnicas adicionais), 66 variações de habilidade e nove retratos de forma corporal: 998 posições lógicas de arte.
+
+Foram recuperadas as rotas de A Matriarca, O Incendiário e O Regulador, incluindo Prato Ascendente, a partir de arquivos já existentes. O registro central de arte permite anexar arquivos aos perfis narrativos sem alterar seus IDs, identidades ou campos de combate. Técnicas que compartilham um ID interno podem receber imagens por índice, preservando as regras atuais.
+
+Nilo, Naomi, Kael, Vaas, Diana e Teras receberam seus primeiros retratos anime. As demais cenas desses seis conjuntos permanecem pendentes nesta etapa. Há 606 imagens base presentes e 317 ausentes; 44 entradas ainda não têm imagem base alguma. As 36 variantes que compartilham a imagem base foram registradas para criação de arte própria. A auditoria reproduzível e a fila completa estão em ART_CATALOG_COVERAGE.json e ART_COMPLETION_PLAN.json; presença de arquivo não é aprovação de estilo.
+

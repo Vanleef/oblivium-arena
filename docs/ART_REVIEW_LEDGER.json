@@ -1,0 +1,33 @@
+{
+  "reviewDefinition": "Manual review of identity, clean anime cel rendering, gaze/action alignment, anatomy and target counts. File existence alone is not a style approval.",
+  "reviewedAssetKeys": [
+    "o-soberano-quebrado:base:portrait",
+    "o-soberano-quebrado:base:passive",
+    "o-soberano-quebrado:base:impulso",
+    "o-soberano-quebrado:base:tecnica",
+    "o-soberano-quebrado:base:voto",
+    "o-soberano-quebrado:base:despertar",
+    "a-juiza-de-ferro:base:portrait",
+    "a-juiza-de-ferro:base:passive",
+    "a-juiza-de-ferro:base:impulso",
+    "a-juiza-de-ferro:base:tecnica",
+    "a-juiza-de-ferro:base:voto",
+    "a-juiza-de-ferro:base:despertar",
+    "o-trono-vazio:base:portrait",
+    "o-trono-vazio:base:passive",
+    "o-trono-vazio:base:impulso",
+    "o-trono-vazio:base:tecnica",
+    "o-trono-vazio:base:voto",
+    "o-trono-vazio:base:despertar",
+    "o-soberano-quebrado:form:impulso:edict",
+    "o-soberano-quebrado:form:tecnica:edict",
+    "o-soberano-quebrado:form:voto:edict",
+    "nilo:base:portrait",
+    "naomi:base:portrait",
+    "kael:base:portrait",
+    "vaas:base:portrait",
+    "diana:base:portrait",
+    "teras:base:portrait"
+  ]
+}
+

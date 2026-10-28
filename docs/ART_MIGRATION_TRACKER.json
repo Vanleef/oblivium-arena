@@ -67,17 +67,43 @@
     "o-que-pesa",
     "o-trono-vazio"
   ],
-  "alternativeArtCompleted": 1,
-  "alternativeArtTotal": "not yet inventoried",
+  "alternativeArtCompleted": 3,
+  "alternativeArtTotal": 66,
   "logoFilesCompleted": 7,
   "logoFilesTotal": 7,
   "appIconFilesCompleted": 6,
   "appIconFilesTotal": 6,
   "pending": [
-    "Review every Inferno character for demonic/infernal read; redesign mismatches. 42 remain for visual review.",
-    "Migrate remaining 72 base character sets and 432 sprites.",
-    "Inventory and align all alternative forms.",
-    "Review every ability target: use a ghoul or named cast character, never a generic armored soldier.",
-    "Align the realm banners, realm emblems, veil gate, UI illustrations, and remaining visual effects."
-  ]
+    "Complete art for all 150 runtime entries, including the 50 story profiles and their distinct versions.",
+    "Create the remaining 317 missing base illustrations across story profiles; 44 entries still have no base image.",
+    "Create dedicated images for the 36 ability variants currently sharing a base image.",
+    "Review every existing asset for clean anime cel rendering, identity, anatomy, gaze, action and target counts.",
+    "Review all nine body-form portraits, including transformation-specific identities.",
+    "Keep the older 100-entry migration counters separate from full-roster coverage until the audit reconciles every asset."
+  ],
+  "scopeNote": "The original 100-entry cohort remains tracked by the legacy base-set counters. Full runtime scope includes 150 entries; fullRosterArt contains the current coverage audit. File presence is separate from manual style review.",
+  "fullRosterArt": {
+    "rosterEntries": 150,
+    "originalEntries": 100,
+    "storyEntries": 50,
+    "baseSlots": 923,
+    "abilityFormSlots": 66,
+    "bodyPortraitSlots": 9,
+    "totalLogicalSlots": 998,
+    "basePresent": 606,
+    "baseMissing": 317,
+    "entriesWithAnyBaseMissing": 50,
+    "entriesWithoutAnyBaseArt": 44,
+    "brokenExplicitReferences": 0,
+    "formsSharedWithBase": 36,
+    "formsMissing": 0,
+    "bodyPortraitsMissing": 0,
+    "manualStyleReview": {
+      "definition": "Manual ledger; existence does not imply style approval.",
+      "reviewedSlots": 27,
+      "fullyReviewedEntries": 2,
+      "pendingSlots": 971
+    }
+  }
 }
+

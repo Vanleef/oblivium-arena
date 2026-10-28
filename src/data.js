@@ -1,4 +1,5 @@
 import {withFlexibleCosts} from './flexible-costs.js';
+import { attachCharacterArt } from './character-art.js';
 import { buildCharacterKit, describeAbility } from "./kits.js";
 import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
 import { withBodyForms } from "./body-forms.js";
@@ -296,7 +297,7 @@ export const characters = rawCharacters.map(character => {
     kingdomId,
     ...(character.synergyEloIds || []).map(id => legacyToKingdom[id]).filter(Boolean)
   ])];
-  return {
+  return attachCharacterArt({
     ...character,
     legacyEloId,
     legacyEloName: character.elo,
@@ -314,7 +315,7 @@ export const characters = rawCharacters.map(character => {
     englishIdentityTitle,
     synergyKingdomIds,
     risk: kingdom.realm === "Limbo"
-  };
+  });
 });
 export const elos = kingdomCatalog.map(kingdom => ({
   ...kingdom,
@@ -1070,3 +1071,4 @@ export const buffs = [
     "glyph": "split"
   }
 ];
+

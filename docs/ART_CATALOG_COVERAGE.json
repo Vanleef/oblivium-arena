@@ -1,0 +1,2261 @@
+{
+  "scope": {
+    "rosterEntries": 150,
+    "originalEntries": 100,
+    "storyEntries": 50,
+    "baseSlots": 923,
+    "abilityFormSlots": 66,
+    "bodyPortraitSlots": 9,
+    "totalLogicalSlots": 998
+  },
+  "coverage": {
+    "basePresent": 606,
+    "baseMissing": 317,
+    "entriesWithAnyBaseMissing": 50,
+    "entriesWithoutAnyBaseArt": 44,
+    "brokenExplicitReferences": 0,
+    "formsSharedWithBase": 36,
+    "formsMissing": 0,
+    "bodyPortraitsMissing": 0
+  },
+  "visualReview": {
+    "definition": "Manual ledger; existence does not imply style approval.",
+    "reviewedSlots": 27,
+    "fullyReviewedEntries": 2,
+    "pendingSlots": 971
+  },
+  "entries": [
+    {
+      "id": "o-acougueiro",
+      "name": "Baltasar",
+      "title": "O Açougueiro",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-acougueiro:form:impulso:reopen"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-viuva-escarlate",
+      "name": "Mavia",
+      "title": "A Viúva",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-viuva-escarlate:form:impulso:revenge"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-colecionador-de-cabecas",
+      "name": "Verres",
+      "title": "O Colecionador",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-colecionador-de-cabecas:form:voto:empty"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "name": "Cleobis e Biton",
+      "title": "Gêmeos do Cutelo",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "gemeos-do-cutelo:form:tecnica:cross"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-carrasco-sem-rosto",
+      "name": "Sanson",
+      "title": "O Carrasco",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-matriarca",
+      "name": "A Matriarca",
+      "title": "Sustentação",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-soberano-quebrado",
+      "name": "Astyages",
+      "title": "O Soberano",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-juiza-de-ferro",
+      "name": "Pheretime",
+      "title": "A Magistrada",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": true
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "Perdiccas",
+      "title": "O Suserano",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": true
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "Demetrius",
+      "title": "O Príncipe",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-regente-de-cinzas",
+      "name": "Amanirenas",
+      "title": "A Déspota",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-herdeiro-cativo",
+      "name": "Arminius",
+      "title": "O Herdeiro",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-sussurro",
+      "name": "Hárpago",
+      "title": "O Sussurro",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-mascara-dupla",
+      "name": "Zópiro",
+      "title": "A Máscara Dupla",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-tecelao-de-mentiras",
+      "name": "Bagoas",
+      "title": "O Intrigante",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-boca-de-vidro",
+      "name": "Aspasia",
+      "title": "A Serpe",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-falso-profeta",
+      "name": "Joanna Southcott",
+      "title": "O Falso Profeta",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-corretor-de-memorias",
+      "name": "Annius",
+      "title": "O Falsário",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-incendiario",
+      "name": "Heróstrato",
+      "title": "O Incendiário",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "Perpetua",
+      "title": "A Brasa Eterna",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-odio-encarnado",
+      "name": "Fritigerno",
+      "title": "O Furor",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "Mithridates",
+      "title": "O Ressentido",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "Tomyris",
+      "title": "A Vingadora",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-coracao-em-furia",
+      "name": "Cambyses",
+      "title": "O Colérico",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-devorador",
+      "name": "Vitellius",
+      "title": "O Devorador",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-mao-que-toma",
+      "name": "Brennus",
+      "title": "A Saqueadora",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-mao-que-toma:form:tecnica:open"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "name": "Apicius",
+      "title": "O Insaciável",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-senhora-do-ultimo-pao",
+      "name": "Helena de Adiabene",
+      "title": "A Matriarca",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-credor",
+      "name": "Florus",
+      "title": "O Credor",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-balanca-vazia",
+      "name": "Faustilla",
+      "title": "A Usurária",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-apodrecido",
+      "name": "Zósimo",
+      "title": "O Apodrecido",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-praga-andante",
+      "name": "Mary Mallon",
+      "title": "A Pestilência",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-corrupto",
+      "name": "Hárpalo",
+      "title": "O Corrupto",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-rainha-dos-fungos",
+      "name": "Beatrix Potter",
+      "title": "A Rainha dos Fungos",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-medico-de-vermes",
+      "name": "Zahrawi",
+      "title": "O Inoculador",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-jardim-morto",
+      "name": "Teofrasto",
+      "title": "O Definhador",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-observou",
+      "name": "Procopius",
+      "title": "O Espectador",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-porta-fechada",
+      "name": "Sejanus",
+      "title": "A Carcereira",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-surdo",
+      "name": "Li Si",
+      "title": "O Silenciador",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-testemunha-cega",
+      "name": "Josefo",
+      "title": "A Cúmplice",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-quarto-vazio",
+      "name": "Macarius",
+      "title": "O Anfitrião",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-vigia-ausente",
+      "name": "Efialtes",
+      "title": "O Desertor",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-possui",
+      "name": "Andriscus",
+      "title": "O Usurpador",
+      "realm": "Inferno",
+      "kingdom": "Tormenta",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-pele-alheia",
+      "name": "Ovid",
+      "title": "A Metamorfa",
+      "realm": "Inferno",
+      "kingdom": "Tormenta",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-desejo-quebrado",
+      "name": "Tarquínio",
+      "title": "O Profanador",
+      "realm": "Inferno",
+      "kingdom": "Tormenta",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-marionetista-de-nervos",
+      "name": "Aristagoras",
+      "title": "A Marionetista",
+      "realm": "Inferno",
+      "kingdom": "Tormenta",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-marionetista-de-nervos:form:tecnica:hold"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-espelho-carnal",
+      "name": "Zeuxis",
+      "title": "O Simulacro",
+      "realm": "Inferno",
+      "kingdom": "Tormenta",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-costureira",
+      "name": "Sushruta",
+      "title": "A Suturadora",
+      "realm": "Inferno",
+      "kingdom": "Tormenta",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-costureira:form:tecnica:remove"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-apaga",
+      "name": "Akhenaten",
+      "title": "O Anulador",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-que-apaga:form:impulso:erase"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-ausencia",
+      "name": "Nabonidus",
+      "title": "A Ausência",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-fim-silencioso",
+      "name": "Tiglate",
+      "title": "O Arauto",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-fim-silencioso:form:voto:residual"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "name": "Hatshepsut",
+      "title": "O Desolador",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-menino-sem-sombra:form:tecnica:hide"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-ultima-pagina",
+      "name": "Enheduanna",
+      "title": "A Escriba",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-lugar-de-ninguem",
+      "name": "Timur",
+      "title": "O Obliterador",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-escudo-vivo",
+      "name": "Themistocles",
+      "title": "O Escudo Vivo",
+      "realm": "Paraíso",
+      "kingdom": "Marte",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-escudo-vivo:form:impulso:advance"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-muralha",
+      "name": "Zenobia",
+      "title": "A Muralha",
+      "realm": "Paraíso",
+      "kingdom": "Marte",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-ficou",
+      "name": "Cynaegirus",
+      "title": "O Abnegado",
+      "realm": "Paraíso",
+      "kingdom": "Lua",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-ultimo-guardiao",
+      "name": "Belisarius",
+      "title": "O Guardião",
+      "realm": "Paraíso",
+      "kingdom": "Lua",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-sentinela-azul",
+      "name": "Sittas",
+      "title": "A Sentinela",
+      "realm": "Paraíso",
+      "kingdom": "Marte",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-mao-que-cura",
+      "name": "Trotula",
+      "title": "A Compassiva",
+      "realm": "Paraíso",
+      "kingdom": "Saturno",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-restaurador",
+      "name": "Avicena",
+      "title": "O Restaurador",
+      "realm": "Paraíso",
+      "kingdom": "Saturno",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-restaurador:form:voto:pure"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "name": "Hildegard",
+      "title": "A Sanadora",
+      "realm": "Paraíso",
+      "kingdom": "Saturno",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-jardineira-das-feridas",
+      "name": "Dioscorides",
+      "title": "A Boticária",
+      "realm": "Paraíso",
+      "kingdom": "Saturno",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-pulso-sereno",
+      "name": "Asclepiades",
+      "title": "O Sereno",
+      "realm": "Paraíso",
+      "kingdom": "Saturno",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-equilibrio",
+      "name": "Zaleucus",
+      "title": "O Árbitro",
+      "realm": "Paraíso",
+      "kingdom": "Júpiter",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-equilibrio:form:tecnica:verdict"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-lamina-justa",
+      "name": "Viriato",
+      "title": "A Íntegra",
+      "realm": "Paraíso",
+      "kingdom": "Júpiter",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-pesa",
+      "name": "Aristides",
+      "title": "O Regulador",
+      "realm": "Inferno",
+      "kingdom": "Oblívio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-testemunha-integra",
+      "name": "Maqrizi",
+      "title": "A Testemunha",
+      "realm": "Inferno",
+      "kingdom": "Oblívio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-julgador-gentil",
+      "name": "Ashoka",
+      "title": "O Juiz",
+      "realm": "Paraíso",
+      "kingdom": "Júpiter",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-chama-que-nao-apaga",
+      "name": "Telesilla",
+      "title": "A Perseverante",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-chama-que-nao-apaga:form:impulso:dawn"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-levanta",
+      "name": "Sundiata",
+      "title": "O Tenaz",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-voz",
+      "name": "Arion",
+      "title": "A Voz",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-voz:form:impulso:chorus",
+        "a-voz:form:tecnica:solo"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-portador-da-aurora",
+      "name": "Aurelian",
+      "title": "O Alvorecer",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-mensageira-do-amanha",
+      "name": "Phoebe",
+      "title": "A Mensageira",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-mensageira-do-amanha:form:impulso:delivered"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-revela",
+      "name": "Hecataeus",
+      "title": "O Revelador",
+      "realm": "Paraíso",
+      "kingdom": "Sol",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-luz-nua",
+      "name": "Crates",
+      "title": "A Lúcida",
+      "realm": "Inferno",
+      "kingdom": "Oblívio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-espelho",
+      "name": "Parrhasius",
+      "title": "O Espelho",
+      "realm": "Inferno",
+      "kingdom": "Oblívio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-espelho:form:impulso:returned"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-cartografa-da-clareza",
+      "name": "Idrisi",
+      "title": "A Cartógrafa",
+      "realm": "Paraíso",
+      "kingdom": "Sol",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-cartografa-da-clareza:form:tecnica:shortcut"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-olho-desarmado",
+      "name": "Haytham",
+      "title": "O Vidente",
+      "realm": "Paraíso",
+      "kingdom": "Sol",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-elo-dourado",
+      "name": "Damon",
+      "title": "O Fraterno",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-que-une",
+      "name": "Berenice",
+      "title": "A Tecelã",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-vinculo",
+      "name": "John Rabe",
+      "title": "O Altruísta",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "os-tres-irmaos",
+      "name": "Hannibal, Hasdrubal e Mago",
+      "title": "Os Três Irmãos",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "os-tres-irmaos:form:impulso:second",
+        "os-tres-irmaos:form:impulso:third"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-guardia-das-promessas",
+      "name": "Regulus",
+      "title": "A Juramentada",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-guardia-das-promessas:form:tecnica:fulfill"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-que-cria",
+      "name": "Sóstrato",
+      "title": "O Artífice",
+      "realm": "Paraíso",
+      "kingdom": "Mercúrio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-que-cria:form:impulso:construct"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-semente",
+      "name": "Columella",
+      "title": "A Semente",
+      "realm": "Paraíso",
+      "kingdom": "Mercúrio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-cultivador",
+      "name": "Palladius",
+      "title": "O Cultivador",
+      "realm": "Paraíso",
+      "kingdom": "Mercúrio",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-arquiteta-verde",
+      "name": "Amanishakheto",
+      "title": "A Arquiteta",
+      "realm": "Paraíso",
+      "kingdom": "Empíreo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-arquiteta-verde:form:impulso:beam",
+        "a-arquiteta-verde:form:voto:collapse"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-primeiro-canto",
+      "name": "Terpander",
+      "title": "O Ressonante",
+      "realm": "Paraíso",
+      "kingdom": "Empíreo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-passo-interrompido",
+      "name": "Zeno",
+      "title": "O Descontínuo",
+      "realm": "Limbo",
+      "kingdom": "Vestíbulo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-passo-interrompido:form:impulso:next",
+        "o-passo-interrompido:form:impulso:previous"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-linha-partida",
+      "name": "Empedocles",
+      "title": "A Cindida",
+      "realm": "Limbo",
+      "kingdom": "Purgatório",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "name": "Cassiodorus",
+      "title": "O Eco",
+      "realm": "Limbo",
+      "kingdom": "Purgatório",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-eco-sem-dono:form:impulso:stolen",
+        "o-eco-sem-dono:form:tecnica:stolen",
+        "o-eco-sem-dono:form:voto:stolen"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-porta-que-flutua",
+      "name": "Battuta",
+      "title": "A Errante",
+      "realm": "Limbo",
+      "kingdom": "Vestíbulo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-porta-que-flutua:form:impulso:return"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-nome-esquecido",
+      "name": "Geta",
+      "title": "O Esquecido",
+      "realm": "Limbo",
+      "kingdom": "Vestíbulo",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-relogio-afogado",
+      "name": "Hiparco",
+      "title": "O Cronista",
+      "realm": "Limbo",
+      "kingdom": "Aqueronte",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "o-relogio-afogado:form:voto:release"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-asa-invertida",
+      "name": "Firnas",
+      "title": "A Inversa",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-asa-invertida:form:impulso:weight"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-andarilho-de-vidro",
+      "name": "Scylax",
+      "title": "O Andarilho",
+      "realm": "Limbo",
+      "kingdom": "Aqueronte",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-sombra-inconstante",
+      "name": "Peregrinus",
+      "title": "A Oscilante",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-sombra-inconstante:form:impulso:feign",
+        "a-sombra-inconstante:form:tecnica:resume"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-ponte-rasgada",
+      "name": "Sinan",
+      "title": "A Peregrina",
+      "realm": "Limbo",
+      "kingdom": "Aqueronte",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "a-alma-em-suspenso",
+      "name": "Simeão",
+      "title": "O Eremita",
+      "realm": "Limbo",
+      "kingdom": "Purgatório",
+      "cohort": "original",
+      "baseSlots": 6,
+      "missingSlots": [],
+      "pendingDedicatedForms": [
+        "a-alma-em-suspenso:form:impulso:lend"
+      ],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo",
+      "name": "Nilo",
+      "title": "Receptáculo",
+      "realm": "Limbo",
+      "kingdom": "Vestíbulo",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "nilo:base:passive",
+        "nilo:base:impulso",
+        "nilo:base:tecnica",
+        "nilo:base:voto",
+        "nilo:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "name": "Nilo, Prefácio de Cinza",
+      "title": "Ferida em Sequência",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "nilo-o-prefacio:base:portrait",
+        "nilo-o-prefacio:base:passive",
+        "nilo-o-prefacio:base:impulso",
+        "nilo-o-prefacio:base:tecnica",
+        "nilo-o-prefacio:base:voto",
+        "nilo-o-prefacio:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "name": "Nilo, Prefácio de Graça",
+      "title": "Marcação e Resposta",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "nilo-graca-prefacio:base:portrait",
+        "nilo-graca-prefacio:base:passive",
+        "nilo-graca-prefacio:base:impulso",
+        "nilo-graca-prefacio:base:tecnica",
+        "nilo-graca-prefacio:base:voto",
+        "nilo-graca-prefacio:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "name": "Nilo, Prefácio de Ruptura",
+      "title": "Resíduo de Status",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "story",
+      "baseSlots": 7,
+      "missingSlots": [
+        "nilo-ruptura-prefacio:base:portrait",
+        "nilo-ruptura-prefacio:base:passive",
+        "nilo-ruptura-prefacio:base:impulso",
+        "nilo-ruptura-prefacio:base:tecnica",
+        "nilo-ruptura-prefacio:base:voto",
+        "nilo-ruptura-prefacio:base:despertar-4",
+        "nilo-ruptura-prefacio:base:despertar-5"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "name": "Nilo, Epílogo de Cinza",
+      "title": "Expansão Autodestrutiva",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "story",
+      "baseSlots": 8,
+      "missingSlots": [
+        "nilo-cinza-epilogo:base:portrait",
+        "nilo-cinza-epilogo:base:passive",
+        "nilo-cinza-epilogo:base:impulso",
+        "nilo-cinza-epilogo:base:tecnica",
+        "nilo-cinza-epilogo:base:voto",
+        "nilo-cinza-epilogo:base:despertar-4",
+        "nilo-cinza-epilogo:base:tecnica-5",
+        "nilo-cinza-epilogo:base:despertar-6"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "name": "Nilo, Epílogo de Graça",
+      "title": "Clareza Momentânea",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "story",
+      "baseSlots": 7,
+      "missingSlots": [
+        "nilo-graca-epilogo:base:portrait",
+        "nilo-graca-epilogo:base:passive",
+        "nilo-graca-epilogo:base:impulso",
+        "nilo-graca-epilogo:base:tecnica",
+        "nilo-graca-epilogo:base:voto",
+        "nilo-graca-epilogo:base:despertar-4",
+        "nilo-graca-epilogo:base:despertar-5"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "name": "Nilo, Epílogo de Ruptura",
+      "title": "Sombra Preparada",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "story",
+      "baseSlots": 7,
+      "missingSlots": [
+        "nilo-ruptura-epilogo:base:portrait",
+        "nilo-ruptura-epilogo:base:passive",
+        "nilo-ruptura-epilogo:base:impulso",
+        "nilo-ruptura-epilogo:base:tecnica",
+        "nilo-ruptura-epilogo:base:voto",
+        "nilo-ruptura-epilogo:base:despertar-4",
+        "nilo-ruptura-epilogo:base:despertar-5"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-cinza-final",
+      "name": "Nilo, o Sem Rastro",
+      "title": "Colapso Voluntário",
+      "realm": "Inferno",
+      "kingdom": "Estige",
+      "cohort": "story",
+      "baseSlots": 11,
+      "missingSlots": [
+        "nilo-cinza-final:base:portrait",
+        "nilo-cinza-final:base:passive",
+        "nilo-cinza-final:base:impulso",
+        "nilo-cinza-final:base:tecnica",
+        "nilo-cinza-final:base:voto",
+        "nilo-cinza-final:base:despertar-4",
+        "nilo-cinza-final:base:tecnica-5",
+        "nilo-cinza-final:base:tecnica-6",
+        "nilo-cinza-final:base:tecnica-7",
+        "nilo-cinza-final:base:tecnica-8",
+        "nilo-cinza-final:base:despertar-9"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-graca-final",
+      "name": "Nilo, o que Mantém de Pé",
+      "title": "Pilares Vivos",
+      "realm": "Paraíso",
+      "kingdom": "Empíreo",
+      "cohort": "story",
+      "baseSlots": 10,
+      "missingSlots": [
+        "nilo-graca-final:base:portrait",
+        "nilo-graca-final:base:passive",
+        "nilo-graca-final:base:impulso",
+        "nilo-graca-final:base:tecnica",
+        "nilo-graca-final:base:voto",
+        "nilo-graca-final:base:despertar-4",
+        "nilo-graca-final:base:tecnica-5",
+        "nilo-graca-final:base:tecnica-6",
+        "nilo-graca-final:base:tecnica-7",
+        "nilo-graca-final:base:despertar-8"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "name": "Nilo, o que se Parte",
+      "title": "Contagem de Fraturas",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "story",
+      "baseSlots": 9,
+      "missingSlots": [
+        "nilo-ruptura-final:base:portrait",
+        "nilo-ruptura-final:base:passive",
+        "nilo-ruptura-final:base:impulso",
+        "nilo-ruptura-final:base:tecnica",
+        "nilo-ruptura-final:base:voto",
+        "nilo-ruptura-final:base:despertar-4",
+        "nilo-ruptura-final:base:tecnica-5",
+        "nilo-ruptura-final:base:tecnica-6",
+        "nilo-ruptura-final:base:despertar-7"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "name": "Nilo Purificado",
+      "title": "Purificado",
+      "realm": "Limbo",
+      "kingdom": "Purgatório",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "nilo-o-epilogo:base:portrait",
+        "nilo-o-epilogo:base:passive",
+        "nilo-o-epilogo:base:impulso",
+        "nilo-o-epilogo:base:tecnica",
+        "nilo-o-epilogo:base:voto",
+        "nilo-o-epilogo:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "name": "Sael",
+      "title": "O Eco das Quatro Essências",
+      "realm": "Limbo",
+      "kingdom": "Aqueronte",
+      "cohort": "story",
+      "baseSlots": 12,
+      "missingSlots": [
+        "o-eco-de-nilo:base:portrait",
+        "o-eco-de-nilo:base:passive",
+        "o-eco-de-nilo:base:impulso",
+        "o-eco-de-nilo:base:tecnica",
+        "o-eco-de-nilo:base:voto",
+        "o-eco-de-nilo:base:despertar-4",
+        "o-eco-de-nilo:base:tecnica-5",
+        "o-eco-de-nilo:base:tecnica-6",
+        "o-eco-de-nilo:base:tecnica-7",
+        "o-eco-de-nilo:base:tecnica-8",
+        "o-eco-de-nilo:base:tecnica-9",
+        "o-eco-de-nilo:base:despertar-10"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "naomi",
+      "name": "Naomi",
+      "title": "Persistência",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "naomi:base:passive",
+        "naomi:base:impulso",
+        "naomi:base:tecnica",
+        "naomi:base:voto",
+        "naomi:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "name": "Naomi, a Que Permanece",
+      "title": "Sustentadora Inabalável",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "naomi-a-que-permanece:base:portrait",
+        "naomi-a-que-permanece:base:passive",
+        "naomi-a-que-permanece:base:impulso",
+        "naomi-a-que-permanece:base:tecnica",
+        "naomi-a-que-permanece:base:voto",
+        "naomi-a-que-permanece:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "naomi-a-raiz",
+      "name": "Naomi, a Raiz",
+      "title": "Raiz Protetora",
+      "realm": "Paraíso",
+      "kingdom": "Estelar",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "naomi-a-raiz:base:portrait",
+        "naomi-a-raiz:base:passive",
+        "naomi-a-raiz:base:impulso",
+        "naomi-a-raiz:base:tecnica",
+        "naomi-a-raiz:base:voto",
+        "naomi-a-raiz:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "kael",
+      "name": "Kael",
+      "title": "Arrependimento",
+      "realm": "Limbo",
+      "kingdom": "Purgatório",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "kael:base:passive",
+        "kael:base:impulso",
+        "kael:base:tecnica",
+        "kael:base:voto",
+        "kael:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "kael-o-quebrado",
+      "name": "Kael, o Quebrado",
+      "title": "Retaliador Fraturado",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "kael-o-quebrado:base:portrait",
+        "kael-o-quebrado:base:passive",
+        "kael-o-quebrado:base:impulso",
+        "kael-o-quebrado:base:tecnica",
+        "kael-o-quebrado:base:voto",
+        "kael-o-quebrado:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "name": "Kael, o Filhote de Ferro",
+      "title": "Baluarte de Ruptura",
+      "realm": "Limbo",
+      "kingdom": "Purgatório",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "kael-o-filhote-de-ferro:base:portrait",
+        "kael-o-filhote-de-ferro:base:passive",
+        "kael-o-filhote-de-ferro:base:impulso",
+        "kael-o-filhote-de-ferro:base:tecnica",
+        "kael-o-filhote-de-ferro:base:voto",
+        "kael-o-filhote-de-ferro:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "vaas",
+      "name": "Vaas",
+      "title": "Máscaras",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "vaas:base:passive",
+        "vaas:base:impulso",
+        "vaas:base:tecnica",
+        "vaas:base:voto",
+        "vaas:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "name": "Vaas, o Sem Rosto",
+      "title": "Executor das Mentiras",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "vaas-o-sem-rosto:base:portrait",
+        "vaas-o-sem-rosto:base:passive",
+        "vaas-o-sem-rosto:base:impulso",
+        "vaas-o-sem-rosto:base:tecnica",
+        "vaas-o-sem-rosto:base:voto",
+        "vaas-o-sem-rosto:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "title": "Amparo",
+      "realm": "Paraíso",
+      "kingdom": "Lua",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "diana:base:passive",
+        "diana:base:impulso",
+        "diana:base:tecnica",
+        "diana:base:voto",
+        "diana:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "diana-a-guarda",
+      "name": "Diana, a Guarda",
+      "title": "Protetora de Linha",
+      "realm": "Paraíso",
+      "kingdom": "Marte",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "diana-a-guarda:base:portrait",
+        "diana-a-guarda:base:passive",
+        "diana-a-guarda:base:impulso",
+        "diana-a-guarda:base:tecnica",
+        "diana-a-guarda:base:voto",
+        "diana-a-guarda:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "name": "Diana, a Que Ainda Segura",
+      "title": "Amparo Persistente",
+      "realm": "Paraíso",
+      "kingdom": "Saturno",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "diana-a-que-ainda-segura:base:portrait",
+        "diana-a-que-ainda-segura:base:passive",
+        "diana-a-que-ainda-segura:base:impulso",
+        "diana-a-que-ainda-segura:base:tecnica",
+        "diana-a-que-ainda-segura:base:voto",
+        "diana-a-que-ainda-segura:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "teras",
+      "name": "Teras",
+      "title": "Observador",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "teras:base:passive",
+        "teras:base:impulso",
+        "teras:base:tecnica",
+        "teras:base:voto",
+        "teras:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "teras-o-observador",
+      "name": "Teras, o Observador",
+      "title": "Leitor de Fendas",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "teras-o-observador:base:portrait",
+        "teras-o-observador:base:passive",
+        "teras-o-observador:base:impulso",
+        "teras-o-observador:base:tecnica",
+        "teras-o-observador:base:voto",
+        "teras-o-observador:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "victor",
+      "name": "Victor",
+      "title": "Regente",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "victor:base:portrait",
+        "victor:base:passive",
+        "victor:base:impulso",
+        "victor:base:tecnica",
+        "victor:base:voto",
+        "victor:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "silas",
+      "name": "Silas",
+      "title": "Lealdade",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "silas:base:portrait",
+        "silas:base:passive",
+        "silas:base:impulso",
+        "silas:base:tecnica",
+        "silas:base:voto",
+        "silas:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "silas-o-leal",
+      "name": "Silas, o Leal",
+      "title": "Protetor Vinculado",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "silas-o-leal:base:portrait",
+        "silas-o-leal:base:passive",
+        "silas-o-leal:base:impulso",
+        "silas-o-leal:base:tecnica",
+        "silas-o-leal:base:voto",
+        "silas-o-leal:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "orion",
+      "name": "Orion",
+      "title": "Rastreador",
+      "realm": "Paraíso",
+      "kingdom": "Sol",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "orion:base:portrait",
+        "orion:base:passive",
+        "orion:base:impulso",
+        "orion:base:tecnica",
+        "orion:base:voto",
+        "orion:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "doggo",
+      "name": "Doggo",
+      "title": "Sobrevivente",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "doggo:base:portrait",
+        "doggo:base:passive",
+        "doggo:base:impulso",
+        "doggo:base:tecnica",
+        "doggo:base:voto",
+        "doggo:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "hans",
+      "name": "Hans",
+      "title": "Informante",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "hans:base:portrait",
+        "hans:base:passive",
+        "hans:base:impulso",
+        "hans:base:tecnica",
+        "hans:base:voto",
+        "hans:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "xian",
+      "name": "Xian",
+      "title": "Imóvel",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "xian:base:portrait",
+        "xian:base:passive",
+        "xian:base:impulso",
+        "xian:base:tecnica",
+        "xian:base:voto",
+        "xian:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "xian-o-imovel",
+      "name": "Xian, o Imóvel",
+      "title": "Sentinela do Vazio",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "xian-o-imovel:base:portrait",
+        "xian-o-imovel:base:passive",
+        "xian-o-imovel:base:impulso",
+        "xian-o-imovel:base:tecnica",
+        "xian-o-imovel:base:voto",
+        "xian-o-imovel:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "seraphim",
+      "name": "Seraphim",
+      "title": "Eco",
+      "realm": "Paraíso",
+      "kingdom": "Empíreo",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "seraphim:base:portrait",
+        "seraphim:base:passive",
+        "seraphim:base:impulso",
+        "seraphim:base:tecnica",
+        "seraphim:base:voto",
+        "seraphim:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "seraphim-o-eco",
+      "name": "Seraphim, o Eco",
+      "title": "Vigília Celeste",
+      "realm": "Paraíso",
+      "kingdom": "Empíreo",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "seraphim-o-eco:base:portrait",
+        "seraphim-o-eco:base:passive",
+        "seraphim-o-eco:base:impulso",
+        "seraphim-o-eco:base:tecnica",
+        "seraphim-o-eco:base:voto",
+        "seraphim-o-eco:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "eiremir",
+      "name": "Eiremir",
+      "title": "Anomalia",
+      "realm": "Limbo",
+      "kingdom": "Vestíbulo",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "eiremir:base:portrait",
+        "eiremir:base:passive",
+        "eiremir:base:impulso",
+        "eiremir:base:tecnica",
+        "eiremir:base:voto",
+        "eiremir:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "name": "Eiremir, o Espelho Partido",
+      "title": "Fenda de Retorno",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "eiremir-o-espelho-partido:base:portrait",
+        "eiremir-o-espelho-partido:base:passive",
+        "eiremir-o-espelho-partido:base:impulso",
+        "eiremir-o-espelho-partido:base:tecnica",
+        "eiremir-o-espelho-partido:base:voto",
+        "eiremir-o-espelho-partido:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "khoren-caminho",
+      "name": "Zalmoxis",
+      "title": "O Caminho",
+      "realm": "Limbo",
+      "kingdom": "Aqueronte",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "khoren-caminho:base:portrait",
+        "khoren-caminho:base:passive",
+        "khoren-caminho:base:impulso",
+        "khoren-caminho:base:tecnica",
+        "khoren-caminho:base:voto",
+        "khoren-caminho:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "elaris-prologo",
+      "name": "Elaris",
+      "title": "O Prólogo",
+      "realm": "Paraíso",
+      "kingdom": "Empíreo",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "elaris-prologo:base:portrait",
+        "elaris-prologo:base:passive",
+        "elaris-prologo:base:impulso",
+        "elaris-prologo:base:tecnica",
+        "elaris-prologo:base:voto",
+        "elaris-prologo:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "cain",
+      "name": "Cain",
+      "title": "Reflexo Cruel",
+      "realm": "Inferno",
+      "kingdom": "Flagelo",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "cain:base:portrait",
+        "cain:base:passive",
+        "cain:base:impulso",
+        "cain:base:tecnica",
+        "cain:base:voto",
+        "cain:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "lilith",
+      "name": "Lilith",
+      "title": "Negação",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "lilith:base:portrait",
+        "lilith:base:passive",
+        "lilith:base:impulso",
+        "lilith:base:tecnica",
+        "lilith:base:voto",
+        "lilith:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "caliope",
+      "name": "Calíope",
+      "title": "Falsária",
+      "realm": "Inferno",
+      "kingdom": "Malebolge",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "caliope:base:portrait",
+        "caliope:base:passive",
+        "caliope:base:impulso",
+        "caliope:base:tecnica",
+        "caliope:base:voto",
+        "caliope:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "serena",
+      "name": "Serena",
+      "title": "Sombra do Passado",
+      "realm": "Paraíso",
+      "kingdom": "Vênus",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "serena:base:portrait",
+        "serena:base:passive",
+        "serena:base:impulso",
+        "serena:base:tecnica",
+        "serena:base:voto",
+        "serena:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "placido",
+      "name": "Plácido",
+      "title": "Arquiteto da Ordem",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "placido:base:portrait",
+        "placido:base:passive",
+        "placido:base:impulso",
+        "placido:base:tecnica",
+        "placido:base:voto",
+        "placido:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "baal",
+      "name": "Baal",
+      "title": "Fanático",
+      "realm": "Inferno",
+      "kingdom": "Blasfêmia",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "baal:base:portrait",
+        "baal:base:passive",
+        "baal:base:impulso",
+        "baal:base:tecnica",
+        "baal:base:voto",
+        "baal:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "title": "Portador do Sistema",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "atlas:base:portrait",
+        "atlas:base:passive",
+        "atlas:base:impulso",
+        "atlas:base:tecnica",
+        "atlas:base:voto",
+        "atlas:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "merlindrope",
+      "name": "Merlindrope",
+      "title": "Carcereiro",
+      "realm": "Inferno",
+      "kingdom": "Magma",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "merlindrope:base:portrait",
+        "merlindrope:base:passive",
+        "merlindrope:base:impulso",
+        "merlindrope:base:tecnica",
+        "merlindrope:base:voto",
+        "merlindrope:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "bulkir",
+      "name": "Bulkir",
+      "title": "Devorador de Identidade",
+      "realm": "Inferno",
+      "kingdom": "Pútrido",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "bulkir:base:portrait",
+        "bulkir:base:passive",
+        "bulkir:base:impulso",
+        "bulkir:base:tecnica",
+        "bulkir:base:voto",
+        "bulkir:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "voronir",
+      "name": "Voronir",
+      "title": "Caçador de Receptáculos",
+      "realm": "Inferno",
+      "kingdom": "Tártaro",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "voronir:base:portrait",
+        "voronir:base:passive",
+        "voronir:base:impulso",
+        "voronir:base:tecnica",
+        "voronir:base:voto",
+        "voronir:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    },
+    {
+      "id": "icarus",
+      "name": "Icarus",
+      "title": "Portador da Fenda",
+      "realm": "Limbo",
+      "kingdom": "Umbral",
+      "cohort": "story",
+      "baseSlots": 6,
+      "missingSlots": [
+        "icarus:base:portrait",
+        "icarus:base:passive",
+        "icarus:base:impulso",
+        "icarus:base:tecnica",
+        "icarus:base:voto",
+        "icarus:base:despertar"
+      ],
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false
+    }
+  ]
+}
