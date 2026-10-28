@@ -278,7 +278,13 @@
     "elaris-prologo:base:impulso",
     "elaris-prologo:base:tecnica",
     "elaris-prologo:base:voto",
-    "elaris-prologo:base:despertar"
+    "elaris-prologo:base:despertar",
+    "cain:base:portrait",
+    "cain:base:passive",
+    "cain:base:impulso",
+    "cain:base:tecnica",
+    "cain:base:voto",
+    "cain:base:despertar"
   ],
   "pendingCorrections": []
 }

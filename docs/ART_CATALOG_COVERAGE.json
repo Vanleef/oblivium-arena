@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 857,
-    "baseMissing": 66,
-    "entriesWithAnyBaseMissing": 11,
-    "entriesWithoutAnyBaseArt": 11,
+    "basePresent": 863,
+    "baseMissing": 60,
+    "entriesWithAnyBaseMissing": 10,
+    "entriesWithoutAnyBaseArt": 10,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 278,
+    "reviewedSlots": 284,
     "correctionSlots": 0,
-    "fullyReviewedEntries": 41,
-    "pendingSlots": 720
+    "fullyReviewedEntries": 42,
+    "pendingSlots": 714
   },
   "entries": [
     {
@@ -1767,16 +1767,9 @@
       "kingdom": "Flagelo",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "cain:base:portrait",
-        "cain:base:passive",
-        "cain:base:impulso",
-        "cain:base:tecnica",
-        "cain:base:voto",
-        "cain:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "lilith",

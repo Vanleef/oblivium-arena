@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 44,
-    "newAbilityScenesSaved": 221,
+    "newPortraitsSaved": 45,
+    "newAbilityScenesSaved": 226,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13188,38 +13188,8 @@
           "key": "xian:base:passive",
           "characterId": "xian",
         
-... 22382 bytes omitted ...
-iewed"
-        },
-        {
-          "key": "khoren-caminho:base:despertar",
-          "characterId": "khoren-caminho",
-          "kind": "base",
-          "slot": "despertar",
-          "abilityId": "despertar",
-          "abilityIndex": 3,
-          "name": "Travessia Reversa",
-          "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
-          "target": "self",
-          "art": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-despertar.webp",
-          "exists": true,
-          "status": "reviewed"
-        }
-      ],
-      "complete": true
-    },
-    {
-      "id": "elaris-prologo",
-      "name": "Elaris",
-      "title": "O Prólogo",
-      "realm": "Paraíso",
-      "kingdom": "Empíreo",
-      "cohort": "story",
-      "family": "cosmic-leaders",
-      "slots": [
-        {
-          "key": "elaris-prologo:base:portrait",
-          "characterId": "elaris-prologo",
+... 23305 bytes omitted ...
+    "characterId": "elaris-prologo",
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
@@ -13312,8 +13282,9 @@ iewed"
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/cain/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "cain:base:passive",
@@ -13322,8 +13293,9 @@ iewed"
           "slot": "passive",
           "name": "Culpa que Morde",
           "description": "Uma vez por rodada, ferir um alvo com a Marca de Cain concede 1 carga.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/cain/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "cain:base:impulso",
@@ -13335,8 +13307,9 @@ iewed"
           "name": "Marca do Primeiro Erro",
           "description": "Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/cain/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "cain:base:tecnica",
@@ -13348,8 +13321,9 @@ iewed"
           "name": "Repetir a Sentença",
           "description": "Causa 15 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 de dano; consome a preparação.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/cain/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "cain:base:voto",
@@ -13361,8 +13335,9 @@ iewed"
           "name": "Ferida Consentida",
           "description": "Causa 20 de dano físico a um inimigo. O usuário perde 5 de Vida (não pode ser derrotado por este custo).",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/cain/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "cain:base:despertar",
@@ -13374,11 +13349,12 @@ iewed"
           "name": "Cicatriz de Sangue",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/cain/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "lilith",
@@ -26398,8 +26374,9 @@ iewed"
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/cain/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "cain:base:passive",
@@ -26408,8 +26385,9 @@ iewed"
       "slot": "passive",
       "name": "Culpa que Morde",
       "description": "Uma vez por rodada, ferir um alvo com a Marca de Cain concede 1 carga.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/cain/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "cain:base:impulso",
@@ -26421,8 +26399,9 @@ iewed"
       "name": "Marca do Primeiro Erro",
       "description": "Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/cain/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "cain:base:tecnica",
@@ -26434,8 +26413,9 @@ iewed"
       "name": "Repetir a Sentença",
       "description": "Causa 15 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 de dano; consome a preparação.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/cain/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "cain:base:voto",
@@ -26447,8 +26427,9 @@ iewed"
       "name": "Ferida Consentida",
       "description": "Causa 20 de dano físico a um inimigo. O usuário perde 5 de Vida (não pode ser derrotado por este custo).",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/cain/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "cain:base:despertar",
@@ -26460,8 +26441,9 @@ iewed"
       "name": "Cicatriz de Sangue",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/cain/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "lilith:base:portrait",

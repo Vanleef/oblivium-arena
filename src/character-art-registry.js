@@ -487,5 +487,15 @@ export const characterArtRegistry = {
     "despertar": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-despertar.webp"
   }
 },
+  "cain": {
+  "portrait": "/art/characters/cain/anime-first-completion-20261028/portrait.webp",
+  "passive": "/art/characters/cain/anime-first-completion-20261028/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/cain/anime-first-completion-20261028/skill-impulso.webp",
+    "tecnica": "/art/characters/cain/anime-first-completion-20261028/skill-tecnica.webp",
+    "voto": "/art/characters/cain/anime-first-completion-20261028/skill-voto.webp",
+    "despertar": "/art/characters/cain/anime-first-completion-20261028/skill-despertar.webp"
+  }
+},
 };
 

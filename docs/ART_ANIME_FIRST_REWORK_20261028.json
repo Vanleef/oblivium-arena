@@ -398,6 +398,27 @@
         "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-voto.webp",
         "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-despertar.webp"
       ]
+    },
+    "cain": {
+      "displayName": "Cain",
+      "activeRoute": "/art/characters/cain/anime-first-completion-20261028",
+      "world": "Inferno",
+      "sourceAssets": [
+        "art/source/cain-anime-first-completion-20261028/portrait.webp",
+        "art/source/cain-anime-first-completion-20261028/passive.webp",
+        "art/source/cain-anime-first-completion-20261028/skill-impulso.webp",
+        "art/source/cain-anime-first-completion-20261028/skill-tecnica.webp",
+        "art/source/cain-anime-first-completion-20261028/skill-voto.webp",
+        "art/source/cain-anime-first-completion-20261028/skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/cain/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/cain/anime-first-completion-20261028/passive.webp",
+        "/art/characters/cain/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/cain/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/cain/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/cain/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {
