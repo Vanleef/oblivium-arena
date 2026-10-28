@@ -1,5 +1,5 @@
 export const characterArtRegistry = {
-  "a-matriarca": {
+  "a-mae-rubra": {
     "portrait": "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
     "passive": "/art/characters/a-mae-rubra/anime-first-rework-20261027/passive.webp",
     "abilities": {

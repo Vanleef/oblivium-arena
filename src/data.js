@@ -11,7 +11,7 @@ import { kingdomCatalog, kingdomById as kingdomDefinitionsById, defaultKingdomBy
 const inferno = [
   {
     id: "sangria", name: "Sangria", realm: "Inferno", theme: "Sangue, lâminas e carnificina", strength: "Máxima",
-    symbol: "✦", color: "blood", forms: ["O Açougueiro", "A Viúva Escarlate", "O Colecionador de Cabeças", "Gêmeos do Cutelo", "O Carrasco sem Rosto", "A Matriarca"],
+    symbol: "✦", color: "blood", forms: ["O Açougueiro", "A Viúva Escarlate", "O Colecionador de Cabeças", "Gêmeos do Cutelo", "O Carrasco sem Rosto", "A Mãe Rubra"],
     moves: ["Corte Rubro", "Marca do Açougue", "Rasgo Escarlate", "Maré de Sangue"], passive: "Ferida Aberta",
     flavor: "A violência extrema alimenta cada golpe e deixa uma marca que torna o próximo mais perigoso."
   },
