@@ -236,7 +236,13 @@
     "xian:base:impulso",
     "xian:base:tecnica",
     "xian:base:voto",
-    "xian:base:despertar"
+    "xian:base:despertar",
+    "xian-o-imovel:base:portrait",
+    "xian-o-imovel:base:passive",
+    "xian-o-imovel:base:impulso",
+    "xian-o-imovel:base:tecnica",
+    "xian-o-imovel:base:voto",
+    "xian-o-imovel:base:despertar"
   ],
   "pendingCorrections": []
 }

@@ -1179,6 +1179,36 @@
       "slot": "despertar",
       "scene": "Xian sozinho no quarto vazio de mármore negro, sentado sobre uma esteira simples com as mangas cruzadas ao peito; exala lentamente enquanto uma linha violeta sela o limiar e uma película de geada contorna o espaço. Composição ampla com muito vazio, postura natural, sem arma, móveis ou outra figura.",
       "allies": []
+    },
+    {
+      "id": "xian-o-imovel",
+      "slot": "passive",
+      "scene": "Exatamente duas figuras no tribunal de Tártaro. Xian, homem chinês robusto de cabelo prateado com uma mecha carvão, manto marfim e violeta, desvia com o antebraço um golpe de uma alma cobre de manto ferrugem. Uma fissura violeta abre sob o pé plantado de Xian e um brilho de apoio desaparece dos pulsos do agressor, mostrando a carga e o selo da passiva. Sem sangue, proporções naturais.",
+      "allies": []
+    },
+    {
+      "id": "xian-o-imovel",
+      "slot": "impulso",
+      "scene": "Exatamente duas figuras na piscina rasa de mármore negro. Uma alma alta de pele cobre desfere um golpe de antebraço; Xian, a forma imóvel, firma os dois pés, intercepta o pulso com uma mão e empurra com a outra, devolvendo uma onda curta de pressão violeta. O agressor recua, sem arma, sem sangue. Braços e mãos em posições plausíveis.",
+      "allies": []
+    },
+    {
+      "id": "xian-o-imovel",
+      "slot": "tecnica",
+      "scene": "Exatamente duas figuras na galeria escura. Uma pessoa esguia de pele oliva e robe vermelho ergue uma chama ofensiva; a sombra de Xian atravessa o chão e sobe pelo manto do alvo, deixando um selo violeta no tecido do peito enquanto a chama se apaga. Sem tocar ou ferir a pele. Vista alta, anatomia natural, sem porta ou mecanismo.",
+      "allies": []
+    },
+    {
+      "id": "xian-o-imovel",
+      "slot": "voto",
+      "scene": "Exatamente duas figuras no tribunal vazio. Uma alma já enfraquecida de pele bronze pálida e cabelo branco curto apoia uma mão no chão, ombros caídos; um ponto de luz violeta perfura somente a roupa sobre o ombro e uma linha fina retorna a Xian, distante e imóvel. Plano baixo muito próximo à mão que falha em erguer-se, sem gore ou ataque frontal.",
+      "allies": []
+    },
+    {
+      "id": "xian-o-imovel",
+      "slot": "despertar",
+      "scene": "Xian sozinho no centro do tribunal de mármore negro, em postura estável com os pés à largura dos ombros. Um véu violeta fecha-se ao redor do torso enquanto geada e pétalas sombrias giram pela sala sem tocar sua roupa; ele não se move nem levanta armas. Ângulo baixo amplo, cabeça alinhada, mãos naturais, sem outros personagens.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1310,6 +1340,11 @@
     "xian:impulso",
     "xian:tecnica",
     "xian:voto",
-    "xian:despertar"
+    "xian:despertar",
+    "xian-o-imovel:passive",
+    "xian-o-imovel:impulso",
+    "xian-o-imovel:tecnica",
+    "xian-o-imovel:voto",
+    "xian-o-imovel:despertar"
   ]
 }

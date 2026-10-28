@@ -162,6 +162,11 @@
       "name": "Xian — Imóvel",
       "identity": "Homem chinês de 37 anos, pele oliva clara e quente, rosto angular de simetria natural, mandíbula larga, olhos castanho-escuros. Cabelo preto curto e simples com uma mecha prateada estreita. Corpo robusto e estável. Veste camadas de túnica carvão e índigo, sash vinho e uma linha vermelha simples no nó, sem armadura, arma ou adereços metálicos.",
       "scene": "Inferno, Tártaro: lintéis de mármore negro, piscinas imóveis, corredores frios com geada e fendas verticais de luz violeta. A força de Xian vem do silêncio, do vazio e do contra-ataque refletido; sem correntes, mecanismos ou iconografia de guerreiro."
+    },
+    "xian-o-imovel": {
+      "name": "Xian, o Imóvel — Sentinela do Vazio",
+      "identity": "A mesma pessoa de Xian: homem chinês de 37 anos, pele oliva agora pálida como cinza, mandíbula larga e olhos castanho-escuros. Cabelo curto inteiramente prateado com uma mecha carvão estreita. Corpo robusto e estável. Na forma sentinela, usa robes fluidos de marfim-frio, carvão e violeta, sash vinho e pequenos motivos de pedra costurados; sem armadura, arma ou metais.",
+      "scene": "Inferno, Tártaro: tribunal de mármore negro congelado, piscina imóvel e fenda vertical de luz violeta. A forma imóvel de Xian transforma defesa em presença: peso, roupa e pés seguem estáveis enquanto sombra, geada e Ruptura se movem ao redor."
     }
   }
 }
