@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 26,
-    "newAbilityScenesSaved": 131,
+    "newPortraitsSaved": 27,
+    "newAbilityScenesSaved": 136,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -12249,8 +12249,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "vaas-o-sem-rosto:base:passive",
@@ -12259,8 +12261,10 @@
           "slot": "passive",
           "name": "Confisco de Identidade",
           "description": "Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "vaas-o-sem-rosto:base:impulso",
@@ -12272,8 +12276,10 @@
           "name": "Sussurro sem Dono",
           "description": "Causa 12 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "vaas-o-sem-rosto:base:tecnica",
@@ -12285,8 +12291,10 @@
           "name": "Silêncio Comprado",
           "description": "Causa 16 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "vaas-o-sem-rosto:base:voto",
@@ -12298,8 +12306,10 @@
           "name": "Ruptura da Máscara",
           "description": "Causa 22 de dano perfurante a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo tem uma marca sua: +8 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "vaas-o-sem-rosto:base:despertar",
@@ -12311,11 +12321,13 @@
           "name": "Ausência Calculada",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "diana",
@@ -25613,8 +25625,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "vaas-o-sem-rosto:base:passive",
@@ -25623,8 +25637,10 @@
       "slot": "passive",
       "name": "Confisco de Identidade",
       "description": "Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "vaas-o-sem-rosto:base:impulso",
@@ -25636,8 +25652,10 @@
       "name": "Sussurro sem Dono",
       "description": "Causa 12 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "vaas-o-sem-rosto:base:tecnica",
@@ -25649,8 +25667,10 @@
       "name": "Silêncio Comprado",
       "description": "Causa 16 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "vaas-o-sem-rosto:base:voto",
@@ -25662,8 +25682,10 @@
       "name": "Ruptura da Máscara",
       "description": "Causa 22 de dano perfurante a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo tem uma marca sua: +8 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "vaas-o-sem-rosto:base:despertar",
@@ -25675,8 +25697,10 @@
       "name": "Ausência Calculada",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-despertar.webp"
     },
     {
       "key": "diana:base:portrait",

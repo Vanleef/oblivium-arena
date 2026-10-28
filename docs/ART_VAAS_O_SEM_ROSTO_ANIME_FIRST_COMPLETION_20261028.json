@@ -1,0 +1,47 @@
+{
+  "id": "vaas-o-sem-rosto-anime-first-completion-20261028",
+  "date": "2026-10-28",
+  "characterId": "vaas-o-sem-rosto",
+  "displayName": "Vaas, o Sem Rosto",
+  "world": "Inferno",
+  "realm": "Malebolge",
+  "artDirection": "Anime 2.5D pictórico e gótico no Inferno de Dante, Malebolge: largos patamares de fraude, valas tortas, arco cego, reflexos escuros e névoa sulfúrea cinza com ocre envelhecido. Vaas conserva pele lilás-acinzentada, cabelo preto-ameixa, olho âmbar e meia-máscara lisa de porcelana cobrindo a face esquerda, com casaco plum-black e forro verde-petróleo. Sua mentira usa fios, sombras e cerâmica, sem equipamentos ou armas. A máscara do personagem permanece visível em toda aparição.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/portrait.webp",
+      "scene": "Retrato de Vaas, o Sem Rosto, diante dos patamares tortos e do arco cego de Malebolge."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/passive.webp",
+      "scene": "Sobre o ombro de Vaas, um viajante marcado por um pequeno nó de fio vermelho permanece junto ao fosso; um mote âmbar sai da manga pelo fio fino e chega à mão aberta de Vaas."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-impulso.webp",
+      "scene": "De costas para um condenado, Vaas sussurra do outro lado do fosso; uma fita azul-petróleo sem letras atravessa o reflexo escuro, que se apaga, enquanto um nó vermelho marca a manga do alvo."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-tecnica.webp",
+      "scene": "Close oblíquo: uma alma idosa de trança branca tenta oferecer apoio com a mão aberta; um fio negro fecha a manga e interrompe o gesto enquanto Vaas recolhe um mote âmbar."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-voto.webp",
+      "scene": "Linha clara perfura uma máscara de porcelana usada por um eco já marcado, que se rompe em fragmentos sem ferir o corpo; Vaas permanece ao fundo com sua própria meia-máscara visível."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/vaas-o-sem-rosto-anime-first-completion-20261028/skill-despertar.webp",
+      "scene": "Vaas sozinho sob o arco cego de Malebolge, rosto parcialmente à sombra e meia-máscara visível; partículas passam pela ausência ao lado de sua silhueta intacta."
+    }
+  ]
+}

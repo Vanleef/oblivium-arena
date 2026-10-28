@@ -810,6 +810,36 @@
       "slot": "despertar",
       "scene": "Kael sozinho, ajoelhado sob um arco baixo de pedra e tecido; uma mão segura o manto e outra firma-se no chão enquanto fragmentos detêm a poeira escura na borda do abrigo.",
       "allies": []
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "slot": "passive",
+      "scene": "Sobre o ombro de Vaas, um viajante marcado por um pequeno nó de fio vermelho permanece junto ao fosso; um mote âmbar sai da manga pelo fio fino e chega à mão aberta de Vaas.",
+      "allies": []
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "slot": "impulso",
+      "scene": "De costas para um condenado, Vaas sussurra do outro lado do fosso; uma fita azul-petróleo sem letras atravessa o reflexo escuro, que se apaga, enquanto um nó vermelho marca a manga do alvo.",
+      "allies": []
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "slot": "tecnica",
+      "scene": "Close oblíquo: uma alma idosa de trança branca tenta oferecer apoio com a mão aberta; um fio negro fecha a manga e interrompe o gesto enquanto Vaas recolhe um mote âmbar.",
+      "allies": []
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "slot": "voto",
+      "scene": "Linha clara perfura uma máscara de porcelana usada por um eco já marcado, que se rompe em fragmentos sem ferir o corpo; Vaas permanece ao fundo com sua própria meia-máscara visível.",
+      "allies": []
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "slot": "despertar",
+      "scene": "Vaas sozinho sob o arco cego de Malebolge, rosto parcialmente à sombra e meia-máscara visível; partículas passam pela ausência ao lado de sua silhueta intacta.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -886,6 +916,11 @@
     "kael-o-filhote-de-ferro:impulso",
     "kael-o-filhote-de-ferro:tecnica",
     "kael-o-filhote-de-ferro:voto",
-    "kael-o-filhote-de-ferro:despertar"
+    "kael-o-filhote-de-ferro:despertar",
+    "vaas-o-sem-rosto:passive",
+    "vaas-o-sem-rosto:impulso",
+    "vaas-o-sem-rosto:tecnica",
+    "vaas-o-sem-rosto:voto",
+    "vaas-o-sem-rosto:despertar"
   ]
 }

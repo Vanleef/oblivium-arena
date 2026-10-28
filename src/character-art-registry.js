@@ -311,4 +311,15 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-despertar.webp"
     }
   }
+,
+  "vaas-o-sem-rosto": {
+    "portrait": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  }
 };

@@ -170,7 +170,13 @@
     "kael-o-filhote-de-ferro:base:impulso",
     "kael-o-filhote-de-ferro:base:tecnica",
     "kael-o-filhote-de-ferro:base:voto",
-    "kael-o-filhote-de-ferro:base:despertar"
+    "kael-o-filhote-de-ferro:base:despertar",
+    "vaas-o-sem-rosto:base:portrait",
+    "vaas-o-sem-rosto:base:passive",
+    "vaas-o-sem-rosto:base:impulso",
+    "vaas-o-sem-rosto:base:tecnica",
+    "vaas-o-sem-rosto:base:voto",
+    "vaas-o-sem-rosto:base:despertar"
   ],
   "pendingCorrections": []
 }
