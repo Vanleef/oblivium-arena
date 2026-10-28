@@ -11,6 +11,17 @@ const names = {
   'o-cultivador': 'Paládio', 'a-arquiteta-verde': 'Amani',
   'a-linha-partida': 'Empédocles', 'o-eco-sem-dono': 'Cassiodoro'
 };
+const englishNames = {
+  'o-soberano-quebrado': 'Astyages', 'a-juiza-de-ferro': 'Pheretime',
+  'o-trono-vazio': 'Perdiccas', 'o-principe-das-correntes': 'Demetrius',
+  'o-filho-da-cinza': 'Mithridates', 'a-marionetista-de-nervos': 'Aristagoras',
+  'a-ausencia': 'Nabonidus', 'o-escudo-vivo': 'Themistocles',
+  'o-que-ficou': 'Cynaegirus', 'a-jardineira-das-feridas': 'Dioscorides',
+  'o-pulso-sereno': 'Asclepiades', 'o-portador-da-aurora': 'Aurelian',
+  'a-mensageira-do-amanha': 'Phoebe', 'o-que-revela': 'Hecataeus',
+  'o-espelho': 'Parrhasius', 'o-cultivador': 'Palladius',
+  'a-linha-partida': 'Empedocles'
+};
 const titles = {
   'a-mae-rubra': ['A Matriarca', 'The Matriarch'],
   'a-senhora-do-ultimo-pao': ['A Acumuladora', 'The Hoarder'],
@@ -80,13 +91,15 @@ const loreEdits = {
 export function reviseRosterCharacter(character) {
   const name = names[character.id];
   const title = titles[character.id];
+  const englishName = englishNames[character.id];
   const edits = loreEdits[character.id];
-  if (!name && !title && !edits) return character;
+  if (!name && !title && !englishName && !edits) return character;
   let lore = character.lore;
   for (const [before, after] of edits || []) lore = lore?.replace(before, after);
   return {
     ...character,
-    ...(name ? { name, englishName: name } : {}),
+    ...(name ? { name } : {}),
+    ...(englishName ? { englishName } : {}),
     ...(title ? { identityTitle: title[0], englishIdentityTitle: title[1] } : {}),
     ...(edits ? { lore } : {}),
     aliases: [...new Set([...(character.aliases || []), ...(name ? [character.name, character.englishName] : []), ...(title ? [character.identityTitle] : [])].filter(Boolean))]
