@@ -176,7 +176,13 @@
     "vaas-o-sem-rosto:base:impulso",
     "vaas-o-sem-rosto:base:tecnica",
     "vaas-o-sem-rosto:base:voto",
-    "vaas-o-sem-rosto:base:despertar"
+    "vaas-o-sem-rosto:base:despertar",
+    "diana-a-guarda:base:portrait",
+    "diana-a-guarda:base:passive",
+    "diana-a-guarda:base:impulso",
+    "diana-a-guarda:base:tecnica",
+    "diana-a-guarda:base:voto",
+    "diana-a-guarda:base:despertar"
   ],
   "pendingCorrections": []
 }

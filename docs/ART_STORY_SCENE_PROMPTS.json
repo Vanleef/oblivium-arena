@@ -840,6 +840,41 @@
       "slot": "despertar",
       "scene": "Vaas sozinho sob o arco cego de Malebolge, rosto parcialmente à sombra e meia-máscara visível; partículas passam pela ausência ao lado de sua silhueta intacta.",
       "allies": []
+    },
+    {
+      "id": "diana-a-guarda",
+      "slot": "passive",
+      "scene": "Close por trás do impacto no ombro de Diana; fios vinho e ouro repartem a força e alcançam três arcos protetores no pátio.",
+      "allies": []
+    },
+    {
+      "id": "diana-a-guarda",
+      "slot": "impulso",
+      "scene": "Diana cruza uma escadaria para cobrir uma aliada anônima; um campo de tecido luminoso envolve a pessoa e absorve a pressão.",
+      "allies": [
+        "aliada anônima, adulta de cabelo escuro preso, roupa azul-cinza"
+      ]
+    },
+    {
+      "id": "diana-a-guarda",
+      "slot": "tecnica",
+      "scene": "Em vista lateral aproximada, Diana redireciona o antebraço de uma alma de argila pálida; a figura perde coesão e se dissolve em partículas, sem ferimento explícito.",
+      "allies": []
+    },
+    {
+      "id": "diana-a-guarda",
+      "slot": "voto",
+      "scene": "Vista alta de um círculo em mármore com exatamente três pessoas: Diana, um homem adulto negro alto de cabeça raspada e uma mulher idosa de pele oliva e trança prateada. Uma energia violeta curva na borda e retorna como pétalas.",
+      "allies": [
+        "homem adulto negro, alto, cabeça raspada, manto ameixa",
+        "mulher idosa de pele oliva, trança prateada, manto verde-azulado"
+      ]
+    },
+    {
+      "id": "diana-a-guarda",
+      "slot": "despertar",
+      "scene": "Vista traseira baixa de Diana firmando os pés na escadaria; um arco de luz marfim e fios vinho envolve o corpo e desfaz uma maré de partículas violetas.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -921,6 +956,11 @@
     "vaas-o-sem-rosto:impulso",
     "vaas-o-sem-rosto:tecnica",
     "vaas-o-sem-rosto:voto",
-    "vaas-o-sem-rosto:despertar"
+    "vaas-o-sem-rosto:despertar",
+    "diana-a-guarda:passive",
+    "diana-a-guarda:impulso",
+    "diana-a-guarda:tecnica",
+    "diana-a-guarda:voto",
+    "diana-a-guarda:despertar"
   ]
 }

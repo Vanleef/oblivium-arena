@@ -241,8 +241,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/teras/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/teras/anime-first-completion-20261028/skill-despertar.webp"
     }
-  }
-,
+  },
   "o-eco-de-nilo": {
     "portrait": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/passive.webp",
@@ -266,8 +265,7 @@ export const characterArtRegistry = {
       "8": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-9.webp",
       "9": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-despertar-10.webp"
     }
-  }
-,
+  },
   "naomi-a-que-permanece": {
     "portrait": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/passive.webp",
@@ -277,8 +275,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-despertar.webp"
     }
-  }
-,
+  },
   "naomi-a-raiz": {
     "portrait": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/passive.webp",
@@ -288,8 +285,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-despertar.webp"
     }
-  }
-,
+  },
   "kael-o-quebrado": {
     "portrait": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/passive.webp",
@@ -299,8 +295,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-despertar.webp"
     }
-  }
-,
+  },
   "kael-o-filhote-de-ferro": {
     "portrait": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/passive.webp",
@@ -310,8 +305,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-despertar.webp"
     }
-  }
-,
+  },
   "vaas-o-sem-rosto": {
     "portrait": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/passive.webp",
@@ -320,6 +314,16 @@ export const characterArtRegistry = {
       "tecnica": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-tecnica.webp",
       "voto": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/vaas-o-sem-rosto/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  },
+  "diana-a-guarda": {
+    "portrait": "/art/characters/diana-a-guarda/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/diana-a-guarda/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/diana-a-guarda/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/diana-a-guarda/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/diana-a-guarda/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/diana-a-guarda/anime-first-completion-20261028/skill-despertar.webp"
     }
   }
 };
