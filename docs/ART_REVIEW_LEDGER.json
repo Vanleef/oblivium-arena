@@ -260,7 +260,19 @@
     "eiremir:base:impulso",
     "eiremir:base:tecnica",
     "eiremir:base:voto",
-    "eiremir:base:despertar"
+    "eiremir:base:despertar",
+    "eiremir-o-espelho-partido:base:portrait",
+    "eiremir-o-espelho-partido:base:passive",
+    "eiremir-o-espelho-partido:base:impulso",
+    "eiremir-o-espelho-partido:base:tecnica",
+    "eiremir-o-espelho-partido:base:voto",
+    "eiremir-o-espelho-partido:base:despertar",
+    "khoren-caminho:base:portrait",
+    "khoren-caminho:base:passive",
+    "khoren-caminho:base:impulso",
+    "khoren-caminho:base:tecnica",
+    "khoren-caminho:base:voto",
+    "khoren-caminho:base:despertar"
   ],
   "pendingCorrections": []
 }

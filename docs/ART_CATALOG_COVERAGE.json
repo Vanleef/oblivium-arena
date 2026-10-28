@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 611,
-    "baseMissing": 312,
-    "entriesWithAnyBaseMissing": 50,
-    "entriesWithoutAnyBaseArt": 44,
+    "basePresent": 851,
+    "baseMissing": 72,
+    "entriesWithAnyBaseMissing": 12,
+    "entriesWithoutAnyBaseArt": 12,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 27,
-    "correctionSlots": 5,
-    "fullyReviewedEntries": 2,
-    "pendingSlots": 971
+    "reviewedSlots": 272,
+    "correctionSlots": 0,
+    "fullyReviewedEntries": 40,
+    "pendingSlots": 726
   },
   "entries": [
     {
@@ -95,9 +95,9 @@
       "fullyReviewed": false
     },
     {
-      "id": "a-matriarca",
-      "name": "A Matriarca",
-      "title": "Sustentação",
+      "id": "a-mae-rubra",
+      "name": "Julia Maesa",
+      "title": "A Matriarca",
       "realm": "Inferno",
       "kingdom": "Flagelo",
       "cohort": "original",
@@ -1299,12 +1299,9 @@
       "kingdom": "Vestíbulo",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "nilo:base:impulso",
-        "nilo:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-o-prefacio",
@@ -1314,16 +1311,9 @@
       "kingdom": "Estige",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "nilo-o-prefacio:base:portrait",
-        "nilo-o-prefacio:base:passive",
-        "nilo-o-prefacio:base:impulso",
-        "nilo-o-prefacio:base:tecnica",
-        "nilo-o-prefacio:base:voto",
-        "nilo-o-prefacio:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-graca-prefacio",
@@ -1333,16 +1323,9 @@
       "kingdom": "Estelar",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "nilo-graca-prefacio:base:portrait",
-        "nilo-graca-prefacio:base:passive",
-        "nilo-graca-prefacio:base:impulso",
-        "nilo-graca-prefacio:base:tecnica",
-        "nilo-graca-prefacio:base:voto",
-        "nilo-graca-prefacio:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-ruptura-prefacio",
@@ -1352,17 +1335,9 @@
       "kingdom": "Umbral",
       "cohort": "story",
       "baseSlots": 7,
-      "missingSlots": [
-        "nilo-ruptura-prefacio:base:portrait",
-        "nilo-ruptura-prefacio:base:passive",
-        "nilo-ruptura-prefacio:base:impulso",
-        "nilo-ruptura-prefacio:base:tecnica",
-        "nilo-ruptura-prefacio:base:voto",
-        "nilo-ruptura-prefacio:base:despertar-4",
-        "nilo-ruptura-prefacio:base:despertar-5"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-cinza-epilogo",
@@ -1372,18 +1347,9 @@
       "kingdom": "Estige",
       "cohort": "story",
       "baseSlots": 8,
-      "missingSlots": [
-        "nilo-cinza-epilogo:base:portrait",
-        "nilo-cinza-epilogo:base:passive",
-        "nilo-cinza-epilogo:base:impulso",
-        "nilo-cinza-epilogo:base:tecnica",
-        "nilo-cinza-epilogo:base:voto",
-        "nilo-cinza-epilogo:base:despertar-4",
-        "nilo-cinza-epilogo:base:tecnica-5",
-        "nilo-cinza-epilogo:base:despertar-6"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-graca-epilogo",
@@ -1393,17 +1359,9 @@
       "kingdom": "Estelar",
       "cohort": "story",
       "baseSlots": 7,
-      "missingSlots": [
-        "nilo-graca-epilogo:base:portrait",
-        "nilo-graca-epilogo:base:passive",
-        "nilo-graca-epilogo:base:impulso",
-        "nilo-graca-epilogo:base:tecnica",
-        "nilo-graca-epilogo:base:voto",
-        "nilo-graca-epilogo:base:despertar-4",
-        "nilo-graca-epilogo:base:despertar-5"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-ruptura-epilogo",
@@ -1413,17 +1371,9 @@
       "kingdom": "Umbral",
       "cohort": "story",
       "baseSlots": 7,
-      "missingSlots": [
-        "nilo-ruptura-epilogo:base:portrait",
-        "nilo-ruptura-epilogo:base:passive",
-        "nilo-ruptura-epilogo:base:impulso",
-        "nilo-ruptura-epilogo:base:tecnica",
-        "nilo-ruptura-epilogo:base:voto",
-        "nilo-ruptura-epilogo:base:despertar-4",
-        "nilo-ruptura-epilogo:base:despertar-5"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-cinza-final",
@@ -1433,21 +1383,9 @@
       "kingdom": "Estige",
       "cohort": "story",
       "baseSlots": 11,
-      "missingSlots": [
-        "nilo-cinza-final:base:portrait",
-        "nilo-cinza-final:base:passive",
-        "nilo-cinza-final:base:impulso",
-        "nilo-cinza-final:base:tecnica",
-        "nilo-cinza-final:base:voto",
-        "nilo-cinza-final:base:despertar-4",
-        "nilo-cinza-final:base:tecnica-5",
-        "nilo-cinza-final:base:tecnica-6",
-        "nilo-cinza-final:base:tecnica-7",
-        "nilo-cinza-final:base:tecnica-8",
-        "nilo-cinza-final:base:despertar-9"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-graca-final",
@@ -1457,20 +1395,9 @@
       "kingdom": "Empíreo",
       "cohort": "story",
       "baseSlots": 10,
-      "missingSlots": [
-        "nilo-graca-final:base:portrait",
-        "nilo-graca-final:base:passive",
-        "nilo-graca-final:base:impulso",
-        "nilo-graca-final:base:tecnica",
-        "nilo-graca-final:base:voto",
-        "nilo-graca-final:base:despertar-4",
-        "nilo-graca-final:base:tecnica-5",
-        "nilo-graca-final:base:tecnica-6",
-        "nilo-graca-final:base:tecnica-7",
-        "nilo-graca-final:base:despertar-8"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-ruptura-final",
@@ -1480,19 +1407,9 @@
       "kingdom": "Umbral",
       "cohort": "story",
       "baseSlots": 9,
-      "missingSlots": [
-        "nilo-ruptura-final:base:portrait",
-        "nilo-ruptura-final:base:passive",
-        "nilo-ruptura-final:base:impulso",
-        "nilo-ruptura-final:base:tecnica",
-        "nilo-ruptura-final:base:voto",
-        "nilo-ruptura-final:base:despertar-4",
-        "nilo-ruptura-final:base:tecnica-5",
-        "nilo-ruptura-final:base:tecnica-6",
-        "nilo-ruptura-final:base:despertar-7"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "nilo-o-epilogo",
@@ -1502,16 +1419,9 @@
       "kingdom": "Purgatório",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "nilo-o-epilogo:base:portrait",
-        "nilo-o-epilogo:base:passive",
-        "nilo-o-epilogo:base:impulso",
-        "nilo-o-epilogo:base:tecnica",
-        "nilo-o-epilogo:base:voto",
-        "nilo-o-epilogo:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "o-eco-de-nilo",
@@ -1521,22 +1431,9 @@
       "kingdom": "Aqueronte",
       "cohort": "story",
       "baseSlots": 12,
-      "missingSlots": [
-        "o-eco-de-nilo:base:portrait",
-        "o-eco-de-nilo:base:passive",
-        "o-eco-de-nilo:base:impulso",
-        "o-eco-de-nilo:base:tecnica",
-        "o-eco-de-nilo:base:voto",
-        "o-eco-de-nilo:base:despertar-4",
-        "o-eco-de-nilo:base:tecnica-5",
-        "o-eco-de-nilo:base:tecnica-6",
-        "o-eco-de-nilo:base:tecnica-7",
-        "o-eco-de-nilo:base:tecnica-8",
-        "o-eco-de-nilo:base:tecnica-9",
-        "o-eco-de-nilo:base:despertar-10"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "naomi",
@@ -1546,13 +1443,9 @@
       "kingdom": "Estelar",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "naomi:base:passive",
-        "naomi:base:voto",
-        "naomi:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "naomi-a-que-permanece",
@@ -1562,16 +1455,9 @@
       "kingdom": "Estelar",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "naomi-a-que-permanece:base:portrait",
-        "naomi-a-que-permanece:base:passive",
-        "naomi-a-que-permanece:base:impulso",
-        "naomi-a-que-permanece:base:tecnica",
-        "naomi-a-que-permanece:base:voto",
-        "naomi-a-que-permanece:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "naomi-a-raiz",
@@ -1581,16 +1467,9 @@
       "kingdom": "Estelar",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "naomi-a-raiz:base:portrait",
-        "naomi-a-raiz:base:passive",
-        "naomi-a-raiz:base:impulso",
-        "naomi-a-raiz:base:tecnica",
-        "naomi-a-raiz:base:voto",
-        "naomi-a-raiz:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "kael",
@@ -1600,15 +1479,9 @@
       "kingdom": "Purgatório",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "kael:base:passive",
-        "kael:base:impulso",
-        "kael:base:tecnica",
-        "kael:base:voto",
-        "kael:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "kael-o-quebrado",
@@ -1618,16 +1491,9 @@
       "kingdom": "Umbral",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "kael-o-quebrado:base:portrait",
-        "kael-o-quebrado:base:passive",
-        "kael-o-quebrado:base:impulso",
-        "kael-o-quebrado:base:tecnica",
-        "kael-o-quebrado:base:voto",
-        "kael-o-quebrado:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "kael-o-filhote-de-ferro",
@@ -1637,16 +1503,9 @@
       "kingdom": "Purgatório",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "kael-o-filhote-de-ferro:base:portrait",
-        "kael-o-filhote-de-ferro:base:passive",
-        "kael-o-filhote-de-ferro:base:impulso",
-        "kael-o-filhote-de-ferro:base:tecnica",
-        "kael-o-filhote-de-ferro:base:voto",
-        "kael-o-filhote-de-ferro:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "vaas",
@@ -1656,15 +1515,9 @@
       "kingdom": "Malebolge",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "vaas:base:passive",
-        "vaas:base:impulso",
-        "vaas:base:tecnica",
-        "vaas:base:voto",
-        "vaas:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "vaas-o-sem-rosto",
@@ -1674,16 +1527,9 @@
       "kingdom": "Malebolge",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "vaas-o-sem-rosto:base:portrait",
-        "vaas-o-sem-rosto:base:passive",
-        "vaas-o-sem-rosto:base:impulso",
-        "vaas-o-sem-rosto:base:tecnica",
-        "vaas-o-sem-rosto:base:voto",
-        "vaas-o-sem-rosto:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "diana",
@@ -1693,15 +1539,9 @@
       "kingdom": "Lua",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "diana:base:passive",
-        "diana:base:impulso",
-        "diana:base:tecnica",
-        "diana:base:voto",
-        "diana:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "diana-a-guarda",
@@ -1711,16 +1551,9 @@
       "kingdom": "Marte",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "diana-a-guarda:base:portrait",
-        "diana-a-guarda:base:passive",
-        "diana-a-guarda:base:impulso",
-        "diana-a-guarda:base:tecnica",
-        "diana-a-guarda:base:voto",
-        "diana-a-guarda:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "diana-a-que-ainda-segura",
@@ -1730,16 +1563,9 @@
       "kingdom": "Saturno",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "diana-a-que-ainda-segura:base:portrait",
-        "diana-a-que-ainda-segura:base:passive",
-        "diana-a-que-ainda-segura:base:impulso",
-        "diana-a-que-ainda-segura:base:tecnica",
-        "diana-a-que-ainda-segura:base:voto",
-        "diana-a-que-ainda-segura:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "teras",
@@ -1749,15 +1575,9 @@
       "kingdom": "Blasfêmia",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "teras:base:passive",
-        "teras:base:impulso",
-        "teras:base:tecnica",
-        "teras:base:voto",
-        "teras:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "teras-o-observador",
@@ -1767,16 +1587,9 @@
       "kingdom": "Blasfêmia",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "teras-o-observador:base:portrait",
-        "teras-o-observador:base:passive",
-        "teras-o-observador:base:impulso",
-        "teras-o-observador:base:tecnica",
-        "teras-o-observador:base:voto",
-        "teras-o-observador:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "victor",
@@ -1786,16 +1599,9 @@
       "kingdom": "Magma",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "victor:base:portrait",
-        "victor:base:passive",
-        "victor:base:impulso",
-        "victor:base:tecnica",
-        "victor:base:voto",
-        "victor:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "silas",
@@ -1805,16 +1611,9 @@
       "kingdom": "Vênus",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "silas:base:portrait",
-        "silas:base:passive",
-        "silas:base:impulso",
-        "silas:base:tecnica",
-        "silas:base:voto",
-        "silas:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "silas-o-leal",
@@ -1824,16 +1623,9 @@
       "kingdom": "Vênus",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "silas-o-leal:base:portrait",
-        "silas-o-leal:base:passive",
-        "silas-o-leal:base:impulso",
-        "silas-o-leal:base:tecnica",
-        "silas-o-leal:base:voto",
-        "silas-o-leal:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "orion",
@@ -1843,16 +1635,9 @@
       "kingdom": "Sol",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "orion:base:portrait",
-        "orion:base:passive",
-        "orion:base:impulso",
-        "orion:base:tecnica",
-        "orion:base:voto",
-        "orion:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "doggo",
@@ -1862,16 +1647,9 @@
       "kingdom": "Pútrido",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "doggo:base:portrait",
-        "doggo:base:passive",
-        "doggo:base:impulso",
-        "doggo:base:tecnica",
-        "doggo:base:voto",
-        "doggo:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "hans",
@@ -1881,16 +1659,9 @@
       "kingdom": "Pútrido",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "hans:base:portrait",
-        "hans:base:passive",
-        "hans:base:impulso",
-        "hans:base:tecnica",
-        "hans:base:voto",
-        "hans:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "xian",
@@ -1900,16 +1671,9 @@
       "kingdom": "Tártaro",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "xian:base:portrait",
-        "xian:base:passive",
-        "xian:base:impulso",
-        "xian:base:tecnica",
-        "xian:base:voto",
-        "xian:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "xian-o-imovel",
@@ -1919,16 +1683,9 @@
       "kingdom": "Tártaro",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "xian-o-imovel:base:portrait",
-        "xian-o-imovel:base:passive",
-        "xian-o-imovel:base:impulso",
-        "xian-o-imovel:base:tecnica",
-        "xian-o-imovel:base:voto",
-        "xian-o-imovel:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "seraphim",
@@ -1938,16 +1695,9 @@
       "kingdom": "Empíreo",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "seraphim:base:portrait",
-        "seraphim:base:passive",
-        "seraphim:base:impulso",
-        "seraphim:base:tecnica",
-        "seraphim:base:voto",
-        "seraphim:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "seraphim-o-eco",
@@ -1957,16 +1707,9 @@
       "kingdom": "Empíreo",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "seraphim-o-eco:base:portrait",
-        "seraphim-o-eco:base:passive",
-        "seraphim-o-eco:base:impulso",
-        "seraphim-o-eco:base:tecnica",
-        "seraphim-o-eco:base:voto",
-        "seraphim-o-eco:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "eiremir",
@@ -1988,16 +1731,9 @@
       "kingdom": "Umbral",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "eiremir-o-espelho-partido:base:portrait",
-        "eiremir-o-espelho-partido:base:passive",
-        "eiremir-o-espelho-partido:base:impulso",
-        "eiremir-o-espelho-partido:base:tecnica",
-        "eiremir-o-espelho-partido:base:voto",
-        "eiremir-o-espelho-partido:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "khoren-caminho",
@@ -2007,16 +1743,9 @@
       "kingdom": "Aqueronte",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "khoren-caminho:base:portrait",
-        "khoren-caminho:base:passive",
-        "khoren-caminho:base:impulso",
-        "khoren-caminho:base:tecnica",
-        "khoren-caminho:base:voto",
-        "khoren-caminho:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "elaris-prologo",

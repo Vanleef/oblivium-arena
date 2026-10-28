@@ -182,6 +182,17 @@
       "name": "Eiremir — Anomalia Espelhada",
       "identity": "Pessoa adulta andrógina de pele castanho-escura, olhos lilases claros e cachos negros volumosos com reflexos violetas. Usa camadas de tecido carvão, gastas e assimétricas, com linhas violeta. Silhueta esguia e olhar reservado. Manter distinta de Nilo e dos demais habitantes do Limbo; sem armas, armadura ou tecnologia.",
       "scene": "Limbo: arcos góticos interrompidos, ruínas suspensas e vazio de névoa lilás, cinza e azul desbotado. O poder surge como fissuras e fios de essência violeta. Sombras frias definidas, sem vermelho infernal nem dourado ou branco dominante."
+    },
+    "khoren-caminho": {
+      "name": "Zalmoxis — O Caminho",
+      "identity": "Use case: stylized-concept. Square full-bleed production character illustration for Oblivium Arena. High quality ANIME-FIRST 2.5D painterly gothic shonen; firm drawn contour lines, expressive stylized anime facial anatomy, bold angular graphic shadows, painted depth and elaborate fabric. NO classical realistic oil painting, romantic glow, glossy CGI, soft gold illumination. LIMBO Aqueronte palette: purple, violet, fog grey, desaturated blue, deep charcoal; NO red, NO gold. Identity for ZALMOXIS, O CAMINHO, Lord of Limbo: a massive broad elderly masculine liminal entity, weathered dark olive-grey skin, square coarse face, heavy brow, deep-set pale lavender eyes, long straight smoky-purple hair in three thick loosely bound braids, blunt short iron-grey beard, wide flattened nose, ancient salt-like stone mottling on temples. Distinct from youthful slim Eiremir. No crown or halo. Huge mantle woven from faded violet and charcoal strips draped asymmetrically over a sturdy body, geometric ancient stone beads on one braid, broad callused hands. No armor, weapon or technology. This physical identity and clothing stay identical in every scene. His power is a route made manifest as violet paths, stone waymarks and curved passage thresholds; never a modern map or diagram. Incomplete gothic river gates, broken old ferry steps, black still water of Aqueronte and banks of violet-grey fog. All actions candid and physically motivated; NO camera gaze or posing. Gaze must follow the actual action, natural effort and balance, five fingers when visible, coherent anatomy. No named supporting character, generic armored soldier or angel. No text, labels, letters, border, collage, UI or watermark. ",
+      "scene": "Aqueronte: rio negro, degraus de balsa e pórticos interrompidos em névoa violeta."
+    },
+    "eiremir-o-espelho-partido": {
+      "name": "Eiremir, o Espelho Partido",
+      "identity": "Pessoa adulta andrógina de pele castanho-escura, olhos lilases claros e cachos negros volumosos com reflexos violetas. Usa camadas de tecido carvão, gastas e assimétricas, com linhas violeta. Silhueta esguia e olhar reservado. Manter distinta de Nilo e dos demais habitantes do Limbo; sem armas, armadura ou tecnologia.",
+      "scene": "Limbo: arcos góticos interrompidos, ruínas suspensas e vazio de névoa lilás, cinza e azul desbotado. O poder surge como fissuras e fios de essência violeta. Sombras frias definidas, sem vermelho infernal nem dourado ou branco dominante.",
+      "kitVariation": "Mesma identidade física da base; estilhaços de almas e fissuras do kit reativo."
     }
   }
 }

@@ -335,6 +335,48 @@
           }
         ]
       }
+    },
+    "eiremir-o-espelho-partido": {
+      "displayName": "Eiremir, o Espelho Partido",
+      "activeRoute": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028",
+      "world": "Limbo",
+      "sourceAssets": [
+        "art/source/eiremir-o-espelho-partido-anime-first-completion-20261028/portrait.webp",
+        "art/source/eiremir-o-espelho-partido-anime-first-completion-20261028/passive.webp",
+        "art/source/eiremir-o-espelho-partido-anime-first-completion-20261028/skill-impulso.webp",
+        "art/source/eiremir-o-espelho-partido-anime-first-completion-20261028/skill-tecnica.webp",
+        "art/source/eiremir-o-espelho-partido-anime-first-completion-20261028/skill-voto.webp",
+        "art/source/eiremir-o-espelho-partido-anime-first-completion-20261028/skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/passive.webp",
+        "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-despertar.webp"
+      ]
+    },
+    "khoren-caminho": {
+      "displayName": "Zalmoxis, O Caminho",
+      "activeRoute": "/art/characters/khoren-caminho/anime-first-completion-20261028",
+      "world": "Limbo",
+      "sourceAssets": [
+        "art/source/khoren-caminho-anime-first-completion-20261028/portrait.webp",
+        "art/source/khoren-caminho-anime-first-completion-20261028/passive.webp",
+        "art/source/khoren-caminho-anime-first-completion-20261028/skill-impulso.webp",
+        "art/source/khoren-caminho-anime-first-completion-20261028/skill-tecnica.webp",
+        "art/source/khoren-caminho-anime-first-completion-20261028/skill-voto.webp",
+        "art/source/khoren-caminho-anime-first-completion-20261028/skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/khoren-caminho/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/khoren-caminho/anime-first-completion-20261028/passive.webp",
+        "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {

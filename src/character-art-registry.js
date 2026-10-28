@@ -457,4 +457,25 @@ export const characterArtRegistry = {
     }
   },
 
+  "eiremir-o-espelho-partido": {
+  "portrait": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/portrait.webp",
+  "passive": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-impulso.webp",
+    "tecnica": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-tecnica.webp",
+    "voto": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-voto.webp",
+    "despertar": "/art/characters/eiremir-o-espelho-partido/anime-first-completion-20261028/skill-despertar.webp"
+  }
+},
+  "khoren-caminho": {
+  "portrait": "/art/characters/khoren-caminho/anime-first-completion-20261028/portrait.webp",
+  "passive": "/art/characters/khoren-caminho/anime-first-completion-20261028/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-impulso.webp",
+    "tecnica": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-tecnica.webp",
+    "voto": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-voto.webp",
+    "despertar": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-despertar.webp"
+  }
+},
 };
+

@@ -1299,6 +1299,66 @@
       "slot": "despertar",
       "scene": "Eiremir, sozinho, recua quando uma onda de sombra atinge sua barreira violeta; joelhos flexionados, um pé desliza e o rosto se contrai enquanto acompanha a força que chega. Em cenas de ação, o olhar acompanha alvo, efeito ou ameaça; rosto e postura reagem ao evento. Evitar contato visual com a câmera e pose de apresentação. A reação natural ao contexto tem prioridade sobre uma pose estética. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. Poses e expressões devem ser naturais e coerentes com a cena, nunca como se estivessem posando. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
       "allies": []
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "slot": "passive",
+      "scene": "PASSIVE Estilhaço Reativo: a real incoming shadow impact has just made Eiremir lose health, visibly folded sideways with a shoulder against a stone arch for support. Tight waist-up oblique side shot, face in PROFILE looking at the struck shoulder, teeth clenched in an involuntary pained grimace, shoulder and collar fabric displaced by the hit. FROM the impact site a violet essence shard rebounds into a compact charged mote hovering near the clenched hand. Show recoil giving way to returned power, NOT willingly conjuring a pretty orb. Subtle dust and fabric abrasion, no red blood. One visible hand naturally clenched, other obscured. Alone, incoming attacker outside frame.",
+      "allies": []
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "slot": "impulso",
+      "scene": "Estilhaço de Retorno: focus on CONSEQUENCE on ONE nameless grey echo-soul in the foreground, an elongated nonhuman cloaked hollow entity with distinct ash-white cracked face, its body recoiling sideways as one narrow lavender spatial shard strikes the side of its shoulder through the dark veil, leaving a luminous exposed seam across the cloak. Head jerks toward its own injured shoulder, mouth open from the impact, cloth whips opposite the force. Far background Eiremir is seen small from behind in the follow-through, eyes directed at that exact target. Tilted over-target shoulder angle, diagonal force from upper left to lower right. No sword, gore, extra targets, no face-to-face sparring.",
+      "allies": []
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "slot": "tecnica",
+      "scene": "Espelho de Correntes COUNTER activating: shot from behind Eiremir's shoulder, eye-height diagonal toward ONE attacking faceless violet-grey echo creature. Eiremir instinctively twists the shoulder away, keeping gaze on the incoming shadow strike as it hits an incomplete broken mirror plane woven with loose ancient ritual chain links. The mirror turns the same shadow stroke BACK at the creature's chest, its forward lunge interrupted and head recoiling in surprise. Small returned violet essence mote on Eiremir's side; a bright exposed seam in attacker's cloak. Clear readable causal curved return path, no extra arms or hands; Eiremir's arms held close and mostly occluded by mantle, not presenting an orb. Two figures total. Chains are ritual objects, no machinery.",
+      "allies": []
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "slot": "voto",
+      "scene": "Ruptura Recursiva consumes stored charges: unusual HIGH downward shot following three violet fissures converging into ONE hollow echo entity crouched on an unfinished stone landing. A descending sequence of spatial shard impacts bends the echo's head and shoulders inward; clawlike hands reflexively brace on stone, fully legible anatomy, dust bursts from the landing, veil pulls toward the converging rupture. Eiremir occupies only a small silhouette near upper edge, naturally braced mid-step with exhausted lowered shoulder; previously orbiting charge fragments have emptied into the attack. Finite staged impacts focused on one target, no area attack, no repeated portrait, no frontal sword strike.",
+      "allies": []
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "slot": "despertar",
+      "scene": "Caco Invulnerável SELF defense: LOW lateral wide shot, Eiremir alone has dropped onto one bent knee behind the rise of a broken stair as a lateral wave of shadow hits. The person is genuinely ducking with one forearm instinctively shielding temple, other tucked under mantle, face narrowed in concentration, gaze on the incoming force from the left. Broad overlapping translucent violet mirror shards arc around the whole body as an intact barrier, shadow force breaking into harmless dust OUTSIDE it. Boots and grounded knee show plausible stable weight; black curls and cloak blown right by external force; no injury, additional figure, extra arms, mechanical shield or posing.",
+      "allies": []
+    },
+    {
+      "id": "khoren-caminho",
+      "slot": "passive",
+      "scene": "Marco de Passagem PASSIVE: close LOW crop at the elderly lord's heavy boot and mantle hem, his boot lands firmly on a stone waymark while a violet pulse returns along a path from ONE distant hollow long-limbed echo-soul with a glowing route mark on its sternum. That echo is recoiling from the previous hit, not bowing politely. The pulse compresses into ONE small violet charge stone hovering beside Zalmoxis's ankle. Focus on physical step, wet ripples, returning path and gained charge; character face outside frame, no presenting power to viewer. Weight and foot contact physically clear.",
+      "allies": []
+    },
+    {
+      "id": "khoren-caminho",
+      "slot": "impulso",
+      "scene": "Traçar Rota: extreme HIGH bird's-eye angle. ONE grey echo entity on an isolated river landing suddenly twists to look down at a sharp violet line that runs along submerged stepping stones and reaches its shoulder, making a small Waymark there. Spiritual hit creates a clear flinch and cloak tug, no blood. Zalmoxis only small from behind on the opposite bank, shoulders leaning into the step that traces the route. The path is organic magical light over ancient stones, not a geometric UI diagram. One target and one caster, deep purple Aqueronte fog, pointed broken ferry arch.",
+      "allies": []
+    },
+    {
+      "id": "khoren-caminho",
+      "slot": "tecnica",
+      "scene": "Cobrar Travessia: the marked nameless echo-soul has tried to push through a narrow old river arch. A tight SIDE-ON target-dominant view catches its forward momentum cut short when the violet route curls sharply and pierces its CLOTH shoulder as a supernatural line, the mark opens into an exposed seam. The echo clutches the arch and recoils with head pulled back and one knee buckling naturally, not a flat posed silhouette. No gore or impalement by metal. Zalmoxis's distinctive immense mantle and purple braid visible only at extreme left foreground from behind, arm down. Environment establishes illicit crossing and price.",
+      "allies": []
+    },
+    {
+      "id": "khoren-caminho",
+      "slot": "voto",
+      "scene": "Desfecho de Trajeto: WIDE diagonal shot along the black river at ankle height. A sequence of stored violet charge stones EMPTY into a single racing route light, which terminates at ONE shadow echo entity at the far ferry landing, the struck entity folding sideways and stone dust scattering from the single impact point. Zalmoxis in profile on near left bank, sturdy body lowers center of gravity into a broad braced step, braided hair swinging from real effort, mouth tightened in exertion, gaze follows the end of route and target at right. No smiling posing, sword, broad area blast or extra victims. Strong shonen causal movement, painted dark river reflecting violet route.",
+      "allies": []
+    },
+    {
+      "id": "khoren-caminho",
+      "slot": "despertar",
+      "scene": "Travessia Reversa SELF defense: medium scene from INSIDE an ancient unfinished doorway. Zalmoxis alone pulls his broad shoulder and head through a backward-curving violet threshold just as a shadow wave passes across the outer stones. His head ducks naturally and his eyes look sharply left toward the approaching force, braids and mantle swing with the evasive backward step. One massive palm braces on stone jamb with five natural fingers, other arm covered. The same continuous body is fully readable, NO duplicate body or disconnected limbs in portal. An unbroken translucent violet route membrane wraps him to represent invulnerability and defense. No attacker visible.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1450,6 +1510,16 @@
     "eiremir:impulso",
     "eiremir:tecnica",
     "eiremir:voto",
-    "eiremir:despertar"
+    "eiremir:despertar",
+    "eiremir-o-espelho-partido:passive",
+    "eiremir-o-espelho-partido:impulso",
+    "eiremir-o-espelho-partido:tecnica",
+    "eiremir-o-espelho-partido:voto",
+    "eiremir-o-espelho-partido:despertar",
+    "khoren-caminho:passive",
+    "khoren-caminho:impulso",
+    "khoren-caminho:tecnica",
+    "khoren-caminho:voto",
+    "khoren-caminho:despertar"
   ]
 }
