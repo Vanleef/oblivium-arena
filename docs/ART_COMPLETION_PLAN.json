@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 39,
-    "newAbilityScenesSaved": 196,
+    "newPortraitsSaved": 40,
+    "newAbilityScenesSaved": 201,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13674,8 +13674,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "seraphim-o-eco:base:passive",
@@ -13684,8 +13686,10 @@
           "slot": "passive",
           "name": "Refrão de Vigília",
           "description": "Uma vez por rodada, depois de conceder ao menos 5 de Defesa em uma habilidade de apoio, restaura 2 de Vida a cada aliado.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "seraphim-o-eco:base:impulso",
@@ -13697,8 +13701,10 @@
           "name": "Círculo de Guarda",
           "description": "Concede 9 de Defesa destrutível ao trio.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/impulso.webp"
         },
         {
           "key": "seraphim-o-eco:base:tecnica",
@@ -13710,8 +13716,10 @@
           "name": "Reverso da Queda",
           "description": "Restaura 10 de Vida ao aliado. Concede 8 de Defesa destrutível ao aliado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/tecnica.webp"
         },
         {
           "key": "seraphim-o-eco:base:voto",
@@ -13723,8 +13731,10 @@
           "name": "Cântico de Retorno",
           "description": "Restaura 5 de Vida ao trio. Remove aflições e condições prejudiciais do trio.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/voto.webp"
         },
         {
           "key": "seraphim-o-eco:base:despertar",
@@ -13736,11 +13746,13 @@
           "name": "Última Vigília",
           "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "eiremir",
@@ -27014,8 +27026,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "seraphim-o-eco:base:passive",
@@ -27024,8 +27038,10 @@
       "slot": "passive",
       "name": "Refrão de Vigília",
       "description": "Uma vez por rodada, depois de conceder ao menos 5 de Defesa em uma habilidade de apoio, restaura 2 de Vida a cada aliado.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "seraphim-o-eco:base:impulso",
@@ -27037,8 +27053,10 @@
       "name": "Círculo de Guarda",
       "description": "Concede 9 de Defesa destrutível ao trio.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/impulso.webp"
     },
     {
       "key": "seraphim-o-eco:base:tecnica",
@@ -27050,8 +27068,10 @@
       "name": "Reverso da Queda",
       "description": "Restaura 10 de Vida ao aliado. Concede 8 de Defesa destrutível ao aliado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/tecnica.webp"
     },
     {
       "key": "seraphim-o-eco:base:voto",
@@ -27063,8 +27083,10 @@
       "name": "Cântico de Retorno",
       "description": "Restaura 5 de Vida ao trio. Remove aflições e condições prejudiciais do trio.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/voto.webp"
     },
     {
       "key": "seraphim-o-eco:base:despertar",
@@ -27076,8 +27098,10 @@
       "name": "Última Vigília",
       "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/seraphim-o-eco-anime-first-completion-20261028/despertar.webp"
     },
     {
       "key": "eiremir:base:portrait",

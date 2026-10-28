@@ -435,5 +435,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/seraphim/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/seraphim/anime-first-completion-20261028/skill-despertar.webp"
     }
+  },
+  "seraphim-o-eco": {
+    "portrait": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/seraphim-o-eco/anime-first-completion-20261028/skill-despertar.webp"
+    }
   }
 };

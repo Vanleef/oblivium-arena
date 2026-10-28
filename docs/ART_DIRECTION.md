@@ -1,5 +1,24 @@
 # Direção de arte de PMA
 
+## Paleta por Mundo — atualização de 28/10/2026
+
+- **Inferno:** preto, vermelho intenso, sangue, brasas e tons queimados. O vermelho intenso é exclusivo deste Mundo.
+- **Paraíso:** branco, dourado, azul-claro, prata e verdes suaves de luz. Evitar vermelho. Manter contraste com sombras frias definidas; o dourado aparece em materiais e ornamentos, sem iluminação dourada difusa.
+- **Limbo:** roxo recorrente em roupas, fios, névoa, iluminação ou manifestações de poder, combinado com cinzas, lilases, azuis desbotados e vazio. Evitar vermelho infernal e dourado/branco dominante.
+
+A paleta própria do Mundo prevalece sobre acentos cromáticos das referências. O Limbo deve ser reconhecível pelo roxo sem se confundir com Inferno ou Paraíso.
+
+## Referências visuais do usuário — atualização de 28/10/2026
+
+As três imagens enviadas definem o acabamento de toda arte nova ou reformulada: anime 2.5D pictórico, traços gráficos definidos, sombras densas, iluminação dramática e atmosfera gótica, ornamental e teatral, com energia shonen de tensão, emoção, crescimento e impacto. Dar peso visual a cabelo, tecido, pele e adornos sem cair em realismo clássico, pintura romântica ou estética suave e dourada.
+
+As referências servem apenas para estilo. Não copiar cabelo branco, rosa vermelha, olho coberto, traje preto e vermelho ou características próprias da personagem mostrada. Cada design deve permanecer distinto e coerente com o personagem e seu Mundo. Preservar anatomia correta, ação natural, diversidade visual e restrições de conteúdo já registradas.
+
+**Frase obrigatória no fim de cada prompt de geração:**
+
+“Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.”
+
+
 ## Linha vigente: anime 2.5D (26/10/2026)
 
 O usuário aprovou a prancha de A Porta que Flutua e pediu que todo o jogo siga essa linha. Use art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp como referência visual principal. O acabamento pictórico digital descrito em ART_STYLE_DIRECTION_20261025.md é histórico e não define a nova linha.

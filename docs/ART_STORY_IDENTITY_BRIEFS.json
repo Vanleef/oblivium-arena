@@ -170,8 +170,13 @@
     },
     "seraphim": {
       "name": "Seraphim — Eco",
-      "identity": "Mulher sul-asiática de 52 anos, pele dourada, olhos castanho-escuros, cabelo ondulado escuro com fios prateados preso numa trança grossa sobre o ombro esquerdo. Corpo robusto e presença acolhedora, mas firme. Usa robes em camadas de marfim, açafrão apagado e ameixa, bordados azuis de ondas e uma conta de quartzo; sem asas, auréola, armadura ou arma.",
-      "scene": "Paraíso, Empíreo: terraços de mármore branco, jardins geométricos e piscinas imóveis sob luz filtrada. A proteção de Seraphim nasce do tecido largo do manto, de linhas de luz discretas e do cuidado físico com aliados, sem iconografia angelical genérica."
+      "identity": "Mulher sul-asiática de 52 anos, pele morena dourada, olhos castanho-escuros, rosto oval expressivo. Cabelo escuro ondulado e volumoso, trança pesada com alguns fios prateados. Corpo robusto. Veste túnica marfim, painéis azul-claro, manto azul-pérola bordado em prata e dourado material e conta de quartzo. Sem asas, auréola, armadura ou arma.",
+      "scene": "Paraíso, Empíreo: colunatas góticas de mármore branco, jardins geométricos, luz filtrada e sombras frias azul-acinzentadas. A proteção aparece no manto, em fios prateados e verdes suaves de cura. Paleta branca, dourada, azul, prata e verde, sem vermelho."
+    },
+    "seraphim-o-eco": {
+      "name": "Seraphim, o Eco — Vigília Celeste",
+      "identity": "A mesma mulher sul-asiática madura de Seraphim, com pele morena dourada, olhos castanhos, cabelo escuro volumoso em tranças longas com fios prateados e presença robusta. Forma evoluída de silhueta ampla: manto duplo azul-profundo e prata, túnica marfim, painéis azul-claros com bordado dourado material de ondas e conta de quartzo. Sem asas, auréola, armadura ou arma.",
+      "scene": "Paraíso, Empíreo: escadarias, pórticos e colunatas de mármore branco, jardins geométricos, sombras frias densas e luz filtrada. A forma expressa crescimento e vigília por gestos de proteção, arcos de luz azul-prata e tecido em movimento. Paleta branca, dourada, azul, prata e verde suave, sem vermelho; energia shonen sem perder a solenidade."
     }
   }
 }

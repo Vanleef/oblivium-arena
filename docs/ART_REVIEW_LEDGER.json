@@ -248,7 +248,13 @@
     "seraphim:base:impulso",
     "seraphim:base:tecnica",
     "seraphim:base:voto",
-    "seraphim:base:despertar"
+    "seraphim:base:despertar",
+    "seraphim-o-eco:base:portrait",
+    "seraphim-o-eco:base:passive",
+    "seraphim-o-eco:base:impulso",
+    "seraphim-o-eco:base:tecnica",
+    "seraphim-o-eco:base:voto",
+    "seraphim-o-eco:base:despertar"
   ],
   "pendingCorrections": []
 }
