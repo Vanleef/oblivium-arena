@@ -47,6 +47,11 @@
       "name": "Nilo — Prefácio de Ruptura",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. No Limbo, usa manto em camadas carvão e ardósia, faixa índigo e cachecol de cinza clara com uma borda rasgada; pequenas fraturas opalescentes aparecem no punho. A silhueta é leve, alerta e instável, sem armadura ou arma.",
       "scene": "Umbral: corredores de pedra que terminam no vazio, portas sem folhas, degraus suspensos, filas indistintas ao longe e névoa violeta. A fratura é espacial e arcana, feita de pedra, luz e tecido; evite feridas abertas, duplicação do corpo e maquinaria."
+    },
+    "nilo-cinza-epilogo": {
+      "name": "Nilo — Epílogo de Cinza",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita, olhos cinza-azulados. Roupa em camadas de linho carvão e cinza, muito gasta nas bordas, faixa índigo e um cordão ritual vermelho queimado. Fuligem no rosto, respiração curta e brilho de brasa sob o tecido mostram o custo da Expansão. Sem armadura ou arma.",
+      "scene": "Inferno de Dante no Estige: rio negro-vermelho, basalto, arcos e colunatas enormes, almas condenadas em silhueta e focos quentes de brasa. Expansão usa cinza, fogo, seda vermelha e desgaste corporal, sem gore explícito nem objetos mecânicos."
     }
   }
 }

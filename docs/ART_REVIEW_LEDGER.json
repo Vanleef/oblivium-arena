@@ -76,7 +76,15 @@
     "nilo-ruptura-prefacio:base:tecnica",
     "nilo-ruptura-prefacio:base:voto",
     "nilo-ruptura-prefacio:base:despertar-4",
-    "nilo-ruptura-prefacio:base:despertar-5"
+    "nilo-ruptura-prefacio:base:despertar-5",
+    "nilo-cinza-epilogo:base:portrait",
+    "nilo-cinza-epilogo:base:passive",
+    "nilo-cinza-epilogo:base:impulso",
+    "nilo-cinza-epilogo:base:tecnica",
+    "nilo-cinza-epilogo:base:voto",
+    "nilo-cinza-epilogo:base:despertar-4",
+    "nilo-cinza-epilogo:base:tecnica-5",
+    "nilo-cinza-epilogo:base:despertar-6"
   ],
   "pendingCorrections": []
 }

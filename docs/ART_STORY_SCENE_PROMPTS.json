@@ -293,6 +293,48 @@
       "slot": "despertar-5",
       "scene": "Nilo sozinho atravessa uma porta incompleta no Umbral; uma borda da capa e do ombro se torna translúcida e deixa pequenos fragmentos passarem, sem duplicar o corpo.",
       "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "passive",
+      "scene": "Nilo, ferido e exausto, apoia a mão nas próprias costelas; cinza e fissuras de brasa atravessam o manto e drenam luz do rosto. O Estige ao fundo, sem ataque.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "impulso",
+      "scene": "Fio único de sangue e fogo cruza a roupa de um condenado sem armadura e deixa marca fina de sangramento e chama; Nilo gira o torso para completar o corte.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "tecnica",
+      "scene": "A proteção falsa de um condenado, feita de película dourada de tecido e luz, se parte em cinza após o golpe lateral de Nilo.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "voto",
+      "scene": "Nilo sozinho ativa a Expansão com um passo firme; uma brasa sob o peito se abre em manto de cinza e fios vermelhos, enquanto joelho e respiração denunciam o custo.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "despertar-4",
+      "scene": "Durante a Expansão, cordão vermelho afiado atravessa o tecido do ombro de um condenado e deixa linha fina de sangramento; sem ferida gráfica.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "tecnica-5",
+      "scene": "Alvo já exausto cede diante de coluna de basalto depois do golpe de Nilo; composição baixa, consequência, sem morte ou gore.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "slot": "despertar-6",
+      "scene": "Nilo sozinho agachado sob arco quebrado; manto de cinza e seda vermelha recebe as brasas, protegendo-o no instante de impacto.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
