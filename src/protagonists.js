@@ -4475,7 +4475,8 @@ const antagonistProfiles = [
   }
 ];
 
-const slotIds = ["impulso", "tecnica", "voto", "despertar"];
+// Reserve despertar for the defensive ability, even in expanded story kits.
+const slotIds = ["impulso", "tecnica", "voto"];
 const phraseCopy = {};
 export const protagonistCharacterNames = Object.fromEntries([...protagonistProfiles, ...supportingProfiles, ...antagonistProfiles].map((profile) => [profile.name, profile.englishName]));
 
