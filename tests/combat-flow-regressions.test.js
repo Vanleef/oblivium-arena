@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createBattle,getCombatPlan,previewHit} from '../src/combat.js';
+import {createBattle,getCombatPlan,previewHit,chooseAction,commitTurn,resolveNextAction} from '../src/combat.js';
 import {characters} from '../src/data.js';
 import {highlightKeywords} from '../src/ability-presentation.js';
+import {localizeText} from '../src/i18n.js';
 
 test('IA pode abrir a Defesa inimiga em vez de repetir proteção em Vida cheia',()=>{
  const opponent={id:'op',name:'Oponente',realm:'Inferno',abilities:[
@@ -13,6 +14,22 @@ test('IA pode abrir a Defesa inimiga em vez de repetir proteção em Vida cheia'
  b.enemyResources={essence:1,cinza:0,graca:0,ruptura:0};b.allies[0].shield=40;b.enemies[0].shield=0;
  assert.equal(getCombatPlan(b)[0].abilityId,'golpe');
  b.allies[0].counter=40;assert.equal(getCombatPlan(b)[0].abilityId,'escudo');
+});
+
+test('bônus de purga usa vantagens presentes antes da remoção',()=>{
+ for(const [id,base,bonus] of [['a-testemunha-integra',15,4],['a-luz-nua',10,3]]){
+  for(const count of [0,1,3]){
+   const target={id:'target',name:'Alvo',realm:'Inferno',maxHp:1000,abilities:[]};
+   const b=createBattle([id],[target],{rng:()=>0,enemyPlanner:()=>[]});
+   b.resources={essence:10,cinza:10,graca:10,ruptura:10};const enemy=b.enemies[0];
+   for(const key of ['boost','reduction','counter'].slice(0,count))enemy[key]=5;
+   const ability=b.allies[0].abilities.find(a=>a.purgeBonusDamage);assert.match(ability.description,/antes de removê-los/);
+   assert.match(localizeText(ability.description,'en'),/before removal/);
+   assert.equal(chooseAction(b,id,ability.id,'target').ok,true);assert.equal(commitTurn(b).ok,true);resolveNextAction(b);
+   assert.equal(1000-enemy.hp,base+bonus*count,`${id}: ${count} vantagens`);
+   assert.equal(enemy.boost+enemy.reduction+enemy.counter,0);
+  }
+ }
 });
 
 test('glossário de dano perfurante concorda com o motor',()=>{

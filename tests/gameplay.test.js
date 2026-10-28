@@ -37,8 +37,8 @@ test("a fila executa na ordem confirmada e permite combos entre aliados",()=>{
  const first=resolveNextAction(b);assert.equal(first.event.actorId,ids[0]);const before=b.enemies[0].hp;
  resolveNextAction(b);assert.ok(before-b.enemies[0].hp>=35);assert.ok(b.log.some(l=>l.includes("COMBO")));finish(b);assert.equal(b.round,2);
 });
-test("todas as 100 defesas protegem a resposta adversária e bloqueiam os próximos quatro turnos",()=>{
- for(const c of characters){const b=createBattle([c.id],[dummy(20)],{rng:()=>0}),defense=b.allies[0].abilities[3];
+test("as defesas protegem a resposta adversária e bloqueiam os próximos quatro turnos",()=>{
+ for(const c of characters){const b=createBattle([c.id],[dummy(20)],{rng:()=>0}),defense=b.allies[0].abilities.find(ability=>ability.defense);
   assert.equal(defense.invulnerable,1,c.name);assert.equal(defense.cooldown,4,c.name);assert.equal(defense.target,"self");
   const before=b.allies[0].hp;assert.equal(chooseAction(b,c.id,defense.id,c.id).ok,true);commitTurn(b);resolveNextAction(b);assert.equal(b.allies[0].invulnerable,1);finish(b);
   assert.equal(b.allies[0].hp,before,c.name);assert.equal(b.allies[0].invulnerable,0);assert.equal(b.allies[0].cooldowns[defense.id],4);

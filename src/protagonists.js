@@ -2061,7 +2061,9 @@ const protagonistProfiles = [
         "cost": 1,
         "damageType": "energy",
         "weaken": 1,
-        "englishDescription": "Deals 12 spiritual damage to one enemy and Weakens it for 1 turn."
+        "mark": "identidade",
+        "markTurns": 3,
+        "englishDescription": "Deals 12 spiritual damage to one enemy, Weakens it for 1 turn, and Marks it for 3 turns."
       },
       {
         "name": "Silêncio Comprado",
