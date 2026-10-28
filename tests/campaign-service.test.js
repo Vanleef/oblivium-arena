@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { AccountService } from '../server/account-service.js';
 import { CampaignService } from '../server/campaign-service.js';
+import { createBattle, getCombatPlan } from '../src/combat.js';
 
 class MemoryStore {
  constructor(){this.values=new Map();}
@@ -101,3 +102,49 @@ test('turnos e sorteios continuam no servidor após serializar o combate entre r
 async function accountsCurrent(campaign,session){
  const result=await campaign.accounts.current(session);return {profile:result.profile,battle:result.battle||null};
 }
+
+test('reconectar à campanha antiga restaura IDs dos kits ampliados',async()=>{
+ const {accounts,campaign,session}=await fixture();
+ const started=await campaign.request(session,{op:'start',eloId:'oblivio',variantId:'hunt',difficulty:0});
+ const id='nilo-ruptura-prefacio';
+ const battle=createBattle([id],[{id:'dummy',name:'Alvo',realm:'Inferno',maxHp:1000,abilities:[]}]);
+ for(const list of [battle.allies[0].skillBook,battle.allies[0].abilities]){list[3].id='despertar';if(list[3]._formRoot)list[3]._formRoot.id='despertar';}
+ await accounts.mutateAccount(session,account=>{account.profile.run.battle=JSON.parse(JSON.stringify(battle));});
+ const restored=await accounts.current(session);
+ assert.equal(restored.battle.allies[0].abilities[3].id,'tecnica-4');
+ assert.equal(restored.battle.allies[0].abilities.at(-1).id,'despertar');
+ const synced=await campaign.request(session,{op:'sync'});
+ assert.equal(synced.battle.allies[0].abilities[3].id,'tecnica-4');
+ assert.equal((await accounts.current(session)).battle.allies[0].abilities.at(-1).id,'despertar');
+ assert.equal(synced.profile.run.seed,started.profile.run.seed);
+});
+
+test('uma expedição chega ao chefe, concede recompensas e persiste a conclusão',async()=>{
+ const {accounts,session}=await fixture();let now=1000000;
+ const campaign=new CampaignService(accounts,{now:()=>now});
+ const call=async(body)=>{now+=1000;return campaign.request(session,body);};
+ // Fixture de progresso avançado acelera o percurso; não avalia balanceamento.
+ await accounts.mutateAccount(session,account=>{account.profile.globalUpgrades=[{id:'fixture',effect:{maxHp:300,physicalPower:100,spiritualPower:100,piercingPower:100,essence:5,cinza:5,graca:5,ruptura:5}}];});
+ let result=await call({op:'start',eloId:'oblivio',variantId:'hunt',difficulty:0}),steps=0;
+ while(result.profile.run&&steps++<150){
+  const run=result.profile.run,battle=result.battle;
+  if(battle){
+   if(battle.phase==='influence')result=await call({op:'influence',eventId:battle.influenceDraft.options[0]});
+   else if(battle.phase==='player'){
+    const plan=getCombatPlan(battle,'player'),actions=plan.filter(item=>item.actorId).map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId})),exchanges=plan.filter(item=>item.type==='essence-exchange').map(({target,payment})=>({target,payment}));
+    result=await call({op:'turn',round:battle.round,actions,exchanges});
+   }else if(['victory','defeat'].includes(battle.phase))result=await call({op:'settle'});
+   else assert.fail(`fase inesperada: ${battle.phase}`);
+  }else if(run.pending){
+   const pending=run.pending;
+   if(['reward','upgrade'].includes(pending.type))result=await call({op:'buff',buffId:pending.choices[0].id});
+   else if(pending.type==='event')result=await call({op:'event',choice:'repair'});
+   else if(pending.type==='shop')result=await call({op:'shop',action:'leave'});
+   else assert.fail(`escolha inesperada: ${pending.type}`);
+  }else result=await call({op:'select-node',nodeId:run.availableNodeIds[0]});
+ }
+ assert.ok(steps<150,'a expedição deve chegar ao fim');
+ assert.equal(result.profile.run,null);assert.ok(result.profile.completedElos.includes('oblivio'));
+ assert.ok(result.profile.xp>0);assert.ok(result.profile.eloProgress.oblivio.wins>0);
+ const saved=await accounts.current(session);assert.ok(saved.profile.completedElos.includes('oblivio'));assert.equal(saved.profile.xp,result.profile.xp);
+});

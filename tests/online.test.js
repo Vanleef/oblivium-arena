@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { ArenaService } from '../server/arena-service.js';
 import { starters } from '../src/data.js';
 import handler from '../api/arena.js';
+import { getCombatPlan } from '../src/combat.js';
 // Test-only transactional fixture. No memory adapter is imported by production.
 class TestStore{constructor(){this.data=new Map();this.lock=Promise.resolve();}transaction(work){const run=this.lock.then(async()=>{const snapshot=new Map(this.data);const tx={get:async k=>snapshot.has(k)?JSON.parse(snapshot.get(k)):null,set:async(k,v)=>snapshot.set(k,JSON.stringify(v)),delete:async k=>snapshot.delete(k)};const result=await work(tx);this.data=snapshot;return result;});this.lock=run.catch(()=>{});return run;}}
 const ids=starters.map(c=>c.id);
@@ -52,4 +53,39 @@ test('Arena autoriza a troca 5:1 somente com cinco pips reais no pool do jogador
  const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}},turn={op:'turn',version:active.match.version,actions:[],payment:{},exchanges:[exchange]};
  await assert.rejects(()=>service.request(active.token,{...turn,exchanges:[{...exchange,payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:0}}]}),{status:409});
  const accepted=await service.request(active.token,turn);assert.ok(accepted.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
+});
+
+test('reconectar à Arena migra kit antigo e altera a versão uma única vez',async()=>{
+ const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();
+ const team=['nilo-ruptura-prefacio',...ids.slice(0,2)];
+ await service.request(a.token,{op:'queue',team});await service.request(b.token,{op:'queue',team:ids});
+ const oldView=await service.request(a.token),key=`match:${oldView.match.id}`,match=JSON.parse(store.data.get(key));
+ const unit=[...match.battle.allies,...match.battle.enemies].find(u=>(u.sourceId||u.id)==='nilo-ruptura-prefacio');
+ for(const list of [unit.skillBook,unit.abilities]){list[3].id='despertar';if(list[3]._formRoot)list[3]._formRoot.id='despertar';}
+ store.data.set(key,JSON.stringify(match));
+ const repaired=await service.request(a.token),restored=repaired.match.battle.allies.find(u=>(u.sourceId||u.id)==='nilo-ruptura-prefacio');
+ assert.equal(repaired.match.version,oldView.match.version+1);
+ assert.equal(restored.abilities[3].id,'tecnica-4');assert.equal(restored.abilities.at(-1).id,'despertar');
+ assert.equal((await service.request(a.token)).match.version,repaired.match.version);
+ await assert.rejects(service.request(a.token,{op:'turn',version:oldView.match.version,actions:[]}),{status:409});
+});
+
+test('duas sessões concluem uma partida por ações reais e persistem o resultado',async()=>{
+ let now=1000000;const service=new ArenaService(new TestStore(),{now:()=>now}),call=async(token,input)=>{now+=10000;return service.request(token,input);};
+ const a=await call(),b=await call();await call(a.token,{op:'queue',team:ids});await call(b.token,{op:'queue',team:ids});
+ let views=await Promise.all([call(a.token),call(b.token)]),turns=0;
+ while(!views[0].match.settled&&turns<120){
+  const active=views.find(v=>['influence','player'].includes(v.match.battle.phase));assert.ok(active,'um dos jogadores deve ter a vez');
+  const battle=active.match.battle;
+  if(battle.phase==='influence')await call(active.token,{op:'influence',version:active.match.version,eventId:battle.influenceDraft.options[0]});
+  else{
+   const plan=getCombatPlan(battle,'player'),actions=plan.filter(item=>item.actorId).map(({actorId,abilityId,targetId})=>({actorId,abilityId,targetId})),exchanges=plan.filter(item=>item.type==='essence-exchange').map(({target,payment})=>({target,payment}));
+   await call(active.token,{op:'turn',version:active.match.version,actions,exchanges});turns++;
+  }
+  views=await Promise.all([call(a.token),call(b.token)]);
+ }
+ assert.equal(views[0].match.settled,true,`partida não terminou após ${turns} turnos`);
+ assert.deepEqual(views.map(v=>v.profile.wins).sort(),[0,1]);
+ assert.deepEqual(views.map(v=>v.profile.losses).sort(),[0,1]);
+ const again=await call(a.token);assert.equal(again.profile.wins+again.profile.losses,1);
 });

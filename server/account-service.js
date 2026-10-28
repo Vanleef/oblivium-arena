@@ -1,6 +1,7 @@
 import { randomBytes, randomUUID, createHash, scrypt as scryptCallback, timingSafeEqual } from 'node:crypto';
 import { promisify } from 'node:util';
 import { characters, starters, elos } from '../src/data.js';
+import { migrateBattleSkillIds } from '../src/battle-migration.js';
 const scrypt=promisify(scryptCallback),hash=value=>createHash('sha256').update(value).digest('hex');
 const cleanHandle=value=>String(value||'').trim().normalize('NFKC');
 const key=(kind,value)=>`account:${kind}:${hash(value)}`;
@@ -58,7 +59,7 @@ export class AccountService{
   await this.store.transaction(async tx=>{await tx.set(`account:id:${result.id}`,result);await tx.set(key('session',session),result.id,60*60*24*30);});
   return {session,arenaToken:result.arenaToken,user:publicUser(result),profile:publicProfile(result.profile)};
  }
- async current(session){if(!/^[a-f0-9]{64}$/.test(session||''))return null;return this.store.transaction(async tx=>{const id=await tx.get(key('session',session));if(!id)return null;const account=await tx.get(`account:id:${id}`);return account?.sessionHash===hash(session)?{user:publicUser(account),profile:publicProfile(account.profile),battle:account.profile?.run?.battle||null}:null;});}
+ async current(session){if(!/^[a-f0-9]{64}$/.test(session||''))return null;return this.store.transaction(async tx=>{const id=await tx.get(key('session',session));if(!id)return null;const account=await tx.get(`account:id:${id}`);if(account?.sessionHash!==hash(session))return null;const battle=account.profile?.run?.battle?JSON.parse(JSON.stringify(account.profile.run.battle)):null;migrateBattleSkillIds(battle);return {user:publicUser(account),profile:publicProfile(account.profile),battle};});}
  async update(session,{profile,handle,avatarId,bio}){
   if(!/^[a-f0-9]{64}$/.test(session||''))throw Object.assign(Error('Entre novamente para salvar.'),{status:401});
   return this.store.transaction(async tx=>{const id=await tx.get(key('session',session)),account=id?await tx.get(`account:id:${id}`):null;if(!account||account.sessionHash!==hash(session))throw Object.assign(Error('Entre novamente para salvar.'),{status:401});

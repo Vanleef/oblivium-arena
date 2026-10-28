@@ -6,6 +6,7 @@ import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/wor
 import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, eloAccess, trailVariants, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from '../src/progression.js';
+import { migrateBattleSkillIds } from '../src/battle-migration.js';
 
 const cloneJson=value=>JSON.parse(JSON.stringify(value));
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -81,6 +82,7 @@ export class CampaignService{
    if(count>180)fail('Muitas ações seguidas. Aguarde um minuto.',429);
    account.campaignRate={bucket,count};
    const profile=pickProfile(account.profile);account.profile=profile;
+   migrateBattleSkillIds(profile.run?.battle);
    let extra={};
    switch(body.op){
     case 'sync':
