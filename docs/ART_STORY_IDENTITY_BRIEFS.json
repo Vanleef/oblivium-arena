@@ -67,6 +67,11 @@
       "name": "Nilo — o Sem Rastro",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Veste camadas de linho carvão e cinza, muito gastas nas bordas, faixa índigo e cordão ritual vermelho queimado; fuligem no rosto, respiração curta e luz de brasa sob o tecido mostram o preço do Colapso. Sem armadura ou armas.",
       "scene": "Inferno de Dante no Estige: rio negro-vermelho, basalto, arcos e colunatas enormes, almas condenadas ao longe e focos quentes de brasa. Cinza, fogo, seda vermelha e desgaste corporal expressam os níveis de Colapso sem gore nem objetos mecânicos."
+    },
+    "nilo-graca-final": {
+      "name": "Nilo — o que Mantém de Pé",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com uma mecha marfim sobre a sobrancelha direita. Veste camadas de tecido marfim e carvão com bordados discretos em ouro antigo e faixa índigo. A postura é firme, cuidadosa e atenta aos aliados; não usa armadura, asas ou halo. A graça aparece como proteção e apoio, não como divindade genérica.",
+      "scene": "Paraíso Empíreo: terraços elevados de mármore branco, jardins geométricos, água parada e luz marfim-dourada filtrada. Pilares vivos funcionam como suportes para aliados; sombras azuladas e silêncio solene equilibram a claridade."
     }
   }
 }

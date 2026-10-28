@@ -144,6 +144,26 @@ export const characterArtRegistry = {
       "8": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-9.webp"
     }
   },
+  "nilo-graca-final": {
+    "portrait": "/art/characters/nilo-graca-final/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/nilo-graca-final/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-voto.webp",
+      "tecnica-5": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "tecnica-6": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "tecnica-7": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "despertar": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-despertar-8.webp"
+    },
+    "abilityIndices": {
+      "3": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-despertar-4.webp",
+      "4": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "5": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "6": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "7": "/art/characters/nilo-graca-final/anime-first-completion-20261028/skill-despertar-8.webp"
+    }
+  },
   "naomi": {
     "portrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",

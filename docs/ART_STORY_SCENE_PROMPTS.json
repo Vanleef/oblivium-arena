@@ -467,6 +467,60 @@
       "slot": "despertar-9",
       "scene": "Nilo sozinho visto de cima numa ponte de basalto sob chuva de cinza; uma proteção baixa de pedra e cinza prende brasas na borda enquanto o rio ao redor fica silencioso.",
       "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "passive",
+      "scene": "Nilo observa dois Pilares de mármore de escala humana; uma lasca atinge um deles e uma marca de luz retorna ao punho dele como Carga de Intervenção.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "impulso",
+      "scene": "Nilo ampara uma mulher mais velha de pele escura e cabelos prateados curtos enquanto ela recupera o fôlego; uma arcada de mármore luminoso se ergue em torno dela como Pilar.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "tecnica",
+      "scene": "Um raio estreito de luz filtrada encolhe a sombra de um jovem condenado de pele acobreada que feriu um Pilar; Nilo observa de lado depois do Julgamento.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "voto",
+      "scene": "Duas películas douradas falsas se desprendem do manto de um condenado mais velho de pele oliva, deixando aparecer o tecido gasto e a expressão cansada.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "despertar-4",
+      "scene": "Nilo sozinho no caminho de mármore elevado; o manto marfim e carvão se expande em camadas e os fios de ouro antigo se acendem, estabelecendo a Forma de Graça.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "tecnica-5",
+      "scene": "Vista elevada do jardim: Nilo emite uma onda plana de luz filtrada que contrai as sombras de três condenados distintos e enfraquece o homem barbado à frente.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "tecnica-6",
+      "scene": "Nilo entra entre um Pilar vivo e um agressor; o golpe escuro é contido pelo tecido do manto e retorna como marca de aflição no atacante.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "tecnica-7",
+      "scene": "Nilo ajoelhado ao lado de um Pilar aliado de pele escura e cachos curtos; a fuligem de aflições se dissolve na água e a manga rasgada é restaurada.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "slot": "despertar-8",
+      "scene": "Nilo sozinho nas escadarias do Empíreo, com uma fina lâmina de luz-pedra junto ao manto; pétalas e poeira param no limite de sua proteção.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -490,6 +544,15 @@
     "nilo-cinza-final:tecnica-6",
     "nilo-cinza-final:tecnica-7",
     "nilo-cinza-final:tecnica-8",
-    "nilo-cinza-final:despertar-9"
+    "nilo-cinza-final:despertar-9",
+    "nilo-graca-final:passive",
+    "nilo-graca-final:impulso",
+    "nilo-graca-final:tecnica",
+    "nilo-graca-final:voto",
+    "nilo-graca-final:despertar-4",
+    "nilo-graca-final:tecnica-5",
+    "nilo-graca-final:tecnica-6",
+    "nilo-graca-final:tecnica-7",
+    "nilo-graca-final:despertar-8"
   ]
 }
