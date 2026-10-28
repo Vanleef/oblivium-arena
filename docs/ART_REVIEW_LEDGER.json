@@ -242,7 +242,13 @@
     "xian-o-imovel:base:impulso",
     "xian-o-imovel:base:tecnica",
     "xian-o-imovel:base:voto",
-    "xian-o-imovel:base:despertar"
+    "xian-o-imovel:base:despertar",
+    "seraphim:base:portrait",
+    "seraphim:base:passive",
+    "seraphim:base:impulso",
+    "seraphim:base:tecnica",
+    "seraphim:base:voto",
+    "seraphim:base:despertar"
   ],
   "pendingCorrections": []
 }

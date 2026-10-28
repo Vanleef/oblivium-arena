@@ -1209,6 +1209,36 @@
       "slot": "despertar",
       "scene": "Xian sozinho no centro do tribunal de mármore negro, em postura estável com os pés à largura dos ombros. Um véu violeta fecha-se ao redor do torso enquanto geada e pétalas sombrias giram pela sala sem tocar sua roupa; ele não se move nem levanta armas. Ângulo baixo amplo, cabeça alinhada, mãos naturais, sem outros personagens.",
       "allies": []
+    },
+    {
+      "id": "seraphim",
+      "slot": "passive",
+      "scene": "Exatamente três figuras nos jardins de mármore do Empíreo. Seraphim, mulher sul-asiática madura, trança escura com fios prateados, manto bordado marfim e ameixa, termina de apoiar um jovem aliado negro que se recupera. Um fio dourado fino continua até a aliada viva mais ferida, mulher idosa de pele oliva pálida e cabelo cinza, sentada junto à água. A imagem representa a graça gerada por uma cura e a pequena restauração adicional. Anatomia natural, sem asas, auréola ou pose de retrato.",
+      "allies": []
+    },
+    {
+      "id": "seraphim",
+      "slot": "impulso",
+      "scene": "Exatamente três figuras no pórtico de um jardim geométrico. Seraphim, mulher madura de trança prateada e robe marfim/ameixa, estende o largo manto sobre dois aliados, um homem negro idoso e uma jovem mulher do leste asiático. O tecido pesado arqueia como abrigo de chuva, cobrindo os três; ele não forma asas. Plano lateral amplo, tecidos em movimento e postura estável, mãos naturais, sem auréola ou armas.",
+      "allies": []
+    },
+    {
+      "id": "seraphim",
+      "slot": "tecnica",
+      "scene": "Plano próximo de exatamente duas figuras junto à piscina rasa do Empíreo. Seraphim toca com delicadeza o ombro de uma aliada de pele azul-acinzentada e robe gasto; um resíduo violeta sai do tecido em partículas tênues e se dissolve na água clara. A aliada respira aliviada, Seraphim concentra o olhar no contato. Mãos corretas e proporcionais, sem brilho exagerado, asas ou auréola.",
+      "allies": []
+    },
+    {
+      "id": "seraphim",
+      "slot": "voto",
+      "scene": "Seraphim permanece entre dois aliados em caminhos distintos do jardim geométrico. O manto bordado toca o chão; fios de luz dourada passam discretamente pelo trio, sugerindo defesa duradoura e recuperação gradual. Um homem negro de cabelos curtos descansa no banco de mármore e uma mulher jovem do leste asiático recupera o equilíbrio ao lado da piscina. Composição ampla e quieta, anatomia natural, sem asas ou auréola.",
+      "allies": []
+    },
+    {
+      "id": "seraphim",
+      "slot": "despertar",
+      "scene": "Seraphim sozinha no limite entre um terraço iluminado e uma coluna sob sombra profunda. Ela firma os dois pés e puxa o próprio manto marfim e ameixa para fechar a frente do corpo; uma película clara se forma junto ao tecido enquanto a sombra para antes de alcançá-la. Close de três quartos, expressão concentrada, mãos claramente definidas, sem asas, auréola, arma ou ferimento.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1345,6 +1375,11 @@
     "xian-o-imovel:impulso",
     "xian-o-imovel:tecnica",
     "xian-o-imovel:voto",
-    "xian-o-imovel:despertar"
+    "xian-o-imovel:despertar",
+    "seraphim:passive",
+    "seraphim:impulso",
+    "seraphim:tecnica",
+    "seraphim:voto",
+    "seraphim:despertar"
   ]
 }
