@@ -27,6 +27,114 @@ const titles = {
   'a-senhora-do-ultimo-pao': ['A Acumuladora', 'The Hoarder'],
   'o-eco-sem-dono': ['O Eco Perdido', 'The Lost Echo']
 };
+// Common anime-style names and character epithets. These are display-only;
+// IDs, kits, kingdom assignments, and the story roster remain unchanged.
+const animeRows = [
+['o-acougueiro','Akira','Ceifador Carmesim','Crimson Reaper'],
+['a-viuva-escarlate','Sakura','Noiva da Lua','Moonlit Bride'],
+['o-colecionador-de-cabecas','Kaito','Caçador de Almas','Soul Hunter'],
+['gemeos-do-cutelo','Ren e Rei','Gêmeos da Lâmina','Blade Twins'],
+['o-carrasco-sem-rosto','Shin','Carrasco da Névoa','Mist Executioner'],
+['a-mae-rubra','Aika','Matriarca Escarlate','Scarlet Matriarch'],
+['a-juiza-de-ferro','Rin','Juíza de Ferro','Iron Judge'],
+['o-trono-vazio','Haruto','Suserano Sombrio','Shadow Overlord'],
+['o-principe-das-correntes','Riku','Príncipe da Lua','Moon Prince'],
+['a-regente-de-cinzas','Yuna','Dama das Cinzas','Ashen Lady'],
+['o-herdeiro-cativo','Sora','Herdeiro das Trevas','Dark Heir'],
+['o-sussurro','Yuki','Sussurro Venenoso','Venom Whisper'],
+['a-mascara-dupla','Aoi','Máscara Fantasma','Phantom Mask'],
+['o-tecelao-de-mentiras','Haru','Tecelão da Ilusão','Illusion Weaver'],
+['a-boca-de-vidro','Mio','Serpente de Vidro','Glass Serpent'],
+['o-corretor-de-memorias','Itsuki','Falsário Profano','Profane Forger'],
+['o-incendiario','Tatsuya','Chama Noturna','Night Flame'],
+['a-brasa-eterna','Hina','Brasa Imortal','Undying Ember'],
+['o-odio-encarnado','Daichi','Fúria Desperta','Awakened Fury'],
+['o-filho-da-cinza','Kyo','Rancor Ardente','Burning Grudge'],
+['a-pira-errante','Ayame','Vingadora da Lua','Moon Avenger'],
+['o-coracao-em-furia','Ryo','Coração em Chamas','Blazing Heart'],
+['o-devorador','Goro','Rei Devorador','Devourer King'],
+['a-mao-que-toma','Nana','Saqueadora Carmesim','Crimson Raider'],
+['o-estomago-sem-fundo','Taiga','Dragão Insaciável','Insatiable Dragon'],
+['a-senhora-do-ultimo-pao','Yui','Senhora dos Grãos','Lady of Grain'],
+['o-credor','Kei','Agiota das Sombras','Shadow Lender'],
+['a-balanca-vazia','Mei','Dama da Fortuna','Lady of Fortune'],
+['o-apodrecido','Takumi','Rei da Ruína','Ruin King'],
+['a-praga-andante','Hotaru','Praga Ambulante','Wandering Plague'],
+['o-corrupto','Renji','Pacto Sombrio','Dark Pact'],
+['a-rainha-dos-fungos','Koharu','Rainha Micelial','Mycelial Queen'],
+['o-medico-de-vermes','Shiro','Médico da Praga','Plague Doctor'],
+['o-jardim-morto','Midori','Jardim da Morte','Death Garden'],
+['o-que-observou','Minato','Testemunha Silenciosa','Silent Witness'],
+['a-porta-fechada','Kaori','Guardiã do Limiar','Threshold Keeper'],
+['o-surdo','Toma','Voz Silenciada','Silenced Voice'],
+['a-testemunha-cega','Rika','Olhos Vendados','Blindfolded Eyes'],
+['o-quarto-vazio','Makoto','Anfitrião Fantasma','Phantom Host'],
+['o-vigia-ausente','Hayate','Vigia da Retaguarda','Rear Guard'],
+['o-que-possui','Kenta','Mestre dos Corpos','Body Master'],
+['a-pele-alheia','Natsuki','Quimera Mutável','Shifting Chimera'],
+['o-desejo-quebrado','Yuto','Desejo Profano','Profane Desire'],
+['a-marionetista-de-nervos','Rinako','Rainha dos Fios','Thread Queen'],
+['o-espelho-carnal','Issei','Espelho da Dor','Pain Mirror'],
+['a-costureira','Sayo','Costureira de Almas','Soul Stitcher'],
+['o-que-apaga','Akira Kuro','Anulador Absoluto','Absolute Nullifier'],
+['a-ausencia','Yume','Dama do Vazio','Lady of the Void'],
+['o-fim-silencioso','Kou','Arauto do Eclipse','Eclipse Herald'],
+['o-menino-sem-sombra','Hikari','Sombra Desolada','Desolate Shadow'],
+['a-ultima-pagina','Fuyumi','Escriba do Fim','End Scribe'],
+['o-lugar-de-ninguem','Kuro','Rei do Nada','King of Nothing'],
+['o-escudo-vivo','Masaru','Escudo Celestial','Heavenly Shield'],
+['a-muralha','Kaede','Muralha Inabalável','Unyielding Rampart'],
+['o-que-ficou','Yuji','Guardião Devoto','Devoted Guardian'],
+['o-ultimo-guardiao','Takeru','Guardião de Pedra','Stone Guardian'],
+['a-sentinela-azul','Ami','Sentinela Azul','Blue Sentinel'],
+['a-mao-que-cura','Saki','Mão Milagrosa','Miracle Hand'],
+['o-restaurador','Naoki','Curandeiro Supremo','Supreme Healer'],
+['a-luz-que-restaura','Akari','Luz da Aurora','Dawn Light'],
+['a-jardineira-das-feridas','Hana','Botânica Mística','Mystic Botanist'],
+['o-pulso-sereno','Shinji','Punho Sereno','Serene Fist'],
+['o-equilibrio','Akio','Árbitro Celeste','Celestial Arbiter'],
+['a-lamina-justa','Reina','Lâmina da Justiça','Justice Blade'],
+['a-testemunha-integra','Fumiko','Testemunha Eterna','Eternal Witness'],
+['o-julgador-gentil','Noboru','Juiz Benevolente','Benevolent Judge'],
+['a-chama-que-nao-apaga','Nozomi','Chama Inextinguível','Unquenchable Flame'],
+['o-que-levanta','Isamu','Herói Inquebrável','Unbreakable Hero'],
+['a-voz','Konomi','Voz da Esperança','Voice of Hope'],
+['o-portador-da-aurora','Asahi','Portador da Aurora','Dawn Bringer'],
+['a-mensageira-do-amanha','Miku','Mensageira Estelar','Star Messenger'],
+['o-que-revela','Satoshi','Olho da Verdade','Eye of Truth'],
+['a-luz-nua','Yuri','Luz Reveladora','Revealing Light'],
+['o-espelho','Ritsu','Espelho Perfeito','Perfect Mirror'],
+['a-cartografa-da-clareza','Chihiro','Cartógrafa Celeste','Celestial Cartographer'],
+['o-olho-desarmado','Tsubasa','Vidente Arcano','Arcane Seer'],
+['o-elo-dourado','Kazuya','Laço Dourado','Golden Bond'],
+['a-que-une','Nanami','Tecelã de Destinos','Fate Weaver'],
+['o-vinculo','Shota','Alma Protetora','Protective Soul'],
+['os-tres-irmaos','Hikaru, Isamu e Ren','Trindade Fraterna','Brotherly Trinity'],
+['a-guardia-das-promessas','Sayuri','Guardião do Juramento','Oath Guardian'],
+['o-que-cria','Souta','Mestre das Criações','Master Creator'],
+['a-semente','Kohana','Semente da Vida','Seed of Life'],
+['o-cultivador','Yoshio','Cultivador da Esperança','Hope Cultivator'],
+['a-arquiteta-verde','Midori Aki','Arquiteta da Natureza','Nature Architect'],
+['o-primeiro-canto','Eiji','Voz Primordial','Primordial Voice'],
+['o-passo-interrompido','Rei Kuro','Viajante do Tempo','Time Wanderer'],
+['a-linha-partida','Yuna Rei','Alma Fragmentada','Shattered Soul'],
+['o-eco-sem-dono','Sora Aki','Eco Perdido','Lost Echo'],
+['a-porta-que-flutua','Haruka','Viajante das Fendas','Rift Wanderer'],
+['o-nome-esquecido','Rin Sato','Alma Esquecida','Forgotten Soul'],
+['o-relogio-afogado','Kaito Mori','Cronista do Tempo','Time Chronicler'],
+['a-asa-invertida','Aoi Kato','Asa Invertida','Inverted Wing'],
+['o-andarilho-de-vidro','Haru Sato','Andarilho de Cristal','Crystal Walker'],
+['a-sombra-inconstante','Mio Tanaka','Sombra Oscilante','Wavering Shadow'],
+['a-ponte-rasgada','Yuki Mori','Ponte entre Mundos','Worlds Bridge'],
+['a-alma-em-suspenso','Akari Sato','Alma Suspensa','Suspended Soul']
+];
+const animeSurnames = ['Sato','Mori','Aoki','Kato','Ito','Shimizu','Nakamura','Hayashi','Kobayashi','Yamamoto','Fujita','Ishikawa','Matsuda','Okada','Endo','Kikuchi','Inoue','Sakai','Kondo','Ueda'];
+const animeIdentityById = Object.fromEntries(animeRows.map(([id, baseName, title, englishTitle], index) => {
+  const name = baseName === 'Ren e Rei' ? 'Ren Sato e Rei Mori'
+    : baseName.includes(' ') ? baseName
+    : `${baseName} ${animeSurnames[index % animeSurnames.length]}`;
+  return [id, {name, title, englishTitle}];
+}));
 const loreEdits = {
   'o-acougueiro': [['Balthasar Gérard', 'Baltasar'], ['alimenta Sangria', 'alimenta Flagelo']],
   'a-viuva-escarlate': [['oferece a Sangria', 'alimenta Flagelo']],
@@ -89,19 +197,20 @@ const loreEdits = {
   'hans': [['conhece a Podridão', 'conhece a decadência']]
 };
 export function reviseRosterCharacter(character) {
+  const anime = animeIdentityById[character.id];
   const name = names[character.id];
   const title = titles[character.id];
-  const englishName = englishNames[character.id];
+  const englishName = anime?.name || englishNames[character.id];
   const edits = loreEdits[character.id];
-  if (!name && !title && !englishName && !edits) return character;
+  if (!name && !title && !englishName && !anime && !edits) return character;
   let lore = character.lore;
   for (const [before, after] of edits || []) lore = lore?.replace(before, after);
   return {
     ...character,
-    ...(name ? { name } : {}),
+    ...(anime ? { name: anime.name } : name ? { name } : {}),
     ...(englishName ? { englishName } : {}),
-    ...(title ? { identityTitle: title[0], englishIdentityTitle: title[1] } : {}),
+    ...(anime ? { identityTitle: anime.title, englishIdentityTitle: anime.englishTitle } : title ? { identityTitle: title[0], englishIdentityTitle: title[1] } : {}),
     ...(edits ? { lore } : {}),
-    aliases: [...new Set([...(character.aliases || []), ...(name ? [character.name, character.englishName] : []), ...(title ? [character.identityTitle] : [])].filter(Boolean))]
+    aliases: [...new Set([...(character.aliases || []), ...(name || anime ? [character.name, character.englishName] : []), ...(title || anime ? [character.identityTitle] : [])].filter(Boolean))]
   };
 }

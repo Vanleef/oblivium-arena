@@ -11,20 +11,28 @@ test('roster keeps unique identities and distinct titles for unrelated originals
   assert.equal(new Set(characters.map(c => c.name.normalize('NFC').toLocaleLowerCase('pt-BR'))).size, characters.length);
   const titles = characters.filter(c => !c.storyCharacter).map(c => c.identityTitle.toLocaleLowerCase('pt-BR'));
   assert.equal(new Set(titles).size, titles.length);
-  assert.equal(byId('a-mae-rubra').identityTitle, 'A Matriarca');
-  assert.equal(byId('a-senhora-do-ultimo-pao').identityTitle, 'A Acumuladora');
-  assert.equal(byId('o-eco-sem-dono').identityTitle, 'O Eco Perdido');
+  const renamed = characters.filter(c => !c.storyCharacter && !['o-soberano-quebrado','o-falso-profeta','o-que-pesa'].includes(c.id));
+  assert.equal(renamed.length, 97);
+  assert.ok(renamed.every(c => c.name.includes(' ') && c.identityTitle && c.englishIdentityTitle));
+  for (const id of ['o-soberano-quebrado','khoren-caminho','elaris-prologo','o-falso-profeta','o-que-pesa']) assert.ok(byId(id));
+  assert.equal(byId('a-mae-rubra').identityTitle, 'Matriarca Escarlate');
+  assert.equal(byId('a-senhora-do-ultimo-pao').identityTitle, 'Senhora dos Grãos');
+  assert.equal(byId('o-eco-sem-dono').identityTitle, 'Eco Perdido');
 });
 test('revised names and titles retain historical aliases and preserve gameplay data', () => {
   const source = {id:'a-senhora-do-ultimo-pao', name:'Helena de Adiabene', englishName:'Helena of Adiabene', identityTitle:'A Matriarca', aliases:['A Senhora do Último Pão'], abilities:[{id:'one'}], kingdomId:'magma'};
   const revised = reviseRosterCharacter(source);
-  assert.equal(revised.name, 'Helena');
+  assert.equal(revised.name, 'Yui Shimizu');
+  assert.equal(revised.identityTitle, 'Senhora dos Grãos');
   assert.ok(revised.aliases.includes(source.name));
   assert.ok(revised.aliases.includes(source.identityTitle));
   assert.deepEqual(revised.abilities, source.abilities);
   assert.equal(revised.id, source.id);
   assert.equal(revised.kingdomId, source.kingdomId);
   assert.equal(byId('o-falso-profeta').name, 'Joanna Southcott');
+  assert.equal(byId('o-soberano-quebrado').englishName, 'Astyages');
+  assert.equal(byId('o-soberano-quebrado').name, 'Astíages');
+  assert.equal(byId('a-mae-rubra').aliases.includes('A Mãe Rubra'), true);
   assert.equal(byId('o-que-pesa').identityTitle, 'O Regulador');
 });
 test('revised lore refers to present kingdoms in both languages', () => {
