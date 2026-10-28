@@ -10125,8 +10125,8 @@
           "name": "Retrato",
           "art": "/art/characters/nilo/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "needs_correction",
-          "correction": "Simplify detailed stone surfaces in the background while preserving the character."
+          "status": "reviewed",
+          "source": "/art/source/nilo-anime-first-completion-20261028-portrait.webp"
         },
         {
           "key": "nilo:base:passive",
@@ -10137,8 +10137,8 @@
           "description": "Sempre que um inimigo gastar 2 ou mais Essências, Nilo grava 1 Resíduo (máx. 3). Só Devolver o Eco pode gastar Resíduos; gastar é opcional.",
           "art": "/art/characters/nilo/anime-first-completion-20261028/passive.webp",
           "exists": true,
-          "status": "needs_correction",
-          "correction": "Simplify detailed stone surfaces in the background while preserving the action and identity."
+          "status": "reviewed",
+          "source": "/art/source/nilo-anime-first-completion-20261028-passive.webp"
         },
         {
           "key": "nilo:base:impulso",
@@ -10150,8 +10150,10 @@
           "name": "Toque Receptivo",
           "description": "Causa 12 de dano espiritual a um inimigo. Remove 1 unidade de Essência da reserva inimiga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/nilo-anime-first-completion-20261028-skill-impulso.webp"
         },
         {
           "key": "nilo:base:tecnica",
@@ -10165,8 +10167,8 @@
           "target": "enemy",
           "art": "/art/characters/nilo/anime-first-completion-20261028/skill-tecnica.webp",
           "exists": true,
-          "status": "needs_correction",
-          "correction": "Simplify detailed stone surfaces in the background while preserving the mark, gaze and anatomy."
+          "status": "reviewed",
+          "source": "/art/source/nilo-anime-first-completion-20261028-skill-tecnica.webp"
         },
         {
           "key": "nilo:base:voto",
@@ -10180,8 +10182,8 @@
           "target": "enemy",
           "art": "/art/characters/nilo/anime-first-completion-20261028/skill-voto.webp",
           "exists": true,
-          "status": "needs_correction",
-          "correction": "Simplify detailed stone surfaces in the background while preserving the single target and echo effect."
+          "status": "reviewed",
+          "source": "/art/source/nilo-anime-first-completion-20261028-skill-voto.webp"
         },
         {
           "key": "nilo:base:despertar",
@@ -10193,8 +10195,10 @@
           "name": "Limiar",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/nilo-anime-first-completion-20261028-skill-despertar.webp"
         }
       ],
       "complete": true
@@ -11428,7 +11432,8 @@
           "name": "Retrato",
           "art": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "reviewed",
+          "source": "/art/source/naomi-anime-first-completion-20261028-portrait.webp"
         },
         {
           "key": "naomi:base:passive",
@@ -11437,8 +11442,10 @@
           "slot": "passive",
           "name": "Ninguém Fica para Trás",
           "description": "Uma vez por rodada, apoiar outro aliado concede 2 de Defesa a cada membro vivo do trio.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/naomi-anime-first-completion-20261028-passive.webp"
         },
         {
           "key": "naomi:base:impulso",
@@ -11452,7 +11459,8 @@
           "target": "enemy",
           "art": "/art/characters/naomi/anime-first-completion-20261028/skill-impulso.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "reviewed",
+          "source": "/art/source/naomi-anime-first-completion-20261028-skill-impulso.webp"
         },
         {
           "key": "naomi:base:tecnica",
@@ -11466,7 +11474,8 @@
           "target": "ally",
           "art": "/art/characters/naomi/anime-first-completion-20261028/skill-tecnica.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "reviewed",
+          "source": "/art/source/naomi-anime-first-completion-20261028-skill-tecnica.webp"
         },
         {
           "key": "naomi:base:voto",
@@ -11478,8 +11487,10 @@
           "name": "Roda de Esperança",
           "description": "Concede 7 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais do trio.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/naomi-anime-first-completion-20261028-skill-voto.webp"
         },
         {
           "key": "naomi:base:despertar",
@@ -11491,8 +11502,10 @@
           "name": "Voto de Permanência",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/naomi/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/naomi-anime-first-completion-20261028-skill-despertar.webp"
         }
       ],
       "complete": true
@@ -11930,8 +11943,8 @@
           "name": "Retrato",
           "art": "/art/characters/vaas/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "needs_correction",
-          "correction": "Remove tiny background figures so the portrait contains only the character."
+          "status": "reviewed",
+          "source": "/art/source/vaas-anime-first-completion-20261028-portrait.webp"
         },
         {
           "key": "vaas:base:passive",
@@ -11940,8 +11953,10 @@
           "slot": "passive",
           "name": "Máscara Predatória",
           "description": "Uma vez por rodada, uma habilidade ofensiva contra um alvo com a Marca de Vaas também o Enfraquece por 1 turno.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/vaas-anime-first-completion-20261028-passive.webp"
         },
         {
           "key": "vaas:base:impulso",
@@ -11953,8 +11968,10 @@
           "name": "Verdade Plantada",
           "description": "Causa 9 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/vaas-anime-first-completion-20261028-skill-impulso.webp"
         },
         {
           "key": "vaas:base:tecnica",
@@ -11966,8 +11983,10 @@
           "name": "Véu de Veneno",
           "description": "Causa 11 de dano espiritual a um inimigo. Veneno: 4 de dano de aflição por 2 turnos. Rouba 1 unidade de Essência da reserva inimiga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/vaas-anime-first-completion-20261028-skill-tecnica.webp"
         },
         {
           "key": "vaas:base:voto",
@@ -11979,8 +11998,10 @@
           "name": "O Rosto que Falta",
           "description": "Concede 8 de Defesa destrutível ao usuário. Remove aflições e condições prejudiciais do beneficiado.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/vaas-anime-first-completion-20261028-skill-voto.webp"
         },
         {
           "key": "vaas:base:despertar",
@@ -11992,8 +12013,10 @@
           "name": "Última Máscara",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/vaas/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/vaas-anime-first-completion-20261028-skill-despertar.webp"
         }
       ],
       "complete": true
