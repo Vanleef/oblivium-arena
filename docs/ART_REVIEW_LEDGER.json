@@ -212,7 +212,13 @@
     "silas-o-leal:base:impulso",
     "silas-o-leal:base:tecnica",
     "silas-o-leal:base:voto",
-    "silas-o-leal:base:despertar"
+    "silas-o-leal:base:despertar",
+    "orion:base:portrait",
+    "orion:base:passive",
+    "orion:base:impulso",
+    "orion:base:tecnica",
+    "orion:base:voto",
+    "orion:base:despertar"
   ],
   "pendingCorrections": []
 }

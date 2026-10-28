@@ -1057,6 +1057,38 @@
       "slot": "despertar",
       "scene": "Silas sozinho sob um arco de mármore em Vênus. Ele se senta após o esforço, fecha o próprio manto bordado sobre o torso e prende o tecido com uma mão; fios vinho e luz filtrada arredondam o pano como abrigo contra uma sombra de pétalas na margem. Sem aliados ou armas, pose estável e expressão concentrada.",
       "allies": []
+    },
+    {
+      "id": "orion",
+      "slot": "passive",
+      "scene": "Exatamente duas figuras na colunata do Sol. Orion observa de lado a alma marcada, uma pessoa andrógina de cabelo prateado liso e manto ameixa; o sinal âmbar no ombro pulsa e a postura do alvo cede, com joelhos suaves e mão apoiada na balaustrada. O fio se apaga após comprovar a fraqueza. Anatomia natural, sem sangue.",
+      "allies": []
+    },
+    {
+      "id": "orion",
+      "slot": "impulso",
+      "scene": "Close diagonal, exatamente duas figuras. Orion, mulher de pele umber profunda, cachos curtos e mecha prateada, conduz um fio fino de éter que toca o tecido no ombro de uma alma de pele cobre e cachos brancos, deixando um pequeno mapa solar luminoso; o alvo se volta num reflexo natural. Sem arma, sem ferida gráfica.",
+      "allies": []
+    },
+    {
+      "id": "orion",
+      "slot": "tecnica",
+      "scene": "Exatamente duas figuras junto à piscina de mármore. Orion firma os pés e guia um único fio âmbar; a alma de cabelo prateado e túnica ameixa, já marcada, tem o passo interrompido na borda. O sinal se acende e se desfaz em pétalas enquanto a luz segura de leve a barra do manto. Plano alto diagonal, postura plausível, sem terceiros.",
+      "allies": []
+    },
+    {
+      "id": "orion",
+      "slot": "voto",
+      "scene": "Exatamente duas figuras na varanda de Sol. Orion ampara com cuidado um homem idoso de pele castanha clara, barba branca curta e túnica teal; ele senta no banco de mármore enquanto resíduos violeta-escuros se soltam de sua roupa e viram pétalas dentro de um arco de luz âmbar. Mostrar limpeza e proteção, mãos naturais, sem ferimento.",
+      "allies": [
+        "homem idoso de pele castanha clara, barba branca curta e túnica teal"
+      ]
+    },
+    {
+      "id": "orion",
+      "slot": "despertar",
+      "scene": "Orion sozinha sob um arco de mármore, em esforço de autoproteção, puxa seu manto marfim ao redor dos ombros e finca os pés no chão. Um véu de luz filtrada forma uma janela arredondada entre ela e uma corrente de pétalas sombrias. Expressão concentrada, postura estável, mãos naturais; sem figura extra, arma ou armadura.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1168,6 +1200,11 @@
     "silas-o-leal:impulso",
     "silas-o-leal:tecnica",
     "silas-o-leal:voto",
-    "silas-o-leal:despertar"
+    "silas-o-leal:despertar",
+    "orion:passive",
+    "orion:impulso",
+    "orion:tecnica",
+    "orion:voto",
+    "orion:despertar"
   ]
 }
