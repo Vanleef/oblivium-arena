@@ -182,6 +182,16 @@ export const characterArtRegistry = {
       "6": "/art/characters/nilo-ruptura-final/anime-first-completion-20261028/skill-despertar-7.webp"
     }
   },
+  "nilo-o-epilogo": {
+    "portrait": "/art/characters/nilo-o-epilogo/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/nilo-o-epilogo/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/nilo-o-epilogo/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-o-epilogo/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-o-epilogo/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/nilo-o-epilogo/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  },
   "naomi": {
     "portrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",

@@ -77,6 +77,11 @@
       "name": "Nilo — o que se Parte",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso e mecha marfim sobre a sobrancelha direita. Veste camadas gastas carvão e índigo, sem armadura ou armas. Fraturas aparecem no tecido, nas sombras e na pedra, nunca no corpo; postura ágil e atenta, sem deformar anatomia.",
       "scene": "Limbo Umbral: corredores góticos incompletos, vãos sem portas, escadarias suspensas e névoa violeta-cinza. Fios vermelhos, pó violeta e costuras de luz sugerem status e fraturas espaciais sobre as superfícies."
+    },
+    "nilo-o-epilogo": {
+      "name": "Nilo Purificado",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Usa roupa simples de tecido cinza-pedra e marfim com uma linha índigo discreta. A alma está livre da corrupção e das essências; expressão calma, observadora e estratégica, sem arma, armadura ou ornamentos místicos.",
+      "scene": "Limbo Purgatório: terraços pálidos e gastos, escadarias incompletas, horizonte cinza-violeta e ar quieto entre mundos. A identidade visual é contida e vazia de efeitos excessivos; defesa e recuperação aparecem como tecido, pedra e luz simples."
     }
   }
 }

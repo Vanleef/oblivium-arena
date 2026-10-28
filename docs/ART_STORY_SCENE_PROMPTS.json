@@ -569,6 +569,36 @@
       "slot": "despertar-7",
       "scene": "Nilo sozinho no limiar sem porta, manto recolhido e uma placa angular de sombra-pedra junto ao corpo; fragmentos param na borda enquanto a mão livre se prepara para avançar.",
       "allies": []
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "slot": "passive",
+      "scene": "Três pequenas essências — brasa vermelha, fio violeta e luz dourada — deixam a palma aberta de Nilo e se apagam no ar cinza, restando espaço vazio e calma estratégica.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "slot": "impulso",
+      "scene": "Nilo planta os pés numa escadaria enquanto uma placa fina de defesa em pedra-clara se apoia junto ao ombro e ao peito contra a névoa.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "slot": "tecnica",
+      "scene": "Nilo sentado num degrau deixa a brisa retirar poeira violeta da dobra do manto; o rosto se aquece e a postura volta a se aprumar.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "slot": "voto",
+      "scene": "Um condenado de pele morena e cabelo preto solta uma fita de força violeta; Nilo a captura numa película de luz de tecido e a devolve como névoa aflitiva.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "slot": "despertar",
+      "scene": "Nilo sozinho em pausa no Purgatório, protegido por plano facetado de pedra-luz que detém cascalho e poeira por um instante.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -609,6 +639,11 @@
     "nilo-ruptura-final:despertar-4",
     "nilo-ruptura-final:tecnica-5",
     "nilo-ruptura-final:tecnica-6",
-    "nilo-ruptura-final:despertar-7"
+    "nilo-ruptura-final:despertar-7",
+    "nilo-o-epilogo:passive",
+    "nilo-o-epilogo:impulso",
+    "nilo-o-epilogo:tecnica",
+    "nilo-o-epilogo:voto",
+    "nilo-o-epilogo:despertar"
   ]
 }
