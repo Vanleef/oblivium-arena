@@ -45,11 +45,24 @@ function codexSkillCard(actor,ability,color=actor.color){
 function codexSkillList(actor,abilities,color=actor.color){
  return `<div class='codex-moves'>${abilities.map(ability=>codexSkillCard(actor,ability,color)).join("")}</div>`;
 }
+function normalizedSearchText(value){
+ return String(value ?? "").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLocaleLowerCase();
+}
+function searchMatches(query,values){
+ if(!query)return true;
+ const corpus=values.filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ");
+ return normalizedSearchText(corpus).includes(normalizedSearchText(query));
+}
 function matchesCodexFilters(character){
- const query=[character.name,character.identityTitle,character.previousName,...(character.aliases||[]),character.kingdom,character.realm,resourceById[character.affinity]?.name,...character.abilities.flatMap(ability=>[ability.name,ability.description])].filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ").toLowerCase();
+ const matchesSearch=searchMatches(state.crewSearch,[
+  character.name,character.identityTitle,character.previousName,...(character.aliases||[]),
+  character.kingdom,character.realm,character.role,character.archetype,
+  resourceById[character.affinity]?.name,character.passive?.name,
+  ...character.abilities.flatMap(ability=>[ability.name,ability.description])
+ ]);
  return (state.crewRealm==="Todos"||character.realm===state.crewRealm)
   &&(state.crewElo==="Todos"||character.kingdomId===state.crewElo)
-  &&(!state.crewSearch||query.includes(state.crewSearch.toLowerCase()));
+  &&matchesSearch;
 }
 const SAVE_KEY = "pma-post-mortem-arena-v1";
 const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1", "selyvar-arena-v1", "three-realms-soul-arena-v1", "post-mortem-arena-v1"];
@@ -629,8 +642,12 @@ function teamView() {
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const matchesRealm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const matchesSearch = !state.crewSearch || (character.name + " " + (character.identityTitle || "") + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.kingdom + " " + character.realm + " " + resourceById[character.affinity]?.name).toLowerCase().includes(state.crewSearch.toLowerCase());
-    return matchesRealm && matchesSearch && (owned || state.crewRealm === "Todos");
+    const matchesSearch = searchMatches(state.crewSearch, [
+      character.name, character.identityTitle, character.previousName, ...(character.aliases || []),
+      character.kingdom, character.realm, character.role, character.archetype,
+      resourceById[character.affinity]?.name
+    ]);
+    return matchesRealm && matchesSearch;
   });
   return `
     <section class="page-heading"><div><div class="eyebrow">ALIANÇA 3v3</div><h1>Formar Trio</h1><p>${profile.run?"Mudanças na formação valem para a próxima trilha.":"Escolha três almas e combine suas forças."}</p></div><div class="roster-total"><b>${profile.ownedIds.length}</b><span>/ ${characters.length}<br>RECRUTADAS</span></div></section>
@@ -649,7 +666,7 @@ function teamView() {
       <section class="roster-browser">
         <div class="roster-header"><div><div class="eyebrow">ALMAS CONHECIDAS</div><h2>Codex de Reinos</h2></div><span class="owned-count">${profile.ownedIds.length} disponíveis</span></div>
         <label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar nome, arquétipo ou Essência"></label>
-        <div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div>
+        <div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button type="button" class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}" aria-pressed="${state.crewRealm === realm}">${realm}</button>`).join("")}</div>
         <div class="roster-grid">${filtered.map((character) => {
           const owned = profile.ownedIds.includes(character.id);
           const selected = profile.team.includes(character.id);
@@ -679,7 +696,7 @@ function codexView() {
     <section class="page-heading"><div><div class="eyebrow">${characters.length} ALMAS · ${elos.length} REINOS · ${realms.length} MUNDOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>${characters.length}</b><span>PERSONAGENS<br>DO PMA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Reino" : "Reinos"}</small></article>`).join("")}</div>
     <aside class="realm-synergy-guide" aria-label="Sinergias discretas de Reino, Mundo e afinidade"><small>SINERGIAS DE REINO, MUNDO E AFINIDADE · ESCALAM COM ALIADOS VIVOS</small><div><b>◎ Reino</b><span>Cada Reino tem um efeito próprio: aflições, controle, Marcas, apoio, Formas ou Essência. Máximo +2 por aliado adicional.</span></div><div class="stat-inferno"><b>♨ Inferno</b><span>Aflições aplicadas recebem +1 de dano por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-paraiso"><b>✧ Paraíso</b><span>Curas concedidas recebem +1 de Vida por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-limbo"><b>⟲ Limbo</b><span>O trio recebe +1 Defesa por aliado adicional do Limbo (máx. +2); controle recebe +1 dano por parceiro e 2+ aliados geram 1 Ruptura a cada dois turnos.</span></div><div><b>◈ Afinidade</b><span>Duas ou mais almas com a mesma afinidade principal começam cada combate com +1 daquela Essência. O bônus vale para cada lado, inclusive a oposição.</span></div></aside>
-    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Reino ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>REINO</small><select data-codex-elo><option value="Todos">Todos os Reinos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label></div></div>
+    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Reino ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button type="button" class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}" aria-pressed="${state.crewRealm === realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>REINO</small><select data-codex-elo><option value="Todos">Todos os Reinos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label></div></div>
     ${showFinalBoss ? `<article class="codex-entity" aria-label="${esc(FINAL_BOSS.name)}, ${esc(FINAL_BOSS.title)}"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de ${esc(FINAL_BOSS.name)}, sem rosto fixo" loading="lazy"><div><div class="eyebrow codex-entity-kicker"><span>${getLanguage()==="en"?"ENTITY":"ENTIDADE"} · ${getLanguage()==="en"?"KINGDOM":"REINO"} ${esc(localizeText(FINAL_BOSS.elo,getLanguage()).toUpperCase())}</span></div><h2>${esc(FINAL_BOSS.name)}, <span class="codex-character-title">${esc(FINAL_BOSS.title)}</span></h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="${getLanguage()==="en"?"Abilities of":"Habilidades de"} ${esc(getLanguage()==="en"?FINAL_BOSS.nameEn:FINAL_BOSS.name)}">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header>${codexSkillList(boss,boss.abilities)}</section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = !state.account || profile.ownedIds.includes(character.id);
