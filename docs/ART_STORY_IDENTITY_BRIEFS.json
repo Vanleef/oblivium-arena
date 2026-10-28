@@ -132,6 +132,11 @@
       "name": "Victor — Regente sem Reino",
       "identity": "Homem adulto de cerca de 52 anos, pele umber profunda, nariz largo, rosto forte marcado por linhas de cansaço, cabelo curto de cachos sal-e-pimenta, barba cheia trançada com fios grisalhos, olhos castanho-âmbar. Alto e magro, ombros um pouco curvados por responsabilidade. Usa coroa quebrada de cinco pontas talhada em basalto escurecido e raiz queimada, uma ponta ausente e amarrada por pano vermelho; túnica longa carvão com forro vinho, gola marfim apagada, faixa tijolo e barra de fio ocre, com cinza e rasgos reparados. Sem armadura, armas ou ferragens.",
       "scene": "Inferno, Magma: salão régio em ruínas de basalto vulcânico, escadarias quebradas, cinza no ar e rio de magma distante sob arcos escuros. O trono vazio aparece como silhueta quebrada, nunca como centro da cena. Fios vinho e ouro representam autoridade e abrigo, sem tecnologia ou maquinaria."
+    },
+    "silas": {
+      "name": "Silas — Lealdade",
+      "identity": "Homem adulto de cerca de 45 anos, traços do leste asiático, pele oliva-dourada, rosto estreito, olhos castanho-âmbar, bigode leve e barba curta no queixo. Corpo magro e resistente. Cabelo preto liso e comprido preso baixo, com uma trança fina prateada. Veste camadas de tecido azul-petróleo e índigo sobre túnica marfim, sash vinho e costuras ocre; fios vermelhos finos trançados no tecido e faixas simples nos pulsos. Sem armadura, armas ou ferragens.",
+      "scene": "Paraíso, Vênus: claustros altos de mármore claro, roseirais geométricos, água parada refletindo luz filtrada. Fios vermelhos e tecido marfim exprimem lealdade e proteção; ambiente solene, sem halos, asas ou equipamentos."
     }
   }
 }

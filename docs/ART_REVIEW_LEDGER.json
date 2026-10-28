@@ -200,7 +200,13 @@
     "victor:base:impulso",
     "victor:base:tecnica",
     "victor:base:voto",
-    "victor:base:despertar"
+    "victor:base:despertar",
+    "silas:base:portrait",
+    "silas:base:passive",
+    "silas:base:impulso",
+    "silas:base:tecnica",
+    "silas:base:voto",
+    "silas:base:despertar"
   ],
   "pendingCorrections": []
 }

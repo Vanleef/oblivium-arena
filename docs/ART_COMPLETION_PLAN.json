@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 31,
-    "newAbilityScenesSaved": 156,
+    "newPortraitsSaved": 32,
+    "newAbilityScenesSaved": 161,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -12914,8 +12914,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/silas/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/silas-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "silas:base:passive",
@@ -12924,8 +12926,10 @@
           "slot": "passive",
           "name": "Laço de Vigília",
           "description": "Uma vez por rodada, apoiar outro aliado também lhe concede 3 de Defesa.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/silas/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/silas-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "silas:base:impulso",
@@ -12937,8 +12941,10 @@
           "name": "Laço de Tendão",
           "description": "Causa 11 de dano de aflição a um inimigo. Enfraquece o alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/silas/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/silas-anime-first-completion-20261028/impulso.webp"
         },
         {
           "key": "silas:base:tecnica",
@@ -12950,8 +12956,10 @@
           "name": "Pele de Vigia",
           "description": "Concede 10 de Defesa destrutível ao aliado. Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 10 de dano. Dura 1 turno.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/silas/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/silas-anime-first-completion-20261028/tecnica.webp"
         },
         {
           "key": "silas:base:voto",
@@ -12963,8 +12971,10 @@
           "name": "Nervo Contido",
           "description": "Causa 16 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/silas/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/silas-anime-first-completion-20261028/voto.webp"
         },
         {
           "key": "silas:base:despertar",
@@ -12976,11 +12986,13 @@
           "name": "Corpo entre Nós",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/silas/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/silas-anime-first-completion-20261028/despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "silas-o-leal",
@@ -26254,8 +26266,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/silas/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "silas:base:passive",
@@ -26264,8 +26278,10 @@
       "slot": "passive",
       "name": "Laço de Vigília",
       "description": "Uma vez por rodada, apoiar outro aliado também lhe concede 3 de Defesa.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/silas/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "silas:base:impulso",
@@ -26277,8 +26293,10 @@
       "name": "Laço de Tendão",
       "description": "Causa 11 de dano de aflição a um inimigo. Enfraquece o alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/silas/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/impulso.webp"
     },
     {
       "key": "silas:base:tecnica",
@@ -26290,8 +26308,10 @@
       "name": "Pele de Vigia",
       "description": "Concede 10 de Defesa destrutível ao aliado. Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 10 de dano. Dura 1 turno.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/silas/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/tecnica.webp"
     },
     {
       "key": "silas:base:voto",
@@ -26303,8 +26323,10 @@
       "name": "Nervo Contido",
       "description": "Causa 16 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/silas/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/voto.webp"
     },
     {
       "key": "silas:base:despertar",
@@ -26316,8 +26338,10 @@
       "name": "Corpo entre Nós",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/silas/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/despertar.webp"
     },
     {
       "key": "silas-o-leal:base:portrait",

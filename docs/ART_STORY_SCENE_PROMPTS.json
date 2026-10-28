@@ -982,6 +982,43 @@
       "slot": "despertar",
       "scene": "Victor ajoelhado sozinho sobre basalto, mão no peito e outra no chão; o próprio manto preto e vinho forma um arco de luz dourada que interrompe fragmentos de cinza.",
       "allies": []
+    },
+    {
+      "id": "silas",
+      "slot": "passive",
+      "scene": "Exatamente duas figuras no claustro de Vênus: Silas ampara um aliado jovem de pele escura e cachos curtos; fios vinho saem do pulso e tecem uma proteção simples no ombro.",
+      "allies": [
+        "jovem adulto de pele escura, cachos densos, túnica terracota e pano azul-cinza"
+      ]
+    },
+    {
+      "id": "silas",
+      "slot": "impulso",
+      "scene": "Perspectiva alta no jardim geométrico; Silas conduz um fio de seda vinho que segura o manto de uma alma pálida de cachos brancos, fazendo sua postura ceder sem dobrar juntas.",
+      "allies": []
+    },
+    {
+      "id": "silas",
+      "slot": "tecnica",
+      "scene": "Exatamente duas figuras: Silas cobre ombro e costas de uma aliada de pele castanha, laterais raspadas e cachos prateados, com seda luminosa; fita escura que chega pela margem se desfaz em pétala dourada.",
+      "allies": [
+        "mulher adulta de pele castanha, cabelo prateado curto, túnica violeta"
+      ]
+    },
+    {
+      "id": "silas",
+      "slot": "voto",
+      "scene": "Close lateral no limiar de mármore: um fio vinho passa pela sombra da manga de uma alma translúcida cinza-lilás, amarra um pequeno nó e cobre os dois antebraços com uma trama violeta de silêncio.",
+      "allies": []
+    },
+    {
+      "id": "silas",
+      "slot": "despertar",
+      "scene": "Exatamente três pessoas: Silas entra no limiar à frente de dois aliados distintos, firmando os pés; uma camada de linho luminoso e fios vinho envolve o próprio corpo e desvia uma sombra de pétalas.",
+      "allies": [
+        "mulher adulta oliva de trança cinza grossa",
+        "jovem negro de manto azul"
+      ]
     }
   ],
   "generatedSceneKeys": [
@@ -1083,6 +1120,11 @@
     "victor:impulso",
     "victor:tecnica",
     "victor:voto",
-    "victor:despertar"
+    "victor:despertar",
+    "silas:passive",
+    "silas:impulso",
+    "silas:tecnica",
+    "silas:voto",
+    "silas:despertar"
   ]
 }
