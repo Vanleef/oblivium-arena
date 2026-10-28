@@ -419,6 +419,27 @@
         "/art/characters/cain/anime-first-completion-20261028/skill-voto.webp",
         "/art/characters/cain/anime-first-completion-20261028/skill-despertar.webp"
       ]
+    },
+    "lilith": {
+      "displayName": "Lilith",
+      "activeRoute": "/art/characters/lilith/anime-first-completion-20261028",
+      "world": "Inferno",
+      "sourceAssets": [
+        "art/source/lilith-anime-first-completion-20261028/portrait.webp",
+        "art/source/lilith-anime-first-completion-20261028/passive.webp",
+        "art/source/lilith-anime-first-completion-20261028/skill-impulso.webp",
+        "art/source/lilith-anime-first-completion-20261028/skill-tecnica.webp",
+        "art/source/lilith-anime-first-completion-20261028/skill-voto.webp",
+        "art/source/lilith-anime-first-completion-20261028/skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/lilith/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/lilith/anime-first-completion-20261028/passive.webp",
+        "/art/characters/lilith/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/lilith/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/lilith/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/lilith/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {

@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 45,
-    "newAbilityScenesSaved": 226,
+    "newPortraitsSaved": 46,
+    "newAbilityScenesSaved": 231,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13188,33 +13188,8 @@
           "key": "xian:base:passive",
           "characterId": "xian",
         
-... 23305 bytes omitted ...
-    "characterId": "elaris-prologo",
-          "kind": "base",
-          "slot": "portrait",
-          "name": "Retrato",
-          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/portrait.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "elaris-prologo:base:passive",
-          "characterId": "elaris-prologo",
-          "kind": "base",
-          "slot": "passive",
-          "name": "Primeira Graça",
-          "description": "Uma vez por rodada, curar ao menos 10 de Vida de outro aliado gera 1 Graça.",
-          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/passive.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "elaris-prologo:base:impulso",
-          "characterId": "elaris-prologo",
-          "kind": "base",
-          "slot": "impulso",
-          "abilityId": "impulso",
-          "abilityIndex": 0,
+... 24252 bytes omitted ...
+  "abilityIndex": 0,
           "name": "Primeiro Fôlego",
           "description": "Restaura 12 de Vida ao aliado.",
           "target": "ally",
@@ -13371,8 +13346,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/lilith/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "lilith:base:passive",
@@ -13381,8 +13357,9 @@
           "slot": "passive",
           "name": "Amanhã Negado",
           "description": "Uma vez por rodada, ferir um alvo Exposto sela o apoio dele por 1 turno.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/lilith/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "lilith:base:impulso",
@@ -13394,8 +13371,9 @@
           "name": "Recusa de Aurora",
           "description": "Causa 11 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/lilith/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "lilith:base:tecnica",
@@ -13407,8 +13385,9 @@
           "name": "Esperança Interrompida",
           "description": "Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/lilith/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "lilith:base:voto",
@@ -13420,8 +13399,9 @@
           "name": "Nada a Restaurar",
           "description": "Causa 18 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/lilith/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "lilith:base:despertar",
@@ -13433,11 +13413,12 @@
           "name": "Véu sem Amanhã",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/lilith/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "caliope",
@@ -26451,8 +26432,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/lilith/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "lilith:base:passive",
@@ -26461,8 +26443,9 @@
       "slot": "passive",
       "name": "Amanhã Negado",
       "description": "Uma vez por rodada, ferir um alvo Exposto sela o apoio dele por 1 turno.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/lilith/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "lilith:base:impulso",
@@ -26474,8 +26457,9 @@
       "name": "Recusa de Aurora",
       "description": "Causa 11 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/lilith/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "lilith:base:tecnica",
@@ -26487,8 +26471,9 @@
       "name": "Esperança Interrompida",
       "description": "Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/lilith/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "lilith:base:voto",
@@ -26500,8 +26485,9 @@
       "name": "Nada a Restaurar",
       "description": "Causa 18 de dano de aflição a um inimigo. Decadência: 4 de dano de aflição por 2 turnos. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/lilith/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "lilith:base:despertar",
@@ -26513,8 +26499,9 @@
       "name": "Véu sem Amanhã",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/lilith/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "caliope:base:portrait",

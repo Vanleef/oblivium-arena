@@ -284,7 +284,13 @@
     "cain:base:impulso",
     "cain:base:tecnica",
     "cain:base:voto",
-    "cain:base:despertar"
+    "cain:base:despertar",
+    "lilith:base:portrait",
+    "lilith:base:passive",
+    "lilith:base:impulso",
+    "lilith:base:tecnica",
+    "lilith:base:voto",
+    "lilith:base:despertar"
   ],
   "pendingCorrections": []
 }

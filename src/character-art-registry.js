@@ -497,5 +497,15 @@ export const characterArtRegistry = {
     "despertar": "/art/characters/cain/anime-first-completion-20261028/skill-despertar.webp"
   }
 },
+  "lilith": {
+  "portrait": "/art/characters/lilith/anime-first-completion-20261028/portrait.webp",
+  "passive": "/art/characters/lilith/anime-first-completion-20261028/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/lilith/anime-first-completion-20261028/skill-impulso.webp",
+    "tecnica": "/art/characters/lilith/anime-first-completion-20261028/skill-tecnica.webp",
+    "voto": "/art/characters/lilith/anime-first-completion-20261028/skill-voto.webp",
+    "despertar": "/art/characters/lilith/anime-first-completion-20261028/skill-despertar.webp"
+  }
+},
 };
 

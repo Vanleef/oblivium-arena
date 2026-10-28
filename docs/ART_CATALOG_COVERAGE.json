@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 863,
-    "baseMissing": 60,
-    "entriesWithAnyBaseMissing": 10,
-    "entriesWithoutAnyBaseArt": 10,
+    "basePresent": 869,
+    "baseMissing": 54,
+    "entriesWithAnyBaseMissing": 9,
+    "entriesWithoutAnyBaseArt": 9,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 284,
+    "reviewedSlots": 290,
     "correctionSlots": 0,
-    "fullyReviewedEntries": 42,
-    "pendingSlots": 714
+    "fullyReviewedEntries": 43,
+    "pendingSlots": 708
   },
   "entries": [
     {
@@ -1779,16 +1779,9 @@
       "kingdom": "Blasfêmia",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "lilith:base:portrait",
-        "lilith:base:passive",
-        "lilith:base:impulso",
-        "lilith:base:tecnica",
-        "lilith:base:voto",
-        "lilith:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "caliope",

@@ -1419,6 +1419,36 @@
       "slot": "despertar",
       "scene": "Cicatriz de Sangue SELF defense: high-contrast extreme close HALF-BODY profile, Cain alone braces his broad scarred forearms crossed close in front of chest, physically drawing chin behind his right shoulder as an incoming ash storm hits from LEFT. Old pale scars flare red and their lines extend into an intact organic blood-red translucent membrane around his torso; outside impact breaks to cinders, inside skin remains safe. Orange eye tracks the arriving wave to left, nostrils tense, teeth clenched. Hands are natural closed fists partially hidden by forearms, no knife, no new extra limbs. Dante circles beyond black arches, no portrait gaze.",
       "allies": []
+    },
+    {
+      "id": "lilith",
+      "slot": "passive",
+      "scene": "Amanhã Negado PASSIVE: target-focused tight three-quarter close view of ONE pale grey ghoul that has a visible exposed red crack on its CLOTH shoulder and has just flinched from a spiritual strike. Its hand reaches to form a supportive red Essence thread, but that thread goes abruptly DARK and folds into a small charcoal knot across its wrist, sealing support. Eyes dart in alarm to its own failed hand and lips pull back. Lilith not fully visible: only her obsidian-black five-fingered hand emerging from red/charcoal sleeve at far background, lowered in a natural spent gesture. Show trigger on an ALREADY exposed target; no extra victim or wound.",
+      "allies": []
+    },
+    {
+      "id": "lilith",
+      "slot": "impulso",
+      "scene": "Recusa de Aurora: LOW wide view along a row of burning tombs. ONE stony infernal ghoul is struck by a narrow black-red wave and loses strength mid-lunge, one knee buckling, shoulders dropping and eyes widening toward its failing hand. Lilith on far side in RIGHT-FACING PROFILE, tall narrow body leaning through a measured sidestep, face watching this single target, robe pulling from actual motion. The ghoul's faint attacking aura extinguishes, conveying energy damage and weakening. No repeated orb presentation or frontal duel, no sword.",
+      "allies": []
+    },
+    {
+      "id": "lilith",
+      "slot": "tecnica",
+      "scene": "Esperança Interrompida: macro shot of ONE grey ghoul's hands halfway through tying an arcane support knot with coarse red threads; an extremely thin black-red slash crosses the CLOTH at its upper wrist without gore, and the support knot snaps apart into dry black strands. The ghoul's shoulders jerk behind the hands from the hit, tense clawlike fingers pull back naturally, exactly two arms traced to one body. Lilith only a distorted tall bald silhouette at background tomb entrance, looking at the interrupted action. The focus is the exact support action being SEALED, not physical bondage or generic blast. No extra hands.",
+      "allies": []
+    },
+    {
+      "id": "lilith",
+      "slot": "voto",
+      "scene": "Nada a Restaurar: unusual TOP-DOWN close target view. A single grey leathery ghoul sinks to its knees on tombstone pavement, hunched and struggling to breathe; dark charcoal decay veins spread over its ROBE and a thin red affliction haze hangs close to skin without exposed tissue. A weak attempted healing light at the ghoul's own chest is visibly diminished into scattered pale flecks by the black shroud, not fully extinguished: healing REDUCED. One hand on chest and one braced on stone, exactly five fingers, pain and weakness physically clear. Lilith appears only as long black-red hem and bone-pale feet at top edge, no other figure. No gore, corpse, beautiful posing, detached limbs or new power form.",
+      "allies": []
+    },
+    {
+      "id": "lilith",
+      "slot": "despertar",
+      "scene": "Véu sem Amanhã SELF defense: Lilith alone seen from BEHIND and oblique side as an ash wave arrives from RIGHT; she hunches her narrow shoulders and turns bald head RIGHT toward impact, only a sliver of strict profile and one tense red eye visible. Her own charcoal veil folds back around the body into an INTACT translucent dark-red cocoon, ash and stone flecks stopping outside. Two hands pull cloth naturally near her sternum under shroud, mostly occluded, no extra arms. Tall body bends knees for real balance. Gothic tomb arch, dense red-black light, no portrait gaze.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1590,6 +1620,11 @@
     "cain:impulso",
     "cain:tecnica",
     "cain:voto",
-    "cain:despertar"
+    "cain:despertar",
+    "lilith:passive",
+    "lilith:impulso",
+    "lilith:tecnica",
+    "lilith:voto",
+    "lilith:despertar"
   ]
 }
