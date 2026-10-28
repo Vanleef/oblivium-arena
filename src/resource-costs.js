@@ -31,7 +31,7 @@ export function resolveEssenceExchange(pool,target,selected){
  return {ok:true,target,selected:payment.selected,pool:next,totalBefore:total(pool),totalAfter:total(next)};
 }
 export function resolveResourcePayment(costs,pool,selected){
- costs={...costs,random:(costs.random||0)+(costs.coringa||0)};delete costs.coringa;
+ costs={...costs,random:(costs.random??0)+(costs.coringa??0)};delete costs.coringa;
  const fixed=Object.fromEntries(resourceIds.map(id=>[id,costs[id]||0]));
  const available=Object.fromEntries(resourceIds.map(id=>[id,(pool[id]||0)-fixed[id]]));
  const required=costs.random||0;
