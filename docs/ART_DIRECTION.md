@@ -17,7 +17,7 @@ As referências servem apenas para estilo. Não copiar cabelo branco, rosa verme
 ## Regras de representação, composição e cobertura — atualização de 28/10/2026
 
 - Manter anatomia correta e coerente: contagem de dedos, mãos, pés, membros, articulações e proporções precisam estar legíveis e plausíveis.
-- Fazer poses, olhares e expressões responderem à ação e ao ambiente; evitar aparência de pose para foto. Tensão muscular, suor, sujeira, feridas e roupas alteradas devem decorrer do instante retratado.
+- A naturalidade da ação, da reação e da expressão tem prioridade sobre a apresentação à câmera. Em cenas de ação, orientar o olhar ao alvo, efeito ou ameaça; rosto e postura devem reagir ao evento, sem contato visual com a câmera ou pose de apresentação. Tensão muscular, suor, sujeira, feridas e roupas alteradas devem decorrer do instante retratado.
 - Preservar rosto, corpo, cabelo, traços, proporções e demais sinais do personagem. Alterações só cabem quando forem consequência direta de habilidade, ativação de poder, forma ou transformação prevista no kit.
 - Variar etnia, tom de pele, cabelo, olhos, fisicalidade, altura e nível de humanidade ou monstruosidade entre personagens. Cada design deve refletir sua identidade, Elo e Mundo.
 - Em artes de habilidade com outras figuras, preferir criaturas coerentes com o Mundo; limitar aparições nomeadas a no máximo um personagem do elenco por kit completo, salvo quando a habilidade exigir beneficiários específicos.
