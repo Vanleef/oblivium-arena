@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { ArenaService } from '../server/arena-service.js';
 import { starters } from '../src/data.js';
 import handler from '../api/arena.js';
-import { getCombatPlan } from '../src/combat.js';
+import { createDuel, getCombatPlan } from '../src/combat.js';
+import { beginInfluences } from '../src/world-influences.js';
 // Test-only transactional fixture. No memory adapter is imported by production.
 class TestStore{constructor(){this.data=new Map();this.lock=Promise.resolve();}transaction(work){const run=this.lock.then(async()=>{const snapshot=new Map(this.data);const tx={get:async k=>snapshot.has(k)?JSON.parse(snapshot.get(k)):null,set:async(k,v)=>snapshot.set(k,JSON.stringify(v)),delete:async k=>snapshot.delete(k)};const result=await work(tx);this.data=snapshot;return result;});this.lock=run.catch(()=>{});return run;}}
 const ids=starters.map(c=>c.id);
@@ -71,8 +72,12 @@ test('reconectar à Arena migra kit antigo e altera a versão uma única vez',as
 });
 
 test('duas sessões concluem uma partida por ações reais e persistem o resultado',async()=>{
- let now=1000000;const service=new ArenaService(new TestStore(),{now:()=>now}),call=async(token,input)=>{now+=10000;return service.request(token,input);};
+ let now=1000000;const store=new TestStore(),service=new ArenaService(store,{now:()=>now}),call=async(token,input)=>{now+=10000;return service.request(token,input);};
  const a=await call(),b=await call();await call(a.token,{op:'queue',team:ids});await call(b.token,{op:'queue',team:ids});
+ // Fix only the random seed so the test does not depend on luck or a long stalemate.
+ const initial=await call(a.token),key=`match:${initial.match.id}`,stored=JSON.parse(store.data.get(key));
+ let randomState=1234;const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
+ stored.battle=createDuel(ids,ids,{rng:random});stored.battle.randomState=randomState;beginInfluences(stored.battle,randomState);store.data.set(key,JSON.stringify(stored));
  let views=await Promise.all([call(a.token),call(b.token)]),turns=0;
  while(!views[0].match.settled&&turns<120){
   const active=views.find(v=>['influence','player'].includes(v.match.battle.phase));assert.ok(active,'um dos jogadores deve ter a vez');
