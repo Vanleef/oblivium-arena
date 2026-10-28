@@ -1,7 +1,7 @@
 {
   "tool": "built-in image_gen",
-  "status": "blocked_by_image_generation_quota",
-  "commonPrompt": "One square ability illustration for Oblivium Arena, clean hand-drawn ANIME cel animation. Reference image 1 is the caster's exact identity and clothing; further images depict ONLY the named allies required in the scene. Preserve recognizable faces, hair, costume and proportions. Broad flat colors, crisp black contours, one or two large hard-edged shadow planes per surface, smooth matte materials, simple drawn enemies. Background quiet and lower contrast, depth through perspective and overlapping planes. No realistic skin or material grain, painterly noise, glossy CGI, dense particle spray, excessive bloom, cinematic blur or realistic gore. All heads and pupils follow their actual target, beneficiary, contact point or movement; nobody looks at viewer during action. Human hands normal size, five fingers when visible, aligned wrists and plausible grips. Enemies are unarmored ash ghouls, never generic armored soldiers. Exactly the stated figures, no background people or extra faces. Vary camera, distance and staging, avoid posed lineups. Clear action at 512px. No letters, writing, UI, numbers, borders or split panels.",
+  "status": "in_progress",
+  "commonPrompt": "Uma ilustração quadrada de habilidade para Oblivium Arena, anime 2.5D legível com acabamento pictórico de pintura digital sombria e ornada. Preserve a identidade, o cabelo, a roupa e as proporções dos personagens recorrentes. Use composição teatral gótica, luz quente contra sombras profundas, textura pictórica e foco claro na ação. A ambientação deve refletir o Mundo: Inferno dantesco de condenação e fogo; Paraíso de mármore, jardins geométricos e luz filtrada; Limbo de névoas e espaços de transição. Personagens e criaturas precisam de diversidade real e silhuetas próprias; evitar soldados e anjos genéricos. Mostrar instante natural de ação, esforço, dor ou consequência, com anatomia coerente, mãos e pés naturais, articulações plausíveis e olhar acompanhando o alvo ou o gesto. Variar enquadramentos e não repetir confrontos frontais. Elementos arcanos/orgânicos como fios, laços, correntes, ossos, carne, chamas, sangue, luz, pedra e tecido. Proibidos tecnologia moderna, máquinas, engrenagens, armas de fogo, estética industrial ou steampunk. Sem texto, letras, interface ou moldura.",
   "jobs": [
     {
       "id": "nilo",
@@ -196,6 +196,36 @@
       "id": "teras",
       "slot": "despertar",
       "scene": "Exactly ONE Teras. Slightly high close three-quarter view of the observer perfectly still in a Blasfêmia sealed tomb courtyard. His indigo mantle and a few broad dark-ivory geometric ward folds form a close personal frame at shoulders while one small basalt shard glances off at left. All three eyes watch that shard, head oriented toward it. No human face, hood, crown, other person or body duplicate. Personal invulnerability, no team ward, no spherical bubble. Smooth cel planes, quiet gray tomb silhouettes and tiny red seam accents.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "slot": "passive",
+      "scene": "Após a aplicação da aflição, Nilo observa uma ferida não gráfica abrir uma fresta na defesa do condenado; corte lateral sobre o Estige.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "slot": "impulso",
+      "scene": "Corte oblíquo por um único fio ritual vermelho; o condenado recua e segura o rasgo no manto, sem gore.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "slot": "tecnica",
+      "scene": "Um único braseiro espiritual cai da mão de Nilo sobre o tecido de um condenado no poço de Malebolge.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "slot": "voto",
+      "scene": "Consequência em close lateral: condenado cai de joelhos enquanto as linhas de Sangramento e Queimadura se apagam na ferida; Nilo baixa a mão.",
+      "allies": []
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "slot": "despertar",
+      "scene": "Nilo se protege atrás de cinco planos de cinza e seda vermelha que desviam estilhaços numa passagem infernal; postura firme e barreira arcana.",
       "allies": []
     }
   ],

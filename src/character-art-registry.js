@@ -44,6 +44,16 @@ export const characterArtRegistry = {
     },
     "passive": "/art/characters/nilo/anime-first-completion-20261028/passive.webp"
   },
+  "nilo-o-prefacio": {
+    "portrait": "/art/characters/nilo-o-prefacio/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/nilo-o-prefacio/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/nilo-o-prefacio/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-o-prefacio/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-o-prefacio/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/nilo-o-prefacio/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  },
   "naomi": {
     "portrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",

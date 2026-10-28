@@ -57,7 +57,13 @@
     "teras:base:impulso",
     "teras:base:tecnica",
     "teras:base:voto",
-    "teras:base:despertar"
+    "teras:base:despertar",
+    "nilo-o-prefacio:base:portrait",
+    "nilo-o-prefacio:base:passive",
+    "nilo-o-prefacio:base:impulso",
+    "nilo-o-prefacio:base:tecnica",
+    "nilo-o-prefacio:base:voto",
+    "nilo-o-prefacio:base:despertar"
   ],
   "pendingCorrections": []
 }

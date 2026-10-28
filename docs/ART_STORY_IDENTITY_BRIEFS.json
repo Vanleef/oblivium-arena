@@ -1,7 +1,7 @@
 {
   "status": "new_visual_designs_for_previously_unillustrated_story_cast",
   "basis": "Existing narrative roles and kits; no prior canonical visual references were found for these six base profiles.",
-  "style": "One square portrait for Oblivium Arena. Clean high-quality hand-drawn ANIME cel-animation key visual: confident black contours, expressive stylized anime face, broad FLAT color fills, just one or two large hard-edged shadow planes per surface, smooth matte materials, restrained small highlights. Broad graphic hair shapes. Quiet layered low-contrast background and strong readable silhouette at 512px. No skin texture, realism, glossy CGI, painted grain, fine scratches, cinematic bloom, blurred depth of field, dense particles, anatomical errors, text, letters or UI. Exactly ONE character, chest-up three-quarter portrait, hands mostly outside the frame. Clothing should look functional and distinctive, no unnecessary ornaments, no generic armored soldier. Keep dramatic atmosphere through shape and value separation, not noisy surface detail.",
+  "style": "Anime 2.5D legível com acabamento pictórico de pintura digital sombria e ornada. Cabelos volumosos e expressivos; tecidos elaborados e materiais orgânicos com textura; contraste entre sombras profundas e focos quentes; atmosfera teatral e gótica, com linhas, fios, rosas, adornos e armas ritualísticas apenas quando narrativamente pertinentes. Inferno inspirado na imagética de Dante; Paraíso de mármore, jardins geométricos, luz filtrada e julgamento solene; Limbo de névoas, filas, vazios e estruturas incompletas. Cada personagem tem silhueta, etnia, traços, cabelo, olhos, fisicalidade e desgaste próprios. Anatomia humana coerente, mãos e pés naturais, articulações plausíveis, pose estável e expressão consequente da ação. Composição variada, leitura clara em 512 px, acabamento texturizado. Sem tecnologia contemporânea, mecanismos, engrenagens, armas de fogo, estética industrial ou steampunk; sem anjos ou soldados genéricos.",
   "characters": {
     "nilo": {
       "name": "Nilo — Receptáculo",
@@ -32,7 +32,11 @@
       "name": "Teras — Observador",
       "identity": "An adult infernal observer with a distinctive nonhuman construct-like form: an elongated smooth obsidian-gray ceramic head, THREE small aligned ivory eye apertures across its upper face with faint violet centers, no human mouth, no hood, no crown. A single clean bone-white jaw plate sits seamlessly at lower face, no dangling gore. Thin long shoulders beneath a dark indigo mantle with a blunt flat ivory collar, two simple silver cord loops falling down chest, long ceramic forearm just at edge of frame with one violet fissure. Deliberate scholarly stillness, an entity studying souls and Nilo, not a human mage or generic demon. Keep face geometrically expressive through head angle and eye apertures.",
       "scene": "Current Kingdom Blasfêmia, Inferno: broad simplified rows of sealed basalt tombs with a few dull red seams under ash-gray sky, no readable inscriptions. Slightly low side three-quarter portrait, head tilts curiously toward right. Matte obsidian/indigo/ivory with very small violet accents. No flowing lava or excessive texture."
+    },
+    "nilo-o-prefacio": {
+      "name": "Nilo — Prefácio de Cinza",
+      "identity": "Mesmo jovem adulto de 24 anos da identidade-base: pele castanha média, cabelo azul-negro curto e volumoso com mecha marfim sobre a sobrancelha direita, olhos cinza-azulados e físico esguio atlético. No Inferno, o manto de linho carvão e cinza-fuligem tem bordas queimadas; faixa índigo e um cordão de seda vermelho-pomegranate permanecem como marcas visuais. Cinza e fuligem no rosto, com um corte fino cicatrizado. Sem armadura e sem arma.",
+      "scene": "Estige e Malebolge do Inferno de Dante: rios escuros avermelhados, arcos de pedra antiga, colunatas quebradas, condenado sem armadura e cinza suspensa. Fogo em pontos quentes, sombras profundas e seda ritual vermelha; a cena comunica ferida, aflição e resistência."
     }
   }
 }
-
