@@ -707,6 +707,44 @@
       "slot": "despertar",
       "scene": "Naomi sozinha em postura defensiva sobre um terraço vazio; o manto e dois planos geométricos de luz marfim-ouro detêm névoa e pétalas na borda, deixando a figura livre e firme.",
       "allies": []
+    },
+    {
+      "id": "naomi-a-raiz",
+      "slot": "passive",
+      "scene": "Um sopro escuro atinge o manto de Naomi junto a uma coluna partida; enquanto ela se firma, três pequenas defesas em forma de raiz sobem das juntas do piso, uma para cada integrante do trio.",
+      "allies": [
+        "aliada de cachos curtos",
+        "aliado idoso de barba prateada"
+      ]
+    },
+    {
+      "id": "naomi-a-raiz",
+      "slot": "impulso",
+      "scene": "No nível do chão, um ramo vivo sobe por uma rachadura do mármore e suspende a barra do manto de um alvo anônimo, que cede a um joelho; uma névoa violeta se solta da roupa, enquanto Naomi observa de lado ao fundo.",
+      "allies": []
+    },
+    {
+      "id": "naomi-a-raiz",
+      "slot": "tecnica",
+      "scene": "Exatamente três aliados descansam sob um arco baixo tecido de raízes vivas; Naomi pousa a palma no chão e luz marfim-ouro percorre as raízes, enquanto pequenos brilhos de cura pousam nas roupas dos dois companheiros.",
+      "allies": [
+        "jovem de pele escura",
+        "idoso asiático de cabelos brancos"
+      ]
+    },
+    {
+      "id": "naomi-a-raiz",
+      "slot": "voto",
+      "scene": "Composição íntima através de uma coluna quebrada: Naomi ajoelhada ampara um aliado adulto de pele oliva, cabelo escuro prateado; uma fita escura se desfaz da capa e pequenas flores marfim surgem na barra do manto.",
+      "allies": [
+        "aliado adulto de pele oliva"
+      ]
+    },
+    {
+      "id": "naomi-a-raiz",
+      "slot": "despertar",
+      "scene": "Naomi sozinha sobre terraço rachado mantém os pés plantados; uma raiz grossa cresce da pedra e se abre atrás dela como abrigo, enquanto o vento dobra o ambiente e sua postura permanece estável.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -768,6 +806,11 @@
     "naomi-a-que-permanece:impulso",
     "naomi-a-que-permanece:tecnica",
     "naomi-a-que-permanece:voto",
-    "naomi-a-que-permanece:despertar"
+    "naomi-a-que-permanece:despertar",
+    "naomi-a-raiz:passive",
+    "naomi-a-raiz:impulso",
+    "naomi-a-raiz:tecnica",
+    "naomi-a-raiz:voto",
+    "naomi-a-raiz:despertar"
   ]
 }

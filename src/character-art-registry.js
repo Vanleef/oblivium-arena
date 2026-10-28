@@ -278,4 +278,15 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/naomi-a-que-permanece/anime-first-completion-20261028/skill-despertar.webp"
     }
   }
+,
+  "naomi-a-raiz": {
+    "portrait": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  }
 };

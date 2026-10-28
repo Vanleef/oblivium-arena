@@ -152,7 +152,13 @@
     "naomi-a-que-permanece:base:impulso",
     "naomi-a-que-permanece:base:tecnica",
     "naomi-a-que-permanece:base:voto",
-    "naomi-a-que-permanece:base:despertar"
+    "naomi-a-que-permanece:base:despertar",
+    "naomi-a-raiz:base:portrait",
+    "naomi-a-raiz:base:passive",
+    "naomi-a-raiz:base:impulso",
+    "naomi-a-raiz:base:tecnica",
+    "naomi-a-raiz:base:voto",
+    "naomi-a-raiz:base:despertar"
   ],
   "pendingCorrections": []
 }
