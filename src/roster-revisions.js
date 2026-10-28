@@ -110,7 +110,7 @@ const animeRows = [
 ['a-que-une','Nanami','Tecelã de Destinos','Fate Weaver'],
 ['o-vinculo','Shota','Alma Protetora','Protective Soul'],
 ['os-tres-irmaos','Hikaru, Isamu e Ren','Trindade Fraterna','Brotherly Trinity'],
-['a-guardia-das-promessas','Sayuri','Guardião do Juramento','Oath Guardian'],
+['a-guardia-das-promessas','Sayuri','Guardiã do Juramento','Oath Guardian'],
 ['o-que-cria','Souta','Mestre das Criações','Master Creator'],
 ['a-semente','Kohana','Semente da Vida','Seed of Life'],
 ['o-cultivador','Yoshio','Cultivador da Esperança','Hope Cultivator'],
