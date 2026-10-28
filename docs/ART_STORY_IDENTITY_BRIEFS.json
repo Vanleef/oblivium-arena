@@ -52,6 +52,11 @@
       "name": "Nilo — Epílogo de Cinza",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita, olhos cinza-azulados. Roupa em camadas de linho carvão e cinza, muito gasta nas bordas, faixa índigo e um cordão ritual vermelho queimado. Fuligem no rosto, respiração curta e brilho de brasa sob o tecido mostram o custo da Expansão. Sem armadura ou arma.",
       "scene": "Inferno de Dante no Estige: rio negro-vermelho, basalto, arcos e colunatas enormes, almas condenadas em silhueta e focos quentes de brasa. Expansão usa cinza, fogo, seda vermelha e desgaste corporal, sem gore explícito nem objetos mecânicos."
+    },
+    "nilo-graca-epilogo": {
+      "name": "Nilo — Epílogo de Graça",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Manto marfim de mangas amplas com bordas geométricas em ouro antigo, roupa inferior carvão e faixa índigo. Postura serena, mas com sujeira e um corte curado que lembram a jornada. Graça expressa clareza e cuidado sem asas ou halo.",
+      "scene": "Paraíso Estelar de mármore elevado, jardins geométricos e água parada sob luz branca-dourada filtrada. Sombras azuladas, silêncio solene e estruturas verticais; marcas de proteção e exposição ficam na superfície de tecidos e sombras."
     }
   }
 }

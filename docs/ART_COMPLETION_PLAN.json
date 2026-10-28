@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 15,
-    "newAbilityScenesSaved": 56,
+    "newPortraitsSaved": 16,
+    "newAbilityScenesSaved": 62,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -10619,8 +10619,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "nilo-graca-epilogo:base:passive",
@@ -10629,8 +10631,10 @@
           "slot": "passive",
           "name": "Clareza Momentânea",
           "description": "Depois que Nilo remove um buff inimigo ou uma aflição de aliado, sua próxima skill causa +6 ou restaura +4 de Vida, o que for mais relevante.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "nilo-graca-epilogo:base:impulso",
@@ -10642,8 +10646,10 @@
           "name": "Sustento",
           "description": "Restaura 11 de Vida ao usuário.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "nilo-graca-epilogo:base:tecnica",
@@ -10655,8 +10661,10 @@
           "name": "Revelação",
           "description": "Causa 11 de dano espiritual a um inimigo. Remove 1 buff do alvo. Expõe o alvo até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "nilo-graca-epilogo:base:voto",
@@ -10668,8 +10676,10 @@
           "name": "Punho de Clareza",
           "description": "Causa 13 de dano físico a um inimigo. Se o alvo está Exposto: +4 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "nilo-graca-epilogo:base:despertar-4",
@@ -10681,8 +10691,10 @@
           "name": "Verdade que Prende",
           "description": "Causa 11 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno. Se o alvo está Exposto: +4 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-despertar-4.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-despertar-4.webp"
         },
         {
           "key": "nilo-graca-epilogo:base:despertar-5",
@@ -10694,11 +10706,13 @@
           "name": "Limiar",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-despertar-5.webp",
+          "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-despertar-5.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "nilo-ruptura-epilogo",
@@ -23982,8 +23996,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "nilo-graca-epilogo:base:passive",
@@ -23992,8 +24008,10 @@
       "slot": "passive",
       "name": "Clareza Momentânea",
       "description": "Depois que Nilo remove um buff inimigo ou uma aflição de aliado, sua próxima skill causa +6 ou restaura +4 de Vida, o que for mais relevante.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "nilo-graca-epilogo:base:impulso",
@@ -24005,8 +24023,10 @@
       "name": "Sustento",
       "description": "Restaura 11 de Vida ao usuário.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "nilo-graca-epilogo:base:tecnica",
@@ -24018,8 +24038,10 @@
       "name": "Revelação",
       "description": "Causa 11 de dano espiritual a um inimigo. Remove 1 buff do alvo. Expõe o alvo até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "nilo-graca-epilogo:base:voto",
@@ -24031,8 +24053,10 @@
       "name": "Punho de Clareza",
       "description": "Causa 13 de dano físico a um inimigo. Se o alvo está Exposto: +4 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "nilo-graca-epilogo:base:despertar-4",
@@ -24044,8 +24068,10 @@
       "name": "Verdade que Prende",
       "description": "Causa 11 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno. Se o alvo está Exposto: +4 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-despertar-4.webp"
     },
     {
       "key": "nilo-graca-epilogo:base:despertar-5",
@@ -24057,8 +24083,10 @@
       "name": "Limiar",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-graca-epilogo/anime-first-completion-20261028/skill-despertar-5.webp",
+      "source": "/art/source/nilo-graca-epilogo-anime-first-completion-20261028/skill-despertar-5.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:portrait",

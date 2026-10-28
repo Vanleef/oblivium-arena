@@ -335,6 +335,42 @@
       "slot": "despertar-6",
       "scene": "Nilo sozinho agachado sob arco quebrado; manto de cinza e seda vermelha recebe as brasas, protegendo-o no instante de impacto.",
       "allies": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "slot": "passive",
+      "scene": "Uma mulher mais velha de pele umber e cabelo curto prateado perde a película dourada que a protegia; fragmentos de luz retornam à mão de Nilo e preparam a resposta.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "slot": "impulso",
+      "scene": "Nilo sozinho sentado em degrau de mármore, mão sobre esterno e outra apoiando antebraço; a luz quente o ajuda a recuperar o fôlego.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "slot": "tecnica",
+      "scene": "Um homem mais velho de pele oliva e longa trança prateada perde a proteção falsa; uma linha exposta aparece no manto. Nilo observa à distância.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "slot": "voto",
+      "scene": "Nilo gira de lado e aplica um soco controlado às costelas de um homem robusto de pele bronze escura; a costura exposta no tecido acende no contato.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "slot": "despertar-4",
+      "scene": "Um homem de pele escura e cachos brancos se ajoelha; fios de luz prendem a sombra dele ao piso e enfraquecem o movimento sem ferir o corpo.",
+      "allies": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "slot": "despertar-5",
+      "scene": "Nilo sozinho, visto de cima no jardim geométrico; pétalas e fragmentos param na linha luminosa que marca o limite de sua proteção.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
