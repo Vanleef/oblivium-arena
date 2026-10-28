@@ -224,7 +224,13 @@
     "doggo:base:impulso",
     "doggo:base:tecnica",
     "doggo:base:voto",
-    "doggo:base:despertar"
+    "doggo:base:despertar",
+    "hans:base:portrait",
+    "hans:base:passive",
+    "hans:base:impulso",
+    "hans:base:tecnica",
+    "hans:base:voto",
+    "hans:base:despertar"
   ],
   "pendingCorrections": []
 }

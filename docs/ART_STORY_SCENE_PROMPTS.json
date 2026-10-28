@@ -1119,6 +1119,36 @@
       "slot": "despertar",
       "scene": "Doggo finge estar morto na lama sob chuva negra; corpo bípede de hound deitado de lado, pano vinho e túnica cinza puídos, membros dobrados sem tensão e uma orelha caída. Um olho âmbar fica entreaberto para vigiar a passagem vazia, enquanto uma fina camada de cinza escurece o contorno. Sem feridas ou outros personagens; quatro membros, uma cauda, articulações caninas plausíveis.",
       "allies": []
+    },
+    {
+      "id": "hans",
+      "slot": "passive",
+      "scene": "Exatamente três figuras no pomar de Podridão. Hans, homem maduro de pele umber, cabelo crespo grisalho, barba prateada, túnica verde-fuligem e xale vinho, apoia uma mão no peito e respira devagar enquanto uma brasa de cinza retorna a ele. Ao fundo, uma mulher pálida de cabeça raspada e um jovem de pele cobre com cachos negros carregam sinais escuros de decadência nas mangas. Distância clara, sem gore ou ação ofensiva.",
+      "allies": []
+    },
+    {
+      "id": "hans",
+      "slot": "impulso",
+      "scene": "Exatamente duas figuras entre espinheiros escuros. Hans inclina uma folha de aparência doente; pólen verde-negro alcança o ombro de uma mulher de pele oliva, laterais raspadas e trança longa. Ela prende a respiração e curva o peito, início natural de veneno, sem ferida. Plano lateral próximo, mãos simples e naturais.",
+      "allies": []
+    },
+    {
+      "id": "hans",
+      "slot": "tecnica",
+      "scene": "Exatamente quatro figuras: Hans à margem e três almas distintas no pomar alagado — mulher pálida de cabeça raspada em roupa ameixa, jovem cobre de cachos longos em roupa azul, pessoa idosa cinza-violeta de trança branca em roupa ocre. Vista alta diagonal; pétalas verde-escuras e cinza atravessam o chão e cobrem as roupas dos três, que cedem os ombros ao mesmo tempo. Área de decadência espiritual, sem gore ou explosão.",
+      "allies": []
+    },
+    {
+      "id": "hans",
+      "slot": "voto",
+      "scene": "Exatamente duas figuras sobre uma ponte de pedra. Uma mulher adulta de pele castanha e tranças cinza ergue uma pequena luz de cura, mas um ramo orgânico de espinheiro toca a roupa sobre seu ombro e o brilho se apaga; Hans segura o ramo com dedos cuidadosos e observa a interrupção. O alvo tensiona o corpo, sem perfuração da pele nem sangue. Close diagonal, mãos e pescoços naturais.",
+      "allies": []
+    },
+    {
+      "id": "hans",
+      "slot": "despertar",
+      "scene": "Hans sozinho dentro de um nicho natural formado por raízes antigas, recolhe o xale vinho ao redor do tronco e se agacha sobre o piso seco. Um véu de fungo e névoa fecha parte da entrada, deixando uma fenda para observar o pomar. Pose firme e cansada, alinhamento corporal natural, sem ferramentas, armas ou outros personagens.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1240,6 +1270,11 @@
     "doggo:impulso",
     "doggo:tecnica",
     "doggo:voto",
-    "doggo:despertar"
+    "doggo:despertar",
+    "hans:passive",
+    "hans:impulso",
+    "hans:tecnica",
+    "hans:voto",
+    "hans:despertar"
   ]
 }
