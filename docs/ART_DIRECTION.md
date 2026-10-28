@@ -14,9 +14,20 @@ As três imagens enviadas definem o acabamento de toda arte nova ou reformulada:
 
 As referências servem apenas para estilo. Não copiar cabelo branco, rosa vermelha, olho coberto, traje preto e vermelho ou características próprias da personagem mostrada. Cada design deve permanecer distinto e coerente com o personagem e seu Mundo. Preservar anatomia correta, ação natural, diversidade visual e restrições de conteúdo já registradas.
 
+## Regras de representação, composição e cobertura — atualização de 28/10/2026
+
+- Manter anatomia correta e coerente: contagem de dedos, mãos, pés, membros, articulações e proporções precisam estar legíveis e plausíveis.
+- Fazer poses, olhares e expressões responderem à ação e ao ambiente; evitar aparência de pose para foto. Tensão muscular, suor, sujeira, feridas e roupas alteradas devem decorrer do instante retratado.
+- Preservar rosto, corpo, cabelo, traços, proporções e demais sinais do personagem. Alterações só cabem quando forem consequência direta de habilidade, ativação de poder, forma ou transformação prevista no kit.
+- Variar etnia, tom de pele, cabelo, olhos, fisicalidade, altura e nível de humanidade ou monstruosidade entre personagens. Cada design deve refletir sua identidade, Elo e Mundo.
+- Em artes de habilidade com outras figuras, preferir criaturas coerentes com o Mundo; limitar aparições nomeadas a no máximo um personagem do elenco por kit completo, salvo quando a habilidade exigir beneficiários específicos.
+- Não usar instrumentos, armas ou equipamentos tecnológicos ou mecânicos. Preferir fios, laços, correntes, ossos, carne, chamas, sangue, luz, pedra, tecido e manifestações arcanas.
+- Variar enquadramento, ação, distância, ângulo e foco. Não repetir ataques frontais genéricos como composição dominante para skills de dano.
+- Ao produzir a arte de um personagem, cobrir a passiva, todas as skills e todas as formas, modos e variações do kit.
+
 **Frase obrigatória no fim de cada prompt de geração:**
 
-“Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica.”
+“Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. Poses e expressões devem ser naturais e coerentes com a cena, nunca como se estivessem posando. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.”
 
 
 ## Linha vigente: anime 2.5D (26/10/2026)

@@ -5,13 +5,13 @@
   "displayName": "Eiremir",
   "world": "Limbo",
   "realm": "Limbo",
-  "artDirection": "Anime 2.5D pictórico shonen no Limbo. Pessoa adulta andrógina de pele castanho-escura, cachos negros volumosos com reflexos violetas e olhos lilases claros, vestida em camadas de carvão e violeta. O vazio, os arcos quebrados e os fluxos violetas reforçam a anomalia espelhada. Paleta roxa, cinza, lilás e azul desbotado; anatomia e ação legíveis, sem tecnologia ou armas.",
+  "artDirection": "Anime 2.5D pictórico shonen no Limbo. Pessoa adulta andrógina de pele castanho-escura, cachos negros volumosos com reflexos violetas e olhos lilases claros, vestida em camadas de carvão e violeta. O vazio, os arcos quebrados e os fluxos violetas reforçam a anomalia espelhada. Paleta roxa, cinza, lilás e azul desbotado; anatomia e ação legíveis, sem tecnologia ou armas. Poses, olhares e expressões naturais e coerentes com a ação; preservar suas características físicas fora de efeitos previstos pelo kit.",
   "assets": [
     {
       "slot": "portrait",
       "path": "/art/characters/eiremir/anime-first-completion-20261028/portrait.webp",
       "source": "/art/source/eiremir-anime-first-completion-20261028/portrait.webp",
-      "scene": "Eiremir, pessoa adulta andrógina de pele castanho-escura, cachos negros volumosos com reflexos violetas e olhos lilases claros, encara o observador sob um manto carvão no Limbo."
+      "scene": "Eiremir se volta para uma fenda que se abre fora do quadro, atento ao movimento no Limbo, sob um manto carvão."
     },
     {
       "slot": "passive",
