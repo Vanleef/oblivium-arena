@@ -12,7 +12,8 @@ export function assertBattleState(b) {
   for (const u of [...b.allies,...b.enemies]) {
     assert.ok(Number.isInteger(u.hp) && u.hp >= 0 && u.hp <= u.maxHp, `${u.name}: Vida inválida`);
     assert.ok(Number.isInteger(u.shield) && u.shield >= 0 && u.shield <= Math.round(u.maxHp * .5), `${u.name}: Defesa inválida`);
-    assert.ok(u.abilities.length === 4 && u.abilities[3].defense && u.abilities[3].cooldown === 4, `${u.name}: defesa alterada`);
+    assert.ok(u.abilities.length >= 4 && u.abilities.at(-1).defense && u.abilities.at(-1).cooldown === 4, `${u.name}: defesa alterada`);
+    assert.equal(new Set(u.abilities.map(a=>a.id)).size,u.abilities.length,`${u.name}: identificadores de técnica duplicados`);
     for (const n of Object.values(u.cooldowns)) assert.ok(Number.isInteger(n) && n >= 0, `${u.name}: recarga inválida`);
   }
 }
