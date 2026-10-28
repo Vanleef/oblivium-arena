@@ -1,7 +1,33 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { elos, starters } from "../src/data.js";
+import { characters, elos, starters } from "../src/data.js";
 let draft=()=>{};
+test('o botão de áudio alterna e persiste a preferência no perfil',async()=>{
+ let audioSetting=null;const handlers={},app={innerHTML:"",addEventListener(type,handler){handlers[type]=handler;},querySelector(){return null;}};
+ globalThis.document={querySelector:()=>app,body:{dataset:{}}};globalThis.localStorage={getItem:key=>key==="pma-audio-enabled-v1"?audioSetting:null,setItem:(key,value)=>{if(key==="pma-audio-enabled-v1")audioSetting=value;}};
+ await import("../src/main.js?audio-toggle-regression=1");
+ const click=dataset=>handlers.click({target:{dataset,closest(selector){return selector.includes(`[data-${Object.keys(dataset)[0].replace(/[A-Z]/g,c=>"-"+c.toLowerCase())}]`)?this:null;}}});
+ click({tab:"profile"});assert.match(app.innerHTML,/data-action="audio-toggle">DESLIGAR SOM/);
+ click({action:"audio-toggle"});assert.equal(audioSetting,"off");assert.match(app.innerHTML,/data-action="audio-toggle">LIGAR SOM/);
+ click({action:"audio-toggle"});assert.equal(audioSetting,"on");assert.match(app.innerHTML,/data-action="audio-toggle">DESLIGAR SOM/);
+});
+
+test('busca por função e filtros de reino e Reino atualizam equipe e Codex',async()=>{
+ const {app,handlers,click}=setup();await import('../src/main.js?roster-filter-regression=1');click({tab:'trio'});
+ click({crewRealm:'Paraíso'});const paradise=characters.filter(c=>c.realm==='Paraíso');
+ assert.match(app.innerHTML,/data-crew-realm="Paraíso" aria-pressed="true"/);
+ assert.equal((app.innerHTML.match(/data-add-member=/g)||[]).length,paradise.length);
+ assert.match(app.innerHTML,/class="roster-card [^"]*unowned[^"]*" data-add-member="[^"]+" disabled/);
+ const target=paradise.find(c=>c.role);assert.ok(target);
+ handlers.input({target:{matches:()=>true,value:target.role,selectionStart:target.role.length}});
+ await new Promise(resolve=>setTimeout(resolve,150));assert.ok(app.innerHTML.includes(`data-add-member="${target.id}"`));
+ click({tab:'codex'});assert.match(app.innerHTML,/data-crew-realm="Paraíso" aria-pressed="true"/);
+ handlers.input({target:{matches:()=>true,value:'',selectionStart:0}});await new Promise(resolve=>setTimeout(resolve,150));
+ handlers.change({target:{matches:selector=>selector==='[data-codex-elo]',value:target.kingdomId}});
+ assert.match(app.innerHTML,new RegExp(`<option value="${target.kingdomId}" selected>`));
+ assert.equal((app.innerHTML.match(/<article class="codex-card/g)||[]).length,paradise.filter(c=>c.kingdomId===target.kingdomId).length);
+});
+
 test('Codex encontra a identidade atual por seu nome novo ou anterior e mostra a lore individual',async()=>{
  const {app,handlers,click}=setup();await import('../src/main.js?identity-revision=1');click({tab:'codex'});
  for(const [queries,name,folder] of [
