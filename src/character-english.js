@@ -555,7 +555,14 @@ const bodyFormEnglish = {
 const phrases = {};
 for (const character of characters) {
   const copy = characterCopy[character.id];
-  if (copy?.lore && character.lore) phrases[character.lore] = copy.lore;
+  if (copy?.lore && character.lore) {
+    let lore = copy.lore;
+    if (character.kingdomId === "flagelo") lore = lore.replaceAll("Bloodshed", "Scourge");
+    if (character.kingdomId === "magma") lore = lore.replaceAll("the Crown", "Magma").replaceAll("Crown", "Magma");
+    if (character.id === "o-acougueiro") lore = lore.replace("Balthasar Gérard", "Baltasar");
+    if (character.id === "o-que-pesa") lore = lore.replace("Crown's oppression", "oppression");
+    phrases[character.lore] = lore;
+  }
   if (copy?.combo && character.combo) phrases[character.combo] = copy.combo;
   if (copy?.passive && character.passive?.name) phrases[character.passive.name] = copy.passive;
   if (archetypeContexts[character.archetypeContext]) phrases[character.archetypeContext] = archetypeContexts[character.archetypeContext];
