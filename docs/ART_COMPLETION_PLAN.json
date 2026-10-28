@@ -11693,7 +11693,8 @@
           "name": "Retrato",
           "art": "/art/characters/kael/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "reviewed",
+          "source": "/art/source/kael-anime-first-completion-20261028-portrait.webp"
         },
         {
           "key": "kael:base:passive",
@@ -11702,8 +11703,10 @@
           "slot": "passive",
           "name": "Culpa que Alimenta",
           "description": "Uma vez por rodada, ferir um alvo com a Marca de Kael gera 1 Ruptura e 1 carga.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/kael-anime-first-completion-20261028-passive.webp"
         },
         {
           "key": "kael:base:impulso",
@@ -11715,8 +11718,10 @@
           "name": "Dever Mal Cumprido",
           "description": "Causa 13 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/kael-anime-first-completion-20261028-skill-impulso.webp"
         },
         {
           "key": "kael:base:tecnica",
@@ -11728,8 +11733,10 @@
           "name": "Passo do Executor",
           "description": "Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 de dano; consome a preparação.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/kael-anime-first-completion-20261028-skill-tecnica.webp"
         },
         {
           "key": "kael:base:voto",
@@ -11741,8 +11748,10 @@
           "name": "Preço da Ordem",
           "description": "Causa 21 de dano físico a um inimigo. O usuário perde 5 de Vida (não pode ser derrotado por este custo).",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/kael-anime-first-completion-20261028-skill-voto.webp"
         },
         {
           "key": "kael:base:despertar",
@@ -11754,11 +11763,13 @@
           "name": "Ajoelhar não é Ceder",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/kael-anime-first-completion-20261028-skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "kael-o-quebrado",
@@ -24846,7 +24857,8 @@
       "name": "Retrato",
       "art": "/art/characters/kael/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "reviewed"
+      "status": "reviewed",
+      "source": "/art/source/kael-anime-first-completion-20261028-portrait.webp"
     },
     {
       "key": "kael:base:passive",
@@ -24855,8 +24867,10 @@
       "slot": "passive",
       "name": "Culpa que Alimenta",
       "description": "Uma vez por rodada, ferir um alvo com a Marca de Kael gera 1 Ruptura e 1 carga.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/kael-anime-first-completion-20261028-passive.webp"
     },
     {
       "key": "kael:base:impulso",
@@ -24868,8 +24882,10 @@
       "name": "Dever Mal Cumprido",
       "description": "Causa 13 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/kael-anime-first-completion-20261028-skill-impulso.webp"
     },
     {
       "key": "kael:base:tecnica",
@@ -24881,8 +24897,10 @@
       "name": "Passo do Executor",
       "description": "Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 de dano; consome a preparação.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/kael-anime-first-completion-20261028-skill-tecnica.webp"
     },
     {
       "key": "kael:base:voto",
@@ -24894,8 +24912,10 @@
       "name": "Preço da Ordem",
       "description": "Causa 21 de dano físico a um inimigo. O usuário perde 5 de Vida (não pode ser derrotado por este custo).",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/kael-anime-first-completion-20261028-skill-voto.webp"
     },
     {
       "key": "kael:base:despertar",
@@ -24907,8 +24927,10 @@
       "name": "Ajoelhar não é Ceder",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/kael-anime-first-completion-20261028-skill-despertar.webp"
     },
     {
       "key": "kael-o-quebrado:base:portrait",

@@ -42,7 +42,12 @@
     "vaas:base:impulso",
     "vaas:base:tecnica",
     "vaas:base:voto",
-    "vaas:base:despertar"
+    "vaas:base:despertar",
+    "kael:base:passive",
+    "kael:base:impulso",
+    "kael:base:tecnica",
+    "kael:base:voto",
+    "kael:base:despertar"
   ],
   "pendingCorrections": []
 }
