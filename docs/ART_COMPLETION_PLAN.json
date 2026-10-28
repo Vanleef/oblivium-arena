@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 29,
-    "newAbilityScenesSaved": 146,
+    "newPortraitsSaved": 30,
+    "newAbilityScenesSaved": 151,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -12724,8 +12724,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/teras-o-observador-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "teras-o-observador:base:passive",
@@ -12734,8 +12736,10 @@
           "slot": "passive",
           "name": "Leitura da Fenda",
           "description": "Uma vez por rodada, ferir um alvo Exposto rouba 1 Essência inimiga e concede 1 carga.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/teras-o-observador-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "teras-o-observador:base:impulso",
@@ -12747,8 +12751,10 @@
           "name": "Margem Exposta",
           "description": "Causa 12 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/teras-o-observador-anime-first-completion-20261028/impulso.webp"
         },
         {
           "key": "teras-o-observador:base:tecnica",
@@ -12760,8 +12766,10 @@
           "name": "Vazio em Suspenso",
           "description": "Causa 16 de dano espiritual a um inimigo. Se o alvo está Exposto: +8 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/teras-o-observador-anime-first-completion-20261028/tecnica.webp"
         },
         {
           "key": "teras-o-observador:base:voto",
@@ -12773,8 +12781,10 @@
           "name": "Coleta Silenciosa",
           "description": "Causa 10 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/teras-o-observador-anime-first-completion-20261028/voto.webp"
         },
         {
           "key": "teras-o-observador:base:despertar",
@@ -12786,11 +12796,13 @@
           "name": "Passo para Trás",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/teras-o-observador-anime-first-completion-20261028/despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "victor",
@@ -26064,8 +26076,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/teras-o-observador-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "teras-o-observador:base:passive",
@@ -26074,8 +26088,10 @@
       "slot": "passive",
       "name": "Leitura da Fenda",
       "description": "Uma vez por rodada, ferir um alvo Exposto rouba 1 Essência inimiga e concede 1 carga.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/teras-o-observador-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "teras-o-observador:base:impulso",
@@ -26087,8 +26103,10 @@
       "name": "Margem Exposta",
       "description": "Causa 12 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/teras-o-observador-anime-first-completion-20261028/impulso.webp"
     },
     {
       "key": "teras-o-observador:base:tecnica",
@@ -26100,8 +26118,10 @@
       "name": "Vazio em Suspenso",
       "description": "Causa 16 de dano espiritual a um inimigo. Se o alvo está Exposto: +8 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/teras-o-observador-anime-first-completion-20261028/tecnica.webp"
     },
     {
       "key": "teras-o-observador:base:voto",
@@ -26113,8 +26133,10 @@
       "name": "Coleta Silenciosa",
       "description": "Causa 10 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/teras-o-observador-anime-first-completion-20261028/voto.webp"
     },
     {
       "key": "teras-o-observador:base:despertar",
@@ -26126,8 +26148,10 @@
       "name": "Passo para Trás",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/teras-o-observador/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/teras-o-observador-anime-first-completion-20261028/despertar.webp"
     },
     {
       "key": "victor:base:portrait",

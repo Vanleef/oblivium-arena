@@ -916,6 +916,36 @@
       "slot": "despertar",
       "scene": "Diana sozinha sentada ao lado de uma parede curva; uma mão no esterno e outra sustentando o corpo no mármore. Um arco sálvia-prateado envolve o corpo e partículas cinza-violetas se desfazem antes de tocá-la.",
       "allies": []
+    },
+    {
+      "id": "teras-o-observador",
+      "slot": "passive",
+      "scene": "Exatamente duas figuras em Blasfêmia: Teras observa uma linha violeta numa alma de pele umber e manto ocre; um mote de Essência sai da fenda no tecido e pousa na palma cerâmica aberta.",
+      "allies": []
+    },
+    {
+      "id": "teras-o-observador",
+      "slot": "impulso",
+      "scene": "Perspectiva por trás do ombro de Teras ao longo de um corredor de tumbas; uma linha violeta revela um único ponto de exposição no peito de um condenado anônimo.",
+      "allies": []
+    },
+    {
+      "id": "teras-o-observador",
+      "slot": "tecnica",
+      "scene": "Vista elevada sobre um limiar de basalto: uma alma andrógina de pele castanha escura e cabelos brancos paira um palmo sobre o vazio aberto sob sua marca exposta; Teras observa da borda oposta.",
+      "allies": []
+    },
+    {
+      "id": "teras-o-observador",
+      "slot": "voto",
+      "scene": "Close ao nível do chão: Teras recolhe um mote de luz violeta de uma alma idosa de pele cobre e trança branca; a cabeça do alvo baixa e a Essência se apaga, sem ferida ou sangue.",
+      "allies": []
+    },
+    {
+      "id": "teras-o-observador",
+      "slot": "despertar",
+      "scene": "Vista traseira de Teras dando um passo para trás por um limiar basaltino; um véu translúcido violeta em torno do manto dissolve cinza, três fendas oculares ainda voltadas à fissura.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1007,6 +1037,11 @@
     "diana-a-que-ainda-segura:impulso",
     "diana-a-que-ainda-segura:tecnica",
     "diana-a-que-ainda-segura:voto",
-    "diana-a-que-ainda-segura:despertar"
+    "diana-a-que-ainda-segura:despertar",
+    "teras-o-observador:passive",
+    "teras-o-observador:impulso",
+    "teras-o-observador:tecnica",
+    "teras-o-observador:voto",
+    "teras-o-observador:despertar"
   ]
 }

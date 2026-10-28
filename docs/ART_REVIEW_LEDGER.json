@@ -188,7 +188,13 @@
     "diana-a-que-ainda-segura:base:impulso",
     "diana-a-que-ainda-segura:base:tecnica",
     "diana-a-que-ainda-segura:base:voto",
-    "diana-a-que-ainda-segura:base:despertar"
+    "diana-a-que-ainda-segura:base:despertar",
+    "teras-o-observador:base:portrait",
+    "teras-o-observador:base:passive",
+    "teras-o-observador:base:impulso",
+    "teras-o-observador:base:tecnica",
+    "teras-o-observador:base:voto",
+    "teras-o-observador:base:despertar"
   ],
   "pendingCorrections": []
 }
