@@ -70,9 +70,9 @@ test("Atordoado cancela a ação adversária e não é limpo antes da vez corret
  const b=createBattle([ids[0]],[dummy(30)]);b.allies[0].abilities[0]={id:"parar",name:"Parar",target:"enemy",costs:{},damage:5,stun:1};
  b.enemyPlanner=()=>[{actorId:"treino",abilityId:"golpe",targetId:ids[0],side:"enemy"}];chooseAction(b,ids[0],"parar","treino");passTurn(b);assert.equal(b.allies[0].hp,100);assert.ok(b.log.some(l=>l.includes("Atordoado")));
 });
-test("os 400 efeitos e todas as passivas podem ser resolvidos sem kits ausentes",()=>{
- assert.equal(new Set(characters.flatMap(c=>c.abilities.map(a=>a.name))).size,400);
- for(const c of characters)for(const original of c.abilities){const b=createBattle([c.id],[dummy(0)]);rich(b);b.allies[0].hp=60;b.allies[0].charge=1;const a=b.allies[0].abilities.find(a=>a.id===original.id),target=["self","ally","team"].includes(a.target)?c.id:"treino";assert.equal(chooseAction(b,c.id,a.id,target).ok,true,`${c.name}/${a.name}`);assert.equal(passTurn(b),true);for(const u of [...b.allies,...b.enemies]){assert.ok(Number.isFinite(u.hp));assert.ok(u.hp>=0&&u.hp<=u.maxHp);assert.ok(u.shield>=0&&u.shield<=80);}}
+test("as 614 técnicas distintas e todas as passivas podem ser resolvidos sem kits ausentes",()=>{
+ assert.equal(new Set(characters.flatMap(c=>c.abilities.map(a=>a.name))).size,614);
+ for(const c of characters)for(const original of c.abilities){const b=createBattle([c.id],[dummy(0)]);rich(b);const actor=b.allies[0],foe=b.enemies[0];actor.hp=60;actor.charge=1;const a=actor.abilities.find(a=>a.id===original.id),target=["self","ally","team"].includes(a.target)?c.id:"treino";if(a.requiresAshExpansion)actor.ashExpansionTurns=2;if(a.requiresAnyCollapse||a.requiresCollapseI||a.closeCollapse||a.activateCollapse===2){actor.collapseLevel=1;actor.collapse1Used=true;}if(a.requiresGraceForm)actor.graceFormTurns=1;if(a.requiresPillar)actor.pillarOwnerId=actor.id;if(a.requiresInterventionCharge)actor.interventionCharge=1;if(a.requiresEchoLink){actor.resonanceTargetId=foe.id;actor.resonanceTurns=1;}assert.equal(chooseAction(b,c.id,a.id,target).ok,true,`${c.name}/${a.name}`);assert.equal(passTurn(b),true);for(const u of [...b.allies,...b.enemies]){assert.ok(Number.isFinite(u.hp));assert.ok(u.hp>=0&&u.hp<=u.maxHp);assert.ok(u.shield>=0&&u.shield<=80);}}
 });
 test("a Vida restante atravessa encontros e elites recebem escala de encontro",()=>{
  const b=createBattle(ids,[dummy()],{teamHealth:{[ids[0]]:61}});assert.equal(b.allies[0].hp,61);
