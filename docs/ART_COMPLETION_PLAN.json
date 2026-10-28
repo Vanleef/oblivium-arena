@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 24,
-    "newAbilityScenesSaved": 121,
+    "newPortraitsSaved": 25,
+    "newAbilityScenesSaved": 126,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -11964,8 +11964,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "kael-o-quebrado:base:passive",
@@ -11974,8 +11976,10 @@
           "slot": "passive",
           "name": "Resposta à Ruptura",
           "description": "Uma vez por rodada, ativar um Contra-ataque gera 1 Ruptura e 1 carga.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "kael-o-quebrado:base:impulso",
@@ -11987,8 +11991,10 @@
           "name": "Guarda Estilhaçada",
           "description": "Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 12 de dano. Dura 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "kael-o-quebrado:base:tecnica",
@@ -12000,8 +12006,10 @@
           "name": "Interrupção Tardia",
           "description": "Causa 12 de dano perfurante a um inimigo. Atordoa por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "kael-o-quebrado:base:voto",
@@ -12013,8 +12021,10 @@
           "name": "Punho sem Ordem",
           "description": "Causa 20 de dano físico a um inimigo. Consome Cargas: +3 de dano por Carga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "kael-o-quebrado:base:despertar",
@@ -12026,11 +12036,13 @@
           "name": "Fragmento de Escudo",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "kael-o-filhote-de-ferro",
@@ -25340,8 +25352,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "kael-o-quebrado:base:passive",
@@ -25350,8 +25364,10 @@
       "slot": "passive",
       "name": "Resposta à Ruptura",
       "description": "Uma vez por rodada, ativar um Contra-ataque gera 1 Ruptura e 1 carga.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "kael-o-quebrado:base:impulso",
@@ -25363,8 +25379,10 @@
       "name": "Guarda Estilhaçada",
       "description": "Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 12 de dano. Dura 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "kael-o-quebrado:base:tecnica",
@@ -25376,8 +25394,10 @@
       "name": "Interrupção Tardia",
       "description": "Causa 12 de dano perfurante a um inimigo. Atordoa por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "kael-o-quebrado:base:voto",
@@ -25389,8 +25409,10 @@
       "name": "Punho sem Ordem",
       "description": "Causa 20 de dano físico a um inimigo. Consome Cargas: +3 de dano por Carga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "kael-o-quebrado:base:despertar",
@@ -25402,8 +25424,10 @@
       "name": "Fragmento de Escudo",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/kael-o-quebrado-anime-first-completion-20261028/skill-despertar.webp"
     },
     {
       "key": "kael-o-filhote-de-ferro:base:portrait",

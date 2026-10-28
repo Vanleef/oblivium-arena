@@ -289,4 +289,15 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/naomi-a-raiz/anime-first-completion-20261028/skill-despertar.webp"
     }
   }
+,
+  "kael-o-quebrado": {
+    "portrait": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/kael-o-quebrado/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  }
 };

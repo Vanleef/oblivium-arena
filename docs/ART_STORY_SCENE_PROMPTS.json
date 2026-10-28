@@ -745,6 +745,36 @@
       "slot": "despertar",
       "scene": "Naomi sozinha sobre terraço rachado mantém os pés plantados; uma raiz grossa cresce da pedra e se abre atrás dela como abrigo, enquanto o vento dobra o ambiente e sua postura permanece estável.",
       "allies": []
+    },
+    {
+      "id": "kael-o-quebrado",
+      "slot": "passive",
+      "scene": "Close oblíquo: Kael desvia uma faixa de força de um eco sem rosto com o antebraço e a corrente quebrada; dois fragmentos violeta-avermelhados se soltam e um mote de carga reúne-se acima do pulso.",
+      "allies": []
+    },
+    {
+      "id": "kael-o-quebrado",
+      "slot": "impulso",
+      "scene": "Plano lateral amplo: Kael finca os pés e cruza o antebraço diante do peito enquanto um golpe de sombra atinge uma película fragmentada; a força se curva de volta ao eco distante.",
+      "allies": []
+    },
+    {
+      "id": "kael-o-quebrado",
+      "slot": "tecnica",
+      "scene": "Vista lateral um pouco alta: Kael agarra a manga de um viajante ecoado no instante em que cruza uma soleira; a faixa de sombra atrás do movimento corta-se numa linha violeta fina.",
+      "allies": []
+    },
+    {
+      "id": "kael-o-quebrado",
+      "slot": "voto",
+      "scene": "Close dinâmico de lado: o punho fechado de Kael atinge o manto de um eco sem rosto; o tecido comprime, o alvo recua e três pequenos motes violeta-vermelhos se apagam junto à corrente.",
+      "allies": []
+    },
+    {
+      "id": "kael-o-quebrado",
+      "slot": "despertar",
+      "scene": "Kael sozinho no limiar incompleto, em postura estável com um antebraço erguido; três fragmentos planos de pedra e sombra detêm a poeira sem formar armadura ou esfera.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -811,6 +841,11 @@
     "naomi-a-raiz:impulso",
     "naomi-a-raiz:tecnica",
     "naomi-a-raiz:voto",
-    "naomi-a-raiz:despertar"
+    "naomi-a-raiz:despertar",
+    "kael-o-quebrado:passive",
+    "kael-o-quebrado:impulso",
+    "kael-o-quebrado:tecnica",
+    "kael-o-quebrado:voto",
+    "kael-o-quebrado:despertar"
   ]
 }

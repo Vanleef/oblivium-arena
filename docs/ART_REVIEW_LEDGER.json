@@ -158,7 +158,13 @@
     "naomi-a-raiz:base:impulso",
     "naomi-a-raiz:base:tecnica",
     "naomi-a-raiz:base:voto",
-    "naomi-a-raiz:base:despertar"
+    "naomi-a-raiz:base:despertar",
+    "kael-o-quebrado:base:portrait",
+    "kael-o-quebrado:base:passive",
+    "kael-o-quebrado:base:impulso",
+    "kael-o-quebrado:base:tecnica",
+    "kael-o-quebrado:base:voto",
+    "kael-o-quebrado:base:despertar"
   ],
   "pendingCorrections": []
 }
