@@ -9,8 +9,8 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 606,
-    "baseMissing": 317,
+    "basePresent": 611,
+    "baseMissing": 312,
     "entriesWithAnyBaseMissing": 50,
     "entriesWithoutAnyBaseArt": 44,
     "brokenExplicitReferences": 0,
@@ -21,6 +21,7 @@
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
     "reviewedSlots": 27,
+    "correctionSlots": 5,
     "fullyReviewedEntries": 2,
     "pendingSlots": 971
   },
@@ -1299,10 +1300,7 @@
       "cohort": "story",
       "baseSlots": 6,
       "missingSlots": [
-        "nilo:base:passive",
         "nilo:base:impulso",
-        "nilo:base:tecnica",
-        "nilo:base:voto",
         "nilo:base:despertar"
       ],
       "pendingDedicatedForms": [],
@@ -1550,8 +1548,6 @@
       "baseSlots": 6,
       "missingSlots": [
         "naomi:base:passive",
-        "naomi:base:impulso",
-        "naomi:base:tecnica",
         "naomi:base:voto",
         "naomi:base:despertar"
       ],

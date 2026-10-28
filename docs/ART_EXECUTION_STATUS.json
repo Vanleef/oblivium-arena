@@ -1,0 +1,43 @@
+{
+  "complete": false,
+  "status": "blocked_image_generation_quota",
+  "tool": "built-in image_gen",
+  "errorType": "usage_limit_reached",
+  "httpStatus": 429,
+  "resetAtUnix": 1793177273,
+  "resetAtLocal": "2026-10-28T05:47:53-03:00",
+  "scope": {
+    "runtimeEntries": 150,
+    "logicalArtSlots": 998
+  },
+  "newPortraitsSaved": 6,
+  "newAbilityScenesSaved": 5,
+  "scenesBlockedByQuota": [
+    {
+      "id": "nilo",
+      "slot": "despertar"
+    },
+    {
+      "id": "nilo",
+      "slot": "impulso"
+    },
+    {
+      "id": "naomi",
+      "slot": "passive"
+    },
+    {
+      "id": "naomi",
+      "slot": "voto"
+    }
+  ],
+  "unstartedInCurrentBatch": 21,
+  "nextActions": [
+    "Finish Nilo's missing impulse and personal-defense images.",
+    "Simplify the backgrounds on Nilo's portrait and three generated scenes before final style approval.",
+    "Remove the tiny background figures from Vaas's portrait.",
+    "Complete Naomi's passive, team ward and personal defense.",
+    "Continue the saved scene prompts and the full 150-entry work queue."
+  ],
+  "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion."
+}
+

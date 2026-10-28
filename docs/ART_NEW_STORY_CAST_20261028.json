@@ -41,12 +41,42 @@
     "nilo": {
       "status": "portrait_reviewed_abilities_pending",
       "activePortrait": "/art/characters/nilo/anime-first-completion-20261028/portrait.webp",
-      "sourcePortrait": "art/source/full-roster/nilo-portrait.webp"
+      "sourcePortrait": "art/source/full-roster/nilo-portrait.webp",
+      "generatedScenes": {
+        "tecnica": {
+          "activePath": "/art/characters/nilo/anime-first-completion-20261028/skill-tecnica.webp",
+          "sourcePath": "art/source/full-roster/nilo-tecnica.webp",
+          "reviewStatus": "needs_correction"
+        },
+        "passive": {
+          "activePath": "/art/characters/nilo/anime-first-completion-20261028/passive.webp",
+          "sourcePath": "art/source/full-roster/nilo-passive.webp",
+          "reviewStatus": "needs_correction"
+        },
+        "voto": {
+          "activePath": "/art/characters/nilo/anime-first-completion-20261028/skill-voto.webp",
+          "sourcePath": "art/source/full-roster/nilo-voto.webp",
+          "reviewStatus": "needs_correction"
+        }
+      },
+      "portraitReviewStatus": "needs_correction"
     },
     "naomi": {
       "status": "portrait_reviewed_abilities_pending",
       "activePortrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
-      "sourcePortrait": "art/source/full-roster/naomi-portrait.webp"
+      "sourcePortrait": "art/source/full-roster/naomi-portrait.webp",
+      "generatedScenes": {
+        "impulso": {
+          "activePath": "/art/characters/naomi/anime-first-completion-20261028/skill-impulso.webp",
+          "sourcePath": "art/source/full-roster/naomi-impulso.webp",
+          "reviewStatus": "visually_reviewed"
+        },
+        "tecnica": {
+          "activePath": "/art/characters/naomi/anime-first-completion-20261028/skill-tecnica.webp",
+          "sourcePath": "art/source/full-roster/naomi-tecnica.webp",
+          "reviewStatus": "visually_reviewed"
+        }
+      }
     },
     "kael": {
       "status": "portrait_reviewed_abilities_pending",
@@ -56,7 +86,8 @@
     "vaas": {
       "status": "portrait_reviewed_abilities_pending",
       "activePortrait": "/art/characters/vaas/anime-first-completion-20261028/portrait.webp",
-      "sourcePortrait": "art/source/full-roster/vaas-portrait.webp"
+      "sourcePortrait": "art/source/full-roster/vaas-portrait.webp",
+      "portraitReviewStatus": "needs_correction"
     },
     "diana": {
       "status": "portrait_reviewed_abilities_pending",
@@ -68,6 +99,6 @@
       "activePortrait": "/art/characters/teras/anime-first-completion-20261028/portrait.webp",
       "sourcePortrait": "art/source/full-roster/teras-portrait.webp"
     }
-  }
+  },
+  "status": "in_progress_blocked_by_image_generation_quota"
 }
-

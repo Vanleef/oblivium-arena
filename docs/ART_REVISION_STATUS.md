@@ -564,3 +564,10 @@ Foram recuperadas as rotas de A Matriarca, O Incendiário e O Regulador, incluin
 
 Nilo, Naomi, Kael, Vaas, Diana e Teras receberam seus primeiros retratos anime. As demais cenas desses seis conjuntos permanecem pendentes nesta etapa. Há 606 imagens base presentes e 317 ausentes; 44 entradas ainda não têm imagem base alguma. As 36 variantes que compartilham a imagem base foram registradas para criação de arte própria. A auditoria reproduzível e a fila completa estão em ART_CATALOG_COVERAGE.json e ART_COMPLETION_PLAN.json; presença de arquivo não é aprovação de estilo.
 
+
+
+## Estado de execução — limite do gerador de imagens
+
+Retornaram mais cinco cenas: Registro Aberto, Fio de Memória e Devolver o Eco de Nilo; Brasa que Permanece e Mão Estendida de Naomi. São onze ilustrações novas nesta etapa, contando os seis retratos. Os quatro quadros de Nilo (retrato e três cenas) ainda pedem simplificação do cenário, e o retrato de Vaas pede remoção de pequenas figuras ao fundo; esses cinco itens estão marcados para correção, sem aprovação final de estilo. As duas cenas de Naomi foram revisadas.
+
+O gerador integrado devolveu HTTP 429 / usage_limit_reached e bloqueou novas chamadas. A ferramenta informou liberação em 28/10/2026 às 05:47:53 no fuso America/Recife. O trabalho não está concluído. A fila, os prompts e o bloqueio foram persistidos; há 611 posições base presentes e 312 ausentes. A presença de um arquivo provisório não equivale à conclusão visual do conjunto.

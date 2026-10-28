@@ -1,0 +1,209 @@
+{
+  "tool": "built-in image_gen",
+  "status": "blocked_by_image_generation_quota",
+  "commonPrompt": "One square ability illustration for Oblivium Arena, clean hand-drawn ANIME cel animation. Reference image 1 is the caster's exact identity and clothing; further images depict ONLY the named allies required in the scene. Preserve recognizable faces, hair, costume and proportions. Broad flat colors, crisp black contours, one or two large hard-edged shadow planes per surface, smooth matte materials, simple drawn enemies. Background quiet and lower contrast, depth through perspective and overlapping planes. No realistic skin or material grain, painterly noise, glossy CGI, dense particle spray, excessive bloom, cinematic blur or realistic gore. All heads and pupils follow their actual target, beneficiary, contact point or movement; nobody looks at viewer during action. Human hands normal size, five fingers when visible, aligned wrists and plausible grips. Enemies are unarmored ash ghouls, never generic armored soldiers. Exactly the stated figures, no background people or extra faces. Vary camera, distance and staging, avoid posed lineups. Clear action at 512px. No letters, writing, UI, numbers, borders or split panels.",
+  "jobs": [
+    {
+      "id": "nilo",
+      "slot": "passive",
+      "scene": "Nilo and ONE unarmored ghoul, exactly TWO figures. Side view across a narrow Vestíbulo ledge with one ruined doorway and pale violet-gray mist. Ghoul at right spends TWO tiny ivory Essence wisps on its own spell; Nilo at left watches it closely and records ONE small flat lavender residue notch near his dark cuff. The wisps extinguish rather than heal him. Quiet observation and trace recording, no physical attack, no extra phantom Nilo.",
+      "allies": []
+    },
+    {
+      "id": "nilo",
+      "slot": "impulso",
+      "scene": "Nilo and ONE ghoul, exactly TWO figures. Medium side action under a broken Vestíbulo arch: Nilo's open palm contacts the ghoul's sternum with a small flat violet spiritual pulse. ONE ivory reserve spark breaks and vanishes beside the ghoul, showing removal rather than healing or life absorption. Nilo's head and eyes follow his palm contact at right. Ghoul recoils without gore. Ivory mantle trails with his step, small sensible hands, no giant foreground palm.",
+      "allies": []
+    },
+    {
+      "id": "nilo",
+      "slot": "tecnica",
+      "scene": "Nilo and ONE ghoul, exactly TWO figures. Elevated diagonal view over a quiet cracked Vestíbulo bridge. Nilo at upper right watches the ghoul at lower left; a thin blue-violet memory filament marks the ghoul's wrist and chest with one small angular mark. The ghoul attempts a spell, and the same thread folds back against its own forearm, suggesting a delayed self-inflicted response. Keep only ONE target, no other caster copies, no enormous magic circle. Sparse graphic energy and broad ash-gray negative space.",
+      "allies": []
+    },
+    {
+      "id": "nilo",
+      "slot": "voto",
+      "scene": "Nilo and ONE ghoul, exactly TWO figures. Eye-level long diagonal action beside a shallow still Vestíbulo pool. Nilo leans forward from left midground and sends one compact violet echo pulse at the ghoul to right. TWO tiny stored residue notches near his cuff dissolve into that single pulse, showing optional spending of at most two residues. No multiplied enemy or ghost people. His eyes aim at the ghoul's chest, one clear impact star, no all-over lightning.",
+      "allies": []
+    },
+    {
+      "id": "nilo",
+      "slot": "despertar",
+      "scene": "Exactly ONE character, Nilo alone. Full figure side/rear three-quarter walking through a narrow broken Vestíbulo doorway, head and eyes following the path ahead at right. His ivory mantle and a close angular pale-gray ward plane keep small falling stone splinters from reaching him, while the edge of his body reads briefly intangible. One body only, no duplicate silhouette, no spherical bubble or halo. Quiet pale mist, two broad architectural shapes, a little violet threshold line. Personal defense and invulnerability, no allies or enemies.",
+      "allies": []
+    },
+    {
+      "id": "naomi",
+      "slot": "passive",
+      "scene": "Exactly THREE party members: Naomi, Nilo and Kael. Naomi supports Nilo by gripping his injured forearm while Kael keeps watch a step behind them. One small flat warm-ivory guard plate forms near EACH of the three, showing team defense triggered by helping another ally. Naomi looks at Nilo's arm, Nilo at Naomi, Kael down the path. Natural physical support, no lineup or camera stare. Current Kingdom Estelar: ivory terrace under a broad dark blue star vault, sparse flat stars, no halos or wings.",
+      "allies": [
+        "nilo",
+        "kael"
+      ]
+    },
+    {
+      "id": "naomi",
+      "slot": "impulso",
+      "scene": "Naomi and ONE unarmored ghoul, exactly TWO figures. Low oblique full-body action on Estelar steps: she plants her feet and strikes the ghoul's upper chest with the heel of her wrapped palm. One small warm-ochre mark appears at impact. This is a modest physical palm strike and mark, not a fire projectile. Her eyes and head follow the contact at left. Sturdy stance, elbow and wrist aligned, hand normal scale. Sage mantle moves in broad cel planes; quiet ivory and midnight-blue background.",
+      "allies": []
+    },
+    {
+      "id": "naomi",
+      "slot": "tecnica",
+      "scene": "Exactly TWO figures, Naomi healing Kael. Eye-level intimate side view in a sheltered Estelar arcade. Kael sits on a low stone step; Naomi kneels and gently wraps his injured forearm with a cloth band. One restrained warm ivory healing line curls along the band to suggest continuing regeneration. Naomi's eyes focus on the bandaged wound, Kael looks down at her hand. Preserve his mature stubbled face, slate coat, rust inner wrap and chain band. No ghoul, no third person, no glowing spherical aura.",
+      "allies": [
+        "kael"
+      ]
+    },
+    {
+      "id": "naomi",
+      "slot": "voto",
+      "scene": "Exactly THREE allies: Naomi, Nilo, Kael. Elevated view as the trio moves along a curved Estelar terrace, staggered and helping one another rather than posing. Naomi is central, Nilo slightly ahead at right, Kael a step behind at left. Three simple flat ivory ward facets protect them while small dark affliction ribbons peel away from EACH ally and dissolve. Naomi's attention follows the group, all heads oriented along the route. No enemies, halos or bubbles; quiet blue star vault and broad pale architecture.",
+      "allies": [
+        "nilo",
+        "kael"
+      ]
+    },
+    {
+      "id": "naomi",
+      "slot": "despertar",
+      "scene": "Exactly ONE Naomi. Medium full-body profile facing left on a wind-swept Estelar terrace. She plants her wrapped feet, folds her own sage mantle close across her chest and holds position while small ash splinters glance off a few broad angular ivory ward folds. Her eyes track incoming splinters at left. Personal defense and invulnerability, no ally protected, no other figure. Her expression is determined care, not aggression. Quiet large midnight-blue and pale stone shapes, sparse effects, no halo or bubble.",
+      "allies": []
+    },
+    {
+      "id": "kael",
+      "slot": "passive",
+      "scene": "Kael and ONE marked unarmored ghoul, exactly TWO figures. Medium side view on washed pale Purgatório steps. Kael has just struck the marked ghoul with his single chipped straight short sword; the ghoul recoils, one small angular own mark on its chest. ONE compact violet Ruptura fragment and one simple charge notch settle at Kael's broken iron forearm band. No healing, no extra target or ghost. His tired gray eyes follow the ghoul at right, natural blade grip and wrist, broad matte slate and rust shapes.",
+      "allies": []
+    },
+    {
+      "id": "kael",
+      "slot": "impulso",
+      "scene": "Kael and ONE ghoul, exactly TWO figures. Eye-level three-quarter action in a Purgatório stone passage. Kael drives the hilt of his ONE chipped straight short sword against the ghoul's shoulder, causing a small flat rust-red angular mark without blood spray. Head and eyes attend to this contact at right. His slate field coat is smooth and drawn with few folds, rust inner wrap, stubble and pale temple streak preserved. No armor soldier, no giant sword, background lower contrast.",
+      "allies": []
+    },
+    {
+      "id": "kael",
+      "slot": "tecnica",
+      "scene": "Kael and ONE previously marked ghoul, exactly TWO figures. Low lateral view on a narrow Purgatório stair landing. Kael at right lunges with his single straight short sword into the ghoul's marked torso at left, a clean narrow piercing line and one muted impact shape, non-graphic. The small own mark breaks and fades at the same contact, representing consumed preparation. No extra shield-breaking effect or enemies. Kael's pupils follow the ghoul's chest, forward knee aligned, normal-scale gripping hand and realistic joint structure drawn in anime cel planes.",
+      "allies": []
+    },
+    {
+      "id": "kael",
+      "slot": "voto",
+      "scene": "Kael and ONE ghoul, exactly TWO figures. Wider diagonal view down a Purgatório staircase. Kael commits a heavy descending sword strike at the ghoul to right, visibly straining under the cost. One small dark-violet stress fissure at his own chain-bound forearm and a pained brow suggest self-cost, no self-stabbing or graphic wounds. One sword, one victim, direct contact and clear movement. He watches the impact, not camera. Pale ash sky and quiet broad stone terraces.",
+      "allies": []
+    },
+    {
+      "id": "kael",
+      "slot": "despertar",
+      "scene": "Exactly ONE Kael. Side view, medium full figure: he kneels on one knee on a Purgatório terrace without surrendering, his single short sword braced across his forearm close to his body. A compact flat gray-violet ward plane deflects a few stone splinters from off frame. His eyes focus on the incoming fragments at upper left. No attacker shown, no allies, no bubble, no extra blade. Preserve stubble, pale temple streak, matte slate coat, rust wrap and broken chain band; simple shapes and restrained light.",
+      "allies": []
+    },
+    {
+      "id": "vaas",
+      "slot": "passive",
+      "scene": "Vaas and ONE unarmored ghoul, exactly TWO figures. Tight side action beside a Malebolge blind arch. A blank dark-ivory mask-shaped own mark sits on the ghoul's chest; Vaas applies a small teal shadow strike and the target's raised attacking arm visibly weakens and droops. Vaas's amber eye follows the marked enemy at right. Keep his lavender-gray skin, left porcelain half-mask, plum-black hair, plum coat and teal lining. His secondary profile is only an intrinsic flat shadow, not another character. No life-drain beam, no additional masks becoming people.",
+      "allies": []
+    },
+    {
+      "id": "vaas",
+      "slot": "impulso",
+      "scene": "Vaas and ONE ghoul, exactly TWO figures. High oblique view over a crooked Malebolge stone channel. Vaas places a thin flat dark-teal falsehood thread across the ghoul's shadow, and one small blank half-mask-shaped mark appears at the ghoul's upper chest. The target flinches from affliction, not a physical sword slash. Vaas leans in from left, his visible eye and head follow the target at lower right. Single quiet contact shape, broad matte plum/ochre/gray background, no extra people or readable text.",
+      "allies": []
+    },
+    {
+      "id": "vaas",
+      "slot": "tecnica",
+      "scene": "Vaas and ONE ghoul, exactly TWO figures. Eye-level opposite-side staging: Vaas at right extends a normal-scale gloved hand toward the ghoul at left. One narrow teal poison veil touches the ghoul's shoulder; a small dull-green mark and tired posture suggest poison. ONE ivory reserve spark travels from the enemy toward Vaas's silver clasp, representing stealing one Essence. His gaze follows the ghoul and the spark. No many tendrils, no giant cloud, no extra target or graphic injury. Malebolge's stepped trench walls are quiet flat silhouettes.",
+      "allies": []
+    },
+    {
+      "id": "vaas",
+      "slot": "voto",
+      "scene": "Exactly ONE Vaas. Chest-to-knee three-quarter view in a sheltered Malebolge recess. He lifts his blank porcelain left half-mask slightly away from his own cheek with one sensible gloved hand; small dark affliction ribbons peel from his coat and dissolve. A single close flat ivory mask-shaped guard plane forms beside his torso. Self cleanse and defense, no ally or enemy, no person behind him. Preserve his recognizable lavender face, plum hair, amber eye, teal-lined coat and silver clasp. Large clean shadow areas, no bloom or painterly grain.",
+      "allies": []
+    },
+    {
+      "id": "vaas",
+      "slot": "despertar",
+      "scene": "Exactly ONE Vaas. Elevated diagonal full figure stepping sideways through the flat shadow of a Malebolge arch; his long plum-black coat curves with the movement. One blank angular porcelain ward panel intercepts a small incoming ash shard at upper left. His amber eye and head turn toward that shard; no gaze at viewer. Only one body, any second profile remains a flat cast shadow on the wall. Personal invulnerability, no ally, no enemy, no bubble. Restrained teal accent, quiet ochre-gray trench architecture.",
+      "allies": []
+    },
+    {
+      "id": "diana",
+      "slot": "passive",
+      "scene": "Exactly THREE allies: Diana, Nilo, Kael. Diana finishes wrapping Nilo's forearm at center; Kael sits a step behind to right, visibly more exhausted. A restrained secondary pale-blue healing pulse follows the ground from Diana's completed healing toward Kael, the more wounded ally. Diana turns her attention toward him. Both beneficiaries retain their own faces and clothes. Current Kingdom Lua: pale stone pool terrace and quiet silver-blue reflection, broad shapes. No enemy, medical device, extra figure, spherical glow or UI.",
+      "allies": [
+        "nilo",
+        "kael"
+      ]
+    },
+    {
+      "id": "diana",
+      "slot": "impulso",
+      "scene": "Exactly TWO figures: Diana healing Nilo. Low side view beside Lua's still pool steps. Diana kneels at right and supports Nilo's injured wrist with both sensible hands while one small flat pale-blue restorative pulse settles into the wrist. Both heads and eyes focus on the contact, Nilo's ivory mantle and indigo sash recognizable. No enemy, no third ally, no modern medical device or huge halo. Gentle physical care with clear limb anatomy and a quiet moonlit stone background.",
+      "allies": [
+        "nilo"
+      ]
+    },
+    {
+      "id": "diana",
+      "slot": "tecnica",
+      "scene": "Diana and ONE unarmored ghoul, exactly TWO figures. Eye-level long diagonal scene along Lua's pale terrace. Diana at left points two aligned fingers toward a precise point on the ghoul's chest at right; one thin ivory-blue spiritual piercing line contacts that point and leaves a small clear angular mark. Non-graphic, no syringe, needle device, sword, blood spray or body diagram. Her blue eyes follow the target point. One ghoul only, pale crescent reflected in a simplified pool well behind, restrained effects and matte cel shapes.",
+      "allies": []
+    },
+    {
+      "id": "diana",
+      "slot": "voto",
+      "scene": "Exactly TWO figures: Diana and Kael. Close elevated three-quarter view on Lua's sheltered low steps. Diana stitches a CLEAN CLOTH bandage around Kael's forearm with a short thread of pale-blue healing light, no open wound or medical instruments. Three simple drawn thread turns suggest continuing regeneration; a dark affliction ribbon drops away from his shoulder. Diana watches the bandage, Kael looks at the repaired arm. Preserve his chain band positioned away from bandage and slate/rust clothing. No third person, no enemy, no broad healing explosion.",
+      "allies": [
+        "kael"
+      ]
+    },
+    {
+      "id": "diana",
+      "slot": "despertar",
+      "scene": "Exactly ONE Diana. Medium side profile facing right on a quiet Lua platform. She steadies her own breathing, one normal hand gently at her sternum and the other gathering her off-white healer coat close; a tiny blue healing pulse rests beneath her palm. Broad flat ivory-blue ward folds around the coat deflect a few small ash fragments from right, conveying personal defense and invulnerability. Her gaze follows incoming fragments. No ally or enemy, no sphere, halo, wings or medical device. Quiet silver pool and pale architecture, sparse effects.",
+      "allies": []
+    },
+    {
+      "id": "teras",
+      "slot": "passive",
+      "scene": "Teras and ONE ghoul, exactly TWO figures. Wide side view in a Blasfêmia tomb corridor. Teras's three ivory eye apertures point toward the ghoul, which still bears a dull violet-black Decadência mark. ONE enemy reserve spark crumbles beside the ghoul, while a separate tiny ivory-violet Ether facet forms near Teras's ceramic forearm. The observer studies the lingering status without a physical strike. Obsidian ceramic head and ivory jaw plate, no human mouth, hood or crown. Quiet sealed tombs with dull red seams, no writing or extra souls.",
+      "allies": []
+    },
+    {
+      "id": "teras",
+      "slot": "impulso",
+      "scene": "Teras and ONE ghoul, exactly TWO figures. Low diagonal view between Blasfêmia tomb plinths. Teras at right turns all THREE ivory eye apertures toward the ghoul at lower left. Three very thin violet sight lines converge on ONE small angular mark on that ghoul's sternum, a compact spiritual impact. One target only, no copies or giant rays. Preserve smooth elongated obsidian ceramic head, bone-white lower jaw plate, indigo mantle and flat ivory collar. No human face or realistic stone texture, restrained contrast.",
+      "allies": []
+    },
+    {
+      "id": "teras",
+      "slot": "tecnica",
+      "scene": "Teras and ONE ghoul, exactly TWO figures. Elevated medium view across a shallow tomb threshold in Blasfêmia. Teras's long ceramic hand, normal five-finger anatomy, lays a single violet decay imprint at the ghoul's shoulder; broad dark ash flakes peel from the target's covering to reveal a small brighter exposed chest mark. Represent spiritual decay and exposure without gore, muscle detail or extra victims. Teras's three eyes follow the same target at right. Large quiet indigo/gray shadow planes and sealed dull-red tomb seams.",
+      "allies": []
+    },
+    {
+      "id": "teras",
+      "slot": "voto",
+      "scene": "Teras and ONE ghoul, exactly TWO figures. Eye-level side scene on a Blasfêmia tomb stair. The ghoul at right attempts to weave one faint green support ribbon around its own forearm; Teras at left interrupts it with a single thin violet rectangular clasp across that same arm and a small spiritual contact flash. Seal support on this ONE target, no ally being healed or unseen caster. Teras's head and all three eye apertures angle toward the sealed wrist. Clean matte ceramic body, indigo mantle, broad quiet architecture; no readable signs or text.",
+      "allies": []
+    },
+    {
+      "id": "teras",
+      "slot": "despertar",
+      "scene": "Exactly ONE Teras. Slightly high close three-quarter view of the observer perfectly still in a Blasfêmia sealed tomb courtyard. His indigo mantle and a few broad dark-ivory geometric ward folds form a close personal frame at shoulders while one small basalt shard glances off at left. All three eyes watch that shard, head oriented toward it. No human face, hood, crown, other person or body duplicate. Personal invulnerability, no team ward, no spherical bubble. Smooth cel planes, quiet gray tomb silhouettes and tiny red seam accents.",
+      "allies": []
+    }
+  ],
+  "generatedSceneKeys": [
+    "nilo:tecnica",
+    "naomi:impulso",
+    "nilo:passive",
+    "nilo:voto",
+    "naomi:tecnica"
+  ]
+}

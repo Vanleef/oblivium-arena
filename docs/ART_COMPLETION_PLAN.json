@@ -1,6 +1,48 @@
 {
   "goal": "Complete all runtime characters, every ability including additional skills, ability variants and body-form portraits.",
-  "status": "in_progress",
+  "status": "blocked_image_generation_quota",
+  "executionStatus": {
+    "complete": false,
+    "status": "blocked_image_generation_quota",
+    "tool": "built-in image_gen",
+    "errorType": "usage_limit_reached",
+    "httpStatus": 429,
+    "resetAtUnix": 1793177273,
+    "resetAtLocal": "2026-10-28T05:47:53-03:00",
+    "scope": {
+      "runtimeEntries": 150,
+      "logicalArtSlots": 998
+    },
+    "newPortraitsSaved": 6,
+    "newAbilityScenesSaved": 5,
+    "scenesBlockedByQuota": [
+      {
+        "id": "nilo",
+        "slot": "despertar"
+      },
+      {
+        "id": "nilo",
+        "slot": "impulso"
+      },
+      {
+        "id": "naomi",
+        "slot": "passive"
+      },
+      {
+        "id": "naomi",
+        "slot": "voto"
+      }
+    ],
+    "unstartedInCurrentBatch": 21,
+    "nextActions": [
+      "Finish Nilo's missing impulse and personal-defense images.",
+      "Simplify the backgrounds on Nilo's portrait and three generated scenes before final style approval.",
+      "Remove the tiny background figures from Vaas's portrait.",
+      "Complete Naomi's passive, team ward and personal defense.",
+      "Continue the saved scene prompts and the full 150-entry work queue."
+    ],
+    "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion."
+  },
   "scope": {
     "rosterEntries": 150,
     "originalEntries": 100,
@@ -10083,7 +10125,8 @@
           "name": "Retrato",
           "art": "/art/characters/nilo/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "needs_correction",
+          "correction": "Simplify detailed stone surfaces in the background while preserving the character."
         },
         {
           "key": "nilo:base:passive",
@@ -10092,8 +10135,10 @@
           "slot": "passive",
           "name": "Registro Aberto",
           "description": "Sempre que um inimigo gastar 2 ou mais Essências, Nilo grava 1 Resíduo (máx. 3). Só Devolver o Eco pode gastar Resíduos; gastar é opcional.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/nilo/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "needs_correction",
+          "correction": "Simplify detailed stone surfaces in the background while preserving the action and identity."
         },
         {
           "key": "nilo:base:impulso",
@@ -10118,8 +10163,10 @@
           "name": "Fio de Memória",
           "description": "Marca o alvo por 2 turnos. Se o alvo usar uma skill na próxima vez: causa 6 de dano de aflição ao próprio alvo. Ativa uma vez.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/nilo/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "needs_correction",
+          "correction": "Simplify detailed stone surfaces in the background while preserving the mark, gaze and anatomy."
         },
         {
           "key": "nilo:base:voto",
@@ -10131,8 +10178,10 @@
           "name": "Devolver o Eco",
           "description": "Causa 13 de dano espiritual a um inimigo. Pode gastar até 2 Resíduos; cada um acrescenta +3 ao dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/nilo/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "needs_correction",
+          "correction": "Simplify detailed stone surfaces in the background while preserving the single target and echo effect."
         },
         {
           "key": "nilo:base:despertar",
@@ -11401,8 +11450,9 @@
           "name": "Brasa que Permanece",
           "description": "Causa 11 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/naomi/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "naomi:base:tecnica",
@@ -11414,8 +11464,9 @@
           "name": "Mão Estendida",
           "description": "Restaura 13 de Vida ao aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/naomi/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "naomi:base:voto",
@@ -11879,7 +11930,8 @@
           "name": "Retrato",
           "art": "/art/characters/vaas/anime-first-completion-20261028/portrait.webp",
           "exists": true,
-          "status": "reviewed"
+          "status": "needs_correction",
+          "correction": "Remove tiny background figures so the portrait contains only the character."
         },
         {
           "key": "vaas:base:passive",
@@ -23386,7 +23438,8 @@
       "name": "Retrato",
       "art": "/art/characters/nilo/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "reviewed"
+      "status": "needs_correction",
+      "correction": "Simplify detailed stone surfaces in the background while preserving the character."
     },
     {
       "key": "nilo:base:passive",
@@ -23395,8 +23448,10 @@
       "slot": "passive",
       "name": "Registro Aberto",
       "description": "Sempre que um inimigo gastar 2 ou mais Essências, Nilo grava 1 Resíduo (máx. 3). Só Devolver o Eco pode gastar Resíduos; gastar é opcional.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/nilo/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "needs_correction",
+      "correction": "Simplify detailed stone surfaces in the background while preserving the action and identity."
     },
     {
       "key": "nilo:base:impulso",
@@ -23421,8 +23476,10 @@
       "name": "Fio de Memória",
       "description": "Marca o alvo por 2 turnos. Se o alvo usar uma skill na próxima vez: causa 6 de dano de aflição ao próprio alvo. Ativa uma vez.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/nilo/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "needs_correction",
+      "correction": "Simplify detailed stone surfaces in the background while preserving the mark, gaze and anatomy."
     },
     {
       "key": "nilo:base:voto",
@@ -23434,8 +23491,10 @@
       "name": "Devolver o Eco",
       "description": "Causa 13 de dano espiritual a um inimigo. Pode gastar até 2 Resíduos; cada um acrescenta +3 ao dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/nilo/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "needs_correction",
+      "correction": "Simplify detailed stone surfaces in the background while preserving the single target and echo effect."
     },
     {
       "key": "nilo:base:despertar",
@@ -24560,8 +24619,9 @@
       "name": "Brasa que Permanece",
       "description": "Causa 11 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/naomi/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "naomi:base:tecnica",
@@ -24573,8 +24633,9 @@
       "name": "Mão Estendida",
       "description": "Restaura 13 de Vida ao aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/naomi/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "naomi:base:voto",
@@ -24966,7 +25027,8 @@
       "name": "Retrato",
       "art": "/art/characters/vaas/anime-first-completion-20261028/portrait.webp",
       "exists": true,
-      "status": "reviewed"
+      "status": "needs_correction",
+      "correction": "Remove tiny background figures so the portrait contains only the character."
     },
     {
       "key": "vaas:base:passive",
