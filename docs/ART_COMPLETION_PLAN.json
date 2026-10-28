@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 16,
-    "newAbilityScenesSaved": 62,
+    "newPortraitsSaved": 17,
+    "newAbilityScenesSaved": 68,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -10729,8 +10729,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "nilo-ruptura-epilogo:base:passive",
@@ -10739,8 +10741,10 @@
           "slot": "passive",
           "name": "Sombra Preparada",
           "description": "Depois de usar uma skill de furtividade, escolha +4 de dano na próxima skill ou faça a próxima skill de resposta anular qualquer tipo.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "nilo-ruptura-epilogo:base:impulso",
@@ -10752,8 +10756,10 @@
           "name": "Passo no Vazio",
           "description": "Causa 12 de dano físico a um inimigo. Nilo fica em Furtividade por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "nilo-ruptura-epilogo:base:tecnica",
@@ -10765,8 +10771,10 @@
           "name": "Corte Silencioso",
           "description": "Causa 12 de dano físico a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos. Se Nilo estiver em Furtividade, causa +5 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "nilo-ruptura-epilogo:base:voto",
@@ -10778,8 +10786,10 @@
           "name": "Armadilha de Sombra",
           "description": "Marca o alvo por 2 turnos. Se o alvo usar uma skill ofensiva na próxima vez: causa 9 de dano de aflição ao próprio alvo e expõe o agressor. Ativa uma vez.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "nilo-ruptura-epilogo:base:despertar-4",
@@ -10791,8 +10801,10 @@
           "name": "Resposta do Vazio",
           "description": "Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 12 de dano físico. Dura 1 turno. Ao ativar, aplica Decadência: 3 de dano de aflição por 2 turnos.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-4.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-despertar-4.webp"
         },
         {
           "key": "nilo-ruptura-epilogo:base:despertar-5",
@@ -10804,11 +10816,13 @@
           "name": "Limiar",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-5.webp",
+          "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-despertar-5.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "nilo-cinza-final",
@@ -24094,8 +24108,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:passive",
@@ -24104,8 +24120,10 @@
       "slot": "passive",
       "name": "Sombra Preparada",
       "description": "Depois de usar uma skill de furtividade, escolha +4 de dano na próxima skill ou faça a próxima skill de resposta anular qualquer tipo.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:impulso",
@@ -24117,8 +24135,10 @@
       "name": "Passo no Vazio",
       "description": "Causa 12 de dano físico a um inimigo. Nilo fica em Furtividade por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:tecnica",
@@ -24130,8 +24150,10 @@
       "name": "Corte Silencioso",
       "description": "Causa 12 de dano físico a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos. Se Nilo estiver em Furtividade, causa +5 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:voto",
@@ -24143,8 +24165,10 @@
       "name": "Armadilha de Sombra",
       "description": "Marca o alvo por 2 turnos. Se o alvo usar uma skill ofensiva na próxima vez: causa 9 de dano de aflição ao próprio alvo e expõe o agressor. Ativa uma vez.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:despertar-4",
@@ -24156,8 +24180,10 @@
       "name": "Resposta do Vazio",
       "description": "Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 12 de dano físico. Dura 1 turno. Ao ativar, aplica Decadência: 3 de dano de aflição por 2 turnos.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-despertar-4.webp"
     },
     {
       "key": "nilo-ruptura-epilogo:base:despertar-5",
@@ -24169,8 +24195,10 @@
       "name": "Limiar",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-5.webp",
+      "source": "/art/source/nilo-ruptura-epilogo-anime-first-completion-20261028/skill-despertar-5.webp"
     },
     {
       "key": "nilo-cinza-final:base:portrait",

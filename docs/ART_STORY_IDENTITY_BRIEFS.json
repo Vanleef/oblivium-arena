@@ -57,6 +57,11 @@
       "name": "Nilo — Epílogo de Graça",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Manto marfim de mangas amplas com bordas geométricas em ouro antigo, roupa inferior carvão e faixa índigo. Postura serena, mas com sujeira e um corte curado que lembram a jornada. Graça expressa clareza e cuidado sem asas ou halo.",
       "scene": "Paraíso Estelar de mármore elevado, jardins geométricos e água parada sob luz branca-dourada filtrada. Sombras azuladas, silêncio solene e estruturas verticais; marcas de proteção e exposição ficam na superfície de tecidos e sombras."
+    },
+    "nilo-ruptura-epilogo": {
+      "name": "Nilo — Epílogo de Ruptura",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com uma mecha marfim sobre a sobrancelha direita. Manto amplo carvão e índigo, roupa simples de tecido escuro e punhos gastos; sem armadura. Sua silhueta continua esguia e atlética, enquanto a postura atenta e o tecido marcado pelo caminho mostram a prontidão de uma alma no Umbral.",
+      "scene": "Limbo Umbral: corredores góticos incompletos, colunas interrompidas, vãos sem portas e degraus suspensos dentro de névoa cinza-violeta. O vazio e a passagem sugerem escolha e ocultação; luz fria filtrada recorta as dobras do manto."
     }
   }
 }

@@ -371,6 +371,42 @@
       "slot": "despertar-5",
       "scene": "Nilo sozinho, visto de cima no jardim geométrico; pétalas e fragmentos param na linha luminosa que marca o limite de sua proteção.",
       "allies": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "slot": "passive",
+      "scene": "Nilo agachado junto a uma parede de pedra sem porta; uma única sombra se ramifica em dois caminhos possíveis, visualizando a escolha preparada após a furtividade.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "slot": "impulso",
+      "scene": "Em vista lateral, Nilo desvia um passo e toca o ombro de uma mulher de pele escura e físico robusto; o manto se confunde com a sombra de uma coluna, completando o Passo no Vazio.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "slot": "tecnica",
+      "scene": "Close oblíquo do Corte Silencioso: Nilo surge atrás de um homem mais velho de pele clara e cabelo prateado; uma linha violeta espacial corta sem gore o ombro do manto, revelando o sangramento.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "slot": "voto",
+      "scene": "Uma jovem de pele acobreada e cabelo ruivo curto ergue a mão enquanto a própria sombra se enrola em seu pulso e ombro; Nilo observa parcialmente oculto atrás de uma coluna.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "slot": "despertar-4",
+      "scene": "Nilo intercepta de lado o arco de força de uma besta-sombra de névoa e pedra com uma lâmina plana de sombra; o golpe retorna à criatura e deixa marcas violetas de Decadência.",
+      "allies": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "slot": "despertar-5",
+      "scene": "Nilo sozinho, em ângulo diagonal baixo, se apoia no limiar de pedra quebrado; fragmentos caem e atravessam a borda evanescente do manto enquanto sua silhueta se mistura ao vão sem porta.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -378,6 +414,12 @@
     "naomi:impulso",
     "nilo:passive",
     "nilo:voto",
-    "naomi:tecnica"
+    "naomi:tecnica",
+    "nilo-ruptura-epilogo:passive",
+    "nilo-ruptura-epilogo:impulso",
+    "nilo-ruptura-epilogo:tecnica",
+    "nilo-ruptura-epilogo:voto",
+    "nilo-ruptura-epilogo:despertar-4",
+    "nilo-ruptura-epilogo:despertar-5"
   ]
 }

@@ -91,7 +91,14 @@
     "nilo-graca-epilogo:base:tecnica",
     "nilo-graca-epilogo:base:voto",
     "nilo-graca-epilogo:base:despertar-4",
-    "nilo-graca-epilogo:base:despertar-5"
+    "nilo-graca-epilogo:base:despertar-5",
+    "nilo-ruptura-epilogo:base:portrait",
+    "nilo-ruptura-epilogo:base:passive",
+    "nilo-ruptura-epilogo:base:impulso",
+    "nilo-ruptura-epilogo:base:tecnica",
+    "nilo-ruptura-epilogo:base:voto",
+    "nilo-ruptura-epilogo:base:despertar-4",
+    "nilo-ruptura-epilogo:base:despertar-5"
   ],
   "pendingCorrections": []
 }
