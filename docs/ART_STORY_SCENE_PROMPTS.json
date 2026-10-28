@@ -875,6 +875,47 @@
       "slot": "despertar",
       "scene": "Vista traseira baixa de Diana firmando os pés na escadaria; um arco de luz marfim e fios vinho envolve o corpo e desfaz uma maré de partículas violetas.",
       "allies": []
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "slot": "passive",
+      "scene": "Exatamente três pessoas: Diana termina de cuidar de um aliado e uma linha azul-prateada segue pelo piso até outra aliada, visivelmente mais exausta; uma centelha de Graça surge no fio.",
+      "allies": [
+        "jovem adulto oliva, alto, cabelo preto cacheado curto, roupa verde-petróleo",
+        "mulher adulta negra, cabelo prateado curto cacheado, manto ferrugem"
+      ]
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "slot": "impulso",
+      "scene": "Vista alta de terraços circulares; linhas azul-prateadas partem de Diana e alcançam dois aliados distintos, incluindo a si própria, com três pequenos focos de luz restauradora.",
+      "allies": [
+        "adulto de pele umber, trança longa cor de ferrugem, túnica verde-musgo",
+        "pessoa andrógina alta, pele castanha escura, cabelo crespo, manto azul"
+      ]
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "slot": "tecnica",
+      "scene": "Close lateral de Diana envolvendo o antebraço de uma aliada com linho limpo; pontos de luz acompanham o tecido e uma fita cinza de aflição se dissolve.",
+      "allies": [
+        "mulher adulta de pele castanha profunda, cachos curtos lilases, túnica ameixa"
+      ]
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "slot": "voto",
+      "scene": "Escadaria de mármore, exatamente três figuras: uma mulher idosa negra com microtranças brancas cede sobre um joelho, um homem baixo e robusto de rosto asiático a ampara, e Diana estende a mão sob um manto azul-prateado que envolve o trio.",
+      "allies": [
+        "mulher idosa negra, microtranças brancas, manto azul-pálido",
+        "homem asiático baixo e robusto, coroa raspada, túnica verde-musgo"
+      ]
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "slot": "despertar",
+      "scene": "Diana sozinha sentada ao lado de uma parede curva; uma mão no esterno e outra sustentando o corpo no mármore. Um arco sálvia-prateado envolve o corpo e partículas cinza-violetas se desfazem antes de tocá-la.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -961,6 +1002,11 @@
     "diana-a-guarda:impulso",
     "diana-a-guarda:tecnica",
     "diana-a-guarda:voto",
-    "diana-a-guarda:despertar"
+    "diana-a-guarda:despertar",
+    "diana-a-que-ainda-segura:passive",
+    "diana-a-que-ainda-segura:impulso",
+    "diana-a-que-ainda-segura:tecnica",
+    "diana-a-que-ainda-segura:voto",
+    "diana-a-que-ainda-segura:despertar"
   ]
 }

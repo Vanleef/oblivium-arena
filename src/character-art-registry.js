@@ -325,5 +325,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/diana-a-guarda/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/diana-a-guarda/anime-first-completion-20261028/skill-despertar.webp"
     }
+  },
+  "diana-a-que-ainda-segura": {
+    "portrait": "/art/characters/diana-a-que-ainda-segura/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/diana-a-que-ainda-segura/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/diana-a-que-ainda-segura/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/diana-a-que-ainda-segura/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/diana-a-que-ainda-segura/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/diana-a-que-ainda-segura/anime-first-completion-20261028/skill-despertar.webp"
+    }
   }
 };

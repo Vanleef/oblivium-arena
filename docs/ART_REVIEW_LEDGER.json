@@ -182,7 +182,13 @@
     "diana-a-guarda:base:impulso",
     "diana-a-guarda:base:tecnica",
     "diana-a-guarda:base:voto",
-    "diana-a-guarda:base:despertar"
+    "diana-a-guarda:base:despertar",
+    "diana-a-que-ainda-segura:base:portrait",
+    "diana-a-que-ainda-segura:base:passive",
+    "diana-a-que-ainda-segura:base:impulso",
+    "diana-a-que-ainda-segura:base:tecnica",
+    "diana-a-que-ainda-segura:base:voto",
+    "diana-a-que-ainda-segura:base:despertar"
   ],
   "pendingCorrections": []
 }
