@@ -78,3 +78,8 @@ Mensageira: cartas, origamis e evasão; O que Revela: monóculo transparente e p
 ## Âncoras visuais e lore infernal — 25/10/2026
 
 As imagens aprovadas pelo usuário para a linha de arte são os retratos de O Fim, O Revelador e O Vidente. Toda arte de personagem deve ser comparada a essas três referências; um rótulo “híbrido” ou um caminho atualizado não substitui inspeção visual. Os seres do Inferno são quase todos vis e movidos pela maldade; não criar personagens bondosos nesse domínio. Alguns podem discordar de O Fim sem serem bondosos. Aplicar a regra conforme a origem e a lore canônicas.
+
+
+## Direção do olhar — 28/10/2026
+
+Em cenas de ação, alinhar pupilas, orientação da cabeça e inclinação do pescoço à posição real do alvo, impacto, objeto observado ou direção do movimento. Conferir esse alinhamento na composição completa e no recorte de uso. O olhar para a câmera depende de intenção explícita da cena; retratos podem manter essa escolha. Incluir a revisão de olhar junto da anatomia, empunhadura, identidade e contagem de alvos.

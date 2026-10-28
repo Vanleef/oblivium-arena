@@ -88,6 +88,73 @@
         "skill-despertar.webp": "self"
       },
       "kitStatus": "Unchanged"
+    },
+    "a-juiza-de-ferro": {
+      "displayName": "A Magistrada",
+      "activeRoute": "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "kingdomTheme": "Greed and waste crushed beneath colossal weights.",
+      "sourceAssets": [
+        "art/source/a-magistrada-anime-first-rework-20261028-portrait.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-passive.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-impulso.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-tecnica.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-voto.webp",
+        "art/source/a-magistrada-anime-first-rework-20261028-skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/portrait.webp",
+        "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/passive.webp",
+        "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/skill-impulso.webp",
+        "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/skill-tecnica.webp",
+        "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/skill-voto.webp",
+        "/art/characters/a-juiza-de-ferro/anime-first-rework-20261028/skill-despertar.webp"
+      ],
+      "alternateFormAssets": [],
+      "abilityTargetReview": {
+        "passive.webp": "one exposed enemy",
+        "skill-impulso.webp": "one enemy",
+        "skill-tecnica.webp": "one enemy",
+        "skill-voto.webp": "one enemy",
+        "skill-despertar.webp": "self only"
+      },
+      "kitStatus": "Unchanged",
+      "generation": {
+        "tool": "built-in image_gen",
+        "identityReference": "art/characters/a-juiza-de-ferro/portrait.webp",
+        "stylePrompt": "Anime-forward 2.5D, drawn ink contours, flat cel-shadow planes, expressive stylized face, painted environment depth. Preserve copper curls with pale temple strands, warm dark brown skin, amber eyes, rectangular earrings, iron collar, burgundy-black judicial coat and ivory neckcloth. Iron-faceted jaw/neck and ember fissures reinforce infernal identity. Magma: colossal basalt weights and crushed wasted gold. Normal anatomy, no text, no extra targets, no generic soldiers.",
+        "scenes": {
+          "portrait": "Asset: portrait. Exactly ONE character, Magistrada only. Tight chest-up three-quarter view as she turns her head in cold contempt, one shoulder higher, slight high camera looking across her gaze. Behind her, deep out-of-focus ash-gray weigh pits with immense hovering square basalt weights and crushed gold in narrow seams. Copper curls silhouette clear. Black, burgundy and muted brass palette with pale ash light. Hands outside frame.",
+          "passive": "Asset: passive Lei do Mais Forte. Exactly TWO figures: Magistrada and ONE lean unarmored gray ghoul enemy. Wide side-on action at middle distance. She has just hit the exposed ghoul with a short blunt rectangular iron judicial baton; ghoul staggers backward, a small sharp crimson vulnerability fissure glows on its chest. A SINGLE ivory enemy essence spark breaks and extinguishes beside the ghoul, while two small overlapping iron guard plates settle beside Magistrada's shoulder. This visualizes striking an exposed enemy, gaining a little defense and destroying an enemy reserve spark, not healing or absorbing life. Location: ash-swept ledge under giant suspended basalt weight. Clear full-body silhouettes and small hands.",
+          "skill-impulso": "Asset: Acusação Imposta, single-target physical attack applying exposure and sealing support. Exactly TWO figures: Magistrada and ONE lean unarmored ghoul. Low oblique action composition: she drives her short block-headed iron baton into the ghoul's shoulder; a small angular crimson iron brand fractures open on its upper chest, while a single pale attempted support ribbon behind that SAME target is pinched shut by an angular iron clasp. Keep clear physical contact and bodily recoil. Location: sloped floor of a colossal abandoned weighing basin littered with flattened gold, no other bodies. Her right hand grips baton naturally, keep hand small and partly hidden by baton guard.",
+          "skill-tecnica": "Asset: Interdição da Defesa, one enemy stunned and defense broken. Exactly TWO figures: Magistrada and ONE unarmored ash ghoul. Eye-level lateral action on a narrow basalt causeway over a gold-crushing pit. Magistrada sweeps her iron baton across the ghoul's raised translucent angular shield; shield splits into a few broad chunks, ghoul crumples to one knee, head bowed and stunned. Baton and right wrist aligned, normal anatomy, faces in profile and medium distance. This is a single defense-breaking strike, no group, no extra victims. Dust and fabric motion support the action.",
+          "skill-voto": "Asset: Sentença de Submissão, concentrated piercing damage to one exposed enemy. Exactly TWO figures: Magistrada and ONE unarmored ghoul. Dramatic elevated diagonal view, long compressed perspective showing her in near-left MIDGROUND and the target across a cracked basalt weighing platform. She points her iron baton level at the exposed target; a single narrow spear-shaped wedge of black iron edged in pale amber shoots through the ghoul's brittle guard toward its torso, visible impact and one red vulnerability fissure, non-graphic. No multiplying missiles, no area attack, no other people. Her robe and curls bend in same blast direction. Gold flattened under massive distant weights.",
+          "skill-despertar": "Asset: Toga Inviolável, personal invulnerability. Exactly ONE character: Magistrada alone. Full figure from rear three-quarter at middle distance, moving steadily across a field of crushed coin-disks and ash while turning her amber eye toward viewer. Her actual dark burgundy toga flares into a close-fitting angular mantle of overlapping iron shadow planes, shielding her body. Falling small basalt debris glances off the mantle in white sparks. No bubble, no halo, no sphere, no allies, no enemies, no combat targets. A colossal stone weight hangs far above, strong negative space and pale ash fog, asymmetrical scene."
+        },
+        "gazeCorrections": [
+          {
+            "slot": "passive",
+            "edit": "Rotate the Magistrada's head into a clear right-facing profile and aim BOTH pupils directly at the ghoul's face at the right of the image. Her attention must visibly follow the opponent she is striking. Chin slightly lowered toward the target; no eye contact with viewer."
+          },
+          {
+            "slot": "skill-impulso",
+            "edit": "Turn and lower Magistrada's head toward the ghoul immediately below and to her right. Both pupils focus on the ghoul's upper chest at the baton contact point. The line from her eyes must slope down-right into the actual impact. Her stern face must be in a stronger right-facing profile, not aimed out of the image or toward viewer."
+          },
+          {
+            "slot": "skill-tecnica",
+            "edit": "Turn Magistrada's face into clear right-facing profile, chin slightly down. Both eyes focus on the kneeling ghoul and the shattering shield immediately to the right, following the extended baton. No pupil aimed at camera. Eyes and head must visibly participate in this strike."
+          },
+          {
+            "slot": "skill-voto",
+            "edit": "Strongly rotate and tilt Magistrada's head down-right, looking along the long black iron projectile to the ghoul's chest at the LOWER RIGHT. BOTH pupils must point down-right to the ghoul, not horizontally or out toward camera. Use a convincing three-quarter-to-profile head angle with the nose and chin aimed toward this actual lower-right target. Do not move her body, arm, target or projectile."
+          },
+          {
+            "slot": "skill-despertar",
+            "edit": "Magistrada should look FORWARD along her walking path toward the far right of the scene, not turn back to look at the viewer. Rotate only her head/upper neck away from camera so we see her right-facing profile and a little back of head. Her visible amber pupil looks forward-right slightly down toward the path ahead. Preserve the pose, robe and walking direction."
+          }
+        ]
+      }
     }
   },
   "visualReview": {
@@ -101,7 +168,8 @@
       "O Soberano preserves his established identity and follows Magma's theme of greed and waste crushed under colossal weights.",
       "His single-target scenes show one ghoul; both area variants show exactly three enemies; self-focused defenses show only him.",
       "The group ward shows O Soberano, A Magistrada, and O Príncipe bracing beneath a falling basalt slab in an angled combat scene.",
-      "No generic armored soldiers, extra targets, or gameplay changes were introduced."
+      "No generic armored soldiers, extra targets, or gameplay changes were introduced.",
+      "A Magistrada: six scenes reviewed for identity, single-target actions, self-only invulnerability, anatomy and gaze alignment. Five scenes received targeted corrections to eyes, head angle and neck orientation."
     ]
   }
 }

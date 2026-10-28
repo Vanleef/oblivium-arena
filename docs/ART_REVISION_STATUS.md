@@ -532,3 +532,9 @@ O Soberano recebeu seis artes base e três imagens adicionais para as variantes 
 As cenas foram revisadas contra os alvos do kit: impulso e técnica base mostram um ghoul cada; as duas variantes de área mostram exatamente três inimigos; as defesas pessoais mostram apenas O Soberano. A arte de apoio de equipe mostra O Soberano, A Magistrada e O Príncipe sustentando uma laje de basalto em queda, numa composição lateral de combate.
 
 O kit e seus valores permanecem iguais. A contagem anime-first permanece em 28/100 conjuntos (168/600 sprites); a revisão visual de Inferno passa a 14/55 personagens, com 41 pendentes.
+
+## A Magistrada — anime-first em Magma (28/10/2026)
+
+Seis artes de A Magistrada foram refeitas em Magma. O retrato conserva os cachos cobre, fios claros nas têmporas, brincos retangulares e toga de ferro; o pescoço facetado e as fissuras de brasa reforçam sua presença infernal. Passiva e ataques mostram exatamente um ghoul por cena. Acusação Imposta evidencia exposição e interdição do apoio; Interdição da Defesa rompe a guarda; Sentença de Submissão concentra o golpe perfurante; Toga Inviolável mostra apenas a usuária.
+
+Cinco quadros receberam correção específica de olhos, cabeça e pescoço: a atenção acompanha o alvo ou o caminho de deslocamento. A revisão de olhar agora integra a direção geral de arte. As regras do kit permanecem iguais. Revisão de Inferno: 15/55 personagens, 40 pendentes. A contagem anime-first permanece 28/100 conjuntos base.
