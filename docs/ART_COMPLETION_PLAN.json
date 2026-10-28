@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 34,
-    "newAbilityScenesSaved": 171,
+    "newPortraitsSaved": 35,
+    "newAbilityScenesSaved": 176,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13199,8 +13199,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/doggo/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/doggo-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "doggo:base:passive",
@@ -13209,8 +13211,10 @@
           "slot": "passive",
           "name": "Ração de Emergência",
           "description": "Ao derrubar uma alma, recupera 5 de Vida e gera 1 Cinza; uma vez por rodada.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/doggo/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/doggo-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "doggo:base:impulso",
@@ -13222,8 +13226,10 @@
           "name": "Mordida de Cobrança",
           "description": "Causa 12 de dano físico a um inimigo. Restaura ao usuário 20% do dano causado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/doggo/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/doggo-anime-first-completion-20261028/impulso.webp"
         },
         {
           "key": "doggo:base:tecnica",
@@ -13235,8 +13241,10 @@
           "name": "Mão que Toma",
           "description": "Causa 10 de dano perfurante a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/doggo/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/doggo-anime-first-completion-20261028/tecnica.webp"
         },
         {
           "key": "doggo:base:voto",
@@ -13248,8 +13256,10 @@
           "name": "Reserva Escondida",
           "description": "Restaura 8 de Vida ao usuário. Concede 8 de Defesa destrutível ao usuário. Gera 1 Cinza para a reserva da equipe.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/doggo/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/doggo-anime-first-completion-20261028/voto.webp"
         },
         {
           "key": "doggo:base:despertar",
@@ -13261,11 +13271,13 @@
           "name": "Fingir de Morto",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/doggo/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/doggo-anime-first-completion-20261028/despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "hans",
@@ -26539,8 +26551,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/doggo/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/doggo-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "doggo:base:passive",
@@ -26549,8 +26563,10 @@
       "slot": "passive",
       "name": "Ração de Emergência",
       "description": "Ao derrubar uma alma, recupera 5 de Vida e gera 1 Cinza; uma vez por rodada.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/doggo/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/doggo-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "doggo:base:impulso",
@@ -26562,8 +26578,10 @@
       "name": "Mordida de Cobrança",
       "description": "Causa 12 de dano físico a um inimigo. Restaura ao usuário 20% do dano causado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/doggo/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/doggo-anime-first-completion-20261028/impulso.webp"
     },
     {
       "key": "doggo:base:tecnica",
@@ -26575,8 +26593,10 @@
       "name": "Mão que Toma",
       "description": "Causa 10 de dano perfurante a um inimigo. Rouba 1 unidade de Essência da reserva inimiga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/doggo/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/doggo-anime-first-completion-20261028/tecnica.webp"
     },
     {
       "key": "doggo:base:voto",
@@ -26588,8 +26608,10 @@
       "name": "Reserva Escondida",
       "description": "Restaura 8 de Vida ao usuário. Concede 8 de Defesa destrutível ao usuário. Gera 1 Cinza para a reserva da equipe.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/doggo/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/doggo-anime-first-completion-20261028/voto.webp"
     },
     {
       "key": "doggo:base:despertar",
@@ -26601,8 +26623,10 @@
       "name": "Fingir de Morto",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/doggo/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/doggo-anime-first-completion-20261028/despertar.webp"
     },
     {
       "key": "hans:base:portrait",

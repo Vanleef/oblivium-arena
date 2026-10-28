@@ -385,5 +385,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/orion/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/orion/anime-first-completion-20261028/skill-despertar.webp"
     }
+  },
+  "doggo": {
+    "portrait": "/art/characters/doggo/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/doggo/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/doggo/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/doggo/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/doggo/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/doggo/anime-first-completion-20261028/skill-despertar.webp"
+    }
   }
 };

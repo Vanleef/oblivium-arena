@@ -1089,6 +1089,36 @@
       "slot": "despertar",
       "scene": "Orion sozinha sob um arco de mármore, em esforço de autoproteção, puxa seu manto marfim ao redor dos ombros e finca os pés no chão. Um véu de luz filtrada forma uma janela arredondada entre ela e uma corrente de pétalas sombrias. Expressão concentrada, postura estável, mãos naturais; sem figura extra, arma ou armadura.",
       "allies": []
+    },
+    {
+      "id": "doggo",
+      "slot": "passive",
+      "scene": "Doggo, um hound masculino antropomórfico de pelagem tigrada marrom-fuligem, orelha esquerda rasgada e pano vinho, se abaixa depois de derrubar uma alma pálida em túnica ameixa que começa a desfazer-se em cinza. Ele pressiona a própria costela, onde um brilho de brasa fecha uma escoriação, e pega um pedaço de pão seco; chuva negra e restos de banquete ao redor. Sem gore, corpo canino coerente.",
+      "allies": []
+    },
+    {
+      "id": "doggo",
+      "slot": "impulso",
+      "scene": "Plano lateral fechado em uma viela do Inferno. Doggo prende os dentes apenas no tecido solto do ombro de uma alma condenada de pele cinza, que torce o tronco e tenta soltar a roupa; um fio âmbar retorna do contato à lateral do hound como recuperação de vigor. Sem sangue ou gore, sem pose frontal, focinho e mandíbula caninos naturais.",
+      "allies": []
+    },
+    {
+      "id": "doggo",
+      "slot": "tecnica",
+      "scene": "Close sobre a pata-mão de Doggo, dedos separados em preensão natural, retirando um único fragmento de Essência cinza-branca da faixa de uma alma magra de túnica mostarda. O alvo arqueia o corpo e segura a faixa; Doggo observa o pequeno fragmento sem triunfo. Exatamente duas figuras, sem feridas gráficas ou dedos extras.",
+      "allies": []
+    },
+    {
+      "id": "doggo",
+      "slot": "voto",
+      "scene": "Doggo sozinho no nicho seco de um salão de banquetes inundado, abre uma reserva minúscula costurada por dentro do sash vinho e aproxima uma brasa de cinza das costelas doloridas. A escoriação se fecha e um véu escuro, fino como poeira, cobre seus ombros como defesa. Postura agachada estável, anatomia antropomórfica canina consistente, sem outros personagens.",
+      "allies": []
+    },
+    {
+      "id": "doggo",
+      "slot": "despertar",
+      "scene": "Doggo finge estar morto na lama sob chuva negra; corpo bípede de hound deitado de lado, pano vinho e túnica cinza puídos, membros dobrados sem tensão e uma orelha caída. Um olho âmbar fica entreaberto para vigiar a passagem vazia, enquanto uma fina camada de cinza escurece o contorno. Sem feridas ou outros personagens; quatro membros, uma cauda, articulações caninas plausíveis.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1205,6 +1235,11 @@
     "orion:impulso",
     "orion:tecnica",
     "orion:voto",
-    "orion:despertar"
+    "orion:despertar",
+    "doggo:passive",
+    "doggo:impulso",
+    "doggo:tecnica",
+    "doggo:voto",
+    "doggo:despertar"
   ]
 }
