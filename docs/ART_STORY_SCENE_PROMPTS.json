@@ -775,6 +775,41 @@
       "slot": "despertar",
       "scene": "Kael sozinho no limiar incompleto, em postura estável com um antebraço erguido; três fragmentos planos de pedra e sombra detêm a poeira sem formar armadura ou esfera.",
       "allies": []
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "slot": "passive",
+      "scene": "Kael recém-se erguendo de um joelho em escadaria monumental, uma mão na coxa e casaco empoeirado; uma pequena faceta ferro-cinza de luz nasce no peito enquanto ele retoma o fôlego.",
+      "allies": []
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "slot": "impulso",
+      "scene": "Kael põe-se entre uma aliada mais baixa de pele umbra e a poeira de sombra; envolve os ombros dela com o manto e uma faceta plana protege o peito.",
+      "allies": [
+        "aliada mais baixa"
+      ]
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "slot": "tecnica",
+      "scene": "Vista oblíqua alta: três fios rituais cinza-ferro abrem-se do punho de Kael como uma garra, rasgando apenas o manto de um eco pálido e expondo a sombra sob o tecido.",
+      "allies": []
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "slot": "voto",
+      "scene": "Três aliados em ponte estreita do Purgatório; fios de luz ferro-cinza seguem as juntas da pedra e duas pulsações marfim percorrem o caminho, com uma faceta de defesa próxima a cada pessoa.",
+      "allies": [
+        "aliada idosa",
+        "aliado ruivo"
+      ]
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "slot": "despertar",
+      "scene": "Kael sozinho, ajoelhado sob um arco baixo de pedra e tecido; uma mão segura o manto e outra firma-se no chão enquanto fragmentos detêm a poeira escura na borda do abrigo.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -846,6 +881,11 @@
     "kael-o-quebrado:impulso",
     "kael-o-quebrado:tecnica",
     "kael-o-quebrado:voto",
-    "kael-o-quebrado:despertar"
+    "kael-o-quebrado:despertar",
+    "kael-o-filhote-de-ferro:passive",
+    "kael-o-filhote-de-ferro:impulso",
+    "kael-o-filhote-de-ferro:tecnica",
+    "kael-o-filhote-de-ferro:voto",
+    "kael-o-filhote-de-ferro:despertar"
   ]
 }

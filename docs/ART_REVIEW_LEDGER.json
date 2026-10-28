@@ -164,7 +164,13 @@
     "kael-o-quebrado:base:impulso",
     "kael-o-quebrado:base:tecnica",
     "kael-o-quebrado:base:voto",
-    "kael-o-quebrado:base:despertar"
+    "kael-o-quebrado:base:despertar",
+    "kael-o-filhote-de-ferro:base:portrait",
+    "kael-o-filhote-de-ferro:base:passive",
+    "kael-o-filhote-de-ferro:base:impulso",
+    "kael-o-filhote-de-ferro:base:tecnica",
+    "kael-o-filhote-de-ferro:base:voto",
+    "kael-o-filhote-de-ferro:base:despertar"
   ],
   "pendingCorrections": []
 }

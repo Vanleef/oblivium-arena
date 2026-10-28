@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 25,
-    "newAbilityScenesSaved": 126,
+    "newPortraitsSaved": 26,
+    "newAbilityScenesSaved": 131,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -12059,8 +12059,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "kael-o-filhote-de-ferro:base:passive",
@@ -12069,8 +12071,10 @@
           "slot": "passive",
           "name": "Último de Pé",
           "description": "Com 50 de Vida ou menos, Kael recebe 5 de Defesa no início do próprio turno, uma vez por rodada.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "kael-o-filhote-de-ferro:base:impulso",
@@ -12082,8 +12086,10 @@
           "name": "Pequeno Baluarte",
           "description": "Concede 12 de Defesa destrutível ao aliado. Reduz em 4 o dano recebido por 1 turno pelo beneficiado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "kael-o-filhote-de-ferro:base:tecnica",
@@ -12095,8 +12101,10 @@
           "name": "Garra de Ferro",
           "description": "Causa 14 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "kael-o-filhote-de-ferro:base:voto",
@@ -12108,8 +12116,10 @@
           "name": "Promessa de Aço",
           "description": "Concede 7 de Defesa destrutível ao trio. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "kael-o-filhote-de-ferro:base:despertar",
@@ -12121,11 +12131,13 @@
           "name": "Abrigo de Ferro",
           "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "vaas",
@@ -25435,8 +25447,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "kael-o-filhote-de-ferro:base:passive",
@@ -25445,8 +25459,10 @@
       "slot": "passive",
       "name": "Último de Pé",
       "description": "Com 50 de Vida ou menos, Kael recebe 5 de Defesa no início do próprio turno, uma vez por rodada.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "kael-o-filhote-de-ferro:base:impulso",
@@ -25458,8 +25474,10 @@
       "name": "Pequeno Baluarte",
       "description": "Concede 12 de Defesa destrutível ao aliado. Reduz em 4 o dano recebido por 1 turno pelo beneficiado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "kael-o-filhote-de-ferro:base:tecnica",
@@ -25471,8 +25489,10 @@
       "name": "Garra de Ferro",
       "description": "Causa 14 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "kael-o-filhote-de-ferro:base:voto",
@@ -25484,8 +25504,10 @@
       "name": "Promessa de Aço",
       "description": "Concede 7 de Defesa destrutível ao trio. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos de cada aliado.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "kael-o-filhote-de-ferro:base:despertar",
@@ -25497,8 +25519,10 @@
       "name": "Abrigo de Ferro",
       "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/kael-o-filhote-de-ferro/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/kael-o-filhote-de-ferro-anime-first-completion-20261028/skill-despertar.webp"
     },
     {
       "key": "vaas:base:portrait",
