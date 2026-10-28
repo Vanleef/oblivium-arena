@@ -61,7 +61,7 @@ function scoreSupport(s, actor, a, u, rules) {
   let score=healing(s, actor, a, u) * 1.1 + regen
     + (a.cleanse ? Math.min(24, harmfulCount(u) * 8) : 0)
     + (a.counter && !u.counter ? Math.min(20, a.counter+(actor.worldCounterPower||0)) : 0)
-    + (a.shield ? Math.min(a.shield + extraShield, Math.max(0, 45 - u.shield)) * .65 : 0)
+    + (a.shield ? Math.min(a.shield + extraShield, Math.max(0, 45 - u.shield)) * .45 : 0)
     + (a.reduce ? Math.max(0, a.reduce - u.reduction) * .6 : 0)
     + (a.boost ? Math.max(0, a.boost - u.boost) * .8 : 0)
     + (a.reactive && !u.reactives.some(r => r.sourceId === actor.id && r.skillId === a.id) ? 7 : 0)
@@ -80,7 +80,8 @@ function scoreAttack(s, actor, a, target, rules) {
   if (countered(target, a)) return -12 - rules.previewHit(actor, target.counter, {ignoreInvulnerability: true}).dealt;
   const r = attackResult(s, actor, a, target, rules), combo = a.combo && rules.meetsCondition(target, a.combo.condition, actor);
   const newDot = a.dot && !target.dots.some(d => d.sourceId === actor.id && d.skillId === a.id);
-  const value=r.dealt + r.blocked * .4 + (r.dealt >= target.hp ? 24 : 0)
+  // Breaking Defense creates an opening for later actions in this turn.
+  const value=r.dealt + r.blocked * .7 + (r.dealt >= target.hp ? 24 : 0)
     + (a.lifesteal ? clampedHeal(actor,Math.floor(r.dealt*a.lifesteal))*1.1 : 0)
     + (newDot ? Math.min(target.hp - r.dealt, (a.dot.damage+(actor.worldAffliction||0)) * a.dot.turns) * .65 : 0)
     + ((a.stun || combo && a.combo.stun) && !target.stunned ? 13 : 0)
