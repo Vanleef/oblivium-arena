@@ -98,7 +98,18 @@
     "nilo-ruptura-epilogo:base:tecnica",
     "nilo-ruptura-epilogo:base:voto",
     "nilo-ruptura-epilogo:base:despertar-4",
-    "nilo-ruptura-epilogo:base:despertar-5"
+    "nilo-ruptura-epilogo:base:despertar-5",
+    "nilo-cinza-final:base:portrait",
+    "nilo-cinza-final:base:passive",
+    "nilo-cinza-final:base:impulso",
+    "nilo-cinza-final:base:tecnica",
+    "nilo-cinza-final:base:voto",
+    "nilo-cinza-final:base:despertar-4",
+    "nilo-cinza-final:base:tecnica-5",
+    "nilo-cinza-final:base:tecnica-6",
+    "nilo-cinza-final:base:tecnica-7",
+    "nilo-cinza-final:base:tecnica-8",
+    "nilo-cinza-final:base:despertar-9"
   ],
   "pendingCorrections": []
 }

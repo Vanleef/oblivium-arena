@@ -407,6 +407,66 @@
       "slot": "despertar-5",
       "scene": "Nilo sozinho, em ângulo diagonal baixo, se apoia no limiar de pedra quebrado; fragmentos caem e atravessam a borda evanescente do manto enquanto sua silhueta se mistura ao vão sem porta.",
       "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "passive",
+      "scene": "Nilo se firma na escadaria de basalto enquanto duas bordas concêntricas de cinza e um cordão ritual apertado marcam os limiares crescentes do Colapso; o corpo demonstra o custo e a mão busca poder encerrá-lo.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "impulso",
+      "scene": "Close lateral: a mão aberta de Nilo deixa uma pequena Marca Infernal negro-carmesim no ombro do manto de uma condenada mais velha; ela se vira para ver a marca.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "tecnica",
+      "scene": "Nilo atinge de lado as costelas de um condenado robusto; o alvo dobra contra o basalto, uma costura da túnica chamuscada e um traço vermelho discreto sugerem Sangramento e Queimadura.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "voto",
+      "scene": "Nilo se senta contra uma coluna do Estige, comprimindo o próprio flanco enquanto o cordão vermelho brilha através do tecido rasgado: a escolha de abrir o primeiro Colapso cobra seu corpo.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "despertar-4",
+      "scene": "Nilo ajoelhado e apoiado numa palma sobre o basalto, cercado por um segundo anel mais escuro e intenso que o primeiro; o corpo tensionado mostra a abertura do Colapso II.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "tecnica-5",
+      "scene": "Vista quase superior de Nilo ajoelhado, soltando o cordão vermelho que cai frouxo na névoa do rio; ombros cedem com o fim voluntário do Colapso.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "tecnica-6",
+      "scene": "A película dourada de proteção falsa se desprende do manto de um condenado de pele oliva; Nilo pressiona a luz restante com a palma e o homem perde o equilíbrio.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "tecnica-7",
+      "scene": "O pequeno selo negro-carmesim já marcado na manga de um condenado idoso escurece e o tecido esfarela em sal negro; Nilo observa de perfil ao fundo, sem ferir carne.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "tecnica-8",
+      "scene": "Um condenado pálido cai sobre um joelho depois de um golpe físico decisivo; Nilo já passa adiante, braço recolhido, enquanto o anel de cinza no chão se rompe.",
+      "allies": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "slot": "despertar-9",
+      "scene": "Nilo sozinho visto de cima numa ponte de basalto sob chuva de cinza; uma proteção baixa de pedra e cinza prende brasas na borda enquanto o rio ao redor fica silencioso.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -420,6 +480,16 @@
     "nilo-ruptura-epilogo:tecnica",
     "nilo-ruptura-epilogo:voto",
     "nilo-ruptura-epilogo:despertar-4",
-    "nilo-ruptura-epilogo:despertar-5"
+    "nilo-ruptura-epilogo:despertar-5",
+    "nilo-cinza-final:passive",
+    "nilo-cinza-final:impulso",
+    "nilo-cinza-final:tecnica",
+    "nilo-cinza-final:voto",
+    "nilo-cinza-final:despertar-4",
+    "nilo-cinza-final:tecnica-5",
+    "nilo-cinza-final:tecnica-6",
+    "nilo-cinza-final:tecnica-7",
+    "nilo-cinza-final:tecnica-8",
+    "nilo-cinza-final:despertar-9"
   ]
 }

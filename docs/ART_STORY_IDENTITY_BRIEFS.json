@@ -62,6 +62,11 @@
       "name": "Nilo — Epílogo de Ruptura",
       "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com uma mecha marfim sobre a sobrancelha direita. Manto amplo carvão e índigo, roupa simples de tecido escuro e punhos gastos; sem armadura. Sua silhueta continua esguia e atlética, enquanto a postura atenta e o tecido marcado pelo caminho mostram a prontidão de uma alma no Umbral.",
       "scene": "Limbo Umbral: corredores góticos incompletos, colunas interrompidas, vãos sem portas e degraus suspensos dentro de névoa cinza-violeta. O vazio e a passagem sugerem escolha e ocultação; luz fria filtrada recorta as dobras do manto."
+    },
+    "nilo-cinza-final": {
+      "name": "Nilo — o Sem Rastro",
+      "identity": "Mesmo jovem adulto de 24 anos do Nilo-base: pele castanha média, olhos cinza-azulados, cabelo azul-negro volumoso com mecha marfim sobre a sobrancelha direita. Veste camadas de linho carvão e cinza, muito gastas nas bordas, faixa índigo e cordão ritual vermelho queimado; fuligem no rosto, respiração curta e luz de brasa sob o tecido mostram o preço do Colapso. Sem armadura ou armas.",
+      "scene": "Inferno de Dante no Estige: rio negro-vermelho, basalto, arcos e colunatas enormes, almas condenadas ao longe e focos quentes de brasa. Cinza, fogo, seda vermelha e desgaste corporal expressam os níveis de Colapso sem gore nem objetos mecânicos."
     }
   }
 }

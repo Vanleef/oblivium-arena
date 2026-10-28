@@ -122,6 +122,28 @@ export const characterArtRegistry = {
       "4": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-5.webp"
     }
   },
+  "nilo-cinza-final": {
+    "portrait": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-voto.webp",
+      "tecnica-5": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "tecnica-6": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "tecnica-7": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "tecnica-8": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "despertar": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-9.webp"
+    },
+    "abilityIndices": {
+      "3": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-4.webp",
+      "4": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "5": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "6": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "7": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "8": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-9.webp"
+    }
+  },
   "naomi": {
     "portrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
     "passive": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",

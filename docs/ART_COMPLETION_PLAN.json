@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 17,
-    "newAbilityScenesSaved": 68,
+    "newPortraitsSaved": 18,
+    "newAbilityScenesSaved": 78,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -10839,8 +10839,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "nilo-cinza-final:base:passive",
@@ -10849,8 +10851,10 @@
           "slot": "passive",
           "name": "Limiar de Colapso",
           "description": "Nilo pode abrir Colapso I e depois Colapso II, um nível por vez. Cada nível dura por turnos limitados, aumenta o dano e cobra Vida por skill de dano. Ele pode encerrar o Colapso a qualquer momento.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "nilo-cinza-final:base:impulso",
@@ -10862,8 +10866,10 @@
           "name": "Marca Infernal",
           "description": "Causa 12 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-impulso.webp"
         },
         {
           "key": "nilo-cinza-final:base:tecnica",
@@ -10875,8 +10881,10 @@
           "name": "Devastação",
           "description": "Causa 13 de dano físico a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos. Queimadura: 3 de dano de aflição por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica.webp"
         },
         {
           "key": "nilo-cinza-final:base:voto",
@@ -10888,8 +10896,10 @@
           "name": "Abrir Colapso I",
           "description": "Abre Colapso I por 3 turnos: skills de dano causam +6 e custam 4 de Vida a Nilo.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-voto.webp"
         },
         {
           "key": "nilo-cinza-final:base:despertar-4",
@@ -10901,8 +10911,10 @@
           "name": "Abrir Colapso II",
           "description": "Só pode ser usado após ativar Colapso I. Abre Colapso II por 2 turnos: skills de dano causam +10 e custam 7 de Vida a Nilo.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-4.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-despertar-4.webp"
         },
         {
           "key": "nilo-cinza-final:base:tecnica-5",
@@ -10914,8 +10926,10 @@
           "name": "Encerrar Colapso",
           "description": "Encerra o Colapso ativo imediatamente.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-5.webp"
         },
         {
           "key": "nilo-cinza-final:base:tecnica-6",
@@ -10927,8 +10941,10 @@
           "name": "Mentira Letal",
           "description": "Causa 14 de dano físico a um inimigo. Remove todos os buffs do alvo. Se remover pelo menos um buff, causa +6 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-6.webp"
         },
         {
           "key": "nilo-cinza-final:base:tecnica-7",
@@ -10940,8 +10956,10 @@
           "name": "Podridão Devoradora",
           "description": "Causa 11 de dano de aflição a um inimigo. Decadência: 3 de dano de aflição por 2 turnos. Causa +5 se o alvo tiver a Marca Infernal de Nilo. Exige um Estado de Colapso ativo.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-7.webp"
         },
         {
           "key": "nilo-cinza-final:base:tecnica-8",
@@ -10953,8 +10971,10 @@
           "name": "Execução Infernal",
           "description": "Causa 21 de dano físico a um inimigo. Executa o alvo se, após o dano, ele ficar com 15 de Vida ou menos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-8.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-8.webp"
         },
         {
           "key": "nilo-cinza-final:base:despertar-9",
@@ -10966,11 +10986,13 @@
           "name": "Silêncio de Cinza",
           "description": "Inimigos com uma Marca de Nilo não podem recuperar Vida no próximo turno. Concede 4 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-9.webp",
+          "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-despertar-9.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "nilo-graca-final",
@@ -24206,8 +24228,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "nilo-cinza-final:base:passive",
@@ -24216,8 +24240,10 @@
       "slot": "passive",
       "name": "Limiar de Colapso",
       "description": "Nilo pode abrir Colapso I e depois Colapso II, um nível por vez. Cada nível dura por turnos limitados, aumenta o dano e cobra Vida por skill de dano. Ele pode encerrar o Colapso a qualquer momento.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "nilo-cinza-final:base:impulso",
@@ -24229,8 +24255,10 @@
       "name": "Marca Infernal",
       "description": "Causa 12 de dano espiritual a um inimigo. Marca o alvo por 3 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-impulso.webp"
     },
     {
       "key": "nilo-cinza-final:base:tecnica",
@@ -24242,8 +24270,10 @@
       "name": "Devastação",
       "description": "Causa 13 de dano físico a um inimigo. Sangramento: 3 de dano de aflição por 2 turnos. Queimadura: 3 de dano de aflição por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica.webp"
     },
     {
       "key": "nilo-cinza-final:base:voto",
@@ -24255,8 +24285,10 @@
       "name": "Abrir Colapso I",
       "description": "Abre Colapso I por 3 turnos: skills de dano causam +6 e custam 4 de Vida a Nilo.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-voto.webp"
     },
     {
       "key": "nilo-cinza-final:base:despertar-4",
@@ -24268,8 +24300,10 @@
       "name": "Abrir Colapso II",
       "description": "Só pode ser usado após ativar Colapso I. Abre Colapso II por 2 turnos: skills de dano causam +10 e custam 7 de Vida a Nilo.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-despertar-4.webp"
     },
     {
       "key": "nilo-cinza-final:base:tecnica-5",
@@ -24281,8 +24315,10 @@
       "name": "Encerrar Colapso",
       "description": "Encerra o Colapso ativo imediatamente.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-5.webp"
     },
     {
       "key": "nilo-cinza-final:base:tecnica-6",
@@ -24294,8 +24330,10 @@
       "name": "Mentira Letal",
       "description": "Causa 14 de dano físico a um inimigo. Remove todos os buffs do alvo. Se remover pelo menos um buff, causa +6 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-6.webp"
     },
     {
       "key": "nilo-cinza-final:base:tecnica-7",
@@ -24307,8 +24345,10 @@
       "name": "Podridão Devoradora",
       "description": "Causa 11 de dano de aflição a um inimigo. Decadência: 3 de dano de aflição por 2 turnos. Causa +5 se o alvo tiver a Marca Infernal de Nilo. Exige um Estado de Colapso ativo.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-7.webp"
     },
     {
       "key": "nilo-cinza-final:base:tecnica-8",
@@ -24320,8 +24360,10 @@
       "name": "Execução Infernal",
       "description": "Causa 21 de dano físico a um inimigo. Executa o alvo se, após o dano, ele ficar com 15 de Vida ou menos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-8.webp"
     },
     {
       "key": "nilo-cinza-final:base:despertar-9",
@@ -24333,8 +24375,10 @@
       "name": "Silêncio de Cinza",
       "description": "Inimigos com uma Marca de Nilo não podem recuperar Vida no próximo turno. Concede 4 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-9.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-despertar-9.webp"
     },
     {
       "key": "nilo-graca-final:base:portrait",
