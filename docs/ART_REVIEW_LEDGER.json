@@ -230,7 +230,13 @@
     "hans:base:impulso",
     "hans:base:tecnica",
     "hans:base:voto",
-    "hans:base:despertar"
+    "hans:base:despertar",
+    "xian:base:portrait",
+    "xian:base:passive",
+    "xian:base:impulso",
+    "xian:base:tecnica",
+    "xian:base:voto",
+    "xian:base:despertar"
   ],
   "pendingCorrections": []
 }

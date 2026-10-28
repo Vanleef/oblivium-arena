@@ -1149,6 +1149,36 @@
       "slot": "despertar",
       "scene": "Hans sozinho dentro de um nicho natural formado por raízes antigas, recolhe o xale vinho ao redor do tronco e se agacha sobre o piso seco. Um véu de fungo e névoa fecha parte da entrada, deixando uma fenda para observar o pomar. Pose firme e cansada, alinhamento corporal natural, sem ferramentas, armas ou outros personagens.",
       "allies": []
+    },
+    {
+      "id": "xian",
+      "slot": "passive",
+      "scene": "Exatamente duas figuras no corredor gelado de Tártaro. Xian, homem robusto de pele oliva, cabelo preto curto com mecha prateada e túnica índigo-carvão, recua meio passo depois de sofrer um impacto e pressiona o esterno. Uma ondulação violeta percorre o braço do agressor de manto ferrugem e faz seu pulso ceder. Sem sangue, sem ferida visível, anatomia natural.",
+      "allies": []
+    },
+    {
+      "id": "xian",
+      "slot": "impulso",
+      "scene": "Exatamente duas figuras sobre a borda de uma piscina negra. Xian cruza atrás de uma coluna num passo quase sem ruído e roça com dois dedos a manga de uma alma idosa de cabelo branco; um pequeno ponto de gelo-escuro marca o tecido e o ombro do alvo cede. Ângulo baixo, água sem ondas, sem arma ou pose frontal.",
+      "allies": []
+    },
+    {
+      "id": "xian",
+      "slot": "tecnica",
+      "scene": "Exatamente duas figuras diante de um vão monumental de pedra. Xian apoia a palma no lintel enquanto uma alma de manto vermelho ergue luz de apoio do outro lado; uma fenda violeta vertical se estreita sozinha e a luz se apaga, com um pulso espiritual atingindo o alvo. A pedra não tem dobradiças nem mecanismo.",
+      "allies": []
+    },
+    {
+      "id": "xian",
+      "slot": "voto",
+      "scene": "Exatamente duas figuras no espelho d'água de Tártaro. Uma alma de manto ferrugem projeta energia pálida; a reflexão negra forma um anel violeta que a devolve contra sua manga, enquanto uma única centelha de Essência sai de sua palma e pousa no lago perto de Xian. Perspectiva alta, postura defensiva estável, sem explosão ou gore.",
+      "allies": []
+    },
+    {
+      "id": "xian",
+      "slot": "despertar",
+      "scene": "Xian sozinho no quarto vazio de mármore negro, sentado sobre uma esteira simples com as mangas cruzadas ao peito; exala lentamente enquanto uma linha violeta sela o limiar e uma película de geada contorna o espaço. Composição ampla com muito vazio, postura natural, sem arma, móveis ou outra figura.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1275,6 +1305,11 @@
     "hans:impulso",
     "hans:tecnica",
     "hans:voto",
-    "hans:despertar"
+    "hans:despertar",
+    "xian:passive",
+    "xian:impulso",
+    "xian:tecnica",
+    "xian:voto",
+    "xian:despertar"
   ]
 }

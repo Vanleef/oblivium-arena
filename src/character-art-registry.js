@@ -405,5 +405,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/hans/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/hans/anime-first-completion-20261028/skill-despertar.webp"
     }
+  },
+  "xian": {
+    "portrait": "/art/characters/xian/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/xian/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/xian/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/xian/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/xian/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/xian/anime-first-completion-20261028/skill-despertar.webp"
+    }
   }
 };
