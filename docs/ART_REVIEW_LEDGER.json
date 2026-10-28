@@ -272,7 +272,13 @@
     "khoren-caminho:base:impulso",
     "khoren-caminho:base:tecnica",
     "khoren-caminho:base:voto",
-    "khoren-caminho:base:despertar"
+    "khoren-caminho:base:despertar",
+    "elaris-prologo:base:portrait",
+    "elaris-prologo:base:passive",
+    "elaris-prologo:base:impulso",
+    "elaris-prologo:base:tecnica",
+    "elaris-prologo:base:voto",
+    "elaris-prologo:base:despertar"
   ],
   "pendingCorrections": []
 }

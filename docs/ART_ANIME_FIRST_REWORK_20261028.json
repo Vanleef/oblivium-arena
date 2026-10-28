@@ -377,6 +377,27 @@
         "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-voto.webp",
         "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-despertar.webp"
       ]
+    },
+    "elaris-prologo": {
+      "displayName": "Elaris, O Prólogo",
+      "activeRoute": "/art/characters/elaris-prologo/anime-first-completion-20261028",
+      "world": "Paraíso",
+      "sourceAssets": [
+        "art/source/elaris-prologo-anime-first-completion-20261028/portrait.webp",
+        "art/source/elaris-prologo-anime-first-completion-20261028/passive.webp",
+        "art/source/elaris-prologo-anime-first-completion-20261028/skill-impulso.webp",
+        "art/source/elaris-prologo-anime-first-completion-20261028/skill-tecnica.webp",
+        "art/source/elaris-prologo-anime-first-completion-20261028/skill-voto.webp",
+        "art/source/elaris-prologo-anime-first-completion-20261028/skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/elaris-prologo/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/elaris-prologo/anime-first-completion-20261028/passive.webp",
+        "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {

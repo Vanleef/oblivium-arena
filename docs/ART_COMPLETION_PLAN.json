@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 43,
-    "newAbilityScenesSaved": 216,
+    "newPortraitsSaved": 44,
+    "newAbilityScenesSaved": 221,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13188,30 +13188,8 @@
           "key": "xian:base:passive",
           "characterId": "xian",
         
-... 21339 bytes omitted ...
-        "slot": "tecnica",
-          "abilityId": "tecnica",
-          "abilityIndex": 1,
-          "name": "Cobrar Travessia",
-          "description": "Causa 12 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado. Se o alvo tem a marca desta preparação: +5 de dano.",
-          "target": "enemy",
-          "art": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-tecnica.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "khoren-caminho:base:voto",
-          "characterId": "khoren-caminho",
-          "kind": "base",
-          "slot": "voto",
-          "abilityId": "voto",
-          "abilityIndex": 2,
-          "name": "Desfecho de Trajeto",
-          "description": "Causa 13 de dano perfurante a um inimigo. Consome Cargas: +4 de dano por Carga.",
-          "target": "enemy",
-          "art": "/art/characters/khoren-caminho/anime-first-completion-20261028/skill-voto.webp",
-          "exists": true,
-          "status": "reviewed"
+... 22382 bytes omitted ...
+iewed"
         },
         {
           "key": "khoren-caminho:base:despertar",
@@ -13245,8 +13223,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "elaris-prologo:base:passive",
@@ -13255,8 +13234,9 @@
           "slot": "passive",
           "name": "Primeira Graça",
           "description": "Uma vez por rodada, curar ao menos 10 de Vida de outro aliado gera 1 Graça.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "elaris-prologo:base:impulso",
@@ -13268,8 +13248,9 @@
           "name": "Primeiro Fôlego",
           "description": "Restaura 12 de Vida ao aliado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "elaris-prologo:base:tecnica",
@@ -13281,8 +13262,9 @@
           "name": "Véu do Amanhecer",
           "description": "Concede 9 de Defesa destrutível ao aliado. Remove aflições e condições prejudiciais do beneficiado.",
           "target": "ally",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "elaris-prologo:base:voto",
@@ -13294,8 +13276,9 @@
           "name": "Adiar o Crepúsculo",
           "description": "Causa 12 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "elaris-prologo:base:despertar",
@@ -13307,11 +13290,12 @@
           "name": "Amparo Primordial",
           "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "cain",
@@ -26337,8 +26321,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "elaris-prologo:base:passive",
@@ -26347,8 +26332,9 @@
       "slot": "passive",
       "name": "Primeira Graça",
       "description": "Uma vez por rodada, curar ao menos 10 de Vida de outro aliado gera 1 Graça.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "elaris-prologo:base:impulso",
@@ -26360,8 +26346,9 @@
       "name": "Primeiro Fôlego",
       "description": "Restaura 12 de Vida ao aliado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "elaris-prologo:base:tecnica",
@@ -26373,8 +26360,9 @@
       "name": "Véu do Amanhecer",
       "description": "Concede 9 de Defesa destrutível ao aliado. Remove aflições e condições prejudiciais do beneficiado.",
       "target": "ally",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "elaris-prologo:base:voto",
@@ -26386,8 +26374,9 @@
       "name": "Adiar o Crepúsculo",
       "description": "Causa 12 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "elaris-prologo:base:despertar",
@@ -26399,8 +26388,9 @@
       "name": "Amparo Primordial",
       "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "cain:base:portrait",

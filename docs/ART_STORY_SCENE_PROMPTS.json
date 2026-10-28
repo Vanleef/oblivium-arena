@@ -1359,6 +1359,36 @@
       "slot": "despertar",
       "scene": "Travessia Reversa SELF defense: medium scene from INSIDE an ancient unfinished doorway. Zalmoxis alone pulls his broad shoulder and head through a backward-curving violet threshold just as a shadow wave passes across the outer stones. His head ducks naturally and his eyes look sharply left toward the approaching force, braids and mantle swing with the evasive backward step. One massive palm braces on stone jamb with five natural fingers, other arm covered. The same continuous body is fully readable, NO duplicate body or disconnected limbs in portal. An unbroken translucent violet route membrane wraps him to represent invulnerability and defense. No attacker visible.",
       "allies": []
+    },
+    {
+      "id": "elaris-prologo",
+      "slot": "passive",
+      "scene": "Primeira Graça PASSIVE: CLOSE overhead crop of Elaris's dark-blue round hand supporting the wrist of ONE ash-grey celestial ally whose faint blue skin cracks have just SEALED from a substantial successful healing. The ally's hand relaxes naturally and unfolds; Elaris's other hand is outside frame, NO extra fingers or extra limbs. In the small gap between their joined hands ONE ivory-cyan Essence seed condenses, readable as a byproduct of healing rather than an offered magic orb. Bottom edge includes indigo robe and botanical silver clasp for identity. Background cold marble and a narrow geometric water channel. Strong chiaroscuro, precise simple anime hands.",
+      "allies": []
+    },
+    {
+      "id": "elaris-prologo",
+      "slot": "impulso",
+      "scene": "Primeiro Fôlego: INTIMATE eye-level lateral medium shot. Elaris kneels with effort beside ONE distinct adult bronze-grey unarmored soul slumped against a white stone planter. She supports the soul's upper back with one forearm while her other broad hand rests gently over its covered sternum; the healed soul's chest rises in its first unstrained breath, shoulders release and eyes blink back into focus. Elaris watches the breathing, eyebrows tense with care, lips parted, torso bent toward the person, weight on knees, no serene camera pose. Thin cool white-blue healing light under hand, indigo hard shadows, no gold aura. Exactly two figures, natural correctly attached limbs.",
+      "allies": []
+    },
+    {
+      "id": "elaris-prologo",
+      "slot": "tecnica",
+      "scene": "Véu do Amanhecer: TARGET-dominant low close view of ONE NONHUMAN pale jade celestial ally, feminine narrow face with solid pearlescent cheek plates and wavy black hair, braced with one elbow on a marble garden bench. A cool translucent ivory-blue veil sweeps over the ally's shoulders, catching an incoming dark wave on its OUTER surface while the ally exhales in relief as dark affliction threads peel away from the skin and dissolve. Elaris appears only as a dark-blue rounded hand gently anchoring the veil at the upper edge, with ivory cuff and silver botanical clasp, no full caster face. Protection and cleansing clearly visible, not an attack; no extra beneficiary.",
+      "allies": []
+    },
+    {
+      "id": "elaris-prologo",
+      "slot": "voto",
+      "scene": "Adiar o Crepúsculo: WIDE steep diagonal from behind Elaris, her short round silhouette on a high white marble stair, head and torso genuinely leaning into a single restraining motion toward ONE hostile elongated charcoal soul in a distant broken pavilion. A narrow shaft of cold white-blue light strikes that hostile soul's shoulder, its dark gathered attack evaporates and arm DROPS from weakness, knees buckle, expression distressed and gaze on its failing arm. Clear energy damage and weakening, not healing or execution. Elaris's eyes are not visible because seen from behind; no posing. Cold filtered Empyrean light, silver and pale green highlights, dense navy shadows, no red/gold.",
+      "allies": []
+    },
+    {
+      "id": "elaris-prologo",
+      "slot": "despertar",
+      "scene": "Amparo Primordial SELF invulnerability: unusual interior close shot behind Elaris's own ivory cloak raised instinctively as a dark wave slams the outer pavilion. Elaris alone has hunched her round body, chin lowered, eyes squeezed slightly with resolve and gaze locked to the incoming force from upper right, one shoulder turns under the weight. An unbroken translucent pale-blue shield layer follows the silhouette around her entire body, white marble dust striking and stopping on its OUTSIDE; inside only robe edges move from the turn. Hands naturally drawn close at chest under cloth, avoid elaborate exposed fingers. Self-only, no ally or angel wings, no smiling or showing a shield to the viewer.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1520,6 +1550,11 @@
     "khoren-caminho:impulso",
     "khoren-caminho:tecnica",
     "khoren-caminho:voto",
-    "khoren-caminho:despertar"
+    "khoren-caminho:despertar",
+    "elaris-prologo:passive",
+    "elaris-prologo:impulso",
+    "elaris-prologo:tecnica",
+    "elaris-prologo:voto",
+    "elaris-prologo:despertar"
   ]
 }

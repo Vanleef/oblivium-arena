@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 851,
-    "baseMissing": 72,
-    "entriesWithAnyBaseMissing": 12,
-    "entriesWithoutAnyBaseArt": 12,
+    "basePresent": 857,
+    "baseMissing": 66,
+    "entriesWithAnyBaseMissing": 11,
+    "entriesWithoutAnyBaseArt": 11,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 272,
+    "reviewedSlots": 278,
     "correctionSlots": 0,
-    "fullyReviewedEntries": 40,
-    "pendingSlots": 726
+    "fullyReviewedEntries": 41,
+    "pendingSlots": 720
   },
   "entries": [
     {
@@ -1755,16 +1755,9 @@
       "kingdom": "Empíreo",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "elaris-prologo:base:portrait",
-        "elaris-prologo:base:passive",
-        "elaris-prologo:base:impulso",
-        "elaris-prologo:base:tecnica",
-        "elaris-prologo:base:voto",
-        "elaris-prologo:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "cain",
