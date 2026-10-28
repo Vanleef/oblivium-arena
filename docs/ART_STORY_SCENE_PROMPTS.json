@@ -599,6 +599,77 @@
       "slot": "despertar",
       "scene": "Nilo sozinho em pausa no Purgatório, protegido por plano facetado de pedra-luz que detém cascalho e poeira por um instante.",
       "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "passive",
+      "scene": "Sael reúne brasa, marfim, violeta e ciano em quatro fios que convergem na palma aberta; vista alta sobre o cais quebrado e o Aqueronte, as quatro essências distintas, sem outros personagens.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "impulso",
+      "scene": "Fenda estreita de luz e sombra expõe a silhueta de uma alma condenada; Sael em primeiro plano lateral, o tecido da manga esticado e partículas violetas se desprendendo no cais do Aqueronte.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "tecnica",
+      "scene": "Em close íntimo, Sael oferece uma esfera ciano a uma viajante anônima junto à margem; a luz do rio reflete na mão aberta e nas vestes gastas da aliada.",
+      "allies": [
+        "viajante anônima"
+      ]
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "voto",
+      "scene": "Vista oblíqua no cais: uma condenada anônima vacila sob uma fenda suspensa de sombra e luz; o reflexo revela sua silhueta e motes violetas pairam, sem duelo frontal.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "despertar-4",
+      "scene": "Close por cima do ombro: um mote ciano de Essência se desprende da dobra de um manto anônimo e pousa na mão aberta de Sael; reflexos fraturados na água.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "tecnica-5",
+      "scene": "Plano diagonal amplo: Sael e uma alma anônima ficam em pedras opostas, ligados por fio fino de quatro cores que pulsa entre as barras de tecido de suas roupas sobre o rio escuro.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "tecnica-6",
+      "scene": "Vista alta do trio: Sael entre uma aliada idosa de pele umbra e uma alma jovem de cabelo ruivo; véu tecido marfim-ciano se espalha sob os três, removendo poeira escura.",
+      "allies": [
+        "aliada idosa",
+        "aliado ruivo"
+      ]
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "tecnica-7",
+      "scene": "Plano lateral junto ao chão: arco tecido em quatro cores converge na costura do manto de um condenado visto de costas; o alvo cede os joelhos e Sael permanece distante ao fundo.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "tecnica-8",
+      "scene": "Quase ao nível da água, um fio de quatro cores se parte entre duas mangas; três motes se libertam e abrem uma onda circular de luz violeta sobre o rio do Aqueronte.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "tecnica-9",
+      "scene": "Sael observa uma silhueta encapuzada refletida no Aqueronte; fios coloridos convergem num ponto branco entre ambos, com grande espaço negativo e sem letras ou escrita.",
+      "allies": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "slot": "despertar-10",
+      "scene": "Sael sozinho sob um arco quebrado ergue o braço enquanto dois planos de tecido e fios coloridos barram cinza e névoa no limite, sem formar uma bolha; postura estável e concentrada.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -644,6 +715,17 @@
     "nilo-o-epilogo:impulso",
     "nilo-o-epilogo:tecnica",
     "nilo-o-epilogo:voto",
-    "nilo-o-epilogo:despertar"
+    "nilo-o-epilogo:despertar",
+    "o-eco-de-nilo:passive",
+    "o-eco-de-nilo:impulso",
+    "o-eco-de-nilo:tecnica",
+    "o-eco-de-nilo:voto",
+    "o-eco-de-nilo:despertar-4",
+    "o-eco-de-nilo:tecnica-5",
+    "o-eco-de-nilo:tecnica-6",
+    "o-eco-de-nilo:tecnica-7",
+    "o-eco-de-nilo:tecnica-8",
+    "o-eco-de-nilo:tecnica-9",
+    "o-eco-de-nilo:despertar-10"
   ]
 }

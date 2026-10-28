@@ -134,7 +134,19 @@
     "nilo-o-epilogo:base:impulso",
     "nilo-o-epilogo:base:tecnica",
     "nilo-o-epilogo:base:voto",
-    "nilo-o-epilogo:base:despertar"
+    "nilo-o-epilogo:base:despertar",
+    "o-eco-de-nilo:base:portrait",
+    "o-eco-de-nilo:base:passive",
+    "o-eco-de-nilo:base:impulso",
+    "o-eco-de-nilo:base:tecnica",
+    "o-eco-de-nilo:base:voto",
+    "o-eco-de-nilo:base:despertar-4",
+    "o-eco-de-nilo:base:tecnica-5",
+    "o-eco-de-nilo:base:tecnica-6",
+    "o-eco-de-nilo:base:tecnica-7",
+    "o-eco-de-nilo:base:tecnica-8",
+    "o-eco-de-nilo:base:tecnica-9",
+    "o-eco-de-nilo:base:despertar-10"
   ],
   "pendingCorrections": []
 }

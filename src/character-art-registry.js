@@ -242,5 +242,29 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/teras/anime-first-completion-20261028/skill-despertar.webp"
     }
   }
+,
+  "o-eco-de-nilo": {
+    "portrait": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-voto.webp",
+      "tecnica-5": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "tecnica-6": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "tecnica-7": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "tecnica-8": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "tecnica-9": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-9.webp",
+      "despertar": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-despertar-10.webp"
+    },
+    "abilityIndices": {
+      "3": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-despertar-4.webp",
+      "4": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "5": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "6": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "7": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "8": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-9.webp",
+      "9": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-despertar-10.webp"
+    }
+  }
 };
-
