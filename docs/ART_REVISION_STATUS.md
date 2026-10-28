@@ -545,3 +545,12 @@ Cinco quadros receberam correção específica de olhos, cabeça e pescoço: a a
 A revisão estilística dos dois conjuntos foi reaberta. As quinze artes ativas foram redesenhadas: seis de A Magistrada e nove de O Soberano, incluindo as três variantes da Forma de Domínio. O acabamento usa contornos limpos, áreas amplas de cor, sombras recortadas e materiais foscos. O cenário e os efeitos foram simplificados, e os ghouls receberam a mesma linguagem desenhada dos protagonistas.
 
 A revisão conjunta em resolução de jogo conferiu identidades, silhuetas, direção de olhos e cabeça, alvos únicos, três inimigos nas ações de área e três aliados no apoio de equipe. Fontes anteriores seguem arquivadas; as novas fontes e os prompts estão no manifesto ART_ANIME_FIRST_REWORK_20261028.json. As quinze WebPs ativas permanecem em 512 × 512. A substituição não acrescenta personagens às contagens: 28/100 conjuntos anime-first e 15/55 personagens de Inferno revisados.
+
+
+## O Suserano — presença espectral anime-first em Magma
+
+Seis artes receberam nova rota versionada. A identidade recupera a presença sem corpo já definida para O Suserano: manto vazio, capuz negro com uma única fenda âmbar, coroa flutuante e placas de trono destacadas. As superfícies usam planos de cor e sombras recortadas, com efeitos violeta restritos à ação.
+
+Autoridade Delegada e Suserania Inviolável mostram somente o usuário. Decreto de Submissão afeta um ghoul; Interdição Soberana protege A Magistrada contra um único agressor e devolve o ataque; Guarda dos Vassalos protege exatamente O Suserano, A Magistrada e O Príncipe. A orientação do capuz no ataque e os acessórios próprios do Príncipe foram revisados. Os seis ativos WebP foram conferidos em 512 × 512, com fontes de 960 × 960 e prompts no manifesto ART_ANIME_FIRST_REWORK_20261028.json.
+
+Nenhuma regra do kit mudou. A revisão de Inferno passa a 16/55 personagens, com 39 pendentes. A contagem anime-first permanece em 28/100 conjuntos, pois este conjunto base já constava da migração anterior.

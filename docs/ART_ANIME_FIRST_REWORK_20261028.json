@@ -265,6 +265,76 @@
           }
         ]
       }
+    },
+    "o-trono-vazio": {
+      "displayName": "O Suserano",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "kingdomTheme": "Greed and waste crushed beneath colossal weights.",
+      "activeRoute": "/art/characters/o-trono-vazio/anime-first-rework-20261028",
+      "previousActiveRoute": "/art/characters/o-trono-vazio",
+      "identityReference": "art/source/o-trono-vazio-identity-portrait-before-anime-20261026.webp",
+      "identity": "Bodiless apparition: empty hooded mantle, one amber slit, floating detached crown and throne plates; no human face or flesh body.",
+      "sourceAssets": [
+        "art/source/o-suserano-anime-first-flat-20261028-portrait.webp",
+        "art/source/o-suserano-anime-first-flat-20261028-passive.webp",
+        "art/source/o-suserano-anime-first-flat-20261028-skill-impulso.webp",
+        "art/source/o-suserano-anime-first-flat-20261028-skill-tecnica.webp",
+        "art/source/o-suserano-anime-first-flat-20261028-skill-voto.webp",
+        "art/source/o-suserano-anime-first-flat-20261028-skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/o-trono-vazio/anime-first-rework-20261028/portrait.webp",
+        "/art/characters/o-trono-vazio/anime-first-rework-20261028/passive.webp",
+        "/art/characters/o-trono-vazio/anime-first-rework-20261028/skill-impulso.webp",
+        "/art/characters/o-trono-vazio/anime-first-rework-20261028/skill-tecnica.webp",
+        "/art/characters/o-trono-vazio/anime-first-rework-20261028/skill-voto.webp",
+        "/art/characters/o-trono-vazio/anime-first-rework-20261028/skill-despertar.webp"
+      ],
+      "alternateFormAssets": [],
+      "abilityTargetReview": {
+        "passive.webp": "self only",
+        "skill-impulso.webp": "one enemy",
+        "skill-tecnica.webp": "one ally guarded against one enemy; three figures including caster",
+        "skill-voto.webp": "caster plus two allies; three party members",
+        "skill-despertar.webp": "self only"
+      },
+      "kitStatus": "Unchanged",
+      "styleReview": {
+        "status": "visually_reviewed",
+        "localDate": "2026-10-27",
+        "checks": [
+          "Spectral identity in all six images",
+          "Clean anime contours and broad cel shadows",
+          "Gaze or hood orientation follows the action",
+          "Correct targets and beneficiaries",
+          "Distinct costumes for Magistrada and Prince",
+          "Six active 512px WebPs and six 960px sources decoded"
+        ]
+      },
+      "generation": {
+        "tool": "built-in image_gen",
+        "commonPrompt": "Use case: stylized-concept. ONE square game illustration for Oblivium Arena. Use the supplied portrait as IDENTITY AND STYLE reference for O Suserano: bodiless apparition, EMPTY burgundy-black hooded mantle, no human face, skin, flesh hands, hair, legs or anatomical body. One thin amber eye slit inside a black hood void; a slender broken crown floats visibly detached above the hood; clean geometric throne plates at shoulders and a few silver chains. Identity must remain spectral in ALL actions. The hood and eye slit orient toward the action. Rendering: clean drawn 2D ANIME cel animation, bold purposeful contours, broad flat color fills, one or two large hard-edged shadow planes. Smooth matte metal and cloth, few fold lines, strong negative spaces. Enemies and allies use the same anime rendering. No scratches, painted grain, photorealism, realistic skin, detailed tendons, busy reflections, bloom, neon rim lights, dense particles, gradients or photographic blur. Current Kingdom Magma = greed and waste crushed beneath colossal weights. Convey it with QUIET broad charcoal basalt counterweight shapes, ash fog and muted ochre heaps of wasted gold; do not flood frame with lava. Limited burgundy/charcoal/ash/ochre palette with small flat violet energy accents. Figure, action and actual beneficiaries must be clear at 512px. Human hands where present have normal proportions and sensible joints. No generic armored soldiers, extra figures, lettering, UI, split panels or text.",
+        "portraitPrompt": "Create ONE square portrait for Oblivium Arena. IMAGE 1 is the TRUE IDENTITY reference for O Suserano: a bodiless spectral apparition, empty burgundy-black hooded mantle, absolutely NO human face, hair, skin or anatomical body. The hood interior is a matte black void with ONE narrow vertical amber eye slit. A broken slender metal crown FLOATS separated just above the hood; geometric throne plates float at the shoulders, with a few silver chain arcs and angular clasps. Preserve these identity motifs while simplifying them. IMAGE 2 is RENDERING STYLE ONLY: clean high-quality hand-drawn 2D ANIME cel animation key visual, expressive graphic silhouette, confident black ink contours, broad flat color areas and just 1-2 hard-edged shadow tones per surface. Matte materials, no realistic reflections, no surface texture, scratches, painterly grain, gradients, cinematic bloom, dense sparks, blurry depth of field or glossy CGI. Do NOT copy the human king, white beard, ivory cape or human face from image 2. Subject: a sovereign spectral entity of the current Kingdom Magma, greed and waste crushed beneath colossal weights. Chest-up three-quarter apparition facing left, hood tilts slightly down, floating crown visibly detached from hood. Behind it: quiet broad charcoal shapes of an abandoned weighing chamber, one huge suspended basalt counterweight and ochre piles of crushed abandoned gold bowls. Pale ash fog and a little muted violet in the shadows. Background much lower contrast than figure, strong negative space. No repeated lava valley. Limited burgundy, charcoal, muted silver, pale ash palette; amber restricted to one tiny slit. No human hands, no other characters, no writing, no lettering, no symbols resembling text, no UI. Preserve the unsettling empty form, make it clearly anime drawn.",
+        "portraitStyleCorrection": "REDRAW image 1 using EXACTLY the clean flat ANIME CEL rendering language of image 2. Image 1 provides the spectral character and composition; image 2 provides rendering style ONLY. Keep the EMPTY hood with single thin amber eye slit, floating broken crown separated from hood, burgundy-black mantle, throne-shaped shoulder plates and silver chains. NO human face, skin, hair or body. Simplify the entire image decisively: broad smooth flat color fills, strong clear black outline, only one large hard-edged shadow area per surface. FEWER cloth folds and larger broad burgundy shapes. Smooth clean angular plate faces: remove all scratches, chips, etched microdetail, stone grain, brushed highlights and realistic reflections. Crown simplified into clean thin metal silhouette with a single flat light face and single shadow face. Chains drawn as a few simple broad links, do not render dozens of tiny links. Hood interior uniformly black, small solid amber slit with no bloom. Background simplified into quiet flat matte gray shapes, a suspended block silhouette, pale ash sky, a simple low-contrast ochre shape for wasted gold. No textured fog. Remove painterly stipple, material noise and gradients. Preserve the exact spectral identity and detached crown; do NOT copy the human woman or her costume from image 2. One square hand-drawn 2D anime character key visual, no writing or UI.",
+        "scenePrompts": {
+          "passive": "Asset: Autoridade Delegada passive. Exactly ONE figure: Suserano alone. HIGH three-quarter wide view over a silent abandoned weighing pit: the empty apparition regathers three broad detached throne plates close around its mantle as guard after weathering an impact. A few small fallen basalt chunks and dust shapes lie below, no attacker present. The robe floats slightly above floor with a clearly visible gap and empty trailing hem, no feet. Hood angled down toward the returning plates, crown following hood but remaining detached. Quiet defensive recovery, not a spell attack. Strong broad mantle silhouette, muted gray background, sparse violet line binding guard plates.",
+          "skill-impulso": "Asset: Decreto de Submissão, spiritual damage to ONE enemy and offensive seal. Exactly TWO figures: Suserano at UPPER RIGHT and ONE unarmored lean ash ghoul at LOWER LEFT. Elevated diagonal composition across a broken weight-beam bridge. Suserano's EMPTY right sleeve and a detached silver throne plate point at the ghoul; no flesh hand. Hood tilts down-left at the target. A single thin violet rectangular decree plane strikes the ghoul's chest and clamps across its raised attacking forearm, interrupting its dark offensive trail. The ghoul recoils with head turned toward the caster. One clear flat contact star, no gore or text. Wide empty ash space separates silhouettes; crushed ochre gold stays low contrast below.",
+          "skill-tecnica": "Asset: Interdição Soberana COUNTER guarding ONE ALLY. Exactly THREE figures total: spectral Suserano at LEFT REAR, A Magistrada in CENTER, ONE unarmored ghoul enemy at RIGHT. Eye-level side view on a narrow basalt causeway. Magistrada is an adult brown-skinned woman with short copper curls and pale temple strands, rectangular silver earrings, iron collar, ivory neckcloth, black-burgundy judicial coat. Her body braces and her eyes directly watch the attacker to her RIGHT. The ghoul swings a simple basalt club toward Magistrada; a single flat violet rectangular ward immediately in front of HER catches it. A small angular violet rebound lashes back from this ward to the ghoul's upper chest, exposing the SAME attacker. One tiny ivory reserve spark breaks beside that attacker. Suserano's hood and eye slit point right toward ward contact; its empty sleeve extends, no human hand. This is a counter protecting Magistrada, not an area shield or physical attack by caster. No fourth figure. Dynamic action, sensible weapon contact, clear silhouettes. Matte broad forms.",
+          "skill-voto": "Asset: Guarda dos Vassalos. Exactly THREE PARTY MEMBERS: spectral Suserano, A Magistrada and O Príncipe; no enemies. Team moves diagonally UP a broad ash ramp between giant basalt counterweights, seen from an elevated three-quarter angle. Staggered action formation: Suserano floats ahead at upper right, Magistrada climbs in left middle, Príncipe steps forward in left foreground; do not pose as a portrait lineup. Magistrada: copper curls with pale temple strands, brown skin, rectangular earrings, iron collar, ivory neckcloth and dark burgundy judicial coat. Príncipe: adult young brown-skinned man, short black curls, ONE pale braid at side, black coat with burgundy lining and ivory shirt, single heavy chain across torso. Both allies' heads and eyes follow their path forward/up-right. Exactly THREE small flat violet angular guard plates hover, one close in front of EACH party member, visibly protecting the trio. Sparse thin violet linking lines suggest shared strengthening; no spherical bubbles. Suserano's empty hem and detached crown visible. Quiet ochre wasted gold compressed under one distant weight; broad readable shapes.",
+          "skill-despertar": "Asset: Suserania Inviolável, PERSONAL invulnerability. Exactly ONE figure, Suserano alone. Low close SIDE view in a shallow ruined weighing chamber: its empty burgundy robe closes into broad overlapping angular shadow planes and a few smooth silver throne plates, forming a close personal ward while basalt splinters pass harmlessly through the hollow lower mantle. Hood interior remains black with ONE amber slit; crown separated above it; no flesh, face, hands or body revealed. Hood turns toward the small incoming shards at RIGHT, not toward viewer. A small cold violet outline traces the mantle's edge, no sphere, no giant glowing cage. Large quiet ash-gray negative area behind the figure, one compressed ochre gold mass on floor. Simple readable anime silhouette and cel planes."
+        },
+        "finalCorrections": [
+          {
+            "slot": "skill-impulso",
+            "prompt": "Precise head-direction correction ONLY. In this clean anime image the spectral Suserano is at upper right attacking the ghoul at lower left. Rotate and tilt ONLY the EMPTY hood and floating crown DOWN-LEFT toward the ghoul. The hood opening should be seen in clear left-facing three-quarter/profile orientation, the single amber slit aimed down-left at the ghoul's chest. No face, head, skin or human anatomy appears inside the hood. Crown stays detached and follows hood orientation. Preserve the empty sleeve, metal plate, violet seal plane, ghoul, action, composition, flat cel shadows, colors, smooth materials and all other parts exactly. No added details, lettering or people."
+          },
+          {
+            "slot": "skill-voto",
+            "prompt": "Image 1 is the edit target; image 2 is Prince costume reference ONLY. Correct ONLY O PRINCIPE in the lower-left foreground of image 1. Keep his brown face, black curls, single pale side braid, exact head pose, gaze, body pose and position. Replace his mistaken white tied neck cravat with the simple loose ivory round-neck SHIRT from image 2. Remove the small diamond brooches and thin decorative chains on his coat; replace with the single HEAVY bronze-gray draped chain of image 2 over a plain black high-collar coat with burgundy inner lining. Keep his clothes drawn in the existing clean flat anime cel style, do not import reference texture. Do NOT alter Magistrada at upper left: she retains her white tied neckcloth, silver diamond fittings and fine chains. Do NOT alter spectral Suserano, three violet guard plates, composition, background, any gaze or total figure count. Exactly three allies remain. No human face inside Suserano hood. No text or new objects."
+          }
+        ]
+      }
     }
   },
   "visualReview": {
@@ -280,7 +350,8 @@
       "The group ward shows O Soberano, A Magistrada, and O Príncipe bracing beneath a falling basalt slab in an angled combat scene.",
       "No generic armored soldiers, extra targets, or gameplay changes were introduced.",
       "A Magistrada: six scenes reviewed for identity, single-target actions, self-only invulnerability, anatomy and gaze alignment. Five scenes received targeted corrections to eyes, head angle and neck orientation.",
-      "The fifteen active images of O Soberano and A Magistrada were redrawn with flat anime cel planes, matte materials and quieter backgrounds. Both sets were reviewed together at game resolution for style consistency, gaze and target counts."
+      "The fifteen active images of O Soberano and A Magistrada were redrawn with flat anime cel planes, matte materials and quieter backgrounds. Both sets were reviewed together at game resolution for style consistency, gaze and target counts.",
+      "O Suserano: six scenes restore the established bodiless identity, preserve single-ally counter targeting and three-member team support, and use clean anime cel rendering."
     ],
     "styleRevision": {
       "characters": [
