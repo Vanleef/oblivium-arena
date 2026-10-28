@@ -5,7 +5,7 @@ import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
 import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from '../src/progression.js';
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, eloAccess, trailVariants, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from '../src/progression.js';
 
 const cloneJson=value=>JSON.parse(JSON.stringify(value));
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -91,9 +91,15 @@ export class CampaignService{
      if(profile.run)fail('Conclua ou abandone a trilha atual.');
      if(profile.team?.length!==3||new Set(profile.team).size!==3||profile.team.some(id=>!profile.ownedIds.includes(id)))fail('Escolha três almas recrutadas.');
      const elo=elos.find(item=>item.id===body.eloId);if(!elo)fail('Reino inválido.');
+     if(profile.pendingGlobalReward)fail('Escolha seu Legado antes de iniciar outra trilha.');
+     if(!eloAccess(profile,elo).unlocked)fail('Reino bloqueado.');
+     const variantId=String(body.variantId||'hunt'),variant=trailVariants(profile,elo).find(item=>item.id===variantId);
+     if(!variant||variant.locked)fail('Trilha bloqueada.');
+     const difficulty=body.difficulty===undefined?maxDifficulty(profile,elo.id):Number(body.difficulty);
+     if(!Number.isInteger(difficulty)||difficulty<0||difficulty>maxDifficulty(profile,elo.id))fail('Dificuldade bloqueada.');
      const seed=randomBytes(4).readUInt32BE(0)||1;
      account.campaignRunId=randomBytes(24).toString('hex');
-     profile.run=createExpedition(profile,elo,String(body.variantId||'hunt'),body.difficulty===undefined?maxDifficulty(profile,elo.id):Number(body.difficulty),seed,{guided:Boolean(body.guided)});
+     profile.run=createExpedition(profile,elo,variantId,difficulty,seed,{guided:Boolean(body.guided)});
      profile.run.serverOwned=true;profile.run.serverRunId=account.campaignRunId;profile.run.battle=null;profile.run.pending=null;profile.completionNotice=null;
      break;
     }
