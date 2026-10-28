@@ -3,6 +3,7 @@ import {resolveResourcePayment,resolveEssenceExchange} from '../src/resource-cos
 import {pathToFileURL} from 'node:url';
 import {writeFile} from 'node:fs/promises';
 import {characters, elos} from '../src/data.js';
+import {defaultKingdomByTrack} from '../src/kingdoms.js';
 import {seededRandom, shuffled, normalizeCampaign, globalChoices, aggregateGlobal} from '../src/progression.js';
 import {createBattle, createEnemyTeam, getCombatPlan, chooseAction, commitTurn, resolveNextAction, getAbilityResourceCosts, exchangeEssence} from '../src/combat.js';
 
@@ -44,7 +45,8 @@ function assertEnemyPlan(b) {
 export function simulateMatch(index, pass=0, maxRounds=100, options={}) {
   const seed=options.seed??21000+index*101+pass*10007, rng=seededRandom(seed), anchor=characters[index%characters.length];
   const ids=options.playerIds||[anchor.id,...shuffled(characters.filter(c=>c.id!==anchor.id),rng).slice(0,2).map(c=>c.id)];
-  const elo=options.eloId?elos.find(e=>e.id===options.eloId):elos[(index+pass)%elos.length];
+  const resolvedEloId=options.eloId?(defaultKingdomByTrack[options.eloId]||options.eloId):undefined;
+  const elo=options.eloId?elos.find(e=>e.id===resolvedEloId):elos[(index+pass)%elos.length];
   if(!elo)throw new Error(`Elo desconhecido: ${options.eloId}`);
   const encounter=options.encounter||['normal','elite','boss'][pass%3],difficulty=options.difficulty??[0,3,6][pass%3],sequence=options.sequence??index;
   const b=createBattle(ids,createEnemyTeam(elo,ids,encounter,sequence,{difficulty}),{rng,difficulty,globalEffects:options.globalEffects});
