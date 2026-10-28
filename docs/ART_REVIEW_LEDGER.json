@@ -194,7 +194,13 @@
     "teras-o-observador:base:impulso",
     "teras-o-observador:base:tecnica",
     "teras-o-observador:base:voto",
-    "teras-o-observador:base:despertar"
+    "teras-o-observador:base:despertar",
+    "victor:base:portrait",
+    "victor:base:passive",
+    "victor:base:impulso",
+    "victor:base:tecnica",
+    "victor:base:voto",
+    "victor:base:despertar"
   ],
   "pendingCorrections": []
 }

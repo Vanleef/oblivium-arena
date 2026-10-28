@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 30,
-    "newAbilityScenesSaved": 151,
+    "newPortraitsSaved": 31,
+    "newAbilityScenesSaved": 156,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -12819,8 +12819,10 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/victor/anime-first-completion-20261028/portrait.webp",
+          "source": "/art/source/victor-anime-first-completion-20261028/portrait.webp"
         },
         {
           "key": "victor:base:passive",
@@ -12829,8 +12831,10 @@
           "slot": "passive",
           "name": "Autoridade Residual",
           "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Victor concede 2 de Defesa ao trio e ganha 1 carga.",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/victor/anime-first-completion-20261028/passive.webp",
+          "source": "/art/source/victor-anime-first-completion-20261028/passive.webp"
         },
         {
           "key": "victor:base:impulso",
@@ -12842,8 +12846,10 @@
           "name": "Decreto Final",
           "description": "Causa 14 de dano físico a um inimigo. Enfraquece o alvo por 1 turno.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/victor/anime-first-completion-20261028/skill-impulso.webp",
+          "source": "/art/source/victor-anime-first-completion-20261028/impulso.webp"
         },
         {
           "key": "victor:base:tecnica",
@@ -12855,8 +12861,10 @@
           "name": "Trono sem Reino",
           "description": "Concede 8 de Defesa destrutível ao trio.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/victor/anime-first-completion-20261028/skill-tecnica.webp",
+          "source": "/art/source/victor-anime-first-completion-20261028/tecnica.webp"
         },
         {
           "key": "victor:base:voto",
@@ -12868,8 +12876,10 @@
           "name": "Sucessão Forçada",
           "description": "Causa 16 de dano perfurante a um inimigo. Marca o alvo por 2 turnos. Remove 12 de Defesa antes do dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/victor/anime-first-completion-20261028/skill-voto.webp",
+          "source": "/art/source/victor-anime-first-completion-20261028/voto.webp"
         },
         {
           "key": "victor:base:despertar",
@@ -12881,11 +12891,13 @@
           "name": "Último Mandato",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "exists": true,
+          "status": "reviewed",
+          "art": "/art/characters/victor/anime-first-completion-20261028/skill-despertar.webp",
+          "source": "/art/source/victor-anime-first-completion-20261028/despertar.webp"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "silas",
@@ -26159,8 +26171,10 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/victor/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/victor-anime-first-completion-20261028/portrait.webp"
     },
     {
       "key": "victor:base:passive",
@@ -26169,8 +26183,10 @@
       "slot": "passive",
       "name": "Autoridade Residual",
       "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Victor concede 2 de Defesa ao trio e ganha 1 carga.",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/victor/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/victor-anime-first-completion-20261028/passive.webp"
     },
     {
       "key": "victor:base:impulso",
@@ -26182,8 +26198,10 @@
       "name": "Decreto Final",
       "description": "Causa 14 de dano físico a um inimigo. Enfraquece o alvo por 1 turno.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/victor/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/victor-anime-first-completion-20261028/impulso.webp"
     },
     {
       "key": "victor:base:tecnica",
@@ -26195,8 +26213,10 @@
       "name": "Trono sem Reino",
       "description": "Concede 8 de Defesa destrutível ao trio.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/victor/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/victor-anime-first-completion-20261028/tecnica.webp"
     },
     {
       "key": "victor:base:voto",
@@ -26208,8 +26228,10 @@
       "name": "Sucessão Forçada",
       "description": "Causa 16 de dano perfurante a um inimigo. Marca o alvo por 2 turnos. Remove 12 de Defesa antes do dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/victor/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/victor-anime-first-completion-20261028/voto.webp"
     },
     {
       "key": "victor:base:despertar",
@@ -26221,8 +26243,10 @@
       "name": "Último Mandato",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "exists": true,
+      "status": "reviewed",
+      "art": "/art/characters/victor/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/victor-anime-first-completion-20261028/despertar.webp"
     },
     {
       "key": "silas:base:portrait",

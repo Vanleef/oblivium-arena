@@ -127,6 +127,11 @@
       "name": "Teras, o Observador — Leitor de Fendas",
       "identity": "Entidade infernal adulta não humana, com forma de cerâmica ritual: cabeça alongada e lisa de obsidiana cinza, exatamente três pequenas fendas oculares marfim alinhadas no alto do rosto, centros violetas discretos e uma única placa mandibular branca sem boca humana. Ombros estreitos sob manto índigo escuro com gola marfim plana; dois cordões simples prateados descem pelo peito; antebraço de cerâmica longa com uma fissura violeta. A cabeça e as três fendas dão expressão de observação deliberada. Sem capuz, coroa, armadura, engrenagens ou aparência industrial.",
       "scene": "Inferno, Blasfêmia: fileiras amplas de tumbas basaltinas seladas, algumas linhas vermelhas foscas sob céu de cinza. As fendas e a Essência surgem como linhas violetas e vazios, não como aparelhos. Sem inscrições legíveis ou lava cobrindo a cena."
+    },
+    "victor": {
+      "name": "Victor — Regente sem Reino",
+      "identity": "Homem adulto de cerca de 52 anos, pele umber profunda, nariz largo, rosto forte marcado por linhas de cansaço, cabelo curto de cachos sal-e-pimenta, barba cheia trançada com fios grisalhos, olhos castanho-âmbar. Alto e magro, ombros um pouco curvados por responsabilidade. Usa coroa quebrada de cinco pontas talhada em basalto escurecido e raiz queimada, uma ponta ausente e amarrada por pano vermelho; túnica longa carvão com forro vinho, gola marfim apagada, faixa tijolo e barra de fio ocre, com cinza e rasgos reparados. Sem armadura, armas ou ferragens.",
+      "scene": "Inferno, Magma: salão régio em ruínas de basalto vulcânico, escadarias quebradas, cinza no ar e rio de magma distante sob arcos escuros. O trono vazio aparece como silhueta quebrada, nunca como centro da cena. Fios vinho e ouro representam autoridade e abrigo, sem tecnologia ou maquinaria."
     }
   }
 }

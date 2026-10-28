@@ -946,6 +946,42 @@
       "slot": "despertar",
       "scene": "Vista traseira de Teras dando um passo para trás por um limiar basaltino; um véu translúcido violeta em torno do manto dissolve cinza, três fendas oculares ainda voltadas à fissura.",
       "allies": []
+    },
+    {
+      "id": "victor",
+      "slot": "passive",
+      "scene": "Exatamente três figuras. Victor acabou de receber pressão no ombro, apoia uma mão no basalto e uma pequena carga dourada surge; um arco vinho protege dois aliados distintos atrás dele.",
+      "allies": [
+        "pessoa adulta baixa de pele oliva e cabelo branco liso, roupa azul-cinza",
+        "mulher alta negra de trança azul-cobalto e túnica bronze"
+      ]
+    },
+    {
+      "id": "victor",
+      "slot": "impulso",
+      "scene": "Vista oblíqua por trás de Victor no salão de Magma. Sua mão aberta no piso envia uma linha vermelho-ocre pelas cinzas; uma alma anônima alta e curvada perde o equilíbrio e se ajoelha, sem ferimento.",
+      "allies": []
+    },
+    {
+      "id": "victor",
+      "slot": "tecnica",
+      "scene": "Exatamente três pessoas: Victor estende o manto vinho como abrigo sobre um aliado jovem de traços asiáticos e uma mulher alta de pele escura com locs prateados; uma barreira de tecido e luz detém a cinza.",
+      "allies": [
+        "homem adulto asiático jovem, topete preso e roupa azul-cinza",
+        "mulher alta negra mais velha, locs prateados e túnica verde-azulada"
+      ]
+    },
+    {
+      "id": "victor",
+      "slot": "voto",
+      "scene": "Uma alma condenada de pele clara e cachos cor de fogo perde a crosta de cinza e basalto que cobria seu manto; um fio vinho assenta uma pequena marca no tecido, com Victor ao fundo.",
+      "allies": []
+    },
+    {
+      "id": "victor",
+      "slot": "despertar",
+      "scene": "Victor ajoelhado sozinho sobre basalto, mão no peito e outra no chão; o próprio manto preto e vinho forma um arco de luz dourada que interrompe fragmentos de cinza.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1042,6 +1078,11 @@
     "teras-o-observador:impulso",
     "teras-o-observador:tecnica",
     "teras-o-observador:voto",
-    "teras-o-observador:despertar"
+    "teras-o-observador:despertar",
+    "victor:passive",
+    "victor:impulso",
+    "victor:tecnica",
+    "victor:voto",
+    "victor:despertar"
   ]
 }
