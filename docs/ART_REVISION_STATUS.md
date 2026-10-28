@@ -518,3 +518,8 @@ A migração anime-first soma agora 19 dos 100 conjuntos base (114 de 600 sprite
 ## Lote anime-first de Sangria
 
 O Colecionador de Cabeças, Gêmeos do Cutelo, O Carrasco sem Rosto e A Matriarca receberam seis artes novas cada, com folhas fonte arquivadas. Os Gêmeos são dois homens adultos de traços semelhantes e continuam sendo um único personagem jogável. Os alvos, anatomia, empunhaduras, defesas pessoais e cenários de Inferno foram revisados.
+
+
+## Lote anime-first de Sangria — 28/10/2026
+
+O Açougueiro e A Viúva receberam seis sprites cada na direção anime-forward 2.5D. A arte segue os kits: alvos únicos são ghouls, defesas pessoais mostram somente o usuário e a técnica do Açougueiro foi reenquadrada para tirar a mão do ghoul do primeiro plano. As pranchas-fonte e a correção estão arquivadas.

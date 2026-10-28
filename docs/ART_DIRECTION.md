@@ -22,10 +22,10 @@ O usuário aprovou a prancha de A Porta que Flutua e pediu que todo o jogo siga 
 
 - Personagens do Inferno precisam parecer demônios ou entidades infernais à primeira vista. Traços humanos preservam identidade, não uma aparência humana comum. Cada personagem recebe sinais próprios do Reino e do kit; não repetir um único modelo demoníaco. Esta regra inclui Oblívio.
 - Títulos precisam ser concisos e combinar com o Reino e o conceito. Aristides, de Oblívio, passa a ser **Aristides, O Regulador**; “O Justo” sugeria santidade incompatível com a leitura desejada para o Inferno.
-- A auditoria anime-first anterior registrava 19/100 conjuntos e 114/600 sprites. Com Aristides, eram 20/100. Após a revisão de O Incendiário e A Brasa Eterna, são 26/100 conjuntos e 156/600 sprites. Restam 74 conjuntos base para refazer e revisar.
+- A auditoria anime-first anterior registrava 19/100 conjuntos e 114/600 sprites. Com Aristides, eram 20/100. Após a revisão de O Incendiário e A Brasa Eterna, são 28/100 conjuntos e 168/600 sprites. Restam 72 conjuntos base para refazer e revisar.
 - O kit de Aristides inclui seis sprites base e uma arte própria para a forma alternativa `balance` / **Prato Ascendente**. Sem chifres nem balanças na arte: usar energia infernal dourada e signos.
 - O emblema principal, a variante violeta, os sete arquivos de marca e seis ícones de aplicação foram atualizados. As artes de Reino e do portal, demais formas alternativas e o restante da interface continuam na auditoria.
-- O Regulador, O Impostor, O Falsário, O Intrigante, A Serpe, O Incendiário, A Brasa Eterna, O Colecionador, Gêmeos do Cutelo, O Carrasco e A Matriarca passaram por revisão infernal; restam 44 personagens do Inferno para inspeção visual e redesign quando a arte não transmitir essa leitura.
+- O Regulador, O Impostor, O Falsário, O Intrigante, A Serpe, O Incendiário, A Brasa Eterna, O Colecionador, Gêmeos do Cutelo, O Carrasco, A Matriarca, O Açougueiro e A Viúva passaram por revisão infernal; restam 42 personagens do Inferno para inspeção visual e redesign quando a arte não transmitir essa leitura.
 - Em qualquer arte de habilidade, alvos são ghouls ou personagens identificáveis do elenco (protagonistas, coadjuvantes ou inimigos); nunca soldados genéricos de armadura. Respeitar a quantidade exata de alvos.
 - Progresso infernal e progresso anime-first são contagens diferentes: um conjunto só conclui ambos quando os seis sprites e suas formas ativas forem inspecionados sob as duas regras.
 

@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-10-28",
   "approvedArtDirection": "Anime-forward 2.5D",
   "totalBaseCharacterSets": 100,
   "totalBaseSprites": 600,
-  "animeFirstComplete": 26,
-  "animeFirstSpritesComplete": 156,
-  "animeFirstPending": 74,
-  "animeFirstSpritesPending": 444,
+  "animeFirstComplete": 28,
+  "animeFirstSpritesComplete": 168,
+  "animeFirstPending": 72,
+  "animeFirstSpritesPending": 432,
   "infernoRosterCount": 55,
-  "infernoRedesignReviewed": 11,
-  "infernoPendingVisualReview": 44,
+  "infernoRedesignReviewed": 13,
+  "infernoPendingVisualReview": 42,
   "infernoCharacterIds": [
     "o-acougueiro",
     "a-viuva-escarlate",
@@ -74,8 +74,8 @@
   "appIconFilesCompleted": 6,
   "appIconFilesTotal": 6,
   "pending": [
-    "Review every Inferno character for demonic/infernal read; redesign mismatches. 44 remain for visual review.",
-    "Migrate remaining 74 base character sets and 444 sprites.",
+    "Review every Inferno character for demonic/infernal read; redesign mismatches. 42 remain for visual review.",
+    "Migrate remaining 72 base character sets and 432 sprites.",
     "Inventory and align all alternative forms.",
     "Review every ability target: use a ghoul or named cast character, never a generic armored soldier.",
     "Align the realm banners, realm emblems, veil gate, UI illustrations, and remaining visual effects."

@@ -1,0 +1,53 @@
+{
+  "id": "anime-first-rework-20261028",
+  "date": "2026-10-28",
+  "game": "Oblivium Arena",
+  "style": "Anime-forward 2.5D: expressive graphic shapes, firm ink contours, angular cel-shaded shadows and painterly depth in environments. Inferno characters must read as distinct malicious entities; avoid photorealism, glossy CGI and industrial technology.",
+  "characters": {
+    "o-acougueiro": {
+      "displayName": "O Açougueiro",
+      "activeRoute": "/art/characters/o-acougueiro/anime-first-rework-20261028",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-acougueiro-anime-first-rework-20261028-sheet.webp",
+      "supplementarySources": [
+        "art/source/o-acougueiro-talho-imobilizante-correction-20261028.webp"
+      ],
+      "assets": [
+        "/art/characters/o-acougueiro/anime-first-rework-20261028/portrait.webp",
+        "/art/characters/o-acougueiro/anime-first-rework-20261028/passive.webp",
+        "/art/characters/o-acougueiro/anime-first-rework-20261028/skill-impulso.webp",
+        "/art/characters/o-acougueiro/anime-first-rework-20261028/skill-tecnica.webp",
+        "/art/characters/o-acougueiro/anime-first-rework-20261028/skill-voto.webp",
+        "/art/characters/o-acougueiro/anime-first-rework-20261028/skill-despertar.webp"
+      ]
+    },
+    "a-viuva-escarlate": {
+      "displayName": "A Viúva",
+      "aliases": [
+        "A Viúva Escarlate"
+      ],
+      "activeRoute": "/art/characters/a-viuva-escarlate/anime-first-rework-20261028",
+      "world": "Inferno",
+      "sourceSheet": "art/source/a-viuva-escarlate-anime-first-rework-20261028-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/portrait.webp",
+        "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/passive.webp",
+        "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-impulso.webp",
+        "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-tecnica.webp",
+        "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-voto.webp",
+        "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-despertar.webp"
+      ]
+    }
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "checks": [
+      "Both character sheets inspected for identity, anatomy, varied framing, ability correspondence and infernal settings.",
+      "O Açougueiro's single-target skills show one unarmored ghoul; his personal defense shows only him.",
+      "O Açougueiro's Talho Imobilizante crop uses a side view with a normal-scale ghoul hand; no oversized foreground hand.",
+      "A Viúva's Fio Escarlate and Beijo da Última Noite each show one ghoul; Véu da Viúva and Véu de Sangue show only the user.",
+      "No generic armored soldiers or extra targets appear."
+    ]
+  }
+}
