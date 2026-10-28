@@ -783,6 +783,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.publicView){state.publicView=target.dataset.publicView;if(target.dataset.publicView==="tutorial")state.publicTutorialStep=0;render();return;}
   if(target.dataset.authMode){state.authMode=target.dataset.authMode;state.accountError="";render();return;}
   if(target.dataset.avatar){profile.avatarId=target.dataset.avatar;state.profileError="";render();return;}
+  if(target.dataset.action==="audio-toggle"){state.audioOn=!audioEnabled();setAudioEnabled(state.audioOn);render();return;}
   if(target.dataset.action==="toggle-context-tips"){profile.contextTipsOff=!profile.contextTipsOff;save();render();return;}
   if(target.dataset.tutorialAnswer){if(!state.account&&state.publicView==="tutorial")state.publicTutorialAnswer=target.dataset.tutorialAnswer;else state.tutorialAnswer=target.dataset.tutorialAnswer;render();return;}
   if(target.dataset.tutorial!==undefined){const next=Number(target.dataset.tutorial);if(!state.account&&state.publicView==="tutorial"){if(next>=6){state.publicView="login";state.publicTutorialStep=0;}else state.publicTutorialStep=Math.max(0,next);state.publicTutorialAnswer=null;}else if(next>=6){state.tutorialOpen=false;profile.tutorialComplete=true;save();}else{state.tutorialStep=Math.max(0,next);state.tutorialAnswer=null;}render();return;}
