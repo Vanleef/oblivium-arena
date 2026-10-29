@@ -656,4 +656,12 @@ Ativos WebP: `/art/characters/a-mae-rubra/dark-pictorial-rework-20261029`; fonte
 
 ## Estado da migração pictórica — 29/10/2026 (atualizado)
 
-A direção dark fantasy pictórica cobre **109 de 998 espaços** como candidatas; **889** ainda aguardam produção. **17 kits** estão integrados, restam **133 entradas** e **32 variantes** dedicadas. As 109 artes aguardam aprovação visual final; a produção continua.
+A direção dark fantasy pictórica cobre **115 de 998 espaços** como candidatas; **883** ainda aguardam produção. **18 kits** estão integrados, restam **132 entradas** e **32 variantes** dedicadas. As 115 artes aguardam aprovação visual final; a produção continua.
+
+## O Suserano — direção gráfica dark fantasy 2.5D — 29/10/2026
+
+Perdiccas preserva o capuz vazio, a fenda âmbar, a coroa de ferro partida, o manto negro e vinho, as placas angulares e as correntes. As seis peças cobrem retrato, passiva e quatro habilidades.
+
+Os enquadramentos alternam close frontal baixo, lateral oblíqua, ação baixa em três quartos, perfil de contra-ataque, plano frontal amplo com dois vassalos e vista através de escombros. A silhueta do Suserano não tem face ou corpo humano; alvos e vassalos permanecem separados e legíveis, sem anomalias corporais observadas. Todas as imagens seguem como candidatas pendentes de aprovação visual. Nenhuma mecânica foi alterada.
+
+Ativos WebP: `/art/characters/o-trono-vazio/graphic-2-5d-rework-20261029`; fontes JPEG 768×768: `art/source/o-trono-vazio-graphic-2-5d-rework-20261029`. Manifesto e galeria: `docs/ART_SUSERANO_GRAPHIC_2_5D_REWORK_20261029.json` e `.md`.

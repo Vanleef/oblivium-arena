@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 70,
-  "newAbilityScenesSaved": 359,
+  "newPortraitsSaved": 71,
+  "newAbilityScenesSaved": 364,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 109 ativos candidatos desta rodada."
+    "Revisar visualmente os 115 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -93,12 +93,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 97,
-      "integratedSlots": 97,
+      "candidateSlots": 115,
+      "integratedSlots": 115,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 15
+      "fullyMigratedEntries": 18
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -108,29 +108,24 @@
     "oColecionadorArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; máscaras vazias, anatomia e cenas de cargas revisadas; candidatas pendentes de aprovação visual.",
     "oColecionadorRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada.",
     "gemeosArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; identidade dupla e anatomia revisadas, variante com um alvo único corrigida; candidatas pendentes de aprovação visual.",
-    "gemeosRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada."
+    "gemeosRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada.",
+    "suseranoGraphic25Artwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; ângulos variados e silhuetas revisadas; candidatas pendentes de aprovação visual.",
+    "suseranoGraphic25Runtime": "Rotas do runtime atualizadas para o conjunto gráfico 2.5D; nenhuma mecânica foi alterada."
   },
   "latestProduction": {
     "date": "2026-10-29",
     "darkPictorialCandidatesAdded": 6,
     "kitsIntegrated": 1,
-    "characterId": "a-mae-rubra",
-    "anatomyCorrectionsIntegrated": [
-      {
-        "characterId": "atlas",
-        "slot": "despertar",
-        "status": "integrated_candidate_pending_visual_approval"
-      }
-    ],
+    "characterId": "o-trono-vazio",
     "styleReference": "art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
     "sceneAngles": [
       "low_three_quarter_portrait",
-      "oblique_high_support_passive",
-      "low_side_profile_lifedrain",
-      "over_shoulder_support",
-      "elevated_area_triangle",
-      "low_rear_personal_defense"
+      "oblique_lateral_passive",
+      "dynamic_low_three_quarter_impulse",
+      "low_side_counterattack",
+      "wide_low_frontal_group",
+      "low_oblique_awakening"
     ],
-    "anatomyReview": "Seis cenas mantêm Julia Maesa como mulher madura de duas tranças grisalhas e preservam corpos separados, juntas e mãos legíveis. O quadro de Casulo Rubro foi refeito para deixar os dois braços da Matriarca e os dois do atacante claramente separados."
+    "anatomyReview": "A presença de Perdiccas permanece espectral, sem rosto ou corpo humano. Nas cenas de habilidade, as silhuetas dos alvos e dos dois vassalos estão separadas; não há membros extras visíveis nem sobreposição que confunda a leitura corporal."
   }
 }

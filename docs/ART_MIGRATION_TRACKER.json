@@ -8,8 +8,8 @@
   "animeFirstPending": 72,
   "animeFirstSpritesPending": 432,
   "infernoRosterCount": 55,
-  "infernoRedesignReviewed": 18,
-  "infernoPendingVisualReview": 37,
+  "infernoRedesignReviewed": 19,
+  "infernoPendingVisualReview": 36,
   "infernoCharacterIds": [
     "o-acougueiro",
     "a-viuva-escarlate",
@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 109 imagens candidatas já integradas."
+    "Fazer revisão visual final das 115 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 109,
-      "remainingSlots": 889,
-      "fullyMigratedEntries": 17,
-      "remainingEntries": 133,
-      "awaitingVisualApprovalSlots": 109,
+      "integratedCandidateSlots": 115,
+      "remainingSlots": 883,
+      "fullyMigratedEntries": 18,
+      "remainingEntries": 132,
+      "awaitingVisualApprovalSlots": 115,
       "approvedSlots": 0
     }
   },

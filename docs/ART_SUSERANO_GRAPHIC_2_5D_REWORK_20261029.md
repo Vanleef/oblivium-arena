@@ -19,6 +19,12 @@ Pintura dark fantasy densa e tátil em 2.5D, com pinceladas angulares, contornos
 - **Guarda dos Vassalos (voto):** O Suserano avança com dois vassalos diferentes sob uma cobertura de ferro e correntes; brasas marcam as armas e a ponte cede sob os passos.
 - **Suserania Inviolável (despertar):** uma placa de basalto se rompe ao redor do vazio do manto; O Suserano permanece ileso e o chão racha.
 
+As câmeras variam entre close baixo frontal em três quartos, vista lateral oblíqua, ação em perspectiva baixa, perfil próximo, plano frontal amplo e perspectiva através dos escombros. Isso separa a leitura de retrato, defesa pessoal, controle de alvo, contra-ataque, proteção em grupo e despertar.
+
+## Revisão anatômica
+
+O Suserano permanece sem rosto nem corpo humano. Alvos e os dois vassalos aparecem como figuras separadas; membros e articulações visíveis foram conferidos e não apresentam duplicações ou deformações. As seis candidatas seguem pendentes de aprovação visual.
+
 ## Galeria
 
 ### Retrato

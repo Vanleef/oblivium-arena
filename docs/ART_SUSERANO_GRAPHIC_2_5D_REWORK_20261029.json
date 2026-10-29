@@ -32,7 +32,8 @@
       "activeSha256": "8ee936782f3cecf1d230ec8ee820225934db64dc3ab77ffe12be54dc495a1a75",
       "generatedImage": "generated_images/exec-80c964b7-ada7-483a-8666-ab042bb80bce.png",
       "scene": "Retrato baixo em três quartos: o capuz vazio, a única fenda âmbar, a coroa partida e o manto vinho se deslocam no vento de ruínas infernais.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "cameraAngle": "Close baixo em três quartos, câmera frontal abaixo do capuz."
     },
     {
       "slot": "passive",
@@ -53,7 +54,8 @@
       "activeSha256": "6e51d9be3ad8a97d55b304867961b434517020e8ade4247f8d45740171e2275e",
       "generatedImage": "generated_images/exec-15d61dac-cd0c-4487-b0e7-684d7c59bdfa.png",
       "scene": "Placas de ferro assentam sobre os ombros e o peito do manto vazio após a pressão de um golpe, compondo uma defesa pessoal compacta.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "cameraAngle": "Vista lateral oblíqua do busto e das placas que se assentam sobre o manto."
     },
     {
       "slot": "skill-impulso",
@@ -74,7 +76,8 @@
       "activeSha256": "496792dca87684698ab9f4f6f152cf401f7fcbca049730b121beff94fbc4af80",
       "generatedImage": "generated_images/exec-138185e8-bb62-48d3-98ce-6b021d6d078c.png",
       "scene": "Uma corrente pesada prende o braço de ataque de um único condenado e o selo rubro-âmbar bate no peito no ponto de contato, interrompendo sua ofensiva.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "cameraAngle": "Plano de ação oblíquo baixo, corrente em primeiro plano puxando o alvo à direita."
     },
     {
       "slot": "skill-tecnica",
@@ -95,7 +98,8 @@
       "activeSha256": "eaa4c6cc67d27a841155e0b22e2d2bde5af2b0167cb03ed408a1137208df3021",
       "generatedImage": "generated_images/exec-f28db89b-239f-464e-89ff-1dd912f66eb2.png",
       "scene": "O golpe de um ghoul é detido por placas e correntes; a força volta contra o atacante, que perde uma brasa de essência e fica exposto.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "cameraAngle": "Perfil baixo próximo, o atacante ocupa o primeiro plano e a corrente mostra a devolução do golpe."
     },
     {
       "slot": "skill-voto",
@@ -116,7 +120,8 @@
       "activeSha256": "c9048eb503d8147f51cd6d55ecbce39ffac7a1970d8e144cb41585dcc3b21e5f",
       "generatedImage": "generated_images/exec-14315d2a-d3df-4d52-b46d-967b7f394707.png",
       "scene": "O Suserano avança com dois vassalos distintos sob uma cobertura física de ferro e correntes; as armas dos aliados ganham bordas de brasa e a ponte racha sob seus passos.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "cameraAngle": "Plano frontal amplo e baixo, o Suserano centralizado entre dois vassalos distintos."
     },
     {
       "slot": "skill-despertar",
@@ -137,8 +142,9 @@
       "activeSha256": "75bb011be12ef933208c2a3ac2c6bf27f7c409f8be50cc3c377c859d158b90a3",
       "generatedImage": "generated_images/exec-7340c1d3-b940-485d-841a-03d763658249.png",
       "scene": "Uma placa de basalto se rompe ao redor do vazio do manto; O Suserano permanece ileso enquanto os estilhaços explodem pelo chão.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "cameraAngle": "Ângulo baixo oblíquo através dos escombros em primeiro plano."
     }
   ],
-  "reviewNotes": "Seis espaços base (retrato, passiva e quatro habilidades) integrados como candidatas. A aprovação visual permanece pendente."
+  "reviewNotes": "Seis espaços base (retrato, passiva e quatro habilidades) integrados como candidatas. A aprovação visual permanece pendente.\n\nÂngulos: close frontal baixo, lateral oblíqua, ação em perspectiva baixa, perfil próximo, plano frontal amplo e vista através de escombros.\nAnatomia: a identidade do Suserano permanece vazia e espectral, sem face ou corpo humano. Alvos e vassalos aparecem como figuras distintas; nenhuma anomalia corporal foi observada na revisão visual."
 }
