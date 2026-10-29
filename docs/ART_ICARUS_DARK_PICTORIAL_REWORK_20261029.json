@@ -66,10 +66,11 @@
           512
         ]
       },
-      "sourceSha256": "37ddd655aacf85b19aed60bf02e7ab28b3a8f3d51c897651c08dcb1ee5c4b06c",
-      "activeSha256": "0bfea0b5c8fe45d4084220214e87174a4d74b1d852cc700a33f5c2c931ca2b4d",
-      "scene": "A borda quebrada da única asa parte um selo de pedra junto ao alvo exposto.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "sourceSha256": "a105831e5ef4a9d9bc6846ee27bd24e98bd532d8eae76f6f93947186b939baae",
+      "activeSha256": "5a3893a99d61801bed8f39f60e6d1332807bb2853fbef64743742d0cdeb489f9",
+      "scene": "Em escala humana comparável à criatura cinzenta, Icarus golpeia no plano médio com a única asa fraturada; penas rígidas e pedra deslocam o alvo sem perspectiva ampliada.",
+      "reviewStatus": "corrected_scale_candidate_integrated_pending_visual_approval",
+      "generatedImage": "generated_images/exec-8356f0db-7540-4e4c-8c14-347029163df1.png"
     },
     {
       "slot": "tecnica",
@@ -133,5 +134,5 @@
     }
   ],
   "forms": [],
-  "reviewNotes": "O retrato e as cinco imagens de kit foram ligados ao registro visual do runtime; não há formas adicionais no perfil. Identidade de Icarus foi inferida a partir do lore e dos nomes das habilidades, pois o perfil de combate não define aparência."
+  "reviewNotes": "A arte de Asa Fraturada foi corrigida após revisão: a escala de Icarus agora é humana e comparável ao alvo; a asa única e a ação foram preservadas. O retrato e as cinco imagens de kit estão ligados ao runtime; não há formas adicionais. A identidade visual interpreta lore e nomes das habilidades, pois o perfil de combate não define aparência."
 }

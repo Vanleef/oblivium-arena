@@ -392,5 +392,12 @@
     "icarus:base:tecnica",
     "icarus:base:voto",
     "icarus:base:despertar"
+  ],
+  "currentDirectionCorrectionHistory": [
+    {
+      "key": "icarus:base:impulso",
+      "correctedAt": "2026-10-29",
+      "note": "Arte de Asa Fraturada refeita para corrigir a escala: Icarus e a criatura estão em proporções humanas comparáveis. Asa única, ação e cenário do Limbo foram preservados; a nova versão continua aguardando aprovação visual final."
+    }
   ]
 }

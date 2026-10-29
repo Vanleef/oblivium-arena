@@ -14,9 +14,13 @@ Dark fantasy pictórica densa e material, com pincelada estilizada visível e me
 
 - **Retrato (portrait):** Em passo tenso entre plataformas incompletas, vira-se enquanto a névoa violeta puxa tecido e asa fraturada.
 - **Queda Compartilhada (passive):** Após ser lançado contra o chão, a mesma rachadura física atravessa o basalto e prende o pé do agressor.
-- **Asa Fraturada (impulso):** A borda quebrada da única asa parte um selo de pedra junto ao alvo exposto.
+- **Asa Fraturada (impulso):** Icarus atinge uma criatura de tamanho semelhante com a borda quebrada da única asa; a ação fica em escala humana e a pedra reage ao impacto.
 - **Sol Proibido (tecnica):** Massa violeta densa entre as palmas comprime o espaço e atordoa o alvo; o recuo marca os antebraços de Icarus.
 - **Fenda que Arrasta (voto):** Fenda larga no chão puxa exatamente três alvos; cinza lilás e pedra queimada caem para dentro.
 - **Altitude Impossível (despertar):** O corpo de Icarus é erguido para uma lacuna vertical violeta enquanto uma laje suspensa desvia o impacto.
 
 O runtime usa seis WebP 512 × 512; seis fontes JPEG 768 × 768 e hashes SHA-256 estão registrados no manifesto JSON. Não há formas adicionais no perfil. As imagens aguardam revisão visual final.
+
+## Correção de escala
+
+A primeira versão da arte de **Asa Fraturada** ampliava Icarus em relação ao alvo. A imagem foi refeita com perspectiva equivalente e proporções humanas comparáveis entre os dois personagens, preservando a asa única, a ação e o ambiente do Limbo.
