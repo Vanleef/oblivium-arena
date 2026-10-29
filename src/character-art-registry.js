@@ -649,4 +649,18 @@ export const characterArtRegistry = {
       "impulso": { "revenge": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp" }
     }
   }
+,
+  "o-colecionador-de-cabecas": {
+    "portrait": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-despertar.webp"
+    },
+    "forms": {
+      "voto": { "empty": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp" }
+    }
+  }
 };

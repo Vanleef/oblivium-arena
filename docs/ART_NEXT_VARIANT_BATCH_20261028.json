@@ -5,7 +5,7 @@
   "status": "partially_generated_pending_visual_approval",
   "counts": {
     "jobs": 36,
-    "generatedByThisPlan": 2,
+    "generatedByThisPlan": 3,
     "mechanicsReviewRequired": 0
   },
   "generationOrder": "After five remaining base kits; preserve same logical key when replacing shared base art.",
@@ -141,7 +141,7 @@
       "abilityIndex": 2,
       "formKey": "empty",
       "name": "Caça sem Troféus",
-      "status": "planned_not_generated",
+      "status": "generated_integrated_pending_visual_approval",
       "mechanicsSnapshot": {
         "name": "Caça sem Troféus",
         "damage": 15,
@@ -158,23 +158,28 @@
         "cooldown": 0,
         "kind": "strike",
         "description": "Causa 15 de dano físico a um inimigo. Consome Cargas: +3 de dano por Carga.",
-        "art": "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-voto.webp"
+        "art": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto.webp"
       },
       "runtimeDescription": "Causa 15 de dano físico a um inimigo. Consome Cargas: +3 de dano por Carga.",
       "target": "enemy",
       "expectedPhysicalFigures": 2,
       "compoundCaster": null,
-      "framing": "vista alta após o impacto",
-      "scene": "As cargas orbitantes se esvaziam numa pancada física contra um só ghoul. O quadro privilegia chão, mão no apoio e alvo derrapando; nenhum troféu, cabeça decepada ou morte obrigatória. Não converter as cargas em recurso.",
+      "framing": "vista zenital após impacto físico único, alvo deslizando e mão de apoio legível",
+      "scene": "Vista zenital; Verres se apoia no chão enquanto os últimos fragmentos de porcelana desaparecem num impacto contra um ghoul que desliza.",
       "references": {
-        "identityPortrait": "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/portrait.webp",
-        "baseSkillForContrast": "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-voto.webp"
+        "identityPortrait": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/portrait.webp",
+        "baseSkillForContrast": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto.webp"
       },
       "referencePolicy": "Inspect current portrait and base ability before generating. Identity reference is not automatic approval of old rendering or forbidden technological features. Rework the complete affected kit first if a consistent identity cannot satisfy current art direction.",
       "transformationPolicy": "This ability variant alone does not authorize a new face, body, costume or anatomical form. Use only actual runtime body forms when relevant.",
       "mechanicsReview": null,
-      "proposedOutput": "art/characters/o-colecionador-de-cabecas/anime-first-variants-20261028/skill-voto-empty.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Inferno: black and intense red, burnt earth and ash. Dante-like environment coherent with Flagelo.\nPreserve the physical identity of Verres from its inspected current portrait. This is a DEDICATED illustration for variant Caça sem Troféus, not a recolored base skill. Do not reproduce old technological or mechanical props. Compare against base composition and choose a different instantaneous action.\nExact runtime mechanics (never render text): {\"name\":\"Caça sem Troféus\",\"damage\":15,\"cost\":1,\"target\":\"enemy\",\"damageType\":\"physical\",\"perChargeDamage\":3,\"spendCharge\":true,\"formKey\":\"empty\",\"id\":\"voto\",\"costs\":{\"random\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 15 de dano físico a um inimigo. Consome Cargas: +3 de dano por Carga.\",\"art\":\"/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-voto.webp\"}\nFraming: vista alta após o impacto. Physical figures in this composition: 2.\nScene: As cargas orbitantes se esvaziam numa pancada física contra um só ghoul. O quadro privilegia chão, mão no apoio e alvo derrapando; nenhum troféu, cabeça decepada ou morte obrigatória. Não converter as cargas em recurso.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "proposedOutput": "art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp",
+      "prompt": "Use case: stylized-concept. One square full-bleed dark-fantasy illustration for Verres, preserving the older human man, silver-white tied hair, cracked pale face, red eye, high ivory collar, worn cream coat with crimson lining, black gloves and empty porcelain masks fixed to his chest. Show one physical strike against one ghoul: Verres braces a gloved hand on broken stone while the last red porcelain chips dissolve into a blunt impact and the ghoul slides. The coat shows empty spaces where masks were; no trophy harvest, heads, death requirement, area attack or extra people. Thick dense painterly material, worn cloth, dirty metal, eroded Inferno ruins under Flagelo. Natural anatomy, two arms and legs, no duplicate limbs, no gore, technology, smooth finish or generic energy beams.",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/skill-voto-empty.jpg",
+      "generatedImage": "generated_images/exec-cb942654-d9b1-4ced-b025-b2ce7ebd5ae9.png",
+      "integratedStatus": "candidate_integrated_pending_visual_approval",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "key": "gemeos-do-cutelo:form:tecnica:cross",

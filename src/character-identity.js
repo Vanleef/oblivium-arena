@@ -49,7 +49,7 @@ export const characterRevisions = {
     "englishName": "Verres",
     "englishTitle": "The Collector",
     "aliases": ["O Colecionador de Cabeças","O Colecionador"],
-    "lore": "Retém a assinatura espiritual de cada vítima como um troféu. Persegue quem já deixou uma abertura e reúne os vestígios da caçada para uma execução preparada com cuidado. Seu acervo cresce com a carnificina que alimenta Sangria."
+    "lore": "Retém a assinatura espiritual de cada vítima como um troféu. Persegue quem já deixou uma abertura e reúne os vestígios da caçada para uma execução preparada com cuidado. Seu acervo cresce com a carnificina que serve ao Flagelo."
   },
   "gemeos-do-cutelo": {
     "name": "Cleobis e Biton",
@@ -1218,6 +1218,12 @@ export function revisedArtFor(id, art) {
     forms.impulso = {...(forms.impulso || {}),revenge:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp`};
     return {...art,portrait:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-colecionador-de-cabecas') {
+    const forms = {...(art.forms || {})};
+    forms.voto = {...(forms.voto || {}),empty:`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp`};
+    return {...art,portrait:`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
   }
   if (animeFirstRework20261028Art.has(id)) {
     const base = `/art/characters/${id}/anime-first-rework-20261028`;

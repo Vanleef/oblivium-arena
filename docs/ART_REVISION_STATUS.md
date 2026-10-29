@@ -609,3 +609,14 @@ As sete composições quadradas tiveram a anatomia humana, mãos e articulaçõe
 ## Estado da migração pictórica — 29/10/2026 (atualizado)
 
 A direção dark fantasy pictórica cobre **83 de 998 espaços** como candidatas; **915** ainda aguardam produção. **13 kits** estão integrados, restam **137 entradas** e **34 variantes** dedicadas. As 83 artes aguardam aprovação visual final; a produção continua.
+
+
+## O Colecionador de Cabeças — conjunto dark fantasy pictórico — 29/10/2026
+
+Verres recebeu seis artes base e uma variante dedicada de Caça sem Troféus. As máscaras vazias de porcelana, casaco creme, forro carmesim, pele fissurada e cabelo branco-prateado preservam sua identidade. Os enquadramentos variam entre lateral baixa, alta oblíqua, reverso por cima do ombro, lateral ao nível do chão, ação traseira e vista zenital.
+
+As cenas distinguem carga, Defesa, remoção de placa, consumo de cargas e invulnerabilidade por impactos físicos. Máscaras são objetos de porcelana vazios, sem cabeças ou anatomia extra. As sete imagens aguardam aprovação visual. Nenhuma mecânica foi alterada.
+
+## Estado da migração pictórica — 29/10/2026 (atualizado)
+
+A direção dark fantasy pictórica cobre **90 de 998 espaços** como candidatas; **908** ainda aguardam produção. **14 kits** estão integrados, restam **136 entradas** e **33 variantes** dedicadas. As 90 artes aguardam aprovação visual final; a produção continua.

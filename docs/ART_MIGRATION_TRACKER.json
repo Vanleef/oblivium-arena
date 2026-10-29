@@ -75,9 +75,9 @@
   "appIconFilesTotal": 6,
   "pending": [
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
-    "Criar imagens próprias para as 34 variantes de habilidade ainda compartilhadas.",
+    "Criar imagens próprias para as 33 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 83 imagens candidatas já integradas."
+    "Fazer revisão visual final das 90 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -93,7 +93,7 @@
     "entriesWithAnyBaseMissing": 0,
     "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
-    "formsSharedWithBase": 34,
+    "formsSharedWithBase": 33,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0,
     "manualStyleReview": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 83,
-      "remainingSlots": 915,
-      "fullyMigratedEntries": 13,
-      "remainingEntries": 137,
-      "awaitingVisualApprovalSlots": 83,
+      "integratedCandidateSlots": 90,
+      "remainingSlots": 908,
+      "fullyMigratedEntries": 14,
+      "remainingEntries": 136,
+      "awaitingVisualApprovalSlots": 90,
       "approvedSlots": 0
     }
   },
