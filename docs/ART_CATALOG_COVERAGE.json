@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 887,
-    "baseMissing": 36,
-    "entriesWithAnyBaseMissing": 6,
-    "entriesWithoutAnyBaseArt": 6,
+    "basePresent": 893,
+    "baseMissing": 30,
+    "entriesWithAnyBaseMissing": 5,
+    "entriesWithoutAnyBaseArt": 5,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 308,
-    "correctionSlots": 0,
+    "reviewedSlots": 313,
+    "correctionSlots": 1,
     "fullyReviewedEntries": 46,
-    "pendingSlots": 690
+    "pendingSlots": 685
   },
   "entries": [
     {
@@ -1827,14 +1827,7 @@
       "kingdom": "Blasfêmia",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "baal:base:portrait",
-        "baal:base:passive",
-        "baal:base:impulso",
-        "baal:base:tecnica",
-        "baal:base:voto",
-        "baal:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
       "fullyReviewed": false
     },

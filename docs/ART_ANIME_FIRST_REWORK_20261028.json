@@ -503,6 +503,27 @@
         "/art/characters/placido/anime-first-completion-20261028/skill-voto.webp",
         "/art/characters/placido/anime-first-completion-20261028/skill-despertar.webp"
       ]
+    },
+    "baal": {
+      "displayName": "Baal",
+      "activeRoute": "/art/characters/baal/anime-first-completion-20261028",
+      "world": "Inferno",
+      "sourceAssets": [
+        "art/source/baal-anime-first-completion-20261028/portrait.webp",
+        "art/source/baal-anime-first-completion-20261028/passive.webp",
+        "art/source/baal-anime-first-completion-20261028/skill-impulso.webp",
+        "art/source/baal-anime-first-completion-20261028/skill-tecnica.webp",
+        "art/source/baal-anime-first-completion-20261028/skill-voto.webp",
+        "art/source/baal-anime-first-completion-20261028/skill-despertar.webp"
+      ],
+      "assets": [
+        "/art/characters/baal/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/baal/anime-first-completion-20261028/passive.webp",
+        "/art/characters/baal/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/baal/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/baal/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/baal/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {

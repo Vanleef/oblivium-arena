@@ -9,15 +9,23 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 49,
-    "newAbilityScenesSaved": 246,
-    "scenesBlockedByQuota": [],
+    "newPortraitsSaved": 50,
+    "newAbilityScenesSaved": 251,
+    "scenesBlockedByQuota": [
+      "baal:base:despertar"
+    ],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
-      "Prosseguir pela fila de artes base restantes.",
-      "Concluir as variantes de habilidades e os retratos de formas corporais pendentes."
+      "Concluir reenquadramento da defesa de Baal; a arte atual existe, mas ainda não está aprovada na composição.",
+      "Produzir os kits base de Atlas, Merlindrope, Bulkir, Voronir e Icarus.",
+      "Concluir variantes dedicadas e revisar artes antigas conforme direção atual."
     ],
-    "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion."
+    "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
+    "generationBlock": {
+      "type": "usage_limit_reached",
+      "resetUnix": 1793267550,
+      "blockedOperation": "baal:base:despertar"
+    }
   },
   "scope": {
     "rosterEntries": 150,
@@ -13177,55 +13185,9 @@
         {
           "key": "xian:base:portrait",
           "characterId": "xian",
-          "kind": "base",
-          "slot": "portrait",
-          "name": "Retrato",
-          "art": "/art/characters/xian/anime-first-completion-20261028/portrait.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "xian:base:passive",
-          "characterId": "xian",
-        
-... 27117 bytes omitted ...
-
-          "art": "/art/characters/cain/anime-first-completion-20261028/passive.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "cain:base:impulso",
-          "characterId": "cain",
-          "kind": "base",
-          "slot": "impulso",
-          "abilityId": "impulso",
-          "abilityIndex": 0,
-          "name": "Marca do Primeiro Erro",
-          "description": "Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
-          "target": "enemy",
-          "art": "/art/characters/cain/anime-first-completion-20261028/skill-impulso.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "cain:base:tecnica",
-          "characterId": "cain",
-          "kind": "base",
-          "slot": "tecnica",
-          "abilityId": "tecnica",
-          "abilityIndex": 1,
-          "name": "Repetir a Sentença",
-          "description": "Causa 15 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +8 de dano; consome a preparação.",
-          "target": "enemy",
-          "art": "/art/characters/cain/anime-first-completion-20261028/skill-tecnica.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "cain:base:voto",
-          "characterId": "cain",
-          "kind": "base",
+     
+... 28779 bytes omitted ...
+": "base",
           "slot": "voto",
           "abilityId": "voto",
           "abilityIndex": 2,
@@ -13624,8 +13586,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/baal/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "baal:base:passive",
@@ -13634,8 +13597,9 @@
           "slot": "passive",
           "name": "Liturgia da Brasa",
           "description": "Ao derrubar uma alma, gera 1 Cinza e ganha 1 carga; uma vez por rodada.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/baal/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "baal:base:impulso",
@@ -13647,8 +13611,9 @@
           "name": "Sermão Incendiário",
           "description": "Causa 9 de dano de aflição a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/baal/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "baal:base:tecnica",
@@ -13660,8 +13625,9 @@
           "name": "Fé a Ferro e Fogo",
           "description": "Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. O usuário perde 4 de Vida (não pode ser derrotado por este custo).",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/baal/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "baal:base:voto",
@@ -13673,8 +13639,9 @@
           "name": "Pira dos Fiéis",
           "description": "Causa 10 de dano espiritual a todos os inimigos. Queimadura: 3 de dano de aflição por 2 turnos.",
           "target": "all-enemies",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/baal/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "baal:base:despertar",
@@ -13686,8 +13653,10 @@
           "name": "Manto de Cinzas",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/baal/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "needs_correction",
+          "correction": "Defesa existente repete enquadramento lateral do retrato. Reenquadramento frontal interrompido pelo limite de geração; manter identidade, manto de cinzas e defesa pessoal."
         }
       ],
       "complete": false
@@ -26680,8 +26649,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/baal/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "baal:base:passive",
@@ -26690,8 +26660,9 @@
       "slot": "passive",
       "name": "Liturgia da Brasa",
       "description": "Ao derrubar uma alma, gera 1 Cinza e ganha 1 carga; uma vez por rodada.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/baal/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "baal:base:impulso",
@@ -26703,8 +26674,9 @@
       "name": "Sermão Incendiário",
       "description": "Causa 9 de dano de aflição a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/baal/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "baal:base:tecnica",
@@ -26716,8 +26688,9 @@
       "name": "Fé a Ferro e Fogo",
       "description": "Causa 15 de dano físico a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. O usuário perde 4 de Vida (não pode ser derrotado por este custo).",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/baal/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "baal:base:voto",
@@ -26729,8 +26702,9 @@
       "name": "Pira dos Fiéis",
       "description": "Causa 10 de dano espiritual a todos os inimigos. Queimadura: 3 de dano de aflição por 2 turnos.",
       "target": "all-enemies",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/baal/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "baal:base:despertar",
@@ -26742,8 +26716,10 @@
       "name": "Manto de Cinzas",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/baal/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "needs_correction",
+      "correction": "Defesa existente repete enquadramento lateral do retrato. Reenquadramento frontal interrompido pelo limite de geração; manter identidade, manto de cinzas e defesa pessoal."
     },
     {
       "key": "atlas:base:portrait",

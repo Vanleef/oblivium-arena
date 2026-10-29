@@ -308,7 +308,17 @@
     "placido:base:impulso",
     "placido:base:tecnica",
     "placido:base:voto",
-    "placido:base:despertar"
+    "placido:base:despertar",
+    "baal:base:portrait",
+    "baal:base:passive",
+    "baal:base:impulso",
+    "baal:base:tecnica",
+    "baal:base:voto"
   ],
-  "pendingCorrections": []
+  "pendingCorrections": [
+    {
+      "key": "baal:base:despertar",
+      "reason": "Defesa existente repete enquadramento lateral do retrato. Reenquadramento frontal interrompido pelo limite de geração; manter identidade, manto de cinzas e defesa pessoal."
+    }
+  ]
 }
