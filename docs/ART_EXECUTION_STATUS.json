@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 63,
-  "newAbilityScenesSaved": 320,
+  "newPortraitsSaved": 64,
+  "newAbilityScenesSaved": 325,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 36 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 63 ativos candidatos desta rodada."
+    "Revisar visualmente os 69 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 33
+    "newDarkPictorialCandidateAssets": 39
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -98,15 +98,24 @@
   },
   "latestProduction": {
     "date": "2026-10-29",
-    "darkPictorialCandidatesAdded": 9,
+    "darkPictorialCandidatesAdded": 6,
     "kitsIntegrated": 1,
-    "characterId": "o-soberano-quebrado",
+    "characterId": "a-juiza-de-ferro",
     "anatomyCorrectionsIntegrated": [
       {
         "characterId": "atlas",
         "slot": "despertar",
         "status": "integrated_candidate_pending_visual_approval"
       }
-    ]
+    ],
+    "styleReference": "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
+    "sceneAngles": [
+      "zenith",
+      "reverse_over_shoulder",
+      "low_side",
+      "reverse_over_target",
+      "low_open_angle"
+    ],
+    "anatomyReview": "Pheretime's six candidates were reviewed for clear limb counts, connected joints and plausible proportions; Interdição da Defesa was adjusted to visibly break one ghoul's guard."
   }
 }

@@ -546,6 +546,16 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp"
     }
   },
+  "a-juiza-de-ferro": {
+    "portrait": "/art/characters/a-juiza-de-ferro/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/a-juiza-de-ferro/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-juiza-de-ferro/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/a-juiza-de-ferro/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/a-juiza-de-ferro/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/a-juiza-de-ferro/dark-pictorial-rework-20261029/skill-despertar.webp"
+    }
+  },
   "o-soberano-quebrado": {
     "portrait": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/passive.webp",

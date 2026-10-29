@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 36 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 63 imagens candidatas já integradas."
+    "Fazer revisão visual final das 69 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 63,
-      "remainingSlots": 935,
-      "fullyMigratedEntries": 10,
-      "remainingEntries": 140,
-      "awaitingVisualApprovalSlots": 63,
+      "integratedCandidateSlots": 69,
+      "remainingSlots": 929,
+      "fullyMigratedEntries": 11,
+      "remainingEntries": 139,
+      "awaitingVisualApprovalSlots": 69,
       "approvedSlots": 0
     }
   },

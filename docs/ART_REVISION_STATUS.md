@@ -576,3 +576,14 @@ O gerador integrado devolveu HTTP 429 / usage_limit_reached e bloqueou novas cha
 ## Correção anatômica: Atlas — 29/10/2026
 
 A arte de **Sustentar o Céu** foi substituída após a anomalia corporal identificada pelo usuário. A nova composição mostra Atlas agachado, com dois braços sustentando a laje, articulações coerentes e as pernas apoiadas. O ativo corrigido permanece pendente de aprovação visual.
+
+
+## A Magistrada — conjunto dark fantasy pictórico — 29/10/2026
+
+Pheretime recebeu um retrato, a passiva e quatro cenas de habilidade, todos refeitos com a pintura densa e materialidade gasta da referência de Baal. Os enquadramentos variam entre zenital, reverso por cima do ombro, lateral baixa e ângulo baixo aberto. As cenas continuam em ruínas góticas infernais: a passiva marca um ghoul, Acusação Imposta expõe um alvo, Interdição da Defesa quebra a guarda de um ghoul, Sentença de Submissão atravessa sua carapaça exposta e Toga Inviolável mostra defesa individual.
+
+A anatomia foi revisada para deixar braços, pernas e articulações legíveis; Interdição da Defesa foi ajustada para mostrar o golpe e a guarda quebrada. As seis artes seguem como candidatas pendentes de aprovação visual.
+
+## Estado da migração pictórica — 29/10/2026
+
+A direção dark fantasy pictórica cobre 69 de 998 espaços como candidatas; 929 ainda aguardam produção. Onze kits estão integrados, restam 139 entradas e 36 variantes dedicadas. As 69 artes aguardam aprovação visual final; a produção continua.

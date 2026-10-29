@@ -10,7 +10,7 @@ const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
 const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias']);
 const animeFirstRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','a-pira-errante']);
 const animeFirstRework20261027Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-tecelao-de-mentiras','a-boca-de-vidro','o-incendiario','a-brasa-eterna','o-colecionador-de-cabecas','gemeos-do-cutelo','o-carrasco-sem-rosto','a-mae-rubra']);
-const animeFirstRework20261028Art = new Set(['o-acougueiro','a-viuva-escarlate','a-juiza-de-ferro','o-trono-vazio']);
+const animeFirstRework20261028Art = new Set(['o-acougueiro','a-viuva-escarlate','o-trono-vazio']);
 const hybridInfernoRework20261027Art = new Set(['o-que-pesa','o-incendiario']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
@@ -18,7 +18,7 @@ const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],
 const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-dos-fungos']);
 const painterlyBatchArt = new Set([
   'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
-  'o-carrasco-sem-rosto','a-mae-rubra','a-juiza-de-ferro',
+  'o-carrasco-sem-rosto','a-mae-rubra',
   'o-trono-vazio','o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
   'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
 ]);
@@ -1193,6 +1193,11 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       ...(Object.keys(forms).length ? {forms} : {})};
   }
+  if (id === 'a-juiza-de-ferro') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (id === 'o-soberano-quebrado') {
     const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
     const forms = {...(art.forms || {})};
@@ -1316,7 +1321,7 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (['a-juiza-de-ferro','o-trono-vazio'].includes(id)) {
+  if (id === 'o-trono-vazio') {
     const base = `/art/characters/${id}/painterly-rework-20261026`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
