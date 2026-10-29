@@ -1,0 +1,219 @@
+{
+  "id": "o-soberano-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "o-soberano-quebrado",
+  "displayName": "O Soberano",
+  "identityName": "Astyages",
+  "world": "Inferno",
+  "kingdom": "Magma",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa e texturizada, com alta materialidade, pincelada estilizada, desgaste controlado e realismo reduzido. Paleta infernal de carvão, basalto, vermelho-oxblood, cinza de cinza e bronze envelhecido; efeitos físicos coerentes, sem tecnologia.",
+  "styleReference": "Direção visual canônica atual do projeto. A imagem de referência criada nesta rodada define a identidade do Soberano; os retratos de Pheretime e Demetrius serviram apenas para preservar suas identidades na variação de equipe.",
+  "previousRoute": "/art/characters/o-soberano-quebrado/anime-first-rework-20261028",
+  "activeRoute": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029",
+  "identity": "Manto imperial vazio suspenso, sem corpo, rosto ou pele visível; gola oca negra, tecido rasgado em carvão e oxblood, coroa de ferro fraturada com pontas de bronze flutuando sobre o vazio e placas irregulares de basalto suspensas ao redor dos ombros e antebraços. Correntes ornamentais discretas.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "2216437b8c2e280477f43391976a64dc4babad541b04a51baa47c6d9ed7a8d72",
+      "activeSha256": "533886df9e162d354e632820aa56106250c44e529ae833cc186608f3346a6942",
+      "generatedImage": "generated_images/exec-40fb65c2-43bb-4c13-9981-0956467dfe57.png",
+      "scene": "Astyages surge como um manto imperial vazio, com coroa fraturada e placas de basalto flutuando diante de um palácio infernal em ruínas.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Autoridade Estilhaçada",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "2e935df157be67a3c83abe2519ec244b5067a4f14f61f411c2f108838d428c9e",
+      "activeSha256": "f0dd3ff0b808277c0b89ccdf1f81452c1bc7bd27f8663af715d7e81f68045eb8",
+      "generatedImage": "generated_images/exec-f070ca1b-ab8e-4f6f-8dd4-ae867fae23be.png",
+      "scene": "Ao assumir o domínio, a coroa fraturada se recompõe por um instante e seis fragmentos formam uma órbita defensiva ao redor do manto vazio.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Decreto do Rei Caído",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "e0614130321bf2604defb5c7e4634b67ab313808464c9f0f25747c44654084ea",
+      "activeSha256": "ff1152a6c3eb79c18ec36a7983d5d979cd234a5c0dfa6612a00afef2bbee72e5",
+      "generatedImage": "generated_images/exec-245a8ab9-11fe-4fa8-8edf-6518cc526cc4.png",
+      "scene": "Um estilhaço e uma corrente de força atingem um único revenante infernal e deixam uma marca de coroa quebrada.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Ajoelhar",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "9a89d08ef50c6d963d98a751364f31885379b1ca1308f25ba7608d16b705658c",
+      "activeSha256": "4b62fc5884b0356e65a4ef4c34cbc2680df5610f04e01c012d7d090ad58e08e4",
+      "generatedImage": "generated_images/exec-a343c2a4-a57b-4ee2-a292-484ad6bc2665.png",
+      "scene": "Um inimigo infernal marcado é puxado ao chão e forçado a se ajoelhar sob a pressão vertical do Soberano.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Coroa sobre Ruínas",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "8c0786120408f680821c6100b616b933a4741c093084e40665e06fd047f47e9e",
+      "activeSha256": "717f421c1ae03f3f31a1288eb40b8e8b4cabaf5db54083710bb1f3d286256801",
+      "generatedImage": "generated_images/exec-2943ee8c-8a0d-4f26-bb20-baca29f20743.png",
+      "scene": "Fragmentos de basalto fecham-se em um bulwark pessoal ao redor do manto enquanto as placas começam a se dispersar na forma de domínio.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Trono Interior",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "20111796cae443c25c29b3f62cd1f94bff34fe15a6b400e9d27070c20747f50d",
+      "activeSha256": "18c9e9e42f0ea634f5acef8515e3200ac5ad5f2e1704741cbfd40a785c37d180",
+      "generatedImage": "generated_images/exec-d3635bc1-0a0c-496b-81da-acead1419c4e.png",
+      "scene": "Uma barreira compacta de ferro negro e basalto protege apenas o manto vazio de um golpe que se desfaz ao contato.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso:edict",
+      "abilitySlot": "impulso",
+      "formKey": "edict",
+      "name": "Decreto sobre Todos",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-impulso-edict.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-impulso-edict.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "9eaf16c7bc28d2912aa6f29ce673eed8060f111f05c06052c32d0eaddcaf7213",
+      "activeSha256": "b20455883efe8b425c636baf509583829970e0b60c5370429b9a70ba25f09622",
+      "generatedImage": "generated_images/exec-9ad36862-2928-46fc-a120-f743c7d7b78c.png",
+      "scene": "Uma onda de força atravessa três criaturas infernais e deixa em cada uma uma pequena marca de coroa fraturada.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica:edict",
+      "abilitySlot": "tecnica",
+      "formKey": "edict",
+      "name": "Cadeia de Juramento",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-tecnica-edict.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-tecnica-edict.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "eea7c09938b5ceaa74367cce8d4ab965a9f8ac77fcc7aadbd98c8b4773771929",
+      "activeSha256": "c930dcc9c88bb1bdb7bb6bf2cc68aa0b3c05aad02b85cfae52d2774b8b066cfd",
+      "generatedImage": "generated_images/exec-f035d899-ce62-49bb-bfeb-e6c17251541e.png",
+      "scene": "Correntes prendem três criaturas infernais em linha; sob a pressão, seus ombros cedem e suas garras baixam.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto:edict",
+      "abilitySlot": "voto",
+      "formKey": "edict",
+      "name": "Trono Incontestável",
+      "activeAsset": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-voto-edict.webp",
+      "sourceAsset": "art/source/o-soberano-dark-pictorial-rework-20261029/skill-voto-edict.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "b049cc0dda62391fb32adf968d4ab4b16ae70895c7c7b083519b1b2c6386ce37",
+      "activeSha256": "3c6163d50423631fa51120ecd60fd04c52100f011325d297adc5772390c62a20",
+      "generatedImage": "generated_images/exec-6b59af12-92c6-479f-983e-3c63590ac610.png",
+      "scene": "O Soberano, Pheretime e Demetrius sustentam uma laje de basalto em queda, protegidos por uma cobertura de fragmentos da coroa.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "references": [
+    "generated_images/exec-40fb65c2-43bb-4c13-9981-0956467dfe57.png",
+    "magistrada-reference.webp",
+    "principe-reference.webp"
+  ],
+  "reviewStatus": "all_candidates_pending_visual_approval"
+}

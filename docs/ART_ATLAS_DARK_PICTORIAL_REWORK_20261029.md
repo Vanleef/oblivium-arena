@@ -46,3 +46,8 @@ Dark fantasy pictórica densa, texturizada e material, com pincelada estilizada,
 ![Atlas — Sustentar o Céu](../art/characters/atlas/dark-pictorial-rework-20261029/skill-despertar.webp)
 
 Os ativos WebP têm 512 × 512; as fontes JPEG têm 768 × 768. Hashes e cenas estão no manifesto JSON. As seis peças permanecem candidatas e aguardam revisão visual final.
+
+
+## Correção anatômica — Sustentar o Céu — 29/10/2026
+
+Após a observação de anomalia corporal, a cena foi refeita com Atlas em agachamento baixo e dois braços sustentando a laje. A nova imagem deixa a continuidade do tronco, os ombros, os cotovelos e o apoio das pernas mais claros. O WebP ativo foi substituído; a correção continua candidata à aprovação visual.

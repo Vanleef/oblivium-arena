@@ -122,7 +122,7 @@
       "slot": "despertar",
       "name": "Sustentar o Céu",
       "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/skill-despertar.webp",
-      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/despertar.jpg",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/despertar-corrected-20261029.jpg",
       "dimensions": {
         "source": [
           768,
@@ -133,11 +133,13 @@
           512
         ]
       },
-      "sourceSha256": "5b6574fe20c5f4e8bee8c8e8a13d29b3ab93240e91e1055ff0e7770262a2c2e7",
-      "activeSha256": "b871608e435c951d368535a0360d82e316a45dd06f3551ae14f4424d90a61a86",
-      "generatedImage": "generated_images/exec-af114f08-9374-462e-b448-e91c2dccb383.png",
-      "scene": "Atlas se abaixa sob pedras em queda, protege a cabeça com o antebraço e firma a outra mão no chão; uma película de pressão e cinzas desvia os escombros.",
-      "reviewStatus": "candidate_integrated_pending_visual_approval"
+      "sourceSha256": "a6f260a6f608fa2a989c9d38e136df57fbc733939a44100ffd31cb028b4fe75e",
+      "activeSha256": "808e1841933379eaf16276f8843a181041fa6e5793c83a3d55f2cc0c6ebe9bdc",
+      "generatedImage": "generated_images/exec-03efcb36-9df3-4cf2-a4d5-89fd02d325d1.png",
+      "scene": "Atlas se abaixa sob a pressão da laje e a sustenta com os dois braços erguidos; o tronco permanece contínuo, os ombros e cotovelos alinhados e as pernas firmes no agachamento.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "correctionReason": "Correção após anomalia corporal apontada pelo usuário: a nova pose elimina membros fundidos e deixa a sustentação legível.",
+      "correctionPrompt": "Redesenhar Atlas em um agachamento baixo sob uma laje de basalto em queda, com exatamente dois braços e duas pernas, articulações naturais, tronco conectado aos quadris, cabeça visível e ambos os braços sustentando a laje acima dele; manter pele humana, placas orgânicas apenas nos ombros e antebraços, tecido ritual preto e vermelho."
     }
   ],
   "forms": [],

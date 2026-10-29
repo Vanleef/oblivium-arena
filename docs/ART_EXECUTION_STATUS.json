@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 62,
-  "newAbilityScenesSaved": 311,
+  "newPortraitsSaved": 63,
+  "newAbilityScenesSaved": 320,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 36 variantes ainda compartilhadas.",
-    "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Revisar visualmente os 54 ativos candidatos desta rodada."
+    "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
+    "Revisar visualmente os 63 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -34,13 +34,13 @@
     "totalPreparedJobs": 67,
     "generatedByThesePlans": 18,
     "remainingMissingBaseJobs": 0,
-    "remainingCorrectionJobs": 1,
+    "remainingCorrectionJobs": 0,
     "remainingDedicatedVariantJobs": 36,
-    "remainingTotalJobs": 37,
+    "remainingTotalJobs": 36,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 24
+    "newDarkPictorialCandidateAssets": 33
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -95,5 +95,18 @@
       "fullyMigratedEntries": 9
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval."
+  },
+  "latestProduction": {
+    "date": "2026-10-29",
+    "darkPictorialCandidatesAdded": 9,
+    "kitsIntegrated": 1,
+    "characterId": "o-soberano-quebrado",
+    "anatomyCorrectionsIntegrated": [
+      {
+        "characterId": "atlas",
+        "slot": "despertar",
+        "status": "integrated_candidate_pending_visual_approval"
+      }
+    ]
   }
 }

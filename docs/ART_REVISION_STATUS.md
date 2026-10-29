@@ -571,3 +571,8 @@ Nilo, Naomi, Kael, Vaas, Diana e Teras receberam seus primeiros retratos anime. 
 Retornaram mais cinco cenas: Registro Aberto, Fio de Memória e Devolver o Eco de Nilo; Brasa que Permanece e Mão Estendida de Naomi. São onze ilustrações novas nesta etapa, contando os seis retratos. Os quatro quadros de Nilo (retrato e três cenas) ainda pedem simplificação do cenário, e o retrato de Vaas pede remoção de pequenas figuras ao fundo; esses cinco itens estão marcados para correção, sem aprovação final de estilo. As duas cenas de Naomi foram revisadas.
 
 O gerador integrado devolveu HTTP 429 / usage_limit_reached e bloqueou novas chamadas. A ferramenta informou liberação em 28/10/2026 às 05:47:53 no fuso America/Recife. O trabalho não está concluído. A fila, os prompts e o bloqueio foram persistidos; há 611 posições base presentes e 312 ausentes. A presença de um arquivo provisório não equivale à conclusão visual do conjunto.
+
+
+## Correção anatômica: Atlas — 29/10/2026
+
+A arte de **Sustentar o Céu** foi substituída após a anomalia corporal identificada pelo usuário. A nova composição mostra Atlas agachado, com dois braços sustentando a laje, articulações coerentes e as pernas apoiadas. O ativo corrigido permanece pendente de aprovação visual.
