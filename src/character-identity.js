@@ -57,7 +57,7 @@ export const characterRevisions = {
     "englishName": "Cleobis and Biton",
     "englishTitle": "The Cleaver Twins",
     "aliases": ["Gêmeos do Cutelo"],
-    "lore": "Gêmeos fraternos de Sangria, semelhantes no olhar e no desenho do rosto apesar das diferenças de pele e cabelo, dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. Sua cumplicidade cruel transforma cada aproximação em ameaça dupla."
+    "lore": "Gêmeos fraternos do Flagelo, semelhantes no olhar e no desenho do rosto apesar das diferenças de pele e cabelo, dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. Sua cumplicidade cruel transforma cada aproximação em ameaça dupla."
   },
   "o-carrasco-sem-rosto": {
     "name": "Sanson",
@@ -1178,6 +1178,12 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       ...(Object.keys(forms).length ? {forms} : {})};
+  }
+  if (id === 'gemeos-do-cutelo') {
+    const forms = {...(art.forms || {})};
+    forms.tecnica = {...(forms.tecnica || {}),cross:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp`};
+    return {...art,portrait:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
   }
   if (animeFirstRework20261027Art.has(id)) {
     const base = `/art/characters/${id}/anime-first-rework-20261027`;

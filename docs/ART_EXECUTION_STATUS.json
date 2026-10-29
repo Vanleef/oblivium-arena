@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 67,
-  "newAbilityScenesSaved": 343,
+  "newPortraitsSaved": 68,
+  "newAbilityScenesSaved": 349,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
-    "Produzir imagens dedicadas para as 33 variantes ainda compartilhadas.",
+    "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 90 ativos candidatos desta rodada."
+    "Revisar visualmente os 97 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -32,18 +32,19 @@
     "compositionCorrections": 1,
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
-    "generatedByThesePlans": 21,
+    "generatedByThesePlans": 22,
     "remainingMissingBaseJobs": 0,
     "remainingCorrectionJobs": 0,
-    "remainingDedicatedVariantJobs": 33,
-    "remainingTotalJobs": 33,
+    "remainingDedicatedVariantJobs": 32,
+    "remainingTotalJobs": 32,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 60,
+    "newDarkPictorialCandidateAssets": 67,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
-    "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json"
+    "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
+    "gemeosProductionReport": "docs/ART_GEMEOS_CUTELO_DARK_PICTORIAL_REWORK_20261029.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -90,12 +91,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 90,
-      "integratedSlots": 90,
+      "candidateSlots": 97,
+      "integratedSlots": 97,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 14
+      "fullyMigratedEntries": 15
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -103,13 +104,15 @@
     "aViuvaArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; ângulos variados e anatomia revisados; candidatas pendentes de aprovação visual.",
     "aViuvaRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada.",
     "oColecionadorArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; máscaras vazias, anatomia e cenas de cargas revisadas; candidatas pendentes de aprovação visual.",
-    "oColecionadorRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada."
+    "oColecionadorRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada.",
+    "gemeosArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; identidade dupla e anatomia revisadas, variante com um alvo único corrigida; candidatas pendentes de aprovação visual.",
+    "gemeosRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada."
   },
   "latestProduction": {
     "date": "2026-10-29",
     "darkPictorialCandidatesAdded": 7,
     "kitsIntegrated": 1,
-    "characterId": "o-colecionador-de-cabecas",
+    "characterId": "gemeos-do-cutelo",
     "anatomyCorrectionsIntegrated": [
       {
         "characterId": "atlas",
@@ -119,14 +122,14 @@
     ],
     "styleReference": "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
     "sceneAngles": [
-      "low_lateral_portrait",
-      "high_oblique",
+      "low_back_to_back_portrait",
+      "oblique_zenith",
       "over_shoulder_reverse",
-      "ground_level_side",
-      "rear_three_quarter_impact",
-      "overhead",
-      "low_reverse_defense"
+      "low_side",
+      "wide_elevated_aoe",
+      "low_reverse_defense",
+      "diagonal_zenith_variant"
     ],
-    "anatomyReview": "As sete candidatas foram revistas para proporções humanas, braços, mãos, pernas e articulações legíveis. As máscaras são porcelana vazia; nenhum corpo ou cabeça extra aparece."
+    "anatomyReview": "Sete candidatas foram revistas para separar Cleobis e Biton, diferenciar pele e cabelo e manter dois braços, mãos, pernas e cutelos por irmão. A variante foi corrigida para dois gêmeos e exatamente um alvo."
   }
 }

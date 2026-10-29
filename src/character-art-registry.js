@@ -663,4 +663,18 @@ export const characterArtRegistry = {
       "voto": { "empty": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp" }
     }
   }
+,
+  "gemeos-do-cutelo": {
+    "portrait": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": { "cross": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp" }
+    }
+  }
 };

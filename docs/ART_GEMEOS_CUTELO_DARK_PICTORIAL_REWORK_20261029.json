@@ -1,0 +1,174 @@
+{
+  "id": "gemeos-do-cutelo-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "gemeos-do-cutelo",
+  "displayName": "Gêmeos do Cutelo",
+  "identityName": "Cleobis e Biton",
+  "world": "Inferno",
+  "kingdom": "Flagelo",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa e texturizada, de pincelada grossa e alta materialidade: pele tátil, pedra erodida, cutelos gastos, tecido preto pesado e faixas carmesim. Um pouco mais estilizada e menos realista, sem acabamento polido.",
+  "styleReference": "Baal — Manto de Cinzas, referência apenas de textura, pincelada e materialidade; as artes antigas dos Gêmeos preservam identidade, não rendering.",
+  "previousRoute": "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027",
+  "activeRoute": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029",
+  "identity": "Cleobis tem pele castanho-escura, cachos negros curtos e pequena trança; Biton tem pele oliva clara e cabelo negro liso longo preso atrás. Os irmãos usam casacos de caça negros gastos, faixas carmesim, braçadeiras simples e cada um possui um cutelo largo. Manter dois humanos separados, sem troca de rostos ou fusão de membros.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "53706fdc15c6835d58f8487de5f3c4f790d67d8446b60b270c24973a9ad39448",
+      "activeSha256": "75e265c78f94153ecfd78213363012c8dd63d715e4386cd8f606279bcf0d4e7d",
+      "generatedImage": "generated_images/exec-bf42ad7f-0f3e-4f24-b67f-0fae743ff35a.png",
+      "scene": "Retrato baixo, lado a lado; Cleobis de pele escura e cachos, Biton de pele clara e cabelo longo preso, cada um com seu cutelo.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Ritmo dos Gêmeos",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "065822b42e02c50a5cb7898c5b62696bd616e87355d46a25f74f58211e68325b",
+      "activeSha256": "37276587e9fe5fef9747b6df0c54a7ebac9fc9e6eae3132cf3f910e37d6ec43d",
+      "generatedImage": "generated_images/exec-b1c92d51-2355-4727-a1fc-f7d89b8ea1f2.png",
+      "scene": "Vista zenital oblíqua; os dois gêmeos acertam um ghoul Exposto e sangrando; uma brasa retorna aos irmãos com Vida e Ruptura.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Cutelo da Esquerda",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/skill-impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "70c656f73dceee5494631554d9e6aa0df4caa588becc9d810e75b8b520392540",
+      "activeSha256": "4ed939047eb2ec8861cf4624230971dfc3fe95bab9d7196073db32a557f544cc",
+      "generatedImage": "generated_images/exec-27377e97-db1e-40a5-8c9a-300f1985c7d6.png",
+      "scene": "Reversa sobre o ombro do ghoul; Cleobis abre a guarda e Biton aguarda separado para a continuação.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Cutelo da Direita",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/skill-tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "97bc3f2985a6a13e30b4d1a914ff59ece0e753290507253428da68a1ef2e7b97",
+      "activeSha256": "9b0c8b0d8be098c60196f76e5ef455b97d600f175ef4e8066ba94f1c4dfd424b",
+      "generatedImage": "generated_images/exec-c9e5817a-ad9d-41c5-83ee-7d03beb7d090.png",
+      "scene": "Lateral ao nível do chão; Biton aplica Sangramento a um ghoul e Cleobis mantém espaço atrás.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Encontro das Lâminas",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/skill-voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "acacc6a298ff40bdbcc2b92aa2b2c3aa384ec200c451dba237db302b88267707",
+      "activeSha256": "ce3e7b5a24c04410d43124a52c7e19220c4e775a22216725af3b0b3d49e4394d",
+      "generatedImage": "generated_images/exec-0cd51ce8-2723-41d7-93f9-8991128c1661.png",
+      "scene": "Plano amplo elevado; duas lâminas separadas alcançam alvos distintos no grupo inimigo.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Dança Cruzada",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/skill-despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "8be23a2dc3026bbbd31f0142431948a9a3c5278042565fca77f804985d79bd78",
+      "activeSha256": "f8551e1fefb2d48d442edb11ab7330e98c954f61c047f48a6badaa8889925979",
+      "generatedImage": "generated_images/exec-f1f9bd5f-36f4-49d8-9b91-973ebe8f0f53.png",
+      "scene": "Reversa baixa; os gêmeos cruzam as lâminas para desviar o golpe de um único ghoul.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica:cross",
+      "abilitySlot": "tecnica",
+      "formKey": "cross",
+      "name": "Corte em Contratempo",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/skill-tecnica-cross.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "ed72a95579b0672a6bc1b0b234b798a9382c228c9aaf91438ac1d0f2e6988c79",
+      "activeSha256": "2def6e3932cadbe493f7666faa559afbf5b003d90705970b538f8654bc6c6ea0",
+      "generatedImage": "generated_images/exec-2006ec56-11b2-4003-ae45-bc7f2356d05e.png",
+      "scene": "Diagonal zenital; os dois irmãos atacam em alturas distintas um único alvo Exposto, com a variação corrigida para remover qualquer segundo ghoul.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "reviewStatus": "all_candidates_pending_visual_approval",
+  "compositionReview": "Os ângulos variam entre retrato baixo, zenital oblíquo, reversa por cima do ombro, lateral baixa, plano amplo elevado, reversa baixa e diagonal zenital. As composições separam os dois corpos, cada par de braços e cada cutelo. Corte em Contratempo foi corrigido para exatamente dois irmãos e um alvo único.",
+  "references": [
+    "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
+    "art/characters/gemeos-do-cutelo/anime-first-rework-20261027/portrait.webp",
+    "art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-tecnica.webp"
+  ]
+}

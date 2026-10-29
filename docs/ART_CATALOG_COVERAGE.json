@@ -14,7 +14,7 @@
     "entriesWithAnyBaseMissing": 0,
     "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
-    "formsSharedWithBase": 33,
+    "formsSharedWithBase": 32,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0
   },
@@ -101,10 +101,18 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "gemeos-do-cutelo:form:tecnica:cross"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "tecnica:cross"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-carrasco-sem-rosto",
@@ -2021,11 +2029,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 90,
-    "remainingSlots": 908,
-    "fullyMigratedEntries": 14,
-    "remainingEntries": 136,
-    "awaitingVisualApprovalSlots": 90,
+    "integratedCandidateSlots": 97,
+    "remainingSlots": 901,
+    "fullyMigratedEntries": 15,
+    "remainingEntries": 135,
+    "awaitingVisualApprovalSlots": 97,
     "approvedSlots": 0
   }
 }

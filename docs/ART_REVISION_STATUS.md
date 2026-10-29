@@ -620,3 +620,14 @@ As cenas distinguem carga, Defesa, remoção de placa, consumo de cargas e invul
 ## Estado da migração pictórica — 29/10/2026 (atualizado)
 
 A direção dark fantasy pictórica cobre **90 de 998 espaços** como candidatas; **908** ainda aguardam produção. **14 kits** estão integrados, restam **136 entradas** e **33 variantes** dedicadas. As 90 artes aguardam aprovação visual final; a produção continua.
+
+
+## Gêmeos do Cutelo — conjunto dark fantasy pictórico — 29/10/2026
+
+Cleobis e Biton receberam seis artes base e uma variante dedicada de Corte em Contratempo. Cleobis mantém a pele castanho-escura e os cachos curtos; Biton, a pele oliva clara e o cabelo longo preso. As faixas carmesim, os casacos negros e um cutelo por irmão preservam a identidade comum.
+
+Os enquadramentos variam entre retrato baixo, zenital oblíquo, reversa por cima do ombro, lateral baixa e plano amplo. A revisão manteve corpos, braços, mãos, pernas e armas separados. Corte em Contratempo foi corrigido para mostrar exatamente os dois gêmeos e um único alvo Exposto. As sete artes aguardam aprovação visual; nenhuma mecânica foi alterada.
+
+## Estado da migração pictórica — 29/10/2026 (atualizado)
+
+A direção dark fantasy pictórica cobre **97 de 998 espaços** como candidatas; **901** ainda aguardam produção. **15 kits** estão integrados, restam **135 entradas** e **32 variantes** dedicadas. As 97 artes aguardam aprovação visual final; a produção continua.
