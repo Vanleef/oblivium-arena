@@ -19,7 +19,7 @@ const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-d
 const painterlyBatchArt = new Set([
   'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
   'o-carrasco-sem-rosto','a-mae-rubra',
-  'a-regente-de-cinzas','o-herdeiro-cativo',
+  'o-herdeiro-cativo',
   'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
 ]);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
@@ -1426,7 +1426,7 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-regente-de-cinzas') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
