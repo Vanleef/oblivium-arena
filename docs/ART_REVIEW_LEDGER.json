@@ -336,7 +336,7 @@
   "pendingCorrections": [
     {
       "key": "baal:base:despertar",
-      "reason": "Defesa existente repete enquadramento lateral do retrato. Reenquadramento frontal interrompido pelo limite de geração; manter identidade, manto de cinzas e defesa pessoal."
+      "reason": "Nova candidata de Manto de Cinzas refeita em enquadramento traseiro baixo, com Baal quadrúpede e o manto de tecido e cinza recebendo a queda de pedras; confirmar essa leitura na revisão visual final."
     }
   ],
   "legacyReviewDirection": "anime-first 2.5D",
@@ -364,7 +364,19 @@
     "icarus:base:impulso",
     "icarus:base:tecnica",
     "icarus:base:voto",
-    "icarus:base:despertar"
+    "icarus:base:despertar",
+    "serena:base:portrait",
+    "serena:base:passive",
+    "serena:base:impulso",
+    "serena:base:tecnica",
+    "serena:base:voto",
+    "serena:base:despertar",
+    "baal:base:portrait",
+    "baal:base:passive",
+    "baal:base:impulso",
+    "baal:base:tecnica",
+    "baal:base:voto",
+    "baal:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -391,13 +403,30 @@
     "icarus:base:impulso",
     "icarus:base:tecnica",
     "icarus:base:voto",
-    "icarus:base:despertar"
+    "icarus:base:despertar",
+    "serena:base:portrait",
+    "serena:base:passive",
+    "serena:base:impulso",
+    "serena:base:tecnica",
+    "serena:base:voto",
+    "serena:base:despertar",
+    "baal:base:portrait",
+    "baal:base:passive",
+    "baal:base:impulso",
+    "baal:base:tecnica",
+    "baal:base:voto",
+    "baal:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
       "key": "icarus:base:impulso",
       "correctedAt": "2026-10-29",
       "note": "Arte de Asa Fraturada refeita para corrigir a escala: Icarus e a criatura estão em proporções humanas comparáveis. Asa única, ação e cenário do Limbo foram preservados; a nova versão continua aguardando aprovação visual final."
+    },
+    {
+      "key": "baal:base:despertar",
+      "correctedAt": "2026-10-29",
+      "note": "Nova candidata de defesa em ângulo baixo traseiro gerada para variar do retrato e mostrar o manto de cinzas recebendo pedras; requer aprovação visual final."
     }
   ]
 }

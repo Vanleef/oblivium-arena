@@ -517,13 +517,13 @@ export const characterArtRegistry = {
     }
   },
   "serena": {
-    "portrait": "/art/characters/serena/anime-first-completion-20261028/portrait.webp",
-    "passive": "/art/characters/serena/anime-first-completion-20261028/passive.webp",
+    "portrait": "/art/characters/serena/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/serena/dark-pictorial-rework-20261029/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/serena/anime-first-completion-20261028/skill-impulso.webp",
-      "tecnica": "/art/characters/serena/anime-first-completion-20261028/skill-tecnica.webp",
-      "voto": "/art/characters/serena/anime-first-completion-20261028/skill-voto.webp",
-      "despertar": "/art/characters/serena/anime-first-completion-20261028/skill-despertar.webp"
+      "impulso": "/art/characters/serena/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/serena/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/serena/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/serena/dark-pictorial-rework-20261029/skill-despertar.webp"
     }
   },
   "placido": {
@@ -537,13 +537,13 @@ export const characterArtRegistry = {
     }
   },
   "baal": {
-    "portrait": "/art/characters/baal/anime-first-completion-20261028/portrait.webp",
-    "passive": "/art/characters/baal/anime-first-completion-20261028/passive.webp",
+    "portrait": "/art/characters/baal/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/baal/dark-pictorial-rework-20261029/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/baal/anime-first-completion-20261028/skill-impulso.webp",
-      "tecnica": "/art/characters/baal/anime-first-completion-20261028/skill-tecnica.webp",
-      "voto": "/art/characters/baal/anime-first-completion-20261028/skill-voto.webp",
-      "despertar": "/art/characters/baal/anime-first-completion-20261028/skill-despertar.webp"
+      "impulso": "/art/characters/baal/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/baal/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/baal/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp"
     }
   },
   "atlas": {

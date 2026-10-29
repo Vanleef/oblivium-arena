@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 24,
-      "remainingSlots": 974,
-      "fullyMigratedEntries": 4,
-      "remainingEntries": 146,
-      "awaitingVisualApprovalSlots": 24,
+      "integratedCandidateSlots": 36,
+      "remainingSlots": 962,
+      "fullyMigratedEntries": 6,
+      "remainingEntries": 144,
+      "awaitingVisualApprovalSlots": 36,
       "approvedSlots": 0
     }
   },
