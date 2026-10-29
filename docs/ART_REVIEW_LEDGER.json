@@ -376,7 +376,19 @@
     "baal:base:impulso",
     "baal:base:tecnica",
     "baal:base:voto",
-    "baal:base:despertar"
+    "baal:base:despertar",
+    "caliope:base:portrait",
+    "caliope:base:passive",
+    "caliope:base:impulso",
+    "caliope:base:tecnica",
+    "caliope:base:voto",
+    "caliope:base:despertar",
+    "placido:base:portrait",
+    "placido:base:passive",
+    "placido:base:impulso",
+    "placido:base:tecnica",
+    "placido:base:voto",
+    "placido:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -415,7 +427,19 @@
     "baal:base:impulso",
     "baal:base:tecnica",
     "baal:base:voto",
-    "baal:base:despertar"
+    "baal:base:despertar",
+    "caliope:base:portrait",
+    "caliope:base:passive",
+    "caliope:base:impulso",
+    "caliope:base:tecnica",
+    "caliope:base:voto",
+    "caliope:base:despertar",
+    "placido:base:portrait",
+    "placido:base:passive",
+    "placido:base:impulso",
+    "placido:base:tecnica",
+    "placido:base:voto",
+    "placido:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

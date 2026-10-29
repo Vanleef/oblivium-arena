@@ -1,0 +1,142 @@
+{
+  "id": "placido-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "placido",
+  "displayName": "Plácido",
+  "world": "Inferno",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa, tátil e texturizada, com alta materialidade, pincelada estilizada e realismo reduzido; paleta adaptada ao Mundo; efeitos físicos e sem tecnologia.",
+  "styleReference": "01-1000064969.jpg (apenas linguagem pictórica; sem copiar personagem, tema ou composição)",
+  "identity": "Homem idoso e muito magro, rosto profundamente vincado, pele castanho-acinzentada, cabelo prateado ralo preso rente à cabeça e túnica longa preta com forro vermelho-escuro, sem armadura ou arma.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/placido/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/placido-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "5f531ccd0ff52979da8cf5a604511c68dfa6f881154abd2fcf7646218b3d8222",
+      "activeSha256": "afe2386b1c319ce865db6081f2ec39dc6cd8a9abbe4e9cf95c5f8e326229be8f",
+      "generatedImage": "generated_images/exec-34e16909-9482-4b82-9866-eafcda243821.png",
+      "scene": "Debruçado junto a um sulco numa parede de basalto, segue a gravação com o dedo enquanto escuta a pedra.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Regra Aplicada",
+      "activeAsset": "/art/characters/placido/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/placido-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "81ff172ebfa4f63de86c17a69ca5154360c6dae79b3f941b817a0738b4d4384f",
+      "activeSha256": "e252195bb59641c2c25a526bd48eeb4b5abb0dd7165fc09e2c06b1f20c5594b8",
+      "generatedImage": "generated_images/exec-15b0a324-f198-44bf-ae01-7ffbe04dfce8.png",
+      "scene": "A mão de Plácido imobiliza o pulso marcado de um ghoul no degrau; o gesto de apoio cai e o ombro cede.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Artigo de Ferro",
+      "activeAsset": "/art/characters/placido/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/placido-dark-pictorial-rework-20261029/impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "96f73f54b7d577da4cce9c49b33df761f0f091e0981c76eccc2e7d490f8f94df",
+      "activeSha256": "97c5c02d59f3510547d533b6ca7ada44cac279b00ce835124183c5d59e8552c9",
+      "generatedImage": "generated_images/exec-8453eba2-d32b-48f8-8dd9-e587365960a9.png",
+      "scene": "O peso da palma de Plácido prensa um selo de ferro no manto de um ghoul, que se dobra pelo impacto físico.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Interdição Formal",
+      "activeAsset": "/art/characters/placido/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/placido-dark-pictorial-rework-20261029/tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "e17d9a4695a849caad5a642c64cdd7a20184faa336a08bb1f0d38d247db72460",
+      "activeSha256": "21e777fb6e221cd1af9a9f3db82a9223923b38ee2881706c53c151045986469a",
+      "generatedImage": "generated_images/exec-45a01da4-9b21-4476-b62d-61b5af7cc7d3.png",
+      "scene": "A mão de um ghoul fica aberta e presa ao basalto por uma faixa mineral vermelho-escura que fecha em torno do pulso.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Cláusula de Continuidade",
+      "activeAsset": "/art/characters/placido/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/placido-dark-pictorial-rework-20261029/voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "788dfc94847aa8fe9363445ba3848b378f7990d710422a42d5564b032ad7ca0a",
+      "activeSha256": "0429d6244060bab2ccbe05f7d35b3a03ebff9d39178ea88503711dab747d59e1",
+      "generatedImage": "generated_images/exec-9017a097-3d1b-4b91-92e7-f3a27412ccec.png",
+      "scene": "Plácido sustenta um arco infernal com as costas e os braços enquanto o tecido e as nervuras de pedra abrigam três aliados ghoul.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Estado de Exceção",
+      "activeAsset": "/art/characters/placido/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/placido-dark-pictorial-rework-20261029/despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "3333d3f4dbb2364f542ae62b5ad72d47df9fa35de0c47f878afd7bae7a33be87",
+      "activeSha256": "8195a03b2cb55a670556915acf34e19a1be1d903d56d24843f64bb39c12b8e51",
+      "generatedImage": "generated_images/exec-8d955678-4154-4d3a-a5aa-3b65fbcf65a8.png",
+      "scene": "Ajoelhado sob a chuva de fragmentos, envolve a cabeça e os ombros com a túnica pesada enquanto tecido e pedra desviam o impacto.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "forms": [],
+  "reviewNotes": "Kit completo com retrato, passiva, três habilidades e defesa. Todas as seis artes estão integradas como candidatas e aguardam revisão visual final."
+}

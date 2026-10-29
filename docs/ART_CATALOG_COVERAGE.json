@@ -1931,11 +1931,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 36,
-    "remainingSlots": 962,
-    "fullyMigratedEntries": 6,
-    "remainingEntries": 144,
-    "awaitingVisualApprovalSlots": 36,
+    "integratedCandidateSlots": 48,
+    "remainingSlots": 950,
+    "fullyMigratedEntries": 8,
+    "remainingEntries": 142,
+    "awaitingVisualApprovalSlots": 48,
     "approvedSlots": 0
   }
 }
