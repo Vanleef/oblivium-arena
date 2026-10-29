@@ -1,29 +1,22 @@
-# Bulkir — kit anime 2.5D
+# Bulkir — reformulação pictórica (2026-10-29)
 
-Anime 2.5D pictórico, contornos definidos, sombras densas, atmosfera gótica ornamental e energia shonen; Inferno em preto, vermelho intenso, cinza e pedra queimada, com tons terrosos podres para o Reino Pútrido. Identidade baseada no retrato aprovado; sem alteração de forma.
+**Mundo:** Inferno · **Reino:** Pútrido
 
-## Retrato
+## Identidade corrigida
 
-![Bulkir — Retrato](../art/characters/bulkir/anime-first-completion-20261028/portrait.webp)
+Humano de pele castanho-escura, porte muito robusto, cabelo preto curto, olhos vermelho-âmbar e cicatrizes antigas. Usa pano vinho; o manto fúngico orgânico fica apenas nos ombros e nas costas. Rosto e membros continuam humanos, com dois braços e duas pernas.
 
-## Passiva: Fome de Nomes
+## Direção visual
 
-![Bulkir — Passiva: Fome de Nomes](../art/characters/bulkir/anime-first-completion-20261028/passive.webp)
+Ilustração dark fantasy pictórica densa, materialidade tátil, desgaste e sombras dramáticas. O traço é estilizado e visivelmente pintado, com realismo reduzido em relação à referência. Paleta infernal de pretos, vermelhos, brasas e pedra queimada. A referência anexada é usada somente para o tratamento pictórico.
 
-## Punho que Apaga
+## Peças do kit
 
-![Bulkir — Punho que Apaga](../art/characters/bulkir/anime-first-completion-20261028/skill-impulso.webp)
+- **portrait — Retrato:** Apoiado numa pedra funerária após erguê-la, visto de baixo; o manto fúngico fica restrito às costas e aos ombros.
+- **passive — Passiva:** Agachado após a luta, fecha a mão sobre o resíduo de cinza de um ghoul derrotado; fragmentos de brasa absorvidos pelo manto.
+- **impulso — Habilidade: Impulso:** O punho pesado rompe lateralmente um selo negro de Defesa gravado numa laje; fragmentos partem do ponto de impacto.
+- **tecnica — Habilidade: Técnica:** Morde e rasga o véu de cinza que cobre a identidade do alvo, sem ferir a carne; resíduo de essência aquece a mão e o manto.
+- **voto — Habilidade: Voto:** Desce com todo o peso num golpe ao chão; lajes de basalto quebram e derrubam o último vestígio do inimigo.
+- **despertar — Habilidade: Despertar:** Abaixa-se sob um arco em colapso; placas fúngicas orgânicas nos ombros e costas recebem os escombros.
 
-## Mordida de Identidade
-
-![Bulkir — Mordida de Identidade](../art/characters/bulkir/anime-first-completion-20261028/skill-tecnica.webp)
-
-## Esmagar o Último Vestígio
-
-![Bulkir — Esmagar o Último Vestígio](../art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp)
-
-## Carapaça Faminta
-
-![Bulkir — Carapaça Faminta](../art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp)
-
-Proveniência, sementes, prompts, hashes e decisões de revisão: [manifesto JSON](ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json).
+As fontes JPEG 768 × 768 e os ativos WebP 512 × 512 estão listados com SHA-256 no manifesto JSON correspondente. Os caminhos do runtime foram preservados. As saídas estão integradas como candidatas e aguardam revisão visual final.

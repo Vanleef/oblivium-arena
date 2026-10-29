@@ -1,29 +1,22 @@
-# Merlindrope — kit anime 2.5D
+# Merlindrope — reformulação pictórica (2026-10-29)
 
-Seis artes aprovadas para Inferno / Magma, com silhueta artrópode própria, carapaça castanho-negra e contenção por fios rituais vermelhos. As composições variam entre movimento lateral, reação do alvo, selo de área e defesa pessoal.
+**Mundo:** Inferno · **Reino:** Magma
 
-## Retrato
+## Identidade corrigida
 
-![Merlindrope — Retrato](../art/characters/merlindrope/anime-first-completion-20261028/portrait.webp)
+Humano magro e idoso, pele cinza-acinzentada, olhos vermelho-pálidos, cabelo longo preto com mechas prateadas e túnica ritual borgonha e negra. Tem exatamente dois braços e anatomia humana; cordas trançadas são ferramentas rituais, não membros.
 
-## Cláusula de Prisão
+## Direção visual
 
-![Merlindrope — Cláusula de Prisão](../art/characters/merlindrope/anime-first-completion-20261028/passive.webp)
+Ilustração dark fantasy pictórica densa, materialidade tátil, desgaste e sombras dramáticas. O traço é estilizado e visivelmente pintado, com realismo reduzido em relação à referência. Paleta infernal de pretos, vermelhos, brasas e pedra queimada. A referência anexada é usada somente para o tratamento pictórico.
 
-## Grade de Éter
+## Peças do kit
 
-![Merlindrope — Grade de Éter](../art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp)
+- **portrait — Retrato:** Em três quartos, puxando uma corda ritual borgonha grossa com ambas as mãos junto a um arco de basalto partido.
+- **passive — Passiva:** Puxa uma corda trançada que fecha os braços de um ghoul marcado contra o torso e interrompe o movimento de apoio.
+- **impulso — Habilidade: Impulso:** Corda ritual grossa enrola o torso do alvo e o prende contra uma parede de basalto rachada.
+- **tecnica — Habilidade: Técnica:** Barreira transversal de cordas espessas bloqueia uma passagem; o alvo colide e perde o avanço.
+- **voto — Habilidade: Voto:** Três ghouls são separados em celas concêntricas de corda trançada que emergem do chão de pedra.
+- **despertar — Habilidade: Despertar:** Merlindrope ancora uma parede ampla de cordas e tecido no basalto e suporta o impacto de escombros.
 
-## Porta que Não Abre
-
-![Merlindrope — Porta que Não Abre](../art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp)
-
-## Celas Concêntricas
-
-![Merlindrope — Celas Concêntricas](../art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp)
-
-## Parede de Regras
-
-![Merlindrope — Parede de Regras](../art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp)
-
-Proveniência, sementes, hashes e prompts: [manifesto JSON](ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json).
+As fontes JPEG 768 × 768 e os ativos WebP 512 × 512 estão listados com SHA-256 no manifesto JSON correspondente. Os caminhos do runtime foram preservados. As saídas estão integradas como candidatas e aguardam revisão visual final.
