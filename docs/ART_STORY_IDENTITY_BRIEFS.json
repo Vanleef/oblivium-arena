@@ -238,6 +238,11 @@
       "name": "Merlindrope",
       "identity": "A low infernal arthropod with organic dark brown-black chitin, a narrow raised shell, four articulated walking legs and two front pincers (six appendages total), two pale ember-red eye cavities and paired mandibles. A narrow dark-crimson ritual band and frayed cloth sit at the shell edges. No human face or arms, mechanical parts, armor, or technology. Keep the same silhouette and shell throughout the kit.",
       "scene": "Inferno / Magma: old concentric stone prisons, blind doors, black basalt, red arcane threads and ember light."
+    },
+    "bulkir": {
+      "name": "Bulkir",
+      "identity": "Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo e sem pescoço distinto. A parte superior forma um domo de carapaça orgânica negro-esverdeada com placas fúngicas arredondadas; o rosto fica integrado à frente baixa do domo, com dois olhos pequenos vermelho-âmbar e uma boca larga de dentes irregulares. Pele castanho-musgo, dois braços grossos, duas pernas curtas, trapos negros e vinho presos ao ventre e unhas sujas. A silhueta, o rosto e as proporções permanecem estáveis em todo o kit; sem armadura, tecnologia ou órgãos expostos.",
+      "scene": "Inferno / Pútrido: pomar apodrecido, necrópole fúngica, raízes mortas, cinzas e pedra queimada."
     }
   }
 }

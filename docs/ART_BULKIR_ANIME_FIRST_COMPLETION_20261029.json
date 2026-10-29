@@ -1,0 +1,233 @@
+{
+  "id": "bulkir-anime-first-completion-20261029",
+  "date": "2026-10-29",
+  "characterId": "bulkir",
+  "displayName": "Bulkir",
+  "world": "Inferno",
+  "kingdom": "Pútrido",
+  "status": "generated_reviewed_integrated",
+  "provider": "Perchance",
+  "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+  "fallbackReason": "A built-in image_gen call returned usage_limit_reached; the user had explicitly authorized Perchance as a fallback.",
+  "artDirection": "Anime 2.5D pictórico, contornos definidos, sombras densas, atmosfera gótica ornamental e energia shonen; Inferno em preto, vermelho intenso, cinza e pedra queimada, com tons terrosos podres para o Reino Pútrido.",
+  "identity": "Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo e sem pescoço distinto. A parte superior forma um domo de carapaça orgânica negro-esverdeada com placas fúngicas arredondadas; o rosto fica integrado à frente baixa do domo, com dois olhos pequenos vermelho-âmbar e uma boca larga de dentes irregulares. Pele castanho-musgo, dois braços grossos, duas pernas curtas, trapos negros e vinho presos ao ventre e unhas sujas. A silhueta, o rosto e as proporções permanecem estáveis em todo o kit; sem armadura, tecnologia ou órgãos expostos.",
+  "batchRoute": "/art/characters/bulkir/anime-first-completion-20261028",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/portrait.webp",
+      "sourceAsset": "art/source/bulkir-anime-first-completion-20261029/portrait.jpg",
+      "seed": 940555496,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "16ae171c8d2c93097c515c4d4bdf63a320a542806a11db80e05ad86517ca34ff",
+      "activeSha256": "3cba5012496cd5a18d725647ec29a1c3786c8ce778777413db8e0a485cd6d83d",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "retrato baixo em três quartos, apoiado no chão funerário",
+      "reviewDecision": "Aprovado: carapaça orgânica dominante, olhos vermelho-âmbar, pele castanho-musgo e pano vinho coerentes; silhueta baixa, quatro membros e pose apoiada.",
+      "status": "approved_integrated",
+      "submittedPrompt": "prompt=painterly anime artwork, One square character portrait, exactly one figure. Bulkir, a huge low-slung round infernal creature with a very low center of gravity and no distinct neck. Exactly four limbs: two short thick legs and two heavy arms ending in coherent five-finger hands. The upper body forms an organic dark moss-brown, near-black domed shell with dry fungal plates; moss-brown skin shows between them. The face is embedded in the front of the dome, with exactly two small red-amber eyes above one broad closed mouth with uneven teeth. Dirty nails, torn black and dark-wine cloth at the belly. In a Pútrido necropolis, Bulkir bends naturally over a nearly erased trace on a blank funerary stone, one hand supporting his weight while a dirty fingertip scrapes the trace; his eyes follow it and his mouth tightens with hungry concentration. Side three-quarter view close to the ground, no camera gaze, no presentation pose. Damp roots, dry fungus, ash-dark puddle, soot and ancient black stone. Painterly 2.5D anime shonen, strong defined contours, angular cel shadows, gothic depth, tactile chitin, skin, fungus and cloth. Inferno black, burnt earth and ash, muted organic fungal tones, restrained dark-red cloth accents; no luminous green, no gold glow. No readable letters, no extra limbs, no extra characters, no armor, no weapons, no technology, no text, no UI, no border or watermark. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=940555496"
+    },
+    {
+      "slot": "passive",
+      "name": "Passiva: Fome de Nomes",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/passive.webp",
+      "sourceAsset": "art/source/bulkir-anime-first-completion-20261029/passive.jpg",
+      "seed": 286739196,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "No style",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "9aefbd18fa48a3ccd2036edbe9448a08c73b5aeeb8d834f306dfcb3285030acf",
+      "activeSha256": "28ae649d1b1745639e1ba83bc3bf7100f8f58cc06618f2be2d155e1ac345c45b",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "crouch lateral baixo após confronto, carapaça e brasas em foco",
+      "reviewDecision": "Aprovado com leitura simbólica: identidade e postura baixa preservadas, partículas infernais comunicam a carga após o confronto. A cura de Vida não é literalizada.",
+      "status": "approved_integrated",
+      "submittedPrompt": "Square full-bleed painterly anime illustration of the exact same Bulkir from his approved portrait: a huge low, broad fungal creature with a domed shell of many overlapping rough dark brown-black plates, moss-brown skin, face low under the front shell rim, two small ember-red eyes, one broad mouth of uneven teeth, exactly two thick arms and two short strong legs, torn dark-wine cloth on the lower body. Bulkir has just survived a fight and is resting close to the floor in his natural heavy crouch. He looks down at a superficial split in the edge of his shell as it seals. A single tiny red ember-charge is condensing from that same repaired spot on the carapace. The body relaxes slightly, tired but alert. In the background, a faint trail of ash motes fades into the Pútrido tomb corridor, where fungal stone and dead roots frame the moment. Side three-quarter composition, shell and face dominate, all anatomy remains coherent, grounded weight, expressive shonen aftermath. Charcoal, burnt earth, muted moss-brown, restrained infernal red. Gothic ornamental contours, 2.5D painterly anime, dramatic cel shadows, clean unmarked dark stone corners. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "slot": "impulso",
+      "name": "Punho que Apaga",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-impulso.webp",
+      "sourceAsset": "art/source/bulkir-anime-first-completion-20261029/impulso.jpg",
+      "seed": 808263635,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "No style",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "95650dadf51760fc7f3926ef2dd5d8ce2c572a0a25beb13b04b54d9f359d685c",
+      "activeSha256": "f548f6d268cfa729b1dcebac1b0a182ca20b0cbb250549bbbf1fec53e62ab7b5",
+      "expectedPhysicalFigures": 2,
+      "sceneFraming": "close lateral da carapaça, punho e véu do ghoul se rompendo",
+      "reviewDecision": "Aprovado: fragmentos do véu de Defesa precedem o recuo do ghoul; corte lateral, sem gore ou texto sobreposto, com Bulkir identificável pela carapaça e pelo braço.",
+      "status": "approved_integrated",
+      "submittedPrompt": "Square close side-view impact illustration for Bulkir's Punho que Apaga. Keep only the near side of Bulkir visible: the edge of his huge dark rounded fungal shell made from overlapping thick plates, his moss-brown textured forearm and one heavy fist connected naturally to that body. The fist lands against a single gray ash-ghoul's upper torso. Before the ghoul's body recoils, its thin pale translucent veil of defense fractures into small floating gray shards, clearly showing the guard breaking first. The ghoul's hooded head turns away from the impact, cloth pulled taut, no gore. Bulkir's red eyes are barely visible under the shell rim, focused on the target. Pútrido tomb corridor, charcoal stone, roots, burnt earth and a few restrained red embers. Dynamic shonen impact in profile, close crop and strong directional motion, painterly 2.5D anime with Gothic ornamental contours, deep cel shadows. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "slot": "tecnica",
+      "name": "Mordida de Identidade",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-tecnica.webp",
+      "sourceAsset": "art/source/bulkir-anime-first-completion-20261029/tecnica.jpg",
+      "seed": 897211056,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "No style",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ac8571d56f68b107085c0386a0b6401378ac5f8ce871348f371486e3ede14b36",
+      "activeSha256": "071782b349db2a2b6c60e609692a34ef1ffd3b77740967e4c84e7e1118818248",
+      "expectedPhysicalFigures": 2,
+      "sceneFraming": "perfil fechado da mordida no manto de sombra",
+      "reviewDecision": "Aprovado: mordida em perfil, um único ghoul, fio vermelho sugere lifesteal e não há dano corporal gráfico. A carapaça e a boca única permanecem reconhecíveis.",
+      "status": "approved_integrated",
+      "submittedPrompt": "Square close-profile painterly anime scene for Bulkir's Mordida de Identidade. Preserve Bulkir's exact portrait identity: huge low fungal creature, dark rounded dome of overlapping shell plates, moss-brown textured hide, one face embedded low under the rim with two small red eyes and the same broad irregular-toothed mouth, thick heavy limbs and ragged dark-wine cloth. At close range, Bulkir bends naturally and bites through the gray shadow veil draped over one ash-ghoul's shoulder, teeth catching only the veil as the ghoul twists away in pain. The cloth parts in a sharp narrow line, while the ghoul's body stays intact. A single thin red lifeline flows from that split veil toward a small superficial scrape on Bulkir's shell, which closes as the energy reaches him. The action is tense, intimate, and clearly a bite, but the composition stays side-on and non-graphic. Pútrido crypt of fungal stone, roots and ash, charcoal and burnt earth with restrained infernal red. Dramatic 2.5D anime shonen, Gothic ornamental contours, hard shadows, natural anatomy, one Bulkir and one ghoul, no repeated frontal attack composition. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "slot": "voto",
+      "name": "Esmagar o Último Vestígio",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
+      "sourceAsset": "art/source/bulkir-anime-first-completion-20261029/voto.jpg",
+      "seed": 900871692,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "No style",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "36c7b90da2a049c02081cef3e108065fb7189f893f34aa1a4179e8849ff86ff5",
+      "activeSha256": "e5a2cc556ca54d3eb772f90d57c2f617e34e39e4cc8499809d41eb32210f80af",
+      "expectedPhysicalFigures": 2,
+      "sceneFraming": "impacto lateral oblíquo, carapaça e ghoul em contato",
+      "reviewDecision": "Aprovado: contato oblíquo com um ghoul, carapaça e rosto integrados à silhueta; poeira e fragmentos de pedra dão peso ao impacto sem execução ou gore.",
+      "status": "approved_integrated",
+      "submittedPrompt": "Square close, oblique side illustration of Esmagar o Último Vestígio. The one gray ash-ghoul fills the right foreground, its hooded head, shoulder and upper body large and readable as it is knocked sideways across the stone. Bulkir's huge low dark fungal dome enters from the left and presses into that shoulder with heavy body weight; his embedded face is visible just above the shell rim, eyes fixed on the ghoul, one thick arm braced on the floor. Preserve Bulkir's approved identity: rounded dark overlapping shell plates, moss-brown hide, two red eyes, one irregular-toothed mouth, ragged dark-wine cloth and compact low silhouette. The ghoul twists under the impact while cracks spread through the floor, dust lifts, and Bulkir's old scrape and sagging posture show he is already worn down. It is a heavy shoulder-and-shell drop, not a punch. One ghoul only, one Bulkir, side profile, dynamic diagonal, both figures fill the image. Pútrido crypt, fungal stones, roots, ash, charcoal and burnt earth with infernal red sparks. Painterly 2.5D anime, gothic ornamental contours, dramatic hard shadows, natural grounded motion. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "slot": "despertar",
+      "name": "Carapaça Faminta",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp",
+      "sourceAsset": "art/source/bulkir-anime-first-completion-20261029/despertar.jpg",
+      "seed": 389589667,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "No style",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ffe43077e289ac8d8352560b065c5c82e86472c480c8377ee2fe894f1cf62ff3",
+      "activeSha256": "6718ca1dcb7fe0da5e9d7a57da60eed8d32f3d653be7a37ac0dae7a3def8a526",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "close baixo de Bulkir recolhido sob o casco",
+      "reviewDecision": "Aprovado: defesa solo, carapaça original intacta e corpo recolhido com base estável; impacto infernal vermelho concentrado no casco.",
+      "status": "approved_integrated",
+      "submittedPrompt": "Square painterly anime image for Bulkir's Carapaça Faminta. Keep Bulkir identical to his approved portrait: huge low fungus creature, same broad dark dome of overlapping rounded organic plates, moss-brown skin, face embedded low beneath the shell rim, two red ember eyes, one uneven-toothed mouth, two thick arms, two short legs, ragged dark-wine cloth. In a natural reflex, he curls low and draws his face and both heavy forearms partly under the existing shell while a violent ash-red shockwave strikes the outside of the carapace. The force ripples across its unbroken fungal plates and bursts outward as dust and stone fragments; Bulkir remains protected, his body still visibly the same shape. His short legs stay planted beneath him, weight grounded. Close low three-quarter view, shell dominates the composition, eyes partly tucked away, no camera-facing pose. Pútrido necropolis chamber, fungal stone, roots, charcoal and burnt earth with restrained infernal red. Gothic ornamental linework, hard cel shadows, 2.5D painted anime shonen, dramatic defensive impact, natural anatomy. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    }
+  ],
+  "candidateReview": {
+    "generatedCandidates": 50,
+    "selectedCandidates": 6,
+    "rejectedCandidates": 44,
+    "countsBySlot": [
+      {
+        "slot": "portrait",
+        "generated": 4,
+        "selectedSeed": 940555496,
+        "rejected": 3
+      },
+      {
+        "slot": "passive",
+        "generated": 28,
+        "selectedSeed": 286739196,
+        "rejected": 27
+      },
+      {
+        "slot": "impulso",
+        "generated": 4,
+        "selectedSeed": 808263635,
+        "rejected": 3
+      },
+      {
+        "slot": "tecnica",
+        "generated": 2,
+        "selectedSeed": 897211056,
+        "rejected": 1
+      },
+      {
+        "slot": "voto",
+        "generated": 8,
+        "selectedSeed": 900871692,
+        "rejected": 7
+      },
+      {
+        "slot": "despertar",
+        "generated": 4,
+        "selectedSeed": 389589667,
+        "rejected": 3
+      }
+    ],
+    "rejectionReasons": [
+      "silhueta afastada do retrato aprovado",
+      "espinhos ou adornos sem relação com o kit",
+      "figuras ou membros extras",
+      "escala e enquadramento sem leitura da ação",
+      "assinatura ou pseudo-texto no canto",
+      "efeito visual deslocado da mecânica"
+    ],
+    "manualReview": "As seis escolhas foram comparadas ao retrato aprovado, à cena planejada e à paleta Inferno/Pútrido. As imagens rejeitadas não foram integradas."
+  },
+  "coverageNote": "Retrato, passiva, quatro habilidades e formas previstas cobertos. O kit de runtime não declara formas ou variações adicionais para Bulkir.",
+  "runtimeNote": "Somente referências de arte e documentação de cobertura foram alteradas; os campos de combate e o comportamento do kit permanecem intactos."
+}

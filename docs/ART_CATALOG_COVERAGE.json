@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 905,
-    "baseMissing": 18,
-    "entriesWithAnyBaseMissing": 3,
-    "entriesWithoutAnyBaseArt": 3,
+    "basePresent": 911,
+    "baseMissing": 12,
+    "entriesWithAnyBaseMissing": 2,
+    "entriesWithoutAnyBaseArt": 2,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 325,
+    "reviewedSlots": 331,
     "correctionSlots": 1,
-    "fullyReviewedEntries": 48,
-    "pendingSlots": 673
+    "fullyReviewedEntries": 49,
+    "pendingSlots": 667
   },
   "entries": [
     {
@@ -1863,16 +1863,9 @@
       "kingdom": "Pútrido",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "bulkir:base:portrait",
-        "bulkir:base:passive",
-        "bulkir:base:impulso",
-        "bulkir:base:tecnica",
-        "bulkir:base:voto",
-        "bulkir:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "voronir",

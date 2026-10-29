@@ -565,5 +565,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp"
     }
-  }
+  },
+  "bulkir": {
+    "portrait": "/art/characters/bulkir/anime-first-completion-20261028/portrait.webp",
+    "passive": "/art/characters/bulkir/anime-first-completion-20261028/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/bulkir/anime-first-completion-20261028/skill-impulso.webp",
+      "tecnica": "/art/characters/bulkir/anime-first-completion-20261028/skill-tecnica.webp",
+      "voto": "/art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
+      "despertar": "/art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp"
+    }
+  },
 };

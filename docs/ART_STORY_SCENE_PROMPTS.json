@@ -1614,6 +1614,36 @@
       "provider": "Perchance",
       "sourceManifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
       "expectedPhysicalFigures": 1
+    },
+    {
+      "id": "bulkir",
+      "slot": "passive",
+      "scene": "Bulkir repousa após uma vitória; cinzas e brasas vermelhas sugerem carga recém-ganha.",
+      "allies": []
+    },
+    {
+      "id": "bulkir",
+      "slot": "impulso",
+      "scene": "O punho rompe a película de Defesa de um ghoul antes do recuo do alvo.",
+      "allies": []
+    },
+    {
+      "id": "bulkir",
+      "slot": "tecnica",
+      "scene": "A mordida atravessa o véu de sombra; um fio vermelho discreto retorna a Bulkir.",
+      "allies": []
+    },
+    {
+      "id": "bulkir",
+      "slot": "voto",
+      "scene": "A carapaça e o ombro colidem com um ghoul em perfil oblíquo, com pedra deslocada.",
+      "allies": []
+    },
+    {
+      "id": "bulkir",
+      "slot": "despertar",
+      "scene": "Bulkir recolhe rosto e braços sob a carapaça intacta enquanto uma força atinge a superfície.",
+      "allies": []
     }
   ],
   "generatedSceneKeys": [
@@ -1815,6 +1845,11 @@
     "atlas:impulso",
     "atlas:tecnica",
     "atlas:voto",
-    "atlas:despertar"
+    "atlas:despertar",
+    "bulkir:passive",
+    "bulkir:impulso",
+    "bulkir:tecnica",
+    "bulkir:voto",
+    "bulkir:despertar"
   ]
 }

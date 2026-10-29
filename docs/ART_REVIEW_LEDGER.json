@@ -325,7 +325,13 @@
     "merlindrope:base:impulso",
     "merlindrope:base:tecnica",
     "merlindrope:base:voto",
-    "merlindrope:base:despertar"
+    "merlindrope:base:despertar",
+    "bulkir:base:portrait",
+    "bulkir:base:passive",
+    "bulkir:base:impulso",
+    "bulkir:base:tecnica",
+    "bulkir:base:voto",
+    "bulkir:base:despertar"
   ],
   "pendingCorrections": [
     {

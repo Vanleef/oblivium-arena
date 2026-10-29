@@ -545,6 +545,27 @@
         "/art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
         "/art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp"
       ]
+    },
+    "bulkir": {
+      "displayName": "Bulkir",
+      "activeRoute": "/art/characters/bulkir/anime-first-completion-20261028",
+      "world": "Inferno",
+      "sourceAssets": [
+        "art/source/bulkir-anime-first-completion-20261029/portrait.jpg",
+        "art/source/bulkir-anime-first-completion-20261029/passive.jpg",
+        "art/source/bulkir-anime-first-completion-20261029/impulso.jpg",
+        "art/source/bulkir-anime-first-completion-20261029/tecnica.jpg",
+        "art/source/bulkir-anime-first-completion-20261029/voto.jpg",
+        "art/source/bulkir-anime-first-completion-20261029/despertar.jpg"
+      ],
+      "assets": [
+        "/art/characters/bulkir/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/bulkir/anime-first-completion-20261028/passive.webp",
+        "/art/characters/bulkir/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/bulkir/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {
