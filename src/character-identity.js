@@ -10,7 +10,7 @@ const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
 const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias']);
 const animeFirstRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','a-pira-errante']);
 const animeFirstRework20261027Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-tecelao-de-mentiras','a-boca-de-vidro','o-incendiario','a-brasa-eterna','o-colecionador-de-cabecas','gemeos-do-cutelo','o-carrasco-sem-rosto','a-mae-rubra']);
-const animeFirstRework20261028Art = new Set(['o-acougueiro','a-viuva-escarlate','o-trono-vazio']);
+const animeFirstRework20261028Art = new Set(['o-acougueiro','a-viuva-escarlate']);
 const hybridInfernoRework20261027Art = new Set(['o-que-pesa','o-incendiario']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
@@ -19,7 +19,7 @@ const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-d
 const painterlyBatchArt = new Set([
   'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
   'o-carrasco-sem-rosto','a-mae-rubra',
-  'o-trono-vazio','o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
+  'o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
   'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
 ]);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
@@ -1256,7 +1256,7 @@ export function revisedArtFor(id, art) {
       ...(Object.keys(forms).length ? {forms} : {})};
   }
   if (id === 'a-pira-errante') {
-    const base = `/art/characters/${id}/painterly-rework-20261026`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     const forms = {...(art.forms || {})};
     forms.impulso = {...forms.impulso,reply:`${base}/skill-impulso-reply.webp`};
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
