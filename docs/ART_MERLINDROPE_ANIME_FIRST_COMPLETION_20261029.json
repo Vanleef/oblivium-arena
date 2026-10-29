@@ -1,0 +1,249 @@
+{
+  "id": "merlindrope-anime-first-completion-20261029",
+  "date": "2026-10-29",
+  "characterId": "merlindrope",
+  "displayName": "Merlindrope",
+  "world": "Inferno",
+  "kingdom": "Magma",
+  "status": "generated_reviewed_integrated",
+  "provider": "Perchance",
+  "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+  "fallbackReason": "The user authorized Perchance as fallback when the built-in generator reaches its limit. A previous built-in image_gen operation in this task had returned usage_limit_reached; its published reset time had passed, but a fresh quota check was not made before continuing on Perchance.",
+  "artDirection": "Anime 2.5D pictórico, contornos definidos, sombras densas, atmosfera gótica ornamental e energia shonen; Inferno em preto, vermelho intenso, cinza, brasas e pedra queimada.",
+  "identity": "Entidade infernal artrópode de carapaça orgânica castanho-negra, corpo alto que se dobra numa concha estreita, quatro pernas de apoio e dois apêndices anteriores em pinça (seis membros ao todo), duas cavidades oculares vermelho-pálidas e duas mandíbulas, faixa ritual vermelho-escura e tiras de tecido. Sem rosto ou braços humanos, engrenagens ou aparato mecânico.",
+  "batchRoute": "/art/characters/merlindrope/anime-first-completion-20261028",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/portrait.webp",
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/portrait.jpg",
+      "seed": 991830718,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "2f54b5f2f5e0c340258ebba5cd02bfb9989f08a930e8b6ca5ed52dc4521aa8c5",
+      "activeSha256": "d9ca4ab3ff93e969717bf461303776ca071425d5944c9f1ab2a9f2d5ec7cab15",
+      "renderedPrompt": "prompt=Distinct crab-like infernal crustacean, NOT a spider: one narrow folded dark brown-black organic carapace, exactly SIX limbs total and all SIX clearly attached and countable: four separate jointed walking legs supporting the body (two on each side), plus exactly two forward chela pincers, one left and one right. No other legs, no extra arms, no tail, no wings. Low nonhuman face with exactly two small pale-red eyes and two mandibles. Dark crimson woven ritual band around shell. Side view through a broken narrow stone doorway as the creature turns and squeezes sideways, four legs bent under weight; one pincer carefully draws a thin ritual thread from a chipped stone tooth. Eyes follow thread and real opening. Magma prison corridors of old black stone, ember red light, ash. Action and gaze natural, no front-facing monster portrait. Painterly 2.5D SHONEN anime, sharp contour lines, dense cel shadows, rich organic chitin and cloth, gothic theatrical atmosphere. no metal, machinery, mechanical joints, tools, modern locks, text. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=991830718",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "perfil baixo em movimento junto à porta partida",
+      "reviewDecision": "Aprovada: o corpo cruza a passagem em movimento lateral; carapaça estreita, faixa ritual, olhos e mandíbulas dão identidade própria. Quatro pernas de apoio e duas pinças formam silhueta artrópode legível; Magma em pedra negra e vermelho contido.",
+      "status": "approved"
+    },
+    {
+      "slot": "passive",
+      "name": "Cláusula de Prisão",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/passive.webp",
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/passive.jpg",
+      "seed": 626146952,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "57e7963463514bb5871506c80500148ac1f8e50cc9165cceb78a41fab89c2eb5",
+      "activeSha256": "ad7797c3ddceb7ae53c52bfb03aa7c69d9b55cca8af837ffb7cd0ed7daf87d19",
+      "renderedPrompt": "prompt=Single ash-grey ghoul only, mid-torso close profile in a dim Magma stone passage, exactly two natural arms and two hands. An old small crimson thread sigil is already on its wrist. It raises one hand to form a faint pale support spell; the gesture unwinds into light as one thin dark-red thread tightens into a simple knot at the old mark. The ghoul pulls its marked wrist back and turns its eyes toward the knot in startled frustration. Merlindrope stays entirely off-frame. No other figures, no extra hands, no paper, no cards, no text, no wounds or blood. Clear magical interruption with restrained energy, natural posture. Black stone, ash and sparse embers. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=626146952",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "close lateral da marca no pulso do alvo",
+      "reviewDecision": "Aprovada: um único ghoul cinza reage à marca antiga que fecha o gesto de apoio; fios vermelhos prendem os dois pulsos, e o olhar acompanha a contenção. Merlindrope fica fora do quadro; não há barras metálicas.",
+      "status": "approved"
+    },
+    {
+      "slot": "impulso",
+      "name": "Grade de Éter",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp",
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/impulso.jpg",
+      "seed": 530068256,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "174dfa6030c35139214bffc3070236ea0aa86ee3f52e952b265cef75113f6daf",
+      "activeSha256": "89baca06d10b082017cacfbece12bc581edf29fb06c509323e10cf2b9358e7b1",
+      "renderedPrompt": "prompt=painterly anime artwork, One ash-grey ghoul only, low three-quarter side view in a narrow black-stone Magma corridor. A short lattice of fine crimson ether threads flashes across the ghoul’s torn sleeve and torso, leaving one small reticular red sigil on its shoulder. The ghoul twists away from the sudden spiritual pressure, jaw tight, eyes following the new mark. The threads are loose organic ritual strands, never metal bars or a complete cage. Merlindrope stays off-frame. Exactly one figure, no extra arms, no weapons, no blood or injury. Strong painted 2.5D anime contours, angular cel shadows, ember-red accents, gothic stone depth. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=530068256",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "plano médio do alvo marcado, em torção",
+      "reviewDecision": "Aprovada: um único alvo cinza se contrai e acompanha a nova marca reticulada no ombro; fios de Éter cruzam a manga e o tórax. Merlindrope fica fora do quadro, sem ferimento explícito.",
+      "status": "approved"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Porta que Não Abre",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp",
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/tecnica.jpg",
+      "seed": 138381537,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ca92edefc882776b908343ff6d292bdf4b4288b0bcbcd7809a0f04b85e717262",
+      "activeSha256": "fb570e74cf174338f92f10bd0c363ef61fcecb62f9e65a02d13ce03c05d7b81b",
+      "renderedPrompt": "prompt=One ash-grey prison spirit with the same lean human silhouette and simple torn charcoal robe, alone in a black-stone Magma passage. It tries to rush past a blind doorway; a fine ember-red ether filament snaps across the old reticular sigil on its shoulder and closes into a narrow rectangular seal on the stone door. The sudden magical restraint arrests the forward stride: one knee buckles, one open hand braces on the wall, jaw clenched and eyes fixed on the sealed way. Clear consequence, natural balance, no wounds, no blood, no weapons, no extra figures, exactly two arms and two hands. Dramatic close three-quarter framing, crimson ritual threads and deep black basalt, gothic Inferno, no armor, no technology. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=138381537",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "três quartos do alvo interrompido contra a pedra",
+      "reviewDecision": "Aprovada: o avanço do alvo termina contra a parede, com a mão apoiada e o selo vermelho atravessando o torso. A tensão corporal comunica o bloqueio; sem arma, sangue ou aparato mecânico.",
+      "status": "approved"
+    },
+    {
+      "slot": "voto",
+      "name": "Celas Concêntricas",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/voto.jpg",
+      "seed": 62435704,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "7dfabeee0deb11eb934518959caa7b8533caae3ab4425381c7b4128d3c88b9c8",
+      "activeSha256": "55e4a8d614a4ab3324d3987299b8a2cda9b9bec4061f4f85c609e8845d65b26d",
+      "renderedPrompt": "prompt=Three distinct cloaked ash-grey shades in a black basalt Magma corridor, alone. They stand at separate points around a crimson sigil on the floor. Three thin concentric rings of ember-red light expand outward beneath them and lift translucent ritual ribbons into the air. All three shades react to the same pulse in a different natural way: one lowers to a knee, one leans unsteadily against a pillar, one turns its face away and braces its stance. Readable shared area effect, no contact between figures, no injury, no blood, no weapons, exactly three separate figures with simple silhouettes. Low wide composition, quiet menace and shonen impact, deep black stone, sparse embers, painterly 2.5D anime contours and dense shadows, Inferno palette. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=62435704",
+      "expectedPhysicalFigures": 3,
+      "sceneFraming": "vista baixa de três vultos ajoelhados diante do selo",
+      "reviewDecision": "Aprovada: exatamente três vultos distintos cedem a postura diante do sigilo vermelho no chão. A composição comunica pressão de área compartilhada sem trazer Merlindrope para um enquadramento frontal.",
+      "status": "approved"
+    },
+    {
+      "slot": "despertar",
+      "name": "Parede de Regras",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp",
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/despertar.jpg",
+      "seed": 1043742594,
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "referenceImageUploaded": false,
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "fbb760800c1c03445f7461b4eceefbb69b098fb0210e090fd41ae44c1b2642b7",
+      "activeSha256": "3331139aee34bdd0d68e692fc737afe3c750460970fd7219cd5a97b6c23a39c3",
+      "renderedPrompt": "prompt=painterly anime artwork, Merlindrope, a low organic infernal crab-prisoner with a narrow dark brown-black chitin shell, two pale red eyes and a dark-crimson ritual band. Anatomical silhouette must show exactly six appendages total: two front pincers, plus four articulated walking legs arranged as two clear pairs; no other legs and no humanoid arms. Side three-quarter profile, all six limbs spaced apart and readable. In an old black basalt corridor, the creature braces on its four legs and folds both pincers close as a complete translucent crimson ether dome forms around the shell. Two small stone chips visibly strike the outside of the curved membrane and deflect away. Natural low defensive posture, not a frontal pose. Red arcane threads trace the dome, ember flecks, gothic Magma prison architecture, bold painterly 2.5D anime contours and deep angular shadows, shonen awakening impact. Only one character, no weapons, no technology, no other figures. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=1043742594",
+      "expectedPhysicalFigures": 1,
+      "sceneFraming": "plano frontal baixo com o casulo ritual completo",
+      "reviewDecision": "Aprovada: Merlindrope se recolhe dentro de uma cúpula arcana vermelha, enquanto fragmentos de pedra ficam do lado de fora. O corpo mantém a forma de artrópode e a reação defensiva é natural.",
+      "status": "approved"
+    }
+  ],
+  "candidateReview": {
+    "requestedOutputs": 24,
+    "visibleOutputs": 18,
+    "selectedOutputs": 6,
+    "rejectedVisibleOutputs": 12,
+    "siteBlockedOutputs": 6,
+    "settingsChanged": false,
+    "blockedBySlot": {
+      "passive": 2,
+      "voto": 4
+    },
+    "reviewedCandidates": [
+      {
+        "slot": "portrait",
+        "selectedSeed": 991830718,
+        "rejectedSeeds": [
+          116397015,
+          621401366,
+          517528732
+        ],
+        "note": "Rejected candidates duplicated legs or used a static camera-facing claw pose."
+      },
+      {
+        "slot": "passive",
+        "selectedSeed": 626146952,
+        "rejectedSeeds": [
+          179888618,
+          172788295,
+          609743963
+        ],
+        "blockedOutputs": 2,
+        "note": "Rejected candidates added a UI-like card, rigid pose or extra limbs."
+      },
+      {
+        "slot": "impulso",
+        "selectedSeed": 530068256,
+        "rejectedSeeds": [
+          838551706
+        ],
+        "note": "The rejected image lost the fabric and clear marking gesture."
+      },
+      {
+        "slot": "tecnica",
+        "selectedSeed": 138381537,
+        "rejectedSeeds": [
+          630912443
+        ],
+        "note": "The rejected image did not retain a clear visible mark and interruption."
+      },
+      {
+        "slot": "voto",
+        "selectedSeed": 62435704,
+        "rejectedSeeds": [
+          681335385
+        ],
+        "blockedOutputs": 4,
+        "note": "The rejected image added a fourth figure; site safety blocks were left unchanged."
+      },
+      {
+        "slot": "despertar",
+        "selectedSeed": 1043742594,
+        "rejectedSeeds": [
+          403301869,
+          113034024,
+          326865311
+        ],
+        "note": "Earlier variants left the ward and appendage count ambiguous; the selected dome makes the defensive effect more legible."
+      }
+    ]
+  }
+}

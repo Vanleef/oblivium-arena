@@ -319,7 +319,13 @@
     "atlas:base:impulso",
     "atlas:base:tecnica",
     "atlas:base:voto",
-    "atlas:base:despertar"
+    "atlas:base:despertar",
+    "merlindrope:base:portrait",
+    "merlindrope:base:passive",
+    "merlindrope:base:impulso",
+    "merlindrope:base:tecnica",
+    "merlindrope:base:voto",
+    "merlindrope:base:despertar"
   ],
   "pendingCorrections": [
     {

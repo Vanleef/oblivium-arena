@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 51,
-  "newAbilityScenesSaved": 256,
+  "newPortraitsSaved": 52,
+  "newAbilityScenesSaved": 261,
   "scenesBlockedByQuota": [
     "baal:base:despertar"
   ],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Concluir reenquadramento da defesa de Baal; a composição existente ainda está pendente de correção.",
-    "Produzir os kits base ainda ausentes de Merlindrope, Bulkir, Voronir e Icarus.",
+    "Produzir os kits base ainda ausentes de Bulkir, Voronir e Icarus.",
     "Concluir as 36 variantes dedicadas e revisar artes antigas fora desta direção de arte."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
@@ -33,12 +33,13 @@
     "compositionCorrections": 1,
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
-    "generatedByThesePlans": 6,
-    "remainingMissingBaseJobs": 24,
+    "generatedByThesePlans": 12,
+    "remainingMissingBaseJobs": 18,
     "remainingCorrectionJobs": 1,
     "remainingDedicatedVariantJobs": 36,
-    "remainingTotalJobs": 61,
-    "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
+    "remainingTotalJobs": 55,
+    "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
+    "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -51,14 +52,15 @@
     "url": "https://perchance.org/ai-text-to-image-generator",
     "when": "Built-in image generator reaches usage limit",
     "authorizedByUser": true,
-    "status": "user_authorized_fallback_used_for_atlas",
-    "generatedCandidates": 54,
-    "integratedCandidates": 6,
+    "status": "user_authorized_fallback_used_for_atlas_and_merlindrope",
+    "generatedCandidates": 72,
+    "integratedCandidates": 12,
     "reviewReport": "docs/ART_PERCHANCE_TESTS_20261028.json",
     "rejectedCandidateRetained": "art/source/perchance-tests-20261028/baal-defense-seed-770677746.jpg",
-    "attemptedOutputSlots": 56,
-    "siteBlockedOutputs": 2,
-    "atlasReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
+    "attemptedOutputSlots": 80,
+    "siteBlockedOutputs": 8,
+    "atlasReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
+    "merlindropeReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json"
   },
   "validation": {
     "merlindropeRegression": "3/3 pass",
@@ -71,12 +73,14 @@
     "atlasRuntimeSnapshot": "Atlas mechanics match the pre-art snapshot after stripping attached art paths.",
     "atlasArtwork": "6 source JPEGs retained at native 768×768; 6 active WebP assets at 512×512; all six manually reviewed.",
     "artCoverageAudit": {
-      "basePresent": 899,
+      "basePresent": 905,
       "baseSlots": 923,
-      "baseMissing": 24,
-      "reviewedSlots": 319,
-      "fullyReviewedEntries": 47,
+      "baseMissing": 18,
+      "reviewedSlots": 325,
+      "fullyReviewedEntries": 48,
       "pendingCorrections": 1
-    }
+    },
+    "merlindropeArtwork": "6 source JPEGs retained at native 768×768; 6 active WebP assets at 512×512; all six manually reviewed.",
+    "merlindropeRuntime": "Art registry paths only; no combat fields or runtime mechanics changed."
   }
 }

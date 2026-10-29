@@ -233,6 +233,11 @@
       "name": "Atlas",
       "identity": "A very broad, stocky human-like Inferno titan with deep brown skin, a broad flat nose, heavy jaw and short dark stubble, short coarse black hair dusted with pale mineral grit, and red-ochre eyes. Natural organic black basalt plates stay concentrated on the shoulders and forearms with restrained red fissures; visible skin remains brown. Worn black and dark-red ritual cloth, no armor or machinery. Keep the same face, body proportions, hair and material placement across the kit; two arms, two legs, five fingers per hand.",
       "scene": "Inferno / Magma"
+    },
+    "merlindrope": {
+      "name": "Merlindrope",
+      "identity": "A low infernal arthropod with organic dark brown-black chitin, a narrow raised shell, four articulated walking legs and two front pincers (six appendages total), two pale ember-red eye cavities and paired mandibles. A narrow dark-crimson ritual band and frayed cloth sit at the shell edges. No human face or arms, mechanical parts, armor, or technology. Keep the same silhouette and shell throughout the kit.",
+      "scene": "Inferno / Magma: old concentric stone prisons, blind doors, black basalt, red arcane threads and ember light."
     }
   }
 }

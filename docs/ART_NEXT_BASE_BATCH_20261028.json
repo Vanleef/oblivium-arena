@@ -8,14 +8,14 @@
     "missingBaseImages": 30,
     "correctionJobs": 1,
     "totalJobs": 31,
-    "generatedByThisPlan": 6,
-    "remainingMissingBaseImages": 24,
-    "remainingJobs": 25
+    "generatedByThisPlan": 12,
+    "remainingMissingBaseImages": 18,
+    "remainingJobs": 19
   },
   "coverageSnapshot": {
-    "basePresent": 899,
+    "basePresent": 905,
     "baseSlots": 923,
-    "remainingMissingBaseImages": 24
+    "remainingMissingBaseImages": 18
   },
   "quota": {
     "type": "usage_limit_reached",
@@ -394,16 +394,35 @@
       "kingdom": "Magma",
       "slot": "portrait",
       "name": "Retrato",
-      "status": "planned_not_generated",
+      "status": "generated_reviewed",
       "expectedPhysicalFigures": 1,
-      "framing": "plano médio através de uma porta quebrada",
-      "scene": "Merlindrope comprime a concha e dobra as pernas para atravessar uma passagem estreita; uma pinça retira um fio ritual preso num dente de pedra. Os dois olhos acompanham o fio e a abertura real, e o peso fica distribuído entre as quatro pernas. Momento de trabalho e movimento, não apresentação frontal do monstro.",
+      "framing": "perfil lateral em movimento junto a uma porta partida",
+      "scene": "Merlindrope atravessa lateralmente uma passagem quebrada; o olhar acompanha a abertura real e as quatro pernas distribuem o peso.",
       "mechanicsSnapshot": null,
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "approved_portrait_and_kit_reviewed_2026-10-29",
       "dependsOn": [],
       "referencePolicy": "New character: no invented reference image.",
       "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/portrait.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: plano médio através de uma porta quebrada. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Merlindrope comprime a concha e dobra as pernas para atravessar uma passagem estreita; uma pinça retira um fio ritual preso num dente de pedra. Os dois olhos acompanham o fio e a abertura real, e o peso fica distribuído entre as quatro pernas. Momento de trabalho e movimento, não apresentação frontal do monstro.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: plano médio através de uma porta quebrada. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Merlindrope comprime a concha e dobra as pernas para atravessar uma passagem estreita; uma pinça retira um fio ritual preso num dente de pedra. Os dois olhos acompanham o fio e a abertura real, e o peso fica distribuído entre as quatro pernas. Momento de trabalho e movimento, não apresentação frontal do monstro.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "seed": 991830718,
+      "referenceImageUploaded": false,
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "2f54b5f2f5e0c340258ebba5cd02bfb9989f08a930e8b6ca5ed52dc4521aa8c5",
+      "activeSha256": "d9ca4ab3ff93e969717bf461303776ca071425d5944c9f1ab2a9f2d5ec7cab15",
+      "renderedPrompt": "prompt=Distinct crab-like infernal crustacean, NOT a spider: one narrow folded dark brown-black organic carapace, exactly SIX limbs total and all SIX clearly attached and countable: four separate jointed walking legs supporting the body (two on each side), plus exactly two forward chela pincers, one left and one right. No other legs, no extra arms, no tail, no wings. Low nonhuman face with exactly two small pale-red eyes and two mandibles. Dark crimson woven ritual band around shell. Side view through a broken narrow stone doorway as the creature turns and squeezes sideways, four legs bent under weight; one pincer carefully draws a thin ritual thread from a chipped stone tooth. Eyes follow thread and real opening. Magma prison corridors of old black stone, ember red light, ash. Action and gaze natural, no front-facing monster portrait. Painterly 2.5D SHONEN anime, sharp contour lines, dense cel shadows, rich organic chitin and cloth, gothic theatrical atmosphere. no metal, machinery, mechanical joints, tools, modern locks, text. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=991830718",
+      "reviewDecision": "Aprovada: o corpo cruza a passagem em movimento lateral; carapaça estreita, faixa ritual, olhos e mandíbulas dão identidade própria. Quatro pernas de apoio e duas pinças formam silhueta artrópode legível; Magma em pedra negra e vermelho contido."
     },
     {
       "key": "merlindrope:base:passive",
@@ -414,10 +433,10 @@
       "kingdom": "Magma",
       "slot": "passive",
       "name": "Cláusula de Prisão",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 2,
-      "framing": "close da tentativa de apoio do alvo",
-      "scene": "Um ghoul já marcado pelo carcereiro acaba de sofrer um golpe. O fio de apoio que tentava formar se fecha num nó escuro enquanto a marca antiga permanece, mostrando bloqueio de apoio após atingir alvo marcado. Apenas uma pinça e a borda da concha de Merlindrope entram no quadro; sem gerar defesa ou criar marca adicional nesta passiva.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 1,
+      "framing": "close da marca e da tentativa de apoio do alvo",
+      "scene": "Um ghoul já marcado reage quando os fios prendem seus pulsos durante a tentativa de apoio; Merlindrope permanece fora do quadro.",
       "mechanicsSnapshot": {
         "name": "Cláusula de Prisão",
         "englishName": "Prison Clause",
@@ -430,7 +449,7 @@
         "requiresOwnMark": true,
         "type": "triggered"
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "approved_portrait_and_kit_reviewed_2026-10-29",
       "dependsOn": [
         "merlindrope:base:portrait"
       ],
@@ -440,7 +459,26 @@
       "engineResolution": {
         "source": "src/protagonists.js",
         "fix": "Removed obsolete minimumShield=5 guard from hit-triggered passive; no hit event provides context.shielded. Own mark, actual damage and once-per-round activation remain required."
-      }
+      },
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "seed": 626146952,
+      "referenceImageUploaded": false,
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "57e7963463514bb5871506c80500148ac1f8e50cc9165cceb78a41fab89c2eb5",
+      "activeSha256": "ad7797c3ddceb7ae53c52bfb03aa7c69d9b55cca8af837ffb7cd0ed7daf87d19",
+      "renderedPrompt": "prompt=Single ash-grey ghoul only, mid-torso close profile in a dim Magma stone passage, exactly two natural arms and two hands. An old small crimson thread sigil is already on its wrist. It raises one hand to form a faint pale support spell; the gesture unwinds into light as one thin dark-red thread tightens into a simple knot at the old mark. The ghoul pulls its marked wrist back and turns its eyes toward the knot in startled frustration. Merlindrope stays entirely off-frame. No other figures, no extra hands, no paper, no cards, no text, no wounds or blood. Clear magical interruption with restrained energy, natural posture. Black stone, ash and sparse embers. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=626146952",
+      "reviewDecision": "Aprovada: um único ghoul cinza reage à marca antiga que fecha o gesto de apoio; fios vermelhos prendem os dois pulsos, e o olhar acompanha a contenção. Merlindrope fica fora do quadro; não há barras metálicas."
     },
     {
       "key": "merlindrope:base:impulso",
@@ -451,10 +489,10 @@
       "kingdom": "Magma",
       "slot": "impulso",
       "name": "Grade de Éter",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 2,
-      "framing": "ângulo baixo através de frestas",
-      "scene": "Uma malha curta de Éter em fios vermelhos risca a roupa de um único ghoul, causando um espasmo e deixando uma pequena marca reticulada. A reação do alvo e a marca são o foco. A malha é arcana e orgânica, não barras industriais, cabos ou interface de mira; nenhuma prisão completa ou atordoamento deve ser inventado.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 1,
+      "framing": "plano médio do alvo torcendo o torso ao receber a marca",
+      "scene": "Um único alvo torce o corpo ao receber a marca reticulada no ombro; fios vermelhos de Éter riscam a roupa, com Merlindrope fora do quadro.",
       "mechanicsSnapshot": {
         "name": "Grade de Éter",
         "damage": 11,
@@ -471,13 +509,32 @@
         "kind": "control",
         "description": "Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "approved_portrait_and_kit_reviewed_2026-10-29",
       "dependsOn": [
         "merlindrope:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Grade de Éter\",\"damage\":11,\"cost\":1,\"damageType\":\"energy\",\"mark\":true,\"markTurns\":2,\"target\":\"enemy\",\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.\"}\nComposition: ângulo baixo através de frestas. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Uma malha curta de Éter em fios vermelhos risca a roupa de um único ghoul, causando um espasmo e deixando uma pequena marca reticulada. A reação do alvo e a marca são o foco. A malha é arcana e orgânica, não barras industriais, cabos ou interface de mira; nenhuma prisão completa ou atordoamento deve ser inventado.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Grade de Éter\",\"damage\":11,\"cost\":1,\"damageType\":\"energy\",\"mark\":true,\"markTurns\":2,\"target\":\"enemy\",\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.\"}\nComposition: ângulo baixo através de frestas. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Uma malha curta de Éter em fios vermelhos risca a roupa de um único ghoul, causando um espasmo e deixando uma pequena marca reticulada. A reação do alvo e a marca são o foco. A malha é arcana e orgânica, não barras industriais, cabos ou interface de mira; nenhuma prisão completa ou atordoamento deve ser inventado.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "seed": 530068256,
+      "referenceImageUploaded": false,
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "174dfa6030c35139214bffc3070236ea0aa86ee3f52e952b265cef75113f6daf",
+      "activeSha256": "89baca06d10b082017cacfbece12bc581edf29fb06c509323e10cf2b9358e7b1",
+      "renderedPrompt": "prompt=painterly anime artwork, One ash-grey ghoul only, low three-quarter side view in a narrow black-stone Magma corridor. A short lattice of fine crimson ether threads flashes across the ghoul’s torn sleeve and torso, leaving one small reticular red sigil on its shoulder. The ghoul twists away from the sudden spiritual pressure, jaw tight, eyes following the new mark. The threads are loose organic ritual strands, never metal bars or a complete cage. Merlindrope stays off-frame. Exactly one figure, no extra arms, no weapons, no blood or injury. Strong painted 2.5D anime contours, angular cel shadows, ember-red accents, gothic stone depth. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=530068256",
+      "reviewDecision": "Aprovada: um único alvo cinza se contrai e acompanha a nova marca reticulada no ombro; fios de Éter cruzam a manga e o tórax. Merlindrope fica fora do quadro, sem ferimento explícito."
     },
     {
       "key": "merlindrope:base:tecnica",
@@ -488,10 +545,10 @@
       "kingdom": "Magma",
       "slot": "tecnica",
       "name": "Porta que Não Abre",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 2,
-      "framing": "close de mãos e sombra na porta",
-      "scene": "Um único ghoul tenta abrir uma porta de pedra: a sombra da abertura atravessa a manga e o faz recuar por dor perfurante. Tanto a tentativa de formar um ataque quanto o fio de apoio se desfazem, representando os dois selos. A porta continua cega, sem fechadura moderna, mecanismo ou correntes mecânicas. Merlindrope aparece somente como pinça controlando um fio na borda.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 1,
+      "framing": "três quartos do alvo interrompido contra a pedra",
+      "scene": "O alvo interrompe o avanço contra a pedra, apoia a mão na parede e recebe o selo ritual que bloqueia sua ação.",
       "mechanicsSnapshot": {
         "name": "Porta que Não Abre",
         "damage": 14,
@@ -509,13 +566,32 @@
         "kind": "strike",
         "description": "Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "approved_portrait_and_kit_reviewed_2026-10-29",
       "dependsOn": [
         "merlindrope:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Porta que Não Abre\",\"damage\":14,\"cost\":2,\"damageType\":\"piercing\",\"sealSupport\":1,\"sealAttack\":1,\"cooldown\":1,\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"kind\":\"strike\",\"description\":\"Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo.\"}\nComposition: close de mãos e sombra na porta. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um único ghoul tenta abrir uma porta de pedra: a sombra da abertura atravessa a manga e o faz recuar por dor perfurante. Tanto a tentativa de formar um ataque quanto o fio de apoio se desfazem, representando os dois selos. A porta continua cega, sem fechadura moderna, mecanismo ou correntes mecânicas. Merlindrope aparece somente como pinça controlando um fio na borda.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Porta que Não Abre\",\"damage\":14,\"cost\":2,\"damageType\":\"piercing\",\"sealSupport\":1,\"sealAttack\":1,\"cooldown\":1,\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"kind\":\"strike\",\"description\":\"Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo.\"}\nComposition: close de mãos e sombra na porta. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um único ghoul tenta abrir uma porta de pedra: a sombra da abertura atravessa a manga e o faz recuar por dor perfurante. Tanto a tentativa de formar um ataque quanto o fio de apoio se desfazem, representando os dois selos. A porta continua cega, sem fechadura moderna, mecanismo ou correntes mecânicas. Merlindrope aparece somente como pinça controlando um fio na borda.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "seed": 138381537,
+      "referenceImageUploaded": false,
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ca92edefc882776b908343ff6d292bdf4b4288b0bcbcd7809a0f04b85e717262",
+      "activeSha256": "fb570e74cf174338f92f10bd0c363ef61fcecb62f9e65a02d13ce03c05d7b81b",
+      "renderedPrompt": "prompt=One ash-grey prison spirit with the same lean human silhouette and simple torn charcoal robe, alone in a black-stone Magma passage. It tries to rush past a blind doorway; a fine ember-red ether filament snaps across the old reticular sigil on its shoulder and closes into a narrow rectangular seal on the stone door. The sudden magical restraint arrests the forward stride: one knee buckles, one open hand braces on the wall, jaw clenched and eyes fixed on the sealed way. Clear consequence, natural balance, no wounds, no blood, no weapons, no extra figures, exactly two arms and two hands. Dramatic close three-quarter framing, crimson ritual threads and deep black basalt, gothic Inferno, no armor, no technology. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=138381537",
+      "reviewDecision": "Aprovada: o avanço do alvo termina contra a parede, com a mão apoiada e o selo vermelho atravessando o torso. A tensão corporal comunica o bloqueio; sem arma, sangue ou aparato mecânico."
     },
     {
       "key": "merlindrope:base:voto",
@@ -526,10 +602,10 @@
       "kingdom": "Magma",
       "slot": "voto",
       "name": "Celas Concêntricas",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 4,
-      "framing": "vista alta dos corredores concêntricos",
-      "scene": "Três inimigos diferentes ocupam três recessos de pedra separados, enquanto Merlindrope permanece na extremidade inferior. Três limites de fios vermelhos se fecham, atingindo e enfraquecendo todos: um alvo baixa o braço, outro se apoia na parede e o terceiro cede um joelho. Exatamente três inimigos; não inventar Atordoamento nem mortes.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 3,
+      "framing": "vista baixa de três vultos ajoelhados diante do sigilo",
+      "scene": "Três vultos distintos cedem a postura diante de um sigilo que pulsa no chão, mostrando a pressão de área compartilhada.",
       "mechanicsSnapshot": {
         "name": "Celas Concêntricas",
         "target": "all-enemies",
@@ -546,13 +622,32 @@
         "kind": "control",
         "description": "Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "approved_portrait_and_kit_reviewed_2026-10-29",
       "dependsOn": [
         "merlindrope:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Celas Concêntricas\",\"target\":\"all-enemies\",\"damage\":9,\"cost\":2,\"damageType\":\"energy\",\"weaken\":1,\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno.\"}\nComposition: vista alta dos corredores concêntricos. Exactly 4 physical figures in this composition, including caster when visible.\nScene: Três inimigos diferentes ocupam três recessos de pedra separados, enquanto Merlindrope permanece na extremidade inferior. Três limites de fios vermelhos se fecham, atingindo e enfraquecendo todos: um alvo baixa o braço, outro se apoia na parede e o terceiro cede um joelho. Exatamente três inimigos; não inventar Atordoamento nem mortes.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Celas Concêntricas\",\"target\":\"all-enemies\",\"damage\":9,\"cost\":2,\"damageType\":\"energy\",\"weaken\":1,\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno.\"}\nComposition: vista alta dos corredores concêntricos. Exactly 4 physical figures in this composition, including caster when visible.\nScene: Três inimigos diferentes ocupam três recessos de pedra separados, enquanto Merlindrope permanece na extremidade inferior. Três limites de fios vermelhos se fecham, atingindo e enfraquecendo todos: um alvo baixa o braço, outro se apoia na parede e o terceiro cede um joelho. Exatamente três inimigos; não inventar Atordoamento nem mortes.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "seed": 62435704,
+      "referenceImageUploaded": false,
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "7dfabeee0deb11eb934518959caa7b8533caae3ab4425381c7b4128d3c88b9c8",
+      "activeSha256": "55e4a8d614a4ab3324d3987299b8a2cda9b9bec4061f4f85c609e8845d65b26d",
+      "renderedPrompt": "prompt=Three distinct cloaked ash-grey shades in a black basalt Magma corridor, alone. They stand at separate points around a crimson sigil on the floor. Three thin concentric rings of ember-red light expand outward beneath them and lift translucent ritual ribbons into the air. All three shades react to the same pulse in a different natural way: one lowers to a knee, one leans unsteadily against a pillar, one turns its face away and braces its stance. Readable shared area effect, no contact between figures, no injury, no blood, no weapons, exactly three separate figures with simple silhouettes. Low wide composition, quiet menace and shonen impact, deep black stone, sparse embers, painterly 2.5D anime contours and dense shadows, Inferno palette. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=62435704",
+      "reviewDecision": "Aprovada: exatamente três vultos distintos cedem a postura diante do sigilo vermelho no chão. A composição comunica pressão de área compartilhada sem trazer Merlindrope para um enquadramento frontal."
     },
     {
       "key": "merlindrope:base:despertar",
@@ -563,10 +658,10 @@
       "kingdom": "Magma",
       "slot": "despertar",
       "name": "Parede de Regras",
-      "status": "planned_not_generated",
+      "status": "generated_reviewed",
       "expectedPhysicalFigures": 1,
-      "framing": "plano curto pela traseira da concha",
-      "scene": "Merlindrope sozinho dobra as quatro pernas e encaixa a concha atrás de uma parede arcana intacta de veios de pedra vermelhos. Uma onda hostil para fora dela; as duas pinças se recolhem naturalmente para proteger o corpo. Contar seis membros no total, permitindo oclusão física coerente, sem apêndices duplicados ou aliados.",
+      "framing": "plano frontal baixo com a cúpula protetora completa",
+      "scene": "Merlindrope dobra as pernas e recolhe as pinças dentro de uma cúpula arcana; fragmentos de pedra desviam do escudo.",
       "mechanicsSnapshot": {
         "name": "Parede de Regras",
         "shield": 7,
@@ -581,13 +676,32 @@
         "kind": "defense",
         "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "approved_portrait_and_kit_reviewed_2026-10-29",
       "dependsOn": [
         "merlindrope:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Parede de Regras\",\"shield\":7,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: plano curto pela traseira da concha. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Merlindrope sozinho dobra as quatro pernas e encaixa a concha atrás de uma parede arcana intacta de veios de pedra vermelhos. Uma onda hostil para fora dela; as duas pinças se recolhem naturalmente para proteger o corpo. Contar seis membros no total, permitindo oclusão física coerente, sem apêndices duplicados ou aliados.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Parede de Regras\",\"shield\":7,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: plano curto pela traseira da concha. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Merlindrope sozinho dobra as quatro pernas e encaixa a concha atrás de uma parede arcana intacta de veios de pedra vermelhos. Uma onda hostil para fora dela; as duas pinças se recolhem naturalmente para proteger o corpo. Contar seis membros no total, permitindo oclusão física coerente, sem apêndices duplicados ou aliados.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "provider": "Perchance",
+      "providerUrl": "https://perchance.org/ai-text-to-image-generator",
+      "stylePreset": "Painted Anime",
+      "guidanceScale": 7,
+      "seed": 1043742594,
+      "referenceImageUploaded": false,
+      "sourceAsset": "art/source/merlindrope-anime-first-completion-20261028/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "fbb760800c1c03445f7461b4eceefbb69b098fb0210e090fd41ae44c1b2642b7",
+      "activeSha256": "3331139aee34bdd0d68e692fc737afe3c750460970fd7219cd5a97b6c23a39c3",
+      "renderedPrompt": "prompt=painterly anime artwork, Merlindrope, a low organic infernal crab-prisoner with a narrow dark brown-black chitin shell, two pale red eyes and a dark-crimson ritual band. Anatomical silhouette must show exactly six appendages total: two front pincers, plus four articulated walking legs arranged as two clear pairs; no other legs and no humanoid arms. Side three-quarter profile, all six limbs spaced apart and readable. In an old black basalt corridor, the creature braces on its four legs and folds both pincers close as a complete translucent crimson ether dome forms around the shell. Two small stone chips visibly strike the outside of the curved membrane and deflect away. Natural low defensive posture, not a frontal pose. Red arcane threads trace the dome, ember flecks, gothic Magma prison architecture, bold painterly 2.5D anime contours and deep angular shadows, shonen awakening impact. Only one character, no weapons, no technology, no other figures. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.\nnegativePrompt=\nguidanceScale=7\nseed=1043742594",
+      "reviewDecision": "Aprovada: Merlindrope se recolhe dentro de uma cúpula arcana vermelha, enquanto fragmentos de pedra ficam do lado de fora. O corpo mantém a forma de artrópode e a reação defensiva é natural."
     },
     {
       "key": "bulkir:base:portrait",

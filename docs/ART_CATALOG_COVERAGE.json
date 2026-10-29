@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 899,
-    "baseMissing": 24,
-    "entriesWithAnyBaseMissing": 4,
-    "entriesWithoutAnyBaseArt": 4,
+    "basePresent": 905,
+    "baseMissing": 18,
+    "entriesWithAnyBaseMissing": 3,
+    "entriesWithoutAnyBaseArt": 3,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 319,
+    "reviewedSlots": 325,
     "correctionSlots": 1,
-    "fullyReviewedEntries": 47,
-    "pendingSlots": 679
+    "fullyReviewedEntries": 48,
+    "pendingSlots": 673
   },
   "entries": [
     {
@@ -1851,16 +1851,9 @@
       "kingdom": "Magma",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "merlindrope:base:portrait",
-        "merlindrope:base:passive",
-        "merlindrope:base:impulso",
-        "merlindrope:base:tecnica",
-        "merlindrope:base:voto",
-        "merlindrope:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "bulkir",

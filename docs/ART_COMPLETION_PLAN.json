@@ -9,15 +9,15 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 51,
-    "newAbilityScenesSaved": 256,
+    "newPortraitsSaved": 52,
+    "newAbilityScenesSaved": 261,
     "scenesBlockedByQuota": [
       "baal:base:despertar"
     ],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
       "Concluir reenquadramento da defesa de Baal; a composição existente ainda está pendente de correção.",
-      "Produzir os kits base ainda ausentes de Merlindrope, Bulkir, Voronir e Icarus.",
+      "Produzir os kits base ainda ausentes de Bulkir, Voronir e Icarus.",
       "Concluir as 36 variantes dedicadas e revisar artes antigas fora desta direção de arte."
     ],
     "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
@@ -36,12 +36,13 @@
       "compositionCorrections": 1,
       "dedicatedVariantJobs": 36,
       "totalPreparedJobs": 67,
-      "generatedByThesePlans": 6,
-      "remainingMissingBaseJobs": 24,
+      "generatedByThesePlans": 12,
+      "remainingMissingBaseJobs": 18,
       "remainingCorrectionJobs": 1,
       "remainingDedicatedVariantJobs": 36,
-      "remainingTotalJobs": 61,
-      "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
+      "remainingTotalJobs": 55,
+      "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
+      "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json"
     },
     "planningNotes": [
       "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -54,14 +55,15 @@
       "url": "https://perchance.org/ai-text-to-image-generator",
       "when": "Built-in image generator reaches usage limit",
       "authorizedByUser": true,
-      "status": "user_authorized_fallback_used_for_atlas",
-      "generatedCandidates": 54,
-      "integratedCandidates": 6,
+      "status": "user_authorized_fallback_used_for_atlas_and_merlindrope",
+      "generatedCandidates": 72,
+      "integratedCandidates": 12,
       "reviewReport": "docs/ART_PERCHANCE_TESTS_20261028.json",
       "rejectedCandidateRetained": "art/source/perchance-tests-20261028/baal-defense-seed-770677746.jpg",
-      "attemptedOutputSlots": 56,
-      "siteBlockedOutputs": 2,
-      "atlasReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
+      "attemptedOutputSlots": 80,
+      "siteBlockedOutputs": 8,
+      "atlasReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
+      "merlindropeReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json"
     },
     "validation": {
       "merlindropeRegression": "3/3 pass",
@@ -74,13 +76,15 @@
       "atlasRuntimeSnapshot": "Atlas mechanics match the pre-art snapshot after stripping attached art paths.",
       "atlasArtwork": "6 source JPEGs retained at native 768×768; 6 active WebP assets at 512×512; all six manually reviewed.",
       "artCoverageAudit": {
-        "basePresent": 899,
+        "basePresent": 905,
         "baseSlots": 923,
-        "baseMissing": 24,
-        "reviewedSlots": 319,
-        "fullyReviewedEntries": 47,
+        "baseMissing": 18,
+        "reviewedSlots": 325,
+        "fullyReviewedEntries": 48,
         "pendingCorrections": 1
-      }
+      },
+      "merlindropeArtwork": "6 source JPEGs retained at native 768×768; 6 active WebP assets at 512×512; all six manually reviewed.",
+      "merlindropeRuntime": "Art registry paths only; no combat fields or runtime mechanics changed."
     }
   },
   "scope": {
@@ -14580,8 +14584,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/merlindrope/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "merlindrope:base:passive",
@@ -14590,8 +14595,9 @@
           "slot": "passive",
           "name": "Cláusula de Prisão",
           "description": "Uma vez por rodada, ferir um alvo com a Marca própria sela o apoio dele por 1 turno.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/merlindrope/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "merlindrope:base:impulso",
@@ -14603,8 +14609,9 @@
           "name": "Grade de Éter",
           "description": "Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "merlindrope:base:tecnica",
@@ -14616,8 +14623,9 @@
           "name": "Porta que Não Abre",
           "description": "Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "merlindrope:base:voto",
@@ -14629,8 +14637,9 @@
           "name": "Celas Concêntricas",
           "description": "Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno.",
           "target": "all-enemies",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "merlindrope:base:despertar",
@@ -14642,11 +14651,12 @@
           "name": "Parede de Regras",
           "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "bulkir",
@@ -27625,8 +27635,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/merlindrope/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "merlindrope:base:passive",
@@ -27635,8 +27646,9 @@
       "slot": "passive",
       "name": "Cláusula de Prisão",
       "description": "Uma vez por rodada, ferir um alvo com a Marca própria sela o apoio dele por 1 turno.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/merlindrope/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "merlindrope:base:impulso",
@@ -27648,8 +27660,9 @@
       "name": "Grade de Éter",
       "description": "Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "merlindrope:base:tecnica",
@@ -27661,8 +27674,9 @@
       "name": "Porta que Não Abre",
       "description": "Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "merlindrope:base:voto",
@@ -27674,8 +27688,9 @@
       "name": "Celas Concêntricas",
       "description": "Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno.",
       "target": "all-enemies",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "merlindrope:base:despertar",
@@ -27687,8 +27702,9 @@
       "name": "Parede de Regras",
       "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "bulkir:base:portrait",
