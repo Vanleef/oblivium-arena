@@ -14,7 +14,7 @@
     "entriesWithAnyBaseMissing": 0,
     "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
-    "formsSharedWithBase": 35,
+    "formsSharedWithBase": 34,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0
   },
@@ -57,10 +57,18 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-viuva-escarlate:form:impulso:revenge"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:revenge"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-colecionador-de-cabecas",
@@ -2005,11 +2013,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 76,
-    "remainingSlots": 922,
-    "fullyMigratedEntries": 12,
-    "remainingEntries": 138,
-    "awaitingVisualApprovalSlots": 76,
+    "integratedCandidateSlots": 83,
+    "remainingSlots": 915,
+    "fullyMigratedEntries": 13,
+    "remainingEntries": 137,
+    "awaitingVisualApprovalSlots": 83,
     "approvedSlots": 0
   }
 }

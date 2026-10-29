@@ -598,3 +598,14 @@ Os três quadros horizontais foram recompostos em 1:1 sem deformar a anatomia. A
 ## Estado da migração pictórica — 29/10/2026 (atualizado)
 
 A direção dark fantasy pictórica cobre **76 de 998 espaços** como candidatas; **922** ainda aguardam produção. **12 kits** estão integrados, restam **138 entradas** e **35 variantes** dedicadas. As 76 artes aguardam aprovação visual final; a produção continua.
+
+
+## A Viúva Escarlate — conjunto dark fantasy pictórico — 29/10/2026
+
+Mavia recebeu seis artes base e uma variante dedicada de Fio Reverso, preservando os olhos âmbar, cabelo negro e branco, rosas, véu escarlate e roupas de luto. As cenas usam vista zenital, laterais, POV reverso do agressor e do alvo, com fios físicos que marcam, detêm, contra-atacam e devolvem Vida conforme as mecânicas.
+
+As sete composições quadradas tiveram a anatomia humana, mãos e articulações revisadas. Todas seguem como candidatas pendentes de aprovação visual. Nenhuma mecânica foi alterada.
+
+## Estado da migração pictórica — 29/10/2026 (atualizado)
+
+A direção dark fantasy pictórica cobre **83 de 998 espaços** como candidatas; **915** ainda aguardam produção. **13 kits** estão integrados, restam **137 entradas** e **34 variantes** dedicadas. As 83 artes aguardam aprovação visual final; a produção continua.

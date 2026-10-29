@@ -41,7 +41,7 @@ export const characterRevisions = {
     "englishName": "Mavia",
     "englishTitle": "The Widow",
     "aliases": ["A Viúva Escarlate","A Viúva"],
-    "lore": "Conserva no véu escarlate a lembrança de cada agressão que recebeu. Atrai a lâmina alheia para perto e transforma a resposta em uma cobrança de vitalidade. Seu luto se prolonga na violência que oferece a Sangria."
+    "lore": "Conserva no véu escarlate a lembrança de cada agressão que recebeu. Atrai a lâmina alheia para perto e transforma a resposta em uma cobrança de vitalidade. Seu luto se prolonga na violência que oferece ao Flagelo."
   },
   "o-colecionador-de-cabecas": {
     "name": "Verres",
@@ -1212,6 +1212,12 @@ export function revisedArtFor(id, art) {
     forms.impulso = {...(forms.impulso || {}),reopen:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp`};
     return {...art,portrait:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'a-viuva-escarlate') {
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),revenge:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp`};
+    return {...art,portrait:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
   }
   if (animeFirstRework20261028Art.has(id)) {
     const base = `/art/characters/${id}/anime-first-rework-20261028`;

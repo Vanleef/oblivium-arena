@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 65,
-  "newAbilityScenesSaved": 331,
+  "newPortraitsSaved": 66,
+  "newAbilityScenesSaved": 337,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
-    "Produzir imagens dedicadas para as 35 variantes ainda compartilhadas.",
+    "Produzir imagens dedicadas para as 34 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 76 ativos candidatos desta rodada."
+    "Revisar visualmente os 83 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -32,16 +32,17 @@
     "compositionCorrections": 1,
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
-    "generatedByThesePlans": 19,
+    "generatedByThesePlans": 20,
     "remainingMissingBaseJobs": 0,
     "remainingCorrectionJobs": 0,
-    "remainingDedicatedVariantJobs": 35,
-    "remainingTotalJobs": 35,
+    "remainingDedicatedVariantJobs": 34,
+    "remainingTotalJobs": 34,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 46,
-    "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json"
+    "newDarkPictorialCandidateAssets": 53,
+    "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
+    "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -88,22 +89,24 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 76,
-      "integratedSlots": 76,
+      "candidateSlots": 83,
+      "integratedSlots": 83,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 12
+      "fullyMigratedEntries": 13
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
-    "oAcougueiroRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada."
+    "oAcougueiroRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada.",
+    "aViuvaArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; ângulos variados e anatomia revisados; candidatas pendentes de aprovação visual.",
+    "aViuvaRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada."
   },
   "latestProduction": {
     "date": "2026-10-29",
     "darkPictorialCandidatesAdded": 7,
     "kitsIntegrated": 1,
-    "characterId": "o-acougueiro",
+    "characterId": "a-viuva-escarlate",
     "anatomyCorrectionsIntegrated": [
       {
         "characterId": "atlas",
@@ -114,13 +117,13 @@
     "styleReference": "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
     "sceneAngles": [
       "low_three_quarter_portrait",
-      "lateral_profile",
-      "over_shoulder_slash",
       "oblique_zenith",
-      "ground_level_target_pov",
-      "rear_three_quarter_dodge",
+      "over_shoulder_lateral",
+      "reverse_attacker_pov",
+      "low_target_pov",
+      "low_lateral",
       "tight_lateral_variant"
     ],
-    "anatomyReview": "As sete candidatas foram revistas para contagem de membros, articulações, proporções e pegada do cutelo. Os três quadros horizontais foram recompostos em 1:1; nenhum membro duplicado ou fundido é usado como candidato."
+    "anatomyReview": "Sete candidatas verificadas para manter anatomia humana, membros completos, mãos e articulações legíveis. Fios físicos representam as mecânicas do kit sem feixes genéricos."
   }
 }

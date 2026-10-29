@@ -5,7 +5,7 @@
   "status": "partially_generated_pending_visual_approval",
   "counts": {
     "jobs": 36,
-    "generatedByThisPlan": 1,
+    "generatedByThisPlan": 2,
     "mechanicsReviewRequired": 0
   },
   "generationOrder": "After five remaining base kits; preserve same logical key when replacing shared base art.",
@@ -83,7 +83,7 @@
       "abilityIndex": 0,
       "formKey": "revenge",
       "name": "Fio Reverso",
-      "status": "planned_not_generated",
+      "status": "generated_integrated_pending_visual_approval",
       "mechanicsSnapshot": {
         "name": "Fio Reverso",
         "damage": 25,
@@ -107,23 +107,28 @@
         "cooldown": 0,
         "kind": "strike",
         "description": "Causa 25 de dano perfurante a um inimigo. Restaura ao usuário 50% do dano causado. Após usar, restaura Fio Escarlate.",
-        "art": "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-impulso.webp"
+        "art": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso.webp"
       },
       "runtimeDescription": "Causa 25 de dano perfurante a um inimigo. Restaura ao usuário 50% do dano causado. Após usar, restaura Fio Escarlate.",
       "target": "enemy",
       "expectedPhysicalFigures": 2,
       "compoundCaster": null,
-      "framing": "perspectiva oblíqua pelo fio retornando",
-      "scene": "Um fio reverso atravessa a sombra de um único ghoul e retorna à Viúva; uma pequena lesão nela se fecha enquanto o alvo se curva pela dor. Separar visualmente dano perfurante e roubo de Vida; não extrair Essência nem curar aliado.",
+      "framing": "close lateral com fio perfurante e o alvo único legíveis",
+      "scene": "Close lateral; fio escarlate perfura a roupa de um único ghoul marcado e retorna a Mavia, fechando uma pequena escoriação.",
       "references": {
-        "identityPortrait": "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/portrait.webp",
-        "baseSkillForContrast": "/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-impulso.webp"
+        "identityPortrait": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/portrait.webp",
+        "baseSkillForContrast": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso.webp"
       },
       "referencePolicy": "Inspect current portrait and base ability before generating. Identity reference is not automatic approval of old rendering or forbidden technological features. Rework the complete affected kit first if a consistent identity cannot satisfy current art direction.",
       "transformationPolicy": "This ability variant alone does not authorize a new face, body, costume or anatomical form. Use only actual runtime body forms when relevant.",
       "mechanicsReview": null,
-      "proposedOutput": "art/characters/a-viuva-escarlate/anime-first-variants-20261028/skill-impulso-revenge.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Inferno: black and intense red, burnt earth and ash. Dante-like environment coherent with Flagelo.\nPreserve the physical identity of Mavia from its inspected current portrait. This is a DEDICATED illustration for variant Fio Reverso, not a recolored base skill. Do not reproduce old technological or mechanical props. Compare against base composition and choose a different instantaneous action.\nExact runtime mechanics (never render text): {\"name\":\"Fio Reverso\",\"damage\":25,\"cost\":2,\"target\":\"enemy\",\"damageType\":\"piercing\",\"lifesteal\":0.5,\"shift\":[{\"slot\":\"impulso\",\"form\":\"base\",\"turns\":0}],\"formKey\":\"revenge\",\"id\":\"impulso\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 25 de dano perfurante a um inimigo. Restaura ao usuário 50% do dano causado. Após usar, restaura Fio Escarlate.\",\"art\":\"/art/characters/a-viuva-escarlate/anime-first-rework-20261028/skill-impulso.webp\"}\nFraming: perspectiva oblíqua pelo fio retornando. Physical figures in this composition: 2.\nScene: Um fio reverso atravessa a sombra de um único ghoul e retorna à Viúva; uma pequena lesão nela se fecha enquanto o alvo se curva pela dor. Separar visualmente dano perfurante e roubo de Vida; não extrair Essência nem curar aliado.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "proposedOutput": "art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp",
+      "prompt": "Use case: stylized-concept. One square full-bleed dark-fantasy game painting for Mavia, preserving her exact identity: adult woman, warm brown skin, amber eyes, black hair with a silver-white section, red rose ornaments, worn ivory collar, black mourning clothes, scarlet veil, gloves. One marked ghoul only. A thin physical scarlet thread pierces the ghoul's ragged clothing and returns to Mavia's wrist as a small ember closes a superficial scratch, communicating piercing damage and 50% lifesteal. Dense, thick painterly texture, eroded surfaces, tactile skin, heavy worn cloth, oppressive Inferno ruins under Flagelo. Natural anatomy with two arms and two legs each, no duplicate/fused limbs, no gore, no extra characters, no generic energy beams, no technology or polished digital finish.",
+      "activeAsset": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp",
+      "sourceAsset": "art/source/a-viuva-escarlate-dark-pictorial-rework-20261029/skill-impulso-revenge.jpg",
+      "generatedImage": "generated_images/exec-916e918d-dd03-4942-b29f-078c2f4d1da0.png",
+      "integratedStatus": "candidate_integrated_pending_visual_approval",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "key": "o-colecionador-de-cabecas:form:voto:empty",

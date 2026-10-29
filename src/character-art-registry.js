@@ -635,4 +635,18 @@ export const characterArtRegistry = {
       "impulso": { "reopen": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp" }
     }
   }
+,
+  "a-viuva-escarlate": {
+    "portrait": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": { "revenge": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp" }
+    }
+  }
 };
