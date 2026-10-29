@@ -228,6 +228,11 @@
       "name": "Baal",
       "identity": "Use case: stylized-concept. One SQUARE full-bleed game illustration for Oblivium Arena, ANIME-FIRST 2.5D painterly Gothic SHONEN with bold drawn contours, expressive stylized creature face, angular cel shadows, thick graphic fur locks, dramatic red-black light and painted stone depth. NO photorealistic animal, classical oil paint, romantic glow, glossy CGI or mascot cuteness. INFERNO BLASFEMIA, Dante-like burning open tomb circles and abandoned charred chapels, black/intense red/burnt earth/ash. Baal invariant identity is a monstrous NONHUMANOID male infernal BOAR fanatic: enormous low-slung heavy quadruped body, exactly FOUR thick legs each ending in a natural two-part CLOVEN hoof, huge broad snout, single pair of ivory lower tusks curling outward (NO extra horns), one pair of small red-rimmed ears, angular orange-red eyes with black pupils, coarse BLACK bristles along back and cheeks, scarred dark brick-red leathery skin underneath, short curled tail. Heavy charred black ritual shoulder-cloth with dark crimson woven fringe drapes over his back like a fanatic's worn stole, tied with rough red cords; not armor or saddle, no rider, no hands or human arms. SAME quadruped structure/face/tusks/cloth in all scenes, no transformation or humanoid version. Speech/breath manifests as embers through his mouth; flames and ash organic/arcanic, no technology or mechanical objects. Natural animal weight/momentum, readable strained snout/eyes and bodily recoil, NEVER posing or eye contact with viewer. Other physical figures unarmored infernal ghouls, no named cast. No text, UI, labels, border, collage or watermark. ",
       "scene": "Inferno / Blasfêmia"
+    },
+    "atlas": {
+      "name": "Atlas",
+      "identity": "A very broad, stocky human-like Inferno titan with deep brown skin, a broad flat nose, heavy jaw and short dark stubble, short coarse black hair dusted with pale mineral grit, and red-ochre eyes. Natural organic black basalt plates stay concentrated on the shoulders and forearms with restrained red fissures; visible skin remains brown. Worn black and dark-red ritual cloth, no armor or machinery. Keep the same face, body proportions, hair and material placement across the kit; two arms, two legs, five fingers per hand.",
+      "scene": "Inferno / Magma"
     }
   }
 }

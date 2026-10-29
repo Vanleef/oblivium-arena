@@ -9,16 +9,16 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 50,
-    "newAbilityScenesSaved": 251,
+    "newPortraitsSaved": 51,
+    "newAbilityScenesSaved": 256,
     "scenesBlockedByQuota": [
       "baal:base:despertar"
     ],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
-      "Concluir reenquadramento da defesa de Baal; a arte atual existe, mas ainda não está aprovada na composição.",
-      "Produzir os kits base de Atlas, Merlindrope, Bulkir, Voronir e Icarus.",
-      "Concluir variantes dedicadas e revisar artes antigas conforme direção atual."
+      "Concluir reenquadramento da defesa de Baal; a composição existente ainda está pendente de correção.",
+      "Produzir os kits base ainda ausentes de Merlindrope, Bulkir, Voronir e Icarus.",
+      "Concluir as 36 variantes dedicadas e revisar artes antigas fora desta direção de arte."
     ],
     "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
     "generationBlock": {
@@ -26,7 +26,8 @@
       "resetUnix": 1793267550,
       "blockedOperation": "baal:base:despertar",
       "lastConfirmedLocal": "2026-10-28T22:03:04-03:00",
-      "scope": "Built-in generator only; Perchance fallback is available and tested."
+      "scope": "Built-in generator only; Perchance fallback is available and tested.",
+      "status": "historical_limit_reset_time_passed"
     },
     "preparedGenerationPlans": {
       "base": "docs/ART_NEXT_BASE_BATCH_20261028.json",
@@ -35,7 +36,12 @@
       "compositionCorrections": 1,
       "dedicatedVariantJobs": 36,
       "totalPreparedJobs": 67,
-      "generatedByThesePlans": 0
+      "generatedByThesePlans": 6,
+      "remainingMissingBaseJobs": 24,
+      "remainingCorrectionJobs": 1,
+      "remainingDedicatedVariantJobs": 36,
+      "remainingTotalJobs": 61,
+      "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     "planningNotes": [
       "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -48,11 +54,14 @@
       "url": "https://perchance.org/ai-text-to-image-generator",
       "when": "Built-in image generator reaches usage limit",
       "authorizedByUser": true,
-      "status": "tested",
-      "generatedCandidates": 14,
-      "integratedCandidates": 0,
+      "status": "user_authorized_fallback_used_for_atlas",
+      "generatedCandidates": 54,
+      "integratedCandidates": 6,
       "reviewReport": "docs/ART_PERCHANCE_TESTS_20261028.json",
-      "rejectedCandidateRetained": "art/source/perchance-tests-20261028/baal-defense-seed-770677746.jpg"
+      "rejectedCandidateRetained": "art/source/perchance-tests-20261028/baal-defense-seed-770677746.jpg",
+      "attemptedOutputSlots": 56,
+      "siteBlockedOutputs": 2,
+      "atlasReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     "validation": {
       "merlindropeRegression": "3/3 pass",
@@ -61,7 +70,17 @@
         "Nilo Prefácio Graça combo preparation",
         "Nilo mark use assertion",
         "Fixture expects a missing firstHit passive"
-      ]
+      ],
+      "atlasRuntimeSnapshot": "Atlas mechanics match the pre-art snapshot after stripping attached art paths.",
+      "atlasArtwork": "6 source JPEGs retained at native 768×768; 6 active WebP assets at 512×512; all six manually reviewed.",
+      "artCoverageAudit": {
+        "basePresent": 899,
+        "baseSlots": 923,
+        "baseMissing": 24,
+        "reviewedSlots": 319,
+        "fullyReviewedEntries": 47,
+        "pendingCorrections": 1
+      }
     }
   },
   "scope": {
@@ -14472,8 +14491,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/atlas/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "atlas:base:passive",
@@ -14482,8 +14502,9 @@
           "slot": "passive",
           "name": "Peso Acumulado",
           "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/atlas/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "atlas:base:impulso",
@@ -14495,8 +14516,9 @@
           "name": "Ombro do Mundo",
           "description": "Concede 8 de Defesa destrutível ao trio.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/atlas/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "atlas:base:tecnica",
@@ -14508,8 +14530,9 @@
           "name": "Peso sem Medida",
           "description": "Causa 15 de dano físico a um inimigo.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/atlas/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "atlas:base:voto",
@@ -14521,8 +14544,9 @@
           "name": "Colapso de Autoridade",
           "description": "Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "atlas:base:despertar",
@@ -14534,11 +14558,12 @@
           "name": "Sustentar o Céu",
           "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "merlindrope",
@@ -27523,8 +27548,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/atlas/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "atlas:base:passive",
@@ -27533,8 +27559,9 @@
       "slot": "passive",
       "name": "Peso Acumulado",
       "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/atlas/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "atlas:base:impulso",
@@ -27546,8 +27573,9 @@
       "name": "Ombro do Mundo",
       "description": "Concede 8 de Defesa destrutível ao trio.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/atlas/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "atlas:base:tecnica",
@@ -27559,8 +27587,9 @@
       "name": "Peso sem Medida",
       "description": "Causa 15 de dano físico a um inimigo.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/atlas/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "atlas:base:voto",
@@ -27572,8 +27601,9 @@
       "name": "Colapso de Autoridade",
       "description": "Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "atlas:base:despertar",
@@ -27585,8 +27615,9 @@
       "name": "Sustentar o Céu",
       "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "merlindrope:base:portrait",

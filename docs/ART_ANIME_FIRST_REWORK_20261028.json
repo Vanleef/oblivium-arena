@@ -524,6 +524,27 @@
         "/art/characters/baal/anime-first-completion-20261028/skill-voto.webp",
         "/art/characters/baal/anime-first-completion-20261028/skill-despertar.webp"
       ]
+    },
+    "atlas": {
+      "displayName": "Atlas",
+      "activeRoute": "/art/characters/atlas/anime-first-completion-20261028",
+      "world": "Inferno",
+      "sourceAssets": [
+        "art/source/atlas-anime-first-completion-20261028/portrait.jpg",
+        "art/source/atlas-anime-first-completion-20261028/passive.jpg",
+        "art/source/atlas-anime-first-completion-20261028/impulso.jpg",
+        "art/source/atlas-anime-first-completion-20261028/tecnica.jpg",
+        "art/source/atlas-anime-first-completion-20261028/voto.jpg",
+        "art/source/atlas-anime-first-completion-20261028/despertar.jpg"
+      ],
+      "assets": [
+        "/art/characters/atlas/anime-first-completion-20261028/portrait.webp",
+        "/art/characters/atlas/anime-first-completion-20261028/passive.webp",
+        "/art/characters/atlas/anime-first-completion-20261028/skill-impulso.webp",
+        "/art/characters/atlas/anime-first-completion-20261028/skill-tecnica.webp",
+        "/art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
+        "/art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp"
+      ]
     }
   },
   "visualReview": {
@@ -540,7 +561,8 @@
       "No generic armored soldiers, extra targets, or gameplay changes were introduced.",
       "A Magistrada: six scenes reviewed for identity, single-target actions, self-only invulnerability, anatomy and gaze alignment. Five scenes received targeted corrections to eyes, head angle and neck orientation.",
       "The fifteen active images of O Soberano and A Magistrada were redrawn with flat anime cel planes, matte materials and quieter backgrounds. Both sets were reviewed together at game resolution for style consistency, gaze and target counts.",
-      "O Suserano: six scenes restore the established bodiless identity, preserve single-ally counter targeting and three-member team support, and use clean anime cel rendering."
+      "O Suserano: six scenes restore the established bodiless identity, preserve single-ally counter targeting and three-member team support, and use clean anime cel rendering.",
+      "Atlas: six base scenes reviewed for identity consistency, natural action, Inferno palette, readable anatomy, world-specific material and distinct ability compositions."
     ],
     "styleRevision": {
       "characters": [

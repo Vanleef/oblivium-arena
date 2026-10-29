@@ -313,7 +313,13 @@
     "baal:base:passive",
     "baal:base:impulso",
     "baal:base:tecnica",
-    "baal:base:voto"
+    "baal:base:voto",
+    "atlas:base:portrait",
+    "atlas:base:passive",
+    "atlas:base:impulso",
+    "atlas:base:tecnica",
+    "atlas:base:voto",
+    "atlas:base:despertar"
   ],
   "pendingCorrections": [
     {

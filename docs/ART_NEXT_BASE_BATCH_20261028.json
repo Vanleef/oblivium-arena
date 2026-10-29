@@ -2,17 +2,20 @@
   "id": "next-base-art-batch-20261028",
   "date": "2026-10-28",
   "sourceCommit": "e10438ef7efd0b4fce83ba693a55d35a8a67a898",
-  "status": "prepared_generation_available_with_fallback",
+  "status": "partially_generated_reviewed",
   "productionTool": "built-in image_gen; use user-authorized Perchance when built-in quota is reached",
   "counts": {
     "missingBaseImages": 30,
     "correctionJobs": 1,
     "totalJobs": 31,
-    "generatedByThisPlan": 0
+    "generatedByThisPlan": 6,
+    "remainingMissingBaseImages": 24,
+    "remainingJobs": 25
   },
   "coverageSnapshot": {
-    "basePresent": 893,
-    "baseSlots": 923
+    "basePresent": 899,
+    "baseSlots": 923,
+    "remainingMissingBaseImages": 24
   },
   "quota": {
     "type": "usage_limit_reached",
@@ -92,16 +95,31 @@
       "kingdom": "Magma",
       "slot": "portrait",
       "name": "Retrato",
-      "status": "planned_not_generated",
+      "status": "generated_reviewed",
       "expectedPhysicalFigures": 1,
-      "framing": "close lateral baixo",
-      "scene": "Atlas se agacha sob uma arquitrave que cedeu. A pedra pesa de fato sobre o ombro, as pernas sustentam o esforço, o maxilar trava e os olhos procuram a fissura acima do apoio. Não ergue a pedra para mostrar força ao observador; tenta impedir o esmagamento naquele instante.",
+      "framing": "close profile at a cracked stone lintel",
+      "scene": "Atlas braces his shoulder against the fractured stone and tracks the new crack with his red-ochre eye; jaw clenched, grit in coarse black hair, dark red ritual cloth. The close profile keeps the same face and body identity.",
       "mechanicsSnapshot": null,
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "selected_portrait_reviewed_2026-10-29",
       "dependsOn": [],
       "referencePolicy": "New character: no invented reference image.",
       "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/portrait.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: close lateral baixo. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Atlas se agacha sob uma arquitrave que cedeu. A pedra pesa de fato sobre o ombro, as pernas sustentam o esforço, o maxilar trava e os olhos procuram a fissura acima do apoio. Não ergue a pedra para mostrar força ao observador; tenta impedir o esmagamento naquele instante.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "((Extreme close-up SIDE PROFILE of head and shoulder ONLY)), a black basalt-skinned infernal giant struggling beneath a heavy broken stone lintel resting directly against his shoulder. FACE TILTS UP toward the stone crack, eyes look up, clenched jaw, compressed neck muscles, tense painful effort. Broad African features, dark brown leathery skin, short coarse black hair dusted pale grey, flat wide nose, red-ochre eyes, heavy jaw, irregular organic black stone plates and small dark-red fissures in skin, torn black ritual scarf with dark red weave. Head and shoulder fill the square crop; body, arms, hands, legs entirely outside picture. Ornate ruined gothic stone, ash, red reflected light, deep black shadows. Expressive shonen anime facial drawing, graphic cel shadow planes, layered painted 2.5D volume, rich sharp material rendering. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.",
+      "activeAsset": "/art/characters/atlas/anime-first-completion-20261028/portrait.webp",
+      "sourceAsset": "art/source/atlas-anime-first-completion-20261028/portrait.jpg",
+      "sourceSha256": "6edd7bd09c435656122d99d14aa8646d5fe7979cb182bd70d73411abb7fd5ded",
+      "activeSha256": "85850a1d37c2c12b90c83a2a81a8c16370e555e01c8e13e85a75b83ad3420f43",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "selectedSeed": 1037157314,
+      "review": "Approved: coherent close profile, matching dark-brown skin, broad face, short mineral-dusted black hair, red-ochre eye, shoulder basalt and black-red cloth; gaze follows the cracked stone.",
+      "manifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     {
       "key": "atlas:base:passive",
@@ -112,10 +130,10 @@
       "kingdom": "Magma",
       "slot": "passive",
       "name": "Peso Acumulado",
-      "status": "planned_not_generated",
+      "status": "generated_reviewed",
       "expectedPhysicalFigures": 1,
-      "framing": "detalhe oblíquo do impacto",
-      "scene": "Um golpe de sombra vindo de fora do quadro faz Atlas perder Vida e contrair o ombro. A fissura atingida libera um pequeno núcleo de carga enquanto uma lâmina curta de pedra viva recompõe Defesa sobre a pele. Recuo, dor e reação protetora são consecutivos; não retratar geração de Essência, cura ou absorção sem perda de Vida.",
+      "framing": "oblique close-up of shoulder and upper arm",
+      "scene": "A fresh impact bursts against an existing basalt plate on Atlas’s shoulder. The arm contracts; a small red core flashes at the contact point and chips settle around the same dark skin and basalt patches.",
       "mechanicsSnapshot": {
         "name": "Peso Acumulado",
         "englishName": "Accumulated Weight",
@@ -129,13 +147,28 @@
         "englishDescription": "Once per round, after losing Health to an ability, Atlas gains 1 charge and 3 Defense.",
         "type": "triggered"
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "selected_portrait_reviewed_2026-10-29",
       "dependsOn": [
         "atlas:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/passive.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Peso Acumulado\",\"englishName\":\"Accumulated Weight\",\"trigger\":\"damaged\",\"requiresLifeLoss\":true,\"effect\":{\"gainCharge\":1,\"shield\":3},\"description\":\"Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.\",\"englishDescription\":\"Once per round, after losing Health to an ability, Atlas gains 1 charge and 3 Defense.\",\"type\":\"triggered\"}\nComposition: detalhe oblíquo do impacto. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Um golpe de sombra vindo de fora do quadro faz Atlas perder Vida e contrair o ombro. A fissura atingida libera um pequeno núcleo de carga enquanto uma lâmina curta de pedra viva recompõe Defesa sobre a pele. Recuo, dor e reação protetora são consecutivos; não retratar geração de Essência, cura ou absorção sem perda de Vida.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "painterly anime artwork, ((Close crop of ONE massive upper arm and shoulder recoiling from a shadow-lash impact)), no head or hands in frame. Dark-brown leathery skin grows through irregular natural black basalt patches; a small fresh superficial red cut where the lash hit shows real harm. Muscles contract involuntarily. Immediately beside the cut, a NEW intact thin basalt plate rises over skin as protection, while ONE compact deep-red ember charge collects in a stone fissure. Defense AFTER losing health, not healing or an energy shield absorbing the blow. Frayed black ritual cloth with dark-red weave catches on upper torso at picture edge. Broken gothic prison stones in soft background, cold ash and hard red reflected light. Defined shonen anime linework, angular cel shadows, painted material depth, dramatic 2.5D volume. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.",
+      "activeAsset": "/art/characters/atlas/anime-first-completion-20261028/passive.webp",
+      "sourceAsset": "art/source/atlas-anime-first-completion-20261028/passive.jpg",
+      "sourceSha256": "b2e45e653aa6f57206f8bb9ee34646b7d2335221fdd1a9aef6a453d39e514cea",
+      "activeSha256": "4ce1fefa8f9828d15a828bb6d7f21504d9dff3628346fb09d3031e83b39b22a3",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "selectedSeed": 655196192,
+      "review": "Approved: impact consequence reads on Atlas’s shoulder; the existing plate flashes and the arm contracts. No extra figure, healing or Essence cue.",
+      "manifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     {
       "key": "atlas:base:impulso",
@@ -146,10 +179,10 @@
       "kingdom": "Magma",
       "slot": "impulso",
       "name": "Ombro do Mundo",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 3,
-      "framing": "plano aberto atrás de uma coluna",
-      "scene": "Atlas protege o trio inteiro: ele, um ghoul estreito e um ghoul baixo de constituição robusta. Os três se abaixam sob fragmentos que caem; cada corpo recebe sua própria camada intacta de Defesa de basalto-luz vermelha. Atlas também deve estar protegido. Três figuras exatas, sem multidão ou beneficiário fora do trio.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 0,
+      "framing": "wide environmental triptych",
+      "scene": "Three separate upright basalt ward-panels rise from a cracked Inferno floor. A thin red line links the intact panels while loose stones stop along their outer edge. No beneficiaries are shown; the three wards imply the trio receiving defense.",
       "mechanicsSnapshot": {
         "name": "Ombro do Mundo",
         "target": "team",
@@ -163,13 +196,28 @@
         "kind": "guard",
         "description": "Concede 8 de Defesa destrutível ao trio."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "selected_portrait_reviewed_2026-10-29",
       "dependsOn": [
         "atlas:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-impulso.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Ombro do Mundo\",\"target\":\"team\",\"shield\":8,\"cost\":1,\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"guard\",\"description\":\"Concede 8 de Defesa destrutível ao trio.\"}\nComposition: plano aberto atrás de uma coluna. Exactly 3 physical figures in this composition, including caster when visible.\nScene: Atlas protege o trio inteiro: ele, um ghoul estreito e um ghoul baixo de constituição robusta. Os três se abaixam sob fragmentos que caem; cada corpo recebe sua própria camada intacta de Defesa de basalto-luz vermelha. Atlas também deve estar protegido. Três figuras exatas, sem multidão ou beneficiário fora do trio.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "((THREE CONNECTED CURVED BLACK BASALT SHIELDS stop falling stone rubble)), wide ground-level view of the magical protection ITSELF, no visible bodies. Three linked zones of shelter beneath the same continuous canopy, dark-red arcane seams at each outer boundary. Heavy stones halt and crumble against OUTSIDE surfaces; calm ash and undisturbed gothic floor remain INSIDE all three zones. Ancient ornate infernal cathedral terraces, black stone, crimson abyss light, cold ash highlights. Shonen ANIME 2.5D painterly illustration, defined graphic contours, dense angular shadows, dramatic depth and impact. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., breathtaking digital art, trending on artstation, in the style of atey ghailan, in the style of greg rutkowski, in the style of greg tocchini, in the style of james gilleard, 8k, high resolution, best quality.\n\nOverall, it's an absolute world-class masterpiece digital painting. It's an aesthetically pleasing digital painting with impeccable attention to detail and impressive composition.",
+      "activeAsset": "/art/characters/atlas/anime-first-completion-20261028/skill-impulso.webp",
+      "sourceAsset": "art/source/atlas-anime-first-completion-20261028/impulso.jpg",
+      "sourceSha256": "d3f6e8d53d214d6d49521627c1b6c368ac24dd9046815de043a3a3499c233d3e",
+      "activeSha256": "15f062d3f7f7a0fa1b0ab03aecd4db08e55ea21aca991553261d94ab20c1f7f1",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "selectedSeed": 811277844,
+      "review": "Approved: three separate, intact basalt ward-panels clearly imply team defense without extra figures; infernal palette and no machinery.",
+      "manifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     {
       "key": "atlas:base:tecnica",
@@ -180,10 +228,10 @@
       "kingdom": "Magma",
       "slot": "tecnica",
       "name": "Peso sem Medida",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 2,
-      "framing": "vista alta sobre o chão e o alvo",
-      "scene": "Toda a Defesa acumulada de Atlas se consome e se desfaz e acompanha o peso de seu braço numa pancada física contra um único ghoul. Priorizar o chão afundando e o alvo derrapando após o impacto, com Atlas parcialmente visto de cima. Mostrar Defesa CONSUMIDA convertida em pressão ofensiva, sem novas cargas, execução garantida ou magia disparada da palma.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 1,
+      "framing": "diagonal cropped forearm impact",
+      "scene": "Atlas’s basalt-covered forearm drives diagonally toward the fractured floor, ending in a closed fist. Its outer stone crust breaks into fragments along the impact line, showing accumulated defense spent as physical force; target remains off-frame.",
       "mechanicsSnapshot": {
         "name": "Peso sem Medida",
         "damage": 15,
@@ -204,17 +252,32 @@
         "kind": "strike",
         "description": "Causa 15 de dano físico a um inimigo."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "selected_portrait_reviewed_2026-10-29",
       "dependsOn": [
         "atlas:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-tecnica.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Peso sem Medida\",\"damage\":15,\"cost\":2,\"damageType\":\"physical\",\"shieldToDamage\":{\"ratio\":0.25,\"cap\":10,\"consume\":true},\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 15 de dano físico a um inimigo.\"}\nComposition: vista alta sobre o chão e o alvo. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Toda a Defesa acumulada de Atlas se consome e se desfaz e acompanha o peso de seu braço numa pancada física contra um único ghoul. Priorizar o chão afundando e o alvo derrapando após o impacto, com Atlas parcialmente visto de cima. Mostrar Defesa CONSUMIDA convertida em pressão ofensiva, sem novas cargas, execução garantida ou magia disparada da palma.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "prompt": "painterly anime artwork, ((A thick protective BLACK BASALT crust completely disintegrates from ONE massive brown forearm into fading red fragments during a forceful forward strike)). Tight horizontal close view of forearm only; wrist and fist beyond picture edge, head and body out of frame. Thin natural basalt patches remain in the skin beneath the consumed outer Defense layer. A fresh impact trench tears the gothic stone floor below, dust and scattered fragments show physical force. No energy beam. Crimson-black shonen ANIME 2.5D painting, rich materials, sharp contours, dynamic angular shadows. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.",
       "engineResolution": {
         "source": "src/combat.js",
         "rule": "When shieldToDamage.consume is true and the action affects a target, actor.shield becomes zero; only the bonus calculation is capped."
-      }
+      },
+      "activeAsset": "/art/characters/atlas/anime-first-completion-20261028/skill-tecnica.webp",
+      "sourceAsset": "art/source/atlas-anime-first-completion-20261028/tecnica.jpg",
+      "sourceSha256": "988507cdd090b9df536542bab0947604883fcbb26a0e82970b6e0d03bc21b65c",
+      "activeSha256": "cfb83b70518f997038813dc2d520654dfaca1c6cf458143b11369fb5120dd13f",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "selectedSeed": 1073498945,
+      "review": "Approved: diagonal basalt forearm and fist drive into cracked stone while the outer crust breaks away, communicating consumed defense as impact; no visible opponent.",
+      "manifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     {
       "key": "atlas:base:voto",
@@ -225,10 +288,10 @@
       "kingdom": "Magma",
       "slot": "voto",
       "name": "Colapso de Autoridade",
-      "status": "planned_not_generated",
-      "expectedPhysicalFigures": 2,
-      "framing": "alvo dominante visto de lado",
-      "scene": "Um único ghoul já Exposto sofre uma compressão perfurante sobre a própria sombra; o corpo perde coordenação e uma tentativa de reação para no meio, representando Atordoamento. Atlas pequeno ao fundo, com peso realmente transferido para o pé da frente. A fissura de exposição amplia o impacto sem ferida gráfica, raio em área ou alvo adicional.",
+      "status": "generated_reviewed",
+      "expectedPhysicalFigures": 1,
+      "framing": "close profile of the affected ghoul",
+      "scene": "A single ash-grey ghoul folds under piercing pressure, eyes squeezed shut and teeth clenched. The pressure cracks the ground beside its shadow and arrests its movement; Atlas remains off-frame.",
       "mechanicsSnapshot": {
         "name": "Colapso de Autoridade",
         "damage": 21,
@@ -249,13 +312,28 @@
         "kind": "control",
         "description": "Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 de dano."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "selected_portrait_reviewed_2026-10-29",
       "dependsOn": [
         "atlas:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Colapso de Autoridade\",\"damage\":21,\"cost\":2,\"damageType\":\"piercing\",\"stun\":1,\"combo\":{\"condition\":\"exposed\",\"bonusDamage\":6},\"target\":\"enemy\",\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 de dano.\"}\nComposition: alvo dominante visto de lado. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um único ghoul já Exposto sofre uma compressão perfurante sobre a própria sombra; o corpo perde coordenação e uma tentativa de reação para no meio, representando Atordoamento. Atlas pequeno ao fundo, com peso realmente transferido para o pé da frente. A fissura de exposição amplia o impacto sem ferida gráfica, raio em área ou alvo adicional.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "painterly anime artwork, ((Close SIDE PROFILE of ONE emaciated grey ghoul grimacing under an invisible downward force)), eyelids clenched shut, jaw tight, neck and shoulders compressed, head drawn DOWN involuntarily. Torn black burial hood covers torso and partly frames the face. Dust falls along cheek; a dark-red pressure fissure pins its shadow on the gothic floor below. Caster completely OUT OF FRAME. One face only. Black crimson and ash, expressive SHONEN ANIME 2.5D painting, strong contours and angular shadow planes. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., world-class masterpiece, fine details, breathtaking artwork, painterly art style, high quality, 8k, very detailed, high resolution, exquisite composition and lighting.\n\nOverall, it's an absolute world-class masterpiece painterly anime artwork. It's an aesthetically pleasing painterly anime artwork with impeccable attention to detail and impressive composition.",
+      "activeAsset": "/art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
+      "sourceAsset": "art/source/atlas-anime-first-completion-20261028/voto.jpg",
+      "sourceSha256": "e830b19f1cd716d5953f766fb50e62690d1db4118817877b14b6a8332f8d2af0",
+      "activeSha256": "093b75b556913b195fe89b5caf5944748c1c60dbd4cea584fbfc23c7add146b6",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "selectedSeed": 636095575,
+      "review": "Approved: one ghoul shows a strained involuntary reaction to a control impact; caster stays off-frame, no gore or extra target.",
+      "manifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     {
       "key": "atlas:base:despertar",
@@ -266,10 +344,10 @@
       "kingdom": "Magma",
       "slot": "despertar",
       "name": "Sustentar o Céu",
-      "status": "planned_not_generated",
+      "status": "generated_reviewed",
       "expectedPhysicalFigures": 1,
-      "framing": "câmera junto ao solo atrás do ombro",
-      "scene": "Atlas sozinho recolhe cabeça e corpo sob uma curva intacta de pedra-luz, como se sustentasse um teto baixo diante de uma onda que chega de lado. Mãos e pés se firmam com carga física plausível. Pedras e sombra param fora da camada de Defesa e invulnerabilidade; não mostrar proteção dos aliados nesta técnica.",
+      "framing": "low three-quarter medium action view",
+      "scene": "Atlas drops into a low one-knee crouch under falling masonry, one forearm shielding his tucked head while the other hand braces on the ground. His existing black basalt plates and red fissures remain confined to shoulders and forearms; brown skin stays visible. Stones halt and ricochet just outside the red-black defensive pressure, with grit and cloth pulled by the impact.",
       "mechanicsSnapshot": {
         "name": "Sustentar o Céu",
         "shield": 8,
@@ -284,13 +362,28 @@
         "kind": "defense",
         "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
       },
-      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "identityStatus": "selected_portrait_reviewed_2026-10-29",
       "dependsOn": [
         "atlas:base:portrait"
       ],
       "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
       "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Sustentar o Céu\",\"shield\":8,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: câmera junto ao solo atrás do ombro. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Atlas sozinho recolhe cabeça e corpo sob uma curva intacta de pedra-luz, como se sustentasse um teto baixo diante de uma onda que chega de lado. Mãos e pés se firmam com carga física plausível. Pedras e sombra param fora da camada de Defesa e invulnerabilidade; não mostrar proteção dos aliados nesta técnica.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "prompt": "Same specific human Atlas as the portrait: enormous stocky muscular man with natural deep brown skin, broad African features, flat wide nose, heavy jaw and short coarse black hair, sparse dark stubble, red-ochre eyes. His skin stays brown and human; ONLY irregular organic black basalt plates on the outside of his shoulders and forearms, with a few restrained red fissures. Do not turn his body into stone. Black and dark red ritual cloth. At the instant a boulder crashes down, he drops hard into a low one-knee crouch, one forearm shielding his tucked head while the other hand braces on the ground. A distinct close-fitting translucent red-black pressure shell curves around his body and deflects the falling stones just outside it. Strained shoulder muscles, cloth tugged sideways by impact, gaze tracking the rocks through the crook of his arm. Three-quarter side view, face partly visible, tight game-art crop, natural defensive action. Inferno black, ash and burned red, gothic ruins blurred behind, painterly 2.5D shonen anime, sharp contours and dense cel shadows. No full stone body, no standing pose, no crossed-arm pose, no camera gaze, no separate people, no archway, no armor, no weapons, no machines. Siga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma., art in the style of atey ghailan, painterly anime style at pixiv, art in the style of kantoku, in art style of redjuice/necömi/rella/tiv pixiv collab, your name anime art style, masterpiece digital painting, exquisite lighting and composition, inspired by wlop art style, 8k, sharp, very detailed, high resolution, illustration.\n\nOverall, it's an absolute world-class masterpiece painterly anime-inspired digital art. It's an aesthetically pleasing painterly anime-inspired digital artwork with impeccable attention to detail and impressive composition.",
+      "activeAsset": "/art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp",
+      "sourceAsset": "art/source/atlas-anime-first-completion-20261028/despertar.jpg",
+      "sourceSha256": "fbf3655d4d2d33112231afb9b686cbe13629ef38329d23c172f18647bde61e49",
+      "activeSha256": "04aeecc8e3a0c76979906ace4d67e2a80c19b5f006072fadae3aab3c54259a5c",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "selectedSeed": 997920079,
+      "review": "Approved: low defensive crouch reacts to falling masonry; anatomy and hands read coherently, skin and basalt placement stay consistent, debris is visibly arrested around him.",
+      "manifest": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json"
     },
     {
       "key": "merlindrope:base:portrait",

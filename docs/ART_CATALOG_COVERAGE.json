@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 893,
-    "baseMissing": 30,
-    "entriesWithAnyBaseMissing": 5,
-    "entriesWithoutAnyBaseArt": 5,
+    "basePresent": 899,
+    "baseMissing": 24,
+    "entriesWithAnyBaseMissing": 4,
+    "entriesWithoutAnyBaseArt": 4,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 313,
+    "reviewedSlots": 319,
     "correctionSlots": 1,
-    "fullyReviewedEntries": 46,
-    "pendingSlots": 685
+    "fullyReviewedEntries": 47,
+    "pendingSlots": 679
   },
   "entries": [
     {
@@ -1839,16 +1839,9 @@
       "kingdom": "Magma",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "atlas:base:portrait",
-        "atlas:base:passive",
-        "atlas:base:impulso",
-        "atlas:base:tecnica",
-        "atlas:base:voto",
-        "atlas:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "merlindrope",
