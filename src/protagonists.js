@@ -4187,7 +4187,6 @@ const antagonistProfiles = [
       "name": "Cláusula de Prisão",
       "englishName": "Prison Clause",
       "trigger": "hit",
-      "minimumShield": 5,
       "effect": {
         "sealSupportTarget": 1
       },
@@ -4575,3 +4574,4 @@ export const protagonistCharacters = compileList(protagonistProfiles);
 export const supportingCharacters = compileList(supportingProfiles.map(profile => ({ ...profile, protagonist: false })));
 export const antagonistCharacters = compileList(antagonistProfiles.map(profile => ({ ...profile, protagonist: false, npcOnly: true })));
 export const protagonistEnglishPhrases = Object.freeze({ ...phraseCopy });
+

@@ -120,3 +120,8 @@ Em cenas de ação, alinhar pupilas, orientação da cabeça e inclinação do p
 Personagens e inimigos devem apresentar desenho anime reconhecível: contornos claros, formas expressivas, áreas amplas de cor e sombras grandes de borda definida. Modelar volume com poucos planos de sombra. Metais, tecidos, pele e pedra exigem simplificação; detalhes de superfície, reflexos realistas e pinceladas densas não podem conduzir a imagem.
 
 A profundidade 2.5D deve vir da perspectiva, sobreposição e separação de planos. Cenários usam massas mais tranquilas e contraste abaixo da ação principal. Limitar brilho, partículas e efeitos às formas necessárias para comunicar a habilidade. Conferir o conjunto em 512 × 512: rosto, silhueta, alvo e ação precisam ser legíveis. Revisar também olhos, cabeça, anatomia, acessórios e quantidade de personagens. O termo anime-first no prompt não substitui a conferência visual do resultado.
+
+
+## Gerador alternativo — 28/10/2026
+
+Por instrução explícita do usuário, usar https://perchance.org/ai-text-to-image-generator quando o gerador principal atingir o limite de uso. Manter integralmente a direção de arte, a identidade do personagem e a revisão de anatomia, olhar, composição e efeito mecânico. Registrar o provedor, prompt, seed quando disponível e resultado da revisão. Alternativas rejeitadas não entram nas rotas ativas nem contam como artes concluídas. O teste inicial e seus motivos de rejeição estão em `docs/ART_PERCHANCE_TESTS_20261028.json`.

@@ -1,0 +1,1125 @@
+{
+  "id": "next-base-art-batch-20261028",
+  "date": "2026-10-28",
+  "sourceCommit": "e10438ef7efd0b4fce83ba693a55d35a8a67a898",
+  "status": "prepared_generation_available_with_fallback",
+  "productionTool": "built-in image_gen; use user-authorized Perchance when built-in quota is reached",
+  "counts": {
+    "missingBaseImages": 30,
+    "correctionJobs": 1,
+    "totalJobs": 31,
+    "generatedByThisPlan": 0
+  },
+  "coverageSnapshot": {
+    "basePresent": 893,
+    "baseSlots": 923
+  },
+  "quota": {
+    "type": "usage_limit_reached",
+    "resetUnix": 1793267550,
+    "resetLocal": "2026-10-29T06:52:30-03:00",
+    "timezone": "America/Sao_Paulo",
+    "scope": "Built-in generator only"
+  },
+  "rules": [
+    "Generate one separate illustration per job.",
+    "Never register a proposedOutput before actual file creation and validation.",
+    "A prepared prompt is not a produced image or visual approval.",
+    "Inspect portrait before the next five scenes; preserve identity across kit.",
+    "Preserve runtime mechanics and complete every additional form if runtime changes.",
+    "Reject repeated portrait compositions; a new camera alone must also match physical action.",
+    "Natural reactions include turning toward the event OR an anatomically justified protective flinch; never force an impossible neck rotation.",
+    "Verify figure count, hand/foot/claw anatomy, eye direction, silhouette, palette and absence of technology.",
+    "After generation: encode and decode active/source files, verify unique hashes and runtime routes, then update manual review status honestly."
+  ],
+  "characters": [
+    {
+      "id": "atlas",
+      "identity": "Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.",
+      "environment": "Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.",
+      "designStatus": "planning_only_not_a_created_or_canonical_image"
+    },
+    {
+      "id": "merlindrope",
+      "identity": "Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.",
+      "environment": "Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.",
+      "designStatus": "planning_only_not_a_created_or_canonical_image"
+    },
+    {
+      "id": "bulkir",
+      "identity": "Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.",
+      "environment": "Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.",
+      "designStatus": "planning_only_not_a_created_or_canonical_image"
+    },
+    {
+      "id": "voronir",
+      "identity": "Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.",
+      "environment": "Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.",
+      "designStatus": "planning_only_not_a_created_or_canonical_image"
+    },
+    {
+      "id": "icarus",
+      "identity": "Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.",
+      "environment": "Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.",
+      "designStatus": "planning_only_not_a_created_or_canonical_image"
+    }
+  ],
+  "jobs": [
+    {
+      "key": "baal:base:despertar",
+      "kind": "correction",
+      "characterId": "baal",
+      "displayName": "Baal",
+      "world": "Inferno",
+      "kingdom": "Blasfêmia",
+      "slot": "despertar",
+      "name": "Manto de Cinzas",
+      "status": "pending_correction_after_rejected_fallback_tests",
+      "expectedPhysicalFigures": 1,
+      "reference": "art/source/baal-anime-first-completion-20261028/skill-despertar.webp",
+      "activeAsset": "art/characters/baal/anime-first-completion-20261028/skill-despertar.webp",
+      "reason": "Current image repeats the lateral full-body portrait composition; retain current asset until a successful replacement is generated and visually inspected.",
+      "framing": "extreme frontal ground-level closeup, eyes closed in defensive flinch",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Edit the existing Baal defense. Reframe as an extreme low FRONTAL close shot of the SAME infernal boar bracing against an ash wave, never a full-body side pose. SAME quadruped anatomy, dark brick-red skin, coarse black bristles, orange-red eyes, one pair of ivory tusks, black-red ritual shoulder cloth. Snout lowers toward forelegs, eyes squeezed SHUT in instinctive bracing, ears pinned, no eye contact or trophy pose. Intact ash mantle encloses body; hostile stones stop OUTSIDE it upper left. Two front cloven hooves partly visible, hind legs naturally cropped. No human hands, extra limbs, rider or identity change. Inferno Blasfêmia, red-black burning tombs. Preserve all mechanics: only user protected, defense and one-turn invulnerability.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "fallbackTestReport": "docs/ART_PERCHANCE_TESTS_20261028.json"
+    },
+    {
+      "key": "atlas:base:portrait",
+      "kind": "base",
+      "characterId": "atlas",
+      "displayName": "Atlas",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "portrait",
+      "name": "Retrato",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "close lateral baixo",
+      "scene": "Atlas se agacha sob uma arquitrave que cedeu. A pedra pesa de fato sobre o ombro, as pernas sustentam o esforço, o maxilar trava e os olhos procuram a fissura acima do apoio. Não ergue a pedra para mostrar força ao observador; tenta impedir o esmagamento naquele instante.",
+      "mechanicsSnapshot": null,
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [],
+      "referencePolicy": "New character: no invented reference image.",
+      "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/portrait.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: close lateral baixo. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Atlas se agacha sob uma arquitrave que cedeu. A pedra pesa de fato sobre o ombro, as pernas sustentam o esforço, o maxilar trava e os olhos procuram a fissura acima do apoio. Não ergue a pedra para mostrar força ao observador; tenta impedir o esmagamento naquele instante.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "atlas:base:passive",
+      "kind": "base",
+      "characterId": "atlas",
+      "displayName": "Atlas",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "passive",
+      "name": "Peso Acumulado",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "detalhe oblíquo do impacto",
+      "scene": "Um golpe de sombra vindo de fora do quadro faz Atlas perder Vida e contrair o ombro. A fissura atingida libera um pequeno núcleo de carga enquanto uma lâmina curta de pedra viva recompõe Defesa sobre a pele. Recuo, dor e reação protetora são consecutivos; não retratar geração de Essência, cura ou absorção sem perda de Vida.",
+      "mechanicsSnapshot": {
+        "name": "Peso Acumulado",
+        "englishName": "Accumulated Weight",
+        "trigger": "damaged",
+        "requiresLifeLoss": true,
+        "effect": {
+          "gainCharge": 1,
+          "shield": 3
+        },
+        "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.",
+        "englishDescription": "Once per round, after losing Health to an ability, Atlas gains 1 charge and 3 Defense.",
+        "type": "triggered"
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "atlas:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/passive.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Peso Acumulado\",\"englishName\":\"Accumulated Weight\",\"trigger\":\"damaged\",\"requiresLifeLoss\":true,\"effect\":{\"gainCharge\":1,\"shield\":3},\"description\":\"Uma vez por rodada, depois de perder Vida para uma habilidade, Atlas ganha 1 carga e 3 de Defesa.\",\"englishDescription\":\"Once per round, after losing Health to an ability, Atlas gains 1 charge and 3 Defense.\",\"type\":\"triggered\"}\nComposition: detalhe oblíquo do impacto. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Um golpe de sombra vindo de fora do quadro faz Atlas perder Vida e contrair o ombro. A fissura atingida libera um pequeno núcleo de carga enquanto uma lâmina curta de pedra viva recompõe Defesa sobre a pele. Recuo, dor e reação protetora são consecutivos; não retratar geração de Essência, cura ou absorção sem perda de Vida.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "atlas:base:impulso",
+      "kind": "base",
+      "characterId": "atlas",
+      "displayName": "Atlas",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "impulso",
+      "name": "Ombro do Mundo",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 3,
+      "framing": "plano aberto atrás de uma coluna",
+      "scene": "Atlas protege o trio inteiro: ele, um ghoul estreito e um ghoul baixo de constituição robusta. Os três se abaixam sob fragmentos que caem; cada corpo recebe sua própria camada intacta de Defesa de basalto-luz vermelha. Atlas também deve estar protegido. Três figuras exatas, sem multidão ou beneficiário fora do trio.",
+      "mechanicsSnapshot": {
+        "name": "Ombro do Mundo",
+        "target": "team",
+        "shield": 8,
+        "cost": 1,
+        "id": "impulso",
+        "costs": {
+          "affinity": 1
+        },
+        "cooldown": 0,
+        "kind": "guard",
+        "description": "Concede 8 de Defesa destrutível ao trio."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "atlas:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-impulso.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Ombro do Mundo\",\"target\":\"team\",\"shield\":8,\"cost\":1,\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"guard\",\"description\":\"Concede 8 de Defesa destrutível ao trio.\"}\nComposition: plano aberto atrás de uma coluna. Exactly 3 physical figures in this composition, including caster when visible.\nScene: Atlas protege o trio inteiro: ele, um ghoul estreito e um ghoul baixo de constituição robusta. Os três se abaixam sob fragmentos que caem; cada corpo recebe sua própria camada intacta de Defesa de basalto-luz vermelha. Atlas também deve estar protegido. Três figuras exatas, sem multidão ou beneficiário fora do trio.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "atlas:base:tecnica",
+      "kind": "base",
+      "characterId": "atlas",
+      "displayName": "Atlas",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "tecnica",
+      "name": "Peso sem Medida",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "vista alta sobre o chão e o alvo",
+      "scene": "Toda a Defesa acumulada de Atlas se consome e se desfaz e acompanha o peso de seu braço numa pancada física contra um único ghoul. Priorizar o chão afundando e o alvo derrapando após o impacto, com Atlas parcialmente visto de cima. Mostrar Defesa CONSUMIDA convertida em pressão ofensiva, sem novas cargas, execução garantida ou magia disparada da palma.",
+      "mechanicsSnapshot": {
+        "name": "Peso sem Medida",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "physical",
+        "shieldToDamage": {
+          "ratio": 0.25,
+          "cap": 10,
+          "consume": true
+        },
+        "target": "enemy",
+        "id": "tecnica",
+        "costs": {
+          "affinity": 1,
+          "random": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 15 de dano físico a um inimigo."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "atlas:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-tecnica.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Peso sem Medida\",\"damage\":15,\"cost\":2,\"damageType\":\"physical\",\"shieldToDamage\":{\"ratio\":0.25,\"cap\":10,\"consume\":true},\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 15 de dano físico a um inimigo.\"}\nComposition: vista alta sobre o chão e o alvo. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Toda a Defesa acumulada de Atlas se consome e se desfaz e acompanha o peso de seu braço numa pancada física contra um único ghoul. Priorizar o chão afundando e o alvo derrapando após o impacto, com Atlas parcialmente visto de cima. Mostrar Defesa CONSUMIDA convertida em pressão ofensiva, sem novas cargas, execução garantida ou magia disparada da palma.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "engineResolution": {
+        "source": "src/combat.js",
+        "rule": "When shieldToDamage.consume is true and the action affects a target, actor.shield becomes zero; only the bonus calculation is capped."
+      }
+    },
+    {
+      "key": "atlas:base:voto",
+      "kind": "base",
+      "characterId": "atlas",
+      "displayName": "Atlas",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "voto",
+      "name": "Colapso de Autoridade",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "alvo dominante visto de lado",
+      "scene": "Um único ghoul já Exposto sofre uma compressão perfurante sobre a própria sombra; o corpo perde coordenação e uma tentativa de reação para no meio, representando Atordoamento. Atlas pequeno ao fundo, com peso realmente transferido para o pé da frente. A fissura de exposição amplia o impacto sem ferida gráfica, raio em área ou alvo adicional.",
+      "mechanicsSnapshot": {
+        "name": "Colapso de Autoridade",
+        "damage": 21,
+        "cost": 2,
+        "damageType": "piercing",
+        "stun": 1,
+        "combo": {
+          "condition": "exposed",
+          "bonusDamage": 6
+        },
+        "target": "enemy",
+        "id": "voto",
+        "costs": {
+          "affinity": 1,
+          "essence": 1
+        },
+        "cooldown": 0,
+        "kind": "control",
+        "description": "Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 de dano."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "atlas:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-voto.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Colapso de Autoridade\",\"damage\":21,\"cost\":2,\"damageType\":\"piercing\",\"stun\":1,\"combo\":{\"condition\":\"exposed\",\"bonusDamage\":6},\"target\":\"enemy\",\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 21 de dano perfurante a um inimigo. Atordoa por 1 turno. Se o alvo está Exposto: +6 de dano.\"}\nComposition: alvo dominante visto de lado. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um único ghoul já Exposto sofre uma compressão perfurante sobre a própria sombra; o corpo perde coordenação e uma tentativa de reação para no meio, representando Atordoamento. Atlas pequeno ao fundo, com peso realmente transferido para o pé da frente. A fissura de exposição amplia o impacto sem ferida gráfica, raio em área ou alvo adicional.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "atlas:base:despertar",
+      "kind": "base",
+      "characterId": "atlas",
+      "displayName": "Atlas",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "despertar",
+      "name": "Sustentar o Céu",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "câmera junto ao solo atrás do ombro",
+      "scene": "Atlas sozinho recolhe cabeça e corpo sob uma curva intacta de pedra-luz, como se sustentasse um teto baixo diante de uma onda que chega de lado. Mãos e pés se firmam com carga física plausível. Pedras e sombra param fora da camada de Defesa e invulnerabilidade; não mostrar proteção dos aliados nesta técnica.",
+      "mechanicsSnapshot": {
+        "name": "Sustentar o Céu",
+        "shield": 8,
+        "target": "self",
+        "costs": {
+          "random": 1
+        },
+        "invulnerable": 1,
+        "cooldown": 4,
+        "defense": true,
+        "id": "despertar",
+        "kind": "defense",
+        "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "atlas:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: terraços concêntricos, enormes pesos de pedra antiga e arcos esmagados sobre abismos de brasas. Preto, vermelho intenso, pedra queimada e cinza; nunca máquina, fábrica ou mecanismo.\nIdentity: Atlas é um titã infernal baixo em relação à largura, com corpo maciço em trapézio, pescoço curto e cabeça encaixada entre ombros enormes. Pele castanho-escura com placas NATURAIS de basalto negro e fissuras vermelhas contidas, rosto largo de nariz achatado, dois olhos vermelho-ocre e maxilar pesado, cabelo negro muito curto com depósitos minerais claros. Duas mãos largas com cinco dedos, duas pernas curtas e grossas, pés largos de cinco dedos. Faixas de tecido preto queimado e vermelho-escuro, sem armadura ou construção industrial. A pedra faz parte do corpo, sem forma alternativa ou membros extras.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Sustentar o Céu\",\"shield\":8,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: câmera junto ao solo atrás do ombro. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Atlas sozinho recolhe cabeça e corpo sob uma curva intacta de pedra-luz, como se sustentasse um teto baixo diante de uma onda que chega de lado. Mãos e pés se firmam com carga física plausível. Pedras e sombra param fora da camada de Defesa e invulnerabilidade; não mostrar proteção dos aliados nesta técnica.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "merlindrope:base:portrait",
+      "kind": "base",
+      "characterId": "merlindrope",
+      "displayName": "Merlindrope",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "portrait",
+      "name": "Retrato",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "plano médio através de uma porta quebrada",
+      "scene": "Merlindrope comprime a concha e dobra as pernas para atravessar uma passagem estreita; uma pinça retira um fio ritual preso num dente de pedra. Os dois olhos acompanham o fio e a abertura real, e o peso fica distribuído entre as quatro pernas. Momento de trabalho e movimento, não apresentação frontal do monstro.",
+      "mechanicsSnapshot": null,
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [],
+      "referencePolicy": "New character: no invented reference image.",
+      "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/portrait.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: plano médio através de uma porta quebrada. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Merlindrope comprime a concha e dobra as pernas para atravessar uma passagem estreita; uma pinça retira um fio ritual preso num dente de pedra. Os dois olhos acompanham o fio e a abertura real, e o peso fica distribuído entre as quatro pernas. Momento de trabalho e movimento, não apresentação frontal do monstro.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "merlindrope:base:passive",
+      "kind": "base",
+      "characterId": "merlindrope",
+      "displayName": "Merlindrope",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "passive",
+      "name": "Cláusula de Prisão",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "close da tentativa de apoio do alvo",
+      "scene": "Um ghoul já marcado pelo carcereiro acaba de sofrer um golpe. O fio de apoio que tentava formar se fecha num nó escuro enquanto a marca antiga permanece, mostrando bloqueio de apoio após atingir alvo marcado. Apenas uma pinça e a borda da concha de Merlindrope entram no quadro; sem gerar defesa ou criar marca adicional nesta passiva.",
+      "mechanicsSnapshot": {
+        "name": "Cláusula de Prisão",
+        "englishName": "Prison Clause",
+        "trigger": "hit",
+        "effect": {
+          "sealSupportTarget": 1
+        },
+        "description": "Uma vez por rodada, ferir um alvo com a Marca própria sela o apoio dele por 1 turno.",
+        "englishDescription": "Once per round, hitting a target with Merlindrope's Mark seals its support for 1 turn.",
+        "requiresOwnMark": true,
+        "type": "triggered"
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "merlindrope:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/passive.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Cláusula de Prisão\",\"englishName\":\"Prison Clause\",\"trigger\":\"hit\",\"effect\":{\"sealSupportTarget\":1},\"description\":\"Uma vez por rodada, ferir um alvo com a Marca própria sela o apoio dele por 1 turno.\",\"englishDescription\":\"Once per round, hitting a target with Merlindrope's Mark seals its support for 1 turn.\",\"requiresOwnMark\":true,\"type\":\"triggered\"}\nComposition: close da tentativa de apoio do alvo. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um ghoul já marcado pelo carcereiro acaba de sofrer um golpe. O fio de apoio que tentava formar se fecha num nó escuro enquanto a marca antiga permanece, mostrando bloqueio de apoio após atingir alvo marcado. Apenas uma pinça e a borda da concha de Merlindrope entram no quadro; sem gerar defesa ou criar marca adicional nesta passiva.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "engineResolution": {
+        "source": "src/protagonists.js",
+        "fix": "Removed obsolete minimumShield=5 guard from hit-triggered passive; no hit event provides context.shielded. Own mark, actual damage and once-per-round activation remain required."
+      }
+    },
+    {
+      "key": "merlindrope:base:impulso",
+      "kind": "base",
+      "characterId": "merlindrope",
+      "displayName": "Merlindrope",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "impulso",
+      "name": "Grade de Éter",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "ângulo baixo através de frestas",
+      "scene": "Uma malha curta de Éter em fios vermelhos risca a roupa de um único ghoul, causando um espasmo e deixando uma pequena marca reticulada. A reação do alvo e a marca são o foco. A malha é arcana e orgânica, não barras industriais, cabos ou interface de mira; nenhuma prisão completa ou atordoamento deve ser inventado.",
+      "mechanicsSnapshot": {
+        "name": "Grade de Éter",
+        "damage": 11,
+        "cost": 1,
+        "damageType": "energy",
+        "mark": true,
+        "markTurns": 2,
+        "target": "enemy",
+        "id": "impulso",
+        "costs": {
+          "affinity": 1
+        },
+        "cooldown": 0,
+        "kind": "control",
+        "description": "Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "merlindrope:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Grade de Éter\",\"damage\":11,\"cost\":1,\"damageType\":\"energy\",\"mark\":true,\"markTurns\":2,\"target\":\"enemy\",\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 11 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.\"}\nComposition: ângulo baixo através de frestas. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Uma malha curta de Éter em fios vermelhos risca a roupa de um único ghoul, causando um espasmo e deixando uma pequena marca reticulada. A reação do alvo e a marca são o foco. A malha é arcana e orgânica, não barras industriais, cabos ou interface de mira; nenhuma prisão completa ou atordoamento deve ser inventado.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "merlindrope:base:tecnica",
+      "kind": "base",
+      "characterId": "merlindrope",
+      "displayName": "Merlindrope",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "tecnica",
+      "name": "Porta que Não Abre",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "close de mãos e sombra na porta",
+      "scene": "Um único ghoul tenta abrir uma porta de pedra: a sombra da abertura atravessa a manga e o faz recuar por dor perfurante. Tanto a tentativa de formar um ataque quanto o fio de apoio se desfazem, representando os dois selos. A porta continua cega, sem fechadura moderna, mecanismo ou correntes mecânicas. Merlindrope aparece somente como pinça controlando um fio na borda.",
+      "mechanicsSnapshot": {
+        "name": "Porta que Não Abre",
+        "damage": 14,
+        "cost": 2,
+        "damageType": "piercing",
+        "sealSupport": 1,
+        "sealAttack": 1,
+        "cooldown": 1,
+        "target": "enemy",
+        "id": "tecnica",
+        "costs": {
+          "affinity": 1,
+          "random": 1
+        },
+        "kind": "strike",
+        "description": "Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "merlindrope:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Porta que Não Abre\",\"damage\":14,\"cost\":2,\"damageType\":\"piercing\",\"sealSupport\":1,\"sealAttack\":1,\"cooldown\":1,\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"kind\":\"strike\",\"description\":\"Causa 14 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Sela técnicas ofensivas por 1 turno do alvo.\"}\nComposition: close de mãos e sombra na porta. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um único ghoul tenta abrir uma porta de pedra: a sombra da abertura atravessa a manga e o faz recuar por dor perfurante. Tanto a tentativa de formar um ataque quanto o fio de apoio se desfazem, representando os dois selos. A porta continua cega, sem fechadura moderna, mecanismo ou correntes mecânicas. Merlindrope aparece somente como pinça controlando um fio na borda.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "merlindrope:base:voto",
+      "kind": "base",
+      "characterId": "merlindrope",
+      "displayName": "Merlindrope",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "voto",
+      "name": "Celas Concêntricas",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 4,
+      "framing": "vista alta dos corredores concêntricos",
+      "scene": "Três inimigos diferentes ocupam três recessos de pedra separados, enquanto Merlindrope permanece na extremidade inferior. Três limites de fios vermelhos se fecham, atingindo e enfraquecendo todos: um alvo baixa o braço, outro se apoia na parede e o terceiro cede um joelho. Exatamente três inimigos; não inventar Atordoamento nem mortes.",
+      "mechanicsSnapshot": {
+        "name": "Celas Concêntricas",
+        "target": "all-enemies",
+        "damage": 9,
+        "cost": 2,
+        "damageType": "energy",
+        "weaken": 1,
+        "id": "voto",
+        "costs": {
+          "affinity": 1,
+          "essence": 1
+        },
+        "cooldown": 0,
+        "kind": "control",
+        "description": "Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "merlindrope:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Celas Concêntricas\",\"target\":\"all-enemies\",\"damage\":9,\"cost\":2,\"damageType\":\"energy\",\"weaken\":1,\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 9 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno.\"}\nComposition: vista alta dos corredores concêntricos. Exactly 4 physical figures in this composition, including caster when visible.\nScene: Três inimigos diferentes ocupam três recessos de pedra separados, enquanto Merlindrope permanece na extremidade inferior. Três limites de fios vermelhos se fecham, atingindo e enfraquecendo todos: um alvo baixa o braço, outro se apoia na parede e o terceiro cede um joelho. Exatamente três inimigos; não inventar Atordoamento nem mortes.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "merlindrope:base:despertar",
+      "kind": "base",
+      "characterId": "merlindrope",
+      "displayName": "Merlindrope",
+      "world": "Inferno",
+      "kingdom": "Magma",
+      "slot": "despertar",
+      "name": "Parede de Regras",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "plano curto pela traseira da concha",
+      "scene": "Merlindrope sozinho dobra as quatro pernas e encaixa a concha atrás de uma parede arcana intacta de veios de pedra vermelhos. Uma onda hostil para fora dela; as duas pinças se recolhem naturalmente para proteger o corpo. Contar seis membros no total, permitindo oclusão física coerente, sem apêndices duplicados ou aliados.",
+      "mechanicsSnapshot": {
+        "name": "Parede de Regras",
+        "shield": 7,
+        "target": "self",
+        "costs": {
+          "random": 1
+        },
+        "invulnerable": 1,
+        "cooldown": 4,
+        "defense": true,
+        "id": "despertar",
+        "kind": "defense",
+        "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "merlindrope:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Magma: prisões de pedra antiga, portas cegas e corredores concêntricos que se dobram. A contenção surge como fios arcanos vermelhos e veios na pedra, nunca uma grade de aço industrial ou dispositivo tecnológico.\nIdentity: Merlindrope é uma entidade infernal artrópode de carapaça orgânica castanho-negra, sem aparência mecânica: quatro pernas de apoio e DOIS apêndices anteriores em pinça, seis membros ao todo, com articulações naturais coerentes de crustáceo. O corpo alto dobra-se numa concha estreita; rosto baixo de duas cavidades oculares vermelho-pálidas e duas mandíbulas, sem rosto humano ou olhos extras. Uma faixa ritual vermelho-escura passa sobre a carapaça, com tiras de tecido presas às bordas naturais. Sem braços humanos, botas, armadura industrial, engrenagens ou instrumentos de construção.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Parede de Regras\",\"shield\":7,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: plano curto pela traseira da concha. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Merlindrope sozinho dobra as quatro pernas e encaixa a concha atrás de uma parede arcana intacta de veios de pedra vermelhos. Uma onda hostil para fora dela; as duas pinças se recolhem naturalmente para proteger o corpo. Contar seis membros no total, permitindo oclusão física coerente, sem apêndices duplicados ou aliados.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "bulkir:base:portrait",
+      "kind": "base",
+      "characterId": "bulkir",
+      "displayName": "Bulkir",
+      "world": "Inferno",
+      "kingdom": "Pútrido",
+      "slot": "portrait",
+      "name": "Retrato",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "lateral rente a uma poça",
+      "scene": "Bulkir se curva sobre um rastro quase apagado numa pedra funerária sem letras legíveis, raspa a superfície com a ponta de uma unha e aproxima o focinho para farejar. Olhos fixos no vestígio, boca apertada por fome e concentração; o corpo pesado encontra apoio real nas pernas e num braço. Não posar com a boca aberta para a câmera.",
+      "mechanicsSnapshot": null,
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [],
+      "referencePolicy": "New character: no invented reference image.",
+      "proposedOutput": "art/characters/bulkir/anime-first-completion-20261028/portrait.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.\nIdentity: Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: lateral rente a uma poça. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Bulkir se curva sobre um rastro quase apagado numa pedra funerária sem letras legíveis, raspa a superfície com a ponta de uma unha e aproxima o focinho para farejar. Olhos fixos no vestígio, boca apertada por fome e concentração; o corpo pesado encontra apoio real nas pernas e num braço. Não posar com a boca aberta para a câmera.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "bulkir:base:passive",
+      "kind": "base",
+      "characterId": "bulkir",
+      "displayName": "Bulkir",
+      "world": "Inferno",
+      "kingdom": "Pútrido",
+      "slot": "passive",
+      "name": "Fome de Nomes",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "detalhe do ventre, carapaça e cinzas",
+      "scene": "Depois de uma alma derrotada se desfazer num manto vazio e cinzas, uma antiga fenda superficial de Bulkir se fecha, representando recuperação de Vida, e surge UMA pequena carga vermelha. Não gerar Essência, roubar reserva ou mostrar alguém ainda vivo sendo curado. O cadáver não precisa aparecer; a consequência da derrota basta.",
+      "mechanicsSnapshot": {
+        "name": "Fome de Nomes",
+        "englishName": "Hunger for Names",
+        "trigger": "kill",
+        "effect": {
+          "heal": 6,
+          "gainCharge": 1
+        },
+        "description": "Ao derrubar uma alma, Bulkir recupera 6 de Vida e ganha 1 carga; uma vez por rodada.",
+        "englishDescription": "When he defeats a soul, Bulkir restores 6 Health and gains 1 charge, once per round.",
+        "type": "triggered"
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "bulkir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/bulkir/anime-first-completion-20261028/passive.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.\nIdentity: Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Fome de Nomes\",\"englishName\":\"Hunger for Names\",\"trigger\":\"kill\",\"effect\":{\"heal\":6,\"gainCharge\":1},\"description\":\"Ao derrubar uma alma, Bulkir recupera 6 de Vida e ganha 1 carga; uma vez por rodada.\",\"englishDescription\":\"When he defeats a soul, Bulkir restores 6 Health and gains 1 charge, once per round.\",\"type\":\"triggered\"}\nComposition: detalhe do ventre, carapaça e cinzas. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Depois de uma alma derrotada se desfazer num manto vazio e cinzas, uma antiga fenda superficial de Bulkir se fecha, representando recuperação de Vida, e surge UMA pequena carga vermelha. Não gerar Essência, roubar reserva ou mostrar alguém ainda vivo sendo curado. O cadáver não precisa aparecer; a consequência da derrota basta.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "bulkir:base:impulso",
+      "kind": "base",
+      "characterId": "bulkir",
+      "displayName": "Bulkir",
+      "world": "Inferno",
+      "kingdom": "Pútrido",
+      "slot": "impulso",
+      "name": "Punho que Apaga",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "impacto parcial, punho e barreira do alvo",
+      "scene": "Um punho pesado de Bulkir rompe primeiro a fina camada de Defesa de um único ghoul; só depois o corpo do alvo recua com a pancada física. Fragmentos da proteção já se desprendem antes da compressão da roupa. Mostrar remoção de Defesa e dano sem dedos extras, mãos fundidas ou exagero de feridas.",
+      "mechanicsSnapshot": {
+        "name": "Punho que Apaga",
+        "damage": 15,
+        "cost": 1,
+        "damageType": "physical",
+        "stripShield": 10,
+        "target": "enemy",
+        "id": "impulso",
+        "costs": {
+          "affinity": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 15 de dano físico a um inimigo. Remove 10 de Defesa antes do dano."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "bulkir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/bulkir/anime-first-completion-20261028/skill-impulso.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.\nIdentity: Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Punho que Apaga\",\"damage\":15,\"cost\":1,\"damageType\":\"physical\",\"stripShield\":10,\"target\":\"enemy\",\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 15 de dano físico a um inimigo. Remove 10 de Defesa antes do dano.\"}\nComposition: impacto parcial, punho e barreira do alvo. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um punho pesado de Bulkir rompe primeiro a fina camada de Defesa de um único ghoul; só depois o corpo do alvo recua com a pancada física. Fragmentos da proteção já se desprendem antes da compressão da roupa. Mostrar remoção de Defesa e dano sem dedos extras, mãos fundidas ou exagero de feridas.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "bulkir:base:tecnica",
+      "kind": "base",
+      "characterId": "bulkir",
+      "displayName": "Bulkir",
+      "world": "Inferno",
+      "kingdom": "Pútrido",
+      "slot": "tecnica",
+      "name": "Mordida de Identidade",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "consequência em perfil apertado",
+      "scene": "A mordida atravessa o manto de sombra de um único ghoul sem abrir tecido corporal; o alvo se torce pela dor perfurante enquanto uma abrasão superficial no próprio Bulkir se recompõe por roubo de Vida. Evitar devoração literal de membros, roubo de Essência ou cura de aliado. A boca única e os dois braços precisam manter conexões claras.",
+      "mechanicsSnapshot": {
+        "name": "Mordida de Identidade",
+        "damage": 17,
+        "cost": 2,
+        "damageType": "piercing",
+        "lifesteal": 0.15,
+        "target": "enemy",
+        "id": "tecnica",
+        "costs": {
+          "affinity": 1,
+          "random": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 17 de dano perfurante a um inimigo. Restaura ao usuário 15% do dano causado."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "bulkir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/bulkir/anime-first-completion-20261028/skill-tecnica.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.\nIdentity: Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Mordida de Identidade\",\"damage\":17,\"cost\":2,\"damageType\":\"piercing\",\"lifesteal\":0.15,\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 17 de dano perfurante a um inimigo. Restaura ao usuário 15% do dano causado.\"}\nComposition: consequência em perfil apertado. Exactly 2 physical figures in this composition, including caster when visible.\nScene: A mordida atravessa o manto de sombra de um único ghoul sem abrir tecido corporal; o alvo se torce pela dor perfurante enquanto uma abrasão superficial no próprio Bulkir se recompõe por roubo de Vida. Evitar devoração literal de membros, roubo de Essência ou cura de aliado. A boca única e os dois braços precisam manter conexões claras.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "bulkir:base:voto",
+      "kind": "base",
+      "characterId": "bulkir",
+      "displayName": "Bulkir",
+      "world": "Inferno",
+      "kingdom": "Pútrido",
+      "slot": "voto",
+      "name": "Esmagar o Último Vestígio",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "alto e oblíquo, alvo já exausto",
+      "scene": "Bulkir, já ferido e com o próprio corpo desgastado, deixa seu peso cair sobre a pedra junto a um único ghoul. O alvo reage à pancada física, enquanto os sinais de Vida perdida no próprio Bulkir explicam a força adicional. Não fazer o bônus depender da Vida do alvo nem retratar execução inevitável. Destacar rachadura no chão, roupa cedendo e esforço sem repetir um soco frontal.",
+      "mechanicsSnapshot": {
+        "name": "Esmagar o Último Vestígio",
+        "damage": 23,
+        "cost": 2,
+        "damageType": "physical",
+        "missingHpDamage": {
+          "step": 25,
+          "amount": 3,
+          "cap": 9
+        },
+        "target": "enemy",
+        "id": "voto",
+        "costs": {
+          "affinity": 1,
+          "essence": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 23 de dano físico a um inimigo."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "bulkir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.\nIdentity: Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.\nExact runtime mechanics (do not render text): {\"name\":\"Esmagar o Último Vestígio\",\"damage\":23,\"cost\":2,\"damageType\":\"physical\",\"missingHpDamage\":{\"step\":25,\"amount\":3,\"cap\":9},\"target\":\"enemy\",\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 23 de dano físico a um inimigo.\"}\nEngine resolution: missingHpDamage uses ACTOR missing Health, not the target. Scene: Bulkir, já ferido e com o próprio corpo desgastado, deixa seu peso cair sobre a pedra junto a um único ghoul. O alvo reage à pancada física, enquanto os sinais de Vida perdida no próprio Bulkir explicam a força adicional. Não fazer o bônus depender da Vida do alvo nem retratar execução inevitável. Destacar rachadura no chão, roupa cedendo e esforço sem repetir um soco frontal.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "engineResolution": {
+        "source": "src/combat-effects.js:extraDamage",
+        "rule": "The missing-Health bonus is based on actor.maxHp - actor.hp."
+      }
+    },
+    {
+      "key": "bulkir:base:despertar",
+      "kind": "base",
+      "characterId": "bulkir",
+      "displayName": "Bulkir",
+      "world": "Inferno",
+      "kingdom": "Pútrido",
+      "slot": "despertar",
+      "name": "Carapaça Faminta",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "frontal muito próximo, rosto parcialmente oculto",
+      "scene": "Bulkir sozinho recolhe o rosto e os braços sob a própria carapaça arredondada enquanto uma força hostil bate fora de uma camada intacta de Defesa e invulnerabilidade. Olhos podem se fechar no reflexo defensivo; nada de encarar o observador. Uma única entidade, corpo ainda com dois braços e duas pernas, sem nascer um casco mecânico ou nova forma.",
+      "mechanicsSnapshot": {
+        "name": "Carapaça Faminta",
+        "shield": 7,
+        "target": "self",
+        "costs": {
+          "random": 1
+        },
+        "invulnerable": 1,
+        "cooldown": 4,
+        "defense": true,
+        "id": "despertar",
+        "kind": "defense",
+        "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "bulkir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Pútrido: pomar apodrecido, raízes encharcadas, necrópole tomada por fungos e poças de cinza. Preto, vermelho infernal em poderes e tecidos, tons terrosos podres; evitar tecnologia e verde luminoso como paleta de Paraíso.\nIdentity: Bulkir é uma entidade infernal enorme e arredondada, de centro de gravidade muito baixo, sem pescoço distinto: duas pernas curtas e dois braços grossos terminam em mãos de cinco dedos. A parte superior do corpo forma um domo de carapaça orgânica negro-esverdeada; o rosto está integrado à frente desse domo, com dois olhos pequenos vermelho-âmbar acima de uma única boca larga de dentes irregulares. Pele castanho-musgo, placas fúngicas secas, trapos negros e vinho presos ao ventre e unhas sujas. Anatomia monstruosa intencional e estável, sem membros a mais, órgãos expostos ou forma corporal alternativa.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Carapaça Faminta\",\"shield\":7,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: frontal muito próximo, rosto parcialmente oculto. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Bulkir sozinho recolhe o rosto e os braços sob a própria carapaça arredondada enquanto uma força hostil bate fora de uma camada intacta de Defesa e invulnerabilidade. Olhos podem se fechar no reflexo defensivo; nada de encarar o observador. Uma única entidade, corpo ainda com dois braços e duas pernas, sem nascer um casco mecânico ou nova forma.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "voronir:base:portrait",
+      "kind": "base",
+      "characterId": "voronir",
+      "displayName": "Voronir",
+      "world": "Inferno",
+      "kingdom": "Tártaro",
+      "slot": "portrait",
+      "name": "Retrato",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "perfil através de um arco baixo",
+      "scene": "Voronir dobra joelhos e pescoço para examinar um sulco de Essência na geada. Uma garra levanta tecido preso na pedra; o bico e os dois olhos acompanham exatamente o rastro, e as penas se erguem com o frio. Não é um retrato de caçador empunhando equipamento nem um pássaro olhando para a câmera.",
+      "mechanicsSnapshot": null,
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [],
+      "referencePolicy": "New character: no invented reference image.",
+      "proposedOutput": "art/characters/voronir/anime-first-completion-20261028/portrait.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.\nIdentity: Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: perfil através de um arco baixo. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Voronir dobra joelhos e pescoço para examinar um sulco de Essência na geada. Uma garra levanta tecido preso na pedra; o bico e os dois olhos acompanham exatamente o rastro, e as penas se erguem com o frio. Não é um retrato de caçador empunhando equipamento nem um pássaro olhando para a câmera.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "voronir:base:passive",
+      "kind": "base",
+      "characterId": "voronir",
+      "displayName": "Voronir",
+      "world": "Inferno",
+      "kingdom": "Tártaro",
+      "slot": "passive",
+      "name": "Rastreamento de Anomalia",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "close do vínculo entre marca e reserva",
+      "scene": "Um único ghoul com Marca de Captura acaba de ser ferido e contrai o ombro. UMA Essência se desprende de sua tentativa de conjuração, puxada por um fio vermelho para a garra do caçador, e UMA carga compacta se acende junto ao punho plumado. Mostrar roubo e carga após acertar alvo já marcado, sem duas vítimas ou dano em área.",
+      "mechanicsSnapshot": {
+        "name": "Rastreamento de Anomalia",
+        "englishName": "Anomaly Tracking",
+        "trigger": "hit",
+        "requiresOwnMark": true,
+        "effect": {
+          "stealEssence": {
+            "amount": 1
+          },
+          "gainCharge": 1
+        },
+        "description": "Uma vez por rodada, ferir um alvo com a Marca de Voronir rouba 1 Essência e concede 1 carga.",
+        "englishDescription": "Once per round, hitting a target with Voronir's Mark steals 1 Essence and grants 1 charge.",
+        "type": "triggered"
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "voronir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/voronir/anime-first-completion-20261028/passive.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.\nIdentity: Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Rastreamento de Anomalia\",\"englishName\":\"Anomaly Tracking\",\"trigger\":\"hit\",\"requiresOwnMark\":true,\"effect\":{\"stealEssence\":{\"amount\":1},\"gainCharge\":1},\"description\":\"Uma vez por rodada, ferir um alvo com a Marca de Voronir rouba 1 Essência e concede 1 carga.\",\"englishDescription\":\"Once per round, hitting a target with Voronir's Mark steals 1 Essence and grants 1 charge.\",\"type\":\"triggered\"}\nComposition: close do vínculo entre marca e reserva. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um único ghoul com Marca de Captura acaba de ser ferido e contrai o ombro. UMA Essência se desprende de sua tentativa de conjuração, puxada por um fio vermelho para a garra do caçador, e UMA carga compacta se acende junto ao punho plumado. Mostrar roubo e carga após acertar alvo já marcado, sem duas vítimas ou dano em área.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "voronir:base:impulso",
+      "kind": "base",
+      "characterId": "voronir",
+      "displayName": "Voronir",
+      "world": "Inferno",
+      "kingdom": "Tártaro",
+      "slot": "impulso",
+      "name": "Marca de Captura",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "vista superior através de gelo rachado",
+      "scene": "Uma linha de captura perfura a sombra de um único ghoul em fuga e deixa uma pequena marca vermelha no tecido do ombro. O alvo vira o tronco na direção do puxão e perde o passo por dor, mas não fica atordoado por essa técnica. Voronir aparece apenas parcialmente na borda, com a garra seguindo a linha; sem arpão moderno ou cabos.",
+      "mechanicsSnapshot": {
+        "name": "Marca de Captura",
+        "damage": 10,
+        "cost": 1,
+        "damageType": "piercing",
+        "mark": true,
+        "markTurns": 2,
+        "target": "enemy",
+        "id": "impulso",
+        "costs": {
+          "affinity": 1
+        },
+        "cooldown": 0,
+        "kind": "control",
+        "description": "Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "voronir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/voronir/anime-first-completion-20261028/skill-impulso.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.\nIdentity: Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Marca de Captura\",\"damage\":10,\"cost\":1,\"damageType\":\"piercing\",\"mark\":true,\"markTurns\":2,\"target\":\"enemy\",\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 10 de dano perfurante a um inimigo. Marca o alvo por 2 turnos.\"}\nComposition: vista superior através de gelo rachado. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Uma linha de captura perfura a sombra de um único ghoul em fuga e deixa uma pequena marca vermelha no tecido do ombro. O alvo vira o tronco na direção do puxão e perde o passo por dor, mas não fica atordoado por essa técnica. Voronir aparece apenas parcialmente na borda, com a garra seguindo a linha; sem arpão moderno ou cabos.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "voronir:base:tecnica",
+      "kind": "base",
+      "characterId": "voronir",
+      "displayName": "Voronir",
+      "world": "Inferno",
+      "kingdom": "Tártaro",
+      "slot": "tecnica",
+      "name": "Rede de Contenção",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "alvo dominante em plano baixo",
+      "scene": "A rede de fibras arcanas vermelhas se fecha sobre um único ghoul junto ao chão congelado. O golpe espiritual interrompe sua reação, braço e perna travam no meio do movimento e a expressão indica Atordoamento. A rede é tecida de Essência e fibras, sem malha industrial, brilho de laser, olhos de mira ou marca nova.",
+      "mechanicsSnapshot": {
+        "name": "Rede de Contenção",
+        "damage": 15,
+        "cost": 2,
+        "damageType": "energy",
+        "stun": 1,
+        "target": "enemy",
+        "id": "tecnica",
+        "costs": {
+          "affinity": 1,
+          "random": 1
+        },
+        "cooldown": 0,
+        "kind": "control",
+        "description": "Causa 15 de dano espiritual a um inimigo. Atordoa por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "voronir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/voronir/anime-first-completion-20261028/skill-tecnica.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.\nIdentity: Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Rede de Contenção\",\"damage\":15,\"cost\":2,\"damageType\":\"energy\",\"stun\":1,\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 15 de dano espiritual a um inimigo. Atordoa por 1 turno.\"}\nComposition: alvo dominante em plano baixo. Exactly 2 physical figures in this composition, including caster when visible.\nScene: A rede de fibras arcanas vermelhas se fecha sobre um único ghoul junto ao chão congelado. O golpe espiritual interrompe sua reação, braço e perna travam no meio do movimento e a expressão indica Atordoamento. A rede é tecida de Essência e fibras, sem malha industrial, brilho de laser, olhos de mira ou marca nova.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "voronir:base:voto",
+      "kind": "base",
+      "characterId": "voronir",
+      "displayName": "Voronir",
+      "world": "Inferno",
+      "kingdom": "Tártaro",
+      "slot": "voto",
+      "name": "Captura do Receptáculo",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "close de apoio falhando e Essência sendo puxada",
+      "scene": "No peito coberto de um único ghoul marcado, uma tentativa de técnica de apoio se desfaz enquanto UMA Essência é puxada para a garra plumada fora do quadro. A Marca de Captura permanece visível, ampliando o dano perfurante sem ser consumida. O alvo se dobra pela dor e olha para o apoio falhando, sem extração gráfica de órgãos ou aprisionamento de outro personagem.",
+      "mechanicsSnapshot": {
+        "name": "Captura do Receptáculo",
+        "damage": 18,
+        "cost": 2,
+        "damageType": "piercing",
+        "steal": 1,
+        "sealSupport": 1,
+        "combo": {
+          "condition": "marked",
+          "bonusDamage": 7
+        },
+        "target": "enemy",
+        "id": "voto",
+        "costs": {
+          "affinity": 1,
+          "essence": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 18 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem uma marca sua: +7 de dano."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "voronir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/voronir/anime-first-completion-20261028/skill-voto.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.\nIdentity: Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Captura do Receptáculo\",\"damage\":18,\"cost\":2,\"damageType\":\"piercing\",\"steal\":1,\"sealSupport\":1,\"combo\":{\"condition\":\"marked\",\"bonusDamage\":7},\"target\":\"enemy\",\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 18 de dano perfurante a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga. Se o alvo tem uma marca sua: +7 de dano.\"}\nComposition: close de apoio falhando e Essência sendo puxada. Exactly 2 physical figures in this composition, including caster when visible.\nScene: No peito coberto de um único ghoul marcado, uma tentativa de técnica de apoio se desfaz enquanto UMA Essência é puxada para a garra plumada fora do quadro. A Marca de Captura permanece visível, ampliando o dano perfurante sem ser consumida. O alvo se dobra pela dor e olha para o apoio falhando, sem extração gráfica de órgãos ou aprisionamento de outro personagem.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "voronir:base:despertar",
+      "kind": "base",
+      "characterId": "voronir",
+      "displayName": "Voronir",
+      "world": "Inferno",
+      "kingdom": "Tártaro",
+      "slot": "despertar",
+      "name": "Armadilha de Vazio",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "por trás dos ombros, corpo recolhido",
+      "scene": "Voronir sozinho recolhe os dois braços plumados e dobra as duas pernas para desviar o tronco da força que chega por trás e de lado. Um vazio arcano imóvel envolve a silhueta como Defesa e invulnerabilidade; detritos param fora dele. Não mostrar armadilha capturando um inimigo: esta técnica protege apenas o próprio usuário. Anatomia de ave coerente e sem asas extras.",
+      "mechanicsSnapshot": {
+        "name": "Armadilha de Vazio",
+        "shield": 6,
+        "target": "self",
+        "costs": {
+          "random": 1
+        },
+        "invulnerable": 1,
+        "cooldown": 4,
+        "defense": true,
+        "id": "despertar",
+        "kind": "defense",
+        "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "voronir:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/voronir/anime-first-completion-20261028/skill-despertar.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Tártaro: mármore negro congelado, fossos imóveis e arcos baixos sob tempestade de cinzas frias. Preto e vermelho infernal dominante, geada cinza e prata como acentos; não usar roxo dominante do Limbo, tecnologia, radar ou redes mecânicas.\nIdentity: Voronir é um caçador infernal aviano, muito alto e estreito, com duas pernas digitígradas naturais, duas asas reduzidas a antebraços plumados que funcionam como braços, três garras principais em cada mão e pés de ave com três dedos anteriores e um posterior. Cabeça de bico negro longo e curvo, dois olhos vermelho-escuros expressivos, penas negras rígidas na nuca, sem chifres ou rosto humano. Manto curto preto e vermelho-queimado amarrado com fibras orgânicas, gelo opaco nas penas e pequenas placas de osso natural no peito; sem armadura ou equipamento fabricado. Não criar voo ou metamorfose, pois o kit não os prevê.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Armadilha de Vazio\",\"shield\":6,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: por trás dos ombros, corpo recolhido. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Voronir sozinho recolhe os dois braços plumados e dobra as duas pernas para desviar o tronco da força que chega por trás e de lado. Um vazio arcano imóvel envolve a silhueta como Defesa e invulnerabilidade; detritos param fora dele. Não mostrar armadilha capturando um inimigo: esta técnica protege apenas o próprio usuário. Anatomia de ave coerente e sem asas extras.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "icarus:base:portrait",
+      "kind": "base",
+      "characterId": "icarus",
+      "displayName": "Icarus",
+      "world": "Limbo",
+      "kingdom": "Umbral",
+      "slot": "portrait",
+      "name": "Retrato",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "rente à beirada em três quartos",
+      "scene": "Icarus se agacha na beirada de um degrau suspenso e recupera o equilíbrio agarrando a pedra com uma mão. A outra segura o poncho que o vento puxa; os olhos arregalados acompanham a fenda abaixo, a boca prende o ar e os joelhos sustentam uma posição possível. Não abrir os braços em pose de voo ou olhar para o observador.",
+      "mechanicsSnapshot": null,
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [],
+      "referencePolicy": "New character: no invented reference image.",
+      "proposedOutput": "art/characters/icarus/anime-first-completion-20261028/portrait.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.\nIdentity: Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.\nExact runtime mechanics (for visual interpretation, never render text): null\nComposition: rente à beirada em três quartos. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Icarus se agacha na beirada de um degrau suspenso e recupera o equilíbrio agarrando a pedra com uma mão. A outra segura o poncho que o vento puxa; os olhos arregalados acompanham a fenda abaixo, a boca prende o ar e os joelhos sustentam uma posição possível. Não abrir os braços em pose de voo ou olhar para o observador.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "icarus:base:passive",
+      "kind": "base",
+      "characterId": "icarus",
+      "displayName": "Icarus",
+      "world": "Limbo",
+      "kingdom": "Umbral",
+      "slot": "passive",
+      "name": "Queda Compartilhada",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "diagonal ligando usuário atingido e agressor",
+      "scene": "Depois de um golpe de sombra fazer Icarus perder Vida e recuar de verdade, a fenda junto ao ombro produz UMA Ruptura violeta. Ao mesmo tempo, uma pequena aflição percorre o vínculo de volta e queima a roupa do único agressor. Não mostrar contra-ataque que anula o golpe, cura, geração de vários recursos ou retaliação contra o trio.",
+      "mechanicsSnapshot": {
+        "name": "Queda Compartilhada",
+        "englishName": "Shared Fall",
+        "trigger": "damaged",
+        "requiresLifeLoss": true,
+        "effect": {
+          "generateEssence": {
+            "resource": "ruptura",
+            "amount": 1
+          },
+          "damageAttacker": 4
+        },
+        "description": "Uma vez por rodada, depois de perder Vida para uma habilidade, Icarus gera 1 Ruptura e causa 4 de dano de aflição ao agressor.",
+        "englishDescription": "Once per round, after losing Health to an ability, Icarus generates 1 Rupture and deals 4 affliction damage to the attacker.",
+        "type": "triggered"
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "icarus:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/icarus/anime-first-completion-20261028/passive.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.\nIdentity: Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Queda Compartilhada\",\"englishName\":\"Shared Fall\",\"trigger\":\"damaged\",\"requiresLifeLoss\":true,\"effect\":{\"generateEssence\":{\"resource\":\"ruptura\",\"amount\":1},\"damageAttacker\":4},\"description\":\"Uma vez por rodada, depois de perder Vida para uma habilidade, Icarus gera 1 Ruptura e causa 4 de dano de aflição ao agressor.\",\"englishDescription\":\"Once per round, after losing Health to an ability, Icarus generates 1 Rupture and deals 4 affliction damage to the attacker.\",\"type\":\"triggered\"}\nComposition: diagonal ligando usuário atingido e agressor. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Depois de um golpe de sombra fazer Icarus perder Vida e recuar de verdade, a fenda junto ao ombro produz UMA Ruptura violeta. Ao mesmo tempo, uma pequena aflição percorre o vínculo de volta e queima a roupa do único agressor. Não mostrar contra-ataque que anula o golpe, cura, geração de vários recursos ou retaliação contra o trio.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "icarus:base:impulso",
+      "kind": "base",
+      "characterId": "icarus",
+      "displayName": "Icarus",
+      "world": "Limbo",
+      "kingdom": "Umbral",
+      "slot": "impulso",
+      "name": "Asa Fraturada",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "consequência em close do ombro do alvo",
+      "scene": "Uma manifestação plana e fraturada de luz violeta, semelhante a uma asa incompleta, atravessa a SOMBRA de um único eco do Limbo. O alvo contrai o ombro e o véu se abre numa costura luminosa de Exposição. Icarus aparece só como mão e manga ao fundo; não ganhar asas de carne, voar ou atingir vários alvos.",
+      "mechanicsSnapshot": {
+        "name": "Asa Fraturada",
+        "damage": 13,
+        "cost": 1,
+        "damageType": "piercing",
+        "expose": 1,
+        "target": "enemy",
+        "id": "impulso",
+        "costs": {
+          "affinity": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 13 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "icarus:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/icarus/anime-first-completion-20261028/skill-impulso.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.\nIdentity: Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Asa Fraturada\",\"damage\":13,\"cost\":1,\"damageType\":\"piercing\",\"expose\":1,\"target\":\"enemy\",\"id\":\"impulso\",\"costs\":{\"affinity\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 13 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado.\"}\nComposition: consequência em close do ombro do alvo. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Uma manifestação plana e fraturada de luz violeta, semelhante a uma asa incompleta, atravessa a SOMBRA de um único eco do Limbo. O alvo contrai o ombro e o véu se abre numa costura luminosa de Exposição. Icarus aparece só como mão e manga ao fundo; não ganhar asas de carne, voar ou atingir vários alvos.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "icarus:base:tecnica",
+      "kind": "base",
+      "characterId": "icarus",
+      "displayName": "Icarus",
+      "world": "Limbo",
+      "kingdom": "Umbral",
+      "slot": "tecnica",
+      "name": "Sol Proibido",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 2,
+      "framing": "plano lateral com foco na reação dupla",
+      "scene": "Um pequeno núcleo violeta de luz proibida rompe o ar e atinge um único eco, interrompendo o movimento dele por Atordoamento. Icarus também dobra o corpo com a sobrecarga da técnica e segura o próprio ombro, com exaustão e tecido chamuscado friamente, representando o custo de Vida. Sem automutilação, sol dourado, sangue vermelho dominante ou nova transformação.",
+      "mechanicsSnapshot": {
+        "name": "Sol Proibido",
+        "damage": 16,
+        "cost": 2,
+        "damageType": "energy",
+        "selfDamage": 4,
+        "stun": 1,
+        "target": "enemy",
+        "id": "tecnica",
+        "costs": {
+          "affinity": 1,
+          "random": 1
+        },
+        "cooldown": 0,
+        "kind": "control",
+        "description": "Causa 16 de dano espiritual a um inimigo. Atordoa por 1 turno. O usuário perde 4 de Vida (não pode ser derrotado por este custo)."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "icarus:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/icarus/anime-first-completion-20261028/skill-tecnica.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.\nIdentity: Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Sol Proibido\",\"damage\":16,\"cost\":2,\"damageType\":\"energy\",\"selfDamage\":4,\"stun\":1,\"target\":\"enemy\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"cooldown\":0,\"kind\":\"control\",\"description\":\"Causa 16 de dano espiritual a um inimigo. Atordoa por 1 turno. O usuário perde 4 de Vida (não pode ser derrotado por este custo).\"}\nComposition: plano lateral com foco na reação dupla. Exactly 2 physical figures in this composition, including caster when visible.\nScene: Um pequeno núcleo violeta de luz proibida rompe o ar e atinge um único eco, interrompendo o movimento dele por Atordoamento. Icarus também dobra o corpo com a sobrecarga da técnica e segura o próprio ombro, com exaustão e tecido chamuscado friamente, representando o custo de Vida. Sem automutilação, sol dourado, sangue vermelho dominante ou nova transformação.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "icarus:base:voto",
+      "kind": "base",
+      "characterId": "icarus",
+      "displayName": "Icarus",
+      "world": "Limbo",
+      "kingdom": "Umbral",
+      "slot": "voto",
+      "name": "Fenda que Arrasta",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 4,
+      "framing": "alto e aberto sobre três plataformas",
+      "scene": "A fenda arrasta a sombra e a roupa de TRÊS ecos inimigos em plataformas distintas; aflição e pequenas queimaduras arcanas violetas persistem em todos. Cada alvo reage fisicamente ao puxão: um se apoia, outro perde o passo e o terceiro se encolhe. Icarus pequeno numa quarta borda, sem levitação heroica. Três alvos exatos; não inventar stun coletivo, morte ou dano vermelho.",
+      "mechanicsSnapshot": {
+        "name": "Fenda que Arrasta",
+        "target": "all-enemies",
+        "damage": 12,
+        "cost": 2,
+        "damageType": "affliction",
+        "dot": {
+          "tag": "queimadura",
+          "damage": 4,
+          "turns": 2
+        },
+        "id": "voto",
+        "costs": {
+          "affinity": 1,
+          "essence": 1
+        },
+        "cooldown": 0,
+        "kind": "strike",
+        "description": "Causa 12 de dano de aflição a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "icarus:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/icarus/anime-first-completion-20261028/skill-voto.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.\nIdentity: Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Fenda que Arrasta\",\"target\":\"all-enemies\",\"damage\":12,\"cost\":2,\"damageType\":\"affliction\",\"dot\":{\"tag\":\"queimadura\",\"damage\":4,\"turns\":2},\"id\":\"voto\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 12 de dano de aflição a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.\"}\nComposition: alto e aberto sobre três plataformas. Exactly 4 physical figures in this composition, including caster when visible.\nScene: A fenda arrasta a sombra e a roupa de TRÊS ecos inimigos em plataformas distintas; aflição e pequenas queimaduras arcanas violetas persistem em todos. Cada alvo reage fisicamente ao puxão: um se apoia, outro perde o passo e o terceiro se encolhe. Icarus pequeno numa quarta borda, sem levitação heroica. Três alvos exatos; não inventar stun coletivo, morte ou dano vermelho.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    },
+    {
+      "key": "icarus:base:despertar",
+      "kind": "base",
+      "characterId": "icarus",
+      "displayName": "Icarus",
+      "world": "Limbo",
+      "kingdom": "Umbral",
+      "slot": "despertar",
+      "name": "Altitude Impossível",
+      "status": "planned_not_generated",
+      "expectedPhysicalFigures": 1,
+      "framing": "close por baixo de uma laje suspensa",
+      "scene": "Icarus sozinho se recolhe atrás de uma dobra violeta do espaço que sustenta sua silhueta numa altura impossível, com um pé apoiado de forma visível num degrau real. O rosto acompanha a força hostil ou se esconde num reflexo defensivo; detritos param fora da camada intacta de Defesa e invulnerabilidade. Não criar voo, inimigo preso ou asas anatômicas.",
+      "mechanicsSnapshot": {
+        "name": "Altitude Impossível",
+        "shield": 6,
+        "target": "self",
+        "costs": {
+          "random": 1
+        },
+        "invulnerable": 1,
+        "cooldown": 4,
+        "defense": true,
+        "id": "despertar",
+        "kind": "defense",
+        "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno."
+      },
+      "identityStatus": "new_visual_brief_for_previously_unillustrated_character",
+      "dependsOn": [
+        "icarus:base:portrait"
+      ],
+      "referencePolicy": "Use this batch's inspected portrait only to preserve physical identity; do not copy its pose, gaze or camera.",
+      "proposedOutput": "art/characters/icarus/anime-first-completion-20261028/skill-despertar.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Umbral no Limbo: pontes interrompidas, vazios, escadas suspensas e névoas roxas, cinzas e azuis desbotadas. Poderes violeta e luz fria; Sol Proibido NÃO é um sol dourado de Paraíso nem chama vermelha infernal. Sem tecnologia, asas de anjo ou paisagem romântica.\nIdentity: Icarus é uma pessoa adulta jovem, baixa e esguia, de pele oliva clara com sardas densas, olhos azul-ardósia, nariz curto e pequeno espaço entre os dentes superiores. Cabelo castanho médio, espesso e ondulado até a linha da mandíbula, sem penteado ou cores de Eiremir. Poncho curto carvão com forro cinza e costuras violeta, calças cinza gastas e tecido nos tornozelos, mãos e pés humanos de cinco dedos. Uma fissura de Essência violeta acompanha a sombra do ombro, sem asa anatômica permanente: o aspecto de asa é uma manifestação da habilidade, nunca transformação física gratuita.\nExact runtime mechanics (for visual interpretation, never render text): {\"name\":\"Altitude Impossível\",\"shield\":6,\"target\":\"self\",\"costs\":{\"random\":1},\"invulnerable\":1,\"cooldown\":4,\"defense\":true,\"id\":\"despertar\",\"kind\":\"defense\",\"description\":\"Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.\"}\nComposition: close por baixo de uma laje suspensa. Exactly 1 physical figures in this composition, including caster when visible.\nScene: Icarus sozinho se recolhe atrás de uma dobra violeta do espaço que sustenta sua silhueta numa altura impossível, com um pé apoiado de forma visível num degrau real. O rosto acompanha a força hostil ou se esconde num reflexo defensivo; detritos param fora da camada intacta de Defesa e invulnerabilidade. Não criar voo, inimigo preso ou asas anatômicas.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+    }
+  ],
+  "engineReview": {
+    "merlindropePassive": "Corrected inactive hit trigger by removing obsolete support-shield threshold.",
+    "atlasDefenseConversion": "All actor Defense is consumed; damage bonus remains capped.",
+    "bulkirMissingHealth": "Uses the attacker's missing Health."
+  }
+}

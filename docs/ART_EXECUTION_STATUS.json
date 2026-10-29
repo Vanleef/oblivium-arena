@@ -1,7 +1,7 @@
 {
   "complete": false,
   "status": "in_progress",
-  "tool": "built-in image_gen",
+  "tool": "built-in image_gen with user-authorized Perchance fallback",
   "scope": {
     "runtimeEntries": 150,
     "logicalArtSlots": 998
@@ -21,6 +21,43 @@
   "generationBlock": {
     "type": "usage_limit_reached",
     "resetUnix": 1793267550,
-    "blockedOperation": "baal:base:despertar"
+    "blockedOperation": "baal:base:despertar",
+    "lastConfirmedLocal": "2026-10-28T22:03:04-03:00",
+    "scope": "Built-in generator only; Perchance fallback is available and tested."
+  },
+  "preparedGenerationPlans": {
+    "base": "docs/ART_NEXT_BASE_BATCH_20261028.json",
+    "variants": "docs/ART_NEXT_VARIANT_BATCH_20261028.json",
+    "missingBaseJobs": 30,
+    "compositionCorrections": 1,
+    "dedicatedVariantJobs": 36,
+    "totalPreparedJobs": 67,
+    "generatedByThesePlans": 0
+  },
+  "planningNotes": [
+    "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
+    "Dano extra por Vida faltante usa a Vida do próprio atacante, incluindo Bulkir.",
+    "Avanço da Égide concede sua Defesa ao usuário no motor; a descrição genérica é ambígua.",
+    "Cláusula de Prisão de Merlindrope: removida condição antiga de Defesa em evento de acerto, preservando marca própria e frequência por rodada."
+  ],
+  "fallbackGeneration": {
+    "provider": "Perchance",
+    "url": "https://perchance.org/ai-text-to-image-generator",
+    "when": "Built-in image generator reaches usage limit",
+    "authorizedByUser": true,
+    "status": "tested",
+    "generatedCandidates": 14,
+    "integratedCandidates": 0,
+    "reviewReport": "docs/ART_PERCHANCE_TESTS_20261028.json",
+    "rejectedCandidateRetained": "art/source/perchance-tests-20261028/baal-defense-seed-770677746.jpg"
+  },
+  "validation": {
+    "merlindropeRegression": "3/3 pass",
+    "kitsAudit": "5 pass, 3 pre-existing failures reproduced on untouched baseline",
+    "preExistingFailures": [
+      "Nilo Prefácio Graça combo preparation",
+      "Nilo mark use assertion",
+      "Fixture expects a missing firstHit passive"
+    ]
   }
 }
