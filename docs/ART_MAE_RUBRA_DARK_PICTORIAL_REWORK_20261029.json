@@ -8,11 +8,11 @@
   "kingdom": "Flagelo",
   "status": "generated_integrated_pending_visual_approval",
   "provider": "OpenAI ImageGen",
-  "artDirection": "Dark fantasy pictórica densa com estilização gráfica 2.5D: pinceladas visíveis e angulares, contornos manuais, hachuras, sombras de corte e luzes de recorte, superfícies gastas e materialidade tátil; ligeiramente estilizada, sem realismo fotográfico ou acabamento 3D.",
-  "styleReference": "A referência do homem decadente com raízes e machado informa peso e textura; o retrato 2.5D dos Gêmeos informa contornos manuais e hachuras. As artes anteriores de Julia preservam sua identidade e o xale vermelho.",
+  "artDirection": "Dark fantasy pictórica gráfica 2.5D: pinceladas visíveis e angulares, contornos manuais, hachuras, sombras cortadas e luzes de recorte, mantendo superfície gasta e materialidade tátil; ligeiramente estilizada, sem realismo fotográfico ou acabamento 3D.",
+  "styleReference": "A referência do homem decadente com raízes e machado informa somente peso, textura e acabamento. A estilização gráfica usa pinceladas angulares, contornos e hachuras; o retrato anime anterior de Julia serve apenas para identidade.",
   "previousRoute": "/art/characters/a-mae-rubra/anime-first-rework-20261027",
   "activeRoute": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029",
-  "identity": "Julia Maesa é uma mulher madura de pele castanho-média, cabelo grisalho-prateado em exatamente duas tranças grossas presas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate muito pesado e desfiado. Rosto descoberto, sem máscara, armadura ou coroa; manter anatomia natural e mãos legíveis.",
+  "identity": "Julia Maesa é uma mulher madura de pele castanho-média, cabelo grisalho-prateado em exatamente duas tranças grossas presas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate muito pesado e desfiado. Rosto descoberto, sem máscara, armadura ou coroa; preservar idade, proporções naturais e mãos legíveis.",
   "assets": [
     {
       "slot": "portrait",
@@ -29,17 +29,17 @@
           512
         ]
       },
-      "sourceSha256": "764b13512638a2f3e158712901cfd6d9b0d9a6503dd334ae9c814a055b47e87e",
-      "activeSha256": "fc0834ed0d9da6ba7fc7ca93a874e8f79cda72790d7cceae71fad1cb078e449e",
-      "generatedImage": "generated_images/exec-35a359b7-6d33-4117-ab82-2a5d85142a64.png",
-      "scene": "Close baixo em três quartos; Julia segura a trama do xale escarlate diante das ruínas do Flagelo.",
+      "sourceSha256": "ed5be594a6e01e1586c8d6fb6a77befd4676dd074469eb2e3ed19bdb134637c7",
+      "activeSha256": "f412efa7ea6ce0aaa7d2026fd26e0d3dbbab04e396e154e1059c8045c879d173",
+      "generatedImage": "generated_images/exec-405d4cbe-e3bc-43e3-8869-1a63a5f5ee93.png",
+      "scene": "Retrato baixo em três quartos; Julia aperta o cordão tecido no antebraço e reage a alguém fora de quadro.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "slot": "passive",
       "name": "Sangue que Acolhe",
-      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/passive.webp",
-      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/passive.jpg",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-passive.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/skill-passive.jpg",
       "dimensions": {
         "source": [
           768,
@@ -50,10 +50,10 @@
           512
         ]
       },
-      "sourceSha256": "3609852e86b66768a7d2761bb9cffc4a4a4c17cd29a596c70a4fa423ab42df6f",
-      "activeSha256": "10818e7043705323d1dd84f8e095521b4e4becb70cc6a8fe2728f09ffb7df960",
-      "generatedImage": "generated_images/exec-8c13f8b6-5faa-42e5-8a1c-7c9e03111fc6.png",
-      "scene": "Vista elevada oblíqua; Julia cobre um aliado ferido com o xale e um fio fino retorna ao seu peito.",
+      "sourceSha256": "99eadae48b1e4bb9cdd14bc50961f32cbba8f80a188a8ec2711962c04eacf086",
+      "activeSha256": "eadd59b9a3d304c71f3364bec8d9cec4919625b9db6db9217ac47cfafa8e5c6c",
+      "generatedImage": "generated_images/exec-7c8cb7c6-635f-407b-a112-cbddff4aa183.png",
+      "scene": "Oblíquo próximo; um ghoul reanima outro, enquanto Julia envolve o aliado com uma atadura trançada e fortalece sua guarda.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -71,10 +71,10 @@
           512
         ]
       },
-      "sourceSha256": "156b98dacd0449d384fcdb4a18c6b9d0bef75220e1df79e0c07e567ac95f34c2",
-      "activeSha256": "452254747204484ce180cb43b271e03773e4167685d5c2e798e06f0ebde11eda",
-      "generatedImage": "generated_images/exec-79e23424-0320-4ff5-a9e3-eddfec326a38.png",
-      "scene": "Perfil baixo lateral; uma corda da trama atinge um ghoul e devolve um fio vermelho à Matriarca.",
+      "sourceSha256": "c33f3d2b0e68522f820350c4d2ed20ad73f0be0c8fef2bfae10a061aa141997c",
+      "activeSha256": "4f640883e79a0b8644cbb66902e4d1ceaff1d0897242c668f97cb2c7bf2305cb",
+      "generatedImage": "generated_images/exec-854b9121-3a4d-4240-899e-ee248b2fc5c6.png",
+      "scene": "Reversa baixa; Julia finca os pés e puxa o ghoul com corda grossa, as brasas físicas seguem pela trança até a mão.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -92,10 +92,10 @@
           512
         ]
       },
-      "sourceSha256": "56b021ae34664bb31928edcbdf0b508931993b3173478a0b9a7091b7712fa49e",
-      "activeSha256": "85563b2013528f8102db54c4228c69cf10445115d5712aabbf827b6eb9b955ea",
-      "generatedImage": "generated_images/exec-d3a3e9fc-1896-4f4f-b89c-0546e87ec313.png",
-      "scene": "Close por cima do ombro; o xale protege um aliado enquanto a Matriarca cede um fio de vitalidade.",
+      "sourceSha256": "54f3c1d040b8fa9df12710cfb5d3eac6a01cb09d3a978b438ef4f6db655e9c64",
+      "activeSha256": "4bed5ef626989e4568833e7215a351492a76ae409b9f7371cd06750be1f84a72",
+      "generatedImage": "generated_images/exec-427cbe4e-b014-414b-9133-6a16b373bca3.png",
+      "scene": "Perfil médio; Julia ata o torso de um aliado com a própria manta, que se levanta enquanto ela sente o custo da transferência.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -113,10 +113,10 @@
           512
         ]
       },
-      "sourceSha256": "75a6e84a2d71a78f0711ac70a958975adcf5c66e899c2d94e78005867f1b5daa",
-      "activeSha256": "f8426509908508d41869f1fe5c108bbbefc20b1de796c445eb6cf690f57534c6",
-      "generatedImage": "generated_images/exec-65c8ad2a-cca2-4da6-9584-b80b87649b78.png",
-      "scene": "Ângulo elevado em triângulo; três inimigos são atingidos por cordões de tecido escarlate, sem gore.",
+      "sourceSha256": "a1c35d3913bfe544775a1f54a0bb40a9aa7e2fb73380d49a4ce696bc538e5d61",
+      "activeSha256": "91427345560cf50733c71d2123dc7fe60d2e7917e39c7e1156d8f1b1722e64d2",
+      "generatedImage": "generated_images/exec-4f8922a6-4f45-4856-b8b2-7e3b5dd0e5c9.png",
+      "scene": "Plano elevado diagonal; a rede espessa acerta três ghouls separados e racha o basalto.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -134,19 +134,17 @@
           512
         ]
       },
-      "sourceSha256": "a992f929197c00cc7e555394ac44179868273f08609e1ee184ca6e0c1f2a74ac",
-      "activeSha256": "448d110cfff79df3f3e686d0fc84030c9dda4454c455d3a7dbc3ce2bca07cc67",
-      "generatedImage": "generated_images/exec-8d386864-64a8-41fd-bb6d-d4a2440ee8fa.png",
-      "scene": "Vista baixa reversa; a espada inimiga para no xale pesado, com mãos e braços claramente separados.",
+      "sourceSha256": "66c11aa487962592c3896b4ad9fb1f80ae2894c44c42f00b4bac1b4bcb37261d",
+      "activeSha256": "0b99ee26da60ca8c52580fbc29a67b3e0d95caaf794e6bfec080a094e5bc463b",
+      "generatedImage": "generated_images/exec-c0117d79-aff2-4ccb-8580-ec4df54329eb.png",
+      "scene": "Reversa baixa; agachada sob a trama de tecido ancorada ao basalto, Julia detém as garras do ghoul com o manto.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     }
   ],
   "reviewStatus": "all_candidates_pending_visual_approval",
-  "compositionReview": "Seis ângulos distintos: retrato baixo em três quartos, vista alta oblíqua, perfil lateral baixo, close por cima do ombro, triângulo elevado para a área e reversa baixa para a defesa. Os alvos permanecem separados e vivos; mãos, juntas e proporções foram revisadas. O quadro de Casulo Rubro foi substituído para separar claramente as duas mãos da Matriarca e os braços do atacante.",
+  "compositionReview": "Os ângulos variam entre retrato baixo, oblíquo próximo, reversa baixa, perfil médio, plano elevado diagonal e reversa baixa. A anatomia é legível; Cordão Rubro usa uma corda fisicamente grossa, Berço de Sangue mantém três ghouls separados e Casulo Rubro mostra a postura agachada, braços e pernas de Julia e o ataque bloqueado.",
   "references": [
-    "art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
-    "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
-    "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-impulso.webp",
-    "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-tecnica.webp"
+    "Imagem de referência do usuário: homem decadente com raízes e machado — somente textura, peso e acabamento",
+    "art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp"
   ]
 }
