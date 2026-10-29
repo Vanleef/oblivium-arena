@@ -302,7 +302,13 @@
     "serena:base:impulso",
     "serena:base:tecnica",
     "serena:base:voto",
-    "serena:base:despertar"
+    "serena:base:despertar",
+    "placido:base:portrait",
+    "placido:base:passive",
+    "placido:base:impulso",
+    "placido:base:tecnica",
+    "placido:base:voto",
+    "placido:base:despertar"
   ],
   "pendingCorrections": []
 }

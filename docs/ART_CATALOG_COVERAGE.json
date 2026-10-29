@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 881,
-    "baseMissing": 42,
-    "entriesWithAnyBaseMissing": 7,
-    "entriesWithoutAnyBaseArt": 7,
+    "basePresent": 887,
+    "baseMissing": 36,
+    "entriesWithAnyBaseMissing": 6,
+    "entriesWithoutAnyBaseArt": 6,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 302,
+    "reviewedSlots": 308,
     "correctionSlots": 0,
-    "fullyReviewedEntries": 45,
-    "pendingSlots": 696
+    "fullyReviewedEntries": 46,
+    "pendingSlots": 690
   },
   "entries": [
     {
@@ -1815,16 +1815,9 @@
       "kingdom": "Magma",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "placido:base:portrait",
-        "placido:base:passive",
-        "placido:base:impulso",
-        "placido:base:tecnica",
-        "placido:base:voto",
-        "placido:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "baal",

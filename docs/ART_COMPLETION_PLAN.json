@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 48,
-    "newAbilityScenesSaved": 241,
+    "newPortraitsSaved": 49,
+    "newAbilityScenesSaved": 246,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13188,40 +13188,8 @@
           "key": "xian:base:passive",
           "characterId": "xian",
         
-... 26158 bytes omitted ...
-logo/anime-first-completion-20261028/skill-despertar.webp",
-          "exists": true,
-          "status": "reviewed"
-        }
-      ],
-      "complete": true
-    },
-    {
-      "id": "cain",
-      "name": "Cain",
-      "title": "Reflexo Cruel",
-      "realm": "Inferno",
-      "kingdom": "Flagelo",
-      "cohort": "story",
-      "family": "cain",
-      "slots": [
-        {
-          "key": "cain:base:portrait",
-          "characterId": "cain",
-          "kind": "base",
-          "slot": "portrait",
-          "name": "Retrato",
-          "art": "/art/characters/cain/anime-first-completion-20261028/portrait.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "cain:base:passive",
-          "characterId": "cain",
-          "kind": "base",
-          "slot": "passive",
-          "name": "Culpa que Morde",
-          "description": "Uma vez por rodada, ferir um alvo com a Marca de Cain concede 1 carga.",
+... 27117 bytes omitted ...
+
           "art": "/art/characters/cain/anime-first-completion-20261028/passive.webp",
           "exists": true,
           "status": "reviewed"
@@ -13567,8 +13535,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/placido/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "placido:base:passive",
@@ -13577,8 +13546,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
           "slot": "passive",
           "name": "Regra Aplicada",
           "description": "Uma vez por rodada, atacar um alvo com a Marca de Plácido também sela o apoio dele por 1 turno.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/placido/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "placido:base:impulso",
@@ -13590,8 +13560,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
           "name": "Artigo de Ferro",
           "description": "Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/placido/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "placido:base:tecnica",
@@ -13603,8 +13574,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
           "name": "Interdição Formal",
           "description": "Causa 15 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/placido/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "placido:base:voto",
@@ -13616,8 +13588,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
           "name": "Cláusula de Continuidade",
           "description": "Concede 8 de Defesa destrutível ao trio. Reduz em 3 o dano recebido por 1 turno pelo beneficiado.",
           "target": "team",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/placido/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "placido:base:despertar",
@@ -13629,11 +13602,12 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
           "name": "Estado de Exceção",
           "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/placido/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "baal",
@@ -26629,8 +26603,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/placido/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "placido:base:passive",
@@ -26639,8 +26614,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
       "slot": "passive",
       "name": "Regra Aplicada",
       "description": "Uma vez por rodada, atacar um alvo com a Marca de Plácido também sela o apoio dele por 1 turno.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/placido/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "placido:base:impulso",
@@ -26652,8 +26628,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
       "name": "Artigo de Ferro",
       "description": "Causa 12 de dano físico a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/placido/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "placido:base:tecnica",
@@ -26665,8 +26642,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
       "name": "Interdição Formal",
       "description": "Causa 15 de dano perfurante a um inimigo. Sela técnicas ofensivas por 1 turno do alvo.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/placido/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "placido:base:voto",
@@ -26678,8 +26656,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
       "name": "Cláusula de Continuidade",
       "description": "Concede 8 de Defesa destrutível ao trio. Reduz em 3 o dano recebido por 1 turno pelo beneficiado.",
       "target": "team",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/placido/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "placido:base:despertar",
@@ -26691,8 +26670,9 @@ logo/anime-first-completion-20261028/skill-despertar.webp",
       "name": "Estado de Exceção",
       "description": "Concede 7 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/placido/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "baal:base:portrait",
