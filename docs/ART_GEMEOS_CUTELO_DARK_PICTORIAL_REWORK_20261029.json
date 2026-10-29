@@ -8,11 +8,11 @@
   "kingdom": "Flagelo",
   "status": "generated_integrated_pending_visual_approval",
   "provider": "OpenAI ImageGen",
-  "artDirection": "Dark fantasy pictórica densa e texturizada, de pincelada grossa e alta materialidade: pele tátil, pedra erodida, cutelos gastos, tecido preto pesado e faixas carmesim. Um pouco mais estilizada e menos realista, sem acabamento polido.",
-  "styleReference": "Baal — Manto de Cinzas, referência apenas de textura, pincelada e materialidade; as artes antigas dos Gêmeos preservam identidade, não rendering.",
+  "artDirection": "Dark fantasy pictórica gráfica 2.5D: pinceladas visíveis e angulares, hachuras e contornos manuais, sombras cortadas, silhuetas dinâmicas, superfícies gastas e material tátil; ligeiramente estilizada, sem realismo fotográfico ou acabamento 3D.",
+  "styleReference": "Imagem de referência do homem decadente com raízes e machado — referência somente de peso, textura e acabamento, sem copiar personagem ou conceito; grafismo manual e hachuras conforme a direção atual do PMA.",
   "previousRoute": "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027",
   "activeRoute": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029",
-  "identity": "Cleobis tem pele castanho-escura, cachos negros curtos e pequena trança; Biton tem pele oliva clara e cabelo negro liso longo preso atrás. Os irmãos usam casacos de caça negros gastos, faixas carmesim, braçadeiras simples e cada um possui um cutelo largo. Manter dois humanos separados, sem troca de rostos ou fusão de membros.",
+  "identity": "Cleobis tem pele castanho-escura, cachos negros curtos e pequena trança; Biton tem pele oliva clara e cabelo negro longo preso atrás. Os irmãos têm traços faciais semelhantes, casacos de caça negros gastos, faixas carmesim, braçadeiras simples e um cutelo largo cada. Manter dois homens separados, sem troca de rostos ou fusão de membros.",
   "assets": [
     {
       "slot": "portrait",
@@ -29,17 +29,17 @@
           512
         ]
       },
-      "sourceSha256": "53706fdc15c6835d58f8487de5f3c4f790d67d8446b60b270c24973a9ad39448",
-      "activeSha256": "75e265c78f94153ecfd78213363012c8dd63d715e4386cd8f606279bcf0d4e7d",
-      "generatedImage": "generated_images/exec-bf42ad7f-0f3e-4f24-b67f-0fae743ff35a.png",
-      "scene": "Retrato baixo, lado a lado; Cleobis de pele escura e cachos, Biton de pele clara e cabelo longo preso, cada um com seu cutelo.",
+      "sourceSha256": "b1b6df7780f25f0edf6ddc727388fea54f17477dc793205d9739b5d8697e96b8",
+      "activeSha256": "621512a8ec01495c14121db423541decc782712b1333997a87dd3d2aaaed3372",
+      "generatedImage": "generated_images/exec-6535e380-2a8f-4458-b5f2-d2117fd4144b.png",
+      "scene": "Retrato baixo em três quartos; Cleobis e Biton ficam costas a costas, com pele, cabelo e cutelos distintos visíveis.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "slot": "passive",
       "name": "Ritmo dos Gêmeos",
-      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp",
-      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/passive.jpg",
+      "activeAsset": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-passive.webp",
+      "sourceAsset": "art/source/gemeos-do-cutelo-dark-pictorial-rework-20261029/skill-passive.jpg",
       "dimensions": {
         "source": [
           768,
@@ -50,10 +50,10 @@
           512
         ]
       },
-      "sourceSha256": "065822b42e02c50a5cb7898c5b62696bd616e87355d46a25f74f58211e68325b",
-      "activeSha256": "37276587e9fe5fef9747b6df0c54a7ebac9fc9e6eae3132cf3f910e37d6ec43d",
-      "generatedImage": "generated_images/exec-b1c92d51-2355-4727-a1fc-f7d89b8ea1f2.png",
-      "scene": "Vista zenital oblíqua; os dois gêmeos acertam um ghoul Exposto e sangrando; uma brasa retorna aos irmãos com Vida e Ruptura.",
+      "sourceSha256": "6f3c112f046978d7a33816bca39d55b5aebe31ff9c990d51cb6793e27a0de703",
+      "activeSha256": "1feb1c21f43681604038cf10a5cacf483ed603db10c53d50fa6791897de31368",
+      "generatedImage": "generated_images/exec-7354b0dd-c463-4641-b49c-4ac63ef548e0.png",
+      "scene": "Quadro quadrado oblíquo; Cleobis abre a guarda do ghoul e Biton entra no tempo; o impacto racha o basalto, sem feixes.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -71,10 +71,10 @@
           512
         ]
       },
-      "sourceSha256": "70c656f73dceee5494631554d9e6aa0df4caa588becc9d810e75b8b520392540",
-      "activeSha256": "4ed939047eb2ec8861cf4624230971dfc3fe95bab9d7196073db32a557f544cc",
-      "generatedImage": "generated_images/exec-27377e97-db1e-40a5-8c9a-300f1985c7d6.png",
-      "scene": "Reversa sobre o ombro do ghoul; Cleobis abre a guarda e Biton aguarda separado para a continuação.",
+      "sourceSha256": "201901abf0af54ff907597caf13eb02583db19cbebd77a1a42f08e2c74afbceb",
+      "activeSha256": "a8860aa716022f88e65173d56b59a5172fa2712a45c18dd745cfbf79e382110d",
+      "generatedImage": "generated_images/exec-0d540588-e980-4923-999c-313baed9af34.png",
+      "scene": "Lateral baixa; Cleobis desloca a guarda do ghoul com o cutelo e Biton prepara a continuação atrás, mantendo distância.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -92,10 +92,10 @@
           512
         ]
       },
-      "sourceSha256": "97bc3f2985a6a13e30b4d1a914ff59ece0e753290507253428da68a1ef2e7b97",
-      "activeSha256": "9b0c8b0d8be098c60196f76e5ef455b97d600f175ef4e8066ba94f1c4dfd424b",
-      "generatedImage": "generated_images/exec-c9e5817a-ad9d-41c5-83ee-7d03beb7d090.png",
-      "scene": "Lateral ao nível do chão; Biton aplica Sangramento a um ghoul e Cleobis mantém espaço atrás.",
+      "sourceSha256": "76de559f377f2c6b2ad97c2b2c12913ac3089882f21ad1ae327a39b83e46f396",
+      "activeSha256": "eea7c64171f1e4cc0840f52cadec18a995fe9fe6",
+      "generatedImage": "generated_images/exec-5312dcb4-8c52-418d-a975-ff9c1b41582e.png",
+      "scene": "Reversa por cima do ombro do ghoul; Biton golpeia o manto externo enquanto Cleobis guarda o flanco.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -113,10 +113,10 @@
           512
         ]
       },
-      "sourceSha256": "acacc6a298ff40bdbcc2b92aa2b2c3aa384ec200c451dba237db302b88267707",
-      "activeSha256": "ce3e7b5a24c04410d43124a52c7e19220c4e775a22216725af3b0b3d49e4394d",
-      "generatedImage": "generated_images/exec-0cd51ce8-2723-41d7-93f9-8991128c1661.png",
-      "scene": "Plano amplo elevado; duas lâminas separadas alcançam alvos distintos no grupo inimigo.",
+      "sourceSha256": "0c0b4b5dd646968908974ff2d73d76414a7c88d0e4ba6f95b9fb4edce637d672",
+      "activeSha256": "e5c95d7e13828b271e7e2286202c66f28d8f240648e5ed8c927500a44096e196",
+      "generatedImage": "generated_images/exec-47277f57-5584-44ab-929b-7f831f37f4b0.png",
+      "scene": "Plano baixo amplo; os irmãos batem os cutelos no piso sob três ghouls, e a ruptura do basalto os desequilibra.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -134,10 +134,10 @@
           512
         ]
       },
-      "sourceSha256": "8be23a2dc3026bbbd31f0142431948a9a3c5278042565fca77f804985d79bd78",
-      "activeSha256": "f8551e1fefb2d48d442edb11ab7330e98c954f61c047f48a6badaa8889925979",
-      "generatedImage": "generated_images/exec-f1f9bd5f-36f4-49d8-9b91-973ebe8f0f53.png",
-      "scene": "Reversa baixa; os gêmeos cruzam as lâminas para desviar o golpe de um único ghoul.",
+      "sourceSha256": "fc1e93a8a6a15412b4fe70d3b4b8349c903155a26cf1ba656e5b7caa62c95763",
+      "activeSha256": "fe35f36cee909a6005cb8a6b31168f75d35db56c7c4893d9e8630c9358d8b57e",
+      "generatedImage": "generated_images/exec-85e8e4a2-de59-4061-97f5-8c417b765d62.png",
+      "scene": "Reversa baixa próxima; em alturas diferentes, os gêmeos cruzam os cutelos para desviar as garras de um ghoul.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -157,18 +157,17 @@
           512
         ]
       },
-      "sourceSha256": "ed72a95579b0672a6bc1b0b234b798a9382c228c9aaf91438ac1d0f2e6988c79",
-      "activeSha256": "2def6e3932cadbe493f7666faa559afbf5b003d90705970b538f8654bc6c6ea0",
-      "generatedImage": "generated_images/exec-2006ec56-11b2-4003-ae45-bc7f2356d05e.png",
-      "scene": "Diagonal zenital; os dois irmãos atacam em alturas distintas um único alvo Exposto, com a variação corrigida para remover qualquer segundo ghoul.",
+      "sourceSha256": "f32394b22b25e568b6efad7aa6db32784b04f7425ae810b95968d65b88ffb6cc",
+      "activeSha256": "5bd8cd555ecec58fc14bfa4fba2a44fb78f385661e12d90b8684480c1ad7ff73",
+      "generatedImage": "generated_images/exec-c5318f38-507d-4962-af5e-63141f892d6e.png",
+      "scene": "Zenital diagonal; Biton atinge a guarda do único ghoul Exposto e Cleobis acompanha a abertura pelo lado oposto.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     }
   ],
   "reviewStatus": "all_candidates_pending_visual_approval",
-  "compositionReview": "Os ângulos variam entre retrato baixo, zenital oblíquo, reversa por cima do ombro, lateral baixa, plano amplo elevado, reversa baixa e diagonal zenital. As composições separam os dois corpos, cada par de braços e cada cutelo. Corte em Contratempo foi corrigido para exatamente dois irmãos e um alvo único.",
+  "compositionReview": "Os ângulos variam entre retrato baixo, passiva oblíqua quadrada, lateral baixa, reversa por cima do ombro, zenital diagonal, plano amplo baixo e reversa baixa próxima. As composições mantêm os dois corpos separados, juntas legíveis e eixos de força plausíveis; Corte em Contratempo mostra Cleobis, Biton e apenas um ghoul.",
   "references": [
-    "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
-    "art/characters/gemeos-do-cutelo/anime-first-rework-20261027/portrait.webp",
-    "art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-tecnica.webp"
+    "Referência visual do usuário: homem decadente com raízes e machado (apenas textura/peso visual)",
+    "art/characters/gemeos-do-cutelo/anime-first-rework-20261027/portrait.webp"
   ]
 }
