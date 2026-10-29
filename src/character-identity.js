@@ -472,7 +472,7 @@ export const characterRevisions = {
     "englishName": "Balthasar",
     "englishTitle": "The Butcher",
     "aliases": ["O Açougueiro"],
-    "lore": "Uma criatura de carne brutalmente robusta, Balthasar Gérard fareja o sangue de vítimas feridas e transforma a próxima investida em uma sequência mais implacável. Cada golpe aprofunda a caçada que alimenta Sangria.",
+    "lore": "Uma criatura de carne brutalmente robusta, Balthasar Gérard fareja o sangue de vítimas feridas e transforma a próxima investida em uma sequência mais implacável. Cada golpe aprofunda a caçada que serve ao Flagelo.",
     "terms": {
       "Separar Tendões": "Talho Imobilizante"
     }
@@ -1206,6 +1206,12 @@ export function revisedArtFor(id, art) {
     }
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-acougueiro') {
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),reopen:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp`};
+    return {...art,portrait:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
   }
   if (animeFirstRework20261028Art.has(id)) {
     const base = `/art/characters/${id}/anime-first-rework-20261028`;

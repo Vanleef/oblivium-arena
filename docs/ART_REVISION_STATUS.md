@@ -587,3 +587,14 @@ A anatomia foi revisada para deixar braços, pernas e articulações legíveis; 
 ## Estado da migração pictórica — 29/10/2026
 
 A direção dark fantasy pictórica cobre 69 de 998 espaços como candidatas; 929 ainda aguardam produção. Onze kits estão integrados, restam 139 entradas e 36 variantes dedicadas. As 69 artes aguardam aprovação visual final; a produção continua.
+
+
+## O Açougueiro — conjunto dark fantasy pictórico — 29/10/2026
+
+Baltasar recebeu seis artes base e uma variante dedicada de Reabrir a Ferida, com textura densa e materialidade gasta inspiradas em Baal. Os enquadramentos variam entre close baixo de três quartos, perfil, golpe por cima do ombro, vista zenital oblíqua, POV baixo do alvo e esquiva traseira; a variante usa close lateral.
+
+Os três quadros horizontais foram recompostos em 1:1 sem deformar a anatomia. A revisão conferiu dois braços, duas pernas, articulações legíveis e pegada coerente do único cutelo. As sete artes aguardam aprovação visual. Nenhuma mecânica foi alterada.
+
+## Estado da migração pictórica — 29/10/2026 (atualizado)
+
+A direção dark fantasy pictórica cobre **76 de 998 espaços** como candidatas; **922** ainda aguardam produção. **12 kits** estão integrados, restam **138 entradas** e **35 variantes** dedicadas. As 76 artes aguardam aprovação visual final; a produção continua.

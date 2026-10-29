@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 64,
-  "newAbilityScenesSaved": 325,
+  "newPortraitsSaved": 65,
+  "newAbilityScenesSaved": 331,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
-    "Produzir imagens dedicadas para as 36 variantes ainda compartilhadas.",
+    "Produzir imagens dedicadas para as 35 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 69 ativos candidatos desta rodada."
+    "Revisar visualmente os 76 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -32,15 +32,16 @@
     "compositionCorrections": 1,
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
-    "generatedByThesePlans": 18,
+    "generatedByThesePlans": 19,
     "remainingMissingBaseJobs": 0,
     "remainingCorrectionJobs": 0,
-    "remainingDedicatedVariantJobs": 36,
-    "remainingTotalJobs": 36,
+    "remainingDedicatedVariantJobs": 35,
+    "remainingTotalJobs": 35,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 39
+    "newDarkPictorialCandidateAssets": 46,
+    "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -87,20 +88,22 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 54,
-      "integratedSlots": 54,
+      "candidateSlots": 76,
+      "integratedSlots": 76,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 9
+      "fullyMigratedEntries": 12
     },
-    "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval."
+    "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
+    "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
+    "oAcougueiroRuntime": "Somente rotas de arte e metadados de identidade; nenhuma mecânica de combate foi alterada."
   },
   "latestProduction": {
     "date": "2026-10-29",
-    "darkPictorialCandidatesAdded": 6,
+    "darkPictorialCandidatesAdded": 7,
     "kitsIntegrated": 1,
-    "characterId": "a-juiza-de-ferro",
+    "characterId": "o-acougueiro",
     "anatomyCorrectionsIntegrated": [
       {
         "characterId": "atlas",
@@ -110,12 +113,14 @@
     ],
     "styleReference": "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
     "sceneAngles": [
-      "zenith",
-      "reverse_over_shoulder",
-      "low_side",
-      "reverse_over_target",
-      "low_open_angle"
+      "low_three_quarter_portrait",
+      "lateral_profile",
+      "over_shoulder_slash",
+      "oblique_zenith",
+      "ground_level_target_pov",
+      "rear_three_quarter_dodge",
+      "tight_lateral_variant"
     ],
-    "anatomyReview": "Pheretime's six candidates were reviewed for clear limb counts, connected joints and plausible proportions; Interdição da Defesa was adjusted to visibly break one ghoul's guard."
+    "anatomyReview": "As sete candidatas foram revistas para contagem de membros, articulações, proporções e pegada do cutelo. Os três quadros horizontais foram recompostos em 1:1; nenhum membro duplicado ou fundido é usado como candidato."
   }
 }

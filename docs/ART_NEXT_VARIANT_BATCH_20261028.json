@@ -2,10 +2,10 @@
   "id": "dedicated-variant-art-batch-20261028",
   "date": "2026-10-28",
   "sourceCommit": "e10438ef7efd0b4fce83ba693a55d35a8a67a898",
-  "status": "planning_only",
+  "status": "partially_generated_pending_visual_approval",
   "counts": {
     "jobs": 36,
-    "generatedByThisPlan": 0,
+    "generatedByThisPlan": 1,
     "mechanicsReviewRequired": 0
   },
   "generationOrder": "After five remaining base kits; preserve same logical key when replacing shared base art.",
@@ -21,7 +21,7 @@
       "abilityIndex": 0,
       "formKey": "reopen",
       "name": "Reabrir a Ferida",
-      "status": "planned_not_generated",
+      "status": "generated_integrated_pending_visual_approval",
       "mechanicsSnapshot": {
         "name": "Reabrir a Ferida",
         "damage": 20,
@@ -49,23 +49,28 @@
         "cooldown": 0,
         "kind": "strike",
         "description": "Causa 20 de dano físico a um inimigo. Se o alvo está com Sangramento: +10 de dano; consome a preparação. Após usar, restaura Incisão de Abate.",
-        "art": "/art/characters/o-acougueiro/anime-first-rework-20261028/skill-impulso.webp"
+        "art": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso.webp"
       },
       "runtimeDescription": "Causa 20 de dano físico a um inimigo. Se o alvo está com Sangramento: +10 de dano; consome a preparação. Após usar, restaura Incisão de Abate.",
       "target": "enemy",
       "expectedPhysicalFigures": 2,
       "compoundCaster": null,
-      "framing": "alvo em close lateral; autor fora do eixo",
-      "scene": "Um ghoul já sangrando contrai o braço quando a pressão reabre a costura da roupa sobre a lesão superficial; a preparação se desfaz em fios vermelhos. Mostrar consequência e consumo do estado comedidamente, sem amputação, anatomia gráfica ou duelo frontal.",
+      "framing": "composição quadrada lateral, os dois corpos legíveis e a costura superficial em foco",
+      "scene": "Close lateral: a costura sobre a lesão superficial do ghoul se reabre, e os fios vermelhos se desfazem sem gore.",
       "references": {
-        "identityPortrait": "/art/characters/o-acougueiro/anime-first-rework-20261028/portrait.webp",
-        "baseSkillForContrast": "/art/characters/o-acougueiro/anime-first-rework-20261028/skill-impulso.webp"
+        "identityPortrait": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp",
+        "baseSkillForContrast": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso.webp"
       },
       "referencePolicy": "Inspect current portrait and base ability before generating. Identity reference is not automatic approval of old rendering or forbidden technological features. Rework the complete affected kit first if a consistent identity cannot satisfy current art direction.",
       "transformationPolicy": "This ability variant alone does not authorize a new face, body, costume or anatomical form. Use only actual runtime body forms when relevant.",
       "mechanicsReview": null,
-      "proposedOutput": "art/characters/o-acougueiro/anime-first-variants-20261028/skill-impulso-reopen.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Inferno: black and intense red, burnt earth and ash. Dante-like environment coherent with Flagelo.\nPreserve the physical identity of Baltasar from its inspected current portrait. This is a DEDICATED illustration for variant Reabrir a Ferida, not a recolored base skill. Do not reproduce old technological or mechanical props. Compare against base composition and choose a different instantaneous action.\nExact runtime mechanics (never render text): {\"name\":\"Reabrir a Ferida\",\"damage\":20,\"cost\":2,\"target\":\"enemy\",\"damageType\":\"physical\",\"combo\":{\"condition\":\"bleed\",\"bonusDamage\":10,\"consume\":true},\"shift\":[{\"slot\":\"impulso\",\"form\":\"base\",\"turns\":0}],\"formKey\":\"reopen\",\"id\":\"impulso\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 20 de dano físico a um inimigo. Se o alvo está com Sangramento: +10 de dano; consome a preparação. Após usar, restaura Incisão de Abate.\",\"art\":\"/art/characters/o-acougueiro/anime-first-rework-20261028/skill-impulso.webp\"}\nFraming: alvo em close lateral; autor fora do eixo. Physical figures in this composition: 2.\nScene: Um ghoul já sangrando contrai o braço quando a pressão reabre a costura da roupa sobre a lesão superficial; a preparação se desfaz em fios vermelhos. Mostrar consequência e consumo do estado comedidamente, sem amputação, anatomia gráfica ou duelo frontal.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "proposedOutput": "art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp",
+      "prompt": "Use case: stylized-concept. One square full-bleed dark-fantasy painting for O Açougueiro, no text or UI. Preserve Baltasar's exact human identity: extremely robust mature man, short dark hair, salt-and-pepper beard, crimson scarf, charcoal sleeves, worn ivory apron, one broad cleaver. Show a single already-bleeding ghoul whose superficial seam across ragged clothing reopens under a controlled lateral cut; red threads dissolve to show the bleed is consumed. Both figures have coherent natural anatomy, two arms and two legs, clear joints and a single cleaver grip. Dense thick painterly texture, worn materials, gritty skin, dirty metal and oppressive Inferno fortress under Flagelo. No extra limbs, open wounds, gore, extra figures, technology, polished smooth digital finish.",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/skill-impulso-reopen.jpg",
+      "generatedImage": "generated_images/exec-0dcf2f72-b997-4371-bf1c-3a944d2f551d.png",
+      "integratedStatus": "candidate_integrated_pending_visual_approval",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "key": "a-viuva-escarlate:form:impulso:revenge",

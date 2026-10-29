@@ -621,4 +621,18 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-despertar.webp"
     }
   }
+,
+  "o-acougueiro": {
+    "portrait": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": { "reopen": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp" }
+    }
+  }
 };

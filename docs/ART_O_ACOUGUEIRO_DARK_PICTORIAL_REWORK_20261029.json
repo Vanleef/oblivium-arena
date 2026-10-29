@@ -1,0 +1,173 @@
+{
+  "id": "o-acougueiro-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "o-acougueiro",
+  "displayName": "O Açougueiro",
+  "identityName": "Baltasar",
+  "world": "Inferno",
+  "kingdom": "Flagelo",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa e texturizada, pincelada grossa e alta materialidade: superfícies gastas e erodidas, tecido pesado, avental sujo, pele tátil e luz opressiva. Um pouco menos realista e mais estilizada que a referência, sem acabamento limpo, polido ou liso.",
+  "styleReference": "Baal — Manto de Cinzas, usado como referência de textura e materialidade; o retrato anterior de Baltasar foi usado apenas para preservar identidade.",
+  "previousRoute": "/art/characters/o-acougueiro/anime-first-rework-20261028",
+  "activeRoute": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029",
+  "identity": "Baltasar é um homem adulto muito robusto, de cabelo escuro curto e barba grisalha, lenço carmesim, mangas carvão, avental marfim gasto, braçadeiras simples e um único cutelo largo. Manter corpo humano natural, dois braços e duas pernas, mãos e articulações legíveis; sem membros duplicados ou fundidos.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "93c482a8076540c43bd91ecbeae08016772f958480284b8153cbf19b56222fdf",
+      "activeSha256": "dfe59c138d28d1e8d24c2f162f684027658ce194a7d6fafa31da1d75f1bb6328",
+      "generatedImage": "generated_images/exec-c7afdba7-1008-4388-930a-271204d89b61.png",
+      "scene": "Close em ângulo baixo de três quartos; Baltasar segura o cutelo junto ao avental diante das ruínas do Flagelo.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Faro de Sangue",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "fdac245f076039135e796cd974e0515c118983d8c23ff278fca3904b1ff6971d",
+      "activeSha256": "8ccdcbec4ea983a64cfe25b6602438d18072d4ec7cb05ee1db0d9fe64b7cbc00",
+      "generatedImage": "generated_images/exec-e3e1bc6f-24e4-4ee5-84d6-7b241d0c0daa.png",
+      "scene": "Perfil lateral: Baltasar fareja o rastro vermelho no chão enquanto um ghoul aparece distante no beco.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Incisão de Abate",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/skill-impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "9355987115f3f38e047c1e00308024507ad97614a4b54705d8ebc62c43ac879b",
+      "activeSha256": "18f66b2f99d8ec639368034860f81e66616aa6fd6c2228c80b88cad55a5e5f26",
+      "generatedImage": "generated_images/exec-a4cf472d-1cb3-4e8b-9dc2-146fdd766b5e.png",
+      "scene": "Corte lateral por cima do ombro; um único ghoul recebe uma marca superficial de sangramento.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Talho Imobilizante",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/skill-tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "0c5ebe73816702f7426e25a37fe55a1784c9f54e8dc7b6094220629fbd1bdc9e",
+      "activeSha256": "10376d874ba54d62ad1bfd1eb5850c503d3340585c32e5b5311cae7d4e838375",
+      "generatedImage": "generated_images/exec-13c28247-7f06-478a-a44e-7ffdec459c15.png",
+      "scene": "Vista zenital oblíqua; Baltasar imobiliza um ghoul com o cutelo, mostrando o atordoamento sem gore.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Sentença do Cutelo",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/skill-voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "3f308a2e0292803cc933b65d35c7d0f75658c32135487a70c5d0a2739830ee38",
+      "activeSha256": "3174e082c7f9c851666fca131adacd88d67035eb704929b535daefa7ac5264bc",
+      "generatedImage": "generated_images/exec-842eed7a-9baf-4535-9a07-e3731b2cd439.png",
+      "scene": "POV baixo do alvo; Baltasar golpeia um ghoul que já sangra e consome a marca.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Passo entre Lâminas",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/skill-despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "9f49a848be597f39e521ced71901f7007d8a049e3c76434fa6fdc7032ad1a835",
+      "activeSha256": "3717907ce26ca553ca55c6a359e4ba60ae34782ed784b1d5c6bb5737d795e0e6",
+      "generatedImage": "generated_images/exec-71366ca4-b169-4123-a7f8-6a4bb34f97b0.png",
+      "scene": "Vista traseira em três quartos; Baltasar esquiva lateralmente de um ghoul, ilustrando invulnerabilidade pessoal.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso:reopen",
+      "abilitySlot": "impulso",
+      "formKey": "reopen",
+      "name": "Reabrir a Ferida",
+      "activeAsset": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp",
+      "sourceAsset": "art/source/o-acougueiro-dark-pictorial-rework-20261029/skill-impulso-reopen.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "3e13a39c977970a44ca6bb5722cf8c83cac16a025c9e90cf34b82e5093c4ec9f",
+      "activeSha256": "a32e05d8029f76902b753f3ba938bc2074527e4c4d6d77e34e06447c2866dd05",
+      "generatedImage": "generated_images/exec-0dcf2f72-b997-4371-bf1c-3a944d2f551d.png",
+      "scene": "Close lateral: a costura sobre a lesão superficial do ghoul se reabre, e os fios vermelhos se desfazem sem gore.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "reviewStatus": "all_candidates_pending_visual_approval",
+  "compositionReview": "Ângulos variados entre close baixo de três quartos, perfil lateral, corte por cima do ombro, zenital oblíquo, POV baixo do alvo, vista traseira em três quartos e close lateral da variante. Anatomia revisada para manter contagem de membros, mãos, pegada do cutelo, articulações e proporções legíveis; os três quadros inicialmente horizontais foram recompostos em 1:1 sem deformar os corpos.",
+  "references": [
+    "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
+    "art/characters/o-acougueiro/anime-first-rework-20261028/portrait.webp"
+  ]
+}
