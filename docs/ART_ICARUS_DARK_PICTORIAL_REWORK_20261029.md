@@ -21,6 +21,6 @@ Dark fantasy pictórica densa e material, com pincelada estilizada visível e me
 
 O runtime usa seis WebP 512 × 512; seis fontes JPEG 768 × 768 e hashes SHA-256 estão registrados no manifesto JSON. Não há formas adicionais no perfil. As imagens aguardam revisão visual final.
 
-## Correção de escala
+## Correção de escala e anatomia
 
-A primeira versão da arte de **Asa Fraturada** ampliava Icarus em relação ao alvo. A imagem foi refeita com perspectiva equivalente e proporções humanas comparáveis entre os dois personagens, preservando a asa única, a ação e o ambiente do Limbo.
+A primeira versão da arte de **Asa Fraturada** ampliava Icarus em relação ao alvo. A imagem foi refeita com perspectiva equivalente e proporções humanas comparáveis entre os dois personagens. A pose atual mantém cabeça, tronco, quadril, pernas e os dois pés orientados para o alvo, com articulações legíveis e sem torção incompatível. A asa única, a ação e o ambiente do Limbo foram preservados.
