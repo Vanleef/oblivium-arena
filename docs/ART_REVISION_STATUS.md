@@ -631,3 +631,16 @@ Os enquadramentos variam entre retrato baixo, zenital oblíquo, reversa por cima
 ## Estado da migração pictórica — 29/10/2026 (atualizado)
 
 A direção dark fantasy pictórica cobre **97 de 998 espaços** como candidatas; **901** ainda aguardam produção. **15 kits** estão integrados, restam **135 entradas** e **32 variantes** dedicadas. As 97 artes aguardam aprovação visual final; a produção continua.
+
+
+## O Carrasco sem Rosto — conjunto dark fantasy pictórico — 29/10/2026
+
+Sanson mantém sua silhueta humana muito robusta, capuz negro que oculta o rosto, arnês de couro escuro com rebites, tecido pesado, corda vermelho-escura e um único cutelo largo. O reino da arte é Flagelo. O kit contém retrato, Sem Apelação, Sentença sem Nome, Queda da Guilhotina, Última Respiração e Capuz do Esquecimento.
+
+As seis cenas usam ângulos distintos: retrato baixo em três quartos, vista elevada para a passiva, close lateral para a marca de Sentença, zenital alto para o impacto da Guilhotina, plano rente ao chão para Última Respiração e reversa por cima do ombro para o Capuz. A revisão cuidou de proporções, mãos, juntas e separação dos corpos; a arte de Sentença foi refeita em quadro quadrado sem comprimir a anatomia. Todas as imagens seguem como candidatas pendentes de aprovação visual. Nenhuma mecânica foi alterada.
+
+Ativos WebP: `/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029`; fontes JPEG 768×768: `art/source/o-carrasco-sem-rosto-dark-pictorial-rework-20261029`. Manifesto e galeria: `docs/ART_CARRASCO_SEM_ROSTO_DARK_PICTORIAL_REWORK_20261029.json` e `.md`.
+
+## Estado da migração pictórica — 29/10/2026 (atualizado)
+
+A direção dark fantasy pictórica cobre **103 de 998 espaços** como candidatas; **895** ainda aguardam produção. **16 kits** estão integrados, restam **134 entradas** e **32 variantes** dedicadas. As 103 artes aguardam aprovação visual final; a produção continua.

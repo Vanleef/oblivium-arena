@@ -65,7 +65,7 @@ export const characterRevisions = {
     "englishName": "Sanson",
     "englishTitle": "The Executioner",
     "aliases": ["O Carrasco sem Rosto","O Carrasco"],
-    "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. Sangria reconhece seus atos pela lâmina que desce."
+    "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. O Flagelo reconhece seus atos pela lâmina que desce."
   },
   "a-mae-rubra": {
     "name": "Julia Maesa",
@@ -1184,6 +1184,11 @@ export function revisedArtFor(id, art) {
     forms.tecnica = {...(forms.tecnica || {}),cross:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp`};
     return {...art,portrait:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-carrasco-sem-rosto') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (animeFirstRework20261027Art.has(id)) {
     const base = `/art/characters/${id}/anime-first-rework-20261027`;

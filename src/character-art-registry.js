@@ -1,4 +1,14 @@
 export const characterArtRegistry = {
+  "o-carrasco-sem-rosto": {
+    "portrait": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/skill-despertar.webp"
+    }
+  },
   "a-mae-rubra": {
     "portrait": "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
     "passive": "/art/characters/a-mae-rubra/anime-first-rework-20261027/passive.webp",

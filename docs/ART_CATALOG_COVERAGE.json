@@ -124,7 +124,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-mae-rubra",
@@ -2029,11 +2038,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 97,
-    "remainingSlots": 901,
-    "fullyMigratedEntries": 15,
-    "remainingEntries": 135,
-    "awaitingVisualApprovalSlots": 97,
+    "integratedCandidateSlots": 103,
+    "remainingSlots": 895,
+    "fullyMigratedEntries": 16,
+    "remainingEntries": 134,
+    "awaitingVisualApprovalSlots": 103,
     "approvedSlots": 0
   }
 }

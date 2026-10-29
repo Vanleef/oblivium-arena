@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 68,
-  "newAbilityScenesSaved": 349,
+  "newPortraitsSaved": 69,
+  "newAbilityScenesSaved": 354,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 97 ativos candidatos desta rodada."
+    "Revisar visualmente os 103 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,11 +40,12 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 67,
+    "newDarkPictorialCandidateAssets": 73,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
-    "gemeosProductionReport": "docs/ART_GEMEOS_CUTELO_DARK_PICTORIAL_REWORK_20261029.json"
+    "gemeosProductionReport": "docs/ART_GEMEOS_CUTELO_DARK_PICTORIAL_REWORK_20261029.json",
+    "oCarrascoProductionReport": "docs/ART_CARRASCO_SEM_ROSTO_DARK_PICTORIAL_REWORK_20261029.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -110,9 +111,9 @@
   },
   "latestProduction": {
     "date": "2026-10-29",
-    "darkPictorialCandidatesAdded": 7,
+    "darkPictorialCandidatesAdded": 6,
     "kitsIntegrated": 1,
-    "characterId": "gemeos-do-cutelo",
+    "characterId": "o-carrasco-sem-rosto",
     "anatomyCorrectionsIntegrated": [
       {
         "characterId": "atlas",
@@ -122,14 +123,13 @@
     ],
     "styleReference": "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
     "sceneAngles": [
-      "low_back_to_back_portrait",
-      "oblique_zenith",
-      "over_shoulder_reverse",
-      "low_side",
-      "wide_elevated_aoe",
-      "low_reverse_defense",
-      "diagonal_zenith_variant"
+      "low_three_quarter_portrait",
+      "oblique_zenith_over_shoulder_passive",
+      "tight_side_profile_impulso",
+      "high_zenith_impact",
+      "ground_level_close_voto",
+      "over_shoulder_reverse_defense"
     ],
-    "anatomyReview": "Sete candidatas foram revistas para separar Cleobis e Biton, diferenciar pele e cabelo e manter dois braços, mãos, pernas e cutelos por irmão. A variante foi corrigida para dois gêmeos e exatamente um alvo."
+    "anatomyReview": "As seis candidatas preservam Sanson como humano robusto encapuzado; alvos e atacante têm silhuetas separadas, articulações legíveis e sem membros duplicados. Sentença sem Nome foi recomposta em 1:1 para manter mãos, marca e lâmina legíveis sem deformar corpos."
   }
 }
