@@ -19,7 +19,7 @@ const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-d
 const painterlyBatchArt = new Set([
   'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
   'o-carrasco-sem-rosto','a-mae-rubra',
-  'o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
+  'a-regente-de-cinzas','o-herdeiro-cativo',
   'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
 ]);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
@@ -1431,7 +1431,7 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-principe-das-correntes') {
-    const base = `/art/characters/${id}/painterly-rework-20261026`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       forms:{...art.forms,impulso:{...art.forms?.impulso,drag:`${base}/skill-impulso-drag.webp`}}};
