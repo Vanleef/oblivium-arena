@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-10-29",
-  "approvedArtDirection": "Dark fantasy pictórica densa e texturizada, alta materialidade, pincelada estilizada e realismo reduzido; paleta adaptada a cada Mundo.",
+  "approvedArtDirection": "Dark fantasy pictórica densa com estilização gráfica 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, luzes de recorte, alta materialidade e paleta adaptada a cada Mundo.",
   "totalBaseCharacterSets": 100,
   "totalBaseSprites": 600,
   "animeFirstComplete": 28,
@@ -8,8 +8,8 @@
   "animeFirstPending": 72,
   "animeFirstSpritesPending": 432,
   "infernoRosterCount": 55,
-  "infernoRedesignReviewed": 17,
-  "infernoPendingVisualReview": 38,
+  "infernoRedesignReviewed": 18,
+  "infernoPendingVisualReview": 37,
   "infernoCharacterIds": [
     "o-acougueiro",
     "a-viuva-escarlate",
@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 103 imagens candidatas já integradas."
+    "Fazer revisão visual final das 109 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 103,
-      "remainingSlots": 895,
-      "fullyMigratedEntries": 16,
-      "remainingEntries": 134,
-      "awaitingVisualApprovalSlots": 103,
+      "integratedCandidateSlots": 109,
+      "remainingSlots": 889,
+      "fullyMigratedEntries": 17,
+      "remainingEntries": 133,
+      "awaitingVisualApprovalSlots": 109,
       "approvedSlots": 0
     }
   },

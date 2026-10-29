@@ -644,3 +644,16 @@ Ativos WebP: `/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-2026102
 ## Estado da migração pictórica — 29/10/2026 (atualizado)
 
 A direção dark fantasy pictórica cobre **103 de 998 espaços** como candidatas; **895** ainda aguardam produção. **16 kits** estão integrados, restam **134 entradas** e **32 variantes** dedicadas. As 103 artes aguardam aprovação visual final; a produção continua.
+
+
+## A Matriarca — conjunto dark fantasy pictórico 2.5D — 29/10/2026
+
+Julia Maesa conserva pele castanho-média, cabelo grisalho-prateado em duas tranças carmesins, brincos dourados, vestido preto e xale pesado. O reino da arte é Flagelo. O kit reúne retrato, Sangue que Acolhe, Cordão Rubro, Partilha da Mãe, Berço de Sangue e Casulo Rubro.
+
+Os enquadramentos variam entre retrato baixo, vista elevada, perfil lateral, close por cima do ombro, plano triangular de área e reversa baixa. As cenas mostram apoio individual, drenagem, sacrifício de vitalidade, ataque a três alvos e defesa pessoal. A direção usa pinceladas angulares, contornos manuais, hachuras e sombras cortadas, mantendo textura e materialidade. Casulo Rubro foi refeito para separar braços e mãos. As seis peças aguardam aprovação visual; nenhuma mecânica foi alterada.
+
+Ativos WebP: `/art/characters/a-mae-rubra/dark-pictorial-rework-20261029`; fontes JPEG 768×768: `art/source/a-mae-rubra-dark-pictorial-rework-20261029`. Manifesto e galeria: `docs/ART_MAE_RUBRA_DARK_PICTORIAL_REWORK_20261029.json` e `.md`.
+
+## Estado da migração pictórica — 29/10/2026 (atualizado)
+
+A direção dark fantasy pictórica cobre **109 de 998 espaços** como candidatas; **889** ainda aguardam produção. **17 kits** estão integrados, restam **133 entradas** e **32 variantes** dedicadas. As 109 artes aguardam aprovação visual final; a produção continua.

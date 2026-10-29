@@ -73,7 +73,7 @@ export const characterRevisions = {
     "englishName": "Julia Maesa",
     "englishTitle": "The Matriarch",
     "aliases": ["A Matriarca", "A Mãe Rubra"],
-    "lore": "Estende um cordão de essência roubada para manter seus predadores em movimento; para ela, proteção é posse. Cede vitalidade para sustentar os lacaios que escolheu e recupera o custo drenando outra alma. Sob seu domínio, Sangria continua a caçada."
+    "lore": "Estende um cordão de essência roubada para manter seus predadores em movimento; para ela, proteção é posse. Cede vitalidade para sustentar os lacaios que escolheu e recupera o custo drenando outra alma. Sob seu domínio, o Flagelo continua a caçada."
   },
   "o-soberano-quebrado": {
     "name": "Astyages",
@@ -1186,6 +1186,11 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
   }
   if (id === 'o-carrasco-sem-rosto') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'a-mae-rubra') {
     const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};

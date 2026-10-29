@@ -10,13 +10,13 @@ export const characterArtRegistry = {
     }
   },
   "a-mae-rubra": {
-    "portrait": "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
-    "passive": "/art/characters/a-mae-rubra/anime-first-rework-20261027/passive.webp",
+    "portrait": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-impulso.webp",
-      "tecnica": "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-tecnica.webp",
-      "voto": "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-voto.webp",
-      "despertar": "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-despertar.webp"
+      "impulso": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-despertar.webp"
     }
   },
   "o-incendiario": {

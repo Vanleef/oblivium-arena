@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 69,
-  "newAbilityScenesSaved": 354,
+  "newPortraitsSaved": 70,
+  "newAbilityScenesSaved": 359,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 103 ativos candidatos desta rodada."
+    "Revisar visualmente os 109 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,12 +40,13 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 73,
+    "newDarkPictorialCandidateAssets": 79,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
     "gemeosProductionReport": "docs/ART_GEMEOS_CUTELO_DARK_PICTORIAL_REWORK_20261029.json",
-    "oCarrascoProductionReport": "docs/ART_CARRASCO_SEM_ROSTO_DARK_PICTORIAL_REWORK_20261029.json"
+    "oCarrascoProductionReport": "docs/ART_CARRASCO_SEM_ROSTO_DARK_PICTORIAL_REWORK_20261029.json",
+    "aMaeRubraProductionReport": "docs/ART_MAE_RUBRA_DARK_PICTORIAL_REWORK_20261029.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -113,7 +114,7 @@
     "date": "2026-10-29",
     "darkPictorialCandidatesAdded": 6,
     "kitsIntegrated": 1,
-    "characterId": "o-carrasco-sem-rosto",
+    "characterId": "a-mae-rubra",
     "anatomyCorrectionsIntegrated": [
       {
         "characterId": "atlas",
@@ -121,15 +122,15 @@
         "status": "integrated_candidate_pending_visual_approval"
       }
     ],
-    "styleReference": "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
+    "styleReference": "art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
     "sceneAngles": [
       "low_three_quarter_portrait",
-      "oblique_zenith_over_shoulder_passive",
-      "tight_side_profile_impulso",
-      "high_zenith_impact",
-      "ground_level_close_voto",
-      "over_shoulder_reverse_defense"
+      "oblique_high_support_passive",
+      "low_side_profile_lifedrain",
+      "over_shoulder_support",
+      "elevated_area_triangle",
+      "low_rear_personal_defense"
     ],
-    "anatomyReview": "As seis candidatas preservam Sanson como humano robusto encapuzado; alvos e atacante têm silhuetas separadas, articulações legíveis e sem membros duplicados. Sentença sem Nome foi recomposta em 1:1 para manter mãos, marca e lâmina legíveis sem deformar corpos."
+    "anatomyReview": "Seis cenas mantêm Julia Maesa como mulher madura de duas tranças grisalhas e preservam corpos separados, juntas e mãos legíveis. O quadro de Casulo Rubro foi refeito para deixar os dois braços da Matriarca e os dois do atacante claramente separados."
   }
 }

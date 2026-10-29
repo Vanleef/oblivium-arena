@@ -1,0 +1,152 @@
+{
+  "id": "a-mae-rubra-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "a-mae-rubra",
+  "displayName": "A Mãe Rubra",
+  "identityName": "Julia Maesa",
+  "world": "Inferno",
+  "kingdom": "Flagelo",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa com estilização gráfica 2.5D: pinceladas visíveis e angulares, contornos manuais, hachuras, sombras de corte e luzes de recorte, superfícies gastas e materialidade tátil; ligeiramente estilizada, sem realismo fotográfico ou acabamento 3D.",
+  "styleReference": "A referência do homem decadente com raízes e machado informa peso e textura; o retrato 2.5D dos Gêmeos informa contornos manuais e hachuras. As artes anteriores de Julia preservam sua identidade e o xale vermelho.",
+  "previousRoute": "/art/characters/a-mae-rubra/anime-first-rework-20261027",
+  "activeRoute": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029",
+  "identity": "Julia Maesa é uma mulher madura de pele castanho-média, cabelo grisalho-prateado em exatamente duas tranças grossas presas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate muito pesado e desfiado. Rosto descoberto, sem máscara, armadura ou coroa; manter anatomia natural e mãos legíveis.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "764b13512638a2f3e158712901cfd6d9b0d9a6503dd334ae9c814a055b47e87e",
+      "activeSha256": "fc0834ed0d9da6ba7fc7ca93a874e8f79cda72790d7cceae71fad1cb078e449e",
+      "generatedImage": "generated_images/exec-35a359b7-6d33-4117-ab82-2a5d85142a64.png",
+      "scene": "Close baixo em três quartos; Julia segura a trama do xale escarlate diante das ruínas do Flagelo.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Sangue que Acolhe",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "3609852e86b66768a7d2761bb9cffc4a4a4c17cd29a596c70a4fa423ab42df6f",
+      "activeSha256": "10818e7043705323d1dd84f8e095521b4e4becb70cc6a8fe2728f09ffb7df960",
+      "generatedImage": "generated_images/exec-8c13f8b6-5faa-42e5-8a1c-7c9e03111fc6.png",
+      "scene": "Vista elevada oblíqua; Julia cobre um aliado ferido com o xale e um fio fino retorna ao seu peito.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Cordão Rubro",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/skill-impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "156b98dacd0449d384fcdb4a18c6b9d0bef75220e1df79e0c07e567ac95f34c2",
+      "activeSha256": "452254747204484ce180cb43b271e03773e4167685d5c2e798e06f0ebde11eda",
+      "generatedImage": "generated_images/exec-79e23424-0320-4ff5-a9e3-eddfec326a38.png",
+      "scene": "Perfil baixo lateral; uma corda da trama atinge um ghoul e devolve um fio vermelho à Matriarca.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Partilha da Mãe",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/skill-tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "56b021ae34664bb31928edcbdf0b508931993b3173478a0b9a7091b7712fa49e",
+      "activeSha256": "85563b2013528f8102db54c4228c69cf10445115d5712aabbf827b6eb9b955ea",
+      "generatedImage": "generated_images/exec-d3a3e9fc-1896-4f4f-b89c-0546e87ec313.png",
+      "scene": "Close por cima do ombro; o xale protege um aliado enquanto a Matriarca cede um fio de vitalidade.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Berço de Sangue",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/skill-voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "75a6e84a2d71a78f0711ac70a958975adcf5c66e899c2d94e78005867f1b5daa",
+      "activeSha256": "f8426509908508d41869f1fe5c108bbbefc20b1de796c445eb6cf690f57534c6",
+      "generatedImage": "generated_images/exec-65c8ad2a-cca2-4da6-9584-b80b87649b78.png",
+      "scene": "Ângulo elevado em triângulo; três inimigos são atingidos por cordões de tecido escarlate, sem gore.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Casulo Rubro",
+      "activeAsset": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/a-mae-rubra-dark-pictorial-rework-20261029/skill-despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "a992f929197c00cc7e555394ac44179868273f08609e1ee184ca6e0c1f2a74ac",
+      "activeSha256": "448d110cfff79df3f3e686d0fc84030c9dda4454c455d3a7dbc3ce2bca07cc67",
+      "generatedImage": "generated_images/exec-8d386864-64a8-41fd-bb6d-d4a2440ee8fa.png",
+      "scene": "Vista baixa reversa; a espada inimiga para no xale pesado, com mãos e braços claramente separados.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "reviewStatus": "all_candidates_pending_visual_approval",
+  "compositionReview": "Seis ângulos distintos: retrato baixo em três quartos, vista alta oblíqua, perfil lateral baixo, close por cima do ombro, triângulo elevado para a área e reversa baixa para a defesa. Os alvos permanecem separados e vivos; mãos, juntas e proporções foram revisadas. O quadro de Casulo Rubro foi substituído para separar claramente as duas mãos da Matriarca e os braços do atacante.",
+  "references": [
+    "art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
+    "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
+    "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-impulso.webp",
+    "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-tecnica.webp"
+  ]
+}
