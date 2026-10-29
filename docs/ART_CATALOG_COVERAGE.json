@@ -9,17 +9,17 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 911,
-    "baseMissing": 12,
-    "entriesWithAnyBaseMissing": 2,
-    "entriesWithoutAnyBaseArt": 2,
+    "basePresent": 923,
+    "baseMissing": 0,
+    "entriesWithAnyBaseMissing": 0,
+    "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0
   },
   "visualReview": {
-    "definition": "Manual ledger; existence does not imply style approval.",
+    "definition": "Contagem histórica de revisão visual sob a direção anime-first anterior; esses resultados não aprovam as artes na direção dark fantasy pictórica atual.",
     "reviewedSlots": 331,
     "correctionSlots": 1,
     "fullyReviewedEntries": 49,
@@ -1853,7 +1853,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "bulkir",
@@ -1865,7 +1874,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "voronir",
@@ -1875,16 +1893,18 @@
       "kingdom": "Tártaro",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "voronir:base:portrait",
-        "voronir:base:passive",
-        "voronir:base:impulso",
-        "voronir:base:tecnica",
-        "voronir:base:voto",
-        "voronir:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "icarus",
@@ -1894,16 +1914,28 @@
       "kingdom": "Umbral",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "icarus:base:portrait",
-        "icarus:base:passive",
-        "icarus:base:impulso",
-        "icarus:base:tecnica",
-        "icarus:base:voto",
-        "icarus:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     }
-  ]
+  ],
+  "currentDirectionMigration": {
+    "name": "dark fantasy pictórica PMA",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 24,
+    "remainingSlots": 974,
+    "fullyMigratedEntries": 4,
+    "remainingEntries": 146,
+    "awaitingVisualApprovalSlots": 24,
+    "approvedSlots": 0
+  }
 }

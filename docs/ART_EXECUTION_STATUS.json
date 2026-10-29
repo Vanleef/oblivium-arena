@@ -1,21 +1,20 @@
 {
   "complete": false,
   "status": "in_progress",
-  "tool": "built-in image_gen with user-authorized Perchance fallback",
+  "tool": "OpenAI ImageGen available and verified; Perchance remains an authorized historical fallback",
   "scope": {
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 53,
-  "newAbilityScenesSaved": 266,
-  "scenesBlockedByQuota": [
-    "baal:base:despertar"
-  ],
+  "newPortraitsSaved": 57,
+  "newAbilityScenesSaved": 286,
+  "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Concluir reenquadramento da defesa de Baal; a composição existente ainda está pendente de correção.",
-    "Produzir os kits base ainda ausentes de Voronir e Icarus.",
-    "Concluir as 36 variantes dedicadas e revisar artes antigas fora desta direção de arte."
+    "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
+    "Produzir imagens dedicadas para as 36 variantes ainda compartilhadas.",
+    "Revisar as nove formas corporais e corrigir a defesa pendente de Baal.",
+    "Revisar visualmente os 24 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -23,8 +22,8 @@
     "resetUnix": 1793267550,
     "blockedOperation": "baal:base:despertar",
     "lastConfirmedLocal": "2026-10-28T22:03:04-03:00",
-    "scope": "Built-in generator only; Perchance fallback is available and tested.",
-    "status": "historical_limit_reset_time_passed"
+    "scope": "Generator was used successfully for the current 24-image dark-pictorial batch.",
+    "status": "cleared_generator_available_verified_2026-10-29"
   },
   "preparedGenerationPlans": {
     "base": "docs/ART_NEXT_BASE_BATCH_20261028.json",
@@ -34,13 +33,14 @@
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
     "generatedByThesePlans": 18,
-    "remainingMissingBaseJobs": 12,
+    "remainingMissingBaseJobs": 0,
     "remainingCorrectionJobs": 1,
     "remainingDedicatedVariantJobs": 36,
-    "remainingTotalJobs": 49,
+    "remainingTotalJobs": 37,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
-    "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json"
+    "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
+    "newDarkPictorialCandidateAssets": 24
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -85,6 +85,13 @@
     "merlindropeArtwork": "6 source JPEGs retained at native 768×768; 6 active WebP assets at 512×512; all six manually reviewed.",
     "merlindropeRuntime": "Art registry paths only; no combat fields or runtime mechanics changed.",
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
-    "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate."
+    "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
+    "darkPictorialAssets": {
+      "candidateSlots": 24,
+      "integratedSlots": 24,
+      "activeWebpDimensions": "512x512",
+      "sourceJpegDimensions": "768x768",
+      "status": "visual approval pending"
+    }
   }
 }

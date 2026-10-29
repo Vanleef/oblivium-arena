@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-28",
-  "approvedArtDirection": "Anime-forward 2.5D",
+  "updatedAt": "2026-10-29",
+  "approvedArtDirection": "Dark fantasy pictórica densa e texturizada, alta materialidade, pincelada estilizada e realismo reduzido; paleta adaptada a cada Mundo.",
   "totalBaseCharacterSets": 100,
   "totalBaseSprites": 600,
   "animeFirstComplete": 28,
@@ -74,15 +74,12 @@
   "appIconFilesCompleted": 6,
   "appIconFilesTotal": 6,
   "pending": [
-    "Complete art for all 150 runtime entries, including the 50 story profiles and their distinct versions.",
-    "Create the remaining 312 missing base illustrations across story profiles; 44 entries still have no base image.",
-    "Create dedicated images for the 36 ability variants currently sharing a base image.",
-    "Review every existing asset for clean anime cel rendering, identity, anatomy, gaze, action and target counts.",
-    "Review all nine body-form portraits, including transformation-specific identities.",
-    "Keep the older 100-entry migration counters separate from full-roster coverage until the audit reconciles every asset.",
-    "Correct the five flagged images before final style approval; see ART_REVIEW_LEDGER.json."
+    "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
+    "Criar imagens próprias para as 36 variantes de habilidade ainda compartilhadas.",
+    "Revisar os nove retratos de forma corporal e corrigir a defesa pendente de Baal.",
+    "Fazer revisão visual final das 24 imagens candidatas já integradas."
   ],
-  "scopeNote": "The original 100-entry cohort remains tracked by the legacy base-set counters. Full runtime scope includes 150 entries; fullRosterArt contains the current coverage audit. File presence is separate from manual style review.",
+  "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
     "rosterEntries": 150,
     "originalEntries": 100,
@@ -91,21 +88,30 @@
     "abilityFormSlots": 66,
     "bodyPortraitSlots": 9,
     "totalLogicalSlots": 998,
-    "basePresent": 611,
-    "baseMissing": 312,
-    "entriesWithAnyBaseMissing": 50,
-    "entriesWithoutAnyBaseArt": 44,
+    "basePresent": 923,
+    "baseMissing": 0,
+    "entriesWithAnyBaseMissing": 0,
+    "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0,
     "manualStyleReview": {
-      "definition": "Manual ledger; existence does not imply style approval.",
+      "definition": "Contadores históricos da direção anime-first anterior; não equivalem à aprovação na direção dark fantasy atual.",
       "reviewedSlots": 27,
       "correctionSlots": 5,
       "fullyReviewedEntries": 2,
       "pendingSlots": 971
+    },
+    "currentDirectionMigration": {
+      "targetLogicalSlots": 998,
+      "integratedCandidateSlots": 24,
+      "remainingSlots": 974,
+      "fullyMigratedEntries": 4,
+      "remainingEntries": 146,
+      "awaitingVisualApprovalSlots": 24,
+      "approvedSlots": 0
     }
   },
-  "executionStatus": "blocked_image_generation_quota"
+  "executionStatus": "active_dark_fantasy_pictorial_migration"
 }

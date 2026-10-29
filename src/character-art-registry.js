@@ -575,5 +575,25 @@ export const characterArtRegistry = {
       "voto": "/art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp"
     }
+  },,
+  "voronir": {
+    "portrait": "/art/characters/voronir/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/voronir/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/voronir/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/voronir/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/voronir/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/voronir/dark-pictorial-rework-20261029/skill-despertar.webp"
+    }
   },
+  "icarus": {
+    "portrait": "/art/characters/icarus/dark-pictorial-rework-20261029/portrait.webp",
+    "passive": "/art/characters/icarus/dark-pictorial-rework-20261029/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "tecnica": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "voto": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-voto.webp",
+      "despertar": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-despertar.webp"
+    }
+  }
 };
