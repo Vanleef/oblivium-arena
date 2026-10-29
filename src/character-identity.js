@@ -1256,7 +1256,7 @@ export function revisedArtFor(id, art) {
       ...(Object.keys(forms).length ? {forms} : {})};
   }
   if (id === 'a-pira-errante') {
-    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
+    const base = `/art/characters/${id}/painterly-rework-20261026`;
     const forms = {...(art.forms || {})};
     forms.impulso = {...forms.impulso,reply:`${base}/skill-impulso-reply.webp`};
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
@@ -1356,7 +1356,7 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-trono-vazio') {
-    const base = `/art/characters/${id}/painterly-rework-20261026`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
