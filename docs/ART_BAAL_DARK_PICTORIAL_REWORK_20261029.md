@@ -17,6 +17,7 @@ Dark fantasy pictórica densa, material e estilizada, com a referência guiando 
 - **Sermão Incendiário (impulso):** Baal libera um bafo curto de calor, fumaça espessa e brasas contra um único ghoul, que recua sobre pedra queimada.
 - **Fé a Ferro e Fogo (tecnica):** Uma investida curta de Baal lança um ghoul de lado; o flanco raspa numa coluna e chamusca o pano ritual.
 - **Pira dos Fiéis (voto):** Vista alta de um arco circular de túmulos em combustão cercando exatamente três inimigos; Baal conduz a marcha ao fundo.
-- **Manto de Cinzas (despertar):** Vista traseira baixa: Baal firma os quatro cascos e abaixa o corpo enquanto um manto de pano e cinzas recebe a queda de pedras.
+- **Manto de Cinzas (despertar):** Vista traseira baixa: Baal firma os quatro cascos e abaixa o corpo enquanto um manto espesso de cinzas intercepta estilhaços e protege um ghoul aliado abrigado atrás dele.
 
 Os ativos WebP têm 512 × 512; as fontes JPEG têm 768 × 768. Hashes e cenas estão no manifesto JSON. Todas as seis imagens aguardam revisão visual final.
+
