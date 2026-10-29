@@ -290,7 +290,19 @@
     "lilith:base:impulso",
     "lilith:base:tecnica",
     "lilith:base:voto",
-    "lilith:base:despertar"
+    "lilith:base:despertar",
+    "caliope:base:portrait",
+    "caliope:base:passive",
+    "caliope:base:impulso",
+    "caliope:base:tecnica",
+    "caliope:base:voto",
+    "caliope:base:despertar",
+    "serena:base:portrait",
+    "serena:base:passive",
+    "serena:base:impulso",
+    "serena:base:tecnica",
+    "serena:base:voto",
+    "serena:base:despertar"
   ],
   "pendingCorrections": []
 }

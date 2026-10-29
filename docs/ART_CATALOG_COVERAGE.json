@@ -9,10 +9,10 @@
     "totalLogicalSlots": 998
   },
   "coverage": {
-    "basePresent": 869,
-    "baseMissing": 54,
-    "entriesWithAnyBaseMissing": 9,
-    "entriesWithoutAnyBaseArt": 9,
+    "basePresent": 881,
+    "baseMissing": 42,
+    "entriesWithAnyBaseMissing": 7,
+    "entriesWithoutAnyBaseArt": 7,
     "brokenExplicitReferences": 0,
     "formsSharedWithBase": 36,
     "formsMissing": 0,
@@ -20,10 +20,10 @@
   },
   "visualReview": {
     "definition": "Manual ledger; existence does not imply style approval.",
-    "reviewedSlots": 290,
+    "reviewedSlots": 302,
     "correctionSlots": 0,
-    "fullyReviewedEntries": 43,
-    "pendingSlots": 708
+    "fullyReviewedEntries": 45,
+    "pendingSlots": 696
   },
   "entries": [
     {
@@ -1791,16 +1791,9 @@
       "kingdom": "Malebolge",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "caliope:base:portrait",
-        "caliope:base:passive",
-        "caliope:base:impulso",
-        "caliope:base:tecnica",
-        "caliope:base:voto",
-        "caliope:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "serena",
@@ -1810,16 +1803,9 @@
       "kingdom": "Vênus",
       "cohort": "story",
       "baseSlots": 6,
-      "missingSlots": [
-        "serena:base:portrait",
-        "serena:base:passive",
-        "serena:base:impulso",
-        "serena:base:tecnica",
-        "serena:base:voto",
-        "serena:base:despertar"
-      ],
+      "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": true
     },
     {
       "id": "placido",

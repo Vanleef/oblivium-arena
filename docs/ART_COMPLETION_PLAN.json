@@ -9,8 +9,8 @@
       "runtimeEntries": 150,
       "logicalArtSlots": 998
     },
-    "newPortraitsSaved": 46,
-    "newAbilityScenesSaved": 231,
+    "newPortraitsSaved": 48,
+    "newAbilityScenesSaved": 241,
     "scenesBlockedByQuota": [],
     "unstartedInCurrentBatch": 0,
     "nextActions": [
@@ -13188,54 +13188,8 @@
           "key": "xian:base:passive",
           "characterId": "xian",
         
-... 24252 bytes omitted ...
-  "abilityIndex": 0,
-          "name": "Primeiro Fôlego",
-          "description": "Restaura 12 de Vida ao aliado.",
-          "target": "ally",
-          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-impulso.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "elaris-prologo:base:tecnica",
-          "characterId": "elaris-prologo",
-          "kind": "base",
-          "slot": "tecnica",
-          "abilityId": "tecnica",
-          "abilityIndex": 1,
-          "name": "Véu do Amanhecer",
-          "description": "Concede 9 de Defesa destrutível ao aliado. Remove aflições e condições prejudiciais do beneficiado.",
-          "target": "ally",
-          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-tecnica.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "elaris-prologo:base:voto",
-          "characterId": "elaris-prologo",
-          "kind": "base",
-          "slot": "voto",
-          "abilityId": "voto",
-          "abilityIndex": 2,
-          "name": "Adiar o Crepúsculo",
-          "description": "Causa 12 de dano espiritual a um inimigo. Enfraquece o alvo por 1 turno.",
-          "target": "enemy",
-          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-voto.webp",
-          "exists": true,
-          "status": "reviewed"
-        },
-        {
-          "key": "elaris-prologo:base:despertar",
-          "characterId": "elaris-prologo",
-          "kind": "base",
-          "slot": "despertar",
-          "abilityId": "despertar",
-          "abilityIndex": 3,
-          "name": "Amparo Primordial",
-          "description": "Concede 8 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
-          "target": "self",
-          "art": "/art/characters/elaris-prologo/anime-first-completion-20261028/skill-despertar.webp",
+... 26158 bytes omitted ...
+logo/anime-first-completion-20261028/skill-despertar.webp",
           "exists": true,
           "status": "reviewed"
         }
@@ -13435,8 +13389,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/caliope/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "caliope:base:passive",
@@ -13445,8 +13400,9 @@
           "slot": "passive",
           "name": "Assinatura Falsa",
           "description": "Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/caliope/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "caliope:base:impulso",
@@ -13458,8 +13414,9 @@
           "name": "Verso Plantado",
           "description": "Causa 9 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/caliope/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "caliope:base:tecnica",
@@ -13471,8 +13428,9 @@
           "name": "Rima de Exposição",
           "description": "Causa 13 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado. Se o alvo tem uma marca sua: +6 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/caliope/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "caliope:base:voto",
@@ -13484,8 +13442,9 @@
           "name": "Refrão Roubado",
           "description": "Causa 16 de dano de aflição a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/caliope/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "caliope:base:despertar",
@@ -13497,11 +13456,12 @@
           "name": "Cortina de Espelhos",
           "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/caliope/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "serena",
@@ -13518,8 +13478,9 @@
           "kind": "base",
           "slot": "portrait",
           "name": "Retrato",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/serena/anime-first-completion-20261028/portrait.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "serena:base:passive",
@@ -13528,8 +13489,9 @@
           "slot": "passive",
           "name": "Lembrança Invasiva",
           "description": "Uma vez por rodada, ferir um alvo com a Marca Nervosa própria o Enfraquece por 1 turno.",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/serena/anime-first-completion-20261028/passive.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "serena:base:impulso",
@@ -13541,8 +13503,9 @@
           "name": "Marca Nervosa",
           "description": "Causa 10 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/serena/anime-first-completion-20261028/skill-impulso.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "serena:base:tecnica",
@@ -13554,8 +13517,9 @@
           "name": "Memória Reaberta",
           "description": "Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +7 de dano.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/serena/anime-first-completion-20261028/skill-tecnica.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "serena:base:voto",
@@ -13567,8 +13531,9 @@
           "name": "Pulso de Interdição",
           "description": "Causa 18 de dano espiritual a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.",
           "target": "enemy",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/serena/anime-first-completion-20261028/skill-voto.webp",
+          "exists": true,
+          "status": "reviewed"
         },
         {
           "key": "serena:base:despertar",
@@ -13580,11 +13545,12 @@
           "name": "Pele de Lembrança",
           "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
           "target": "self",
-          "exists": false,
-          "status": "pending_generation"
+          "art": "/art/characters/serena/anime-first-completion-20261028/skill-despertar.webp",
+          "exists": true,
+          "status": "reviewed"
         }
       ],
-      "complete": false
+      "complete": true
     },
     {
       "id": "placido",
@@ -26509,8 +26475,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/caliope/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "caliope:base:passive",
@@ -26519,8 +26486,9 @@
       "slot": "passive",
       "name": "Assinatura Falsa",
       "description": "Uma vez por rodada, ferir um alvo com a Marca própria rouba 1 Essência da reserva inimiga.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/caliope/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "caliope:base:impulso",
@@ -26532,8 +26500,9 @@
       "name": "Verso Plantado",
       "description": "Causa 9 de dano espiritual a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/caliope/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "caliope:base:tecnica",
@@ -26545,8 +26514,9 @@
       "name": "Rima de Exposição",
       "description": "Causa 13 de dano perfurante a um inimigo. Expõe o alvo até o fim do próximo turno deste lado. Se o alvo tem uma marca sua: +6 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/caliope/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "caliope:base:voto",
@@ -26558,8 +26528,9 @@
       "name": "Refrão Roubado",
       "description": "Causa 16 de dano de aflição a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Rouba 1 unidade de Essência da reserva inimiga.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/caliope/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "caliope:base:despertar",
@@ -26571,8 +26542,9 @@
       "name": "Cortina de Espelhos",
       "description": "Concede 5 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/caliope/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "serena:base:portrait",
@@ -26580,8 +26552,9 @@
       "kind": "base",
       "slot": "portrait",
       "name": "Retrato",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/serena/anime-first-completion-20261028/portrait.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "serena:base:passive",
@@ -26590,8 +26563,9 @@
       "slot": "passive",
       "name": "Lembrança Invasiva",
       "description": "Uma vez por rodada, ferir um alvo com a Marca Nervosa própria o Enfraquece por 1 turno.",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/serena/anime-first-completion-20261028/passive.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "serena:base:impulso",
@@ -26603,8 +26577,9 @@
       "name": "Marca Nervosa",
       "description": "Causa 10 de dano de aflição a um inimigo. Marca o alvo por 2 turnos.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/serena/anime-first-completion-20261028/skill-impulso.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "serena:base:tecnica",
@@ -26616,8 +26591,9 @@
       "name": "Memória Reaberta",
       "description": "Causa 14 de dano perfurante a um inimigo. Se o alvo tem uma marca sua: +7 de dano.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/serena/anime-first-completion-20261028/skill-tecnica.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "serena:base:voto",
@@ -26629,8 +26605,9 @@
       "name": "Pulso de Interdição",
       "description": "Causa 18 de dano espiritual a um inimigo. Sela as técnicas de apoio do alvo por 1 turno. Reduz a cura recebida em 50% até o fim do próximo turno deste lado.",
       "target": "enemy",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/serena/anime-first-completion-20261028/skill-voto.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "serena:base:despertar",
@@ -26642,8 +26619,9 @@
       "name": "Pele de Lembrança",
       "description": "Concede 6 de Defesa destrutível ao usuário. O usuário fica Invulnerável por 1 turno.",
       "target": "self",
-      "exists": false,
-      "status": "pending_generation"
+      "art": "/art/characters/serena/anime-first-completion-20261028/skill-despertar.webp",
+      "exists": true,
+      "status": "reviewed"
     },
     {
       "key": "placido:base:portrait",

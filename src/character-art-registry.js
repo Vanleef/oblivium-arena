@@ -507,5 +507,25 @@ export const characterArtRegistry = {
     "despertar": "/art/characters/lilith/anime-first-completion-20261028/skill-despertar.webp"
   }
 },
+  "caliope": {
+  "portrait": "/art/characters/caliope/anime-first-completion-20261028/portrait.webp",
+  "passive": "/art/characters/caliope/anime-first-completion-20261028/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/caliope/anime-first-completion-20261028/skill-impulso.webp",
+    "tecnica": "/art/characters/caliope/anime-first-completion-20261028/skill-tecnica.webp",
+    "voto": "/art/characters/caliope/anime-first-completion-20261028/skill-voto.webp",
+    "despertar": "/art/characters/caliope/anime-first-completion-20261028/skill-despertar.webp"
+  }
+},
+  "serena": {
+  "portrait": "/art/characters/serena/anime-first-completion-20261028/portrait.webp",
+  "passive": "/art/characters/serena/anime-first-completion-20261028/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/serena/anime-first-completion-20261028/skill-impulso.webp",
+    "tecnica": "/art/characters/serena/anime-first-completion-20261028/skill-tecnica.webp",
+    "voto": "/art/characters/serena/anime-first-completion-20261028/skill-voto.webp",
+    "despertar": "/art/characters/serena/anime-first-completion-20261028/skill-despertar.webp"
+  }
+},
 };
 
