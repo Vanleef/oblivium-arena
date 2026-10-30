@@ -642,9 +642,24 @@
     "a-porta-fechada:base:impulso",
     "a-porta-fechada:base:tecnica",
     "a-porta-fechada:base:voto",
-    "a-porta-fechada:base:despertar"
+    "a-porta-fechada:base:despertar",
+    "o-surdo:base:portrait",
+    "o-surdo:base:passive",
+    "o-surdo:base:impulso",
+    "o-surdo:base:tecnica",
+    "o-surdo:base:voto",
+    "o-surdo:base:despertar",
+    "o-surdo:form:impulso:echo"
   ],
-  "currentDirectionApprovedAssetKeys": [],
+  "currentDirectionApprovedAssetKeys": [
+    "o-surdo:base:portrait",
+    "o-surdo:base:passive",
+    "o-surdo:base:impulso",
+    "o-surdo:base:tecnica",
+    "o-surdo:base:voto",
+    "o-surdo:base:despertar",
+    "o-surdo:form:impulso:echo"
+  ],
   "currentDirectionPendingVisualApprovalKeys": [
     "o-acougueiro:base:portrait",
     "o-acougueiro:base:passive",

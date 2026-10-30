@@ -1351,6 +1351,14 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       ...(Object.keys(forms).length ? {forms} : {})};
   }
+  if (id === 'o-surdo') {
+    const base = `/art/characters/o-surdo/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),echo:`${base}/skill-impulso-echo.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      forms};
+  }
   if (painterlySilencioArt.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261025`;
     const forms = {...(art.forms || {})};

@@ -1,0 +1,194 @@
+{
+  "title": "O Silenciador — Li Si — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "o-surdo",
+  "characterName": "Li Si",
+  "characterTitle": "O Silenciador",
+  "aliases": [
+    "O Silenciador",
+    "O Surdo"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Tártaro",
+  "essence": "Éter",
+  "style": "Dark fantasy pictórica densa, anime-first 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras recortadas, alta materialidade e atmosfera infernal.",
+  "identity": "Li Si é um supressor de vozes. A nova identidade usa máscara acústica de ferro forjado, selos retangulares e pressão abafada; túnica ritual preta e borgonha, sem fones ou equipamento tecnológico.",
+  "environment": "Inferno/Tártaro: corredores e colunas de basalto, cinza, fissuras carmesins e brasas; o ciano-acinzentado aparece apenas como acento de pressão espiritual. Sem tecnologia, máquinas ou indústria.",
+  "sceneVariety": "Retrato em close baixo; passiva em close oblíquo por cima do ombro; golpes em ângulos laterais, elevados e diagonais; defesa pessoal em vista alta traseira.",
+  "anatomyReview": "Sete imagens aprovadas pelo usuário em 2026-10-30. Os ataques mostram um único ghoul por cena; a defesa Silêncio Absoluto mostra apenas Li Si. A variação Clamor sem Retorno tem arte própria. As composições preservam corpos completos, gestos de combate naturais e sem equipamentos tecnológicos.",
+  "gameplayChanged": false,
+  "status": "user_approved_active",
+  "visualApproval": {
+    "date": "2026-10-30",
+    "userStatement": "Parabéns pelas artes do Li Si, ficaram perfeitas."
+  },
+  "format": {
+    "active": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Li Si — O Silenciador",
+      "targetCount": "none",
+      "camera": "close baixo em três quartos",
+      "scene": "Li Si volta o olhar para uma perturbação fora de quadro, pressionando a máscara acústica de ferro enquanto cinza e basalto se comprimem ao redor.",
+      "prompt": "Li Si, the lean infernal voice suppressor, in a worn black-burgundy ritual robe and engraved iron mask with rectangular seals; low three-quarter close portrait.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/portrait.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-dc8e4df0-75b1-4d55-9afc-31a08024c8df.png",
+      "generatedSourceSha256": "8a40e97c9cae3a7445a93628885a580afc8716e86ba5ec6614e83c987f3a1c10",
+      "generatedSourceBytes": 2925166,
+      "activeBytes": 54296,
+      "activeSha256": "fd48abcdc24a93c5036e71ce439834087c220bc4db1791cdf637a8e324a7f34d",
+      "sourceBytes": 309141,
+      "sourceSha256": "00d1f5a7a2f545d41e1490c8b748f9d888e91ac5608e3035294cd874633d2ff4"
+    },
+    {
+      "slot": "passive",
+      "name": "Clamor Sufocado",
+      "targetCount": "um ghoul enfraquecido",
+      "camera": "close oblíquo alto sobre o ombro do alvo",
+      "scene": "Li Si fixa um selo retangular de ferro na garganta de um ghoul enfraquecido; a pressão ciano-acinzentada comprime a cinza e interrompe seu clamor.",
+      "prompt": "One weakened ghoul is silenced by Li Si pressing a heavy rectangular iron seal against its throat; compressed ash and cloth show the impact.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/passive.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-c2202061-b4a9-439c-9389-9e159ce4ce87.png",
+      "generatedSourceSha256": "e843730e26f5916f4cc1b76bdc18f606da4390616dc11965c5e758d90b7ec58b",
+      "generatedSourceBytes": 2468445,
+      "activeBytes": 40398,
+      "activeSha256": "905a721f0418175e0de7902b8c64dca54102a87100bfdd9eaf33d4618c8d7bc6",
+      "sourceBytes": 256399,
+      "sourceSha256": "b9c9f955d71f55118a1523285d62a9a05d4baf2befd6dbf91be0371bb410370f"
+    },
+    {
+      "slot": "impulso",
+      "name": "Impacto Abafado",
+      "targetCount": "um ghoul",
+      "camera": "ação lateral baixa",
+      "scene": "Li Si avança com uma palma curta contra o peito do ghoul; o impacto dobra o tronco do alvo e a garra erguida perde força.",
+      "prompt": "Li Si pivots into a compact, body-weighted palm strike against one ghoul; the target folds and loses force.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/impulso.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-c1de6420-4229-4f45-85ab-7a002602ca74.png",
+      "generatedSourceSha256": "15cec6cde5c0186dd09132b025bf64779fe0ceb7157dfd8ba220c97e37b30274",
+      "generatedSourceBytes": 2808623,
+      "activeBytes": 53026,
+      "activeSha256": "6bc8de8149ab3683146150ca6f9cebef561b3eae02e45bd918aa0666ac87ff83",
+      "sourceBytes": 325205,
+      "sourceSha256": "443094f742b2a6066cae6455c0abaece6e946f8fe56818a03e7cfd4477c52fb2"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Interditar a Voz",
+      "targetCount": "um ghoul",
+      "camera": "close oblíquo alto por trás de Li Si",
+      "scene": "Li Si golpeia a mandíbula do ghoul com a palma selada, prendendo-o contra o basalto em reação de atordoamento.",
+      "prompt": "Li Si drives a sealed palm into one ghoul’s jaw and pins it against basalt; the target freezes in a stunned recoil.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/tecnica.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-1c353e06-8084-47a4-b982-4886b33dd35d.png",
+      "generatedSourceSha256": "b96cc1348839ff3fe0cf1aba4816b07b35398516f1f2b19a525fec1df8d672d6",
+      "generatedSourceBytes": 2655169,
+      "activeBytes": 44302,
+      "activeSha256": "bfd8bcbfdcb59dd8a33a3de2e2c7450f2ef7263bf76c459388fe0a30231aff97",
+      "sourceBytes": 270955,
+      "sourceSha256": "3f3ced8d743b4f37fc0ca8c5f225bbdb8f059bb83f22335003cde54d29386029"
+    },
+    {
+      "slot": "voto",
+      "name": "Decreto do Silêncio",
+      "targetCount": "um ghoul enfraquecido",
+      "camera": "plano baixo em três quartos, diagonal compacta",
+      "scene": "Uma massa retangular de pressão acerta o peito do ghoul e o arremessa contra uma coluna, rachando o basalto sem ocultar o corpo do alvo.",
+      "prompt": "A broad solid pressure impact hits one weakened ghoul’s chest and drives its intact body into a basalt pillar.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/voto.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-daef04df-d69e-4e77-b897-472602e33ccb.png",
+      "generatedSourceSha256": "ac634c2211eaaa4e3a5267856f68a10919b0db82ed99b8856f1e28d600600c9f",
+      "generatedSourceBytes": 3057932,
+      "activeBytes": 59442,
+      "activeSha256": "f9e0fe26197038f5fd65e4744b365b2a8140297d7ec78455431eeaac0b7ac3f7",
+      "sourceBytes": 327406,
+      "sourceSha256": "7c6f9bba0c92722a57c12cf290ef4fa4f424f19d6c7f3ad514ef6f2dcf016101"
+    },
+    {
+      "slot": "despertar",
+      "name": "Silêncio Absoluto",
+      "targetCount": "apenas Li Si",
+      "camera": "vista alta traseira em três quartos",
+      "scene": "Li Si se agacha e protege a máscara enquanto basalto e cinza compactados se fecham ao redor dele; não há outro personagem na cena.",
+      "prompt": "Li Si braces alone as compacted basalt and ash fold around his crouched body, with no attacker or other character visible.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/despertar.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-07356887-22e3-4ca6-ba7f-bb0ce6bd5f54.png",
+      "generatedSourceSha256": "08c3f0c4fa405ab141ff458eb11717923cff40870b4c638324d63780e3c59fdb",
+      "generatedSourceBytes": 2949666,
+      "activeBytes": 52586,
+      "activeSha256": "1f290d01b651995627d52edb93419d5a65caa34d661dd263c078300188cb98cc",
+      "sourceBytes": 299260,
+      "sourceSha256": "ca30d2edcaefd8b045744ed9e7d2ab43871f904d3344dac451500a20578f3cdf"
+    },
+    {
+      "slot": "impulso:echo",
+      "name": "Clamor sem Retorno",
+      "targetCount": "um ghoul enfraquecido",
+      "camera": "vista oblíqua alta quase zenital",
+      "scene": "A pressão da voz abafada retorna contra um único ghoul enfraquecido, comprimindo cinza e pedra em torno do corpo intacto enquanto Li Si conclui o golpe.",
+      "prompt": "The muffled pressure rebounds into one weakened ghoul, compressing ash and stone around its intact body as Li Si completes the follow-up.",
+      "activePath": "art/characters/o-surdo/dark-pictorial-rework-20261030/skill-impulso-echo.webp",
+      "sourcePath": "art/source/o-surdo-dark-pictorial-rework-20261030/skill-impulso-echo.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "generated_images/exec-0286249a-2d4f-453e-a1d9-fe3f247d3a2b.png",
+      "generatedSourceSha256": "dbcbb5602c32e2836dddde41f3be887d15a5097e2cc66b75829e13e326920525",
+      "generatedSourceBytes": 3211987,
+      "activeBytes": 56806,
+      "activeSha256": "23a2cc24b5de10f0f6285ea8eb67ab2d6b171ede044a7156af12b9bd8944094f",
+      "sourceBytes": 317229,
+      "sourceSha256": "61c99f465f21c0e7f33f5e7c4afcc3f90443719133a485433b0d191566ee1743",
+      "abilitySlot": "impulso",
+      "formKey": "echo"
+    }
+  ]
+}

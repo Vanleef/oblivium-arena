@@ -782,7 +782,17 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:echo"
+      ],
+      "currentDirectionStatus": "user_approved_active"
     },
     {
       "id": "a-testemunha-cega",
