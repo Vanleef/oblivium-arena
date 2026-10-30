@@ -665,3 +665,8 @@ Perdiccas preserva o capuz vazio, a fenda âmbar, a coroa de ferro partida, o ma
 Os enquadramentos alternam close frontal baixo, lateral oblíqua, ação baixa em três quartos, perfil de contra-ataque, plano frontal amplo com dois vassalos e vista através de escombros. A silhueta do Suserano não tem face ou corpo humano; alvos e vassalos permanecem separados e legíveis, sem anomalias corporais observadas. Todas as imagens seguem como candidatas pendentes de aprovação visual. Nenhuma mecânica foi alterada.
 
 Ativos WebP: `/art/characters/o-trono-vazio/graphic-2-5d-rework-20261029`; fontes JPEG 768×768: `art/source/o-trono-vazio-graphic-2-5d-rework-20261029`. Manifesto e galeria: `docs/ART_SUSERANO_GRAPHIC_2_5D_REWORK_20261029.json` e `.md`.
+
+
+## O Sussurro — revisão dark fantasy pictórica — 30/10/2026
+
+Seis novas candidatas cobrem retrato, passiva e as quatro habilidades de Hárpago. O corpo anfíbio baixo e largo, pele verde-petróleo com sardas cobre, olhos jade, bolsa vocal, casaco ameixa, colete marfim, faixa azul-marinho, tubo ritual de latão e leque de ferro foram preservados. As cenas variam entre cais, detalhe da conversão de Essência, reação ao veneno, golpe físico com roubo, desvio de ataque e evasão na água. A direção usa pintura dark fantasy densa, pinceladas angulares, hachuras, sombras cortadas, materialidade gasta e paleta infernal preto/vermelho, sem feixes genéricos ou tecnologia. As seis candidatas aguardam aprovação visual; custos, alvos, efeitos e recargas permanecem inalterados. Manifesto: ART_O_SUSSURRO_DARK_PICTORIAL_REWORK_20261030.json.

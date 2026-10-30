@@ -388,7 +388,13 @@
     "placido:base:impulso",
     "placido:base:tecnica",
     "placido:base:voto",
-    "placido:base:despertar"
+    "placido:base:despertar",
+    "o-sussurro:base:portrait",
+    "o-sussurro:base:passive",
+    "o-sussurro:base:impulso",
+    "o-sussurro:base:tecnica",
+    "o-sussurro:base:voto",
+    "o-sussurro:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -439,7 +445,13 @@
     "placido:base:impulso",
     "placido:base:tecnica",
     "placido:base:voto",
-    "placido:base:despertar"
+    "placido:base:despertar",
+    "o-sussurro:base:portrait",
+    "o-sussurro:base:passive",
+    "o-sussurro:base:impulso",
+    "o-sussurro:base:tecnica",
+    "o-sussurro:base:voto",
+    "o-sussurro:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

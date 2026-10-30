@@ -296,7 +296,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-mascara-dupla",
@@ -2084,11 +2093,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 115,
-    "remainingSlots": 883,
-    "fullyMigratedEntries": 18,
-    "remainingEntries": 132,
-    "awaitingVisualApprovalSlots": 115,
+    "integratedCandidateSlots": 140,
+    "remainingSlots": 858,
+    "fullyMigratedEntries": 22,
+    "remainingEntries": 128,
+    "awaitingVisualApprovalSlots": 140,
     "approvedSlots": 0
   }
 }

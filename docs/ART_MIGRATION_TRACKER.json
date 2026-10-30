@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "approvedArtDirection": "Dark fantasy pictórica densa com estilização gráfica 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, luzes de recorte, alta materialidade e paleta adaptada a cada Mundo.",
   "totalBaseCharacterSets": 100,
   "totalBaseSprites": 600,
@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 115 imagens candidatas já integradas."
+    "Fazer revisão visual final das 140 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 115,
-      "remainingSlots": 883,
-      "fullyMigratedEntries": 18,
-      "remainingEntries": 132,
-      "awaitingVisualApprovalSlots": 115,
+      "integratedCandidateSlots": 140,
+      "remainingSlots": 858,
+      "fullyMigratedEntries": 22,
+      "remainingEntries": 128,
+      "awaitingVisualApprovalSlots": 140,
       "approvedSlots": 0
     }
   },
