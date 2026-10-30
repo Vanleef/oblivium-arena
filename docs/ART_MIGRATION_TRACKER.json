@@ -117,9 +117,23 @@
   "latestDarkPictorialBatch": {
     "date": "2026-10-30",
     "characterIds": [
-      "o-coracao-em-furia"
+      "o-coracao-em-furia",
+      "a-pira-errante"
     ],
     "candidateSlotsAdded": 6,
+    "candidateSlotsReworked": 7,
     "status": "candidate_integrated_pending_visual_approval"
-  }
+  },
+  "currentDirectionCorrectionHistory": [
+    {
+      "date": "2026-10-30",
+      "characterId": "a-pira-errante",
+      "characterName": "Tomyris / A Pira Errante",
+      "feedback": "O traje preto e carmesim com manto parecia visualmente copiado de outras personagens do Inferno.",
+      "correction": "Refiz as sete artes com túnica curta cinza-clara, calças carvão, faixa ferrugem curta, bracelete ritual direito e lanterna esquerda; removi manto, capa e véu.",
+      "logicalSlotsReworked": 7,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    }
+  ]
 }
