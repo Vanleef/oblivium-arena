@@ -1,0 +1,165 @@
+{
+  "title": "A Carcereira — Sejanus — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "a-porta-fechada",
+  "characterName": "Sejanus",
+  "characterTitle": "A Carcereira",
+  "aliases": [
+    "A Porta Fechada",
+    "A Carcereira"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Silêncio",
+  "essence": "Éter",
+  "style": "Dark fantasy pictórica densa com estilização gráfica anime-first 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, alta materialidade e atmosfera infernal.",
+  "identity": "Sejanus é uma mulher adulta de pele escura, cabelo curto cacheado grisalho, casaco azul-marinho de gola alta e chaves de latão. Decide quem encontra abrigo e deixa vítimas sem resposta do lado de fora.",
+  "environment": "Inferno/Silêncio: portas e corredores de basalto, fuligem, sombras azul-negras, detalhes de latão e fissuras carmesins contidas. Chaves e portas são objetos artesanais simples; sem mecanismos, tecnologia ou indústria.",
+  "sceneVariety": "Retrato em close baixo; passiva em plano médio diagonal; golpe em close lateral; guarida em vista alta; corredor de contenção em plano longo baixo; limiar em close traseiro.",
+  "anatomyReview": "Seis candidatas inspecionadas. Sejanus mantém anatomia humana e dois braços. Abrigo dos Cúmplices mostra dois inimigos; Batida sem Resposta e Não Há Saída mostram um alvo cada; Guarida Seletiva mostra Sejanus e uma aliada ghoul, sem inimigos; Limiar Interdito mostra apenas Sejanus. Não há soldados genéricos ou personagens nomeados adicionais.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Sejanus — A Carcereira",
+      "targetCount": "none",
+      "camera": "close baixo em três quartos",
+      "scene": "Retrato de Sejanus com pele escura, cachos grisalhos curtos, gola azul-marinho e chaves de latão junto ao peito.",
+      "prompt": "Sejanus, mature dark-skinned woman with short tight gray curls, navy high-collar coat and aged brass keys; chest-up three-quarter portrait.",
+      "candidatePath": "stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-2a3e4e5c-cdf7-4095-b8e2-9dd828dcad9b.png",
+      "generatedSourceSha256": "e28b471b3bd945d8434de1795a87caeadec295c0dd4be8e4d8ba835f2e20f532",
+      "generatedSourceBytes": 2438683,
+      "candidateBytes": 47334,
+      "candidateSha256": "6433011fb7c467bd48b65a1d03f4533cc56e1ef00d645c52d13db19c8c32c512",
+      "sourceBytes": 204380,
+      "sourceSha256": "6abeae8605743a417e2664e1d8cf864c8d1e7b00b9b0943d1cd24daa85177c87"
+    },
+    {
+      "slot": "passive",
+      "name": "Abrigo dos Cúmplices",
+      "targetCount": "dois ghouls inimigos com Éter",
+      "camera": "plano médio diagonal",
+      "scene": "A porta de basalto se fecha para proteger Sejanus do lado de dentro; dois ghouls ficam de fora e uma chave captura uma das fagulhas de Éter.",
+      "prompt": "A heavy basalt door closes to shelter Sejanus inside while exactly two ghoul enemies stay outside; a brass key catches one cold Ether glimmer; no beams.",
+      "candidatePath": "stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-1ef89af9-f1a4-45bb-8354-9235ca26ef17.png",
+      "generatedSourceSha256": "26f5ce5dda410fe167ba33ceed01fd9fb7a5d8a9ebe55431de99c24c3dda424a",
+      "generatedSourceBytes": 2616122,
+      "candidateBytes": 60882,
+      "candidateSha256": "c17c62d8019bb4115353272f9f980c81c245e364d7eee7aafa1875909c3bdfb7",
+      "sourceBytes": 239767,
+      "sourceSha256": "38edb9cbc76740533df4a25f5449412f0bd456911266e7204196970fd0c348b1"
+    },
+    {
+      "slot": "impulso",
+      "name": "Batida sem Resposta",
+      "targetCount": "um ghoul inimigo",
+      "camera": "close lateral baixo",
+      "scene": "Sejanus prende o pulso do ghoul e o empurra contra a porta de basalto; uma chave marca a couraça no impacto.",
+      "prompt": "Sejanus catches one ghoul’s wrist and drives it against the basalt doorway; a brass key leaves a physical mark on its breastplate; low side action.",
+      "candidatePath": "stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-5c45b174-94f5-4b99-bffd-02849cbf8aa6.png",
+      "generatedSourceSha256": "c1d8b1f99cf9751e3a09d2d8ac68b81c5ae05982edd6b3091e384d9dcd15819f",
+      "generatedSourceBytes": 2715108,
+      "candidateBytes": 58292,
+      "candidateSha256": "fb684cee40685a59c96f6598992305d423ecb96fc292b16e086a3a345b2aab69",
+      "sourceBytes": 245321,
+      "sourceSha256": "97793bc130021f3552b3c8f8ee896974d3e002aa08f24e5faf2e3d4e785e7e9d"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Guarida Seletiva",
+      "targetCount": "Sejanus e uma ghoul aliada",
+      "camera": "vista alta em três quartos",
+      "scene": "Sejanus fecha um abrigo de pedra ao redor de si e de uma aliada ghoul; a porta física protege as duas, sem inimigos visíveis.",
+      "prompt": "Sejanus closes a heavy stone refuge around herself and exactly one ghoul ally; no enemies, no magical bubble.",
+      "candidatePath": "stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-c7f37613-6951-43d8-bec7-1d92c59b2e8a.png",
+      "generatedSourceSha256": "d28dd6c43fb5887bc206630f0957b0bcef0d9262e6e45955912a941a04045ba1",
+      "generatedSourceBytes": 2528001,
+      "candidateBytes": 60458,
+      "candidateSha256": "5ba94dc32b5c8633e42149f3ce6078ea9f18e1bb6237b34d608c5a95888d2b3d",
+      "sourceBytes": 251726,
+      "sourceSha256": "7a17c5169297890eaeaade714b3c7fb1505b2f062d34358b7d29a59799009b50"
+    },
+    {
+      "slot": "voto",
+      "name": "Não Há Saída",
+      "targetCount": "um ghoul inimigo marcado",
+      "camera": "plano longo baixo",
+      "scene": "Um ghoul marcado fica preso no centro de um corredor de portas convergentes que se fecham e o atordoam.",
+      "prompt": "Exactly one marked ghoul is trapped at the center of a converging basalt corridor as heavy doors slam shut and stun it.",
+      "candidatePath": "stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-5cf2164c-349e-45df-95a9-1e92bce9c956.png",
+      "generatedSourceSha256": "7c1b198538b1f81ccac48b19dd682ebad88f33c2ac40dd41bf0d9c3920258935",
+      "generatedSourceBytes": 2672039,
+      "candidateBytes": 65788,
+      "candidateSha256": "988c52cf51226e1c74c022a6822dbcb78c1ce888174b33c312b70cac3f793663",
+      "sourceBytes": 263641,
+      "sourceSha256": "5204aa46494ff34b82daf910030bc566f91ad30e3bb56f52a8c4217dc38e4e30"
+    },
+    {
+      "slot": "despertar",
+      "name": "Limiar Interdito",
+      "targetCount": "self",
+      "camera": "close traseiro em três quartos",
+      "scene": "Sejanus cruza sozinha um limiar inacessível enquanto a porta se fecha ao redor dela, deixando uma fresta fria de luz.",
+      "prompt": "Sejanus crosses alone through an inaccessible stone threshold while the door closes around her; high rear three-quarter view.",
+      "candidatePath": "stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-898a020d-12b5-4d59-83c7-d4f01bbde56e.png",
+      "generatedSourceSha256": "a09b0e1916307e363e230843b54839eb1720ccacdec7116a8f5a01a00d0c7fc3",
+      "generatedSourceBytes": 2516841,
+      "candidateBytes": 49098,
+      "candidateSha256": "bea2c40cc2eadbb8a5a3ed5662079184e03b57819bf7b81e546545272a0a36d9",
+      "sourceBytes": 208945,
+      "sourceSha256": "62746bac1b8d92989439ae6f72b0ebd479edcace95a96752cd3f33cd20379e04"
+    }
+  ]
+}

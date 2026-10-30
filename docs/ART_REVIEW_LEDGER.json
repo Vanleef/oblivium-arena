@@ -636,7 +636,13 @@
     "o-que-observou:base:impulso",
     "o-que-observou:base:tecnica",
     "o-que-observou:base:voto",
-    "o-que-observou:base:despertar"
+    "o-que-observou:base:despertar",
+    "a-porta-fechada:base:portrait",
+    "a-porta-fechada:base:passive",
+    "a-porta-fechada:base:impulso",
+    "a-porta-fechada:base:tecnica",
+    "a-porta-fechada:base:voto",
+    "a-porta-fechada:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -935,7 +941,13 @@
     "o-que-observou:base:impulso",
     "o-que-observou:base:tecnica",
     "o-que-observou:base:voto",
-    "o-que-observou:base:despertar"
+    "o-que-observou:base:despertar",
+    "a-porta-fechada:base:portrait",
+    "a-porta-fechada:base:passive",
+    "a-porta-fechada:base:impulso",
+    "a-porta-fechada:base:tecnica",
+    "a-porta-fechada:base:voto",
+    "a-porta-fechada:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
