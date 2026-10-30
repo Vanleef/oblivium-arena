@@ -549,7 +549,13 @@
     "a-pira-errante:base:tecnica",
     "a-pira-errante:base:voto",
     "a-pira-errante:base:despertar",
-    "a-pira-errante:form:impulso:reply"
+    "a-pira-errante:form:impulso:reply",
+    "o-coracao-em-furia:base:portrait",
+    "o-coracao-em-furia:base:passive",
+    "o-coracao-em-furia:base:impulso",
+    "o-coracao-em-furia:base:tecnica",
+    "o-coracao-em-furia:base:voto",
+    "o-coracao-em-furia:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -761,7 +767,13 @@
     "a-pira-errante:base:tecnica",
     "a-pira-errante:base:voto",
     "a-pira-errante:base:despertar",
-    "a-pira-errante:form:impulso:reply"
+    "a-pira-errante:form:impulso:reply",
+    "o-coracao-em-furia:base:portrait",
+    "o-coracao-em-furia:base:passive",
+    "o-coracao-em-furia:base:impulso",
+    "o-coracao-em-furia:base:tecnica",
+    "o-coracao-em-furia:base:voto",
+    "o-coracao-em-furia:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

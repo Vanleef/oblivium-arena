@@ -14,7 +14,7 @@
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 209 ativos candidatos desta rodada."
+    "Revisar visualmente os 215 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 129,
+    "newDarkPictorialCandidateAssets": 215,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -54,7 +54,8 @@
     "aBrasaEternaProductionReport": "docs/ART_A_BRASA_ETERNA_DARK_PICTORIAL_REWORK_20261030.json",
     "oFurorProductionReport": "docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json",
     "oFilhoDaCinzaProductionReport": "docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json",
-    "aPiraErranteProductionReport": "docs/ART_A_PIRA_ERRANTE_DARK_PICTORIAL_REWORK_20261030.json"
+    "aPiraErranteProductionReport": "docs/ART_A_PIRA_ERRANTE_DARK_PICTORIAL_REWORK_20261030.json",
+    "oCoracaoEmFuriaProductionReport": "docs/ART_O_CORACAO_EM_FURIA_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -101,12 +102,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 209,
-      "integratedSlots": 209,
+      "candidateSlots": 215,
+      "integratedSlots": 215,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 32
+      "fullyMigratedEntries": 33
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -140,25 +141,26 @@
     "oFilhoDaCinzaArtwork": "7 fontes JPEG 768×768 e 7 ativos WebP 512×512; três ataques com um alvo e três cenas de autoalvo; identidade adulta, anatomia e variedade de enquadramento revisadas; candidatas pendentes de aprovação visual.",
     "oFilhoDaCinzaRuntime": "Rotas de arte base e da forma impulso.rebirth atualizadas; nenhuma mecânica de combate alterada.",
     "aPiraErranteArtwork": "7 source JPEGs at 768×768 and 7 active WebP assets at 512×512; identity, anatomy, one-target scenes, exactly three area targets and varied framing reviewed; pending visual approval.",
-    "aPiraErranteRuntime": "Updated art routes for portrait, passive, base abilities and forms.impulso.reply only; no combat fields or mechanics changed."
+    "aPiraErranteRuntime": "Updated art routes for portrait, passive, base abilities and forms.impulso.reply only; no combat fields or mechanics changed.",
+    "oCoracaoEmFuriaArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; retrato, passiva e quatro habilidades-base revisados; candidatas pendentes de aprovação visual.",
+    "oCoracaoEmFuriaRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 7,
+    "darkPictorialCandidatesAdded": 6,
     "kitsIntegrated": 1,
     "characterIds": [
-      "a-pira-errante"
+      "o-coracao-em-furia"
     ],
     "sceneAngles": [
       "low_threequarter_portrait",
-      "low_side_ember_contact",
-      "ground_level_lantern_impact",
-      "reverse_over_target_spiritual_reply",
-      "close_guard_counter",
-      "high_oblique_three_target_ring",
-      "rear_high_ash_evasion"
+      "low_reverse_retaliation",
+      "ground_level_fist_impact",
+      "high_oblique_elbow_strike",
+      "overhead_double_fist_slam",
+      "side_reverse_personal_dodge"
     ],
-    "anatomyReview": "Sete imagens inspecionadas. Tomyris mantém aparência adulta, dois braços, mãos e pegada legíveis, braçadeira no antebraço direito, lanterna à esquerda e a silhueta descrita na referência. Um ghoul aparece no ataque da passiva, Brasa Punitiva, Revanche Ardente e Guarda Vingativa; Cerco Incandescente mostra exatamente três alvos; Passo entre Brasas afeta somente Tomyris. Paleta de Inferno em carmesim, laranja e cinza, sem tecnologia; nenhuma mecânica foi alterada.",
+    "anatomyReview": "Seis imagens inspecionadas. Cambyses mantém um chifre, dois braços e o forno espiritual coberto; quatro ataques mostram um ghoul cada e a defesa mostra uma esquiva pessoal diante de um atacante. Paleta de Inferno/Chama, sem tecnologia ou soldados genéricos; mecânicas inalteradas.",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

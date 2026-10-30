@@ -1192,6 +1192,11 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
   }
+  if (id === 'o-coracao-em-furia') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (id === 'a-pira-errante') {
     const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     const forms = {...(art.forms || {})};
