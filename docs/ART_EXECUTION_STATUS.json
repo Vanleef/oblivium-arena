@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 81,
-  "newAbilityScenesSaved": 420,
+  "newPortraitsSaved": 82,
+  "newAbilityScenesSaved": 425,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 302 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 308 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 309,
+    "newDarkPictorialCandidateAssets": 315,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -61,7 +61,8 @@
     "aSenhoraProductionReport": "docs/ART_A_SENHORA_DO_ULTIMO_PAO_DARK_PICTORIAL_REWORK_20261030.json",
     "oCredorProductionReport": "docs/ART_O_CREDOR_DARK_PICTORIAL_REWORK_20261030.json",
     "aBalancaVaziaProductionReport": "docs/ART_A_BALANCA_VAZIA_DARK_PICTORIAL_REWORK_20261030.json",
-    "oApodrecidoProductionReport": "docs/ART_O_APODRECIDO_DARK_PICTORIAL_REWORK_20261030.json"
+    "oApodrecidoProductionReport": "docs/ART_O_APODRECIDO_DARK_PICTORIAL_REWORK_20261030.json",
+    "aTestemunhaCegaProductionReport": "docs/ART_JOSEFO_CUMPLICE_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -108,13 +109,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 309,
-      "integratedSlots": 309,
+      "candidateSlots": 315,
+      "integratedSlots": 315,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 48,
-      "pendingVisualApprovalSlots": 302,
+      "fullyMigratedEntries": 49,
+      "pendingVisualApprovalSlots": 308,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -159,28 +160,19 @@
     "aBalancaVaziaArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, ações, anatomia, cura de um aliado e Confisco Coletivo contra exatamente três ghouls inspecionados; candidatas pendentes de aprovação visual.",
     "aBalancaVaziaRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged.",
     "oApodrecidoArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, alvos únicos, raiz de Tecido Cedido e proteção externa de Casca Morta inspecionados; candidatas pendentes de aprovação visual.",
-    "oApodrecidoRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged."
+    "oApodrecidoRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged.",
+    "aTestemunhaArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, ações, alvos e variedade de enquadramento inspecionados; aguardam aprovação visual.",
+    "aTestemunhaRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "candidateSlotsAdded": 0,
-    "candidateSlotsActivated": 72,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "characterIds": [
-      "a-balanca-vazia",
-      "a-porta-fechada",
-      "a-praga-andante",
-      "a-rainha-dos-fungos",
-      "a-senhora-do-ultimo-pao",
-      "hans",
-      "o-apodrecido",
-      "o-corrupto",
-      "o-credor",
-      "o-jardim-morto",
-      "o-medico-de-vermes",
-      "o-que-observou"
+      "a-testemunha-cega"
     ],
-    "sourceCopies": 72,
+    "sourceCopies": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_PRIOR_CHAT_ASSETS_INTEGRATION_20261030.json"
+    "report": "docs/ART_JOSEFO_CUMPLICE_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }

@@ -649,7 +649,13 @@
     "o-surdo:base:tecnica",
     "o-surdo:base:voto",
     "o-surdo:base:despertar",
-    "o-surdo:form:impulso:echo"
+    "o-surdo:form:impulso:echo",
+    "a-testemunha-cega:base:portrait",
+    "a-testemunha-cega:base:passive",
+    "a-testemunha-cega:base:impulso",
+    "a-testemunha-cega:base:tecnica",
+    "a-testemunha-cega:base:voto",
+    "a-testemunha-cega:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -962,7 +968,13 @@
     "a-porta-fechada:base:impulso",
     "a-porta-fechada:base:tecnica",
     "a-porta-fechada:base:voto",
-    "a-porta-fechada:base:despertar"
+    "a-porta-fechada:base:despertar",
+    "a-testemunha-cega:base:portrait",
+    "a-testemunha-cega:base:passive",
+    "a-testemunha-cega:base:impulso",
+    "a-testemunha-cega:base:tecnica",
+    "a-testemunha-cega:base:voto",
+    "a-testemunha-cega:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
