@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 159 imagens candidatas já integradas."
+    "Fazer revisão visual final das 172 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 159,
-      "remainingSlots": 839,
-      "fullyMigratedEntries": 25,
-      "remainingEntries": 125,
-      "awaitingVisualApprovalSlots": 159,
+      "integratedCandidateSlots": 172,
+      "remainingSlots": 826,
+      "fullyMigratedEntries": 27,
+      "remainingEntries": 123,
+      "awaitingVisualApprovalSlots": 172,
       "approvedSlots": 0
     }
   },
@@ -117,11 +117,10 @@
   "latestDarkPictorialBatch": {
     "date": "2026-10-30",
     "characterIds": [
-      "a-mascara-dupla",
-      "o-tecelao-de-mentiras",
-      "a-boca-de-vidro"
+      "o-falso-profeta",
+      "o-corretor-de-memorias"
     ],
-    "candidateSlotsAdded": 19,
+    "candidateSlotsAdded": 13,
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

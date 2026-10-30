@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 74,
-  "newAbilityScenesSaved": 377,
+  "newPortraitsSaved": 76,
+  "newAbilityScenesSaved": 388,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 159 ativos candidatos desta rodada."
+    "Revisar visualmente os 172 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,14 +40,16 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 79,
+    "newDarkPictorialCandidateAssets": 92,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
     "gemeosProductionReport": "docs/ART_GEMEOS_CUTELO_DARK_PICTORIAL_REWORK_20261029.json",
     "oCarrascoProductionReport": "docs/ART_CARRASCO_SEM_ROSTO_DARK_PICTORIAL_REWORK_20261029.json",
     "aMaeRubraProductionReport": "docs/ART_MAE_RUBRA_DARK_PICTORIAL_REWORK_20261029.json",
-    "oSussurroProductionReport": "docs/ART_O_SUSSURRO_DARK_PICTORIAL_REWORK_20261030.json"
+    "oSussurroProductionReport": "docs/ART_O_SUSSURRO_DARK_PICTORIAL_REWORK_20261030.json",
+    "oFalsoProfetaProductionReport": "docs/ART_O_FALSO_PROFETA_DARK_PICTORIAL_REWORK_20261030.json",
+    "oFalsarioProductionReport": "docs/ART_O_FALSARIO_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -94,12 +96,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 159,
-      "integratedSlots": 159,
+      "candidateSlots": 172,
+      "integratedSlots": 172,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 25
+      "fullyMigratedEntries": 27
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -119,30 +121,35 @@
     "oIntriganteArtwork": "6 base images plus one dedicated Desatar a Trama variation; source JPEGs 768×768, active WebP 512×512; the three-enemy web and three-ally unweaving scenes reviewed.",
     "oIntriganteRuntime": "Updated art routes including forms.tecnica.unweave only; no combat fields changed.",
     "aSerpeArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; one glass-serpent body and exact three-target area scene reviewed.",
-    "aSerpeRuntime": "Updated art routes only; no combat fields changed."
+    "aSerpeRuntime": "Updated art routes only; no combat fields changed.",
+    "oFalsoProfetaArtwork": "7 assets including Confissão variant; source JPEG 768×768 and active WebP 512×512; one enemy in Promise/Miracle scenes and self-only Confession/Sacred Image; pending visual approval.",
+    "oFalsoProfetaRuntime": "Updated portrait, passive, base abilities and forms.tecnica.confess art routes only; combat mechanics unchanged.",
+    "oFalsarioArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; identity, one-target scenes and personal defense reviewed; pending visual approval.",
+    "oFalsarioRuntime": "Updated art routes only; no combat fields changed."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 19,
-    "kitsIntegrated": 3,
+    "darkPictorialCandidatesAdded": 13,
+    "kitsIntegrated": 2,
     "characterIds": [
-      "a-mascara-dupla",
-      "o-tecelao-de-mentiras",
-      "a-boca-de-vidro"
+      "o-falso-profeta",
+      "o-corretor-de-memorias"
     ],
     "sceneAngles": [
-      "low_three_quarter_portraits",
-      "oblique_mirror_passive",
-      "low_side_mark",
-      "high_diagonal_three_target_web",
-      "utility_unweaving_three_allies",
-      "close_knot_control",
-      "low_personal_defense",
-      "glass_serpent_mirror",
-      "single_target_shard",
-      "wide_three_target_shards"
+      "false_prophet_pulpit_single_target_mark",
+      "halo_energy_absorption",
+      "single_mote_self_heal",
+      "self_confession_cleansing",
+      "focused_single_target_miracle",
+      "mantle_personal_defense",
+      "auction_counter_memory_portrait",
+      "open_archive_memory_card",
+      "single_target_memory_mark_and_essence_theft",
+      "single_target_guard_break",
+      "single_target_mark_settlement",
+      "personal_defense_one_dart"
     ],
-    "anatomyReview": "A Máscara Dupla conserva uma única pessoa e reflexo coerente; O Intrigante preserva rosto único de porcelana e alvos contados; A Serpe mantém uma cabeça e corpo contínuo sem membros. Nenhuma anomalia anatômica evidente foi observada.",
+    "anatomyReview": "O Falso Profeta conserva pele escura, cabeça calva, túnica ameixa/preta, manto marfim e um único halo antigo de bronze; O Falsário conserva cabelo prateado preso, barba, casaco verde-petróleo, bracelete e caixa de memórias. Quantidade de alvos e defesa pessoal foram inspecionadas.",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

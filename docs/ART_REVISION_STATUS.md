@@ -679,3 +679,12 @@ Três kits receberam 19 novas candidatas: seis para A Máscara Dupla, sete para 
 As cenas respeitam os alvos: Rede de Falsidades atinge três inimigos; Desatar a Trama mostra três aliados no total, incluindo o Intrigante; Coro de Estilhaços atinge três inimigos. Rotas de arte e metadados foram atualizados, sem mudanças de combate. Todas as 19 peças aguardam aprovação visual final.
 
 Ativos WebP 512×512 e fontes JPEG 768×768 nos diretórios dark-pictorial-rework-20261030. Manifestos: ART_A_MASCARA_DUPLA_DARK_PICTORIAL_REWORK_20261030.json, ART_O_TECELAO_DE_MENTIRAS_DARK_PICTORIAL_REWORK_20261030.json e ART_A_BOCA_DE_VIDRO_DARK_PICTORIAL_REWORK_20261030.json.
+
+
+## Kits integrados em 30/10/2026: O Falso Profeta e O Falsário
+
+Treze candidatas foram adicionadas: sete para Joanna Southcott, incluindo a variação Confissão do Falso Santo, e seis para Annius. Joanna mantém pele castanho-escura, cabeça calva, túnica ameixa/preta, manto marfim e halo ritual único de bronze antigo; Annius mantém cabelo prateado preso, barba, casaco verde-petróleo, bracelete e caixa de memórias. As cenas de Promessa do Profeta, Milagre Fabricado, Lembrança Hipotecada, Esquecer a Defesa e Liquidação do Passado mostram um alvo por vez. Confissão e Imagem Sagrada são autocentradas, e a defesa de Annius usa exatamente um dardo.
+
+Os ativos WebP 512×512 e fontes JPEG 768×768 estão em `art/characters/{o-falso-profeta,o-corretor-de-memorias}/dark-pictorial-rework-20261030` e `art/source/{o-falso-profeta,o-corretor-de-memorias}-dark-pictorial-rework-20261030`. As rotas do runtime foram atualizadas; nenhuma mecânica de combate foi alterada. As 13 candidatas aguardam aprovação visual final.
+
+A migração dark fantasy pictórica chega a 172/998 espaços, com 826 restantes e 27/150 entradas com kit concluído. Restam 123 entradas.

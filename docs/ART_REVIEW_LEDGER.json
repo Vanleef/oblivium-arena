@@ -413,7 +413,20 @@
     "a-boca-de-vidro:base:impulso",
     "a-boca-de-vidro:base:tecnica",
     "a-boca-de-vidro:base:voto",
-    "a-boca-de-vidro:base:despertar"
+    "a-boca-de-vidro:base:despertar",
+    "o-falso-profeta:base:portrait",
+    "o-falso-profeta:base:passive",
+    "o-falso-profeta:base:impulso",
+    "o-falso-profeta:base:tecnica",
+    "o-falso-profeta:variant:tecnica:confess",
+    "o-falso-profeta:base:voto",
+    "o-falso-profeta:base:despertar",
+    "o-corretor-de-memorias:base:portrait",
+    "o-corretor-de-memorias:base:passive",
+    "o-corretor-de-memorias:base:impulso",
+    "o-corretor-de-memorias:base:tecnica",
+    "o-corretor-de-memorias:base:voto",
+    "o-corretor-de-memorias:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -489,7 +502,20 @@
     "a-boca-de-vidro:base:impulso",
     "a-boca-de-vidro:base:tecnica",
     "a-boca-de-vidro:base:voto",
-    "a-boca-de-vidro:base:despertar"
+    "a-boca-de-vidro:base:despertar",
+    "o-falso-profeta:base:portrait",
+    "o-falso-profeta:base:passive",
+    "o-falso-profeta:base:impulso",
+    "o-falso-profeta:base:tecnica",
+    "o-falso-profeta:variant:tecnica:confess",
+    "o-falso-profeta:base:voto",
+    "o-falso-profeta:base:despertar",
+    "o-corretor-de-memorias:base:portrait",
+    "o-corretor-de-memorias:base:passive",
+    "o-corretor-de-memorias:base:impulso",
+    "o-corretor-de-memorias:base:tecnica",
+    "o-corretor-de-memorias:base:voto",
+    "o-corretor-de-memorias:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
