@@ -728,3 +728,11 @@ Três ataques mostram um único ghoul; os efeitos de Rancor Latente, Nutrir o Ra
 Ativos WebP 512×512: `art/characters/o-filho-da-cinza/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-filho-da-cinza-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json`.
 
 A migração dark fantasy pictórica chega a 209/998 espaços, com 789 restantes e 32/150 kits concluídos. Restam 118 entradas.
+
+## A Pestilência — kit dark fantasy pictórico — 30/10/2026
+
+Mary Mallon recebeu seis candidatas: retrato, passiva e quatro habilidades. A personagem permanece uma nuvem fúngica não humana, com copa violeta, tentáculos verde-escuros, três luzes pálidas e sino suspenso. A passiva mostra dois ghouls contaminados; os ataques individuais, um alvo; Contágio do Caminho, três ghouls; e a defesa, somente a própria personagem. As seis peças mantêm o cenário de Inferno/Pútrido, sem alterar mecânicas.
+
+Ativos WebP 512×512: `stage/art/characters/a-praga-andante/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `stage/art/source/a-praga-andante-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_A_PESTILENCIA_DARK_PICTORIAL_REWORK_20261030.json`. As imagens seguem como candidatas pendentes de aprovação visual.
+
+A sincronização consolidou no ledger as 12 candidatas de O Corrupto e A Rainha dos Fungos, integradas no commit anterior, e adicionou as seis de A Pestilência. A direção dark fantasy pictórica cobre agora **272/998 espaços** para **42/150 personagens**, com **726 espaços restantes**. Nenhuma mecânica foi alterada.
