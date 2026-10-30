@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 79,
-  "newAbilityScenesSaved": 408,
+  "newPortraitsSaved": 80,
+  "newAbilityScenesSaved": 414,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 195 ativos candidatos desta rodada."
+    "Revisar visualmente os 202 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 115,
+    "newDarkPictorialCandidateAssets": 122,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -52,7 +52,8 @@
     "oFalsarioProductionReport": "docs/ART_O_FALSARIO_DARK_PICTORIAL_REWORK_20261030.json",
     "oIncendiarioProductionReport": "docs/ART_O_INCENDIARIO_DARK_PICTORIAL_REWORK_20261030.json",
     "aBrasaEternaProductionReport": "docs/ART_A_BRASA_ETERNA_DARK_PICTORIAL_REWORK_20261030.json",
-    "oFurorProductionReport": "docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json"
+    "oFurorProductionReport": "docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json",
+    "oFilhoDaCinzaProductionReport": "docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -99,12 +100,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 195,
-      "integratedSlots": 195,
+      "candidateSlots": 202,
+      "integratedSlots": 202,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 30
+      "fullyMigratedEntries": 31
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -134,26 +135,27 @@
     "aBrasaEternaArtwork": "9 fontes JPEG 768×768 e 9 ativos WebP 512×512; seis cenas-base e três variantes dedicadas da Forma de Sufocamento; anatomia, identidade, alvos e enquadramentos inspecionados; aguardam aprovação visual.",
     "aBrasaEternaRuntime": "Rotas de arte base e das três variantes de Sufocamento atualizadas; nenhuma mecânica de combate alterada.",
     "oFurorArtwork": "8 fontes JPEG 768×768 e 8 ativos WebP 512×512; quatro cenas ofensivas com um alvo, três cenas de autoalvo; identidade e silhueta revisadas; candidatas pendentes de aprovação visual.",
-    "oFurorRuntime": "Rotas de arte base, Punho do Ódio Solto e Ressentimento sem Freio atualizadas; nenhuma mecânica de combate alterada."
+    "oFurorRuntime": "Rotas de arte base, Punho do Ódio Solto e Ressentimento sem Freio atualizadas; nenhuma mecânica de combate alterada.",
+    "oFilhoDaCinzaArtwork": "7 fontes JPEG 768×768 e 7 ativos WebP 512×512; três ataques com um alvo e três cenas de autoalvo; identidade adulta, anatomia e variedade de enquadramento revisadas; candidatas pendentes de aprovação visual.",
+    "oFilhoDaCinzaRuntime": "Rotas de arte base e da forma impulso.rebirth atualizadas; nenhuma mecânica de combate alterada."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 8,
+    "darkPictorialCandidatesAdded": 7,
     "kitsIntegrated": 1,
     "characterIds": [
-      "o-odio-encarnado"
+      "o-filho-da-cinza"
     ],
     "sceneAngles": [
-      "close_threequarter_portrait",
-      "diagonal_self_fury_macro",
-      "low_side_single_target_strike",
-      "reverse_single_target_rage",
-      "high_oblique_self_preparation",
-      "ground_level_single_target_pulse",
-      "elevated_single_target_eruption",
-      "rear_self_invulnerability_shell"
+      "low_threequarter_portrait",
+      "diagonal_self_ember_passive",
+      "low_side_whistle_burst",
+      "reverse_ash_charge_consumption",
+      "overhead_self_healing",
+      "ground_level_counterstrike",
+      "high_oblique_ash_dissolution"
     ],
-    "anatomyReview": "Oito imagens inspecionadas. Fritigerno permanece um construto espectral não humano, com máscara sem traços e uma linha laranja, arco preso à silhueta, placas flutuantes, punhos blocados e sem pernas. Exatamente um ghoul nas quatro cenas ofensivas; passiva, Alimentar o Ódio e Fúria Intocável são cenas de autoalvo sem figuras adicionais. Sem tecnologia; nenhuma mecânica foi alterada.",
+    "anatomyReview": "Sete imagens inspecionadas. Mithridates permanece adulto jovem, humano, esguio, de pele castanho-escura e cachos brancos, com dois braços e mãos coerentes. Exatamente um ghoul nas três cenas ofensivas; Rancor Latente, Nutrir o Rancor e Dissolução em Cinzas afetam somente o próprio personagem. Sem tecnologia ou luz de cura divina; nenhuma mecânica foi alterada.",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

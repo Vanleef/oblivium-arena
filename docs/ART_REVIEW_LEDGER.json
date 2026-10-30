@@ -535,7 +535,14 @@
     "o-odio-encarnado:base:voto",
     "o-odio-encarnado:base:despertar",
     "o-odio-encarnado:form:impulso:rage",
-    "o-odio-encarnado:form:voto:eruption"
+    "o-odio-encarnado:form:voto:eruption",
+    "o-filho-da-cinza:base:portrait",
+    "o-filho-da-cinza:base:passive",
+    "o-filho-da-cinza:base:impulso",
+    "o-filho-da-cinza:base:tecnica",
+    "o-filho-da-cinza:base:voto",
+    "o-filho-da-cinza:base:despertar",
+    "o-filho-da-cinza:form:impulso:rebirth"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -733,7 +740,14 @@
     "o-odio-encarnado:base:voto",
     "o-odio-encarnado:base:despertar",
     "o-odio-encarnado:form:impulso:rage",
-    "o-odio-encarnado:form:voto:eruption"
+    "o-odio-encarnado:form:voto:eruption",
+    "o-filho-da-cinza:base:portrait",
+    "o-filho-da-cinza:base:passive",
+    "o-filho-da-cinza:base:impulso",
+    "o-filho-da-cinza:base:tecnica",
+    "o-filho-da-cinza:base:voto",
+    "o-filho-da-cinza:base:despertar",
+    "o-filho-da-cinza:form:impulso:rebirth"
   ],
   "currentDirectionCorrectionHistory": [
     {

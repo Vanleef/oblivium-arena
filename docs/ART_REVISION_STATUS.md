@@ -717,3 +717,14 @@ Quatro cenas ofensivas mostram um único ghoul; Raiva sem Freio, Alimentar o Ód
 Ativos WebP 512×512: `art/characters/o-odio-encarnado/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-odio-encarnado-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json`.
 
 A migração dark fantasy pictórica chega a 195/998 espaços, com 803 restantes e 30/150 kits concluídos. Restam 120 entradas.
+
+
+## Kit integrado nesta rodada: O Filho da Cinza
+
+Sete candidatas atualizam Mithridates: retrato, passiva, quatro habilidades-base e a variação Rancor Reaceso. A identidade adulta, os cachos brancos, o poncho de cinzas, a camisa carmesim, o apito de argila e o alforje foram preservados.
+
+Três ataques mostram um único ghoul; os efeitos de Rancor Latente, Nutrir o Rancor e Dissolução em Cinzas recaem somente sobre Mithridates. As artes usam cinza, brasa e basalto; nenhuma mecânica foi alterada. As sete imagens aguardam aprovação visual final.
+
+Ativos WebP 512×512: `art/characters/o-filho-da-cinza/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-filho-da-cinza-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json`.
+
+A migração dark fantasy pictórica chega a 202/998 espaços, com 796 restantes e 31/150 kits concluídos. Restam 119 entradas.

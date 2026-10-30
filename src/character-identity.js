@@ -1177,6 +1177,13 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
   }
+  if (id === 'o-filho-da-cinza') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),rebirth:`${base}/skill-impulso-rebirth.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
   if (id === 'o-odio-encarnado') {
     const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     const forms = {...(art.forms || {})};

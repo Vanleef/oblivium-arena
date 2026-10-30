@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Fazer revisão visual final das 195 imagens candidatas já integradas."
+    "Fazer revisão visual final das 202 imagens candidatas já integradas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 195,
-      "remainingSlots": 803,
-      "fullyMigratedEntries": 30,
-      "remainingEntries": 120,
-      "awaitingVisualApprovalSlots": 195,
+      "integratedCandidateSlots": 202,
+      "remainingSlots": 796,
+      "fullyMigratedEntries": 31,
+      "remainingEntries": 119,
+      "awaitingVisualApprovalSlots": 202,
       "approvedSlots": 0
     }
   },
@@ -117,9 +117,9 @@
   "latestDarkPictorialBatch": {
     "date": "2026-10-30",
     "characterIds": [
-      "o-odio-encarnado"
+      "o-filho-da-cinza"
     ],
-    "candidateSlotsAdded": 8,
+    "candidateSlotsAdded": 7,
     "status": "candidate_integrated_pending_visual_approval"
   }
 }
