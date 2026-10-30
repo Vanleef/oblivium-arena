@@ -576,7 +576,13 @@
     "a-senhora-do-ultimo-pao:base:impulso",
     "a-senhora-do-ultimo-pao:base:tecnica",
     "a-senhora-do-ultimo-pao:base:voto",
-    "a-senhora-do-ultimo-pao:base:despertar"
+    "a-senhora-do-ultimo-pao:base:despertar",
+    "o-credor:base:portrait",
+    "o-credor:base:passive",
+    "o-credor:base:impulso",
+    "o-credor:base:tecnica",
+    "o-credor:base:voto",
+    "o-credor:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -815,7 +821,13 @@
     "a-senhora-do-ultimo-pao:base:impulso",
     "a-senhora-do-ultimo-pao:base:tecnica",
     "a-senhora-do-ultimo-pao:base:voto",
-    "a-senhora-do-ultimo-pao:base:despertar"
+    "a-senhora-do-ultimo-pao:base:despertar",
+    "o-credor:base:portrait",
+    "o-credor:base:passive",
+    "o-credor:base:impulso",
+    "o-credor:base:tecnica",
+    "o-credor:base:voto",
+    "o-credor:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

@@ -14,7 +14,7 @@
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 236 ativos candidatos desta rodada."
+    "Revisar visualmente os 242 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 236,
+    "newDarkPictorialCandidateAssets": 242,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -58,7 +58,8 @@
     "oCoracaoEmFuriaProductionReport": "docs/ART_O_CORACAO_EM_FURIA_DARK_PICTORIAL_REWORK_20261030.json",
     "oDevoradorProductionReport": "docs/ART_O_DEVORADOR_DARK_PICTORIAL_REWORK_20261030.json",
     "aMaoQueTomaProductionReport": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json",
-    "aSenhoraProductionReport": "docs/ART_A_SENHORA_DO_ULTIMO_PAO_DARK_PICTORIAL_REWORK_20261030.json"
+    "aSenhoraProductionReport": "docs/ART_A_SENHORA_DO_ULTIMO_PAO_DARK_PICTORIAL_REWORK_20261030.json",
+    "oCredorProductionReport": "docs/ART_O_CREDOR_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -105,12 +106,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 236,
-      "integratedSlots": 236,
+      "candidateSlots": 242,
+      "integratedSlots": 242,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 36
+      "fullyMigratedEntries": 37
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -148,7 +149,9 @@
     "oCoracaoEmFuriaArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; retrato, passiva e quatro habilidades-base revisados; candidatas pendentes de aprovação visual.",
     "oCoracaoEmFuriaRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado.",
     "aSenhoraArtwork": "6 fontes JPEG 768×768 e 6 candidatas WebP 512×512; identidade, anatomia, alvos e composição de Ração dos Submissos (Helena e dois aliados) inspecionados; candidatas pendentes de aprovação visual.",
-    "aSenhoraRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado."
+    "aSenhoraRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado.",
+    "oCredorArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, alvo único nas cenas de ação, selo físico de dívida e defesa com um único ábaco inspecionados; candidatas pendentes de aprovação visual.",
+    "oCredorRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado."
   },
   "latestProduction": {
     "date": "2026-10-30",
@@ -156,18 +159,18 @@
     "darkPictorialCandidatesReworked": 0,
     "kitsIntegrated": 1,
     "characterIds": [
-      "a-senhora-do-ultimo-pao"
+      "o-credor"
     ],
     "sceneAngles": [
       "low_threequarter_portrait",
-      "profile_bread_retention",
-      "low_reverse_paddle_strike",
-      "overhead_shared_ration_trio",
-      "oblique_marked_target_strike",
-      "rear_low_paddle_guard"
+      "close_side_transaction",
+      "low_side_shield_hook",
+      "high_reverse_bead_impact",
+      "low_front_contract_execution",
+      "high_diagonal_personal_guard"
     ],
-    "anatomyReview": "Seis candidatas inspecionadas. Helena conserva dois braços e mãos coerentes; cada cena de alvo único mostra um ghoul; Ração dos Submissos mostra exatamente Helena e dois aliados ghouls; Celeiro Lacrado mostra Helena e um atacante. Sem membros extras.",
+    "anatomyReview": "Seis candidatas inspecionadas. Florus mantém dois braços e mãos coerentes; cada cena de alvo individual contém exatamente um ghoul; Cláusula de Ausência usa um único ábaco e um atacante. Sem figuras de fundo ou membros extras.",
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_A_SENHORA_DO_ULTIMO_PAO_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_O_CREDOR_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }

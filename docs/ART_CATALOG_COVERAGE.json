@@ -635,7 +635,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-balanca-vazia",
@@ -2229,11 +2238,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 236,
-    "remainingSlots": 762,
-    "fullyMigratedEntries": 36,
-    "remainingEntries": 114,
-    "awaitingVisualApprovalSlots": 236,
+    "integratedCandidateSlots": 242,
+    "remainingSlots": 756,
+    "fullyMigratedEntries": 37,
+    "remainingEntries": 113,
+    "awaitingVisualApprovalSlots": 242,
     "approvedSlots": 0
   }
 }
