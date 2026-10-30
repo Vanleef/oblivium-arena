@@ -1,0 +1,165 @@
+{
+  "title": "O Definhador — Teofrasto — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "o-jardim-morto",
+  "characterName": "Teofrasto",
+  "characterTitle": "O Definhador",
+  "aliases": [
+    "O Jardim Morto",
+    "O Definhador"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Podridão",
+  "essence": "Cinza",
+  "style": "Dark fantasy pictórica densa com estilização gráfica anime-first 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, alta materialidade e atmosfera infernal.",
+  "identity": "Teofrasto é retratado como um espírito humanoide masculino, magro, de pele oliva marcada pelo desgaste, cabelos escuros desalinhados com fios grisalhos e roupas escuras de trama vegetal. O rosto, tronco e braços permanecem humanos; raízes necrosadas prolongam seus gestos e poderes.",
+  "environment": "Inferno/Podridão: ruínas de basalto, fuligem, raízes mortas e fissuras carmesins contidas. Sem tecnologia, maquinaria ou objetos industriais.",
+  "sceneVariety": "Retrato em close baixo; passiva diagonal em plano médio; ataque em close lateral; defesa de trio em vista alta; ataque de área amplo em vista alta; defesa pessoal em close traseiro.",
+  "anatomyReview": "Seis candidatas inspecionadas. Teofrasto conserva rosto e anatomia humanos; raízes acompanham os gestos sem substituir membros. Cenas usam ghouls como aliados e inimigos, sem soldados genéricos ou personagens nomeados adicionais.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Teofrasto — O Definhador",
+      "targetCount": "none",
+      "camera": "close baixo em três quartos",
+      "scene": "Teofrasto se vira ao ouvir algo fora do quadro, raízes necrosadas enroscadas na mão; rosto humano visível.",
+      "prompt": "Humanoid male spirit with weathered olive skin, dark hair threaded with gray, root-woven dark robe; chest-up close portrait; human face and anatomy.",
+      "candidatePath": "stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-8ab9b38c-0bc4-4ba6-827d-585ca32d663e.png",
+      "generatedSourceSha256": "9f2e35801257fbd8bd5541bc2173e74478aba1b71a7ed2524fde6378aec8eb94",
+      "generatedSourceBytes": 3002852,
+      "candidateBytes": 88016,
+      "candidateSha256": "c719f2e9964bdb2f905708b01926f5ee4f55f5bebb8f5e2bd608824b50f160d4",
+      "sourceBytes": 336921,
+      "sourceSha256": "e5656c0b0306ba4a694387548c7bc88fecc42a80f9e7ee89d42e90b49c761c3a"
+    },
+    {
+      "slot": "passive",
+      "name": "Seiva Corrosiva",
+      "targetCount": "um ghoul inimigo já marcado por Decadência e um aliado ghoul ferido",
+      "camera": "plano médio diagonal baixo",
+      "scene": "Teofrasto acerta o inimigo já decadente com raiz espessa; um pulso de seiva verde percorre uma raiz até o aliado mais ferido.",
+      "prompt": "Teofrasto damages one already-decayed ghoul, then a tangible green sap pulse travels to one wounded allied ghoul; low diagonal medium shot.",
+      "candidatePath": "stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-210d2bc0-e6a1-4cfd-8f5d-fa707304649c.png",
+      "generatedSourceSha256": "a9daba6fe602856e19574a3d0ae8ae8c990ebaea0bc074e5e81881b9b2b44e52",
+      "generatedSourceBytes": 2764477,
+      "candidateBytes": 78752,
+      "candidateSha256": "83610f0b3f342e62daf2023f04a6b2388e752456fc4475c7ae4a840c2e0f3f0f",
+      "sourceBytes": 293765,
+      "sourceSha256": "836935e5080cf9f8908300746624f554f7a6a622caacf24d53235b3800a4c1fb"
+    },
+    {
+      "slot": "impulso",
+      "name": "Raiz Necrosada",
+      "targetCount": "um ghoul inimigo",
+      "camera": "close lateral baixo",
+      "scene": "Uma raiz negra emerge do basalto e golpeia a armadura do ghoul, espalhando Decadência no ponto de contato.",
+      "prompt": "A thick blackened root erupts from basalt and strikes one ghoul, spreading Decadência from the physical impact; tight side-on low action close-up.",
+      "candidatePath": "stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-70c1d861-f93c-41d6-92d9-f532790d64df.png",
+      "generatedSourceSha256": "30e81cfd5dc6243aa7f79ac6bff3e897d759b263815aa13fb1d24b2fd6da23ce",
+      "generatedSourceBytes": 3026792,
+      "candidateBytes": 93248,
+      "candidateSha256": "28613dcea71bf08d25264f8043d73e1e47a1ef5ab7d29788a5c306f4c31105ae",
+      "sourceBytes": 355070,
+      "sourceSha256": "7c7a6880db19ddbb92b20f4962f3bb881124a06896560a3e384f49be229bb63b"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Trama Necrosada",
+      "targetCount": "Teofrasto, dois ghouls aliados e um ghoul agressor",
+      "camera": "vista alta em três quartos",
+      "scene": "Trama grossa de raízes envolve o trio aliado; a garra de um agressor é ferida por um espinho e começa a corroer.",
+      "prompt": "A taut lattice of dead roots protects Teofrasto and two ghoul allies; one ghoul attacker presses a claw into the weave and is punctured by a thorn; high three-quarter view.",
+      "candidatePath": "stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-92308b00-c769-472a-9a56-28a422a962d5.png",
+      "generatedSourceSha256": "23a2894fd126383c5c826a849d99c3e84136d2b3ba796042672c4f7cea8b5440",
+      "generatedSourceBytes": 3581643,
+      "candidateBytes": 106088,
+      "candidateSha256": "4f125b6627e0efb2e8d7bfd6db6d16faa8126413a2e3ab3d6edba2dd5702a5a1",
+      "sourceBytes": 396007,
+      "sourceSha256": "e11306bff91f771993e0021f66c949d9c91b53256d645084ba972f40aceb2e80"
+    },
+    {
+      "slot": "voto",
+      "name": "Definhar",
+      "targetCount": "três ghouls inimigos",
+      "camera": "plano amplo em vista alta",
+      "scene": "Uma onda física de raízes necrosadas alcança a equipe inimiga; os ghouls cambaleiam e o alvo já decadente definha mais.",
+      "prompt": "A wave of necrotic roots catches three hostile ghouls at once; all stagger, with the already-decayed target withering more deeply; wide high-angle action shot.",
+      "candidatePath": "stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-7c08164b-6878-40d4-a3a7-3030adb04cfa.png",
+      "generatedSourceSha256": "e4233f15d22d7a8aa7c34f3078a4778c3263254c0b517802102fdf0c928e4601",
+      "generatedSourceBytes": 3588733,
+      "candidateBytes": 114376,
+      "candidateSha256": "e81ea205331638cdd8dbf7aa11ff92107c208461008acdba67a2ec3d604718a5",
+      "sourceBytes": 410171,
+      "sourceSha256": "9f9813bd612114e0eb69307085df2acef732731f4bbebc71de59c04e5e1e45d9"
+    },
+    {
+      "slot": "despertar",
+      "name": "Casca Inviolável",
+      "targetCount": "um ghoul agressor",
+      "camera": "close traseiro em três quartos",
+      "scene": "Casca de raízes e madeira morta absorve o golpe do ghoul enquanto Teofrasto se firma dentro dela.",
+      "prompt": "A shell of interlocked dead roots and bark absorbs a single ghoul attacker’s blow around Teofrasto’s human body; close rear three-quarter view.",
+      "candidatePath": "stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-89c76266-8885-4ae1-a411-076820c03293.png",
+      "generatedSourceSha256": "8e91d95e1037aa52b5746d7e4f0c5104d83bc5706b6e4ff59962bd34f434e896",
+      "generatedSourceBytes": 2712364,
+      "candidateBytes": 75360,
+      "candidateSha256": "2af4a9cdc8b08cf723f31a9b5a9b3d32cbcadc40cca68bc0233437d1d9856cc2",
+      "sourceBytes": 291462,
+      "sourceSha256": "951efec51c24fcd250e6f1b78cabbfce8efac00b8cc5d128e56f9811210d8e11"
+    }
+  ]
+}

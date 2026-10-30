@@ -743,4 +743,10 @@ Zahrawi (O Médico de Vermes) recebeu seis candidatas: retrato, passiva e quatro
 
 A passiva mostra exatamente dois ghouls aliados em uma limpeza e cura; Hospedeiro Renovado mostra um aliado; cada ataque mostra um único inimigo; Corpo entre Vermes mostra um atacante e um dardo alinhado ao arremesso que ricocheteia no vidro. As seis candidatas WebP 512×512 e fontes JPEG 768×768 estão em `stage/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030` e `stage/art/source/o-medico-de-vermes-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_INOCULADOR_DARK_PICTORIAL_REWORK_20261030.json`. Nenhuma mecânica foi alterada.
 
-A direção dark fantasy pictórica cobre agora **278/998 espaços** para **43/150 personagens**, com **720 espaços restantes**. As 278 imagens seguem pendentes de aprovação visual.
+
+## O Definhador — revisão dark fantasy pictórica — 30/10/2026
+
+Teofrasto, anteriormente O Jardim Morto, recebe seis candidatas: retrato, passiva e quatro habilidades. A identidade é humanoide; raízes necrosadas ampliam seus gestos sem substituir rosto ou corpo. O conjunto usa ghouls em papéis de aliados e inimigos, mantendo Inferno/Podridão sem tecnologia.
+
+Seiva Corrosiva mostra o dano a um inimigo já decadente e a recuperação de um aliado ferido. Raiz Necrosada aplica Decadência; Trama Necrosada protege o trio e fere o agressor; Definhar atinge a equipe inimiga; Casca Inviolável absorve um golpe. As seis candidatas WebP 512×512 e fontes JPEG 768×768 estão em stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030 e stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030. Manifesto e relatório: docs/ART_O_DEFINHADOR_DARK_PICTORIAL_REWORK_20261030.json e .md. As imagens aguardam aprovação visual final. Nenhuma mecânica foi alterada.
+A direção dark fantasy pictórica cobre agora **284/998 espaços** para **44/150 personagens**, com **714 espaços restantes**. As 284 imagens seguem pendentes de aprovação visual.

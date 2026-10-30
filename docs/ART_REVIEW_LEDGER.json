@@ -618,7 +618,13 @@
     "o-medico-de-vermes:base:impulso",
     "o-medico-de-vermes:base:tecnica",
     "o-medico-de-vermes:base:voto",
-    "o-medico-de-vermes:base:despertar"
+    "o-medico-de-vermes:base:despertar",
+    "o-jardim-morto:base:portrait",
+    "o-jardim-morto:base:passive",
+    "o-jardim-morto:base:impulso",
+    "o-jardim-morto:base:tecnica",
+    "o-jardim-morto:base:voto",
+    "o-jardim-morto:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -899,7 +905,13 @@
     "o-medico-de-vermes:base:impulso",
     "o-medico-de-vermes:base:tecnica",
     "o-medico-de-vermes:base:voto",
-    "o-medico-de-vermes:base:despertar"
+    "o-medico-de-vermes:base:despertar",
+    "o-jardim-morto:base:portrait",
+    "o-jardim-morto:base:passive",
+    "o-jardim-morto:base:impulso",
+    "o-jardim-morto:base:tecnica",
+    "o-jardim-morto:base:voto",
+    "o-jardim-morto:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
