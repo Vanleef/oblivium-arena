@@ -727,4 +727,4 @@ Três ataques mostram um único ghoul; os efeitos de Rancor Latente, Nutrir o Ra
 
 Ativos WebP 512×512: `art/characters/o-filho-da-cinza/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-filho-da-cinza-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json`.
 
-A migração dark fantasy pictórica chega a 202/998 espaços, com 796 restantes e 31/150 kits concluídos. Restam 119 entradas.
+A migração dark fantasy pictórica chega a 209/998 espaços, com 789 restantes e 32/150 kits concluídos. Restam 118 entradas.

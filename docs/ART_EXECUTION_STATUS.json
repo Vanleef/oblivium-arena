@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 80,
-  "newAbilityScenesSaved": 414,
+  "newPortraitsSaved": 81,
+  "newAbilityScenesSaved": 420,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 202 ativos candidatos desta rodada."
+    "Revisar visualmente os 209 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 122,
+    "newDarkPictorialCandidateAssets": 129,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -53,7 +53,8 @@
     "oIncendiarioProductionReport": "docs/ART_O_INCENDIARIO_DARK_PICTORIAL_REWORK_20261030.json",
     "aBrasaEternaProductionReport": "docs/ART_A_BRASA_ETERNA_DARK_PICTORIAL_REWORK_20261030.json",
     "oFurorProductionReport": "docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json",
-    "oFilhoDaCinzaProductionReport": "docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json"
+    "oFilhoDaCinzaProductionReport": "docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json",
+    "aPiraErranteProductionReport": "docs/ART_A_PIRA_ERRANTE_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -100,12 +101,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 202,
-      "integratedSlots": 202,
+      "candidateSlots": 209,
+      "integratedSlots": 209,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 31
+      "fullyMigratedEntries": 32
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -137,25 +138,27 @@
     "oFurorArtwork": "8 fontes JPEG 768×768 e 8 ativos WebP 512×512; quatro cenas ofensivas com um alvo, três cenas de autoalvo; identidade e silhueta revisadas; candidatas pendentes de aprovação visual.",
     "oFurorRuntime": "Rotas de arte base, Punho do Ódio Solto e Ressentimento sem Freio atualizadas; nenhuma mecânica de combate alterada.",
     "oFilhoDaCinzaArtwork": "7 fontes JPEG 768×768 e 7 ativos WebP 512×512; três ataques com um alvo e três cenas de autoalvo; identidade adulta, anatomia e variedade de enquadramento revisadas; candidatas pendentes de aprovação visual.",
-    "oFilhoDaCinzaRuntime": "Rotas de arte base e da forma impulso.rebirth atualizadas; nenhuma mecânica de combate alterada."
+    "oFilhoDaCinzaRuntime": "Rotas de arte base e da forma impulso.rebirth atualizadas; nenhuma mecânica de combate alterada.",
+    "aPiraErranteArtwork": "7 source JPEGs at 768×768 and 7 active WebP assets at 512×512; identity, anatomy, one-target scenes, exactly three area targets and varied framing reviewed; pending visual approval.",
+    "aPiraErranteRuntime": "Updated art routes for portrait, passive, base abilities and forms.impulso.reply only; no combat fields or mechanics changed."
   },
   "latestProduction": {
     "date": "2026-10-30",
     "darkPictorialCandidatesAdded": 7,
     "kitsIntegrated": 1,
     "characterIds": [
-      "o-filho-da-cinza"
+      "a-pira-errante"
     ],
     "sceneAngles": [
       "low_threequarter_portrait",
-      "diagonal_self_ember_passive",
-      "low_side_whistle_burst",
-      "reverse_ash_charge_consumption",
-      "overhead_self_healing",
-      "ground_level_counterstrike",
-      "high_oblique_ash_dissolution"
+      "low_side_ember_contact",
+      "ground_level_lantern_impact",
+      "reverse_over_target_spiritual_reply",
+      "close_guard_counter",
+      "high_oblique_three_target_ring",
+      "rear_high_ash_evasion"
     ],
-    "anatomyReview": "Sete imagens inspecionadas. Mithridates permanece adulto jovem, humano, esguio, de pele castanho-escura e cachos brancos, com dois braços e mãos coerentes. Exatamente um ghoul nas três cenas ofensivas; Rancor Latente, Nutrir o Rancor e Dissolução em Cinzas afetam somente o próprio personagem. Sem tecnologia ou luz de cura divina; nenhuma mecânica foi alterada.",
+    "anatomyReview": "Sete imagens inspecionadas. Tomyris mantém aparência adulta, dois braços, mãos e pegada legíveis, braçadeira no antebraço direito, lanterna à esquerda e a silhueta descrita na referência. Um ghoul aparece no ataque da passiva, Brasa Punitiva, Revanche Ardente e Guarda Vingativa; Cerco Incandescente mostra exatamente três alvos; Passo entre Brasas afeta somente Tomyris. Paleta de Inferno em carmesim, laranja e cinza, sem tecnologia; nenhuma mecânica foi alterada.",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

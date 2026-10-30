@@ -542,7 +542,14 @@
     "o-filho-da-cinza:base:tecnica",
     "o-filho-da-cinza:base:voto",
     "o-filho-da-cinza:base:despertar",
-    "o-filho-da-cinza:form:impulso:rebirth"
+    "o-filho-da-cinza:form:impulso:rebirth",
+    "a-pira-errante:base:portrait",
+    "a-pira-errante:base:passive",
+    "a-pira-errante:base:impulso",
+    "a-pira-errante:base:tecnica",
+    "a-pira-errante:base:voto",
+    "a-pira-errante:base:despertar",
+    "a-pira-errante:form:impulso:reply"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -747,7 +754,14 @@
     "o-filho-da-cinza:base:tecnica",
     "o-filho-da-cinza:base:voto",
     "o-filho-da-cinza:base:despertar",
-    "o-filho-da-cinza:form:impulso:rebirth"
+    "o-filho-da-cinza:form:impulso:rebirth",
+    "a-pira-errante:base:portrait",
+    "a-pira-errante:base:passive",
+    "a-pira-errante:base:impulso",
+    "a-pira-errante:base:tecnica",
+    "a-pira-errante:base:voto",
+    "a-pira-errante:base:despertar",
+    "a-pira-errante:form:impulso:reply"
   ],
   "currentDirectionCorrectionHistory": [
     {
