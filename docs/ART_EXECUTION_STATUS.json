@@ -14,7 +14,7 @@
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 215 ativos candidatos desta rodada."
+    "Revisar visualmente os 223 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 215,
+    "newDarkPictorialCandidateAssets": 223,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -55,7 +55,8 @@
     "oFurorProductionReport": "docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json",
     "oFilhoDaCinzaProductionReport": "docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json",
     "aPiraErranteProductionReport": "docs/ART_A_PIRA_ERRANTE_DARK_PICTORIAL_REWORK_20261030.json",
-    "oCoracaoEmFuriaProductionReport": "docs/ART_O_CORACAO_EM_FURIA_DARK_PICTORIAL_REWORK_20261030.json"
+    "oCoracaoEmFuriaProductionReport": "docs/ART_O_CORACAO_EM_FURIA_DARK_PICTORIAL_REWORK_20261030.json",
+    "oDevoradorProductionReport": "docs/ART_O_DEVORADOR_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -147,23 +148,24 @@
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 0,
-    "darkPictorialCandidatesReworked": 7,
-    "kitsIntegrated": 0,
+    "darkPictorialCandidatesAdded": 8,
+    "darkPictorialCandidatesReworked": 0,
+    "kitsIntegrated": 1,
     "characterIds": [
-      "a-pira-errante"
+      "o-devorador"
     ],
     "sceneAngles": [
-      "low_dynamic_portrait",
-      "low_reverse_bracer_impact",
-      "ground_level_lantern_sweep",
-      "reverse_behind_target_reply",
-      "low_side_bracer_guard",
-      "high_oblique_three_target_ring",
-      "high_rear_personal_dodge"
+      "low_threequarter_portrait",
+      "low_reverse_passive",
+      "ground_level_bite",
+      "reverse_starved_bite",
+      "side_profile_corrosive_spit",
+      "low_threequarter_essence_drain",
+      "oblique_overhead_personal_guard",
+      "low_side_starved_portrait"
     ],
-    "anatomyReview": "Sete imagens inspecionadas. A reformulação troca a silhueta de manto escuro por traje curto cinza-claro; Tomyris preserva dois braços, bracelete direito e lanterna esquerda. Há um ghoul em cada ataque individual, exatamente três no Cerco Incandescente e apenas uma esquiva pessoal no despertar. Mecânicas inalteradas.",
-    "status": "candidate_reworked_pending_visual_approval",
-    "report": "docs/ART_A_PIRA_ERRANTE_DARK_PICTORIAL_REWORK_20261030.json"
+    "anatomyReview": "Oito imagens inspecionadas; uma cabeça e quatro patas em todos os quadros. Cinco ataques mostram um ghoul cada, a defesa protege apenas a fera e os retratos não têm alvo. A forma starved tem um vazio torácico, sem órgãos ou membros extras.",
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_O_DEVORADOR_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }

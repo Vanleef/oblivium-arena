@@ -1363,6 +1363,13 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
+  if (id === 'o-devorador') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),starved:`${base}/skill-impulso-starved.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
   if (painterlyFomeArt.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261025`;
     const forms = {...(art.forms || {})};

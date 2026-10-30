@@ -536,7 +536,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-devorador",
@@ -548,7 +557,18 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:starved",
+        "body:starved"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-mao-que-toma",
@@ -2192,11 +2212,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 215,
-    "remainingSlots": 783,
-    "fullyMigratedEntries": 33,
-    "remainingEntries": 117,
-    "awaitingVisualApprovalSlots": 215,
+    "integratedCandidateSlots": 223,
+    "remainingSlots": 775,
+    "fullyMigratedEntries": 34,
+    "remainingEntries": 116,
+    "awaitingVisualApprovalSlots": 223,
     "approvedSlots": 0
   }
 }

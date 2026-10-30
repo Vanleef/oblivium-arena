@@ -555,7 +555,15 @@
     "o-coracao-em-furia:base:impulso",
     "o-coracao-em-furia:base:tecnica",
     "o-coracao-em-furia:base:voto",
-    "o-coracao-em-furia:base:despertar"
+    "o-coracao-em-furia:base:despertar",
+    "o-devorador:base:portrait",
+    "o-devorador:base:passive",
+    "o-devorador:base:impulso",
+    "o-devorador:base:tecnica",
+    "o-devorador:base:voto",
+    "o-devorador:base:despertar",
+    "o-devorador:form:impulso:starved",
+    "o-devorador:body:starved"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -773,7 +781,15 @@
     "o-coracao-em-furia:base:impulso",
     "o-coracao-em-furia:base:tecnica",
     "o-coracao-em-furia:base:voto",
-    "o-coracao-em-furia:base:despertar"
+    "o-coracao-em-furia:base:despertar",
+    "o-devorador:base:portrait",
+    "o-devorador:base:passive",
+    "o-devorador:base:impulso",
+    "o-devorador:base:tecnica",
+    "o-devorador:base:voto",
+    "o-devorador:base:despertar",
+    "o-devorador:form:impulso:starved",
+    "o-devorador:body:starved"
   ],
   "currentDirectionCorrectionHistory": [
     {

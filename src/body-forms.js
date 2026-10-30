@@ -1,6 +1,6 @@
 import { applyArchetypeForm } from "./archetypes.js";
 
-const folder=id=>id==='a-pele-alheia'?'/art/characters/a-pele-alheia/painterly-rework-20261026-animal':id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':['a-brasa-eterna','o-odio-encarnado','o-devorador'].includes(id)?`/art/characters/${id}/painterly-rework-20261025`:`/art/characters/${id}/body-forms-20261023`;
+const folder=id=>id==='o-devorador'?'/art/characters/o-devorador/dark-pictorial-rework-20261030':id==='a-pele-alheia'?'/art/characters/a-pele-alheia/painterly-rework-20261026-animal':id==='a-mascara-dupla'?'/art/characters/a-mascara-dupla/hybrid-rework-20261025':['a-brasa-eterna','o-odio-encarnado'].includes(id)?`/art/characters/${id}/painterly-rework-20261025`:`/art/characters/${id}/body-forms-20261023`;
 const slots=['impulso','tecnica','voto'];
 const shift=form=>slots.map(slot=>({slot,form}));
 const back=shift('base');
@@ -10,7 +10,7 @@ export function withBodyForms(c){
  const base=folder(c.id);
  if(c.id==='o-devorador'){
   const threshold=c.abilities.find(a=>a.id==='impulso')?.formRule?.at??40;
-  const basePortrait=base.endsWith('/painterly-rework-20261025')?`${base}/portrait.webp`:`${base}/portrait-base.webp`;
+  const basePortrait=base.endsWith('/painterly-rework-20261025')||base.endsWith('/dark-pictorial-rework-20261030')?`${base}/portrait.webp`:`${base}/portrait-base.webp`;
   return {...c,art:{...c.art,portrait:basePortrait},baseFormName:'Corpo Saciado',mechanic:'Fome que consome o próprio corpo',bodyForms:[{key:'starved',resource:c.affinity,name:'Fome sem Corpo',portrait:`${base}/portrait-starved.webp`,when:{impulso:'starved'},description:`A forma surge automaticamente quando a Vida chega a ${threshold} ou menos. O peito se abre num vazio e Mordida da Alma passa a drenar a vítima.`}]};
  }
  if(c.id==='a-mascara-dupla'){
