@@ -563,7 +563,14 @@
     "o-devorador:base:voto",
     "o-devorador:base:despertar",
     "o-devorador:form:impulso:starved",
-    "o-devorador:body:starved"
+    "o-devorador:body:starved",
+    "a-mao-que-toma:base:portrait",
+    "a-mao-que-toma:base:passive",
+    "a-mao-que-toma:base:impulso",
+    "a-mao-que-toma:base:tecnica",
+    "a-mao-que-toma:base:voto",
+    "a-mao-que-toma:base:despertar",
+    "a-mao-que-toma:form:tecnica:open"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -789,7 +796,14 @@
     "o-devorador:base:voto",
     "o-devorador:base:despertar",
     "o-devorador:form:impulso:starved",
-    "o-devorador:body:starved"
+    "o-devorador:body:starved",
+    "a-mao-que-toma:base:portrait",
+    "a-mao-que-toma:base:passive",
+    "a-mao-que-toma:base:impulso",
+    "a-mao-que-toma:base:tecnica",
+    "a-mao-que-toma:base:voto",
+    "a-mao-que-toma:base:despertar",
+    "a-mao-que-toma:form:tecnica:open"
   ],
   "currentDirectionCorrectionHistory": [
     {

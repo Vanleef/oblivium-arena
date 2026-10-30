@@ -14,7 +14,7 @@
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 223 ativos candidatos desta rodada."
+    "Revisar visualmente os 230 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 223,
+    "newDarkPictorialCandidateAssets": 230,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -56,7 +56,8 @@
     "oFilhoDaCinzaProductionReport": "docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json",
     "aPiraErranteProductionReport": "docs/ART_A_PIRA_ERRANTE_DARK_PICTORIAL_REWORK_20261030.json",
     "oCoracaoEmFuriaProductionReport": "docs/ART_O_CORACAO_EM_FURIA_DARK_PICTORIAL_REWORK_20261030.json",
-    "oDevoradorProductionReport": "docs/ART_O_DEVORADOR_DARK_PICTORIAL_REWORK_20261030.json"
+    "oDevoradorProductionReport": "docs/ART_O_DEVORADOR_DARK_PICTORIAL_REWORK_20261030.json",
+    "aMaoQueTomaProductionReport": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -148,24 +149,23 @@
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 8,
+    "darkPictorialCandidatesAdded": 7,
     "darkPictorialCandidatesReworked": 0,
     "kitsIntegrated": 1,
     "characterIds": [
-      "o-devorador"
+      "a-mao-que-toma"
     ],
     "sceneAngles": [
       "low_threequarter_portrait",
-      "low_reverse_passive",
-      "ground_level_bite",
-      "reverse_starved_bite",
-      "side_profile_corrosive_spit",
-      "low_threequarter_essence_drain",
-      "oblique_overhead_personal_guard",
-      "low_side_starved_portrait"
+      "reverse_impact_passive",
+      "low_reverse_target_impulse",
+      "elevated_diagonal_self_guard",
+      "oblique_overhead_confiscation",
+      "low_reverse_personal_dodge",
+      "intimate_overhead_coffer_healing"
     ],
-    "anatomyReview": "Oito imagens inspecionadas; uma cabeça e quatro patas em todos os quadros. Cinco ataques mostram um ghoul cada, a defesa protege apenas a fera e os retratos não têm alvo. A forma starved tem um vazio torácico, sem órgãos ou membros extras.",
+    "anatomyReview": "Sete imagens inspecionadas: uma cabeça e dois braços em todos os quadros; mãos legíveis, alvos contidos, sem membros extras. Um ghoul em cada cena de alvo único; defesa e variante de cura são autocentradas.",
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_O_DEVORADOR_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }
