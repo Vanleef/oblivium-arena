@@ -736,3 +736,11 @@ Mary Mallon recebeu seis candidatas: retrato, passiva e quatro habilidades. A pe
 Ativos WebP 512×512: `stage/art/characters/a-praga-andante/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `stage/art/source/a-praga-andante-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_A_PESTILENCIA_DARK_PICTORIAL_REWORK_20261030.json`. As imagens seguem como candidatas pendentes de aprovação visual.
 
 A sincronização consolidou no ledger as 12 candidatas de O Corrupto e A Rainha dos Fungos, integradas no commit anterior, e adicionou as seis de A Pestilência. A direção dark fantasy pictórica cobre agora **272/998 espaços** para **42/150 personagens**, com **726 espaços restantes**. Nenhuma mecânica foi alterada.
+
+## O Inoculador — revisão dark fantasy pictórica — 30/10/2026
+
+Zahrawi (O Médico de Vermes) recebeu seis candidatas: retrato, passiva e quatro habilidades. A identidade preserva o homem magro de cerca de 60 anos, pele morena, cachos grisalhos ralos, óculos transparentes, casaco jade e luvas. Frascos rituais e bastão prateado substituem qualquer leitura de laboratório ou tecnologia; não há infestação corporal.
+
+A passiva mostra exatamente dois ghouls aliados em uma limpeza e cura; Hospedeiro Renovado mostra um aliado; cada ataque mostra um único inimigo; Corpo entre Vermes mostra um atacante e um dardo alinhado ao arremesso que ricocheteia no vidro. As seis candidatas WebP 512×512 e fontes JPEG 768×768 estão em `stage/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030` e `stage/art/source/o-medico-de-vermes-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_INOCULADOR_DARK_PICTORIAL_REWORK_20261030.json`. Nenhuma mecânica foi alterada.
+
+A direção dark fantasy pictórica cobre agora **278/998 espaços** para **43/150 personagens**, com **720 espaços restantes**. As 278 imagens seguem pendentes de aprovação visual.

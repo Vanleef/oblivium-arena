@@ -612,7 +612,13 @@
     "a-praga-andante:base:impulso",
     "a-praga-andante:base:tecnica",
     "a-praga-andante:base:voto",
-    "a-praga-andante:base:despertar"
+    "a-praga-andante:base:despertar",
+    "o-medico-de-vermes:base:portrait",
+    "o-medico-de-vermes:base:passive",
+    "o-medico-de-vermes:base:impulso",
+    "o-medico-de-vermes:base:tecnica",
+    "o-medico-de-vermes:base:voto",
+    "o-medico-de-vermes:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -887,7 +893,13 @@
     "a-praga-andante:base:impulso",
     "a-praga-andante:base:tecnica",
     "a-praga-andante:base:voto",
-    "a-praga-andante:base:despertar"
+    "a-praga-andante:base:despertar",
+    "o-medico-de-vermes:base:portrait",
+    "o-medico-de-vermes:base:passive",
+    "o-medico-de-vermes:base:impulso",
+    "o-medico-de-vermes:base:tecnica",
+    "o-medico-de-vermes:base:voto",
+    "o-medico-de-vermes:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
