@@ -6,8 +6,8 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 71,
-  "newAbilityScenesSaved": 364,
+  "newPortraitsSaved": 74,
+  "newAbilityScenesSaved": 377,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
@@ -94,8 +94,8 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 140,
-      "integratedSlots": 140,
+      "candidateSlots": 159,
+      "integratedSlots": 159,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
@@ -113,22 +113,36 @@
     "suseranoGraphic25Artwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; ângulos variados e silhuetas revisadas; candidatas pendentes de aprovação visual.",
     "suseranoGraphic25Runtime": "Rotas do runtime atualizadas para o conjunto gráfico 2.5D; nenhuma mecânica foi alterada.",
     "oSussurroArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; identidade, anatomia, reação e variedade de enquadramento inspecionadas; candidatas pendentes de aprovação visual.",
-    "oSussurroRuntime": "Somente rotas de arte; nenhuma mecânica de combate foi alterada."
+    "oSussurroRuntime": "Somente rotas de arte; nenhuma mecânica de combate foi alterada.",
+    "aMascaraArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; identity, reflection, mark, counter, essence theft and defense scenes reviewed.",
+    "aMascaraRuntime": "Updated art routes only; no combat fields changed.",
+    "oIntriganteArtwork": "6 base images plus one dedicated Desatar a Trama variation; source JPEGs 768×768, active WebP 512×512; the three-enemy web and three-ally unweaving scenes reviewed.",
+    "oIntriganteRuntime": "Updated art routes including forms.tecnica.unweave only; no combat fields changed.",
+    "aSerpeArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; one glass-serpent body and exact three-target area scene reviewed.",
+    "aSerpeRuntime": "Updated art routes only; no combat fields changed."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 6,
-    "kitsIntegrated": 1,
-    "characterId": "o-sussurro",
-    "styleReference": "art/characters/o-sussurro/dark-pictorial-rework-20261030/portrait.webp",
-    "sceneAngles": [
-      "low_three_quarter_portrait",
-      "oblique_over_shoulder_passive",
-      "victim_level_poison_reaction",
-      "high_oblique_fan_impact",
-      "attacker_shoulder_deflection",
-      "near_zenith_water_evasion"
+    "darkPictorialCandidatesAdded": 19,
+    "kitsIntegrated": 3,
+    "characterIds": [
+      "a-mascara-dupla",
+      "o-tecelao-de-mentiras",
+      "a-boca-de-vidro"
     ],
-    "anatomyReview": "Hárpago mantém corpo anfíbio baixo e largo, duas mãos palmadas, postura funcional e identidade consistente; as cenas mostram reações contextuais e alvos distintos sem anomalias anatômicas evidentes."
+    "sceneAngles": [
+      "low_three_quarter_portraits",
+      "oblique_mirror_passive",
+      "low_side_mark",
+      "high_diagonal_three_target_web",
+      "utility_unweaving_three_allies",
+      "close_knot_control",
+      "low_personal_defense",
+      "glass_serpent_mirror",
+      "single_target_shard",
+      "wide_three_target_shards"
+    ],
+    "anatomyReview": "A Máscara Dupla conserva uma única pessoa e reflexo coerente; O Intrigante preserva rosto único de porcelana e alvos contados; A Serpe mantém uma cabeça e corpo contínuo sem membros. Nenhuma anomalia anatômica evidente foi observada.",
+    "status": "candidate_integrated_pending_visual_approval"
   }
 }

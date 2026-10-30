@@ -1405,7 +1405,7 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-mascara-dupla') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
@@ -1414,8 +1414,15 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (['o-tecelao-de-mentiras','a-boca-de-vidro'].includes(id)) {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+  if (id === 'o-tecelao-de-mentiras') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.tecnica = {...(forms.tecnica || {}),unweave:`${base}/skill-tecnica-unweave.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'a-boca-de-vidro') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }

@@ -670,3 +670,12 @@ Ativos WebP: `/art/characters/o-trono-vazio/graphic-2-5d-rework-20261029`; fonte
 ## O Sussurro — revisão dark fantasy pictórica — 30/10/2026
 
 Seis novas candidatas cobrem retrato, passiva e as quatro habilidades de Hárpago. O corpo anfíbio baixo e largo, pele verde-petróleo com sardas cobre, olhos jade, bolsa vocal, casaco ameixa, colete marfim, faixa azul-marinho, tubo ritual de latão e leque de ferro foram preservados. As cenas variam entre cais, detalhe da conversão de Essência, reação ao veneno, golpe físico com roubo, desvio de ataque e evasão na água. A direção usa pintura dark fantasy densa, pinceladas angulares, hachuras, sombras cortadas, materialidade gasta e paleta infernal preto/vermelho, sem feixes genéricos ou tecnologia. As seis candidatas aguardam aprovação visual; custos, alvos, efeitos e recargas permanecem inalterados. Manifesto: ART_O_SUSSURRO_DARK_PICTORIAL_REWORK_20261030.json.
+
+
+## A Máscara Dupla, O Intrigante e A Serpe — revisão dark fantasy pictórica — 30/10/2026
+
+Três kits receberam 19 novas candidatas: seis para A Máscara Dupla, sete para O Intrigante (incluindo a variação dedicada Desatar a Trama) e seis para A Serpe. Zópiro mantém pele castanha escura, cachos prateados, capa branca, traje preto, máscaras de marfim e a forma de traição em um único rosto. Bagoas conserva a face única de porcelana rachada, olho jade, cavidade vazia, cabelo de fios e carretéis. Aspasia permanece uma serpente de vidro com uma cabeça e corpo contínuo, sem membros humanoides.
+
+As cenas respeitam os alvos: Rede de Falsidades atinge três inimigos; Desatar a Trama mostra três aliados no total, incluindo o Intrigante; Coro de Estilhaços atinge três inimigos. Rotas de arte e metadados foram atualizados, sem mudanças de combate. Todas as 19 peças aguardam aprovação visual final.
+
+Ativos WebP 512×512 e fontes JPEG 768×768 nos diretórios dark-pictorial-rework-20261030. Manifestos: ART_A_MASCARA_DUPLA_DARK_PICTORIAL_REWORK_20261030.json, ART_O_TECELAO_DE_MENTIRAS_DARK_PICTORIAL_REWORK_20261030.json e ART_A_BOCA_DE_VIDRO_DARK_PICTORIAL_REWORK_20261030.json.
