@@ -2,7 +2,7 @@
 
 **Personagem:** Hárpalo, O Corrupto (`o-corrupto`)  
 **Mundo:** Inferno / Pútrido · **Essência:** Éter  
-**Estado:** seis candidatas em `stage/art`, aguardando aprovação visual. Nenhuma rota ativa ou mecânica foi alterada.
+**Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
 Nobre infernal corpulento de meia-idade, pele oliva pálida, cabelo preto rarefeito, bigode preto curvado, traje de brocado púrpura gasto, broche de espinhos e cajado de prata manchado por mofo. Rosto e corpo permanecem humanos; sem body horror.
 
@@ -10,12 +10,12 @@ Inferno/Pútrido: chão de basalto escuro, folhas mortas, fuligem, estruturas an
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Retrato — Hárpalo | none | `stage/art/characters/o-corrupto/dark-pictorial-rework-20261030/portrait.webp` | `stage/art/source/o-corrupto-dark-pictorial-rework-20261030/portrait.jpg` | `a8c7d004ea572a1c05f55a5ef9ebfb83462d1bb7c822a1e1bd3c3fe18f573969` |
-| passive | Lucro da Ruína | none | `stage/art/characters/o-corrupto/dark-pictorial-rework-20261030/passive.webp` | `stage/art/source/o-corrupto-dark-pictorial-rework-20261030/passive.jpg` | `9056bd8ba556f642ccb26506f87cb0597bb92c3010f65e43b568ba83f9dceb46` |
-| impulso | Acordo Podre | one ghoul | `stage/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-impulso.webp` | `stage/art/source/o-corrupto-dark-pictorial-rework-20261030/impulso.jpg` | `8260c0312fff67919d79ad49c3332b7d1f51575b449df08ec58d181d4c399889` |
-| tecnica | Quebrar a Confiança | one ghoul | `stage/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-tecnica.webp` | `stage/art/source/o-corrupto-dark-pictorial-rework-20261030/tecnica.jpg` | `57358b38a891df7264898e45b6ab75d71ef6b27000d3ec8d59fdebf03ca4233f` |
-| voto | Preço da Corrupção | one marked ghoul | `stage/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-voto.webp` | `stage/art/source/o-corrupto-dark-pictorial-rework-20261030/voto.jpg` | `f9c77360cac96678ec686246281b44f4a146aa7be4ed752239327e37a1e83f9d` |
-| despertar | Privilégio Oculto | self; one attacker | `stage/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-despertar.webp` | `stage/art/source/o-corrupto-dark-pictorial-rework-20261030/despertar.jpg` | `8f4c17a4cb412f2b57d4e99385264d0137381cde07e8338cc13a0867db36b5a6` |
+| portrait | Retrato — Hárpalo | none | `art/characters/o-corrupto/dark-pictorial-rework-20261030/portrait.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/portrait.jpg` | `a8c7d004ea572a1c05f55a5ef9ebfb83462d1bb7c822a1e1bd3c3fe18f573969` |
+| passive | Lucro da Ruína | none | `art/characters/o-corrupto/dark-pictorial-rework-20261030/passive.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/passive.jpg` | `9056bd8ba556f642ccb26506f87cb0597bb92c3010f65e43b568ba83f9dceb46` |
+| impulso | Acordo Podre | one ghoul | `art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/impulso.jpg` | `8260c0312fff67919d79ad49c3332b7d1f51575b449df08ec58d181d4c399889` |
+| tecnica | Quebrar a Confiança | one ghoul | `art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-tecnica.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/tecnica.jpg` | `57358b38a891df7264898e45b6ab75d71ef6b27000d3ec8d59fdebf03ca4233f` |
+| voto | Preço da Corrupção | one marked ghoul | `art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-voto.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/voto.jpg` | `f9c77360cac96678ec686246281b44f4a146aa7be4ed752239327e37a1e83f9d` |
+| despertar | Privilégio Oculto | self; one attacker | `art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-despertar.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/despertar.jpg` | `8f4c17a4cb412f2b57d4e99385264d0137381cde07e8338cc13a0867db36b5a6` |
 
 Os WebP têm 512 × 512; as fontes JPEG têm 768 × 768. O manifesto JSON registra bytes, hashes SHA-256 e dimensões dos PNGs gerados.
 

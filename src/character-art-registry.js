@@ -407,13 +407,13 @@ export const characterArtRegistry = {
     }
   },
   "hans": {
-    "portrait": "/art/characters/hans/anime-first-completion-20261028/portrait.webp",
-    "passive": "/art/characters/hans/anime-first-completion-20261028/passive.webp",
+    "portrait": "/art/characters/hans/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/hans/dark-pictorial-rework-20261030/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/hans/anime-first-completion-20261028/skill-impulso.webp",
-      "tecnica": "/art/characters/hans/anime-first-completion-20261028/skill-tecnica.webp",
-      "voto": "/art/characters/hans/anime-first-completion-20261028/skill-voto.webp",
-      "despertar": "/art/characters/hans/anime-first-completion-20261028/skill-despertar.webp"
+      "impulso": "/art/characters/hans/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/hans/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/hans/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/hans/dark-pictorial-rework-20261030/skill-despertar.webp"
     }
   },
   "xian": {
@@ -576,9 +576,15 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-despertar.webp"
     },
     "forms": {
-      "impulso": { "edict": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-impulso-edict.webp" },
-      "tecnica": { "edict": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-tecnica-edict.webp" },
-      "voto": { "edict": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-voto-edict.webp" }
+      "impulso": {
+        "edict": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-impulso-edict.webp"
+      },
+      "tecnica": {
+        "edict": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-tecnica-edict.webp"
+      },
+      "voto": {
+        "edict": "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-voto-edict.webp"
+      }
     }
   },
   "atlas": {
@@ -630,8 +636,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-voto.webp",
       "despertar": "/art/characters/icarus/dark-pictorial-rework-20261029/skill-despertar.webp"
     }
-  }
-,
+  },
   "o-acougueiro": {
     "portrait": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/passive.webp",
@@ -642,10 +647,11 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-despertar.webp"
     },
     "forms": {
-      "impulso": { "reopen": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp" }
+      "impulso": {
+        "reopen": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp"
+      }
     }
-  }
-,
+  },
   "a-viuva-escarlate": {
     "portrait": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/passive.webp",
@@ -656,10 +662,11 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-despertar.webp"
     },
     "forms": {
-      "impulso": { "revenge": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp" }
+      "impulso": {
+        "revenge": "/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp"
+      }
     }
-  }
-,
+  },
   "o-colecionador-de-cabecas": {
     "portrait": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/passive.webp",
@@ -670,10 +677,11 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-despertar.webp"
     },
     "forms": {
-      "voto": { "empty": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp" }
+      "voto": {
+        "empty": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp"
+      }
     }
-  }
-,
+  },
   "gemeos-do-cutelo": {
     "portrait": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp",
@@ -684,7 +692,119 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-despertar.webp"
     },
     "forms": {
-      "tecnica": { "cross": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp" }
+      "tecnica": {
+        "cross": "/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp"
+      }
+    }
+  },
+  "a-balanca-vazia": {
+    "portrait": "/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "a-porta-fechada": {
+    "portrait": "/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "a-praga-andante": {
+    "portrait": "/art/characters/a-praga-andante/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/a-praga-andante/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "a-rainha-dos-fungos": {
+    "portrait": "/art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "a-senhora-do-ultimo-pao": {
+    "portrait": "/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "o-apodrecido": {
+    "portrait": "/art/characters/o-apodrecido/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-apodrecido/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "o-corrupto": {
+    "portrait": "/art/characters/o-corrupto/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-corrupto/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "o-credor": {
+    "portrait": "/art/characters/o-credor/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-credor/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-credor/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-credor/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-credor/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-credor/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "o-jardim-morto": {
+    "portrait": "/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-jardim-morto/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "o-medico-de-vermes": {
+    "portrait": "/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
+  },
+  "o-que-observou": {
+    "portrait": "/art/characters/o-que-observou/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-que-observou/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-que-observou/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-que-observou/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-que-observou/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-que-observou/dark-pictorial-rework-20261030/skill-despertar.webp"
     }
   }
 };

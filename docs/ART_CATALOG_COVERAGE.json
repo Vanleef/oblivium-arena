@@ -698,7 +698,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-corrupto",
@@ -710,7 +719,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-rainha-dos-fungos",
@@ -722,7 +740,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-medico-de-vermes",
@@ -734,7 +761,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-jardim-morto",
@@ -746,7 +782,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-que-observou",
@@ -758,7 +803,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-porta-fechada",
@@ -770,7 +824,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-surdo",
@@ -1951,7 +2014,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "xian",
@@ -2266,11 +2338,32 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 254,
-    "remainingSlots": 744,
-    "fullyMigratedEntries": 39,
-    "remainingEntries": 111,
-    "awaitingVisualApprovalSlots": 254,
-    "approvedSlots": 0
+    "integratedCandidateSlots": 309,
+    "remainingSlots": 689,
+    "fullyMigratedEntries": 48,
+    "remainingEntries": 102,
+    "awaitingVisualApprovalSlots": 302,
+    "approvedSlots": 7
+  },
+  "latestDarkPictorialBatch": {
+    "date": "2026-10-30",
+    "characterIds": [
+      "a-balanca-vazia",
+      "a-porta-fechada",
+      "a-praga-andante",
+      "a-rainha-dos-fungos",
+      "a-senhora-do-ultimo-pao",
+      "hans",
+      "o-apodrecido",
+      "o-corrupto",
+      "o-credor",
+      "o-jardim-morto",
+      "o-medico-de-vermes",
+      "o-que-observou"
+    ],
+    "candidateSlotsAdded": 0,
+    "candidateSlotsActivated": 72,
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_PRIOR_CHAT_ASSETS_INTEGRATION_20261030.json"
   }
 }

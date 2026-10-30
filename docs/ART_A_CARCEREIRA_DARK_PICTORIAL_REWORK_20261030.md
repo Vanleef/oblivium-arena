@@ -2,18 +2,18 @@
 
 **Personagem:** Sejanus, A Carcereira (ID a-porta-fechada; anteriormente A Porta Fechada)  
 **Mundo:** Inferno / Silêncio · **Essência:** Éter  
-**Estado:** seis candidatas integradas à branch do PR #3; aguardam aprovação visual. Nenhuma mecânica foi alterada.
+**Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
 Sejanus mantém pele escura, cachos grisalhos curtos, casaco azul-marinho de gola alta e chaves de latão. Portas e chaves aparecem como objetos artesanais simples, sem tecnologia ou mecanismos.
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Sejanus — A Carcereira | none | stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/portrait.webp | stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/portrait.jpg | 6433011fb7c467bd48b65a1d03f4533cc56e1ef00d645c52d13db19c8c32c512 |
-| passive | Abrigo dos Cúmplices | dois ghouls inimigos com Éter | stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/passive.webp | stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/passive.jpg | c17c62d8019bb4115353272f9f980c81c245e364d7eee7aafa1875909c3bdfb7 |
-| impulso | Batida sem Resposta | um ghoul inimigo | stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-impulso.webp | stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/impulso.jpg | fb684cee40685a59c96f6598992305d423ecb96fc292b16e086a3a345b2aab69 |
-| tecnica | Guarida Seletiva | Sejanus e uma ghoul aliada | stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-tecnica.webp | stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/tecnica.jpg | 5ba94dc32b5c8633e42149f3ce6078ea9f18e1bb6237b34d608c5a95888d2b3d |
-| voto | Não Há Saída | um ghoul inimigo marcado | stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-voto.webp | stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/voto.jpg | 988c52cf51226e1c74c022a6822dbcb78c1ce888174b33c312b70cac3f793663 |
-| despertar | Limiar Interdito | self | stage/art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-despertar.webp | stage/art/source/a-porta-fechada-dark-pictorial-rework-20261030/despertar.jpg | bea2c40cc2eadbb8a5a3ed5662079184e03b57819bf7b81e546545272a0a36d9 |
+| portrait | Sejanus — A Carcereira | none | art/characters/a-porta-fechada/dark-pictorial-rework-20261030/portrait.webp | art/source/a-porta-fechada-dark-pictorial-rework-20261030/portrait.jpg | 6433011fb7c467bd48b65a1d03f4533cc56e1ef00d645c52d13db19c8c32c512 |
+| passive | Abrigo dos Cúmplices | dois ghouls inimigos com Éter | art/characters/a-porta-fechada/dark-pictorial-rework-20261030/passive.webp | art/source/a-porta-fechada-dark-pictorial-rework-20261030/passive.jpg | c17c62d8019bb4115353272f9f980c81c245e364d7eee7aafa1875909c3bdfb7 |
+| impulso | Batida sem Resposta | um ghoul inimigo | art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-impulso.webp | art/source/a-porta-fechada-dark-pictorial-rework-20261030/impulso.jpg | fb684cee40685a59c96f6598992305d423ecb96fc292b16e086a3a345b2aab69 |
+| tecnica | Guarida Seletiva | Sejanus e uma ghoul aliada | art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-tecnica.webp | art/source/a-porta-fechada-dark-pictorial-rework-20261030/tecnica.jpg | 5ba94dc32b5c8633e42149f3ce6078ea9f18e1bb6237b34d608c5a95888d2b3d |
+| voto | Não Há Saída | um ghoul inimigo marcado | art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-voto.webp | art/source/a-porta-fechada-dark-pictorial-rework-20261030/voto.jpg | 988c52cf51226e1c74c022a6822dbcb78c1ce888174b33c312b70cac3f793663 |
+| despertar | Limiar Interdito | self | art/characters/a-porta-fechada/dark-pictorial-rework-20261030/skill-despertar.webp | art/source/a-porta-fechada-dark-pictorial-rework-20261030/despertar.jpg | bea2c40cc2eadbb8a5a3ed5662079184e03b57819bf7b81e546545272a0a36d9 |
 
 WebP: 512 × 512; fontes JPEG: 768 × 768. O manifesto registra bytes, dimensões e hashes.
 

@@ -14,7 +14,7 @@
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 254 ativos candidatos desta rodada."
+    "Revisar visualmente os 302 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 254,
+    "newDarkPictorialCandidateAssets": 309,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -108,12 +108,14 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 254,
-      "integratedSlots": 254,
+      "candidateSlots": 309,
+      "integratedSlots": 309,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 39
+      "fullyMigratedEntries": 48,
+      "pendingVisualApprovalSlots": 302,
+      "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -151,32 +153,34 @@
     "oCoracaoEmFuriaArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; retrato, passiva e quatro habilidades-base revisados; candidatas pendentes de aprovação visual.",
     "oCoracaoEmFuriaRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado.",
     "aSenhoraArtwork": "6 fontes JPEG 768×768 e 6 candidatas WebP 512×512; identidade, anatomia, alvos e composição de Ração dos Submissos (Helena e dois aliados) inspecionados; candidatas pendentes de aprovação visual.",
-    "aSenhoraRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado.",
+    "aSenhoraRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged.",
     "oCredorArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, alvo único nas cenas de ação, selo físico de dívida e defesa com um único ábaco inspecionados; candidatas pendentes de aprovação visual.",
-    "oCredorRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado.",
+    "oCredorRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged.",
     "aBalancaVaziaArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, ações, anatomia, cura de um aliado e Confisco Coletivo contra exatamente três ghouls inspecionados; candidatas pendentes de aprovação visual.",
-    "aBalancaVaziaRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado.",
+    "aBalancaVaziaRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged.",
     "oApodrecidoArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, alvos únicos, raiz de Tecido Cedido e proteção externa de Casca Morta inspecionados; candidatas pendentes de aprovação visual.",
-    "oApodrecidoRuntime": "Somente ativos em stage/art e documentação; nenhuma rota ativa, mecânica ou dado de combate foi alterado."
+    "oApodrecidoRuntime": "Runtime routes point to the active /art/ assets on the PR branch; gameplay mechanics and character data remain unchanged."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 6,
-    "darkPictorialCandidatesReworked": 0,
-    "kitsIntegrated": 1,
+    "candidateSlotsAdded": 0,
+    "candidateSlotsActivated": 72,
     "characterIds": [
-      "o-apodrecido"
+      "a-balanca-vazia",
+      "a-porta-fechada",
+      "a-praga-andante",
+      "a-rainha-dos-fungos",
+      "a-senhora-do-ultimo-pao",
+      "hans",
+      "o-apodrecido",
+      "o-corrupto",
+      "o-credor",
+      "o-jardim-morto",
+      "o-medico-de-vermes",
+      "o-que-observou"
     ],
-    "sceneAngles": [
-      "low_threequarter_portrait",
-      "high_side_decay_collection",
-      "low_side_blunt_axe_contact",
-      "high_diagonal_single_root_trip",
-      "fullbody_oblique_armor_decay",
-      "low_reverse_bark_guard"
-    ],
-    "anatomyReview": "Seis candidatas inspecionadas. Zósimo conserva dois braços e duas mãos coerentes; cada ação contém um ghoul, e a defesa contém um atacante. Tecido Cedido usa uma raiz curta presa ao chão; Decomposição Completa afeta apenas a cobertura externa. Sem membros extras ou ferimentos explícitos.",
+    "sourceCopies": 72,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_O_APODRECIDO_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_PRIOR_CHAT_ASSETS_INTEGRATION_20261030.json"
   }
 }
