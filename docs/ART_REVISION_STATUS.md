@@ -749,4 +749,10 @@ A passiva mostra exatamente dois ghouls aliados em uma limpeza e cura; Hospedeir
 Teofrasto, anteriormente O Jardim Morto, recebe seis candidatas: retrato, passiva e quatro habilidades. A identidade é humanoide; raízes necrosadas ampliam seus gestos sem substituir rosto ou corpo. O conjunto usa ghouls em papéis de aliados e inimigos, mantendo Inferno/Podridão sem tecnologia.
 
 Seiva Corrosiva mostra o dano a um inimigo já decadente e a recuperação de um aliado ferido. Raiz Necrosada aplica Decadência; Trama Necrosada protege o trio e fere o agressor; Definhar atinge a equipe inimiga; Casca Inviolável absorve um golpe. As seis candidatas WebP 512×512 e fontes JPEG 768×768 estão em stage/art/characters/o-jardim-morto/dark-pictorial-rework-20261030 e stage/art/source/o-jardim-morto-dark-pictorial-rework-20261030. Manifesto e relatório: docs/ART_O_DEFINHADOR_DARK_PICTORIAL_REWORK_20261030.json e .md. As imagens aguardam aprovação visual final. Nenhuma mecânica foi alterada.
-A direção dark fantasy pictórica cobre agora **284/998 espaços** para **44/150 personagens**, com **714 espaços restantes**. As 284 imagens seguem pendentes de aprovação visual.
+
+## Hans — revisão dark fantasy pictórica — 30/10/2026
+
+Hans, Informante da Podridão, recebe seis candidatas: retrato, passiva e quatro habilidades. A proposta visual mantém um homem magro de cabelo claro curto, bigode grisalho e cowl de lã carvão com forro ocre. Cinza, podridão e toxina expressam os poderes; raízes não são usadas no traje, separando sua silhueta de Teofrasto.
+
+Juros de Decadência mostra dois inimigos já afetados por Decadência; Informação Venenosa e Hospitalidade Negada mostram um alvo cada; Decadência Compartilhada atinge três inimigos; Esconderijo Insalubre mostra um agressor contra a cobertura de basalto, cinza e ardósia. As seis imagens WebP 512×512 e fontes JPEG 768×768 estão em stage/art/characters/hans/dark-pictorial-rework-20261030 e stage/art/source/hans-dark-pictorial-rework-20261030. Manifesto e relatório: docs/ART_HANS_DARK_PICTORIAL_REWORK_20261030.json e .md. As candidatas aguardam aprovação visual final. Nenhuma mecânica foi alterada.
+A direção dark fantasy pictórica cobre agora **290/998 espaços** para **45/150 personagens**, com **708 espaços restantes**. As 290 imagens seguem pendentes de aprovação visual.

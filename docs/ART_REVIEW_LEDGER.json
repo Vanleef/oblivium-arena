@@ -624,7 +624,13 @@
     "o-jardim-morto:base:impulso",
     "o-jardim-morto:base:tecnica",
     "o-jardim-morto:base:voto",
-    "o-jardim-morto:base:despertar"
+    "o-jardim-morto:base:despertar",
+    "hans:base:portrait",
+    "hans:base:passive",
+    "hans:base:impulso",
+    "hans:base:tecnica",
+    "hans:base:voto",
+    "hans:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -911,7 +917,13 @@
     "o-jardim-morto:base:impulso",
     "o-jardim-morto:base:tecnica",
     "o-jardim-morto:base:voto",
-    "o-jardim-morto:base:despertar"
+    "o-jardim-morto:base:despertar",
+    "hans:base:portrait",
+    "hans:base:passive",
+    "hans:base:impulso",
+    "hans:base:tecnica",
+    "hans:base:voto",
+    "hans:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
