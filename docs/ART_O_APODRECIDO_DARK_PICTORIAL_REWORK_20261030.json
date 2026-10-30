@@ -1,0 +1,164 @@
+{
+  "title": "O Apodrecido — Zósimo — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "o-apodrecido",
+  "characterName": "Zósimo",
+  "characterTitle": "O Apodrecido",
+  "aliases": [
+    "O Apodrecido"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Pútrido",
+  "essence": "Cinza",
+  "style": "Anime-first 2.5D de fantasia sombria, pinceladas angulares, contornos inkados, hachuras gráficas, sombras de corte e materialidade tátil.",
+  "identity": "Lenhador infernal idoso, pele cinza-acastanhada como casca, rosto humano envelhecido, barba musgosa, casaco desbotado, uma proteção de ombro feita à mão em madeira e machado de poda curvo. Sem feridas abertas ou alterações de rosto monstruosas.",
+  "environment": "Inferno/Pútrido: chão de basalto escuro, folhas mortas, lichen seco, fuligem e rachaduras carmesins. Sem tecnologia, maquinaria, vegetação viva exuberante, soldados genéricos, feixes ou símbolos flutuantes.",
+  "sceneVariety": "Close baixo de retrato, close lateral de extração de lichen, golpe lateral amplo, vista alta com raiz no solo, plano oblíquo de decomposição e defesa traseira baixa.",
+  "anatomyReview": "Seis candidatas inspecionadas. Zósimo conserva dois braços e duas mãos coerentes; cada ação contém um ghoul, e a defesa contém um atacante. Tecido Cedido usa uma raiz curta presa ao chão; Decomposição Completa afeta apenas a cobertura externa. Sem membros extras ou ferimentos explícitos.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Zósimo",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Zósimo observa uma folha seca se desfazer entre os dedos, segurando o machado de poda baixo; o rosto envelhecido demonstra prazer contido na ruína.",
+      "prompt": "Retrato reativo de lenhador infernal idoso, barba musgosa, casaco gasto e proteção de ombro artesanal de madeira; sem outras figuras.",
+      "candidatePath": "/stage/art/characters/o-apodrecido/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "stage/art/source/o-apodrecido-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-9caeb94b-d7b7-43bd-9237-08deaee2de2e.png",
+      "generatedSourceSha256": "7d18aa67f73593adec67234b2e4cbab9813e20ae37dc4bf7f4eecfe22ec0dedd",
+      "generatedSourceBytes": 3128572,
+      "candidateBytes": 82870,
+      "candidateSha256": "0c6d4eed971faec61909ad957a8359140adefe1c46a4e19ff4b30ecae13287ab",
+      "sourceBytes": 326121,
+      "sourceSha256": "de515600ed3542f6d48520a2a371eb39ccb41f4ba2b7c1ea017410c9b67a6519"
+    },
+    {
+      "slot": "passive",
+      "name": "Carne em Ruína",
+      "targetCount": "one ghoul",
+      "camera": "Close lateral alto",
+      "scene": "Zósimo levanta a marca de lichen seco do ombro de um ghoul; ela vira cinza sobre sua palma e os ombros do alvo cedem.",
+      "prompt": "Exatamente Zósimo e um ghoul; a decadência aparece como fragmentos secos externos, sem ferida ou feixe.",
+      "candidatePath": "/stage/art/characters/o-apodrecido/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "stage/art/source/o-apodrecido-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-1dae6daf-192e-4996-b9c5-bb8541d07932.png",
+      "generatedSourceSha256": "182197a52bc778f654d60cc78a1da5e95a2daff269b4230582d64eb6bf5c814f",
+      "generatedSourceBytes": 2992565,
+      "candidateBytes": 83082,
+      "candidateSha256": "ea2a8c5902c40807a3f1f214edd72d5743e96c241c4a1d47ddc51639cfe79223",
+      "sourceBytes": 308654,
+      "sourceSha256": "0a14f0c0fddf8e5062753146d9a2c49715c96e97698a6f4ff9c0a8506cae435b"
+    },
+    {
+      "slot": "impulso",
+      "name": "Contato da Ruína",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral baixo e amplo",
+      "scene": "Zósimo encosta o lado rombo do machado de poda no ombro de um ghoul; uma marca de lichen escuro se espalha pela roupa e pela proteção externa.",
+      "prompt": "Um ghoul, sem uniforme; golpe curto não corta o corpo. Zósimo segura o machado com uma mão e mantém o outro braço separado para equilíbrio.",
+      "candidatePath": "/stage/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "stage/art/source/o-apodrecido-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-87629ba0-2ca5-4942-b638-3cb2e9a485bb.png",
+      "generatedSourceSha256": "078d855ceae0025b95f690819781df9bdebbe0b51b21b38de6797f7eecad4e5d",
+      "generatedSourceBytes": 3232809,
+      "candidateBytes": 95042,
+      "candidateSha256": "9a2b502aa179f47604e81612099bf74aacae587a6fc01c5e40da3c8157ca974c",
+      "sourceBytes": 362884,
+      "sourceSha256": "ecdd4d20c2ea2d63b64f897e848649e2bfb078668b380213c149473be144d08a"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Tecido Cedido",
+      "targetCount": "one ghoul",
+      "camera": "Vista alta diagonal",
+      "scene": "Uma única raiz morta e fina, presa a uma rachadura no chão, prende o tornozelo de um ghoul que avança; ele tropeça e perde a guarda.",
+      "prompt": "Exatamente dois corpos: Zósimo e um ghoul humanoide com dois braços e duas pernas; somente uma raiz simples do solo, sem galhos que pareçam membros.",
+      "candidatePath": "/stage/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "stage/art/source/o-apodrecido-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-b983d660-e6df-466f-88a3-ae07e3d54e30.png",
+      "generatedSourceSha256": "bb400bc1bc0a63eda52c2da6bb70ba4c04afdc7eabc45bc3bd095b165d1f4822",
+      "generatedSourceBytes": 3196286,
+      "candidateBytes": 85800,
+      "candidateSha256": "556a0219a64357dd747d25c5839a7aa6f29f36df4eeb0737352b5884ed74f826",
+      "sourceBytes": 331489,
+      "sourceSha256": "22a9e04eab351f84573c8b6ac1a112d052da26237fd47df9912614503df65b66"
+    },
+    {
+      "slot": "voto",
+      "name": "Decomposição Completa",
+      "targetCount": "one ghoul",
+      "camera": "Oblíqua alta, corpo inteiro",
+      "scene": "Zósimo pressiona dois dedos sobre a marca de lichen no ombro de um ghoul; apenas o revestimento de tecido e casca se desfaz em cinza enquanto o alvo recua.",
+      "prompt": "Um ghoul completo e legível; decomposição apenas da cobertura externa, sem ferimentos, ossos expostos ou gore.",
+      "candidatePath": "/stage/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "stage/art/source/o-apodrecido-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-d7402ad1-562b-42b6-985e-6b31a48f3030.png",
+      "generatedSourceSha256": "9d764f3ecc4fdf509ba339e75a0d86b7cc50abe0c6b9953f43b5a0fc2851dcea",
+      "generatedSourceBytes": 2946563,
+      "candidateBytes": 77630,
+      "candidateSha256": "1f1de4700801151022e9c5cf41e4d0fcc592f2e9e21e2fda30534aae1a747bec",
+      "sourceBytes": 314947,
+      "sourceSha256": "27e81f83c166939954079164639cbf62c600d4a02d4bdf0fcf896d585bb0d083"
+    },
+    {
+      "slot": "despertar",
+      "name": "Casca Morta",
+      "targetCount": "self; one attacker",
+      "camera": "Reversa baixa por trás do agressor",
+      "scene": "Um ghoul avança com lança; Zósimo gira o ombro para receber a ponta na proteção de madeira, que lasca sem tocar seu corpo.",
+      "prompt": "Um atacante e Zósimo; lança para na proteção externa, anatomia coerente e peça de madeira presa ao ombro, não como membro extra.",
+      "candidatePath": "/stage/art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "stage/art/source/o-apodrecido-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-52a6f8ef-cf4a-4649-8a90-93e9525fed34.png",
+      "generatedSourceSha256": "f51993bff9b6c944d302506fdeacf4a59ee5753f4fca25ba23a087576e277c13",
+      "generatedSourceBytes": 2738505,
+      "candidateBytes": 76612,
+      "candidateSha256": "861c9bbad0ff13e492df231864d763de2a7cda1564b40828e68cf8ae3f088b46",
+      "sourceBytes": 297009,
+      "sourceSha256": "e159158a2550386a7cb69ee40515fca87498261ec3fac86cc717745d2895f836"
+    }
+  ]
+}
