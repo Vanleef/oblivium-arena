@@ -14,7 +14,7 @@
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 140 ativos candidatos desta rodada."
+    "Revisar visualmente os 159 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -99,7 +99,7 @@
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 22
+      "fullyMigratedEntries": 25
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
