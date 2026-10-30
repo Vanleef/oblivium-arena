@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 77,
-  "newAbilityScenesSaved": 393,
+  "newPortraitsSaved": 78,
+  "newAbilityScenesSaved": 401,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 178 ativos candidatos desta rodada."
+    "Revisar visualmente os 187 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 98,
+    "newDarkPictorialCandidateAssets": 107,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -50,7 +50,8 @@
     "oSussurroProductionReport": "docs/ART_O_SUSSURRO_DARK_PICTORIAL_REWORK_20261030.json",
     "oFalsoProfetaProductionReport": "docs/ART_O_FALSO_PROFETA_DARK_PICTORIAL_REWORK_20261030.json",
     "oFalsarioProductionReport": "docs/ART_O_FALSARIO_DARK_PICTORIAL_REWORK_20261030.json",
-    "oIncendiarioProductionReport": "docs/ART_O_INCENDIARIO_DARK_PICTORIAL_REWORK_20261030.json"
+    "oIncendiarioProductionReport": "docs/ART_O_INCENDIARIO_DARK_PICTORIAL_REWORK_20261030.json",
+    "aBrasaEternaProductionReport": "docs/ART_A_BRASA_ETERNA_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -97,12 +98,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 178,
-      "integratedSlots": 178,
+      "candidateSlots": 187,
+      "integratedSlots": 187,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 28
+      "fullyMigratedEntries": 29
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -128,24 +129,29 @@
     "oFalsarioArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; identity, one-target scenes and personal defense reviewed; pending visual approval.",
     "oFalsarioRuntime": "Updated art routes only; no combat fields changed.",
     "oIncendiarioArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; one target for Pavio Aceso/Pavio de Ódio/Detonação Negra, exactly three for Fagulhas em Cadeia, and self-only Corpo de Fumaça; pending visual approval.",
-    "oIncendiarioRuntime": "Updated art routes only; no combat fields changed."
+    "oIncendiarioRuntime": "Updated art routes only; no combat fields changed.",
+    "aBrasaEternaArtwork": "9 fontes JPEG 768×768 e 9 ativos WebP 512×512; seis cenas-base e três variantes dedicadas da Forma de Sufocamento; anatomia, identidade, alvos e enquadramentos inspecionados; aguardam aprovação visual.",
+    "aBrasaEternaRuntime": "Rotas de arte base e das três variantes de Sufocamento atualizadas; nenhuma mecânica de combate alterada."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 6,
+    "darkPictorialCandidatesAdded": 9,
     "kitsIntegrated": 1,
     "characterIds": [
-      "o-incendiario"
+      "a-brasa-eterna"
     ],
     "sceneAngles": [
-      "low_quarry_portrait",
-      "close_burned_target_passive",
-      "low_side_single_target_fuse",
-      "high_oblique_three_target_chain",
-      "ground_level_single_target_detonation",
-      "rear_personal_smoke_evasion"
+      "side_turn_portrait",
+      "high_oblique_burned_ghoul_passive",
+      "low_diagonal_contact_brand",
+      "overhead_smoke_compression",
+      "side_impact_ash_weaken",
+      "oblique_topdown_three_target_wave",
+      "low_lateral_heat_stacking",
+      "elevated_stone_furnace_consumption",
+      "rear_close_ash_mantle_defense"
     ],
-    "anatomyReview": "Heróstrato mantém identidade humana e um projetor compacto; Pavio Aceso mostra um alvo já queimando, Fagulhas em Cadeia exatamente três inimigos, Detonação Negra um único alvo e Corpo de Fumaça a evasão pessoal com uma lança.",
+    "anatomyReview": "Nove imagens inspecionadas. Perpetua permanece humano e mantém rosto, cachos, laterais raspadas, trança vermelha, pele, fissuras e manto. Alvos únicos nas ações correspondentes, exatamente três ghouls em Cinzas de Sufoco e defesa pessoal em Manto de Cinzas. Ação e expressão acompanham cada cena; sem tecnologia ou mecânica industrial.",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

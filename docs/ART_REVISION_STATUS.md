@@ -696,3 +696,13 @@ Seis candidatas atualizam Heróstrato, preservando pele bronzeada com sardas, ca
 Ativos WebP 512×512: `art/characters/o-incendiario/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-incendiario-dark-pictorial-rework-20261030`. Rotas do runtime atualizadas, sem mudança de mecânicas. As seis imagens aguardam aprovação visual final.
 
 A migração dark fantasy pictórica chega a 178/998 espaços, com 820 restantes e 28/150 kits concluídos. Restam 122 entradas.
+
+## Kit integrado nesta rodada: A Brasa Eterna
+
+Nove candidatas atualizam Perpetua: retrato, passiva, quatro habilidades-base e três variações da Forma de Sufocamento. A identidade humana, os cachos negros com laterais raspadas, a trança carmesim, as fissuras de brasa e o manto de cinzas foram preservados.
+
+As cenas mostram um ghoul por ação de alvo único, exatamente três ghouls em Cinzas de Sufoco e a defesa pessoal de Manto de Cinzas. Fogo, fumaça, cinzas e basalto aparecem com volume e impacto; não há tecnologia. Nenhuma mecânica foi alterada.
+
+Ativos WebP 512×512: `art/characters/a-brasa-eterna/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/a-brasa-eterna-dark-pictorial-rework-20261030`. As nove artes aguardam aprovação visual final.
+
+A migração dark fantasy pictórica chega a 187/998 espaços, com 811 restantes e 29/150 kits concluídos. Restam 121 entradas.

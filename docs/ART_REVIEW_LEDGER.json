@@ -518,7 +518,16 @@
     "icarus:base:impulso",
     "icarus:base:tecnica",
     "icarus:base:voto",
-    "icarus:base:despertar"
+    "icarus:base:despertar",
+    "a-brasa-eterna:base:portrait",
+    "a-brasa-eterna:base:passive",
+    "a-brasa-eterna:base:impulso",
+    "a-brasa-eterna:base:tecnica",
+    "a-brasa-eterna:base:voto",
+    "a-brasa-eterna:base:despertar",
+    "a-brasa-eterna:form:impulso:smother",
+    "a-brasa-eterna:form:tecnica:smother",
+    "a-brasa-eterna:form:voto:smother"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -699,7 +708,16 @@
     "icarus:base:impulso",
     "icarus:base:tecnica",
     "icarus:base:voto",
-    "icarus:base:despertar"
+    "icarus:base:despertar",
+    "a-brasa-eterna:base:portrait",
+    "a-brasa-eterna:base:passive",
+    "a-brasa-eterna:base:impulso",
+    "a-brasa-eterna:base:tecnica",
+    "a-brasa-eterna:base:voto",
+    "a-brasa-eterna:base:despertar",
+    "a-brasa-eterna:form:impulso:smother",
+    "a-brasa-eterna:form:tecnica:smother",
+    "a-brasa-eterna:form:voto:smother"
   ],
   "currentDirectionCorrectionHistory": [
     {

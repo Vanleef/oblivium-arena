@@ -1168,6 +1168,15 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'a-brasa-eterna') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),smother:`${base}/skill-impulso-smother.webp`};
+    forms.tecnica = {...(forms.tecnica || {}),smother:`${base}/skill-tecnica-smother.webp`};
+    forms.voto = {...(forms.voto || {}),smother:`${base}/skill-voto-smother.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
   if (id === 'o-incendiario') {
     const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
