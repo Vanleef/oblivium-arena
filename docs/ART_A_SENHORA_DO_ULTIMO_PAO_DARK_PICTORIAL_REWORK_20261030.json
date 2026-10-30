@@ -1,0 +1,159 @@
+{
+  "title": "A Senhora do Último Pão — Helena de Adiabene — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "a-senhora-do-ultimo-pao",
+  "characterName": "Helena de Adiabene",
+  "characterTitle": "A Matriarca",
+  "aliases": [
+    "A Senhora do Último Pão",
+    "A Matriarca"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Magma",
+  "essence": "Cinza",
+  "style": "Anime-first 2.5D de fantasia sombria, com pinceladas angulares, contornos inkados, hachuras gráficas, sombras de corte e materialidade tátil.",
+  "identity": "Padeira idosa e compacta, cerca de 75 anos, pele oliva quente, rosto marcado, cabelo branco em coque, lenço xadrez vermelho, avental castanho e pá de pão de madeira. Anatomia humana proporcional, mãos legíveis.",
+  "environment": "Inferno/Magma: forno de pedra apagado, basalto rachado, cinza negra e ruínas de uma padaria; pão e migalhas são materiais e escassos. Sem tecnologia, máquinas, armadura genérica ou soldados.",
+  "sceneVariety": "Retrato baixo em três quartos, perfil lateral de retenção, reversa baixa de golpe, vista zenital de partilha, oblíqua de tributo e defesa traseira baixa.",
+  "anatomyReview": "Seis candidatas inspecionadas. Helena conserva dois braços e mãos coerentes; cada cena de alvo único mostra um ghoul; Ração dos Submissos mostra exatamente Helena e dois aliados ghouls; Celeiro Lacrado mostra Helena e um atacante. Sem membros extras.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Helena de Adiabene",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Helena acompanha uma migalha dourada na palma enquanto segura a pá de pão, atenta ao salão de fornos em ruínas; expressão acolhedora e calculista, sem olhar para a câmera.",
+      "prompt": "Retrato reativo de uma padeiro idosa e compacta, cabelo branco preso em coque, lenço xadrez vermelho, avental castanho e pá de madeira; sem alvo.",
+      "candidatePath": "/stage/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "stage/art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-ab568c6d-b34b-4aee-bfc0-5869ec34847b.png",
+      "generatedSourceSha256": "8260e7d15eff661f85233516c8a71e0be136da9705bdf170e06eef4c14236cf7",
+      "candidateBytes": 71178,
+      "candidateSha256": "ca78f8c684dd6a8f5875955ee673cb89a4a18e2e29b57f5b01f8c8447f92aa8a",
+      "sourceBytes": 290031,
+      "sourceSha256": "e159313f4e5c2136f72c7637a1f03e9419574fd793e3666cd2360893191643cc"
+    },
+    {
+      "slot": "passive",
+      "name": "Lucro da Privação",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral, altura do balcão",
+      "scene": "Helena mantém o pão junto ao peito enquanto um ghoul estende as mãos; ela solta apenas uma migalha escura e dourada, e a criatura se inclina para recebê-la.",
+      "prompt": "Uma Helena e exatamente um ghoul; gesto físico de retenção e dependência, sem feixe de energia.",
+      "candidatePath": "/stage/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "stage/art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-1d1a8623-3f0f-44dc-b4c7-ed2dfc20a09d.png",
+      "generatedSourceSha256": "d71c0a982f3d03a4cde406c2d6fcf034e3e9d64921611036420178a701b25919",
+      "candidateBytes": 69826,
+      "candidateSha256": "77574bb6296bc46e7b258882a57584d071c7946f85bea0d328e2f5a2aeb61525",
+      "sourceBytes": 280385,
+      "sourceSha256": "52abea753f8b3a48f9798cda3ed3e8c9f6bf2df194d3aef31ee48ed463e3d2a7"
+    },
+    {
+      "slot": "impulso",
+      "name": "Marca da Privação",
+      "targetCount": "one ghoul",
+      "camera": "Reversa baixa pelo ombro do ghoul",
+      "scene": "Helena desfere um golpe horizontal curto com a pá de madeira contra a guarda de um único ghoul; uma marca escura de privação fica visível no peito da criatura.",
+      "prompt": "Contato físico com pá de padeiro, exatamente um alvo, reação clara; dois braços de Helena ligados a ombros distintos, sem membros extras.",
+      "candidatePath": "/stage/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "stage/art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-b249f1c9-3665-46fd-a34a-6cce1298464d.png",
+      "generatedSourceSha256": "70626118bf8223fac3063d6181e1b37a3e2622ee7694527ac3ddefd289095fb7",
+      "candidateBytes": 94570,
+      "candidateSha256": "d54112b74800a48114c6c579dbd1256d94b86af19573f04a319e61026dd663e4",
+      "sourceBytes": 366332,
+      "sourceSha256": "328cfb8ab768cb16d56da9b678474b1eab9a87ad1abe4c6c707b5fb784b42e72"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Ração dos Submissos",
+      "targetCount": "self and two allies",
+      "camera": "Zenital íntimo sobre a mesa de pão",
+      "scene": "Helena reparte migalhas e pão escuro entre dois ghouls aliados; os três formam um pequeno círculo junto ao forno apagado, com mãos e corpos separados.",
+      "prompt": "Exatamente três figuras no total: Helena e dois aliados ghouls; cura e regeneração sugeridas por alimento compartilhado, sem brilho genérico.",
+      "candidatePath": "/stage/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "stage/art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-fe7a9d0e-850f-4865-9067-378c65e5d23f.png",
+      "generatedSourceSha256": "dca142fb161f7500f288f0cf236bf053e6958f184bca7a8e0c7b4f707fe30ed3",
+      "candidateBytes": 96994,
+      "candidateSha256": "665435f542760b1df1532a6298b91ef0d86d8abcc4cabc040e0a18a29b920ac8",
+      "sourceBytes": 385376,
+      "sourceSha256": "d6e9e5b7c9113d920697214d14c60a0ec6d1f41db28c660d0be898003ffa5e88"
+    },
+    {
+      "slot": "voto",
+      "name": "Tributo da Fome",
+      "targetCount": "one ghoul",
+      "camera": "Ângulo oblíquo baixo, sobre o alvo marcado",
+      "scene": "Helena atinge um ghoul já marcado com a borda da pá; um fragmento de essência dourada retorna à sua mão enquanto o alvo reage ao impacto.",
+      "prompt": "Helena e exatamente um ghoul; golpe material e roubo de essência em fragmento sólido, sem fio ou feixe; mãos anatomicamente legíveis.",
+      "candidatePath": "/stage/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "stage/art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-8e7ec997-08bb-4bd3-92cd-ed8abd01f280.png",
+      "generatedSourceSha256": "09abb4de63a5cdba182b08d34d94407f04267da20986b8c06cb420ae4aac02dc",
+      "candidateBytes": 94248,
+      "candidateSha256": "fa07c93f23c0437fe3a2539c51d66be2577c4c1aecf68f4a70c25b94f0fe73d9",
+      "sourceBytes": 374798,
+      "sourceSha256": "62d23b3cb1e15f1d1e675c08846f5bde28a481845fdcedfebfcee143d47781b0"
+    },
+    {
+      "slot": "despertar",
+      "name": "Celeiro Lacrado",
+      "targetCount": "self; one attacker",
+      "camera": "Reversa traseira baixa",
+      "scene": "Helena firma a pá de pão junto ao corpo enquanto uma lança de um único atacante ghoul bate e escorrega para fora; ela permanece protegida por um instante.",
+      "prompt": "Defesa individual; Helena e um atacante ghoul apenas, pá de madeira como guarda, postura compacta e dois braços coerentes.",
+      "candidatePath": "/stage/art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "stage/art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-95aefcb5-ffbb-4f99-ad2b-841139d5e269.png",
+      "generatedSourceSha256": "c74e26510fc5b66883eaa4d82480ca200d59f5a541633811f7653b23d97543fc",
+      "candidateBytes": 85842,
+      "candidateSha256": "f46ad5d779e43e624be09afc9b927ae64084ec97de981ba307f669c682ef0709",
+      "sourceBytes": 345639,
+      "sourceSha256": "72e2b8dcaff0174f0dec75ed1faf86a2c4752d5c5dde455cbcb2bb7cf5bd5f20"
+    }
+  ]
+}

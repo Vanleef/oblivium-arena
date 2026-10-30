@@ -570,7 +570,13 @@
     "a-mao-que-toma:base:tecnica",
     "a-mao-que-toma:base:voto",
     "a-mao-que-toma:base:despertar",
-    "a-mao-que-toma:form:tecnica:open"
+    "a-mao-que-toma:form:tecnica:open",
+    "a-senhora-do-ultimo-pao:base:portrait",
+    "a-senhora-do-ultimo-pao:base:passive",
+    "a-senhora-do-ultimo-pao:base:impulso",
+    "a-senhora-do-ultimo-pao:base:tecnica",
+    "a-senhora-do-ultimo-pao:base:voto",
+    "a-senhora-do-ultimo-pao:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -803,7 +809,13 @@
     "a-mao-que-toma:base:tecnica",
     "a-mao-que-toma:base:voto",
     "a-mao-que-toma:base:despertar",
-    "a-mao-que-toma:form:tecnica:open"
+    "a-mao-que-toma:form:tecnica:open",
+    "a-senhora-do-ultimo-pao:base:portrait",
+    "a-senhora-do-ultimo-pao:base:passive",
+    "a-senhora-do-ultimo-pao:base:impulso",
+    "a-senhora-do-ultimo-pao:base:tecnica",
+    "a-senhora-do-ultimo-pao:base:voto",
+    "a-senhora-do-ultimo-pao:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
