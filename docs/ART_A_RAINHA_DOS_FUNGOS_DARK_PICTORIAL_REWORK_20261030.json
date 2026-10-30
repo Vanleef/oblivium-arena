@@ -16,7 +16,7 @@
   "sceneVariety": "Retrato baixo, close lateral no cogumelo, golpe lateral com projétil físico, proteção oblíqua do trio, ataque por cima do ombro e defesa traseira baixa.",
   "anatomyReview": "Seis candidatas inspecionadas. Beatrix mantém pele lavanda, bob preto e anatomia humana. A cena de proteção tem exatamente Beatrix e dois aliados, sem inimigos. As cenas ofensivas mostram um único alvo. A defesa mostra um atacante e um dardo curto parado na superfície do manto, fora do corpo.",
   "gameplayChanged": false,
-  "status": "candidate_staged_locally_pending_repository_integration_and_visual_approval",
+  "status": "candidate_integrated_pending_visual_approval",
   "format": {
     "candidate": "WebP 512x512, quality 86",
     "source": "JPEG 768x768, quality 92"

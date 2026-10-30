@@ -2,7 +2,7 @@
 
 **Personagem:** Beatrix Potter, A Rainha dos Fungos (`a-rainha-dos-fungos`)  
 **Mundo:** Inferno / Pútrido · **Essência:** Graça  
-**Estado:** seis candidatas staged localmente; aguardam integração ao repositório e aprovação visual. Nenhuma mecânica foi alterada.
+**Estado:** seis candidatas integradas à branch do PR #3; aguardam aprovação visual. Nenhuma mecânica foi alterada.
 
 Beatrix é uma mulher adulta de cerca de 40 anos, pele lavanda, bob preto, rosto fino e severo, vestido marfim de gola alta, manto de cogumelos roxos e cetro de raiz entalhada. Mantida humana, sem horror corporal.
 
