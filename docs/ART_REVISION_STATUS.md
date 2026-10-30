@@ -706,3 +706,14 @@ As cenas mostram um ghoul por ação de alvo único, exatamente três ghouls em 
 Ativos WebP 512×512: `art/characters/a-brasa-eterna/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/a-brasa-eterna-dark-pictorial-rework-20261030`. As nove artes aguardam aprovação visual final.
 
 A migração dark fantasy pictórica chega a 187/998 espaços, com 811 restantes e 29/150 kits concluídos. Restam 121 entradas.
+
+
+## Kit integrado nesta rodada: O Furor
+
+Oito candidatas atualizam Fritigerno: retrato, passiva, quatro habilidades-base e duas variações. A máscara sem traços, a linha laranja única, o arco de basalto preso à silhueta, os punhos blocados e a forma sem pernas humanas permanecem consistentes.
+
+Quatro cenas ofensivas mostram um único ghoul; Raiva sem Freio, Alimentar o Ódio e Fúria Intocável afetam somente o próprio construto. Cinza, fogo e basalto aparecem com peso físico. Nenhuma mecânica foi alterada; as oito artes aguardam aprovação visual final.
+
+Ativos WebP 512×512: `art/characters/o-odio-encarnado/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-odio-encarnado-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json`.
+
+A migração dark fantasy pictórica chega a 195/998 espaços, com 803 restantes e 30/150 kits concluídos. Restam 120 entradas.

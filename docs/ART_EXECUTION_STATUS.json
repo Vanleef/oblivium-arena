@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 78,
-  "newAbilityScenesSaved": 401,
+  "newPortraitsSaved": 79,
+  "newAbilityScenesSaved": 408,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 187 ativos candidatos desta rodada."
+    "Revisar visualmente os 195 ativos candidatos desta rodada."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 107,
+    "newDarkPictorialCandidateAssets": 115,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -51,7 +51,8 @@
     "oFalsoProfetaProductionReport": "docs/ART_O_FALSO_PROFETA_DARK_PICTORIAL_REWORK_20261030.json",
     "oFalsarioProductionReport": "docs/ART_O_FALSARIO_DARK_PICTORIAL_REWORK_20261030.json",
     "oIncendiarioProductionReport": "docs/ART_O_INCENDIARIO_DARK_PICTORIAL_REWORK_20261030.json",
-    "aBrasaEternaProductionReport": "docs/ART_A_BRASA_ETERNA_DARK_PICTORIAL_REWORK_20261030.json"
+    "aBrasaEternaProductionReport": "docs/ART_A_BRASA_ETERNA_DARK_PICTORIAL_REWORK_20261030.json",
+    "oFurorProductionReport": "docs/ART_O_FUROR_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -98,12 +99,12 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 187,
-      "integratedSlots": 187,
+      "candidateSlots": 195,
+      "integratedSlots": 195,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 29
+      "fullyMigratedEntries": 30
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
     "oAcougueiroArtwork": "6 imagens base e 1 variante dedicada; JPEG 768×768 e WebP 512×512; cenas anatômicas e enquadramentos quadrados revisados; candidatas pendentes de aprovação visual.",
@@ -131,27 +132,28 @@
     "oIncendiarioArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; one target for Pavio Aceso/Pavio de Ódio/Detonação Negra, exactly three for Fagulhas em Cadeia, and self-only Corpo de Fumaça; pending visual approval.",
     "oIncendiarioRuntime": "Updated art routes only; no combat fields changed.",
     "aBrasaEternaArtwork": "9 fontes JPEG 768×768 e 9 ativos WebP 512×512; seis cenas-base e três variantes dedicadas da Forma de Sufocamento; anatomia, identidade, alvos e enquadramentos inspecionados; aguardam aprovação visual.",
-    "aBrasaEternaRuntime": "Rotas de arte base e das três variantes de Sufocamento atualizadas; nenhuma mecânica de combate alterada."
+    "aBrasaEternaRuntime": "Rotas de arte base e das três variantes de Sufocamento atualizadas; nenhuma mecânica de combate alterada.",
+    "oFurorArtwork": "8 fontes JPEG 768×768 e 8 ativos WebP 512×512; quatro cenas ofensivas com um alvo, três cenas de autoalvo; identidade e silhueta revisadas; candidatas pendentes de aprovação visual.",
+    "oFurorRuntime": "Rotas de arte base, Punho do Ódio Solto e Ressentimento sem Freio atualizadas; nenhuma mecânica de combate alterada."
   },
   "latestProduction": {
     "date": "2026-10-30",
-    "darkPictorialCandidatesAdded": 9,
+    "darkPictorialCandidatesAdded": 8,
     "kitsIntegrated": 1,
     "characterIds": [
-      "a-brasa-eterna"
+      "o-odio-encarnado"
     ],
     "sceneAngles": [
-      "side_turn_portrait",
-      "high_oblique_burned_ghoul_passive",
-      "low_diagonal_contact_brand",
-      "overhead_smoke_compression",
-      "side_impact_ash_weaken",
-      "oblique_topdown_three_target_wave",
-      "low_lateral_heat_stacking",
-      "elevated_stone_furnace_consumption",
-      "rear_close_ash_mantle_defense"
+      "close_threequarter_portrait",
+      "diagonal_self_fury_macro",
+      "low_side_single_target_strike",
+      "reverse_single_target_rage",
+      "high_oblique_self_preparation",
+      "ground_level_single_target_pulse",
+      "elevated_single_target_eruption",
+      "rear_self_invulnerability_shell"
     ],
-    "anatomyReview": "Nove imagens inspecionadas. Perpetua permanece humano e mantém rosto, cachos, laterais raspadas, trança vermelha, pele, fissuras e manto. Alvos únicos nas ações correspondentes, exatamente três ghouls em Cinzas de Sufoco e defesa pessoal em Manto de Cinzas. Ação e expressão acompanham cada cena; sem tecnologia ou mecânica industrial.",
+    "anatomyReview": "Oito imagens inspecionadas. Fritigerno permanece um construto espectral não humano, com máscara sem traços e uma linha laranja, arco preso à silhueta, placas flutuantes, punhos blocados e sem pernas. Exatamente um ghoul nas quatro cenas ofensivas; passiva, Alimentar o Ódio e Fúria Intocável são cenas de autoalvo sem figuras adicionais. Sem tecnologia; nenhuma mecânica foi alterada.",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }

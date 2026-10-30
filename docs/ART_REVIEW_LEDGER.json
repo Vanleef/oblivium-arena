@@ -527,7 +527,15 @@
     "a-brasa-eterna:base:despertar",
     "a-brasa-eterna:form:impulso:smother",
     "a-brasa-eterna:form:tecnica:smother",
-    "a-brasa-eterna:form:voto:smother"
+    "a-brasa-eterna:form:voto:smother",
+    "o-odio-encarnado:base:portrait",
+    "o-odio-encarnado:base:passive",
+    "o-odio-encarnado:base:impulso",
+    "o-odio-encarnado:base:tecnica",
+    "o-odio-encarnado:base:voto",
+    "o-odio-encarnado:base:despertar",
+    "o-odio-encarnado:form:impulso:rage",
+    "o-odio-encarnado:form:voto:eruption"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -717,7 +725,15 @@
     "a-brasa-eterna:base:despertar",
     "a-brasa-eterna:form:impulso:smother",
     "a-brasa-eterna:form:tecnica:smother",
-    "a-brasa-eterna:form:voto:smother"
+    "a-brasa-eterna:form:voto:smother",
+    "o-odio-encarnado:base:portrait",
+    "o-odio-encarnado:base:passive",
+    "o-odio-encarnado:base:impulso",
+    "o-odio-encarnado:base:tecnica",
+    "o-odio-encarnado:base:voto",
+    "o-odio-encarnado:base:despertar",
+    "o-odio-encarnado:form:impulso:rage",
+    "o-odio-encarnado:form:voto:eruption"
   ],
   "currentDirectionCorrectionHistory": [
     {
