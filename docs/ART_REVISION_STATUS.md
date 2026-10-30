@@ -688,3 +688,11 @@ Treze candidatas foram adicionadas: sete para Joanna Southcott, incluindo a vari
 Os ativos WebP 512×512 e fontes JPEG 768×768 estão em `art/characters/{o-falso-profeta,o-corretor-de-memorias}/dark-pictorial-rework-20261030` e `art/source/{o-falso-profeta,o-corretor-de-memorias}-dark-pictorial-rework-20261030`. As rotas do runtime foram atualizadas; nenhuma mecânica de combate foi alterada. As 13 candidatas aguardam aprovação visual final.
 
 A migração dark fantasy pictórica chega a 172/998 espaços, com 826 restantes e 27/150 entradas com kit concluído. Restam 123 entradas.
+
+## Kit integrado nesta rodada: O Incendiário
+
+Seis candidatas atualizam Heróstrato, preservando pele bronzeada com sardas, cabelo cobre ondulado raspado à direita, olhos âmbar, casaco marfim sujo de fuligem, luvas e o projetor compacto. Pavio Aceso observa uma queimadura já ativa em um alvo; Pavio de Ódio alcança um alvo; Fagulhas em Cadeia mostra exatamente três inimigos; Detonação Negra consome a queimadura de um único alvo; Corpo de Fumaça é uma esquiva pessoal com uma lança.
+
+Ativos WebP 512×512: `art/characters/o-incendiario/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-incendiario-dark-pictorial-rework-20261030`. Rotas do runtime atualizadas, sem mudança de mecânicas. As seis imagens aguardam aprovação visual final.
+
+A migração dark fantasy pictórica chega a 178/998 espaços, com 820 restantes e 28/150 kits concluídos. Restam 122 entradas.
