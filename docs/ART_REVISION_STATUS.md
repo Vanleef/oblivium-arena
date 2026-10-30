@@ -755,4 +755,10 @@ Seiva Corrosiva mostra o dano a um inimigo já decadente e a recuperação de um
 Hans, Informante da Podridão, recebe seis candidatas: retrato, passiva e quatro habilidades. A proposta visual mantém um homem magro de cabelo claro curto, bigode grisalho e cowl de lã carvão com forro ocre. Cinza, podridão e toxina expressam os poderes; raízes não são usadas no traje, separando sua silhueta de Teofrasto.
 
 Juros de Decadência mostra dois inimigos já afetados por Decadência; Informação Venenosa e Hospitalidade Negada mostram um alvo cada; Decadência Compartilhada atinge três inimigos; Esconderijo Insalubre mostra um agressor contra a cobertura de basalto, cinza e ardósia. As seis imagens WebP 512×512 e fontes JPEG 768×768 estão em stage/art/characters/hans/dark-pictorial-rework-20261030 e stage/art/source/hans-dark-pictorial-rework-20261030. Manifesto e relatório: docs/ART_HANS_DARK_PICTORIAL_REWORK_20261030.json e .md. As candidatas aguardam aprovação visual final. Nenhuma mecânica foi alterada.
-A direção dark fantasy pictórica cobre agora **290/998 espaços** para **45/150 personagens**, com **708 espaços restantes**. As 290 imagens seguem pendentes de aprovação visual.
+
+## O Espectador — revisão dark fantasy pictórica — 30/10/2026
+
+Procopius, anteriormente O que Observou, recebe seis candidatas: retrato, passiva e quatro habilidades. A identidade preserva barba e bigode brancos, chapéu de aba larga, monóculo azul de aro de latão e sobretudo azul-negro. O caderno e o monóculo são adereços artesanais; não há maquinaria ou tecnologia.
+
+Indiferença Vigilante mostra a garra de um ghoul desviada e a defesa reativa; Memória da Omissão marca um alvo; Recusar Interferência desvia e devolve o golpe; Peso da Indiferença comprime um inimigo marcado; Fora do Acontecimento mostra a evasão defensiva. As seis imagens WebP 512×512 e fontes JPEG 768×768 estão em stage/art/characters/o-que-observou/dark-pictorial-rework-20261030 e stage/art/source/o-que-observou-dark-pictorial-rework-20261030. Manifesto e relatório: docs/ART_O_ESPECTADOR_DARK_PICTORIAL_REWORK_20261030.json e .md. As candidatas aguardam aprovação visual final. Nenhuma mecânica foi alterada.
+A direção dark fantasy pictórica cobre agora **296/998 espaços** para **46/150 personagens**, com **702 espaços restantes**. As 296 imagens seguem pendentes de aprovação visual.

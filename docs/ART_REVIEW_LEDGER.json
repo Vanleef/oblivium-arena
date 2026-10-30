@@ -630,7 +630,13 @@
     "hans:base:impulso",
     "hans:base:tecnica",
     "hans:base:voto",
-    "hans:base:despertar"
+    "hans:base:despertar",
+    "o-que-observou:base:portrait",
+    "o-que-observou:base:passive",
+    "o-que-observou:base:impulso",
+    "o-que-observou:base:tecnica",
+    "o-que-observou:base:voto",
+    "o-que-observou:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -923,7 +929,13 @@
     "hans:base:impulso",
     "hans:base:tecnica",
     "hans:base:voto",
-    "hans:base:despertar"
+    "hans:base:despertar",
+    "o-que-observou:base:portrait",
+    "o-que-observou:base:passive",
+    "o-que-observou:base:impulso",
+    "o-que-observou:base:tecnica",
+    "o-que-observou:base:voto",
+    "o-que-observou:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
