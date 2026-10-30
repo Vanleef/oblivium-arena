@@ -610,7 +610,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
       "despertar": "/art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp"
     }
-  },,
+  },
   "voronir": {
     "portrait": "/art/characters/voronir/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/voronir/dark-pictorial-rework-20261029/passive.webp",
