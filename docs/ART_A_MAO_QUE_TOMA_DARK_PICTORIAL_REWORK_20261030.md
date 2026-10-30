@@ -18,11 +18,15 @@ Inferno/Magma: basalto quebrado, fissuras de brasa, cinza negra e ruínas do sal
 | Espaço | Arte | Alvos | Ativo WebP | Fonte JPEG | SHA-256 ativo |
 |---|---|---|---|---|---|
 | portrait | Retrato — Brennus | none | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/portrait.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/portrait.jpg` | `7661a70d0fc674d2d5311c2f7d9abee218495006f5274a1ca6e9bfc92653b009` |
-| passive | Posse Insaciável | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/passive.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/passive.jpg` | `bcda49239fb81c13b65f912035a2f8c2bc73549d9a948eba7ffd5bcb9ba187ac` |
-| impulso | Dedos da Cobiça | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/impulso.jpg` | `347d2cb79ca860c012cbfb94c4e8e508356c56cdc20a687fb708f0277df7440d` |
+| passive | Posse Insaciável | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/passive.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/passive.jpg` | `4be97607c9c4b1dd5731a3123f2a88f9abf06521e5475a45ddd01b3c87e73521` |
+| impulso | Dedos da Cobiça | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/impulso.jpg` | `66099520200e3109354bc5dca51c76e227cf2e034c0a8bb833dcbf3d23fcd264` |
 | tecnica | Guardar o que Roubou | self only | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/tecnica.jpg` | `47dfcbd152be277832e3f40ab7df7ba0c3337baaf05309b45001766fbc2bb246` |
 | voto | Confisco da Alma | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-voto.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/voto.jpg` | `f3ec9b864cfae5fd2bb30a0e698e5f622cede6bdb359ba23be250f870deb1fe3` |
 | despertar | Mão Fora de Alcance | self; one attacker | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-despertar.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/despertar.jpg` | `8707c92307271b1a4d059dafb450d259aa3c97b3075853aeab97469e215a66de` |
 | form:tecnica:open | Abrir o Cofre | self only | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica-open.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/tecnica-open.jpg` | `f920ddbd3ee50a0f4085c02ffd4180d4925319c11f16f7695de6c6a5cf9652a7` |
 
 Ativos: WebP 512 × 512, qualidade 86. Fontes: JPEG 768 × 768, qualidade 92. PNGs editados em 1254 × 1254; bytes e hashes estão no manifesto JSON.
+
+## Correção anatômica
+
+As cenas de Posse Insaciável e Dedos da Cobiça foram recompostas após a revisão: um braço alcança o ghoul; o outro apoia a personagem na própria coxa ou permanece no quadril. Ombros, cotovelos, antebraços e mãos agora têm trajetos separados e coerentes.

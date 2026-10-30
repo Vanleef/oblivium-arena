@@ -14,8 +14,8 @@
   "style": "Anime-first 2.5D de fantasia sombria, com pinceladas angulares, contornos inkados, hachuras gráficas, sombras de corte e materialidade tátil.",
   "identity": "Mulher infernal compacta e poderosa, meia-idade, pele umber profunda, cabelo prateado curto com uma trança negra, olhos âmbar, cicatriz na sobrancelha, couro negro gasto, placas de osso, uma ombreira de bronze assimétrica e anéis saqueados no antebraço. Dois braços e mãos humanas proporcionais.",
   "environment": "Inferno/Magma: basalto quebrado, fissuras de brasa, cinza negra e ruínas do salão de tributos. Essências douradas aparecem como fragmentos pequenos e materiais; sem tecnologia, máquinas, capas, lanternas ou soldados.",
-  "sceneVariety": "Retrato baixo fechado, reversa de impacto, POV do ghoul, zenital de proteção, zenital de confisco, reversa defensiva e zenital íntimo do cofre.",
-  "anatomyReview": "Sete imagens inspecionadas: uma cabeça e dois braços em todos os quadros; mãos legíveis, alvos contidos, sem membros extras. Um ghoul em cada cena de alvo único; defesa e variante de cura são autocentradas.",
+  "sceneVariety": "Retrato baixo fechado, perfil lateral com mão de apoio na própria coxa, reversa baixa de alcance, zenital de proteção, zenital de confisco, reversa defensiva e zenital íntimo do cofre.",
+  "anatomyReview": "As duas cenas ofensivas mais próximas foram refeitas após feedback: agora cada braço parte de um ombro distinto, um alcança o ghoul e o outro apoia a pose na própria coxa ou permanece junto ao quadril. Sete imagens inspecionadas; dois braços e duas mãos coerentes em Brennus, um ghoul nas cenas de alvo único e sem membros extras.",
   "gameplayChanged": false,
   "status": "candidate_integrated_pending_visual_approval",
   "format": {
@@ -49,9 +49,9 @@
       "slot": "passive",
       "name": "Posse Insaciável",
       "targetCount": "one ghoul",
-      "camera": "Reversa lateral no impacto",
-      "scene": "Um ghoul acerta Brennus; ela torce o corpo, prende o pulso da criatura e arranca um pequeno sinal de essência do peito rachado.",
-      "prompt": "A passiva mostra uma única vítima infernal e a reação física do roubo, sem feixe de energia.",
+      "camera": "Perfil lateral, altura do alvo",
+      "scene": "Brennus se inclina na direção de um ghoul. Uma mão recolhe a essência no peito da criatura; a outra se apoia na própria coxa para sustentar a postura, sem tocar o alvo.",
+      "prompt": "Recomposta de perfil: braço distante alcança o ghoul e mão próxima repousa na própria coxa. Dois braços com ligações claras a ombros opostos; nenhuma mão extra.",
       "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/passive.webp",
       "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/passive.jpg",
       "activeDimensions": "512x512",
@@ -60,20 +60,20 @@
         1254,
         1254
       ],
-      "activeBytes": 102090,
-      "sourceBytes": 392340,
-      "activeSha256": "bcda49239fb81c13b65f912035a2f8c2bc73549d9a948eba7ffd5bcb9ba187ac",
-      "sourceSha256": "2a4fbf0bd178bc5980b6569fbffa8f6d996fab1b223fb643333449387c2a89a5",
-      "generatedSource": "exec-a67507e1-32cc-484b-94fa-e0d920d7220c.png",
-      "generatedSourceSha256": "a9bd8f45074f299ad71e3140f312e013dcb3a4e3684b82bea3979b6e1a775cc0"
+      "activeBytes": 85672,
+      "sourceBytes": 346115,
+      "activeSha256": "4be97607c9c4b1dd5731a3123f2a88f9abf06521e5475a45ddd01b3c87e73521",
+      "sourceSha256": "ee44ad238dd928766a47fcef27f4e5c6b80caa792e0a3e47d7116bbf3c2a74fc",
+      "generatedSource": "exec-88f5e919-cff0-4cad-a429-1eae650ad207.png",
+      "generatedSourceSha256": "28a15d7ced06ef848bbf8ea33c718f5bd0423416d6a17ab0f2d2bf9b13542ef3"
     },
     {
       "slot": "impulso",
       "name": "Dedos da Cobiça",
       "targetCount": "one ghoul",
-      "camera": "POV baixo reverso do alvo",
-      "scene": "Brennus avança de lado e golpeia a guarda do ghoul enquanto toma uma lasca dourada de essência; o alvo reage com dor e surpresa.",
-      "prompt": "Impulso contra exatamente um ghoul, com contato e roubo material.",
+      "camera": "Reversa baixa pelo ombro do ghoul",
+      "scene": "Brennus avança em meia-agachada; uma mão alcança o fragmento dourado junto ao peito do ghoul, enquanto a outra permanece junto ao próprio quadril, sem cruzar o tronco.",
+      "prompt": "Recomposta em ângulo reverso: braço distante alcança o alvo; braço próximo permanece recolhido junto ao quadril. Dois braços com ligações claras a ombros opostos; nenhuma mão extra.",
       "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-impulso.webp",
       "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/impulso.jpg",
       "activeDimensions": "512x512",
@@ -82,12 +82,12 @@
         1254,
         1254
       ],
-      "activeBytes": 95644,
-      "sourceBytes": 365509,
-      "activeSha256": "347d2cb79ca860c012cbfb94c4e8e508356c56cdc20a687fb708f0277df7440d",
-      "sourceSha256": "3877f02cecfd3ad9140ea75bf506464b764d8ca5f0cb052f927ff9ff09f8d4ea",
-      "generatedSource": "exec-a9dec4f8-c727-43d4-830b-afb2a444e930.png",
-      "generatedSourceSha256": "1a480788134ea6062d289ebd85d2f0c7737bcef0a60547ded0170b7502b84529"
+      "activeBytes": 86098,
+      "sourceBytes": 343188,
+      "activeSha256": "66099520200e3109354bc5dca51c76e227cf2e034c0a8bb833dcbf3d23fcd264",
+      "sourceSha256": "e54d73bd5ae7c6a7750e2f3e6189774de8032105c26ee373ce827ab0bc1f6209",
+      "generatedSource": "exec-ffa0e9ec-7313-46f2-a599-64264d127f0b.png",
+      "generatedSourceSha256": "036b75bffad0795f8c6d8ef475864c40dfbc693d151485076351543115a65a73"
     },
     {
       "slot": "tecnica",
@@ -177,5 +177,6 @@
       "generatedSource": "exec-2e09597e-c3dd-4506-a40b-8a9a89241cff.png",
       "generatedSourceSha256": "4e2e36d2339a650e6cf4ed1c260ac77ced822dc46a01aabeea60c02e06dbf71a"
     }
-  ]
+  ],
+  "correctionNote": "Correção anatômica em passive e impulso: os quadros anteriores sugeriam dois braços direitos e mãos sem relação clara com o tronco. As novas composições usam uma mão para o alvo e a outra para apoiar o próprio corpo."
 }

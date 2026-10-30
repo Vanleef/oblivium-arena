@@ -815,6 +815,16 @@
       "key": "baal:base:despertar",
       "correctedAt": "2026-10-29",
       "note": "Nova candidata de defesa em ângulo baixo traseiro gerada para variar do retrato e mostrar o manto de cinzas recebendo pedras; requer aprovação visual final."
+    },
+    {
+      "key": "a-mao-que-toma:base:passive",
+      "correctedAt": "2026-10-30",
+      "note": "Pose recomposta após feedback: um braço alcança o ghoul e o outro apoia o próprio corpo, cada um ligado a um ombro distinto. A nova candidata aguarda aprovação visual final."
+    },
+    {
+      "key": "a-mao-que-toma:base:impulso",
+      "correctedAt": "2026-10-30",
+      "note": "Pose recomposta após feedback: um braço alcança o ghoul e o outro apoia o próprio corpo, cada um ligado a um ombro distinto. A nova candidata aguarda aprovação visual final."
     }
   ]
 }
