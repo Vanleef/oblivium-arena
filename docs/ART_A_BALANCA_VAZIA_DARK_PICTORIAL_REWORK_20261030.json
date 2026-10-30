@@ -1,0 +1,166 @@
+{
+  "title": "A Balança Vazia — Faustilla, A Usurária — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "a-balanca-vazia",
+  "characterName": "Faustilla",
+  "characterTitle": "A Usurária",
+  "aliases": [
+    "A Balança Vazia",
+    "A Usurária da Penúria",
+    "A Usurária"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Magma",
+  "essence": "Cinza",
+  "style": "Anime-first 2.5D de fantasia sombria, pinceladas angulares, contornos inkados, hachuras gráficas, sombras de corte e materialidade tátil.",
+  "identity": "Faustilla é uma mulher infernal esguia e madura, cerca de 60 anos, pele cinza-carvão, trança longa marfim, rosto humano normal, olhos âmbar, brincos de latão em miniatura e robe verde desbotado. Usa um único bastão de equilíbrio manual com pratos pequenos de latão; os objetos são antigos e artesanais, sem caráter industrial.",
+  "environment": "Inferno/Magma: basalto rachado, fuligem, cinza e luz carmesim. Símbolos de equilíbrio são específicos da identidade de Faustilla e aparecem apenas em escala manual; sem balança monumental, tecnologia, maquinaria, feixes genéricos, soldados ou texto flutuante.",
+  "sceneVariety": "Close baixo de retrato, vista alta em close, golpe lateral amplo, cura íntima, vista zenital diagonal de área e esquiva traseira rente ao chão.",
+  "anatomyReview": "Seis candidatas inspecionadas. Faustilla mantém dois braços e mãos legíveis; cada cena individual contém um ghoul ou aliado, Confisco Coletivo mostra exatamente três ghouls além dela, e Penhor Inalcançável mostra um atacante. Sem figuras extras ou membros adicionais.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Faustilla",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Faustilla observa os pratos pequenos e desiguais do bastão manual, enquanto ajusta uma conta com os dedos; o olhar segue a oscilação, sem posar para a câmera.",
+      "prompt": "Retrato fechado e reativo, rosto humano normal, trança marfim, brincos de latão e robe verde gasto; sem outras figuras ou balança monumental.",
+      "candidatePath": "/stage/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "stage/art/source/a-balanca-vazia-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-bdb50911-48db-4c72-b8ba-90dc471da4eb.png",
+      "generatedSourceSha256": "80d0ddda6b20942e9c99f7b4300bec08572dd990d5a5c7df6de648dd569dd571",
+      "generatedSourceBytes": 2588019,
+      "candidateBytes": 68638,
+      "candidateSha256": "2231bed9362204c99382c4c43aae30d5f3af7e65d07f0af35877becf0fdd0ac5",
+      "sourceBytes": 274824,
+      "sourceSha256": "d195451f57dccb5d793f2b2e648921d48d107e0496fdd48c9c9fddb6acb87ca0"
+    },
+    {
+      "slot": "passive",
+      "name": "Lucro da Carência",
+      "targetCount": "one ghoul",
+      "camera": "Vista alta diagonal em close",
+      "scene": "Faustilla toca o ombro de um ghoul com o bastão de equilíbrio; uma conta dourada sólida cai da armadura para um prato, enquanto o prato oposto lança sombra pesada sobre o braço erguido do alvo.",
+      "prompt": "Exatamente Faustilla e um ghoul; conta e pratos são objetos físicos, sem fios, feixes, letras ou figuras ao fundo.",
+      "candidatePath": "/stage/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "stage/art/source/a-balanca-vazia-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-006275b4-b550-4eb6-9f59-fac96c8a512c.png",
+      "generatedSourceSha256": "9fd7e0244d4dc85abccfe0e054cca7fa16a9d0c068b940a16468eef49c58fd8c",
+      "generatedSourceBytes": 2738621,
+      "candidateBytes": 77566,
+      "candidateSha256": "62b51b13382c012cfe478afc0207fbc13eb6fd2c303ff47a8ff83ff64ca19eba",
+      "sourceBytes": 309209,
+      "sourceSha256": "e830a05255eb3f58478fd8cc620caa0cfd6c24420de407283aea72cc5326f65c"
+    },
+    {
+      "slot": "impulso",
+      "name": "Cobrança da Penúria",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral baixo e aberto",
+      "scene": "Faustilla gira o bastão de latão num golpe horizontal contra o ombro blindado de um ghoul; uma conta dourada se solta da armadura e o alvo perde o equilíbrio.",
+      "prompt": "Exatamente um alvo; duas mãos seguram o bastão em pontos separados, braços ligados a ombros distintos, anatomia legível e sem ferimento explícito.",
+      "candidatePath": "/stage/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "stage/art/source/a-balanca-vazia-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-72dca5e7-80cb-479b-a086-05fc004c18df.png",
+      "generatedSourceSha256": "f63165e858c0cc78e48a80dd50f0bc9d2a6481056fd596ca9796a09c2382437f",
+      "generatedSourceBytes": 3099412,
+      "candidateBytes": 93790,
+      "candidateSha256": "9bc232c10bd36550b1aff859213d69f85601134883545025f670d8651264eb32",
+      "sourceBytes": 358598,
+      "sourceSha256": "e9a4b424b96b3903cf15d2fcc5473c3b2fd59aa841c769071b6816f13397de57"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Adiantamento Vital",
+      "targetCount": "self; one ally",
+      "camera": "Perfil íntimo à altura dos joelhos",
+      "scene": "Faustilla oferece uma conta de latão a um ghoul aliado ajoelhado e limpa a fuligem escura de seu antebraço; o aliado começa a se erguer com mais firmeza.",
+      "prompt": "Exatamente Faustilla e um ghoul aliado; cura e remoção de condição mostradas por gesto físico, sem feixe luminoso.",
+      "candidatePath": "/stage/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "stage/art/source/a-balanca-vazia-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-cf3d7d42-9209-49e4-ac21-38f78a538fb7.png",
+      "generatedSourceSha256": "63728123ff990e2e8020baa3a63ef42d1966e83cd9dcebb0acf1b046cee7c3c1",
+      "generatedSourceBytes": 2467223,
+      "candidateBytes": 59472,
+      "candidateSha256": "ee8d309096e76d54b092a9fa59f708c299f26abf94530222b674894edf13969d",
+      "sourceBytes": 246522,
+      "sourceSha256": "3616c4f44195244048dafb4832ee95e7d2b60d9527de417df76ef7e17a548e15"
+    },
+    {
+      "slot": "voto",
+      "name": "Confisco Coletivo",
+      "targetCount": "three enemies",
+      "camera": "Vista zenital diagonal",
+      "scene": "Faustilla firma o pé e varre o bastão de equilíbrio; exatamente três ghouls separados cambaleiam enquanto as próprias sombras são comprimidas contra o basalto.",
+      "prompt": "Exatamente quatro corpos no total: Faustilla e três ghouls distintos, bem separados. Sem figuras extras, duplicadas ou silhuetas; efeito por sombra pesada, sem feixes.",
+      "candidatePath": "/stage/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "stage/art/source/a-balanca-vazia-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-f0d96962-30c2-44c9-8af2-9653676a327a.png",
+      "generatedSourceSha256": "96a432ac1c267dd634e71b4303957eb08b4339eaefb32cd5bdf8bd4c25935570",
+      "generatedSourceBytes": 3437613,
+      "candidateBytes": 98806,
+      "candidateSha256": "af272a752525dbb018536607f437ec9c66ce6170c09881221890442d41bfdbf5",
+      "sourceBytes": 393934,
+      "sourceSha256": "b0c108a7bb91e2d6e7b6522786c80e3e07f8ba99e804a5869a4cf6568d9260e9"
+    },
+    {
+      "slot": "despertar",
+      "name": "Penhor Inalcançável",
+      "targetCount": "self; one attacker",
+      "camera": "Reversa rente ao chão por trás do agressor",
+      "scene": "Um ghoul lança uma estocada; Faustilla desloca o quadril e os ombros para o lado, deixando a lança cruzar o espaço vazio atrás da trança.",
+      "prompt": "Defesa individual sem contato; exatamente um atacante. Faustilla desvia em movimento natural, com duas mãos e braços coerentes e um único bastão manual.",
+      "candidatePath": "/stage/art/characters/a-balanca-vazia/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "stage/art/source/a-balanca-vazia-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-17b1ede0-7263-42a3-862d-8c6bb2ab5637.png",
+      "generatedSourceSha256": "83cd346907cf44ee8dde23debe484bbb7856980f6db8157ec4683741994e06df",
+      "generatedSourceBytes": 2410929,
+      "candidateBytes": 60020,
+      "candidateSha256": "325ce6edde7061a9580fcdb318a48048b8478bd67c7625c8c5824fc0c85cfc75",
+      "sourceBytes": 244363,
+      "sourceSha256": "fa0ee9dc0393d4885f2a53af67fdd37247a93f55d599a9b24a6653f8f94e1d25"
+    }
+  ]
+}

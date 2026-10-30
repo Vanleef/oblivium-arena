@@ -582,7 +582,13 @@
     "o-credor:base:impulso",
     "o-credor:base:tecnica",
     "o-credor:base:voto",
-    "o-credor:base:despertar"
+    "o-credor:base:despertar",
+    "a-balanca-vazia:base:portrait",
+    "a-balanca-vazia:base:passive",
+    "a-balanca-vazia:base:impulso",
+    "a-balanca-vazia:base:tecnica",
+    "a-balanca-vazia:base:voto",
+    "a-balanca-vazia:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [],
   "currentDirectionPendingVisualApprovalKeys": [
@@ -827,7 +833,13 @@
     "o-credor:base:impulso",
     "o-credor:base:tecnica",
     "o-credor:base:voto",
-    "o-credor:base:despertar"
+    "o-credor:base:despertar",
+    "a-balanca-vazia:base:portrait",
+    "a-balanca-vazia:base:passive",
+    "a-balanca-vazia:base:impulso",
+    "a-balanca-vazia:base:tecnica",
+    "a-balanca-vazia:base:voto",
+    "a-balanca-vazia:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
