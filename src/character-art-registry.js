@@ -816,5 +816,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/skill-voto.webp",
       "despertar": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/skill-despertar.webp"
     }
+  },
+  "o-quarto-vazio": {
+    "portrait": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-despertar.webp"
+    }
   }
 };

@@ -888,7 +888,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-vigia-ausente",
@@ -2347,21 +2356,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 315,
-    "remainingSlots": 683,
-    "fullyMigratedEntries": 49,
-    "remainingEntries": 101,
-    "awaitingVisualApprovalSlots": 308,
+    "integratedCandidateSlots": 321,
+    "remainingSlots": 677,
+    "fullyMigratedEntries": 50,
+    "remainingEntries": 100,
+    "awaitingVisualApprovalSlots": 314,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-30",
     "characterIds": [
-      "a-testemunha-cega"
+      "o-quarto-vazio"
     ],
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_JOSEFO_CUMPLICE_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_O_QUARTO_VAZIO_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }

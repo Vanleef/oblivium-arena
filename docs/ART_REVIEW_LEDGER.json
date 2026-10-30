@@ -655,7 +655,13 @@
     "a-testemunha-cega:base:impulso",
     "a-testemunha-cega:base:tecnica",
     "a-testemunha-cega:base:voto",
-    "a-testemunha-cega:base:despertar"
+    "a-testemunha-cega:base:despertar",
+    "o-quarto-vazio:base:portrait",
+    "o-quarto-vazio:base:passive",
+    "o-quarto-vazio:base:impulso",
+    "o-quarto-vazio:base:tecnica",
+    "o-quarto-vazio:base:voto",
+    "o-quarto-vazio:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -974,7 +980,13 @@
     "a-testemunha-cega:base:impulso",
     "a-testemunha-cega:base:tecnica",
     "a-testemunha-cega:base:voto",
-    "a-testemunha-cega:base:despertar"
+    "a-testemunha-cega:base:despertar",
+    "o-quarto-vazio:base:portrait",
+    "o-quarto-vazio:base:passive",
+    "o-quarto-vazio:base:impulso",
+    "o-quarto-vazio:base:tecnica",
+    "o-quarto-vazio:base:voto",
+    "o-quarto-vazio:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
