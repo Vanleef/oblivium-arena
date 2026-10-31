@@ -1241,7 +1241,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-ultimo-guardiao",
@@ -1253,7 +1262,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-sentinela-azul",
@@ -2496,21 +2514,22 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 425,
-    "remainingSlots": 573,
-    "fullyMigratedEntries": 65,
-    "remainingEntries": 85,
-    "awaitingVisualApprovalSlots": 418,
+    "integratedCandidateSlots": 437,
+    "remainingSlots": 561,
+    "fullyMigratedEntries": 67,
+    "remainingEntries": 83,
+    "awaitingVisualApprovalSlots": 430,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-estomago-sem-fundo"
+      "o-que-ficou",
+      "o-ultimo-guardiao"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 12,
+    "candidateSlotsActivated": 12,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_O_INSACIVEL_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_CYNAEGIRUS_DARK_PICTORIAL_REWORK_20261031.json; docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
