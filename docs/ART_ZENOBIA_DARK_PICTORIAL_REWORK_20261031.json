@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-31",
+  "character": {
+    "id": "a-muralha",
+    "name": "Zenobia",
+    "title": "A Muralha",
+    "role": "Sentinela de Pedra"
+  },
+  "identity": "Constructo de forma humana que escolheu tornar-se abrigo. Corpo de muralha em blocos de pedra, olhos e janela torácica de vitral azul, guarnições marfim e estandarte com sigilo dourado; não é uma humana de armadura.",
+  "lore": "Cada agressão que atravessa a guarda de seus companheiros reforça suas placas; avança apenas para abrir espaço a quem precisa proteger.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "asset": "/art/characters/a-muralha/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/a-muralha-dark-pictorial-rework-20261031/portrait.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "asset": "/art/characters/a-muralha/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/a-muralha-dark-pictorial-rework-20261031/passive.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "asset": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/a-muralha-dark-pictorial-rework-20261031/impulso.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "asset": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/a-muralha-dark-pictorial-rework-20261031/tecnica.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "asset": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/a-muralha-dark-pictorial-rework-20261031/voto.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "asset": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/a-muralha-dark-pictorial-rework-20261031/despertar.jpg",
+      "review": "candidate_pending_visual_approval"
+    }
+  ],
+  "compositionChecks": {
+    "portrait": "A silhueta de fortaleza e as janelas de vitral definem o constructo.",
+    "passive": "Placas de pedra recompõem uma área lascada; sem alvos extras.",
+    "impulso": "Impacto do Baluarte atinge um inimigo e acende uma carga.",
+    "tecnica": "Muralha Partilhada protege o trio: Zenobia e dois aliados, exatamente três pessoas.",
+    "voto": "Investida do Baluarte concentra cargas e defesa consumida contra um único inimigo.",
+    "despertar": "Baluarte Inviolável fecha uma fortaleza de pedra e vitral apenas ao redor de Zenobia."
+  },
+  "files": {
+    "activeWebp": {
+      "dimensions": "512x512",
+      "count": 6
+    },
+    "sourceJpeg": {
+      "dimensions": "768x768",
+      "count": 6
+    }
+  },
+  "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
+  "status": "candidate_integrated_pending_visual_approval"
+}
