@@ -138,7 +138,7 @@ export const rosterIdentityOverrides = Object.freeze({
   "seraphim-o-eco": { name: "Seraph", title: "O Prólogo", englishTitle: "The Prologue", aliases: ["Seraphim"] },
   "eiremir": { name: "Eiremir", title: "A Anomalia" },
   "eiremir-o-espelho-partido": { name: "Eiremir", title: "O Espelho Partido" },
-  "khoren-caminho": { name: "Zalmoxis", title: "A Abnegação", englishTitle: "Selflessness", aliases: ["O Caminho"] },
+  "khoren-caminho": { name: "Zalmoxis", title: "O Caminho", englishTitle: "The Path" },
   "elaris-prologo": { name: "Seraph", title: "O Prólogo", englishTitle: "The Prologue", aliases: ["Elaris"] },
   "cain": { name: "Cain", title: "O Reflexo Cruel" },
   "lilith": { name: "Lilith", title: "A Negação" },
@@ -153,9 +153,9 @@ export const rosterIdentityOverrides = Object.freeze({
   "icarus": { name: "Icarus", title: "O Portador da Fenda" }
 });
 
-// Lore-only leaders stay outside the playable character count.
+// Campaign-gated playable leaders: clear every kingdom in their world to recruit them.
 export const worldLeaderIdentities = Object.freeze({
-  inferno: Object.freeze({ name: "Niith", title: "O Fim", epithet: "O Lorde do Inferno", rosterId: "o-lugar-de-ninguem" }),
-  paradise: Object.freeze({ name: "Seraph", title: "O Prólogo", rosterId: "elaris-prologo" }),
-  limbo: Object.freeze({ name: "Zoen", title: "O Caminho", role: "Lorde do Limbo", rosterId: null })
+  inferno: Object.freeze({ name: "Niith", title: "O Fim", epithet: "O Lorde do Inferno", rosterId: "o-lugar-de-ninguem", realmId: "inferno" }),
+  paraiso: Object.freeze({ name: "Seraph", title: "O Prólogo", rosterId: "elaris-prologo", realmId: "paraiso" }),
+  limbo: Object.freeze({ name: "Zalmoxis", title: "O Caminho", role: "Lorde do Limbo", rosterId: "khoren-caminho", realmId: "limbo" })
 });
