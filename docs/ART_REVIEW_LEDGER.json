@@ -937,7 +937,15 @@
     "o-que-levanta:base:impulso",
     "o-que-levanta:base:tecnica",
     "o-que-levanta:base:voto",
-    "o-que-levanta:base:despertar"
+    "o-que-levanta:base:despertar",
+    "a-voz:base:portrait",
+    "a-voz:base:passive",
+    "a-voz:base:impulso",
+    "a-voz:base:tecnica",
+    "a-voz:base:voto",
+    "a-voz:base:despertar",
+    "a-voz:variant:impulso:chorus",
+    "a-voz:variant:tecnica:solo"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1538,7 +1546,15 @@
     "o-que-levanta:base:impulso",
     "o-que-levanta:base:tecnica",
     "o-que-levanta:base:voto",
-    "o-que-levanta:base:despertar"
+    "o-que-levanta:base:despertar",
+    "a-voz:base:portrait",
+    "a-voz:base:passive",
+    "a-voz:base:impulso",
+    "a-voz:base:tecnica",
+    "a-voz:base:voto",
+    "a-voz:base:despertar",
+    "a-voz:variant:impulso:chorus",
+    "a-voz:variant:tecnica:solo"
   ],
   "currentDirectionCorrectionHistory": [
     {

@@ -1565,11 +1565,19 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-voz:form:impulso:chorus",
-        "a-voz:form:tecnica:solo"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:chorus",
+        "tecnica:solo"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-portador-da-aurora",
@@ -2736,21 +2744,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 597,
-    "remainingSlots": 401,
-    "fullyMigratedEntries": 90,
-    "remainingEntries": 60,
-    "awaitingVisualApprovalSlots": 590,
+    "integratedCandidateSlots": 605,
+    "remainingSlots": 393,
+    "fullyMigratedEntries": 91,
+    "remainingEntries": 59,
+    "awaitingVisualApprovalSlots": 598,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-que-levanta"
+      "a-voz"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 8,
+    "candidateSlotsActivated": 8,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HECTOR_SUNDIATA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_HOPE_ARION_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

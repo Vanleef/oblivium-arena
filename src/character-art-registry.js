@@ -1431,5 +1431,23 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-voz": {
+    "portrait": "/art/characters/a-voz/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-voz/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": {
+        "chorus": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-impulso-chorus.webp"
+      },
+      "tecnica": {
+        "solo": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-tecnica-solo.webp"
+      }
+    }
   }
 };
