@@ -727,7 +727,14 @@
     "o-fim-silencioso:base:tecnica",
     "o-fim-silencioso:base:voto",
     "o-fim-silencioso:base:despertar",
-    "o-fim-silencioso:form:voto:residual"
+    "o-fim-silencioso:form:voto:residual",
+    "o-menino-sem-sombra:base:portrait",
+    "o-menino-sem-sombra:base:passive",
+    "o-menino-sem-sombra:base:impulso",
+    "o-menino-sem-sombra:base:tecnica",
+    "o-menino-sem-sombra:base:voto",
+    "o-menino-sem-sombra:base:despertar",
+    "o-menino-sem-sombra:form:tecnica:hide"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
