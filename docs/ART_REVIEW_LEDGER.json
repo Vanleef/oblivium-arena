@@ -765,7 +765,19 @@
     "o-estomago-sem-fundo:base:impulso",
     "o-estomago-sem-fundo:base:tecnica",
     "o-estomago-sem-fundo:base:voto",
-    "o-estomago-sem-fundo:base:despertar"
+    "o-estomago-sem-fundo:base:despertar",
+    "o-que-ficou:base:portrait",
+    "o-que-ficou:base:passive",
+    "o-que-ficou:base:impulso",
+    "o-que-ficou:base:tecnica",
+    "o-que-ficou:base:voto",
+    "o-que-ficou:base:despertar",
+    "o-ultimo-guardiao:base:portrait",
+    "o-ultimo-guardiao:base:passive",
+    "o-ultimo-guardiao:base:impulso",
+    "o-ultimo-guardiao:base:tecnica",
+    "o-ultimo-guardiao:base:voto",
+    "o-ultimo-guardiao:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1194,7 +1206,19 @@
     "o-estomago-sem-fundo:base:impulso",
     "o-estomago-sem-fundo:base:tecnica",
     "o-estomago-sem-fundo:base:voto",
-    "o-estomago-sem-fundo:base:despertar"
+    "o-estomago-sem-fundo:base:despertar",
+    "o-que-ficou:base:portrait",
+    "o-que-ficou:base:passive",
+    "o-que-ficou:base:impulso",
+    "o-que-ficou:base:tecnica",
+    "o-que-ficou:base:voto",
+    "o-que-ficou:base:despertar",
+    "o-ultimo-guardiao:base:portrait",
+    "o-ultimo-guardiao:base:passive",
+    "o-ultimo-guardiao:base:impulso",
+    "o-ultimo-guardiao:base:tecnica",
+    "o-ultimo-guardiao:base:voto",
+    "o-ultimo-guardiao:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
