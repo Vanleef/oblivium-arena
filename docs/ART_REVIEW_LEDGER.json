@@ -1545,6 +1545,46 @@
       "key": "nilo-cinza-epilogo:base:despertar-6",
       "correctedAt": "2026-10-31",
       "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Retrato fechado em 3/4 baixo: Nilo encara uma alma fora de quadro com sorriso cruel; olhos totalmente vermelhos, fios alaranjados, queimaduras e fissuras infernais visíveis. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Perfil lateral: Nilo se curva pelo custo da expansão, uma mão comprime o esterno e a outra agarra o cordão; cinza se desprende das queimaduras e do manto. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Vista por trás do ombro: Nilo puxa um único fio ritual vermelho que corta apenas o manto de um condenado; a reação do alvo mostra o contato. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Ângulo oblíquo médio: Nilo golpeia com a palma e remove a película falsa de proteção dourada de um único ghoul, que recua enquanto ela se desfaz. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Vista alta em 3/4: Nilo cai sobre um joelho e mantém o outro pé plantado; uma mão se apoia na coxa e a outra no esterno enquanto brasa e seda ritual se espalham. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Close lateral baixo: um fio ritual corta o tecido no ombro de um único ghoul, que torce o corpo para fugir do contato; sem ferida gráfica. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:tecnica-5",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Plano lateral médio amplo: alvo debilitado cede sobre os dois joelhos e uma mão; Nilo recolhe a palma e controla a respiração, sem novo golpe. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:despertar-6",
+      "correctedAt": "2026-10-31",
+      "note": "++Cinza substituído e revisado quanto à anatomia: Defesa em corpo inteiro por trás, em 3/4: um antebraço protege a cabeça e o outro braço se estende para equilíbrio; o manto físico de cinza e seda recebe brasas e fragmentos. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
     }
   ]
 }
