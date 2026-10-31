@@ -694,7 +694,13 @@
     "a-marionetista-de-nervos:base:tecnica",
     "a-marionetista-de-nervos:base:voto",
     "a-marionetista-de-nervos:base:despertar",
-    "a-marionetista-de-nervos:form:tecnica:hold"
+    "a-marionetista-de-nervos:form:tecnica:hold",
+    "o-espelho-carnal:base:portrait",
+    "o-espelho-carnal:base:passive",
+    "o-espelho-carnal:base:impulso",
+    "o-espelho-carnal:base:tecnica",
+    "o-espelho-carnal:base:voto",
+    "o-espelho-carnal:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1052,7 +1058,13 @@
     "a-marionetista-de-nervos:base:tecnica",
     "a-marionetista-de-nervos:base:voto",
     "a-marionetista-de-nervos:base:despertar",
-    "a-marionetista-de-nervos:form:tecnica:hold"
+    "a-marionetista-de-nervos:form:tecnica:hold",
+    "o-espelho-carnal:base:portrait",
+    "o-espelho-carnal:base:passive",
+    "o-espelho-carnal:base:impulso",
+    "o-espelho-carnal:base:tecnica",
+    "o-espelho-carnal:base:voto",
+    "o-espelho-carnal:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
