@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 99,
-  "newAbilityScenesSaved": 512,
+  "newPortraitsSaved": 102,
+  "newAbilityScenesSaved": 527,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Continuar a migração dos 86 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 83 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 412 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 430 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 419,
+    "newDarkPictorialCandidateAssets": 437,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -75,7 +75,9 @@
     "enheduannaProductionReport": "docs/ART_ENHEDUANNA_DARK_PICTORIAL_REWORK_20261031.json",
     "timurProductionReport": "docs/ART_TIMUR_DARK_PICTORIAL_REWORK_20261031.json",
     "themistoclesProductionReport": "docs/ART_THEMISTOCLES_DARK_PICTORIAL_REWORK_20261031.json",
-    "zenobiaProductionReport": "docs/ART_ZENOBIA_DARK_PICTORIAL_REWORK_20261031.json"
+    "zenobiaProductionReport": "docs/ART_ZENOBIA_DARK_PICTORIAL_REWORK_20261031.json",
+    "cynaegirusProductionReport": "docs/ART_CYNAEGIRUS_DARK_PICTORIAL_REWORK_20261031.json",
+    "belisariusProductionReport": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -122,13 +124,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 419,
-      "integratedSlots": 419,
+      "candidateSlots": 437,
+      "integratedSlots": 437,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 64,
-      "pendingVisualApprovalSlots": 412,
+      "fullyMigratedEntries": 67,
+      "pendingVisualApprovalSlots": 430,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -193,15 +195,19 @@
     "hatshepsutArtwork": "6 cenas-base e 1 variante dedicada de recuperação; 7 fontes JPEG 768×768 e 7 ativos WebP 512×512; candidatas pendentes de aprovação visual.",
     "hatshepsutRuntime": "Rotas de arte atualizadas para portrait, passiva, quatro habilidades e forms.tecnica.hide; nenhuma mecânica foi alterada.",
     "enheduannaArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade de escriba, cenas com alvo único e defesa autorreferente inspecionadas; candidatas aguardam aprovação visual.",
-    "enheduannaRuntime": "Rotas de retrato, passiva e quatro habilidades atualizadas; nenhuma mecânica de combate foi alterada."
+    "enheduannaRuntime": "Rotas de retrato, passiva e quatro habilidades atualizadas; nenhuma mecânica de combate foi alterada.",
+    "cynaegirusArtwork": "6 fontes JPEG 768×768 e 6 candidatas WebP 512×512; apoio a um aliado e ataques a um alvo; pendente de aprovação visual.",
+    "cynaegirusRuntime": "Rotas de arte e cobertura atualizadas; nenhuma mecânica de combate alterada.",
+    "belisariusArtwork": "6 fontes JPEG 768×768 e 6 candidatas WebP 512×512; quatro patas, corpo não humanoide de pedra e cenas com alvos individuais; pendente de aprovação visual.",
+    "belisariusRuntime": "Rotas de arte e cobertura atualizadas; nenhuma mecânica de combate alterada."
   },
   "latestProduction": {
     "date": "2026-10-31",
-    "characterId": "a-muralha",
-    "characterName": "Zenobia",
-    "title": "A Muralha",
+    "characterId": "o-ultimo-guardiao",
+    "characterName": "Belisarius",
+    "title": "O Guardião",
     "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ZENOBIA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
