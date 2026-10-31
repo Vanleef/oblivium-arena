@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-31",
+  "character": {
+    "id": "o-que-ficou",
+    "name": "Cynaegirus",
+    "title": "O Abnegado",
+    "role": "Protetor Sacrificial"
+  },
+  "identity": "Homem adulto de pele oliva, olhos verdes, cabelos castanhos encaracolados e barba curta; túnica azul desgastada, echarpe ferrugem e espada nas costas.",
+  "lore": "Cynaegirus permanece quando seria mais seguro recuar e oferece parte do próprio fôlego para manter outra pessoa de pé.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "asset": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/o-que-ficou-dark-pictorial-rework-20261031/portrait.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "asset": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/o-que-ficou-dark-pictorial-rework-20261031/passive.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "asset": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/o-que-ficou-dark-pictorial-rework-20261031/impulso.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "asset": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/o-que-ficou-dark-pictorial-rework-20261031/tecnica.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "asset": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/o-que-ficou-dark-pictorial-rework-20261031/voto.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "asset": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/o-que-ficou-dark-pictorial-rework-20261031/despertar.jpg",
+      "review": "candidate_pending_visual_approval"
+    }
+  ],
+  "compositionChecks": {
+    "portrait": "Homem adulto de pele oliva, cabelo castanho encaracolado, olhos verdes, barba curta, túnica azul e echarpe ferrugem; espada nas costas.",
+    "passive": "Cynaegirus protege um único aliado e sustenta a presença defensiva sem criar um alvo extra.",
+    "impulso": "Não Recuar mostra um golpe físico contra um único inimigo; a guarda reduz o dano recebido por Cynaegirus.",
+    "tecnica": "Amparo Abnegado cura e concede Defesa destrutível a um aliado; a perda de Vida de Cynaegirus permanece sem derrota.",
+    "voto": "Permanecer de Pé concentra o golpe e a recuperação em um único inimigo e no próprio Cynaegirus.",
+    "despertar": "Promessa Inquebrável envolve somente Cynaegirus em proteção pessoal por um turno."
+  },
+  "files": {
+    "activeWebp": {
+      "dimensions": "512x512",
+      "count": 6
+    },
+    "sourceJpeg": {
+      "dimensions": "768x768",
+      "count": 6
+    }
+  },
+  "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas de combate inalteradas.",
+  "status": "candidate_integrated_pending_visual_approval"
+}
