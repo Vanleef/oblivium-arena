@@ -673,7 +673,15 @@
     "o-que-possui:base:impulso",
     "o-que-possui:base:tecnica",
     "o-que-possui:base:voto",
-    "o-que-possui:base:despertar"
+    "o-que-possui:base:despertar",
+    "a-pele-alheia:body:portrait:skin",
+    "a-pele-alheia:body:portrait:shell",
+    "a-pele-alheia:form:impulso:skin",
+    "a-pele-alheia:form:tecnica:skin",
+    "a-pele-alheia:form:voto:skin",
+    "a-pele-alheia:form:impulso:shell",
+    "a-pele-alheia:form:tecnica:shell",
+    "a-pele-alheia:form:voto:shell"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1010,7 +1018,15 @@
     "o-que-possui:base:impulso",
     "o-que-possui:base:tecnica",
     "o-que-possui:base:voto",
-    "o-que-possui:base:despertar"
+    "o-que-possui:base:despertar",
+    "a-pele-alheia:body:portrait:skin",
+    "a-pele-alheia:body:portrait:shell",
+    "a-pele-alheia:form:impulso:skin",
+    "a-pele-alheia:form:tecnica:skin",
+    "a-pele-alheia:form:voto:skin",
+    "a-pele-alheia:form:impulso:shell",
+    "a-pele-alheia:form:tecnica:shell",
+    "a-pele-alheia:form:voto:shell"
   ],
   "currentDirectionCorrectionHistory": [
     {
