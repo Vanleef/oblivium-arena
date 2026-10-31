@@ -734,7 +734,13 @@
     "o-menino-sem-sombra:base:tecnica",
     "o-menino-sem-sombra:base:voto",
     "o-menino-sem-sombra:base:despertar",
-    "o-menino-sem-sombra:form:tecnica:hide"
+    "o-menino-sem-sombra:form:tecnica:hide",
+    "a-ultima-pagina:base:portrait",
+    "a-ultima-pagina:base:passive",
+    "a-ultima-pagina:base:impulso",
+    "a-ultima-pagina:base:tecnica",
+    "a-ultima-pagina:base:voto",
+    "a-ultima-pagina:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
