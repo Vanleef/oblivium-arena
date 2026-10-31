@@ -820,7 +820,13 @@
     "nilo:base:impulso",
     "nilo:base:tecnica",
     "nilo:base:voto",
-    "nilo:base:despertar"
+    "nilo:base:despertar",
+    "nilo-o-prefacio:base:portrait",
+    "nilo-o-prefacio:base:passive",
+    "nilo-o-prefacio:base:impulso",
+    "nilo-o-prefacio:base:tecnica",
+    "nilo-o-prefacio:base:voto",
+    "nilo-o-prefacio:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1304,7 +1310,13 @@
     "nilo:base:impulso",
     "nilo:base:tecnica",
     "nilo:base:voto",
-    "nilo:base:despertar"
+    "nilo:base:despertar",
+    "nilo-o-prefacio:base:portrait",
+    "nilo-o-prefacio:base:passive",
+    "nilo-o-prefacio:base:impulso",
+    "nilo-o-prefacio:base:tecnica",
+    "nilo-o-prefacio:base:voto",
+    "nilo-o-prefacio:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1338,6 +1350,12 @@
       "characterId": "nilo",
       "date": "2026-10-31",
       "reason": "Refeito o kit-base de seis slots na direção anime-first 2.5D pictórica; identidade e mecânicas preservadas. Aguardar aprovação visual."
+    },
+    {
+      "key": "nilo-o-prefacio:base",
+      "characterId": "nilo-o-prefacio",
+      "date": "2026-10-31",
+      "reason": "Refeito o kit-base de seis slots na direção anime-first 2.5D pictórica infernal; identidade e mecânicas preservadas. Aguardar aprovação visual."
     }
   ]
 }

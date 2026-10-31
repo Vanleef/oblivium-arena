@@ -782,3 +782,14 @@ A passiva mostra duas Essências gastas e um Resíduo chegando ao bracelete; Toq
 Ativos WebP 512×512: `art/characters/nilo/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
 
 A migração pictórica cobre **558/998 slots**, com **440 restantes**, em **85/150 entradas**. Restam **65 entradas**; **551 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+
+
+## Nilo, Prefácio de Cinza — revisão anime-first 2.5D pictórica — 31/10/2026
+
+Refeitos retrato, passiva e quatro habilidades-base, preservando o rosto do Nilo-base, a mecha marfim, o manto chamuscado e o cordão vermelho. O conjunto usa Inferno/Estige em preto, vermelho, cinza, fuligem, fogo e pedra antiga.
+
+A passiva mostra a abertura numa aflição já aplicada; Corte Escarro atinge um condenado com um fio ritual; Brasa Direta queima o tecido de um único alvo; Ferida que Consome mostra a consequência do golpe sobre um alvo afligido; Limiar protege Nilo atrás de cinco planos de cinza e seda. Nenhuma mecânica foi alterada. As seis artes aguardam aprovação visual.
+
+Ativos WebP 512×512: `art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_O_PREFACIO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
+
+A migração pictórica cobre **564/998 slots**, com **434 restantes**, em **86/150 entradas**. Restam **64 entradas**; **557 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.

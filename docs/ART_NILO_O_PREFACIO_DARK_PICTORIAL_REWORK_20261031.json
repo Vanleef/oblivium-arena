@@ -1,0 +1,110 @@
+{
+  "id": "nilo-o-prefacio-dark-pictorial-rework-20261031",
+  "characterId": "nilo-o-prefacio",
+  "displayName": "Nilo, Prefácio de Cinza",
+  "world": "Inferno",
+  "realm": "Estige",
+  "previousArtDirection": "Anime 2.5D pictórico claro e suave.",
+  "artDirection": "Anime-first 2.5D dark fantasy pictórico; contornos manuais, pinceladas densas, sombras angulares, hachuras, materialidade de cinza, pedra e seda ritual, paleta de Inferno em preto, vermelho e cinza.",
+  "identity": "Nilo-base de 24 anos, pele castanha média, cabelo azul-negro volumoso com uma mecha marfim sobre a sobrancelha direita e rosto cansado. Nesta versão, veste manto assimétrico chamuscado, roupa carvão e cordão ritual vermelho. Sem arma ou tecnologia.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "fbc32272dd0c3d0d6d5e2cfe4212f9ba0290acd6af459ae52d9964e867317fa6",
+      "activeSha256": "affde3be5204e75a61ead574542881d4716244aad57b7e1c1784ba1fa3e5778b",
+      "scene": "Nilo vira ao acompanhar uma alma condenada junto ao Estige; busto natural, olhar cansado fora da câmera."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "96f864f6f7502bd0b392c605fe5c65faf0ae6133bd7102b861c46bc20b89790a",
+      "activeSha256": "680022a8a724e91587b50cd124d790135125f230acf4087666283b257e86a7c3",
+      "scene": "Um ghoul já ferido apresenta uma fresta na película de cinza; Nilo percebe a abertura e espera o próximo golpe."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "151ba6d43209245e792a90978dac70c5f3f12582da647e956af456c2517d78b0",
+      "activeSha256": "2718ca17f5ee616887187a2be80cb228e1d6d478e58acb871d5e8ceae566d660",
+      "scene": "Um único fio ritual vermelho corta o manto de um condenado; rasgo superficial, sem gore."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "fb3962d33bef9b35a84b32870c68bec1161f69edcf4766489bfb32c0df9f8071",
+      "activeSha256": "3ded6efae2a038df5474a3c236a45434959e617294a2b9a7a10ca9dbdc557626",
+      "scene": "Uma pequena brasa espiritual cai da mão esquerda de Nilo e queima um ponto do tecido do alvo."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "37cd2a346ddfc910f973df0a313c6e95cfce75df4fcc4308fd0c8ea1e11bf212",
+      "activeSha256": "8e0b20ebdf4496690a689a65b89bfe75e3f553c51ff97f15523996f548a51033",
+      "scene": "Um condenado cede de joelhos; as marcas de Sangramento e Queimadura se apagam enquanto Nilo baixa a mão."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "bc713675391aecc5c8b30e5657e298fd7279bbfab15b9f16a8ebe7a56a31ebe2",
+      "activeSha256": "401cfb66056c3d815173d299e8017028eb8ea4d214171f3791c34ad2aa712c24",
+      "scene": "Cinco planos de cinza e seda vermelha desviam estilhaços ao redor de Nilo em defesa pessoal."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending"
+}
