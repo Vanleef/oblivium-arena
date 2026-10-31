@@ -1127,4 +1127,24 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
   }
+  "o-julgador-gentil": {
+    "portrait": "/art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
+  },
+  "o-julgador-gentil": {
+    "portrait": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
+  }
 };

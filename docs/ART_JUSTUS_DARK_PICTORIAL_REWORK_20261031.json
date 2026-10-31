@@ -70,17 +70,17 @@
       "label": "Parada Equânime",
       "activePath": "/art/characters/a-lamina-justa/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/a-lamina-justa-dark-pictorial-rework-20261031/tecnica.jpg",
-      "scene": "Parada física contra um único agressor; Justus mantém braço, punho e pegada da espada alinhados ao impacto.",
+      "scene": "Parada física contra um único agressor; braço, punho, mão, empunhadura e lâmina mantêm continuidade anatômica clara.",
       "targetCount": "1 agressor",
       "width": 512,
       "height": 512,
-      "bytes": 60142,
-      "sha256": "acd16628889451186d73a0282f4c807223ba765f663cb97b46048ca21d7c853d",
+      "bytes": 77554,
+      "sha256": "d547cc0e550835f2258e061d79320b734cb0fcb85f558a93e584c436839a12e8",
       "sourceWidth": 768,
       "sourceHeight": 768,
-      "sourceBytes": 172889,
-      "sourceSha256": "720c47839b6543bf57096798bd7935f4b7508bb4b57f3a2a9b182318a23ecc68",
-      "sourceInput": "exec-9678af9d-d43e-48bf-8177-68ee0b7a9ab0.png"
+      "sourceBytes": 171081,
+      "sourceSha256": "caf670deac7669e00e485c05eb93afbd3bbdc6cbdad53266a12f9eb94cd468c9",
+      "sourceInput": "exec-0671b66b-2f2d-44e4-a5b0-97dd68cd0e29.png"
     },
     {
       "slot": "skill-voto",
@@ -122,6 +122,6 @@
     "As seis cenas distinguem retrato, passiva, avanço, parada física, golpe final e esquiva pessoal, sem olhar para a câmera.",
     "Somente as rotas de arte e documentação foram atualizadas; mecânicas de combate permanecem inalteradas.",
     "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
-    "A cena da Técnica foi refeita após revisão: os braços têm origens claras, a mão fecha corretamente no punho e a lâmina mantém continuidade até o ponto de contato."
+    "A cena da Técnica foi refeita para corrigir o braço e a empunhadura: a mão fecha claramente no punho e a lâmina mantém continuidade até o ponto de contato."
   ]
 }

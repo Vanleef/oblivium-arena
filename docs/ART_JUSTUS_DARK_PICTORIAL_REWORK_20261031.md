@@ -6,7 +6,7 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 - Seis candidatas WebP ativas em 512 × 512; seis matrizes JPEG retidas em 768 × 768.
 - Todas aguardam aprovação visual final.
 - A personagem preserva pele castanha quente, cachos prateados curtos, vestes marfim e azul-marinho e espada prateada.
-- A Técnica foi refeita para corrigir a continuidade dos braços, da pegada e do golpe. Rotas de arte atualizadas; nenhuma mecânica de combate alterada.
+- A Técnica foi corrigida novamente: braço, punho, mão e empunhadura estão alinhados, com a lâmina contínua até o ponto de contato. Nenhuma mecânica de combate foi alterada.
 
 | Espaço | Cena | Alvo |
 |---|---|---|

@@ -680,9 +680,9 @@ export const characterRevisions = {
     "lore": "Encara a consequência antes de julgar. Acumula o peso dos atos para deter o excesso com uma decisão proporcional, sem recorrer à opressão de Coroa."
   },
   "o-julgador-gentil": {
-    "name": "Ashoka",
+    "name": "Benedict",
     "title": "O Juiz",
-    "englishName": "Ashoka",
+    "englishName": "Benedict",
     "englishTitle": "The Judge",
     "aliases": ["O Juiz","O Julgador Gentil"],
     "lore": "A clemência não enfraquece sua autoridade: define quando reparar e quando deter uma agressão. Sua justiça preserva a medida que os tiranos abandonaram.",

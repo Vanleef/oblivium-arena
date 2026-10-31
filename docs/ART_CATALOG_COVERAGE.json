@@ -2575,21 +2575,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 500,
-    "remainingSlots": 498,
-    "fullyMigratedEntries": 77,
-    "remainingEntries": 73,
-    "awaitingVisualApprovalSlots": 493,
+    "integratedCandidateSlots": 506,
+    "remainingSlots": 492,
+    "fullyMigratedEntries": 78,
+    "remainingEntries": 72,
+    "awaitingVisualApprovalSlots": 499,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-testemunha-integra"
+      "o-julgador-gentil"
     ],
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_BENEDICT_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

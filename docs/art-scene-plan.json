@@ -3852,44 +3852,45 @@
     },
     {
       "id": "o-julgador-gentil",
-      "name": "O Julgador Gentil",
+      "name": "Benedict",
       "realm": "Paraíso",
       "elo": "Justiça",
-      "identity": "Paraíso/Justiça. Young adult man26, olive skin, soft broad face, curly auburn hair, ivory short judicial coat and teal sash, small wooden gavel and oval wood wrist guard. Calm restrained force.",
-      "status": "pending_varied_scenery_generation",
+      "identity": "Paraíso/Júpiter. Jovem adulto de pele oliva, rosto largo suave, olhos castanhos, cachos castanho-escuros com mecha prateada, óculos redondos, casaco judicial marfim com faixa azul-petróleo, pequeno martelo artesanal de madeira e braçadeira oval de madeira. Firmeza contida e misericórdia.",
+      "status": "candidate_integrated_pending_visual_approval",
       "scenes": [
         {
           "slot": "portrait",
-          "action": "gentle face",
-          "setting": "pátio de tijolos vermelhos"
+          "action": "Benedict percebe uma ameaça fora de quadro, com martelo e braçadeira visíveis",
+          "setting": "pátio de mármore acima das nuvens"
         },
         {
           "slot": "passive",
-          "action": "hand rests gavel beside single balanced pebble",
-          "setting": "terraço de montanha acima das nuvens"
+          "action": "após curar, oferece proteção adicional a uma aliada",
+          "setting": "terraço de mármore com luz azul-dourada"
         },
         {
           "slot": "impulso",
-          "action": "small gavel strike hits shield",
-          "setting": "biblioteca de testemunhos"
+          "action": "golpe de martelo atinge a guarda de um único inimigo e o enfraquece",
+          "setting": "arquivo de testemunhos"
         },
         {
           "slot": "tecnica",
-          "action": "low-angle measured pressure line tilts foe footing",
+          "action": "cura uma aliada e dissipa uma aflição",
           "setting": "travessia de rio raso entre pedras"
         },
         {
           "slot": "voto",
-          "action": "wrist guard supports an injured ally arm",
-          "setting": "pedreira com balanças e blocos"
+          "action": "atinge um único inimigo enfraquecido e o atordoa",
+          "setting": "pedreira de blocos claros"
         },
         {
           "slot": "despertar",
-          "action": "self defense oval wood guard catches spear on outside while body pivots clear",
+          "action": "defesa pessoal contra uma lança com a braçadeira oval",
           "setting": "moinho de água abandonado"
         }
       ],
-      "generation_prompt": "Crie uma prancha de ANIME 2D DE TELEVISÃO, como seis frames de uma animação shounen desenhada à mão. Visual de cel de animação tradicional, desenho limpo e deliberadamente simplificado. Contornos pretos nítidos. Cores VIVAS E CHAPADAS. Uma cor-base e UMA sombra de borda dura por superfície. Rostos fortemente estilizados de anime: olhos expressivos e gráficos, nariz pequeno desenhado com um traço, boca simples, cabelo em mechas/massas gráficas. Pele completamente lisa com apenas duas cores. Roupa com poucas linhas de dobra. Metal com dois tons planos e um único brilho desenhado. Fundos também desenhados e simples. PROIBIDO: semirrealismo, concept art realista, pintura digital, texturas, granulação, hachuras, poros, veias, rugas detalhadas, ferrugem, desgaste fotográfico, luz volumétrica, bokeh, gradientes de pele, render 3D, anatomia hiperdefinida. O resultado precisa parecer captura limpa de anime, não ilustração de fantasia com aparência real. Sem texto. Prancha EXATA 3 colunas x 2 linhas, 1536x1024, seis quadros quadrados iguais sem margens.\nA referência visual define SOMENTE traço e identidade. Substituir todos os cenários; não copiar arquitetura, clima ou luz da referência. Cada quadro tem composição própria integrada ao seu ambiente. Não reutilizar o mesmo pátio, salão ou paisagem em quadros diferentes. Manter domínio, reino e ação da habilidade.\nParaíso/Justiça. Young adult man26, olive skin, soft broad face, curly auburn hair, ivory short judicial coat and teal sash, small wooden gavel and oval wood wrist guard. Calm restrained force.\n1. portrait: ação: gentle face. Cenário exclusivo: pátio de tijolos vermelhos.\n2. passive: ação: hand rests gavel beside single balanced pebble. Cenário exclusivo: terraço de montanha acima das nuvens.\n3. impulso: ação: small gavel strike hits shield. Cenário exclusivo: biblioteca de testemunhos.\n4. tecnica: ação: low-angle measured pressure line tilts foe footing. Cenário exclusivo: travessia de rio raso entre pedras.\n5. voto: ação: wrist guard supports an injured ally arm. Cenário exclusivo: pedreira com balanças e blocos.\n6. despertar: ação: self defense oval wood guard catches spear on outside while body pivots clear. Cenário exclusivo: moinho de água abandonado.\nMãos com cinco dedos, empunhaduras coerentes e acessórios contínuos. Ataques não atravessam corpos sólidos. Último quadro com defesa pessoal legível."
+      "generation_prompt": "Direção dark fantasy pictórica PMA em 2.5D, com silhuetas legíveis, luz cinematográfica e paleta clara de Paraíso/Júpiter. Preservar identidade visual de Benedict e representar com clareza a mecânica de cada slot, o número correto de alvos e a distinção entre defesa aliada, cura, ataques de alvo único e proteção pessoal. Sem texto, símbolos de balança ou duplicações.",
+      "title": "O Juiz"
     },
     {
       "id": "a-mensageira-do-amanha",
