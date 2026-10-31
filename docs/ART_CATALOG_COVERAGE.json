@@ -566,7 +566,7 @@
         "voto",
         "despertar",
         "impulso:starved",
-        "body:starved"
+        "body-portrait:starved"
       ],
       "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
@@ -969,7 +969,13 @@
         "voto:skin",
         "impulso:shell",
         "tecnica:shell",
-        "voto:shell"
+        "voto:shell",
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
       ],
       "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
@@ -1432,7 +1438,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-que-pesa",
@@ -1444,7 +1459,17 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:balance"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-testemunha-integra",
@@ -1456,7 +1481,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-julgador-gentil",
@@ -1468,7 +1502,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-chama-que-nao-apaga",
@@ -1891,7 +1934,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "nilo-o-prefacio",
@@ -1903,7 +1955,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "nilo-graca-prefacio",
@@ -1915,7 +1976,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "nilo-ruptura-prefacio",
@@ -1927,7 +1997,17 @@
       "baseSlots": 7,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-4",
+        "despertar-5"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "nilo-cinza-epilogo",
@@ -1963,7 +2043,17 @@
       "baseSlots": 7,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-4",
+        "despertar-5"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "nilo-cinza-final",
@@ -2498,15 +2588,7 @@
       "missingSlots": [],
       "pendingDedicatedForms": [],
       "fullyReviewed": false,
-      "currentDirectionSlots": [
-        "portrait",
-        "passive",
-        "impulso",
-        "tecnica",
-        "voto",
-        "despertar"
-      ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionSlots": []
     },
     {
       "id": "bulkir",
@@ -2519,15 +2601,7 @@
       "missingSlots": [],
       "pendingDedicatedForms": [],
       "fullyReviewed": false,
-      "currentDirectionSlots": [
-        "portrait",
-        "passive",
-        "impulso",
-        "tecnica",
-        "voto",
-        "despertar"
-      ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionSlots": []
     },
     {
       "id": "voronir",
@@ -2575,21 +2649,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 506,
-    "remainingSlots": 492,
-    "fullyMigratedEntries": 78,
-    "remainingEntries": 72,
-    "awaitingVisualApprovalSlots": 499,
+    "integratedCandidateSlots": 532,
+    "remainingSlots": 466,
+    "fullyMigratedEntries": 82,
+    "remainingEntries": 68,
+    "awaitingVisualApprovalSlots": 525,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-julgador-gentil"
+      "nilo-ruptura-epilogo"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 7,
+    "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_BENEDICT_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_NILO_RUPTURA_EPILOGO_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
