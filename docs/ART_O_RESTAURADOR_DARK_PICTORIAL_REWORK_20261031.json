@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-31",
+  "character": {
+    "id": "o-restaurador",
+    "name": "Avicena",
+    "title": "O Restaurador",
+    "role": "Sustentador"
+  },
+  "identity": "Homem baixo e idoso, 76 anos, pele bronzeada, rosto redondo, bigode branco e cabeça calva; usa casaco azul de artesão, pincel de kintsugi dourado e uma tigela de laca.",
+  "lore": "Reúne aos poucos a vitalidade dispersa pelo sofrimento. Conserva essa reserva até poder devolvê-la em uma restauração que alcança seus companheiros e desfaz as aflições que os prendem. Cada retorno sustenta a continuidade da vida.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/portrait.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/passive.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/impulso.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/tecnica.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/voto.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "voto:pure",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-voto-pure.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/voto-pure.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "asset": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/o-restaurador-dark-pictorial-rework-20261031/despertar.jpg",
+      "review": "candidate_pending_visual_approval"
+    }
+  ],
+  "compositionChecks": {
+    "portrait": "Sorriso gentil, bigode branco, cabeça calva, casaco azul, pincel dourado e tigela de laca estabelecem Avicena.",
+    "passive": "O pincel traça uma emenda dourada na tigela rachada do próprio artesão.",
+    "impulso": "O cabo do pincel toca o escudo de um único inimigo e acumula uma reserva.",
+    "tecnica": "Uma emenda dourada repara a braçadeira rachada de um aliado, restaura Vida e Defesa e dissipa aflições.",
+    "voto": "Uma linha física de laca se ramifica pelo piso e alcança o trio, representando a restauração coletiva comum.",
+    "voto:pure": "Composição distinta do trio: emendas douradas mais fortes recompõem as armaduras e removem resíduos escuros de aflição.",
+    "despertar": "Defesa pessoal: uma guarda curva de cerâmica com emenda dourada detém um bastão de treino fora do corpo."
+  },
+  "files": {
+    "activeWebp": {
+      "dimensions": "512x512",
+      "count": 7
+    },
+    "sourceJpeg": {
+      "dimensions": "768x768",
+      "count": 7
+    }
+  },
+  "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
+  "status": "candidate_integrated_pending_visual_approval"
+}

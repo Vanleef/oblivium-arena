@@ -1046,5 +1046,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-mao-que-cura/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/a-mao-que-cura/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "o-restaurador": {
+    "portrait": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "voto": {
+        "pure": "/art/characters/o-restaurador/dark-pictorial-rework-20261031/skill-voto-pure.webp"
+      }
+    }
   }
 };

@@ -789,7 +789,14 @@
     "a-mao-que-cura:base:impulso",
     "a-mao-que-cura:base:tecnica",
     "a-mao-que-cura:base:voto",
-    "a-mao-que-cura:base:despertar"
+    "a-mao-que-cura:base:despertar",
+    "o-restaurador:base:portrait",
+    "o-restaurador:base:passive",
+    "o-restaurador:base:impulso",
+    "o-restaurador:base:tecnica",
+    "o-restaurador:base:voto",
+    "o-restaurador:form:voto:pure",
+    "o-restaurador:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1242,7 +1249,14 @@
     "a-mao-que-cura:base:impulso",
     "a-mao-que-cura:base:tecnica",
     "a-mao-que-cura:base:voto",
-    "a-mao-que-cura:base:despertar"
+    "a-mao-que-cura:base:despertar",
+    "o-restaurador:base:portrait",
+    "o-restaurador:base:passive",
+    "o-restaurador:base:impulso",
+    "o-restaurador:base:tecnica",
+    "o-restaurador:base:voto",
+    "o-restaurador:form:voto:pure",
+    "o-restaurador:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
