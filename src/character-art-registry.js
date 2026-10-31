@@ -1116,5 +1116,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-lamina-justa/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/a-lamina-justa/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-testemunha-integra": {
+    "portrait": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
