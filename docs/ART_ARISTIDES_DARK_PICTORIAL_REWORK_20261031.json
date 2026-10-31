@@ -51,7 +51,7 @@
     {
       "slot": "skill-impulso",
       "label": "Pesar os Atos",
-      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/impulso.webp",
+      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-impulso.webp",
       "sourcePath": "art/source/o-que-pesa-dark-pictorial-rework-20261031/impulso.jpg",
       "scene": "Aristides atinge um ghoul com a palma e deixa uma marca incandescente no ponto de contato.",
       "targetCount": "1 inimigo",
@@ -85,7 +85,7 @@
     {
       "slot": "skill-tecnica",
       "label": "Reduzir o Excesso",
-      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/tecnica.webp",
+      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/o-que-pesa-dark-pictorial-rework-20261031/tecnica.jpg",
       "scene": "Aristides pressiona para baixo o braço erguido de um único ghoul e imprime um sigilo físico no antebraço.",
       "targetCount": "1 inimigo",
@@ -102,7 +102,7 @@
     {
       "slot": "skill-voto",
       "label": "Decisão Ponderada",
-      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/voto.webp",
+      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-voto.webp",
       "sourcePath": "art/source/o-que-pesa-dark-pictorial-rework-20261031/voto.jpg",
       "scene": "Um golpe descendente no alvo marcado o derruba sobre um joelho; o impacto rompe a marca em cinzas.",
       "targetCount": "1 inimigo",
@@ -119,7 +119,7 @@
     {
       "slot": "skill-despertar",
       "label": "Entre os Pratos",
-      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/despertar.webp",
+      "activePath": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-despertar.webp",
       "sourcePath": "art/source/o-que-pesa-dark-pictorial-rework-20261031/despertar.jpg",
       "scene": "Aristides protege apenas a si, enquanto placas de basalto desviam o impacto que chega de fora do quadro.",
       "targetCount": "Self",

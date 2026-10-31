@@ -19,17 +19,17 @@
       "label": "Retrato",
       "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/portrait.webp",
       "sourcePath": "art/source/a-testemunha-integra-dark-pictorial-rework-20261031/portrait.jpg",
-      "scene": "Maqrizi examina um vestígio com a lente manual e recebe a cinza na mão livre; o bastão de testemunho repousa apoiado na rocha ao lado.",
+      "scene": "Maqrizi examina um vestígio com a lente manual enquanto recebe cinza na mão livre; apenas as duas mãos ficam visíveis, sem bengala no enquadramento.",
       "targetCount": "Self",
       "width": 512,
       "height": 512,
-      "bytes": 93046,
-      "sha256": "01595bdd8ecf547d873af861042676b542735c0a62a23863edfa88de4f86f5fd",
+      "bytes": 79826,
+      "sha256": "77b7ddfa880ca41aa4344a0661692cdcaf18b707ee0996d8943f3a1753a3a07c",
       "sourceWidth": 768,
       "sourceHeight": 768,
-      "sourceBytes": 222011,
-      "sourceSha256": "9b6a63876bfd68f979e5ed43721152e3c60fdf3d9e42405f9d7ade5953e0d1a7",
-      "sourceInput": "exec-c69bcaaa-a919-4b37-a0ec-e13a3a838feb.png"
+      "sourceBytes": 283271,
+      "sourceSha256": "dccb901d341a8f50793bccc05bfba0382d65038da5aa5bd8bd5ee8aeee4f0cb2",
+      "sourceInput": "exec-35ea9746-9c89-42d5-a745-797f0a4033d9.png"
     },
     {
       "slot": "passive",
@@ -51,7 +51,7 @@
     {
       "slot": "skill-impulso",
       "label": "Registrar a Verdade",
-      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/impulso.webp",
+      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-impulso.webp",
       "sourcePath": "art/source/a-testemunha-integra-dark-pictorial-rework-20261031/impulso.jpg",
       "scene": "O bastão atinge um único ghoul e deixa a marca testemunhal no ponto de contato.",
       "targetCount": "1 inimigo",
@@ -68,7 +68,7 @@
     {
       "slot": "skill-tecnica",
       "label": "Prova Irrefutável",
-      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/tecnica.webp",
+      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/a-testemunha-integra-dark-pictorial-rework-20261031/tecnica.jpg",
       "scene": "Maqrizi abre a guarda de um único ghoul com o bastão; o escudo de cinza se rompe sob a prova revelada pela lente.",
       "targetCount": "1 inimigo",
@@ -85,7 +85,7 @@
     {
       "slot": "skill-voto",
       "label": "Testemunho Íntegro",
-      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/voto.webp",
+      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-voto.webp",
       "sourcePath": "art/source/a-testemunha-integra-dark-pictorial-rework-20261031/voto.jpg",
       "scene": "O impacto do bastão espalha pressão de cinza pelo chão e atinge exatamente três ghouls.",
       "targetCount": "3 inimigos",
@@ -102,7 +102,7 @@
     {
       "slot": "skill-despertar",
       "label": "Testemunho Protegido",
-      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/despertar.webp",
+      "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/skill-despertar.webp",
       "sourcePath": "art/source/a-testemunha-integra-dark-pictorial-rework-20261031/despertar.jpg",
       "scene": "Maqrizi esquiva e desvia um único fragmento de basalto usando a borda da lente manual; só ela está na cena.",
       "targetCount": "Self",
@@ -123,6 +123,6 @@
     "O Voto mostra exatamente três ghouls; ataques individuais têm um único alvo; o Despertar é uma defesa pessoal sem outro personagem visível.",
     "Somente arte e documentação foram atualizadas; mecânicas e alvos do kit permanecem inalterados.",
     "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
-    "O retrato foi corrigido para mostrar exatamente duas mãos: uma segura a lente e a outra recebe a cinza. O bastão de testemunho permanece visível, apoiado sem ser segurado."
+    "O retrato foi corrigido para mostrar exatamente duas mãos: uma segura a lente e a outra recebe a cinza. O bastão foi removido deste enquadramento; a candidata permanece pendente de aprovação visual."
   ]
 }

@@ -70,17 +70,17 @@
       "label": "Parada Equânime",
       "activePath": "/art/characters/a-lamina-justa/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/a-lamina-justa-dark-pictorial-rework-20261031/tecnica.jpg",
-      "scene": "Parada física contra um único agressor; braço, punho, mão, empunhadura e lâmina mantêm continuidade anatômica clara.",
+      "scene": "Parada física contra um único agressor; punho, mão, empunhadura, guarda e lâmina formam uma espada contínua, e o braço liga-se ao ombro com articulações naturais.",
       "targetCount": "1 agressor",
       "width": 512,
       "height": 512,
-      "bytes": 96548,
-      "sha256": "eb787261402a0bb5c3a3bc1832899315beaec232512e9657a6c0db7da232053f",
+      "bytes": 84902,
+      "sha256": "df5618e7a5622f58f5c9b45e48870a148370c411d8d3f41b5060c79a9438decf",
       "sourceWidth": 768,
       "sourceHeight": 768,
-      "sourceBytes": 209767,
-      "sourceSha256": "400daf89f6143c6031f4e3ab286dc0c417304727fc21f1590f5b6f74e672a185",
-      "sourceInput": "exec-f4543984-210c-4610-99de-bc04326ba85d.png"
+      "sourceBytes": 270401,
+      "sourceSha256": "4169f86d3f9fc9c1ce105a3e873fadaca815d8e00e1f81e422b8b927bbcbe718",
+      "sourceInput": "exec-600fcd24-dcd3-4cc8-b094-26669824f5bc.png"
     },
     {
       "slot": "skill-voto",
@@ -122,6 +122,6 @@
     "As seis cenas distinguem retrato, passiva, avanço, parada física, golpe final e esquiva pessoal, sem olhar para a câmera.",
     "Somente as rotas de arte e documentação foram atualizadas; mecânicas de combate permanecem inalteradas.",
     "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
-    "A Técnica foi corrigida após a revisão da arte enviada: braço, punho, mão, cabo e lâmina mantêm continuidade física desde o ombro até o ponto de impacto. A candidata permanece pendente de aprovação visual."
+    "A Técnica foi editada novamente após a conferência do arquivo ativo. O mesmo braço agora se conecta ao ombro, cotovelo, antebraço, punho e mão; guarda, cabo, pomo e lâmina formam uma espada única e contínua. A candidata segue pendente de aprovação visual."
   ]
 }

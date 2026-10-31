@@ -145,6 +145,36 @@
       "logicalSlotsReworked": 4,
       "logicalSlotsAdded": 1,
       "status": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-lamina-justa",
+      "characterName": "Justus — A Íntegra",
+      "feedback": "A arte ativa de Parada Equânime ainda mostrava descontinuidade entre braço, mão, cabo, guarda e lâmina.",
+      "correction": "Substituída a candidata ativa por uma edição com continuidade anatômica do ombro à mão e espada em peça única; a rota do jogo continua apontando para o arquivo corrigido.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-testemunha-integra",
+      "characterName": "Maqrizi — A Testemunha",
+      "feedback": "O retrato ainda mostrava uma mão extra: uma na lente, outra na palma aberta e uma terceira na bengala.",
+      "correction": "Substituído o retrato ativo por uma versão com duas mãos e sem bengala no quadro; rotas e relatório foram alinhados às imagens existentes.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "multiple-art-kits",
+      "characterName": "Auditoria de integração do registro de arte",
+      "feedback": "Treze kits tinham conjuntos dark fantasy completos sem linha no registro; Ignis ainda apontava para a direção anime-first; dois relatórios usavam nomes de arquivo inexistentes para habilidades.",
+      "correction": "Adicionadas rotas para 13 kits, Ignis foi ligado ao conjunto dark fantasy, e os relatórios de Aristides e Maqrizi foram corrigidos para os nomes de arquivos ativos existentes.",
+      "logicalSlotsReworked": 0,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_assets_registered_pending_visual_approval"
     }
   ],
   "currentDirectionMigration": {

@@ -212,5 +212,45 @@
     "status": "candidate_integrated_pending_visual_approval",
     "report": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json"
   },
-  "newDarkPictorialCandidateAssets": 513
+  "newDarkPictorialCandidateAssets": 513,
+  "latestRegistryIntegration": {
+    "date": "2026-10-31",
+    "newCharacterRows": [
+      "a-boca-de-vidro",
+      "a-brasa-eterna",
+      "a-mascara-dupla",
+      "a-pira-errante",
+      "o-coracao-em-furia",
+      "o-devorador",
+      "o-corretor-de-memorias",
+      "o-falso-profeta",
+      "o-filho-da-cinza",
+      "o-odio-encarnado",
+      "o-surdo",
+      "o-sussurro",
+      "o-tecelao-de-mentiras"
+    ],
+    "updatedCharacterRows": [
+      "o-incendiario"
+    ],
+    "candidateAssetRoutesWired": 96,
+    "correctedReports": [
+      "ART_ARISTIDES_DARK_PICTORIAL_REWORK_20261031.json",
+      "ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json",
+      "ART_JUSTUS_DARK_PICTORIAL_REWORK_20261031.json"
+    ],
+    "anatomyCorrections": [
+      {
+        "characterId": "a-lamina-justa",
+        "slot": "skill-tecnica",
+        "change": "continuous sword hilt, blade, hand and shoulder-connected arm"
+      },
+      {
+        "characterId": "a-testemunha-integra",
+        "slot": "portrait",
+        "change": "exactly two visible hands; removed staff from frame"
+      }
+    ],
+    "status": "candidate_integrated_pending_visual_approval"
+  }
 }
