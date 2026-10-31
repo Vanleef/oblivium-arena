@@ -720,7 +720,14 @@
     "a-ausencia:base:impulso",
     "a-ausencia:base:tecnica",
     "a-ausencia:base:voto",
-    "a-ausencia:base:despertar"
+    "a-ausencia:base:despertar",
+    "o-fim-silencioso:base:portrait",
+    "o-fim-silencioso:base:passive",
+    "o-fim-silencioso:base:impulso",
+    "o-fim-silencioso:base:tecnica",
+    "o-fim-silencioso:base:voto",
+    "o-fim-silencioso:base:despertar",
+    "o-fim-silencioso:form:voto:residual"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
