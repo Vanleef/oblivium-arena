@@ -777,7 +777,13 @@
     "o-ultimo-guardiao:base:impulso",
     "o-ultimo-guardiao:base:tecnica",
     "o-ultimo-guardiao:base:voto",
-    "o-ultimo-guardiao:base:despertar"
+    "o-ultimo-guardiao:base:despertar",
+    "a-sentinela-azul:base:portrait",
+    "a-sentinela-azul:base:passive",
+    "a-sentinela-azul:base:impulso",
+    "a-sentinela-azul:base:tecnica",
+    "a-sentinela-azul:base:voto",
+    "a-sentinela-azul:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1218,7 +1224,13 @@
     "o-ultimo-guardiao:base:impulso",
     "o-ultimo-guardiao:base:tecnica",
     "o-ultimo-guardiao:base:voto",
-    "o-ultimo-guardiao:base:despertar"
+    "o-ultimo-guardiao:base:despertar",
+    "a-sentinela-azul:base:portrait",
+    "a-sentinela-azul:base:passive",
+    "a-sentinela-azul:base:impulso",
+    "a-sentinela-azul:base:tecnica",
+    "a-sentinela-azul:base:voto",
+    "a-sentinela-azul:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
