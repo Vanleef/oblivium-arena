@@ -971,5 +971,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-lugar-de-ninguem/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-lugar-de-ninguem/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "o-escudo-vivo": {
+    "portrait": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": {
+        "advance": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/skill-impulso-advance.webp"
+      }
+    }
   }
 };
