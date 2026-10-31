@@ -994,10 +994,18 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-marionetista-de-nervos:form:tecnica:hold"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "tecnica:hold"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-espelho-carnal",
@@ -2394,21 +2402,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 347,
-    "remainingSlots": 651,
-    "fullyMigratedEntries": 53,
-    "remainingEntries": 97,
-    "awaitingVisualApprovalSlots": 340,
+    "integratedCandidateSlots": 354,
+    "remainingSlots": 644,
+    "fullyMigratedEntries": 54,
+    "remainingEntries": 96,
+    "awaitingVisualApprovalSlots": 347,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-desejo-quebrado"
+      "a-marionetista-de-nervos"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 7,
+    "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_TARQUINIO_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_A_MARIONETISTA_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

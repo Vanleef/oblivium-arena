@@ -687,7 +687,14 @@
     "o-desejo-quebrado:base:impulso",
     "o-desejo-quebrado:base:tecnica",
     "o-desejo-quebrado:base:voto",
-    "o-desejo-quebrado:base:despertar"
+    "o-desejo-quebrado:base:despertar",
+    "a-marionetista-de-nervos:base:portrait",
+    "a-marionetista-de-nervos:base:passive",
+    "a-marionetista-de-nervos:base:impulso",
+    "a-marionetista-de-nervos:base:tecnica",
+    "a-marionetista-de-nervos:base:voto",
+    "a-marionetista-de-nervos:base:despertar",
+    "a-marionetista-de-nervos:form:tecnica:hold"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1038,7 +1045,14 @@
     "o-desejo-quebrado:base:impulso",
     "o-desejo-quebrado:base:tecnica",
     "o-desejo-quebrado:base:voto",
-    "o-desejo-quebrado:base:despertar"
+    "o-desejo-quebrado:base:despertar",
+    "a-marionetista-de-nervos:base:portrait",
+    "a-marionetista-de-nervos:base:passive",
+    "a-marionetista-de-nervos:base:impulso",
+    "a-marionetista-de-nervos:base:tecnica",
+    "a-marionetista-de-nervos:base:voto",
+    "a-marionetista-de-nervos:base:despertar",
+    "a-marionetista-de-nervos:form:tecnica:hold"
   ],
   "currentDirectionCorrectionHistory": [
     {

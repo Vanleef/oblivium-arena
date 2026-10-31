@@ -856,5 +856,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-marionetista-de-nervos": {
+    "portrait": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": {
+        "hold": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-tecnica-hold.webp"
+      }
+    }
   }
 };
