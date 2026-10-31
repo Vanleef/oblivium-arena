@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 89,
-  "newAbilityScenesSaved": 457,
+  "newPortraitsSaved": 90,
+  "newAbilityScenesSaved": 462,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 334 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 353 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 354,
+    "newDarkPictorialCandidateAssets": 360,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -114,13 +114,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 341,
-      "integratedSlots": 341,
+      "candidateSlots": 360,
+      "integratedSlots": 360,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 52,
-      "pendingVisualApprovalSlots": 334,
+      "fullyMigratedEntries": 55,
+      "pendingVisualApprovalSlots": 353,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -179,11 +179,11 @@
   },
   "latestProduction": {
     "date": "2026-10-31",
-    "characterId": "a-marionetista-de-nervos",
-    "characterName": "Aristagoras",
-    "title": "A Marionetista",
-    "candidateSlots": 7,
+    "characterId": "o-espelho-carnal",
+    "characterName": "Zeuxis",
+    "title": "O Simulacro",
+    "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_A_MARIONETISTA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_ZEUXIS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
