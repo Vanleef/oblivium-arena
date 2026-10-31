@@ -3,6 +3,7 @@ import { renderAugmentCard, effectGlyph, augmentGlyph } from "./augment-cards.js
 import { characterById, characters } from './data.js';
 import { eloCrest } from './crests.js';
 import { esc, portraitMarkup } from './view-utils.js';
+import { getLanguage } from "./i18n.js";
 import { eloAccess, maxDifficulty, trailVariants, recruitCandidates, modifierLabels, difficultyName, legacyCollection, globalUpgradeCatalog } from './progression.js';
 const requirementsMarkup=access=>`<ul class="elo-requirements">${access.requirements.map(r=>`<li class="${r.current>=r.total?'met':''}"><span>${r.current>=r.total?'✓':'◇'} ${esc(r.label)}</span><b>${Math.min(r.current,r.total)}/${r.total}</b></li>`).join('')}</ul>`;
 export function renderCampaign(profile,state,realm) {
