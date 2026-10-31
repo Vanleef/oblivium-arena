@@ -936,5 +936,20 @@ export const characterArtRegistry = {
         "residual": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/skill-voto-residual.webp"
       }
     }
+  },
+  "o-menino-sem-sombra": {
+    "portrait": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": {
+        "hide": "/art/characters/o-menino-sem-sombra/dark-pictorial-rework-20261031/skill-tecnica-hide.webp"
+      }
+    }
   }
 };
