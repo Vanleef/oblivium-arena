@@ -175,6 +175,16 @@
       "logicalSlotsReworked": 0,
       "logicalSlotsAdded": 0,
       "status": "candidate_assets_registered_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-lamina-justa",
+      "characterName": "Justus — A Íntegra",
+      "feedback": "A primeira correção manteve continuidade da espada, mas a forma de fechar a mão sobre o cabo ainda precisava ficar mais clara.",
+      "correction": "Ajustada novamente a mão: dedos envolvem a empunhadura e polegar se opõe a eles; punho alinhado ao antebraço. Relatório e fonte atualizados.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
     }
   ],
   "currentDirectionMigration": {
