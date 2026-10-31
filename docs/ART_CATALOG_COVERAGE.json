@@ -1017,7 +1017,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-costureira",
@@ -2402,21 +2411,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 354,
-    "remainingSlots": 644,
-    "fullyMigratedEntries": 54,
-    "remainingEntries": 96,
-    "awaitingVisualApprovalSlots": 347,
+    "integratedCandidateSlots": 360,
+    "remainingSlots": 638,
+    "fullyMigratedEntries": 55,
+    "remainingEntries": 95,
+    "awaitingVisualApprovalSlots": 353,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-marionetista-de-nervos"
+      "o-espelho-carnal"
     ],
-    "candidateSlotsAdded": 7,
-    "candidateSlotsActivated": 7,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_A_MARIONETISTA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_ZEUXIS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
