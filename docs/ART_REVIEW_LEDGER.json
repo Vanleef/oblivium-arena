@@ -847,7 +847,19 @@
     "nilo-graca-epilogo:base:tecnica",
     "nilo-graca-epilogo:base:voto",
     "nilo-graca-epilogo:base:despertar-4",
-    "nilo-graca-epilogo:base:despertar-5"
+    "nilo-graca-epilogo:base:despertar-5",
+    "o-eco-de-nilo:base:portrait",
+    "o-eco-de-nilo:base:passive",
+    "o-eco-de-nilo:base:impulso",
+    "o-eco-de-nilo:base:tecnica",
+    "o-eco-de-nilo:base:voto",
+    "o-eco-de-nilo:base:despertar-4",
+    "o-eco-de-nilo:base:tecnica-5",
+    "o-eco-de-nilo:base:tecnica-6",
+    "o-eco-de-nilo:base:tecnica-7",
+    "o-eco-de-nilo:base:tecnica-8",
+    "o-eco-de-nilo:base:tecnica-9",
+    "o-eco-de-nilo:base:despertar-10"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1358,7 +1370,19 @@
     "nilo-graca-epilogo:base:tecnica",
     "nilo-graca-epilogo:base:voto",
     "nilo-graca-epilogo:base:despertar-4",
-    "nilo-graca-epilogo:base:despertar-5"
+    "nilo-graca-epilogo:base:despertar-5",
+    "o-eco-de-nilo:base:portrait",
+    "o-eco-de-nilo:base:passive",
+    "o-eco-de-nilo:base:impulso",
+    "o-eco-de-nilo:base:tecnica",
+    "o-eco-de-nilo:base:voto",
+    "o-eco-de-nilo:base:despertar-4",
+    "o-eco-de-nilo:base:tecnica-5",
+    "o-eco-de-nilo:base:tecnica-6",
+    "o-eco-de-nilo:base:tecnica-7",
+    "o-eco-de-nilo:base:tecnica-8",
+    "o-eco-de-nilo:base:tecnica-9",
+    "o-eco-de-nilo:base:despertar-10"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1634,6 +1658,66 @@
       "key": "nilo-graca-epilogo:base:despertar-5",
       "correctedAt": "2026-10-31",
       "note": "++Graça substituído e revisado quanto à anatomia: Defesa pessoal em plano alto; duas mãos, dois braços e apoio das pernas legíveis. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-eco-de-nilo:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Heterocromia e identidade-base preservadas; retrato próximo sem anomalia corporal visível. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Quatro fios convergem em uma palma aberta; segundo braço repousa sem cruzar o torso. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Ação lateral com fenda e alvo único; braço de condução e mão livre conectados. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Oferta de esfera ciano; braços de Sael e da viajante ficam separados e mãos rastreáveis. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Alvo único reage à fenda; reflexão permanece legível como imagem na água. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Coleta em close; mão e punho direitos conectados, sem membros duplicados. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:tecnica-5",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Ligação entre punhos em plataformas separadas; posturas e braços legíveis. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:tecnica-6",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Cena com três pessoas espaçadas; braços e pernas preservam silhuetas distintas. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:tecnica-7",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Alvo ajoelhado com braços sob o manto; impacto atinge apenas a costura do tecido. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:tecnica-8",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Duas mãos em primeiro plano, cada uma ligada a uma manga e a um único antebraço. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:tecnica-9",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Sael observa o reflexo; a silhueta refletida não cria um corpo adicional na cena. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "o-eco-de-nilo:base:despertar-10",
+      "correctedAt": "2026-10-31",
+      "note": "Sael refeito e revisado quanto à anatomia: Defesa de corpo inteiro com dois braços em ações distintas e apoio estável das pernas. Candidata pendente de aprovação visual; mecânicas preservadas."
     }
   ]
 }
