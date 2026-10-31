@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 96,
-  "newAbilityScenesSaved": 496,
+  "newPortraitsSaved": 97,
+  "newAbilityScenesSaved": 501,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 88 personagens restantes e de suas formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 393 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 399 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 400,
+    "newDarkPictorialCandidateAssets": 406,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -72,7 +72,8 @@
     "nabonidusProductionReport": "docs/ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json",
     "tiglateProductionReport": "docs/ART_TIGLATE_DARK_PICTORIAL_REWORK_20261031.json",
     "hatshepsutProductionReport": "docs/ART_HATSHEPSUT_DARK_PICTORIAL_REWORK_20261031.json",
-    "enheduannaProductionReport": "docs/ART_ENHEDUANNA_DARK_PICTORIAL_REWORK_20261031.json"
+    "enheduannaProductionReport": "docs/ART_ENHEDUANNA_DARK_PICTORIAL_REWORK_20261031.json",
+    "timurProductionReport": "docs/ART_TIMUR_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -119,13 +120,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 400,
-      "integratedSlots": 400,
+      "candidateSlots": 406,
+      "integratedSlots": 406,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 61,
-      "pendingVisualApprovalSlots": 393,
+      "fullyMigratedEntries": 62,
+      "pendingVisualApprovalSlots": 399,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -194,11 +195,11 @@
   },
   "latestProduction": {
     "date": "2026-10-31",
-    "characterId": "a-costureira",
-    "characterName": "Sushruta",
-    "title": "A Suturadora",
-    "candidateSlots": 7,
+    "characterId": "o-lugar-de-ninguem",
+    "characterName": "Timur",
+    "title": "O Obliterador",
+    "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_SUSHRUTA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_TIMUR_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
