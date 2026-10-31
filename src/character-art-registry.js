@@ -1421,5 +1421,15 @@ export const characterArtRegistry = {
         "dawn": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-impulso-dawn.webp"
       }
     }
+  },
+  "o-que-levanta": {
+    "portrait": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };

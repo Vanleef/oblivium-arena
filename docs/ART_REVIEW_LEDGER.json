@@ -931,7 +931,13 @@
     "a-chama-que-nao-apaga:base:tecnica",
     "a-chama-que-nao-apaga:base:voto",
     "a-chama-que-nao-apaga:base:despertar",
-    "a-chama-que-nao-apaga:variant:impulso:dawn"
+    "a-chama-que-nao-apaga:variant:impulso:dawn",
+    "o-que-levanta:base:portrait",
+    "o-que-levanta:base:passive",
+    "o-que-levanta:base:impulso",
+    "o-que-levanta:base:tecnica",
+    "o-que-levanta:base:voto",
+    "o-que-levanta:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1526,7 +1532,13 @@
     "a-chama-que-nao-apaga:base:tecnica",
     "a-chama-que-nao-apaga:base:voto",
     "a-chama-que-nao-apaga:base:despertar",
-    "a-chama-que-nao-apaga:variant:impulso:dawn"
+    "a-chama-que-nao-apaga:variant:impulso:dawn",
+    "o-que-levanta:base:portrait",
+    "o-que-levanta:base:passive",
+    "o-que-levanta:base:impulso",
+    "o-que-levanta:base:tecnica",
+    "o-que-levanta:base:voto",
+    "o-que-levanta:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
