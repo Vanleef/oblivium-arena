@@ -46,7 +46,7 @@
         "despertar",
         "impulso:reopen"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-viuva-escarlate",
@@ -68,7 +68,7 @@
         "despertar",
         "impulso:revenge"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-colecionador-de-cabecas",
@@ -90,7 +90,7 @@
         "despertar",
         "voto:empty"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "gemeos-do-cutelo",
@@ -112,7 +112,7 @@
         "despertar",
         "tecnica:cross"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-carrasco-sem-rosto",
@@ -133,7 +133,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-mae-rubra",
@@ -154,7 +154,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-soberano-quebrado",
@@ -178,7 +178,7 @@
         "tecnica:edict",
         "voto:edict"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-juiza-de-ferro",
@@ -199,7 +199,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-trono-vazio",
@@ -220,7 +220,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-principe-das-correntes",
@@ -242,7 +242,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-regente-de-cinzas",
@@ -263,7 +263,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-herdeiro-cativo",
@@ -284,7 +284,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-sussurro",
@@ -305,7 +305,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-mascara-dupla",
@@ -326,7 +326,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-tecelao-de-mentiras",
@@ -348,7 +348,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-boca-de-vidro",
@@ -369,7 +369,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-falso-profeta",
@@ -391,7 +391,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-corretor-de-memorias",
@@ -412,7 +412,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-incendiario",
@@ -433,7 +433,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-brasa-eterna",
@@ -457,7 +457,7 @@
         "tecnica:smother",
         "voto:smother"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-odio-encarnado",
@@ -480,7 +480,7 @@
         "impulso:rage",
         "voto:eruption"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-filho-da-cinza",
@@ -502,7 +502,7 @@
         "despertar",
         "impulso:rebirth"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-pira-errante",
@@ -524,7 +524,7 @@
         "despertar",
         "impulso:reply"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-coracao-em-furia",
@@ -545,7 +545,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-devorador",
@@ -568,7 +568,7 @@
         "impulso:starved",
         "body-portrait:starved"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-mao-que-toma",
@@ -590,7 +590,7 @@
         "despertar",
         "tecnica:open"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-estomago-sem-fundo",
@@ -611,7 +611,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-senhora-do-ultimo-pao",
@@ -632,7 +632,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-credor",
@@ -653,7 +653,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-balanca-vazia",
@@ -674,7 +674,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-apodrecido",
@@ -695,7 +695,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-praga-andante",
@@ -716,7 +716,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-corrupto",
@@ -737,7 +737,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-rainha-dos-fungos",
@@ -758,7 +758,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-medico-de-vermes",
@@ -779,7 +779,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-jardim-morto",
@@ -800,7 +800,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-que-observou",
@@ -821,7 +821,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-porta-fechada",
@@ -842,7 +842,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-surdo",
@@ -864,7 +864,7 @@
         "despertar",
         "impulso:echo"
       ],
-      "currentDirectionStatus": "user_approved_active"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-testemunha-cega",
@@ -885,7 +885,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-quarto-vazio",
@@ -906,7 +906,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-vigia-ausente",
@@ -927,7 +927,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-que-possui",
@@ -948,7 +948,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-pele-alheia",
@@ -977,7 +977,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-desejo-quebrado",
@@ -998,7 +998,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-marionetista-de-nervos",
@@ -1020,7 +1020,7 @@
         "despertar",
         "tecnica:hold"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-espelho-carnal",
@@ -1041,7 +1041,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-costureira",
@@ -1063,7 +1063,7 @@
         "despertar",
         "tecnica:remove"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-que-apaga",
@@ -1085,7 +1085,7 @@
         "despertar",
         "impulso:erase"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-ausencia",
@@ -1106,7 +1106,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-fim-silencioso",
@@ -1128,7 +1128,7 @@
         "despertar",
         "voto:residual"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-menino-sem-sombra",
@@ -1150,7 +1150,7 @@
         "despertar",
         "tecnica:hide"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-ultima-pagina",
@@ -1171,7 +1171,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-lugar-de-ninguem",
@@ -1192,7 +1192,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-escudo-vivo",
@@ -1214,7 +1214,7 @@
         "despertar",
         "impulso:advance"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-muralha",
@@ -1235,7 +1235,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-que-ficou",
@@ -1256,7 +1256,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-ultimo-guardiao",
@@ -1277,7 +1277,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-sentinela-azul",
@@ -1298,7 +1298,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-mao-que-cura",
@@ -1319,7 +1319,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-restaurador",
@@ -1341,7 +1341,7 @@
         "voto:pure",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-luz-que-restaura",
@@ -1362,7 +1362,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-jardineira-das-feridas",
@@ -1383,7 +1383,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-pulso-sereno",
@@ -1404,7 +1404,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-equilibrio",
@@ -1426,7 +1426,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-lamina-justa",
@@ -1447,7 +1447,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-que-pesa",
@@ -1469,7 +1469,7 @@
         "despertar",
         "impulso:balance"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-testemunha-integra",
@@ -1490,7 +1490,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "o-julgador-gentil",
@@ -1511,7 +1511,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "a-chama-que-nao-apaga",
@@ -1943,7 +1943,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-o-prefacio",
@@ -1964,7 +1964,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-graca-prefacio",
@@ -1985,7 +1985,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-ruptura-prefacio",
@@ -2007,7 +2007,7 @@
         "despertar-4",
         "despertar-5"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-cinza-epilogo",
@@ -2019,7 +2019,18 @@
       "baseSlots": 8,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-4",
+        "despertar-6",
+        "tecnica-5"
+      ],
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-graca-epilogo",
@@ -2031,7 +2042,17 @@
       "baseSlots": 7,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-4",
+        "despertar-5"
+      ],
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-ruptura-epilogo",
@@ -2053,7 +2074,7 @@
         "despertar-4",
         "despertar-5"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-cinza-final",
@@ -2077,7 +2098,20 @@
       "baseSlots": 10,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-4",
+        "despertar-8",
+        "tecnica-5",
+        "tecnica-6",
+        "tecnica-7"
+      ],
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-ruptura-final",
@@ -2089,7 +2123,19 @@
       "baseSlots": 9,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-4",
+        "despertar-7",
+        "tecnica-5",
+        "tecnica-6"
+      ],
+      "currentDirectionStatus": true
     },
     {
       "id": "nilo-o-epilogo",
@@ -2101,7 +2147,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": true
     },
     {
       "id": "o-eco-de-nilo",
@@ -2113,7 +2168,22 @@
       "baseSlots": 12,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": true
+      "fullyReviewed": true,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar-10",
+        "despertar-4",
+        "tecnica-5",
+        "tecnica-6",
+        "tecnica-7",
+        "tecnica-8",
+        "tecnica-9"
+      ],
+      "currentDirectionStatus": true
     },
     {
       "id": "naomi",
@@ -2350,7 +2420,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "xian",
@@ -2491,7 +2561,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "serena",
@@ -2512,7 +2582,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "placido",
@@ -2533,7 +2603,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "baal",
@@ -2554,7 +2624,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "atlas",
@@ -2575,7 +2645,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "merlindrope",
@@ -2622,7 +2692,7 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     },
     {
       "id": "icarus",
@@ -2643,17 +2713,17 @@
         "voto",
         "despertar"
       ],
-      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
+      "currentDirectionStatus": true
     }
   ],
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 532,
-    "remainingSlots": 466,
-    "fullyMigratedEntries": 82,
-    "remainingEntries": 68,
-    "awaitingVisualApprovalSlots": 525,
+    "integratedCandidateSlots": 584,
+    "remainingSlots": 414,
+    "fullyMigratedEntries": 88,
+    "remainingEntries": 62,
+    "awaitingVisualApprovalSlots": 577,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
