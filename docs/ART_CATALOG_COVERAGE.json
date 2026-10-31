@@ -1037,10 +1037,18 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-costureira:form:tecnica:remove"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "tecnica:remove"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-que-apaga",
@@ -2411,21 +2419,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 360,
-    "remainingSlots": 638,
-    "fullyMigratedEntries": 55,
-    "remainingEntries": 95,
-    "awaitingVisualApprovalSlots": 353,
+    "integratedCandidateSlots": 367,
+    "remainingSlots": 631,
+    "fullyMigratedEntries": 56,
+    "remainingEntries": 94,
+    "awaitingVisualApprovalSlots": 360,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-espelho-carnal"
+      "a-costureira"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 7,
+    "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ZEUXIS_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_SUSHRUTA_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
