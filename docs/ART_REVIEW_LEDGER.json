@@ -808,7 +808,13 @@
     "a-jardineira-das-feridas:base:impulso",
     "a-jardineira-das-feridas:base:tecnica",
     "a-jardineira-das-feridas:base:voto",
-    "a-jardineira-das-feridas:base:despertar"
+    "a-jardineira-das-feridas:base:despertar",
+    "o-pulso-sereno:base:portrait",
+    "o-pulso-sereno:base:passive",
+    "o-pulso-sereno:base:impulso",
+    "o-pulso-sereno:base:tecnica",
+    "o-pulso-sereno:base:voto",
+    "o-pulso-sereno:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1280,7 +1286,13 @@
     "a-jardineira-das-feridas:base:impulso",
     "a-jardineira-das-feridas:base:tecnica",
     "a-jardineira-das-feridas:base:voto",
-    "a-jardineira-das-feridas:base:despertar"
+    "a-jardineira-das-feridas:base:despertar",
+    "o-pulso-sereno:base:portrait",
+    "o-pulso-sereno:base:passive",
+    "o-pulso-sereno:base:impulso",
+    "o-pulso-sereno:base:tecnica",
+    "o-pulso-sereno:base:voto",
+    "o-pulso-sereno:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

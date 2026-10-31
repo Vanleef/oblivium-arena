@@ -1389,7 +1389,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-equilibrio",
@@ -2558,21 +2567,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 468,
-    "remainingSlots": 530,
-    "fullyMigratedEntries": 72,
-    "remainingEntries": 78,
-    "awaitingVisualApprovalSlots": 461,
+    "integratedCandidateSlots": 474,
+    "remainingSlots": 524,
+    "fullyMigratedEntries": 73,
+    "remainingEntries": 77,
+    "awaitingVisualApprovalSlots": 467,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-jardineira-das-feridas"
+      "o-pulso-sereno"
     ],
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_A_BOTICARIA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_O_SERENO_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
