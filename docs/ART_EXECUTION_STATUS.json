@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 83,
-  "newAbilityScenesSaved": 430,
+  "newPortraitsSaved": 84,
+  "newAbilityScenesSaved": 435,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 314 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 320 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 321,
+    "newDarkPictorialCandidateAssets": 327,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -63,7 +63,8 @@
     "aBalancaVaziaProductionReport": "docs/ART_A_BALANCA_VAZIA_DARK_PICTORIAL_REWORK_20261030.json",
     "oApodrecidoProductionReport": "docs/ART_O_APODRECIDO_DARK_PICTORIAL_REWORK_20261030.json",
     "aTestemunhaCegaProductionReport": "docs/ART_JOSEFO_CUMPLICE_DARK_PICTORIAL_REWORK_20261030.json",
-    "oQuartoVazioProductionReport": "docs/ART_O_QUARTO_VAZIO_DARK_PICTORIAL_REWORK_20261030.json"
+    "oQuartoVazioProductionReport": "docs/ART_O_QUARTO_VAZIO_DARK_PICTORIAL_REWORK_20261030.json",
+    "efialtesProductionReport": "docs/ART_EFIALTES_O_DESERTOR_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -110,13 +111,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 321,
-      "integratedSlots": 321,
+      "candidateSlots": 327,
+      "integratedSlots": 327,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 50,
-      "pendingVisualApprovalSlots": 314,
+      "fullyMigratedEntries": 51,
+      "pendingVisualApprovalSlots": 320,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -165,17 +166,19 @@
     "aTestemunhaArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, ações, alvos e variedade de enquadramento inspecionados; aguardam aprovação visual.",
     "aTestemunhaRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado.",
     "oQuartoVazioArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, reação, contagem de alvos e variedade de enquadramento inspecionadas; aguardam aprovação visual.",
-    "oQuartoVazioRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado."
+    "oQuartoVazioRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado.",
+    "efialtesArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; identidade, anatomia, expressão, ângulos e alvos com ghouls inspecionados; aguardam aprovação visual.",
+    "efialtesRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado."
   },
   "latestProduction": {
     "date": "2026-10-30",
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "characterIds": [
-      "o-quarto-vazio"
+      "o-vigia-ausente"
     ],
     "sourceCopies": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_O_QUARTO_VAZIO_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_EFIALTES_O_DESERTOR_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }

@@ -1,0 +1,165 @@
+{
+  "title": "Efialtes — O Desertor — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "o-vigia-ausente",
+  "characterName": "Efialtes",
+  "characterTitle": "O Desertor",
+  "aliases": [
+    "O Vigia Ausente",
+    "O Desertor"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Tártaro",
+  "role": "Predador da Omissão",
+  "style": "Anime-first 2.5D dark fantasy pictórica, contornos expressivos, pinceladas angulares, hachuras gráficas, sombras densas e materiais táteis.",
+  "identity": "Homem adulto magro, pele cinza-acastanhada marcada, cabelo branco curto e desalinhado, olhos fundos com olheiras escuras, manto preto pesado de gola alta e uma única lanterna antiga de latão presa a corrente curta.",
+  "environment": "Inferno/Tártaro: muralhas e ruínas de basalto, cinza, brasa e luz carmesim; sem soldados genéricos, máquinas ou objetos industriais.",
+  "sceneVariety": "Retrato que reage a um grito; emboscada baixa; desarme em vista alta; contra-ataque visto sobre o ombro do agressor; golpe lateral pela retaguarda; esquiva baixa.",
+  "anatomyReview": "As seis imagens foram inspecionadas em conjunto. Efialtes mantém dois braços e mãos legíveis; as cenas ofensivas mostram exatamente um ghoul e as cenas de defesa mostram exatamente um atacante. A técnica mantém o contragolpe em preparação; a defesa mostra a evasão sem duplicar o personagem. Sem soldados ou membros extras.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Efialtes",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Efialtes vira-se ao ouvir um grito fora de quadro e protege com a mão a chama fraca de sua lanterna.",
+      "prompt": "Retrato natural do mesmo homem de pele cinza-acastanhada, cabelo branco curto, manto preto e lanterna de latão da referência.",
+      "candidatePath": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-vigia-ausente-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-19a8b550-ce1d-4974-a673-5856b01cc2b0.png",
+      "generatedSourceSha256": "722c14deabb64f906143c36e785eb3f433a2940b11c6d6174dcabadb706006e9",
+      "generatedSourceBytes": 0,
+      "candidateBytes": 44528,
+      "candidateSha256": "adc2f41133f8256a4d50d28a9e61aca0863eb8bd3b65eec1e4ccd3be96897deb",
+      "sourceBytes": 286050,
+      "sourceSha256": "0952b7f9c712180911d10e93e44d08c1236af8240ba5d60c743389452b5d3ec7"
+    },
+    {
+      "slot": "passive",
+      "name": "Oportunismo",
+      "targetCount": "one ghoul",
+      "camera": "Plano médio baixo a partir de trás de um pilar",
+      "scene": "Efialtes se prepara para atacar um ghoul distraído de costas, mantendo a lanterna quase oculta e a guarda do alvo abaixada.",
+      "prompt": "Instante anterior ao primeiro golpe; exatamente um ghoul e nenhuma figura adicional.",
+      "candidatePath": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-vigia-ausente-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-2e97b3d9-89ed-459e-a3f8-c7ac2bc0a94f.png",
+      "generatedSourceSha256": "31e9b5a64b1aecba5fce8aeea6c5c5007f452644b4283d9b9edc2c45e2e9cfa9",
+      "generatedSourceBytes": 0,
+      "candidateBytes": 51026,
+      "candidateSha256": "fc4fdf15b14def4fc8192495b255e4f019b8a4e005c9c3fc5e4586ab96d79a58",
+      "sourceBytes": 316909,
+      "sourceSha256": "fdc43a87f8e99043d30514b8f97e293fb67188f63b452a9e1ecac3da675eb4c2"
+    },
+    {
+      "slot": "impulso",
+      "name": "Passagem Desguarnecida",
+      "targetCount": "one ghoul",
+      "camera": "Vista diagonal alta",
+      "scene": "Efialtes envolve a corrente da lanterna no antebraço erguido de um ghoul e o puxa para baixo, abrindo sua guarda e revelando uma falha.",
+      "prompt": "Exatamente um ghoul; corrente física, defesa removida e abertura visível, sem energia abstrata.",
+      "candidatePath": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-vigia-ausente-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-62937c4e-7961-4fed-88f3-1736f22218fc.png",
+      "generatedSourceSha256": "c54fae002caa3d53ca42aae7f200cf7bdcda5b6a28dfb5c9a01dbe1e722e8890",
+      "generatedSourceBytes": 0,
+      "candidateBytes": 62970,
+      "candidateSha256": "878eee661e772935d0469487d07ebb922240e280d6773704d7e3bdaf94364b12",
+      "sourceBytes": 379562,
+      "sourceSha256": "b21bba47226d43c45a61f67c27ed8226917c4e83fb4134ab56ff19fe981b1680"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Espera Cúmplice",
+      "targetCount": "self, one attacker",
+      "camera": "Sobre o ombro do ghoul",
+      "scene": "Efialtes abaixa o centro de gravidade enquanto um ghoul inicia o golpe; sua mão mantém a corrente pronta para contra-atacar.",
+      "prompt": "Um único atacante; o contra-ataque ainda não ocorreu, postura defensiva natural.",
+      "candidatePath": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-vigia-ausente-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-6c85979d-1aea-48c0-8ab5-1cac2a6f9c73.png",
+      "generatedSourceSha256": "4679a755742affb36992225744ce52f329f197dcbf3332017ee4dbd7f34d5555",
+      "generatedSourceBytes": 0,
+      "candidateBytes": 43238,
+      "candidateSha256": "9af55600d13699f2735a803c7e935faaaf922e65373210096ff6e4187edb4222",
+      "sourceBytes": 267010,
+      "sourceSha256": "28182ee0f270c815ad0f329e94f3a26efc947c93e21cce1bfdd8c6a12025aefe"
+    },
+    {
+      "slot": "voto",
+      "name": "Cobrar o Abandono",
+      "targetCount": "one exposed ghoul",
+      "camera": "Close lateral",
+      "scene": "Efialtes surge por trás de um ghoul já exposto e prepara a lanterna pesada para golpear a abertura, no instante anterior ao contato.",
+      "prompt": "Um único alvo exposto, ação não gráfica e sem ferimentos explícitos.",
+      "candidatePath": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-vigia-ausente-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-7ee1cab7-1381-4b7d-94f9-72e6e0b86918.png",
+      "generatedSourceSha256": "abebf65b8db540ac27ef6168a2336e962d5e4403a39bdc656fb54d0013954c8c",
+      "generatedSourceBytes": 0,
+      "candidateBytes": 61718,
+      "candidateSha256": "af5dc2834429570409eb34030b1ca2303026b967f9d9210c14eb7ba11717356e",
+      "sourceBytes": 371415,
+      "sourceSha256": "aab46205aea0bcd01b3b84d44692c9d882ebf4874cee6afee52772ad050b8c47"
+    },
+    {
+      "slot": "despertar",
+      "name": "Golpe da Retaguarda",
+      "targetCount": "self, one attacker",
+      "camera": "Ângulo diagonal baixo",
+      "scene": "Efialtes se esquiva por baixo do golpe de um ghoul e desliza para a retaguarda, pronto para responder.",
+      "prompt": "Um Efialtes e um ghoul; ataque passa pelo espaço vazio, sem duplicações, sem lesão.",
+      "candidatePath": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-vigia-ausente-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-55f148ba-d82a-4660-b631-f98f8559c2e6.png",
+      "generatedSourceSha256": "d7d1c1a74b813a4d058d7ed977b76f856b3322eca56f597d859711223185e452",
+      "generatedSourceBytes": 0,
+      "candidateBytes": 50772,
+      "candidateSha256": "236d5f38091549b0b67bef499aa993bfda5ab190daaabc71b4c8cce57787b928",
+      "sourceBytes": 312132,
+      "sourceSha256": "f39d58f8ff13a1f0ef0be16b60df5abab4b9bbe6f3c3247a6a4ea2de45fec48b"
+    }
+  ]
+}

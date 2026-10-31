@@ -661,7 +661,13 @@
     "o-quarto-vazio:base:impulso",
     "o-quarto-vazio:base:tecnica",
     "o-quarto-vazio:base:voto",
-    "o-quarto-vazio:base:despertar"
+    "o-quarto-vazio:base:despertar",
+    "o-vigia-ausente:base:portrait",
+    "o-vigia-ausente:base:passive",
+    "o-vigia-ausente:base:impulso",
+    "o-vigia-ausente:base:tecnica",
+    "o-vigia-ausente:base:voto",
+    "o-vigia-ausente:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -986,7 +992,13 @@
     "o-quarto-vazio:base:impulso",
     "o-quarto-vazio:base:tecnica",
     "o-quarto-vazio:base:voto",
-    "o-quarto-vazio:base:despertar"
+    "o-quarto-vazio:base:despertar",
+    "o-vigia-ausente:base:portrait",
+    "o-vigia-ausente:base:passive",
+    "o-vigia-ausente:base:impulso",
+    "o-vigia-ausente:base:tecnica",
+    "o-vigia-ausente:base:voto",
+    "o-vigia-ausente:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
