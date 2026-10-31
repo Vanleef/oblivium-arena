@@ -814,7 +814,13 @@
     "o-pulso-sereno:base:impulso",
     "o-pulso-sereno:base:tecnica",
     "o-pulso-sereno:base:voto",
-    "o-pulso-sereno:base:despertar"
+    "o-pulso-sereno:base:despertar",
+    "nilo:base:portrait",
+    "nilo:base:passive",
+    "nilo:base:impulso",
+    "nilo:base:tecnica",
+    "nilo:base:voto",
+    "nilo:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1292,7 +1298,13 @@
     "o-pulso-sereno:base:impulso",
     "o-pulso-sereno:base:tecnica",
     "o-pulso-sereno:base:voto",
-    "o-pulso-sereno:base:despertar"
+    "o-pulso-sereno:base:despertar",
+    "nilo:base:portrait",
+    "nilo:base:passive",
+    "nilo:base:impulso",
+    "nilo:base:tecnica",
+    "nilo:base:voto",
+    "nilo:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1320,6 +1332,12 @@
       "characterId": "a-luz-que-restaura",
       "reason": "Revisão completa do kit; removida a garra ambígua do Voto, mantendo os seis slots como candidatos pendentes de aprovação visual.",
       "date": "2026-10-31"
+    },
+    {
+      "key": "nilo:base",
+      "characterId": "nilo",
+      "date": "2026-10-31",
+      "reason": "Refeito o kit-base de seis slots na direção anime-first 2.5D pictórica; identidade e mecânicas preservadas. Aguardar aprovação visual."
     }
   ]
 }

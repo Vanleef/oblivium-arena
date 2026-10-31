@@ -772,3 +772,13 @@ Refeitos retrato, passiva e quatro habilidades, substituindo os seis slots candi
 A passiva reacende a lanterna quando ela está ferida; Fagulha do Amanhã atinge um único ghoul com golpe físico e brasas no contato; Não se Apagar mostra Caelum voltando a se levantar; Aurora Imorredoura concentra as cargas em um impacto contra um único ghoul; Chama Intocável mostra a evasão pessoal sob uma queda de mármore. A garra ambígua do Voto foi removida. Mecânicas preservadas; nenhuma entrada ou slot novo.
 
 Os seis WebP 512×512 estão em `art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031`; fontes JPEG 768×768 em `art/source/a-luz-que-restaura-dark-pictorial-rework-20261031`. Relatório: `docs/ART_CAELUM_DARK_PICTORIAL_REWORK_20261031.md` e `.json`. Todas aguardam aprovação visual.
+
+## Nilo — Receptáculo Instável — revisão anime-first 2.5D pictórica — 31/10/2026
+
+Refeitos retrato, passiva e quatro habilidades, mantendo os seis slots-base existentes. A identidade preserva pele castanha média, cabelo azul-negro com mecha marfim sobre a sobrancelha direita, olhos cinza-azulados, manto marfim assimétrico, roupa carvão, faixa índigo e braçadeira esquerda. As cenas usam o Vestíbulo do Limbo, com névoa violeta-cinza, pedra antiga e luz marfim.
+
+A passiva mostra duas Essências gastas e um Resíduo chegando ao bracelete; Toque Receptivo drena uma Essência de um ghoul; Fio de Memória liga Nilo a um alvo; Devolver o Eco consome dois Resíduos contra um ghoul; Limiar desvia estilhaços enquanto Nilo atravessa um portal quebrado. Mecânicas preservadas. As seis artes aguardam aprovação visual.
+
+Ativos WebP 512×512: `art/characters/nilo/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
+
+A migração pictórica cobre **558/998 slots**, com **440 restantes**, em **85/150 entradas**. Restam **65 entradas**; **551 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
