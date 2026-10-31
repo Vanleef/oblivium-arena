@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 31 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Revisar visualmente 545 artes candidatas integradas na direção atual; sete já foram aprovadas."
+    "Revisar visualmente 570 artes candidatas integradas na direção atual; sete já foram aprovadas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 570,
-      "remainingSlots": 428,
-      "fullyMigratedEntries": 87,
-      "remainingEntries": 63,
-      "awaitingVisualApprovalSlots": 563,
+      "integratedCandidateSlots": 577,
+      "remainingSlots": 421,
+      "fullyMigratedEntries": 88,
+      "remainingEntries": 62,
+      "awaitingVisualApprovalSlots": 570,
       "approvedSlots": 7,
       "name": "dark fantasy pictórica PMA"
     }
@@ -118,12 +118,12 @@
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "nilo-graca-prefacio"
+      "nilo-ruptura-prefacio"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 7,
+    "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_NILO_GRACA_PREFACIO_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_NILO_RUPTURA_PREFACIO_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "currentDirectionCorrectionHistory": [
     {
@@ -233,6 +233,16 @@
       "feedback": "As seis artes ativas ainda seguiam o acabamento anime 2.5D claro e suave da direção anterior.",
       "correction": "Refeitas as seis cenas em anime-first 2.5D pictórico de Paraíso, preservando a identidade e o manto marfim com ouro antigo; Graça aparece como marca, resposta, restauração e proteção contida.",
       "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "nilo-ruptura-prefacio",
+      "characterName": "Nilo, Prefácio de Ruptura",
+      "feedback": "As sete artes ativas ainda seguiam o acabamento anime 2.5D claro e suave da direção anterior.",
+      "correction": "Refeitas as sete cenas em dark fantasy pictórica 2.5D do Limbo/Umbral, preservando rosto, mecha marfim, manto de ardósia, cachecol claro e faixa índigo; a fenda, a marca, o contra-ataque, o impacto no alvo marcado e a esquiva pela porta incompleta mantêm alvos e anatomia legíveis, sem tecnologia.",
+      "logicalSlotsReworked": 7,
       "logicalSlotsAdded": 0,
       "status": "candidate_reworked_pending_visual_approval"
     }

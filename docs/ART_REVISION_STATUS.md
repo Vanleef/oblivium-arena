@@ -804,3 +804,11 @@ Toque de Clareza mostra autocura; Marca de Caça expõe um alvo por uma marca de
 Ativos WebP 512×512: `art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_GRACA_PREFACIO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
 
 A migração pictórica cobre **570/998 slots**, com **428 restantes**, em **87/150 entradas**. Restam **63 entradas**; **563 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+
+## Nilo, Prefácio de Ruptura — revisão anime-first 2.5D pictórica — 31/10/2026
+
+Refeitas sete cenas, preservando o traje de ardósia, o cachecol cinza-claro, a faixa índigo e as fraturas opalescentes. No Umbral, o Voto bloqueia um golpe e devolve a força; o Despertar 4 atinge somente o alvo marcado, e o Despertar 5 mostra Nilo atravessando uma porta incompleta em esquiva pessoal. Mecânicas preservadas; sete artes pendentes de aprovação visual.
+
+Ativos WebP 512×512: `art/characters/nilo-ruptura-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-ruptura-prefacio-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_RUPTURA_PREFACIO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
+
+A migração pictórica cobre **577/998 slots**, com **421 restantes**, em **88/150 entradas**. Restam **62 entradas**; **570 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
