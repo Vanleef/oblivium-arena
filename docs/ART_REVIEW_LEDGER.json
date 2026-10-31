@@ -840,7 +840,14 @@
     "nilo-cinza-epilogo:base:voto",
     "nilo-cinza-epilogo:base:despertar-4",
     "nilo-cinza-epilogo:base:tecnica-5",
-    "nilo-cinza-epilogo:base:despertar-6"
+    "nilo-cinza-epilogo:base:despertar-6",
+    "nilo-graca-epilogo:base:portrait",
+    "nilo-graca-epilogo:base:passive",
+    "nilo-graca-epilogo:base:impulso",
+    "nilo-graca-epilogo:base:tecnica",
+    "nilo-graca-epilogo:base:voto",
+    "nilo-graca-epilogo:base:despertar-4",
+    "nilo-graca-epilogo:base:despertar-5"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1344,7 +1351,14 @@
     "nilo-cinza-epilogo:base:voto",
     "nilo-cinza-epilogo:base:despertar-4",
     "nilo-cinza-epilogo:base:tecnica-5",
-    "nilo-cinza-epilogo:base:despertar-6"
+    "nilo-cinza-epilogo:base:despertar-6",
+    "nilo-graca-epilogo:base:portrait",
+    "nilo-graca-epilogo:base:passive",
+    "nilo-graca-epilogo:base:impulso",
+    "nilo-graca-epilogo:base:tecnica",
+    "nilo-graca-epilogo:base:voto",
+    "nilo-graca-epilogo:base:despertar-4",
+    "nilo-graca-epilogo:base:despertar-5"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1585,6 +1599,41 @@
       "key": "nilo-cinza-epilogo:base:despertar-6",
       "correctedAt": "2026-10-31",
       "note": "++Cinza substituído e revisado quanto à anatomia: Defesa em corpo inteiro por trás, em 3/4: um antebraço protege a cabeça e o outro braço se estende para equilíbrio; o manto físico de cinza e seda recebe brasas e fragmentos. Mecânicas preservadas; candidata ainda pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: ++Graça: olhos totalmente dourados, marcas e fios brancos confirmados; retrato natural em 3/4. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: Corrigida a mão duplicada do alvo; o efeito retorna à palma aberta de Nilo, com anatomia revisada. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: Autocura em plano lateral baixo; duas mãos ligadas a braços distintos e pose de ajoelhamento estável. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: Película falsa retirada com uma única palma; braços e contato do alvo revisados. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: Soco único em ângulo lateral; braço de impacto e mão de guarda permanecem legíveis. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: Fios prendem somente a sombra; alvo ileso e membros em posição natural. Mecânicas preservadas; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "nilo-graca-epilogo:base:despertar-5",
+      "correctedAt": "2026-10-31",
+      "note": "++Graça substituído e revisado quanto à anatomia: Defesa pessoal em plano alto; duas mãos, dois braços e apoio das pernas legíveis. Mecânicas preservadas; candidata pendente de aprovação visual."
     }
   ]
 }

@@ -1,0 +1,124 @@
+{
+  "id": "nilo-graca-epilogo-dark-pictorial-rework-20261031",
+  "characterId": "nilo-graca-epilogo",
+  "displayName": "Nilo, Epílogo de Graça",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "previousArtDirection": "Anime 2.5D pictórico com acabamento gótico ornado.",
+  "artDirection": "Anime-first 2.5D pictórico de dark fantasy, contornos manuais, pinceladas densas, sombras angulares e materialidade de mármore, pele e tecido; paleta de Paraíso em branco, marfim, ouro antigo, azul claro e verde discreto. Para ++Graça: pureza, marcas douradas, aura branca, fios brancos no cabelo e olhos totalmente dourados; traços angelicais simétricos integrados ao dorso dos ombros e ao manto, sem anatomia desconectada.",
+  "identity": "Nilo-base, 24 anos, pele castanha média, cabelo azul-negro desalinhado com uma mecha marfim sobre a sobrancelha direita e fios brancos, olhos inteiramente dourados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. No estágio ++Graça, Nilo preserva os sinais de +Graça e ganha traços angelicais integrados e simétricos na região dos ombros; sem halo ou membros extras.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e1d50239700a7e54340af85c00a572cd2f83acb7c49eb5a2ba28b34ded0dc7c0",
+      "activeSha256": "f6949e405b0d433d8f7d7d78f7734d52d89819be558834b1570044631bf1664d",
+      "scene": "Retrato próximo em 3/4: Nilo volta o olhar para uma voz distante no santuário, com olhos inteiramente dourados, fios brancos no cabelo e marcas luminosas na pele."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "530b6e1138907f9e0f1130aa3531b5644b1bbad8464b9465cd20e004dba80e8b",
+      "activeSha256": "78216569af5d446a13e1396c9503318a52e229c3fa2a21f700f0ec8767554c1d",
+      "scene": "À beira da piscina, a película protetora de uma alma mais velha se rompe; Nilo recebe a luz branca-dourada com a mão esquerda aberta. A outra mão do alvo fica junto ao peito; a duplicação anatômica foi removida."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "97d6192316fa226d027693abad19732d479eb8cf84ddef1a6511846627915c84",
+      "activeSha256": "3e3d56cd8964c8d8caf9d718cc2d58c153c72b911a1218f8a95d255db71a9f6b",
+      "scene": "Ângulo lateral baixo: Nilo ajoelhado recompõe o próprio ferimento; uma mão repousa no peito, a outra mantém a palma aberta junto ao antebraço iluminado."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "2adef5c7a0d239d3ce59e10fbaa950970ea443e21bc29cc4a3804d57b9c98923",
+      "activeSha256": "dd8a8e0d7f20af6d08af622e1fb56d6f9d949749775f79a7bac8d66449bb4049",
+      "scene": "Plano médio lateral oblíquo: a palma direita de Nilo desfaz a película falsa no ombro de um homem idoso de trança prateada; ele recua, sem ferimento."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "83e348bf7b4a08402fa04b5c1589879aba86820473d8d8bac7bb03cb3d527860",
+      "activeSha256": "4adc17cda31a171146425d80fc7b862f6197760e908c109c7bd176c7830fbe38",
+      "scene": "Impacto em ângulo lateral: um único soco de Nilo atinge as costelas expostas do alvo; a outra mão permanece em guarda e o corpo do alvo cede com a reação."
+    },
+    {
+      "slot": "despertar-4",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/skill-despertar-4.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/despertar-4.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "03e2286c9aa1d4ba7967ea261c858e81350a1a4952ffe1ff3deaa0ce9dd5be4a",
+      "activeSha256": "fc5152f7e828f941d20627d34536ea266a8a5a2a358613cf2c1c29b0184ffc82",
+      "scene": "Vista alta em 3/4: fios branco-dourados prendem apenas a sombra de um homem de cachos brancos ao piso; Nilo conduz o efeito com uma mão estendida e o alvo permanece ileso."
+    },
+    {
+      "slot": "despertar-5",
+      "path": "/art/characters/nilo-graca-epilogo/dark-pictorial-rework-20261031/skill-despertar-5.webp",
+      "source": "art/source/nilo-graca-epilogo-dark-pictorial-rework-20261031/despertar-5.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "5dfdc6c94fc6f6eaf7396e09ca015bd3fe2ac73be81a403bad5acfd3ab99daa0",
+      "activeSha256": "52cda12fbebdbb9bd7fdcf2f1763b0a6a3105f740183a1212704e425cb984299",
+      "scene": "Vista inclinada de cima: Nilo se firma dentro de um limite circular branco-dourado enquanto pétalas e pequenos estilhaços param fora da barreira pessoal."
+    }
+  ]
+}
