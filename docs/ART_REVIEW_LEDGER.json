@@ -945,7 +945,13 @@
     "a-voz:base:voto",
     "a-voz:base:despertar",
     "a-voz:variant:impulso:chorus",
-    "a-voz:variant:tecnica:solo"
+    "a-voz:variant:tecnica:solo",
+    "o-portador-da-aurora:base:portrait",
+    "o-portador-da-aurora:base:passive",
+    "o-portador-da-aurora:base:impulso",
+    "o-portador-da-aurora:base:tecnica",
+    "o-portador-da-aurora:base:voto",
+    "o-portador-da-aurora:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1554,7 +1560,13 @@
     "a-voz:base:voto",
     "a-voz:base:despertar",
     "a-voz:variant:impulso:chorus",
-    "a-voz:variant:tecnica:solo"
+    "a-voz:variant:tecnica:solo",
+    "o-portador-da-aurora:base:portrait",
+    "o-portador-da-aurora:base:passive",
+    "o-portador-da-aurora:base:impulso",
+    "o-portador-da-aurora:base:tecnica",
+    "o-portador-da-aurora:base:voto",
+    "o-portador-da-aurora:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

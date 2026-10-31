@@ -1449,5 +1449,15 @@ export const characterArtRegistry = {
         "solo": "/art/characters/a-voz/dark-pictorial-rework-20261031/skill-tecnica-solo.webp"
       }
     }
+  },
+  "o-portador-da-aurora": {
+    "portrait": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };

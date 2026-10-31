@@ -1,0 +1,123 @@
+{
+  "id": "aurora-aurelian-dark-pictorial-rework-20261031",
+  "characterId": "o-portador-da-aurora",
+  "displayName": "Aurora (Aurelian), O Alvorecer",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "previousArtDirection": "Fantasia heroica pintada, com armadura solar e cenário urbano ao amanhecer.",
+  "artDirection": "Dark fantasy pictórica 2.5D com textura de pincel óleo, sombras índigo e luz marfim-ouro de aurora; composição própria para cada ação.",
+  "identity": "Homem mais velho de pele castanha escura, cabeça calva e barba negra dividida em duas tranças curtas presas por anéis dourados. Usa túnica vinho, manto marfim, ombreira de bronze com disco solar e bastão alto coroado por um sol. Olhar vigilante e compassivo.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/o-portador-da-aurora-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "c6b6c93c11658b6948735daa52829500db138d78b0a67c05ffa7b61a205258a0",
+      "activeSha256": "4b785f8956bff2426f295876ef1a036182de08059141a26b454cf29a3f1232be",
+      "scene": "Retrato em três quartos de Aurora/Aurelian, barba trançada e ombreira solar sob um horizonte dourado."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/o-portador-da-aurora-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "251021cf5fb7ddb2a5afa840f242c62f31faabdc5141de56368facba9982694c",
+      "activeSha256": "d418c2bd4897470a3b3dffb6918656b7ba808d7a3c56b3dea81556107ace10b0",
+      "scene": "Na primeira luz, uma carga dourada se reúne na ponta do bastão enquanto ele observa o campo."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/o-portador-da-aurora-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "c936a4a9e84b96c43a72b8dc33066a21107166fb8da08d3dae692ec420ce776e",
+      "activeSha256": "e376e0be4cbed15bdff4552b18eeccabbcb895c11fce9acd804d213a47569e82",
+      "scene": "Aurora lança um feixe concentrado de primeira luz contra um único inimigo e conserva uma carga no bastão."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/o-portador-da-aurora-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "4f4a37c2f42011686460e11ce651df486389cf11237ab52cb51ab00c913c5a27",
+      "activeSha256": "55ca09cdc7c1ec3eac3b2dcad955e8fb46d4786b97a4b53f9ece3ee11b23f583",
+      "scene": "Uma luz de aurora purifica e fortalece um aliado, devolvendo clareza e vigor."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/o-portador-da-aurora-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "50c2bbf0ac289b88f2b209da11545ca1d9f22b83a3d41da76ccc4639c57d667e",
+      "activeSha256": "adce6941420ef2eaf895a19e43d9c90ff83ad7d89937f50f5ca503cb1a6b1f57",
+      "scene": "Cargas acumuladas convergem num feixe perfurante único que atravessa a defesa de uma ameaça."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/o-portador-da-aurora-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "0c70dec04f46920b122fe3081f6fcd0e8e5ea80c7f3f05c2c8f6757c74946635",
+      "activeSha256": "67494884f3a225da7df1c3d521c0210be61b13327b445568e05222265c60be96",
+      "scene": "Com o bastão erguido, Aurora conduz três aliados a uma passagem aberta no horizonte luminoso."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Esperança",
+    "stage": "base",
+    "emotion": "Um horizonte além do confronto",
+    "visualMarkers": [
+      "cabeça calva",
+      "barba negra em duas tranças",
+      "túnica vinho",
+      "manto marfim",
+      "disco solar dourado",
+      "bastão de aurora"
+    ]
+  }
+}

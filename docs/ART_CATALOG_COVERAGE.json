@@ -1589,7 +1589,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-mensageira-do-amanha",
@@ -2744,21 +2753,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 605,
-    "remainingSlots": 393,
-    "fullyMigratedEntries": 91,
-    "remainingEntries": 59,
-    "awaitingVisualApprovalSlots": 598,
+    "integratedCandidateSlots": 611,
+    "remainingSlots": 387,
+    "fullyMigratedEntries": 92,
+    "remainingEntries": 58,
+    "awaitingVisualApprovalSlots": 604,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-voz"
+      "o-portador-da-aurora"
     ],
-    "candidateSlotsAdded": 8,
-    "candidateSlotsActivated": 8,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HOPE_ARION_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_AURORA_AURELIAN_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
