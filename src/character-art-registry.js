@@ -1006,5 +1006,25 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "o-que-ficou": {
+    "portrait": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-que-ficou/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
+  },
+  "o-ultimo-guardiao": {
+    "portrait": "/art/characters/o-ultimo-guardiao/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-ultimo-guardiao/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-ultimo-guardiao/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-ultimo-guardiao/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-ultimo-guardiao/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-ultimo-guardiao/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
