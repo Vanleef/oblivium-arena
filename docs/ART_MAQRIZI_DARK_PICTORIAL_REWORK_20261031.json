@@ -19,17 +19,17 @@
       "label": "Retrato",
       "activePath": "/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031/portrait.webp",
       "sourcePath": "art/source/a-testemunha-integra-dark-pictorial-rework-20261031/portrait.jpg",
-      "scene": "Maqrizi examina um vestígio fora de quadro com a lente manual, enquanto segura o bastão de testemunho; sua expressão é fria e atenta.",
+      "scene": "Maqrizi examina um vestígio com a lente manual e recebe a cinza na mão livre; o bastão de testemunho repousa apoiado na rocha ao lado.",
       "targetCount": "Self",
       "width": 512,
       "height": 512,
-      "bytes": 46246,
-      "sha256": "c5f688937c3bcf9f8294949f405a3c8a30e0d34e2828baab2a1b94f429c33aae",
+      "bytes": 93046,
+      "sha256": "01595bdd8ecf547d873af861042676b542735c0a62a23863edfa88de4f86f5fd",
       "sourceWidth": 768,
       "sourceHeight": 768,
-      "sourceBytes": 146167,
-      "sourceSha256": "80afe90788a4b42e98cd8916b8d7016f21062b508cd794a378701725dbcdddb0",
-      "sourceInput": "exec-0fb05b9f-7350-4ff8-a5a6-004a61dd2a84.png"
+      "sourceBytes": 222011,
+      "sourceSha256": "9b6a63876bfd68f979e5ed43721152e3c60fdf3d9e42405f9d7ade5953e0d1a7",
+      "sourceInput": "exec-c69bcaaa-a919-4b37-a0ec-e13a3a838feb.png"
     },
     {
       "slot": "passive",
@@ -122,6 +122,7 @@
     "O design foi adaptado para Inferno / Oblívio: a personagem é calculista e ameaçadora, sem iconografia celestial ou aparência benevolente.",
     "O Voto mostra exatamente três ghouls; ataques individuais têm um único alvo; o Despertar é uma defesa pessoal sem outro personagem visível.",
     "Somente arte e documentação foram atualizadas; mecânicas e alvos do kit permanecem inalterados.",
-    "As seis candidatas foram integradas ao branch e aguardam aprovação visual final."
+    "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
+    "O retrato foi corrigido para mostrar exatamente duas mãos: uma segura a lente e a outra recebe a cinza. O bastão de testemunho permanece visível, apoiado sem ser segurado."
   ]
 }

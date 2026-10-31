@@ -836,7 +836,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/skill-voto.webp",
       "despertar": "/art/characters/o-vigia-ausente/dark-pictorial-rework-20261030/skill-despertar.webp"
     }
-  }
+  },
   "o-que-possui": {
     "portrait": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/portrait.webp",
     "passive": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/passive.webp",

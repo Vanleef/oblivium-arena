@@ -74,13 +74,13 @@
       "targetCount": "1 agressor",
       "width": 512,
       "height": 512,
-      "bytes": 77554,
-      "sha256": "d547cc0e550835f2258e061d79320b734cb0fcb85f558a93e584c436839a12e8",
+      "bytes": 96548,
+      "sha256": "eb787261402a0bb5c3a3bc1832899315beaec232512e9657a6c0db7da232053f",
       "sourceWidth": 768,
       "sourceHeight": 768,
-      "sourceBytes": 171081,
-      "sourceSha256": "caf670deac7669e00e485c05eb93afbd3bbdc6cbdad53266a12f9eb94cd468c9",
-      "sourceInput": "exec-0671b66b-2f2d-44e4-a5b0-97dd68cd0e29.png"
+      "sourceBytes": 209767,
+      "sourceSha256": "400daf89f6143c6031f4e3ab286dc0c417304727fc21f1590f5b6f74e672a185",
+      "sourceInput": "exec-f4543984-210c-4610-99de-bc04326ba85d.png"
     },
     {
       "slot": "skill-voto",
@@ -122,6 +122,6 @@
     "As seis cenas distinguem retrato, passiva, avanço, parada física, golpe final e esquiva pessoal, sem olhar para a câmera.",
     "Somente as rotas de arte e documentação foram atualizadas; mecânicas de combate permanecem inalteradas.",
     "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
-    "A cena da Técnica foi refeita para corrigir o braço e a empunhadura: a mão fecha claramente no punho e a lâmina mantém continuidade até o ponto de contato."
+    "A Técnica foi corrigida após a revisão da arte enviada: braço, punho, mão, cabo e lâmina mantêm continuidade física desde o ombro até o ponto de impacto. A candidata permanece pendente de aprovação visual."
   ]
 }
