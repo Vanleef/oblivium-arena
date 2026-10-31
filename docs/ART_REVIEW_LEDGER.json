@@ -869,7 +869,16 @@
     "nilo-graca-final:base:tecnica-5",
     "nilo-graca-final:base:tecnica-6",
     "nilo-graca-final:base:tecnica-7",
-    "nilo-graca-final:base:despertar-8"
+    "nilo-graca-final:base:despertar-8",
+    "nilo-ruptura-final:base:portrait",
+    "nilo-ruptura-final:base:passive",
+    "nilo-ruptura-final:base:impulso",
+    "nilo-ruptura-final:base:tecnica",
+    "nilo-ruptura-final:base:voto",
+    "nilo-ruptura-final:base:despertar-4",
+    "nilo-ruptura-final:base:tecnica-5",
+    "nilo-ruptura-final:base:tecnica-6",
+    "nilo-ruptura-final:base:despertar-7"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1402,7 +1411,16 @@
     "nilo-graca-final:base:tecnica-5",
     "nilo-graca-final:base:tecnica-6",
     "nilo-graca-final:base:tecnica-7",
-    "nilo-graca-final:base:despertar-8"
+    "nilo-graca-final:base:despertar-8",
+    "nilo-ruptura-final:base:portrait",
+    "nilo-ruptura-final:base:passive",
+    "nilo-ruptura-final:base:impulso",
+    "nilo-ruptura-final:base:tecnica",
+    "nilo-ruptura-final:base:voto",
+    "nilo-ruptura-final:base:despertar-4",
+    "nilo-ruptura-final:base:tecnica-5",
+    "nilo-ruptura-final:base:tecnica-6",
+    "nilo-ruptura-final:base:despertar-7"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1788,6 +1806,51 @@
       "key": "nilo-graca-final:base:despertar-8",
       "correctedAt": "2026-10-31",
       "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Corpo inteiro com dois braços e duas pernas; o plano de luz-pedra é uma barreira ao lado do manto, sem empunhadura nem anatomia adicional. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Retrato próximo com pescoço e ombros proporcionais; a sombra negra acompanha o contorno, sem criar membro ou silhueta animal. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Duas pessoas separadas. O dedo indicador de Nilo aponta para as marcas no tecido; os braços e mãos do alvo permanecem distintos e sem contato cruzado. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Duas figuras em movimento lateral: uma única mão de Nilo toca o ombro; a outra mão fica junto ao tronco. Pernas apoiadas e silhuetas separadas. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: O corte termina na costura do manto, não alcança pele; braço de Nilo e ombro do alvo não se cruzam. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Nilo fica ao fundo junto à coluna; no alvo, uma mão segura a manga e a outra permanece abaixada, sem terceira mão ou marcas sobre a pele. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: A sombra projetada permanece plana e alinhada ao braço erguido do alvo; Nilo está separado ao fundo. Dois braços e duas pernas legíveis por pessoa. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:tecnica-5",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Duas pessoas. Os braços de Nilo têm ações distintas — barreira curta junto ao peito e palma em contato — sem cruzamento; o manto não se abre como asa. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:tecnica-6",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Nilo e três alvos ocupam setores separados do piso; cada postura conserva apoios, braços e pernas naturais. As fissuras pertencem somente à pedra. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-ruptura-final:base:despertar-7",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Nilo em corpo inteiro com dois braços e duas pernas; a placa de sombra-pedra é uma barreira fixa, não empunhada nem anatômica. Candidata pendente de aprovação visual; mecânicas preservadas."
     }
   ]
 }
