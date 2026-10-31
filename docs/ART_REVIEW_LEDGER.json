@@ -951,7 +951,14 @@
     "o-portador-da-aurora:base:impulso",
     "o-portador-da-aurora:base:tecnica",
     "o-portador-da-aurora:base:voto",
-    "o-portador-da-aurora:base:despertar"
+    "o-portador-da-aurora:base:despertar",
+    "a-mensageira-do-amanha:base:portrait",
+    "a-mensageira-do-amanha:base:passive",
+    "a-mensageira-do-amanha:base:impulso",
+    "a-mensageira-do-amanha:base:tecnica",
+    "a-mensageira-do-amanha:base:voto",
+    "a-mensageira-do-amanha:base:despertar",
+    "a-mensageira-do-amanha:variant:impulso:delivered"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1566,7 +1573,14 @@
     "o-portador-da-aurora:base:impulso",
     "o-portador-da-aurora:base:tecnica",
     "o-portador-da-aurora:base:voto",
-    "o-portador-da-aurora:base:despertar"
+    "o-portador-da-aurora:base:despertar",
+    "a-mensageira-do-amanha:base:portrait",
+    "a-mensageira-do-amanha:base:passive",
+    "a-mensageira-do-amanha:base:impulso",
+    "a-mensageira-do-amanha:base:tecnica",
+    "a-mensageira-do-amanha:base:voto",
+    "a-mensageira-do-amanha:base:despertar",
+    "a-mensageira-do-amanha:variant:impulso:delivered"
   ],
   "currentDirectionCorrectionHistory": [
     {

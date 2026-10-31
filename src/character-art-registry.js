@@ -1459,5 +1459,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-mensageira-do-amanha": {
+    "portrait": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": {
+        "delivered": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-impulso-delivered.webp"
+      }
+    }
   }
 };
