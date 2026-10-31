@@ -18,7 +18,7 @@ import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption, leaderUnlockStatus } from "./progression.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption, campaignKingdoms, isWorldCampaignComplete, characterUnlockStatus, MAX_CAMPAIGN_DIFFICULTY } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
@@ -601,11 +601,11 @@ function resonanceCard() {
 }
 
 function routeView() {
-  const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=profile.completedElos.length>=elos.length;
+  const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=realms.every(world=>isWorldCampaignComplete(profile,world.id,MAX_CAMPAIGN_DIFFICULTY));
   const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${realmEmblem(item.id)}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Reino":"Reinos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
-  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} REINOS VENCIDOS</span></div><aside class="guided-entry"><div><small>PARA QUEM ESTÁ COMEÇANDO</small><b>Primeira Run Guiada</b><p>Objetivos curtos apresentam a trilha, os custos de Essência e seus primeiros aprimoramentos.</p></div><button class="button button-gold" data-guided-run="${realm.elos[0].id}">COMEÇAR GUIA ↗</button><button class="text-button" data-action="toggle-context-tips">Dicas contextuais ${profile.contextTipsOff?"desligadas":"ligadas"}</button></aside>${selection}</section>${state.pending?pendingPanel():""}`}
+  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} REINOS VENCIDOS</span></div><aside class="guided-entry"><div><small>PARA QUEM ESTÁ COMEÇANDO</small><b>Primeira Run Guiada</b><p>Objetivos curtos apresentam a trilha, os custos de Essência e seus primeiros aprimoramentos.</p></div><button class="button button-gold" data-guided-run="${campaignKingdoms(realm.id)[0].id}">COMEÇAR GUIA ↗</button><button class="text-button" data-action="toggle-context-tips">Dicas contextuais ${profile.contextTipsOff?"desligadas":"ligadas"}</button></aside>${selection}</section>${state.pending?pendingPanel():""}`}
     ${renderLegacies(profile)}
-    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3><p>Sem rosto fixo. Cada alma encara o próprio maior medo.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
+    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("limbo")}</div><div><div class="eyebrow">A ÚLTIMA FENDA · OS TRÊS MUNDOS CONCLUÍDOS</div><h3>Naram-Sin</h3><p>A última barreira se manifesta como o maior medo de quem a encara. Os três lordes agora pertencem ao seu elenco.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR A FENDA ↗</button></section>`:""}`;
 }
 
 function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,persistentCombatHp(u)])):null}); }
@@ -670,14 +670,21 @@ function teamView() {
         <div class="roster-grid">${filtered.map((character) => {
           const owned = profile.ownedIds.includes(character.id);
           const selected = profile.team.includes(character.id);
-          const leaderGate = leaderUnlockStatus(profile,character.id);
-          const leaderLocked = Boolean(leaderGate && !leaderGate.unlocked);
-          const lockHint = leaderLocked ? (getLanguage()==="en"
-            ? `Clear the full ${localizeText(leaderGate.worldName,"en")} campaign to unlock.`
-            : `Conclua toda a campanha de ${leaderGate.worldName} para liberar.`) : "";
+          const unlockInfo = characterUnlockStatus(profile,character.id);
+          const leaderLocked = Boolean(unlockInfo?.leader && !unlockInfo.unlocked);
+          const unlockDifficulty=unlockInfo?.difficulty===0?(getLanguage()==="en"?"Veil Intact":"Véu intacto"):(getLanguage()==="en"?`Rupture ${unlockInfo?.difficulty}`:`Ruptura ${unlockInfo?.difficulty}`);
+          const lockHint = leaderLocked
+            ? (getLanguage()==="en"
+              ? `Clear every realm in ${localizeText(unlockInfo.worldName,"en")} and defeat the leader at Rupture IV.`
+              : `Conclua todos os reinos de ${unlockInfo.worldName} e vença o lorde em Ruptura IV.`)
+            : !owned && unlockInfo?.kingdomName
+              ? (getLanguage()==="en"
+                ? `Unlock by clearing ${localizeText(unlockInfo.kingdomName,"en")} on ${unlockDifficulty}.`
+                : `Libera ao concluir ${unlockInfo.kingdomName} em ${unlockDifficulty}.`)
+              : "";
           const disabled = leaderLocked || !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}${character.identityTitle ? `, <span class="roster-character-title">${esc(character.identityTitle)}</span>` : ""}</b><small>Reino ${esc(character.kingdom)}</small>${lockHint?`<small class="leader-unlock-hint">${esc(lockHint)}</small>`:""}<small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : leaderLocked ? "🔒" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}${character.identityTitle ? `, <span class="roster-character-title">${esc(character.identityTitle)}</span>` : ""}</b><small>Reino ${esc(character.kingdom)}</small>${lockHint?`<small class="leader-unlock-hint">${esc(lockHint)}</small>`:""}<small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "🔒"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -816,7 +823,7 @@ app.addEventListener("click", (event) => {
   }
   if (target.dataset.realm) {
     state.realmId = target.dataset.realm;
-    state.eloId = realms.find((realm) => realm.id === state.realmId).elos[0].id;state.difficulty=null;
+    state.eloId = campaignKingdoms(state.realmId)[0].id;state.difficulty=null;
     render();
     return;
   }
@@ -888,10 +895,10 @@ app.addEventListener("click", (event) => {
   }
   if (target.dataset.clearNotice !== undefined) { state.pending = null; render(); return; }
   if (target.dataset.finalBattle !== undefined) {
-    if(profile.completedElos.length<elos.length)return;
+    if(!realms.every(world=>isWorldCampaignComplete(profile,world.id,MAX_CAMPAIGN_DIFFICULTY)))return;
     const elo = getEloById("tartaro");
     state.eloId = elo.id;
-    startEncounter({ id: "finale", type: "finale", label: "A Última Barreira", eloId: elo.id });
+    startEncounter({ id: "finale", type: "finale", label: "A Última Fenda", eloId: elo.id });
   }
 });
 
