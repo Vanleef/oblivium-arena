@@ -70,17 +70,17 @@
       "label": "Parada Equânime",
       "activePath": "/art/characters/a-lamina-justa/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/a-lamina-justa-dark-pictorial-rework-20261031/tecnica.jpg",
-      "scene": "Justus recebe a investida de um único ghoul com uma parada física de espada e corpo alinhado ao impacto.",
+      "scene": "Parada física contra um único agressor; Justus mantém braço, punho e pegada da espada alinhados ao impacto.",
       "targetCount": "1 agressor",
       "width": 512,
       "height": 512,
-      "bytes": 61378,
-      "sha256": "c319264866ddf90ebadb717a4798a63b4a9c240eec1d8e115c65909a7c49faa9",
+      "bytes": 60142,
+      "sha256": "acd16628889451186d73a0282f4c807223ba765f663cb97b46048ca21d7c853d",
       "sourceWidth": 768,
       "sourceHeight": 768,
-      "sourceBytes": 182669,
-      "sourceSha256": "3f5ca6dfbc1cb1ca135189f1ed7444300e89ffeccd58a0f31012f6829174c534",
-      "sourceInput": "exec-29df45e1-1021-4770-a316-d2005f024c9f.png"
+      "sourceBytes": 172889,
+      "sourceSha256": "720c47839b6543bf57096798bd7935f4b7508bb4b57f3a2a9b182318a23ecc68",
+      "sourceInput": "exec-9678af9d-d43e-48bf-8177-68ee0b7a9ab0.png"
     },
     {
       "slot": "skill-voto",
@@ -121,6 +121,7 @@
     "Justus é uma mulher de pele castanha quente, cachos prateados curtos e densos, rosto descoberto, vestes marfim e azul-marinho com detalhes azul-pálido e espada prateada.",
     "As seis cenas distinguem retrato, passiva, avanço, parada física, golpe final e esquiva pessoal, sem olhar para a câmera.",
     "Somente as rotas de arte e documentação foram atualizadas; mecânicas de combate permanecem inalteradas.",
-    "As seis candidatas foram integradas ao branch e aguardam aprovação visual final."
+    "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
+    "A cena da Técnica foi refeita após revisão: os braços têm origens claras, a mão fecha corretamente no punho e a lâmina mantém continuidade até o ponto de contato."
   ]
 }
