@@ -1,0 +1,122 @@
+{
+  "id": "crates-a-luz-nua-dark-pictorial-rework-20261031",
+  "characterId": "a-luz-nua",
+  "displayName": "Crates, A Lúcida",
+  "world": "Inferno",
+  "realm": "Oblívio",
+  "previousArtDirection": "Pintura de fantasia em observatório escuro.",
+  "artDirection": "Dark fantasy pictórica 2.5D com textura de óleo, sombras negras e azul-aço, manto marfim e luz de latão; cada cena usa a claridade com intenção diferente.",
+  "identity": "Mulher pálida de olhos cinza, cabelo branco-prateado em corte reto até o queixo, gola alta preta e manto ocre-marfim. Segura uma lanterna antiga de latão com chama âmbar. Expressão serena e direta; a luz desvela a verdade sem crueldade.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/a-luz-nua-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "32fcff44395872426f30fe658e69c111c4857fb13845672c5ea8e85c691aee3e",
+      "activeSha256": "b43a71861e5de5936a39de24d32cf7f7fe2c660b282afe760663a63c55215334",
+      "scene": "Retrato de Crates, cabelo branco curto, manto marfim e lanterna de latão."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/a-luz-nua-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "826bfbc6eb833f1e33734c3a1a913440964b021c28a9eda1af8d21be1ef430be",
+      "activeSha256": "672f79bb1047a63a22b9ee228708da8635e4b736d74f57d2d367568f7ac43413",
+      "scene": "O primeiro raio da lanterna revela a silhueta real de uma ameaça oculta no arquivo."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/a-luz-nua-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "8fcd13eb27cf462a66841b9e522d806e2faa16c4207a345d71c20cd2da922d02",
+      "activeSha256": "2a477877f575a65c3a0b242f2f53e6a247f3cdc8ce9fced7f38cafd2fa3320fe",
+      "scene": "Um toque de luz marca um único inimigo e revela seu contorno verdadeiro."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/a-luz-nua-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ca61ba33ccbc553d8bf10cb484b421a280c1eb898f816c0edd461e8740a02129",
+      "activeSha256": "c59344d1111329781659b8230a002d5ff12d6447ff5dd99d467cc6666afc893e",
+      "scene": "A lanterna remove uma proteção mágica em camadas, desfazendo disfarces sem ferir o alvo."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/a-luz-nua-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ca23c66eabb392554c8c10b70328ee635221ab8fd9f152cde6c7ac54ba487936",
+      "activeSha256": "8f5bb0ab0c06a5576baf3ebfb8d7f008caddad85b3419a05463c69e57609392e",
+      "scene": "Um clarão controlado atinge o inimigo marcado e apaga seu último véu."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/a-luz-nua-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "9f4df476d63b3dd8b7badcaa780a82e7e6220a1581afbc97c9ca6025712f500c",
+      "activeSha256": "8febff513ba70315fd5fd3f8b11431fcf1d3a0e8660ababbe84b5c817ac5cc35",
+      "scene": "Um feixe amplo de luz pálida revela silhuetas ocultas por toda a arena."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Verdade",
+    "stage": "base",
+    "emotion": "Lucidez sem crueldade",
+    "visualMarkers": [
+      "cabelo branco-prateado curto",
+      "olhos cinza",
+      "gola alta preta",
+      "manto ocre-marfim",
+      "lanterna de latão âmbar"
+    ]
+  }
+}

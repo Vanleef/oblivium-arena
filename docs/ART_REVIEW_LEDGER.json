@@ -964,7 +964,13 @@
     "o-que-revela:base:impulso",
     "o-que-revela:base:tecnica",
     "o-que-revela:base:voto",
-    "o-que-revela:base:despertar"
+    "o-que-revela:base:despertar",
+    "a-luz-nua:base:portrait",
+    "a-luz-nua:base:passive",
+    "a-luz-nua:base:impulso",
+    "a-luz-nua:base:tecnica",
+    "a-luz-nua:base:voto",
+    "a-luz-nua:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1592,7 +1598,13 @@
     "o-que-revela:base:impulso",
     "o-que-revela:base:tecnica",
     "o-que-revela:base:voto",
-    "o-que-revela:base:despertar"
+    "o-que-revela:base:despertar",
+    "a-luz-nua:base:portrait",
+    "a-luz-nua:base:passive",
+    "a-luz-nua:base:impulso",
+    "a-luz-nua:base:tecnica",
+    "a-luz-nua:base:voto",
+    "a-luz-nua:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

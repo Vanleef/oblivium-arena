@@ -1484,5 +1484,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-luz-nua": {
+    "portrait": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
