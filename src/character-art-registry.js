@@ -896,5 +896,20 @@ export const characterArtRegistry = {
         "remove": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-tecnica-remove.webp"
       }
     }
+  },
+  "o-que-apaga": {
+    "portrait": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": {
+        "erase": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-impulso-erase.webp"
+      }
+    }
   }
 };
