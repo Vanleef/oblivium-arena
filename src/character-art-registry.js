@@ -1146,5 +1146,20 @@ export const characterArtRegistry = {
       "voto": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "art/characters/o-julgador-gentil/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-mao-que-toma": {
+    "portrait": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/portrait.webp",
+    "passive": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "tecnica": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "voto": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-voto.webp",
+      "despertar": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": {
+        "open": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica-open.webp"
+      }
+    }
   }
 };

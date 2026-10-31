@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 102,
-  "newAbilityScenesSaved": 527,
+  "newPortraitsSaved": 103,
+  "newAbilityScenesSaved": 531,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Continuar a migração dos 83 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
-    "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
+    "Continuar a migração dos 71 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Produzir imagens dedicadas para as 31 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 430 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 506 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -32,11 +32,11 @@
     "compositionCorrections": 1,
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
-    "generatedByThesePlans": 22,
+    "generatedByThesePlans": 23,
     "remainingMissingBaseJobs": 0,
     "remainingCorrectionJobs": 0,
-    "remainingDedicatedVariantJobs": 32,
-    "remainingTotalJobs": 32,
+    "remainingDedicatedVariantJobs": 31,
+    "remainingTotalJobs": 31,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
@@ -77,7 +77,8 @@
     "themistoclesProductionReport": "docs/ART_THEMISTOCLES_DARK_PICTORIAL_REWORK_20261031.json",
     "zenobiaProductionReport": "docs/ART_ZENOBIA_DARK_PICTORIAL_REWORK_20261031.json",
     "cynaegirusProductionReport": "docs/ART_CYNAEGIRUS_DARK_PICTORIAL_REWORK_20261031.json",
-    "belisariusProductionReport": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json"
+    "belisariusProductionReport": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json",
+    "aMaoProductionReport": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -124,13 +125,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 437,
-      "integratedSlots": 437,
+      "candidateSlots": 513,
+      "integratedSlots": 513,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 67,
-      "pendingVisualApprovalSlots": 430,
+      "fullyMigratedEntries": 79,
+      "pendingVisualApprovalSlots": 506,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -199,7 +200,8 @@
     "cynaegirusArtwork": "6 fontes JPEG 768×768 e 6 candidatas WebP 512×512; apoio a um aliado e ataques a um alvo; pendente de aprovação visual.",
     "cynaegirusRuntime": "Rotas de arte e cobertura atualizadas; nenhuma mecânica de combate alterada.",
     "belisariusArtwork": "6 fontes JPEG 768×768 e 6 candidatas WebP 512×512; quatro patas, corpo não humanoide de pedra e cenas com alvos individuais; pendente de aprovação visual.",
-    "belisariusRuntime": "Rotas de arte e cobertura atualizadas; nenhuma mecânica de combate alterada."
+    "belisariusRuntime": "Rotas de arte e cobertura atualizadas; nenhuma mecânica de combate alterada.",
+    "aMaoArtwork": "Cinco artes novas em JPEG 768×768 e WebP 512×512, mais dois ativos existentes; base e variante técnica registrados, pendentes de aprovação visual."
   },
   "latestProduction": {
     "date": "2026-10-31",
@@ -209,5 +211,6 @@
     "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
     "report": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json"
-  }
+  },
+  "newDarkPictorialCandidateAssets": 513
 }

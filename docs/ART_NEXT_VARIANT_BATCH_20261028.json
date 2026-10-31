@@ -5,8 +5,9 @@
   "status": "partially_generated_pending_visual_approval",
   "counts": {
     "jobs": 36,
-    "generatedByThisPlan": 4,
-    "mechanicsReviewRequired": 0
+    "generatedByThisPlan": 5,
+    "mechanicsReviewRequired": 0,
+    "remainingJobs": 31
   },
   "generationOrder": "After five remaining base kits; preserve same logical key when replacing shared base art.",
   "jobs": [
@@ -251,14 +252,14 @@
       "key": "a-mao-que-toma:form:tecnica:open",
       "kind": "form",
       "characterId": "a-mao-que-toma",
-      "displayName": "Brennus",
+      "displayName": "Ravena",
       "world": "Inferno",
       "kingdom": "Magma",
       "slot": "tecnica",
       "abilityIndex": 1,
       "formKey": "open",
       "name": "Abrir o Cofre",
-      "status": "planned_not_generated",
+      "status": "generated_integrated_pending_visual_approval",
       "mechanicsSnapshot": {
         "name": "Abrir o Cofre",
         "damage": 0,
@@ -290,17 +291,29 @@
       "target": "self",
       "expectedPhysicalFigures": 1,
       "compoundCaster": null,
-      "framing": "close no corpo do próprio usuário",
-      "scene": "Cargas acumuladas se desfazem e recompõem abrasões superficiais de Brennus, que solta a respiração de dor após a recuperação. Apenas o usuário, sem cofre mecânico, vítima, roubo da reserva ou geração de Essência.",
+      "framing": "close íntimo em três quartos, foco na palma aberta e nas costelas",
+      "scene": "Essências douradas recompõem abrasões superficiais; ela apoia uma mão nas próprias costelas e observa o brilho se fechando sobre o ombro.",
       "references": {
-        "identityPortrait": "/art/characters/a-mao-que-toma/painterly-rework-20261025/portrait.webp",
-        "baseSkillForContrast": "/art/characters/a-mao-que-toma/painterly-rework-20261025/skill-tecnica.webp"
+        "identityPortrait": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/portrait.webp",
+        "baseSkillForContrast": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica.webp"
       },
       "referencePolicy": "Inspect current portrait and base ability before generating. Identity reference is not automatic approval of old rendering or forbidden technological features. Rework the complete affected kit first if a consistent identity cannot satisfy current art direction.",
       "transformationPolicy": "This ability variant alone does not authorize a new face, body, costume or anatomical form. Use only actual runtime body forms when relevant.",
       "mechanicsReview": null,
-      "proposedOutput": "art/characters/a-mao-que-toma/anime-first-variants-20261028/skill-tecnica-open.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Inferno: black and intense red, burnt earth and ash. Dante-like environment coherent with Magma.\nPreserve the physical identity of Brennus from its inspected current portrait. This is a DEDICATED illustration for variant Abrir o Cofre, not a recolored base skill. Do not reproduce old technological or mechanical props. Compare against base composition and choose a different instantaneous action.\nExact runtime mechanics (never render text): {\"name\":\"Abrir o Cofre\",\"damage\":0,\"cost\":2,\"target\":\"self\",\"damageType\":\"physical\",\"heal\":20,\"perChargeHeal\":5,\"spendCharge\":true,\"shift\":[{\"slot\":\"tecnica\",\"form\":\"base\",\"turns\":0}],\"formKey\":\"open\",\"id\":\"tecnica\",\"costs\":{\"affinity\":1,\"random\":1},\"cooldown\":0,\"kind\":\"support\",\"description\":\"Restaura 20 de Vida ao usuário. Consome Cargas: +5 de cura por Carga. Após usar, restaura Entesourar.\",\"art\":\"/art/characters/a-mao-que-toma/painterly-rework-20261025/skill-tecnica.webp\"}\nFraming: close no corpo do próprio usuário. Physical figures in this composition: 1.\nScene: Cargas acumuladas se desfazem e recompõem abrasões superficiais de Brennus, que solta a respiração de dor após a recuperação. Apenas o usuário, sem cofre mecânico, vítima, roubo da reserva ou geração de Essência.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "proposedOutput": "art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica-open.webp",
+      "prompt": "Variante de técnica autocentrada que recompõe abrasões superficiais com motes dourados de espólio. Ravena pressiona as próprias costelas e acompanha o brilho com expressão de dor que cede ao alívio. Uma única personagem, dois braços coerentes; sem cofre literal, alvo, aliado ou tecnologia.",
+      "activeAsset": "art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica-open.webp",
+      "sourceAsset": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/tecnica-open.jpg",
+      "generatedImage": "generated_images/exec-833c05a9-a7a3-4f2c-8e9a-9fec31357cb1.png",
+      "generatedImageSha256": "10a458f6d8f1049aa19cf69c3c194f6be0a799694fef4659029d9a669e797707",
+      "activeSha256": "103549bc5b68e296e1d7547f7c53f09c749ecbcb37622b734e97d6bd711f6070",
+      "sourceSha256": "5dca79e6c5b17b205bc345da4e0084b32978d11ea0dfc5ed81befa023fc8ed89",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "integratedStatus": "candidate_integrated_pending_visual_approval",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "key": "a-marionetista-de-nervos:form:tecnica:hold",

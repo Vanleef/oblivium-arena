@@ -75,9 +75,9 @@
   "appIconFilesTotal": 6,
   "pending": [
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
-    "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
+    "Criar imagens próprias para as 31 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Revisar visualmente 499 artes candidatas integradas na direção atual; sete já foram aprovadas."
+    "Revisar visualmente 506 artes candidatas integradas na direção atual; sete já foram aprovadas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,11 +105,11 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 500,
-      "remainingSlots": 498,
-      "fullyMigratedEntries": 77,
-      "remainingEntries": 73,
-      "awaitingVisualApprovalSlots": 493,
+      "integratedCandidateSlots": 513,
+      "remainingSlots": 485,
+      "fullyMigratedEntries": 79,
+      "remainingEntries": 71,
+      "awaitingVisualApprovalSlots": 506,
       "approvedSlots": 7,
       "name": "dark fantasy pictórica PMA"
     }
@@ -118,12 +118,12 @@
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-julgador-gentil"
+      "a-mao-que-toma"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 5,
+    "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_BENEDICT_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json"
   },
   "currentDirectionCorrectionHistory": [
     {
@@ -135,13 +135,24 @@
       "logicalSlotsReworked": 7,
       "logicalSlotsAdded": 0,
       "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-mao-que-toma",
+      "characterName": "A Saqueadora",
+      "feedback": "O relatório anterior listava sete artes integradas, mas só duas imagens estavam na pasta e o personagem não tinha entrada no registro de arte.",
+      "correction": "Geradas e integradas as cinco artes faltantes, registradas as sete rotas e acrescentada uma imagem dedicada para a variante Abrir o Cofre.",
+      "logicalSlotsReworked": 4,
+      "logicalSlotsAdded": 1,
+      "status": "candidate_integrated_pending_visual_approval"
     }
   ],
   "currentDirectionMigration": {
-    "integratedCandidateSlots": 506,
-    "remainingSlots": 492,
-    "fullyMigratedEntries": 78,
-    "remainingEntries": 72,
-    "awaitingVisualApprovalSlots": 499
+    "integratedCandidateSlots": 513,
+    "remainingSlots": 485,
+    "fullyMigratedEntries": 79,
+    "remainingEntries": 71,
+    "awaitingVisualApprovalSlots": 506,
+    "approvedSlots": 7
   }
 }
