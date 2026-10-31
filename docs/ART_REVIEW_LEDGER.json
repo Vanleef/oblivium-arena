@@ -700,7 +700,14 @@
     "o-espelho-carnal:base:impulso",
     "o-espelho-carnal:base:tecnica",
     "o-espelho-carnal:base:voto",
-    "o-espelho-carnal:base:despertar"
+    "o-espelho-carnal:base:despertar",
+    "a-costureira:base:portrait",
+    "a-costureira:base:passive",
+    "a-costureira:base:impulso",
+    "a-costureira:base:tecnica",
+    "a-costureira:form:tecnica:remove",
+    "a-costureira:base:voto",
+    "a-costureira:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1064,7 +1071,14 @@
     "o-espelho-carnal:base:impulso",
     "o-espelho-carnal:base:tecnica",
     "o-espelho-carnal:base:voto",
-    "o-espelho-carnal:base:despertar"
+    "o-espelho-carnal:base:despertar",
+    "a-costureira:base:portrait",
+    "a-costureira:base:passive",
+    "a-costureira:base:impulso",
+    "a-costureira:base:tecnica",
+    "a-costureira:form:tecnica:remove",
+    "a-costureira:base:voto",
+    "a-costureira:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
