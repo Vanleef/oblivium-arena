@@ -740,7 +740,13 @@
     "a-ultima-pagina:base:impulso",
     "a-ultima-pagina:base:tecnica",
     "a-ultima-pagina:base:voto",
-    "a-ultima-pagina:base:despertar"
+    "a-ultima-pagina:base:despertar",
+    "o-lugar-de-ninguem:base:portrait",
+    "o-lugar-de-ninguem:base:passive",
+    "o-lugar-de-ninguem:base:impulso",
+    "o-lugar-de-ninguem:base:tecnica",
+    "o-lugar-de-ninguem:base:voto",
+    "o-lugar-de-ninguem:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1111,7 +1117,13 @@
     "a-costureira:base:tecnica",
     "a-costureira:form:tecnica:remove",
     "a-costureira:base:voto",
-    "a-costureira:base:despertar"
+    "a-costureira:base:despertar",
+    "o-lugar-de-ninguem:base:portrait",
+    "o-lugar-de-ninguem:base:passive",
+    "o-lugar-de-ninguem:base:impulso",
+    "o-lugar-de-ninguem:base:tecnica",
+    "o-lugar-de-ninguem:base:voto",
+    "o-lugar-de-ninguem:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
