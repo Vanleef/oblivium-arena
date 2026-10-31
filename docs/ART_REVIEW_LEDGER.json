@@ -832,7 +832,15 @@
     "nilo-graca-prefacio:base:impulso",
     "nilo-graca-prefacio:base:tecnica",
     "nilo-graca-prefacio:base:voto",
-    "nilo-graca-prefacio:base:despertar"
+    "nilo-graca-prefacio:base:despertar",
+    "nilo-cinza-epilogo:base:portrait",
+    "nilo-cinza-epilogo:base:passive",
+    "nilo-cinza-epilogo:base:impulso",
+    "nilo-cinza-epilogo:base:tecnica",
+    "nilo-cinza-epilogo:base:voto",
+    "nilo-cinza-epilogo:base:despertar-4",
+    "nilo-cinza-epilogo:base:tecnica-5",
+    "nilo-cinza-epilogo:base:despertar-6"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1328,7 +1336,15 @@
     "nilo-graca-prefacio:base:impulso",
     "nilo-graca-prefacio:base:tecnica",
     "nilo-graca-prefacio:base:voto",
-    "nilo-graca-prefacio:base:despertar"
+    "nilo-graca-prefacio:base:despertar",
+    "nilo-cinza-epilogo:base:portrait",
+    "nilo-cinza-epilogo:base:passive",
+    "nilo-cinza-epilogo:base:impulso",
+    "nilo-cinza-epilogo:base:tecnica",
+    "nilo-cinza-epilogo:base:voto",
+    "nilo-cinza-epilogo:base:despertar-4",
+    "nilo-cinza-epilogo:base:tecnica-5",
+    "nilo-cinza-epilogo:base:despertar-6"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1489,6 +1505,46 @@
       "key": "nilo-graca-prefacio:base:despertar",
       "correctedAt": "2026-10-31",
       "note": "Corrigida a anomalia de leitura corporal: a pose agora mostra dois braços claramente ligados, com uma mão apoiada no mármore e a outra sobre o peito; a barreira ainda desvia exatamente três estilhaços."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:tecnica-5",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:despertar-6",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para a forma ++Cinza: malignidade, olhos completamente vermelhos e sinais demoníacos coexistem com as queimaduras, chamas e cabelos alaranjados herdados de +Cinza; composição e ação variam conforme a cena."
     }
   ]
 }

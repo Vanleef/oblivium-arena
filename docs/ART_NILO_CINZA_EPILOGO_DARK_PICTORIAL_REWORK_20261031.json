@@ -1,0 +1,153 @@
+{
+  "id": "nilo-cinza-epilogo-dark-pictorial-rework-20261031",
+  "characterId": "nilo-cinza-epilogo",
+  "displayName": "Nilo, Epílogo de Cinza (++Cinza)",
+  "world": "Inferno",
+  "realm": "Estige",
+  "artDirection": "Anime-first 2.5D pictórico dark fantasy; contornos manuais, pinceladas densas, hachuras e sombras angulares, materialidade de basalto, cinza, fogo e seda ritual. Inferno/Estige em carvão, vermelho-escuro e brasa. A forma ++Cinza herda a fúria, as queimaduras, as chamas e os fios alaranjados de +Cinza, acrescentando olhos completamente vermelhos e traços demoníacos.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/portrait.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Retrato fechado em 3/4 baixo: Nilo acompanha uma alma fora de quadro com sorriso maligno; olhos totalmente vermelhos, cabelos com fios alaranjados e queimaduras em brasa no rosto.",
+      "activeSha256": "45a24cf379e8060e36b2d339e813d40f12119216893707eddc0b512f8729423a",
+      "sourceSha256": "ec08032a902ebb1e6fc348a1c49be89a8cfec7f24abf7d28230aff03499b2dd9"
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/passive.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Vista lateral ampla: a expansão de cinza consome o fôlego de Nilo; uma mão pressiona o peito e a outra segura o cordão ritual, com fissuras de brasa se desfazendo em cinza.",
+      "activeSha256": "b7bfc69711e0bc64a01a8681b35318753811876ace3911ed0ed0a7698da92964",
+      "sourceSha256": "165ca32ccb5c0ea33724931883523d1e0fd9d2726fe01adb3a419bd63402b8b7"
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/impulso.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Ângulo por trás do ombro: um único fio ritual vermelho corta superficialmente o manto de um condenado; a chama e a reação do alvo mostram o contato, sem gore.",
+      "activeSha256": "ce9e980022e23ec0f091472fcc8af45983203a3170189b1e0e97e09cb0d988cd",
+      "sourceSha256": "613933923c059364b1cb08b93fd85b1f1a9982fb58b2a27ba705c81d943ac942"
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/tecnica.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Plano médio oblíquo pelo lado do alvo: golpe de palma remove a proteção falsa dourada de um condenado, que recua enquanto a película se desfaz em cinza.",
+      "activeSha256": "4a19c85ca5a29f66fa7d374e3486a79924ddc1e38a25fef026c37723cecae540",
+      "sourceSha256": "5d0653a69eb819ec9f10685037d7fa340ce4d4a16a1f5e9e3fbba21885520dd2"
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/voto.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Vista alta por trás: Nilo ativa a expansão, cai sobre um joelho e perde o fôlego enquanto um núcleo de brasa se espalha por seda vermelha e cinza.",
+      "activeSha256": "8c54b24b7d2945f4ef2832a3a568956c9c8aba368c255a8eab29a2c26076aefb",
+      "sourceSha256": "eb6049b2d596a2459c4150067d21de2f23a725f9f8dd1ce2312f805930b65742"
+    },
+    {
+      "slot": "despertar-4",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-despertar-4.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/despertar-4.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Ângulo lateral baixo e próximo: com a expansão ativa, um fio ritual corta o tecido no ombro de um único alvo e deixa marca leve de Sangramento, sem ferida gráfica.",
+      "activeSha256": "205c2caca745694064baca526fe5471fa404f3ed7d30a72dfee29bbdaa403c9f",
+      "sourceSha256": "76b94730c8bb58c77c1728072d3e4b7a32d3a6eb1f2f48fc81bd716f5512ba08"
+    },
+    {
+      "slot": "tecnica-5",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-tecnica-5.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/tecnica-5.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Plano lateral aberto de consequência: um alvo debilitado cede de joelhos após o golpe; Nilo recolhe a palma e controla a respiração, sem morte explícita.",
+      "activeSha256": "ddfec50a63e7003a066cdf953853ceea4192f80da32bd2007b411cf7596117f8",
+      "sourceSha256": "251d20e42265c2a45316a7a9752843cc71400451bfbae66d406ee8cde3e2427d"
+    },
+    {
+      "slot": "despertar-6",
+      "path": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-despertar-6.webp",
+      "source": "art/source/nilo-cinza-epilogo-dark-pictorial-rework-20261031/despertar-6.jpg",
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "scene": "Defesa em corpo inteiro vista por trás em 3/4: manto de cinza e seda vermelha protege Nilo enquanto brasas e fragmentos atingem a defesa orgânica.",
+      "activeSha256": "0302d83c4373d61d197ac95f88ac69b0772ce2257110f223f948285b7772b7f7",
+      "sourceSha256": "f8860eebdba5df1d3583f9eba3d8c9fc8c8295a76976c4f89a69594981410586"
+    }
+  ],
+  "previousArtDirection": "Anime 2.5D pictórico e gótico, inspirado no Inferno de Dante. Estige vermelho-escuro, basalto, cinza e fogo; vestes em carvão, índigo e seda vermelha. Expansão autodestrutiva mostrada como desgaste físico e fogo arcano, sem gore, armadura, arma de fogo ou tecnologia.",
+  "identity": "Nilo, 24 anos, pele castanha média, cabelo azul-negro com mecha marfim e fios alaranjados, roupa carvão, manto chamuscado e cordão ritual vermelho. Em ++Cinza, a expressão é maligna, os olhos são inteiramente vermelhos e fissuras de brasa, veios escuros e contornos infernais reforçam os traços demoníacos. Sem arma ou tecnologia.",
+  "essenceState": {
+    "essence": "Cinza",
+    "stage": "++",
+    "emotionalState": "Maligno",
+    "appearance": {
+      "inheritedFrom": "+Cinza: fúria, queimaduras pelo corpo, chamas e tons alaranjados no cabelo",
+      "eyes": "completamente vermelhos, sem íris ou esclera em outra cor",
+      "demonicTraits": "fissuras incandescentes, veios escuros e contornos faciais infernais; chifres não são obrigatórios",
+      "distinctionFrom": "+Cinza, que mantém os olhos cinza-azulados e não apresenta esses traços demoníacos"
+    }
+  },
+  "mechanicsPreserved": true,
+  "visualApproval": "pending"
+}
