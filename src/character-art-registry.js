@@ -1071,5 +1071,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-jardineira-das-feridas": {
+    "portrait": "/art/characters/a-jardineira-das-feridas/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-jardineira-das-feridas/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-jardineira-das-feridas/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-jardineira-das-feridas/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-jardineira-das-feridas/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-jardineira-das-feridas/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
