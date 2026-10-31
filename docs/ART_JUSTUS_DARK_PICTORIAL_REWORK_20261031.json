@@ -70,7 +70,7 @@
       "label": "Parada Equânime",
       "activePath": "/art/characters/a-lamina-justa/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/a-lamina-justa-dark-pictorial-rework-20261031/tecnica.jpg",
-      "scene": "Parada física contra um único agressor; a mão fecha sobre a empunhadura com o polegar em oposição aos dedos, punho alinhado ao antebraço e guarda, cabo, pomo e lâmina em continuidade.",
+      "scene": "Parada física contra um único agressor; quatro dedos envolvem o cabo e o polegar se opõe a eles; punho alinhado ao antebraço; guarda, cabo, pomo e lâmina contínuos.",
       "targetCount": "1 agressor",
       "width": 512,
       "height": 512,
@@ -123,6 +123,7 @@
     "Somente as rotas de arte e documentação foram atualizadas; mecânicas de combate permanecem inalteradas.",
     "As seis candidatas foram integradas ao branch e aguardam aprovação visual final.",
     "A Técnica foi editada novamente após a conferência do arquivo ativo. O mesmo braço agora se conecta ao ombro, cotovelo, antebraço, punho e mão; guarda, cabo, pomo e lâmina formam uma espada única e contínua. A candidata segue pendente de aprovação visual.",
-    "A empunhadura foi ajustada após nova revisão: quatro dedos envolvem o cabo e o polegar se opõe a eles; punho e antebraço permanecem alinhados. A candidata continua pendente de aprovação visual."
+    "A empunhadura foi ajustada após nova revisão: quatro dedos envolvem o cabo e o polegar se opõe a eles; punho e antebraço permanecem alinhados. A candidata continua pendente de aprovação visual.",
+    "A mão foi refeita para tornar a pega inequívoca: quatro dedos envolvem a empunhadura e o polegar fecha em oposição; a espada e o braço mantêm continuidade. Esta é a versão ativa mais recente, ainda pendente de aprovação visual."
   ]
 }
