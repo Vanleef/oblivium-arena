@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 92,
-  "newAbilityScenesSaved": 474,
+  "newPortraitsSaved": 93,
+  "newAbilityScenesSaved": 479,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 367 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 373 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 374,
+    "newDarkPictorialCandidateAssets": 380,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -68,7 +68,8 @@
     "andriscusProductionReport": "docs/ART_ANDRISCUS_O_USURPADOR_DARK_PICTORIAL_REWORK_20261030.json",
     "tarquinProductionReport": "docs/ART_TARQUINIO_DARK_PICTORIAL_REWORK_20261031.json",
     "marionetistaProductionReport": "docs/ART_A_MARIONETISTA_DARK_PICTORIAL_REWORK_20261031.json",
-    "akhenatenProductionReport": "docs/ART_AKHENATEN_DARK_PICTORIAL_REWORK_20261031.json"
+    "akhenatenProductionReport": "docs/ART_AKHENATEN_DARK_PICTORIAL_REWORK_20261031.json",
+    "nabonidusProductionReport": "docs/ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -115,13 +116,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 374,
-      "integratedSlots": 374,
+      "candidateSlots": 380,
+      "integratedSlots": 380,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 57,
-      "pendingVisualApprovalSlots": 367,
+      "fullyMigratedEntries": 58,
+      "pendingVisualApprovalSlots": 373,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -178,7 +179,9 @@
     "ovidArtwork": "Duas novas formas corporais e seis cenas dedicadas: quadrúpede terrestre alongado e predador voador de asas-membros; JPEG 768×768 e WebP 512×512; candidatas pendentes de aprovação visual.",
     "ovidRuntime": "Atualizadas somente as rotas das duas formas e os textos de identidade; forma humanoide base e mecânicas preservadas.",
     "akhenatenArtwork": "6 cenas-base e 1 variação dedicada; 7 fontes JPEG 768×768 e 7 ativos WebP 512×512; candidatas pendentes de aprovação visual.",
-    "akhenatenRuntime": "Atualizadas rotas de retrato, habilidades e forms.impulso.erase; nenhuma mecânica de combate foi alterada."
+    "akhenatenRuntime": "Atualizadas rotas de retrato, habilidades e forms.impulso.erase; nenhuma mecânica de combate foi alterada.",
+    "nabonidusArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; efeitos individuais, cena de área com três alvos e composição de defesa pessoal inspecionados; aguardam aprovação visual.",
+    "nabonidusRuntime": "Rotas de retrato, passiva e quatro habilidades atualizadas; nenhuma mecânica de combate foi alterada."
   },
   "latestProduction": {
     "date": "2026-10-31",
