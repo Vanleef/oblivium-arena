@@ -1374,6 +1374,41 @@
       "characterId": "nilo-graca-prefacio",
       "date": "2026-10-31",
       "reason": "Refeito o kit-base de seis slots na direção anime-first 2.5D pictórica de Paraíso; identidade e mecânicas preservadas. Aguardar aprovação visual."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo ++Ruptura agora tem olhos totalmente violetas, marcas roxas, fios roxos junto à mecha marfim e vulto negro amorfo; retrato preserva identidade e vazio emocional."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada para comunicar ++Ruptura e manter as duas rotas de sombra nítidas; vulto negro amorfo, sem forma animal."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada para comunicar ++Ruptura no toque furtivo; anatomia e contato no ombro preservados, sombra sem filamentos genéricos."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada para substituir a linha violeta por corte de sombra físico em contato próximo, mantendo um único alvo e a área do manto atingida."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada para substituir os filamentos por faixa larga e pesada de sombra no pulso e ombro de um único alvo."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada para comunicar ++Ruptura e representar a defesa com placa opaca de sombra contra uma única besta-sombra."
+    },
+    {
+      "key": "nilo-ruptura-epilogo:base:despertar-5",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada para comunicar ++Ruptura, com vulto amorfo e esquiva pessoal; exatamente três fragmentos atravessam o manto."
     }
   ]
 }

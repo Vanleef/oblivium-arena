@@ -1,19 +1,19 @@
-# Nilo, Epílogo de Ruptura — revisão anime-first 2.5D pictórica — 31/10/2026
+# Nilo, Epílogo de Ruptura — revisão dark fantasy pictórica — 31/10/2026
 
-As sete artes foram refeitas em dark fantasy pictórica 2.5D com acabamento gótico ornado. Nilo mantém pele castanha média, olhos cinza-azulados e cabelo azul-negro com uma mecha marfim; veste tecidos carvão e índigo, sem armadura. O Limbo/Umbral aparece em vãos sem portas, escadarias incompletas, pedra antiga e névoa violeta.
+As sete artes foram refeitas para representar explicitamente o estágio **++Ruptura**. Nilo mantém pele castanha média, cabelo azul-negro com a mecha marfim, tecidos carvão e índigo e a identidade reconhecível; os olhos agora são totalmente violetas, há marcas roxas nas áreas expostas e fios roxos no cabelo. Um vulto negro amorfo acompanha o corpo, sem forma de animal. A expressão e a postura comunicam vazio emocional.
 
-As composições distinguem preparação furtiva, toque de passagem, corte espacial, sombra que envolve um alvo, contra-ataque à besta-sombra e esquiva pessoal no limiar. O Passivo mostra uma sombra que se divide em duas rotas; o Despertar 5 deixa claro que os fragmentos atravessam apenas a borda evanescente do manto. Mecânicas preservadas; as sete candidatas aguardam aprovação visual.
+O cenário permanece no Limbo/Umbral, com vãos sem portas, escadarias incompletas, pedra antiga e névoa violeta. As composições preservam as ações do kit: escolha furtiva dividida em duas rotas; toque de passagem; corte de sombra em contato próximo; faixa larga de sombra sobre um alvo; bloqueio físico de uma besta-sombra; e esquiva pessoal no limiar. Não há feixes genéricos, penas, bicos ou asas. Mecânicas preservadas; as sete candidatas seguem pendentes de aprovação visual.
 
 Ativos WebP 512×512: `art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_RUPTURA_EPILOGO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
 
 | Slot | Cena |
 | --- | --- |
-| portrait | Retrato atento no Umbral, entre um vão sem porta e degraus interrompidos. |
-| passive | Agachado junto à parede, Nilo prepara uma escolha furtiva; uma sombra visível se divide em duas rotas. |
-| impulso | Nilo desvia um passo e toca o ombro de uma mulher de pele escura e físico robusto, misturando o tecido à sombra da coluna. |
-| tecnica | Corte Silencioso: uma linha violeta abre apenas o manto no ombro de um homem mais velho de cabelo prateado. |
-| voto | A sombra da jovem de pele acobreada e cabelo ruivo curto envolve seu pulso e ombro; Nilo observa da coluna. |
-| despertar-4 | Nilo intercepta e devolve o arco de força de uma única besta-sombra com um plano de sombra, deixando marcas violetas. |
-| despertar-5 | Nilo se apoia no limiar quebrado em esquiva pessoal; três fragmentos atravessam a borda evanescente do manto. |
+| portrait | Nilo no Umbral sob um vão sem porta, com olhos violetas, marcas roxas e vulto amorfo. |
+| passive | Agachado junto à parede; sua sombra se divide em duas rotas claramente legíveis. |
+| impulso | Toque furtivo no ombro de uma mulher, com sombra aderida ao corpo e ao contato. |
+| tecnica | Corte silencioso em contato próximo, rompendo somente o manto no ombro do alvo. |
+| voto | Uma faixa larga de sombra envolve o pulso e o ombro de uma mulher ruiva; Nilo observa da coluna. |
+| despertar-4 | Uma placa opaca de sombra intercepta o golpe de uma única besta-sombra. |
+| despertar-5 | Esquiva pessoal no limiar; exatamente três fragmentos atravessam a borda do manto. |
 
-A migração pictórica cobre **584/998 slots**, com **414 restantes**, em **89/150 entradas**. Restam **61 entradas**; **577 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+A cobertura permanece em **584/998 slots**, **89/150 entradas**, com **414 slots restantes**, **577 candidatas** pendentes de aprovação visual e **7 artes aprovadas**.
