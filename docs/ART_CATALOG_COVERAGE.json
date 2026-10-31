@@ -1082,7 +1082,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-fim-silencioso",
@@ -2427,21 +2436,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 374,
-    "remainingSlots": 624,
-    "fullyMigratedEntries": 57,
-    "remainingEntries": 93,
-    "awaitingVisualApprovalSlots": 367,
+    "integratedCandidateSlots": 380,
+    "remainingSlots": 618,
+    "fullyMigratedEntries": 58,
+    "remainingEntries": 92,
+    "awaitingVisualApprovalSlots": 373,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-que-apaga"
+      "a-ausencia"
     ],
-    "candidateSlotsAdded": 7,
-    "candidateSlotsActivated": 7,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_AKHENATEN_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
