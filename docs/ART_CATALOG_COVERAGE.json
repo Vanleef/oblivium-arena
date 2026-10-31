@@ -1147,7 +1147,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-lugar-de-ninguem",
@@ -2452,21 +2461,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 394,
-    "remainingSlots": 604,
-    "fullyMigratedEntries": 60,
-    "remainingEntries": 90,
-    "awaitingVisualApprovalSlots": 387,
+    "integratedCandidateSlots": 400,
+    "remainingSlots": 598,
+    "fullyMigratedEntries": 61,
+    "remainingEntries": 89,
+    "awaitingVisualApprovalSlots": 393,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-menino-sem-sombra"
+      "a-ultima-pagina"
     ],
-    "candidateSlotsAdded": 7,
-    "candidateSlotsActivated": 7,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HATSHEPSUT_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_ENHEDUANNA_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
