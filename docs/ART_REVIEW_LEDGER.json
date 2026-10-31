@@ -753,7 +753,13 @@
     "o-escudo-vivo:base:tecnica",
     "o-escudo-vivo:base:voto",
     "o-escudo-vivo:base:despertar",
-    "o-escudo-vivo:form:impulso:advance"
+    "o-escudo-vivo:form:impulso:advance",
+    "a-muralha:base:portrait",
+    "a-muralha:base:passive",
+    "a-muralha:base:impulso",
+    "a-muralha:base:tecnica",
+    "a-muralha:base:voto",
+    "a-muralha:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1137,7 +1143,13 @@
     "o-escudo-vivo:base:tecnica",
     "o-escudo-vivo:base:voto",
     "o-escudo-vivo:base:despertar",
-    "o-escudo-vivo:form:impulso:advance"
+    "o-escudo-vivo:form:impulso:advance",
+    "a-muralha:base:portrait",
+    "a-muralha:base:passive",
+    "a-muralha:base:impulso",
+    "a-muralha:base:tecnica",
+    "a-muralha:base:voto",
+    "a-muralha:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
