@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "title": "Sushruta — A Suturadora — revisão dark fantasy pictórica",
+  "title": "Sable — A Suturadora — revisão dark fantasy pictórica",
   "generator": "OpenAI ImageGen built-in",
   "style": "Dark fantasy pictórica 2.5D; pinceladas angulares, hachuras e sombras recortadas; alfaiataria gasta, linha física, remendos de tecido e paleta de Inferno/Carne em carvão, brasa, marinho e coral.",
   "counts": {
@@ -114,7 +114,7 @@
       "slot": "skill-despertar",
       "activePath": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-despertar.webp",
       "sourcePath": "art/source/a-costureira-dark-pictorial-rework-20261031/skill-despertar.jpg",
-      "scene": "Costura de Ausência: o xale bloqueia a lança de um agressor e mantém o corpo de Sushruta ileso.",
+      "scene": "Costura de Ausência: o xale bloqueia a lança de um agressor e mantém o corpo de Sable ileso.",
       "targetCount": "self",
       "width": 512,
       "height": 512,
@@ -128,15 +128,15 @@
     }
   ],
   "promptSet": {
-    "shared": "Dark fantasy pictorial 2.5D, angular painted contours, hatching, cut shadows, tactile worn cloth and clear needle-and-thread action. Preserve Sushruta: elderly woman around 75, short sturdy build, warm olive skin, silver curly bun, clear round glasses, navy tailor's coat, coral cuffs, patchwork shawl, one large hand-sewing needle. She repairs garments and cloth armor only; never sew skin. Inferno/Carne colors are charcoal, ember, navy and coral. No gore, extra limbs, text, watermark, scissors, technology, laboratory or generic soldiers.",
+    "shared": "Dark fantasy pictorial 2.5D, angular painted contours, hatching, cut shadows, tactile worn cloth and clear needle-and-thread action. Preserve Sable: elderly woman around 75, short sturdy build, warm olive skin, silver curly bun, clear round glasses, navy tailor's coat, coral cuffs, patchwork shawl, one large hand-sewing needle. She repairs garments and cloth armor only; never sew skin. Inferno/Carne colors are charcoal, ember, navy and coral. No gore, extra limbs, text, watermark, scissors, technology, laboratory or generic soldiers.",
     "bySlot": {
-      "portrait": "Three-quarter portrait; Sushruta holds one hand-sewing needle above a patchwork shawl, glasses and silver bun clearly visible.",
+      "portrait": "Three-quarter portrait; Sable holds one hand-sewing needle above a patchwork shawl, glasses and silver bun clearly visible.",
       "passive": "Repair one allied ghoul's coat with a small defensive patch; a clean Grace mote rises from the repaired cloth.",
       "impulso": "Ponto de Corte: needle and thread slash one ghoul's armored glove, leaving a mark without blood.",
       "tecnica": "Sutura de Domínio: close overhead; stitch one allied ghoul's coat, cleanse one stain and heal through clothing only.",
       "tecnica:remove": "Reforçar os Pontos: a dedicated close composition with a thick cloth patch reinforcing one ally's shoulder armor, distinct from the cleansing image.",
       "voto": "Desfazer os Pontos: open the outer coat seams of one marked ghoul, exposing no skin.",
-      "despertar": "Costura de Ausência: the shawl blocks one attacker’s spear while Sushruta's body remains untouched."
+      "despertar": "Costura de Ausência: the shawl blocks one attacker’s spear while Sable's body remains untouched."
     }
   },
   "visualReview": "As sete imagens foram inspecionadas para identidade, legibilidade dos gestos, diversidade de enquadramento e integridade física. A variação Reforçar os Pontos tem uma composição dedicada; todas permanecem candidatas pendentes de aprovação visual."

@@ -1,14 +1,14 @@
-# A Pira Errante — redesign dark pictorial (2026-10-30)
+# Lyra — A Vingadora
 
 ## Revisão de direção visual
 
-O feedback apontou que o manto e o conjunto preto/carmesim anteriores aproximavam Tomyris visualmente de outras personagens do Inferno. As sete imagens foram substituídas por uma silhueta de viajante compacta e distinta: túnica curta sem mangas em cinza-claro, gola larga deslocada, calças carvão cruzadas e amarração curta ferrugem. O bracelete ritual de basalto permanece no antebraço direito e a lanterna de vidro fumê no quadril esquerdo. Sem capa, manto, véu, vestido longo, máscara, coroa, chifres ou arma.
+O feedback apontou que o manto e o conjunto preto/carmesim anteriores aproximavam Lyra visualmente de outras personagens do Inferno. As sete imagens foram substituídas por uma silhueta de viajante compacta e distinta: túnica curta sem mangas em cinza-claro, gola larga deslocada, calças carvão cruzadas e amarração curta ferrugem. O bracelete ritual de basalto permanece no antebraço direito e a lanterna de vidro fumê no quadril esquerdo. Sem capa, manto, véu, vestido longo, máscara, coroa, chifres ou arma.
 
 ## Escopo e revisão
 
-- Personagem: Tomyris, A Vingadora (A Pira Errante), Inferno / Estige, Cinza.
+- Personagem: Lyra, A Vingadora (A Pira Errante), Inferno / Estige, Cinza.
 - Sete arquivos visuais reeditados nos mesmos espaços lógicos: retrato, passiva, quatro habilidades-base e variação Revanche Ardente.
-- Alvos: um ghoul nas quatro cenas ofensivas; exatamente três em Cerco Incandescente; Passo entre Brasas mostra Tomyris sozinha desviando de um dardo.
+- Alvos: um ghoul nas quatro cenas ofensivas; exatamente três em Cerco Incandescente; Passo entre Brasas mostra Lyra sozinha desviando de um dardo.
 - Anatomia adulta coerente, bracelete à direita e lanterna à esquerda.
 - Nenhuma mecânica foi alterada. As sete candidatas continuam aguardando aprovação visual.
 

@@ -1,14 +1,14 @@
-# Hans — revisão dark fantasy pictórica
+# Hans — O Informante
 
-**Personagem:** Hans, Informante da Podridão (ID hans)  
+**Personagem:** Hans, O Informante da Podridão (ID hans)  
 **Mundo:** Inferno / Podridão · **Essência:** Cinza  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
-Hans é apresentado como um informante humano de cabelo claro curto, bigode grisalho, cowl de lã carvão e forro ocre. Cinza, podridão e toxina representam os efeitos; raízes não são usadas no traje, separando sua silhueta de Teofrasto.
+Hans é apresentado como um O Informante humano de cabelo claro curto, bigode grisalho, cowl de lã carvão e forro ocre. Cinza, podridão e toxina representam os efeitos; raízes não são usadas no traje, separando sua silhueta de Teofrasto.
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Hans — Informante da Podridão | none | art/characters/hans/dark-pictorial-rework-20261030/portrait.webp | art/source/hans-dark-pictorial-rework-20261030/portrait.jpg | e5dc7cfc161971766402cf9232e9f15ee5c23a9dcd3bfdc3f5fe5e1e311fb57f |
+| portrait | Hans — O Informante da Podridão | none | art/characters/hans/dark-pictorial-rework-20261030/portrait.webp | art/source/hans-dark-pictorial-rework-20261030/portrait.jpg | e5dc7cfc161971766402cf9232e9f15ee5c23a9dcd3bfdc3f5fe5e1e311fb57f |
 | passive | Juros de Decadência | dois ghouls inimigos já afetados por Decadência | art/characters/hans/dark-pictorial-rework-20261030/passive.webp | art/source/hans-dark-pictorial-rework-20261030/passive.jpg | 09b1ddde09e13c57c371c66260bbc31efbfa76f6ef538b9cf8eeb3533910d6c9 |
 | impulso | Informação Venenosa | um ghoul inimigo | art/characters/hans/dark-pictorial-rework-20261030/skill-impulso.webp | art/source/hans-dark-pictorial-rework-20261030/impulso.jpg | fd1e9b0085732d4ddd085c533fcb2a16ce9a6b5b35625ba09cf6ca3f72332550 |
 | tecnica | Decadência Compartilhada | três ghouls inimigos | art/characters/hans/dark-pictorial-rework-20261030/skill-tecnica.webp | art/source/hans-dark-pictorial-rework-20261030/tecnica.jpg | 760010fb71bb15817cd3b411a83c77b45767c34680dc6f69cea7f80d44338fdf |

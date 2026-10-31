@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "title": "Akhenaten — O Anulador — revisão dark fantasy pictórica",
+  "title": "Noctis — O Anulador — revisão dark fantasy pictórica",
   "generator": "OpenAI ImageGen built-in",
   "style": "Dark fantasy pictórica 2.5D, pinceladas angulares e hachuras ásperas, ruínas de pedra, tecido negro gasto, raspador largo de marfim e espaços negativos brancos.",
   "counts": {
@@ -121,7 +121,7 @@
       "label": "Fora da Existência",
       "activePath": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-despertar.webp",
       "sourcePath": "art/source/o-que-apaga-dark-pictorial-rework-20261031/skill-despertar.jpg",
-      "scene": "Akhenaten gira junto a uma faixa estreita de espaço apagado enquanto um projétil passa sem o alcançar.",
+      "scene": "Noctis gira junto a uma faixa estreita de espaço apagado enquanto um projétil passa sem o alcançar.",
       "targetCount": "Self",
       "width": 512,
       "height": 512,
@@ -135,7 +135,7 @@
     }
   ],
   "notes": [
-    "Forma visual preserva Akhenaten: homem de meia-idade, pele castanho-carvão, cabelo branco curto, casaco negro e raspador de marfim.",
+    "Forma visual preserva Noctis: homem de meia-idade, pele castanho-carvão, cabelo branco curto, casaco negro e raspador de marfim.",
     "A variação dedicada Anulação Definitiva ocupa a continuação de impulso após Marca da Anulação.",
     "Somente rotas de arte e documentação foram atualizadas; mecânicas de combate permanecem inalteradas.",
     "Candidatas integradas ao branch e ainda aguardando aprovação visual final."

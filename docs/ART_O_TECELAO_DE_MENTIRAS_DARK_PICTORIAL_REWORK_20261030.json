@@ -1,8 +1,8 @@
 {
-  "title": "O Intrigante — revisão dark fantasy pictórica",
+  "title": "Orin — O Intrigante — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "o-tecelao-de-mentiras",
-  "characterName": "Bagoas",
+  "characterName": "Orin",
   "characterTitle": "O Intrigante",
   "realm": "Inferno",
   "kingdom": "Malebolge",
@@ -10,7 +10,7 @@
   "identity": "Figura esguia e alta de face única em porcelana marfim rachada, um olho jade e uma cavidade ocular vazia e escura, cabelo feito de fios negros finos e pequenos carretéis de latão. Usa casaco longo preto e carmesim gasto; fios vermelhos físicos formam a trama ao redor das mãos e ombros.",
   "styleReference": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/portrait.webp (marcadores de identidade); acabamento atualizado para a direção dark fantasy pictórica gráfica 2.5D.",
   "sceneVariety": "Arquivo infernal de tinturas, corda que prende uma arma, rede contra três inimigos, desatar curativo de três aliados, nó de contenção em um alvo e esquiva entre papéis; sete enquadramentos e usos distintos.",
-  "anatomyReview": "Sete peças inspecionadas. A face de porcelana permanece única; Rede de Falsidades atinge exatamente três inimigos e Desatar a Trama mostra exatamente três aliados no total, incluindo Bagoas. Sem anomalias anatômicas evidentes.",
+  "anatomyReview": "Sete peças inspecionadas. A face de porcelana permanece única; Rede de Falsidades atinge exatamente três inimigos e Desatar a Trama mostra exatamente três aliados no total, incluindo Orin. Sem anomalias anatômicas evidentes.",
   "gameplayChanged": false,
   "status": "candidate_integrated_pending_visual_approval",
   "assets": [
@@ -24,9 +24,9 @@
       "sourceBytes": 196253,
       "activeSha256": "37f76cb1160317cea2c52e7edaed901f54a1f6440fbe757c431c9bcd10a6457b",
       "sourceSha256": "beb5b16be677622fc834180927657cdfae009a053ef85f9710707b42c5fcea31",
-      "scene": "Bagoas surge entre carretéis no arquivo, com rosto único rachado, olho jade e olho vazio.",
+      "scene": "Orin surge entre carretéis no arquivo, com rosto único rachado, olho jade e olho vazio.",
       "camera": "Close baixo em três quartos.",
-      "prompt": "Bagoas surge entre carretéis no arquivo, com rosto único rachado, olho jade e olho vazio."
+      "prompt": "Orin surge entre carretéis no arquivo, com rosto único rachado, olho jade e olho vazio."
     },
     {
       "slot": "passive",
@@ -38,9 +38,9 @@
       "sourceBytes": 188307,
       "activeSha256": "79f6fa8da70a57e51fab6a8936a9bede22e82990e33726fcb764a2f7fd4e8bf2",
       "sourceSha256": "c687245f3a2814826053a1cb9b66774f911df6b82a5701edb22619c06e2c1a6d",
-      "scene": "Um inimigo já marcado perde o equilíbrio quando Bagoas puxa o fio preso ao pulso da arma.",
+      "scene": "Um inimigo já marcado perde o equilíbrio quando Orin puxa o fio preso ao pulso da arma.",
       "camera": "Oblíquo por cima do ombro do alvo.",
-      "prompt": "Um inimigo já marcado perde o equilíbrio quando Bagoas puxa o fio preso ao pulso da arma."
+      "prompt": "Um inimigo já marcado perde o equilíbrio quando Orin puxa o fio preso ao pulso da arma."
     },
     {
       "slot": "impulso",
@@ -80,9 +80,9 @@
       "sourceBytes": 212483,
       "activeSha256": "22f6bc49c4b1adfd9798f2ae42cd1943455623727c90f3469ded1f15ff0a4e8a",
       "sourceSha256": "c86a7516876467996cc5d3e97fbb6f4c65e44fee0f7441804435f21e8999e53b",
-      "scene": "Bagoas desfaz nós nocivos das vestes de exatamente dois aliados; são três figuras ao todo, incluindo o próprio Bagoas.",
+      "scene": "Orin desfaz nós nocivos das vestes de exatamente dois aliados; são três figuras ao todo, incluindo o próprio Orin.",
       "camera": "Zenital oblíquo utilitário.",
-      "prompt": "Bagoas desfaz nós nocivos das vestes de exatamente dois aliados; são três figuras ao todo, incluindo o próprio Bagoas."
+      "prompt": "Orin desfaz nós nocivos das vestes de exatamente dois aliados; são três figuras ao todo, incluindo o próprio Orin."
     },
     {
       "slot": "voto",
@@ -108,9 +108,9 @@
       "sourceBytes": 185460,
       "activeSha256": "6026f661abdf7c1456d258c1386252f6b9df8b1efe49696bd7bd89d7af27f8f2",
       "sourceSha256": "3f7774a5bed76d1da3b0990f1ca52b933029d9f44cddb326ce854383d8dd03d4",
-      "scene": "Bagoas se recolhe entre prateleiras e tiras de papel enquanto uma lâmina atravessa o espaço vazio.",
+      "scene": "Orin se recolhe entre prateleiras e tiras de papel enquanto uma lâmina atravessa o espaço vazio.",
       "camera": "Reversa rente ao chão.",
-      "prompt": "Bagoas se recolhe entre prateleiras e tiras de papel enquanto uma lâmina atravessa o espaço vazio."
+      "prompt": "Orin se recolhe entre prateleiras e tiras de papel enquanto uma lâmina atravessa o espaço vazio."
     }
   ]
 }

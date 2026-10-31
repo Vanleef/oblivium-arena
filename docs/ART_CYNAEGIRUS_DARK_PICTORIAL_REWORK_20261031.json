@@ -2,12 +2,12 @@
   "date": "2026-10-31",
   "character": {
     "id": "o-que-ficou",
-    "name": "Cynaegirus",
+    "name": "Caius",
     "title": "O Abnegado",
     "role": "Protetor Sacrificial"
   },
   "identity": "Homem adulto de pele oliva, olhos verdes, cabelos castanhos encaracolados e barba curta; túnica azul desgastada, echarpe ferrugem e espada nas costas.",
-  "lore": "Cynaegirus permanece quando seria mais seguro recuar e oferece parte do próprio fôlego para manter outra pessoa de pé.",
+  "lore": "Caius permanece quando seria mais seguro recuar e oferece parte do próprio fôlego para manter outra pessoa de pé.",
   "assets": [
     {
       "slot": "portrait",
@@ -48,11 +48,11 @@
   ],
   "compositionChecks": {
     "portrait": "Homem adulto de pele oliva, cabelo castanho encaracolado, olhos verdes, barba curta, túnica azul e echarpe ferrugem; espada nas costas.",
-    "passive": "Cynaegirus protege um único aliado e sustenta a presença defensiva sem criar um alvo extra.",
-    "impulso": "Não Recuar mostra um golpe físico contra um único inimigo; a guarda reduz o dano recebido por Cynaegirus.",
-    "tecnica": "Amparo Abnegado cura e concede Defesa destrutível a um aliado; a perda de Vida de Cynaegirus permanece sem derrota.",
-    "voto": "Permanecer de Pé concentra o golpe e a recuperação em um único inimigo e no próprio Cynaegirus.",
-    "despertar": "Promessa Inquebrável envolve somente Cynaegirus em proteção pessoal por um turno."
+    "passive": "Caius protege um único aliado e sustenta a presença defensiva sem criar um alvo extra.",
+    "impulso": "Não Recuar mostra um golpe físico contra um único inimigo; a guarda reduz o dano recebido por Caius.",
+    "tecnica": "Amparo Abnegado cura e concede Defesa destrutível a um aliado; a perda de Vida de Caius permanece sem derrota.",
+    "voto": "Permanecer de Pé concentra o golpe e a recuperação em um único inimigo e no próprio Caius.",
+    "despertar": "Promessa Inquebrável envolve somente Caius em proteção pessoal por um turno."
   },
   "files": {
     "activeWebp": {
@@ -65,5 +65,6 @@
     }
   },
   "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas de combate inalteradas.",
-  "status": "candidate_integrated_pending_visual_approval"
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Caius — O Abnegado — revisão dark fantasy pictórica"
 }

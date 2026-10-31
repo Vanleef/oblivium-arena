@@ -28,8 +28,8 @@
   "entries": [
     {
       "id": "o-acougueiro",
-      "name": "Baltasar",
-      "title": "O Açougueiro",
+      "name": "Riven",
+      "title": "O Ceifador de Tolos",
       "realm": "Inferno",
       "kingdom": "Flagelo",
       "cohort": "original",
@@ -50,8 +50,8 @@
     },
     {
       "id": "a-viuva-escarlate",
-      "name": "Mavia",
-      "title": "A Viúva",
+      "name": "Lira",
+      "title": "A Noiva da Lua",
       "realm": "Inferno",
       "kingdom": "Flagelo",
       "cohort": "original",
@@ -72,7 +72,7 @@
     },
     {
       "id": "o-colecionador-de-cabecas",
-      "name": "Verres",
+      "name": "Thorne",
       "title": "O Colecionador",
       "realm": "Inferno",
       "kingdom": "Flagelo",
@@ -94,8 +94,8 @@
     },
     {
       "id": "gemeos-do-cutelo",
-      "name": "Cleobis e Biton",
-      "title": "Gêmeos do Cutelo",
+      "name": "Vale e Soren",
+      "title": "As Lâminas Gêmeas",
       "realm": "Inferno",
       "kingdom": "Flagelo",
       "cohort": "original",
@@ -137,7 +137,7 @@
     },
     {
       "id": "a-mae-rubra",
-      "name": "Julia Maesa",
+      "name": "Selene",
       "title": "A Matriarca",
       "realm": "Inferno",
       "kingdom": "Flagelo",
@@ -158,7 +158,7 @@
     },
     {
       "id": "o-soberano-quebrado",
-      "name": "Astyages",
+      "name": "Darius",
       "title": "O Soberano",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -182,7 +182,7 @@
     },
     {
       "id": "a-juiza-de-ferro",
-      "name": "Pheretime",
+      "name": "Judith",
       "title": "A Magistrada",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -203,7 +203,7 @@
     },
     {
       "id": "o-trono-vazio",
-      "name": "Perdiccas",
+      "name": "Lucien",
       "title": "O Suserano",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -246,7 +246,7 @@
     },
     {
       "id": "a-regente-de-cinzas",
-      "name": "Amanirenas",
+      "name": "Ashara",
       "title": "A Déspota",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -267,7 +267,7 @@
     },
     {
       "id": "o-herdeiro-cativo",
-      "name": "Arminius",
+      "name": "Malrik",
       "title": "O Herdeiro",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -288,7 +288,7 @@
     },
     {
       "id": "o-sussurro",
-      "name": "Hárpago",
+      "name": "Vesper",
       "title": "O Sussurro",
       "realm": "Inferno",
       "kingdom": "Malebolge",
@@ -309,7 +309,7 @@
     },
     {
       "id": "a-mascara-dupla",
-      "name": "Zópiro",
+      "name": "Nyx",
       "title": "A Máscara Dupla",
       "realm": "Inferno",
       "kingdom": "Malebolge",
@@ -330,7 +330,7 @@
     },
     {
       "id": "o-tecelao-de-mentiras",
-      "name": "Bagoas",
+      "name": "Orin",
       "title": "O Intrigante",
       "realm": "Inferno",
       "kingdom": "Malebolge",
@@ -352,7 +352,7 @@
     },
     {
       "id": "a-boca-de-vidro",
-      "name": "Aspasia",
+      "name": "Sylvara",
       "title": "A Serpe",
       "realm": "Inferno",
       "kingdom": "Malebolge",
@@ -373,7 +373,7 @@
     },
     {
       "id": "o-falso-profeta",
-      "name": "Joanna Southcott",
+      "name": "Cassian",
       "title": "O Falso Profeta",
       "realm": "Inferno",
       "kingdom": "Malebolge",
@@ -416,7 +416,7 @@
     },
     {
       "id": "o-incendiario",
-      "name": "Heróstrato",
+      "name": "Ignis",
       "title": "O Incendiário",
       "realm": "Inferno",
       "kingdom": "Estige",
@@ -437,7 +437,7 @@
     },
     {
       "id": "a-brasa-eterna",
-      "name": "Perpetua",
+      "name": "Emberlyn",
       "title": "A Brasa Eterna",
       "realm": "Inferno",
       "kingdom": "Estige",
@@ -461,7 +461,7 @@
     },
     {
       "id": "o-odio-encarnado",
-      "name": "Fritigerno",
+      "name": "Corvin",
       "title": "O Furor",
       "realm": "Inferno",
       "kingdom": "Estige",
@@ -484,7 +484,7 @@
     },
     {
       "id": "o-filho-da-cinza",
-      "name": "Mithridates",
+      "name": "Ragnar",
       "title": "O Ressentido",
       "realm": "Inferno",
       "kingdom": "Estige",
@@ -506,7 +506,7 @@
     },
     {
       "id": "a-pira-errante",
-      "name": "Tomyris",
+      "name": "Lyra",
       "title": "A Vingadora",
       "realm": "Inferno",
       "kingdom": "Estige",
@@ -528,7 +528,7 @@
     },
     {
       "id": "o-coracao-em-furia",
-      "name": "Cambyses",
+      "name": "Pyros",
       "title": "O Colérico",
       "realm": "Inferno",
       "kingdom": "Estige",
@@ -549,7 +549,7 @@
     },
     {
       "id": "o-devorador",
-      "name": "Vitellius",
+      "name": "Gorath",
       "title": "O Devorador",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -572,7 +572,7 @@
     },
     {
       "id": "a-mao-que-toma",
-      "name": "Brennus",
+      "name": "Ravena",
       "title": "A Saqueadora",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -594,7 +594,7 @@
     },
     {
       "id": "o-estomago-sem-fundo",
-      "name": "Apicius",
+      "name": "Drake",
       "title": "O Insaciável",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -615,7 +615,7 @@
     },
     {
       "id": "a-senhora-do-ultimo-pao",
-      "name": "Helena de Adiabene",
+      "name": "Helena",
       "title": "A Matriarca",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -636,7 +636,7 @@
     },
     {
       "id": "o-credor",
-      "name": "Florus",
+      "name": "Marrow",
       "title": "O Credor",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -657,7 +657,7 @@
     },
     {
       "id": "a-balanca-vazia",
-      "name": "Faustilla",
+      "name": "Fortuna",
       "title": "A Usurária",
       "realm": "Inferno",
       "kingdom": "Magma",
@@ -678,7 +678,7 @@
     },
     {
       "id": "o-apodrecido",
-      "name": "Zósimo",
+      "name": "Aldric",
       "title": "O Apodrecido",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -699,7 +699,7 @@
     },
     {
       "id": "a-praga-andante",
-      "name": "Mary Mallon",
+      "name": "Mire",
       "title": "A Pestilência",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -720,7 +720,7 @@
     },
     {
       "id": "o-corrupto",
-      "name": "Hárpalo",
+      "name": "Pact",
       "title": "O Corrupto",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -741,7 +741,7 @@
     },
     {
       "id": "a-rainha-dos-fungos",
-      "name": "Beatrix Potter",
+      "name": "Myra",
       "title": "A Rainha dos Fungos",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -762,7 +762,7 @@
     },
     {
       "id": "o-medico-de-vermes",
-      "name": "Zahrawi",
+      "name": "Bram",
       "title": "O Inoculador",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -783,7 +783,7 @@
     },
     {
       "id": "o-jardim-morto",
-      "name": "Teofrasto",
+      "name": "Thorn",
       "title": "O Definhador",
       "realm": "Inferno",
       "kingdom": "Pútrido",
@@ -804,7 +804,7 @@
     },
     {
       "id": "o-que-observou",
-      "name": "Procopius",
+      "name": "Elias",
       "title": "O Espectador",
       "realm": "Inferno",
       "kingdom": "Tártaro",
@@ -825,7 +825,7 @@
     },
     {
       "id": "a-porta-fechada",
-      "name": "Sejanus",
+      "name": "Mira",
       "title": "A Carcereira",
       "realm": "Inferno",
       "kingdom": "Tártaro",
@@ -846,7 +846,7 @@
     },
     {
       "id": "o-surdo",
-      "name": "Li Si",
+      "name": "Voss",
       "title": "O Silenciador",
       "realm": "Inferno",
       "kingdom": "Tártaro",
@@ -868,7 +868,7 @@
     },
     {
       "id": "a-testemunha-cega",
-      "name": "Josefo",
+      "name": "Iris",
       "title": "A Cúmplice",
       "realm": "Inferno",
       "kingdom": "Tártaro",
@@ -889,7 +889,7 @@
     },
     {
       "id": "o-quarto-vazio",
-      "name": "Macarius",
+      "name": "Hollow",
       "title": "O Anfitrião",
       "realm": "Inferno",
       "kingdom": "Tártaro",
@@ -910,7 +910,7 @@
     },
     {
       "id": "o-vigia-ausente",
-      "name": "Efialtes",
+      "name": "Reed",
       "title": "O Desertor",
       "realm": "Inferno",
       "kingdom": "Tártaro",
@@ -931,7 +931,7 @@
     },
     {
       "id": "o-que-possui",
-      "name": "Andriscus",
+      "name": "Maren",
       "title": "O Usurpador",
       "realm": "Inferno",
       "kingdom": "Tormenta",
@@ -952,7 +952,7 @@
     },
     {
       "id": "a-pele-alheia",
-      "name": "Ovid",
+      "name": "Quill",
       "title": "A Metamorfa",
       "realm": "Inferno",
       "kingdom": "Tormenta",
@@ -975,7 +975,7 @@
     },
     {
       "id": "o-desejo-quebrado",
-      "name": "Tarquínio",
+      "name": "Desire",
       "title": "O Profanador",
       "realm": "Inferno",
       "kingdom": "Tormenta",
@@ -996,7 +996,7 @@
     },
     {
       "id": "a-marionetista-de-nervos",
-      "name": "Aristagoras",
+      "name": "Liora",
       "title": "A Marionetista",
       "realm": "Inferno",
       "kingdom": "Tormenta",
@@ -1018,7 +1018,7 @@
     },
     {
       "id": "o-espelho-carnal",
-      "name": "Zeuxis",
+      "name": "Echo",
       "title": "O Simulacro",
       "realm": "Inferno",
       "kingdom": "Tormenta",
@@ -1039,7 +1039,7 @@
     },
     {
       "id": "a-costureira",
-      "name": "Sushruta",
+      "name": "Sable",
       "title": "A Suturadora",
       "realm": "Inferno",
       "kingdom": "Tormenta",
@@ -1061,7 +1061,7 @@
     },
     {
       "id": "o-que-apaga",
-      "name": "Akhenaten",
+      "name": "Noctis",
       "title": "O Anulador",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
@@ -1083,7 +1083,7 @@
     },
     {
       "id": "a-ausencia",
-      "name": "Nabonidus",
+      "name": "Vespera",
       "title": "A Ausência",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
@@ -1104,7 +1104,7 @@
     },
     {
       "id": "o-fim-silencioso",
-      "name": "Tiglate",
+      "name": "Erebus",
       "title": "O Arauto",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
@@ -1126,7 +1126,7 @@
     },
     {
       "id": "o-menino-sem-sombra",
-      "name": "Hatshepsut",
+      "name": "Ashen",
       "title": "O Desolador",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
@@ -1148,7 +1148,7 @@
     },
     {
       "id": "a-ultima-pagina",
-      "name": "Enheduanna",
+      "name": "Soren",
       "title": "A Escriba",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
@@ -1169,8 +1169,8 @@
     },
     {
       "id": "o-lugar-de-ninguem",
-      "name": "Timur",
-      "title": "O Obliterador",
+      "name": "Niith",
+      "title": "O Fim",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
       "cohort": "original",
@@ -1190,7 +1190,7 @@
     },
     {
       "id": "o-escudo-vivo",
-      "name": "Themistocles",
+      "name": "Aegis",
       "title": "O Escudo Vivo",
       "realm": "Paraíso",
       "kingdom": "Marte",
@@ -1212,7 +1212,7 @@
     },
     {
       "id": "a-muralha",
-      "name": "Zenobia",
+      "name": "Bastion",
       "title": "A Muralha",
       "realm": "Paraíso",
       "kingdom": "Marte",
@@ -1233,7 +1233,7 @@
     },
     {
       "id": "o-que-ficou",
-      "name": "Cynaegirus",
+      "name": "Caius",
       "title": "O Abnegado",
       "realm": "Paraíso",
       "kingdom": "Lua",
@@ -1254,7 +1254,7 @@
     },
     {
       "id": "o-ultimo-guardiao",
-      "name": "Belisarius",
+      "name": "Gideon",
       "title": "O Guardião",
       "realm": "Paraíso",
       "kingdom": "Lua",
@@ -1275,7 +1275,7 @@
     },
     {
       "id": "a-sentinela-azul",
-      "name": "Sittas",
+      "name": "Azure",
       "title": "A Sentinela",
       "realm": "Paraíso",
       "kingdom": "Marte",
@@ -1296,7 +1296,7 @@
     },
     {
       "id": "a-mao-que-cura",
-      "name": "Trotula",
+      "name": "Elara",
       "title": "A Compassiva",
       "realm": "Paraíso",
       "kingdom": "Saturno",
@@ -1317,7 +1317,7 @@
     },
     {
       "id": "o-restaurador",
-      "name": "Avicena",
+      "name": "Theron",
       "title": "O Restaurador",
       "realm": "Paraíso",
       "kingdom": "Saturno",
@@ -1339,7 +1339,7 @@
     },
     {
       "id": "a-luz-que-restaura",
-      "name": "Hildegard",
+      "name": "Liora",
       "title": "A Sanadora",
       "realm": "Paraíso",
       "kingdom": "Saturno",
@@ -1360,7 +1360,7 @@
     },
     {
       "id": "a-jardineira-das-feridas",
-      "name": "Dioscorides",
+      "name": "Iris",
       "title": "A Boticária",
       "realm": "Paraíso",
       "kingdom": "Saturno",
@@ -1381,7 +1381,7 @@
     },
     {
       "id": "o-pulso-sereno",
-      "name": "Asclepiades",
+      "name": "Seren",
       "title": "O Sereno",
       "realm": "Paraíso",
       "kingdom": "Saturno",
@@ -1424,7 +1424,7 @@
     },
     {
       "id": "a-lamina-justa",
-      "name": "Viriato",
+      "name": "Justus",
       "title": "A Íntegra",
       "realm": "Paraíso",
       "kingdom": "Júpiter",
@@ -1460,7 +1460,7 @@
     },
     {
       "id": "o-julgador-gentil",
-      "name": "Ashoka",
+      "name": "Benedict",
       "title": "O Juiz",
       "realm": "Paraíso",
       "kingdom": "Júpiter",
@@ -1472,7 +1472,7 @@
     },
     {
       "id": "a-chama-que-nao-apaga",
-      "name": "Telesilla",
+      "name": "Caelum",
       "title": "A Perseverante",
       "realm": "Paraíso",
       "kingdom": "Estelar",
@@ -1486,7 +1486,7 @@
     },
     {
       "id": "o-que-levanta",
-      "name": "Sundiata",
+      "name": "Hector",
       "title": "O Tenaz",
       "realm": "Paraíso",
       "kingdom": "Estelar",
@@ -1498,7 +1498,7 @@
     },
     {
       "id": "a-voz",
-      "name": "Arion",
+      "name": "Hope",
       "title": "A Voz",
       "realm": "Paraíso",
       "kingdom": "Estelar",
@@ -1513,7 +1513,7 @@
     },
     {
       "id": "o-portador-da-aurora",
-      "name": "Aurelian",
+      "name": "Aurora",
       "title": "O Alvorecer",
       "realm": "Paraíso",
       "kingdom": "Estelar",
@@ -1525,7 +1525,7 @@
     },
     {
       "id": "a-mensageira-do-amanha",
-      "name": "Phoebe",
+      "name": "Stella",
       "title": "A Mensageira",
       "realm": "Paraíso",
       "kingdom": "Estelar",
@@ -1539,7 +1539,7 @@
     },
     {
       "id": "o-que-revela",
-      "name": "Hecataeus",
+      "name": "Veritas",
       "title": "O Revelador",
       "realm": "Paraíso",
       "kingdom": "Sol",
@@ -1577,7 +1577,7 @@
     },
     {
       "id": "a-cartografa-da-clareza",
-      "name": "Idrisi",
+      "name": "Cartes",
       "title": "A Cartógrafa",
       "realm": "Paraíso",
       "kingdom": "Sol",
@@ -1591,7 +1591,7 @@
     },
     {
       "id": "o-olho-desarmado",
-      "name": "Haytham",
+      "name": "Arcane",
       "title": "O Vidente",
       "realm": "Paraíso",
       "kingdom": "Sol",
@@ -1603,7 +1603,7 @@
     },
     {
       "id": "o-elo-dourado",
-      "name": "Damon",
+      "name": "Aurelia",
       "title": "O Fraterno",
       "realm": "Paraíso",
       "kingdom": "Vênus",
@@ -1615,7 +1615,7 @@
     },
     {
       "id": "a-que-une",
-      "name": "Berenice",
+      "name": "Destiny",
       "title": "A Tecelã",
       "realm": "Paraíso",
       "kingdom": "Vênus",
@@ -1627,7 +1627,7 @@
     },
     {
       "id": "o-vinculo",
-      "name": "John Rabe",
+      "name": "Elowen",
       "title": "O Altruísta",
       "realm": "Paraíso",
       "kingdom": "Vênus",
@@ -1639,7 +1639,7 @@
     },
     {
       "id": "os-tres-irmaos",
-      "name": "Hannibal, Hasdrubal e Mago",
+      "name": "Trinity",
       "title": "Os Três Irmãos",
       "realm": "Paraíso",
       "kingdom": "Vênus",
@@ -1654,7 +1654,7 @@
     },
     {
       "id": "a-guardia-das-promessas",
-      "name": "Regulus",
+      "name": "Isolde",
       "title": "A Juramentada",
       "realm": "Paraíso",
       "kingdom": "Vênus",
@@ -1668,7 +1668,7 @@
     },
     {
       "id": "o-que-cria",
-      "name": "Sóstrato",
+      "name": "Cedric",
       "title": "O Artífice",
       "realm": "Paraíso",
       "kingdom": "Mercúrio",
@@ -1682,7 +1682,7 @@
     },
     {
       "id": "a-semente",
-      "name": "Columella",
+      "name": "Sprout",
       "title": "A Semente",
       "realm": "Paraíso",
       "kingdom": "Mercúrio",
@@ -1694,7 +1694,7 @@
     },
     {
       "id": "o-cultivador",
-      "name": "Palladius",
+      "name": "Rowan",
       "title": "O Cultivador",
       "realm": "Paraíso",
       "kingdom": "Mercúrio",
@@ -1706,7 +1706,7 @@
     },
     {
       "id": "a-arquiteta-verde",
-      "name": "Amanishakheto",
+      "name": "Verdant",
       "title": "A Arquiteta",
       "realm": "Paraíso",
       "kingdom": "Empíreo",
@@ -1721,7 +1721,7 @@
     },
     {
       "id": "o-primeiro-canto",
-      "name": "Terpander",
+      "name": "Prim",
       "title": "O Ressonante",
       "realm": "Paraíso",
       "kingdom": "Empíreo",
@@ -1733,7 +1733,7 @@
     },
     {
       "id": "o-passo-interrompido",
-      "name": "Zeno",
+      "name": "Chronos",
       "title": "O Descontínuo",
       "realm": "Limbo",
       "kingdom": "Vestíbulo",
@@ -1748,7 +1748,7 @@
     },
     {
       "id": "a-linha-partida",
-      "name": "Empedocles",
+      "name": "Fract",
       "title": "A Cindida",
       "realm": "Limbo",
       "kingdom": "Purgatório",
@@ -1760,7 +1760,7 @@
     },
     {
       "id": "o-eco-sem-dono",
-      "name": "Cassiodorus",
+      "name": "Echo",
       "title": "O Eco",
       "realm": "Limbo",
       "kingdom": "Purgatório",
@@ -1776,7 +1776,7 @@
     },
     {
       "id": "a-porta-que-flutua",
-      "name": "Battuta",
+      "name": "Rift",
       "title": "A Errante",
       "realm": "Limbo",
       "kingdom": "Vestíbulo",
@@ -1790,7 +1790,7 @@
     },
     {
       "id": "o-nome-esquecido",
-      "name": "Geta",
+      "name": "Obliv",
       "title": "O Esquecido",
       "realm": "Limbo",
       "kingdom": "Vestíbulo",
@@ -1802,7 +1802,7 @@
     },
     {
       "id": "o-relogio-afogado",
-      "name": "Hiparco",
+      "name": "Chronicle",
       "title": "O Cronista",
       "realm": "Limbo",
       "kingdom": "Aqueronte",
@@ -1816,7 +1816,7 @@
     },
     {
       "id": "a-asa-invertida",
-      "name": "Firnas",
+      "name": "Lyra",
       "title": "A Inversa",
       "realm": "Limbo",
       "kingdom": "Umbral",
@@ -1830,7 +1830,7 @@
     },
     {
       "id": "o-andarilho-de-vidro",
-      "name": "Scylax",
+      "name": "Crystal",
       "title": "O Andarilho",
       "realm": "Limbo",
       "kingdom": "Aqueronte",
@@ -1842,7 +1842,7 @@
     },
     {
       "id": "a-sombra-inconstante",
-      "name": "Peregrinus",
+      "name": "Shade",
       "title": "A Oscilante",
       "realm": "Limbo",
       "kingdom": "Umbral",
@@ -1857,7 +1857,7 @@
     },
     {
       "id": "a-ponte-rasgada",
-      "name": "Sinan",
+      "name": "Bridge",
       "title": "A Peregrina",
       "realm": "Limbo",
       "kingdom": "Aqueronte",
@@ -1869,7 +1869,7 @@
     },
     {
       "id": "a-alma-em-suspenso",
-      "name": "Simeão",
+      "name": "Soren",
       "title": "O Eremita",
       "realm": "Limbo",
       "kingdom": "Purgatório",
@@ -1884,7 +1884,7 @@
     {
       "id": "nilo",
       "name": "Nilo",
-      "title": "Receptáculo",
+      "title": "O Receptáculo",
       "realm": "Limbo",
       "kingdom": "Vestíbulo",
       "cohort": "story",
@@ -1895,8 +1895,8 @@
     },
     {
       "id": "nilo-o-prefacio",
-      "name": "Nilo, Prefácio de Cinza",
-      "title": "Ferida em Sequência",
+      "name": "Nilo",
+      "title": "Prefácio de Cinza",
       "realm": "Inferno",
       "kingdom": "Estige",
       "cohort": "story",
@@ -1907,8 +1907,8 @@
     },
     {
       "id": "nilo-graca-prefacio",
-      "name": "Nilo, Prefácio de Graça",
-      "title": "Marcação e Resposta",
+      "name": "Nilo",
+      "title": "Prefácio de Graça",
       "realm": "Paraíso",
       "kingdom": "Estelar",
       "cohort": "story",
@@ -1919,8 +1919,8 @@
     },
     {
       "id": "nilo-ruptura-prefacio",
-      "name": "Nilo, Prefácio de Ruptura",
-      "title": "Resíduo de Status",
+      "name": "Nilo",
+      "title": "Prefácio de Ruptura",
       "realm": "Limbo",
       "kingdom": "Umbral",
       "cohort": "story",
@@ -1931,8 +1931,8 @@
     },
     {
       "id": "nilo-cinza-epilogo",
-      "name": "Nilo, Epílogo de Cinza",
-      "title": "Expansão Autodestrutiva",
+      "name": "Nilo",
+      "title": "Epílogo de Cinza",
       "realm": "Inferno",
       "kingdom": "Estige",
       "cohort": "story",
@@ -1943,8 +1943,8 @@
     },
     {
       "id": "nilo-graca-epilogo",
-      "name": "Nilo, Epílogo de Graça",
-      "title": "Clareza Momentânea",
+      "name": "Nilo",
+      "title": "Epílogo de Graça",
       "realm": "Paraíso",
       "kingdom": "Estelar",
       "cohort": "story",
@@ -1955,8 +1955,8 @@
     },
     {
       "id": "nilo-ruptura-epilogo",
-      "name": "Nilo, Epílogo de Ruptura",
-      "title": "Sombra Preparada",
+      "name": "Nilo",
+      "title": "Epílogo de Ruptura",
       "realm": "Limbo",
       "kingdom": "Umbral",
       "cohort": "story",
@@ -1967,8 +1967,8 @@
     },
     {
       "id": "nilo-cinza-final",
-      "name": "Nilo, o Sem Rastro",
-      "title": "Colapso Voluntário",
+      "name": "Nilo",
+      "title": "O Sem Rastro",
       "realm": "Inferno",
       "kingdom": "Estige",
       "cohort": "story",
@@ -1979,8 +1979,8 @@
     },
     {
       "id": "nilo-graca-final",
-      "name": "Nilo, o que Mantém de Pé",
-      "title": "Pilares Vivos",
+      "name": "Nilo",
+      "title": "O que Mantém de Pé",
       "realm": "Paraíso",
       "kingdom": "Empíreo",
       "cohort": "story",
@@ -1991,8 +1991,8 @@
     },
     {
       "id": "nilo-ruptura-final",
-      "name": "Nilo, o que se Parte",
-      "title": "Contagem de Fraturas",
+      "name": "Nilo",
+      "title": "O que se Parte",
       "realm": "Limbo",
       "kingdom": "Umbral",
       "cohort": "story",
@@ -2003,8 +2003,8 @@
     },
     {
       "id": "nilo-o-epilogo",
-      "name": "Nilo Purificado",
-      "title": "Purificado",
+      "name": "Nilo",
+      "title": "Nilo Purificado",
       "realm": "Limbo",
       "kingdom": "Purgatório",
       "cohort": "story",
@@ -2028,7 +2028,7 @@
     {
       "id": "naomi",
       "name": "Naomi",
-      "title": "Persistência",
+      "title": "A Persistência",
       "realm": "Paraíso",
       "kingdom": "Estelar",
       "cohort": "story",
@@ -2039,8 +2039,8 @@
     },
     {
       "id": "naomi-a-que-permanece",
-      "name": "Naomi, a Que Permanece",
-      "title": "Sustentadora Inabalável",
+      "name": "Naomi",
+      "title": "A Que Permanece",
       "realm": "Paraíso",
       "kingdom": "Estelar",
       "cohort": "story",
@@ -2051,8 +2051,8 @@
     },
     {
       "id": "naomi-a-raiz",
-      "name": "Naomi, a Raiz",
-      "title": "Raiz Protetora",
+      "name": "Naomi",
+      "title": "A Raiz",
       "realm": "Paraíso",
       "kingdom": "Estelar",
       "cohort": "story",
@@ -2064,7 +2064,7 @@
     {
       "id": "kael",
       "name": "Kael",
-      "title": "Arrependimento",
+      "title": "A Culpa Imaculada",
       "realm": "Limbo",
       "kingdom": "Purgatório",
       "cohort": "story",
@@ -2075,8 +2075,8 @@
     },
     {
       "id": "kael-o-quebrado",
-      "name": "Kael, o Quebrado",
-      "title": "Retaliador Fraturado",
+      "name": "Kael",
+      "title": "O Quebrado",
       "realm": "Limbo",
       "kingdom": "Umbral",
       "cohort": "story",
@@ -2087,8 +2087,8 @@
     },
     {
       "id": "kael-o-filhote-de-ferro",
-      "name": "Kael, o Filhote de Ferro",
-      "title": "Baluarte de Ruptura",
+      "name": "Kael",
+      "title": "Coração de Aço",
       "realm": "Limbo",
       "kingdom": "Purgatório",
       "cohort": "story",
@@ -2111,8 +2111,8 @@
     },
     {
       "id": "vaas-o-sem-rosto",
-      "name": "Vaas, o Sem Rosto",
-      "title": "Executor das Mentiras",
+      "name": "Vaas",
+      "title": "O Sem Rosto",
       "realm": "Inferno",
       "kingdom": "Malebolge",
       "cohort": "story",
@@ -2124,7 +2124,7 @@
     {
       "id": "diana",
       "name": "Diana",
-      "title": "Amparo",
+      "title": "O Amparo",
       "realm": "Paraíso",
       "kingdom": "Lua",
       "cohort": "story",
@@ -2135,8 +2135,8 @@
     },
     {
       "id": "diana-a-guarda",
-      "name": "Diana, a Guarda",
-      "title": "Protetora de Linha",
+      "name": "Diana",
+      "title": "A Guarda",
       "realm": "Paraíso",
       "kingdom": "Marte",
       "cohort": "story",
@@ -2147,8 +2147,8 @@
     },
     {
       "id": "diana-a-que-ainda-segura",
-      "name": "Diana, a Que Ainda Segura",
-      "title": "Amparo Persistente",
+      "name": "Diana",
+      "title": "A Que Ainda Segura",
       "realm": "Paraíso",
       "kingdom": "Saturno",
       "cohort": "story",
@@ -2160,7 +2160,7 @@
     {
       "id": "teras",
       "name": "Teras",
-      "title": "Observador",
+      "title": "O Observador",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
       "cohort": "story",
@@ -2171,8 +2171,8 @@
     },
     {
       "id": "teras-o-observador",
-      "name": "Teras, o Observador",
-      "title": "Leitor de Fendas",
+      "name": "Teras",
+      "title": "O Leitor de Fendas",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
       "cohort": "story",
@@ -2184,7 +2184,7 @@
     {
       "id": "victor",
       "name": "Victor",
-      "title": "Regente",
+      "title": "O Regente",
       "realm": "Inferno",
       "kingdom": "Magma",
       "cohort": "story",
@@ -2196,7 +2196,7 @@
     {
       "id": "silas",
       "name": "Silas",
-      "title": "Lealdade",
+      "title": "A Lealdade",
       "realm": "Paraíso",
       "kingdom": "Vênus",
       "cohort": "story",
@@ -2207,8 +2207,8 @@
     },
     {
       "id": "silas-o-leal",
-      "name": "Silas, o Leal",
-      "title": "Protetor Vinculado",
+      "name": "Silas",
+      "title": "O Leal",
       "realm": "Paraíso",
       "kingdom": "Vênus",
       "cohort": "story",
@@ -2220,7 +2220,7 @@
     {
       "id": "orion",
       "name": "Orion",
-      "title": "Rastreador",
+      "title": "O Rastreador",
       "realm": "Paraíso",
       "kingdom": "Sol",
       "cohort": "story",
@@ -2232,7 +2232,7 @@
     {
       "id": "doggo",
       "name": "Doggo",
-      "title": "Sobrevivente",
+      "title": "O Sobrevivente",
       "realm": "Inferno",
       "kingdom": "Pútrido",
       "cohort": "story",
@@ -2244,7 +2244,7 @@
     {
       "id": "hans",
       "name": "Hans",
-      "title": "Informante",
+      "title": "O Informante",
       "realm": "Inferno",
       "kingdom": "Pútrido",
       "cohort": "story",
@@ -2265,7 +2265,7 @@
     {
       "id": "xian",
       "name": "Xian",
-      "title": "Imóvel",
+      "title": "O Imóvel",
       "realm": "Inferno",
       "kingdom": "Tártaro",
       "cohort": "story",
@@ -2276,8 +2276,8 @@
     },
     {
       "id": "xian-o-imovel",
-      "name": "Xian, o Imóvel",
-      "title": "Sentinela do Vazio",
+      "name": "Xian",
+      "title": "A Sentinela do Vazio",
       "realm": "Inferno",
       "kingdom": "Tártaro",
       "cohort": "story",
@@ -2289,7 +2289,7 @@
     {
       "id": "seraphim",
       "name": "Seraphim",
-      "title": "Eco",
+      "title": "O Eco",
       "realm": "Paraíso",
       "kingdom": "Empíreo",
       "cohort": "story",
@@ -2300,8 +2300,8 @@
     },
     {
       "id": "seraphim-o-eco",
-      "name": "Seraphim, o Eco",
-      "title": "Vigília Celeste",
+      "name": "Seraphim",
+      "title": "A Vigília Celeste",
       "realm": "Paraíso",
       "kingdom": "Empíreo",
       "cohort": "story",
@@ -2313,7 +2313,7 @@
     {
       "id": "eiremir",
       "name": "Eiremir",
-      "title": "Anomalia",
+      "title": "A Anomalia",
       "realm": "Limbo",
       "kingdom": "Vestíbulo",
       "cohort": "story",
@@ -2324,8 +2324,8 @@
     },
     {
       "id": "eiremir-o-espelho-partido",
-      "name": "Eiremir, o Espelho Partido",
-      "title": "Fenda de Retorno",
+      "name": "Eiremir",
+      "title": "O Espelho Partido",
       "realm": "Limbo",
       "kingdom": "Umbral",
       "cohort": "story",
@@ -2337,7 +2337,7 @@
     {
       "id": "khoren-caminho",
       "name": "Zalmoxis",
-      "title": "O Caminho",
+      "title": "A Abnegação",
       "realm": "Limbo",
       "kingdom": "Aqueronte",
       "cohort": "story",
@@ -2348,7 +2348,7 @@
     },
     {
       "id": "elaris-prologo",
-      "name": "Elaris",
+      "name": "Seraph",
       "title": "O Prólogo",
       "realm": "Paraíso",
       "kingdom": "Empíreo",
@@ -2361,7 +2361,7 @@
     {
       "id": "cain",
       "name": "Cain",
-      "title": "Reflexo Cruel",
+      "title": "O Reflexo Cruel",
       "realm": "Inferno",
       "kingdom": "Flagelo",
       "cohort": "story",
@@ -2373,7 +2373,7 @@
     {
       "id": "lilith",
       "name": "Lilith",
-      "title": "Negação",
+      "title": "A Negação",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
       "cohort": "story",
@@ -2385,7 +2385,7 @@
     {
       "id": "caliope",
       "name": "Calíope",
-      "title": "Falsária",
+      "title": "A Falsária",
       "realm": "Inferno",
       "kingdom": "Malebolge",
       "cohort": "story",
@@ -2406,7 +2406,7 @@
     {
       "id": "serena",
       "name": "Serena",
-      "title": "Sombra do Passado",
+      "title": "A Sombra do Passado",
       "realm": "Paraíso",
       "kingdom": "Vênus",
       "cohort": "story",
@@ -2427,7 +2427,7 @@
     {
       "id": "placido",
       "name": "Plácido",
-      "title": "Arquiteto da Ordem",
+      "title": "O Arquiteto da Ordem",
       "realm": "Inferno",
       "kingdom": "Magma",
       "cohort": "story",
@@ -2448,7 +2448,7 @@
     {
       "id": "baal",
       "name": "Baal",
-      "title": "Fanático",
+      "title": "O Fanático",
       "realm": "Inferno",
       "kingdom": "Blasfêmia",
       "cohort": "story",
@@ -2469,7 +2469,7 @@
     {
       "id": "atlas",
       "name": "Atlas",
-      "title": "Portador do Sistema",
+      "title": "O Portador do Sistema",
       "realm": "Inferno",
       "kingdom": "Magma",
       "cohort": "story",
@@ -2490,7 +2490,7 @@
     {
       "id": "merlindrope",
       "name": "Merlindrope",
-      "title": "Carcereiro",
+      "title": "O Carcereiro",
       "realm": "Inferno",
       "kingdom": "Magma",
       "cohort": "story",
@@ -2511,7 +2511,7 @@
     {
       "id": "bulkir",
       "name": "Bulkir",
-      "title": "Devorador de Identidade",
+      "title": "O Devorador de Identidade",
       "realm": "Inferno",
       "kingdom": "Pútrido",
       "cohort": "story",
@@ -2532,7 +2532,7 @@
     {
       "id": "voronir",
       "name": "Voronir",
-      "title": "Caçador de Receptáculos",
+      "title": "O Caçador de Receptáculos",
       "realm": "Inferno",
       "kingdom": "Tártaro",
       "cohort": "story",
@@ -2553,7 +2553,7 @@
     {
       "id": "icarus",
       "name": "Icarus",
-      "title": "Portador da Fenda",
+      "title": "O Portador da Fenda",
       "realm": "Limbo",
       "kingdom": "Umbral",
       "cohort": "story",
@@ -2575,21 +2575,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 481,
-    "remainingSlots": 517,
-    "fullyMigratedEntries": 74,
-    "remainingEntries": 76,
-    "awaitingVisualApprovalSlots": 474,
+    "integratedCandidateSlots": 487,
+    "remainingSlots": 511,
+    "fullyMigratedEntries": 75,
+    "remainingEntries": 75,
+    "awaitingVisualApprovalSlots": 480,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "o-equilibrio"
+      "a-lamina-justa"
     ],
-    "candidateSlotsAdded": 7,
-    "candidateSlotsActivated": 7,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ALDRIC_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_JUSTUS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

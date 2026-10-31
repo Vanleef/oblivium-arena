@@ -1,4 +1,4 @@
-# Tiglate — O Arauto
+# Erebus — O Arauto
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
@@ -10,11 +10,11 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 | Espaço | Cena |
 |---|---|
 | Retrato | Rosto pálido e anguloso, franja prateada sobre um olho, íris violeta, gola escura com colarinho marfim e espada fina embainhada. |
-| Cobrança do Último Instante | Um ghoul atordoado mantém-se imóvel ao longe enquanto um mote de Ruptura aparece junto à sombra; Tiglate observa com a espada baixa. |
-| Presságio de Extinção | Um alvo único recebe a marca violeta de presságio e baixa os ombros; Tiglate mantém a espada ao lado. |
-| Cessar da Vontade | Tiglate abre a mão diante de um ghoul imóvel enquanto inscrições de força se apagam da armadura. |
+| Cobrança do Último Instante | Um ghoul atordoado mantém-se imóvel ao longe enquanto um mote de Ruptura aparece junto à sombra; Erebus observa com a espada baixa. |
+| Presságio de Extinção | Um alvo único recebe a marca violeta de presságio e baixa os ombros; Erebus mantém a espada ao lado. |
+| Cessar da Vontade | Erebus abre a mão diante de um ghoul imóvel enquanto inscrições de força se apagam da armadura. |
 | Sem Últimas Palavras | A ponta da espada fina alinha-se com um intervalo estreito na armadura de um só alvo, atravessado por uma linha violeta. |
 | Silêncio Residual | Continuação em ângulo distante: sem Últimas Palavras, resta um corte claro na sombra do ghoul e um silêncio amplo. |
-| Instante sem Tempo | Tiglate permanece no centro de três ecos temporais, dentro de poeira suspensa, com a espada guardada. |
+| Instante sem Tempo | Erebus permanece no centro de três ecos temporais, dentro de poeira suspensa, com a espada guardada. |
 
 Registro técnico completo: [ART_TIGLATE_DARK_PICTORIAL_REWORK_20261031.json](ART_TIGLATE_DARK_PICTORIAL_REWORK_20261031.json).

@@ -1,6 +1,6 @@
-# A Matriarca — dark fantasy gráfica 2.5D — 29/10/2026
+# Selene — A Matriarca
 
-**Identidade:** Julia Maesa mantém a pele castanho-média, as duas tranças grisalho-prateadas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate pesado. Rosto descoberto; sem máscara, armadura ou coroa.
+**Identidade:** Selene mantém a pele castanho-média, as duas tranças grisalho-prateadas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate pesado. Rosto descoberto; sem máscara, armadura ou coroa.
 
 **Direção visual:** pintura dark fantasy densa com pinceladas angulares, contornos manuais, hachuras e sombras de corte, preservando materialidade tátil. A referência do homem decadente com raízes orienta somente textura, peso e acabamento.
 

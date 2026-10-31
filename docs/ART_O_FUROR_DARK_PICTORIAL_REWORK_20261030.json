@@ -1,17 +1,17 @@
 {
-  "title": "O Furor",
+  "title": "Corvin — O Furor — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "o-odio-encarnado",
-  "characterName": "Fritigerno",
+  "characterName": "Corvin",
   "characterTitle": "O Furor",
   "realm": "Inferno",
   "kingdom": "Estige",
   "essence": "Ruptura",
   "style": "Dark fantasy pictórica densa com estilização gráfica 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, luzes de recorte e materialidade tátil.",
-  "identity": "Fritigerno é um construto espectral não humano formado por placas angulares flutuantes de basalto negro fosco e lacunas laranja-incandescentes. Tem máscara pontiaguda sem traços, uma única linha vertical laranja, arco segmentado quebrado preso à silhueta, dois antebraços flutuantes com punhos blocados sem dedos separados e núcleo estreito no torso aberto; a parte inferior se desfaz em cinzas, sem pernas humanas.",
+  "identity": "Corvin é um construto espectral não humano formado por placas angulares flutuantes de basalto negro fosco e lacunas laranja-incandescentes. Tem máscara pontiaguda sem traços, uma única linha vertical laranja, arco segmentado quebrado preso à silhueta, dois antebraços flutuantes com punhos blocados sem dedos separados e núcleo estreito no torso aberto; a parte inferior se desfaz em cinzas, sem pernas humanas.",
   "styleReference": "art/characters/o-odio-encarnado/painterly-rework-20261025/portrait.webp, usado somente para preservar a identidade; a composição anterior não foi copiada.",
   "sceneVariety": "Retrato fechado, fissuras do próprio corpo, golpes contra um alvo, couraça de autopreparo, pulso focalizado, erupção transformada e defesa pessoal contra destroços; oito enquadramentos distintos.",
-  "anatomyReview": "Oito imagens inspecionadas. Fritigerno permanece um construto espectral não humano, com máscara sem traços e uma linha laranja, arco preso à silhueta, placas flutuantes, punhos blocados e sem pernas. Exatamente um ghoul nas quatro cenas ofensivas; passiva, Alimentar o Ódio e Fúria Intocável são cenas de autoalvo sem figuras adicionais. Sem tecnologia; nenhuma mecânica foi alterada.",
+  "anatomyReview": "Oito imagens inspecionadas. Corvin permanece um construto espectral não humano, com máscara sem traços e uma linha laranja, arco preso à silhueta, placas flutuantes, punhos blocados e sem pernas. Exatamente um ghoul nas quatro cenas ofensivas; passiva, Alimentar o Ódio e Fúria Intocável são cenas de autoalvo sem figuras adicionais. Sem tecnologia; nenhuma mecânica foi alterada.",
   "gameplayChanged": false,
   "status": "candidate_integrated_pending_visual_approval",
   "assets": [
@@ -52,7 +52,7 @@
       "name": "Punho de Rancor",
       "targetCount": "one",
       "camera": "Impacto lateral baixo",
-      "scene": "Um punho de basalto lança um único ghoul contra uma coluna; fissuras laranjas se abrem pelo antebraço de Fritigerno.",
+      "scene": "Um punho de basalto lança um único ghoul contra uma coluna; fissuras laranjas se abrem pelo antebraço de Corvin.",
       "activePath": "art/characters/o-odio-encarnado/dark-pictorial-rework-20261030/skill-impulso.webp",
       "sourcePath": "art/source/o-odio-encarnado-dark-pictorial-rework-20261030/impulso.jpg",
       "activeDimensions": "512x512",
@@ -61,7 +61,7 @@
       "sourceBytes": 389458,
       "activeSha256": "f09197d31102b3cfeaf3c693ff094bf68f86de83a2997176b801046ac4d0806c",
       "sourceSha256": "2fdb5d20ea9dea478205119f359486efd43bda9109784cc1f166e57f5474c668",
-      "prompt": "Um punho de basalto lança um único ghoul contra uma coluna; fissuras laranjas se abrem pelo antebraço de Fritigerno."
+      "prompt": "Um punho de basalto lança um único ghoul contra uma coluna; fissuras laranjas se abrem pelo antebraço de Corvin."
     },
     {
       "slot": "form:impulso:rage",
@@ -100,7 +100,7 @@
       "name": "Explosão do Ressentimento",
       "targetCount": "one",
       "camera": "Lateral rente ao chão",
-      "scene": "Uma onda densa e focalizada de pressão laranja empurra um único ghoul; as placas do peito de Fritigerno se abrem e soltam fragmentos.",
+      "scene": "Uma onda densa e focalizada de pressão laranja empurra um único ghoul; as placas do peito de Corvin se abrem e soltam fragmentos.",
       "activePath": "art/characters/o-odio-encarnado/dark-pictorial-rework-20261030/skill-voto.webp",
       "sourcePath": "art/source/o-odio-encarnado-dark-pictorial-rework-20261030/voto.jpg",
       "activeDimensions": "512x512",
@@ -109,7 +109,7 @@
       "sourceBytes": 402938,
       "activeSha256": "73fd4040d1680b4c4c4b600d88a52e2ccbf5894d3af7f405726ca23d298a13d1",
       "sourceSha256": "e30afcea3e4f5aa026fed8100a061f9824fcc3365d0d1c20ef359ca229a48792",
-      "prompt": "Uma onda densa e focalizada de pressão laranja empurra um único ghoul; as placas do peito de Fritigerno se abrem e soltam fragmentos."
+      "prompt": "Uma onda densa e focalizada de pressão laranja empurra um único ghoul; as placas do peito de Corvin se abrem e soltam fragmentos."
     },
     {
       "slot": "form:voto:eruption",
@@ -132,7 +132,7 @@
       "name": "Fúria Intocável",
       "targetCount": "self",
       "camera": "Reversa próxima por trás",
-      "scene": "Fritigerno recolhe as placas em uma couraça temporária; destroços se partem do lado de fora, sem atingir o núcleo.",
+      "scene": "Corvin recolhe as placas em uma couraça temporária; destroços se partem do lado de fora, sem atingir o núcleo.",
       "activePath": "art/characters/o-odio-encarnado/dark-pictorial-rework-20261030/skill-despertar.webp",
       "sourcePath": "art/source/o-odio-encarnado-dark-pictorial-rework-20261030/despertar.jpg",
       "activeDimensions": "512x512",
@@ -141,7 +141,7 @@
       "sourceBytes": 387347,
       "activeSha256": "8e215af74b5f45603e86491464a9520df9c934cf7f694b08b681362da8af8d37",
       "sourceSha256": "7a796262a8abe1805077bd06e9551e3aa9679effd2be9f4935a904c3e878e685",
-      "prompt": "Fritigerno recolhe as placas em uma couraça temporária; destroços se partem do lado de fora, sem atingir o núcleo."
+      "prompt": "Corvin recolhe as placas em uma couraça temporária; destroços se partem do lado de fora, sem atingir o núcleo."
     }
   ]
 }

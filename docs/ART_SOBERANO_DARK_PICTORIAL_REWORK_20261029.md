@@ -1,6 +1,6 @@
-# O Soberano — dark fantasy pictórica — 29/10/2026
+# Darius — O Soberano
 
-**Identidade:** Astyages aparece como um manto imperial vazio, sem corpo ou rosto visível, com coroa de ferro fraturada e placas de basalto flutuantes. A paleta usa carvão, basalto, oxblood, cinza e bronze envelhecido.
+**Identidade:** Darius aparece como um manto imperial vazio, sem corpo ou rosto visível, com coroa de ferro fraturada e placas de basalto flutuantes. A paleta usa carvão, basalto, oxblood, cinza e bronze envelhecido.
 
 **Cobertura:** retrato, passiva, quatro habilidades base e três variações da Forma de Domínio. As nove artes estão integradas como candidatas e aguardam aprovação visual.
 

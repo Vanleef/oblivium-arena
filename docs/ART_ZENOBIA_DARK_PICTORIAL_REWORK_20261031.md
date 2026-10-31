@@ -1,11 +1,11 @@
-# Zenobia — A Muralha
+# Bastion — A Muralha
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
 - 6 candidatas WebP ativas em 512 × 512 e 6 fontes JPEG em 768 × 768.
-- Zenobia é um constructo humanoide de pedra, com olhos e vitrais azuis, guarnições marfim e corpo de fortaleza; não é uma guerreira humana de armadura.
+- Bastion é um constructo humanoide de pedra, com olhos e vitrais azuis, guarnições marfim e corpo de fortaleza; não é uma guerreira humana de armadura.
 - Pedra sobre Pedra mostra placas lascadas se recompondo.
-- Muralha Partilhada protege o trio inteiro, com Zenobia e dois aliados.
+- Muralha Partilhada protege o trio inteiro, com Bastion e dois aliados.
 - Impacto e Investida do Baluarte mostram um alvo; Baluarte Inviolável é defesa pessoal.
 - As seis imagens são candidatas integradas e aguardam aprovação visual.
 - Rotas de arte e cobertura atualizadas; mecânicas preservadas.

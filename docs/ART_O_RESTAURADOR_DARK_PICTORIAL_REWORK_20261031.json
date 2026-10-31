@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "character": {
     "id": "o-restaurador",
-    "name": "Avicena",
+    "name": "Theron",
     "title": "O Restaurador",
     "role": "Sustentador"
   },
@@ -53,7 +53,7 @@
     }
   ],
   "compositionChecks": {
-    "portrait": "Sorriso gentil, bigode branco, cabeça calva, casaco azul, pincel dourado e tigela de laca estabelecem Avicena.",
+    "portrait": "Sorriso gentil, bigode branco, cabeça calva, casaco azul, pincel dourado e tigela de laca estabelecem Theron.",
     "passive": "O pincel traça uma emenda dourada na tigela rachada do próprio artesão.",
     "impulso": "O cabo do pincel toca o escudo de um único inimigo e acumula uma reserva.",
     "tecnica": "Uma emenda dourada repara a braçadeira rachada de um aliado, restaura Vida e Defesa e dissipa aflições.",
@@ -72,5 +72,6 @@
     }
   },
   "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
-  "status": "candidate_integrated_pending_visual_approval"
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Theron — O Restaurador — revisão dark fantasy pictórica"
 }

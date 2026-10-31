@@ -1,8 +1,8 @@
 {
-  "title": "A Senhora do Último Pão — Helena de Adiabene — dark fantasy pictórica (2026-10-30)",
+  "title": "Helena — A Matriarca — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "a-senhora-do-ultimo-pao",
-  "characterName": "Helena de Adiabene",
+  "characterName": "Helena",
   "characterTitle": "A Matriarca",
   "aliases": [
     "A Senhora do Último Pão",
@@ -25,7 +25,7 @@
   "assets": [
     {
       "slot": "portrait",
-      "name": "Retrato — Helena de Adiabene",
+      "name": "Retrato — Helena",
       "targetCount": "none",
       "camera": "Close baixo em três quartos",
       "scene": "Helena acompanha uma migalha dourada na palma enquanto segura a pá de pão, atenta ao salão de fornos em ruínas; expressão acolhedora e calculista, sem olhar para a câmera.",

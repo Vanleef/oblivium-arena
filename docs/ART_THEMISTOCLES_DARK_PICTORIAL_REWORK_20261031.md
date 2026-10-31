@@ -1,4 +1,4 @@
-# Themistocles — O Escudo Vivo
+# Aegis — O Escudo Vivo
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
 

@@ -1,4 +1,4 @@
-# Tarquínio — O Profanador
+# Desire — O Profanador
 
 Revisão dark fantasy pictórica em 31/10/2026. O conjunto mantém o rosto moreno, o cabelo prateado-lilás cobrindo parcialmente um olho, o casaco borgonha de gola alta e o coração-talismã de cristal azul fraturado. As seis peças foram geradas com OpenAI ImageGen, integradas ao runtime e seguem pendentes de aprovação visual. Mecânicas preservadas.
 

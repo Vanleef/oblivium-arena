@@ -1,4 +1,4 @@
-# Gêmeos do Cutelo — dark fantasy gráfica 2.5D — 29/10/2026
+# Vale e Soren — As Lâminas Gêmeas
 
 **Identidade:** Cleobis tem pele castanho-escura, cachos negros curtos e pequena trança; Biton tem pele oliva clara e cabelo negro longo preso. Os irmãos têm rostos semelhantes, casacos de caça negros gastos, faixas carmesim e um cutelo cada.
 

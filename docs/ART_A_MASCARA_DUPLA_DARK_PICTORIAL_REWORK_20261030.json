@@ -1,8 +1,8 @@
 {
-  "title": "A Máscara Dupla — revisão dark fantasy pictórica",
+  "title": "Nyx — A Máscara Dupla — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "a-mascara-dupla",
-  "characterName": "Zópiro",
+  "characterName": "Nyx",
   "characterTitle": "A Máscara Dupla",
   "realm": "Inferno",
   "kingdom": "Malebolge",
@@ -24,9 +24,9 @@
       "sourceBytes": 193501,
       "activeSha256": "f7ca959b52a23a34752452ea2af3ec9df266d37f0c68fc22328e6104679ea8c2",
       "sourceSha256": "83e2b67dffd9e6eb75fad9a0dd1244bbcecdf654047d39f81448c112a14c6e43",
-      "scene": "No balcão de pedra do teatro, Zópiro segura uma máscara sorridente e encara a plateia com cautela.",
+      "scene": "No balcão de pedra do teatro, Nyx segura uma máscara sorridente e encara a plateia com cautela.",
       "camera": "Close baixo em três quartos.",
-      "prompt": "No balcão de pedra do teatro, Zópiro segura uma máscara sorridente e encara a plateia com cautela."
+      "prompt": "No balcão de pedra do teatro, Nyx segura uma máscara sorridente e encara a plateia com cautela."
     },
     {
       "slot": "passive",
@@ -66,9 +66,9 @@
       "sourceBytes": 197520,
       "activeSha256": "3ab793b7d5133223b72764c40cc083814b932f5e06689fec36311709dfee3d55",
       "sourceSha256": "cfaf4b8e4de06ab358991bb4c6e47029cc2f88aea90c639b3ce9cbef44985da6",
-      "scene": "Zópiro bloqueia o pulso armado de um ghoul e revida com o cotovelo, lançando o alvo contra um pilar rachado.",
+      "scene": "Nyx bloqueia o pulso armado de um ghoul e revida com o cotovelo, lançando o alvo contra um pilar rachado.",
       "camera": "Zenital oblíquo de ação.",
-      "prompt": "Zópiro bloqueia o pulso armado de um ghoul e revida com o cotovelo, lançando o alvo contra um pilar rachado."
+      "prompt": "Nyx bloqueia o pulso armado de um ghoul e revida com o cotovelo, lançando o alvo contra um pilar rachado."
     },
     {
       "slot": "voto",
@@ -80,9 +80,9 @@
       "sourceBytes": 240126,
       "activeSha256": "3d3a5b510df48433b0310b6f0f812ca8d18ab2069b679af3712041e6e9fa8b0e",
       "sourceSha256": "7f13a08f8cf7658915729c958411e836fe2edf85e3b6df334fc70f248de0ed3d",
-      "scene": "O alvo marcado cede após o golpe físico; um único mote de Essência roubada segue para a palma aberta de Zópiro.",
+      "scene": "O alvo marcado cede após o golpe físico; um único mote de Essência roubada segue para a palma aberta de Nyx.",
       "camera": "Close lateral alto.",
-      "prompt": "O alvo marcado cede após o golpe físico; um único mote de Essência roubada segue para a palma aberta de Zópiro."
+      "prompt": "O alvo marcado cede após o golpe físico; um único mote de Essência roubada segue para a palma aberta de Nyx."
     },
     {
       "slot": "despertar",

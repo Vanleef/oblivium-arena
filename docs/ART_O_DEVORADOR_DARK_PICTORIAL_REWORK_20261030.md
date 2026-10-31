@@ -1,8 +1,8 @@
-# O Devorador — revisão dark pictorial (2026-10-30)
+# Gorath — O Devorador
 
 ## Identidade e direção visual
 
-Vitellius permanece uma fera infernal quadrúpede baixa e pesada: exatamente quatro patas, uma cabeça alongada, mandíbula larga com dentes de bronze, olhos âmbar, pele de couro negro, crista óssea no dorso e garganta com veios minerais. Pútrido usa neve suja, cinza, basalto e rachaduras carmesim. A forma Fome sem Corpo abre um único vazio sobrenatural entre as costelas, sem sangue ou órgãos expostos.
+Gorath permanece uma fera infernal quadrúpede baixa e pesada: exatamente quatro patas, uma cabeça alongada, mandíbula larga com dentes de bronze, olhos âmbar, pele de couro negro, crista óssea no dorso e garganta com veios minerais. Pútrido usa neve suja, cinza, basalto e rachaduras carmesim. A forma Fome sem Corpo abre um único vazio sobrenatural entre as costelas, sem sangue ou órgãos expostos.
 
 ## Escopo
 

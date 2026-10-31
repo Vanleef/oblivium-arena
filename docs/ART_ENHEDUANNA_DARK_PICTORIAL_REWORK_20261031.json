@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "title": "Enheduanna — A Escriba — revisão dark fantasy pictórica",
+  "title": "Soren — A Escriba — revisão dark fantasy pictórica",
   "generator": "OpenAI ImageGen built-in",
   "style": "Dark fantasy pictórica 2.5D em scriptorium de pedra e tijolo, pinceladas angulares, hachuras, cerâmica e tecido ameixa-carvão, acentos de argila e violeta.",
   "counts": {
@@ -19,7 +19,7 @@
       "label": "Retrato",
       "activePath": "/art/characters/a-ultima-pagina/dark-pictorial-rework-20261031/portrait.webp",
       "sourcePath": "art/source/a-ultima-pagina-dark-pictorial-rework-20261031/portrait.jpg",
-      "scene": "Enheduanna como alta sacerdotisa e escriba adulta, pele cobre-oliva, tranças negras com contas prateadas, vestes carvão e ameixa, colar marfim, estilete de osso e tabuleta.",
+      "scene": "Soren como alta sacerdotisa e escriba adulta, pele cobre-oliva, tranças negras com contas prateadas, vestes carvão e ameixa, colar marfim, estilete de osso e tabuleta.",
       "targetCount": "Self",
       "width": 512,
       "height": 512,
@@ -70,7 +70,7 @@
       "label": "Rasura Terminal",
       "activePath": "/art/characters/a-ultima-pagina/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "sourcePath": "art/source/a-ultima-pagina-dark-pictorial-rework-20261031/skill-tecnica.jpg",
-      "scene": "Enheduanna risca um sinal de força da tabuleta diante de um ghoul, cuja postura ofensiva cessa.",
+      "scene": "Soren risca um sinal de força da tabuleta diante de um ghoul, cuja postura ofensiva cessa.",
       "targetCount": "1 inimigo",
       "width": 512,
       "height": 512,

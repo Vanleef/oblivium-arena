@@ -1,6 +1,6 @@
-# O Corrupto — revisão dark fantasy pictórica
+# Pact — O Corrupto
 
-**Personagem:** Hárpalo, O Corrupto (`o-corrupto`)  
+**Personagem:** Pact, O Corrupto (`o-corrupto`)  
 **Mundo:** Inferno / Pútrido · **Essência:** Éter  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
@@ -10,7 +10,7 @@ Inferno/Pútrido: chão de basalto escuro, folhas mortas, fuligem, estruturas an
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Retrato — Hárpalo | none | `art/characters/o-corrupto/dark-pictorial-rework-20261030/portrait.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/portrait.jpg` | `a8c7d004ea572a1c05f55a5ef9ebfb83462d1bb7c822a1e1bd3c3fe18f573969` |
+| portrait | Retrato — Pact | none | `art/characters/o-corrupto/dark-pictorial-rework-20261030/portrait.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/portrait.jpg` | `a8c7d004ea572a1c05f55a5ef9ebfb83462d1bb7c822a1e1bd3c3fe18f573969` |
 | passive | Lucro da Ruína | none | `art/characters/o-corrupto/dark-pictorial-rework-20261030/passive.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/passive.jpg` | `9056bd8ba556f642ccb26506f87cb0597bb92c3010f65e43b568ba83f9dceb46` |
 | impulso | Acordo Podre | one ghoul | `art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/impulso.jpg` | `8260c0312fff67919d79ad49c3332b7d1f51575b449df08ec58d181d4c399889` |
 | tecnica | Quebrar a Confiança | one ghoul | `art/characters/o-corrupto/dark-pictorial-rework-20261030/skill-tecnica.webp` | `art/source/o-corrupto-dark-pictorial-rework-20261030/tecnica.jpg` | `57358b38a891df7264898e45b6ab75d71ef6b27000d3ec8d59fdebf03ca4233f` |
@@ -23,15 +23,15 @@ Os WebP têm 512 × 512; as fontes JPEG têm 768 × 768. O manifesto JSON regist
 
 Close baixo de retrato, close lateral do cajado, golpe baixo lateral, vista alta oblíqua, reversa por cima do ombro e defesa traseira baixa.
 
-Seis candidatas inspecionadas. Hárpalo conserva anatomia humana e mãos ligadas aos braços; cada ação contra inimigo tem exatamente um ghoul, e a defesa tem um atacante. Os espinhos de Quebrar a Confiança ficam curtos e enraizados no solo; a treliça defensiva cresce no cajado e para a espada fora do peito. Sem figuras extras ou feixes genéricos.
+Seis candidatas inspecionadas. Pact conserva anatomia humana e mãos ligadas aos braços; cada ação contra inimigo tem exatamente um ghoul, e a defesa tem um atacante. Os espinhos de Quebrar a Confiança ficam curtos e enraizados no solo; a treliça defensiva cresce no cajado e para a espada fora do peito. Sem figuras extras ou feixes genéricos.
 
 ## Relação com as habilidades
 
-- **Lucro da Ruína:** Hárpalo limpa o cajado e revela mofo nas ranhuras prateadas.
+- **Lucro da Ruína:** Pact limpa o cajado e revela mofo nas ranhuras prateadas.
 - **Acordo Podre:** a ponta do cajado desloca a guarda de um único ghoul e deixa uma marca física na armadura.
 - **Quebrar a Confiança:** espinhos curtos, enraizados no basalto, prendem um único ghoul e afrouxam sua guarda.
 - **Preço da Corrupção:** a armadura do ghoul marcado perde o brilho e corrói na superfície; uma brasa escura se fixa no anel.
-- **Privilégio Oculto:** o cajado forma uma treliça curta que detém a espada fora do corpo de Hárpalo.
+- **Privilégio Oculto:** o cajado forma uma treliça curta que detém a espada fora do corpo de Pact.
 
 ## Conjunto de prompts
 

@@ -2,12 +2,12 @@
   "date": "2026-10-31",
   "character": {
     "id": "o-ultimo-guardiao",
-    "name": "Belisarius",
+    "name": "Gideon",
     "title": "O Guardião",
     "role": "Sentinela quadrúpede de pedra"
   },
   "identity": "Espírito guardião quadrúpede dentro de pedra viva: corpo baixo e largo de quatro patas, carapaça de placas marfim, olhos cianos, juntas de filetes dourados e um longo chifre de bronze. Sem anatomia humana.",
-  "lore": "Belisarius guarda travessias; a marca do chifre identifica uma ameaça e as placas abrigam o aliado antes de devolver a agressão.",
+  "lore": "Gideon guarda travessias; a marca do chifre identifica uma ameaça e as placas abrigam o aliado antes de devolver a agressão.",
   "assets": [
     {
       "slot": "portrait",
@@ -47,12 +47,12 @@
     }
   ],
   "compositionChecks": {
-    "portrait": "Belisarius é uma criatura quadrúpede de pedra calcária marfim, carapaça de placas sobrepostas, olhos cianos e um chifre de bronze; quatro patas visíveis, sem torso ou braços humanos.",
-    "passive": "Um atacante físico ou perfurante atinge a carapaça; a defesa remanescente sustenta a preparação de Belisarius.",
+    "portrait": "Gideon é uma criatura quadrúpede de pedra calcária marfim, carapaça de placas sobrepostas, olhos cianos e um chifre de bronze; quatro patas visíveis, sem torso ou braços humanos.",
+    "passive": "Um atacante físico ou perfurante atinge a carapaça; a defesa remanescente sustenta a preparação de Gideon.",
     "impulso": "Investida Vigilante avança contra exatamente um inimigo marcado.",
-    "tecnica": "Sentinela de Resposta prepara a defesa do próprio Belisarius contra um ataque físico ou perfurante e uma resposta contra um atacante.",
+    "tecnica": "Sentinela de Resposta prepara a defesa do próprio Gideon contra um ataque físico ou perfurante e uma resposta contra um atacante.",
     "voto": "Revide Radiante concentra dano e atordoamento condicional em um único alvo marcado.",
-    "despertar": "Guarda Inviolável sela apenas Belisarius sob uma cúpula protetora; a silhueta mantém quatro patas e carapaça."
+    "despertar": "Guarda Inviolável sela apenas Gideon sob uma cúpula protetora; a silhueta mantém quatro patas e carapaça."
   },
   "files": {
     "activeWebp": {
@@ -65,5 +65,6 @@
     }
   },
   "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas de combate inalteradas.",
-  "status": "candidate_integrated_pending_visual_approval"
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Gideon — O Guardião — revisão dark fantasy pictórica"
 }

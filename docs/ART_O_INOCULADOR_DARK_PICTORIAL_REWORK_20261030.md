@@ -1,10 +1,10 @@
-# O Inoculador — revisão dark fantasy pictórica
+# Bram — O Inoculador
 
-**Personagem:** Zahrawi, O Inoculador (`o-medico-de-vermes`, anteriormente O Médico de Vermes)  
+**Personagem:** Bram, O Inoculador (`o-medico-de-vermes`, anteriormente O Médico de Vermes)  
 **Mundo:** Inferno / Podridão · **Essência:** Cinza  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
-Zahrawi é um homem magro de cerca de 60 anos, pele morena, cachos grisalhos ralos, óculos retangulares transparentes, casaco jade e luvas de couro. Seus frascos rituais de vidro selado e o bastão prateado preservam o tema de parasitas sem laboratório, tecnologia ou infestação corporal.
+Bram é um homem magro de cerca de 60 anos, pele morena, cachos grisalhos ralos, óculos retangulares transparentes, casaco jade e luvas de couro. Seus frascos rituais de vidro selado e o bastão prateado preservam o tema de parasitas sem laboratório, tecnologia ou infestação corporal.
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
@@ -19,15 +19,15 @@ WebP: 512 × 512; fontes JPEG: 768 × 768. O manifesto registra bytes, dimensõe
 
 ## Revisão de cena e anatomia
 
-As seis imagens foram inspecionadas. Zahrawi mantém dois braços e articulações coerentes. A passiva mostra exatamente dois ghouls aliados; Hospedeiro Renovado mostra um aliado; cada ataque mostra um único ghoul inimigo; Corpo entre Vermes mostra um atacante e um dardo cujo arremesso está alinhado ao braço e ricocheteia no exterior do vidro. Não há figuras nomeadas além de Zahrawi.
+As seis imagens foram inspecionadas. Bram mantém dois braços e articulações coerentes. A passiva mostra exatamente dois ghouls aliados; Hospedeiro Renovado mostra um aliado; cada ataque mostra um único ghoul inimigo; Corpo entre Vermes mostra um atacante e um dardo cujo arremesso está alinhado ao braço e ricocheteia no exterior do vidro. Não há figuras nomeadas além de Bram.
 
 ## Relação com as habilidades
 
-- **Simbiose Corrupta:** um aliado remove uma condição prejudicial e restaura pelo menos 10 de Vida de outro; Zahrawi recupera 4 de Vida e gera 1 Cinza, uma vez por rodada.
-- **Incisão Parasitária:** um golpe físico contra um inimigo, seguido de Veneno; parte da Vida causada retorna a Zahrawi.
+- **Simbiose Corrupta:** um aliado remove uma condição prejudicial e restaura pelo menos 10 de Vida de outro; Bram recupera 4 de Vida e gera 1 Cinza, uma vez por rodada.
+- **Incisão Parasitária:** um golpe físico contra um inimigo, seguido de Veneno; parte da Vida causada retorna a Bram.
 - **Hospedeiro Renovado:** remove condições prejudiciais de um aliado, restaura 15 de Vida e aplica Regeneração por dois turnos.
 - **Drenagem da Colônia:** atinge um inimigo já envenenado com um golpe físico e recolhe parte da vitalidade.
-- **Corpo entre Vermes:** defesa pessoal; o casco de vidro desvia um ataque antes que alcance Zahrawi.
+- **Corpo entre Vermes:** defesa pessoal; o casco de vidro desvia um ataque antes que alcance Bram.
 
 ## Direção visual
 

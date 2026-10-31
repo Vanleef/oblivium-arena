@@ -1,6 +1,6 @@
-# A Pestilência — revisão dark fantasy pictórica
+# Mire — A Pestilência
 
-**Personagem:** Mary Mallon, A Pestilência (`a-praga-andante`)  
+**Personagem:** Mire, A Pestilência (`a-praga-andante`)  
 **Mundo:** Inferno / Pútrido · **Essência:** Cinza  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 

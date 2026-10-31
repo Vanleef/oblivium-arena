@@ -1,6 +1,6 @@
-# O Apodrecido — revisão dark fantasy pictórica
+# Aldric — O Apodrecido
 
-**Personagem:** Zósimo, O Apodrecido (`o-apodrecido`)  
+**Personagem:** Aldric, O Apodrecido (`o-apodrecido`)  
 **Mundo:** Inferno / Pútrido · **Essência:** Cinza  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
@@ -10,7 +10,7 @@ Inferno/Pútrido: chão de basalto escuro, folhas mortas, lichen seco, fuligem e
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Retrato — Zósimo | none | `art/characters/o-apodrecido/dark-pictorial-rework-20261030/portrait.webp` | `art/source/o-apodrecido-dark-pictorial-rework-20261030/portrait.jpg` | `0c6d4eed971faec61909ad957a8359140adefe1c46a4e19ff4b30ecae13287ab` |
+| portrait | Retrato — Aldric | none | `art/characters/o-apodrecido/dark-pictorial-rework-20261030/portrait.webp` | `art/source/o-apodrecido-dark-pictorial-rework-20261030/portrait.jpg` | `0c6d4eed971faec61909ad957a8359140adefe1c46a4e19ff4b30ecae13287ab` |
 | passive | Carne em Ruína | one ghoul | `art/characters/o-apodrecido/dark-pictorial-rework-20261030/passive.webp` | `art/source/o-apodrecido-dark-pictorial-rework-20261030/passive.jpg` | `ea2a8c5902c40807a3f1f214edd72d5743e96c241c4a1d47ddc51639cfe79223` |
 | impulso | Contato da Ruína | one ghoul | `art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/o-apodrecido-dark-pictorial-rework-20261030/impulso.jpg` | `9a2b502aa179f47604e81612099bf74aacae587a6fc01c5e40da3c8157ca974c` |
 | tecnica | Tecido Cedido | one ghoul | `art/characters/o-apodrecido/dark-pictorial-rework-20261030/skill-tecnica.webp` | `art/source/o-apodrecido-dark-pictorial-rework-20261030/tecnica.jpg` | `556a0219a64357dd747d25c5839a7aa6f29f36df4eeb0737352b5884ed74f826` |
@@ -23,7 +23,7 @@ Os WebP têm 512 × 512; as fontes JPEG têm 768 × 768. O manifesto JSON inclui
 
 Close baixo de retrato, close lateral de extração de lichen, golpe lateral amplo, vista alta com raiz no solo, plano oblíquo de decomposição e defesa traseira baixa.
 
-Seis candidatas inspecionadas. Zósimo conserva dois braços e duas mãos coerentes; cada ação contém um ghoul, e a defesa contém um atacante. Tecido Cedido usa uma raiz curta presa ao chão; Decomposição Completa afeta apenas a cobertura externa. Sem membros extras ou ferimentos explícitos.
+Seis candidatas inspecionadas. Aldric conserva dois braços e duas mãos coerentes; cada ação contém um ghoul, e a defesa contém um atacante. Tecido Cedido usa uma raiz curta presa ao chão; Decomposição Completa afeta apenas a cobertura externa. Sem membros extras ou ferimentos explícitos.
 
 ## Relação com as habilidades
 

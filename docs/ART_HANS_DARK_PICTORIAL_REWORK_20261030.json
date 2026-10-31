@@ -1,9 +1,9 @@
 {
-  "title": "Hans — dark fantasy pictórica (2026-10-30)",
+  "title": "Hans — O Informante — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "hans",
   "characterName": "Hans",
-  "characterTitle": "Informante da Podridão",
+  "characterTitle": "O Informante da Podridão",
   "aliases": [
     "Hans"
   ],
@@ -24,7 +24,7 @@
   "assets": [
     {
       "slot": "portrait",
-      "name": "Hans — Informante da Podridão",
+      "name": "Hans — O Informante da Podridão",
       "targetCount": "none",
       "camera": "close baixo em três quartos",
       "scene": "Hans encara um interlocutor fora de quadro com meio sorriso cínico e um pequeno papel manchado de fuligem, sem escrita legível.",

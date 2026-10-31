@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "character": {
     "id": "o-pulso-sereno",
-    "name": "Asclepiades",
+    "name": "Seren",
     "title": "O Sereno",
     "role": "Baluarte"
   },
@@ -50,7 +50,7 @@
     "portrait": "Homem adulto de pele escura, cabeça raspada, barba curta prateada, túnica azul solta e handpan de cobre preso à cintura.",
     "passive": "Após enfraquecer um inimigo, um toque no handpan conduz uma pequena restauração ao aliado mais ferido; o inimigo e o aliado aparecem junto do músico.",
     "impulso": "Um toque angular do handpan atinge um único inimigo e faz sua arma ceder, representando dano espiritual e Enfraquecimento.",
-    "tecnica": "Asclepiades respira fundo, recupera a própria força e firma a guarda, representando cura própria e redução de dano recebido.",
+    "tecnica": "Seren respira fundo, recupera a própria força e firma a guarda, representando cura própria e redução de dano recebido.",
     "voto": "O aro sólido do handpan atinge o braço de escudo de um único inimigo já enfraquecido; o impacto físico o deixa atordoado.",
     "despertar": "Na praia ao pôr do sol, uma flecha atinge o handpan girado diante do próprio torso e desvia para fora."
   },
@@ -65,5 +65,6 @@
     }
   },
   "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
-  "status": "candidate_integrated_pending_visual_approval"
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Seren — O Sereno — revisão dark fantasy pictórica"
 }

@@ -1,14 +1,14 @@
-# O Espectador — revisão dark fantasy pictórica
+# Elias — O Espectador
 
-**Personagem:** Procopius, O Espectador (ID o-que-observou; anteriormente O que Observou)  
+**Personagem:** Elias, O Espectador (ID o-que-observou; anteriormente O que Observou)  
 **Mundo:** Inferno / Silêncio · **Essência:** Ruptura  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
-Procopius preserva barba e bigode brancos, chapéu escuro de aba larga, monóculo azul de aro de latão e sobretudo azul-negro. Caderno e monóculo são adereços artesanais; não há mecanismos ou tecnologia.
+Elias preserva barba e bigode brancos, chapéu escuro de aba larga, monóculo azul de aro de latão e sobretudo azul-negro. Caderno e monóculo são adereços artesanais; não há mecanismos ou tecnologia.
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Procopius — O Espectador | none | art/characters/o-que-observou/dark-pictorial-rework-20261030/portrait.webp | art/source/o-que-observou-dark-pictorial-rework-20261030/portrait.jpg | 9aa68c7689b7bb33f548793c6da423a287fd96b65bd3624d873292de936c4726 |
+| portrait | Elias — O Espectador | none | art/characters/o-que-observou/dark-pictorial-rework-20261030/portrait.webp | art/source/o-que-observou-dark-pictorial-rework-20261030/portrait.jpg | 9aa68c7689b7bb33f548793c6da423a287fd96b65bd3624d873292de936c4726 |
 | passive | Indiferença Vigilante | um ghoul agressor | art/characters/o-que-observou/dark-pictorial-rework-20261030/passive.webp | art/source/o-que-observou-dark-pictorial-rework-20261030/passive.jpg | 49983d10d9a34387c3ec0efca40f619a6d7d8acbf051384c0d98c8e408dba8f3 |
 | impulso | Memória da Omissão | um ghoul inimigo | art/characters/o-que-observou/dark-pictorial-rework-20261030/skill-impulso.webp | art/source/o-que-observou-dark-pictorial-rework-20261030/impulso.jpg | 02446b0c2746aec23587fcaf176c06d6e82ef4078e6f3bebd421e3a4af56c5b6 |
 | tecnica | Recusar Interferência | um ghoul agressor | art/characters/o-que-observou/dark-pictorial-rework-20261030/skill-tecnica.webp | art/source/o-que-observou-dark-pictorial-rework-20261030/tecnica.jpg | 1311563cd64d7ef24b21e50448f9b8ab11357a1ab76e37e05e8ed4612fbd30ca |
@@ -19,7 +19,7 @@ WebP: 512 × 512; fontes JPEG: 768 × 768. O manifesto registra bytes, dimensõe
 
 ## Revisão de cena e anatomia
 
-As seis imagens foram inspecionadas. A passiva mostra o ataque cancelado e a defesa reativa; Memória da Omissão deixa uma marca em um único ghoul; Recusar Interferência desvia e devolve o golpe; Peso da Indiferença comprime um alvo marcado; Fora do Acontecimento mostra a evasão defensiva. As cenas variam os ângulos e mantêm a identidade humana de Procopius. Todas as candidatas aguardam aprovação visual final.
+As seis imagens foram inspecionadas. A passiva mostra o ataque cancelado e a defesa reativa; Memória da Omissão deixa uma marca em um único ghoul; Recusar Interferência desvia e devolve o golpe; Peso da Indiferença comprime um alvo marcado; Fora do Acontecimento mostra a evasão defensiva. As cenas variam os ângulos e mantêm a identidade humana de Elias. Todas as candidatas aguardam aprovação visual final.
 
 ## Mecânicas preservadas
 

@@ -2,17 +2,17 @@
   "id": "o-acougueiro-dark-pictorial-rework-20261029",
   "date": "2026-10-29",
   "characterId": "o-acougueiro",
-  "displayName": "O Açougueiro",
-  "identityName": "Baltasar",
+  "displayName": "O Ceifador de Tolos",
+  "identityName": "Riven",
   "world": "Inferno",
   "kingdom": "Flagelo",
   "status": "generated_integrated_pending_visual_approval",
   "provider": "OpenAI ImageGen",
   "artDirection": "Dark fantasy pictórica densa e texturizada, pincelada grossa e alta materialidade: superfícies gastas e erodidas, tecido pesado, avental sujo, pele tátil e luz opressiva. Um pouco menos realista e mais estilizada que a referência, sem acabamento limpo, polido ou liso.",
-  "styleReference": "Baal — Manto de Cinzas, usado como referência de textura e materialidade; o retrato anterior de Baltasar foi usado apenas para preservar identidade.",
+  "styleReference": "Baal — Manto de Cinzas, usado como referência de textura e materialidade; o retrato anterior de Riven foi usado apenas para preservar identidade.",
   "previousRoute": "/art/characters/o-acougueiro/anime-first-rework-20261028",
   "activeRoute": "/art/characters/o-acougueiro/dark-pictorial-rework-20261029",
-  "identity": "Baltasar é um homem adulto muito robusto, de cabelo escuro curto e barba grisalha, lenço carmesim, mangas carvão, avental marfim gasto, braçadeiras simples e um único cutelo largo. Manter corpo humano natural, dois braços e duas pernas, mãos e articulações legíveis; sem membros duplicados ou fundidos.",
+  "identity": "Riven é um homem adulto muito robusto, de cabelo escuro curto e barba grisalha, lenço carmesim, mangas carvão, avental marfim gasto, braçadeiras simples e um único cutelo largo. Manter corpo humano natural, dois braços e duas pernas, mãos e articulações legíveis; sem membros duplicados ou fundidos.",
   "assets": [
     {
       "slot": "portrait",
@@ -32,7 +32,7 @@
       "sourceSha256": "93c482a8076540c43bd91ecbeae08016772f958480284b8153cbf19b56222fdf",
       "activeSha256": "dfe59c138d28d1e8d24c2f162f684027658ce194a7d6fafa31da1d75f1bb6328",
       "generatedImage": "generated_images/exec-c7afdba7-1008-4388-930a-271204d89b61.png",
-      "scene": "Close em ângulo baixo de três quartos; Baltasar segura o cutelo junto ao avental diante das ruínas do Flagelo.",
+      "scene": "Close em ângulo baixo de três quartos; Riven segura o cutelo junto ao avental diante das ruínas do Flagelo.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -53,7 +53,7 @@
       "sourceSha256": "fdac245f076039135e796cd974e0515c118983d8c23ff278fca3904b1ff6971d",
       "activeSha256": "8ccdcbec4ea983a64cfe25b6602438d18072d4ec7cb05ee1db0d9fe64b7cbc00",
       "generatedImage": "generated_images/exec-e3e1bc6f-24e4-4ee5-84d6-7b241d0c0daa.png",
-      "scene": "Perfil lateral: Baltasar fareja o rastro vermelho no chão enquanto um ghoul aparece distante no beco.",
+      "scene": "Perfil lateral: Riven fareja o rastro vermelho no chão enquanto um ghoul aparece distante no beco.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -95,7 +95,7 @@
       "sourceSha256": "0c5ebe73816702f7426e25a37fe55a1784c9f54e8dc7b6094220629fbd1bdc9e",
       "activeSha256": "10376d874ba54d62ad1bfd1eb5850c503d3340585c32e5b5311cae7d4e838375",
       "generatedImage": "generated_images/exec-13c28247-7f06-478a-a44e-7ffdec459c15.png",
-      "scene": "Vista zenital oblíqua; Baltasar imobiliza um ghoul com o cutelo, mostrando o atordoamento sem gore.",
+      "scene": "Vista zenital oblíqua; Riven imobiliza um ghoul com o cutelo, mostrando o atordoamento sem gore.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -116,7 +116,7 @@
       "sourceSha256": "3f308a2e0292803cc933b65d35c7d0f75658c32135487a70c5d0a2739830ee38",
       "activeSha256": "3174e082c7f9c851666fca131adacd88d67035eb704929b535daefa7ac5264bc",
       "generatedImage": "generated_images/exec-842eed7a-9baf-4535-9a07-e3731b2cd439.png",
-      "scene": "POV baixo do alvo; Baltasar golpeia um ghoul que já sangra e consome a marca.",
+      "scene": "POV baixo do alvo; Riven golpeia um ghoul que já sangra e consome a marca.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -137,7 +137,7 @@
       "sourceSha256": "9f49a848be597f39e521ced71901f7007d8a049e3c76434fa6fdc7032ad1a835",
       "activeSha256": "3717907ce26ca553ca55c6a359e4ba60ae34782ed784b1d5c6bb5737d795e0e6",
       "generatedImage": "generated_images/exec-71366ca4-b169-4123-a7f8-6a4bb34f97b0.png",
-      "scene": "Vista traseira em três quartos; Baltasar esquiva lateralmente de um ghoul, ilustrando invulnerabilidade pessoal.",
+      "scene": "Vista traseira em três quartos; Riven esquiva lateralmente de um ghoul, ilustrando invulnerabilidade pessoal.",
       "reviewStatus": "candidate_integrated_pending_visual_approval"
     },
     {
@@ -169,5 +169,6 @@
   "references": [
     "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
     "art/characters/o-acougueiro/anime-first-rework-20261028/portrait.webp"
-  ]
+  ],
+  "title": "Riven — O Ceifador de Tolos — revisão dark fantasy pictórica"
 }

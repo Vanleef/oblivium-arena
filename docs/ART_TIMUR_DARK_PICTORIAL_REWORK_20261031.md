@@ -1,4 +1,4 @@
-# Timur — O Obliterador
+# Niith — O Fim
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
@@ -8,7 +8,7 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 - A passiva mostra cinzas convertidas em energia e recuperação.
 - Apagar o Terreno mostra exatamente três inimigos na onda de apagamento.
 - Coordenada Nula e Eliminar o Vestígio mostram um alvo cada.
-- Contorno Inexistente protege apenas Timur.
+- Contorno Inexistente protege apenas Niith.
 - As seis imagens são candidatas integradas e aguardam aprovação visual.
 - Foram atualizadas apenas rotas de arte e registros de cobertura; as mecânicas permanecem inalteradas.
 

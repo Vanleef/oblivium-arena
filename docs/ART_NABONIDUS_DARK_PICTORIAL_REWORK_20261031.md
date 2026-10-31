@@ -1,4 +1,4 @@
-# Nabonidus — A Ausência
+# Vespera — A Ausência
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
@@ -9,11 +9,11 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
 | Espaço | Cena |
 |---|---|
-| Portrait | Retrato de Nabonidus, homem magro de meia-idade com manto carvão, forro borgonha, fecho de bronze e uma faixa estreita de vazio em sua silhueta. |
-| Falta de Substância | Um ghoul alcança o ombro de Nabonidus; da perda de substância surge um pequeno mote de essência. |
-| Toque Ausente | Nabonidus encosta dois dedos na placa peitoral de um ghoul; um pequeno trecho de matéria desaparece no ponto de contato. |
-| Ataque a Ninguém | Uma abertura de sombra envolve um ghoul, devolvendo a ameaça contra a própria presença; Nabonidus permanece imóvel. |
-| Ausência Contagiosa | Três ghouls enfrentam Nabonidus na praça; os prolongamentos de suas sombras somem em pontos distintos. |
-| Não Estar | Nabonidus atravessa uma fenda vertical de espaço ausente enquanto fragmentos de basalto passam sem alcançá-lo. |
+| Portrait | Retrato de Vespera, homem magro de meia-idade com manto carvão, forro borgonha, fecho de bronze e uma faixa estreita de vazio em sua silhueta. |
+| Falta de Substância | Um ghoul alcança o ombro de Vespera; da perda de substância surge um pequeno mote de essência. |
+| Toque Ausente | Vespera encosta dois dedos na placa peitoral de um ghoul; um pequeno trecho de matéria desaparece no ponto de contato. |
+| Ataque a Ninguém | Uma abertura de sombra envolve um ghoul, devolvendo a ameaça contra a própria presença; Vespera permanece imóvel. |
+| Ausência Contagiosa | Três ghouls enfrentam Vespera na praça; os prolongamentos de suas sombras somem em pontos distintos. |
+| Não Estar | Vespera atravessa uma fenda vertical de espaço ausente enquanto fragmentos de basalto passam sem alcançá-lo. |
 
 Registro técnico completo: [ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json](ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json).

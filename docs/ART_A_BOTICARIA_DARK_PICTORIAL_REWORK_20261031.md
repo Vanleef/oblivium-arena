@@ -1,4 +1,4 @@
-# Dioscorides / A Boticária — revisão dark fantasy pictórica
+# Iris — A Boticária
 
 - **Data:** 2026-10-31
 - **ID:** `a-jardineira-das-feridas`

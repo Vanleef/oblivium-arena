@@ -1,6 +1,6 @@
-# A Rainha dos Fungos — revisão dark fantasy pictórica
+# Myra — A Rainha dos Fungos
 
-**Personagem:** Beatrix Potter, A Rainha dos Fungos (`a-rainha-dos-fungos`)  
+**Personagem:** Myra, A Rainha dos Fungos (`a-rainha-dos-fungos`)  
 **Mundo:** Inferno / Pútrido · **Essência:** Graça  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 

@@ -1,8 +1,8 @@
 {
-  "title": "A Serpe — revisão dark fantasy pictórica",
+  "title": "Sylvara — A Serpe — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "a-boca-de-vidro",
-  "characterName": "Aspasia",
+  "characterName": "Sylvara",
   "characterTitle": "A Serpe",
   "realm": "Inferno",
   "kingdom": "Malebolge",
@@ -10,7 +10,7 @@
   "identity": "Entidade serpentina de vidro espiritual translúcido e esfumaçado, corpo longo e contínuo em espirais, cabeça única em forma de cunha, olhos verde-jade e filigranas de vidro ao redor do pescoço. Sem braços, pernas ou torso humano.",
   "styleReference": "art/characters/a-boca-de-vidro/style-reference-rework-20261025/portrait.webp (marcadores de identidade); acabamento atualizado para a direção dark fantasy pictórica gráfica 2.5D.",
   "sceneVariety": "Espelho infernal, estilhaço que recupera vitalidade, projétil perfurante em alvo único, drenagem através de reflexos rachados, rajada contra três inimigos e defesa em espiral; seis enquadramentos distintos.",
-  "anatomyReview": "Seis peças inspecionadas. Aspasia mantém uma cabeça e um corpo serpentiforme contínuo, sem membros humanoides; a cena de Coro de Estilhaços mostra exatamente três inimigos distintos. Sem anomalias anatômicas evidentes.",
+  "anatomyReview": "Seis peças inspecionadas. Sylvara mantém uma cabeça e um corpo serpentiforme contínuo, sem membros humanoides; a cena de Coro de Estilhaços mostra exatamente três inimigos distintos. Sem anomalias anatômicas evidentes.",
   "gameplayChanged": false,
   "status": "candidate_integrated_pending_visual_approval",
   "assets": [
@@ -66,9 +66,9 @@
       "sourceBytes": 179219,
       "activeSha256": "ecc84c2ef97b7ffe9b865a7d5f909d04acbcfbbcd39fa8992f0e6284ee165830",
       "sourceSha256": "d2df2f242966bc564e33117b3a72b91cfede1e02415143f471ebd467ff457194",
-      "scene": "Preso entre espelhos rachados, um inimigo perde força enquanto Aspasia recolhe uma Essência da bolsa dele.",
+      "scene": "Preso entre espelhos rachados, um inimigo perde força enquanto Sylvara recolhe uma Essência da bolsa dele.",
       "camera": "Através de um caco em primeiro plano.",
-      "prompt": "Preso entre espelhos rachados, um inimigo perde força enquanto Aspasia recolhe uma Essência da bolsa dele."
+      "prompt": "Preso entre espelhos rachados, um inimigo perde força enquanto Sylvara recolhe uma Essência da bolsa dele."
     },
     {
       "slot": "voto",

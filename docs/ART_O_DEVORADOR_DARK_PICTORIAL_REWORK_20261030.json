@@ -1,8 +1,8 @@
 {
-  "title": "O Devorador — revisão dark pictorial",
+  "title": "Gorath — O Devorador — revisão dark fantasy pictórica",
   "date": "2026-10-30",
   "characterId": "o-devorador",
-  "characterName": "Vitellius",
+  "characterName": "Gorath",
   "characterTitle": "O Devorador",
   "aliases": [
     "O Devorador"
@@ -11,7 +11,7 @@
   "kingdom": "Pútrido",
   "essence": "Cinza",
   "style": "Anime-first 2.5D de fantasia sombria pictórica: pinceladas angulares, contornos manuais, hachuras, sombras de corte e materialidade tátil.",
-  "identity": "Vitellius é uma fera infernal quadrúpede, baixa e pesada, com exatamente quatro patas, uma única cabeça horizontal de focinho longo, mandíbula larga com dentes angulares de bronze, olhos âmbar fendidos, couro negro, crista óssea no dorso, garganta inchada com veios minerais âmbar e cauda curta. Não tem braços, mãos, tronco humanoide, membros extras ou segunda cabeça. Na forma Fome sem Corpo, abre-se um vazio sobrenatural único entre as costelas, sem órgãos expostos.",
+  "identity": "Gorath é uma fera infernal quadrúpede, baixa e pesada, com exatamente quatro patas, uma única cabeça horizontal de focinho longo, mandíbula larga com dentes angulares de bronze, olhos âmbar fendidos, couro negro, crista óssea no dorso, garganta inchada com veios minerais âmbar e cauda curta. Não tem braços, mãos, tronco humanoide, membros extras ou segunda cabeça. Na forma Fome sem Corpo, abre-se um vazio sobrenatural único entre as costelas, sem órgãos expostos.",
   "environment": "Inferno/Pútrido: neve suja misturada a cinza, basalto negro, rachaduras carmesim e formações naturais que lembram mandíbulas. A essência drenada aparece em partículas rubro-âmbar discretas; sem tecnologia, máquinas ou soldados.",
   "sceneVariety": "Retrato baixo em três quartos, passiva reversa lateral, bote rente ao chão, variante faminta em reversa próxima, saliva em perfil lateral, drenagem em close baixo, defesa zenital e retrato lateral da forma starved.",
   "anatomyReview": "Oito imagens inspecionadas. A fera conserva uma cabeça, quatro patas e corpo quadrúpede; a forma starved acrescenta apenas uma cavidade torácica vazia, sem órgãos, boca ou membros extras. Passiva, Mordida da Alma, variante, Saliva Corrosiva e Engolir a Essência mostram um ghoul cada; o despertar protege somente a fera; os dois retratos não têm alvo. A defesa e os ataques têm ações distintas e físicas. Nenhuma mecânica foi alterada.",

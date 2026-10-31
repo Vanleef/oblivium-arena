@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "title": "Aristagoras — A Marionetista — revisão dark fantasy pictórica",
+  "title": "Liora — A Marionetista — revisão dark fantasy pictórica",
   "generator": "OpenAI ImageGen built-in",
   "style": "Dark fantasy pictórica 2.5D; pinceladas angulares, contornos manuais, hachuras, sombras de corte e fibra teal espessa com tensão física; Inferno/Carne em preto e brasa.",
   "counts": {
@@ -82,7 +82,7 @@
       "slot": "skill-tecnica-hold",
       "activePath": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-tecnica-hold.webp",
       "sourcePath": "art/source/a-marionetista-de-nervos-dark-pictorial-rework-20261031/skill-tecnica-hold.jpg",
-      "scene": "Manter o Comando: contra-plano baixo de Aristagoras sustentando tensão em dois fios enquanto a mesma vítima fica imobilizada.",
+      "scene": "Manter o Comando: contra-plano baixo de Liora sustentando tensão em dois fios enquanto a mesma vítima fica imobilizada.",
       "targetCount": "1",
       "width": 512,
       "height": 512,
@@ -98,7 +98,7 @@
       "slot": "skill-voto",
       "activePath": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-voto.webp",
       "sourcePath": "art/source/a-marionetista-de-nervos-dark-pictorial-rework-20261031/skill-voto.jpg",
-      "scene": "Romper o Comando: Aristagoras estala a ligação e uma única vítima recua com o impacto, sem ferimento gráfico.",
+      "scene": "Romper o Comando: Liora estala a ligação e uma única vítima recua com o impacto, sem ferimento gráfico.",
       "targetCount": "1",
       "width": 512,
       "height": 512,
@@ -128,13 +128,13 @@
     }
   ],
   "promptSet": {
-    "shared": "Dark fantasy pictorial 2.5D, dense angular brushwork, inked contours, hatching, cut shadows, tactile worn cloth, basalt and coarse physical fibers. Preserve Aristagoras: athletic adult woman around 35, warm brown skin, long black braids, amber fitted coat, ordinary five-fingered hands, small teal wrist bobbins of wood and bronze. Inferno/Carne uses ember-red and black with teal as a controlled accent. Threads must be thick physical fibers with clear attachment and tension, never thin energy beams. No gore, extra limbs, text, watermark, gears, technology or generic soldiers.",
+    "shared": "Dark fantasy pictorial 2.5D, dense angular brushwork, inked contours, hatching, cut shadows, tactile worn cloth, basalt and coarse physical fibers. Preserve Liora: athletic adult woman around 35, warm brown skin, long black braids, amber fitted coat, ordinary five-fingered hands, small teal wrist bobbins of wood and bronze. Inferno/Carne uses ember-red and black with teal as a controlled accent. Threads must be thick physical fibers with clear attachment and tension, never thin energy beams. No gore, extra limbs, text, watermark, gears, technology or generic soldiers.",
     "bySlot": {
       "portrait": "Low three-quarter close portrait; determined face, braids, amber coat, fibers running through her fingers.",
       "passive": "Macro side view; tighten a fiber already attached to one marked ghoul's wrist, lowering its elbow to show Weakening.",
       "impulso": "A taut fiber snaps onto exactly one ghoul's armored wrist and leaves a spiritual mark by contact.",
       "tecnica": "High overhead diagonal; on one marked ghoul, attached fibers pull the weapon arm out of line and interrupt movement.",
-      "tecnica:hold": "Reverse low view; Aristagoras maintains tension on two fibers while the same marked victim remains immobilized, showing sustained command.",
+      "tecnica:hold": "Reverse low view; Liora maintains tension on two fibers while the same marked victim remains immobilized, showing sustained command.",
       "voto": "Extreme side profile; she snaps the prepared link and one ghoul recoils in pain, without visible injury.",
       "despertar": "Rear three-quarter personal defense; an anchored fiber slings her intact body sideways out of one blade's path."
     }

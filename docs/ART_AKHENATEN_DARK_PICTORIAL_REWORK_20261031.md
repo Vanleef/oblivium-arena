@@ -1,4 +1,4 @@
-# Akhenaten — O Anulador
+# Noctis — O Anulador
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
@@ -15,6 +15,6 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 | Anulação Definitiva | Consome a marca e raspa uma área larga e branca no escudo do alvo. |
 | Dissolver a Guarda | Um golpe de raspador atravessa o escudo erguido do ghoul e remove sua defesa. |
 | Extinguir o Traço | O Anulador alcança o escudo marcado e aprofunda o traço branco até a superfície perder o sigilo. |
-| Fora da Existência | Akhenaten gira junto a uma faixa estreita de espaço apagado enquanto um projétil passa sem o alcançar. |
+| Fora da Existência | Noctis gira junto a uma faixa estreita de espaço apagado enquanto um projétil passa sem o alcançar. |
 
 Registro técnico completo: [ART_AKHENATEN_DARK_PICTORIAL_REWORK_20261031.json](ART_AKHENATEN_DARK_PICTORIAL_REWORK_20261031.json).

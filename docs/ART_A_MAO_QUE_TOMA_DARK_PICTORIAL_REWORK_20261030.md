@@ -1,4 +1,4 @@
-# A Mão que Toma — revisão anime-first 2.5D (2026-10-30)
+# Ravena — A Saqueadora
 
 ## Identidade e direção visual
 
@@ -10,14 +10,14 @@ Inferno/Magma: basalto quebrado, fissuras de brasa, cinza negra e ruínas do sal
 
 - Sete espaços lógicos: seis artes-base e a variante dedicada **Abrir o Cofre**.
 - Um ghoul em cada cena de alvo único; defesa, técnica de proteção e variante de cura autocentradas.
-- A identidade distingue Brennus dos outros personagens do Inferno: cabelo prateado curto, trança negra, ombreira de bronze assimétrica e espólios em anéis; sem manto ou lanterna.
+- A identidade distingue Ravena dos outros personagens do Inferno: cabelo prateado curto, trança negra, ombreira de bronze assimétrica e espólios em anéis; sem manto ou lanterna.
 - Nenhuma mecânica foi alterada. As sete imagens aguardam aprovação visual.
 
 ## Arquivos e integridade
 
 | Espaço | Arte | Alvos | Ativo WebP | Fonte JPEG | SHA-256 ativo |
 |---|---|---|---|---|---|
-| portrait | Retrato — Brennus | none | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/portrait.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/portrait.jpg` | `7661a70d0fc674d2d5311c2f7d9abee218495006f5274a1ca6e9bfc92653b009` |
+| portrait | Retrato — Ravena | none | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/portrait.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/portrait.jpg` | `7661a70d0fc674d2d5311c2f7d9abee218495006f5274a1ca6e9bfc92653b009` |
 | passive | Posse Insaciável | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/passive.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/passive.jpg` | `4be97607c9c4b1dd5731a3123f2a88f9abf06521e5475a45ddd01b3c87e73521` |
 | impulso | Dedos da Cobiça | one ghoul | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/impulso.jpg` | `66099520200e3109354bc5dca51c76e227cf2e034c0a8bb833dcbf3d23fcd264` |
 | tecnica | Guardar o que Roubou | self only | `/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica.webp` | `art/source/a-mao-que-toma-dark-pictorial-rework-20261030/tecnica.jpg` | `47dfcbd152be277832e3f40ab7df7ba0c3337baaf05309b45001766fbc2bb246` |

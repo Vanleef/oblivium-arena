@@ -1,4 +1,4 @@
-# Hildegard / A Sanadora — revisão dark fantasy pictórica
+# Liora — A Sanadora
 
 - **Data:** 2026-10-31
 - **ID:** `a-luz-que-restaura`
@@ -14,10 +14,10 @@ Mulher adulta de pele azul-marinho, rosto humano sereno e cabelo curto prateado.
 | Espaço | Composição |
 |---|---|
 | Retrato | Rosto humano sereno, pele azul-marinho, cabelo curto prateado, dois ornamentos de antena presos ao cabelo e manto de tecido marfim com motivos de mariposa. |
-| Passiva | Hildegard recolhe uma única escama luminosa do próprio manto na palma da mão. |
+| Passiva | Liora recolhe uma única escama luminosa do próprio manto na palma da mão. |
 | Impulso | Uma escama atinge o escudo de um único inimigo e deixa uma marca azul de Exposição. |
-| Técnica | Hildegard aquece a braçadeira rachada de um aliado com escamas de luz, restaurando vigor e preparando seu próximo golpe. |
-| Voto | Uma varredura mais ampla do manto e escamas de luz atingem um único adversário exposto; um fio de luz retorna a Hildegard, sugerindo o roubo de vida. |
+| Técnica | Liora aquece a braçadeira rachada de um aliado com escamas de luz, restaurando vigor e preparando seu próximo golpe. |
+| Voto | Uma varredura mais ampla do manto e escamas de luz atingem um único adversário exposto; um fio de luz retorna a Liora, sugerindo o roubo de vida. |
 | Despertar | O manto se fecha ao redor dos próprios ombros e uma flecha se parte na camada externa, mostrando defesa pessoal e Invulnerabilidade. |
 
 ## Arquivos

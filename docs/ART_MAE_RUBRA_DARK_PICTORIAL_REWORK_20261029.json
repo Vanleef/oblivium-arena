@@ -3,7 +3,7 @@
   "date": "2026-10-29",
   "characterId": "a-mae-rubra",
   "displayName": "A Mãe Rubra",
-  "identityName": "Julia Maesa",
+  "identityName": "Selene",
   "world": "Inferno",
   "kingdom": "Flagelo",
   "status": "generated_integrated_pending_visual_approval",
@@ -12,7 +12,7 @@
   "styleReference": "A referência do homem decadente com raízes e machado informa somente peso, textura e acabamento. A estilização gráfica usa pinceladas angulares, contornos e hachuras; o retrato anime anterior de Julia serve apenas para identidade.",
   "previousRoute": "/art/characters/a-mae-rubra/anime-first-rework-20261027",
   "activeRoute": "/art/characters/a-mae-rubra/dark-pictorial-rework-20261029",
-  "identity": "Julia Maesa é uma mulher madura de pele castanho-média, cabelo grisalho-prateado em exatamente duas tranças grossas presas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate muito pesado e desfiado. Rosto descoberto, sem máscara, armadura ou coroa; preservar idade, proporções naturais e mãos legíveis.",
+  "identity": "Selene é uma mulher madura de pele castanho-média, cabelo grisalho-prateado em exatamente duas tranças grossas presas com fios carmesins, brincos pequenos de argola dourada, vestido preto de gola alta e xale escarlate muito pesado e desfiado. Rosto descoberto, sem máscara, armadura ou coroa; preservar idade, proporções naturais e mãos legíveis.",
   "assets": [
     {
       "slot": "portrait",
@@ -146,5 +146,6 @@
   "references": [
     "Imagem de referência do usuário: homem decadente com raízes e machado — somente textura, peso e acabamento",
     "art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp"
-  ]
+  ],
+  "title": "Selene — A Matriarca — revisão dark fantasy pictórica"
 }

@@ -1,6 +1,6 @@
-# A Senhora do Último Pão — revisão dark fantasy pictórica
+# Helena — A Matriarca
 
-**Personagem:** Helena de Adiabene, A Matriarca (`a-senhora-do-ultimo-pao`)  
+**Personagem:** Helena, A Matriarca (`a-senhora-do-ultimo-pao`)  
 **Mundo:** Inferno / Magma · **Essência:** Cinza  
 **Estado:** seis WebP conectados ao runtime deste branch; aprovação visual final pendente. Nenhuma mecânica foi alterada.
 
@@ -10,7 +10,7 @@ Inferno/Magma: forno de pedra apagado, basalto rachado, cinza negra e ruínas de
 
 | Espaço | Arte | Alvos | Candidata WebP | Fonte JPEG | SHA-256 WebP |
 |---|---|---|---|---|---|
-| portrait | Retrato — Helena de Adiabene | none | `art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/portrait.webp` | `art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/portrait.jpg` | `ca78f8c684dd6a8f5875955ee673cb89a4a18e2e29b57f5b01f8c8447f92aa8a` |
+| portrait | Retrato — Helena | none | `art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/portrait.webp` | `art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/portrait.jpg` | `ca78f8c684dd6a8f5875955ee673cb89a4a18e2e29b57f5b01f8c8447f92aa8a` |
 | passive | Lucro da Privação | one ghoul | `art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/passive.webp` | `art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/passive.jpg` | `77574bb6296bc46e7b258882a57584d071c7946f85bea0d328e2f5a2aeb61525` |
 | impulso | Marca da Privação | one ghoul | `art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-impulso.webp` | `art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/impulso.jpg` | `d54112b74800a48114c6c579dbd1256d94b86af19573f04a319e61026dd663e4` |
 | tecnica | Ração dos Submissos | self and two allies | `art/characters/a-senhora-do-ultimo-pao/dark-pictorial-rework-20261030/skill-tecnica.webp` | `art/source/a-senhora-do-ultimo-pao-dark-pictorial-rework-20261030/tecnica.jpg` | `665435f542760b1df1532a6298b91ef0d86d8abcc4cabc040e0a18a29b920ac8` |

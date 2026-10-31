@@ -1,4 +1,4 @@
-# Asclepiades / O Sereno — revisão dark fantasy pictórica
+# Seren — O Sereno
 
 - **Data:** 2026-10-31
 - **ID:** `o-pulso-sereno`
@@ -16,7 +16,7 @@ Homem adulto de corpo largo, por volta de 40 anos, pele escura, cabeça raspada,
 | Retrato | Homem adulto de pele escura, cabeça raspada, barba curta prateada, túnica azul solta e handpan de cobre preso à cintura. |
 | Passiva | Após enfraquecer um inimigo, um toque no handpan conduz uma pequena restauração ao aliado mais ferido; o inimigo e o aliado aparecem junto do músico. |
 | Impulso | Um toque angular do handpan atinge um único inimigo e faz sua arma ceder, representando dano espiritual e Enfraquecimento. |
-| Técnica | Asclepiades respira fundo, recupera a própria força e firma a guarda, representando cura própria e redução de dano recebido. |
+| Técnica | Seren respira fundo, recupera a própria força e firma a guarda, representando cura própria e redução de dano recebido. |
 | Voto | O aro sólido do handpan atinge o braço de escudo de um único inimigo já enfraquecido; o impacto físico o deixa atordoado. |
 | Despertar | Na praia ao pôr do sol, uma flecha atinge o handpan girado diante do próprio torso e desvia para fora. |
 

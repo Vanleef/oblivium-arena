@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "character": {
     "id": "a-muralha",
-    "name": "Zenobia",
+    "name": "Bastion",
     "title": "A Muralha",
     "role": "Sentinela de Pedra"
   },
@@ -50,9 +50,9 @@
     "portrait": "A silhueta de fortaleza e as janelas de vitral definem o constructo.",
     "passive": "Placas de pedra recompõem uma área lascada; sem alvos extras.",
     "impulso": "Impacto do Baluarte atinge um inimigo e acende uma carga.",
-    "tecnica": "Muralha Partilhada protege o trio: Zenobia e dois aliados, exatamente três pessoas.",
+    "tecnica": "Muralha Partilhada protege o trio: Bastion e dois aliados, exatamente três pessoas.",
     "voto": "Investida do Baluarte concentra cargas e defesa consumida contra um único inimigo.",
-    "despertar": "Baluarte Inviolável fecha uma fortaleza de pedra e vitral apenas ao redor de Zenobia."
+    "despertar": "Baluarte Inviolável fecha uma fortaleza de pedra e vitral apenas ao redor de Bastion."
   },
   "files": {
     "activeWebp": {
@@ -65,5 +65,6 @@
     }
   },
   "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
-  "status": "candidate_integrated_pending_visual_approval"
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Bastion — A Muralha — revisão dark fantasy pictórica"
 }

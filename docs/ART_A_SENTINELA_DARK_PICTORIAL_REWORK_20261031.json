@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "character": {
     "id": "a-sentinela-azul",
-    "name": "Sittas",
+    "name": "Azure",
     "title": "A Sentinela",
     "role": "Baluarte"
   },
@@ -47,12 +47,12 @@
     }
   ],
   "compositionChecks": {
-    "portrait": "Rosto angular, tranças teal, lança curta e manto azul definem Sittas como sentinela humana.",
-    "passive": "Sittas fecha o broche simples do manto enquanto reconhece uma abertura no campo.",
+    "portrait": "Rosto angular, tranças teal, lança curta e manto azul definem Azure como sentinela humana.",
+    "passive": "Azure fecha o broche simples do manto enquanto reconhece uma abertura no campo.",
     "impulso": "Sinal Azul é um golpe curto de lança contra um único alvo, deixando-o Exposto.",
     "tecnica": "Linha de Proteção envolve um único aliado com o manto e uma corrente de ar curva; nenhum outro aliado aparece.",
     "voto": "Lança do Horizonte perfura a abertura do escudo de um alvo já Exposto, em enquadramento aproximado distinto do golpe base.",
-    "despertar": "Vigília Intangível é uma esquiva baixa pessoal; a lança adversária passa acima sem alcançar Sittas."
+    "despertar": "Vigília Intangível é uma esquiva baixa pessoal; a lança adversária passa acima sem alcançar Azure."
   },
   "files": {
     "activeWebp": {
@@ -65,5 +65,6 @@
     }
   },
   "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
-  "status": "candidate_integrated_pending_visual_approval"
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Azure — A Sentinela — revisão dark fantasy pictórica"
 }
