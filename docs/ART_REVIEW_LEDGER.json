@@ -783,7 +783,13 @@
     "a-sentinela-azul:base:impulso",
     "a-sentinela-azul:base:tecnica",
     "a-sentinela-azul:base:voto",
-    "a-sentinela-azul:base:despertar"
+    "a-sentinela-azul:base:despertar",
+    "a-mao-que-cura:base:portrait",
+    "a-mao-que-cura:base:passive",
+    "a-mao-que-cura:base:impulso",
+    "a-mao-que-cura:base:tecnica",
+    "a-mao-que-cura:base:voto",
+    "a-mao-que-cura:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1230,7 +1236,13 @@
     "a-sentinela-azul:base:impulso",
     "a-sentinela-azul:base:tecnica",
     "a-sentinela-azul:base:voto",
-    "a-sentinela-azul:base:despertar"
+    "a-sentinela-azul:base:despertar",
+    "a-mao-que-cura:base:portrait",
+    "a-mao-que-cura:base:passive",
+    "a-mao-que-cura:base:impulso",
+    "a-mao-que-cura:base:tecnica",
+    "a-mao-que-cura:base:voto",
+    "a-mao-que-cura:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
