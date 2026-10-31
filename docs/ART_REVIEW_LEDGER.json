@@ -707,7 +707,14 @@
     "a-costureira:base:tecnica",
     "a-costureira:form:tecnica:remove",
     "a-costureira:base:voto",
-    "a-costureira:base:despertar"
+    "a-costureira:base:despertar",
+    "o-que-apaga:base:portrait",
+    "o-que-apaga:base:passive",
+    "o-que-apaga:base:impulso",
+    "o-que-apaga:base:tecnica",
+    "o-que-apaga:base:voto",
+    "o-que-apaga:base:despertar",
+    "o-que-apaga:form:impulso:erase"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
