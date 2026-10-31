@@ -1091,5 +1091,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "o-equilibrio": {
+    "portrait": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": {
+        "verdict": "/art/characters/o-equilibrio/dark-pictorial-rework-20261031/skill-tecnica-verdict.webp"
+      }
+    }
   }
 };
