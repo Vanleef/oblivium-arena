@@ -714,7 +714,13 @@
     "o-que-apaga:base:tecnica",
     "o-que-apaga:base:voto",
     "o-que-apaga:base:despertar",
-    "o-que-apaga:form:impulso:erase"
+    "o-que-apaga:form:impulso:erase",
+    "a-ausencia:base:portrait",
+    "a-ausencia:base:passive",
+    "a-ausencia:base:impulso",
+    "a-ausencia:base:tecnica",
+    "a-ausencia:base:voto",
+    "a-ausencia:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
