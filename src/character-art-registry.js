@@ -911,5 +911,15 @@ export const characterArtRegistry = {
         "erase": "/art/characters/o-que-apaga/dark-pictorial-rework-20261031/skill-impulso-erase.webp"
       }
     }
+  },
+  "a-ausencia": {
+    "portrait": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
