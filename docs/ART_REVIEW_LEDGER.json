@@ -958,7 +958,13 @@
     "a-mensageira-do-amanha:base:tecnica",
     "a-mensageira-do-amanha:base:voto",
     "a-mensageira-do-amanha:base:despertar",
-    "a-mensageira-do-amanha:variant:impulso:delivered"
+    "a-mensageira-do-amanha:variant:impulso:delivered",
+    "o-que-revela:base:portrait",
+    "o-que-revela:base:passive",
+    "o-que-revela:base:impulso",
+    "o-que-revela:base:tecnica",
+    "o-que-revela:base:voto",
+    "o-que-revela:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1580,7 +1586,13 @@
     "a-mensageira-do-amanha:base:tecnica",
     "a-mensageira-do-amanha:base:voto",
     "a-mensageira-do-amanha:base:despertar",
-    "a-mensageira-do-amanha:variant:impulso:delivered"
+    "a-mensageira-do-amanha:variant:impulso:delivered",
+    "o-que-revela:base:portrait",
+    "o-que-revela:base:passive",
+    "o-que-revela:base:impulso",
+    "o-que-revela:base:tecnica",
+    "o-que-revela:base:voto",
+    "o-que-revela:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

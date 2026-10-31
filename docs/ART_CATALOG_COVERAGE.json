@@ -1632,7 +1632,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-luz-nua",
@@ -2761,21 +2770,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 618,
-    "remainingSlots": 380,
-    "fullyMigratedEntries": 93,
-    "remainingEntries": 57,
-    "awaitingVisualApprovalSlots": 611,
+    "integratedCandidateSlots": 624,
+    "remainingSlots": 374,
+    "fullyMigratedEntries": 94,
+    "remainingEntries": 56,
+    "awaitingVisualApprovalSlots": 617,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-mensageira-do-amanha"
+      "o-que-revela"
     ],
-    "candidateSlotsAdded": 7,
-    "candidateSlotsActivated": 7,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_STELLA_PHOEBE_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_VERITAS_HECATAEUS_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

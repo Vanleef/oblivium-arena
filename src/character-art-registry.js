@@ -1474,5 +1474,15 @@ export const characterArtRegistry = {
         "delivered": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-impulso-delivered.webp"
       }
     }
+  },
+  "o-que-revela": {
+    "portrait": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
