@@ -874,9 +874,9 @@ export const characterRevisions = {
     "roleHint": "Ceda parte da sua Vida para amparar um aliado e sustente-se na resposta ofensiva, mais forte quando ferido.",
   },
   "o-equilibrio": {
-    "name": "Zaleucus",
+    "name": "Aldric",
     "title": "O Árbitro",
-    "englishName": "Zaleucus",
+    "englishName": "Aldric",
     "englishTitle": "The Arbiter",
     "aliases": ["O Equilíbrio","O Árbitro"],
     "role": "Árbitro da Reparação",

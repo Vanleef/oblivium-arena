@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "character": {
     "id": "o-equilibrio",
-    "name": "Zaleucus",
+    "name": "Aldric",
     "title": "O Árbitro",
     "role": "Árbitro da Reparação"
   },
@@ -55,10 +55,10 @@
   "compositionChecks": {
     "portrait": "Retrato em três quartos do constructo de mármore marfim e azul, com olhos azuis, vara de medida e arquitetura luminosa de Júpiter ao fundo.",
     "passive": "A vara de medida abre uma brecha na guarda de um único ghoul, visualizando Medida Justa e a exposição do excesso.",
-    "impulso": "Zaleucus usa a vara como alavanca para abrir a guarda do adversário com um golpe proporcional.",
+    "impulso": "Aldric usa a vara como alavanca para abrir a guarda do adversário com um golpe proporcional.",
     "tecnica": "O árbitro ergue uma barreira cristalina em torno do viajante ferido, representando Amparo Equânime.",
-    "tecnica:verdict": "O corpo rachado se recompõe enquanto Zaleucus contra-ataca com a vara, destacando a forma especial Resposta Equânime.",
-    "voto": "Zaleucus firma a Barreira Inviolável diante de um agressor, com a vara integrada à postura defensiva.",
+    "tecnica:verdict": "O corpo rachado se recompõe enquanto Aldric contra-ataca com a vara, destacando a forma especial Resposta Equânime.",
+    "voto": "Aldric firma a Barreira Inviolável diante de um agressor, com a vara integrada à postura defensiva.",
     "despertar": "O Veredito Proporcional fragmenta a armadura de um inimigo sem alterar a identidade visual nem a escala da cena."
   }
 }
