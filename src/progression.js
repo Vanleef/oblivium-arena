@@ -4,31 +4,83 @@ import { defaultKingdomByTrack } from './kingdoms.js';
 export function seededRandom(seed=1) { let value=(Number(seed)||1)>>>0;return ()=>{value=(Math.imul(value,1664525)+1013904223)>>>0;return value/4294967296;}; }
 export function shuffled(items,rng=Math.random) { const out=[...items];for(let i=out.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out; }
 const roster=id=>characters.filter(c=>c.kingdomId===id||c.legacyEloId===id);
+export const MAX_CAMPAIGN_DIFFICULTY=4;
+export const campaignDifficultyLevels=Object.freeze([0,1,2,3,4]);
+const campaignRouteIds=Object.freeze({
+  inferno:["flagelo","magma","malebolge","estige","putrido","tartaro","tormenta","blasfemia","oblivio"],
+  paraiso:["marte","lua","saturno","jupiter","estelar","sol","venus","mercurio","empireo"],
+  limbo:["vestibulo","purgatorio","aqueronte","umbral"]
+});
+export function campaignKingdoms(realmId){
+  const realm=realms.find(item=>item.id===realmId);
+  if(!realm)return [];
+  const rank=campaignRouteIds[realmId]||realm.elos.map(kingdom=>kingdom.id);
+  const byId=new Map(realm.elos.map(kingdom=>[kingdom.id,kingdom]));
+  const ordered=rank.map(id=>byId.get(id)).filter(Boolean);
+  return [...ordered,...realm.elos.filter(kingdom=>!ordered.includes(kingdom))];
+}
 const leadersByRosterId=new Map(Object.values(worldLeaders).map(leader=>[leader.rosterId,leader]));
-export function isWorldCampaignComplete(profile,realmId){
-  const world=realms.find(realm=>realm.id===realmId);
-  return Boolean(world?.elos.length&&world.elos.every(kingdom=>{
-    const progress=profile.eloProgress?.[kingdom.id];
-    return Number(progress?.wins)>0||(progress?.clearedDifficulties||[]).length>0;
-  }));
+const leaderRosterIds=new Set(leadersByRosterId.keys());
+const starterRosterIds=new Set(starters.map(character=>character.id));
+const campaignUnlocks=new Map();
+const unlockLocationById=new Map();
+for(const kingdom of elos){
+  const members=characters.filter(character=>character.kingdomId===kingdom.id&&!leaderRosterIds.has(character.id)&&!starterRosterIds.has(character.id));
+  const byDifficulty=new Map(campaignDifficultyLevels.map(level=>[level,[]]));
+  members.forEach((character,index)=>{
+    const level=members.length<=1?0:Math.round(index*MAX_CAMPAIGN_DIFFICULTY/(members.length-1));
+    byDifficulty.get(level).push(character.id);
+    unlockLocationById.set(character.id,{kingdomId:kingdom.id,kingdomName:kingdom.name,difficulty:level,realm:kingdom.realm});
+  });
+  campaignUnlocks.set(kingdom.id,byDifficulty);
+}
+export function scheduledCharacterUnlocks(kingdomId,difficulty){
+  return [...(campaignUnlocks.get(kingdomId)?.get(Number(difficulty))||[])];
+}
+function worldRouteCleared(profile,realmId,difficulty){
+  const route=campaignKingdoms(realmId);
+  return Boolean(route.length&&route.every(kingdom=>(profile.eloProgress?.[kingdom.id]?.clearedDifficulties||[]).includes(difficulty)));
+}
+export function isWorldCampaignComplete(profile,realmId,difficulty=MAX_CAMPAIGN_DIFFICULTY){
+  const campaign=profile.worldCampaigns?.[realmId];
+  return Boolean(worldRouteCleared(profile,realmId,difficulty)&&(campaign?.bossClearedDifficulties||[]).includes(difficulty));
 }
 export function leaderUnlockStatus(profile,characterId){
   const leader=leadersByRosterId.get(characterId);
   if(!leader)return null;
   const world=realms.find(realm=>realm.id===leader.realmId);
-  return {unlocked:isWorldCampaignComplete(profile,leader.realmId),realmId:leader.realmId,worldName:world?.name||leader.realmId};
+  return {unlocked:isWorldCampaignComplete(profile,leader.realmId,MAX_CAMPAIGN_DIFFICULTY),realmId:leader.realmId,worldName:world?.name||leader.realmId,requiredDifficulty:MAX_CAMPAIGN_DIFFICULTY};
+}
+export function characterUnlockStatus(profile,characterId){
+  const character=characterById[characterId];
+  if(!character)return null;
+  const leader=leaderUnlockStatus(profile,characterId);
+  if(leader)return {...leader,leader:true,unlocked:Boolean(leader.unlocked)};
+  const location=unlockLocationById.get(characterId);
+  return {unlocked:(profile.ownedIds||[]).includes(characterId),starter:starterRosterIds.has(characterId),...(location||{})};
+}
+export function scheduledCharacters(profile,kingdomId,difficulty){
+  const owned=new Set(profile.ownedIds||[]);
+  return scheduledCharacterUnlocks(kingdomId,difficulty).filter(id=>!owned.has(id)).map(id=>characterById[id]).filter(Boolean);
+}
+function recoverCampaignUnlocks(profile){
+  const owned=new Set(profile.ownedIds||[]);
+  for(const kingdom of elos)for(const difficulty of profile.eloProgress?.[kingdom.id]?.clearedDifficulties||[]){
+    if(difficulty<0||difficulty>MAX_CAMPAIGN_DIFFICULTY)continue;
+    for(const id of scheduledCharacterUnlocks(kingdom.id,difficulty))owned.add(id);
+  }
+  profile.ownedIds=[...owned];
 }
 const recruitEligible=(profile,character)=>{
-  if(!character||character.npcOnly)return false;
+  if(!character)return false;
   const leaderGate=leaderUnlockStatus(profile,character.id);
-  if(leaderGate&&!leaderGate.unlocked)return false;
-  if(character.protagonistFamily==="nilo"&&character.id!=="nilo")return (profile.ownedIds||[]).includes(character.id);
-  return true;
+  return !leaderGate||leaderGate.unlocked;
 };
 export function normalizeCampaign(profile) {
   profile.ownedIds ||= [];
   profile.unlockedAvatars ||= ["soul",...profile.ownedIds];
   profile.eloProgress ||= {};
+  profile.worldCampaigns ||= {};
   profile.globalUpgrades ||= [];
   if(profile.run){
     const activeId=profile.run.eloId;
@@ -66,10 +118,15 @@ export function normalizeCampaign(profile) {
   }
   for(const kingdom of elos) {
     const p=profile.eloProgress[kingdom.id] ||= {};
-    p.clearedDifficulties=[...new Set(p.clearedDifficulties||[])].filter(n=>Number.isInteger(n)&&n>=0).sort((a,b)=>a-b);
+    p.clearedDifficulties=[...new Set(p.clearedDifficulties||[])].filter(n=>Number.isInteger(n)&&n>=0&&n<=MAX_CAMPAIGN_DIFFICULTY).sort((a,b)=>a-b);
     p.variants ||= [];p.wins ||= 0;p.combats ||= 0;p.elites ||= 0;p.events ||= 0;
   }
+  for(const realm of realms){
+    const campaign=profile.worldCampaigns[realm.id] ||= {};
+    campaign.bossClearedDifficulties=[...new Set(campaign.bossClearedDifficulties||[])].filter(n=>Number.isInteger(n)&&n>=0&&n<=MAX_CAMPAIGN_DIFFICULTY).sort((a,b)=>a-b);
+  }
   profile.completedElos=elos.filter(kingdom=>profile.eloProgress[kingdom.id].clearedDifficulties.length).map(kingdom=>kingdom.id);
+  recoverCampaignUnlocks(profile);
   for(const leader of Object.values(worldLeaders)){
     const cleared=isWorldCampaignComplete(profile,leader.realmId);
     if(cleared&&!profile.ownedIds.includes(leader.rosterId))profile.ownedIds.push(leader.rosterId);
@@ -82,7 +139,7 @@ export function normalizeCampaign(profile) {
     const fill=starters.map(character=>character.id).filter(id=>profile.ownedIds.includes(id)&&!currentTeam.includes(id));
     profile.team=[...currentTeam,...fill].slice(0,3);
   }
-  profile.campaignVersion=3;
+  profile.campaignVersion=4;
   return profile;
 }
 export function canChooseNiloPath(profile,run=profile?.run) {
@@ -126,17 +183,22 @@ export function syncNiloAbsorption(profile,run,bars=run?.niloAbsorption){
  }
  return unlocked;
 }
-export function maxDifficulty(profile,id) { const cleared=profile.eloProgress[id]?.clearedDifficulties||[];let next=0;while(cleared.includes(next))next++;return next; }
-export function eloAccess(profile,elo) {
-  const realm=realms.find(r=>r.name===elo.realm),index=realm.elos.findIndex(e=>e.id===elo.id),previous=realm.elos[index-1];
-  if(!previous)return {unlocked:true,requirements:[]};
-  const p=profile.eloProgress[previous.id],total=key=>realm.elos.reduce((n,e)=>n+(profile.eloProgress[e.id]?.[key]||0),0);
-  const requirements=[{label:`Vencer ${previous.name}`,current:p.clearedDifficulties.length?1:0,total:1}];
-  if(index%3===1)requirements.push({label:'Derrotar elites neste mundo',current:total('elites'),total:index});
-  else if(index%3===2)requirements.push({label:'Resolver encontros neste mundo',current:total('events'),total:Math.ceil(index/2)});
-  else requirements.push({label:`Vencer trilhas distintas de ${previous.name}`,current:p.variants.length,total:2});
-  if(index>=6)requirements.push({label:`Vencer ${previous.name} em Ruptura I`,current:p.clearedDifficulties.includes(1)?1:0,total:1});
-  return {unlocked:Boolean(profile.eloProgress[elo.id]?.wins)||requirements.every(r=>r.current>=r.total),requirements};
+export function maxDifficulty(profile,id) {
+  const cleared=profile.eloProgress?.[id]?.clearedDifficulties||[];
+  let next=0;while(next<MAX_CAMPAIGN_DIFFICULTY&&cleared.includes(next))next++;
+  return next;
+}
+export function eloAccess(profile,elo,difficulty=0) {
+  const realm=realms.find(item=>item.name===elo?.realm);
+  const route=campaignKingdoms(realm?.id),index=route.findIndex(kingdom=>kingdom.id===elo?.id);
+  const level=Math.max(0,Math.min(MAX_CAMPAIGN_DIFFICULTY,Math.trunc(Number(difficulty)||0)));
+  const requirements=[];
+  if(level>maxDifficulty(profile,elo.id))requirements.push({label:`Liberar ${difficultyName(level)} neste Reino`,current:0,total:1});
+  if(index>0){
+    const missing=route.slice(0,index).find(kingdom=>!(profile.eloProgress?.[kingdom.id]?.clearedDifficulties||[]).includes(level));
+    if(missing)requirements.push({label:`Concluir ${missing.name} em ${difficultyName(level)} antes de avançar`,current:0,total:1});
+  }
+  return {unlocked:index>=0&&requirements.length===0,requirements,index,route,difficulty:level};
 }
 export function trailVariants(profile,elo) {
   const n=elo.name;
@@ -146,11 +208,8 @@ export function trailVariants(profile,elo) {
     {id:'eclipse',title:`Eclipse de ${n}`,icon:'☽',text:'Elite e guardião extra',pool:2,locked:!(profile.eloProgress[elo.id]?.wins>0)}
   ];
 }
-export function recruitCandidates(profile,elo,variantId) {
-  const owned=new Set(profile.ownedIds||[]);
-  const all=roster(elo.id).filter(c=>recruitEligible(profile,c)),split=Math.ceil(all.length/2),preferred=variantId==='hunt'?all.slice(0,split):variantId==='pilgrimage'?all.slice(split):all;
-  const missing=preferred.filter(c=>!owned.has(c.id));
-  return missing.length?missing:all.filter(c=>!owned.has(c.id)).length?all.filter(c=>!owned.has(c.id)):preferred;
+export function recruitCandidates(profile,elo,variantId,difficulty=0) {
+  return scheduledCharacters(profile,elo.id,difficulty);
 }
 export function difficultyModifiers(level=0) {
   const d=Math.max(0,Math.trunc(level));
@@ -214,14 +273,24 @@ export function selectBossRoster(teamIds,candidateIds,seed=1){
 }
 export function createExpedition(profile,elo,variantId='hunt',difficulty=maxDifficulty(profile,elo.id),seed=Date.now(),options={}) {
   if(profile.pendingGlobalReward)throw Error('Escolha seu Legado antes de iniciar outra trilha.');
-  if(!eloAccess(profile,elo).unlocked)throw Error('Reino bloqueado.');
+  if(!Number.isInteger(difficulty)||difficulty<0||difficulty>MAX_CAMPAIGN_DIFFICULTY||difficulty>maxDifficulty(profile,elo.id))throw Error('Dificuldade bloqueada.');
+  const access=eloAccess(profile,elo,difficulty);
+  if(!access.unlocked)throw Error(access.requirements[0]?.label||'Reino bloqueado.');
   const variant=trailVariants(profile,elo).find(v=>v.id===variantId);
   if(!variant||variant.locked)throw Error('Trilha bloqueada.');
-  if(!Number.isInteger(difficulty)||difficulty<0||difficulty>maxDifficulty(profile,elo.id))throw Error('Dificuldade bloqueada.');
-  const rng=seededRandom(seed),candidates=shuffled(recruitCandidates(profile,elo,variantId),rng),recruitable=candidates.filter(c=>!profile.ownedIds.includes(c.id)),nonTeamRoster=shuffled(roster(elo.id).filter(c=>!profile.team.includes(c.id)&&recruitEligible(profile,c)),rng),bossPool=[...new Set([...(nonTeamRoster.length>=3?nonTeamRoster:shuffled(roster(elo.id).filter(c=>recruitEligible(profile,c)),rng)).map(c=>c.id),...recruitable.map(c=>c.id)])],variantSeed=[...variantId].reduce((hash,char)=>(Math.imul(hash,31)+char.charCodeAt(0))>>>0,seed>>>0),bossIds=selectBossRoster(profile.team,bossPool,variantSeed);
-  if(recruitable.length&&!bossIds.some(id=>recruitable.some(c=>c.id===id)))bossIds[2]=recruitable[Math.floor(rng()*recruitable.length)].id;
+  const rng=seededRandom(seed),candidates=shuffled(recruitCandidates(profile,elo,variantId,difficulty),rng),nonTeamRoster=shuffled(roster(elo.id).filter(c=>!profile.team.includes(c.id)&&recruitEligible(profile,c)),rng),bossPool=[...new Set([...(nonTeamRoster.length>=3?nonTeamRoster:shuffled(roster(elo.id).filter(c=>recruitEligible(profile,c)),rng)).map(c=>c.id),...candidates.map(c=>c.id)])],variantSeed=[...variantId].reduce((hash,char)=>(Math.imul(hash,31)+char.charCodeAt(0))>>>0,seed>>>0);
+  let bossIds=selectBossRoster(profile.team,bossPool,variantSeed);
+  const realm=realms.find(item=>item.name===elo.realm),route=campaignKingdoms(realm?.id),chapterIndex=route.findIndex(kingdom=>kingdom.id===elo.id);
+  const worldFinale=chapterIndex===route.length-1&&chapterIndex>=0;
+  const worldLeader=worldFinale?Object.values(worldLeaders).find(leader=>leader.realmId===realm.id):null;
+  if(worldLeader){
+    const kingdomRoster=characters.filter(character=>character.kingdomId===elo.id&&character.id!==worldLeader.rosterId);
+    const localSupports=shuffled(kingdomRoster.filter(character=>!profile.team.includes(character.id)),rng)
+      .concat(shuffled(kingdomRoster,rng)).map(character=>character.id);
+    bossIds=[...new Set([worldLeader.rosterId,...localSupports])].slice(0,3);
+  }
   const map=generateTrail(elo.id,seed,variantId,{includeNiloChoice:elo.id==="vestibulo"&&(profile.ownedIds||[]).includes("nilo")}),g=aggregateGlobal(profile),maxStability=3+(g.stability||0);
-  const run={eloId:elo.id,variantId,variantTitle:variant.title,difficulty,seed,map,bossIds,team:[...profile.team],stage:0,stability:maxStability,maxStability,buffs:[],memories:[],memoryNodeIds:[],guided:Boolean(options.guided),encounter:0,tried:0,rewardedNodeIds:[],niloAbsorption:elo.id==="vestibulo"?{cinza:0,graca:0,ruptura:0}:null,niloPath:null,niloUnlockedIds:[],niloPurificationChoiceResolved:false,teamHealth:{},availableNodeIds:map[0].map(n=>n.id),revealedNodeIds:map[0].map(n=>n.id),clearedNodeIds:[],currentNodeId:null};
+  const run={eloId:elo.id,realmId:realm?.id||null,kingdomName:elo.name,variantId,variantTitle:variant.title,difficulty,seed,map,bossIds,worldFinale:Boolean(worldLeader),worldLeaderId:worldLeader?.rosterId||null,chapterIndex,chapterCount:route.length,team:[...profile.team],stage:0,stability:maxStability,maxStability,buffs:[],memories:[],memoryNodeIds:[],guided:Boolean(options.guided),encounter:0,tried:0,rewardedNodeIds:[],niloAbsorption:elo.id==="vestibulo"?{cinza:0,graca:0,ruptura:0}:null,niloPath:null,niloUnlockedIds:[],niloPurificationChoiceResolved:false,teamHealth:{},availableNodeIds:map[0].map(n=>n.id),revealedNodeIds:map[0].map(n=>n.id),clearedNodeIds:[],currentNodeId:null};
   run.teamHealth=Object.fromEntries(run.team.map(id=>[id,runMaxHp(profile,run,id)]));return run;
 }
 export function recordEncounter(profile,run,node) {
@@ -361,22 +430,30 @@ export function completeExpedition(profile,run) {
   if(run.completionApplied)return null;
   if(run.stage<run.map.length||!run.clearedNodeIds.includes(run.map.at(-1)[0].id))throw Error('A trilha ainda não foi concluída.');
   run.completionApplied=true;
+  profile.worldCampaigns ||= {};
   const p=profile.eloProgress[run.eloId],first=!p.clearedDifficulties.includes(run.difficulty);
   p.wins++;p.variants=[...new Set([...p.variants,run.variantId])];p.clearedDifficulties=[...new Set([...p.clearedDifficulties,run.difficulty])].sort((a,b)=>a-b);
   profile.completedElos=[...new Set([...profile.completedElos,run.eloId])];
+  const unlockedCharacters=[];
+  for(const id of scheduledCharacterUnlocks(run.eloId,run.difficulty)){
+    if(!profile.ownedIds.includes(id)){profile.ownedIds.push(id);unlockedCharacters.push(id);}
+  }
   const unlockedLeaders=[];
-  for(const leader of Object.values(worldLeaders)){
-    if(isWorldCampaignComplete(profile,leader.realmId)&&!profile.ownedIds.includes(leader.rosterId)){
+  if(run.worldFinale&&run.worldLeaderId){
+    const campaign=profile.worldCampaigns[run.realmId]||{bossClearedDifficulties:[]};
+    campaign.bossClearedDifficulties=[...new Set([...(campaign.bossClearedDifficulties||[]),run.difficulty])].sort((a,b)=>a-b);
+    profile.worldCampaigns[run.realmId]=campaign;
+    const leader=leadersByRosterId.get(run.worldLeaderId);
+    if(leader&&run.difficulty===MAX_CAMPAIGN_DIFFICULTY&&isWorldCampaignComplete(profile,leader.realmId,MAX_CAMPAIGN_DIFFICULTY)&&!profile.ownedIds.includes(leader.rosterId)){
       profile.ownedIds.push(leader.rosterId);
       unlockedLeaders.push(leader.rosterId);
     }
   }
-  if(unlockedLeaders.length)profile.unlockedAvatars=[...new Set([...(profile.unlockedAvatars||["soul"]),...unlockedLeaders])];
-  const eligible=(run.bossIds||[]).filter(id=>characterById[id]?.kingdomId===run.eloId&&recruitEligible(profile,characterById[id])&&!profile.ownedIds.includes(id)),rng=seededRandom(run.seed+p.wins);
-  const recruitId=shuffled(eligible,rng)[0]||null;
-  if(recruitId)profile.ownedIds.push(recruitId);
+  const allUnlocked=[...unlockedCharacters,...unlockedLeaders];
+  if(allUnlocked.length)profile.unlockedAvatars=[...new Set([...(profile.unlockedAvatars||["soul"]),...allUnlocked])];
+  const recruitId=unlockedCharacters[0]||null;
   profile.xp+=250+run.difficulty*60;profile.fragments+=24+run.difficulty*6;
-  const completion={eloId:run.eloId,difficulty:run.difficulty,recruitId,unlockedLeaders,first,memories:(run.memories||[]).map(memory=>({...memory}))};
+  const completion={eloId:run.eloId,realmId:run.realmId,difficulty:run.difficulty,recruitId,unlockedCharacters,unlockedLeaders,worldFinale:Boolean(run.worldFinale),worldLeaderId:run.worldLeaderId||null,first,memories:(run.memories||[]).map(memory=>({...memory}))};
   profile.completionNotice=completion;
   if(first)profile.pendingGlobalReward={...completion,choices:globalChoices(profile,run.eloId,run.difficulty,run.seed)};
   return completion;
