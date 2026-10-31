@@ -996,5 +996,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "o-estomago-sem-fundo": {
+    "portrait": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-estomago-sem-fundo/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };

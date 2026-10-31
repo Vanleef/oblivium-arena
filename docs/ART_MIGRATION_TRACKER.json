@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-10-31",
   "approvedArtDirection": "Dark fantasy pictórica densa com estilização gráfica 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, luzes de recorte, alta materialidade e paleta adaptada a cada Mundo.",
   "totalBaseCharacterSets": 100,
   "totalBaseSprites": 600,
@@ -77,7 +77,7 @@
     "Migrar os kits e versões restantes para a direção dark fantasy pictórica atual.",
     "Criar imagens próprias para as 32 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Revisar visualmente 302 imagens candidatas integradas na direção atual."
+    "Revisar visualmente 418 artes candidatas integradas na direção atual; sete já foram aprovadas."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -105,24 +105,25 @@
     },
     "currentDirectionMigration": {
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 309,
-      "remainingSlots": 689,
-      "fullyMigratedEntries": 48,
-      "remainingEntries": 102,
-      "awaitingVisualApprovalSlots": 302,
-      "approvedSlots": 7
+      "integratedCandidateSlots": 425,
+      "remainingSlots": 573,
+      "fullyMigratedEntries": 65,
+      "remainingEntries": 85,
+      "awaitingVisualApprovalSlots": 418,
+      "approvedSlots": 7,
+      "name": "dark fantasy pictórica PMA"
     }
   },
   "executionStatus": "active_dark_fantasy_pictorial_migration",
   "latestDarkPictorialBatch": {
-    "date": "2026-10-30",
+    "date": "2026-10-31",
     "characterIds": [
-      "a-porta-fechada"
+      "o-estomago-sem-fundo"
     ],
     "candidateSlotsAdded": 6,
-    "candidateSlotsReworked": 0,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_A_CARCEREIRA_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_O_INSACIVEL_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "currentDirectionCorrectionHistory": [
     {

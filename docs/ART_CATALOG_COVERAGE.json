@@ -602,7 +602,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-senhora-do-ultimo-pao",
@@ -2487,21 +2496,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 419,
-    "remainingSlots": 579,
-    "fullyMigratedEntries": 64,
-    "remainingEntries": 86,
-    "awaitingVisualApprovalSlots": 412,
+    "integratedCandidateSlots": 425,
+    "remainingSlots": 573,
+    "fullyMigratedEntries": 65,
+    "remainingEntries": 85,
+    "awaitingVisualApprovalSlots": 418,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-muralha"
+      "o-estomago-sem-fundo"
     ],
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ZENOBIA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_O_INSACIVEL_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }
