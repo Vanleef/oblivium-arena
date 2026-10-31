@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 94,
-  "newAbilityScenesSaved": 485,
+  "newPortraitsSaved": 95,
+  "newAbilityScenesSaved": 491,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Migrar os demais kits e versões para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 32 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 380 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 387 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 387,
+    "newDarkPictorialCandidateAssets": 394,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -70,7 +70,8 @@
     "marionetistaProductionReport": "docs/ART_A_MARIONETISTA_DARK_PICTORIAL_REWORK_20261031.json",
     "akhenatenProductionReport": "docs/ART_AKHENATEN_DARK_PICTORIAL_REWORK_20261031.json",
     "nabonidusProductionReport": "docs/ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json",
-    "tiglateProductionReport": "docs/ART_TIGLATE_DARK_PICTORIAL_REWORK_20261031.json"
+    "tiglateProductionReport": "docs/ART_TIGLATE_DARK_PICTORIAL_REWORK_20261031.json",
+    "hatshepsutProductionReport": "docs/ART_HATSHEPSUT_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -117,13 +118,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 387,
-      "integratedSlots": 387,
+      "candidateSlots": 394,
+      "integratedSlots": 394,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 59,
-      "pendingVisualApprovalSlots": 380,
+      "fullyMigratedEntries": 60,
+      "pendingVisualApprovalSlots": 387,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -184,7 +185,9 @@
     "nabonidusArtwork": "6 candidatas WebP 512×512 e 6 fontes JPEG 768×768; efeitos individuais, cena de área com três alvos e composição de defesa pessoal inspecionados; aguardam aprovação visual.",
     "nabonidusRuntime": "Rotas de retrato, passiva e quatro habilidades atualizadas; nenhuma mecânica de combate foi alterada.",
     "tiglateArtwork": "6 cenas-base e 1 variação Silêncio Residual dedicada; 7 fontes JPEG 768×768 e 7 ativos WebP 512×512; candidatas pendentes de aprovação visual.",
-    "tiglateRuntime": "Rotas de retrato, habilidades e forms.voto.residual atualizadas; nenhuma mecânica foi alterada."
+    "tiglateRuntime": "Rotas de retrato, habilidades e forms.voto.residual atualizadas; nenhuma mecânica foi alterada.",
+    "hatshepsutArtwork": "6 cenas-base e 1 variante dedicada de recuperação; 7 fontes JPEG 768×768 e 7 ativos WebP 512×512; candidatas pendentes de aprovação visual.",
+    "hatshepsutRuntime": "Rotas de arte atualizadas para portrait, passiva, quatro habilidades e forms.tecnica.hide; nenhuma mecânica foi alterada."
   },
   "latestProduction": {
     "date": "2026-10-31",
