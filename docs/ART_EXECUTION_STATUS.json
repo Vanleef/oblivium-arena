@@ -6,8 +6,8 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 87,
-  "newAbilityScenesSaved": 446,
+  "newPortraitsSaved": 88,
+  "newAbilityScenesSaved": 451,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 341,
+    "newDarkPictorialCandidateAssets": 347,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -65,7 +65,8 @@
     "aTestemunhaCegaProductionReport": "docs/ART_JOSEFO_CUMPLICE_DARK_PICTORIAL_REWORK_20261030.json",
     "oQuartoVazioProductionReport": "docs/ART_O_QUARTO_VAZIO_DARK_PICTORIAL_REWORK_20261030.json",
     "efialtesProductionReport": "docs/ART_EFIALTES_O_DESERTOR_DARK_PICTORIAL_REWORK_20261030.json",
-    "andriscusProductionReport": "docs/ART_ANDRISCUS_O_USURPADOR_DARK_PICTORIAL_REWORK_20261030.json"
+    "andriscusProductionReport": "docs/ART_ANDRISCUS_O_USURPADOR_DARK_PICTORIAL_REWORK_20261030.json",
+    "tarquinProductionReport": "docs/ART_TARQUINIO_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -177,13 +178,11 @@
   },
   "latestProduction": {
     "date": "2026-10-31",
-    "candidateSlotsAdded": 8,
-    "candidateSlotsActivated": 8,
-    "characterIds": [
-      "a-pele-alheia"
-    ],
-    "sourceCopies": 8,
+    "characterId": "o-desejo-quebrado",
+    "characterName": "Tarquínio",
+    "title": "O Profanador",
+    "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_OVID_METAMORFA_DARK_PICTORIAL_FORMS_20261031.json"
+    "report": "docs/ART_TARQUINIO_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

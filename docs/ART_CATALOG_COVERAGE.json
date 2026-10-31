@@ -974,7 +974,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-marionetista-de-nervos",
@@ -2385,21 +2394,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 341,
-    "remainingSlots": 657,
-    "fullyMigratedEntries": 52,
-    "remainingEntries": 98,
-    "awaitingVisualApprovalSlots": 334,
+    "integratedCandidateSlots": 347,
+    "remainingSlots": 651,
+    "fullyMigratedEntries": 53,
+    "remainingEntries": 97,
+    "awaitingVisualApprovalSlots": 340,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "a-pele-alheia"
+      "o-desejo-quebrado"
     ],
-    "candidateSlotsAdded": 8,
-    "candidateSlotsActivated": 8,
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_OVID_METAMORFA_DARK_PICTORIAL_FORMS_20261031.json"
+    "report": "docs/ART_TARQUINIO_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

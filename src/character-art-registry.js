@@ -846,5 +846,15 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/skill-voto.webp",
       "despertar": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/skill-despertar.webp"
     }
+  },
+  "o-desejo-quebrado": {
+    "portrait": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-desejo-quebrado/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };

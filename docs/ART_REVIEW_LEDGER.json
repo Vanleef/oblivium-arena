@@ -681,7 +681,13 @@
     "a-pele-alheia:form:voto:skin",
     "a-pele-alheia:form:impulso:shell",
     "a-pele-alheia:form:tecnica:shell",
-    "a-pele-alheia:form:voto:shell"
+    "a-pele-alheia:form:voto:shell",
+    "o-desejo-quebrado:base:portrait",
+    "o-desejo-quebrado:base:passive",
+    "o-desejo-quebrado:base:impulso",
+    "o-desejo-quebrado:base:tecnica",
+    "o-desejo-quebrado:base:voto",
+    "o-desejo-quebrado:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1026,7 +1032,13 @@
     "a-pele-alheia:form:voto:skin",
     "a-pele-alheia:form:impulso:shell",
     "a-pele-alheia:form:tecnica:shell",
-    "a-pele-alheia:form:voto:shell"
+    "a-pele-alheia:form:voto:shell",
+    "o-desejo-quebrado:base:portrait",
+    "o-desejo-quebrado:base:passive",
+    "o-desejo-quebrado:base:impulso",
+    "o-desejo-quebrado:base:tecnica",
+    "o-desejo-quebrado:base:voto",
+    "o-desejo-quebrado:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
