@@ -4,6 +4,7 @@ import { buildCharacterKit, describeAbility } from "./kits.js";
 import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
 import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
+import { rosterIdentityOverrides, worldLeaderIdentities } from "./roster-identity-overrides.js";
 import { revisePassive } from "./passive-revisions.js";
 import { assignCharacterArchetypes } from "./archetypes.js";
 import { attachArenaKitAssignment } from "./arena-kit-assignments.js";
@@ -283,22 +284,36 @@ const rawCharacters = [
   ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
 ];
+export const worldLeaders = worldLeaderIdentities;
 export const characters = rawCharacters.map(character => {
+  const rosterIdentity = rosterIdentityOverrides[character.id];
   const legacyEloId = character.legacyEloId || character.eloId;
   const kingdomId = kingdomOverrides[character.id] || defaultKingdomByTrack[legacyEloId]
     || (character.realm === "Limbo" ? "vestibulo" : character.realm === "Paraíso" ? "estelar" : "flagelo");
   const kingdom = kingdomDefinitionsById[kingdomId];
   if (!kingdom) throw new Error(`Reino ausente para ${character.id}: ${kingdomId}`);
-  const identityTitle = character.identityTitle || characterTitleOverrides[character.id]
+  const identityTitle = rosterIdentity?.title || character.identityTitle || characterTitleOverrides[character.id]
     || (character.storyCharacter && !character.name.includes(",") ? character.role : null);
-  const englishIdentityTitle = character.englishIdentityTitle || englishCharacterTitleOverrides[character.id]
+  const englishIdentityTitle = rosterIdentity?.englishTitle || character.englishIdentityTitle || englishCharacterTitleOverrides[character.id]
     || (character.storyCharacter && identityTitle ? character.englishRole : null);
   const synergyKingdomIds = [...new Set([
     kingdomId,
     ...(character.synergyEloIds || []).map(id => legacyToKingdom[id]).filter(Boolean)
   ])];
+  const displayName = rosterIdentity?.name || character.name;
+  const aliases = rosterIdentity ? [...new Set([
+    ...(character.aliases || []),
+    ...(character.name ? [character.name] : []),
+    ...(rosterIdentity.aliases || [])
+  ])] : character.aliases;
   return attachCharacterArt({
     ...character,
+    ...(rosterIdentity ? {
+      name: displayName,
+      englishName: displayName,
+      ...(character.name !== displayName ? { previousName: character.name } : {}),
+      aliases
+    } : {}),
     legacyEloId,
     legacyEloName: character.elo,
     kingdomId,
