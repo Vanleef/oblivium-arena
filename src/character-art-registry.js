@@ -921,5 +921,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/a-ausencia/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "o-fim-silencioso": {
+    "portrait": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "voto": {
+        "residual": "/art/characters/o-fim-silencioso/dark-pictorial-rework-20261031/skill-voto-residual.webp"
+      }
+    }
   }
 };
