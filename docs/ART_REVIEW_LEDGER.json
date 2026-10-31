@@ -878,7 +878,13 @@
     "nilo-ruptura-final:base:despertar-4",
     "nilo-ruptura-final:base:tecnica-5",
     "nilo-ruptura-final:base:tecnica-6",
-    "nilo-ruptura-final:base:despertar-7"
+    "nilo-ruptura-final:base:despertar-7",
+    "nilo-o-epilogo:base:portrait",
+    "nilo-o-epilogo:base:passive",
+    "nilo-o-epilogo:base:impulso",
+    "nilo-o-epilogo:base:tecnica",
+    "nilo-o-epilogo:base:voto",
+    "nilo-o-epilogo:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1420,7 +1426,13 @@
     "nilo-ruptura-final:base:despertar-4",
     "nilo-ruptura-final:base:tecnica-5",
     "nilo-ruptura-final:base:tecnica-6",
-    "nilo-ruptura-final:base:despertar-7"
+    "nilo-ruptura-final:base:despertar-7",
+    "nilo-o-epilogo:base:portrait",
+    "nilo-o-epilogo:base:passive",
+    "nilo-o-epilogo:base:impulso",
+    "nilo-o-epilogo:base:tecnica",
+    "nilo-o-epilogo:base:voto",
+    "nilo-o-epilogo:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1851,6 +1863,36 @@
       "key": "nilo-ruptura-final:base:despertar-7",
       "correctedAt": "2026-10-31",
       "note": "Nilo, o que se Parte, Final de Ruptura, refeito e revisado quanto à anatomia: Nilo em corpo inteiro com dois braços e duas pernas; a placa de sombra-pedra é uma barreira fixa, não empunhada nem anatômica. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-o-epilogo:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo Purificado refeito e revisado quanto à anatomia: Busto com pescoço e ombros proporcionais; visual sem adornos de essência ou apêndices. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-o-epilogo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo Purificado refeito e revisado quanto à anatomia: Nilo tem uma palma aberta e a outra mão ao lado do corpo; três partículas ficam separadas da mão e se apagam no espaço. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-o-epilogo:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo Purificado refeito e revisado quanto à anatomia: Corpo inteiro com dois braços, duas pernas e pés apoiados em degraus distintos; placa de defesa separada do corpo, sem parecer armadura. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-o-epilogo:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo Purificado refeito e revisado quanto à anatomia: Nilo sentado com mão de apoio no degrau e outra no manto; joelhos e pés em apoios distintos, pó sai do tecido e não da pele. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-o-epilogo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo Purificado refeito e revisado quanto à anatomia: Duas figuras com gestos distintos: o alvo lança a fita com uma mão; Nilo a intercepta com uma e segura o próprio manto com a outra. A faixa não se confunde com braços. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-o-epilogo:base:despertar",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo Purificado refeito e revisado quanto à anatomia: Nilo em corpo inteiro, braços soltos e pés em degraus diferentes; a barreira de pedra-luz é um plano fixo e não uma arma ou membro. Candidata pendente de aprovação visual; mecânicas preservadas."
     }
   ]
 }
