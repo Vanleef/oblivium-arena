@@ -26,7 +26,7 @@ export function withBodyForms(c){
  if(c.id!=='a-pele-alheia')return c;
  const pred=[
   form('impulso','skin','Garras Predatórias','Causa 15 de dano perfurante e remove 15 de Defesa antes do dano.',{damage:15,damageType:'piercing',stripShield:15,}),
-  form('tecnica','shed','Descartar o Molde','Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Predatória e Quimera Couraçada.',{target:'self',heal:15,cleanse:true,shift:back,kind:'support',}),
+  form('tecnica','shed','Descartar o Molde','Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Terrestre e Quimera Alada.',{target:'self',heal:15,cleanse:true,shift:back,kind:'support',}),
   form('voto','skin','Instinto de Revide','Causa 25 de dano físico e prepara um contra-ataque pessoal de 10 de dano por 1 turno.',{damage:25,counter:10,cost:2,costs:{affinity:1,random:1},cooldown:2})
  ];
  const shell=[
@@ -36,7 +36,7 @@ export function withBodyForms(c){
  ];
  const abilities=c.abilities.map(a=>({...a}));
  Object.assign(abilities[1],{shield:15,assumeForm:'skin',shift:[{slot:'impulso',form:'skin'},{slot:'tecnica',form:'shed'},{slot:'voto',form:'skin'}],description:'Recebe 15 de Defesa, limpa aflições e condições prejudiciais e assume a Quimera Terrestre: quadrúpede alongado, peito baixo, quatro patas e cauda longa, sem asas ou tronco humano. Troca as três primeiras técnicas e o retrato até usar Descartar o Molde ou Corpo Substituto.'});
- Object.assign(abilities[2],{name:'Quimera Couraçada',counter:0,boost:0,shield:20,assumeForm:'shell',shift:shift('shell'),description:'Recebe 20 de Defesa e assume a Quimera Alada: corpo reptiliano estreito, asas membranosas no lugar dos membros dianteiros, duas patas traseiras e cauda longa. Troca as três primeiras técnicas e o retrato até descamar ou usar Corpo Substituto.'});
+ Object.assign(abilities[2],{name:'Quimera Alada',counter:0,boost:0,shield:20,assumeForm:'shell',shift:shift('shell'),description:'Recebe 20 de Defesa e assume a Quimera Alada: corpo reptiliano estreito, asas membranosas no lugar dos membros dianteiros, duas patas traseiras e cauda longa. Troca as três primeiras técnicas e o retrato até recolher as asas ou usar Corpo Substituto.'});
  for(let i=0;i<3;i++)abilities[i].forms=[pred[i],shell[i]].map(a=>({...a,art:`${formBase}/skill-${a.id}-${a.formKey}.webp`}));
  Object.assign(abilities[3],{shift:back,description:abilities[3].description+' Retorna à forma original.'});
  const hint='Alterne entre a forma humanoide original, a Quimera Terrestre (quadrúpede alongado, sem asas) e a Quimera Alada (asas membranosas no lugar dos membros dianteiros). As duas quimeras têm anatomias próprias e três técnicas cada; descartar o molde ou usar Corpo Substituto restaura a forma humana.';
