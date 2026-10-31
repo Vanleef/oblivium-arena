@@ -986,5 +986,15 @@ export const characterArtRegistry = {
         "advance": "/art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/skill-impulso-advance.webp"
       }
     }
+  },
+  "a-muralha": {
+    "portrait": "/art/characters/a-muralha/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-muralha/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-muralha/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
