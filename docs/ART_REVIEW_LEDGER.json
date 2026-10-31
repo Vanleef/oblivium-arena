@@ -746,7 +746,14 @@
     "o-lugar-de-ninguem:base:impulso",
     "o-lugar-de-ninguem:base:tecnica",
     "o-lugar-de-ninguem:base:voto",
-    "o-lugar-de-ninguem:base:despertar"
+    "o-lugar-de-ninguem:base:despertar",
+    "o-escudo-vivo:base:portrait",
+    "o-escudo-vivo:base:passive",
+    "o-escudo-vivo:base:impulso",
+    "o-escudo-vivo:base:tecnica",
+    "o-escudo-vivo:base:voto",
+    "o-escudo-vivo:base:despertar",
+    "o-escudo-vivo:form:impulso:advance"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1123,7 +1130,14 @@
     "o-lugar-de-ninguem:base:impulso",
     "o-lugar-de-ninguem:base:tecnica",
     "o-lugar-de-ninguem:base:voto",
-    "o-lugar-de-ninguem:base:despertar"
+    "o-lugar-de-ninguem:base:despertar",
+    "o-escudo-vivo:base:portrait",
+    "o-escudo-vivo:base:passive",
+    "o-escudo-vivo:base:impulso",
+    "o-escudo-vivo:base:tecnica",
+    "o-escudo-vivo:base:voto",
+    "o-escudo-vivo:base:despertar",
+    "o-escudo-vivo:form:impulso:advance"
   ],
   "currentDirectionCorrectionHistory": [
     {
