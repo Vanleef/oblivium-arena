@@ -18,7 +18,7 @@ import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from "./progression.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption, leaderUnlockStatus } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
@@ -670,9 +670,14 @@ function teamView() {
         <div class="roster-grid">${filtered.map((character) => {
           const owned = profile.ownedIds.includes(character.id);
           const selected = profile.team.includes(character.id);
-          const disabled = !owned || (!selected && profile.team.length >= 3);
+          const leaderGate = leaderUnlockStatus(profile,character.id);
+          const leaderLocked = Boolean(leaderGate && !leaderGate.unlocked);
+          const lockHint = leaderLocked ? (getLanguage()==="en"
+            ? `Clear the full ${localizeText(leaderGate.worldName,"en")} campaign to unlock.`
+            : `Conclua toda a campanha de ${leaderGate.worldName} para liberar.`) : "";
+          const disabled = leaderLocked || !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}${character.identityTitle ? `, <span class="roster-character-title">${esc(character.identityTitle)}</span>` : ""}</b><small>Reino ${esc(character.kingdom)}</small><small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}${character.identityTitle ? `, <span class="roster-character-title">${esc(character.identityTitle)}</span>` : ""}</b><small>Reino ${esc(character.kingdom)}</small>${lockHint?`<small class="leader-unlock-hint">${esc(lockHint)}</small>`:""}<small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : leaderLocked ? "🔒" : "·"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -700,11 +705,16 @@ function codexView() {
     ${showFinalBoss ? `<article class="codex-entity" aria-label="${esc(FINAL_BOSS.name)}, ${esc(FINAL_BOSS.title)}"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de ${esc(FINAL_BOSS.name)}, sem rosto fixo" loading="lazy"><div><div class="eyebrow codex-entity-kicker"><span>${getLanguage()==="en"?"ENTITY":"ENTIDADE"} · ${getLanguage()==="en"?"KINGDOM":"REINO"} ${esc(localizeText(FINAL_BOSS.elo,getLanguage()).toUpperCase())}</span></div><h2>${esc(FINAL_BOSS.name)}, <span class="codex-character-title">${esc(FINAL_BOSS.title)}</span></h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="${getLanguage()==="en"?"Abilities of":"Habilidades de"} ${esc(getLanguage()==="en"?FINAL_BOSS.nameEn:FINAL_BOSS.name)}">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header>${codexSkillList(boss,boss.abilities)}</section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = !state.account || profile.ownedIds.includes(character.id);
+      const leaderGate = leaderUnlockStatus(profile,character.id);
+      const leaderLocked = Boolean(leaderGate && !leaderGate.unlocked);
       character=previewBodyForm(character,state.formPreviews[character.id]);
       const synergyNames=[...new Set((character.synergyKingdomIds||[]).map(id=>elos.find(elo=>elo.id===id)).filter(elo=>elo&&elo.id!==character.kingdomId).map(elo=>localizeText(elo.name,getLanguage())))];
+      const leaderLockCopy=leaderLocked ? (getLanguage()==="en"
+        ? `Complete every kingdom in ${localizeText(leaderGate.worldName,"en")} to recruit this leader.`
+        : `Conclua todos os Reinos de ${leaderGate.worldName} para recrutar este líder.`) : "";
       return `<article class="codex-card ${state.account&&!owned ? "unowned" : ""}">
-        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.kingdomId)}</span><small>${character.npcOnly?"OPOSIÇÃO":!state.account?"ALMA DO PMA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · REINO ${esc(character.kingdom).toUpperCase()}</div><h3>${esc(character.name)}${character.identityTitle ? `, <span class="codex-character-title">${esc(character.identityTitle)}</span>` : ""}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE REINO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.kingdomId)}</span><small>${character.npcOnly?"OPOSIÇÃO":leaderLocked?(getLanguage()==="en"?"CAMPAIGN LOCKED":"CAMPANHA BLOQUEADA"):!state.account?"ALMA DO PMA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · REINO ${esc(character.kingdom).toUpperCase()}</div><h3>${esc(character.name)}${character.identityTitle ? `, <span class="codex-character-title">${esc(character.identityTitle)}</span>` : ""}</h3>${leaderLockCopy?`<p class="leader-unlock-hint">${esc(leaderLockCopy)}</p>`:""}${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE REINO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
         ${bodyFormSelector(character)}${codexSkillList(character,character.abilities)}
       </article>`;
     }).join("")}</div>`;
