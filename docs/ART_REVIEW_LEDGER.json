@@ -826,7 +826,13 @@
     "nilo-o-prefacio:base:impulso",
     "nilo-o-prefacio:base:tecnica",
     "nilo-o-prefacio:base:voto",
-    "nilo-o-prefacio:base:despertar"
+    "nilo-o-prefacio:base:despertar",
+    "nilo-graca-prefacio:base:portrait",
+    "nilo-graca-prefacio:base:passive",
+    "nilo-graca-prefacio:base:impulso",
+    "nilo-graca-prefacio:base:tecnica",
+    "nilo-graca-prefacio:base:voto",
+    "nilo-graca-prefacio:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1316,7 +1322,13 @@
     "nilo-o-prefacio:base:impulso",
     "nilo-o-prefacio:base:tecnica",
     "nilo-o-prefacio:base:voto",
-    "nilo-o-prefacio:base:despertar"
+    "nilo-o-prefacio:base:despertar",
+    "nilo-graca-prefacio:base:portrait",
+    "nilo-graca-prefacio:base:passive",
+    "nilo-graca-prefacio:base:impulso",
+    "nilo-graca-prefacio:base:tecnica",
+    "nilo-graca-prefacio:base:voto",
+    "nilo-graca-prefacio:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1356,6 +1368,12 @@
       "characterId": "nilo-o-prefacio",
       "date": "2026-10-31",
       "reason": "Refeito o kit-base de seis slots na direção anime-first 2.5D pictórica infernal; identidade e mecânicas preservadas. Aguardar aprovação visual."
+    },
+    {
+      "key": "nilo-graca-prefacio:base",
+      "characterId": "nilo-graca-prefacio",
+      "date": "2026-10-31",
+      "reason": "Refeito o kit-base de seis slots na direção anime-first 2.5D pictórica de Paraíso; identidade e mecânicas preservadas. Aguardar aprovação visual."
     }
   ]
 }

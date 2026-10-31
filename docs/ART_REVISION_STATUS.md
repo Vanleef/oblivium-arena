@@ -793,3 +793,14 @@ A passiva mostra a abertura numa aflição já aplicada; Corte Escarro atinge um
 Ativos WebP 512×512: `art/characters/nilo-o-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-o-prefacio-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_O_PREFACIO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
 
 A migração pictórica cobre **564/998 slots**, com **434 restantes**, em **86/150 entradas**. Restam **64 entradas**; **557 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+
+
+## Nilo, Prefácio de Graça — revisão anime-first 2.5D pictórica — 31/10/2026
+
+Refeitos retrato, passiva e quatro habilidades-base, mantendo a identidade e a paleta solene de Paraíso: manto marfim com ouro antigo, roupa carvão, índigo, mármore branco e azul claro. As cenas usam a marca de pétala, a resposta concentrada e a proteção pessoal de Limiar.
+
+Toque de Clareza mostra autocura; Marca de Caça expõe um alvo por uma marca de pétala e fissura na sombra; Luz Contida atinge somente o alvo marcado; Limiar desvia estilhaços com uma barreira curta. Nenhuma mecânica foi alterada. As seis artes aguardam aprovação visual.
+
+Ativos WebP 512×512: `art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_GRACA_PREFACIO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
+
+A migração pictórica cobre **570/998 slots**, com **428 restantes**, em **87/150 entradas**. Restam **63 entradas**; **563 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.

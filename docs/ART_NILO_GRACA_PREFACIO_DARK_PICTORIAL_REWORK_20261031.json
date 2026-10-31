@@ -1,0 +1,110 @@
+{
+  "id": "nilo-graca-prefacio-dark-pictorial-rework-20261031",
+  "characterId": "nilo-graca-prefacio",
+  "displayName": "Nilo, Prefácio de Graça",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "previousArtDirection": "Anime 2.5D pictórico claro e suave.",
+  "artDirection": "Anime-first 2.5D pictórico, alto contraste solene, contornos manuais, pinceladas densas, sombras angulares, materialidade de mármore e tecido; paleta de Paraíso em branco, marfim, ouro antigo, azul claro e verde discreto.",
+  "identity": "Nilo-base de 24 anos, pele castanha média, cabelo azul-negro com uma mecha marfim sobre a sobrancelha direita, olhos cinza-azulados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. Sem asas, halo, arma ou tecnologia.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "bd1ab8eac7605f803ebde6e1bed687f72c966991372a84fd05e6dde87f8f51f8",
+      "activeSha256": "86368205f73e7efdac5df2a21c00722112a76d5d643a091d4d9ad6a9dd32af66",
+      "scene": "Nilo reage a um tremor na água; busto natural junto ao jardim geométrico."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "62f977db6e8f115bb10a1ce8c78086c5d6048a1e94deb4393ef0582acdae786a",
+      "activeSha256": "1c0b745ffa2eb426334b5a4862051cf42ed735aafddcec3b8c563ffff359a893",
+      "scene": "Uma marca de pétala liga um alvo à resposta de Nilo sobre a água imóvel."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e1dd5f8b558adcd13b92f4392bfcfa2520659a4122ec1e438e8cac2e14b6a685",
+      "activeSha256": "3fe790435d9a974ae23c4afb9c7516eac6ce30ed1306290871853b0630257135",
+      "scene": "Nilo recupera o fôlego sentado, com luz marfim contida sobre o próprio ferimento."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "85bee58184a93e7c4c4546fad7b4f30c1b2653e557a389d14e70d9d0dae79191",
+      "activeSha256": "274e646e76ea528abfdbe8c091687181233c0cb1cfe02c4a68d79449f580887e",
+      "scene": "Nilo marca o ombro de um único alvo e abre uma fissura na sombra."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "df23b1ca1b4ef6f6d7a92c3d557310cb9f17e00451edf68f48ce1df55d115c15",
+      "activeSha256": "e3611da9ad19ba5d0ea4a98bcdb0799f95a17ebec0ff8a83a8a1e750e45d2bbb",
+      "scene": "Um fragmento compacto de Luz Contida atinge o selo de um único alvo sobre o espelho d'água."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e8dd748a10a2168da6635a672929bb37737cd276d71623196e4051c3822670fa",
+      "activeSha256": "5b38226d43925f58a18b68a112d3134291bf05fb88fba87597ddc2d2c70b5883",
+      "scene": "Um plano curto de luz marfim desvia três estilhaços enquanto Nilo se protege."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending"
+}
