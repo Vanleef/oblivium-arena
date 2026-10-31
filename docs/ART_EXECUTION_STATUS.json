@@ -6,12 +6,12 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 106,
-  "newAbilityScenesSaved": 547,
+  "newPortraitsSaved": 107,
+  "newAbilityScenesSaved": 552,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Continuar a migração dos 68 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 67 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 31 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
     "Revisar visualmente os 506 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
@@ -125,13 +125,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 532,
-      "integratedSlots": 532,
+      "candidateSlots": 538,
+      "integratedSlots": 538,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 82,
-      "pendingVisualApprovalSlots": 525,
+      "fullyMigratedEntries": 83,
+      "pendingVisualApprovalSlots": 531,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -207,18 +207,20 @@
     "oPrincipeArtwork": "7 fontes JPEG 768x768 e 7 ativos WebP 512x512; cenas revisadas visualmente, com variante de Impulso e contagens de alvo conferidas; candidato integrado, aguardando aprovação visual.",
     "oPrincipeRuntime": "Somente rotas de arte e documentação foram atualizadas; mecânicas não foram alteradas.",
     "asharaArtwork": "6 fontes JPEG 768x768 e 6 ativos WebP 512x512; cenas revisadas visualmente e contagem de alvos conferida; candidato integrado, aguardando aprovação visual.",
-    "asharaRuntime": "Somente rotas de arte e documentação foram atualizadas; mecânicas não foram alteradas."
+    "asharaRuntime": "Somente rotas de arte e documentação foram atualizadas; mecânicas não foram alteradas.",
+    "malrikArtwork": "6 fontes JPEG 768x768 e 6 ativos WebP 512x512; anatomia, fraturas e contagens de alvo conferidas; candidato integrado, aguardando aprovação visual.",
+    "malrikRuntime": "Somente rotas de arte e documentação foram atualizadas; mecânicas não foram alteradas."
   },
   "latestProduction": {
     "date": "2026-10-31",
-    "characterId": "a-regente-de-cinzas",
-    "characterName": "Ashara",
-    "title": "A Déspota",
+    "characterId": "o-herdeiro-cativo",
+    "characterName": "Malrik",
+    "title": "O Herdeiro",
     "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_A_REGENTE_DE_CINZAS_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json"
   },
-  "newDarkPictorialCandidateAssets": 532,
+  "newDarkPictorialCandidateAssets": 538,
   "latestRegistryIntegration": {
     "date": "2026-10-31",
     "newCharacterRows": [
@@ -237,19 +239,21 @@
       "o-tecelao-de-mentiras",
       "o-trono-vazio",
       "o-principe-das-correntes",
-      "a-regente-de-cinzas"
+      "a-regente-de-cinzas",
+      "o-herdeiro-cativo"
     ],
     "updatedCharacterRows": [
       "o-incendiario"
     ],
-    "candidateAssetRoutesWired": 115,
+    "candidateAssetRoutesWired": 121,
     "correctedReports": [
       "ART_ARISTIDES_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_JUSTUS_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_O_SUSERANO_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_PRINCIPE_DAS_CORRENTES_DARK_PICTORIAL_REWORK_20261031.json",
-      "ART_A_REGENTE_DE_CINZAS_DARK_PICTORIAL_REWORK_20261031.json"
+      "ART_A_REGENTE_DE_CINZAS_DARK_PICTORIAL_REWORK_20261031.json",
+      "ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json"
     ],
     "anatomyCorrections": [
       {

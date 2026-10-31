@@ -1372,4 +1372,15 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/a-regente-de-cinzas/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
   }
+,
+  "o-herdeiro-cativo": {
+    "portrait": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
+  }
 };
