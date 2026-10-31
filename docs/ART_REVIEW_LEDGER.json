@@ -667,7 +667,13 @@
     "o-vigia-ausente:base:impulso",
     "o-vigia-ausente:base:tecnica",
     "o-vigia-ausente:base:voto",
-    "o-vigia-ausente:base:despertar"
+    "o-vigia-ausente:base:despertar",
+    "o-que-possui:base:portrait",
+    "o-que-possui:base:passive",
+    "o-que-possui:base:impulso",
+    "o-que-possui:base:tecnica",
+    "o-que-possui:base:voto",
+    "o-que-possui:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -998,7 +1004,13 @@
     "o-vigia-ausente:base:impulso",
     "o-vigia-ausente:base:tecnica",
     "o-vigia-ausente:base:voto",
-    "o-vigia-ausente:base:despertar"
+    "o-vigia-ausente:base:despertar",
+    "o-que-possui:base:portrait",
+    "o-que-possui:base:passive",
+    "o-que-possui:base:impulso",
+    "o-que-possui:base:tecnica",
+    "o-que-possui:base:voto",
+    "o-que-possui:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {

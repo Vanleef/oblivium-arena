@@ -1,0 +1,165 @@
+{
+  "title": "Andriscus — O Usurpador — dark fantasy pictórica (2026-10-30)",
+  "date": "2026-10-30",
+  "characterId": "o-que-possui",
+  "characterName": "Andriscus",
+  "characterTitle": "O Usurpador",
+  "aliases": [
+    "O Usurpador",
+    "O que Possui"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Tormenta",
+  "role": "Possessor",
+  "style": "Anime-first 2.5D dark fantasy pictórica, contornos expressivos, pinceladas angulares, hachuras gráficas, sombras densas e materiais táteis.",
+  "identity": "Homem adulto de pele castanho-escura, cabelo preto curto, olhos turquesa e túnica preta de gola alta com bordados geométricos marfim.",
+  "environment": "Inferno/Tormenta: ruínas de basalto, cinza e brasas sob luz carmesim; sem tecnologia, máquinas ou soldados genéricos. Ghouls são os alvos.",
+  "sceneVariety": "Retrato baixo em três quartos; extração por cima do ombro; marca em perfil; controle nervoso em ângulo alto; drenagem em close baixo; esquiva pessoal em vista reversa.",
+  "anatomyReview": "As seis imagens foram inspecionadas em conjunto. Andriscus mantém sua aparência canônica, dois braços, mãos e articulações legíveis. Cada cena de ação mostra um único ghoul; a defesa mostra um atacante e uma esquiva corporal coerente. Os filamentos aparecem como cordões orgânicos localizados. Sem gore explícito, membros extras ou armas.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Andriscus",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Andriscus ergue a mão enquanto um filamento orgânico turquesa se estende entre seus dedos; o olhar mantém a autoridade fria do Usurpador.",
+      "prompt": "O mesmo homem de pele castanho-escura, cabelo preto curto, olhos turquesa e túnica preta com bordado geométrico marfim; retrato natural, sem texto ou interface.",
+      "candidatePath": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-que-possui-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-839a63b6-7326-4373-9379-3796af00be7b.png",
+      "generatedSourceSha256": "5e83b7ce26230302045012973d6b1b8f90c8bc008bc2cc0e5d9a6935c8bea2a9",
+      "generatedSourceBytes": 2576647,
+      "candidateBytes": 38366,
+      "candidateSha256": "8b70fa8cdd65e16effed266a04728bf590422376c48d7678d3c1d5d51dbd8884",
+      "sourceBytes": 264700,
+      "sourceSha256": "547933ef2848a315be72ec578013ec70facc3d25ca224300c3eb4d1fd669d379"
+    },
+    {
+      "slot": "passive",
+      "name": "Vontade Parasita",
+      "targetCount": "one marked ghoul",
+      "camera": "Plano médio baixo por cima do ombro",
+      "scene": "Andriscus extrai a vitalidade de um único ghoul marcado por meio de um cordão fino e orgânico turquesa.",
+      "prompt": "Uma ligação orgânica fina e localizada entre Andriscus e exatamente um ghoul; a vitalidade flui sem feixe abstrato ou ferimento gráfico.",
+      "candidatePath": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-que-possui-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-947bb19f-1459-4bdc-bbb8-9d52cb0af815.png",
+      "generatedSourceSha256": "a55b823e04d4b63d53e5da97925693378687e024b283b8f0f8d44123cd81ebc1",
+      "generatedSourceBytes": 2546663,
+      "candidateBytes": 44242,
+      "candidateSha256": "a9cece0f19ef772b517a19fc84654d1fa29c89766acad2c546961bd744b8c311",
+      "sourceBytes": 290645,
+      "sourceSha256": "3c6110488545a3323c9c033a01baf4e9246069c3f82b631c2e8df39de5ce36e4"
+    },
+    {
+      "slot": "impulso",
+      "name": "Selo da Posse",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral fechado",
+      "scene": "Andriscus inscreve por contato um selo turquesa no ombro de um único ghoul, indicando a marca de posse.",
+      "prompt": "Um único ghoul; contato da mão no ombro e marca pequena, localizada e material, sem sigilos flutuantes.",
+      "candidatePath": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-que-possui-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-bceb1933-a068-4747-a33d-e20de5b3c4dc.png",
+      "generatedSourceSha256": "c7c9b13259bca57fa54ee704c1bbda7b85edd957cd19a2188e93ba7b6e0673c4",
+      "generatedSourceBytes": 2742653,
+      "candidateBytes": 47432,
+      "candidateSha256": "9bc153bbc07b69f99cb98d5a58de11deb1d44c775c83f3dea132e4d3cab7a8e5",
+      "sourceBytes": 307752,
+      "sourceSha256": "9078b0b1b97cb66f10ad420ccad069ca64d517288bd0d7c71ec90cba4586a4d8"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Nervos Tomados",
+      "targetCount": "one marked ghoul",
+      "camera": "Ângulo diagonal alto em plano médio",
+      "scene": "Andriscus controla os movimentos do único ghoul marcado por filamentos orgânicos finos conectados a nervos expostos apenas de forma simbólica.",
+      "prompt": "Uma só vítima marcada, fios orgânicos turquesa bem localizados que conduzem uma postura interrompida; sem tentáculos ou feixes de energia.",
+      "candidatePath": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-que-possui-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-cbae29e3-1841-470e-a3d7-5698dd9ee1ac.png",
+      "generatedSourceSha256": "89ed5595d3e4e553dd1cf8d074bb2809db1fbb921cbdafde5114e34303709eba",
+      "generatedSourceBytes": 2770319,
+      "candidateBytes": 49932,
+      "candidateSha256": "58fb2e1d09d1a0a9a0add28a598d2d61555dc17c1d968b9b38890705bc6cbd31",
+      "sourceBytes": 329473,
+      "sourceSha256": "b0096c0d9191d2786e98c371b2989ed24fb9b550feb8776e6472d0ba013301b7"
+    },
+    {
+      "slot": "voto",
+      "name": "Espoliação Vital",
+      "targetCount": "one marked ghoul",
+      "camera": "Close oblíquo baixo",
+      "scene": "Andriscus drena a vitalidade de um único ghoul já marcado; os filamentos turquesa se prendem ao peito e ao pescoço sem exibir gore.",
+      "prompt": "Ação de drenagem não gráfica contra exatamente um ghoul marcado, com filamentos orgânicos discretos e foco na expressão dos personagens.",
+      "candidatePath": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-que-possui-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-a61e6629-642c-4c22-be3e-4f43d4f6f1c1.png",
+      "generatedSourceSha256": "75710bfbb967a7f682f36081e02b1f0f054414a502d7ba684457ec63401d95bd",
+      "generatedSourceBytes": 2731907,
+      "candidateBytes": 47696,
+      "candidateSha256": "dbbe80ac51c76f5dbe7ec90e22f081409da2e17414e41a8ab6ca59f55b019418",
+      "sourceBytes": 299983,
+      "sourceSha256": "8907574ab59c6985d579e3c2a2fc05a3697a29842dc6e816a06e1a57608f4e4f"
+    },
+    {
+      "slot": "despertar",
+      "name": "Desligar o Corpo",
+      "targetCount": "self, one attacker",
+      "camera": "Vista baixa reversa em movimento",
+      "scene": "Um ghoul desfere um golpe enquanto Andriscus solta a tensão do corpo, deixa o ataque passar e se apoia no basalto para se reerguer.",
+      "prompt": "Defesa pessoal com um único atacante; esquiva baixa e natural, ambos os pés e articulações coerentes, sem fios, duplicação ou partes separadas.",
+      "candidatePath": "/art/characters/o-que-possui/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-que-possui-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-38b50e69-c127-430b-8b69-ababf2eb8a54.png",
+      "generatedSourceSha256": "2ab02d1b07ae218a07b1a40c9caed30895588818e66cc07063d6d99315d155f5",
+      "generatedSourceBytes": 2791501,
+      "candidateBytes": 55270,
+      "candidateSha256": "2f5c5d38853372ba89b9a8a3a2b8f83b8edd7bea29fc5633632731a7b55b63da",
+      "sourceBytes": 345483,
+      "sourceSha256": "971cef2902361ec8df6a6e34025760e544135aef76ddf5ace80c3b1a57a7c670"
+    }
+  ]
+}

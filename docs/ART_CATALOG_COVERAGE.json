@@ -930,7 +930,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-pele-alheia",
@@ -2365,21 +2374,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 327,
-    "remainingSlots": 671,
-    "fullyMigratedEntries": 51,
-    "remainingEntries": 99,
-    "awaitingVisualApprovalSlots": 320,
+    "integratedCandidateSlots": 333,
+    "remainingSlots": 665,
+    "fullyMigratedEntries": 52,
+    "remainingEntries": 98,
+    "awaitingVisualApprovalSlots": 326,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-30",
     "characterIds": [
-      "o-vigia-ausente"
+      "o-que-possui"
     ],
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_EFIALTES_O_DESERTOR_DARK_PICTORIAL_REWORK_20261030.json"
+    "report": "docs/ART_ANDRISCUS_O_USURPADOR_DARK_PICTORIAL_REWORK_20261030.json"
   }
 }
