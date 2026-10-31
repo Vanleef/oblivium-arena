@@ -119,17 +119,17 @@ export const characterArtRegistry = {
     }
   },
   "nilo-ruptura-epilogo": {
-    "portrait": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/portrait.webp",
-    "passive": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/passive.webp",
+    "portrait": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-impulso.webp",
-      "tecnica": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-tecnica.webp",
-      "voto": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-voto.webp",
-      "despertar": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-5.webp"
+      "impulso": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-despertar-5.webp"
     },
     "abilityIndices": {
-      "3": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-4.webp",
-      "4": "/art/characters/nilo-ruptura-epilogo/anime-first-completion-20261028/skill-despertar-5.webp"
+      "3": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-despertar-4.webp",
+      "4": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-despertar-5.webp"
     }
   },
   "nilo-cinza-final": {

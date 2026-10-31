@@ -812,3 +812,11 @@ Refeitas sete cenas, preservando o traje de ardósia, o cachecol cinza-claro, a 
 Ativos WebP 512×512: `art/characters/nilo-ruptura-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-ruptura-prefacio-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_RUPTURA_PREFACIO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
 
 A migração pictórica cobre **577/998 slots**, com **421 restantes**, em **88/150 entradas**. Restam **62 entradas**; **570 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+
+## Nilo, Epílogo de Ruptura — revisão anime-first 2.5D pictórica — 31/10/2026
+
+Refeitas sete cenas do Limbo/Umbral em carvão e índigo. O Passivo mostra a sombra de Nilo bifurcada em duas rotas; Impulso e Técnica mantêm um alvo por cena; o Voto envolve o pulso e o ombro do alvo com a própria sombra; o Despertar 4 rebate a força de uma besta-sombra; o Despertar 5 é uma esquiva pessoal no limiar, com fragmentos atravessando somente a borda do manto. Mecânicas preservadas; sete artes pendentes de aprovação visual.
+
+Ativos WebP 512×512: `art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/`. Relatórios: `docs/ART_NILO_RUPTURA_EPILOGO_DARK_PICTORIAL_REWORK_20261031.md` e `.json`.
+
+A migração pictórica cobre **584/998 slots**, com **414 restantes**, em **89/150 entradas**. Restam **61 entradas**; **577 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
