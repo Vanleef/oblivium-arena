@@ -36,9 +36,9 @@
         512,
         512
       ],
-      "sourceSha256": "eb221f79c225d77f513f57143b6f039a0aceccacf524750146fd1ca23e8737d7",
-      "activeSha256": "d40bcc0b0602041f1c6b048acad48bdde4bf193126d0043672f5b0a04d11c7bc",
-      "scene": "Um ghoul gasta duas Essências violetas; um único Resíduo cinza-violeta chega ao bracelete esquerdo de Nilo."
+      "sourceSha256": "2a447b53706b17875121617bf0ea68d724c91f98faa52b997b0d2a47f33743b0",
+      "activeSha256": "1164df10e379e33a592b5b8984ef8a739d8f4050e309a821c62876245afa4ad1",
+      "scene": "Vista alta sobre o ombro: um ghoul gasta duas Essências violetas, enquanto um Resíduo cinza-violeta chega ao bracelete esquerdo de Nilo."
     },
     {
       "slot": "impulso",
@@ -84,9 +84,9 @@
         512,
         512
       ],
-      "sourceSha256": "7143a0f2fce099d8f537943a849865df5961a18b1d278dee2328fa2c54a70ac7",
-      "activeSha256": "8985b6ef200dc91839e9971fa9fceebe76ffda15c8064dad1eadec5e3b481451",
-      "scene": "Dois Resíduos se fundem num fragmento violeta que atinge um único ghoul."
+      "sourceSha256": "b18351d5d752fec5aa125661d3a323ba3552a0c648312eb6b2ab39fdc955bab9",
+      "activeSha256": "4bb74d5296320280ae836356dba980fdb4be763b9bae5a32bc3cdc84a105549b",
+      "scene": "Em ângulo baixo atrás do ghoul, dois Resíduos se fundem num fragmento violeta compacto e atingem seu ombro, fazendo-o recuar."
     },
     {
       "slot": "despertar",

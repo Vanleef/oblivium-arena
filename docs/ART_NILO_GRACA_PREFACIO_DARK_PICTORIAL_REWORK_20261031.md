@@ -1,16 +1,16 @@
-# Nilo, Prefácio de Graça — revisão anime-first 2.5D pictórica — 31/10/2026
+# Nilo, Prefácio de Graça (+Graça) — revisão anime-first 2.5D pictórica — 31/10/2026
 
-As seis artes-base foram refeitas em direção anime-first 2.5D pictórica, mantendo a identidade canônica de Nilo: 24 anos, pele castanha média, cabelo azul-negro com uma mecha marfim sobre a sobrancelha direita, olhos cinza-azulados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. O cenário é Paraíso/Estelar, com colunatas, jardins geométricos, água imóvel e luz contida; sem asas, halo, arma ou tecnologia.
+As seis artes do kit foram refeitas para corrigir a repetição de planos próximos e demonstrar o estágio +Graça. Nilo permanece reconhecível: 24 anos, pele castanha média, cabelo azul-negro com mecha marfim, olhos cinza-azulados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. A personalidade é bondosa; as imagens mostram traços dourados pela pele, fios brancos no cabelo e aura branca ao redor do corpo. Os olhos não ficam totalmente dourados e a estrutura não se torna angelical, características reservadas a ++Graça.
 
-As cenas mostram: retrato reagindo a um tremor na água; passiva de Marca de Caça conectando a marca de pétala ao peito de Nilo; autocura de Toque de Clareza; marcação de um alvo e abertura da sombra; Luz Contida concentrada num fragmento que atinge um alvo marcado; e Limiar desviando estilhaços com uma barreira próxima. Os enquadramentos variam entre busto, plano alto sobre a água, recuperação sentada, contato traseiro, diagonal aérea e defesa baixa. Mecânicas preservadas; as seis candidatas aguardam aprovação visual.
+A sequência varia retrato próximo em 3/4, vista alta sobre a água, autocura em plano aberto lateral, aplicação de marca vista por trás, impacto em ângulo alto e defesa em plano baixo. As interações e manifestações de poder seguem os alvos e ações descritos para cada cena. Mecânicas preservadas; as seis candidatas aguardam aprovação visual.
 
 Ativos WebP 512×512: `art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/`; fontes JPEG 768×768: `art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/`.
 
 | Slot | Cena |
 | --- | --- |
-| portrait | Nilo reage a um tremor na água; busto natural junto ao jardim geométrico. |
-| passive | Uma marca de pétala liga um alvo à resposta de Nilo sobre a água imóvel. |
-| impulso | Nilo recupera o fôlego sentado, com luz marfim contida sobre o próprio ferimento. |
-| tecnica | Nilo marca o ombro de um único alvo e abre uma fissura na sombra. |
-| voto | Um fragmento compacto de Luz Contida atinge o selo de um único alvo sobre o espelho d'água. |
-| despertar | Um plano curto de luz marfim desvia três estilhaços enquanto Nilo se protege. |
+| portrait | Retrato próximo em 3/4; Nilo reage com bondade a um tremor na água, com aura branca delineando os ombros. |
+| passive | Vista alta sobre a piscina: Nilo ajoelhado acompanha uma marca dourada de pétala no ombro de um alvo através do reflexo imóvel. |
+| impulso | Plano aberto lateral em nível baixo: Nilo sentado junto a uma coluna de mármore recompõe o próprio ferimento com luz marfim. |
+| tecnica | Vista traseira em 3/4: Nilo aplica uma pequena marca dourada no ombro esquerdo de um alvo; a sombra se abre numa fissura estreita no chão. |
+| voto | Ângulo alto oblíquo: fragmento marfim compacto com núcleo dourado atinge o selo no braço de um alvo, que recua sobre a água. |
+| despertar | Plano aberto baixo por trás: Nilo se protege enquanto uma barreira curta de luz marfim desvia exatamente três estilhaços. |

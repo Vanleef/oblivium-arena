@@ -5,8 +5,8 @@
   "world": "Paraíso",
   "realm": "Estelar",
   "previousArtDirection": "Anime 2.5D pictórico claro e suave.",
-  "artDirection": "Anime-first 2.5D pictórico, alto contraste solene, contornos manuais, pinceladas densas, sombras angulares, materialidade de mármore e tecido; paleta de Paraíso em branco, marfim, ouro antigo, azul claro e verde discreto.",
-  "identity": "Nilo-base de 24 anos, pele castanha média, cabelo azul-negro com uma mecha marfim sobre a sobrancelha direita, olhos cinza-azulados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. Sem asas, halo, arma ou tecnologia.",
+  "artDirection": "Anime-first 2.5D pictórico, alto contraste solene, contornos manuais, pinceladas densas, sombras angulares, materialidade de mármore e tecido; paleta de Paraíso em branco, marfim, ouro antigo, azul claro e verde discreto. Em +Graça: bondade visível, traços dourados na pele, aura branca ao redor do corpo e fios brancos no cabelo, mantendo olhos cinza-azulados; sem traços angelicais de ++Graça.",
+  "identity": "Nilo-base de 24 anos, pele castanha média, cabelo azul-negro com uma mecha marfim sobre a sobrancelha direita, olhos cinza-azulados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. Sem asas, halo, arma ou tecnologia. Na versão +Graça, Nilo tem expressão bondosa, marcas douradas na pele, aura branca visível ao redor do corpo e fios em tons brancos no cabelo; os olhos permanecem cinza-azulados, sem anatomia angelical.",
   "assets": [
     {
       "slot": "portrait",
@@ -20,9 +20,9 @@
         512,
         512
       ],
-      "sourceSha256": "bd1ab8eac7605f803ebde6e1bed687f72c966991372a84fd05e6dde87f8f51f8",
-      "activeSha256": "86368205f73e7efdac5df2a21c00722112a76d5d643a091d4d9ad6a9dd32af66",
-      "scene": "Nilo reage a um tremor na água; busto natural junto ao jardim geométrico."
+      "sourceSha256": "b1a158ab55f5a322dcc76aed77d870d474d0c8729d4d9089cab695246a5b0a9f",
+      "activeSha256": "a4ac73092eb6914cd1caafae9e592bcf96c5ebad8c9321898c287ebdd3327be5",
+      "scene": "Retrato próximo em 3/4; Nilo reage com bondade a um tremor na água, com aura branca delineando os ombros."
     },
     {
       "slot": "passive",
@@ -36,9 +36,9 @@
         512,
         512
       ],
-      "sourceSha256": "62f977db6e8f115bb10a1ce8c78086c5d6048a1e94deb4393ef0582acdae786a",
-      "activeSha256": "1c0b745ffa2eb426334b5a4862051cf42ed735aafddcec3b8c563ffff359a893",
-      "scene": "Uma marca de pétala liga um alvo à resposta de Nilo sobre a água imóvel."
+      "sourceSha256": "c4fc2ec0758d8e65552c3efe230ff9a06876c354818c8db6f2514f26f50a199c",
+      "activeSha256": "caa65475a0fe3a3537c574e51eec703d55c0cd51f563c02009e23933c41a8f60",
+      "scene": "Vista alta sobre a piscina: Nilo ajoelhado acompanha uma marca dourada de pétala no ombro de um alvo através do reflexo imóvel."
     },
     {
       "slot": "impulso",
@@ -52,9 +52,9 @@
         512,
         512
       ],
-      "sourceSha256": "e1dd5f8b558adcd13b92f4392bfcfa2520659a4122ec1e438e8cac2e14b6a685",
-      "activeSha256": "3fe790435d9a974ae23c4afb9c7516eac6ce30ed1306290871853b0630257135",
-      "scene": "Nilo recupera o fôlego sentado, com luz marfim contida sobre o próprio ferimento."
+      "sourceSha256": "f00cf31ece29cfa0e1f51391bac520eb828325053365182060b6c14900ac367f",
+      "activeSha256": "92dd6af53536becf80c73814602eda3af119e24c032372ca0ed2d38bf9c84413",
+      "scene": "Plano aberto lateral em nível baixo: Nilo sentado junto a uma coluna de mármore recompõe o próprio ferimento com luz marfim."
     },
     {
       "slot": "tecnica",
@@ -68,9 +68,9 @@
         512,
         512
       ],
-      "sourceSha256": "85bee58184a93e7c4c4546fad7b4f30c1b2653e557a389d14e70d9d0dae79191",
-      "activeSha256": "274e646e76ea528abfdbe8c091687181233c0cb1cfe02c4a68d79449f580887e",
-      "scene": "Nilo marca o ombro de um único alvo e abre uma fissura na sombra."
+      "sourceSha256": "4edb267392cd270b2eaceea56f57e3e562bb53151b9ae5fe698562753b1ebc45",
+      "activeSha256": "3e83bea3d4d36655b3bf6c5504dc9e7eb3803ad58aaadbf55ef5bbb76bfe1785",
+      "scene": "Vista traseira em 3/4: Nilo aplica uma pequena marca dourada no ombro esquerdo de um alvo; a sombra se abre numa fissura estreita no chão."
     },
     {
       "slot": "voto",
@@ -84,9 +84,9 @@
         512,
         512
       ],
-      "sourceSha256": "df23b1ca1b4ef6f6d7a92c3d557310cb9f17e00451edf68f48ce1df55d115c15",
-      "activeSha256": "e3611da9ad19ba5d0ea4a98bcdb0799f95a17ebec0ff8a83a8a1e750e45d2bbb",
-      "scene": "Um fragmento compacto de Luz Contida atinge o selo de um único alvo sobre o espelho d'água."
+      "sourceSha256": "eaf8dbfa1012b1f5bdc21cc373125f2546df5b3bbdabb94f504ff079fe2f5b4e",
+      "activeSha256": "1f4233c759619f826b76c1499d9e7048ab7bdc7002f1d3ffac34d300adbba371",
+      "scene": "Ângulo alto oblíquo: fragmento marfim compacto com núcleo dourado atinge o selo no braço de um alvo, que recua sobre a água."
     },
     {
       "slot": "despertar",
@@ -100,11 +100,23 @@
         512,
         512
       ],
-      "sourceSha256": "e8dd748a10a2168da6635a672929bb37737cd276d71623196e4051c3822670fa",
-      "activeSha256": "5b38226d43925f58a18b68a112d3134291bf05fb88fba87597ddc2d2c70b5883",
-      "scene": "Um plano curto de luz marfim desvia três estilhaços enquanto Nilo se protege."
+      "sourceSha256": "18b996b8e7d0c0a1af77272aededa750546394b777696abb2e4f82b51f52e548",
+      "activeSha256": "73beb01780840ac37fae649863b3118c97da3d48b38ec71e33aeb96b4239d7dd",
+      "scene": "Plano aberto baixo por trás: Nilo se protege enquanto uma barreira curta de luz marfim desvia exatamente três estilhaços."
     }
   ],
   "mechanicsPreserved": true,
-  "visualApproval": "pending"
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Graça",
+    "stage": "+",
+    "emotionalState": "Bondoso",
+    "appearance": {
+      "bodyMarkings": "traços dourados pelo corpo",
+      "aura": "aura branca ao redor do corpo",
+      "hair": "tons e fios brancos sobre o cabelo azul-negro, preservando a mecha marfim",
+      "eyes": "cinza-azulados; não completamente dourados",
+      "distinctionFrom": "++Graça, que acrescenta estrutura corporal angelical e olhos completamente dourados"
+    }
+  }
 }

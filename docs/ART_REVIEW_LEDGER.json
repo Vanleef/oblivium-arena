@@ -1444,6 +1444,46 @@
       "key": "nilo-ruptura-prefacio:base:despertar-5",
       "correctedAt": "2026-10-31",
       "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Refeita com vista alta sobre o ombro, um ghoul ao longe e um Resíduo chegando à braçadeira, evitando repetir o enquadramento do retrato."
+    },
+    {
+      "key": "nilo:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito em ângulo baixo atrás do alvo; fragmento físico formado por dois Resíduos atinge um único ghoul, ampliando a variação de cena e mantendo a ação legível."
+    },
+    {
+      "key": "nilo-graca-prefacio:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito para +Graça: expressão bondosa, fios brancos, marcas douradas e aura branca visível no retrato próximo; olhos cinza-azulados."
+    },
+    {
+      "key": "nilo-graca-prefacio:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Refita em vista alta sobre a água, com marca de pétala dourada num único alvo e reflexo ligando a resposta de Nilo."
+    },
+    {
+      "key": "nilo-graca-prefacio:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito em plano aberto lateral, com Nilo sentado junto à coluna e autocura do próprio ferimento, marcadores de +Graça visíveis."
+    },
+    {
+      "key": "nilo-graca-prefacio:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Refita por trás do alvo, com marcação física no ombro e fissura estreita na sombra; mantém um único alvo."
+    },
+    {
+      "key": "nilo-graca-prefacio:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito em ângulo alto oblíquo; fragmento compacto atinge o selo de um alvo e produz reação sobre a água."
+    },
+    {
+      "key": "nilo-graca-prefacio:base:despertar",
+      "correctedAt": "2026-10-31",
+      "note": "Refeito em plano baixo amplo, com barreira curta desviando exatamente três estilhaços durante defesa pessoal."
     }
   ]
 }
