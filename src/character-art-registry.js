@@ -30,17 +30,17 @@ export const characterArtRegistry = {
     }
   },
   "o-que-pesa": {
-    "portrait": "/art/characters/o-que-pesa/anime-first-rework-20261027/portrait.webp",
-    "passive": "/art/characters/o-que-pesa/anime-first-rework-20261027/passive.webp",
+    "portrait": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/o-que-pesa/anime-first-rework-20261027/skill-impulso.webp",
-      "tecnica": "/art/characters/o-que-pesa/anime-first-rework-20261027/skill-tecnica.webp",
-      "voto": "/art/characters/o-que-pesa/anime-first-rework-20261027/skill-voto.webp",
-      "despertar": "/art/characters/o-que-pesa/anime-first-rework-20261027/skill-despertar.webp"
+      "impulso": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-despertar.webp"
     },
     "forms": {
       "impulso": {
-        "balance": "/art/characters/o-que-pesa/anime-first-rework-20261027/skill-impulso-balance.webp"
+        "balance": "/art/characters/o-que-pesa/dark-pictorial-rework-20261031/skill-impulso-balance.webp"
       }
     }
   },
