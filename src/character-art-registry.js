@@ -1345,4 +1345,20 @@ export const characterArtRegistry = {
       "despertar": "/art/characters/o-trono-vazio/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
   }
+,
+  "o-principe-das-correntes": {
+    "portrait": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": {
+        "drag": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/skill-impulso-drag.webp"
+      }
+    }
+  }
 };
