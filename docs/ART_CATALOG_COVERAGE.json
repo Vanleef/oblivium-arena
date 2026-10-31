@@ -1522,10 +1522,18 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-chama-que-nao-apaga:form:impulso:dawn"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:dawn"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-que-levanta",
@@ -2719,21 +2727,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 584,
-    "remainingSlots": 414,
-    "fullyMigratedEntries": 88,
-    "remainingEntries": 62,
-    "awaitingVisualApprovalSlots": 577,
+    "integratedCandidateSlots": 591,
+    "remainingSlots": 407,
+    "fullyMigratedEntries": 89,
+    "remainingEntries": 61,
+    "awaitingVisualApprovalSlots": 584,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-10-31",
     "characterIds": [
-      "nilo-ruptura-epilogo"
+      "a-chama-que-nao-apaga"
     ],
     "candidateSlotsAdded": 7,
     "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_NILO_RUPTURA_EPILOGO_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_CAELUM_TELLESILLA_DARK_PICTORIAL_REWORK_20261031.json"
   }
 }

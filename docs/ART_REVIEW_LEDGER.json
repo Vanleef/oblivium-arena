@@ -924,7 +924,14 @@
     "o-que-pesa:base:portrait",
     "o-que-pesa:base:tecnica",
     "o-que-pesa:base:voto",
-    "o-que-pesa:form:impulso:balance"
+    "o-que-pesa:form:impulso:balance",
+    "a-chama-que-nao-apaga:base:portrait",
+    "a-chama-que-nao-apaga:base:passive",
+    "a-chama-que-nao-apaga:base:impulso",
+    "a-chama-que-nao-apaga:base:tecnica",
+    "a-chama-que-nao-apaga:base:voto",
+    "a-chama-que-nao-apaga:base:despertar",
+    "a-chama-que-nao-apaga:variant:impulso:dawn"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1512,7 +1519,14 @@
     "o-que-pesa:base:portrait",
     "o-que-pesa:base:tecnica",
     "o-que-pesa:base:voto",
-    "o-que-pesa:form:impulso:balance"
+    "o-que-pesa:form:impulso:balance",
+    "a-chama-que-nao-apaga:base:portrait",
+    "a-chama-que-nao-apaga:base:passive",
+    "a-chama-que-nao-apaga:base:impulso",
+    "a-chama-que-nao-apaga:base:tecnica",
+    "a-chama-que-nao-apaga:base:voto",
+    "a-chama-que-nao-apaga:base:despertar",
+    "a-chama-que-nao-apaga:variant:impulso:dawn"
   ],
   "currentDirectionCorrectionHistory": [
     {

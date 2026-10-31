@@ -1406,5 +1406,20 @@ export const characterArtRegistry = {
         "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-voto-shell.webp"
       }
     }
+  },
+  "a-chama-que-nao-apaga": {
+    "portrait": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "impulso": {
+        "dawn": "/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-impulso-dawn.webp"
+      }
+    }
   }
 };
