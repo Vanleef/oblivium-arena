@@ -859,7 +859,17 @@
     "o-eco-de-nilo:base:tecnica-7",
     "o-eco-de-nilo:base:tecnica-8",
     "o-eco-de-nilo:base:tecnica-9",
-    "o-eco-de-nilo:base:despertar-10"
+    "o-eco-de-nilo:base:despertar-10",
+    "nilo-graca-final:base:portrait",
+    "nilo-graca-final:base:passive",
+    "nilo-graca-final:base:impulso",
+    "nilo-graca-final:base:tecnica",
+    "nilo-graca-final:base:voto",
+    "nilo-graca-final:base:despertar-4",
+    "nilo-graca-final:base:tecnica-5",
+    "nilo-graca-final:base:tecnica-6",
+    "nilo-graca-final:base:tecnica-7",
+    "nilo-graca-final:base:despertar-8"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1382,7 +1392,17 @@
     "o-eco-de-nilo:base:tecnica-7",
     "o-eco-de-nilo:base:tecnica-8",
     "o-eco-de-nilo:base:tecnica-9",
-    "o-eco-de-nilo:base:despertar-10"
+    "o-eco-de-nilo:base:despertar-10",
+    "nilo-graca-final:base:portrait",
+    "nilo-graca-final:base:passive",
+    "nilo-graca-final:base:impulso",
+    "nilo-graca-final:base:tecnica",
+    "nilo-graca-final:base:voto",
+    "nilo-graca-final:base:despertar-4",
+    "nilo-graca-final:base:tecnica-5",
+    "nilo-graca-final:base:tecnica-6",
+    "nilo-graca-final:base:tecnica-7",
+    "nilo-graca-final:base:despertar-8"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -1718,6 +1738,56 @@
       "key": "o-eco-de-nilo:base:despertar-10",
       "correctedAt": "2026-10-31",
       "note": "Sael refeito e revisado quanto à anatomia: Defesa de corpo inteiro com dois braços em ações distintas e apoio estável das pernas. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Retrato 3/4 com cabeça, pescoço e cintura escapular coerentes; sem apêndices anatômicos extras. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Três figuras separadas: Nilo e dois Pilares. Conferidos braços, mãos, pernas e apoios dos dois alvos; a luz não cria membros. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Duas figuras. O apoio é uma única pega entre as mãos/antebraços; a outra mão da mulher se apoia no degrau e os braços de Nilo permanecem distintos. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Nilo e alvo em silhuetas separadas; postura do condenado mantém braços e pernas legíveis sob a luz. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: A mão de Nilo que ergue o tecido e a mão junto à faixa têm funções distintas; os braços do alvo não se fundem à roupa. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Figura inteira em enquadramento quadrado, com dois braços, duas pernas e ambos os pés dentro do quadro; o volume expandido é tecido. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:tecnica-5",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Nilo e três alvos distribuídos com espaço entre corpos; o homem barbado ajoelha com um braço apoiado, sem duplicação de membros. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:tecnica-6",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Nilo, Pilar e agressor separados; o impacto é efeito de sombra sobre o manto, sem braço ou asa adicional. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:tecnica-7",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Duas figuras com mãos separadas: Nilo toca a água com uma mão e repousa a outra na perna; a aliada segura a manga e apoia a mão livre no degrau. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-graca-final:base:despertar-8",
+      "correctedAt": "2026-10-31",
+      "note": "Nilo, Final de Graça refeito e revisado quanto à anatomia: Corpo inteiro com dois braços e duas pernas; o plano de luz-pedra é uma barreira ao lado do manto, sem empunhadura nem anatomia adicional. Candidata pendente de aprovação visual; mecânicas preservadas."
     }
   ]
 }
