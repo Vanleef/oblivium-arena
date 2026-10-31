@@ -762,3 +762,13 @@ Procopius, anteriormente O que Observou, recebe seis candidatas: retrato, passiv
 
 Indiferença Vigilante mostra a garra de um ghoul desviada e a defesa reativa; Memória da Omissão marca um alvo; Recusar Interferência desvia e devolve o golpe; Peso da Indiferença comprime um inimigo marcado; Fora do Acontecimento mostra a evasão defensiva. As seis imagens WebP 512×512 e fontes JPEG 768×768 estão em stage/art/characters/o-que-observou/dark-pictorial-rework-20261030 e stage/art/source/o-que-observou-dark-pictorial-rework-20261030. Manifesto e relatório: docs/ART_O_ESPECTADOR_DARK_PICTORIAL_REWORK_20261030.json e .md. As candidatas aguardam aprovação visual final. Nenhuma mecânica foi alterada.
 A direção dark fantasy pictórica cobre agora **302/998 espaços** para **47/150 personagens**, com **696 espaços restantes**. As 302 imagens seguem pendentes de aprovação visual.
+
+A direção dark fantasy pictórica cobre **552/998 espaços** em **84/150 entradas**; restam **446 espaços** e **66 entradas**. **545 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+
+## Caelum — A Perseverante — revisão dark fantasy pictórica — 31/10/2026
+
+Refeitos retrato, passiva e quatro habilidades, substituindo os seis slots candidatos já registrados. Caelum mantém pele azul-escura, cachos prateados, olhos âmbar, manto azul sob tecido marfim e fecho dourado. O tratamento usa pinceladas densas, materiais gastos e sombras pesadas, com a paleta solene de Paraíso.
+
+A passiva reacende a lanterna quando ela está ferida; Fagulha do Amanhã atinge um único ghoul com golpe físico e brasas no contato; Não se Apagar mostra Caelum voltando a se levantar; Aurora Imorredoura concentra as cargas em um impacto contra um único ghoul; Chama Intocável mostra a evasão pessoal sob uma queda de mármore. A garra ambígua do Voto foi removida. Mecânicas preservadas; nenhuma entrada ou slot novo.
+
+Os seis WebP 512×512 estão em `art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031`; fontes JPEG 768×768 em `art/source/a-luz-que-restaura-dark-pictorial-rework-20261031`. Relatório: `docs/ART_CAELUM_DARK_PICTORIAL_REWORK_20261031.md` e `.json`. Todas aguardam aprovação visual.

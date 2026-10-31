@@ -195,14 +195,26 @@
       "logicalSlotsReworked": 1,
       "logicalSlotsAdded": 0,
       "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-luz-que-restaura",
+      "characterName": "Caelum — A Perseverante",
+      "feedback": "As seis artes candidatas ainda tinham acabamento fotográfico e efeitos de luz genéricos; a composição do Voto também trazia uma garra ambígua no primeiro plano.",
+      "correction": "Refeito o kit completo em dark fantasy pictórica 2.5D, com ações físicas, paleta de Paraíso e identidade preservada. A garra ambígua do Voto foi removida.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
     }
   ],
   "currentDirectionMigration": {
-    "integratedCandidateSlots": 513,
-    "remainingSlots": 485,
-    "fullyMigratedEntries": 79,
-    "remainingEntries": 71,
-    "awaitingVisualApprovalSlots": 506,
-    "approvedSlots": 7
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 552,
+    "remainingSlots": 446,
+    "fullyMigratedEntries": 84,
+    "remainingEntries": 66,
+    "awaitingVisualApprovalSlots": 545,
+    "approvedSlots": 7,
+    "name": "dark fantasy pictórica PMA"
   }
 }
