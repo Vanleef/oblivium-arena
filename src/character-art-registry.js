@@ -881,5 +881,20 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
+  },
+  "a-costureira": {
+    "portrait": "/art/characters/a-costureira/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-costureira/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": {
+        "remove": "/art/characters/a-costureira/dark-pictorial-rework-20261031/skill-tecnica-remove.webp"
+      }
+    }
   }
 };
