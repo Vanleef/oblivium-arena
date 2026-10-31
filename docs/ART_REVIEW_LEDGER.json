@@ -796,7 +796,13 @@
     "o-restaurador:base:tecnica",
     "o-restaurador:base:voto",
     "o-restaurador:form:voto:pure",
-    "o-restaurador:base:despertar"
+    "o-restaurador:base:despertar",
+    "a-luz-que-restaura:base:portrait",
+    "a-luz-que-restaura:base:passive",
+    "a-luz-que-restaura:base:impulso",
+    "a-luz-que-restaura:base:tecnica",
+    "a-luz-que-restaura:base:voto",
+    "a-luz-que-restaura:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1256,7 +1262,13 @@
     "o-restaurador:base:tecnica",
     "o-restaurador:base:voto",
     "o-restaurador:form:voto:pure",
-    "o-restaurador:base:despertar"
+    "o-restaurador:base:despertar",
+    "a-luz-que-restaura:base:portrait",
+    "a-luz-que-restaura:base:passive",
+    "a-luz-que-restaura:base:impulso",
+    "a-luz-que-restaura:base:tecnica",
+    "a-luz-que-restaura:base:voto",
+    "a-luz-que-restaura:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
