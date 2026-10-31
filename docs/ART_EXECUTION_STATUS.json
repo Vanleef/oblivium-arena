@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 107,
-  "newAbilityScenesSaved": 552,
+  "newPortraitsSaved": 108,
+  "newAbilityScenesSaved": 557,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Continuar a migração dos 67 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 66 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 31 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 506 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 545 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -40,7 +40,7 @@
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 437,
+    "newDarkPictorialCandidateAssets": 451,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -213,12 +213,13 @@
   },
   "latestProduction": {
     "date": "2026-10-31",
-    "characterId": "o-herdeiro-cativo",
-    "characterName": "Malrik",
-    "title": "O Herdeiro",
+    "characterId": "a-pele-alheia",
+    "characterName": "Quill",
+    "title": "A Metamorfa",
     "candidateSlots": 6,
+    "existingFormSlotsActivated": 8,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json"
   },
   "newDarkPictorialCandidateAssets": 538,
   "latestRegistryIntegration": {
@@ -227,25 +228,26 @@
       "a-boca-de-vidro",
       "a-brasa-eterna",
       "a-mascara-dupla",
+      "a-pele-alheia",
       "a-pira-errante",
+      "a-regente-de-cinzas",
       "o-coracao-em-furia",
-      "o-devorador",
       "o-corretor-de-memorias",
+      "o-devorador",
       "o-falso-profeta",
       "o-filho-da-cinza",
+      "o-herdeiro-cativo",
       "o-odio-encarnado",
+      "o-principe-das-correntes",
       "o-surdo",
       "o-sussurro",
       "o-tecelao-de-mentiras",
-      "o-trono-vazio",
-      "o-principe-das-correntes",
-      "a-regente-de-cinzas",
-      "o-herdeiro-cativo"
+      "o-trono-vazio"
     ],
     "updatedCharacterRows": [
       "o-incendiario"
     ],
-    "candidateAssetRoutesWired": 121,
+    "candidateAssetRoutesWired": 135,
     "correctedReports": [
       "ART_ARISTIDES_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json",
@@ -253,7 +255,9 @@
       "ART_O_SUSERANO_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_PRINCIPE_DAS_CORRENTES_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_A_REGENTE_DE_CINZAS_DARK_PICTORIAL_REWORK_20261031.json",
-      "ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json"
+      "ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json",
+      "ART_OVID_METAMORFA_DARK_PICTORIAL_FORMS_20261031.json",
+      "ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json"
     ],
     "anatomyCorrections": [
       {

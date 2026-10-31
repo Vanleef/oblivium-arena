@@ -1333,8 +1333,7 @@ export const characterArtRegistry = {
         "unweave": "/art/characters/o-tecelao-de-mentiras/dark-pictorial-rework-20261030/skill-tecnica-unweave.webp"
       }
     }
-  }
-,
+  },
   "o-trono-vazio": {
     "portrait": "/art/characters/o-trono-vazio/dark-pictorial-rework-20261031/portrait.webp",
     "passive": "/art/characters/o-trono-vazio/dark-pictorial-rework-20261031/passive.webp",
@@ -1344,8 +1343,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/o-trono-vazio/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-trono-vazio/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
-  }
-,
+  },
   "o-principe-das-correntes": {
     "portrait": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/portrait.webp",
     "passive": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/passive.webp",
@@ -1360,8 +1358,7 @@ export const characterArtRegistry = {
         "drag": "/art/characters/o-principe-das-correntes/dark-pictorial-rework-20261031/skill-impulso-drag.webp"
       }
     }
-  }
-,
+  },
   "a-regente-de-cinzas": {
     "portrait": "/art/characters/a-regente-de-cinzas/dark-pictorial-rework-20261031/portrait.webp",
     "passive": "/art/characters/a-regente-de-cinzas/dark-pictorial-rework-20261031/passive.webp",
@@ -1371,8 +1368,7 @@ export const characterArtRegistry = {
       "voto": "/art/characters/a-regente-de-cinzas/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/a-regente-de-cinzas/dark-pictorial-rework-20261031/skill-despertar.webp"
     }
-  }
-,
+  },
   "o-herdeiro-cativo": {
     "portrait": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/portrait.webp",
     "passive": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/passive.webp",
@@ -1381,6 +1377,34 @@ export const characterArtRegistry = {
       "tecnica": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-tecnica.webp",
       "voto": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-voto.webp",
       "despertar": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
+  },
+  "a-pele-alheia": {
+    "portrait": "/art/characters/a-pele-alheia/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/a-pele-alheia/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-pele-alheia/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/a-pele-alheia/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/a-pele-alheia/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/a-pele-alheia/dark-pictorial-rework-20261031/skill-despertar.webp"
+    },
+    "bodyForms": {
+      "skin": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/portrait-skin.webp",
+      "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/portrait-shell.webp"
+    },
+    "forms": {
+      "impulso": {
+        "skin": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-impulso-skin.webp",
+        "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-impulso-shell.webp"
+      },
+      "tecnica": {
+        "shed": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-tecnica-skin.webp",
+        "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-tecnica-shell.webp"
+      },
+      "voto": {
+        "skin": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-voto-skin.webp",
+        "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-voto-shell.webp"
+      }
     }
   }
 };

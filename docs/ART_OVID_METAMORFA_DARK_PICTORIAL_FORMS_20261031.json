@@ -214,5 +214,31 @@
       "candidateSha256": "a7d66359131e7fb05e76e18a264983a48047f5b75efd0ca5d55da7c142ccd7fe",
       "sourceSha256": "f5e2e6f70891faa9f7025c29d4577256d7288ef3fd3486ac5fe5367143272565"
     }
-  ]
+  ],
+  "registryIntegration": {
+    "date": "2026-10-31",
+    "registryPath": "src/character-art-registry.js",
+    "rowKey": "a-pele-alheia",
+    "bodyPortraitRoutes": {
+      "skin": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/portrait-skin.webp",
+      "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/portrait-shell.webp"
+    },
+    "abilityVariantRoutes": {
+      "impulso": {
+        "skin": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-impulso-skin.webp",
+        "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-impulso-shell.webp"
+      },
+      "tecnica": {
+        "shed": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-tecnica-skin.webp",
+        "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-tecnica-shell.webp"
+      },
+      "voto": {
+        "skin": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-voto-skin.webp",
+        "shell": "/art/characters/a-pele-alheia/dark-pictorial-forms-20261031/skill-voto-shell.webp"
+      }
+    },
+    "humanBaseArtReport": "docs/ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json",
+    "logicalSlotsActivated": 8,
+    "status": "candidate_integrated_pending_visual_approval"
+  }
 }
