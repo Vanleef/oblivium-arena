@@ -871,5 +871,15 @@ export const characterArtRegistry = {
         "hold": "/art/characters/a-marionetista-de-nervos/dark-pictorial-rework-20261031/skill-tecnica-hold.webp"
       }
     }
+  },
+  "o-espelho-carnal": {
+    "portrait": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/portrait.webp",
+    "passive": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "tecnica": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "voto": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/skill-voto.webp",
+      "despertar": "/art/characters/o-espelho-carnal/dark-pictorial-rework-20261031/skill-despertar.webp"
+    }
   }
 };
