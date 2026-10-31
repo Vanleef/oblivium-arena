@@ -1,4 +1,4 @@
-import { elos, realms, characters, characterById, generateTrail, buffs, worldLeaders } from './data.js';
+import { elos, realms, characters, characterById, generateTrail, buffs, worldLeaders, starters } from './data.js';
 import { defaultKingdomByTrack } from './kingdoms.js';
 
 export function seededRandom(seed=1) { let value=(Number(seed)||1)>>>0;return ()=>{value=(Math.imul(value,1664525)+1013904223)>>>0;return value/4294967296;}; }
@@ -77,6 +77,11 @@ export function normalizeCampaign(profile) {
   }
   profile.ownedIds=[...new Set(profile.ownedIds)];
   profile.unlockedAvatars=[...new Set(["soul",...profile.ownedIds])];
+  if(Array.isArray(profile.team)){
+    const currentTeam=profile.team.filter(id=>profile.ownedIds.includes(id));
+    const fill=starters.map(character=>character.id).filter(id=>profile.ownedIds.includes(id)&&!currentTeam.includes(id));
+    profile.team=[...currentTeam,...fill].slice(0,3);
+  }
   profile.campaignVersion=3;
   return profile;
 }
