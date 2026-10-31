@@ -1409,6 +1409,41 @@
       "key": "nilo-ruptura-epilogo:base:despertar-5",
       "correctedAt": "2026-10-31",
       "note": "Revisada para comunicar ++Ruptura, com vulto amorfo e esquiva pessoal; exatamente três fragmentos atravessam o manto."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:portrait",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:passive",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:impulso",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:tecnica",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:voto",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:despertar-4",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
+    },
+    {
+      "key": "nilo-ruptura-prefacio:base:despertar-5",
+      "correctedAt": "2026-10-31",
+      "note": "Revisada como +Ruptura: apatia, marcas roxas, fios violetas no cabelo e sombras furtivas locais; olhos cinza-azulados. Diferencia-se de ++Ruptura, sem vazio emocional, olhos totalmente roxos ou vulto negro integral; preserva identidade e ação do slot."
     }
   ]
 }
