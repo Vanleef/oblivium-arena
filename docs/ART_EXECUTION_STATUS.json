@@ -11,10 +11,10 @@
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Continuar a migração dos 66 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 55 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 31 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 545 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 623 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -125,13 +125,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 538,
-      "integratedSlots": 538,
+      "candidateSlots": 630,
+      "integratedSlots": 630,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 83,
-      "pendingVisualApprovalSlots": 531,
+      "fullyMigratedEntries": 95,
+      "pendingVisualApprovalSlots": 623,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -245,7 +245,8 @@
       "o-trono-vazio"
     ],
     "updatedCharacterRows": [
-      "o-incendiario"
+      "o-incendiario",
+      "nilo-cinza-epilogo"
     ],
     "candidateAssetRoutesWired": 135,
     "correctedReports": [
@@ -257,7 +258,8 @@
       "ART_A_REGENTE_DE_CINZAS_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_OVID_METAMORFA_DARK_PICTORIAL_FORMS_20261031.json",
-      "ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json"
+      "ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json",
+      "ART_NILO_CINZA_EPILOGO_DARK_PICTORIAL_REWORK_20261101.json"
     ],
     "anatomyCorrections": [
       {
@@ -269,8 +271,22 @@
         "characterId": "a-testemunha-integra",
         "slot": "portrait",
         "change": "exactly two visible hands; removed staff from frame"
+      },
+      {
+        "characterId": "nilo-cinza-epilogo",
+        "slot": "eight-assets",
+        "change": "redraw for pictorial 2.5D line; identity, anatomy, target counts and physical effects reviewed; mechanics unchanged"
       }
     ],
     "status": "candidate_integrated_pending_visual_approval"
+  },
+  "latestVisualCorrection": {
+    "date": "2026-11-01",
+    "characterId": "nilo-cinza-epilogo",
+    "title": "Nilo, Epílogo de Cinza (++Cinza)",
+    "revisedSlots": 8,
+    "report": "docs/ART_NILO_CINZA_EPILOGO_DARK_PICTORIAL_REWORK_20261101.json",
+    "status": "candidate_revised_pending_visual_approval",
+    "mechanicsPreserved": true
   }
 }

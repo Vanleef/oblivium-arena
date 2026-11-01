@@ -2065,6 +2065,46 @@
       "key": "nilo-o-epilogo:base:despertar",
       "correctedAt": "2026-10-31",
       "note": "Nilo Purificado refeito e revisado quanto à anatomia: Nilo em corpo inteiro, braços soltos e pés em degraus diferentes; a barreira de pedra-luz é um plano fixo e não uma arma ou membro. Candidata pendente de aprovação visual; mecânicas preservadas."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:portrait",
+      "correctedAt": "2026-11-01",
+      "note": "Retrato redesenhado e revisto: identidade ++Cinza, olhos totalmente vermelhos, fissuras infernais, mecha alaranjada e contornos pictóricos. Mantém pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:passive",
+      "correctedAt": "2026-11-01",
+      "note": "Passiva redesenhada e revista: esterno e cordão em gestos distintos; custo da expansão legível no fôlego e na cinza. Anatomia natural; pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:impulso",
+      "correctedAt": "2026-11-01",
+      "note": "Impulso redesenhado e revisto: um fio ritual espesso atinge o manto de um único alvo; contato e reação legíveis. Sem feixe fino; pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:tecnica",
+      "correctedAt": "2026-11-01",
+      "note": "Técnica redesenhada e revista: palma e ombro alinhados ao impacto contra proteção dourada de um único ghoul. Pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:voto",
+      "correctedAt": "2026-11-01",
+      "note": "Voto redesenhado e revisto: queda sobre um joelho, uma mão no chão e outra no esterno; apoios e articulações legíveis. Pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:despertar-4",
+      "correctedAt": "2026-11-01",
+      "note": "Despertar 4 redesenhado e revisto: um fio ritual corta o tecido no ombro de um único ghoul; reação corporal clara e anatomia coerente. Pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:tecnica-5",
+      "correctedAt": "2026-11-01",
+      "note": "Técnica 5 redesenhada e revista: um único alvo ajoelha e Nilo recolhe a palma após o contato; anatomia e distância legíveis. Pendência de aprovação visual."
+    },
+    {
+      "key": "nilo-cinza-epilogo:base:despertar-6",
+      "correctedAt": "2026-11-01",
+      "note": "Despertar 6 redesenhado e revisto: manto físico de cinza e seda recebe brasas e fragmentos; dois braços e postura de defesa legíveis. Pendência de aprovação visual."
     }
   ]
 }

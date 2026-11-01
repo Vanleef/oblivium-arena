@@ -89,19 +89,19 @@ export const characterArtRegistry = {
     }
   },
   "nilo-cinza-epilogo": {
-    "portrait": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/portrait.webp",
-    "passive": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/passive.webp",
+    "portrait": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/portrait.webp",
+    "passive": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/passive.webp",
     "abilities": {
-      "impulso": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-impulso.webp",
-      "tecnica": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-tecnica.webp",
-      "voto": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-voto.webp",
-      "tecnica-5": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-tecnica-5.webp",
-      "despertar": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-despertar-6.webp"
+      "impulso": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-impulso.webp",
+      "tecnica": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-tecnica.webp",
+      "voto": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-voto.webp",
+      "tecnica-5": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-tecnica-5.webp",
+      "despertar": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-despertar-6.webp"
     },
     "abilityIndices": {
-      "3": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-despertar-4.webp",
-      "4": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-tecnica-5.webp",
-      "5": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261031/skill-despertar-6.webp"
+      "3": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-despertar-4.webp",
+      "4": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-tecnica-5.webp",
+      "5": "/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-despertar-6.webp"
     }
   },
   "nilo-graca-epilogo": {
