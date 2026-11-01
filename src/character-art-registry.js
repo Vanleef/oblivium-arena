@@ -1,4 +1,35 @@
 export const characterArtRegistry = {
+"o-passo-interrompido": {
+  "portrait": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "impulso": {
+      "next": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso-next.webp",
+      "previous": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso-previous.webp"
+    }
+  }
+},
+"a-linha-partida": {
+  "portrait": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "impulso": {
+      "mend": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-impulso-mend.webp"
+    }
+  }
+},
 "a-arquiteta-verde": {
   "portrait": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/portrait.webp",
   "passive": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/passive.webp",

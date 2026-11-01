@@ -1057,7 +1057,22 @@
     "o-primeiro-canto:base:impulso",
     "o-primeiro-canto:base:tecnica",
     "o-primeiro-canto:base:voto",
-    "o-primeiro-canto:base:despertar"
+    "o-primeiro-canto:base:despertar",
+    "o-passo-interrompido:base:portrait",
+    "o-passo-interrompido:base:passive",
+    "o-passo-interrompido:base:impulso",
+    "o-passo-interrompido:base:tecnica",
+    "o-passo-interrompido:base:voto",
+    "o-passo-interrompido:base:despertar",
+    "o-passo-interrompido:form:impulso:next",
+    "o-passo-interrompido:form:impulso:previous",
+    "a-linha-partida:base:portrait",
+    "a-linha-partida:base:passive",
+    "a-linha-partida:base:impulso",
+    "a-linha-partida:base:tecnica",
+    "a-linha-partida:base:voto",
+    "a-linha-partida:base:despertar",
+    "a-linha-partida:form:impulso:mend"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1778,7 +1793,22 @@
     "o-primeiro-canto:base:impulso",
     "o-primeiro-canto:base:tecnica",
     "o-primeiro-canto:base:voto",
-    "o-primeiro-canto:base:despertar"
+    "o-primeiro-canto:base:despertar",
+    "o-passo-interrompido:base:portrait",
+    "o-passo-interrompido:base:passive",
+    "o-passo-interrompido:base:impulso",
+    "o-passo-interrompido:base:tecnica",
+    "o-passo-interrompido:base:voto",
+    "o-passo-interrompido:base:despertar",
+    "o-passo-interrompido:form:impulso:next",
+    "o-passo-interrompido:form:impulso:previous",
+    "a-linha-partida:base:portrait",
+    "a-linha-partida:base:passive",
+    "a-linha-partida:base:impulso",
+    "a-linha-partida:base:tecnica",
+    "a-linha-partida:base:voto",
+    "a-linha-partida:base:despertar",
+    "a-linha-partida:form:impulso:mend"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2527,12 +2557,12 @@
   "latestCandidateBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "a-arquiteta-verde",
-      "o-primeiro-canto"
+      "o-passo-interrompido",
+      "a-linha-partida"
     ],
-    "candidateSlotsAdded": 14,
-    "candidateSlotsActivated": 14,
+    "candidateSlotsAdded": 15,
+    "candidateSlotsActivated": 15,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ARQUITETA_RESSONANTE_ANIME_PICTORIAL_20261101.json"
+    "report": "docs/ART_DESCONTINUO_CINDIDA_ANIME_PICTORIAL_20261101.json"
   }
 }
