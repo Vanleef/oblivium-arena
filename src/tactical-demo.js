@@ -4,6 +4,7 @@ import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacti
 import {planTacticalAI} from './tactical-ai.js';
 import {boardCells,cellLabel,sameCell,findPath,cellKey,occupied,obstacle} from './tactical-board.js';
 import {tacticalRoster,tacticalSpec,patternNames,priorityNames} from './tactical-kits.js';
+import {tacticalAnimationFrames} from './tactical-animation.js';
 import {getAbilityResourceCosts,resourceIds} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
@@ -75,7 +76,7 @@ function boardMarkup(s){
   const effect=animAbility?(Object.keys(getAbilityResourceCosts(unit,animAbility)).find(k=>k!=='random')||'essence'):'essence';
   const side=unit?.side||'',art=portraitSrc(unit);
   return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+'" '+(state.busy?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+
-   (unit?'<span class="token '+esc(side)+' '+animClass+(unit.stunned?' stunned':'')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'">'+(art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
+   (unit?'<span class="token '+esc(side)+' '+animClass+(unit.stunned?' stunned':'')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'">'+(art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 function render(){
@@ -83,7 +84,7 @@ function render(){
  const uses=state.draft.reduce((n,a)=>n+(a.actorId===u?.id),0),a=u?.abilities.find(a=>a.id===state.mode),proposed=candidate(),check=proposed?previewTacticalPlan(state.battle,'player',[...state.draft,proposed]):null;
  const anim=state.animation,animUnit=anim?tacticalUnits(state.battle).find(c=>c.id===anim.actorId):null;
  const animAbility=anim?.abilityId?animUnit?.abilities.find(k=>k.id===anim.abilityId):null,animArt=animAbility?.art||portraitSrc(animUnit);
- const callout=anim?'<div class="arena-callout active" aria-live="polite">'+(animArt?'<img class="callout-art" src="'+esc(animArt)+'" alt="">':'')+'<span><strong>'+esc(animUnit?.name||'Arena')+'</strong> · '+esc(anim.title||(anim.type==='move'?'Reposicionamento':'Técnica revelada'))+'</span></div>':'<div class="arena-callout">POSICIONE O TRIO · LEIA A ÁREA · REVELE AS AÇÕES</div>';
+ const callout=anim?'<div class="arena-callout active" data-family="'+esc(anim.family||'strike')+'" data-pose="'+esc(anim.pose||'ready')+'" aria-live="polite">'+(animArt?'<img class="callout-art" src="'+esc(animArt)+'" alt="">':'')+'<span><strong>'+esc(animUnit?.name||'Arena')+'</strong> · '+esc(anim.title||(anim.type==='move'?'Reposicionamento':'Técnica revelada'))+'</span></div>':'<div class="arena-callout">POSICIONE O TRIO · LEIA A ÁREA · REVELE AS AÇÕES</div>';
  const cards=u?[actionCardMarkup(u,null,true),...u.abilities.map(k=>actionCardMarkup(u,k))].join(''):'<p class="muted">Selecione uma alma para abrir seu baralho de técnicas.</p>';
  root.innerHTML='<div class="shell"><header class="topbar"><a class="brand" href="/">OBLIVIUM ARENA</a><span class="eyebrow">TRÊS ALMAS · UM PLANO</span><a href="/" class="muted">Voltar ao jogo ↗</a></header>'+
  '<section class="intro"><div><span class="eyebrow">COMBATE TÁTICO · 3V3</span><h1>Arena tática</h1><p>Planeje o movimento, leia o padrão das cartas e combine duas ações por alma.</p></div><div class="round"><small>RODADA</small><b>'+state.battle.round+'</b></div></section>'+
@@ -103,7 +104,7 @@ function animateRound(events){
  const sequence=events.filter(e=>(e.type==='move'||e.type==='skill')&&e.actorId);
  if(!sequence.length)return;
  const revision=++state.revision;state.busy=true;
- (async()=>{for(const event of sequence){if(revision!==state.revision)return;state.animation=event;render();await new Promise(resolve=>setTimeout(resolve,520));}
+ (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=event.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;const frames=tacticalAnimationFrames(ability,event.type);for(const frame of frames){if(revision!==state.revision)return;state.animation={...event,...frame};render();await new Promise(resolve=>setTimeout(resolve,68));}}
   if(revision!==state.revision)return;state.animation=null;state.busy=false;render();
  })();
 }

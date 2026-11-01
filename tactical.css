@@ -39,11 +39,6 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .token .hp i{display:block;height:100%;background:linear-gradient(90deg,#9dd9ae,#e1d391)}
 .token.enemy .hp i{background:linear-gradient(90deg,#b9675e,#f0ae89)}
 .token em{font-style:normal;font-size:.62rem;color:#f6dc99;position:absolute;right:4px;top:3px}
-.token.animate-move .token-art{animation:sprite-hop .52s cubic-bezier(.2,.78,.32,1) both}
-.token.animate-skill .token-art{animation:sprite-strike .52s cubic-bezier(.2,.78,.32,1) both}
-.token.animate-defense .token-art{animation:sprite-guard .52s ease-out both}
-.token.animate-prepare .token-art{animation:sprite-cast .52s ease-out both}
-.token.hit .token-art{animation:sprite-hit .42s ease-out both}
 .token.player.animate-skill{filter:drop-shadow(0 0 14px #e3c777)}.token.enemy.animate-skill{filter:drop-shadow(0 0 14px #d66e69)}
 .legend{gap:14px;font-size:.7rem;color:#c2bbb0;margin-top:8px}.legend span:first-child{color:#a8d9d5}.legend span:nth-child(2){color:#ed9c87}
 .crew{gap:7px;margin-top:11px}.crew button{padding:8px;background:#161b21c9;border-radius:7px}.crew small{font-size:.63rem}
@@ -103,3 +98,22 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .skill{min-height:104px}
 
 .active-upgrades{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#d9c9a5}.active-upgrades>div,.reward-choices{display:flex;gap:8px;flex-wrap:wrap}.active-upgrades span{border:1px solid #8d7449;border-radius:999px;padding:5px 9px;font-size:.8rem}.reward-choices button{display:grid;gap:5px;text-align:left;padding:12px;background:#171a1d;color:#f0e7d4;border:1px solid #887044;border-radius:8px;cursor:pointer}.reward-choices small{color:#c5b99f}.result>p{margin:10px 0}
+
+/* A pose-driven, eight-frame animation pass shared by every arena portrait. */
+.token .token-art{transition:none;will-change:transform,filter}
+.token[data-pose="anticipate"] .token-art{transform:translateX(-50%) scale(.97,.94);filter:brightness(1.12)}
+.token[data-pose="compress"] .token-art{transform:translateX(calc(-50% - 4px)) translateY(3px) scale(.96,1.02)}
+.token[data-pose="windup"] .token-art{transform:translateX(calc(-50% - 9px)) translateY(-3px) rotate(-3deg) scale(1.01)}
+.token[data-pose="gather"] .token-art{transform:translateX(-50%) translateY(-5px) scale(1.03);filter:brightness(1.3) saturate(1.2)}
+.token[data-pose="brace"] .token-art,.token[data-pose="guard"] .token-art{transform:translateX(-50%) scale(1.06);filter:brightness(1.45) drop-shadow(0 0 12px #e8cb82)}
+.token[data-pose="launch"] .token-art,.token[data-pose="release"] .token-art{transform:translateX(calc(-50% + 11px)) translateY(-7px) rotate(2deg) scale(1.05)}
+.token[data-pose="airborne"] .token-art{transform:translateX(calc(-50% + 15px)) translateY(-15px) rotate(4deg) scale(1.08)}
+.token[data-pose="impact"] .token-art{transform:translateX(calc(-50% + 9px)) translateY(-2px) rotate(-2deg) scale(1.1);filter:brightness(1.65) drop-shadow(0 0 14px #efbd71)}
+.token[data-pose="followthrough"] .token-art{transform:translateX(calc(-50% + 5px)) rotate(3deg) scale(1.03)}
+.token[data-pose="hold"] .token-art,.token[data-pose="transfer"] .token-art{transform:translateX(-50%) translateY(-4px) scale(1.04);filter:brightness(1.35) drop-shadow(0 0 14px #b79de9)}
+.token[data-pose="landing"] .token-art{transform:translateX(calc(-50% + 3px)) translateY(2px) scale(1.02,.96)}
+.token[data-pose="recover"] .token-art{transform:translateX(calc(-50% - 2px)) scale(.99)}
+.token[data-family="bind"][data-pose="release"] .token-art,.token[data-family="burst"][data-pose="release"] .token-art{filter:brightness(1.45) drop-shadow(0 0 15px #bd8bdf)}
+.token.hit .token-art{transform:translateX(calc(-50% + 6px)) rotate(2deg);filter:brightness(1.7) sepia(.2)}
+.arena-callout[data-pose="impact"] .callout-art{filter:brightness(1.45);transform:scale(1.12)}
+@media(prefers-reduced-motion:reduce){.token .token-art{will-change:auto}}
