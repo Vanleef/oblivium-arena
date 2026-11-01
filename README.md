@@ -26,6 +26,10 @@ Retratos, passivas e habilidades devem variar cenas, expressões, poses, câmera
 
 A revisão visual do acervo está em andamento. Consulte a [direção de arte](docs/ART_DIRECTION.md) para as referências e regras de produção.
 
+## Protótipo tático visual
+
+A rota `/tactical.html` abre um experimento 3v3 separado da campanha: grade 5×5, duas ações por alma, personagens com retratos 2.5D, cartas de movimento e técnicas, custos de Essência e áreas de ação visíveis. O escopo e os limites estão em [documentação do protótipo](docs/TACTICAL_COMBAT_PROTOTYPE.md).
+
 ## Executar localmente
 
 Requer **Node.js 20 ou superior** e Git. O protótipo não usa dependências externas.

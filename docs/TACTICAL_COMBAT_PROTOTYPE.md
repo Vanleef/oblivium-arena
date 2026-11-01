@@ -74,3 +74,16 @@ A prévia da Vercel compilou e foi aberta no navegador. Uma rodada com seis aç�
 - Expandir o mapeamento para o restante das 150 entradas e suas variações.
 
 O combate da campanha e da Arena online não foi substituído por este protótipo.
+
+## Apresentação visual de combate
+
+A arena recebeu uma camada de apresentação inspirada na composição de cartas e grade do *Inuyasha: Demon Tournament*: campo central em perspectiva leve e um baralho de ações visível ao lado.
+
+- As unidades usam o retrato 2.5D já associado à identidade do personagem, ampliado sobre a casa e acompanhado de nome, título, Vida, Defesa e estado.
+- Movimento e cada técnica aparecem como carta selecionável com arte da habilidade (ou retrato do personagem), categoria, custo em Essência, consumo de uma ação, alcance e mini grade de área.
+- Ao escolher uma carta e apontar a casa, o campo destaca as células válidas e a área prevista antes de adicionar a ação.
+- Depois da revelação, a interface percorre a ordem resolvida: salto curto para movimento, avanço para ataque, brilho de concentração para preparação/defesa e pulsos nas casas/figuras atingidas. O quadro nomeia o personagem, a técnica e mostra sua arte.
+- Essa animação é uma apresentação sequencial do resultado já resolvido pelo motor. Os retratos são ilustrações 2.5D mascaradas e animadas por CSS; não são modelos 3D rigados nem quadros desenhados individualmente para cada técnica.
+- A grade 5×5, as regras, os custos, as formas e os efeitos do combate permanecem os mesmos. Campanha e Arena online não foram migradas por esta atualização.
+
+O fluxo de cartas toma como referência a leitura rápida de nome, dano, custo e células de alcance da referência de 2004; no protótipo, o mapa de alvo adapta essa leitura à grade 5×5 e aos quatro tipos de Essência do jogo.
