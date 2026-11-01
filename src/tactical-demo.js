@@ -12,7 +12,7 @@ const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replac
 const state={battle:null,run:createTacticalRun(),rewardChoices:[],draft:[],selected:null,mode:'move',anchor:null,payment:null,message:'',busy:false,lastEvents:[],seed:1,revision:0};
 const costText=(u,a)=>Object.entries(getAbilityResourceCosts(u,a)).map(([k,n])=>`${n} ${names[k]||k}`).join(' + ')||'Sem custo';
 const actionPreview=()=>previewTacticalPlan(state.battle,'player',state.draft,state.payment);
-const shown=()=>{const p=previewTacticalPlan(state.battle,'player',state.draft);return p.ok?p.projection:state.battle;};
+const shown=()=>{if(state.playback)return {...state.battle,...state.playback,tactical:{...state.battle.tactical,positions:state.playback.positions}};const p=previewTacticalPlan(state.battle,'player',state.draft);return p.ok?p.projection:state.battle;};
 const selectedUnit=s=>s.allies.find(u=>u.id===state.selected&&u.hp>0);
 const formFor=(s,a)=>s.allies.find(u=>u.id===a.actorId)?.abilities.find(k=>k.id===a.abilityId);
 function aimed(s){const u=selectedUnit(s);if(!u)return [];if(state.mode==='move')return state.anchor?(findPath(s,u.id,state.anchor)||[]):[];const a=u.abilities.find(a=>a.id===state.mode);return a&&state.anchor?tacticalArea(s,u,a,state.anchor,orientation(s,u,state.anchor)):[];}
@@ -88,7 +88,7 @@ function render(){
  const callout=anim?'<div class="arena-callout active" data-family="'+esc(anim.family||'strike')+'" data-pose="'+esc(anim.pose||'ready')+'" aria-live="polite">'+(animArt?'<img class="callout-art" src="'+esc(animArt)+'" alt="">':'')+'<span><strong>'+esc(animUnit?.name||'Arena')+'</strong> · '+esc(anim.title||(anim.type==='move'?'Reposicionamento':'Técnica revelada'))+'</span></div>':'<div class="arena-callout">POSICIONE O TRIO · LEIA A ÁREA · REVELE AS AÇÕES</div>';
  const cards=u?[actionCardMarkup(u,null,true),...u.abilities.map(k=>actionCardMarkup(u,k))].join(''):'<p class="muted">Selecione uma alma para abrir seu baralho de técnicas.</p>';
  root.innerHTML='<div class="shell"><header class="topbar"><a class="brand" href="/">OBLIVIUM ARENA</a><span class="eyebrow">TRÊS ALMAS · UM PLANO</span><a href="/" class="muted">Voltar ao jogo ↗</a></header>'+
- '<section class="intro"><div><span class="eyebrow">COMBATE TÁTICO · 3V3</span><h1>Arena tática</h1><p>Planeje o movimento, leia o padrão das cartas e combine duas ações por alma.</p></div><div class="round"><small>RODADA</small><b>'+state.battle.round+'</b></div></section>'+
+ '<section class="intro"><div><span class="eyebrow">COMBATE TÁTICO · 3V3</span><h1>Arena tática</h1><p>Planeje o movimento, leia o padrão das cartas e combine duas ações por alma.</p></div><div class="round"><small>RODADA</small><b>'+s.round+'</b></div></section>'+
  (state.battle.tactical.stage==='finished'?'<div class="result" role="status">'+(state.battle.phase==='victory'?'Vitória do seu trio':state.battle.phase==='draw'?'Empate':'Seu trio caiu')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<p>Escolha um aprimoramento para levar ao próximo encontro:</p><div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-reward="'+esc(b.id)+'"><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':'<p>Aprimoramento escolhido: '+esc(buffs.find(b=>b.id===state.run.buffs.at(-1))?.title||'—')+'</p><button data-command="next-encounter">Próximo encontro · '+(state.run.encounter+1)+'</button>'):' · Abra “Nova formação” para jogar novamente.')+'</div>':'')+
  '<div class="layout"><div><section class="panel board-panel"><div class="board-bar"><h2>Arena de confronto</h2><span class="pill">5 × 5 · 2 AÇÕES POR ALMA</span></div><div class="arena-stage">'+callout+boardMarkup(s)+'</div>'+
  '<div class="legend"><span>◆ Seu trio</span><span>◆ Oposição</span><span>◇ Defesa ativa</span></div><div class="crew">'+s.allies.map(c=>'<button data-actor="'+esc(c.id)+'" aria-pressed="'+(c.id===state.selected)+'" '+(locked||c.hp<=0?'disabled':'')+'><strong>'+esc(c.name)+'</strong><small>'+c.hp+' / '+c.maxHp+' Vida</small><small>'+state.draft.filter(a=>a.actorId===c.id).length+' / 2 ações'+(c.stunned?' · Atordoado':'')+'</small></button>').join('')+'</div>'+
@@ -111,8 +111,8 @@ function animateRound(events){
  const sequence=events.filter(e=>(e.type==='move'||e.type==='skill')&&e.actorId);
  if(!sequence.length)return;
  const revision=++state.revision;state.busy=true;
- (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=animationAbility(unit,event);const frames=tacticalAnimationFrames(ability,event.type);for(const [index,frame]of frames.entries()){if(revision!==state.revision)return;if(index===0){state.animation={...event,...frame};render();}else paintAnimationPose(event,frame);await new Promise(resolve=>setTimeout(resolve,frame.pose==='impact'?115:65));}}
-  if(revision!==state.revision)return;state.animation=null;state.busy=false;render();
+ (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=animationAbility(unit,event);const frames=tacticalAnimationFrames(ability,event.type);for(const [index,frame]of frames.entries()){if(revision!==state.revision)return;if(index===0){state.playback=event.before||null;state.animation={...event,...frame};render();}else if(frame.pose==='impact'||frame.pose==='landing'||frame.pose==='counter'){state.playback=event.after||null;state.animation={...event,...frame};render();}else paintAnimationPose(event,frame);await new Promise(resolve=>setTimeout(resolve,frame.pose==='impact'?115:65));}}
+  if(revision!==state.revision)return;state.animation=null;state.playback=null;state.busy=false;render();
  })();
 }
 function prepareEnemy(playback=[]){
@@ -121,7 +121,7 @@ function prepareEnemy(playback=[]){
 }
 function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],seed=1,ruins=false){
  try{state.battle=createTacticalBattle(player,enemy,{seed,obstacles:ruins?[{x:2,y:1},{x:2,y:3}]:[],buffs:state.run.buffs,memories:state.run.memories,globalEffects:state.run.globalEffects,teamHealth:state.run.teamHealth});}catch(e){state.message=e.message;render();return;}
- Object.assign(state,{draft:[],selected:state.battle.allies[0].id,mode:'move',anchor:null,payment:null,lastEvents:[],animation:null,seed,message:'',rewardChoices:[]});prepareEnemy();
+ Object.assign(state,{draft:[],selected:state.battle.allies[0].id,mode:'move',anchor:null,payment:null,lastEvents:[],animation:null,playback:null,seed,message:'',rewardChoices:[]});prepareEnemy();
 }
 root.addEventListener('click',event=>{
  const el=event.target.closest('button');if(!el||el.disabled||state.busy)return;
@@ -138,10 +138,10 @@ root.addEventListener('click',event=>{
  if(command==='confirm'){
   const r=submitTacticalPlan(state.battle,'player',state.draft,state.payment);if(!r.ok){state.message=r.reason;render();return;}
   const result=resolveTacticalRound(state.battle);if(!result.ok){state.message=result.reason;render();return;}
-  state.lastEvents=result.events;if(result.finished&&state.battle.phase==='victory'){state.rewardChoices=offerTacticalRewards(state.run,state.battle,seed+state.run.encounter);}state.draft=[];state.payment=null;state.anchor=null;state.mode='move';state.selected=state.battle.allies.find(u=>u.hp>0)?.id;state.message='';
+  state.lastEvents=result.events;if(result.finished&&state.battle.phase==='victory'){state.rewardChoices=offerTacticalRewards(state.run,state.battle,state.seed+state.run.encounter);}state.draft=[];state.payment=null;state.anchor=null;state.mode='move';state.selected=state.battle.allies.find(u=>u.hp>0)?.id;state.message='';
   if(result.finished){render();animateRound(result.events);}else prepareEnemy(result.events);
  }
- if(command==='next-encounter'){const next=advanceTacticalRun(state.run,state.battle);if(!next)return;state.seed=next.seed;try{state.battle=createTacticalBattle(next.player,next.enemy,{seed:next.seed,buffs:next.buffs,memories:next.memories,globalEffects:next.globalEffects,teamHealth:next.teamHealth});}catch(e){state.message=e.message;render();return;}Object.assign(state,{draft:[],selected:state.battle.allies.find(u=>u.hp>0)?.id,mode:'move',anchor:null,payment:null,lastEvents:[],animation:null,message:''});prepareEnemy();return;}
+ if(command==='next-encounter'){const next=advanceTacticalRun(state.run,state.battle);if(!next)return;state.seed=next.seed;try{state.battle=createTacticalBattle(next.player,next.enemy,{seed:next.seed,buffs:next.buffs,memories:next.memories,globalEffects:next.globalEffects,teamHealth:next.teamHealth});}catch(e){state.message=e.message;render();return;}Object.assign(state,{draft:[],selected:state.battle.allies.find(u=>u.hp>0)?.id,mode:'move',anchor:null,payment:null,lastEvents:[],animation:null,playback:null,message:''});prepareEnemy();return;}
  if(command==='restart'){state.run=createTacticalRun();const ids=side=>[0,1,2].map(i=>document.getElementById(`${side}-choice-${i}`).value),seed=Number(document.getElementById('seed-choice').value);start(ids('player'),ids('enemy'),Number.isSafeInteger(seed)?seed:1,document.getElementById('map-choice').value==='ruins');}
 });
 root.addEventListener('change',event=>{if(event.target.dataset.payment){const value=Number(event.target.value);state.payment[event.target.dataset.payment]=value;state.message='';render();}});

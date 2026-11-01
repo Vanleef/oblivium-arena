@@ -11,6 +11,7 @@ export const tacticalUnits=s=>[...s.allies,...s.enemies];
 const team=(s,side)=>side==='player'?s.allies:s.enemies;
 const poolKey=side=>side==='player'?'resources':'enemyResources';
 const copy=value=>JSON.parse(JSON.stringify(value));
+const planningCopy=s=>copy({...s,tactical:{...s.tactical,events:[]}});
 const fail=reason=>({ok:false,reason});
 const validSide=side=>side==='player'||side==='enemy';
 const actorFor=(s,side,id)=>team(s,side).find(u=>u.id===id&&u.hp>0);
@@ -34,7 +35,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
 // Safe input to AI / spectators / clients: no sealed plan, function or future random state.
 export function tacticalView(s,side='player'){
  if(!validSide(side))throw Error('Lado inválido.');
- const v=copy(s);delete v.rngState;delete v.rng;delete v.enemyPlanner;v.queue=[];v.intents=[];v.resolution=[];
+ const v=planningCopy(s);delete v.rngState;delete v.rng;delete v.enemyPlanner;v.queue=[];v.intents=[];v.resolution=[];
  const confirmed=Object.fromEntries(['player','enemy'].map(k=>[k,Boolean(s.tactical.plans[k])]));
  v.tactical.plans={};v.tactical.confirmed=confirmed;
  return v;
@@ -110,7 +111,7 @@ function normalizePlan(s,side,actions){
 export function previewTacticalPlan(s,side,actions,selected){
  if(s.tactical.stage!=='planning')return fail('A rodada já está em resolução.');
  const normalized=normalizePlan(s,side,actions);if(!normalized.ok)return normalized;
- const projection=copy(s);projection.tactical.plans={};projection.tactical.events=[];projection.rngState??=s.round*104729;
+ const projection=planningCopy(s);projection.tactical.plans={};projection.tactical.events=[];projection.rngState??=s.round*104729;
  // First discover costs along deterministic preparations and forms. No resource produced
  // by the projection finances the plan: payment is checked against the original pool.
  const costs=[],refs=orderedOwn(projection,normalized.actions);
@@ -130,7 +131,7 @@ export function previewTacticalPlan(s,side,actions,selected){
  const left={...payment.selected};
  for(const {ref,cost}of costs){ref.randomPayment={};let needed=cost.random||0;for(const id of resourceIds){const n=Math.min(needed,left[id]);if(n){ref.randomPayment[id]=n;left[id]-=n;needed-=n;}}}
  // Return a useful projection with real payments, not the exploratory resource budget.
- const paid=copy(s);paid.tactical.plans={};paid.tactical.events=[];paid.rngState??=s.round*104729;
+ const paid=planningCopy(s);paid.tactical.plans={};paid.tactical.events=[];paid.rngState??=s.round*104729;
  for(const ref of refs)execute(paid,ref,{projection:true});
  return {ok:true,actions:refs,projection:paid,payment,remaining:Object.fromEntries(resourceIds.map(id=>[id,s[poolKey(side)][id]-(payment.costs[id]||0)]))};
 }
@@ -151,6 +152,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -163,7 +165,7 @@ export function resolveTacticalRound(s){
  actions.sort((a,b)=>a.category-b.category||a.rank-b.rank||(a.side===first?-1:1));
  stamp(s,{type:'reveal',title:'Planos revelados',actions:copy(actions)});
  for(const ref of actions){
-  const result=execute(s,ref);stamp(s,{...ref,...result,title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
+  const before=replayState(s),result=execute(s,ref);stamp(s,{...ref,...result,before,after:replayState(s),title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
   if(boardOutcome(s))break;
  }
  if(s.tactical.stage!=='finished'){

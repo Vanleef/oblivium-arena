@@ -129,3 +129,12 @@ test('stun recém-aplicado continua válido na próxima janela de planejamento',
  round(s,[skill(s.allies[0],'tecnica',{x:2,y:1})]);assert.equal(e.stunned,1);assert.equal(submitTacticalPlan(s,'enemy',[{type:'move',actorId:e.id,path:[{x:2,y:0}]}]).ok,false);
  round(s);assert.equal(e.stunned,0);
 });
+
+
+test('replay guarda posições anteriores e posteriores de cada movimento sem referências mutáveis',()=>{
+ const s=create(),u=s.allies[0],from={...s.tactical.positions[u.id]},path=findPath(s,u.id,{x:2,y:0});
+ const result=round(s,[{type:'move',actorId:u.id,path}]);const event=result.events.find(e=>e.type==='move');
+ assert.deepEqual(event.before.positions[u.id],from);assert.deepEqual(event.after.positions[u.id],path.at(-1));
+ s.tactical.positions[u.id]={x:4,y:4};assert.deepEqual(event.after.positions[u.id],path.at(-1));
+ assert.equal(event.before.round,1);assert.equal(event.after.round,1);
+});
