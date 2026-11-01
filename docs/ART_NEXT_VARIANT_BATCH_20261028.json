@@ -5,9 +5,9 @@
   "status": "partially_generated_pending_visual_approval",
   "counts": {
     "jobs": 36,
-    "generatedByThisPlan": 5,
+    "generatedByThisPlan": 6,
     "mechanicsReviewRequired": 0,
-    "remainingJobs": 31
+    "remainingJobs": 30
   },
   "generationOrder": "After five remaining base kits; preserve same logical key when replacing shared base art.",
   "jobs": [
@@ -969,7 +969,7 @@
       "abilityIndex": 0,
       "formKey": "returned",
       "name": "Estilhaço Devolvido",
-      "status": "planned_not_generated",
+      "status": "candidate_integrated_pending_visual_approval",
       "mechanicsSnapshot": {
         "name": "Estilhaço Devolvido",
         "damage": 25,
@@ -1008,8 +1008,10 @@
       "referencePolicy": "Inspect current portrait and base ability before generating. Identity reference is not automatic approval of old rendering or forbidden technological features. Rework the complete affected kit first if a consistent identity cannot satisfy current art direction.",
       "transformationPolicy": "This ability variant alone does not authorize a new face, body, costume or anatomical form. Use only actual runtime body forms when relevant.",
       "mechanicsReview": null,
-      "proposedOutput": "art/characters/o-espelho/anime-first-variants-20261028/skill-impulso-returned.webp",
-      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Inferno: black and intense red, burnt earth and ash. Dante-like environment coherent with Oblívio.\nPreserve the physical identity of Parrhasius from its inspected current portrait. This is a DEDICATED illustration for variant Estilhaço Devolvido, not a recolored base skill. Do not reproduce old technological or mechanical props. Compare against base composition and choose a different instantaneous action.\nExact runtime mechanics (never render text): {\"name\":\"Estilhaço Devolvido\",\"damage\":25,\"cost\":2,\"target\":\"enemy\",\"damageType\":\"piercing\",\"purge\":true,\"shift\":[{\"slot\":\"impulso\",\"form\":\"base\",\"turns\":0}],\"formKey\":\"returned\",\"id\":\"impulso\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Após usar, restaura Imagem Verdadeira.\",\"art\":\"/art/characters/o-espelho/skill-impulso.webp\"}\nFraming: reflexo e benefício inimigo se desfazendo. Physical figures in this composition: 2.\nScene: Um estilhaço retorna contra um ghoul e rompe as camadas que sustentavam bônus de dano, redução e contra-ataque. Mostrar essas camadas saindo da sombra do alvo, sem remover marcas que o kit não remove nem criar cópias corporais do autor.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma."
+      "proposedOutput": "art/characters/o-espelho/dark-pictorial-rework-20261101/skill-impulso-returned.webp",
+      "prompt": "Use case: stylized-concept. One SQUARE individual full-bleed production illustration for Oblivium Arena, no text, UI, border, collage or watermark. Strict ANIME-FIRST 2.5D painterly Gothic SHONEN: strong deliberate drawn contours, expressive stylized face, angular graphic cel shadows, rich material treatment and painted environmental depth. Not classical realism, photographic skin, romantic glow or glossy CGI. Natural candid moment: eyes follow actual event, posture and muscle tension follow physical cause, hands/feet/limbs coherent and correct. No camera gaze, glamour posing or repeated portrait framing. Physical identity remains fixed in kit except an actual runtime transformation. No technology, machinery, industrial armor, guns or generic armored soldiers. Ritual cloth, bone, ancient stone, fire, light, thread and organic arcane effects only. No other named cast in this batch; targets are appropriate unarmored creatures of the world. Inferno: black and intense red, burnt earth and ash. Dante-like environment coherent with Oblívio.\nPreserve the physical identity of Parrhasius from its inspected current portrait. This is a DEDICATED illustration for variant Estilhaço Devolvido, not a recolored base skill. Do not reproduce old technological or mechanical props. Compare against base composition and choose a different instantaneous action.\nExact runtime mechanics (never render text): {\"name\":\"Estilhaço Devolvido\",\"damage\":25,\"cost\":2,\"target\":\"enemy\",\"damageType\":\"piercing\",\"purge\":true,\"shift\":[{\"slot\":\"impulso\",\"form\":\"base\",\"turns\":0}],\"formKey\":\"returned\",\"id\":\"impulso\",\"costs\":{\"affinity\":1,\"essence\":1},\"cooldown\":0,\"kind\":\"strike\",\"description\":\"Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Após usar, restaura Imagem Verdadeira.\",\"art\":\"/art/characters/o-espelho/skill-impulso.webp\"}\nFraming: reflexo e benefício inimigo se desfazendo. Physical figures in this composition: 2.\nScene: Um estilhaço retorna contra um ghoul e rompe as camadas que sustentavam bônus de dano, redução e contra-ataque. Mostrar essas camadas saindo da sombra do alvo, sem remover marcas que o kit não remove nem criar cópias corporais do autor.\nSiga estritamente o estilo de arte das imagens de referência: anime 2.5D pictórico, atmosfera gótica ornamental e teatral, com energia de shonen. Respeite a paleta de cores do Mundo do personagem (vermelho para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Não reproduza as características específicas da personagem de referência. Não use realismo clássico, iluminação dourada suave ou estética romântica. As artes devem ser acima de tudo naturais: o personagem não pode parecer que está posando para foto e sua expressão deve reagir corretamente à cena. Não altere a aparência física do personagem sem razão concreta ligada à habilidade ou forma.",
+      "productionReport": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json",
+      "integratedAt": "2026-11-01"
     },
     {
       "key": "a-cartografa-da-clareza:form:tecnica:shortcut",
@@ -1975,5 +1977,6 @@
   "engineReview": {
     "aegisSupport": "Resolved: Defense granted to user; description discrepancy recorded.",
     "vaultDefense": "Consumes user's Defense."
-  }
+  },
+  "executionDirective": "A partir de 2026-11-01, os trabalhos restantes devem seguir docs/ART_DIRECTION.md. As instruções anime-first embutidas abaixo são históricas e não devem ser usadas para novas imagens."
 }

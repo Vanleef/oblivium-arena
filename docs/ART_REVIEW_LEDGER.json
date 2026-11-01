@@ -970,7 +970,14 @@
     "a-luz-nua:base:impulso",
     "a-luz-nua:base:tecnica",
     "a-luz-nua:base:voto",
-    "a-luz-nua:base:despertar"
+    "a-luz-nua:base:despertar",
+    "o-espelho:base:portrait",
+    "o-espelho:base:passive",
+    "o-espelho:base:impulso",
+    "o-espelho:base:tecnica",
+    "o-espelho:base:voto",
+    "o-espelho:base:despertar",
+    "o-espelho:form:impulso:returned"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1604,7 +1611,14 @@
     "a-luz-nua:base:impulso",
     "a-luz-nua:base:tecnica",
     "a-luz-nua:base:voto",
-    "a-luz-nua:base:despertar"
+    "a-luz-nua:base:despertar",
+    "o-espelho:base:portrait",
+    "o-espelho:base:passive",
+    "o-espelho:base:impulso",
+    "o-espelho:base:tecnica",
+    "o-espelho:base:voto",
+    "o-espelho:base:despertar",
+    "o-espelho:form:impulso:returned"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2105,6 +2119,41 @@
       "key": "nilo-cinza-epilogo:base:despertar-6",
       "correctedAt": "2026-11-01",
       "note": "Despertar 6 redesenhado e revisto: manto físico de cinza e seda recebe brasas e fragmentos; dois braços e postura de defesa legíveis. Pendência de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:portrait",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot portrait; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:passive",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot passive; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:impulso",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot impulso; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:tecnica",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot tecnica; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:voto",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot voto; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:despertar",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot despertar; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:form:impulso:returned",
+      "correctedAt": "2026-11-01",
+      "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot impulso:returned; candidata pendente de aprovação visual."
     }
   ]
 }

@@ -6,15 +6,15 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 108,
-  "newAbilityScenesSaved": 557,
+  "newPortraitsSaved": 109,
+  "newAbilityScenesSaved": 563,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
-    "Continuar a migração dos 55 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
-    "Produzir imagens dedicadas para as 31 variantes ainda compartilhadas.",
+    "Continuar a migração dos 54 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Produzir imagens dedicadas para as 30 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 623 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
+    "Revisar visualmente os 630 ativos candidatos pendentes de aprovação na direção dark fantasy atual."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -32,15 +32,15 @@
     "compositionCorrections": 1,
     "dedicatedVariantJobs": 36,
     "totalPreparedJobs": 67,
-    "generatedByThesePlans": 23,
+    "generatedByThesePlans": 24,
     "remainingMissingBaseJobs": 0,
     "remainingCorrectionJobs": 0,
-    "remainingDedicatedVariantJobs": 31,
-    "remainingTotalJobs": 31,
+    "remainingDedicatedVariantJobs": 30,
+    "remainingTotalJobs": 30,
     "atlasProductionReport": "docs/ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json",
     "merlindropeProductionReport": "docs/ART_MERLINDROPE_ANIME_FIRST_COMPLETION_20261029.json",
     "bulkirProductionReport": "docs/ART_BULKIR_ANIME_FIRST_COMPLETION_20261029.json",
-    "newDarkPictorialCandidateAssets": 451,
+    "newDarkPictorialCandidateAssets": 458,
     "oAcougueiroProductionReport": "docs/ART_O_ACOUGUEIRO_DARK_PICTORIAL_REWORK_20261029.json",
     "aViuvaProductionReport": "docs/ART_VIUVA_ESCARLATE_DARK_PICTORIAL_REWORK_20261029.json",
     "oColecionadorProductionReport": "docs/ART_COLECIONADOR_CABECAS_DARK_PICTORIAL_REWORK_20261029.json",
@@ -78,7 +78,8 @@
     "zenobiaProductionReport": "docs/ART_ZENOBIA_DARK_PICTORIAL_REWORK_20261031.json",
     "cynaegirusProductionReport": "docs/ART_CYNAEGIRUS_DARK_PICTORIAL_REWORK_20261031.json",
     "belisariusProductionReport": "docs/ART_BELISARIUS_DARK_PICTORIAL_REWORK_20261031.json",
-    "aMaoProductionReport": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json"
+    "aMaoProductionReport": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json",
+    "parrhasiusProductionReport": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -212,18 +213,18 @@
     "malrikRuntime": "Somente rotas de arte e documentação foram atualizadas; mecânicas não foram alteradas."
   },
   "latestProduction": {
-    "date": "2026-10-31",
-    "characterId": "a-pele-alheia",
-    "characterName": "Quill",
-    "title": "A Metamorfa",
+    "date": "2026-11-01",
+    "characterId": "o-espelho",
+    "characterName": "Parrhasius",
+    "title": "O Espelho",
     "candidateSlots": 6,
-    "existingFormSlotsActivated": 8,
+    "existingFormSlotsActivated": 1,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json"
+    "report": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json"
   },
-  "newDarkPictorialCandidateAssets": 538,
+  "newDarkPictorialCandidateAssets": 545,
   "latestRegistryIntegration": {
-    "date": "2026-10-31",
+    "date": "2026-11-01",
     "newCharacterRows": [
       "a-boca-de-vidro",
       "a-brasa-eterna",
@@ -242,13 +243,14 @@
       "o-surdo",
       "o-sussurro",
       "o-tecelao-de-mentiras",
-      "o-trono-vazio"
+      "o-trono-vazio",
+      "o-espelho"
     ],
     "updatedCharacterRows": [
       "o-incendiario",
       "nilo-cinza-epilogo"
     ],
-    "candidateAssetRoutesWired": 135,
+    "candidateAssetRoutesWired": 142,
     "correctedReports": [
       "ART_ARISTIDES_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json",
@@ -259,7 +261,8 @@
       "ART_HERDEIRO_CATIVO_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_OVID_METAMORFA_DARK_PICTORIAL_FORMS_20261031.json",
       "ART_QUILL_METAMORFA_DARK_PICTORIAL_REWORK_20261031.json",
-      "ART_NILO_CINZA_EPILOGO_DARK_PICTORIAL_REWORK_20261101.json"
+      "ART_NILO_CINZA_EPILOGO_DARK_PICTORIAL_REWORK_20261101.json",
+      "ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json"
     ],
     "anatomyCorrections": [
       {
@@ -276,16 +279,21 @@
         "characterId": "nilo-cinza-epilogo",
         "slot": "eight-assets",
         "change": "redraw for pictorial 2.5D line; identity, anatomy, target counts and physical effects reviewed; mechanics unchanged"
+      },
+      {
+        "characterId": "o-espelho",
+        "slot": "seven-assets",
+        "change": "Pele, rosto, locs marfim, mãos, cotovelos e apoios conferidos; ações e alvos legíveis; mecânicas preservadas."
       }
     ],
     "status": "candidate_integrated_pending_visual_approval"
   },
   "latestVisualCorrection": {
     "date": "2026-11-01",
-    "characterId": "nilo-cinza-epilogo",
-    "title": "Nilo, Epílogo de Cinza (++Cinza)",
-    "revisedSlots": 8,
-    "report": "docs/ART_NILO_CINZA_EPILOGO_DARK_PICTORIAL_REWORK_20261101.json",
+    "characterId": "o-espelho",
+    "title": "Parrhasius, O Espelho",
+    "revisedSlots": 7,
+    "report": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json",
     "status": "candidate_revised_pending_visual_approval",
     "mechanicsPreserved": true
   }

@@ -1168,6 +1168,12 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (id === 'o-espelho') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261101`;
+    const forms = {...(art.forms || {}), impulso: {...(art.forms?.impulso || {}), returned: `${base}/skill-impulso-returned.webp`}};
+    return {...art, portrait: `${base}/portrait.webp`, passive: `${base}/passive.webp`,
+      abilities: Object.fromEntries(Object.keys(art.abilities).map(slot => [slot, `${base}/skill-${slot}.webp`])), forms};
+  }
   if (id === 'a-brasa-eterna') {
     const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     const forms = {...(art.forms || {})};
