@@ -27,10 +27,19 @@ function addAction(){
  if(!p.ok){state.message=p.reason;render();return;}
  state.draft=draft;state.payment=null;state.anchor=null;state.message='';render();
 }
+function actionCategory(a){
+ if(a.type==='move')return 0;
+ const u=state.battle.allies.find(u=>u.id===a.actorId),root=u.skillBook.find(k=>k.id===a.abilityId),variant=root.forms?.find(f=>f.formKey===a.formKey);
+ return tacticalSpec(u,variant||root).priority;
+}
+function queueNeighbor(index,direction){
+ const category=actionCategory(state.draft[index]),indices=state.draft.map((a,i)=>({a,i})).filter(({a})=>actionCategory(a)===category).map(({i})=>i);
+ return indices[indices.indexOf(index)+direction]??null;
+}
 function queueMarkup(){
  if(!state.draft.length)return '<p class="muted">Selecione uma alma, escolha a ação e marque a região no campo.</p>';
  const p=actionPreview(),effective=p.ok?p.actions:state.draft.map((a,order)=>({...a,order}));
- return `<ol class="queue">${state.draft.map((a,i)=>{const u=state.battle.allies.find(u=>u.id===a.actorId),form=a.type==='skill'?u.skillBook.find(k=>k.id===a.abilityId):null,variant=form?.forms?.find(f=>f.formKey===a.formKey),name=a.type==='move'?`Mover até ${cellLabel(a.path.at(-1))}`:variant?.name||form?.name;const rank=effective.findIndex(r=>r.order===i);return `<li><span class="order">${rank+1}</span><div class="description"><strong>${esc(u.name)}</strong> · ${esc(name)}<small>${a.type==='move'?'Movimento':priorityNames[tacticalSpec(u,variant||form).priority]}</small></div><div class="controls"><button data-order="${i}" data-direction="-1" aria-label="Subir ação de ${esc(u.name)}" ${i===0||state.busy?'disabled':''}>↑</button><button data-order="${i}" data-direction="1" aria-label="Descer ação de ${esc(u.name)}" ${i===state.draft.length-1||state.busy?'disabled':''}>↓</button><button data-remove="${i}" aria-label="Remover ação de ${esc(u.name)}" ${state.busy?'disabled':''}>×</button></div></li>`;}).join('')}</ol>`;
+ return `<ol class="queue">${effective.map((queued,rank)=>{const i=queued.order,a=state.draft[i],u=state.battle.allies.find(u=>u.id===a.actorId),form=a.type==='skill'?u.skillBook.find(k=>k.id===a.abilityId):null,variant=form?.forms?.find(f=>f.formKey===a.formKey),name=a.type==='move'?`Mover até ${cellLabel(a.path.at(-1))}`:variant?.name||form?.name;return `<li><span class="order">${rank+1}</span><div class="description"><strong>${esc(u.name)}</strong> · ${esc(name)}<small>${a.type==='move'?'Movimento':priorityNames[tacticalSpec(u,variant||form).priority]}</small></div><div class="controls"><button data-order="${i}" data-direction="-1" aria-label="Subir ação de ${esc(u.name)}" ${queueNeighbor(i,-1)===null||state.busy?'disabled':''}>↑</button><button data-order="${i}" data-direction="1" aria-label="Descer ação de ${esc(u.name)}" ${queueNeighbor(i,1)===null||state.busy?'disabled':''}>↓</button><button data-remove="${i}" aria-label="Remover ação de ${esc(u.name)}" ${state.busy?'disabled':''}>×</button></div></li>`;}).join('')}</ol>`;
 }
 function boardMarkup(s){
  const aim=new Set(aimed(s).map(cellKey)),u=selectedUnit(s);
@@ -56,7 +65,7 @@ root.addEventListener('click',event=>{
  if(el.dataset.mode){state.mode=el.dataset.mode;state.message='';const s=shown(),u=selectedUnit(s),a=u?.abilities.find(a=>a.id===state.mode);state.anchor=a?.target==='self'?{...s.tactical.positions[u.id]}:null;render();return;}
  if(el.dataset.cell){const [x,y]=el.dataset.cell.split(',').map(Number);state.anchor={x,y};state.message='';render();return;}
  if(el.dataset.remove!==undefined){state.draft.splice(Number(el.dataset.remove),1);state.payment=null;state.message='';render();return;}
- if(el.dataset.order!==undefined){const i=Number(el.dataset.order),j=i+Number(el.dataset.direction);if(j>=0&&j<state.draft.length)[state.draft[i],state.draft[j]]=[state.draft[j],state.draft[i]];state.payment=null;state.message='';render();return;}
+ if(el.dataset.order!==undefined){const i=Number(el.dataset.order),j=queueNeighbor(i,Number(el.dataset.direction));if(j!==null)[state.draft[i],state.draft[j]]=[state.draft[j],state.draft[i]];state.payment=null;state.message='';render();return;}
  const command=el.dataset.command;
  if(command==='add')return addAction();
  if(command==='payment'){state.payment=state.payment?null:resourceIds.reduce((o,id)=>(o[id]=0,o),{});state.message='';render();}

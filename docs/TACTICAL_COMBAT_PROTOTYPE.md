@@ -62,7 +62,7 @@ Nenhum arquivo de arte foi trocado. O campo usa peças com nome, Vida e Defesa p
 
 22 testes específicos passaram: formação, orçamento, validação de entrada, caminhos, cantos, áreas, cobertura, sigilo, colisões, mira fixa, Invulnerável, recarga, preparações, formas, Coringa, troca, contra-ataque, área de Verdant, morte, aflições, controles, determinismo, serialização e fluxo da interface.
 
-Uma simulação entre duas IAs chegou ao resultado de combate. A suíte completa ficou em 335 testes: 194 passaram e 141 falharam. As mesmas 141 falhas estavam presentes no checkout anterior; nenhuma falha nova apareceu com o protótipo. Essa suíte ainda não representa uma validação completa do jogo em produção.
+A prévia da Vercel compilou e foi aberta no navegador. Uma rodada com seis ações de cada lado foi resolvida, mostrando custos, bloqueio parcial, defesas e técnicas. A fila apresenta a ordem efetiva e permite reordenar dentro da mesma categoria. Uma simulação entre duas IAs chegou ao resultado de combate. A suíte completa ficou em 335 testes: 194 passaram e 141 falharam. As mesmas 141 falhas estavam presentes no checkout anterior; nenhuma falha nova apareceu com o protótipo. Essa suíte ainda não representa uma validação completa do jogo em produção.
 
 ## Próximas etapas
 
