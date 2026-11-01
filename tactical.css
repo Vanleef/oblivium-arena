@@ -147,3 +147,16 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .cell.wave-projectile:after{background:radial-gradient(ellipse,#ccecf7,#64afd799 45%,transparent 78%)}
 .cell.wave-affliction:after,.cell.wave-pierce:after{background:radial-gradient(ellipse,#efd19b,#e06e5788 45%,transparent 78%)}
 .cell.wave-counter:after{background:radial-gradient(ellipse,#fff1bf,#d9ac5f99 45%,transparent 78%)}
+
+/* Six-by-six transparent atlases: a drawing per frame, anchored at the feet. */
+.token[data-sprite="true"]{max-width:none;isolation:isolate}
+.token[data-sprite="true"]:after{display:none}
+.token-sprite{position:absolute;z-index:-1;left:50%;bottom:24px;width:140%;max-width:166px;aspect-ratio:1;transform:translateX(-50%);filter:drop-shadow(0 5px 3px #0008)}
+.token.enemy .token-sprite{transform:translateX(-50%) scaleX(-1)}
+.sprite-sheet{display:block;width:100%;height:100%;background-size:600% 600%;background-repeat:no-repeat}
+.token[data-sprite="true"][data-family="idle"] .sprite-sheet{animation:atlas-idle 1.2s steps(1,end) infinite}
+.token.stunned .sprite-sheet{animation-play-state:paused!important;filter:saturate(.35)}
+@keyframes atlas-idle{0%,100%{background-position-x:0%}16.67%{background-position-x:20%}33.33%{background-position-x:40%}50%{background-position-x:60%}66.67%{background-position-x:80%}83.33%{background-position-x:100%}}
+@media(prefers-reduced-motion:reduce){.token[data-sprite="true"] .sprite-sheet{animation:none!important}}
+/* Input is locked during playback; combatants retain full visual contrast. */
+.cell:disabled{opacity:1}

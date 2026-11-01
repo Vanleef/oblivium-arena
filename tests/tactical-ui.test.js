@@ -9,7 +9,7 @@ test('interface permite selecionar, mover, reordenar, remover e resolver até a 
  const ready=()=>new Promise(resolve=>setTimeout(resolve,5));
  try{
   await import('../src/tactical-demo.js?ui-flow-test');await ready();
-  assert.match(root.innerHTML,/Arena tática/);assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.match(root.innerHTML,/Revelar e resolver rodada/);
+  assert.match(root.innerHTML,/Arena tática/);assert.equal((root.innerHTML.match(/data-unit-id=/g)||[]).length,6);assert.equal((root.innerHTML.match(/data-sprite="true"/g)||[]).length,6);assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.match(root.innerHTML,/Revelar e resolver rodada/);
   click({cell:'2,0'});assert.match(root.innerHTML,/Adicionar movimento · C1/);click({command:'add'});assert.match(root.innerHTML,/Mover até C1/);assert.match(root.innerHTML,/1 \/ 6/);
   click({mode:'impulso'});click({cell:'4,2'});click({command:'add'});assert.match(root.innerHTML,/Incisão de Abate/);
   click({actor:'a-viuva-escarlate'});click({cell:'1,2'});click({command:'add'});assert.match(root.innerHTML,/Mover até B3/);assert.match(root.innerHTML,/3 \/ 6/);
@@ -19,4 +19,20 @@ test('interface permite selecionar, mover, reordenar, remover e resolver até a 
   click({command:'confirm'});await ready();for(let i=0;i<100&&root.innerHTML.includes('A oposição está planejando');i++)await new Promise(resolve=>setTimeout(resolve,100));assert.match(root.innerHTML,/<small>RODADA<\/small><b>2<\/b>/);assert.match(root.innerHTML,/0 \/ 6/);assert.match(root.innerHTML,/Encerramento da rodada/);assert.match(root.innerHTML,/As campanhas e a Arena online mantêm o combate atual/);
   assert.doesNotMatch(root.innerHTML,/Não foi possível planejar/);
  }finally{globalThis.document=previousDocument;}
+});
+
+test('movimento reduzido encerra a reprodução e libera a próxima rodada',async()=>{
+ const handlers={},root={innerHTML:'',addEventListener(type,handler){handlers[type]=handler;}};
+ const previousDocument=globalThis.document,previousMatchMedia=globalThis.matchMedia;
+ globalThis.document={getElementById:()=>root};
+ globalThis.matchMedia=()=>({matches:true});
+ try{
+  await import('../src/tactical-demo.js?reduced-motion-flow');
+  await new Promise(resolve=>setTimeout(resolve,5));
+  handlers.click({target:{closest:()=>({dataset:{command:'confirm'},disabled:false})}});
+  await new Promise(resolve=>setTimeout(resolve,5));
+  assert.match(root.innerHTML,/<small>RODADA<\/small><b>2<\/b>/);
+  assert.doesNotMatch(root.innerHTML,/arena-callout active/);
+  assert.match(root.innerHTML,/<button class="primary confirm" data-command="confirm" >Revelar e resolver rodada/);
+ }finally{globalThis.document=previousDocument;globalThis.matchMedia=previousMatchMedia;}
 });
