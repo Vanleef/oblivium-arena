@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Oblivium Arena — O Véu / identidade anime
 
 Reformulação de identidade da interface, preservando o catálogo de personagens, suas artes de retrato, passiva e habilidades. Nenhum arquivo de `art/characters/` ou de definição dos kits é substituído nesta entrega. Bônus de eventos e Legados são modificadores de partida, não reformulações das habilidades-base.

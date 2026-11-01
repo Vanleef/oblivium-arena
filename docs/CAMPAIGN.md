@@ -1,30 +1,39 @@
-# PMA — campanha, recrutamento e energia
+# Oblivium Arena — campanha e progressão
 
-O primeiro Elo de cada mundo começa aberto. Os demais exigem a vitória no Elo anterior e missões cumulativas do mundo: elites, eventos, trilhas distintas e, nos Elos avançados, Ruptura I. Requisitos e contadores aparecem na seleção. Salvamentos anteriores preservam personagens e Elos vencidos.
+> Cânone da revisão de desenvolvimento (PR #3). A versão jogável em `main` pode estar numa etapa anterior. Consulte [PROJECT_CANON.md](PROJECT_CANON.md).
 
-Cada Elo oferece Caçada e Ecos; a primeira conclusão abre Eclipse. Os mapas e os grupos preferenciais de recrutamento variam. Se esse grupo já foi recrutado, a trilha passa a oferecer outras almas ainda ausentes do mesmo Elo. O conselho final possui três personagens reais do Elo, prioriza os não recrutados e muda com a semente da travessia. A vitória recruta exatamente um personagem ainda ausente e presente nesse conselho. Se todo o elenco já foi recrutado, não há personagem duplicado.
+Referência da revisão atual. O roteiro e a distribuição exata de personagens são gerados em [STORY.md](STORY.md), [WORLD_CATALOG.md](WORLD_CATALOG.md) e [CHARACTER_CATALOG.md](CHARACTER_CATALOG.md).
 
-A dificuldade começa em 0 (Véu intacto). Vencer abre a próxima Ruptura, selecionada por padrão na próxima partida. É possível revisitar dificuldades vencidas. Cada nível acrescenta 18% de Vida, 9% de dano e 5 de Defesa inicial a todos os inimigos. A partir da Ruptura 2 há armadura e regeneração; a partir da 3, aflições reforçadas. Os modificadores são cumulativos e aplicados aos combates comuns, elites e chefes.
+## Travessia dos Mundos
 
-Na primeira vitória por par Elo/dificuldade, escolha um entre três Legados permanentes: ofensiva, defesa ou travessia. O catálogo tem 20 famílias, com valores escalados pela dificuldade e preferência por famílias ainda não escolhidas. A oferta pendente e sua escolha são persistidas; não é possível iniciar outra trilha antes do resgate. Repetir a dificuldade pode recrutar outra alma, mas não gera um segundo Legado. Os Ecos encontrados nos nós continuam limitados à trilha atual.
+Cada Mundo tem uma campanha narrativa que atravessa seus Reinos em ordem e termina diante da manifestação de seu líder. A conclusão de um Reino libera o seguinte na mesma dificuldade. Há cinco dificuldades: Véu intacto e Rupturas I–IV. Uma vitória libera a dificuldade seguinte naquele Reino.
 
-A geração básica de energia segue Naruto Arena: o jogador inicial recebe uma energia aleatória; a oposição recebe uma por personagem vivo. Nos turnos seguintes cada lado recebe uma energia por personagem vivo, sorteada entre os quatro tipos com probabilidade de 25% cada. Energia não utilizada acumula. Não há geração garantida de afinidade nem limite artificial de cinco. Legados e Ecos de energia são bônus de abertura, apresentados em suas descrições, sem alterar a distribuição da geração básica.
+Cada Reino oferece três trilhas: **Caçada**, focada em confrontos e elites; **Ecos**, focada em eventos e relíquias; e **Eclipse**, com elite e guardião extra, liberada após a primeira vitória. As três opções cumprem a faixa de duas a quatro trilhas por Reino.
 
-Nas Correntes Quebradas, três barras acompanham a absorção de Cinza, Graça e Ruptura. Cada ação qualificada acrescenta 5 pontos; derrotar um inimigo do Inferno também acrescenta 5 a Cinza. Os limites 30/70/100 liberam Prefácio, Epílogo e Final de cada caminho. Ao chegar a 100, o caminho fica fixado até o fim da travessia e as outras barras são apagadas. Se as três chegarem a 70 primeiro, elas se fundem e liberam Sael, o Eco das Quatro Essências, forma final que usa Éter, Cinza, Graça e Ruptura. Se nenhuma chegar a 70, a Fenda da Alma oferece ao jogador a escolha de aceitar o Expurgo e liberar Nilo Purificado, mais fraco e com custos Coringa em todas as skills, ou recusar e manter a forma atual. As barras reiniciam na próxima travessia.
+O trio é fixado ao partir. Vida, Correntes, Ecos, escolhas e nós concluídos acompanham a travessia. Derrotas consomem estabilidade; perder todas as Correntes encerra a tentativa. Descanso, eventos e mercador oferecem recuperação. Os mapas possuem rotas conectadas e revelam apenas as passagens pertinentes ao avanço.
 
-O trio de uma travessia é fixado ao partir. Alterações na formação preparam a próxima travessia. Vida, Correntes, Ecos, escolhas pendentes, missão e progressão são persistidos localmente. Este projeto continua sendo um cliente estático; não há autenticação ou sincronização de campanha entre dispositivos nesta entrega.
+## Recrutamento e líderes
 
+Os desbloqueios são distribuídos por Reino e dificuldade, em vez de sortear sempre um único personagem do conselho. A vitória concede os personagens previstos para aquela combinação ainda não possuídos. Repetir a mesma combinação não duplica almas. Os três personagens iniciais estão disponíveis desde o começo.
 
-## Interface e efeitos
+Os 147 personagens que não são líderes ficam cobertos entre iniciais e recompensas programadas. O catálogo mostra a localização de cada um. Algumas versões de Nilo também têm condições narrativas de absorção, preservadas separadamente da distribuição geral.
 
-Técnicas indisponíveis permanecem acessíveis para inspeção por toque ou teclado. A seleção e a reserva continuam sujeitas a energia, estado e recarga. Durante a resolução, os comandos ficam bloqueados. O diálogo de revisão retém a navegação por Tab; Escape volta ao planejamento.
+**Niith — O Fim**, **Seraph — O Prólogo** e **Zalmoxis — A Abnegação** só são recrutados após concluir todos os Reinos do respectivo Mundo e vencer a manifestação final na **Ruptura IV**. Uma vitória em dificuldade menor não concede o líder. Derrotá-los não os mata.
 
-As trajetórias das habilidades usam as posições reais dos retratos, incluindo layouts estreitos. Contra-ataques informam o defensor e o atacante para orientar o efeito de retorno. Movimentos decorativos são suprimidos quando o navegador pede movimento reduzido.
+## Legados e dificuldade
 
-O conselho final só aparece quando o nó do chefe é revelado. Os Ecos da travessia podem ser consultados num painel recolhido. Legados da mesma família aparecem agrupados com o valor acumulado. Defesa inicial global limita-se a 80, roubo de Vida global a 60%, bônus de descanso a 60 pontos percentuais e carga inicial a 3. Ofertas deixam de incluir famílias que atingiram o limite.
+Na primeira vitória por par Reino/dificuldade, escolha um entre três Legados permanentes. A oferta e a escolha são persistidas; uma recompensa pendente deve ser resgatada antes da próxima trilha. Repetir a dificuldade pode recuperar desbloqueios previstos, mas não concede outro Legado pela mesma primeira vitória. Ecos e Memórias da travessia têm escopo próprio e não substituem Legados.
 
-## Trilha por brasão
+Modificadores de Vida, dano, Defesa, armadura, regeneração e aflições escalam conforme a dificuldade. Os valores vigentes são definidos em `src/progression.js`; não usar tabelas de relatórios históricos como regra atual.
 
-A expedição usa um atlas vertical ascendente com o brasão do Elo integrado ao fundo, atmosfera do véu e símbolos vetoriais próprios para cada encontro. O percurso mostra apenas nós revelados e conexões que partem de encontros concluídos. Os ícones dos encontros percorridos são preservados; um selo separado indica a conclusão. As próximas passagens também podem ser escolhidas na coluna lateral, que apresenta descrição e recompensa. No mobile, as escolhas seguem abaixo do atlas.
+## Essência e Nilo
 
-O layout usa as mesmas coordenadas para o centro dos nós e as extremidades das curvas. Os movimentos de revelação, os fios de energia, as partículas e o destaque da passagem selecionada respeitam movimento reduzido. Durante a travessia animada ou uma decisão pendente, mapa e escolhas ficam desabilitados. O trio exibe Vida persistida, limites de Legados e, quando se retorna de um confronto ainda aberto, a Vida atual daquele combate.
+Cada lado recebe uma Essência aleatória por personagem vivo desde a abertura. Os quatro tipos são Éter, Cinza, Graça e Ruptura, com sorteio uniforme; o saldo acumula. Coringa é pago com qualquer um desses tipos. A conversão 5→1 reduz o total em quatro unidades e permite escolher o tipo recebido.
+
+No Vestíbulo, a absorção de Nilo acompanha Cinza, Graça e Ruptura. Ações qualificadas somam 5; os marcos 30/70/100 abrem Prefácio, Epílogo e Final. Uma barra em 100 fixa o caminho na travessia. Equilibrar as três em 70 antes disso abre Sael — O Eco das Quatro Essências. Sem barra em 70, a Fenda da Alma permite aceitar o Expurgo e liberar Nilo Purificado, enfraquecido e com custos Coringa; recusar preserva a forma atual. As barras reiniciam na próxima travessia.
+
+## Persistência e interface
+
+O servidor valida a campanha online e suas recompensas; o modo local usa o armazenamento de desenvolvimento e o navegador conforme o fluxo. Não assumir sincronização entre dispositivos quando o banco hospedado não estiver configurado.
+
+Técnicas indisponíveis podem ser inspecionadas por toque ou teclado. A resolução bloqueia comandos; a revisão retém Tab e Escape volta ao planejamento. Efeitos respeitam os retratos reais e a preferência por movimento reduzido. O conselho aparece ao revelar o nó correspondente.

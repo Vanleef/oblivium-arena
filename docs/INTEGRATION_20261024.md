@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Integração na main — 24/10/2026
 
 O trabalho de clareza, arquétipos, progressão, campanha autoritativa, IA e tradução foi integrado sobre a main `21b92bf51f21bf9eae790c16f81120d903a64042`. Arquivos de arte e documentação existentes apenas na main foram preservados, sem exclusão por ausência no checkout parcial.

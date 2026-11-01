@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Direção pictórica digital — registro histórico de 25/10/2026
 
 > Esta direção foi substituída em 26/10/2026 pela linha anime 2.5D aprovada em ART_DIRECTION.md. Mantenha este arquivo como registro do trabalho anterior.

@@ -1,6 +1,6 @@
 # Identidade visual do elenco
 
-Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente reconhecível em relação aos demais. Variar traços faciais, físico, cabelo, cicatrizes, olhos, etnias e naturezas sobrenaturais dentro da linguagem híbrida 3D/2D definida em `ART_STYLE_DIRECTION_20261025.md` e da identidade de cada Mundo e Elo.
+Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente reconhecível em relação aos demais. Variar traços faciais, físico, cabelo, cicatrizes, olhos, etnias e naturezas sobrenaturais dentro da direção anime first 2.5D pictórica definida em [ART_DIRECTION.md](ART_DIRECTION.md) e da identidade de cada Mundo e Reino. Os nomes e títulos vigentes estão em [CHARACTER_CATALOG.md](CHARACTER_CATALOG.md); cabeçalhos antigos abaixo funcionam como aliases.
 
 ## Critérios de criação e revisão
 
@@ -9,7 +9,7 @@ Diretriz de Eduardo — 24/10/2026: cada personagem precisa ser facilmente recon
 - Usar assimetrias deliberadas e coerentes: cicatrizes, olhos distintos, próteses, marcas ou alterações sobrenaturais com origem no personagem.
 - Dar a cada personagem pelo menos três marcadores estruturais independentes da paleta e da roupa. Conferir a leitura em miniatura e em tons de cinza.
 - Manter os mesmos marcadores, acessórios, lateralidade e estrutura corporal no retrato, na passiva, nas técnicas e nas formas correspondentes.
-- Variar composição por habilidade: distância, altura da câmera, lado de ação, quantidade exata de beneficiados e ambiente ligado ao efeito e ao Elo.
+- Variar composição por habilidade: distância, altura da câmera, lado de ação, quantidade exata de beneficiados e ambiente ligado ao efeito e ao Reino.
 - Conservar o volume pintado, os contornos gráficos e as sombras desenhadas; usar semitom com moderação. Revisar mãos, articulações, continuidade de armas e correntes e conexão entre corpo, roupa e acessórios.
 
 ## Identidades visuais recentes e revisadas
@@ -34,3 +34,4 @@ A diferenciação deve orientar também as próximas revisões do elenco. A exis
 ## O Arauto
 
 Homem pálido de rosto estreito e anguloso, com olhar violeta parcialmente encoberto por cabelos longos prateados. Mantém gola alta escura, colarinho interno marfim e espada reta e fina. A lâmina interrompe a vontade antes de extinguir a presença; posturas e reações distintas mostram presságio, atordoamento e consequência, sem transformar cada habilidade em golpe frontal.
+

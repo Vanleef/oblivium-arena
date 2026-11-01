@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Chama — conclusão da revisão visual
 
 Data: 23/10/2026. **12 novas imagens para três personagens.**

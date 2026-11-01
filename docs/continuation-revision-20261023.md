@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Continuação da revisão de personagens — 23/10/2026
 
 A rodada iniciada no chat “Prosseguir opções PMA” foi retomada a partir de Serpe, Semente e Cindida. Esta entrega integra os três conjuntos, com vinte imagens finais em anime 2D, incluindo duas formas alternativas.

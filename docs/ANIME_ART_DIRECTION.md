@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Direção de arte — frames de anime para ícones
 
 > Documento histórico da direção anterior. Desde 25/10/2026, toda arte nova ou reformulada segue `ART_STYLE_DIRECTION_20261025.md`, com referência híbrida 3D/2D e linguagem gráfica pintada. As regras abaixo servem para entender lotes antigos, não como padrão vigente.

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Avaliação automática de combates
 
 Reprodução: `node scripts/simulate-combat.mjs`. São 300 partidas com sementes fixas, envolvendo os 100 personagens como integrantes do trio do jogador. As composições e os tipos de Essência variam por semente; a distribuição segue as regras normais, sem reservas artificiais ou Legados.

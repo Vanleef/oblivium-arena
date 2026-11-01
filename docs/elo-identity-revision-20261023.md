@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Identidades e pertencimento aos Elos — 23/10/2026
 
 Segunda revisão das identidades do PMA, preservando os nomes curtos solicitados. Foram examinados o elenco dos 100 personagens, os conceitos dos 17 Elos e os conjuntos visuais dos dez casos selecionados. Não houve transferência entre mundos ou Elos: as identidades foram reformuladas para expressar o lugar que já ocupavam.

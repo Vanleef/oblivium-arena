@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # PMA — diversidade de formas e O Fim
 
 Direção estabelecida por Eduardo em 23/10/2026: variar a anatomia e a silhueta das entidades, evitando usar o humanoide como solução padrão. A forma deve pertencer ao mundo e ao Elo, transmitir seu peso e continuar coerente nas passivas, técnicas e defesas.

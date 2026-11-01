@@ -1,50 +1,228 @@
-# Técnicas alternativas do PMA
+# Oblivium Arena — formas e técnicas alternativas
 
-Os 100 kits têm estruturas autorais de preparação, troca, reação, crescimento ou apoio. Há 56 técnicas alternativas além das 400 técnicas principais. Todos conservam quatro espaços e uma ação por personagem por turno. A quarta defesa mantém Invulnerável por uma resposta adversária e quatro turnos próprios de recarga.
+Este documento descreve o cânone e os dados da revisão de desenvolvimento (`art/oblivium-arena-anime-first-20261027`, PR #3). A branch `main` pode conter uma versão jogável anterior; sua presença na documentação não significa que o PR foi integrado ou publicado.
 
-| Estrutura | Exemplos do PMA | Decisão |
-| --- | --- | --- |
-| Sequência no mesmo espaço | Passo Interrompido, Três Irmãos | Continuar a sequência ou usar outra técnica antes de a janela fechar |
-| Transformação de várias técnicas | Ódio Encarnado | Arriscar mais Vida; terminar a forma com o desfecho ou esperar que expire |
-| Postura reversível | Pele Alheia, Voz | Manter os ataques alterados ou desfazer a postura para obter recuperação |
-| Forma condicionada à Vida | Devorador | O tipo, o custo e a utilidade do ataque mudam quando a Vida cruza 50 |
-| Forma condicionada a cargas | Filho da Cinza, Restaurador, Semente | Gastar a reserva numa versão diferente ou conservar as outras opções |
-| Resposta a um contra-ataque ativado | Viúva, Espelho, Observador, Eco | A agressão recebida abre uma técnica; algumas ficam vinculadas ao agressor |
-| Desfechos mutuamente exclusivos | Rainha dos Fungos | Usar a mesma colônia para amparo coletivo ou dano de aflição em área |
-| Uso limitado por combate | Colecionador de Cabeças, Fim Silencioso | Escolher quando gastar os dois usos fortes; depois há uma técnica de menor impacto |
-| Controle com vínculo | Marionetista de Nervos | Manter a interrupção na mesma vítima ou usar o desfecho; perder contato encerra a continuação |
-| Armadilhas de decisão | Sussurro, Incendiário, Credor | Punir ofensiva, apoio, qualquer técnica ou inatividade, uma única vez |
-| Selos seletivos | Trono Vazio, Juíza, Porta Fechada | Interditar ofensiva ou apoio; o selo de apoio preserva a defesa pessoal |
-| Recuperação futura | Mãe Rubra, Médico de Vermes, Senhora do Último Pão | Receber cura imediata menor e manter recuperação pelos turnos seguintes |
-| Crescimento interrompível | Boca de Vidro, Lâmina Justa, Andarilho de Vidro | Repetir uma técnica até um teto; Atordoamento zera o bônus |
-| Conversão de Defesa | Estômago sem Fundo, Muralha, Arquiteta | Converter Defesa removida em guarda própria ou consumir guarda para acrescentar dano |
-| Manipulação de recargas | Sentinela Azul, Portador da Aurora, Primeiro Canto | Adiantar técnicas de apoio ou ofensiva sem reduzir a recarga da quarta defesa |
-| Alternância de alvo e função | Linha Partida, Cartógrafa, Equilíbrio | Transformar preparação ofensiva em cuidado, ou cuidado em ataque |
+Gerado por `npm run docs:generate`. Nomes e títulos: `src/roster-identity-overrides.js`; elenco: `src/data.js`; Reinos: `src/kingdoms.js`; campanha: `src/progression.js` e `src/story-content.js`. IDs e aliases históricos preservam salvamentos e caminhos de arte.
 
-## Referências de estrutura
+Os 150 kits mantêm quatro espaços de técnicas e uma ação por personagem a cada turno. O catálogo reúne 689 técnicas, incluindo variações. Uma versão narrativa é uma entrada do elenco; uma forma corporal ou continuação altera o kit da mesma entrada.
 
-Foram consultadas as atualizações do Naruto Arena Classic com estilos de Lee, transformação de Mizuki, golpe alternado de Sakura, continuação de Shikamaru e técnicas de Kakashi. São referências para a estrutura de decisões; efeitos, custos, conceitos e nomes foram adaptados ao PMA.
+Custos, alvos, durações e recargas estão em [COMBAT_KITS.md](COMBAT_KITS.md). O quarto espaço continua reservado à defesa; preparações e formas não criam ações adicionais. Há defesas com componentes específicos, como cura ou mudança de forma, que devem ser conferidos no próprio kit.
 
-- https://www.naruto-arena.site/balance-changes/3-new-characters-major-balance-120
-- https://www.naruto-arena.site/balance-changes/new-characters-major-balance-124
-- https://www.naruto-arena.site/balance-changes/new-characters-balance-update-140
+## Riven — O Ceifador de Tolos · `o-acougueiro`
 
-## Implementação
+- **Reabrir a Ferida** (`impulso:reopen`): Causa 20 de dano físico a um inimigo. Se o alvo está com Sangramento: +10 de dano; consome a preparação. Após usar, restaura Incisão de Abate.
 
-- `src/combat-effects.js` controla reações, regeneração, selos e cálculos adicionais. Cada reação ativa uma vez; reações não ativam outras reações. Limpeza remove armadilhas hostis e condições novas, preservando os efeitos de apoio.
-- `src/kit-expansion.js` define a segunda passagem de identidade dos 64 kits restantes.
-- `src/kit-evolutions.js` define as alterações autorais por Elo e índice, sem substituir o catálogo básico por um novo ciclo genérico de arquétipos.
-- `src/kits.js` compila técnicas principais e alternativas com descrições, custos, classes e recargas completos.
-- `src/skill-state.js` mantém formas, usos e janelas por combatente. O catálogo original não é modificado durante a luta. Um novo encontro começa com as formas e os usos reiniciados.
-- `shift` muda um ou mais espaços após uma habilidade não anulada; `counterShift` muda o kit do criador quando seu contra-ataque é ativado, inclusive quando aplicado a um aliado.
-- `formRule` seleciona uma alternativa por Vida ou cargas. `maxUses` e `depletedForm` controlam as técnicas limitadas.
-- Janelas de N turnos dão acesso durante os N planejamentos próprios seguintes. A interface informa o turno limite. Posturas sem prazo só terminam pela reversão explícita.
-- Uma continuação no mesmo espaço adia a recarga da preparação até ser usada, expirar ou perder seu vínculo. Preparação e continuação não concedem ações extras.
-- A fila registra a forma confirmada. Se outra ação mudar essa forma antes da execução, a ação é cancelada e seus recursos são preservados, evitando executar um efeito que o jogador não confirmou.
-- Vínculos limitam alvos; uma vítima derrotada restaura a técnica principal. Controles ligados também terminam por Atordoamento do usuário ou Invulnerável da vítima.
-- As alternativas inimigas recebem a escala do encontro e da Ruptura. A IA avalia as formas disponíveis e valoriza preparações que abrem novas opções.
-- O combate mostra a troca no mesmo ícone, com marca, destaque e animação. Descrições de variações ficam recolhidas no painel; o Codex exibe todas ao abrir a técnica. Movimento reduzido desliga a animação.
+## Lira — A Noiva da Lua · `a-viuva-escarlate`
 
-## Verificação
+- **Fio Reverso** (`impulso:revenge`): Causa 25 de dano perfurante a um inimigo. Restaura ao usuário 50% do dano causado. Após usar, restaura Fio Escarlate.
 
-`tests/skill-forms.test.js` cobre as famílias acima, os 56 efeitos alternativos, custos reservados, anulações, troca após confirmação, recargas adiadas, janelas completas, quebra de vínculos, IA e apresentação. `tests/kits-audit.test.js` mantém a cobertura das 76 continuações básicas. `tests/reactive-kits.test.js` cobre selos, condições de reação, limpeza, regeneração, crescimento, conversões e a preservação da defesa pessoal. O equilíbrio entre equipes e Rupturas continua sujeito a partidas de avaliação.
+## Thorne — O Colecionador · `o-colecionador-de-cabecas`
+
+- **Caça sem Troféus** (`voto:empty`): Causa 15 de dano físico a um inimigo. Consome Cargas: +3 de dano por Carga.
+
+## Vale e Soren — As Lâminas Gêmeas · `gemeos-do-cutelo`
+
+- **Corte em Contratempo** (`tecnica:cross`): Causa 15 de dano perfurante a um inimigo. Sangramento: 4 de dano de aflição por 2 turnos. Se o alvo está Exposto: +5 de dano. Após usar, restaura Cutelo da Direita.
+
+## Darius — O Soberano · `o-soberano-quebrado`
+
+- **Coroa Soberana:** O decreto assume as três técnicas por 2 turnos: marcar a linha, enfraquecê-la em área e erguer Defesa para o trio.
+- **Decreto sobre Todos** (`impulso:edict`): Causa 10 de dano espiritual a todos os inimigos. Marca o alvo por 3 turnos.
+- **Cadeia de Juramento** (`tecnica:edict`): Causa 10 de dano espiritual a todos os inimigos. Enfraquece o alvo por 1 turno.
+- **Trono Incontestável** (`voto:edict`): Concede 12 de Defesa destrutível ao trio. Aumenta em 5 o dano até o fim do próximo turno do beneficiado.
+
+## Demetrius — O Príncipe · `o-principe-das-correntes`
+
+- **Apertar o Grilhão** (`impulso:drag`): Causa 15 de dano físico a um inimigo. Enfraquece o alvo por 1 turno. Ganha 1 Carga (máx. 3). Após usar, restaura Primeiro Grilhão.
+
+## Nyx — A Máscara Dupla · `a-mascara-dupla`
+
+- **Máscara da Traição:** Rosto Emprestado revela a segunda face por até 2 turnos. Gesto de Outro Rosto interrompe e contra-ataca; ao expirar, a máscara retorna.
+- **Gesto de Outro Rosto** (`impulso:other`): Causa 10 de dano espiritual a um inimigo. Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 15 de dano. Dura 1 turno. Após usar, restaura Rosto Emprestado.
+
+## Orin — O Intrigante · `o-tecelao-de-mentiras`
+
+- **Desatar a Trama** (`tecnica:unweave`): Restaura 8 de Vida ao trio. Remove aflições e condições prejudiciais do trio. Após usar, restaura Rede de Falsidades.
+
+## Cassian — O Falso Profeta · `o-falso-profeta`
+
+- **Confissão do Falso Santo** (`tecnica:confess`): Restaura 25 de Vida ao usuário. Remove aflições e condições prejudiciais do beneficiado. Consome Cargas: +3 de cura por Carga. Após usar, restaura Bênção Falsa.
+
+## Emberlyn — A Brasa Eterna · `a-brasa-eterna`
+
+- **Fornalha Sepulcral:** Com Queimadura preparada, muda as três técnicas por 2 turnos: labareda focada, cinzas em área e consumo da condição.
+- **Labareda Sufocante** (`impulso:smother`): Causa 20 de dano espiritual a um inimigo. Queimadura: 6 de dano de aflição por 2 turnos. Após usar, restaura Brasa que Permanece.
+- **Cinzas de Sufoco** (`tecnica:smother`): Causa 10 de dano espiritual a todos os inimigos. Queimadura: 4 de dano de aflição por 2 turnos.
+- **Fornalha Sepulcral** (`voto:smother`): Causa 25 de dano espiritual a um inimigo. Se o alvo está com Queimadura: +10 de dano; consome a preparação.
+
+## Corvin — O Furor · `o-odio-encarnado`
+
+- **Ódio Solto:** Transformação por 2 turnos. Ressentimento sem Freio encerra a forma e restaura o retrato.
+- **Punho do Ódio Solto** (`impulso:rage`): Causa 30 de dano físico a um inimigo. O usuário perde 10 de Vida (não pode ser derrotado por este custo).
+- **Ressentimento sem Freio** (`voto:eruption`): Causa 30 de dano espiritual a um inimigo. Se o usuário tem 50 de Vida ou menos: +10 de dano. O usuário perde 10 de Vida (não pode ser derrotado por este custo). Após usar, restaura Punho de Rancor. Após usar, restaura Explosão do Ressentimento.
+
+## Ragnar — O Ressentido · `o-filho-da-cinza`
+
+- **Rancor Reaceso** (`impulso:rebirth`): Causa 25 de dano espiritual a um inimigo. Remove aflições e condições prejudiciais do usuário. Consome Cargas: +3 de dano por Carga.
+
+## Lyra — A Vingadora · `a-pira-errante`
+
+- **Revanche Ardente** (`impulso:reply`): Causa 20 de dano espiritual a um inimigo. Queimadura: 4 de dano de aflição por 2 turnos. Após usar, restaura Brasa Punitiva.
+
+## Gorath — O Devorador · `o-devorador`
+
+- **Fome sem Corpo:** A forma surge automaticamente quando a Vida chega a 50 ou menos. O peito se abre num vazio e Mordida da Alma passa a drenar a vítima.
+- **Fome sem Corpo** (`impulso:starved`): Causa 15 de dano de aflição a um inimigo. Remove 1 unidade de Essência da reserva inimiga. Restaura ao usuário 60% do dano causado.
+
+## Ravena — A Saqueadora · `a-mao-que-toma`
+
+- **Abrir o Cofre** (`tecnica:open`): Restaura 20 de Vida ao usuário. Consome Cargas: +5 de cura por Carga. Após usar, restaura Entesourar.
+
+## Mire — A Pestilência · `a-praga-andante`
+
+- **Febre de Retorno** (`tecnica:fever`): Causa 15 de dano de aflição a um inimigo. Se o alvo está com Veneno: +10 de dano. Após usar, restaura Contágio do Caminho.
+
+## Myra — A Rainha dos Fungos · `a-rainha-dos-fungos`
+
+- **Florescer para os Vivos** (`tecnica:bloom`): Restaura 8 de Vida ao trio. Concede 8 de Defesa destrutível ao trio. Consome Cargas: +4 de cura por Carga para cada aliado. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
+- **Esporos da Última Colheita** (`voto:cloud`): Causa 15 de dano de aflição a todos os inimigos. Consome Cargas: +3 de dano por Carga. Após usar, restaura Micélio de Amparo. Após usar, restaura Florir da Colônia.
+
+## Elias — O Espectador · `o-que-observou`
+
+- **Retaliação do Espectador** (`voto:witness`): Causa 30 de dano espiritual a um inimigo. Consome Cargas: +5 de dano por Carga. Após usar, restaura Peso da Indiferença.
+
+## Voss — O Silenciador · `o-surdo`
+
+- **Clamor sem Retorno** (`impulso:echo`): Causa 20 de dano de aflição a um inimigo. Enfraquece o alvo por 1 turno. Após usar, restaura Impacto Abafado.
+
+## Reed — O Desertor · `o-vigia-ausente`
+
+- **Golpe da Retaguarda** (`voto:ambush`): Causa 25 de dano físico a um inimigo. Não pode ser anulado por Contra-ataque. Se o alvo está Exposto: +15 de dano. Após usar, restaura Cobrar o Abandono.
+
+## Quill — A Metamorfa · `a-pele-alheia`
+
+- **Quimera Terrestre:** Fera baixa e alongada, sustentada por quatro patas musculosas e cauda longa. Não conserva tronco humano nem asas; rompe a guarda, prepara o revide e descarta o molde para recuperar Vida.
+- **Quimera Alada:** Predador voador de corpo estreito, asas membranosas usadas como membros dianteiros, duas patas traseiras e cauda longa. Sustenta a guarda, anula um golpe e contra-ataca.
+- **Garras Predatórias** (`impulso:skin`): Causa 15 de dano perfurante e remove 15 de Defesa antes do dano.
+- **Mergulho Alado** (`impulso:shell`): Causa 20 de dano físico e concede 5 de Defesa ao usuário.
+- **Descartar o Molde** (`tecnica:shed`): Recupera 15 de Vida e limpa aflições e condições prejudiciais. Após usar, restaura Garras Cambiantes e as formas Quimera Terrestre e Quimera Alada.
+- **Recolher as Asas** (`tecnica:shell`): Recupera 10 de Vida e restaura a forma humanoide e suas três técnicas.
+- **Instinto de Revide** (`voto:skin`): Causa 25 de dano físico e prepara um contra-ataque pessoal de 10 de dano por 1 turno.
+- **Espinhos Alados** (`voto:shell`): Concede 15 de Defesa e anula a próxima habilidade inimiga recebida, contra-atacando com 20 de dano. Dura 1 turno.
+
+## Liora — A Marionetista · `a-marionetista-de-nervos`
+
+- **Manter o Comando** (`tecnica:hold`): Causa 15 de dano físico a um inimigo. Atordoa por 1 turno. Exige a Marca criada por esta preparação no alvo. Após usar, restaura Puxar a Vontade.
+
+## Sable — A Suturadora · `a-costureira`
+
+- **Reforçar os Pontos** (`tecnica:remove`): Restaura 10 de Vida ao aliado. Concede 15 de Defesa destrutível ao aliado. Após usar, restaura Sutura de Domínio.
+
+## Noctis — O Anulador · `o-que-apaga`
+
+- **Anulação Definitiva** (`impulso:erase`): Causa 25 de dano de aflição a um inimigo. Exige a Marca criada por esta preparação no alvo. Se o alvo tem a marca desta preparação: +5 de dano; consome a preparação. Após usar, restaura Marca da Anulação.
+
+## Erebus — O Arauto · `o-fim-silencioso`
+
+- **Silêncio Residual** (`voto:residual`): Causa 20 de dano perfurante a um inimigo. Se o alvo tem 50 de Vida ou menos: +5 de dano.
+
+## Ashen — O Desolador · `o-menino-sem-sombra`
+
+- **Recolher a Presença** (`tecnica:hide`): Restaura 20 de Vida ao usuário. Reduz em 5 o dano recebido por 1 turno pelo usuário. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado.
+
+## Aegis — O Escudo Vivo · `o-escudo-vivo`
+
+- **Avanço da Égide** (`impulso:advance`): Causa 20 de dano perfurante a um inimigo. Concede 5 de Defesa destrutível ao alvo. Se o usuário tem Defesa: +5 de dano. Após usar, restaura Golpe do Bastião.
+
+## Theron — O Restaurador · `o-restaurador`
+
+- **Reserva Imaculada** (`voto:pure`): Restaura 15 de Vida ao trio. Remove aflições e condições prejudiciais do trio. Consome Cargas: +5 de cura por Carga para cada aliado.
+
+## Aldric — O Árbitro · `o-equilibrio`
+
+- **Resposta Equânime** (`tecnica:verdict`): Causa 15 de dano espiritual a um inimigo. Restaura 10 de Vida ao usuário. Após usar, restaura Amparo Equânime.
+
+## Aristides — O Regulador · `o-que-pesa`
+
+- **Prato Ascendente** (`impulso:balance`): Causa 15 de dano espiritual a um inimigo. Marca o alvo por 3 turnos. Concede 10 de Defesa destrutível ao alvo. Ganha 1 Carga (máx. 3). Após usar, restaura Pesar os Atos.
+
+## Caelum — A Perseverante · `a-chama-que-nao-apaga`
+
+- **Chama do Recomeço** (`impulso:dawn`): Causa 20 de dano espiritual a um inimigo. Queimadura: 5 de dano de aflição por 2 turnos. Restaura 5 de Vida ao usuário. Após usar, restaura Fagulha do Amanhã.
+
+## Hope — A Voz · `a-voz`
+
+- **Coro de Muitas Vozes** (`impulso:chorus`): Causa 10 de dano espiritual a todos os inimigos. Marca o alvo por 3 turnos.
+- **Encerrar o Hino** (`tecnica:solo`): Restaura 15 de Vida ao usuário. Após usar, restaura Palavra de Coragem. Após usar, restaura Hino da Perseverança.
+
+## Stella — A Mensageira · `a-mensageira-do-amanha`
+
+- **Mensagem Recebida** (`impulso:delivered`): Causa 15 de dano espiritual a um inimigo. Após usar, restaura Sinal do Amanhã.
+
+## Parrhasius — O Espelho · `o-espelho`
+
+- **Estilhaço Devolvido** (`impulso:returned`): Causa 25 de dano perfurante a um inimigo. Remove bônus de dano, redução e contra-ataque do alvo. Após usar, restaura Imagem Verdadeira.
+
+## Cartes — A Cartógrafa · `a-cartografa-da-clareza`
+
+- **Atalho da Clareza** (`tecnica:shortcut`): Restaura 15 de Vida ao aliado. Aumenta em 5 o dano até o fim do próximo turno do beneficiado. Remove aflições e condições prejudiciais do beneficiado. Após usar, restaura Caminho Seguro.
+
+## Trinity — Os Três Irmãos · `os-tres-irmaos`
+
+- **Segunda Voz** (`impulso:second`): Restaura 15 de Vida ao aliado. Ganha 1 Carga (máx. 3). Abre Terceira Voz por 2 turno(s).
+- **Terceira Voz** (`impulso:third`): Causa 20 de dano físico a um inimigo. Consome Cargas: +5 de dano por Carga. Após usar, restaura Primeira Cadência.
+
+## Isolde — A Juramentada · `a-guardia-das-promessas`
+
+- **Renovar o Pacto** (`tecnica:fulfill`): Restaura 25 de Vida ao aliado. Remove aflições e condições prejudiciais do beneficiado. Após usar, restaura Honrar o Pacto.
+
+## Cedric — O Artífice · `o-que-cria`
+
+- **Forma que Rompe** (`impulso:construct`): Causa 25 de dano perfurante a um inimigo. Consome Cargas: +3 de dano por Carga. Após usar, restaura Fragmento Nascente.
+
+## Sprout — A Semente · `a-semente`
+
+- **Fruto do Porvir** (`impulso:fruit`): Restaura 20 de Vida ao usuário. Concede 10 de Defesa destrutível ao usuário. Consome todas as Cargas.
+
+## Verdant — A Arquiteta · `a-arquiteta-verde`
+
+- **Viga de Apoio** (`impulso:beam`): Concede 15 de Defesa destrutível ao aliado. Regeneração: restaura 3 de Vida no início dos próximos 2 turnos do beneficiado. Após usar, restaura Pilar Ascendente.
+- **Colapsar a Abóbada** (`voto:collapse`): Causa 20 de dano físico a todos os inimigos. Após usar, restaura Pilar Ascendente. Após usar, restaura Convergência dos Pilares.
+
+## Chronos — O Descontínuo · `o-passo-interrompido`
+
+- **Passo Seguinte** (`impulso:next`): Causa 20 de dano perfurante a um inimigo. Ganha 1 Carga (máx. 3). Abre Passo Anterior por 1 turno(s).
+- **Passo Anterior** (`impulso:previous`): Causa 15 de dano espiritual a um inimigo. Enfraquece o alvo por 2 turnos. Após usar, restaura Fissura do Passo.
+
+## Fract — A Cindida · `a-linha-partida`
+
+- **Reatar a Linha** (`impulso:mend`): Concede 15 de Defesa destrutível ao aliado. Remove aflições e condições prejudiciais do beneficiado. Após usar, restaura Extremidade Solta.
+
+## Echo — O Eco · `o-eco-sem-dono`
+
+- **Ressonância Roubada:** Anular uma técnica física abre por 2 turnos um kit inteiro de resposta: golpe que gera carga, amparo coletivo e descarga em área.
+- **Eco sem Origem** (`impulso:stolen`): Causa 10 de dano espiritual a um inimigo. Ganha 1 Carga (máx. 3).
+- **Voz Devolvida** (`tecnica:stolen`): Concede 10 de Defesa destrutível ao trio. Remove aflições e condições prejudiciais do trio.
+- **Ressonância Roubada** (`voto:stolen`): Causa 15 de dano espiritual a todos os inimigos. Consome Cargas: +5 de dano por Carga. Após usar, restaura Coro sem Origem.
+
+## Rift — A Errante · `a-porta-que-flutua`
+
+- **Passagem de Retorno** (`impulso:return`): Restaura 10 de Vida ao aliado. Concede 10 de Defesa destrutível ao aliado. Após usar, restaura Abertura Impossível.
+
+## Chronicle — O Cronista · `o-relogio-afogado`
+
+- **Retomar o Instante** (`voto:release`): Causa 35 de dano espiritual a um inimigo. Consome Cargas: +5 de dano por Carga. O usuário perde 5 de Vida (não pode ser derrotado por este custo). Após usar, restaura Devolver os Segundos.
+
+## Lyra — A Inversa · `a-asa-invertida`
+
+- **Peso da Asa** (`impulso:weight`): Causa 15 de dano espiritual a um inimigo. Sela técnicas ofensivas por 1 turno do alvo. Após usar, restaura Pena ao Contrário.
+
+## Shade — A Oscilante · `a-sombra-inconstante`
+
+- **Contorno de Abrigo:** Troca a ofensiva inicial por recuperação e contra-ataque até Retomar a Sombra.
+- **Fingir Presença** (`impulso:feign`): Restaura 10 de Vida ao usuário. Anula a próxima habilidade inimiga de qualquer tipo recebida e contra-ataca com 10 de dano. Dura 1 turno.
+- **Retomar a Sombra** (`tecnica:resume`): Restaura 10 de Vida ao usuário. Remove aflições e condições prejudiciais do beneficiado. Após usar, restaura Sombra Atrás da Alma. Após usar, restaura Mudar de Contorno.
+
+## Soren — O Eremita · `a-alma-em-suspenso`
+
+- **Fôlego Emprestado** (`impulso:lend`): Restaura 25 de Vida ao aliado. Regeneração: restaura 4 de Vida no início dos próximos 2 turnos do beneficiado. Consome todas as Cargas.
