@@ -1,5 +1,5 @@
 import {characterById,buffs} from './data.js';
-import {getRelevantBuffChoices} from './rules.js';
+import {createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
 import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,exchangeTacticalEssence,tacticalArea,tacticalUnits} from './tactical-combat.js';
 import {planTacticalAI} from './tactical-ai.js';
 import {boardCells,cellLabel,sameCell,findPath,cellKey,occupied,obstacle} from './tactical-board.js';
@@ -8,7 +8,7 @@ import {getAbilityResourceCosts,resourceIds} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const state={battle:null,run:{buffs:[],memories:[],encounter:1,teamHealth:{}},rewardChoices:[],draft:[],selected:null,mode:'move',anchor:null,payment:null,message:'',busy:false,lastEvents:[],seed:1,revision:0};
+const state={battle:null,run:createTacticalRun(),rewardChoices:[],draft:[],selected:null,mode:'move',anchor:null,payment:null,message:'',busy:false,lastEvents:[],seed:1,revision:0};
 const costText=(u,a)=>Object.entries(getAbilityResourceCosts(u,a)).map(([k,n])=>`${n} ${names[k]||k}`).join(' + ')||'Sem custo';
 const actionPreview=()=>previewTacticalPlan(state.battle,'player',state.draft,state.payment);
 const shown=()=>{const p=previewTacticalPlan(state.battle,'player',state.draft);return p.ok?p.projection:state.battle;};
@@ -122,7 +122,7 @@ root.addEventListener('click',event=>{
  if(el.dataset.cell){const [x,y]=el.dataset.cell.split(',').map(Number);state.anchor={x,y};state.message='';render();return;}
  if(el.dataset.remove!==undefined){state.draft.splice(Number(el.dataset.remove),1);state.payment=null;state.message='';render();return;}
  if(el.dataset.order!==undefined){const i=Number(el.dataset.order),j=queueNeighbor(i,Number(el.dataset.direction));if(j!==null)[state.draft[i],state.draft[j]]=[state.draft[j],state.draft[i]];state.payment=null;state.message='';render();return;}
- if(el.dataset.reward){if(state.run.buffs.includes(el.dataset.reward))return;state.run.buffs.push(el.dataset.reward);state.rewardChoices=[];render();return;}
+ if(el.dataset.reward){if(!chooseTacticalReward(state.run,state.rewardChoices,el.dataset.reward))return;state.rewardChoices=[];render();return;}
  const command=el.dataset.command;
  if(command==='add')return addAction();
  if(command==='payment'){state.payment=state.payment?null:resourceIds.reduce((o,id)=>(o[id]=0,o),{});state.message='';render();}
@@ -130,11 +130,11 @@ root.addEventListener('click',event=>{
  if(command==='confirm'){
   const r=submitTacticalPlan(state.battle,'player',state.draft,state.payment);if(!r.ok){state.message=r.reason;render();return;}
   const result=resolveTacticalRound(state.battle);if(!result.ok){state.message=result.reason;render();return;}
-  state.lastEvents=result.events;if(result.finished&&state.battle.phase==='victory'){state.rewardChoices=getRelevantBuffChoices(state.battle.allies.map(u=>u.sourceId||u.id),state.run.buffs,seed+state.run.encounter,3);state.run.teamHealth=Object.fromEntries(state.battle.allies.map(u=>[u.id,u.hp]));}state.draft=[];state.payment=null;state.anchor=null;state.mode='move';state.selected=state.battle.allies.find(u=>u.hp>0)?.id;state.message='';
+  state.lastEvents=result.events;if(result.finished&&state.battle.phase==='victory'){state.rewardChoices=offerTacticalRewards(state.run,state.battle,seed+state.run.encounter);}state.draft=[];state.payment=null;state.anchor=null;state.mode='move';state.selected=state.battle.allies.find(u=>u.hp>0)?.id;state.message='';
   if(result.finished){render();animateRound(result.events);}else prepareEnemy(result.events);
  }
- if(command==='next-encounter'){state.run.encounter++;const ids=side=>[0,1,2].map(i=>state.battle[side==='player'?'allies':'enemies'][i].sourceId||state.battle[side==='player'?'allies':'enemies'][i].id);const player=ids('player'),enemy=ids('enemy');state.seed++;start(player,enemy,state.seed,false);return;}
- if(command==='restart'){state.run={buffs:[],memories:[],encounter:1,teamHealth:{}};const ids=side=>[0,1,2].map(i=>document.getElementById(`${side}-choice-${i}`).value),seed=Number(document.getElementById('seed-choice').value);start(ids('player'),ids('enemy'),Number.isSafeInteger(seed)?seed:1,document.getElementById('map-choice').value==='ruins');}
+ if(command==='next-encounter'){const next=advanceTacticalRun(state.run,state.battle);if(!next)return;state.seed=next.seed;try{state.battle=createTacticalBattle(next.player,next.enemy,{seed:next.seed,buffs:next.buffs,memories:next.memories,globalEffects:next.globalEffects,teamHealth:next.teamHealth});}catch(e){state.message=e.message;render();return;}Object.assign(state,{draft:[],selected:state.battle.allies.find(u=>u.hp>0)?.id,mode:'move',anchor:null,payment:null,lastEvents:[],animation:null,message:''});prepareEnemy();return;}
+ if(command==='restart'){state.run=createTacticalRun();const ids=side=>[0,1,2].map(i=>document.getElementById(`${side}-choice-${i}`).value),seed=Number(document.getElementById('seed-choice').value);start(ids('player'),ids('enemy'),Number.isSafeInteger(seed)?seed:1,document.getElementById('map-choice').value==='ruins');}
 });
 root.addEventListener('change',event=>{if(event.target.dataset.payment){const value=Number(event.target.value);state.payment[event.target.dataset.payment]=value;state.message='';render();}});
 start();
