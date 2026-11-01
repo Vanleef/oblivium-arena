@@ -47,3 +47,11 @@ test('reprodução atualiza o recorte do ator correto no DOM e preserva os demai
  paintTacticalToken(fallback,unit,event,{family:'slash',pose:'impact'});assert.equal(image.src,'/skill.webp');
  paintTacticalToken(fallback,unit,event,{family:'slash',pose:'ready'});assert.equal(image.src,'/portrait.webp');
 });
+
+test('impactos visuais só aparecem no contato de habilidades efetivamente executadas',async()=>{
+ const {tacticalImpactActive}=await import('../src/tactical-animation.js');
+ for(const pose of ['ready','anticipate','windup','release','travel','recover'])assert.equal(tacticalImpactActive({type:'skill',pose}),false,pose);
+ for(const pose of ['impact','counter'])assert.equal(tacticalImpactActive({type:'skill',pose}),true,pose);
+ assert.equal(tacticalImpactActive({type:'skill',pose:'impact',skipped:true}),false);
+ assert.equal(tacticalImpactActive({type:'move',pose:'landing'}),false);
+});
