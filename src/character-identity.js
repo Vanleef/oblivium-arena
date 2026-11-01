@@ -1483,12 +1483,12 @@ export function revisedArtFor(id, art) {
   }
 
   if (id === 'o-elo-dourado') {
-    const base = '/art/characters/o-elo-dourado/dark-pictorial-rework-20261101';
+    const base = '/art/characters/o-elo-dourado/anime-pictorial-rework-20261101';
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-que-une') {
-    const base = '/art/characters/a-que-une/dark-pictorial-rework-20261101';
+    const base = '/art/characters/a-que-une/anime-pictorial-rework-20261101';
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }

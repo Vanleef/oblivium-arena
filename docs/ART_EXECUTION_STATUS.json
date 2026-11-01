@@ -340,23 +340,31 @@
         "change": "Refação para Paraíso/Vênus pela direção pictórica oficial; identidade, mãos, trama material, anatomia e contagens de alvos conferidas."
       }
     ],
-    "status": "candidate_integrated_pending_visual_approval"
+    "status": "candidate_integrated_pending_visual_approval",
+    "latestCorrection": {
+      "date": "2026-11-01",
+      "characterIds": [
+        "a-que-une",
+        "o-elo-dourado"
+      ],
+      "revisedSlots": 12,
+      "report": "docs/ART_TECELA_DAMON_DIRECTION_CORRECTION_20261101.json",
+      "status": "candidate_revised_pending_visual_approval",
+      "mechanicsPreserved": true,
+      "previousVersionDisposition": "rejected_by_user_direction_feedback"
+    }
   },
   "latestVisualCorrection": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-espelho",
-      "a-cartografa-da-clareza"
+      "a-que-une",
+      "o-elo-dourado"
     ],
-    "titles": [
-      "Parrhasius, O Espelho",
-      "Idrisi, A Cartógrafa"
-    ],
-    "revisedSlots": 14,
-    "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
+    "revisedSlots": 12,
+    "report": "docs/ART_TECELA_DAMON_DIRECTION_CORRECTION_20261101.json",
     "status": "candidate_revised_pending_visual_approval",
     "mechanicsPreserved": true,
-    "previousCandidateStatus": "rejected_by_user_direction_feedback"
+    "previousVersionDisposition": "rejected_by_user_direction_feedback"
   },
   "latestDirectionBatch": {
     "date": "2026-11-01",
