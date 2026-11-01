@@ -97,3 +97,7 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .token[data-effect="graca"].animate-skill{filter:drop-shadow(0 0 15px #f0d78a)}
 .token[data-effect="ruptura"].animate-skill{filter:drop-shadow(0 0 15px #ad92ea)}
 .token[data-effect="essence"].animate-skill{filter:drop-shadow(0 0 15px #b8d7df)}
+
+/* A área de técnica preserva largura para títulos longos e leitura dos custos. */
+.skills{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.skill{min-height:104px}
