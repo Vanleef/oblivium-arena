@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Liora — A Marionetista
 
 Revisão dark fantasy pictórica em 31/10/2026. A identidade preserva pele morena quente, tranças longas, casaco âmbar ajustado e carretéis teal simples de madeira e bronze. Sete imagens foram geradas com OpenAI ImageGen: seis espaços-base e uma arte exclusiva para a forma **Manter o Comando**. As imagens estão integradas ao runtime; todas aguardam aprovação visual. Mecânicas preservadas.
@@ -31,3 +33,4 @@ As cenas usam um ghoul por ação individual. Os fios são materiais e mostram p
 **Romper o Comando:** Extreme side profile; she snaps the prepared link and one ghoul recoils in pain, without visible injury.
 
 **Fios Fora de Fase:** Rear three-quarter personal defense; an anchored fiber slings her intact body sideways out of one blade's path.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Darius — O Soberano
 
 **Identidade:** Darius aparece como um manto imperial vazio, sem corpo ou rosto visível, com coroa de ferro fraturada e placas de basalto flutuantes. A paleta usa carvão, basalto, oxblood, cinza e bronze envelhecido.
@@ -17,3 +19,4 @@
 | Trono Incontestável — variação | O Soberano, Pheretime e Demetrius sustentam uma laje em queda sob uma cobertura defensiva. |
 
 As imagens usam cenas e câmeras distintas, com arquitetura de pedra infernal e materiais táteis. Não alteram mecânicas. As fontes JPEG 768×768 e ativos WebP 512×512 estão listados no manifesto JSON; não há imagem aprovada nesta rodada.
+

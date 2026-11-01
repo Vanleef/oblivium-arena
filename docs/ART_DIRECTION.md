@@ -1,4 +1,4 @@
-# Direção de arte — PMA / Oblivium Arena
+# Oblivium Arena — direção de arte
 
 Direção vigente em 01/11/2026. Esta orientação prevalece sobre instruções anteriores que pediam textura densa, erosão generalizada ou acabamento próximo do realismo. Os nomes de pastas e manifestos históricos não comprovam aderência visual.
 
@@ -70,3 +70,4 @@ Comparar cada imagem com esta direção, identidade/lore e mecânica. Conferir a
 ## Frase de trava
 
 “Siga o tipo de traço e composição visual das referências positivas, em estilo anime 2.5D pictórico com influência de Arcane e Spider-Verse. Evite o excesso de textura rachada e o acabamento confuso das referências negativas. O personagem nunca deve olhar para a câmera e não pode parecer que está posando. Mantenha anatomia correta, varie ângulos e poses, e represente poderes de forma física e coerente. Adapte as cores ao Mundo (vermelho/preto para Inferno, branco/dourado/azul para Paraíso, roxo + cinzas para Limbo). Sem tecnologia.”
+

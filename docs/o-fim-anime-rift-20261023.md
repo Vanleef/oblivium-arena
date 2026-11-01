@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # O Fim — manifestação humanoide da ruptura
 
 Direção de Eduardo: manter a arte de anime; O Fim pode assumir uma forma humanoide misturada a uma ruptura, com rosto como um vazio de escuridão e corpo de sombra semelhante a um vórtice no tempo e no espaço.
@@ -18,3 +20,4 @@ Arte 2D de anime com contornos definidos, massas gráficas de sombra e cel shadi
 Custos, efeitos, recargas, IDs, progresso e regras de combate não foram alterados. A defesa pessoal continua Invulnerável por um turno, com recarga de quatro.
 
 Arquivos finais: `art/characters/o-fim/anime-rift-revision-20261023/`, RGB WebP 512 × 512, com versões anteriores preservadas. Geração pela ferramenta integrada de imagens, uma chamada por arte; exportação WebP sem redesenho por código. Prompts exatos, referências, caminhos e hashes em `O_FIM_ANIME_RIFT_20261023.json`.
+

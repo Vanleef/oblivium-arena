@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Aegis — O Escudo Vivo
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
@@ -11,3 +13,4 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 
 Ativos: `art/characters/o-escudo-vivo/dark-pictorial-rework-20261031/`  
 Fontes: `art/source/o-escudo-vivo-dark-pictorial-rework-20261031/`
+

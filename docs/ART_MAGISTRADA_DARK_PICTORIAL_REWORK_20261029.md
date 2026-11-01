@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Judith — A Magistrada
 
 **Identidade:** Judith conserva a trança prateada, os olhos âmbar, a máscara de ferro escuro, a armadura negra e o manto oxblood. A textura segue a referência de Baal: pintura densa, superfícies erodidas, metal gasto, tecido pesado e luz opressiva.
@@ -14,3 +16,4 @@
 | Toga Inviolável | Ângulo baixo aberto: o manto forma uma barreira individual diante do impacto. |
 
 As composições usam ângulos distintos e preservam o cenário infernal. A anatomia foi revisada para manter membros, articulações e proporções legíveis. Nenhuma mecânica foi alterada. Fontes JPEG 768×768 e ativos WebP 512×512 estão listados no manifesto JSON. Nenhuma arte foi aprovada nesta integração.
+

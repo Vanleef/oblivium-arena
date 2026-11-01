@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Thorn — O Definhador
 
 **Personagem:** Thorn, O Definhador (ID o-jardim-morto; anteriormente O Jardim Morto)  
@@ -28,3 +30,4 @@ As seis imagens foram inspecionadas. O retrato mantém o rosto e o corpo humano 
 - Trama Necrosada: 12 de Defesa destrutível ao trio; agressor que cause dano de Vida recebe 5 de dano de aflição.
 - Definhar: 15 de dano físico a todos; +10 contra alvos com Decadência e Enfraquece por 1 turno.
 - Casca Inviolável: Invulnerável por 1 turno; recarga 4T.
+

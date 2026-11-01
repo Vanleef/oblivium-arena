@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Avaliação automática de combates
 
 Reprodução: `node scripts/simulate-combat.mjs`. São 300 partidas com sementes fixas, envolvendo os 100 personagens como integrantes do trio do jogador. As composições e os tipos de Essência variam por semente; a distribuição segue as regras normais, sem reservas artificiais ou Legados.
@@ -68,3 +70,4 @@ As execuções de maior pico foram moderadas: O Furor perde 5 de dano base e 5 d
 - A previsão é conservadora e usa apenas o estado atual: não consulta a fila do jogador nem sorteios futuros. Não é uma busca exaustiva por todas as sequências possíveis.
 - A inspeção de personagem mostra os efeitos ativos com origem, gatilho e valores. O campo continua com quatro ícones por personagem.
 - Reações de cura e proteção informam origem e beneficiários; a regeneração tem uma etapa de apresentação no início do turno.
+

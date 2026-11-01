@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Voronir — reformulação pictórica (2026-10-29)
 
 **Mundo:** Inferno · **Reino:** Tártaro
@@ -20,3 +22,4 @@ Dark fantasy pictórica densa e material, com pincelada estilizada visível e me
 - **Armadilha de Vazio (despertar):** O golpe inimigo cai numa depressão física de cinza e basalto onde Voronir estava.
 
 O runtime usa seis WebP 512 × 512; seis fontes JPEG 768 × 768 e hashes SHA-256 estão registrados no manifesto JSON. Não há formas adicionais no perfil. As imagens aguardam revisão visual final.
+

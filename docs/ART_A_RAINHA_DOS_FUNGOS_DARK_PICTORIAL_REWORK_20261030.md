@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Myra — A Rainha dos Fungos
 
 **Personagem:** Myra, A Rainha dos Fungos (`a-rainha-dos-fungos`)  
@@ -34,3 +36,4 @@ Seis candidatas inspecionadas. Beatrix conserva pele lavanda, bob preto e anatom
 ## Estilo dos prompts
 
 Arte quadrada dark fantasy anime-first 2.5D com pinceladas angulares, contornos manuais, hachuras, texturas táteis, paleta de cinza vulcânico, púrpura e vermelho infernal discreto. Cada imagem usou um prompt independente e enquadramento próprio. Restrições comuns: identidade visual constante, anatomia humana, contagem explícita de aliados e alvos, sem texto, interface, tecnologia, gore ou marcas d'água.
+

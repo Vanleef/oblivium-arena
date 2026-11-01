@@ -320,7 +320,8 @@ export const characters = rawCharacters.map(character => {
     kingdom: kingdom.name,
     englishKingdom: kingdom.englishName,
     realm: kingdom.realm,
-    flavor: character.lore || (character.storyCharacter ? character.flavor : kingdom.theme),
+    lore: rosterIdentity?.lore || character.lore,
+    flavor: rosterIdentity?.lore || character.lore || (character.storyCharacter ? character.flavor : kingdom.theme),
     elo: kingdom.name,
     englishElo: kingdom.englishName,
     color: kingdom.color,
@@ -1086,4 +1087,5 @@ export const buffs = [
     "glyph": "split"
   }
 ];
+
 

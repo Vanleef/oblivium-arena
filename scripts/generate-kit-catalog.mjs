@@ -4,9 +4,9 @@ import {archetypeCatalog} from '../src/archetypes.js';
 import {allSkillForms} from '../src/kits.js';
 import {getAbilityResourceCosts} from '../src/combat.js';
 const names=Object.fromEntries(Object.values(resourceById).map(r=>[r.id,r.name]));
-const lines=[`# PMA — kits e regras de combate
+const lines=[`# Oblivium Arena — kits e regras de combate
 
-Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/generate-kit-catalog.mjs\`.
+Catálogo gerado a partir dos dados da revisão de desenvolvimento (PR #3, branch \`art/oblivium-arena-anime-first-20261027\`). A branch \`main\` pode conter uma versão jogável anterior. Atualize com \`node scripts/generate-kit-catalog.mjs\`.
 
 ## Fluxo
 
@@ -20,11 +20,11 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 
 - A quarta técnica de cada personagem concede Invulnerável por uma resposta adversária. Custa 1 Coringa; fica indisponível nos quatro turnos próprios seguintes.
 - A reserva tem quatro Essências: Éter, Cinza, Graça e Ruptura. Coringa é um custo flexível; escolha uma dessas quatro Essências para cada unidade pedida.
-- A afinidade de cada alma é definida pelas técnicas, passivas e formas do kit. Personagens do mesmo reino podem usar tipos diferentes; o Elo não determina a afinidade.
-- Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo no começo de cada rodada. Cada tipo tem 20% de chance por sorteio e o saldo acumula sem limite. Com 5 unidades, escolha quais pips gastar e troque-os por 1 unidade de um tipo específico; a conversão reduz o saldo líquido em 4.
+- A afinidade de cada alma é definida pelas técnicas, passivas e formas do kit. Personagens do mesmo reino podem usar tipos diferentes; o Reino não determina a afinidade.
+- Desde a abertura, cada lado recebe 1 Essência aleatória por personagem vivo no começo de cada rodada. Cada tipo tem 25% de chance por sorteio e o saldo acumula sem limite. Com 5 unidades, escolha quais pips gastar e troque-os por 1 unidade de um tipo específico; a conversão reduz o saldo líquido em 4.
 - Gerar, converter, gastar e roubar/drenar Essência são identidades separadas no Codex: Gerador de Essência cria uma reserva, Transmutador troca tipos, Gastador transforma pagamento em efeito e Manipulador de Essência interfere na reserva adversária.
-- Ressonância concede +8% para uma dupla do mesmo Elo, +15% para o trio do mesmo Elo, +11% para dupla com Limbo e +6% para uma equipe sem dupla de Elo que inclua Limbo.
-- Combos ganham +1 de dano por aliado adicional vivo do mesmo Elo, até +2; o bônus só entra quando a condição do combo é atendida.
+- Ressonância concede +8% para uma dupla do mesmo Reino, +15% para o trio do mesmo Reino, +11% para dupla com Limbo e +6% para uma equipe sem dupla de Reino que inclua Limbo.
+- Combos ganham +1 de dano por aliado adicional vivo do mesmo Reino, até +2; o bônus só entra quando a condição do combo é atendida.
 - Sinergias de Mundo acompanham a composição viva: aliados do Inferno aumentam aflições aplicadas em até 2, aliados do Paraíso reforçam curas em até 2 e presença do Limbo concede até 2 de Defesa ao trio no início da rodada.
 - Corpos distintos podem usar tipos de Essência diferentes; o seletor de formas do Codex mostra a afinidade e o kit de cada corpo.
 - Invulnerável impede novas habilidades inimigas; aflições anteriores continuam.
@@ -47,7 +47,7 @@ Catálogo gerado a partir dos dados jogáveis. Atualize com \`node scripts/gener
 - https://naruto-arena.online/the-basics/
 - https://soul-arena.io/the-basics
 
-Os kits usam as identidades e os conceitos do PMA. Testes cobrem a execução de cada combo, custos, uso de marcas e cargas, durações e a quarta defesa. O ajuste fino entre equipes e dificuldades depende de partidas e iterações de balanceamento.
+Os kits usam as identidades e os conceitos de Oblivium Arena. Testes cobrem a execução de cada combo, custos, uso de marcas e cargas, durações e a quarta defesa. O ajuste fino entre equipes e dificuldades depende de partidas e iterações de balanceamento.
 
 ## Arquétipos
 
@@ -58,12 +58,13 @@ ${Object.entries(archetypeCatalog).map(([id, archetype]) => {
   return `- **${archetype.icon} ${archetype.name}** (${count} kits): ${archetype.context}`;
 }).join('\n')}
 `];
-for(const elo of elos){lines.push(`## Elo ${elo.name}\n`);for(const c of characters.filter(c=>c.eloId===elo.id)){
+for(const elo of elos){lines.push(`## Reino ${elo.name} · ${elo.realm}\n`);for(const c of characters.filter(c=>c.eloId===elo.id)){
  const affinity=resourceById[c.affinity]?.name||'Essência';
  const secondary=c.archetypeDetails.slice(1).map(a=>a.name).join(', ')||'—';
- lines.push(`### ${c.name} — ${c.archetypeName}\n\n**Variação:** ${c.archetypeVariant} · **Essência:** ${affinity}\n\n**Outros arquétipos:** ${secondary}\n\n${c.combo}\n\n${c.mechanic?`**Estrutura:** ${c.mechanic}\n\n`:""}**Passiva — ${c.passive.name}:** ${c.passive.description}\n`);
+ lines.push(`### ${c.name} — ${c.identityTitle || c.archetypeName}\n\n**ID:** \`${c.id}\` · **Arquétipo:** ${c.archetypeName}\n\n${c.lore || c.flavor || ''}\n\n**Variação:** ${c.archetypeVariant} · **Essência:** ${affinity}\n\n**Outros arquétipos:** ${secondary}\n\n${c.combo}\n\n${c.mechanic?`**Estrutura:** ${c.mechanic}\n\n`:""}**Passiva — ${c.passive.name}:** ${c.passive.description}\n`);
  for(const a of allSkillForms(c)){const cost=Object.entries(getAbilityResourceCosts(c,a)).map(([id,n])=>`${n} ${names[id]||id}`).join(' + ');lines.push(`- **${a.name}**${a.formKey?" [variação]":""} (${cost}; recarga ${a.cooldown}T): ${a.description}`);}
  lines.push('');
 }}
 await writeFile(new URL('../docs/COMBAT_KITS.md',import.meta.url),`${lines.join('\n')}\n`);
 console.log(`Catálogo atualizado: ${characters.length} kits, ${characters.flatMap(allSkillForms).length} técnicas, incluindo variações.`);
+

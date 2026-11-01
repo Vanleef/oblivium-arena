@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Ragnar — O Ressentido
 
 Sete candidatas cobrem retrato, passiva, quatro habilidades-base e a variação Rancor Reaceso. Ragnar continua sendo um homem adulto jovem, esguio e de pele castanho-escura, com cachos brancos, poncho de cinzas sobre roupa carmesim, apito de argila e alforje de cinzas.
@@ -17,3 +19,4 @@ Ativos WebP 512×512: `art/characters/o-filho-da-cinza/dark-pictorial-rework-202
 | despertar | A silhueta de Ragnar se desfaz em cinza e brasas, deslizando por uma passagem estreita entre blocos de basalto; nenhum adversário é atingido. |
 
 As rotas do runtime foram atualizadas apenas para as novas artes; nenhuma mecânica foi alterada.
+

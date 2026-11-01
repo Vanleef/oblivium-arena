@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Lyra — A Vingadora
 
 ## Revisão de direção visual
@@ -25,3 +27,4 @@ O feedback apontou que o manto e o conjunto preto/carmesim anteriores aproximava
 | despertar | Passo entre Brasas | self | `/art/characters/a-pira-errante/dark-pictorial-rework-20261030/skill-despertar.webp` | `art/source/a-pira-errante-dark-pictorial-rework-20261030/despertar.jpg` | `a8f5808cab21f16b93a0bf47769a1141d55f80681f0632eee072877d32da596b` |
 
 Formato ativo: WebP 512 × 512, qualidade 86. Fonte: JPEG 768 × 768, qualidade 92. Originais quadrados de 1254 × 1254; dimensões, bytes e hashes completos estão no manifesto JSON adjacente.
+

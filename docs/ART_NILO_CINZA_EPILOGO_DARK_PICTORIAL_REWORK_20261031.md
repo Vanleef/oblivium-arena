@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, Epílogo de Cinza (++Cinza) — revisão anime-first 2.5D pictórica — 31/10/2026
 
 As oito artes foram refeitas para representar **++Cinza**: Nilo está maligno, com olhos completamente vermelhos e traços infernais; herda a fúria, as queimaduras, as chamas e os fios alaranjados de **+Cinza**. Mantém a identidade e o contexto do Estige, com basalto, cinza, seda ritual e luz vermelho-escura.
@@ -18,3 +20,4 @@ Ativos WebP 512×512: `art/characters/nilo-cinza-epilogo/dark-pictorial-rework-2
 | despertar-4 | Ângulo lateral baixo: fio corta o ombro do alvo e provoca sua reação. |
 | tecnica-5 | Plano lateral amplo: alvo debilitado ajoelha; Nilo recolhe a palma. |
 | despertar-6 | Defesa em corpo inteiro: manto de cinza e seda bloqueia brasas e fragmentos. |
+

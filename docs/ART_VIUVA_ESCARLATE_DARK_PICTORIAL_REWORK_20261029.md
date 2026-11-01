@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Lira — A Noiva da Lua
 
 **Identidade:** Lira preserva a pele castanha, os olhos âmbar, o cabelo negro com mecha branca, as rosas vermelhas, o véu escarlate, a gola marfim gasta e as roupas negras de luto. A textura segue Baal: pintura densa, tecido pesado, pele tátil, pedra erodida e luz opressiva.
@@ -15,3 +17,4 @@
 | Fio Reverso | Close lateral; fio perfura a roupa do alvo marcado e retorna à Viúva como Vida. |
 
 Os fios são tecidos físicos, não feixes genéricos. A anatomia, as mãos e as articulações foram revisadas; as sete composições são quadradas. Fontes JPEG 768×768 e WebP ativos 512×512; hashes e imagens de origem constam no manifesto JSON. Nenhuma mecânica foi alterada. Nenhuma arte foi aprovada nesta integração.
+

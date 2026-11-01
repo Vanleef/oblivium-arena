@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Iris — A Boticária
 
 - **Data:** 2026-10-31
@@ -25,3 +27,4 @@ Mulher adulta alta, cerca de 38 anos, pele castanha quente, locs verde-escuras l
 Seis WebP ativos em 512×512 e seis JPEG fonte em 768×768. A técnica cura os dois aliados junto à boticária, fechando o trio; Impulso e Voto atingem um único inimigo cada. Os cenários permanecem distintos: bosque, pomar, terraço de vasos, fonte termal, gruta cristalina e capela de madeira.
 
 **Escopo de runtime:** somente rotas de arte e metadados de cobertura; regras de combate inalteradas.
+

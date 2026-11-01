@@ -54,7 +54,7 @@ export const rosterIdentityOverrides = Object.freeze({
   "o-fim-silencioso": { name: "Erebus", title: "O Arauto" },
   "o-menino-sem-sombra": { name: "Ashen", title: "O Desolador" },
   "a-ultima-pagina": { name: "Soren", title: "A Escriba" },
-  "o-lugar-de-ninguem": { name: "Niith", title: "O Fim", aliases: ["O Obliterador","O Lorde do Inferno"] },
+  "o-lugar-de-ninguem": { name: "Niith", title: "O Fim", aliases: ["O Obliterador","O Lorde do Inferno"], lore: "Niith, O Fim, é o Lorde do Inferno, um princípio personificado que não morre: adormece. Seu sono prolonga a paz entre os vivos, mas impede que certas mortes se concluam, prendendo almas a corpos que já não as sustentam. Suas manifestações não revelam um corpo verdadeiro.", englishLore: "Niith, the End, is the Lord of Inferno, a personified principle who does not die: he sleeps. His sleep prolongs peace among the living but prevents some deaths from reaching their end, trapping souls in bodies that can no longer sustain them. His manifestations reveal no true body." },
   "o-escudo-vivo": { name: "Aegis", title: "O Escudo Vivo" },
   "a-muralha": { name: "Bastion", title: "A Muralha" },
   "o-que-ficou": { name: "Caius", title: "O Abnegado" },
@@ -67,7 +67,7 @@ export const rosterIdentityOverrides = Object.freeze({
   "o-pulso-sereno": { name: "Seren", title: "O Sereno" },
   "o-equilibrio": { name: "Aldric", title: "O Árbitro" },
   "a-lamina-justa": { name: "Justus", title: "A Íntegra" },
-  "o-que-pesa": { name: "Aristides", title: "O Regulador" },
+  "o-que-pesa": { name: "Aristides", title: "O Regulador", lore: "Aristides, O Regulador, impõe no Oblívio uma ordem infernal de peso e consequência. Sua contenção serve ao domínio, não à bondade: pune excessos para preservar a própria autoridade. Manifesta energia infernal dourada e signos, sem balanças.", englishLore: "Aristides, the Regulator, imposes an infernal order of weight and consequence in Oblivion. His restraint serves domination rather than kindness: he punishes excess to preserve his own authority. He manifests golden infernal energy and signs, without scales." },
   "a-testemunha-integra": { name: "Maqrizi", title: "A Testemunha" },
   "o-julgador-gentil": { name: "Benedict", title: "O Juiz" },
   "a-chama-que-nao-apaga": { name: "Caelum", title: "A Perseverante" },
@@ -101,7 +101,7 @@ export const rosterIdentityOverrides = Object.freeze({
   "a-sombra-inconstante": { name: "Shade", title: "A Oscilante" },
   "a-ponte-rasgada": { name: "Bridge", title: "A Peregrina" },
   "a-alma-em-suspenso": { name: "Soren", title: "O Eremita" },
-  "nilo": { name: "Nilo", title: "O Receptáculo" },
+  "nilo": { name: "Nilo", title: "O Receptáculo", lore: "Nilo nasceu em coma e nunca viveu escolhas conscientes. Sem atos suficientes para receber um veredito, foi enviado às filas de reencarnação do Limbo. Um ataque do Inferno o arrancou do processo enquanto sua alma estava receptiva; desde então absorve involuntariamente fragmentos de outras almas e luta para preservar a própria identidade.", englishLore: "Nilo was born in a coma and never made conscious choices. Without enough deeds to receive a verdict, he was sent to Limbo’s reincarnation queues. An attack from Inferno tore him from the process while his soul was receptive; he has since absorbed fragments of other souls involuntarily and struggles to preserve his identity." },
   "nilo-o-prefacio": { name: "Nilo", title: "Prefácio de Cinza" },
   "nilo-graca-prefacio": { name: "Nilo", title: "Prefácio de Graça" },
   "nilo-ruptura-prefacio": { name: "Nilo", title: "Prefácio de Ruptura" },
@@ -138,8 +138,8 @@ export const rosterIdentityOverrides = Object.freeze({
   "seraphim-o-eco": { name: "Seraph", title: "O Prólogo", englishTitle: "The Prologue", aliases: ["Seraphim"] },
   "eiremir": { name: "Eiremir", title: "A Anomalia" },
   "eiremir-o-espelho-partido": { name: "Eiremir", title: "O Espelho Partido" },
-  "khoren-caminho": { name: "Zalmoxis", title: "A Abnegação", englishTitle: "The Selfless One" },
-  "elaris-prologo": { name: "Seraph", title: "O Prólogo", englishTitle: "The Prologue", aliases: ["Elaris"] },
+  "khoren-caminho": { name: "Zalmoxis", title: "A Abnegação", englishTitle: "The Selfless One", lore: "Zalmoxis, A Abnegação, é o Lorde do Limbo e vigia as passagens entre existências. Não morre: adormece. Seu sono embaralha destinos, interrompe reencarnações e espalha esquecimento. O colapso de suas passagens deixou Nilo permanentemente receptivo.", englishLore: "Zalmoxis, the Selfless One, is the Lord of Limbo and watches the passages between lives. He does not die: he sleeps. His sleep tangles destinies, interrupts reincarnation, and spreads oblivion. The collapse of his passages left Nilo permanently receptive." },
+  "elaris-prologo": { name: "Seraph", title: "O Prólogo", englishTitle: "The Prologue", aliases: ["Elaris"], lore: "Seraph, O Prólogo, é a Guardiã do Paraíso. Sustenta a possibilidade de recomeçar sem apagar as perdas. Não morre: adormece. Seu sono desencadeia caos, guerras e colapso de sentido no mundo dos vivos. As manifestações e os ecos de Seraph pertencem à mesma presença.", englishLore: "Seraph, the Prologue, is the Guardian of Paradise. She preserves the possibility of beginning again without erasing loss. She does not die: she sleeps. Her sleep brings chaos, wars, and a collapse of meaning to the living world. Seraph’s manifestations and echoes belong to the same presence." },
   "cain": { name: "Cain", title: "O Reflexo Cruel" },
   "lilith": { name: "Lilith", title: "A Negação" },
   "caliope": { name: "Calíope", title: "A Falsária" },
@@ -159,3 +159,4 @@ export const worldLeaderIdentities = Object.freeze({
   paraiso: Object.freeze({ name: "Seraph", title: "O Prólogo", rosterId: "elaris-prologo", realmId: "paraiso" }),
   limbo: Object.freeze({ name: "Zalmoxis", title: "A Abnegação", role: "Lorde do Limbo", rosterId: "khoren-caminho", realmId: "limbo" })
 });
+

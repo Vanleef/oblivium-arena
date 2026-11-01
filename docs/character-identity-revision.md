@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Revisão de identidade do elenco — 23/10/2026
 
 Revisão dos nomes e retratos dos 100 personagens, com correções selecionadas por relação entre mundo, Elo, papel de combate e imagem. Foram revistas 23 identidades (22 nomes finais diferentes do catálogo original) e 50 nomes de técnicas/passivas.
@@ -48,3 +50,4 @@ Os IDs permanentes, o total de 100 personagens, os desbloqueios e a progressão 
 Nomes devem ser curtos e distintivos, preferindo artigo e um título. O vínculo com o mundo e o Elo deve aparecer na lore e no papel de combate, sem exigir que o corpo seja literalmente o objeto citado. Coroa expressa domínio e submissão; Justiça expressa ponderação e reparação. Fome pode sustentar aliados por dependência, sem parecer uma manifestação benevolente de Cura. Silêncio comunica escolha de omissão, abandono e supressão. Diferenciar rosto, idade aparente, silhueta, vestimenta, material e linguagem do poder antes de variar somente a cor.
 
 Prompts completos e inventário das 21 novas imagens: `IDENTITY_REVISION_20261023.json`. Imagens produzidas com a ferramenta integrada; exportação WebP de 512 px para o jogo.
+

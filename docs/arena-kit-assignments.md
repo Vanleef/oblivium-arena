@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Atribuição dos kits de Arena aos personagens do Oblivium Arena
 
 ## Critério
@@ -276,3 +278,4 @@ A adaptação do **Eco sem Nome** usa somente o eixo de jogo de **marcar, vincul
 As passivas continuam usando as regras próprias do Oblivium Arena e agora ficam vinculadas à referência de kit por metadados de design. Cada passiva explicita qual decisão sustenta: condição aplicada, marca, gasto de Essência, apoio, sobrevivência, furtividade ou resposta. As regras permanecem condicionais; não há bônus importado como efeito automático.
 
 Para o personagem em combate, `kitDesignReference` registra a referência de catálogo, o ciclo adaptado, a passiva relacionada e a indicação de que esses dados são editoriais. As descrições apresentadas durante o combate continuam com nomes e efeitos do Oblivium Arena.
+

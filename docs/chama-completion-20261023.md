@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Chama — conclusão da revisão visual
 
 Data: 23/10/2026. **12 novas imagens para três personagens.**
@@ -38,3 +40,4 @@ Com os lotes anteriores, os seis personagens de Chama têm **36 imagens básicas
 Dois testes antigos de presença de binários históricos não são executados neste checkout parcial. Os 609 caminhos atuais são conferidos contra a árvore remota e os 12 arquivos novos, sem arquivos substitutos. As novas artes são WebP de 512 × 512; os arquivos anteriores permanecem preservados em seus caminhos originais.
 
 Prompts integrais, hashes, revisão por cena, inventário dos seis conjuntos e referências de validação estão em `CHAMA_COMPLETION_20261023.json`. Geração pelo recurso integrado de imagens; integração e verificação da prévia no branch de revisão.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Fortuna — A Usurária
 
 **Personagem:** Fortuna, A Usurária (`a-balanca-vazia`)  
@@ -32,3 +34,4 @@ Seis candidatas inspecionadas. Fortuna mantém dois braços e mãos legíveis; c
 - **Adiantamento Vital:** entrega uma conta a um aliado ghoul e limpa a fuligem de seu braço.
 - **Confisco Coletivo:** afeta exatamente três ghouls; a composição tem quatro figuras contando Fortuna.
 - **Penhor Inalcançável:** Fortuna desvia para fora da lança de um atacante.
+

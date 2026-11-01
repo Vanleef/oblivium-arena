@@ -30,7 +30,7 @@ const phraseTranslations = Object.fromEntries(Object.entries({
   "Reúna três almas. Atravesse os Reinos. Restaure o véu.": "Gather three souls. Cross the Kingdoms. Restore the veil.",
   "O outro lado espera.": "The other side awaits.", "As barreiras cedem. O trio escolhe o que atravessa.": "The barriers give way. Your team chooses what crosses.",
   "Codex de Reinos": "Kingdom Codex", "Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.": "Discover the forces crossing the veil. Win trails to recruit new souls.",
-  "ALMAS CONHECIDAS": "KNOWN SOULS", "140 ALMAS · 22 REINOS · 3 MUNDOS": "140 SOULS · 22 KINGDOMS · 3 REALMS", "140 PERSONAGENS": "140 CHARACTERS",
+  "ALMAS CONHECIDAS": "KNOWN SOULS", "150 ALMAS · 22 REINOS · 3 MUNDOS": "150 SOULS · 22 KINGDOMS · 3 WORLDS", "150 PERSONAGENS": "150 CHARACTERS",
   "Buscar nome, arquétipo ou Essência": "Search name, archetype, or Essence", "Buscar personagem, Reino ou Essência": "Search character, Kingdom, or Essence",
   "Todos os Reinos": "All Kingdoms", "Todos os arquétipos": "All archetypes", "Todas as funções": "All roles", "ARQUÉTIPO PRINCIPAL": "PRIMARY ARCHETYPE",
   "AFINIDADE PRINCIPAL DE ESSÊNCIA": "PRIMARY ESSENCE AFFINITY", "COMO JOGAR": "HOW TO PLAY", "COMO ESTE PERSONAGEM QUER SER JOGADO": "HOW THIS CHARACTER PLAYS",
@@ -893,3 +893,4 @@ export function localizeMarkup(markup, language = getLanguage()) {
     return translated;
   }).join("");
 }
+

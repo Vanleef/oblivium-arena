@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Haytham, O Vidente — migração para direção pictórica
 
 Data: 2026-11-01  
@@ -27,3 +29,4 @@ As seis cenas foram refeitas a partir dos exemplos pictóricos oficiais do PMA: 
 - **Véu da Serenidade:** esquiva pessoal de uma única lâmina.
 - Anatomia, identidade, paleta e quantidade de alvos foram conferidas. Mecânicas preservadas.
 - JPEGs fonte: 768×768; WebPs ativos: 512×512. A aprovação visual continua pendente.
+

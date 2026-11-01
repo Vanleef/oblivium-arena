@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Bulkir — reformulação pictórica (2026-10-29)
 
 **Mundo:** Inferno · **Reino:** Pútrido
@@ -20,3 +22,4 @@ Ilustração dark fantasy pictórica densa, materialidade tátil, desgaste e som
 - **despertar — Habilidade: Despertar:** Abaixa-se sob um arco em colapso; placas fúngicas orgânicas nos ombros e costas recebem os escombros.
 
 As fontes JPEG 768 × 768 e os ativos WebP 512 × 512 estão listados com SHA-256 no manifesto JSON correspondente. Os caminhos do runtime foram preservados. As saídas estão integradas como candidatas e aguardam revisão visual final.
+

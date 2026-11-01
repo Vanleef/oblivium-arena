@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Atlas — reformulação dark fantasy pictórica (2026-10-29)
 
 **Mundo:** Inferno · **Reino:** Magma
@@ -51,3 +53,4 @@ Os ativos WebP têm 512 × 512; as fontes JPEG têm 768 × 768. Hashes e cenas e
 ## Correção anatômica — Sustentar o Céu — 29/10/2026
 
 Após a observação de anomalia corporal, a cena foi refeita com Atlas em agachamento baixo e dois braços sustentando a laje. A nova imagem deixa a continuidade do tronco, os ombros, os cotovelos e o apoio das pernas mais claros. O WebP ativo foi substituído; a correção continua candidata à aprovação visual.
+

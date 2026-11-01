@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Presença das entidades e coerência dos poderes — 23/10/2026
 
 Quarta rodada de revisão do PMA: nove identidades, oito nomes novos, três conjuntos visuais completos e sete correções pontuais de habilidades. Os 100 personagens permanecem em seus mundos e Elos originais.
@@ -37,3 +39,4 @@ Total: **25 imagens novas**, em `art/characters/<id>/spirit-revision-20261023/`,
 ## Integração
 
 IDs, posse, trios salvos, mundos, Elos, Vida, custos, recargas, alvos, efeitos e transições de formas permanecem iguais. A comparação estrutural de todo o elenco exclui apenas metadados de apresentação. A busca continua aceitando os nomes anteriores e atuais, e as instruções das formas alternativas acompanham os novos nomes.
+

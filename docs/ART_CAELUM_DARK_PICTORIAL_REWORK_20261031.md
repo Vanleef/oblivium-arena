@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Caelum — A Perseverante
 
 - Data: 31/10/2026
@@ -39,3 +41,4 @@ Caelum mantém pele azul-escura, cachos prateados, olhos âmbar, manto azul sob 
 - `art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/despertar.jpg`
 
 As artes foram redimensionadas para WebP 512×512; as fontes JPEG têm 768×768. A cobertura permanece 552/998 espaços, com 545 candidatas pendentes de aprovação visual e sete aprovadas.
+

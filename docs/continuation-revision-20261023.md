@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Continuação da revisão de personagens — 23/10/2026
 
 A rodada iniciada no chat “Prosseguir opções PMA” foi retomada a partir de Serpe, Semente e Cindida. Esta entrega integra os três conjuntos, com vinte imagens finais em anime 2D, incluindo duas formas alternativas.
@@ -33,4 +35,5 @@ A passiva e o Fruto da Semente foram refeitos após inspeção: uma aproxima a c
 - 140 testes funcionais aprovados, incluindo os retornos de imagem das duas técnicas alternativas.
 - Os dois testes que exigem arquivos históricos locais foram excluídos desta execução: este checkout de trabalho trouxe os arquivos de código e as novas imagens. As 584 referências históricas de arte foram conferidas no inventário do commit de partida; as vinte referências novas apontam para arquivos exportados e validados.
 - A versão de O Fim no commit de partida não foi alterada nesta rodada.
+
 

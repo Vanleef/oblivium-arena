@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Orin — O Intrigante
 
 7 candidatas cobrem retrato, passiva e habilidades, incluindo a variação dedicada Desatar a Trama. Sete peças inspecionadas. A face de porcelana permanece única; Rede de Falsidades atinge exatamente três inimigos e Desatar a Trama mostra exatamente três aliados no total, incluindo Orin. Sem anomalias anatômicas evidentes. Custos, alvos, efeitos e recargas permanecem inalterados. Todas aguardam aprovação visual final.
@@ -13,3 +15,4 @@ Ativos WebP 512×512: `art/characters/o-tecelao-de-mentiras/dark-pictorial-rewor
 | tecnica:unweave | Orin desfaz nós nocivos das vestes de exatamente dois aliados; são três figuras ao todo, incluindo o próprio Orin. |
 | voto | Um nó carmesim comprime o torso e o braço de um único alvo marcado, interrompendo sua resistência. |
 | despertar | Orin se recolhe entre prateleiras e tiras de papel enquanto uma lâmina atravessa o espaço vazio. |
+

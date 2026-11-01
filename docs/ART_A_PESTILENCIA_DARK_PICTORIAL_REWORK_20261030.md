@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Mire — A Pestilência
 
 **Personagem:** Mire, A Pestilência (`a-praga-andante`)  
@@ -34,3 +36,4 @@ Seis candidatas inspecionadas. A Pestilência permanece uma aparição fúngica 
 ## Estilo dos prompts
 
 Imagens quadradas independentes em anime-first 2.5D dark fantasy pictórica, pinceladas angulares, contornos manuais, hachuras localizadas, sombras densas e materialidade de fungo, basalto e fuligem. Os enquadramentos variam entre close, vista alta, perfil de ação e close pelo lado do alvo. Restrições comuns: contagem explícita de alvos, silhueta não humana constante, sem texto, interface, máquinas ou watermark.
+

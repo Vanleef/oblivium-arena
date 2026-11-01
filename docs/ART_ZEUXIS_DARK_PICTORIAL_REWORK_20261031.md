@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Echo — O Simulacro
 
 Revisão dark fantasy pictórica em 31/10/2026. Echo mantém a pele de argila marrom-acobreada, o cabelo prateado curto, o robe violeta e as placas polidas nos antebraços. Seis candidatas cobrem retrato, passiva e quatro habilidades-base. As imagens estão integradas ao runtime e aguardam aprovação visual; nenhuma mecânica foi alterada.
@@ -28,3 +30,4 @@ Fontes JPEG 768×768: `art/source/o-espelho-carnal-dark-pictorial-rework-2026103
 **voto:** Romper o Molde: break one ghoul's guard by striking its reflection on Echo's forearm plate.
 
 **despertar:** Duplicata Intangível: one ghoul's weapon passes through Echo's fractured reflected afterimage; show one solid Echo only.
+

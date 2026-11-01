@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Emberlyn — A Brasa Eterna
 
 Nove candidatas cobrem retrato, passiva, quatro habilidades-base e as três variações da Forma de Sufocamento. Emberlyn mantém a identidade humana: homem jovem adulto de corpo esguio, pele castanho-escura, cachos negros com as laterais raspadas, trança carmesim, olhos âmbar, fissuras de brasa e manto gasto de cinzas.
@@ -19,3 +21,4 @@ Ativos WebP 512×512: `art/characters/a-brasa-eterna/dark-pictorial-rework-20261
 | despertar | Emberlyn se agacha atrás do manto de cinzas; a garra de um único ghoul atacante estilhaça contra a camada protetora. |
 
 As rotas do runtime foram atualizadas apenas para as novas artes; nenhuma mecânica foi alterada.
+

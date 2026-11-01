@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Elias — O Espectador
 
 **Personagem:** Elias, O Espectador (ID o-que-observou; anteriormente O que Observou)  
@@ -28,3 +30,4 @@ As seis imagens foram inspecionadas. A passiva mostra o ataque cancelado e a def
 - Recusar Interferência: anula a próxima habilidade inimiga e contra-ataca com 20 de dano; ativa uma vez.
 - Peso da Indiferença: 25 de dano espiritual, +5 por carga consumida e +10 contra alvo marcado.
 - Fora do Acontecimento: Invulnerável por 1 turno; recarga 4T.
+

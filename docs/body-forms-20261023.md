@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Transformações e retratos — PMA
 
 O Fim passa a escolher uma manifestação nas três primeiras posições da forma original. Cada manifestação substitui essas três técnicas e o retrato. A quarta posição continua compartilhada: **Fim Inalcançável** custa 1 Qualquer, concede Invulnerável por uma resposta adversária, recupera 10 de Vida e restaura a forma original, com recarga de 4 turnos. A cura respeita Vida máxima e bloqueio de cura; aflições existentes continuam.
@@ -63,3 +65,4 @@ A revisão em 320 px ficou sem transbordamento horizontal: área de conteúdo 30
 
 
 O fluxo normal da campanha também foi conferido: Fortaleza de Luz foi enfileirada com a única unidade inicial de Essência, do tipo Cinza; retirar o pagamento bloqueou a confirmação e mover o foco para o controle disponível preservou o uso por teclado. Enter completou o pagamento e a confirmação executou a defesa, exibindo INVULNERÁVEL.
+

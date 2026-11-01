@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Plácido — reformulação pictórica (2026-10-29)
 
 **Mundo:** Inferno
@@ -20,3 +22,4 @@ Dark fantasy pictórica densa e material, com pincelada estilizada e realismo re
 - **Estado de Exceção (despertar):** Ajoelhado sob a chuva de fragmentos, envolve a cabeça e os ombros com a túnica pesada enquanto tecido e pedra desviam o impacto.
 
 Os ativos WebP têm 512 × 512 e as fontes JPEG têm 768 × 768. Hashes, proveniência e cenas estão no manifesto JSON. As seis imagens aguardam revisão visual final.
+

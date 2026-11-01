@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Vesper — O Sussurro
 
 **Data:** 30/10/2026  
@@ -19,3 +21,4 @@ A identidade anfíbia baixa e larga, pele verde-petróleo com sardas cobre, olho
 ## Revisão
 
 As seis imagens foram conferidas quanto à identidade, anatomia, expressão, alvo, ação e variação de ângulo. A passiva mostra uma única conversão física de Essência; as habilidades de alvo único mostram um ghoul, e a defesa pessoal mostra Vesper evadindo o golpe. Nenhuma anomalia corporal evidente foi observada. Os arquivos-fonte têm 768×768; os ativos de runtime têm 512×512. Os hashes e caminhos completos estão no manifesto JSON.
+

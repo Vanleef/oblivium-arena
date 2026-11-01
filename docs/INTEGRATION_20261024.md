@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Integração na main — 24/10/2026
 
 O trabalho de clareza, arquétipos, progressão, campanha autoritativa, IA e tradução foi integrado sobre a main `21b92bf51f21bf9eae790c16f81120d903a64042`. Arquivos de arte e documentação existentes apenas na main foram preservados, sem exclusão por ausência no checkout parcial.
@@ -22,3 +24,4 @@ O build publica somente conteúdo de navegador em dist; APIs e módulos de servi
 - O cenário de chefe em Ruptura VI registrou 1 vitória, 97 derrotas e dois limites em 100 partidas. O cenário de elite em Ruptura III registrou 4 vitórias, 95 derrotas e um limite. São controles entre heurísticas sem build humana otimizada, não evidência de equilíbrio final. Playtests de builds continuam necessários.
 
 A publicação foi conferida no navegador: troca PT/EN, login, tutorial e Codex públicos. A verificação de leitura do armazenamento respondeu HTTP 200 com storage ready. Rótulos de acessibilidade e nós de texto fragmentados do Codex receberam revisão editorial adicional.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Direção de arte — frames de anime para ícones
 
 > Documento histórico da direção anterior. Desde 25/10/2026, toda arte nova ou reformulada segue `ART_STYLE_DIRECTION_20261025.md`, com referência híbrida 3D/2D e linguagem gráfica pintada. As regras abaixo servem para entender lotes antigos, não como padrão vigente.
@@ -28,3 +30,4 @@ As imagens de referência não foram adicionadas ao jogo. Os novos desenhos são
 - Manter idade, proporções, traços faciais, roupas, acessórios e origem do poder. Não copiar personagens ou quadros das referências.
 - Revisar dedos, membros, empunhaduras, próteses e separação de planos. Defesa pessoal deve mostrar esquiva, aparo ou poder usado sobre o próprio personagem quando esse for o efeito.
 - Revisão por lotes; o inventário em ART_STYLE_REVISION_20261022.json registra explicitamente os conjuntos restantes.
+

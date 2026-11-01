@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Correção de direção de arte — Parrhasius e Idrisi
 
 Data: 2026-11-01  
@@ -45,3 +47,4 @@ Identidade mantida: pele marrom-escura, cabeça raspada, olhos âmbar, argola pe
 - Identidade, paleta de mundo, materiais, composição, mecânicas e quantidade de alvos conferidos.
 - Versões anteriores: rejeitadas por feedback explícito do usuário; mantidas apenas como histórico.
 - Novas versões: candidatas; a aprovação visual continua pendente.
+

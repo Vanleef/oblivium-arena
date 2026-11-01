@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Icarus — reformulação pictórica (2026-10-29)
 
 **Mundo:** Limbo · **Reino:** Umbral
@@ -24,3 +26,4 @@ O runtime usa seis WebP 512 × 512; seis fontes JPEG 768 × 768 e hashes SHA-256
 ## Correção de escala e anatomia
 
 A primeira versão da arte de **Asa Fraturada** ampliava Icarus em relação ao alvo. A imagem foi refeita com perspectiva equivalente e proporções humanas comparáveis entre os dois personagens. A pose atual mantém cabeça, tronco, quadril, pernas e os dois pés orientados para o alvo, com articulações legíveis e sem torção incompatível. A asa única, a ação e o ambiente do Limbo foram preservados.
+

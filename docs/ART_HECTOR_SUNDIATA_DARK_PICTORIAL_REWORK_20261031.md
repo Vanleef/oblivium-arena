@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Hector (Sundiata) — revisão dark fantasy pictórica
 
 - ID: `o-que-levanta`
@@ -19,3 +21,4 @@
 | despertar | `/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-despertar.webp` | Sundiata puxa um aliado para a segurança enquanto uma onda protetora dourada cobre o pequeno grupo. |
 
 As cenas distinguem a retomada pessoal, o golpe com escudo, o resgate curativo, o contra-ataque ferido e a proteção em escala de equipe.
+

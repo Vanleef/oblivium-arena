@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, Final de Graça — revisão pictórica — 31/10/2026
 
 As dez artes do conjunto foram refeitas em enquadramento quadrado. A direção mantém Nilo em Paraíso com mármore branco, jardins geométricos, água parada e luz marfim-dourada. Para a forma Final de Graça, preserva os sinais de ++Graça — olhos totalmente dourados, marcas douradas, aura branca e fios marfim no cabelo — e trata os relevos de penas como detalhe integrado ao manto. Não há asas separadas, halo ou membros adicionais.
@@ -20,3 +22,4 @@ As figuras foram verificadas quanto a contagem de braços e pernas, ligação de
 ## Direção de prompt aplicada
 
 Uma imagem quadrada por slot, com a ação do manifesto, gesto e contato legíveis, pessoas espacialmente separadas e anatomia humana natural. Efeitos de proteção e intervenção permanecem luz, tecido ou barreira visual; não se convertem em membros, armas ou tecnologia.
+

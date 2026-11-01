@@ -3423,8 +3423,8 @@ const supportingProfiles = [
     "id": "khoren-caminho",
     "name": "Zalmoxis",
     "englishName": "Zalmoxis",
-    "identityTitle": "O Caminho",
-    "englishIdentityTitle": "The Path",
+    "identityTitle": "A Abnegação",
+    "englishIdentityTitle": "The Selfless One",
     "family": "cosmic-leaders",
     "version": 1,
     "eloId": "correntes-quebradas",
@@ -4574,4 +4574,5 @@ export const protagonistCharacters = compileList(protagonistProfiles);
 export const supportingCharacters = compileList(supportingProfiles.map(profile => ({ ...profile, protagonist: false })));
 export const antagonistCharacters = compileList(antagonistProfiles.map(profile => ({ ...profile, protagonist: false, npcOnly: true })));
 export const protagonistEnglishPhrases = Object.freeze({ ...phraseCopy });
+
 

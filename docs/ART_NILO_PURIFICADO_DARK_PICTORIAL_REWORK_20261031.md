@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo Purificado — revisão pictórica — 31/10/2026
 
 As seis artes foram refeitas para o estado sem Essências no Purgatório. Nilo mantém a aparência física do Nilo-base, mas usa tecidos simples cinza-pedra e marfim com detalhe índigo. A ausência é mostrada por espaço, silêncio e gestos tranquilos; efeitos luminosos ficam pequenos e ligados às ações do kit.
@@ -16,3 +18,4 @@ Revisei contagem e ligação dos membros, mãos, articulações, apoios e separa
 ## Direção de prompt aplicada
 
 Uma imagem quadrada por slot, com composição natural e legível, anatomia humana coerente, poucos efeitos e paleta pálida do Purgatório. As Essências aparecem apenas na Passiva como três sinais pequenos que se apagam.
+

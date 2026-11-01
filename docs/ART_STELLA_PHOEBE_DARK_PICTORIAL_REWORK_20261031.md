@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Stella (Phoebe) — revisão dark fantasy pictórica
 
 - ID: `a-mensageira-do-amanha`
@@ -20,3 +22,4 @@
 | impulso:delivered | `/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-impulso-delivered.webp` | Forma Mensagem Recebida: o sinal atinge um inimigo e devolve uma linha de luz que cura o aliado mais ferido. |
 
 A forma `delivered` mostra o sinal energizado e o retorno de recuperação ao aliado mais ferido.
+

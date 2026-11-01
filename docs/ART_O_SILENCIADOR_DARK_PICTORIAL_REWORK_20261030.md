@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Voss — O Silenciador
 
 **Personagem:** Voss, O Silenciador (ID o-surdo)  
@@ -30,3 +32,4 @@ As cenas variam entre retrato fechado, aplicação do selo, golpes de contato, i
 - Decreto do Silêncio: dano espiritual adicional contra alvo Enfraquecido.
 - Silêncio Absoluto: Invulnerável por 1 turno; defesa pessoal.
 - Clamor sem Retorno: variação dedicada de Impacto Abafado, com dano de aflição e Enfraquecimento.
+

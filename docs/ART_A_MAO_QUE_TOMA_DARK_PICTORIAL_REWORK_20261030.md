@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Ravena — A Saqueadora
 
 ## Identidade e direção visual
@@ -30,3 +32,4 @@ Ativos: WebP 512 × 512, qualidade 86. Fontes: JPEG 768 × 768, qualidade 92. PN
 ## Correção anatômica
 
 As cenas de Posse Insaciável e Dedos da Cobiça foram recompostas após a revisão: um braço alcança o ghoul; o outro apoia a personagem na própria coxa ou permanece no quadril. Ombros, cotovelos, antebraços e mãos agora têm trajetos separados e coerentes.
+

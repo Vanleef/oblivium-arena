@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Gorath — O Devorador
 
 ## Identidade e direção visual
@@ -25,3 +27,4 @@ Gorath permanece uma fera infernal quadrúpede baixa e pesada: exatamente quatro
 | body:starved | Retrato — Fome sem Corpo | none | `/art/characters/o-devorador/dark-pictorial-rework-20261030/portrait-starved.webp` | `art/source/o-devorador-dark-pictorial-rework-20261030/portrait-starved.jpg` | `0ff0e4710b89e9b56d45c89189b8ce31f47a931934fef79f36b2ab48d8ea4b9c` |
 
 Ativos: WebP 512 × 512, qualidade 86. Fontes: JPEG 768 × 768, qualidade 92. Originais gerados em 1254 × 1254; bytes, hashes integrais e prompts estão no manifesto JSON.
+

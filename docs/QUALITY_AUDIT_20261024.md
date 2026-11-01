@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Revisão de qualidade do PMA — 24/10/2026
 > Atualização: a main continha os 625 caminhos de arte referenciados; a antiga contagem de 494 ausentes decorria de um checkout parcial. O lote novo passa a 626/626 caminhos presentes. As métricas e achados abaixo registram o levantamento histórico; a continuação está em `PASSIVE_CONTINUATION_20261024.md`.
 
@@ -39,3 +41,4 @@ No desenvolvimento, `npm run dev` prepara armazenamento local em `.pma-dev-data.
 - `node scripts/simulate-combat.mjs` verifica partidas completas e invariantes de estado com sementes fixas.
 - `node scripts/simulate-combat.mjs --difficulty-ladder` compara a curva sem progresso e com Legados acumulados.
 - QA visual no navegador e avaliação de builds humanas continuam necessárias para fechar o balanço e o acabamento artístico.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # A Tecelã — revisão dark fantasy pictórica
 
 Data: 2026-11-01  
@@ -27,3 +29,4 @@ Preservei a senhora idosa de pele morena, traços gentis, tranças prateadas com
 - Identidade, paleta, materialidade dos fios, mãos, anatomia e variedade de enquadramento inspecionadas.
 - Cada fonte é JPEG 768×768; cada ativo é WebP 512×512.
 - Candidatas aguardam aprovação visual.
+

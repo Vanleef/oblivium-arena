@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Atlas — kit anime 2.5D
 
 Seis artes aprovadas para Inferno / Magma, com composições distintas e preservação da identidade definida pelo retrato. A técnica de equipe é ambiental; na cena de controle, o ghoul ocupa o primeiro plano e Atlas permanece fora do quadro.
@@ -27,3 +29,4 @@ Seis artes aprovadas para Inferno / Magma, com composições distintas e preserv
 ![Atlas — Sustentar o Céu](../art/characters/atlas/anime-first-completion-20261028/skill-despertar.webp)
 
 Proveniência, sementes, hashes e prompts: [manifesto JSON](ART_ATLAS_ANIME_FIRST_COMPLETION_20261029.json).
+

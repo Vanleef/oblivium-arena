@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, Prefácio de Ruptura — revisão anime-first 2.5D pictórica — 31/10/2026
 
 As sete artes foram refeitas em direção dark fantasy pictórica 2.5D, preservando a identidade de Nilo: cabelo azul-negro com mecha marfim, manto de ardósia, cachecol cinza-claro, faixa índigo e fraturas opalescentes. O cenário é Limbo/Umbral, com corredores incompletos, soleiras quebradas e névoa violeta-cinza; sem armas ou tecnologia.
@@ -19,3 +21,4 @@ Ativos WebP 512×512: `art/characters/nilo-ruptura-prefacio/dark-pictorial-rewor
 | despertar-5 | Nilo atravessa uma porta incompleta; a borda do manto fica intangível e deixa passar estilhaços. |
 
 A migração pictórica cobre **584/998 slots**, com **414 restantes**, em **89/150 entradas**. Restam **61 entradas**; **577 candidatas** aguardam aprovação visual e **7 artes** estão aprovadas.
+

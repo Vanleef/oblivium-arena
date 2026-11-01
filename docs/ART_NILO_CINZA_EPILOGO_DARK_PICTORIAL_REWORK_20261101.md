@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, Epílogo de Cinza (++Cinza) — revisão pictórica 2.5D — 01/11/2026
 
 - ID: `nilo-cinza-epilogo`
@@ -22,3 +24,4 @@
 | despertar-6 | `/art/characters/nilo-cinza-epilogo/dark-pictorial-rework-20261101/skill-despertar-6.webp` | Manto de cinza e seda recebe brasas e fragmentos numa defesa de corpo inteiro. |
 
 A revisão confere identidade, paleta do Inferno, materialidade pictórica, reação corporal, anatomia, mãos, articulações, quantidade de alvos e ausência de tecnologia. A aprovação visual final permanece pendente.
+

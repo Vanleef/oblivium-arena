@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Sable — A Suturadora
 
 Revisão dark fantasy pictórica em 31/10/2026. Sable mantém o coque prateado, os óculos redondos, o casaco azul-marinho com punhos corais, o xale de retalhos e a agulha de alfaiate. Sete candidatas cobrem retrato, passiva, quatro habilidades-base e a variação dedicada **Reforçar os Pontos**. Ela costura roupas e armaduras de tecido, nunca pele. As imagens estão integradas ao runtime e aguardam aprovação visual; nenhuma mecânica foi alterada.
@@ -31,3 +33,4 @@ Fontes JPEG 768×768: `art/source/a-costureira-dark-pictorial-rework-20261031`.
 **voto:** Desfazer os Pontos: open the outer coat seams of one marked ghoul, exposing no skin.
 
 **despertar:** Costura de Ausência: the shawl blocks one attacker’s spear while Sable's body remains untouched.
+

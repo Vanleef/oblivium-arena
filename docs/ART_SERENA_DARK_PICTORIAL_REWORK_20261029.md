@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Serena — reformulação pictórica (2026-10-29)
 
 **Mundo:** Paradise · **Reino:** Vênus
@@ -20,3 +22,4 @@ Dark fantasy pictórica densa, material e estilizada, com a referência guiando 
 - **Pele de Lembrança (despertar):** Serena se abaixa atrás de uma placa larga de mármore que se ergue da borda do jardim para absorver o impacto.
 
 Os ativos WebP têm 512 × 512; as fontes JPEG têm 768 × 768. Hashes e cenas estão no manifesto JSON. Todas as seis imagens aguardam revisão visual final.
+

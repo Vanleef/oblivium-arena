@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Baal — reformulação pictórica (2026-10-29)
 
 **Mundo:** Inferno · **Reino:** Tártaro
@@ -20,4 +22,5 @@ Dark fantasy pictórica densa, material e estilizada, com a referência guiando 
 - **Manto de Cinzas (despertar):** Vista traseira baixa: Baal firma os quatro cascos e abaixa o corpo enquanto um manto espesso de cinzas intercepta estilhaços e protege um ghoul aliado abrigado atrás dele.
 
 Os ativos WebP têm 512 × 512; as fontes JPEG têm 768 × 768. Hashes e cenas estão no manifesto JSON. Todas as seis imagens aguardam revisão visual final.
+
 

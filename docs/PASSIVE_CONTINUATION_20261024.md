@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Continuação das passivas e artes — 24/10/2026
 
 ## Estado atual — 25/10/2026
@@ -137,3 +139,4 @@ A simulação cobriu 300 confrontos, 100 personagens, 31.996 etapas e 437 técni
 Verificação final: 263 testes aprovados, nenhuma falha; build de produção gerado. As sete artes do Príncipe e seis da Déspota têm hashes, unicidade e referências verificadas.
 
 Conferência em produção: Codex público em português e inglês, busca pelos nomes localizados, biografia e passivas novas de Príncipe e Déspota. As seis imagens da Déspota carregaram no navegador. Evidência: `qa/despot-codex-20261024.jpg`.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Revisão de custo e efeito dos kits PMA
 
 ## Referência de custos
@@ -50,3 +52,4 @@ O custo continua restrito às quatro Essências específicas. A mudança também
 - **Punho de Rancor**, de O Ódio Encarnado, causa 25 por 1 pip e cobra 5 de Vida. Na forma Ódio Solto, o golpe sobe a 30, mas cobra 10 de Vida e a passiva ainda retira 3 de Vida por turno. Mantive o baixo custo porque a janela de explosão tem custo corporal explícito e duração limitada.
 - **Revelação**, no Epílogo de Graça de Nilo, custa 3 pips para causar 11, remover um buff e aplicar Exposto. O valor é utilitário: prepara a próxima ação e pode iniciar a passiva de Clareza Momentânea.
 - **Verdade Absoluta**, no Final de Graça, custa 3 para curar 12 e limpar aflições de um Pilar; **Resposta Partida**, no Final de Ruptura, custa 3 para contra-atacar diferentes classes de habilidade e aplicar Sangramento. Ambos ficam no patamar alto pela amplitude da resposta e pelo vínculo de classe específico.
+

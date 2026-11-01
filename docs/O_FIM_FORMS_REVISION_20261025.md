@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # O Fim — formas com identidades visuais próprias, 25/10/2026
 
 ## Direção visual
@@ -38,3 +40,4 @@ Inventário, prompts resumidos, dimensões e hashes das artes atuais: `ART_O_FIM
 ## Verificação
 
 Verificação desta atualização: build com **946 arquivos**; auditoria de 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**; `git diff --check` sem erros. A suíte de testes não foi executada nesta revisão visual. A forma original e Fim Inalcançável continuam sem coroa; Tirano mantém a coroa exclusiva; Predador permanece inalterado; Ruína continua sem coroa e com quatro braços.
+

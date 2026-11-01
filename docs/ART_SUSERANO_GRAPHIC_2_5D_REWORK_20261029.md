@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # O Suserano — direção gráfica dark fantasy 2.5D (2026-10-29)
 
 **Mundo:** Inferno · **Reino:** Magma
@@ -52,3 +54,4 @@ O Suserano permanece sem rosto nem corpo humano. Alvos e os dois vassalos aparec
 ![O Suserano — Suserania Inviolável](../art/characters/o-trono-vazio/graphic-2-5d-rework-20261029/skill-despertar.webp)
 
 As seis peças estão integradas como candidatas e aguardam aprovação visual final.
+

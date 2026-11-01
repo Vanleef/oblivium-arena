@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Mira — A Carcereira
 
 **Personagem:** Mira, A Carcereira (ID a-porta-fechada; anteriormente A Porta Fechada)  
@@ -28,3 +30,4 @@ As seis imagens foram inspecionadas. Abrigo dos Cúmplices mostra dois ghouls in
 - Guarida Seletiva: 25 de Defesa destrutível e redução de 5 no dano recebido por 1 turno.
 - Não Há Saída: 15 de dano físico; se o alvo tiver a marca desta preparação, causa +10 e Atordoa por 1 turno.
 - Limiar Interdito: Invulnerável por 1 turno; recarga 4T.
+

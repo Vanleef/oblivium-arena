@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Vale e Soren — As Lâminas Gêmeas
 
 **Identidade:** Cleobis tem pele castanho-escura, cachos negros curtos e pequena trança; Biton tem pele oliva clara e cabelo negro longo preso. Os irmãos têm rostos semelhantes, casacos de caça negros gastos, faixas carmesim e um cutelo cada.
@@ -17,3 +19,4 @@
 | Dança Cruzada | Reversa baixa próxima; lâminas cruzadas desviam as garras de um ghoul. |
 
 As cenas mantêm os irmãos em corpos separados, com mãos e articulações legíveis, centro de gravidade plausível e ação natural. O poder se manifesta pelo contato físico, pelas hachuras de impacto e pela reação concreta do basalto. Fontes JPEG 768×768 e ativos WebP 512×512; hashes e imagens de origem constam neste manifesto. Nenhuma mecânica foi alterada e nenhuma arte foi aprovada nesta integração.
+

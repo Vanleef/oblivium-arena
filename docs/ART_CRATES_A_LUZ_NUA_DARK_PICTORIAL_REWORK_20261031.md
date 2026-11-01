@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Crates (A Lúcida) — revisão dark fantasy pictórica
 
 - ID: `a-luz-nua`
@@ -19,3 +21,4 @@
 | despertar | `/art/characters/a-luz-nua/dark-pictorial-rework-20261031/skill-despertar.webp` | Um feixe amplo de luz pálida revela silhuetas ocultas por toda a arena. |
 
 A série diferencia leitura passiva, marca precisa, remoção de guarda, clarão contra alvo marcado e revelação ampla.
+

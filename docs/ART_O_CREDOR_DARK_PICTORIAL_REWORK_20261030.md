@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Marrow — O Credor
 
 **Personagem:** Marrow, O Credor (`o-credor`)  
@@ -32,3 +34,4 @@ Seis candidatas inspecionadas. Marrow mantém dois braços e mãos coerentes; ca
 - **Juros Acumulados:** uma conta pesada ligada por corrente curta atinge o escudo; uma conta de essência é recolhida.
 - **Execução do Contrato:** o gancho passa pela abertura do escudo e parte o selo consumido.
 - **Cláusula de Ausência:** um único ábaco desvia a lança para fora das costelas de Marrow.
+

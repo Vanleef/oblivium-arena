@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Idrisi, A Cartógrafa — revisão dark fantasy pictórica — 01/11/2026
 
 - ID: `a-cartografa-da-clareza`
@@ -27,3 +29,4 @@
 - Sem bússolas, divisores, maquinário, anjos genéricos, feixes finos ou texto.
 - Fontes JPEG 768×768; ativos WebP 512×512.
 - Aprovação visual: pendente.
+

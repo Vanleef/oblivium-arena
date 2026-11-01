@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Verificação visual — 21/10/2026
 
 Prévia da branch `feature/combat-trails-20261021`. Artes finais e prompts: [visual-identity.md](visual-identity.md).
@@ -17,3 +19,4 @@ As capturas abaixo são da aplicação real, sem injeção de estado ou manipula
 ![Identidade anime](qa/identity-anime.jpg)
 
 ![Seleção de eventos Ouro](qa/augment-selection.jpg)
+

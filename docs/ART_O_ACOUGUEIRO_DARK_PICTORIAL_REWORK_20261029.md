@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Riven — O Ceifador de Tolos
 
 **Identidade:** Riven conserva a silhueta humana muito robusta, cabelo escuro curto, barba grisalha, lenço carmesim, mangas carvão, avental marfim gasto, braçadeiras simples e um único cutelo. A textura segue a referência de Baal: pintura densa, superfícies gastas, tecido pesado, pele tátil e luz opressiva.
@@ -15,3 +17,4 @@
 | Reabrir a Ferida | Close lateral da costura sobre a lesão superficial se reabrindo; fios vermelhos se desfazem, sem gore. |
 
 Os três quadros horizontais foram recompostos em formato quadrado, sem esticar as figuras nem cortar a ação. A revisão anatômica conferiu dois braços e duas pernas, articulações coerentes, mãos legíveis e pegada única do cutelo. As fontes JPEG têm 768×768 e os WebP ativos 512×512; hashes e imagens de origem estão no manifesto JSON. Nenhuma mecânica foi alterada. Nenhuma arte foi aprovada nesta integração.
+

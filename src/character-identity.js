@@ -80,7 +80,7 @@ export const characterRevisions = {
     "englishName": "Astyages",
     "englishTitle": "The Sovereign",
     "aliases": ["O Soberano Quebrado","O Soberano"],
-    "lore": "Carrega uma autoridade fraturada que exige ser reconhecida a cada encontro. Ao assumir a coroa, espalha decretos e escolhe quem deverá se ajoelhar. Cada vontade subjugada recompõe uma parte do domínio que oferece a Coroa."
+    "lore": "Carrega uma autoridade fraturada que exige ser reconhecida a cada encontro. Ao assumir a coroa, espalha decretos e escolhe quem deverá se ajoelhar. Cada vontade subjugada recompõe uma parte do domínio que oferece a Magma."
   },
   "o-principe-das-correntes": {
     "name": "Demetrius",
@@ -88,7 +88,7 @@ export const characterRevisions = {
     "englishName": "Demetrius",
     "englishTitle": "The Prince",
     "aliases": ["O Príncipe das Correntes","O Príncipe"],
-    "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Coroa só tem valor enquanto alguém permanece submetido."
+    "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Magma só tem valor enquanto alguém permanece submetido."
   },
   "o-sussurro": {
     "name": "Hárpago",
@@ -500,7 +500,7 @@ export const characterRevisions = {
     "englishTitle": "The Heir",
     "aliases": ["O Herdeiro","O Herdeiro Cativo"],
     "role": "Tirano Herdeiro",
-    "lore": "Uma alma dinástica habita esta efígie de porcelana viva, de pescoço longo e olhos rubros. O antebraço esquerdo de correntes sustenta as fraturas que armazenam sua ambição. Conserva os grilhões para subjugar os próximos; cada lasca perdida reforça sua pretensão ao trono de Coroa.",
+    "lore": "Uma alma dinástica habita esta efígie de porcelana viva, de pescoço longo e olhos rubros. O antebraço esquerdo de correntes sustenta as fraturas que armazenam sua ambição. Conserva os grilhões para subjugar os próximos; cada lasca perdida reforça sua pretensão ao trono de Magma.",
     "terms": {
       "Vontade Cativa": "Ambição Acorrentada",
       "Aguentar o Decreto": "Resistência do Pretendente",
@@ -677,7 +677,7 @@ export const characterRevisions = {
     "englishName": "Aristides",
     "englishTitle": "The Regulator",
     "aliases": ["O Ponderador","O que Pesa"],
-    "lore": "Encara a consequência antes de julgar. Acumula o peso dos atos para deter o excesso com uma decisão proporcional, sem recorrer à opressão de Coroa."
+    "lore": "Encara a consequência antes de julgar. Acumula o peso dos atos para deter o excesso com uma decisão proporcional, sem recorrer à opressão de Magma."
   },
   "o-julgador-gentil": {
     "name": "Benedict",
@@ -771,7 +771,7 @@ export const characterRevisions = {
     "englishTitle": "The Despot",
     "aliases": ["A Regente de Cinzas","A Déspota"],
     "role": "Comandante Tirânica",
-    "lore": "Matriarca colossal forjada nas cinzas de uma dinastia, traz no rosto envelhecido as marcas do império que ajudou a erguer. Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Coroa.",
+    "lore": "Matriarca colossal forjada nas cinzas de uma dinastia, traz no rosto envelhecido as marcas do império que ajudou a erguer. Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Magma.",
     "terms": {
       "Ordem em Cinzas": "Ferro do Jugo",
       "Comando da Regente": "Ordem Absoluta",
@@ -896,7 +896,7 @@ export const characterRevisions = {
     "englishTitle": "The Overlord",
     "aliases": ["O Trono Vazio","O Suserano"],
     "role": "Suserano da Interdição",
-    "lore": "Transforma obediência em poder mesmo longe do trono. Seus decretos retiram dos outros o direito de reagir, e a guarda de seus vassalos prolonga o domínio de Coroa.",
+    "lore": "Transforma obediência em poder mesmo longe do trono. Seus decretos retiram dos outros o direito de reagir, e a guarda de seus vassalos prolonga o domínio de Magma.",
     "terms": {
       "Presença sem Corpo": "Autoridade Delegada",
       "Vontade do Assento Vazio": "Decreto de Submissão",
@@ -1623,5 +1623,6 @@ export function reviseKitIdentity(kit, revision) {
     passive:{...kit.passive,name:text(kit.passive.name),description:text(kit.passive.description)},
     abilities:kit.abilities.map(ability)};
 }
+
 
 

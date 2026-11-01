@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Desire — O Profanador
 
 Revisão dark fantasy pictórica em 31/10/2026. O conjunto mantém o rosto moreno, o cabelo prateado-lilás cobrindo parcialmente um olho, o casaco borgonha de gola alta e o coração-talismã de cristal azul fraturado. As seis peças foram geradas com OpenAI ImageGen, integradas ao runtime e seguem pendentes de aprovação visual. Mecânicas preservadas.
@@ -28,3 +30,4 @@ As cenas usam um oponente por ação individual, não mostram ferimentos gráfic
 **Voto:** High oblique view: one precise piercing strike against one ghoul; three crystal charges converge into the talisman edge at impact.
 
 **Despertar:** Side view: one attacker’s blade passes through Tarquinius’s refracted, partially translucent torso; he stays upright and calm.
+

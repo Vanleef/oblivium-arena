@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Protótipo tático roguelite 3v3 nos três reinos espirituais.",
+  "description": "Protótipo tático roguelite 3v3 nos três mundos espirituais.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test",
+    "docs:generate": "node scripts/generate-project-docs.mjs",
     "audit:art": "node scripts/audit-art.mjs"
   },
   "engines": {
     "node": ">=20"
   }
 }
+
 

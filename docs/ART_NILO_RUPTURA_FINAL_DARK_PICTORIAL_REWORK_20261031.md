@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, o que se Parte — Final de Ruptura — revisão pictórica — 31/10/2026
 
 As nove artes foram refeitas para o estágio **++Ruptura**: vazio emocional, olhos totalmente violetas, marcas e fios roxos e vulto negro amorfo aderido à silhueta. A paleta mantém o Umbral em carvão, ardósia, índigo e névoa violeta-cinza. Fraturas ficam na pedra, marcas no tecido e cortes não atingem a pele.
@@ -19,3 +21,4 @@ Revisei articulações, contagem e ligação dos membros, mãos, apoios e separa
 ## Direção de prompt aplicada
 
 Uma imagem quadrada por slot, com ação e contato legíveis, poses naturais, anatomia humana clara e efeitos sobrenaturais presos à pedra, ao tecido ou à sombra existente. Sem armas, tecnologia ou apêndices extras.
+

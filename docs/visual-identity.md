@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Oblivium Arena — O Véu / identidade anime
 
 Reformulação de identidade da interface, preservando o catálogo de personagens, suas artes de retrato, passiva e habilidades. Nenhum arquivo de `art/characters/` ou de definição dos kits é substituído nesta entrega. Bônus de eventos e Legados são modificadores de partida, não reformulações das habilidades-base.
@@ -78,3 +80,4 @@ Em 27/10/2026, a mariposa principal e sua variante violeta foram redesenhadas na
 ### Fundo transparente da marca
 
 O emblema ativo `art/interface/moth-violet-20261027/brand-moth-192.webp` preserva canal alpha. Componentes de marca devem manter fundo transparente e não acrescentar placas, molduras ou halos opacos ao redor do recorte.
+

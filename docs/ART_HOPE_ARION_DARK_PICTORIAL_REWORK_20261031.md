@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Hope (Arion) — revisão dark fantasy pictórica
 
 - ID: `a-voz`
@@ -21,3 +23,4 @@
 | tecnica:solo | `/art/characters/a-voz/dark-pictorial-rework-20261031/skill-tecnica-solo.webp` | Forma Encerrar o Hino: Hope recolhe a última nota e recupera o próprio fôlego; a cúpula se desfaz. |
 
 As formas `chorus` e `solo` mostram, respectivamente, o coro que marca vários alvos e o encerramento do hino que recupera a própria voz.
+

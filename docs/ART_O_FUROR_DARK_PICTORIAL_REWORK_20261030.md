@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Corvin — O Furor
 
 Oito candidatas cobrem retrato, passiva, quatro habilidades-base e duas variações. Corvin mantém a identidade de construto espectral não humano: placas angulares flutuantes de basalto negro, lacunas incandescentes, máscara pontiaguda com uma única linha laranja, arco quebrado preso à silhueta, dois punhos blocados e corpo inferior de cinzas sem pernas.
@@ -18,3 +20,4 @@ Ativos WebP 512×512: `art/characters/o-odio-encarnado/dark-pictorial-rework-202
 | despertar | Corvin recolhe as placas em uma couraça temporária; destroços se partem do lado de fora, sem atingir o núcleo. |
 
 As rotas do runtime foram atualizadas apenas para as novas artes; nenhuma mecânica foi alterada.
+

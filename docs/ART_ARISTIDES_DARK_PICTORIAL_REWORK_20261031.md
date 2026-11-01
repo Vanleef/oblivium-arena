@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Aristides — O Regulador
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
@@ -19,3 +21,4 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 | Entre os Pratos | Aristides protege apenas a si, enquanto placas de basalto desviam o impacto que chega de fora do quadro. | Self |
 
 Ativos WebP: `/art/characters/o-que-pesa/dark-pictorial-rework-20261031`; fontes JPEG: `art/source/o-que-pesa-dark-pictorial-rework-20261031`. Manifesto: `docs/ART_ARISTIDES_DARK_PICTORIAL_REWORK_20261031.json`.
+

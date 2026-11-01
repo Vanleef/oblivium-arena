@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Elenco expandido — base narrativa
 
 **Data:** 25/10/2026  
@@ -102,4 +104,5 @@ A diretriz geral também permite duas versões para Orion; manter essa possibili
 Todas as artes deste elenco devem seguir a direção geral vigente do jogo: pintura digital pictórica, com pinceladas visíveis, volumes em planos de cor e acabamento ilustrado. O Fim, O Revelador e O Vidente são as âncoras de acabamento.
 
 A regra moral estabelecida para o Inferno continua válida: seus seres são vis e movidos pela maldade. Um personagem infernal pode discordar de O Fim, mas essa oposição não o torna bondoso.
+
 

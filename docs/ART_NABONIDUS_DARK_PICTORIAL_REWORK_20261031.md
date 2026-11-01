@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Vespera — A Ausência
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
@@ -17,3 +19,4 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 | Não Estar | Vespera atravessa uma fenda vertical de espaço ausente enquanto fragmentos de basalto passam sem alcançá-lo. |
 
 Registro técnico completo: [ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json](ART_NABONIDUS_DARK_PICTORIAL_REWORK_20261031.json).
+

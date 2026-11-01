@@ -42,6 +42,7 @@ Abra [http://localhost:4173](http://localhost:4173). O servidor local atende o j
 
 | Comando | Finalidade |
 | --- | --- |
+| `npm run docs:generate` | Regenerar a documentação na branch de revisão, que contém o gerador. |
 | `npm run dev` | Iniciar o jogo e a API local na porta 4173. |
 | `npm test` | Executar a suíte de testes com o runner nativo do Node.js. |
 | `npm run build` | Validar JavaScript e imports e gerar o site em `dist/`. |
@@ -53,7 +54,7 @@ A auditoria de arquivos não substitui a revisão visual das artes.
 ### Kits, combate e interface
 
 ```bash
-node scripts/generate-kit-catalog.mjs
+npm run docs:generate
 node scripts/simulate-combat.mjs
 node scripts/simulate-combat.mjs --difficulty-ladder
 node scripts/simulate-combat.mjs --difficulty-sample
@@ -92,6 +93,12 @@ A Arena online depende de Redis configurado. Sua disponibilidade e validação e
 
 ## Documentação
 
+O [índice canônico do projeto](docs/PROJECT_CANON.md) reúne as referências vigentes e distingue o cânone da revisão do conteúdo integrado à versão principal.
+
+- [Catálogo de nomes, títulos e lore](docs/CHARACTER_CATALOG.md)
+- [História e capítulos da campanha](docs/STORY.md)
+- [Mundos, Reinos e desbloqueios](docs/WORLD_CATALOG.md)
+- [Campanha e progressão](docs/CAMPAIGN.md)
 - [Cosmologia e história de Nilo](docs/COSMOLOGY_AND_NILO.md)
 - [Direção de arte](docs/ART_DIRECTION.md)
 - [Catálogo de kits](docs/COMBAT_KITS.md)
@@ -102,3 +109,4 @@ A Arena online depende de Redis configurado. Sua disponibilidade e validação e
 ## Estado do projeto
 
 Protótipo jogável em desenvolvimento. A expansão do elenco, a revisão visual, o balanceamento e a validação dos recursos online continuam em andamento. A branch `main` representa o conteúdo integrado; trabalhos em pull requests podem conter artes e recursos ainda em revisão.
+

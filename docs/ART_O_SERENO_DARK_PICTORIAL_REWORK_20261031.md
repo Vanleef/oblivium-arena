@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Seren — O Sereno
 
 - **Data:** 2026-10-31
@@ -25,3 +27,4 @@ Homem adulto de corpo largo, por volta de 40 anos, pele escura, cabeça raspada,
 Seis WebP ativos em 512×512 e seis JPEG fonte em 768×768. A passiva distingue inimigo enfraquecido e aliado ferido. Impulso e Voto atingem alvos únicos; Técnica recompõe e protege o próprio usuário; Despertar desvia um projétil com o handpan.
 
 **Escopo de runtime:** somente rotas de arte e metadados de cobertura; regras de combate inalteradas.
+

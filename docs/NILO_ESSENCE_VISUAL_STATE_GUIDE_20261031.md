@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Guia visual das essências e variantes narrativas
 
 ## Regra de continuidade
@@ -23,3 +25,4 @@ As artes de um kit devem formar uma sequência visual com cenas, ângulos, demon
 A demonstração de cada habilidade deve explicar sua ação por contato, reação ou consequência visível: marca aplicada, resíduo acumulado, golpe bloqueado, alvo recuando, tecido cortado, aliado amparado ou personagem atravessando uma passagem. Varie quem participa e como interage, mantendo os alvos e números definidos pela mecânica. A paleta e os elementos do mundo podem conectar as cenas sem obrigá-las a repetir o mesmo fundo ou enquadramento.
 
 Na série **+Ruptura** deste kit, a variedade inclui retrato próximo, detalhe da passiva, aplicação e contato contra alvos, bloqueio com contra-ataque, impacto e esquiva em corpo inteiro. Cada imagem mantém apatia, marcas violetas e sombras furtivas em intensidade compatível com **+Ruptura**.
+

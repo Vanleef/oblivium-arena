@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # O Falso Profeta — revisão dark fantasy pictórica — 30/10/2026
 
 7 candidatas cobrem retrato, passiva e habilidades, incluindo a variação dedicada Confissão do Falso Santo. Sete imagens inspecionadas. Joanna mantém uma pessoa, um halo ritual de bronze antigo e uma silhueta coerente; Confissão e Imagem Sagrada ficam limitadas à personagem, e Promessa e Milagre Fabricado mostram um alvo cada. Custos, alvos, efeitos e recargas permanecem inalterados. Todas aguardam aprovação visual final.
@@ -13,3 +15,4 @@ Ativos WebP 512×512: `art/characters/o-falso-profeta/dark-pictorial-rework-2026
 | tecnica:confess | Ajoelhada, Joanna recolhe o manto; manchas negras de maldição se desfazem, com cura e limpeza limitadas ao próprio corpo. |
 | voto | Joanna lança um milagre concentrado contra exatamente um inimigo já marcado; o impacto racha o piso sem atingir outros alvos. |
 | despertar | O halo fraturado e o manto formam uma carapaça ao redor de Joanna, que se protege sozinha de um golpe iminente. |
+

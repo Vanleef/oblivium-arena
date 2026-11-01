@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, Prefácio de Cinza — revisão anime-first 2.5D pictórica — 31/10/2026
 
 As seis artes-base foram refeitas em direção anime-first 2.5D pictórica, preservando o Nilo-base de 24 anos e sua versão infernal: pele castanha média, cabelo azul-negro com uma mecha marfim sobre a sobrancelha direita, manto assimétrico chamuscado, roupa carvão e cordão ritual vermelho. Em +Cinza, a fúria marca a expressão, queimaduras e chamas aparecem pelo corpo e o cabelo recebe tons alaranjados; os olhos continuam cinza-azulados. Olhos totalmente vermelhos e traços demoníacos são exclusivos de ++Cinza. O cenário é Inferno/Estige, com pedra antiga, fuligem, fogo, almas condenadas e seda ritual; sem armas ou tecnologia.
@@ -14,4 +16,5 @@ Ativos WebP 512×512: `art/characters/nilo-o-prefacio/dark-pictorial-rework-2026
 | tecnica | Uma pequena brasa espiritual cai da mão esquerda de Nilo e queima um ponto do tecido do alvo. |
 | voto | Um condenado cede de joelhos; as marcas de Sangramento e Queimadura se apagam enquanto Nilo baixa a mão. |
 | despertar | Cinco planos de cinza e seda vermelha desviam estilhaços ao redor de Nilo em defesa pessoal. |
+
 

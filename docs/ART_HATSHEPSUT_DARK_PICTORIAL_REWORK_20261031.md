@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Ashen — O Desolador
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
@@ -18,3 +20,4 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 | Presença Nula | Silhueta de Ashen isolada numa fenda negra vertical, sem alvo próximo, com fragmentos de basalto passando pelo espaço vazio. |
 
 Registro técnico completo: [ART_HATSHEPSUT_DARK_PICTORIAL_REWORK_20261031.json](ART_HATSHEPSUT_DARK_PICTORIAL_REWORK_20261031.json).
+

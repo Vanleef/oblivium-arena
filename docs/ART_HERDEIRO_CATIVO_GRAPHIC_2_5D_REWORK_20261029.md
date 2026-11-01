@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # O Herdeiro Cativo — direção gráfica dark fantasy 2.5D (2026-10-29)
 
 **Mundo:** Inferno · **Reino:** Magma
@@ -48,3 +50,4 @@ Pintura dark fantasy densa e tátil em 2.5D, com pinceladas angulares, contornos
 ![O Herdeiro Cativo — Guarda Dinástica](../art/characters/o-herdeiro-cativo/graphic-2-5d-rework-20261029/skill-despertar.webp)
 
 As seis peças são candidatas integradas e aguardam aprovação visual final.
+

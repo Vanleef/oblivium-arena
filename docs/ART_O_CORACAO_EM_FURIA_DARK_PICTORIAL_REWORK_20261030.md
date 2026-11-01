@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Pyros — O Colérico
 
 - **Data:** 30/10/2026
@@ -22,3 +24,4 @@ A série cobre retrato, passiva e as quatro habilidades-base. As cenas usam âng
 **Revisão visual:** Seis imagens inspecionadas. Pyros mantém um chifre, dois braços, armadura torácica e forno oculto. Quatro cenas mostram um ghoul por ataque; Pulso Intangível mostra um atacante e uma esquiva pessoal. As paletas e cenários são de Inferno/Chama; não há máquinas, tecnologia ou soldados genéricos. Nenhuma mecânica foi alterada.
 
 **Rotas do runtime:** retrato, passiva e quatro habilidades-base apontam para o conjunto novo. Sem mudanças nos campos de combate.
+

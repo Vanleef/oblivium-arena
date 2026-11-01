@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Nilo, Epílogo de Ruptura — revisão dark fantasy pictórica — 31/10/2026
 
 As sete artes foram refeitas para representar explicitamente o estágio **++Ruptura**. Nilo mantém pele castanha média, cabelo azul-negro com a mecha marfim, tecidos carvão e índigo e a identidade reconhecível; os olhos agora são totalmente violetas, há marcas roxas nas áreas expostas e fios roxos no cabelo. Um vulto negro amorfo acompanha o corpo, sem forma de animal. A expressão e a postura comunicam vazio emocional.
@@ -17,3 +19,4 @@ Ativos WebP 512×512: `art/characters/nilo-ruptura-epilogo/dark-pictorial-rework
 | despertar-5 | Esquiva pessoal no limiar; exatamente três fragmentos atravessam a borda do manto. |
 
 A cobertura permanece em **584/998 slots**, **89/150 entradas**, com **414 slots restantes**, **577 candidatas** pendentes de aprovação visual e **7 artes aprovadas**.
+

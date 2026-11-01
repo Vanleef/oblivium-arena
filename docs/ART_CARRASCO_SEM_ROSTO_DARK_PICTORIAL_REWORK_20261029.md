@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # O Carrasco — dark fantasy pictórica — 29/10/2026
 
 **Identidade:** Sanson conserva a silhueta humana muito robusta, capuz negro que oculta o rosto, arnês de couro escuro com rebites, tecido gasto, corda vermelho-escura e um único cutelo. A textura segue a referência de Baal: pintura densa, superfícies erodidas, materialidade tátil e luz opressiva.
@@ -14,3 +16,4 @@
 | Capuz do Esquecimento | Reversa por cima do ombro; a espada inimiga para nas dobras escuras do capuz e Sanson permanece ileso. |
 
 A revisão anatômica preservou corpos separados, mãos legíveis, juntas e proporções naturais. Os ângulos variam entre baixo, elevado, lateral, zenital, rente ao chão e reverso. As fontes JPEG têm 768×768 e os WebP ativos 512×512; hashes e IDs de geração estão no manifesto JSON. Nenhuma mecânica foi alterada. Nenhuma arte foi aprovada nesta integração.
+

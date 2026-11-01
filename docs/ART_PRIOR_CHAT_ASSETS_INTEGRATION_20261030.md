@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Integração de artes de conversas anteriores — 30/10/2026
 
 Foram promovidos ao runtime do branch 12 conjuntos completos que estavam apenas em `stage/art`. Cada conjunto contém seis WebP 512×512 e seis fontes JPEG 768×768. As fontes foram copiadas para `art/source`; as cópias originais em `stage/art` foram preservadas.
@@ -22,3 +24,4 @@ Foram promovidos ao runtime do branch 12 conjuntos completos que estavam apenas 
 Brennus (**A Mão que Toma**, `a-mao-que-toma`) já tinha arquivos e rota ativos neste branch. A cópia em estágio não foi contada novamente.
 
 Nenhuma mecânica foi alterada. As imagens continuam pendentes de aprovação visual; o PR permanece em rascunho.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Helena — A Matriarca
 
 **Personagem:** Helena, A Matriarca (`a-senhora-do-ultimo-pao`)  
@@ -32,3 +34,4 @@ Seis candidatas inspecionadas. Helena conserva dois braços e mãos coerentes; c
 - **Ração dos Submissos:** partilha entre Helena e dois aliados ghouls, três figuras ao todo.
 - **Tributo da Fome:** golpe em um alvo marcado e retorno de uma lasca de essência.
 - **Celeiro Lacrado:** guarda individual contra um atacante, com a pá como defesa.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # PMA — diversidade de formas e O Fim
 
 Direção estabelecida por Eduardo em 23/10/2026: variar a anatomia e a silhueta das entidades, evitando usar o humanoide como solução padrão. A forma deve pertencer ao mundo e ao Elo, transmitir seu peso e continuar coerente nas passivas, técnicas e defesas.
@@ -27,3 +29,4 @@ As habilidades **Couraça Voraz**, **Investida Vigilante** e **Revide Radiante**
 ## Arquivos e geração
 
 Artes finais em `art/characters/{o-devorador,o-ultimo-guardiao,o-eco-sem-dono}/form-revision-20261023/` e `art/characters/o-fim/fear-revision-20261023/`. Arquivos RGB WebP de 512 × 512; originais anteriores preservados. Geração pela ferramenta integrada de imagens, uma chamada por arte. As cenas dos três personagens usam seus novos retratos como referência de identidade; as de O Fim usam a referência apenas para atmosfera e instabilidade. Caminhos, prompts finais, referências e hashes estão em `NONHUMANOID_ART_REVISION_20261023.json`.
+

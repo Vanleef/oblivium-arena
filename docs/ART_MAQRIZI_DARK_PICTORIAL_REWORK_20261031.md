@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Maqrizi — A Testemunha
 
 Revisão dark fantasy pictórica em 31 de outubro de 2026.
@@ -18,3 +20,4 @@ Revisão dark fantasy pictórica em 31 de outubro de 2026.
 | Testemunho Protegido | Maqrizi esquiva e desvia um único fragmento de basalto usando a borda da lente manual; só ela está na cena. | Self |
 
 Ativos WebP: `/art/characters/a-testemunha-integra/dark-pictorial-rework-20261031`; fontes JPEG: `art/source/a-testemunha-integra-dark-pictorial-rework-20261031`. Manifesto: `docs/ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json`.
+

@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Veritas (Hecataeus) — revisão dark fantasy pictórica
 
 - ID: `o-que-revela`
@@ -19,3 +21,4 @@
 | despertar | `/art/characters/o-que-revela/dark-pictorial-rework-20261031/skill-despertar.webp` | A luz do monóculo torna transparentes disfarces e paredes falsas, mostrando ameaças e um caminho seguro. |
 
 As cenas cobrem inspeção passiva, remoção de vantagem, limpeza em equipe, perfuração do alvo exposto e revelação em escala de arena.
+

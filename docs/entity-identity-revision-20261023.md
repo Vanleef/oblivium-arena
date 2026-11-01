@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Entidades, nomes curtos e leitura das habilidades — 23/10/2026
 
 Terceira rodada de revisão do elenco do PMA. Nove identidades foram selecionadas: sete receberam nomes mais curtos e específicos; Usurária e Muralha conservaram seus nomes, mas ganharam novas formas visuais. Mundos e Elos permanecem os mesmos.
@@ -35,3 +37,4 @@ Total desta rodada: **24 novas imagens**, exportadas em WebP de 512 × 512 px, n
 Os 100 IDs, a posse, os trios salvos, os atributos, os custos, as recargas, os alvos, os efeitos e as transições de formas foram preservados. A busca aceita os nomes atuais, originais e os títulos intermediários já utilizados. As referências de técnicas alternativas acompanham os novos nomes.
 
 A comparação estrutural dos 100 personagens exclui somente metadados de apresentação e confirma igualdade de todos os campos de jogo. Os testes de interface também exercitam busca por nomes antigos, lore individual e localização dos novos conjuntos de imagens.
+

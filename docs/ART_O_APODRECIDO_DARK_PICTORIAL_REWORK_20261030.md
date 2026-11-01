@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Aldric — O Apodrecido
 
 **Personagem:** Aldric, O Apodrecido (`o-apodrecido`)  
@@ -32,3 +34,4 @@ Seis candidatas inspecionadas. Aldric conserva dois braços e duas mãos coerent
 - **Tecido Cedido:** uma única raiz morta, presa ao solo, prende o tornozelo e afrouxa a guarda.
 - **Decomposição Completa:** a marca consome somente casca externa e tecido de um ghoul já marcado.
 - **Casca Morta:** a lança de um atacante para na proteção de madeira do ombro.
+

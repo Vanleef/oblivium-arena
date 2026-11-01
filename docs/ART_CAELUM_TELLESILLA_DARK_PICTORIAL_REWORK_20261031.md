@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Caelum (Telesilla) — revisão dark fantasy pictórica
 
 - ID: `a-chama-que-nao-apaga`
@@ -20,3 +22,4 @@
 | impulso:dawn | `/art/characters/a-chama-que-nao-apaga/dark-pictorial-rework-20261031/skill-impulso-dawn.webp` | Forma Fagulha do Amanhã: chama azul-cobalto e ouro atinge um único espectro, deixa brasas ardentes e devolve um pouco de vigor a Caelum. |
 
 A forma exclusiva Fagulha do Amanhã está ligada ao impulso como `dawn`; a cena mostra a Chama do Recomeço contra um único espectro, com brasas ardentes e recuperação de vigor.
+

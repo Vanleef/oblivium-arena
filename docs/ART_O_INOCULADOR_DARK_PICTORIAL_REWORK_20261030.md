@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Bram — O Inoculador
 
 **Personagem:** Bram, O Inoculador (`o-medico-de-vermes`, anteriormente O Médico de Vermes)  
@@ -32,3 +34,4 @@ As seis imagens foram inspecionadas. Bram mantém dois braços e articulações 
 ## Direção visual
 
 As composições alternam close baixo, vista alta, perfil lateral, visão por cima do ombro e close defensivo. Pinceladas angulares, contornos manuais, hachuras e sombras densas acompanham basalto, tecido jade, couro, vidro riscado e prata envelhecida. Os poderes são mostrados por contato, curativo, corrosão e impacto físico, sem feixes ou fios genéricos.
+

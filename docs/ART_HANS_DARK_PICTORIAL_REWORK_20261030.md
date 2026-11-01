@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Hans — O Informante
 
 **Personagem:** Hans, O Informante da Podridão (ID hans)  
@@ -28,3 +30,4 @@ As seis imagens foram inspecionadas. Hans mantém aparência humana consistente.
 - Decadência Compartilhada: 12 de dano espiritual a todos os inimigos e Decadência de 5 por 2 turnos.
 - Hospitalidade Negada: 14 de dano perfurante, sela técnicas de apoio por 1 turno e reduz em 50% a cura recebida até o fim do próximo turno deste lado; defesa pessoal continua disponível.
 - Esconderijo Insalubre: 5 de Defesa destrutível e Invulnerável por 1 turno.
+

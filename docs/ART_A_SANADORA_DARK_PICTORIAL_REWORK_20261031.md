@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Liora — A Sanadora
 
 - **Data:** 2026-10-31
@@ -25,3 +27,4 @@ Mulher adulta de pele azul-marinho, rosto humano sereno e cabelo curto prateado.
 Seis WebP ativos em 512×512 e seis JPEG fonte em 768×768. As imagens mantêm a pele azul-marinho, a face humana, os dois ornamentos presos ao cabelo e o manto como tecido físico. Não há asas biológicas, halo ou anatomia de inseto.
 
 **Escopo de runtime:** somente rotas de arte e metadados de cobertura; regras de combate inalteradas.
+

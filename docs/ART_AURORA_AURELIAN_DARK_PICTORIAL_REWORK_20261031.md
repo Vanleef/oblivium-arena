@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Aurora (Aurelian) — revisão dark fantasy pictórica
 
 - ID: `o-portador-da-aurora`
@@ -19,3 +21,4 @@
 | despertar | `/art/characters/o-portador-da-aurora/dark-pictorial-rework-20261031/skill-despertar.webp` | Com o bastão erguido, Aurora conduz três aliados a uma passagem aberta no horizonte luminoso. |
 
 A sequência separa a primeira carga, o feixe concentrado, o auxílio purificador, o golpe perfurante com cargas e o avanço do grupo até o horizonte.
+

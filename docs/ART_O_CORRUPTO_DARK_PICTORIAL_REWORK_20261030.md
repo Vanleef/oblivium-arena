@@ -1,3 +1,5 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
 # Pact — O Corrupto
 
 **Personagem:** Pact, O Corrupto (`o-corrupto`)  
@@ -36,3 +38,4 @@ Seis candidatas inspecionadas. Pact conserva anatomia humana e mãos ligadas aos
 ## Conjunto de prompts
 
 Todas as seis imagens usaram prompts independentes para arte de jogo quadrada, com pintura dark fantasy 2.5D, pinceladas angulares, contornos manuais, hachuras, luz de recorte, texturas táteis, paleta púrpura envelhecida, fuligem e vermelho infernal. Os prompts variaram entre: retrato baixo em três quartos; limpeza lateral do cajado com mofo; golpe do cajado contra a guarda de um ghoul; espinhos baixos enraizados que desequilibram um ghoul; corrosão superficial de uma armadura já marcada vista por cima do ombro; e defesa traseira baixa em que a treliça no cajado para a espada antes do peito. Restrições comuns: anatomia humana coerente, número exato de alvos, sem texto, interface, marcas flutuantes, feixes, máquinas, gore ou watermark.
+
