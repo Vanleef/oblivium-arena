@@ -1,70 +1,104 @@
 # Oblivium Arena
 
-Protótipo original de combate tático 3v3 e progressão roguelite. Almas despertam no conflito entre Inferno, Paraíso e Limbo, formam Trios e atravessam trilhas de poder.
+**Três mundos, um trio de almas e o destino do além em jogo.**
 
-## Executar
+Oblivium Arena é um jogo de combate tático por turnos 3v3 com progressão roguelite, ambientado no conflito entre **Inferno, Paraíso e Limbo**. Forme seu trio, combine técnicas e ressonâncias e escolha caminhos que transformam cada travessia.
 
-Requer Node.js 20 ou superior. O protótipo não usa dependências externas.
+A história acompanha Nilo, uma alma sem veredito que absorve involuntariamente fragmentos de outras almas. Entre vínculos, confrontos e transformações, sua pergunta permanece: **quanto de mim ainda sou eu?**
 
-    npm run dev
+## O jogo
 
-Abra http://localhost:4173. Para validar as regras e o elenco:
+- **Combate tático 3v3:** planeje uma ação por personagem, selecione alvos, reorganize a fila e confirme as escolhas antes da resposta adversária.
+- **Gestão de Essência:** Éter, Cinza, Graça e Ruptura alimentam as técnicas. Coringa representa um custo flexível pago com esses quatro tipos.
+- **Formações e ressonâncias:** combine personagens, afinidades, passivas e técnicas para construir a estratégia do trio.
+- **Kits e transformações:** quatro espaços de técnicas por personagem, com recargas, aflições, marcas, cargas, Defesa e contra-ataques. Personagens específicos possuem formas alternativas.
+- **Travessias roguelite:** mapas com rotas conectadas, combates, elites, eventos, descanso, tesouro, mercador e guardiões. A Vida do trio persiste entre encontros.
+- **Progressão:** recrutamento, Legados permanentes e dificuldades de Ruptura ampliam as possibilidades das próximas tentativas.
+- **Codex:** consulte identidades, afinidades, arquétipos, formas e descrições das técnicas.
 
-    npm test
+Inferno, Paraíso e Limbo são os três **Mundos**, organizados em **Reinos** com identidades próprias.
 
-Para contar as artes referenciadas que ainda faltam no checkout:
+## Direção de arte
 
-    npm run audit:art
+A linha vigente é **anime 2.5D**: desenho expressivo, contornos firmes, sombras em planos angulares e profundidade pictórica nos materiais e cenários. Rostos, corpos, roupas e silhuetas preservam a identidade de cada personagem.
 
-Use `npm run audit:art -- --list-missing` para listar todos os caminhos ausentes.
+Retratos, passivas e habilidades devem variar cenas, expressões, poses, câmera e ação, mantendo a anatomia e a continuidade visual. As cenas precisam corresponder ao efeito e à quantidade de alvos da técnica.
 
-Para conferir visualmente início, bifurcações e conselho em larguras de 320 a 1200px, abra `/tests/fixtures/trail.html` na prévia. O cenário é isolado e não lê nem modifica o progresso salvo do jogo.
+A revisão visual do acervo está em andamento. Consulte a [direção de arte](docs/ART_DIRECTION.md) para as referências e regras de produção.
 
-## O que já funciona
+## Executar localmente
 
-- Catálogo jogável com 100 personagens, 400 técnicas principais e 66 técnicas alternativas: 54 Inferno, 35 Paraíso e 11 Limbo.
-- Trio local salvo no navegador, busca e recrutamento por conclusão de Elo.
-- Ressonância Completa, Parcial e Caótica, incluindo interações com Correntes Quebradas.
-- Combate tático por turnos: uma ação por personagem, seleção de alvo, fila reordenável e confirmação antes da resposta adversária. Desde a abertura, cada lado recebe uma Essência aleatória por alma viva. Nas rodadas seguintes, ambos recebem uma por personagem vivo entre quatro tipos — Éter, Cinza, Graça e Ruptura. Coringa é custo flexível: escolha cada unidade necessária entre esses quatro tipos. Com 5 unidades disponíveis, é possível escolher cinco pips para trocar por 1 de um tipo específico. A troca converte a variância em certeza com custo líquido de 4 pips; não cria Essência.
-- Quatro técnicas por personagem com custos, recargas, aflições, marcas, cargas, Defesa destrutível e contra-ataques. A quarta técnica concede Invulnerável por 1 turno e tem recarga de 4 turnos.
-- Oito personagens têm formas corporais com retratos distintos; o estado de forma acompanha transformações, limites de Vida e expiração de técnicas.
-- 50 Legados permanentes divididos entre ofensiva, defesa e travessia. Cada Legado tem glifo próprio, efeito escalonado e contexto narrativo.
-- O Codex apresenta arquétipo principal, variações de kit, afinidade e formas corporais; cada forma ativa mostra seu retrato e suas técnicas.
-- Mapas de sete andares com conexões reais entre rotas, combates normais e de elite, eventos, poderes, descanso, tesouro, mercador, mini-boss e Guardião final.
-- Vida do trio persiste entre encontros; descanso, evento e mercador permitem recuperar a formação. Vitórias de elite recompensam um poder da trilha.
-- Correntes da Alma como estabilidade da trilha; três derrotas encerram a tentativa.
-- Confronto final contra O Fim (The End), Rei do Inferno, após atravessar os 17 Elos.
-- Salvamento de equipe e progresso em localStorage.
+Requer **Node.js 20 ou superior** e Git. O protótipo não usa dependências externas.
 
-Oblivium Arena — três reinos, um trio de almas e o destino do além em jogo.
+```bash
+git clone https://github.com/Vanleef/oblivium-arena.git
+cd oblivium-arena
+npm run dev
+```
 
-## Direção visual
+Abra [http://localhost:4173](http://localhost:4173). O servidor local atende o jogo e a API de contas. Usuários e progresso de campanha locais ficam no arquivo ignorado pelo Git `.pma-dev-data.json`; a formação e o progresso local também usam armazenamento do navegador conforme o modo.
 
-Anime japonês 2D de fantasia sobrenatural, com line art forte, sombras em cel shading e efeitos desenhados para cada técnica. Os personagens têm rostos, corpos, roupas e silhuetas próprios; passivas e habilidades usam composições distintas ligadas ao efeito de cada golpe. A direção está registrada em `docs/ART_DIRECTION.md`.
+## Comandos
 
-## Estado
+| Comando | Finalidade |
+| --- | --- |
+| `npm run dev` | Iniciar o jogo e a API local na porta 4173. |
+| `npm test` | Executar a suíte de testes com o runner nativo do Node.js. |
+| `npm run build` | Validar JavaScript e imports e gerar o site em `dist/`. |
+| `npm run audit:art` | Contar arquivos de arte referenciados que faltam no checkout. |
+| `npm run audit:art -- --list-missing` | Listar os caminhos de arte ausentes. |
 
-Este é um protótipo jogável com 100 kits implementados; oito personagens têm mais de uma forma, com três kits transformáveis completos adicionados nesta reformulação. A revisão de arte do restante do elenco e o ajuste fino por dificuldade seguem em expansão.
+A auditoria de arquivos não substitui a revisão visual das artes.
 
+### Kits, combate e interface
 
-## Catálogo e auditoria de kits
+```bash
+node scripts/generate-kit-catalog.mjs
+node scripts/simulate-combat.mjs
+node scripts/simulate-combat.mjs --difficulty-ladder
+node scripts/simulate-combat.mjs --difficulty-sample
+```
 
-`docs/COMBAT_KITS.md` contém os 100 kits e as descrições usadas pelo jogo. Para atualizar o catálogo após editar os dados:
+O primeiro comando atualiza o catálogo a partir dos dados dos kits. Os demais executam simulações de combate, comparações entre dificuldades e amostras nas Rupturas IV–VI. Os resultados e limites da avaliação estão em [COMBAT_QA.md](docs/COMBAT_QA.md).
 
-    node scripts/generate-kit-catalog.mjs
+Para inspecionar início, bifurcações e conselho da trilha em larguras de 320 a 1200 px, abra `/tests/fixtures/trail.html` no servidor local. O cenário é isolado do progresso salvo do jogo.
 
-`tests/kits-audit.test.js` executa as 76 continuações de combo com preparações do próprio personagem, verifica que marcas e cargas têm uso e cobre durações, anulações e benefícios em área. O balanceamento entre equipes e Rupturas continua sujeito a partidas de avaliação.
+## Estrutura do projeto
 
-O elenco de 100 kits é distribuído por 13 arquétipos combináveis, com 66 técnicas alternativas. Armadilhas, selos seletivos, regeneração e conversão de Essência acrescentam decisões sem mudar os quatro espaços. As estruturas estão documentadas em `docs/COMBAT_KITS.md` e verificadas em `tests/skill-forms.test.js`.
+| Diretório | Conteúdo |
+| --- | --- |
+| `src/` | Regras, combate, IA, progressão, dados e interface do jogo. |
+| `api/` | Endpoints de contas, campanha e Arena. |
+| `server/` | Serviços e persistência no servidor. |
+| `art/` | Artes do jogo e fontes de produção. |
+| `docs/` | Direção visual, cosmologia e documentação de sistemas. |
+| `scripts/` | Servidor local, build, auditorias e simulações. |
+| `tests/` | Testes automatizados e cenários de interface. |
 
-`node scripts/simulate-combat.mjs` reproduz 300 partidas completas com sementes fixas e tipos de Essência normais. `node scripts/simulate-combat.mjs --difficulty-ladder` compara 200 partidas por nível em encontros de elite do mesmo Elo e com as mesmas sementes. `docs/COMBAT_QA.md` registra resultados e limites das avaliações. A IA compara ações do trio, proteção dos alvos e utilidade do apoio antes de reservar Essência; a partir de Ruptura II prioriza ameaças visíveis e em Ruptura III+ estima a pressão sobre seus aliados. Não consulta a fila do jogador nem sorteios futuros. Efeitos ativos podem ser consultados ao inspecionar uma alma, incluindo origem e gatilho das reações.
+## Publicação e recursos online
 
-`node scripts/simulate-combat.mjs --difficulty-sample` executa uma amostra menor nas Rupturas IV–VI para Sangria, Cura, Vazio e Correntes Quebradas, com e sem Legados variados por partida.
+`npm run build` gera os arquivos públicos em `dist/`. A configuração em `vercel.json` usa esse diretório e publica as APIs de `api/` como funções, incluindo os módulos necessários de `src/` e `server/`.
 
-## Contas e campanha online
+Para persistência em uma hospedagem, conecte uma integração Upstash Redis ou configure no ambiente do servidor:
 
-`npm run dev` starts the game and local account API on port 4173. Local users and campaign progress persist in the ignored `.pma-dev-data.json` file. For a hosted deployment, connect the Vercel KV/Upstash integration or configure `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`. The server also accepts the integration variables `PMA_DB_KV_REST_API_URL` and `PMA_DB_KV_REST_API_TOKEN`; it never uses the read-only token for account writes and has no hosted filesystem or in-memory fallback.
+```text
+UPSTASH_REDIS_REST_URL
+UPSTASH_REDIS_REST_TOKEN
+```
 
-## Build de produção
+O servidor também aceita `PMA_DB_KV_REST_API_URL` e `PMA_DB_KV_REST_API_TOKEN`. O token de escrita deve permanecer no servidor. O armazenamento local de desenvolvimento não substitui o banco da hospedagem; não há fallback hospedado em arquivo ou memória para gravações de contas.
 
-`npm run build` valida JavaScript e imports e gera `dist/` com os arquivos públicos. A Vercel usa esse diretório para o site e compila as APIs em `api/` como funções, com seus módulos de `src/` e `server/`.
+A Arena online depende de Redis configurado. Sua disponibilidade e validação em ambiente real devem ser conferidas antes de uma liberação. Veja [Arena online](docs/online-arena.md) para regras, requisitos e roteiro de verificação.
+
+## Documentação
+
+- [Cosmologia e história de Nilo](docs/COSMOLOGY_AND_NILO.md)
+- [Direção de arte](docs/ART_DIRECTION.md)
+- [Catálogo de kits](docs/COMBAT_KITS.md)
+- [Formas e técnicas](docs/SKILL_FORMS.md)
+- [Avaliação do combate](docs/COMBAT_QA.md)
+- [Arena online](docs/online-arena.md)
+
+## Estado do projeto
+
+Protótipo jogável em desenvolvimento. A expansão do elenco, a revisão visual, o balanceamento e a validação dos recursos online continuam em andamento. A branch `main` representa o conteúdo integrado; trabalhos em pull requests podem conter artes e recursos ainda em revisão.
