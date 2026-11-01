@@ -168,7 +168,7 @@ function profileView(){const unlocked=["soul",...profile.ownedIds],chosen=profil
 
 function hydrateAccount(data){state.account=data.user||null;if(data.profile){Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=profile.run?.pending||null;state.battle=data.battle||profile.run?.battle||null;state.battleNode=profile.run?.currentNodeId?profile.run.map.flat().find(node=>node.id===profile.run.currentNodeId)||null:null;}state.accountReady=true;state.accountError="";state.tutorialOpen=Boolean(state.account&&!profile.tutorialComplete);state.tab=state.account?"rota":state.tab;render();}
 function syncCampaign(data){state.account=data.user||state.account;if(data.profile)Object.assign(profile,normalizeCampaign({...defaults,...data.profile,unlockedAvatars:data.profile.unlockedAvatars||["soul",...(data.profile.ownedIds||[])]}));ensureRunMap();state.pending=data.pending||profile.run?.pending||null;state.battle=Object.hasOwn(data,"battle")?data.battle:profile.run?.battle||null;state.battleNode=profile.run?.currentNodeId?profile.run.map.flat().find(node=>node.id===profile.run.currentNodeId)||null:null;}
-function checkAccount(){if(typeof window==="undefined")return;currentAccount().then(async data=>{if(data.user&&data.profile?.run?.serverOwned!==true){data=await campaignRequest({op:"sync"});}hydrateAccount(data);}).catch(error=>{state.accountReady=true;state.accountError=error.message;render();});}
+function checkAccount(){if(typeof window==="undefined")return;currentAccount().then(async data=>{if(data.user&&data.profile?.run?.serverOwned!==true){data={...data,...await campaignRequest({op:"sync"})};}hydrateAccount(data);}).catch(error=>{state.accountReady=true;state.accountError=error.message;render();});}
 
 function playCampaignEvents(events,finalBattle,index=0){
   if(index>=events.length){state.battle=finalBattle;state.battleFx=null;render();return;}
@@ -870,7 +870,7 @@ app.addEventListener("click", (event) => {
 app.addEventListener("submit",async event=>{
  if(event.target.matches("[data-auth-form]")){
   event.preventDefault();const fields=new FormData(event.target),op=state.authMode==="register"?"register":"login";state.accountError="Conectando…";render();
-  try{let data=await accountRequest({op,email:fields.get("email"),password:fields.get("password"),...(op==="register"?{handle:fields.get("handle")}:{})});if(data.user)data=await campaignRequest({op:"sync"});hydrateAccount(data);if(state.account){startAmbience();save();}}
+  try{let data=await accountRequest({op,email:fields.get("email"),password:fields.get("password"),...(op==="register"?{handle:fields.get("handle")}:{})});if(data.user)data={...data,...await campaignRequest({op:"sync"})};hydrateAccount(data);if(state.account){startAmbience();save();}}
   catch(error){state.accountError=error.message;state.accountReady=true;render();}return;
  }
  if(event.target.matches("[data-profile-form]")){
