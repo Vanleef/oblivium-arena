@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-01",
+  "status": "blocked_by_image_generation_usage_limit",
+  "direction": "docs/ART_DIRECTION.md",
+  "characterIds": [
+    "a-que-une",
+    "o-elo-dourado"
+  ],
+  "requestedLogicalAssets": 12,
+  "newlyGeneratedCandidates": 1,
+  "acceptedOrIntegratedNewAssets": 0,
+  "remainingToGenerate": 11,
+  "userApproval": "pending",
+  "rejectedPriorBatches": [
+    "docs/ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json",
+    "docs/ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
+  ],
+  "correctionReason": "Explicit user rejection: realistic/pictorial drift, excessive cracked texture, artificial expressions unrelated to scene. Full replacement required in anime 2.5D pictorial direction.",
+  "activeRoutes": "Prior routes still require replacement; this checkpoint does not constitute completed visual correction.",
+  "migrationCounts": "No logical coverage or approval counts incremented by this correction checkpoint.",
+  "newCandidate": {
+    "characterId": "a-que-une",
+    "slot": "portrait",
+    "file": "exec-c004bd4d-6940-4b06-8cc8-7160d1ea08f2.png",
+    "status": "generated_candidate_pending_visual_review"
+  },
+  "styleReferences": [
+    "1000064969.jpg",
+    "1000065061.png",
+    "1000064888.png"
+  ],
+  "mechanicsSource": "docs/COMBAT_KITS.md",
+  "namedIdentityNotes": "a-que-une identity record: Berenice; o-elo-dourado identity record: Damon. User also refers to Aurelia/Damon. Do not infer identity redesign from naming mismatch.",
+  "prompts": [
+    {
+      "characterId": "a-que-une",
+      "slot": "portrait",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nBerenice: elderly brown-skinned woman, white braided hair with turquoise ornaments and earrings, navy woven shawl, rust/cream garments. Preserve age and identity in stylized anime drawing. Paraíso setting with ivory stone, filtered light, blue/green light and restrained gold.\nChest-up candid three-quarter angle, head and pupils turned clearly toward someone outside the frame, attentive concern, neutral mouth. Strong silhouette, dramatic warm/cool split light, no frontal eye contact."
+    },
+    {
+      "characterId": "a-que-une",
+      "slot": "passive",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nBerenice: elderly brown-skinned woman, white braided hair with turquoise ornaments and earrings, navy woven shawl, rust/cream garments. Preserve age and identity in stylized anime drawing. Paraíso setting with ivory stone, filtered light, blue/green light and restrained gold.\nExactly two people: Berenice and one wounded ally. She supports their arm while securing a broad woven bandage. Her brow is worried and her eyes concentrate on the wound; the ally exhales with pain easing. Small dense warm light at the cloth contact suggests shared recovery. Intimate side angle."
+    },
+    {
+      "characterId": "a-que-une",
+      "slot": "impulso",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nBerenice: elderly brown-skinned woman, white braided hair with turquoise ornaments and earrings, navy woven shawl, rust/cream garments. Preserve age and identity in stylized anime drawing. Paraíso setting with ivory stone, filtered light, blue/green light and restrained gold.\nExactly two figures: Berenice and one ghoul. She twists and drives a thick braided ritual cord into its torso, spiritual essence dense at contact, recoil visibly pulling vitality back to her. Focused effortful face, jaw tight, eyes locked to foe. Oblique low angle, cord has physical weight. No beam."
+    },
+    {
+      "characterId": "a-que-une",
+      "slot": "tecnica",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nBerenice: elderly brown-skinned woman, white braided hair with turquoise ornaments and earrings, navy woven shawl, rust/cream garments. Preserve age and identity in stylized anime drawing. Paraíso setting with ivory stone, filtered light, blue/green light and restrained gold.\nExactly two people: Berenice and one injured ally. Kneeling over the ally, she pulls a wide cloth wrap around their forearm; harmful residue flakes away, wrap becomes a tangible protective layer. Her expression focused compassion, the ally grimaces then relaxes. Close overhead angle, clear hands."
+    },
+    {
+      "characterId": "a-que-une",
+      "slot": "voto",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nBerenice: elderly brown-skinned woman, white braided hair with turquoise ornaments and earrings, navy woven shawl, rust/cream garments. Preserve age and identity in stylized anime drawing. Paraíso setting with ivory stone, filtered light, blue/green light and restrained gold.\nExactly three allies including Berenice and two unnamed companions. She helps one companion rise while the other braces beside them, their shared cloth mantle takes on dense pale-gold life. They begin advancing together. She calls urgently with encouraging resolve, allies show strain and returning courage. Low diagonal view, no group posing."
+    },
+    {
+      "characterId": "a-que-une",
+      "slot": "despertar",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nBerenice: elderly brown-skinned woman, white braided hair with turquoise ornaments and earrings, navy woven shawl, rust/cream garments. Preserve age and identity in stylized anime drawing. Paraíso setting with ivory stone, filtered light, blue/green light and restrained gold.\nExactly two figures: Berenice and one ghoul attacker. Its claw hits her layered shawl, which becomes a thick woven luminous guard and deflects the strike. She recoils with startled determination, eyes on the claw; attacker thrown off balance. Strong profile view, one clear contact."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "portrait",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nDamon: stocky broad middle-aged brown-skinned man, short dark curls, ivory rolled sleeves, dark green apron, broad cuff with short heavy ritual chain. No hammer or tools. Preserve identity in stylized anime drawing. Paraíso setting, ivory stone and gold, pale blues and light greens.\nChest-up candid three-quarter angle, head and pupils turned clearly toward someone outside the frame, attentive concern, neutral mouth. Strong silhouette, dramatic warm/cool split light, no frontal eye contact."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "passive",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nDamon: stocky broad middle-aged brown-skinned man, short dark curls, ivory rolled sleeves, dark green apron, broad cuff with short heavy ritual chain. No hammer or tools. Preserve identity in stylized anime drawing. Paraíso setting, ivory stone and gold, pale blues and light greens.\nExactly three figures: Damon, one ghoul with a preexisting gold knot mark, and one wounded unnamed ally. Damon drives his chain-wrapped forearm into the marked ghoul; a dense warm pulse settles in the ally's bandaged shoulder. Focused stern exertion on Damon, pain easing on ally. Side-on action angle, one enemy only."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "impulso",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nDamon: stocky broad middle-aged brown-skinned man, short dark curls, ivory rolled sleeves, dark green apron, broad cuff with short heavy ritual chain. No hammer or tools. Preserve identity in stylized anime drawing. Paraíso setting, ivory stone and gold, pale blues and light greens.\nExactly three figures: Damon, one ghoul, one wounded ally. A forceful short-chain blow strikes the ghoul and presses a tangible golden knot mark into its hide; the ally near cover receives compact restorative warmth. Damon grits teeth with effort, ally looks surprised and exhausted. Low oblique view, no beams."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "tecnica",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nDamon: stocky broad middle-aged brown-skinned man, short dark curls, ivory rolled sleeves, dark green apron, broad cuff with short heavy ritual chain. No hammer or tools. Preserve identity in stylized anime drawing. Paraíso setting, ivory stone and gold, pale blues and light greens.\nExactly three allies including Damon and two unnamed companions. He braces between them, linking a short heavy ritual chain across their guarded forearms; dense gold plates of light settle like physical protection. They face an off-frame threat with tense readiness and protective resolve. Wide three-quarter angle, mid-movement rather than lineup."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "voto",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nDamon: stocky broad middle-aged brown-skinned man, short dark curls, ivory rolled sleeves, dark green apron, broad cuff with short heavy ritual chain. No hammer or tools. Preserve identity in stylized anime drawing. Paraíso setting, ivory stone and gold, pale blues and light greens.\nExactly two figures: Damon and one marked ghoul. He throws his weight into a short heavy gold chain strike that lands on the existing knot mark, sending a compact dense spiritual impact through the ghoul. Fierce strained expression, eyes on contact; foe recoils. Dynamic diagonal side view, no laser."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "despertar",
+      "prompt": "Use case: stylized-concept. One square finished fantasy game illustration. Image 1 is identity only. Image 2 is DRAWING STYLE reference only: use its unmistakable anime facial construction, expressive ink contours, clean graphic shadow planes, stylized hair shapes, rich colors. Add controlled painterly volume and cinematic light inspired by Arcane and graphic energy inspired by Spider-Verse. Keep the face clearly anime; no photographic facial anatomy, skin pores, mosaic, peeling paint or dense distressed texture. Do not copy the woman, costume, roses or setting in image 2. Character never looks at viewer. Natural anatomy, no extra/fused fingers, physically possible joints. No machinery, text or UI. Scene-reactive expression and gaze, candid action, no photo pose.\nDamon: stocky broad middle-aged brown-skinned man, short dark curls, ivory rolled sleeves, dark green apron, broad cuff with short heavy ritual chain. No hammer or tools. Preserve identity in stylized anime drawing. Paraíso setting, ivory stone and gold, pale blues and light greens.\nExactly two figures: Damon and one attacker. Damon plants his feet and raises a chain-bound forearm; the incoming blade hits a compact interlocking golden ward and deflects. Damon shows calm protective determination under strain, attacker startled. Profile angle, coherent arms and shoulders, no other beneficiaries."
+    }
+  ],
+  "nextAction": "Generate the eleven missing pieces under the current direction, review every piece for style, anatomy, gaze, scene expression and target counts, then replace both complete active kits. Do not reuse rejected previews as final assets."
+}
