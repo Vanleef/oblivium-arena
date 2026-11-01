@@ -1029,7 +1029,21 @@
     "o-cultivador:base:impulso",
     "o-cultivador:base:tecnica",
     "o-cultivador:base:voto",
-    "o-cultivador:base:despertar"
+    "o-cultivador:base:despertar",
+    "o-que-cria:base:portrait",
+    "o-que-cria:base:passive",
+    "o-que-cria:base:impulso",
+    "o-que-cria:base:tecnica",
+    "o-que-cria:base:voto",
+    "o-que-cria:base:despertar",
+    "o-que-cria:form:impulso:construct",
+    "a-semente:base:portrait",
+    "a-semente:base:passive",
+    "a-semente:base:impulso",
+    "a-semente:base:tecnica",
+    "a-semente:base:voto",
+    "a-semente:base:despertar",
+    "a-semente:form:impulso:fruit"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1722,7 +1736,21 @@
     "o-cultivador:base:impulso",
     "o-cultivador:base:tecnica",
     "o-cultivador:base:voto",
-    "o-cultivador:base:despertar"
+    "o-cultivador:base:despertar",
+    "o-que-cria:base:portrait",
+    "o-que-cria:base:passive",
+    "o-que-cria:base:impulso",
+    "o-que-cria:base:tecnica",
+    "o-que-cria:base:voto",
+    "o-que-cria:base:despertar",
+    "o-que-cria:form:impulso:construct",
+    "a-semente:base:portrait",
+    "a-semente:base:passive",
+    "a-semente:base:impulso",
+    "a-semente:base:tecnica",
+    "a-semente:base:voto",
+    "a-semente:base:despertar",
+    "a-semente:form:impulso:fruit"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2471,11 +2499,12 @@
   "latestCandidateBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-cultivador"
+      "o-que-cria",
+      "a-semente"
     ],
-    "candidateSlotsAdded": 6,
-    "candidateSlotsActivated": 6,
+    "candidateSlotsAdded": 14,
+    "candidateSlotsActivated": 14,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_CULTIVADOR_ANIME_PICTORIAL_20261101.json"
+    "report": "docs/ART_ARTIFICE_SEMENTE_ANIME_PICTORIAL_20261101.json"
   }
 }

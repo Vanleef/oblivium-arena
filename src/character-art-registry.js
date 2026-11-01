@@ -1,4 +1,34 @@
 export const characterArtRegistry = {
+"o-que-cria": {
+  "portrait": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "impulso": {
+      "construct": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-impulso-construct.webp"
+    }
+  }
+},
+"a-semente": {
+  "portrait": "/art/characters/a-semente/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/a-semente/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "impulso": {
+      "fruit": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-impulso-fruit.webp"
+    }
+  }
+},
 "o-cultivador": {
   "portrait": "/art/characters/o-cultivador/anime-pictorial-correction-20261101/portrait.webp",
   "passive": "/art/characters/o-cultivador/anime-pictorial-correction-20261101/passive.webp",
