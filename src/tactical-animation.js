@@ -21,3 +21,6 @@ export function tacticalAnimationFrames(ability,type='skill'){
  const family=tacticalAnimationFamily(ability,type);
  return sequences[family].map((pose,index)=>({family,pose,index,count:sequences[family].length}));
 }
+
+const actionArtPoses=new Set(['release','impact','followthrough','transfer']);
+export function tacticalFrameArt(ability,pose,portrait=''){return ability?.art&&actionArtPoses.has(pose)?ability.art:portrait;}
