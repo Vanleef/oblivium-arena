@@ -14,12 +14,12 @@
     "entriesWithAnyBaseMissing": 0,
     "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
-    "formsSharedWithBase": 30,
+    "formsSharedWithBase": 27,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0
   },
   "visualReview": {
-    "definition": "Contagem histórica de revisão visual sob a direção anime-first anterior; esses resultados não aprovam as artes na direção dark fantasy pictórica atual.",
+    "definition": "Histórico de revisão; não implica aprovação do usuário na direção vigente em docs/ART_DIRECTION.md.",
     "reviewedSlots": 331,
     "correctionSlots": 1,
     "fullyReviewedEntries": 49,
@@ -1760,7 +1760,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-vinculo",
@@ -1772,7 +1781,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "os-tres-irmaos",
@@ -1783,11 +1801,19 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "os-tres-irmaos:form:impulso:second",
-        "os-tres-irmaos:form:impulso:third"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "impulso-second",
+        "impulso-third",
+        "tecnica",
+        "voto",
+        "despertar"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "a-guardia-das-promessas",
@@ -1798,10 +1824,18 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-guardia-das-promessas:form:tecnica:fulfill"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "tecnica-fulfill",
+        "voto",
+        "despertar"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-que-cria",
@@ -2811,13 +2845,13 @@
     }
   ],
   "currentDirectionMigration": {
-    "name": "dark fantasy pictórica PMA",
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 662,
-    "remainingSlots": 336,
-    "fullyMigratedEntries": 100,
-    "remainingEntries": 50,
-    "awaitingVisualApprovalSlots": 655,
+    "integratedCandidateSlots": 683,
+    "remainingSlots": 315,
+    "fullyMigratedEntries": 103,
+    "remainingEntries": 47,
+    "awaitingVisualApprovalSlots": 676,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
@@ -2829,5 +2863,17 @@
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
     "report": "docs/ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json"
+  },
+  "latestAnimePictorialBatch": {
+    "date": "2026-11-01",
+    "characterIds": [
+      "o-vinculo",
+      "os-tres-irmaos",
+      "a-guardia-das-promessas"
+    ],
+    "candidateSlotsAdded": 21,
+    "candidateSlotsActivated": 21,
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_VENUS_ANIME_PICTORIAL_20261101.json"
   }
 }

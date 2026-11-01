@@ -1168,6 +1168,15 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (["o-vinculo","os-tres-irmaos","a-guardia-das-promessas"].includes(id)) {
+    const base = `/art/characters/${id}/anime-pictorial-rework-20261101`;
+    const forms = {...(art.forms || {})};
+    if (id === 'os-tres-irmaos') forms.impulso = {...(forms.impulso || {}),second:`${base}/skill-impulso-second.webp`,third:`${base}/skill-impulso-third.webp`};
+    if (id === 'a-guardia-das-promessas') forms.tecnica = {...(forms.tecnica || {}),fulfill:`${base}/skill-tecnica-fulfill.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+
   if (id === 'a-cartografa-da-clareza') {
     const base = `/art/characters/${id}/dark-pictorial-direction-correction-20261101`;
     const forms = {...(art.forms || {}), tecnica: {...(art.forms?.tecnica || {}), shortcut: `${base}/skill-tecnica-shortcut.webp`}};

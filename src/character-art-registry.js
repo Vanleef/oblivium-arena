@@ -1,4 +1,45 @@
 export const characterArtRegistry = {
+"o-vinculo": {
+  "portrait": "/art/characters/o-vinculo/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/o-vinculo/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-despertar.webp"
+  }
+},
+"os-tres-irmaos": {
+  "portrait": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "impulso": {
+      "second": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-second.webp",
+      "third": "/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-third.webp"
+    }
+  }
+},
+"a-guardia-das-promessas": {
+  "portrait": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "tecnica": {
+      "fulfill": "/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica-fulfill.webp"
+    }
+  }
+},
   "a-cartografa-da-clareza": {
     "portrait": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/portrait.webp",
     "passive": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/passive.webp",

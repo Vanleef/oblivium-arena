@@ -1002,7 +1002,28 @@
     "a-que-une:base:impulso",
     "a-que-une:base:tecnica",
     "a-que-une:base:voto",
-    "a-que-une:base:despertar"
+    "a-que-une:base:despertar",
+    "o-vinculo:base:portrait",
+    "o-vinculo:base:passive",
+    "o-vinculo:base:impulso",
+    "o-vinculo:base:tecnica",
+    "o-vinculo:base:voto",
+    "o-vinculo:base:despertar",
+    "os-tres-irmaos:base:portrait",
+    "os-tres-irmaos:base:passive",
+    "os-tres-irmaos:base:impulso",
+    "os-tres-irmaos:form:impulso:second",
+    "os-tres-irmaos:form:impulso:third",
+    "os-tres-irmaos:base:tecnica",
+    "os-tres-irmaos:base:voto",
+    "os-tres-irmaos:base:despertar",
+    "a-guardia-das-promessas:base:portrait",
+    "a-guardia-das-promessas:base:passive",
+    "a-guardia-das-promessas:base:impulso",
+    "a-guardia-das-promessas:base:tecnica",
+    "a-guardia-das-promessas:form:tecnica:fulfill",
+    "a-guardia-das-promessas:base:voto",
+    "a-guardia-das-promessas:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1668,7 +1689,28 @@
     "a-que-une:base:impulso",
     "a-que-une:base:tecnica",
     "a-que-une:base:voto",
-    "a-que-une:base:despertar"
+    "a-que-une:base:despertar",
+    "o-vinculo:base:portrait",
+    "o-vinculo:base:passive",
+    "o-vinculo:base:impulso",
+    "o-vinculo:base:tecnica",
+    "o-vinculo:base:voto",
+    "o-vinculo:base:despertar",
+    "os-tres-irmaos:base:portrait",
+    "os-tres-irmaos:base:passive",
+    "os-tres-irmaos:base:impulso",
+    "os-tres-irmaos:form:impulso:second",
+    "os-tres-irmaos:form:impulso:third",
+    "os-tres-irmaos:base:tecnica",
+    "os-tres-irmaos:base:voto",
+    "os-tres-irmaos:base:despertar",
+    "a-guardia-das-promessas:base:portrait",
+    "a-guardia-das-promessas:base:passive",
+    "a-guardia-das-promessas:base:impulso",
+    "a-guardia-das-promessas:base:tecnica",
+    "a-guardia-das-promessas:form:tecnica:fulfill",
+    "a-guardia-das-promessas:base:voto",
+    "a-guardia-das-promessas:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2385,9 +2427,14 @@
   },
   "latestCandidateBatch": {
     "date": "2026-11-01",
-    "characterId": "a-que-une",
-    "candidateSlots": 6,
-    "report": "docs/ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json",
-    "status": "candidate_integrated_pending_visual_approval"
+    "characterIds": [
+      "o-vinculo",
+      "os-tres-irmaos",
+      "a-guardia-das-promessas"
+    ],
+    "candidateSlotsAdded": 21,
+    "candidateSlotsActivated": 21,
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_VENUS_ANIME_PICTORIAL_20261101.json"
   }
 }
