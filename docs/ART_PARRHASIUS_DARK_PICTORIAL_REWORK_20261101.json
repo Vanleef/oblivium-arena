@@ -122,17 +122,20 @@
   "previousArtDirection": "Acabamento anterior anime 2.5D com cenário glacial e reflexos frios; reformulado para dark fantasy pictórica infernal, com efeitos materiais e variedade de enquadramento.",
   "identity": "Parrhasius mantém pele marrom-escura, rosto estreito, locs pretos curtos com mechas marfim e olhos cinzentos claros. Veste manto ritual carvão, cachecol escuro e poucas placas de obsidiana espelhada talhadas e presas ao tecido; sem tecnologia ou armadura mecânica.",
   "mechanicsPreserved": true,
-  "visualApproval": "pending",
+  "visualApproval": "rejected_by_user_direction_feedback",
   "revisionDate": "2026-11-01",
-  "revisionSummary": "Sete imagens refeitas: seis slots-base e a forma dedicada Estilhaço Devolvido. As ações, alvos únicos, defesa, passiva de retorno e efeitos de exposição/perfuração/expurgo seguem o kit; a composição varia entre retrato, impacto, parry, ataque e proteção.",
+  "revisionSummary": "Sete imagens refeitas: seis slots-base e a forma dedicada Estilhaço Devolvido. As ações, alvos únicos, defesa, passiva de retorno e efeitos de exposição/perfuração/expurgo seguem o kit; a composição varia entre retrato, impacto, parry, ataque e proteção. As versões deste bloco foram posteriormente rejeitadas pelo usuário por desalinhamento com a linha de arte do projeto e substituídas pelo relatório de correção conjunta de 2026-11-01.",
   "reviewChecklist": {
     "identity": "Pele marrom-escura, locs pretos com fios marfim, olhos cinzentos e roupa escura preservados do retrato canônico.",
     "worldPalette": "Inferno/Oblívio em carvão, preto, vermelho profundo e brasa; sem paleta glacial, dourada ou azul.",
-    "rendering": "Pincelada angular e visível, contorno manual, hachura, sombra profunda e materialidade de pedra, vidro e tecido; sem acabamento fotográfico ou 3D.",
+    "rendering": "Autorrevisão inicial classificou a candidata como pictórica, mas o usuário rejeitou o resultado por acabamento cinematográfico e polido demais; a nova correção conjunta deve ser tratada como a candidata atual.",
     "anatomy": "Gestos e apoios conferidos nas sete cenas; mãos, ombros, braços e articulações legíveis.",
     "actionsAndTargets": "Ataques individuais mostram um único ghoul; a passiva e o contra-ataque têm duas figuras; a defesa mostra apenas Parrhasius e o golpe entrando de fora do quadro.",
     "mechanics": "Imagem Verdadeira expõe uma abertura; Devolver a Intenção prepara o contra-ataque; Fratura da Ilusão perfura e desfaz a guarda; Dentro do Reflexo protege o próprio Parrhasius; Estilhaço Devolvido remove camadas protetoras e restaura a forma-base.",
     "restrictions": "Sem duplicação/reflexo corporal de Parrhasius, tecnologia, mecanismo, feixe fino, magia sem materialidade, gore ou texto.",
-    "visualApproval": "A revisão de direção de arte e mecânica foi feita; as sete candidatas aguardam aprovação visual do usuário."
-  }
+    "visualApproval": "Versão anterior rejeitada por feedback explícito do usuário; substituída por candidata pendente no relatório de correção."
+  },
+  "status": "superseded_by_direction_correction",
+  "supersededBy": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
+  "directionFeedback": "O usuário apontou que os dois blocos mais recentes não condiziam com a direção e a linha de arte do projeto. A revisão confirmou acabamento excessivamente cinematográfico e polido, sem correspondência suficiente com as pinceladas angulares, contornos manuais e hachuras da referência oficial."
 }

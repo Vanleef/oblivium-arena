@@ -118,12 +118,15 @@
   "latestDarkPictorialBatch": {
     "date": "2026-11-01",
     "characterIds": [
+      "o-espelho",
       "a-cartografa-da-clareza"
     ],
-    "candidateSlotsAdded": 7,
-    "candidateSlotsActivated": 7,
-    "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json"
+    "candidateSlotsAdded": 0,
+    "candidateSlotsReplaced": 14,
+    "candidateSlotsActivated": 14,
+    "previousCandidateStatus": "rejected_by_user_direction_feedback",
+    "status": "candidate_revised_pending_visual_approval",
+    "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json"
   },
   "currentDirectionCorrectionHistory": [
     {
@@ -275,6 +278,24 @@
       "logicalSlotsReworked": 6,
       "logicalSlotsAdded": 1,
       "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-11-01",
+      "characterIds": [
+        "o-espelho",
+        "a-cartografa-da-clareza"
+      ],
+      "characterNames": [
+        "Parrhasius, O Espelho",
+        "Idrisi, A Cartógrafa"
+      ],
+      "feedback": "Os dois blocos mais recentes não condizem com a direção e linha de arte do projeto.",
+      "correction": "Refeitas as 14 artes com a referência pictórica oficial, pinceladas angulares, contornos manuais, hachuras e materiais táteis. Identidades, paletas Inferno/Oblívio e Paraíso/Sol, ações, anatomia e contagens de alvos mantidas; elementos mecânicos de navegação removidos.",
+      "logicalSlotsReworked": 14,
+      "logicalSlotsAdded": 0,
+      "previousCandidateStatus": "rejected_by_user_direction_feedback",
+      "status": "candidate_revised_pending_visual_approval",
+      "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json"
     }
   ],
   "currentDirectionMigration": {
@@ -289,11 +310,18 @@
   },
   "latestVisualCorrection": {
     "date": "2026-11-01",
-    "characterId": "a-cartografa-da-clareza",
-    "title": "Idrisi, A Cartógrafa",
-    "revisedSlots": 7,
-    "report": "docs/ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json",
+    "characterIds": [
+      "o-espelho",
+      "a-cartografa-da-clareza"
+    ],
+    "titles": [
+      "Parrhasius, O Espelho",
+      "Idrisi, A Cartógrafa"
+    ],
+    "revisedSlots": 14,
+    "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
     "status": "candidate_revised_pending_visual_approval",
-    "mechanicsPreserved": true
+    "mechanicsPreserved": true,
+    "previousCandidateStatus": "rejected_by_user_direction_feedback"
   }
 }

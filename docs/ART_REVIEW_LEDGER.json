@@ -2203,6 +2203,87 @@
       "key": "a-cartografa-da-clareza:form:tecnica:shortcut",
       "correctedAt": "2026-11-01",
       "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:portrait",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:passive",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:impulso",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:tecnica",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:voto",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:base:despertar",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "o-espelho:form:impulso:returned",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:portrait",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:passive",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:impulso",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:tecnica",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:voto",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:despertar",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:form:tecnica:shortcut",
+      "correctedAt": "2026-11-01",
+      "note": "Versão anterior rejeitada pelo usuário por acabamento cinematográfico/polido fora da linha pictórica. Refeita com a referência oficial, pincelada angular, contorno manual e hachura; identidade, mecânica e alvos preservados. Nova candidata pendente de aprovação visual."
     }
-  ]
+  ],
+  "latestCorrectionBatch": {
+    "date": "2026-11-01",
+    "characterIds": [
+      "o-espelho",
+      "a-cartografa-da-clareza"
+    ],
+    "revisedSlots": 14,
+    "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
+    "status": "candidate_revised_pending_visual_approval",
+    "previousVersionDisposition": "rejected_by_user_direction_feedback"
+  }
 }

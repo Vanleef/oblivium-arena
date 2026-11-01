@@ -1,0 +1,323 @@
+{
+  "id": "parrhasius-idrisi-dark-pictorial-direction-correction-20261101",
+  "date": "2026-11-01",
+  "characterIds": [
+    "o-espelho",
+    "a-cartografa-da-clareza"
+  ],
+  "status": "candidate_revised_pending_visual_approval",
+  "previousCandidateDisposition": "rejected_by_user_direction_feedback",
+  "previousReports": [
+    "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json",
+    "docs/ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json"
+  ],
+  "directionReference": "docs/ART_DIRECTION.md; art/characters/o-apodrecido/style-reference-rework-20261025/{portrait,skill-impulso}.webp",
+  "directionFeedback": "O usuário apontou que os dois blocos mais recentes não condiziam com a direção e a linha de arte do projeto. A revisão confirmou acabamento excessivamente cinematográfico e polido, sem correspondência suficiente com as pinceladas angulares, contornos manuais e hachuras da referência oficial.",
+  "generationMethod": "Built-in OpenAI ImageGen with local style and identity references; each output generated as a distinct square illustration.",
+  "artDirection": "PMA dense dark-fantasy pictorial 2.5D: visible angular brushstrokes, hand-drawn contours, cross-hatching, matte tactile material, deep shadows and dramatic light. Inferno/Oblívio uses charcoal, black, oxblood, blood-red and ember. Paradise/Sol uses ivory, aged gold, pale blue, silver, small green accents and blue-gray shadows.",
+  "reworkedLogicalSlots": 14,
+  "newLogicalSlotsAdded": 0,
+  "mechanicsPreserved": true,
+  "characters": [
+    {
+      "characterId": "o-espelho",
+      "name": "Parrhasius",
+      "title": "O Espelho",
+      "world": "Inferno",
+      "realm": "Oblívio",
+      "identity": "Pele marrom-escura, rosto estreito, locs pretos curtos com mechas marfim, olhos cinzentos claros, manto e cachecol carvão; fragmentos de obsidiana rituais, sem tecnologia.",
+      "mechanics": "Imagem Verdadeira expõe um inimigo; Devolver a Intenção prepara a resposta ao agressor; Fratura da Ilusão perfura e remove proteção; Dentro do Reflexo protege o próprio Parrhasius; Estilhaço Devolvido remove benefícios do alvo e restaura a forma-base.",
+      "slots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:returned"
+      ]
+    },
+    {
+      "characterId": "a-cartografa-da-clareza",
+      "name": "Idrisi",
+      "title": "A Cartógrafa da Clareza",
+      "world": "Paraíso",
+      "realm": "Sol",
+      "identity": "Pele marrom-escura, cabeça raspada com textura curta, olhos âmbar, argola dourada pequena, manto azul-acinzentado, túnica de linho marfim e correia de couro castanho.",
+      "mechanics": "A passiva ganha carga ao acertar um alvo marcado; Olhar Desarmante marca e expõe um inimigo; Caminho Seguro protege e reforça o trio; Convergência das Rotas foca um alvo; a defesa esquiva; Atalho da Clareza cura, purifica e reforça um único aliado.",
+      "slots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "tecnica:shortcut"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "slot": "portrait",
+      "logicalKey": "o-espelho:base:portrait",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/portrait.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "6c2bca75ba95af2588eff5c52a62fef5816d8916376bdf5931303067bf12cff1",
+      "activeSha256": "edc84fbaa5dcbd5bd949de13764140d29c5d7d4b6b4a5b9c6b9b6662566ed9e1",
+      "generatedImage": "generated_images/exec-72ef6ef4-319a-4c96-b921-b534689e0750.png",
+      "scene": "Close 3/4 de Parrhasius alerta, com locs e mechas marfim, manto carvão e fragmentos ásperos de obsidiana em Oblívio."
+    },
+    {
+      "slot": "passive",
+      "logicalKey": "o-espelho:base:passive",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/passive.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "c977b431203296fe40db678440e52c2183b009eb7c42e58d75f4f099a70cc7a5",
+      "activeSha256": "6a70e1d78227374b5a36e388e5a423128762daf63d87387da2a7c3f1a9817b1c",
+      "generatedImage": "generated_images/exec-1e233ba3-5199-4fdf-bc4a-7225a3b94b38.png",
+      "scene": "Um ghoul golpeia a guarda de obsidiana ainda firme; o impacto retorna ao próprio braço do agressor."
+    },
+    {
+      "slot": "impulso",
+      "logicalKey": "o-espelho:base:impulso",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/skill-impulso.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/skill-impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "de25e8d1cb8b134e519f1b901e4c70718a0b4a1d24a91cbeaebdbe1426fbd74e",
+      "activeSha256": "e1c1ef6df67944f647d123e6906fe0bef716c0d87dcde1934e44938a0f0b2771",
+      "generatedImage": "generated_images/exec-80f787f8-e352-4aa1-a2ee-dc69ad1832c5.png",
+      "scene": "Parrhasius expõe a fissura no ombro de um único ghoul com uma lasca física de vidro vulcânico."
+    },
+    {
+      "slot": "tecnica",
+      "logicalKey": "o-espelho:base:tecnica",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/skill-tecnica.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/skill-tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "312ab14a10f526db02cd4354fe50c44c95ff7ecf1a3197ba32cc83a8ffe4adec",
+      "activeSha256": "bf7425bec0405f60356e0d03f15dc6402758568934eb183fbf7d5e12f662c4ea",
+      "generatedImage": "generated_images/exec-81809753-143b-4f20-8ded-c86868b58b43.png",
+      "scene": "Um parry diagonal de Parrhasius contra o cutelo de um único ghoul, revertendo o impulso do golpe."
+    },
+    {
+      "slot": "voto",
+      "logicalKey": "o-espelho:base:voto",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/skill-voto.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/skill-voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "199b288e68fb61a9de9f078a825c2194cd45d84da030ccd4b69fc6d18515f18a",
+      "activeSha256": "d8736e449b2e65c39c37380c834915bfbe5952e83555075c0e170eee1335e42d",
+      "generatedImage": "generated_images/exec-476ada8f-a39d-45af-bc1c-d7f123989e27.png",
+      "scene": "Uma lasca larga de vidro atravessa a guarda exposta de um único ghoul; placas protetoras se soltam."
+    },
+    {
+      "slot": "despertar",
+      "logicalKey": "o-espelho:base:despertar",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/skill-despertar.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/skill-despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "8d99ef9c03c28847ea046b316b59f44d7dd72f1e9a37b0cefe91cfcf67c24d03",
+      "activeSha256": "1325d17d7ac8a2a66f897e20f4418493534b6f6ab0cb36edcefed44e2a5c9281",
+      "generatedImage": "generated_images/exec-02d9750c-d4b1-4310-b92f-b3c619725b29.png",
+      "scene": "Parrhasius se protege atrás de uma placa curva de obsidiana que recebe o golpe vindo de fora do quadro."
+    },
+    {
+      "slot": "impulso:returned",
+      "logicalKey": "o-espelho:form:impulso:returned",
+      "path": "/art/characters/o-espelho/dark-pictorial-direction-correction-20261101/skill-impulso-returned.webp",
+      "source": "art/source/o-espelho-dark-pictorial-direction-correction-20261101/skill-impulso-returned.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e4c0c8c6f3165ca57a8f7f6e76a3cec5329a8f1e9ba7efcd525806fae4cccfe1",
+      "activeSha256": "ac630953cfcd5bbdfb087068a07a06d06a4b73e296fd21d347fc54b75326a45d",
+      "generatedImage": "generated_images/exec-5f24ddd6-54a6-4e2c-a3e7-2430a6020c86.png",
+      "scene": "Um estilhaço pesado retorna e quebra a proteção de um único ghoul, removendo suas camadas de benefício."
+    },
+    {
+      "slot": "portrait",
+      "logicalKey": "a-cartografa-da-clareza:base:portrait",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/portrait.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "257605994f275258fcde062eec321401a62bd604e2cd0fca445f37f76a6e8654",
+      "activeSha256": "0c6cd5c9b0c4c29c51a49a48c14be66d6facf6b1b8ffc9f07878d37cb1440fd7",
+      "generatedImage": "generated_images/exec-c52901a7-1dd1-4470-85ca-4fe700aa7538.png",
+      "scene": "Close 3/4 de Idrisi atenta, cabeça raspada, olhos âmbar, argola pequena, manto azul-acinzentado e linho marfim em terraço solar."
+    },
+    {
+      "slot": "passive",
+      "logicalKey": "a-cartografa-da-clareza:base:passive",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/passive.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ff721aeff09a6e98d340df45bcd175a9a02f2163bc6b3d65aa4c6c4f046dfd3c",
+      "activeSha256": "ecea3a3866beb53968b08d1bfbf002c0397650d09198de7165951f221869a881",
+      "generatedImage": "generated_images/exec-c832aaca-824b-4a41-bfb3-d6300ae7204e.png",
+      "scene": "A carga de luz percorre um sulco no mármore de volta à mão de Idrisi após atingir um ghoul já marcado."
+    },
+    {
+      "slot": "impulso",
+      "logicalKey": "a-cartografa-da-clareza:base:impulso",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/skill-impulso.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/skill-impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "fd679fb788c38f3c9e1c27da06213b4153daf3a92e6133c8f0ede4e94e73e3cf",
+      "activeSha256": "4c6daca33d20a315737fd70203d51b50cf46e928d157a08bd31ad38332b16cec",
+      "generatedImage": "generated_images/exec-3f4eef0f-6baf-4f7c-95e4-efaaf73dc3ac.png",
+      "scene": "Um sulco curto revela a abertura no ombro de um único ghoul e expõe sua guarda."
+    },
+    {
+      "slot": "tecnica",
+      "logicalKey": "a-cartografa-da-clareza:base:tecnica",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/skill-tecnica.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/skill-tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "6d00293db17ba76ea0581e4ef7e2b9d41beedf65d9091ac877140a6a42751859",
+      "activeSha256": "6215bdb38c419b79c9169a38cfef57feccaf1db4f4a667155cdf08145bee7caa",
+      "generatedImage": "generated_images/exec-99620bbe-fc47-4914-8d84-26ac44dc5ce5.png",
+      "scene": "Idrisi ergue um anteparo de mármore e luz ao redor de si e de dois aliados: exatamente três pessoas protegidas."
+    },
+    {
+      "slot": "voto",
+      "logicalKey": "a-cartografa-da-clareza:base:voto",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/skill-voto.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/skill-voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "d79ca4c1ca4e0653176d412b9f1913ed13f8488db3d7aefe634d9d14d27f437b",
+      "activeSha256": "d122ff5d924e1d52ce30f4b5c9de273318a15e4429854bbddeb6f81edd4e5dda",
+      "generatedImage": "generated_images/exec-9ca50564-f063-48b0-ae7f-7cf0ecf7c779.png",
+      "scene": "Três rotas largas convergem sob um único ghoul; a crista de mármore o desequilibra e o atordoa."
+    },
+    {
+      "slot": "despertar",
+      "logicalKey": "a-cartografa-da-clareza:base:despertar",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/skill-despertar.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/skill-despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "18068325f371911db00e8eca67c75b9a5b4f48517e1b7992d1307bafb0c4f03a",
+      "activeSha256": "b80c7ec1f54b0b7b304a1e4b39fe835b4b64b8d3124aa488c2d66fe7fd7a5574",
+      "generatedImage": "generated_images/exec-0ec3aa5e-9e5e-4b2c-bc3a-ab51037a95e3.png",
+      "scene": "Idrisi desvia de uma estocada, pisa em uma rota lateral e deixa a lança atingir o mármore vazio."
+    },
+    {
+      "slot": "tecnica:shortcut",
+      "logicalKey": "a-cartografa-da-clareza:form:tecnica:shortcut",
+      "path": "/art/characters/a-cartografa-da-clareza/dark-pictorial-direction-correction-20261101/skill-tecnica-shortcut.webp",
+      "source": "art/source/a-cartografa-da-clareza-dark-pictorial-direction-correction-20261101/skill-tecnica-shortcut.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "137445d420e3ce0b45679f4f547d367dfdca8c822e172277cc5873ac769d4885",
+      "activeSha256": "fc22c7be947ccb039cfdf56fd0fa51dc8b8e7eada2e84a659e1ac4480bc8497c",
+      "generatedImage": "generated_images/exec-7aacad9d-3995-4a9c-9cbb-2fcfefbd9b4e.png",
+      "scene": "Idrisi sustenta um aliado enquanto ele se ergue; cinza de aflição cai e a rota iluminada o recompõe."
+    }
+  ],
+  "reviewChecklist": {
+    "identity": "Traços canônicos de Parrhasius e Idrisi mantidos, sem troca de rosto ou roupa-base.",
+    "worldPalette": "Inferno/Oblívio em carvão, preto, oxblood e brasa; Paraíso/Sol em marfim, azul claro, ouro envelhecido e sombras azul-acinzentadas.",
+    "rendering": "Nova série ancorada na referência pictórica oficial: pinceladas quebradas angulares, contornos manuais, hachura e materiais táteis. As versões anteriores foram recusadas por acabamento polido/cinematográfico.",
+    "anatomy": "Pescoço, ombros, braços, mãos, joelhos, apoio dos pés e transferência de peso conferidos nos quadros disponíveis.",
+    "actionsAndTargets": "Cada golpe de Parrhasius e Idrisi representa um alvo; Caminho Seguro protege exatamente Idrisi e dois aliados; defesa de Idrisi mostra apenas a esquiva pessoal; Atalho da Clareza afeta somente um aliado.",
+    "mechanics": "Efeitos e cenas correspondem às descrições dos kits; nenhuma alteração em regras de combate.",
+    "restrictions": "Sem cópias do Parrhasius, instrumentos ou mecanismos de navegação para Idrisi, feixes finos, texto legível, armas tecnológicas ou personagens nomeados extras.",
+    "visualApproval": "Nova versão candidata integrada; aguarda aprovação visual do usuário."
+  }
+}
