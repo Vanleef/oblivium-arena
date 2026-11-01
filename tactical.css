@@ -136,3 +136,14 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .cell.wave-bind:after{background:radial-gradient(ellipse,#d6b2ef,#9866cf99 45%,transparent 78%)}
 .cell.wave-support:after{background:radial-gradient(ellipse,#d0ecc2,#70c98b99 45%,transparent 78%)}
 .cell.wave-guard:after{background:radial-gradient(ellipse,#c8edf6,#69b4d899 45%,transparent 78%)}
+
+.token[data-pose="thrust"] .token-art{transform:translateX(calc(-50% + 16px)) translateY(-2px) scale(1.03,1.01)}
+.token[data-pose="withdraw"] .token-art{transform:translateX(calc(-50% - 7px)) scale(.98)}
+.token[data-pose="travel"] .token-art{transform:translateX(calc(-50% + 4px)) translateY(-8px) scale(1.05);filter:brightness(1.55) drop-shadow(0 0 16px #9bcde2)}
+.token[data-pose="inhale"] .token-art{transform:translateX(-50%) scale(.97);filter:brightness(.82) saturate(.8)}
+.token[data-pose="spread"] .token-art{transform:translateX(-50%) scale(1.1);filter:brightness(1.45) drop-shadow(0 0 17px #aa7bd4)}
+.token[data-pose="deflect"] .token-art{transform:translateX(calc(-50% + 7px)) rotate(5deg) scale(1.05);filter:brightness(1.65) drop-shadow(0 0 15px #e8d391)}
+.token[data-pose="counter"] .token-art{transform:translateX(calc(-50% + 13px)) rotate(-3deg) scale(1.09);filter:brightness(1.55) drop-shadow(0 0 16px #e59d7b)}
+.cell.wave-projectile:after{background:radial-gradient(ellipse,#ccecf7,#64afd799 45%,transparent 78%)}
+.cell.wave-affliction:after,.cell.wave-pierce:after{background:radial-gradient(ellipse,#efd19b,#e06e5788 45%,transparent 78%)}
+.cell.wave-counter:after{background:radial-gradient(ellipse,#fff1bf,#d9ac5f99 45%,transparent 78%)}
