@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-01",
+  "characterIds": [
+    "o-que-cria",
+    "a-semente"
+  ],
+  "candidateSlotsAdded": 14,
+  "candidateSlotsActivated": 14,
+  "status": "candidate_integrated_pending_visual_approval",
+  "report": "docs/ART_ARTIFICE_SEMENTE_ANIME_PICTORIAL_20261101.json",
+  "names": {
+    "o-que-cria": "Cedric, O Artífice",
+    "a-semente": "Sprout, A Semente"
+  },
+  "mechanicsPreserved": true,
+  "routes": {
+    "o-que-cria": {
+      "portrait": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/portrait.webp",
+      "passive": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/passive.webp",
+      "abilities": {
+        "impulso": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-impulso.webp",
+        "tecnica": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-tecnica.webp",
+        "voto": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-voto.webp",
+        "despertar": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-despertar.webp"
+      },
+      "forms": {
+        "impulso": {
+          "construct": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-impulso-construct.webp"
+        }
+      }
+    },
+    "a-semente": {
+      "portrait": "/art/characters/a-semente/anime-pictorial-rework-20261101/portrait.webp",
+      "passive": "/art/characters/a-semente/anime-pictorial-rework-20261101/passive.webp",
+      "abilities": {
+        "impulso": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-impulso.webp",
+        "tecnica": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-tecnica.webp",
+        "voto": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-voto.webp",
+        "despertar": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-despertar.webp"
+      },
+      "forms": {
+        "impulso": {
+          "fruit": "/art/characters/a-semente/anime-pictorial-rework-20261101/skill-impulso-fruit.webp"
+        }
+      }
+    }
+  },
+  "migration": {
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 703,
+    "remainingSlots": 295,
+    "fullyMigratedEntries": 106,
+    "remainingEntries": 44,
+    "awaitingVisualApprovalSlots": 696,
+    "approvedSlots": 7
+  },
+  "sources": [
+    "art/source/o-que-cria-anime-pictorial-rework-20261101",
+    "art/source/a-semente-anime-pictorial-rework-20261101"
+  ],
+  "hashes": {
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/portrait.webp": "35fa944647425da8fa8d9ff6a6b7159d059f707e8dc6934f8d8cc3db31c2abc4",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/portrait.jpg": "709ff5bc8640fd3a77cd567d13f1794c0d498357e321eb13c4c0571f8df4ddf6",
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-impulso.webp": "299e12cc3bce370bb6289db6f1b100479c3de7852f857cf9e5c8cb6a974af80e",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/skill-impulso.jpg": "117843a9c95e90c9e662831e240a038430fa8a8aca1a3c8b84af98f75904f9ef",
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/passive.webp": "9919479eb62f7bbaba6ddf0c33c93008ffccf4be66798bf1b1111e7053daaef5",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/passive.jpg": "a7122ff6a8abf922afd2b27067a4178ca9d67302d7ce377cc7492982a1db25b6",
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-voto.webp": "9ebea07f37b5bfa1cd145f068293f4f04a25a9c78b486b5caf5cfd19865a487f",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/skill-voto.jpg": "12c1f5c77169bfaa439c3a5a9d18b723cf6d06a8c3a8f98454714dc22c3b2882",
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-impulso-construct.webp": "0ec3af3d6bb2e1f723f0d91f05353472b0035334b36a08d97950031b72e770cb",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/skill-impulso-construct.jpg": "e16c5d4f80ec697aa16acbb48255bbdc8009f953a2c5035ede07c2d919bbb8f0",
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-tecnica.webp": "ed36855ff6e1606111884a2827c533f03cb249fc6a3e13f3b20e706823d506c8",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/skill-tecnica.jpg": "77d8e896b33fcbd340bf4bf19e01e297111c3cec09138e4cea0af17d7bec64b8",
+    "art/characters/o-que-cria/anime-pictorial-rework-20261101/skill-despertar.webp": "a92069105e223b8d551ae087c570ae0536e5b3ba0e74ab7dbf7a0b851e7da80f",
+    "art/source/o-que-cria-anime-pictorial-rework-20261101/skill-despertar.jpg": "4f26b38933d45b61c92bf68ad168734172be6ce8c55fb3214aced0e5f1555aee",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/portrait.webp": "a928182ef68a07a955c637b975918084026c5597fb6b12bab02b4a54444f6ba9",
+    "art/source/a-semente-anime-pictorial-rework-20261101/portrait.jpg": "3aefc53761c8eab228b57ebd4b2dc3f9dc79e0e57ab1aa91596baa764d5879a1",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/skill-impulso.webp": "2495ac4b39232f366d70b12d9823a09fad868f4624b4bb357bbf4309d888d940",
+    "art/source/a-semente-anime-pictorial-rework-20261101/skill-impulso.jpg": "c2161b82f8c557ccb4c3c71adb69d95e4c5e8afbfe9668ef1bfa6df7954e2c9a",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/skill-tecnica.webp": "9c88fa5fe329fad29b2a119b9cb2e4098ca10b03cd93656ca14626a4d58b3202",
+    "art/source/a-semente-anime-pictorial-rework-20261101/skill-tecnica.jpg": "1502706ff70561103162872217662733c0a5b0b405057095bce21e4737850958",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/skill-voto.webp": "e5d114c5ec1e223de2ed75435494b60090249f23ac7e650ddaafb27a1498a747",
+    "art/source/a-semente-anime-pictorial-rework-20261101/skill-voto.jpg": "8668db3e794fac6ca54d72eb516569049cc559d24af8beba9ef4e92e99e57ac2",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/passive.webp": "411ed4ab77714dfeecce0ac42138bd2ec9d3b60c3c0eb41b201a59f312022078",
+    "art/source/a-semente-anime-pictorial-rework-20261101/passive.jpg": "ff00475207b4c4c489928dbf325fde821ebdf669b61454ca2c0d493e5c71cd15",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/skill-despertar.webp": "ba6074297a6103e03cb033e9cf9a928d8155bf160530b1730e8f84405f6a84e5",
+    "art/source/a-semente-anime-pictorial-rework-20261101/skill-despertar.jpg": "689b267c0fddefcec43e37bfdbd6f6db4f09f25bcbaf6fe33e6b874d5ee290f9",
+    "art/characters/a-semente/anime-pictorial-rework-20261101/skill-impulso-fruit.webp": "e6c98cfa1fb0d696e04cc0c3a8cb84cc06a585293bafd7e1e5a1e66198656d6f",
+    "art/source/a-semente-anime-pictorial-rework-20261101/skill-impulso-fruit.jpg": "a4d7d5e34d9fa1fc16ac295e5577943066c405217a605e851451d788608d0a1c"
+  },
+  "inspection": {
+    "status": "model_inspected_user_approval_pending",
+    "checked": [
+      "drawn anime facial construction",
+      "identity consistency",
+      "visible limb continuity",
+      "action-related gaze",
+      "physical manifestations",
+      "single-target counts",
+      "self versus ally support",
+      "dedicated variants"
+    ],
+    "notes": [
+      "Artificer construct target rendered as stone creature guard; one enemy.",
+      "Seed passive first candidate discarded for portrait repetition; replaced by extreme close chamber detail.",
+      "No human features added to seed."
+    ]
+  },
+  "prompts": {
+    "artificer": {
+      "base": "Create ONE square game artwork, not a grid, no text. Match attached CEDRIC portrait's character identity AND exact drawn-anime 2.5D pictorial rendering. He is a strong brown-skinned adult man around 40, short dense black curls, full short black beard/mustache, expressive drawn dark eyes, dark navy work tunic, russet leather sculptor apron, bronze strap rings, ordinary hand chisels in apron pocket, a few broad ivory clay smudges on brow/cheek. Keep face, hair, beard, skin and clothes consistent, never become elderly or silver-haired. Expressive anime eyes and simplified drawn facial planes, grouped curls, angular painted volumes, controlled localized brush texture in materials, deep cool shadows, selective ink contours, dramatic cinematic light, influence of Arcane/Spider-Verse. Avoid photographic pores, wrinkle networks, etched skin, glossy 3D, flat-vector finish, global cracked or peeling-paint texture, noisy visual density. Paradise/Mercury palette ivory/blue/silver/green/gold; solemn crafted architecture. No technology, machinery, gears, modern tools, wings, halos. Natural action, gaze at action not camera, expressive effort; anatomically coherent two arms per human, normal joints and hands, never disconnected limbs. Other figures are anonymous. Scene: ",
+      "scenes": {
+        "passive": "Ideia Persistente. Extreme close diagonal view of a broad sculptor hand pressing a small black-red ember fragment into a hand-moulded ceramic matrix; a SINGLE cold ivory bead of Ether takes shape on other side of his thumb, solid compact matter, no gold Ether. His dark curly-haired bearded anime face is cropped in profile watching conversion with concentrated brow. Several already-finished clay fragments lie inert beside it. Symbolic conversion from Cinza to Éter after paying technique. No enemy, no ally, no energy strings. Quiet intimate atelier shadow and cool ivory light.",
+        "impulso": "Fragmento Nascente. Low wide lateral scene, exactly Cedric and ONE hostile ragged ash-gray ghoul. Cedric strides and forcefully throws one freshly shaped dense ivory geometric stone fragment at ghoul's shoulder. The fragment just LEFT an open throwing hand, visibly solid with weight; opposing hand holds rough clay lump against his apron. Ghoul turns from impact, stone dust. Cedric's gaze follows exact point of impact, forceful expression and counterbalanced anatomy. Open pale marble passage, blue sky and cool shadow, no beam or floating generic light ribbons.",
+        "tecnica": "Forma de Amparo. High angled medium view: exactly TWO figures. Cedric kneels beside ONE anonymous injured woman traveler in silver-blue robes. He uses both hands to press a broad ivory clay slab upward from stone ground into a curved ribbed shield around HER, visibly a freshly moulded spiritual creation. Ally braces one knee and watches shelter form with relief. Cedric looks at shield seam while shaping it with skilled effort. The shield does not enclose a team. No enemy needed. Shaded courtyard with a green reflecting basin, worn leather apron and drawn anime expressions, solid tactile form, no beams.",
+        "voto": "Obra Convergente. Oblique overhead view of ONE hostile ghoul trapped between THREE heavy separately created ivory carved stone segments, converging like a sculpted arch closing around torso. Cedric seen down-left in full body stepping back with arms apart, one palm closes inward to guide final heavy segment. Exactly two figures. Clear space between shoulder/arms, focused strained anime face watching enemy, dust and broad painted impact shapes at contact, non-graphic. Monumental unfinished marble staircase, deep blue shadow, silver-gold illumination. Physical weight and charged reserves spent; no beam, no swarming tiny shards, no technology.",
+        "despertar": "Forma Impossível, personal defense. Tight side view, exactly TWO figures: Cedric leans back and plants one hand on broad dense ivory ceramic plane rising diagonally before his own torso; other arm protects head. ONE attacking ghoul claw stops against exterior face of plane, visible point of contact, grit falling. Cedric watches claw and flinches with tense drawn anime eyes. Only caster sheltered, no ally. Weight shifted to rear leg, connected shoulders elbows wrists, believable stance. Shadowed atelier entrance with pale blue and green reflected light, restrained gold edge. No angel wings, no light beam.",
+        "impulso-construct": "Variant Forma que Rompe. Different action from Fragmento Nascente: full body low three-quarter view from behind Cedric's left hip. He grips a SINGLE CONTINUOUS long sculpted ivory lance-like construct with TWO hands spaced along shaft, lunging toward ONE ghoul's raised stone forearm guard; spear tip penetrates STONE covering with stone chips, no flesh wound. Dense braided clay ribs form shaft, no mechanical joints. Both hands correctly wrap continuous shaft and connect naturally to two shoulders. Face visible in profile looking at target, determined effort. Pale marble bridge above abstract blue cloud void, cool silver light, strong silhouettes. One caster one enemy, no generic armored soldier, no energy laser, no root weapon."
+      }
+    },
+    "seed": {
+      "base": "ONE square game artwork matching attached SPROUT identity and drawn-anime 2.5D pictorial finish. Entity is an upright GOLD-OCHRE almond seed with PALE GREEN vertical luminous seam, broad dark TEAL spear-shaped leaves around shell, ONE WHITE FLOWER on outer left leaf, thick WOODY ARCHED ROOTS supporting body. It has NO FACE, NO EYES, NO HUMAN TORSO, NO HUMAN LIMBS. Preserve this base unless variant explicitly opens shell. Clear grouped painted shapes, expressive contour hierarchy, angular painted material volumes, localized cloth/bark texture, deep blue shadows and dramatic restrained gold light, anime 2.5D environment and people. No photorealism, glossy 3D, flat vector finishing, global cracked/peeling paint noise. Paradise/Mercury: ivory marble garden architecture, blue/silver/green/gold atmosphere, no technology, machinery, generic angel wings or halos. Other characters anonymous with drawn anime faces; look at action, never viewer. Exact target counts, coherent human anatomy, no extra/disconnected limbs. Physical dense roots, leaves and flowers express power; no generic thin energy beams or luminous wires. Scene: ",
+      "scenes": {
+        "passive": "Potência Latente. Intimate cross-section-like close oblique view into seed's NARROW naturally open green seam, not entire shell open. A single small VIOLET essence grain settles into living inner seed chamber, and a new tiny pale-green bud emerges on adjoining root joint, conveying conversion into Ruptura plus stored charge. Broad teal leaves flex toward chamber; root tips brace themselves against soil. Only ONE entity, no people or enemies. Shadowy ivory arch background, strong local violet accent but Paradise palette remains dominant. No eye-like core and no human hand.",
+        "impulso": "Marca Germinal. Low side action, exactly ONE seed entity and ONE hostile gaunt ash-gray ghoul. A thick root of seed has thrust upward and physically presses a small GREEN SEED MARK onto ghoul's forearm. Mark is small exterior botanical seal with a closed bud, not penetrating flesh. Ghoul recoils and stares at its forearm. Seed body leans forward supported on other roots, leaves stretched by effort, bright seam visible. Solid contact, soil clods, no beam, no spore cloud. Clear silhouette and different composition from portrait.",
+        "tecnica": "Abrigo do Broto. High diagonal intimate composition: seed entity to left, exactly ONE injured anonymous adult traveler to right. Thick ROOTS grow a ribbed half-arch and broad green leaves over traveler's shoulder, providing solid protection while small soft green shoots tend bandaged arm. Seed is visibly separate from shelter, its gold shell and white flower remain visible. Traveler sits on one knee, looks down at restored arm with relief. Exactly TWO figures total, no team. Pale blue shadow beside a quiet garden basin, warm dense filtered light. No vines entering body, no energy ribbons.",
+        "voto": "Florescer da Marca. Over-the-shoulder viewpoint from behind seed leaves, onto exactly ONE ghoul target. The SAME small green botanical mark on ghoul's forearm bursts into a cluster of substantial white flowers and thick broad stems coiling externally around that arm, forcing hand open and disrupting guard. No growth under skin, no gore, no exposed organs. Ghoul bends sideways from pressure, expression of surprise/pain directed at flowers. Seed rooted in foreground, its GOLD shell visible partly behind dark teal leaves, white flower attached to own leaf. Two figures total. Strong diagonal action among pale marble garden steps; green/silver/blue/gold palette, no pink/red dominant.",
+        "despertar": "Casulo de Origem. Tight side defensive action. Seed entity folds its OWN large dark teal leaves into a dense overlapping cocoon around GOLD shell, green seam mostly protected but a sliver remains visible; one thick woody root braces into soil. ONE hostile ghoul CLAW impacts outside leaf shell and stops; visible folded leaf ribs absorb contact, small torn leaf chips but shell intact. Exactly one seed and one enemy, NO ALLY. White flower remains attached to outer protective leaf. Cool shadow within cocoon, strong pale gold edge from broken ivory arch, no humanoid body, no beams.",
+        "impulso-fruit": "SELF-SUPPORT VARIANT Fruto do Porvir. Entirely different state from base portrait: mature seed shell opens in TWO gold-ochre valves, exposing a large soft PALE GREEN ripe inner fruit with translucent pulpy painted planes, surrounded by dark teal leaves. WHITE FLOWER still attached to left outer leaf. Entity curls woody supporting roots inward into a resting cradle around ITS OWN fruit, a small damaged root tip being sealed by new growth, conveying self-heal and defense. Only ONE seed entity, no ally, no enemy. High close three-quarter view, low ivory garden niche in deep blue shadow, dense soft silver/green light from fruit, not a laser and not a face. Controlled painted surfaces, no photographic fruit macro or 3D gloss, no anthropomorphic features."
+      },
+      "passiveReplacement": "Extreme close detail inside narrow seam; solid violet grain and small green charge bud. Full portrait silhouette excluded."
+    }
+  }
+}

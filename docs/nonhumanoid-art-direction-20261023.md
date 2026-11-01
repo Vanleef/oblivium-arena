@@ -29,3 +29,4 @@ As habilidades **Couraça Voraz**, **Investida Vigilante** e **Revide Radiante**
 ## Arquivos e geração
 
 Artes finais em `art/characters/{o-devorador,o-ultimo-guardiao,o-eco-sem-dono}/form-revision-20261023/` e `art/characters/o-fim/fear-revision-20261023/`. Arquivos RGB WebP de 512 × 512; originais anteriores preservados. Geração pela ferramenta integrada de imagens, uma chamada por arte. As cenas dos três personagens usam seus novos retratos como referência de identidade; as de O Fim usam a referência apenas para atmosfera e instabilidade. Caminhos, prompts finais, referências e hashes estão em `NONHUMANOID_ART_REVISION_20261023.json`.
+

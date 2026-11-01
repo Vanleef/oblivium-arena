@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-31",
+  "character": {
+    "id": "o-pulso-sereno",
+    "name": "Seren",
+    "title": "O Sereno",
+    "role": "Baluarte"
+  },
+  "identity": "Homem adulto de corpo largo, por volta de 40 anos, pele escura, cabeça raspada, barba curta prateada e túnica azul solta de músico. Um handpan redondo de cobre fica preso à cintura por uma tira.",
+  "lore": "O Sereno interrompe a agressão com ritmo e quietude. Quando enfraquece um inimigo, sua batida alcança o aliado mais ferido; respira para recompor a própria guarda e usa o handpan como instrumento e superfície física de defesa.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "asset": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/o-pulso-sereno-dark-pictorial-rework-20261031/portrait.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "asset": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/o-pulso-sereno-dark-pictorial-rework-20261031/passive.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "asset": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/o-pulso-sereno-dark-pictorial-rework-20261031/impulso.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "asset": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/o-pulso-sereno-dark-pictorial-rework-20261031/tecnica.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "asset": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/o-pulso-sereno-dark-pictorial-rework-20261031/voto.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "asset": "/art/characters/o-pulso-sereno/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/o-pulso-sereno-dark-pictorial-rework-20261031/despertar.jpg",
+      "review": "candidate_pending_visual_approval"
+    }
+  ],
+  "compositionChecks": {
+    "portrait": "Homem adulto de pele escura, cabeça raspada, barba curta prateada, túnica azul solta e handpan de cobre preso à cintura.",
+    "passive": "Após enfraquecer um inimigo, um toque no handpan conduz uma pequena restauração ao aliado mais ferido; o inimigo e o aliado aparecem junto do músico.",
+    "impulso": "Um toque angular do handpan atinge um único inimigo e faz sua arma ceder, representando dano espiritual e Enfraquecimento.",
+    "tecnica": "Seren respira fundo, recupera a própria força e firma a guarda, representando cura própria e redução de dano recebido.",
+    "voto": "O aro sólido do handpan atinge o braço de escudo de um único inimigo já enfraquecido; o impacto físico o deixa atordoado.",
+    "despertar": "Na praia ao pôr do sol, uma flecha atinge o handpan girado diante do próprio torso e desvia para fora."
+  },
+  "files": {
+    "activeWebp": {
+      "dimensions": "512x512",
+      "count": 6
+    },
+    "sourceJpeg": {
+      "dimensions": "768x768",
+      "count": 6
+    }
+  },
+  "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Seren — O Sereno — revisão dark fantasy pictórica"
+}

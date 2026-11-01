@@ -1,0 +1,137 @@
+{
+  "id": "nilo-ruptura-epilogo-dark-pictorial-rework-20261031",
+  "characterId": "nilo-ruptura-epilogo",
+  "displayName": "Nilo, Epílogo de Ruptura",
+  "world": "Limbo",
+  "realm": "Umbral",
+  "previousArtDirection": "Anime 2.5D pictórico gótico ornado, com corredores e escadarias incompletos, vãos sem portas e névoa violeta.",
+  "artDirection": "Anime-first 2.5D pictórico de dark fantasy, gótico ornado e tátil, pinceladas angulares, contornos manuais, hachuras, sombras de corte e luz de recorte; paleta Limbo/Umbral em carvão, índigo e violeta-cinza. Estado ++Ruptura: vazio emocional, olhos totalmente violetas, marcas e fios roxos, vulto negro amorfo sem forma animal.",
+  "identity": "Nilo, pele castanha média, olhos totalmente violetas, cabelo azul-negro com mecha marfim e fios roxos; marcas roxas irregulares na pele exposta; veste tecidos carvão e índigo sem armadura, armas ou tecnologia. Um vulto negro amorfo adere à sua silhueta. Sua expressão comunica vazio emocional.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e1d081fb570b393ffda6af480743d91264a6df5ea99840e6795019f0be82072f",
+      "activeSha256": "a9ab9daf72a9c14c9b636cce0306c508b9be4bfb6ba6868c2886b7f5c864e1f0",
+      "scene": "Nilo no Umbral, em movimento sob um vão sem porta; olhos totalmente violetas, marcas roxas e sombra negra amorfa aderida ao corpo."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "da2cbad2468af111d25fff64277e66a42e49ed48feb771c8b38ecaa8856be842",
+      "activeSha256": "12d877822a6ea90108564cd96ef2b56490df66b9fc32c98235756f4509d40a64",
+      "scene": "Agachado junto à parede, Nilo divide a sombra em duas rotas nítidas; expressão vazia, marcas roxas expostas e sombra negra fundida às rotas."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "8135caae40000ae80c69cc2504b9a9711af656eeecca2a0220eb05a1d97cab44",
+      "activeSha256": "f251f91003d4f56704adaa30d472747098e9eaf1d64bcd43aef5da57e84b2588",
+      "scene": "Nilo toca o ombro de uma mulher enquanto se oculta na coluna; sombra amorfa adere ao corpo e ao ponto de contato."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "96dde8487398a3d0562edb48325b0b82f8055b4c8f504f257a6deaed92d90671",
+      "activeSha256": "b12b154d7f7ecfbd309235ff7c67cf6b9f21685d95e3c49ded1eda6350ea86a1",
+      "scene": "Corte Silencioso em contato próximo: uma lâmina compacta de sombra rompe apenas o manto no ombro de um homem mais velho."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "a6a033f86ffc03a52d776a55654039f284c9e2d3620a0f464cd362efe1b4baf5",
+      "activeSha256": "6915c22abfc004b23f5c38f062dedf08dd40f7cd7ec6ad71e44e12f1aa5ff929",
+      "scene": "Nilo observa da coluna enquanto uma faixa larga e pesada de sombra envolve o pulso e o ombro de uma mulher de cabelo ruivo."
+    },
+    {
+      "slot": "despertar-4",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-despertar-4.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/despertar-4.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "5352fb968e87be2bb0161d6183adcaa14f291f834e9ca3f7c3d848a9ee2eb6d7",
+      "activeSha256": "63abe9206341caf787aeae4f385739ce41c65ceaa379a8915276a1d59ba43597",
+      "scene": "Nilo intercepta o golpe de uma única besta-sombra com uma placa opaca de sombra que dobra o impacto e espalha fragmentos violetas."
+    },
+    {
+      "slot": "despertar-5",
+      "path": "/art/characters/nilo-ruptura-epilogo/dark-pictorial-rework-20261031/skill-despertar-5.webp",
+      "source": "art/source/nilo-ruptura-epilogo-dark-pictorial-rework-20261031/despertar-5.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "c3dd3f5d0d386082ef7352215cf5811b798855fd107541c1a749af6c311f8abb",
+      "activeSha256": "f4b32d7c15def10e842daa8ec579ec037d0db2aeebdf30ff21319f0365735cb8",
+      "scene": "Nilo esquiva pelo limiar quebrado; exatamente três fragmentos atravessam a borda evanescente do manto."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Ruptura",
+    "stage": "++",
+    "emotion": "Vazio emocional",
+    "visualMarkers": [
+      "olhos totalmente violetas",
+      "manchas roxas na pele",
+      "fios roxos no cabelo, preservando a mecha marfim",
+      "vulto negro amorfo aderido ao corpo, sem forma animal"
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-01",
+  "characterIds": [
+    "o-passo-interrompido",
+    "a-linha-partida"
+  ],
+  "candidateSlotsAdded": 15,
+  "candidateSlotsActivated": 15,
+  "status": "candidate_integrated_pending_visual_approval",
+  "report": "docs/ART_DESCONTINUO_CINDIDA_ANIME_PICTORIAL_20261101.json",
+  "names": {
+    "o-passo-interrompido": "Chronos, O Descontínuo",
+    "a-linha-partida": "Fract, A Cindida"
+  },
+  "mechanicsPreserved": true,
+  "routes": {
+    "o-passo-interrompido": {
+      "portrait": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/portrait.webp",
+      "passive": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/passive.webp",
+      "abilities": {
+        "impulso": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso.webp",
+        "tecnica": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-tecnica.webp",
+        "voto": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-voto.webp",
+        "despertar": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-despertar.webp"
+      },
+      "forms": {
+        "impulso": {
+          "next": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso-next.webp",
+          "previous": "/art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso-previous.webp"
+        }
+      }
+    },
+    "a-linha-partida": {
+      "portrait": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/portrait.webp",
+      "passive": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/passive.webp",
+      "abilities": {
+        "impulso": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-impulso.webp",
+        "tecnica": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-tecnica.webp",
+        "voto": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-voto.webp",
+        "despertar": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-despertar.webp"
+      },
+      "forms": {
+        "impulso": {
+          "mend": "/art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-impulso-mend.webp"
+        }
+      }
+    }
+  },
+  "migration": {
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 732,
+    "remainingSlots": 266,
+    "fullyMigratedEntries": 110,
+    "remainingEntries": 40,
+    "awaitingVisualApprovalSlots": 725,
+    "approvedSlots": 7
+  },
+  "sources": [
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101"
+  ],
+  "hashes": {
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/portrait.webp": "d6147281d3724a9c8a5a02836653078812833da0150eb9ebe7d4910bc94fed6a",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/portrait.jpg": "2d475ee68b953f84dce557bd33068da52298db4d6ca0a0d7589af6535da64e48",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-tecnica.webp": "007a03f814600e449f548c36389de64836137a674a6c5fd2df8f21d4a50ee025",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/skill-tecnica.jpg": "31c62932cdf95e6921869af1587aca4b635a19cda909a517f61a5efc434df8ed",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso.webp": "13830db1e2e8b27f0f668983f89f66fdb14a81abfa6ca6df53dacaefda4ded68",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/skill-impulso.jpg": "2c7b83777c75db642349e7a2b8c9955dac4b9aeac4812a967dc2892925bfb17a",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-voto.webp": "d469bc86dc0f57be56cc9a44f54cad465dc333700927b2d7f2af2219c0d3a614",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/skill-voto.jpg": "41137ee2784718e18d5bea62f6e8962318341251a5ed34af28a7753adddaf1ce",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/passive.webp": "2b4e06dcc73a78960e734456472d3d4ae9c4c9d683624db3895b66f8da41fda9",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/passive.jpg": "3b65944b84a80a1f4e1986c7cd145c44f4055d632d3d4877948597f46da353e1",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-despertar.webp": "f1a992e8e1584d4ff0ee6d248f2b214b5cfc62d95b0f690ee5e9151d1c63dc00",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/skill-despertar.jpg": "da63be4b61848096b47fdad788d38ff53b8e78589feb78b83fa70a005b656042",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso-next.webp": "6277dd3a0eda4a37a9110317f9f7e4ca9af52bec274dd355e760b26342922076",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/skill-impulso-next.jpg": "8907c12bddbe44de890f073cfd0ba77eceaf7eaef6cdb9607be27dd4aa30bc5c",
+    "art/characters/o-passo-interrompido/anime-pictorial-rework-20261101/skill-impulso-previous.webp": "0784cfaf04889cb0fcc6fe5d16848cf7e3460aff8770d806e65652e3cb6d5400",
+    "art/source/o-passo-interrompido-anime-pictorial-rework-20261101/skill-impulso-previous.jpg": "3890c75e0a5137474a9bd4deeecdb676839eb8edfa5f39617787df5a6ef665dd",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/portrait.webp": "78ddbc24462b9cad0897b106447b59d5dd422891da64371e65ce8db8df61e118",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/portrait.jpg": "ac23a567cace5e3e9af79e58d95a6d6a4fdb615e1e4d0a1aec2f053a534f0533",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/passive.webp": "229e7b6836ca0259c19196ec3409046b8f2ff860120f827e9b73087b24142bad",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/passive.jpg": "867c56fe2e5ed2f1ad8759b182b22c27d4bbaaafdab9d5082a7b8e6f28dde803",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-impulso.webp": "98b84fe4016614de6fedb4fdaeb39272bc1bbbec2dd0ac6e826b5ade7cb4d7a4",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/skill-impulso.jpg": "249a6870278b8be8bf621946038833a7e36cd621cd9b3b2439d083a418af0cf2",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-tecnica.webp": "031355bc9d9651675b383d3ef06f66eb50dec53a6a397029d0c1cdea6140998c",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/skill-tecnica.jpg": "ab761849e32e4eee2c8a837416dcb6523d448c0541ff96bf7cd3a95242bc60fd",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-voto.webp": "cb44921a08be34266dfb211bc2572ba2cc8103a295cf3004d1cc934424f363ad",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/skill-voto.jpg": "a11fa6c87b604ca5a19a58a357b42bdf8332cb7ec78e4e7b2f477826da2deac5",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-despertar.webp": "e7c6f5068289c4513ee26f8818149da9864c3342942cb981feb084e10cac71ae",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/skill-despertar.jpg": "81de5bebe9cb4bb85944d4df3df94625ba63930d9922295a8802aaa3cc2d6b20",
+    "art/characters/a-linha-partida/anime-pictorial-rework-20261101/skill-impulso-mend.webp": "75862f890143ea6688c3bd1b71983bd859621d22e3f847a14ba71ef6426c5824",
+    "art/source/a-linha-partida-anime-pictorial-rework-20261101/skill-impulso-mend.jpg": "ad6b2db7897d06c6f372bc2b4eebcf1b0a7f40e9188a639b787efba24b59b5f6"
+  },
+  "visualInspection": {
+    "status": "model_inspected_pending_user_visual_approval",
+    "checks": [
+      "anime drawn faces",
+      "canonical hair and clothing",
+      "heterochromia when both eyes visible",
+      "visible limb continuity",
+      "natural gaze and expression",
+      "single-target and ally-target distinction",
+      "physical cords and contact-based power",
+      "Limbo palette",
+      "no mechanical clock scenery"
+    ],
+    "targetCounts": {
+      "o-passo-interrompido": {
+        "portrait": 1,
+        "passive": 1,
+        "impulso": 2,
+        "tecnica": 2,
+        "voto": 2,
+        "despertar": 2,
+        "impulso-next": 2,
+        "impulso-previous": 2
+      },
+      "a-linha-partida": {
+        "portrait": 1,
+        "passive": 2,
+        "impulso": 2,
+        "tecnica": 2,
+        "voto": 2,
+        "despertar": 2,
+        "impulso-mend": 2
+      }
+    }
+  },
+  "correctionsBeforeIntegration": [
+    "Chronos passive extra digit removed; final hand has four fingers and one thumb.",
+    "Fract portrait hair restored to chin-length wavy bob and copied clay smudges removed before generating kit.",
+    "Fract Voto enemy military armor/medallion replaced with gaunt ghoul hide, rough stone crust and ragged cloth."
+  ],
+  "prompts": {
+    "chronos": {
+      "base": "ONE square CHRONOS / O DESCONTÍNUO game artwork, exact identity and drawn ANIME 2.5D pictorial rendering of attached portrait. Pale young adult man, messy split hair BLACK on HIS RIGHT/viewer-left, WHITE on HIS LEFT/viewer-right, RIGHT eye VIOLET and LEFT eye AMBER; IVORY long coat/violet lining/high collar, DARK PURPLE tunic, brown crossed leather chest straps, faceted VIOLET CRYSTAL pendant. Keep age/face/clothes/heterochromia, no beard. Drawn expressive eyes and facial planes, grouped hair, angular PAINTED volume and selective ink contours, controlled localized material brushwork. No photographic pores, glossy 3D, flat vector, all-over cracked/peeling texture. LIMBO/VESTIBULE: PURPLE important, lilac/gray/blue mist, incomplete doorways and stone structures. No clocks, clock hands, gears, machines, modern tech, wings/halos, text or panels. Natural action, clear coherent shoulders/elbows/hands/legs, TWO arms per person, no duplicate human/afterimage/extra limbs, no camera gaze. Temporal power physically DISPLACES stone, creates short local dense pressure at contact and changes footing; no lasers/energy wires. Same SINGLE adversary throughout offensive sequence: gaunt ashen ghoul in ragged charcoal wrapping, chipped jaw and one pale brow scar, no generic armored soldier. Scene: ",
+      "scenes": {
+        "passive": "Passo que Retorna. EXTREME CLOSE HIGH view of Chronos's left hand opening beside his boot print: ONE spent VIOLET essence grain collapses into inert dust and ONE newly solid cold IVORY essence shard rests in his palm, symbolic Ruptura expenditure returning a random Essence. Only part of face at top edge in sharp profile, EXPRESSION small surprised relief as he notices restored reserve, eyes at palm, mouth easing after effort. ONE body only, no enemy needed. Stone floor formed from two slightly offset halves of same footprint, violet fog through floor crack; pendant partly visible, no generic chest beam, no technological objects. Very different crop from portrait.",
+        "impulso": "Fissura do Passo. WIDE low ground-level diagonal action. Chronos forcefully STAMPS forward onto a split gray stone landing while thrusting an open palm into ONE ghoul's forearm guard. Short LOCAL purple dense pressure at actual contact cracks the guard; a small violet FOOTPRINT-SHAPED notch impressed on stone under target establishes mark. His coat swings from movement, both feet visibly grounded at different levels, opposite hand balances near waist. EXPRESSION fierce open-mouthed exertion, gaze fixed at enemy arm. TWO figures total. Inverted doorway in fog behind, stone grit, no beam, no floating caster, correct continuous arms.",
+        "tecnica": "Entre Dois Instantes. EYE-LEVEL tight side view in a narrow roofless corridor. Chronos braces ONE ghoul's attacking wrist with one palm and presses other hand onto its elbow from outside, holding arm suspended between TWO thick stone jambs whose edges are physically displaced by a short offset. The ghoul's own marked footing visibly loses balance; interrupted attack/STUN, not an ally rescue. EXPRESSION intense alert concentration with brows raised and jaw tight, looking directly at wrist, distinct from shouting attack. Exactly two people, EACH has only two arms, all wrists trace to separate shoulders, no merged hands. Floating dust arrested at contact, purple/lilac cold light, no clock, laser or mirrored duplicate Chronos.",
+        "voto": "Golpe Descontínuo. Oblique view from BEHIND ghoul's shoulder. Chronos lunges and drives ONE bent forearm/heel of palm into enemy's stone-like outer chest guard, shattering it with a dense short VIOLET contact distortion; broken floor plates jump at impact. Opposite hand clenches near his own abdomen as recoil costs him effort; one small superficial tear/bruise on his OWN wrist, non-graphic. EXPRESSION pain AND resolve, teeth clenched, one brow pinched, eyes track impact; neck and shoulder coherent. Exactly two figures. Broken circular stair platform in dense purple mist, angular composition, no punching laser or extra hands.",
+        "despertar": "Passo Fora do Tempo, PERSONAL evasion. Over-shoulder rear view of Chronos as he slips SIDEWAYS through a narrow offset doorway, one hand catching cold stone edge and other forearm shielding pendant close to chest. ONE ghoul claw sweeps through empty space just behind coat and strikes old door jamb, not body. EXPRESSION startled alarm in visible profile, wide eyes and parted mouth, gaze on passing claw, not camera. Exactly two figures, one Chronos body, no time clones or transparent human afterimages. A solid door threshold exists at two slightly separated positions, environment discontinuity only. Deep gray-purple shadow with silver rim, no technology.",
+        "impulso-next": "VARIANT Passo Seguinte. FULL BODY lateral action seen from knee level. Chronos has advanced beyond ghoul's guard onto a HIGHER suspended step and uses a forceful descending PALM-HEEL strike onto SAME ghoul's raised STONE forearm guard, piercing only guard covering with chips. His rear hand catches a broken stone rail to support real weight, knees and hips aligned; no weapon, no anatomical contortions. Violet footprint mark near ghoul's feet preserved. EXPRESSION determined pursuit with narrowed anime eyes and tight lips, gaze on impact. Exactly two figures. Suspended staggered stone bridge across lilac void, wind in coat, physical contact, distinct from initial stomp and next reversal.",
+        "impulso-previous": "VARIANT Passo Anterior. VERY HIGH oblique view down into shallow dark reflecting pool. Chronos steps BACK onto a prior violet footprint while a physical short displaced slab at the SAME ghoul's footing tips it to ONE knee; he presses an open palm at ghoul's shoulder to release dense localized purple spiritual pressure that leaves target weakened. Both Chronos arms visible, opposite hand extends behind for balance, body is only in current position; no duplicate afterimage. EXPRESSION controlled tired focus with breath visibly released, mouth slightly open and brows less aggressive, eyes on weakened target. Exactly two figures, marked opponent same chipped-jaw ghoul. Pools mirror only incomplete arches, not extra people. No lasers or giant luminous rings."
+      }
+    },
+    "fract": {
+      "base": "ONE square FRACT / A CINDIDA artwork, exact attached woman's identity and ANIME 2.5D PICTORIAL finish. Adult LIGHT OLIVE-skinned woman, CHIN-LENGTH gently WAVY BLACK BOB with side part (not tight curls), strong straight dark brows/dark eyes; cropped embroidered VIOLET jacket with brass buttons, IVORY wrap shirt/lower garment, dark brown waist belt. Skin clean, NO clay/paint smudges. Exactly THREE TACTILE CRIMSON TWISTED SILK CORDS are her ritual lines: physical material, frayed fibers, knotted anchor points at cuff/belt, taut when used, NOT glowing energy strings. Keep body anatomically FULLY CONNECTED; at most tiny faint violet-silver soul seam near wrist, never dismembered or malformed limbs. Expressive drawn anime eyes/face, grouped hair, angular painted volume, selective contours and localized brushwork; no photoreal pores, glossy 3D, flat vector, all-over cracked/peeling texture. LIMBO/PURGATORY: PURPLE important with gray/lilac/mist-blue, worn incomplete stone passages and suspended masonry. No red sky crack or red dominant environment, no technology, gears or modern tools, wings/halos, text or grid. Natural action and varied emotionally responsive expression, NEVER look at camera. Ordinary connected arms/hands; no extra figures/limbs. Scene: ",
+      "scenes": {
+        "passive": "Tensão da Ruptura. FLOOR-LEVEL EXTREME CLOSE composition showing Fract's left wrist and palm foreground after striking a MARKED enemy: a small superficial silver-violet seam on her wrist closes and ONE new compact crimson KNOT forms among the three physical cords as reserve. Only partial face at upper edge, EXPRESSION visibly relieved breath after pain, gaze down at closing seam, not identical knot-tying portrait. In middle background ONE ragged gray-skinned ghoul kneels recoiling, with material crimson mark loop at its stone forearm guard; Fract caused damage to already marked foe and recovered herself. Exactly two figures, no ally. Cold purple pool reflections and suspended stone steps, no beam or healing ray.",
+        "impulso": "Extremidade Solta. WIDE HIGH oblique action view. Fract in full body yanks THREE physical crimson cords outward from embroidered cuff/belt, hands correctly pinch and guide them at distinct heights; ONE frayed knotted end catches and TEARS AWAY a stone guard plate from ONE ghoul's forearm, leaving a small tactile crimson loop MARK around outer guard. No flesh tearing. Her front foot planted, rear knee bends with counterweight, shoulders aligned. EXPRESSION sharp angry exertion, open mouth in short forceful cry, eyes on cracking guard. Exactly two figures, no generic soldier. Broken stone footbridge amid lilac fog, stones falling into void, not an energy whip or laser.",
+        "tecnica": "Nó de Emergência. EYE-LEVEL intimate side scene, exactly Fract and ONE injured anonymous ELDERLY woman traveler with SHORT STRAIGHT SILVER hair and plain GRAY-BLUE shroud, clearly different from Fract. Fract kneels beside traveler and wraps a BROAD dense violet woven cloth-like guard around bandaged forearm, closing a physical crimson silk knot with both hands. The new guard helps heal/support ally; at Fract's OWN wrist a faint tiny violet seam widens and sleeve pulls apart slightly, symbolic self-cost, no gore. EXPRESSION wince of pain mixed with care, one brow pinched, lips pressed, gaze on ally's arm; ally watches with concern. Sheltered waiting chamber under PURPLE RAIN light, clutter kept minimal, anatomical hands separated. No surgical needles, no technology, no glowing strings.",
+        "voto": "Puxar o Fim da Linha. LOW lateral full-body action at edge of shallow misty reflecting basin. Fract braces both boots and LEANS BACK, pulling the SAME THREE physical crimson cords attached to a MARKED ghoul's outer stone chest/arm guard; the material mark knot visibly UNRAVELS as it is consumed, enemy buckles forward to one knee from spiritual pressure, no flesh injury. Both her arms trace naturally to shoulders, elbows bent with force, cords anchored correctly at hands/cuff and belt, no ropes emerging from chest skin. EXPRESSION teeth clenched and painful determination, eyes at target. Exactly two figures. Partial columns reflected in dark purple water, splashes and cloth tension show physical effort. No thin light beams or loops crossing all over screen.",
+        "despertar": "Linha Inalcançável, PERSONAL evasion. Tight view from BEHIND Fract's shoulder in a dim stairwell. She ducks and twists to pull herself behind a broad FLOATING stone slab using a short tensioned crimson cord as a handhold anchored to the slab; other hand braces its edge. ONE ghoul claw hits slab where she was, never body. EXPRESSION in visible profile sudden alarm, wide eyes and parted mouth, gaze tracking claw; body anatomically connected with one head, two arms, no duplication or detached soul limbs. Three cords remain a short physical bundle, no bright luminous wire web. Exactly two figures, no ally. Deep violet and cold gray interior with a silver shaft of mist light; no mirror/camera pose.",
+        "impulso-mend": "VARIANT Reatar a Linha, ALLY protection and PURIFICATION, not self-heal. HIGH close view of Fract seated on a low step beside the SAME anonymous elderly woman with SHORT STRAIGHT SILVER hair/plain GRAY-BLUE shroud. Fract secures a NEW physical crimson knot onto broad violet woven guard draped over ally's shoulder; black dust/thornlike residue FALLS OFF the guard and bandaged arm as affliction is cleansed. Exactly TWO people, no foe, no clones, no self-cocoon. EXPRESSION quiet tired reassurance with a very SMALL uneven smile toward ally, brows softened, gaze at the knot/ally, different from pained emergency. Ally exhales and uncurls hand with relief. Open roofless cloister with lilac morning fog and gray fabric drying from rain, restrained purple/blue/silver light, clear hands and anatomy. No glowing string magic or generic healing beam."
+      }
+    }
+  }
+}

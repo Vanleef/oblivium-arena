@@ -1,0 +1,147 @@
+{
+  "id": "atlas-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "atlas",
+  "displayName": "Atlas",
+  "world": "Inferno",
+  "kingdom": "Magma",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa, texturizada e tátil, com alta materialidade, pincelada estilizada e realismo reduzido. Paleta infernal de preto, vermelho queimado, cinza de fuligem e pedra; efeitos físicos coerentes, sem tecnologia.",
+  "styleReference": "01-1000064969.jpg (apenas linguagem pictórica; sem copiar personagem, tema ou composição)",
+  "identity": "Titã humanoide muito robusto, pele castanho-escura viva, rosto largo de traços africanos, nariz achatado, maxilar pesado e barba curta, cabelo negro curto coberto por poeira mineral clara, olhos vermelho-ocre. Placas orgânicas de basalto concentradas apenas nos ombros e antebraços, fissuras vermelhas discretas e faixas de tecido ritual preto e vermelho-escuro. A pele continua humana; não usa armadura nem tecnologia.",
+  "previousRoute": "/art/characters/atlas/anime-first-completion-20261028",
+  "activeRoute": "/art/characters/atlas/dark-pictorial-rework-20261029",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "75f9dedccd9ad655e5b8a71e4a34f4a6b388ec882a161d744e83922841fcad2f",
+      "activeSha256": "c4cc5d24d97ca7c18085110c27af9daec97d4e172b59f0556349a45edc928113",
+      "generatedImage": "generated_images/exec-dfbd6566-c80f-419d-b8ab-bf8c8617df51.png",
+      "scene": "Atlas sustenta uma verga quebrada de basalto sobre o ombro; em perfil, encara a rachadura enquanto o pescoço e os músculos se comprimem pelo esforço.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Peso Acumulado",
+      "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "80d1b2a4e7530a94bfb6870f0866b2585ed2b72f1f3b32a5076b2e5e66e367a8",
+      "activeSha256": "144a09c74efdfdbc3726db213daef0bc92fc674ad8e5aa271ec572b1bec1791c",
+      "generatedImage": "generated_images/exec-31c2f622-bb75-43f9-9044-213b3954157a.png",
+      "scene": "Após um golpe, o ombro de Atlas recua; um corte superficial marca a perda de Vida, uma placa fina de basalto emerge e uma carga rubra se acende numa fissura.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Ombro do Mundo",
+      "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "2dd1516b106b1cefa7f45ec54426cde914f2304f1f580bfa3cf9e64826c1a331",
+      "activeSha256": "357cc8ee760ff72a9b6b76aff32a692d3a1ad0bddbbbc624a4aa9540731b9e98",
+      "generatedImage": "generated_images/exec-5cb3cd65-3700-484c-b0e0-e755414925d4.png",
+      "scene": "Três zonas de abrigo de basalto, ligadas por um mesmo arco, detêm pedras em queda; os três espaços protegidos permanecem intactos.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Peso sem Medida",
+      "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "134b161c4f676c59505623ff6df5ea7473258e5a87f8baaa8f65b7a5bc0f798a",
+      "activeSha256": "6bc57111cf1f31402029502fea98513c633558049ff500034083aae9b79a29a2",
+      "generatedImage": "generated_images/exec-cf04c9e7-abc9-4f12-99b2-4458cfc804a2.png",
+      "scene": "O antebraço de Atlas golpeia o piso; a crosta de Defesa se desfaz em lascas e a força abre uma vala física no basalto.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Colapso de Autoridade",
+      "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "3ac57c19e6c568789058d048785da47db1e58fc412225a885f27c63fcb53694c",
+      "activeSha256": "e50a0b07926c010d90ea97a60de567ec2c445b92934010eb43b25c2db4fd55f8",
+      "generatedImage": "generated_images/exec-2411ff9e-aaf9-4511-9a72-2a795d3c761e.png",
+      "scene": "Um ghoul magro e cinzento em primeiro plano é comprimido para baixo por uma força invisível; Atlas permanece fora do enquadramento.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Sustentar o Céu",
+      "activeAsset": "/art/characters/atlas/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/atlas-dark-pictorial-rework-20261029/despertar-corrected-20261029.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "a6f260a6f608fa2a989c9d38e136df57fbc733939a44100ffd31cb028b4fe75e",
+      "activeSha256": "808e1841933379eaf16276f8843a181041fa6e5793c83a3d55f2cc0c6ebe9bdc",
+      "generatedImage": "generated_images/exec-03efcb36-9df3-4cf2-a4d5-89fd02d325d1.png",
+      "scene": "Atlas se abaixa sob a pressão da laje e a sustenta com os dois braços erguidos; o tronco permanece contínuo, os ombros e cotovelos alinhados e as pernas firmes no agachamento.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval",
+      "correctionReason": "Correção após anomalia corporal apontada pelo usuário: a nova pose elimina membros fundidos e deixa a sustentação legível.",
+      "correctionPrompt": "Redesenhar Atlas em um agachamento baixo sob uma laje de basalto em queda, com exatamente dois braços e duas pernas, articulações naturais, tronco conectado aos quadris, cabeça visível e ambos os braços sustentando a laje acima dele; manter pele humana, placas orgânicas apenas nos ombros e antebraços, tecido ritual preto e vermelho."
+    }
+  ],
+  "forms": [],
+  "reviewNotes": "As seis peças cobrem retrato, passiva e quatro habilidades. São candidatas integradas e aguardam aprovação visual final; nenhum retrato de forma adicional foi identificado."
+}

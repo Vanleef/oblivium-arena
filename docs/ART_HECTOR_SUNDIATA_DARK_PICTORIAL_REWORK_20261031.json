@@ -1,0 +1,122 @@
+{
+  "id": "hector-sundiata-dark-pictorial-rework-20261031",
+  "characterId": "o-que-levanta",
+  "displayName": "Hector (Sundiata), O Tenaz",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "previousArtDirection": "Anime-first 2.5D colorida, com fantasia heroica e cenário urbano.",
+  "artDirection": "Dark fantasy pictórica 2.5D, pinceladas táteis e angulares, contraste carvão e índigo com recorte marfim e ouro envelhecido; movimento e escala distintos entre as cenas.",
+  "identity": "Homem mais velho de pele castanha quente, cabelo grisalho espetado e bigode branco largo; camisa de trabalho ocre com remendos, avental de lona azul-petróleo e picareta de mineiro. Expressão marcada pela experiência e pela persistência. Mantém a mesma idade, bigode, roupa e ferramenta em todas as cenas.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/o-que-levanta-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "0fc8cca61da0dee7085ab61b426345a9cc4266d12907fc0b9ca5636431fb0c32",
+      "activeSha256": "119d50243cbe523cc543fe04e690eb9f7d0e0db8aee1bd3c7baede0948fb0500",
+      "scene": "Retrato em três quartos, bigode branco e picareta ao ombro sob a primeira luz dourada."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/o-que-levanta-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "0489af13fc5b35dafb55daee0056e14fa4d4b56a0e521df825f60dec7dd4ac15",
+      "activeSha256": "bb41f8d2b155b08c9d993742ecfee0cf9ba53240408245840e5d85715a2cf658",
+      "scene": "Ajoelhado na chuva, Sundiata firma a mão na pedra e se levanta outra vez, cercado por um escudo âmbar discreto."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/o-que-levanta-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "b75585246b63aec27c33798f667fc71c428df78d2f7897d4b7317c515355fd20",
+      "activeSha256": "5a5a6af1edefd7e29f96f5e1d2fc715d833b7c8e49d5ad1d56d132013f138f1b",
+      "scene": "Passo baixo e avanço físico com a picareta, seguido por um escudo âmbar ao redor do próprio Sundiata."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/o-que-levanta-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "5ed9e5443f06242b23c887cd38617f8d1e4ba0f20e176905e8b3d2daab26b157",
+      "activeSha256": "b38d9f355bd8bfa4f25255174273c5630309c234f1bc0d520a93548c4f70836b",
+      "scene": "Sundiata segura o antebraço de uma aliada caída e a ergue; calor dourado suave indica cura e encorajamento."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/o-que-levanta-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "c326ac2d7d96e0329bebf43d0d7146a4e1a6c8f3f3ae939a74f6e87f0b2f42c1",
+      "activeSha256": "fb7b9ee38d37346b546286b56a09aa3b156fda66e2ff56d398a2378a21e07ba5",
+      "scene": "Ferido, mas de pé, Sundiata desfere um contra-ataque concentrado de picareta contra um único inimigo."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/o-que-levanta/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/o-que-levanta-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "cd07ba4d93b234ea21bb4f89d4fb7a98beeb255522529c57aec0322d458c8e7e",
+      "activeSha256": "a46b96ef3445150bb33b07919fc83bbb7a08af76c255c4dc65d03ab85b065862",
+      "scene": "Sundiata puxa um aliado para a segurança enquanto uma onda protetora dourada cobre o pequeno grupo."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Esperança",
+    "stage": "base",
+    "emotion": "Perseverança",
+    "visualMarkers": [
+      "cabelo grisalho espetado",
+      "bigode branco largo",
+      "camisa ocre de trabalho",
+      "avental azul-petróleo",
+      "picareta de mineiro"
+    ]
+  }
+}

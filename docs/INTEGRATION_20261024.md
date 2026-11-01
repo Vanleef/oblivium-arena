@@ -24,3 +24,4 @@ O build publica somente conteúdo de navegador em dist; APIs e módulos de servi
 - O cenário de chefe em Ruptura VI registrou 1 vitória, 97 derrotas e dois limites em 100 partidas. O cenário de elite em Ruptura III registrou 4 vitórias, 95 derrotas e um limite. São controles entre heurísticas sem build humana otimizada, não evidência de equilíbrio final. Playtests de builds continuam necessários.
 
 A publicação foi conferida no navegador: troca PT/EN, login, tutorial e Codex públicos. A verificação de leitura do armazenamento respondeu HTTP 200 com storage ready. Rótulos de acessibilidade e nós de texto fragmentados do Codex receberam revisão editorial adicional.
+

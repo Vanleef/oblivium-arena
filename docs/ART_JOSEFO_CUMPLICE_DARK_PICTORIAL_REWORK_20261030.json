@@ -1,0 +1,165 @@
+{
+  "title": "Iris — A Cúmplice — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "a-testemunha-cega",
+  "characterName": "Iris",
+  "characterTitle": "A Cúmplice",
+  "aliases": [
+    "A Cúmplice",
+    "A Testemunha Cega"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Tártaro",
+  "role": "Cúmplice do Silêncio",
+  "style": "Dark fantasy pictórica 2.5D: pinceladas angulares, contornos manuais, hachuras, sombras de corte, luz de recorte e materialidade tátil.",
+  "identity": "Homem adulto de pele castanho-escura, cabeça raspada, venda opaca branco-cinza, brinco único de latão, túnica preta de gola alta, casaco de painéis marfim gastos e medalhão circular de latão com fendas. O bastão fino com ponteira de latão aparece somente no golpe de precisão, como na referência artística anterior.",
+  "environment": "Inferno/Tártaro: ruínas de tribunal em basalto rachado, fuligem, brasa e sombra carvão.",
+  "sceneVariety": "Retrato em close; escuta pelo chão; abertura física da guarda; aviso ao aliado; golpe preciso em close baixo; esquiva junto a coluna partida.",
+  "anatomyReview": "As seis imagens foram inspecionadas em conjunto. Iris mantém dois braços e mãos legíveis; as cenas de alvo mostram um único atacante, exceto Resposta Preparada, que mostra exatamente um aliado e um ghoul. Sem multidões ou membros extras.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Iris",
+      "targetCount": "none",
+      "camera": "Close em três quartos",
+      "scene": "Iris escuta o tribunal em ruínas, preservando a venda opaca, o casaco marfim, a túnica preta, o brinco de latão e o medalhão circular.",
+      "prompt": "Retrato fechado, identidade consistente com a referência, sem figuras secundárias.",
+      "candidatePath": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/a-testemunha-cega-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-037ff397-01a6-403a-bfd2-f1fcb0898aae.png",
+      "generatedSourceSha256": "8a222f5700fec2ce453e9464b2d04daa3b9c4e9d018f5910403d0ca88187616e",
+      "generatedSourceBytes": 2801041,
+      "candidateBytes": 47172,
+      "candidateSha256": "f0565d2667dd96b967254a927d6b80e567f21d3fed29a0343e6c3c7769c055e8",
+      "sourceBytes": 282052,
+      "sourceSha256": "bd9a8842c045b77886705777e3ccd7a644f3c399fd3b8d4c95e53e82b080d175"
+    },
+    {
+      "slot": "passive",
+      "name": "Cumplicidade Velada",
+      "targetCount": "one ghoul",
+      "camera": "Vista alta em close",
+      "scene": "Iris toca o basalto rachado e percebe um único ghoul oculto pela vibração de poeira e pedrinhas no chão.",
+      "prompt": "Um único ghoul ao fundo; detecção narrada pelo contato físico com o chão, sem feixes ou fios mágicos.",
+      "candidatePath": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/a-testemunha-cega-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-79aedfad-31ac-4e97-9561-ee32a7eaaeba.png",
+      "generatedSourceSha256": "f5988caa5e766702eb0205109d393499322d3f588afba5a574a4e1d5b9d7c5a5",
+      "generatedSourceBytes": 2820479,
+      "candidateBytes": 54948,
+      "candidateSha256": "f856dfaeab86b5919403c58c3af1884779608c01d44031e302846a012f9a3e7e",
+      "sourceBytes": 312166,
+      "sourceSha256": "f65603fc944058b3a27389ab0520bec13ccfcc75f1a4ccc2b70b2afb5af6c7e8"
+    },
+    {
+      "slot": "impulso",
+      "name": "Segredo Exposto",
+      "targetCount": "one ghoul",
+      "camera": "Close dinâmico lateral",
+      "scene": "Iris desvia o braço de um ghoul e abre a couraça quebrada, revelando a falha enquanto cinza e sujeira caem da armadura.",
+      "prompt": "Exatamente Iris e um ghoul; gesto físico, preciso e oportunista.",
+      "candidatePath": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/a-testemunha-cega-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-eb0085a9-90e7-4d89-953d-6cfe71ae2315.png",
+      "generatedSourceSha256": "607d1d3516f0990dd71d5303e53658c7e50b4fe85e0fa0511a34e5fc1d825196",
+      "generatedSourceBytes": 2983983,
+      "candidateBytes": 61838,
+      "candidateSha256": "be56097d853de6d66e2f9da49374f924816eb072d3f2cbde0b689666563a4852",
+      "sourceBytes": 340419,
+      "sourceSha256": "ae4e91717ca2b988491c83e3af86edc42fe27df48675f539d7e71341e412a29e"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Resposta Preparada",
+      "targetCount": "one ally + one ghoul",
+      "camera": "Plano médio amplo por cima do ombro",
+      "scene": "Iris prepara um aliado com um gesto de aviso; o aliado firma a guarda diante de um único ghoul que avança para atacar.",
+      "prompt": "Iris, um aliado e um ghoul; resposta preparada por postura e aviso, sem visão mágica.",
+      "candidatePath": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/a-testemunha-cega-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-70b8cbd1-7b97-43a3-a7fc-26e56f362c17.png",
+      "generatedSourceSha256": "35de3f1d7e6242a1f7af2678883c6e3864067b6cb85f7963d1b766fee54795e2",
+      "generatedSourceBytes": 2925108,
+      "candidateBytes": 59084,
+      "candidateSha256": "606b4ae311ce8b28b9e79ba3d4cce1fcfd065039b9640e974d694b6bb983d011",
+      "sourceBytes": 350673,
+      "sourceSha256": "cdcd79fe4e49d2ebfa6e354885beba81fdac3438a5c9c66c426c4a11ba0d3791"
+    },
+    {
+      "slot": "voto",
+      "name": "Acusação Oportunista",
+      "targetCount": "one exposed ghoul",
+      "camera": "Close baixo de ação",
+      "scene": "Iris usa um bastão fino com ponteira de latão para atingir com precisão a abertura já exposta na armadura de um ghoul.",
+      "prompt": "Um único alvo exposto, golpe perfurante controlado na emenda da armadura, sem sangue.",
+      "candidatePath": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/a-testemunha-cega-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-c0d63b68-843b-4b7f-819b-c11950d4688a.png",
+      "generatedSourceSha256": "973cd73a011d377cb9059b81e9bf120d70ca7c346c67c58ff8d1c28553ccfe98",
+      "generatedSourceBytes": 2890679,
+      "candidateBytes": 57078,
+      "candidateSha256": "f5438e276346d7ad6bbc79c5261301db51f9b6b5141beb457e047ce53790fae8",
+      "sourceBytes": 324953,
+      "sourceSha256": "d139828435c11b7128e20ff32ace30ee815c77de4d8b480c3482d9f1e3dacb05"
+    },
+    {
+      "slot": "despertar",
+      "name": "Depoimento Retido",
+      "targetCount": "one attacker",
+      "camera": "Close diagonal rente à coluna",
+      "scene": "Iris se desloca para trás de uma coluna partida enquanto o golpe de um ghoul atinge o vazio e esfarela a pedra onde ele estava.",
+      "prompt": "Um único atacante e uma esquiva pessoal legível; Iris permanece ileso, sem duplicações.",
+      "candidatePath": "/art/characters/a-testemunha-cega/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/a-testemunha-cega-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-bf109998-19bf-4bce-9e96-a48779955f80.png",
+      "generatedSourceSha256": "835ee00095e0ad4f804d57480ed2a007ae3025dcba28061a71ac65fd4e575a24",
+      "generatedSourceBytes": 2956307,
+      "candidateBytes": 61300,
+      "candidateSha256": "8e625546100b4eafa557efc9e50f13795e6bbda24315ae1b4637bf7ea122e2f4",
+      "sourceBytes": 341185,
+      "sourceSha256": "76c1c842283f97254d056a03a8a86a08e31a63fce330dceedb7449d339cd2057"
+    }
+  ]
+}

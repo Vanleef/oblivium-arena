@@ -30,3 +30,4 @@ As imagens de referência não foram adicionadas ao jogo. Os novos desenhos são
 - Manter idade, proporções, traços faciais, roupas, acessórios e origem do poder. Não copiar personagens ou quadros das referências.
 - Revisar dedos, membros, empunhaduras, próteses e separação de planos. Defesa pessoal deve mostrar esquiva, aparo ou poder usado sobre o próprio personagem quando esse for o efeito.
 - Revisão por lotes; o inventário em ART_STYLE_REVISION_20261022.json registra explicitamente os conjuntos restantes.
+

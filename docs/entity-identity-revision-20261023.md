@@ -37,3 +37,4 @@ Total desta rodada: **24 novas imagens**, exportadas em WebP de 512 × 512 px, n
 Os 100 IDs, a posse, os trios salvos, os atributos, os custos, as recargas, os alvos, os efeitos e as transições de formas foram preservados. A busca aceita os nomes atuais, originais e os títulos intermediários já utilizados. As referências de técnicas alternativas acompanham os novos nomes.
 
 A comparação estrutural dos 100 personagens exclui somente metadados de apresentação e confirma igualdade de todos os campos de jogo. Os testes de interface também exercitam busca por nomes antigos, lore individual e localização dos novos conjuntos de imagens.
+

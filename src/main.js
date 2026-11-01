@@ -18,7 +18,7 @@ import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
-import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from "./progression.js";
+import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption, campaignKingdoms, isWorldCampaignComplete, characterUnlockStatus, MAX_CAMPAIGN_DIFFICULTY } from "./progression.js";
 import { renderCampaign, renderCompletion, renderLegacies } from "./campaign-view.js";
 import { FINAL_BOSS, createFinalBoss } from "./final-boss.js";
 import { previewBodyForm } from "./body-forms.js";
@@ -45,11 +45,24 @@ function codexSkillCard(actor,ability,color=actor.color){
 function codexSkillList(actor,abilities,color=actor.color){
  return `<div class='codex-moves'>${abilities.map(ability=>codexSkillCard(actor,ability,color)).join("")}</div>`;
 }
+function normalizedSearchText(value){
+ return String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase();
+}
+function searchMatches(query,values){
+ if(!query)return true;
+ const corpus=values.filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ");
+ return normalizedSearchText(corpus).includes(normalizedSearchText(query));
+}
 function matchesCodexFilters(character){
- const query=[character.name,character.identityTitle,character.previousName,...(character.aliases||[]),character.kingdom,character.realm,resourceById[character.affinity]?.name,...character.abilities.flatMap(ability=>[ability.name,ability.description])].filter(Boolean).flatMap(value=>[value,localizeText(value,"pt-BR"),localizeText(value,"en")]).join(" ").toLowerCase();
+ const matchesSearch=searchMatches(state.crewSearch,[
+  character.name,character.identityTitle,character.previousName,...(character.aliases||[]),
+  character.kingdom,character.realm,character.role,character.archetype,
+  resourceById[character.affinity]?.name,character.passive?.name,
+  ...character.abilities.flatMap(ability=>[ability.name,ability.description])
+ ]);
  return (state.crewRealm==="Todos"||character.realm===state.crewRealm)
   &&(state.crewElo==="Todos"||character.kingdomId===state.crewElo)
-  &&(!state.crewSearch||query.includes(state.crewSearch.toLowerCase()));
+  &&matchesSearch;
 }
 const SAVE_KEY = "pma-post-mortem-arena-v1";
 const LEGACY_SAVE_KEYS = ["animavelle-arena-v1", "numether-arena-v1", "aevum-arena-v1", "numenveil-arena-v1", "oathrift-arena-v1", "trivel-arena-v1", "eidoveyl-arena-v1", "selyvar-arena-v1", "three-realms-soul-arena-v1", "post-mortem-arena-v1"];
@@ -588,11 +601,11 @@ function resonanceCard() {
 }
 
 function routeView() {
-  const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=profile.completedElos.length>=elos.length;
+  const realm=realms.find(r=>r.id===state.realmId)||realms[0],currentRun=profile.run,completedAll=realms.every(world=>isWorldCampaignComplete(profile,world.id,MAX_CAMPAIGN_DIFFICULTY));
   const selection=`<div class="realm-tabs">${realms.map(item=>`<button class="realm-tab ${state.realmId===item.id?"selected":""} realm-${item.id}" data-realm="${item.id}"><span>${realmEmblem(item.id)}</span><b>${item.name}</b><small>${item.elos.length} ${item.elos.length===1?"Reino":"Reinos"}</small></button>`).join("")}</div>${renderCampaign(profile,state,realm)}`;
-  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} REINOS VENCIDOS</span></div><aside class="guided-entry"><div><small>PARA QUEM ESTÁ COMEÇANDO</small><b>Primeira Run Guiada</b><p>Objetivos curtos apresentam a trilha, os custos de Essência e seus primeiros aprimoramentos.</p></div><button class="button button-gold" data-guided-run="${realm.elos[0].id}">COMEÇAR GUIA ↗</button><button class="text-button" data-action="toggle-context-tips">Dicas contextuais ${profile.contextTipsOff?"desligadas":"ligadas"}</button></aside>${selection}</section>${state.pending?pendingPanel():""}`}
+  return `${renderCompletion(profile)}${currentRun?`<section class="active-expedition">${storyMarkup(currentRun)}${state.pending?pendingPanel():""}${runMap()}</section><details class="world-browser"><summary>Explorar os mundos <span>↗</span></summary>${selection}</details>`:`${profile.pendingGlobalReward?"":hero()}<section class="route-section"><div class="section-heading"><div><div class="eyebrow">OS TRÊS MUNDOS</div><h2>A Grande Rota</h2></div><span class="section-count">${profile.completedElos.length}/${elos.length} REINOS VENCIDOS</span></div><aside class="guided-entry"><div><small>PARA QUEM ESTÁ COMEÇANDO</small><b>Primeira Run Guiada</b><p>Objetivos curtos apresentam a trilha, os custos de Essência e seus primeiros aprimoramentos.</p></div><button class="button button-gold" data-guided-run="${campaignKingdoms(realm.id)[0].id}">COMEÇAR GUIA ↗</button><button class="text-button" data-action="toggle-context-tips">Dicas contextuais ${profile.contextTipsOff?"desligadas":"ligadas"}</button></aside>${selection}</section>${state.pending?pendingPanel():""}`}
     ${renderLegacies(profile)}
-    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("inferno")}</div><div><div class="eyebrow">A ÚLTIMA BARREIRA</div><h3>O Fim</h3><p>Sem rosto fixo. Cada alma encara o próprio maior medo.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR O FIM ↗</button></section>`:""}`;
+    ${completedAll?`<section class="finale-card"><div class="finale-sigil">${realmEmblem("limbo")}</div><div><div class="eyebrow">A ÚLTIMA FENDA · OS TRÊS MUNDOS CONCLUÍDOS</div><h3>${FINAL_BOSS.name}</h3><p>A última barreira se manifesta como o maior medo de quem a encara. Os três lordes agora pertencem ao seu elenco.</p></div><button class="button button-gold" data-final-battle>ENFRENTAR A FENDA ↗</button></section>`:""}`;
 }
 
 function runMap() { return renderTrail(profile.run, activeElo(), state.trailFx, buffs, profile.ownedIds,{profile,busy:state.trailBusy,pending:Boolean(state.pending),teamHealth:state.battle?Object.fromEntries(state.battle.allies.map(u=>[u.id,persistentCombatHp(u)])):null}); }
@@ -629,8 +642,12 @@ function teamView() {
   const filtered = characters.filter((character) => {
     const owned = profile.ownedIds.includes(character.id);
     const matchesRealm = state.crewRealm === "Todos" || character.realm === state.crewRealm;
-    const matchesSearch = !state.crewSearch || (character.name + " " + (character.identityTitle || "") + " " + (character.previousName || "") + " " + character.aliases.join(" ") + " " + character.kingdom + " " + character.realm + " " + resourceById[character.affinity]?.name).toLowerCase().includes(state.crewSearch.toLowerCase());
-    return matchesRealm && matchesSearch && (owned || state.crewRealm === "Todos");
+    const matchesSearch = searchMatches(state.crewSearch, [
+      character.name, character.identityTitle, character.previousName, ...(character.aliases || []),
+      character.kingdom, character.realm, character.role, character.archetype,
+      resourceById[character.affinity]?.name
+    ]);
+    return matchesRealm && matchesSearch;
   });
   return `
     <section class="page-heading"><div><div class="eyebrow">ALIANÇA 3v3</div><h1>Formar Trio</h1><p>${profile.run?"Mudanças na formação valem para a próxima trilha.":"Escolha três almas e combine suas forças."}</p></div><div class="roster-total"><b>${profile.ownedIds.length}</b><span>/ ${characters.length}<br>RECRUTADAS</span></div></section>
@@ -649,13 +666,25 @@ function teamView() {
       <section class="roster-browser">
         <div class="roster-header"><div><div class="eyebrow">ALMAS CONHECIDAS</div><h2>Codex de Reinos</h2></div><span class="owned-count">${profile.ownedIds.length} disponíveis</span></div>
         <label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar nome, arquétipo ou Essência"></label>
-        <div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div>
+        <div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button type="button" class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}" aria-pressed="${state.crewRealm === realm}">${realm}</button>`).join("")}</div>
         <div class="roster-grid">${filtered.map((character) => {
           const owned = profile.ownedIds.includes(character.id);
           const selected = profile.team.includes(character.id);
-          const disabled = !owned || (!selected && profile.team.length >= 3);
+          const unlockInfo = characterUnlockStatus(profile,character.id);
+          const leaderLocked = Boolean(unlockInfo?.leader && !unlockInfo.unlocked);
+          const unlockDifficulty=unlockInfo?.difficulty===0?(getLanguage()==="en"?"Veil Intact":"Véu intacto"):(getLanguage()==="en"?`Rupture ${unlockInfo?.difficulty}`:`Ruptura ${unlockInfo?.difficulty}`);
+          const lockHint = leaderLocked
+            ? (getLanguage()==="en"
+              ? `Clear every realm in ${localizeText(unlockInfo.worldName,"en")} and defeat the leader at Rupture IV.`
+              : `Conclua todos os reinos de ${unlockInfo.worldName} e vença o lorde em Ruptura IV.`)
+            : !owned && unlockInfo?.kingdomName
+              ? (getLanguage()==="en"
+                ? `Unlock by clearing ${localizeText(unlockInfo.kingdomName,"en")} on ${unlockDifficulty}.`
+                : `Libera ao concluir ${unlockInfo.kingdomName} em ${unlockDifficulty}.`)
+              : "";
+          const disabled = leaderLocked || !owned || (!selected && profile.team.length >= 3);
           return `<button class="roster-card ${selected ? "chosen" : ""} ${!owned ? "unowned" : ""}" data-add-member="${character.id}" ${disabled ? "disabled" : ""}>
-            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}${character.identityTitle ? `, <span class="roster-character-title">${esc(character.identityTitle)}</span>` : ""}</b><small>Reino ${esc(character.kingdom)}</small><small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "·"}</span>
+            ${portraitMarkup(character, "roster-card-symbol")}<span class="roster-card-copy"><b>${esc(character.name)}${character.identityTitle ? `, <span class="roster-character-title">${esc(character.identityTitle)}</span>` : ""}</b><small>Reino ${esc(character.kingdom)}</small>${lockHint?`<small class="leader-unlock-hint">${esc(lockHint)}</small>`:""}<small class="roster-affinity"><i class="cost-pip pip-${esc(character.affinity)}" aria-hidden="true"></i>${esc(resourceById[character.affinity]?.name || "Essência")}</small></span><span class="roster-card-state">${selected ? "✓" : owned ? "+" : "🔒"}</span>
           </button>`;
         }).join("")}</div>
       </section>
@@ -676,18 +705,23 @@ function codexView() {
     &&(state.crewElo==="Todos"||state.crewElo===FINAL_BOSS.kingdomId)
     &&(!state.crewSearch||bossSearch.includes(state.crewSearch.toLowerCase()));
   return `
-    <section class="page-heading"><div><div class="eyebrow">${characters.length} ALMAS · ${elos.length} REINOS · ${realms.length} MUNDOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>${characters.length}</b><span>PERSONAGENS<br>DO PMA</span></div></section>
+    <section class="page-heading"><div><div class="eyebrow">${characters.length} ALMAS · ${elos.length} REINOS · ${realms.length} MUNDOS</div><h1>Codex</h1><p>Conheça as forças que atravessam o véu. Vença trilhas para recrutar novas almas.</p></div><div class="codex-total"><b>${characters.length}</b><span>PERSONAGENS<br>DE OBLIVIUM ARENA</span></div></section>
     <div class="codex-summary">${realms.map((realm) => `<article class="codex-stat stat-${realm.color}"><span>${realm.name}</span><b>${realm.elos.reduce((sum, elo) => sum + getEloRoster(elo.id).length, 0)}</b><small>${realm.elos.length} ${realm.elos.length === 1 ? "Reino" : "Reinos"}</small></article>`).join("")}</div>
     <aside class="realm-synergy-guide" aria-label="Sinergias discretas de Reino, Mundo e afinidade"><small>SINERGIAS DE REINO, MUNDO E AFINIDADE · ESCALAM COM ALIADOS VIVOS</small><div><b>◎ Reino</b><span>Cada Reino tem um efeito próprio: aflições, controle, Marcas, apoio, Formas ou Essência. Máximo +2 por aliado adicional.</span></div><div class="stat-inferno"><b>♨ Inferno</b><span>Aflições aplicadas recebem +1 de dano por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-paraiso"><b>✧ Paraíso</b><span>Curas concedidas recebem +1 de Vida por aliado adicional do mesmo Mundo, até +2.</span></div><div class="stat-limbo"><b>⟲ Limbo</b><span>O trio recebe +1 Defesa por aliado adicional do Limbo (máx. +2); controle recebe +1 dano por parceiro e 2+ aliados geram 1 Ruptura a cada dois turnos.</span></div><div><b>◈ Afinidade</b><span>Duas ou mais almas com a mesma afinidade principal começam cada combate com +1 daquela Essência. O bônus vale para cada lado, inclusive a oposição.</span></div></aside>
-    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Reino ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>REINO</small><select data-codex-elo><option value="Todos">Todos os Reinos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label></div></div>
+    <div class="codex-controls"><label class="search-box"><span>${uiIcon("search")}</span><input type="search" data-search value="${esc(state.crewSearch)}" placeholder="Buscar personagem, Reino ou Essência"></label><div class="filter-row">${["Todos", "Inferno", "Paraíso", "Limbo"].map((realm) => `<button type="button" class="${state.crewRealm === realm ? "active" : ""}" data-crew-realm="${realm}" aria-pressed="${state.crewRealm === realm}">${realm}</button>`).join("")}</div><div class="codex-select-filters"><label><small>REINO</small><select data-codex-elo><option value="Todos">Todos os Reinos</option>${elos.map(elo=>`<option value="${esc(elo.id)}" ${state.crewElo===elo.id?"selected":""}>${esc(elo.name)}</option>`).join("")}</select></label></div></div>
     ${showFinalBoss ? `<article class="codex-entity" aria-label="${esc(FINAL_BOSS.name)}, ${esc(FINAL_BOSS.title)}"><img src="${esc(boss.art.portrait)}" alt="${esc(boss.bodyFormName)} de ${esc(FINAL_BOSS.name)}, sem rosto fixo" loading="lazy"><div><div class="eyebrow codex-entity-kicker"><span>${getLanguage()==="en"?"ENTITY":"ENTIDADE"} · ${getLanguage()==="en"?"KINGDOM":"REINO"} ${esc(localizeText(FINAL_BOSS.elo,getLanguage()).toUpperCase())}</span></div><h2>${esc(FINAL_BOSS.name)}, <span class="codex-character-title">${esc(FINAL_BOSS.title)}</span></h2><p>${esc(FINAL_BOSS.lore)}</p><small>${esc(FINAL_BOSS.artNote)}</small></div><section class="codex-entity-kit" aria-label="${getLanguage()==="en"?"Abilities of":"Habilidades de"} ${esc(getLanguage()==="en"?FINAL_BOSS.nameEn:FINAL_BOSS.name)}">${bodyFormSelector(boss)}<p class="body-form-help">${esc(boss.combo)}</p><header><h3>${esc(boss.bodyFormName)}</h3><span>Três posições variáveis · uma defesa compartilhada</span></header>${codexSkillList(boss,boss.abilities)}</section></article>` : ""}
     <div class="codex-grid">${filtered.map((character) => {
       const owned = !state.account || profile.ownedIds.includes(character.id);
+      const leaderGate = leaderUnlockStatus(profile,character.id);
+      const leaderLocked = Boolean(leaderGate && !leaderGate.unlocked);
       character=previewBodyForm(character,state.formPreviews[character.id]);
       const synergyNames=[...new Set((character.synergyKingdomIds||[]).map(id=>elos.find(elo=>elo.id===id)).filter(elo=>elo&&elo.id!==character.kingdomId).map(elo=>localizeText(elo.name,getLanguage())))];
+      const leaderLockCopy=leaderLocked ? (getLanguage()==="en"
+        ? `Complete every kingdom in ${localizeText(leaderGate.worldName,"en")} to recruit this leader.`
+        : `Conclua todos os Reinos de ${leaderGate.worldName} para recrutar este líder.`) : "";
       return `<article class="codex-card ${state.account&&!owned ? "unowned" : ""}">
-        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.kingdomId)}</span><small>${character.npcOnly?"OPOSIÇÃO":!state.account?"ALMA DO PMA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
-        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · REINO ${esc(character.kingdom).toUpperCase()}</div><h3>${esc(character.name)}${character.identityTitle ? `, <span class="codex-character-title">${esc(character.identityTitle)}</span>` : ""}</h3>${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE REINO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
+        <div class="codex-card-head color-${character.color}">${character.art?.portrait ? portraitMarkup(character, "codex-portrait") : ""}<span class="codex-card-sigil">${eloSigil(character.kingdomId)}</span><small>${character.npcOnly?"OPOSIÇÃO":leaderLocked?(getLanguage()==="en"?"CAMPAIGN LOCKED":"CAMPANHA BLOQUEADA"):!state.account?"ALMA DE OBLIVIUM ARENA":owned?"RECRUTADA":"A RECRUTAR"}</small></div>
+        <div class="codex-card-body"><div class="eyebrow">${esc(character.realm)} · REINO ${esc(character.kingdom).toUpperCase()}</div><h3>${esc(character.name)}${character.identityTitle ? `, <span class="codex-character-title">${esc(character.identityTitle)}</span>` : ""}</h3>${leaderLockCopy?`<p class="leader-unlock-hint">${esc(leaderLockCopy)}</p>`:""}${character.lore ? `<p class="codex-lore">${esc(character.lore)}</p>` : ""}${character.storyCharacter && synergyNames.length ? `<div class="codex-playstyle"><small>SINERGIAS DE REINO</small><p>${synergyNames.map(esc).join(" · ")}</p></div>` : ""}<div class="codex-passive">${character.passive.art ? `<img src="${esc(character.passive.art)}" alt="" loading="lazy">` : `<span class="passive-fallback color-${esc(character.color)}">${eloSigil(character.eloId)}</span>`}<div><b>${esc(character.passive.name)}</b><span>${esc(character.passive.description)}</span></div></div></div>
         ${bodyFormSelector(character)}${codexSkillList(character,character.abilities)}
       </article>`;
     }).join("")}</div>`;
@@ -713,7 +747,7 @@ function render() {
       <main class="main-content">
         ${tab === "rota" ? routeView() : tab === "trio" ? teamView() : tab === "codex" ? codexView() : tab === "arena" ? arenaView() : tab === "profile" ? profileView() : battleView()}
       </main>
-      <footer class="site-footer"><span>PMA: OBLIVIUM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS MUNDOS, VINTE E DOIS REINOS, UMA ESCOLHA</span><span>BUILD 0.5</span></footer>
+      <footer class="site-footer"><span>OBLIVIUM ARENA <i>·</i> PROTÓTIPO ORIGINAL</span><span>TRÊS MUNDOS, VINTE E DOIS REINOS, UMA ESCOLHA</span><span>BUILD 0.5</span></footer>
       ${state.toast ? `<div class="toast" role="status">${esc(state.toast)}</div>` : ""}
       ${state.tutorialOpen?`<div class="tutorial-backdrop">${tutorialView(state.tutorialStep,{answer:state.tutorialAnswer})}</div>`:""}
     </div>`);
@@ -766,6 +800,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.publicView){state.publicView=target.dataset.publicView;if(target.dataset.publicView==="tutorial")state.publicTutorialStep=0;render();return;}
   if(target.dataset.authMode){state.authMode=target.dataset.authMode;state.accountError="";render();return;}
   if(target.dataset.avatar){profile.avatarId=target.dataset.avatar;state.profileError="";render();return;}
+  if(target.dataset.action==="audio-toggle"){state.audioOn=!audioEnabled();setAudioEnabled(state.audioOn);render();return;}
   if(target.dataset.action==="toggle-context-tips"){profile.contextTipsOff=!profile.contextTipsOff;save();render();return;}
   if(target.dataset.tutorialAnswer){if(!state.account&&state.publicView==="tutorial")state.publicTutorialAnswer=target.dataset.tutorialAnswer;else state.tutorialAnswer=target.dataset.tutorialAnswer;render();return;}
   if(target.dataset.tutorial!==undefined){const next=Number(target.dataset.tutorial);if(!state.account&&state.publicView==="tutorial"){if(next>=6){state.publicView="login";state.publicTutorialStep=0;}else state.publicTutorialStep=Math.max(0,next);state.publicTutorialAnswer=null;}else if(next>=6){state.tutorialOpen=false;profile.tutorialComplete=true;save();}else{state.tutorialStep=Math.max(0,next);state.tutorialAnswer=null;}render();return;}
@@ -788,7 +823,7 @@ app.addEventListener("click", (event) => {
   }
   if (target.dataset.realm) {
     state.realmId = target.dataset.realm;
-    state.eloId = realms.find((realm) => realm.id === state.realmId).elos[0].id;state.difficulty=null;
+    state.eloId = campaignKingdoms(state.realmId)[0].id;state.difficulty=null;
     render();
     return;
   }
@@ -860,10 +895,10 @@ app.addEventListener("click", (event) => {
   }
   if (target.dataset.clearNotice !== undefined) { state.pending = null; render(); return; }
   if (target.dataset.finalBattle !== undefined) {
-    if(profile.completedElos.length<elos.length)return;
+    if(!realms.every(world=>isWorldCampaignComplete(profile,world.id,MAX_CAMPAIGN_DIFFICULTY)))return;
     const elo = getEloById("tartaro");
     state.eloId = elo.id;
-    startEncounter({ id: "finale", type: "finale", label: "A Última Barreira", eloId: elo.id });
+    startEncounter({ id: "finale", type: "finale", label: "A Última Fenda", eloId: elo.id });
   }
 });
 
@@ -919,6 +954,7 @@ app.addEventListener("keydown", (event) => {
 
 render();
 checkAccount();
+
 
 
 

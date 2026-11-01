@@ -105,3 +105,4 @@ Todas as artes deste elenco devem seguir a direção geral vigente do jogo: pint
 
 A regra moral estabelecida para o Inferno continua válida: seus seres são vis e movidos pela maldade. Um personagem infernal pode discordar de O Fim, mas essa oposição não o torna bondoso.
 
+

@@ -40,3 +40,4 @@ Inventário, prompts resumidos, dimensões e hashes das artes atuais: `ART_O_FIM
 ## Verificação
 
 Verificação desta atualização: build com **946 arquivos**; auditoria de 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**; `git diff --check` sem erros. A suíte de testes não foi executada nesta revisão visual. A forma original e Fim Inalcançável continuam sem coroa; Tirano mantém a coroa exclusiva; Predador permanece inalterado; Ruína continua sem coroa e com quatro braços.
+

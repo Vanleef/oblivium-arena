@@ -40,3 +40,4 @@ Com os lotes anteriores, os seis personagens de Chama têm **36 imagens básicas
 Dois testes antigos de presença de binários históricos não são executados neste checkout parcial. Os 609 caminhos atuais são conferidos contra a árvore remota e os 12 arquivos novos, sem arquivos substitutos. As novas artes são WebP de 512 × 512; os arquivos anteriores permanecem preservados em seus caminhos originais.
 
 Prompts integrais, hashes, revisão por cena, inventário dos seis conjuntos e referências de validação estão em `CHAMA_COMPLETION_20261023.json`. Geração pelo recurso integrado de imagens; integração e verificação da prévia no branch de revisão.
+

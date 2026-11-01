@@ -1,0 +1,136 @@
+{
+  "id": "merlindrope-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "merlindrope",
+  "displayName": "Merlindrope",
+  "world": "Inferno",
+  "kingdom": "Magma",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa, texturizada e de alta materialidade; superfícies gastas, luz dramática, silhuetas estilizadas com pincelada visível e menos realismo fotográfico. Inferno em preto, vermelho intenso, sangue, brasa e pedra queimada. Poderes físicos e coerentes com o corpo; sem tecnologia ou elementos mecânicos.",
+  "styleReference": "01-1000064969.jpg (somente referência de tratamento pictórico; personagem, machado e composição não são copiados)",
+  "identity": "Humano magro e idoso, pele cinza-acinzentada, olhos vermelho-pálidos, cabelo longo preto com mechas prateadas e túnica ritual borgonha e negra. Tem exatamente dois braços e anatomia humana; cordas trançadas são ferramentas rituais, não membros.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/portrait.webp",
+      "sourceAsset": "art/source/merlindrope-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "59ff16d844e30fa0f47d22285ac1080892fed613d0caec9ffeb6c73daede1b9a",
+      "activeSha256": "8462deecf0f282fcc6910a7acdb389e16e967250477f78cd3db392b46f7b0a68",
+      "scene": "Em três quartos, puxando uma corda ritual borgonha grossa com ambas as mãos junto a um arco de basalto partido.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "passive",
+      "name": "Passiva",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/passive.webp",
+      "sourceAsset": "art/source/merlindrope-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "e64cf076fb659a21990c7cda2cc15b96b5d1e8fa76c5effeaa7cf7f86292a99c",
+      "activeSha256": "87b10e635653560000c86d39657439e0a119b7e0cbc16c9a5211ccdf2e55de5b",
+      "scene": "Puxa uma corda trançada que fecha os braços de um ghoul marcado contra o torso e interrompe o movimento de apoio.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "impulso",
+      "name": "Habilidade: Impulso",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-impulso.webp",
+      "sourceAsset": "art/source/merlindrope-dark-pictorial-rework-20261029/impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "1d1902b8828557fa10f1e2ddb0afdd863ad7886a461a8ad36d18e160f782c519",
+      "activeSha256": "a292b327b6afde1855bbbd73fc0838a7e82d571e1692f83aa0f822173d206603",
+      "scene": "Corda ritual grossa enrola o torso do alvo e o prende contra uma parede de basalto rachada.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Habilidade: Técnica",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-tecnica.webp",
+      "sourceAsset": "art/source/merlindrope-dark-pictorial-rework-20261029/tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "94c160322bcb8e2c8d7e8477874b0eb6a4e08f69bc36bf20162f68767d34f6a7",
+      "activeSha256": "b5300d4da7dd31545e34a144e5385a4060782b1704e529169eac1191d77592ba",
+      "scene": "Barreira transversal de cordas espessas bloqueia uma passagem; o alvo colide e perde o avanço.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "voto",
+      "name": "Habilidade: Voto",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-voto.webp",
+      "sourceAsset": "art/source/merlindrope-dark-pictorial-rework-20261029/voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "1da14745cd98875bf9f26dd9b31ff5824964141d6360b56ceea1b79efa3e67e6",
+      "activeSha256": "7a526157846e133c2b11fcc7915657f906548efa818e9ce62e7e209d5457a561",
+      "scene": "Três ghouls são separados em celas concêntricas de corda trançada que emergem do chão de pedra.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "despertar",
+      "name": "Habilidade: Despertar",
+      "activeAsset": "/art/characters/merlindrope/anime-first-completion-20261028/skill-despertar.webp",
+      "sourceAsset": "art/source/merlindrope-dark-pictorial-rework-20261029/despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "42cf7436fe5cbb228cbe96c03f825b8a57d1d4b641a632f1360c03c6dd8cd779",
+      "activeSha256": "b0e1ebb9ea5eec032fbc925aa31e8e20a7faf613e0377cc261db44fcfb894bf2",
+      "scene": "Merlindrope ancora uma parede ampla de cordas e tecido no basalto e suporta o impacto de escombros.",
+      "reviewStatus": "candidate_integrated"
+    }
+  ],
+  "reviewNotes": "Os arquivos ativos preservam os caminhos consumidos pelo runtime. Esta rodada corrige a identidade humana que as artes anteriores haviam convertido erroneamente em criatura não humanoide. As imagens são candidatas integradas ao PR e ainda requerem revisão visual final do conjunto."
+}

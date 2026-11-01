@@ -19,3 +19,4 @@ A lore de que cada observador encara seu maior medo permanece. O texto de aprese
 143 testes funcionais aprovados, incluindo a abertura do confronto final, a inspeção das quatro artes corrigidas e a recarga de quatro turnos da invulnerabilidade. Dois testes históricos de presença de binários não são executados no checkout parcial; os novos arquivos são conferidos por hash e pela árvore remota. Os arquivos anteriores são preservados.
 
 Origem verificável do retrato, hashes dos cinco arquivos, prompts das quatro habilidades e dados de revisão: `O_FIM_APPROVED_RESTORE_20261023.json`. As habilidades foram produzidas pelo gerador integrado usando a imagem aprovada como referência de identidade.
+

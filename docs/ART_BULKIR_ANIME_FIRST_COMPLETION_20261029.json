@@ -1,0 +1,136 @@
+{
+  "id": "bulkir-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "bulkir",
+  "displayName": "Bulkir",
+  "world": "Inferno",
+  "kingdom": "Pútrido",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa, texturizada e de alta materialidade; superfícies gastas, luz dramática, silhuetas estilizadas com pincelada visível e menos realismo fotográfico. Inferno em preto, vermelho intenso, sangue, brasa e pedra queimada. Poderes físicos e coerentes com o corpo; sem tecnologia ou elementos mecânicos.",
+  "styleReference": "01-1000064969.jpg (somente referência de tratamento pictórico; personagem, machado e composição não são copiados)",
+  "identity": "Humano de pele castanho-escura, porte muito robusto, cabelo preto curto, olhos vermelho-âmbar e cicatrizes antigas. Usa pano vinho; o manto fúngico orgânico fica apenas nos ombros e nas costas. Rosto e membros continuam humanos, com dois braços e duas pernas.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/portrait.webp",
+      "sourceAsset": "art/source/bulkir-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "c41a61ea748df8d22eccefbdcea5acffd38a30f3250aad33b281080cf60533fb",
+      "activeSha256": "4304c3477ebb9c06355ecffee09e6a8d120022808b28d670af69eaf977d7056f",
+      "scene": "Apoiado numa pedra funerária após erguê-la, visto de baixo; o manto fúngico fica restrito às costas e aos ombros.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "passive",
+      "name": "Passiva",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/passive.webp",
+      "sourceAsset": "art/source/bulkir-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "a80603698d5c42c411f1b7fb8d6be0356d4d335a5b7b7aaf5ea6fb8530ff4fd4",
+      "activeSha256": "89e321b74e8cfb598c2671553a0107fb6be2d7e60e59f20ecc6dc31f468683c9",
+      "scene": "Agachado após a luta, fecha a mão sobre o resíduo de cinza de um ghoul derrotado; fragmentos de brasa absorvidos pelo manto.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "impulso",
+      "name": "Habilidade: Impulso",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-impulso.webp",
+      "sourceAsset": "art/source/bulkir-dark-pictorial-rework-20261029/impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "d3a81d7f26306343e3ec016ba0209cece37922fc90d0469b08a313cce7914f5e",
+      "activeSha256": "12f07ffd594282fff3c9526f6f552019d709abee1ac335db64c01a9dcc61b42c",
+      "scene": "O punho pesado rompe lateralmente um selo negro de Defesa gravado numa laje; fragmentos partem do ponto de impacto.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Habilidade: Técnica",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-tecnica.webp",
+      "sourceAsset": "art/source/bulkir-dark-pictorial-rework-20261029/tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "6fa6d314e14c3cbd7410ee8c6b00ea50d5cc625d1a2c4805610b93deda485ea8",
+      "activeSha256": "e8e8b2e28d798935407092ed91e60752307ccc5bd8043224a9eee2d8d9f87af0",
+      "scene": "Morde e rasga o véu de cinza que cobre a identidade do alvo, sem ferir a carne; resíduo de essência aquece a mão e o manto.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "voto",
+      "name": "Habilidade: Voto",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-voto.webp",
+      "sourceAsset": "art/source/bulkir-dark-pictorial-rework-20261029/voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "d2eebadb6ffd6c2f28349bdb228c7faaa0d66ff7b0a4d0efa367943e59200ecc",
+      "activeSha256": "1be3f7decbb019605a36e43329d4f2d311d801c2b9324999620a811e45f9aa04",
+      "scene": "Desce com todo o peso num golpe ao chão; lajes de basalto quebram e derrubam o último vestígio do inimigo.",
+      "reviewStatus": "candidate_integrated"
+    },
+    {
+      "slot": "despertar",
+      "name": "Habilidade: Despertar",
+      "activeAsset": "/art/characters/bulkir/anime-first-completion-20261028/skill-despertar.webp",
+      "sourceAsset": "art/source/bulkir-dark-pictorial-rework-20261029/despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "01064a07fa500769161648032e20ce1b7e0154d56aa8c753518e94a7d1b2d8ae",
+      "activeSha256": "255528281970937e5540a3544bd836f041659c0c9c32366bcff5bf82ce1f9714",
+      "scene": "Abaixa-se sob um arco em colapso; placas fúngicas orgânicas nos ombros e costas recebem os escombros.",
+      "reviewStatus": "candidate_integrated"
+    }
+  ],
+  "reviewNotes": "Os arquivos ativos preservam os caminhos consumidos pelo runtime. Esta rodada corrige a identidade humana que as artes anteriores haviam convertido erroneamente em criatura não humanoide. As imagens são candidatas integradas ao PR e ainda requerem revisão visual final do conjunto."
+}

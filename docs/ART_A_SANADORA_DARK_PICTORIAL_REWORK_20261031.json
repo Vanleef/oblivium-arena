@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-31",
+  "character": {
+    "id": "a-luz-que-restaura",
+    "name": "Liora",
+    "title": "A Sanadora",
+    "role": "Sustentador"
+  },
+  "identity": "Mulher adulta de pele azul-marinho, rosto humano sereno e cabelo curto prateado. Dois pequenos ornamentos metálicos em forma de antena prendem-se visivelmente ao cabelo; veste um manto marfim em camadas com padrões de mariposa. Anatomia humana comum, sem asas biológicas ou membros de inseto.",
+  "lore": "A Sanadora reúne escamas luminosas desprendidas do próprio manto e conduz a luz para feridas e armaduras. O fluxo vital fere um agressor e devolve parte da força a Liora; quando se protege, o tecido se fecha ao redor do próprio corpo.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "asset": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/portrait.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "asset": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/passive.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "asset": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/impulso.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "asset": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/tecnica.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "asset": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/voto.jpg",
+      "review": "candidate_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "asset": "/art/characters/a-luz-que-restaura/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/a-luz-que-restaura-dark-pictorial-rework-20261031/despertar.jpg",
+      "review": "candidate_pending_visual_approval"
+    }
+  ],
+  "compositionChecks": {
+    "portrait": "Rosto humano sereno, pele azul-marinho, cabelo curto prateado, dois ornamentos de antena presos ao cabelo e manto de tecido marfim com motivos de mariposa.",
+    "passive": "Liora recolhe uma única escama luminosa do próprio manto na palma da mão.",
+    "impulso": "Uma escama atinge o escudo de um único inimigo e deixa uma marca azul de Exposição.",
+    "tecnica": "Liora aquece a braçadeira rachada de um aliado com escamas de luz, restaurando vigor e preparando seu próximo golpe.",
+    "voto": "Uma varredura mais ampla do manto e escamas de luz atingem um único adversário exposto; um fio de luz retorna a Liora, sugerindo o roubo de vida.",
+    "despertar": "O manto se fecha ao redor dos próprios ombros e uma flecha se parte na camada externa, mostrando defesa pessoal e Invulnerabilidade."
+  },
+  "files": {
+    "activeWebp": {
+      "dimensions": "512x512",
+      "count": 6
+    },
+    "sourceJpeg": {
+      "dimensions": "768x768",
+      "count": 6
+    }
+  },
+  "runtime": "Somente rotas de arte e metadados de cobertura; mecânicas inalteradas.",
+  "status": "candidate_integrated_pending_visual_approval",
+  "title": "Liora — A Sanadora — revisão dark fantasy pictórica"
+}

@@ -24,3 +24,4 @@ O bloco de técnicas do chefe apresenta quatro colunas em telas grandes, duas em
 Validação local: 143 testes funcionais aprovados; teste de regressão confirma as quatro técnicas visíveis no Codex antes de desbloquear o confronto. Comparação com o kit anterior confirma efeitos, custos, alvos e recargas idênticos. Dois testes de presença dos binários históricos são excluídos neste checkout parcial. A conferência da prévia é realizada após a geração do deploy.
 
 Prompts, hashes, paleta e registro das substituições de cor: `MOTH_PALETTE_20261023.json`. Logo editada pelo gerador integrado de imagens; derivados de tamanho e formato produzidos para uso no projeto.
+

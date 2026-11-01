@@ -20,3 +20,4 @@ Arte 2D de anime com contornos definidos, massas gráficas de sombra e cel shadi
 Custos, efeitos, recargas, IDs, progresso e regras de combate não foram alterados. A defesa pessoal continua Invulnerável por um turno, com recarga de quatro.
 
 Arquivos finais: `art/characters/o-fim/anime-rift-revision-20261023/`, RGB WebP 512 × 512, com versões anteriores preservadas. Geração pela ferramenta integrada de imagens, uma chamada por arte; exportação WebP sem redesenho por código. Prompts exatos, referências, caminhos e hashes em `O_FIM_ANIME_RIFT_20261023.json`.
+

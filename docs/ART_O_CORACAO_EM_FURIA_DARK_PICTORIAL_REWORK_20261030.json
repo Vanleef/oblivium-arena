@@ -1,0 +1,159 @@
+{
+  "title": "Pyros — O Colérico — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "o-coracao-em-furia",
+  "characterName": "Pyros",
+  "characterTitle": "O Colérico",
+  "aliases": [
+    "O Coração em Fúria",
+    "O Colérico"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Chama",
+  "essence": "Ruptura",
+  "style": "Anime-first 2.5D de fantasia sombria pictórica: pinceladas angulares, contornos manuais, hachuras, sombras de corte, luzes de recorte e materialidade tátil.",
+  "identity": "Pyros é um ogro infernal adulto, muito robusto e baixo, de pele cinza, cabeça calva, nariz largo, maxilar pesado, presas inferiores curtas e um único chifre curto de marfim no centro da testa. Tem dois braços, olhos âmbar, corrente ritual antiga no ombro direito e casaco preto sem mangas. Uma armadura curva de costelas de marfim envolve um forno espiritual vermelho-alaranjado no peito, sempre coberto e sem órgãos expostos; fissuras de brasa cruzam a pele. Preservar essa silhueta e identidade.",
+  "environment": "Inferno / Chama: basalto antigo, cinzas, brasas e vermelho-preto intenso. Sem máquinas, canos, fábricas, armas tecnológicas ou soldados genéricos; alvos são ghouls infernais.",
+  "sceneVariety": "Close baixo em três quartos, reversa lateral baixa, impacto lateral rente ao chão, cotovelo em ângulo alto, slam em zenital oblíquo e esquiva em reversa lateral; seis composições distintas.",
+  "anatomyReview": "Seis imagens inspecionadas. Pyros mantém um chifre, dois braços, armadura torácica e forno oculto. Quatro cenas mostram um ghoul por ataque; a defesa mostra um atacante e esquiva pessoal. Os efeitos partem do contato ou do corpo sem feixes finos; nenhuma mecânica foi alterada.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "active": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Pyros se volta para o desabamento de basalto; identidade e armadura de costelas preservadas.",
+      "activePath": "/art/characters/o-coracao-em-furia/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-coracao-em-furia-dark-pictorial-rework-20261030/portrait.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 66244,
+      "sourceBytes": 264026,
+      "activeSha256": "6deb9a73b706440d831d3872979cb73b2a6b29e2126d7a0cbb3fbd57462de765",
+      "sourceSha256": "88ea3ae387f63e0be066a939561629916ee8299c63744bf5adec1cac2aa324e3",
+      "generatedSource": "exec-2961dc39-5161-445c-ba21-049bd7a07ea3.png",
+      "generatedSourceSha256": "4f33c606583ab5d3ec50f849afd4c0ca1dd8245da21e0bf3072b290c54a31114",
+      "prompt": "A candid square portrait of Pyros bracing against a nearby basalt collapse, with the red-orange furnace contained behind intact ivory rib armor."
+    },
+    {
+      "slot": "passive",
+      "name": "Pulso Irado",
+      "targetCount": "one attacker",
+      "camera": "Reversa lateral baixa",
+      "scene": "Pyros recebe o golpe de um ghoul e devolve pressão incandescente ao mesmo agressor.",
+      "activePath": "/art/characters/o-coracao-em-furia/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-coracao-em-furia-dark-pictorial-rework-20261030/passive.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 96546,
+      "sourceBytes": 366566,
+      "activeSha256": "c771751ccd4a52c963b92a85cdc0327672086cc72ba83ef4ab6943c917faf5ce",
+      "sourceSha256": "53c25c3c155ff4a6df498ad61c7bb46fead6eec95afb19694f1c5a21dff6a0f6",
+      "generatedSource": "exec-1169c680-e540-4586-94fd-f0bfa4716aa8.png",
+      "generatedSourceSha256": "7818f8116231a2c7708ae7c8d86bb8596d618a0ca5ae218b217b38b7f9e678a5",
+      "prompt": "One ghoul lands a claw blow; Pyros recoils and retaliates with a short physical red-orange pressure burst after taking harm."
+    },
+    {
+      "slot": "impulso",
+      "name": "Batida Escaldante",
+      "targetCount": "one",
+      "camera": "Lateral extrema rente ao chão",
+      "scene": "Um punho atinge um ghoul; uma brasa pequena se reúne atrás da armadura para marcar a carga.",
+      "activePath": "/art/characters/o-coracao-em-furia/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-coracao-em-furia-dark-pictorial-rework-20261030/impulso.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 92392,
+      "sourceBytes": 346711,
+      "activeSha256": "a66fb8123fae57fedda6c8729c822404fe1e0d713bb340cc954abf1cf6343591",
+      "sourceSha256": "f9ec23676b677348aed5755e4d00764e9e76f8959191ac732eef59c47c5c4258",
+      "generatedSource": "exec-36d4a441-e6d3-4084-ae3c-01c4fec98698.png",
+      "generatedSourceSha256": "160f465191358c0e9cb7c2d1c7ae18700288de9497800860cc2fb473557c39a4",
+      "prompt": "Pyros drives one closed fist into one ghoul while a single ember gathers behind his intact chest armor."
+    },
+    {
+      "slot": "tecnica",
+      "name": "Sangue em Ebulição",
+      "targetCount": "one",
+      "camera": "Lateral alta oblíqua",
+      "scene": "O cotovelo atinge um ghoul enquanto as fissuras do próprio Pyros se acendem pelo esforço.",
+      "activePath": "/art/characters/o-coracao-em-furia/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-coracao-em-furia-dark-pictorial-rework-20261030/tecnica.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 86616,
+      "sourceBytes": 338569,
+      "activeSha256": "51f1dc93719ab648b761880641131493889a87153c5db0aecad1d9ef6d285ca4",
+      "sourceSha256": "f2ad5e36330637dfc421acb8357443946219f43105847600fb098c3a23c7eff4",
+      "generatedSource": "exec-a94c5e81-1f99-4926-9be2-d4566bff264c.png",
+      "generatedSourceSha256": "eb420c3c17bdc94564b975861cb8d23540915960c7b66462a61c3eadf0383b40",
+      "prompt": "Pyros lands one forceful elbow strike on a ghoul; heat fissures flare on his own skin as the power strains him."
+    },
+    {
+      "slot": "voto",
+      "name": "Coração em Erupção",
+      "targetCount": "one",
+      "camera": "Zenital oblíquo de impacto",
+      "scene": "Dois punhos esmagam a guarda de um ghoul; a pressão racha o basalto no ponto de contato.",
+      "activePath": "/art/characters/o-coracao-em-furia/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-coracao-em-furia-dark-pictorial-rework-20261030/voto.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 102278,
+      "sourceBytes": 394592,
+      "activeSha256": "de7ae36349ca6fdfc925075b1b148ac1bd7addf9d9bb2a86b2197ea4f2441584",
+      "sourceSha256": "abdfde03ea0abad35b0b7742b9114841f9e3e6b8bcb448a9200054238b97ea30",
+      "generatedSource": "exec-334e142c-f221-41af-b404-68bf5f903e27.png",
+      "generatedSourceSha256": "c80a07dab4ee5b90ac6fb99f46577704155a18c035a053feb1df41a6288ce465",
+      "prompt": "A charged two-fist slam buckles one ghoul guard and sends a red-orange pressure fracture through the floor."
+    },
+    {
+      "slot": "despertar",
+      "name": "Pulso Intangível",
+      "targetCount": "self; one attacker",
+      "camera": "Reversa lateral em movimento",
+      "scene": "Pyros esquiva pessoalmente de um golpe; a miragem de calor acompanha só sua silhueta real.",
+      "activePath": "/art/characters/o-coracao-em-furia/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-coracao-em-furia-dark-pictorial-rework-20261030/despertar.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 90298,
+      "sourceBytes": 340952,
+      "activeSha256": "50ad2b71d3b35f998afbeba1dc0a752af91ea4a7176e5204241c5ab108df7827",
+      "sourceSha256": "3ebe4f62c8cc2a80099e68cf873d0229a3af977b723fda00703c5510acc56aaa",
+      "generatedSource": "exec-6c0dae59-e3f5-405a-9a01-f329b0e3850e.png",
+      "generatedSourceSha256": "7b9b0570f0a3787a1ac4c0f73455e9fd91558112df3137c6a63fb29280e52f36",
+      "prompt": "Pyros slips aside from one ghoul claw; a brief heat mirage bends around his single real silhouette without creating a clone or group shield."
+    }
+  ]
+}

@@ -8,10 +8,12 @@
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test",
+    "docs:generate": "node scripts/generate-project-docs.mjs",
     "audit:art": "node scripts/audit-art.mjs"
   },
   "engines": {
     "node": ">=20"
   }
 }
+
 

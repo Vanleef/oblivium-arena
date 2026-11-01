@@ -1,0 +1,165 @@
+{
+  "title": "Bram — O Inoculador — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "o-medico-de-vermes",
+  "characterName": "Bram",
+  "characterTitle": "O Inoculador",
+  "aliases": [
+    "O Médico de Vermes",
+    "O Inoculador"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Podridão",
+  "essence": "Cinza",
+  "style": "Anime-first 2.5D dark fantasy pictórica: pinceladas angulares, contornos manuais, hachuras, sombras de corte, alta materialidade e atmosfera infernal.",
+  "identity": "Bram é um homem magro de cerca de 60 anos, pele morena, cachos grisalhos ralos, óculos retangulares transparentes, casaco jade e luvas de couro. Usa frascos rituais de vidro selado com pequenos vermes luminosos e um bastão diagnóstico prateado. O corpo permanece humano e sem infestação.",
+  "environment": "Inferno/Podridão: ruínas de basalto, fuligem, rachaduras carmesins contidas e materiais rituais. Sem laboratório, tecnologia ou maquinaria.",
+  "sceneVariety": "Close baixo em três quartos, vista alta da passiva, perfil lateral baixo de ataque, close sobre o ombro de cura, vista alta reversa do alvo e close defensivo por trás do agressor.",
+  "anatomyReview": "Seis candidatas inspecionadas. Bram mantém dois braços e anatomia humana coerente. As cenas ofensivas mostram um ghoul cada; a cura mostra um aliado; a passiva mostra exatamente dois ghouls aliados; a defesa mostra um atacante e um dardo alinhado ao arremesso, que ricocheteia no vidro antes do rosto. Nenhum parasita aparece no corpo.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — O Inoculador",
+      "targetCount": "none",
+      "camera": "close baixo em três quartos",
+      "scene": "Bram se vira ao ouvir algo fora de quadro enquanto examina um frasco ritual selado com dois vermes luminosos; ruínas de basalto ao fundo.",
+      "prompt": "Preservar o homem magro de cerca de 60 anos, pele morena, cachos grisalhos ralos, óculos retangulares transparentes, casaco jade, luvas de couro e frasco selado; olhar reativo, sem pose frontal.",
+      "candidatePath": "art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-medico-de-vermes-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-c3e4800f-7fdb-44ff-a459-0d39ecc986d0.png",
+      "generatedSourceSha256": "263cbda2ff99efdbdea45a29f74e00f6354146cd442019785fd059ab5a0102b0",
+      "generatedSourceBytes": 2780061,
+      "candidateBytes": 67222,
+      "candidateSha256": "51e1e2dfe8134cd13cc5abe17f1bd3033d3471a32da856fe984798ae6b634fd7",
+      "sourceBytes": 208078,
+      "sourceSha256": "6166661f7e7af5ded5a4efc04bf26cec20f692dd775648893c8cbe21da1a3b9c"
+    },
+    {
+      "slot": "passive",
+      "name": "Simbiose Corrupta",
+      "targetCount": "two allied ghouls",
+      "camera": "vista alta oblíqua",
+      "scene": "Dois ghouls aliados: um limpa a crosta de aflição do outro e refaz a atadura; Bram recolhe uma única brasa de Cinza ao notar o cuidado concluído.",
+      "prompt": "Mostrar dois ghouls aliados, exatamente; um remove uma condição prejudicial e trata o outro. Bram observa a cura efetiva e recebe um pequeno fragmento de Cinza.",
+      "candidatePath": "art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-medico-de-vermes-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-e69d85a8-a633-4dbb-b971-13b9ea59de6e.png",
+      "generatedSourceSha256": "bacee31122d5e1158d73a773817a56de70a2d49e4c9038b891ae25f70412a847",
+      "generatedSourceBytes": 2847141,
+      "candidateBytes": 76814,
+      "candidateSha256": "0fab929dcd7d5d10756f32897cfa1028095ee942add96c8b3337e5618f29512f",
+      "sourceBytes": 219260,
+      "sourceSha256": "91053b8b9b020c4643481d07072619c2a60e4bfa2a9a2b69fd55673d66d3479e"
+    },
+    {
+      "slot": "impulso",
+      "name": "Incisão Parasitária",
+      "targetCount": "one ghoul enemy",
+      "camera": "perfil lateral baixo",
+      "scene": "Bram avança e atinge a armadura exterior de um ghoul com o bastão ritual prateado; uma mancha de podridão marca o alvo e gotas aderem ao bastão.",
+      "prompt": "Um único ghoul; impacto físico do bastão na armadura, Veneno na superfície e pequena drenagem de vitalidade, sem perfurar carne.",
+      "candidatePath": "art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-medico-de-vermes-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-13973ec4-4512-488c-9e11-7696ac234b85.png",
+      "generatedSourceSha256": "96986b69f5a812e4e9ece50514b9df7f06c36003a4603e15f31f12a55b12dfb6",
+      "generatedSourceBytes": 2700492,
+      "candidateBytes": 74384,
+      "candidateSha256": "48d8ff946d62c20a6e0362ed8d8d6d0e15a0dcc7ad4860a739d69ef2d5fb5ac3",
+      "sourceBytes": 210081,
+      "sourceSha256": "4c4ffa29792906b93e90c80b4447c887dd0e89ca486510d52eca0046ebffb336"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Hospedeiro Renovado",
+      "targetCount": "one ghoul ally",
+      "camera": "close por cima do ombro de Bram",
+      "scene": "Bram remove esporos nocivos da manga de um ghoul aliado e prende uma atadura clara, deixando o aliado recuperar o equilíbrio.",
+      "prompt": "Um único ghoul aliado; limpeza física da condição nociva e curativo que comunica regeneração, sem feixes ou parasitas entrando na pele.",
+      "candidatePath": "art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-medico-de-vermes-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-905dbe98-91ac-43e2-96df-417100d5d80d.png",
+      "generatedSourceSha256": "6faf60671e8f0ee743a8eb8cd9285e366c5739568505c78b6d555daddd5c9e6b",
+      "generatedSourceBytes": 2693933,
+      "candidateBytes": 66808,
+      "candidateSha256": "69e86be977f647cc12d114741c16add92fc4ac3e33d7c3c128790c73e410c76a",
+      "sourceBytes": 194887,
+      "sourceSha256": "b0150dbebe5c42c9d22fb57de0dc31fa707de8c9aa8a9348738d59791cd84528"
+    },
+    {
+      "slot": "voto",
+      "name": "Drenagem da Colônia",
+      "targetCount": "one already-poisoned ghoul enemy",
+      "camera": "vista alta reversa pelo ombro do alvo",
+      "scene": "O bastão prateado de Bram pressiona a armadura já corroída de um ghoul envenenado; resíduos deslizam fisicamente pelo bastão para um frasco.",
+      "prompt": "Um único ghoul já envenenado; golpe pesado sobre a armadura e resíduos de Veneno recolhidos no frasco, sugerindo drenagem sem linhas de energia.",
+      "candidatePath": "art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-medico-de-vermes-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-29b6ae5e-7c61-4c12-b81c-b9a8cf196977.png",
+      "generatedSourceSha256": "555b1dde85fed4f5796adc21a2c0a3f91614bea307e7fbfd1e5653adbcaea474",
+      "generatedSourceBytes": 2677559,
+      "candidateBytes": 76018,
+      "candidateSha256": "47652514c334f14a28a6708e6b5adb7b976d3bf11a8a1bbc64e7121e4207064d",
+      "sourceBytes": 205914,
+      "sourceSha256": "cf866e1fa6594cb7435f4e8ae2a45b74c3e07a9ab43dfc871041f369d34358a8"
+    },
+    {
+      "slot": "despertar",
+      "name": "Corpo entre Vermes",
+      "targetCount": "self defense; one attacker",
+      "camera": "close frontal por trás do agressor",
+      "scene": "Bram se agacha atrás do casco espesso de vidro; um ghoul arremessa um único dardo, que atinge o exterior e ricocheteia para longe do rosto.",
+      "prompt": "Um atacante e um único dardo; arremesso da direita para a esquerda alinhado ao braço do ghoul; dardo toca apenas o exterior do vidro e ricocheteia.",
+      "candidatePath": "art/characters/o-medico-de-vermes/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-medico-de-vermes-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-ded3e849-6a20-47b6-80a4-f14f0fd506b4.png",
+      "generatedSourceSha256": "f661ccf21fe34ad99cdfe9d06f65518c8a52eac75c11b2fe24f7f7f2710d7e18",
+      "generatedSourceBytes": 2563354,
+      "candidateBytes": 77068,
+      "candidateSha256": "49299e28d9489c03efead3d4e571d5c397fe33487123280bf3487fb77d519171",
+      "sourceBytes": 211084,
+      "sourceSha256": "c790849b2f87858303b7dcf5743519603d3c687c9c48391d0165dd5fcd2b255e"
+    }
+  ]
+}

@@ -169,3 +169,4 @@ O catálogo de combate foi regenerado dos dados jogáveis e mantém 100 kits e 4
 | A Oscilante | Limbo | Correntes Quebradas |
 | A Peregrina | Limbo | Correntes Quebradas |
 | O Ancorado | Limbo | Correntes Quebradas |
+

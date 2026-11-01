@@ -1,8 +1,10 @@
 import {withFlexibleCosts} from './flexible-costs.js';
+import { attachCharacterArt } from './character-art.js';
 import { buildCharacterKit, describeAbility } from "./kits.js";
 import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
 import { withBodyForms } from "./body-forms.js";
 import { characterRevisions, revisedArtFor, reviseKitIdentity } from "./character-identity.js";
+import { rosterIdentityOverrides, worldLeaderIdentities } from "./roster-identity-overrides.js";
 import { revisePassive } from "./passive-revisions.js";
 import { assignCharacterArchetypes } from "./archetypes.js";
 import { attachArenaKitAssignment } from "./arena-kit-assignments.js";
@@ -191,6 +193,11 @@ function slug(text) {
 }
 
 const characterFormArt = {
+  "o-soberano-quebrado": {
+    impulso: { edict: "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-impulso-edict.webp" },
+    tecnica: { edict: "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-tecnica-edict.webp" },
+    voto: { edict: "/art/characters/o-soberano-quebrado/dark-pictorial-rework-20261029/skill-voto-edict.webp" }
+  },
   "o-que-observou": {
     voto: { witness: "/art/characters/o-que-observou/painterly-rework-20261025/skill-voto-witness.webp" }
   },
@@ -277,29 +284,44 @@ const rawCharacters = [
   ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
 ];
+export const worldLeaders = worldLeaderIdentities;
 export const characters = rawCharacters.map(character => {
+  const rosterIdentity = rosterIdentityOverrides[character.id];
   const legacyEloId = character.legacyEloId || character.eloId;
   const kingdomId = kingdomOverrides[character.id] || defaultKingdomByTrack[legacyEloId]
     || (character.realm === "Limbo" ? "vestibulo" : character.realm === "Paraíso" ? "estelar" : "flagelo");
   const kingdom = kingdomDefinitionsById[kingdomId];
   if (!kingdom) throw new Error(`Reino ausente para ${character.id}: ${kingdomId}`);
-  const identityTitle = character.identityTitle || characterTitleOverrides[character.id]
+  const identityTitle = rosterIdentity?.title || character.identityTitle || characterTitleOverrides[character.id]
     || (character.storyCharacter && !character.name.includes(",") ? character.role : null);
-  const englishIdentityTitle = character.englishIdentityTitle || englishCharacterTitleOverrides[character.id]
+  const englishIdentityTitle = rosterIdentity?.englishTitle || character.englishIdentityTitle || englishCharacterTitleOverrides[character.id]
     || (character.storyCharacter && identityTitle ? character.englishRole : null);
   const synergyKingdomIds = [...new Set([
     kingdomId,
     ...(character.synergyEloIds || []).map(id => legacyToKingdom[id]).filter(Boolean)
   ])];
-  return {
+  const displayName = rosterIdentity?.name || character.name;
+  const aliases = rosterIdentity ? [...new Set([
+    ...(character.aliases || []),
+    ...(character.name ? [character.name] : []),
+    ...(rosterIdentity.aliases || [])
+  ])] : character.aliases;
+  return attachCharacterArt({
     ...character,
+    ...(rosterIdentity ? {
+      name: displayName,
+      englishName: displayName,
+      ...(character.name !== displayName ? { previousName: character.name } : {}),
+      aliases
+    } : {}),
     legacyEloId,
     legacyEloName: character.elo,
     kingdomId,
     kingdom: kingdom.name,
     englishKingdom: kingdom.englishName,
     realm: kingdom.realm,
-    flavor: character.lore || (character.storyCharacter ? character.flavor : kingdom.theme),
+    lore: rosterIdentity?.lore || character.lore,
+    flavor: rosterIdentity?.lore || character.lore || (character.storyCharacter ? character.flavor : kingdom.theme),
     elo: kingdom.name,
     englishElo: kingdom.englishName,
     color: kingdom.color,
@@ -309,7 +331,7 @@ export const characters = rawCharacters.map(character => {
     englishIdentityTitle,
     synergyKingdomIds,
     risk: kingdom.realm === "Limbo"
-  };
+  });
 });
 export const elos = kingdomCatalog.map(kingdom => ({
   ...kingdom,
@@ -1065,3 +1087,5 @@ export const buffs = [
     "glyph": "split"
   }
 ];
+
+

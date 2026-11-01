@@ -1,0 +1,192 @@
+{
+  "title": "Ravena — A Saqueadora — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "a-mao-que-toma",
+  "characterName": "Ravena",
+  "characterTitle": "A Saqueadora",
+  "aliases": [
+    "A Mão que Toma",
+    "A Saqueadora"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Magma",
+  "essence": "Fome",
+  "style": "Anime-first 2.5D de fantasia sombria, com pinceladas angulares, contornos inkados, hachuras gráficas, sombras de corte e materialidade tátil.",
+  "identity": "Mulher infernal compacta e poderosa, de pele umber profunda, cabelo prateado curto com uma trança negra, olhos âmbar, cicatriz na sobrancelha, couro negro gasto, placas de osso, ombreira de bronze assimétrica e anéis saqueados no antebraço. Dois braços e mãos humanas proporcionais.",
+  "environment": "Inferno/Magma: basalto quebrado, fissuras de brasa, cinza negra e ruínas do salão de tributos. Essências douradas aparecem como fragmentos pequenos e materiais; sem tecnologia, máquinas, capas, lanternas ou soldados.",
+  "sceneVariety": "Retrato baixo fechado, perfil lateral com mão de apoio na própria coxa, reversa baixa de alcance, zenital de proteção, zenital de confisco, reversa defensiva e zenital íntimo do cofre.",
+  "anatomyReview": "As sete imagens agora estão presentes na branch e foram inspecionadas visualmente. Dois braços coerentes, mãos com articulação plausível, defesa pessoal sem alvos extras, ghoul único nos ataques de alvo único e variante de cura sem segundo personagem.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "active": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Ravena",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "A personagem se vira no salão de tributos em ruínas e acompanha uma pequena essência dourada sobre a palma aberta; expressão calculista e atenta, sem olhar para a câmera.",
+      "prompt": "Retrato reativo e próximo da Saqueadora, sem alvo.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/portrait.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 90108,
+      "sourceBytes": 245209,
+      "activeSha256": "92046fe3c4e22fc96f4232bf33abe4a15a91ea4fa8485093f690ba56dfb47841",
+      "sourceSha256": "d0b466bda5b10a5efa12ba038cb59f3bd61bd22e694540609b67f767358db5dc",
+      "generatedSource": "exec-e89f569d-f254-4774-990a-83126747c841.png",
+      "generatedSourceSha256": "10439553ac6a3bda70ee91eec773a85036fc2a064f4c44dd657f72479d76c6e7",
+      "note": "Retrato refeito com a aparência prateada e a ombreira de bronze da versão atual.",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Posse Insaciável",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral, altura do alvo",
+      "scene": "Ravena se inclina na direção de um ghoul. Uma mão recolhe a essência no peito da criatura; a outra se apoia na própria coxa para sustentar a postura, sem tocar o alvo.",
+      "prompt": "Recomposta de perfil: braço distante alcança o ghoul e mão próxima repousa na própria coxa. Dois braços com ligações claras a ombros opostos; nenhuma mão extra.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/passive.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 85672,
+      "sourceBytes": 346115,
+      "activeSha256": "4be97607c9c4b1dd5731a3123f2a88f9abf06521e5475a45ddd01b3c87e73521",
+      "sourceSha256": "ee44ad238dd928766a47fcef27f4e5c6b80caa792e0a3e47d7116bbf3c2a74fc",
+      "generatedSource": "exec-88f5e919-cff0-4cad-a429-1eae650ad207.png",
+      "generatedSourceSha256": "28a15d7ced06ef848bbf8ea33c718f5bd0423416d6a17ab0f2d2bf9b13542ef3"
+    },
+    {
+      "slot": "impulso",
+      "name": "Dedos da Cobiça",
+      "targetCount": "one ghoul",
+      "camera": "Reversa baixa pelo ombro do ghoul",
+      "scene": "Ravena avança em meia-agachada; uma mão alcança o fragmento dourado junto ao peito do ghoul, enquanto a outra permanece junto ao próprio quadril, sem cruzar o tronco.",
+      "prompt": "Recomposta em ângulo reverso: braço distante alcança o alvo; braço próximo permanece recolhido junto ao quadril. Dois braços com ligações claras a ombros opostos; nenhuma mão extra.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/impulso.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 86098,
+      "sourceBytes": 343188,
+      "activeSha256": "66099520200e3109354bc5dca51c76e227cf2e034c0a8bb833dcbf3d23fcd264",
+      "sourceSha256": "e54d73bd5ae7c6a7750e2f3e6189774de8032105c26ee373ce827ab0bc1f6209",
+      "generatedSource": "exec-ffa0e9ec-7313-46f2-a599-64264d127f0b.png",
+      "generatedSourceSha256": "036b75bffad0795f8c6d8ef475864c40dfbc693d151485076351543115a65a73"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Guardar o que Roubou",
+      "targetCount": "self only",
+      "camera": "Diagonal baixa em close, postura protegendo as costelas",
+      "scene": "Agachada, desvia o ombro e cobre as próprias costelas com o antebraço; basalto e sigilos de brasa formam uma proteção compacta sobre o próprio corpo.",
+      "prompt": "A técnica é autocentrada, sem inimigo ou aliado adicional.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/tecnica.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 110678,
+      "sourceBytes": 291466,
+      "activeSha256": "6d5e5e464957fdfdbd865ae11e9078cf59a85ee93c15155e5ed3f2164d5b30a4",
+      "sourceSha256": "3337fd41de09a235d0339729474c201e0ffed8ebd9fc74635d9271f2ec26cff0",
+      "generatedSource": "exec-b5813044-cba9-45ec-b2db-0afeb3dcfe1b.png",
+      "generatedSourceSha256": "c3786b0522567be4c241a77f9120e06a3e50ad40d89c881ca615e4e6b7bce9ba",
+      "note": "Defesa pessoal sem alvo visível, com os dois braços ligados a ombros distintos.",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Confisco da Alma",
+      "targetCount": "one ghoul",
+      "camera": "Zenital oblíquo de impacto",
+      "scene": "Ela quebra o sigilo dourado de um único ghoul; a criatura recua enquanto os fragmentos de defesa se espalham e ela fecha a mão sobre o brilho roubado.",
+      "prompt": "Voto remove a proteção de uma única vítima.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/voto.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 107618,
+      "sourceBytes": 275488,
+      "activeSha256": "d890e823ef6100008f8fb038a87512076b46ce677c282fa464902186c37b1b6c",
+      "sourceSha256": "f4b2ac83eb18b71ecbc284a8edccbe15811ac501fa92e6f45725af68b66d91fc",
+      "generatedSource": "exec-2340c35a-7a96-4343-811f-9dc4aa52caa4.png",
+      "generatedSourceSha256": "c8308abb74a296ed4e03e4ce6be67b3471ec40ceca60b69061acb7b3abf68699",
+      "note": "Um alvo, reação legível e mãos da personagem apoiadas em ações diferentes.",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Mão Fora de Alcance",
+      "targetCount": "self; one attacker",
+      "camera": "Reversa baixa sobre o ombro do ghoul",
+      "scene": "Um ghoul avança; ela pivota para fora da garra e prende o antebraço atacante com uma mão enquanto protege o próprio peito com a outra.",
+      "prompt": "Despertar defensivo individual; uma criatura ataca e Ravena se esquiva, sem contra-ataque.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/despertar.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 97574,
+      "sourceBytes": 256534,
+      "activeSha256": "e4178e47763b4b9b1b511fb5e93a40c43cd6cbbd49e54b74f9049d71fe06e4c3",
+      "sourceSha256": "07484d85eb79702cfcdbcc33a6713d90823d68d4e0e9e09479c0ef0d72a5c129",
+      "generatedSource": "exec-a2e81494-3f75-4410-8ae0-be537c4130b7.png",
+      "generatedSourceSha256": "f69657a01fcf38c5843dc1cbf0b6e831943105831dacc57c2ea74be50e2a93ea",
+      "note": "Esquiva e contenção defensiva, sem contra-ataque.",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "form:tecnica:open",
+      "name": "Abrir o Cofre",
+      "targetCount": "self only",
+      "camera": "Zenital íntimo em três quartos",
+      "scene": "Essências douradas recompõem abrasões superficiais; ela apoia uma mão nas próprias costelas e observa o brilho se fechando sobre o ombro.",
+      "prompt": "Variante de técnica autocentrada que consome espólios para recuperar vigor, sem alvo.",
+      "activePath": "/art/characters/a-mao-que-toma/dark-pictorial-rework-20261030/skill-tecnica-open.webp",
+      "sourcePath": "art/source/a-mao-que-toma-dark-pictorial-rework-20261030/tecnica-open.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 95162,
+      "sourceBytes": 249703,
+      "activeSha256": "103549bc5b68e296e1d7547f7c53f09c749ecbcb37622b734e97d6bd711f6070",
+      "sourceSha256": "5dca79e6c5b17b205bc345da4e0084b32978d11ea0dfc5ed81befa023fc8ed89",
+      "generatedSource": "exec-833c05a9-a7a3-4f2c-8e9a-9fec31357cb1.png",
+      "generatedSourceSha256": "10a458f6d8f1049aa19cf69c3c194f6be0a799694fef4659029d9a669e797707",
+      "note": "Variante autocentrada sem cofre mecânico, vítima ou geração de Essência.",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "correctionNote": "O conjunto foi completado com cinco artes que faltavam na branch: retrato, técnica, voto, despertar e variante Abrir o Cofre. As artes passive e impulso existentes foram mantidas. Todas aguardam aprovação visual."
+}

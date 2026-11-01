@@ -36,3 +36,4 @@ A passiva e o Fruto da Semente foram refeitos após inspeção: uma aproxima a c
 - Os dois testes que exigem arquivos históricos locais foram excluídos desta execução: este checkout de trabalho trouxe os arquivos de código e as novas imagens. As 584 referências históricas de arte foram conferidas no inventário do commit de partida; as vinte referências novas apontam para arquivos exportados e validados.
 - A versão de O Fim no commit de partida não foi alterada nesta rodada.
 
+

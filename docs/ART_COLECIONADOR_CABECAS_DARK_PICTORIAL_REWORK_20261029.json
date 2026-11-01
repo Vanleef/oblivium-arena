@@ -1,0 +1,175 @@
+{
+  "id": "o-colecionador-de-cabecas-dark-pictorial-rework-20261029",
+  "date": "2026-10-29",
+  "characterId": "o-colecionador-de-cabecas",
+  "displayName": "O Colecionador de Cabeças",
+  "identityName": "Thorne",
+  "world": "Inferno",
+  "kingdom": "Flagelo",
+  "status": "generated_integrated_pending_visual_approval",
+  "provider": "OpenAI ImageGen",
+  "artDirection": "Dark fantasy pictórica densa, pincelada grossa e alta materialidade: casaco gasto, porcelana rachada, pele tátil, metal sujo e ruínas erodidas sob luz dramática. Mais estilizada e menos realista, sem acabamento polido ou liso.",
+  "styleReference": "Baal — Manto de Cinzas, referência de textura, pincelada e materialidade; o retrato anterior de Thorne foi usado apenas para identidade e motivos das máscaras.",
+  "previousRoute": "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027",
+  "activeRoute": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029",
+  "identity": "Thorne é um homem humano idoso de pele pálida acinzentada e fissuras antigas em uma face, cabelo branco-prateado preso atrás, olho vermelho, gola alta marfim, casaco de caça creme com forro carmesim, luvas negras e máscaras vazias de porcelana presas ao peito. Uma lâmina simples e corda física são suas ferramentas; não há cabeças decepadas.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/portrait.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/portrait.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "64c365b539329aea0867c98aa63ac4c7bddbcefc5c0ea33fbb9ee46391566c28",
+      "activeSha256": "069e116c3a7dca8d134a4f02974a02a00b02233ce7a1c2e24d1512b8616d719f",
+      "generatedImage": "generated_images/exec-564426d6-00a0-4380-8d96-4bc54193a805.png",
+      "scene": "Retrato lateral baixo; Thorne segura uma máscara de porcelana vazia, com as outras máscaras presas ao casaco.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Primeiro Troféu",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/passive.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/passive.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "480f6b6226b87a9f0a32c640420d39b3998852b8c8e3921cd10eae3de1bc8075",
+      "activeSha256": "5d9c36d14dc7b571ecfcd68ea90e9c5b8a75378cdbe20691d405b766ec3550bf",
+      "generatedImage": "generated_images/exec-4058d84a-71ec-40bf-8d43-ceb8cf572d5d.png",
+      "scene": "Vista alta; um ghoul marcado cai e uma máscara vazia se prende ao ombro de Thorne como Defesa, somando uma carga.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "impulso",
+      "name": "Laço de Caça",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-impulso.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/skill-impulso.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "d9d9937ddb1a8ef6067e78e2f3c97a9ee21d8ddbe85da7ac354666df58776099",
+      "activeSha256": "228506af67e084a92596bb84d72066c7d3ba5f04bbe175b3c1fa31b41e2816d7",
+      "generatedImage": "generated_images/exec-8bf2bfd3-47a4-414a-8a87-6587bbf99918.png",
+      "scene": "Reversa por cima do ombro; corda escarlate trançada prende um ghoul e Thorne ganha uma carga.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Cobrança do Caçador",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-tecnica.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/skill-tecnica.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "34647b248248484b7a050ec4cd897a32487c6a95a0acdbbc4d21bdad024a4a4c",
+      "activeSha256": "266e74bd07e1afe4aa3cfcceb7ea9158cdfc58731a4dccc1c2379ba0cb38e995",
+      "generatedImage": "generated_images/exec-37684c7e-371b-4910-951e-60c4afb4472d.png",
+      "scene": "Lateral ao nível do chão; lâmina lasca a placa externa de basalto do ghoul antes do dano.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto",
+      "name": "Galeria de Troféus",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/skill-voto.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "d9f90ceca3ddf52066d00190e4bab1299638331bc127869e3f9a433ecaac029a",
+      "activeSha256": "555dbf6b46bab71de01c04fada049eb70c4b18699e86657fc3ae73d9f9aa9254",
+      "generatedImage": "generated_images/exec-553556c7-3af2-4e24-b1ab-a8ed30c5ffe1.png",
+      "scene": "Três máscaras vazias convergem num só impacto físico contra um ghoul, consumindo as cargas.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "despertar",
+      "name": "Sombra do Colecionador",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-despertar.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/skill-despertar.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "0771659029ac699f216e93a0ecd10017f9a9ff99981083891e231510e4d640c2",
+      "activeSha256": "9acb2e960e9c97764ccbd0aeee91338d908c7b7a69788824e32d1ff626f5d36a",
+      "generatedImage": "generated_images/exec-5ba4c93d-2565-4191-a931-68cbc024fc2c.png",
+      "scene": "Ângulo baixo reverso; golpe do ghoul é desviado pelas máscaras e camadas do casaco, deixando Thorne ileso.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "voto:empty",
+      "abilitySlot": "voto",
+      "formKey": "empty",
+      "name": "Caça sem Troféus",
+      "activeAsset": "/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp",
+      "sourceAsset": "art/source/o-colecionador-de-cabecas-dark-pictorial-rework-20261029/skill-voto-empty.jpg",
+      "dimensions": {
+        "source": [
+          768,
+          768
+        ],
+        "active": [
+          512,
+          512
+        ]
+      },
+      "sourceSha256": "25ba556ef91b1c8dd7bfc6841ff49b03d48e87a4b2a07abf651aa789c0d62ee2",
+      "activeSha256": "689d3d7cb6982fa882d3b1363314c4d5c0d754c84009b7060f96cf0adf2bbc05",
+      "generatedImage": "generated_images/exec-cb942654-d9b1-4ced-b025-b2ce7ebd5ae9.png",
+      "scene": "Vista zenital; Thorne se apoia no chão enquanto os últimos fragmentos de porcelana desaparecem num impacto contra um ghoul que desliza.",
+      "reviewStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "reviewStatus": "all_candidates_pending_visual_approval",
+  "compositionReview": "Ângulos variados entre retrato baixo lateral, alta oblíqua, reverso por cima do ombro, lateral ao nível do chão, ação traseira em três quartos, vista zenital e reverso baixo. A anatomia foi revisada; máscaras são objetos de porcelana vazios, sem anatomia adicional. Os impactos físicos representam Defesa, cargas e invulnerabilidade sem feixes genéricos.",
+  "references": [
+    "art/characters/baal/dark-pictorial-rework-20261029/skill-despertar.webp",
+    "art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/portrait.webp",
+    "art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-impulso.webp"
+  ],
+  "title": "Thorne — O Colecionador — revisão dark fantasy pictórica"
+}

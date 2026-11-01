@@ -1592,3 +1592,60 @@ body:has(.journey-shell) { min-width: 0; }
 .codex-skill-described summary > .codex-cooldown { grid-column: 3; grid-row: 2; justify-self: end; align-self: end; color: var(--gold); font-size: 7px; white-space: nowrap; }
 .codex-skill[open] summary > .codex-skill-quick { display: none; }
 .arena-skill.skill-selected .skill-quick-info { display: none; }
+
+/* Narrative campaign route and deterministic character rewards */
+.realm-campaign .world-panorama {
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  margin: 0 0 16px;
+  padding: 22px 26px;
+  border: 1px solid #c9ab6952;
+  background: radial-gradient(ellipse at 14% 50%,#b78c3b20,transparent 45%),linear-gradient(110deg,#241a2b,#17111d 72%);
+}
+.world-panorama > div { display:flex;align-items:center;gap:18px; }
+.world-panorama > div > span { display:grid;gap:6px; }
+.world-panorama small,.campaign-story-card small,.campaign-route-progress > span { color:#b99d67;font-size:9px;letter-spacing:.16em;text-transform:uppercase; }
+.world-panorama b { color:#f0dfb4;font:clamp(22px,2.4vw,32px) Georgia,serif; }
+.campaign-story-card { display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.7fr);gap:22px;margin:0 0 15px;padding:18px 20px;border:1px solid #c4ad6938;background:linear-gradient(130deg,#221a27,#17111b); }
+.campaign-story-copy { display:grid;align-content:center;gap:9px; }
+.campaign-story-copy p,.campaign-leader-target p { margin:0;color:#c2b6c5;font-size:12px;line-height:1.65; }
+.campaign-story-copy > span { color:#928398;font-size:10px;line-height:1.5; }
+.campaign-leader-target { display:grid;align-content:center;gap:7px;padding-left:19px;border-left:1px solid #c4ad6938; }
+.campaign-leader-target b { color:#efdfbd;font:20px Georgia,serif; }
+.campaign-leader-target > span { color:#d6bd7e;font-size:9px;letter-spacing:.12em; }
+.campaign-leader-target p { font-size:10px; }
+.campaign-route-progress { display:grid;grid-template-columns:auto minmax(90px,1fr);align-items:center;gap:14px;margin:0 0 16px; }
+.campaign-route-progress > span { color:#9f90a5;font-size:9px;letter-spacing:.08em; }
+.campaign-route-progress > i { display:block;height:4px;overflow:hidden;background:#ffffff10; }
+.campaign-route-progress > i > b { display:block;height:100%;background:linear-gradient(90deg,#9b6da7,#dec780);transition:width .3s; }
+.world-elo.cleared { border-color:color-mix(in srgb,var(--accent) 45%,#d0bd8344); }
+.world-finale-hint { display:block;margin-top:7px;color:#d6bd7e;font-size:9px;letter-spacing:.04em; }
+.empty-recruit-preview { align-self:center;max-width:145px;color:#928398;font-size:9px;line-height:1.4; }
+.campaign-character-unlocks { position:relative;z-index:2;margin-top:19px;padding-top:14px;border-top:1px solid #c1aa7233; }
+.campaign-character-unlocks > small,.world-finale-notice > small { display:block;margin-bottom:10px;color:#d6bd7e;font-size:9px;letter-spacing:.15em; }
+.campaign-character-unlocks > div { display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px; }
+.campaign-character-unlocks article { display:grid;justify-items:center;align-content:start;gap:5px;min-height:104px;padding:8px 5px;border:1px solid #c7ae6b35;background:#17111d99;text-align:center; }
+.campaign-unlock-portrait { width:42px;height:52px;object-fit:cover;object-position:center 25%;border:1px solid #d7bc7777; }
+.campaign-character-unlocks article b { color:#eee2c9;font:12px Georgia,serif; }
+.campaign-character-unlocks article > span { color:#a997aa;font-size:8px;line-height:1.3; }
+.world-finale-notice { position:relative;z-index:2;display:grid;gap:6px;margin-top:18px;padding:14px 16px;border-left:2px solid #c8aa67;background:#d0b36a0d; }
+.world-finale-notice > b { color:#f0dfb4;font:18px Georgia,serif; }
+.world-finale-notice > p { margin:0;color:#b4a6b7;font-size:10px;line-height:1.55; }
+.leader-unlock-notice { position:relative;z-index:2;display:flex;align-items:center;gap:12px;margin-top:12px;padding:14px 16px;border:1px solid #dec17a8a;background:linear-gradient(100deg,#cda86119,#211925); }
+.leader-unlock-notice > span { color:#efce7f;font-size:23px; }
+.leader-unlock-notice > div { display:grid;gap:4px; }
+.leader-unlock-notice b { color:#f0dfb4;font:17px Georgia,serif; }
+.leader-unlock-notice small { color:#b6a7b8;font-size:10px; }
+.locked-route-message { padding:14px 18px 4px;border-top:1px solid #ffffff12; }
+.locked-route-message > p { color:#b3a6b7;font-size:12px; }
+@media(max-width:700px) {
+  .realm-campaign .world-panorama { min-height:100px;padding:17px; }
+  .world-panorama > div { gap:12px; }
+  .campaign-story-card { grid-template-columns:1fr;gap:15px;padding:15px; }
+  .campaign-leader-target { padding:13px 0 0;border-left:0;border-top:1px solid #c4ad6938; }
+  .campaign-route-progress { grid-template-columns:1fr;gap:8px; }
+  .campaign-character-unlocks > div { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .completion-panel { padding:20px 15px; }
+  .completion-panel header { flex-wrap:wrap;gap:14px; }
+}

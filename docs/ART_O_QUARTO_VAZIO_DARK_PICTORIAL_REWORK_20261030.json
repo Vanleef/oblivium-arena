@@ -1,0 +1,165 @@
+{
+  "title": "Hollow — O Anfitrião — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "o-quarto-vazio",
+  "characterName": "Hollow",
+  "characterTitle": "O Anfitrião",
+  "aliases": [
+    "O Anfitrião",
+    "O Quarto Vazio"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Tártaro",
+  "role": "Entidade do Isolamento",
+  "style": "Anime-first 2.5D dark fantasy pictórica, com contornos expressivos, pinceladas angulares, hachuras gráficas, sombras de corte e materialidade tátil.",
+  "identity": "Homem espectral muito pálido e esguio, cabelo castanho-avermelhado comprido e desalinhado, olhos fundos e cansados, casaco preto de gola alta e pequena chave antiga de latão presa a uma corrente no peito.",
+  "environment": "Inferno/Tártaro: hospedaria gótica abandonada, corredores de basalto, portas pesadas, cinza e luz vermelha de brasa; sem objetos mecânicos ou industriais.",
+  "sceneVariety": "Retrato que reage a uma batida; recuperação encostado à parede; convite físico no limiar; corredor amplo com três portas e três ghouls; contenção baixa de um alvo; esquiva diagonal junto ao batente.",
+  "anatomyReview": "As seis imagens foram inspecionadas em conjunto. Hollow mantém dois braços e mãos legíveis; as cenas de alvo único mostram um ghoul; Ninguém Vem mostra exatamente três ghouls; a esquiva mostra exatamente um atacante. Sem soldados genéricos, multidões ou membros extras.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Hollow",
+      "targetCount": "none",
+      "camera": "Close em três quartos, olhando fora do quadro",
+      "scene": "Hollow volta-se ao ouvir uma batida no corredor, apertando a pequena chave de latão sobre o peito.",
+      "prompt": "Retrato do mesmo anfitrião espectral da referência, com cabelo auburn desalinhado, pele pálida, casaco preto alto e chave; sem posar para a câmera.",
+      "candidatePath": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-quarto-vazio-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-3b6c6267-62e9-4175-b457-95128b61b735.png",
+      "generatedSourceSha256": "d395a32092396292f1d0270341cb89fd95d27bb8377c38a913b6cccfd21e5982",
+      "generatedSourceBytes": 2498373,
+      "candidateBytes": 39298,
+      "candidateSha256": "248955ccea826b4a2b490db7834e13ca098bcb1c385eec705c7d0d4cc8f3864e",
+      "sourceBytes": 249962,
+      "sourceSha256": "75749aa34dc905fd483c60336aeb0af4dd056bce7dd5eb126faa8a48a9365fef"
+    },
+    {
+      "slot": "passive",
+      "name": "Hospitalidade Negada",
+      "targetCount": "self only",
+      "camera": "Close lateral na altura do ombro",
+      "scene": "Sozinho no aposento vazio, Hollow recupera o fôlego apoiado na parede; uma fissura rasa no ombro e o tecido rasgado começam a se recompor discretamente.",
+      "prompt": "Renovação gradual e contida, sem espetáculo mágico ou outras figuras.",
+      "candidatePath": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-quarto-vazio-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-6f815222-37fa-4232-ac2c-c8c4d69d136a.png",
+      "generatedSourceSha256": "ce2a752766c1558259844d56f842f268a66542e43627a0e38e0b5b86f8109a67",
+      "generatedSourceBytes": 2528566,
+      "candidateBytes": 46088,
+      "candidateSha256": "5637876a1d0cf381f129f8b0d0f528959fd4deb87d61d790ba955d8fd7e61fee",
+      "sourceBytes": 296615,
+      "sourceSha256": "63b24140e80c789ca6c6fe9803747c4940ba65bf78385b14a59b7fd1be47e5f7"
+    },
+    {
+      "slot": "impulso",
+      "name": "Convite ao Isolamento",
+      "targetCount": "one ghoul",
+      "camera": "Plano médio lateral",
+      "scene": "Hollow abre uma antiga porta de basalto e atrai um único ghoul para o corredor vazio; a porta começa a fechar, separando-o da arena.",
+      "prompt": "Exatamente Hollow e um ghoul; convite enganoso, gesto físico e limiar claro.",
+      "candidatePath": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-quarto-vazio-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-63c41d19-7bac-4142-8743-40da13e3dc7c.png",
+      "generatedSourceSha256": "ce031269e5c77f24724e9aae1caeb4a6a933f76c88cfb173fc5626a1e6f7e3f8",
+      "generatedSourceBytes": 2623684,
+      "candidateBytes": 46778,
+      "candidateSha256": "2a04f115ba5ff7c8ec30b20a2057de9d5c3fc88ec664fd7a8eb6d5d8d9cafd7a",
+      "sourceBytes": 304340,
+      "sourceSha256": "638387f5d20d22c21235c97abc4462ba09f9bd61f316a2fb3ed3035cf13459c9"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Ninguém Vem",
+      "targetCount": "exactly three ghouls",
+      "camera": "Plano amplo diagonal ao longo do corredor",
+      "scene": "Três portas pesadas se fecham em sequência, cada uma isolando exatamente um ghoul; Hollow sustenta a porta mais próxima enquanto os alvos tentam alcançar uns aos outros.",
+      "prompt": "Exatamente três ghouls, um por porta; nenhuma figura adicional; sem feixes ou energia abstrata.",
+      "candidatePath": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-quarto-vazio-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-bd919dbf-e238-430d-b7ab-d746e638d967.png",
+      "generatedSourceSha256": "b64af0ac4d8b9a101bcfd54d884dfd709b892f2b7aefd9eed17cc8b54e538fae",
+      "generatedSourceBytes": 2801348,
+      "candidateBytes": 54290,
+      "candidateSha256": "076486b44dfa72eb27a1626d3389ba0dc6f63c239b9467cf8b13c1da1bb26822",
+      "sourceBytes": 335217,
+      "sourceSha256": "db9074b52dffa10beb4d79f1505e0199759685631a7bde9e0cd5b5e73ed8f9cd"
+    },
+    {
+      "slot": "voto",
+      "name": "Estadia sem Retorno",
+      "targetCount": "one isolated ghoul",
+      "camera": "Close baixo de perfil",
+      "scene": "Hollow prende o ghoul isolado contra a porta pesada e gira a pequena chave; o alvo cede, coberto por cinza e visivelmente enfraquecido.",
+      "prompt": "Um único ghoul, ação física legível de contenção e fechamento, sem sangue.",
+      "candidatePath": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-quarto-vazio-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-44595d08-c7ef-4118-9f07-7b7385b6ed4a.png",
+      "generatedSourceSha256": "cf734f3bf58956c3ab30fbc195834d7b6feb1093fa58c48acd4d88c4dfbd2348",
+      "generatedSourceBytes": 2800248,
+      "candidateBytes": 52588,
+      "candidateSha256": "701cfa5568e45e9c452f1cc2c4146d92133144ee72edce61dfdb88120fef11e6",
+      "sourceBytes": 316236,
+      "sourceSha256": "8de1d71939c21ef418c0b8dd2b2254549f9b532ddeb787bbf94e1fae32858cae"
+    },
+    {
+      "slot": "despertar",
+      "name": "Porta do Desamparo",
+      "targetCount": "self, one attacker",
+      "camera": "Plano diagonal baixo junto à coluna",
+      "scene": "Hollow escapa para trás do batente no instante em que o golpe de um ghoul atinge a pedra vazia onde ele estava.",
+      "prompt": "Um Hollow e exatamente um atacante; esquiva pessoal clara, corpo e pés em orientação natural, sem duplicações.",
+      "candidatePath": "/art/characters/o-quarto-vazio/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-quarto-vazio-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-86d92d87-fa78-4115-a647-87ba2177626f.png",
+      "generatedSourceSha256": "2ee6253b36837e1cef5e58c3839649b1bf65e1f46a9f65e618a4b2fe0faada36",
+      "generatedSourceBytes": 3025767,
+      "candidateBytes": 62386,
+      "candidateSha256": "87ab839bf6e0d2e568d19c004d1b8f12c9bbb602a72aac66bf0f1b205e88a9e8",
+      "sourceBytes": 362688,
+      "sourceSha256": "56346e69e51042b9937ca16d8ddba680130fbc3118c1a430bf05b73290662469"
+    }
+  ]
+}

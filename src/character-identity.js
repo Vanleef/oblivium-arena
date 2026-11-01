@@ -9,6 +9,8 @@ const chamaArt = new Set(['o-odio-encarnado','o-coracao-em-furia']);
 const painterlyChamaArt = new Set(['a-brasa-eterna','o-odio-encarnado']);
 const painterlyRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias']);
 const animeFirstRework20261026Art = new Set(['o-falso-profeta','o-corretor-de-memorias','a-pira-errante']);
+const animeFirstRework20261027Art = new Set(['o-falso-profeta','o-corretor-de-memorias','o-tecelao-de-mentiras','a-boca-de-vidro','o-incendiario','a-brasa-eterna','o-colecionador-de-cabecas','gemeos-do-cutelo','o-carrasco-sem-rosto','a-mae-rubra']);
+const animeFirstRework20261028Art = new Set(['o-acougueiro','a-viuva-escarlate']);
 const hybridInfernoRework20261027Art = new Set(['o-que-pesa','o-incendiario']);
 const painterlyFomeArt = new Set(['o-devorador','a-mao-que-toma','o-estomago-sem-fundo','a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia']);
 const painterlySilencioArt = new Set(['o-que-observou','a-porta-fechada','o-surdo','a-testemunha-cega','o-quarto-vazio','o-vigia-ausente']);
@@ -16,8 +18,7 @@ const painterlyCarneArt = new Map([['o-que-possui','painterly-rework-20261025'],
 const painterlyPodridaoArt = new Set(['a-praga-andante','o-corrupto','a-rainha-dos-fungos']);
 const painterlyBatchArt = new Set([
   'o-acougueiro','a-viuva-escarlate','o-colecionador-de-cabecas','gemeos-do-cutelo',
-  'o-carrasco-sem-rosto','a-mae-rubra','o-soberano-quebrado','a-juiza-de-ferro',
-  'o-trono-vazio','o-principe-das-correntes','a-regente-de-cinzas','o-herdeiro-cativo',
+  'o-carrasco-sem-rosto','a-mae-rubra',
   'o-sussurro','a-mascara-dupla','o-tecelao-de-mentiras','a-boca-de-vidro'
 ]);
 const chamaCompletionForms = {'a-brasa-eterna':'smother','o-filho-da-cinza':'rebirth','a-pira-errante':'reply'};
@@ -39,7 +40,7 @@ export const characterRevisions = {
     "englishName": "Mavia",
     "englishTitle": "The Widow",
     "aliases": ["A Viúva Escarlate","A Viúva"],
-    "lore": "Conserva no véu escarlate a lembrança de cada agressão que recebeu. Atrai a lâmina alheia para perto e transforma a resposta em uma cobrança de vitalidade. Seu luto se prolonga na violência que oferece a Sangria."
+    "lore": "Conserva no véu escarlate a lembrança de cada agressão que recebeu. Atrai a lâmina alheia para perto e transforma a resposta em uma cobrança de vitalidade. Seu luto se prolonga na violência que oferece ao Flagelo."
   },
   "o-colecionador-de-cabecas": {
     "name": "Verres",
@@ -47,7 +48,7 @@ export const characterRevisions = {
     "englishName": "Verres",
     "englishTitle": "The Collector",
     "aliases": ["O Colecionador de Cabeças","O Colecionador"],
-    "lore": "Retém a assinatura espiritual de cada vítima como um troféu. Persegue quem já deixou uma abertura e reúne os vestígios da caçada para uma execução preparada com cuidado. Seu acervo cresce com a carnificina que alimenta Sangria."
+    "lore": "Retém a assinatura espiritual de cada vítima como um troféu. Persegue quem já deixou uma abertura e reúne os vestígios da caçada para uma execução preparada com cuidado. Seu acervo cresce com a carnificina que serve ao Flagelo."
   },
   "gemeos-do-cutelo": {
     "name": "Cleobis e Biton",
@@ -55,7 +56,7 @@ export const characterRevisions = {
     "englishName": "Cleobis and Biton",
     "englishTitle": "The Cleaver Twins",
     "aliases": ["Gêmeos do Cutelo"],
-    "lore": "Gêmeos fraternos de Sangria, semelhantes no olhar e no desenho do rosto apesar das diferenças de pele e cabelo, dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. Sua cumplicidade cruel transforma cada aproximação em ameaça dupla."
+    "lore": "Gêmeos fraternos do Flagelo, semelhantes no olhar e no desenho do rosto apesar das diferenças de pele e cabelo, dividem o ritmo de uma mesma caçada. O corte de um abre caminho para a lâmina do outro, até que os golpes se encontrem sobre a vítima. Sua cumplicidade cruel transforma cada aproximação em ameaça dupla."
   },
   "o-carrasco-sem-rosto": {
     "name": "Sanson",
@@ -63,15 +64,15 @@ export const characterRevisions = {
     "englishName": "Sanson",
     "englishTitle": "The Executioner",
     "aliases": ["O Carrasco sem Rosto","O Carrasco"],
-    "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. Sangria reconhece seus atos pela lâmina que desce."
+    "lore": "A sentença que impõe transforma qualquer auxílio oferecido à vítima em mais um motivo para puni-la. Oculta a própria identidade enquanto escolhe quando interromper a resistência e quando concluir a execução. O Flagelo reconhece seus atos pela lâmina que desce."
   },
   "a-mae-rubra": {
     "name": "Julia Maesa",
-    "title": "A Mãe Rubra",
+    "title": "A Matriarca",
     "englishName": "Julia Maesa",
-    "englishTitle": "The Red Mother",
-    "aliases": ["A Mãe Rubra"],
-    "lore": "Estende um cordão de essência roubada para manter seus predadores em movimento; para ela, proteção é posse. Cede vitalidade para sustentar os lacaios que escolheu e recupera o custo drenando outra alma. Sob seu domínio, Sangria continua a caçada."
+    "englishTitle": "The Matriarch",
+    "aliases": ["A Matriarca", "A Mãe Rubra"],
+    "lore": "Estende um cordão de essência roubada para manter seus predadores em movimento; para ela, proteção é posse. Cede vitalidade para sustentar os lacaios que escolheu e recupera o custo drenando outra alma. Sob seu domínio, o Flagelo continua a caçada."
   },
   "o-soberano-quebrado": {
     "name": "Astyages",
@@ -79,7 +80,7 @@ export const characterRevisions = {
     "englishName": "Astyages",
     "englishTitle": "The Sovereign",
     "aliases": ["O Soberano Quebrado","O Soberano"],
-    "lore": "Carrega uma autoridade fraturada que exige ser reconhecida a cada encontro. Ao assumir a coroa, espalha decretos e escolhe quem deverá se ajoelhar. Cada vontade subjugada recompõe uma parte do domínio que oferece a Coroa."
+    "lore": "Carrega uma autoridade fraturada que exige ser reconhecida a cada encontro. Ao assumir a coroa, espalha decretos e escolhe quem deverá se ajoelhar. Cada vontade subjugada recompõe uma parte do domínio que oferece a Magma."
   },
   "o-principe-das-correntes": {
     "name": "Demetrius",
@@ -87,7 +88,7 @@ export const characterRevisions = {
     "englishName": "Demetrius",
     "englishTitle": "The Prince",
     "aliases": ["O Príncipe das Correntes","O Príncipe"],
-    "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Coroa só tem valor enquanto alguém permanece submetido."
+    "lore": "Recebeu os grilhões de uma dinastia e os transformou em instrumento de ascensão. Prende uma alma, aperta o mesmo vínculo e reúne a força necessária para fechar o cárcere. Para ele, a herança de Magma só tem valor enquanto alguém permanece submetido."
   },
   "o-sussurro": {
     "name": "Hárpago",
@@ -470,7 +471,7 @@ export const characterRevisions = {
     "englishName": "Balthasar",
     "englishTitle": "The Butcher",
     "aliases": ["O Açougueiro"],
-    "lore": "Uma criatura de carne brutalmente robusta, Balthasar Gérard fareja o sangue de vítimas feridas e transforma a próxima investida em uma sequência mais implacável. Cada golpe aprofunda a caçada que alimenta Sangria.",
+    "lore": "Uma criatura de carne brutalmente robusta, Balthasar Gérard fareja o sangue de vítimas feridas e transforma a próxima investida em uma sequência mais implacável. Cada golpe aprofunda a caçada que serve ao Flagelo.",
     "terms": {
       "Separar Tendões": "Talho Imobilizante"
     }
@@ -499,7 +500,7 @@ export const characterRevisions = {
     "englishTitle": "The Heir",
     "aliases": ["O Herdeiro","O Herdeiro Cativo"],
     "role": "Tirano Herdeiro",
-    "lore": "Uma alma dinástica habita esta efígie de porcelana viva, de pescoço longo e olhos rubros. O antebraço esquerdo de correntes sustenta as fraturas que armazenam sua ambição. Conserva os grilhões para subjugar os próximos; cada lasca perdida reforça sua pretensão ao trono de Coroa.",
+    "lore": "Uma alma dinástica habita esta efígie de porcelana viva, de pescoço longo e olhos rubros. O antebraço esquerdo de correntes sustenta as fraturas que armazenam sua ambição. Conserva os grilhões para subjugar os próximos; cada lasca perdida reforça sua pretensão ao trono de Magma.",
     "terms": {
       "Vontade Cativa": "Ambição Acorrentada",
       "Aguentar o Decreto": "Resistência do Pretendente",
@@ -676,12 +677,12 @@ export const characterRevisions = {
     "englishName": "Aristides",
     "englishTitle": "The Regulator",
     "aliases": ["O Ponderador","O que Pesa"],
-    "lore": "Encara a consequência antes de julgar. Acumula o peso dos atos para deter o excesso com uma decisão proporcional, sem recorrer à opressão de Coroa."
+    "lore": "Encara a consequência antes de julgar. Acumula o peso dos atos para deter o excesso com uma decisão proporcional, sem recorrer à opressão de Magma."
   },
   "o-julgador-gentil": {
-    "name": "Ashoka",
+    "name": "Benedict",
     "title": "O Juiz",
-    "englishName": "Ashoka",
+    "englishName": "Benedict",
     "englishTitle": "The Judge",
     "aliases": ["O Juiz","O Julgador Gentil"],
     "lore": "A clemência não enfraquece sua autoridade: define quando reparar e quando deter uma agressão. Sua justiça preserva a medida que os tiranos abandonaram.",
@@ -770,7 +771,7 @@ export const characterRevisions = {
     "englishTitle": "The Despot",
     "aliases": ["A Regente de Cinzas","A Déspota"],
     "role": "Comandante Tirânica",
-    "lore": "Matriarca colossal forjada nas cinzas de uma dinastia, traz no rosto envelhecido as marcas do império que ajudou a erguer. Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Coroa.",
+    "lore": "Matriarca colossal forjada nas cinzas de uma dinastia, traz no rosto envelhecido as marcas do império que ajudou a erguer. Sua autoridade nasce da submissão imposta. Usa o ferro em brasa como punição exemplar e mantém seus executores de pé para prolongar o domínio de Magma.",
     "terms": {
       "Ordem em Cinzas": "Ferro do Jugo",
       "Comando da Regente": "Ordem Absoluta",
@@ -873,9 +874,9 @@ export const characterRevisions = {
     "roleHint": "Ceda parte da sua Vida para amparar um aliado e sustente-se na resposta ofensiva, mais forte quando ferido.",
   },
   "o-equilibrio": {
-    "name": "Zaleucus",
+    "name": "Aldric",
     "title": "O Árbitro",
-    "englishName": "Zaleucus",
+    "englishName": "Aldric",
     "englishTitle": "The Arbiter",
     "aliases": ["O Equilíbrio","O Árbitro"],
     "role": "Árbitro da Reparação",
@@ -895,7 +896,7 @@ export const characterRevisions = {
     "englishTitle": "The Overlord",
     "aliases": ["O Trono Vazio","O Suserano"],
     "role": "Suserano da Interdição",
-    "lore": "Transforma obediência em poder mesmo longe do trono. Seus decretos retiram dos outros o direito de reagir, e a guarda de seus vassalos prolonga o domínio de Coroa.",
+    "lore": "Transforma obediência em poder mesmo longe do trono. Seus decretos retiram dos outros o direito de reagir, e a guarda de seus vassalos prolonga o domínio de Magma.",
     "terms": {
       "Presença sem Corpo": "Autoridade Delegada",
       "Vontade do Assento Vazio": "Decreto de Submissão",
@@ -1167,6 +1168,80 @@ export const characterRevisions = {
 
 export function revisedArtFor(id, art) {
   if (!art) return art;
+  if (["o-vinculo","os-tres-irmaos","a-guardia-das-promessas"].includes(id)) {
+    const base = `/art/characters/${id}/anime-pictorial-rework-20261101`;
+    const forms = {...(art.forms || {})};
+    if (id === 'os-tres-irmaos') forms.impulso = {...(forms.impulso || {}),second:`${base}/skill-impulso-second.webp`,third:`${base}/skill-impulso-third.webp`};
+    if (id === 'a-guardia-das-promessas') forms.tecnica = {...(forms.tecnica || {}),fulfill:`${base}/skill-tecnica-fulfill.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+
+  if (id === 'a-cartografa-da-clareza') {
+    const base = `/art/characters/${id}/dark-pictorial-direction-correction-20261101`;
+    const forms = {...(art.forms || {}), tecnica: {...(art.forms?.tecnica || {}), shortcut: `${base}/skill-tecnica-shortcut.webp`}};
+    return {...art, portrait: `${base}/portrait.webp`, passive: `${base}/passive.webp`,
+      abilities: Object.fromEntries(Object.keys(art.abilities).map(slot => [slot, `${base}/skill-${slot}.webp`])), forms};
+  }
+  if (id === 'o-espelho') {
+    const base = `/art/characters/${id}/dark-pictorial-direction-correction-20261101`;
+    const forms = {...(art.forms || {}), impulso: {...(art.forms?.impulso || {}), returned: `${base}/skill-impulso-returned.webp`}};
+    return {...art, portrait: `${base}/portrait.webp`, passive: `${base}/passive.webp`,
+      abilities: Object.fromEntries(Object.keys(art.abilities).map(slot => [slot, `${base}/skill-${slot}.webp`])), forms};
+  }
+  if (id === 'a-brasa-eterna') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),smother:`${base}/skill-impulso-smother.webp`};
+    forms.tecnica = {...(forms.tecnica || {}),smother:`${base}/skill-tecnica-smother.webp`};
+    forms.voto = {...(forms.voto || {}),smother:`${base}/skill-voto-smother.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-filho-da-cinza') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),rebirth:`${base}/skill-impulso-rebirth.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-odio-encarnado') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),rage:`${base}/skill-impulso-rage.webp`};
+    forms.voto = {...(forms.voto || {}),eruption:`${base}/skill-voto-eruption.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-coracao-em-furia') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'a-pira-errante') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),reply:`${base}/skill-impulso-reply.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-incendiario') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'o-falso-profeta') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.tecnica = {...(forms.tecnica || {}),confess:`${base}/skill-tecnica-confess.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-corretor-de-memorias') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (hybridInfernoRework20261027Art.has(id)) {
     const base = `/art/characters/${id}/hybrid-rework-20261027`;
     const forms = {...(art.forms || {})};
@@ -1176,6 +1251,73 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       ...(Object.keys(forms).length ? {forms} : {})};
+  }
+  if (id === 'gemeos-do-cutelo') {
+    const forms = {...(art.forms || {})};
+    forms.tecnica = {...(forms.tecnica || {}),cross:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-tecnica-cross.webp`};
+    return {...art,portrait:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/gemeos-do-cutelo/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-carrasco-sem-rosto') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'a-mae-rubra') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (animeFirstRework20261027Art.has(id)) {
+    const base = `/art/characters/${id}/anime-first-rework-20261027`;
+    const forms = {...(art.forms || {})};
+    if (id === 'o-falso-profeta') forms.tecnica = {...forms.tecnica,confess:`${base}/skill-tecnica-confess.webp`};
+    if (id === 'o-tecelao-de-mentiras') forms.tecnica = {...forms.tecnica,unweave:`${base}/skill-tecnica-unweave.webp`};
+    if (id === 'a-brasa-eterna') {
+      forms.impulso = {...forms.impulso,smother:`${base}/skill-impulso-smother.webp`};
+      forms.tecnica = {...forms.tecnica,smother:`${base}/skill-tecnica-smother.webp`};
+      forms.voto = {...forms.voto,smother:`${base}/skill-voto-smother.webp`};
+    }
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      ...(Object.keys(forms).length ? {forms} : {})};
+  }
+  if (id === 'a-juiza-de-ferro') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'o-soberano-quebrado') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261029`;
+    const forms = {...(art.forms || {})};
+    for (const slot of ['impulso','tecnica','voto']) {
+      forms[slot] = {...(forms[slot] || {}), edict:`${base}/skill-${slot}-edict.webp`};
+    }
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-acougueiro') {
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),reopen:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-impulso-reopen.webp`};
+    return {...art,portrait:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/o-acougueiro/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'a-viuva-escarlate') {
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),revenge:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-impulso-revenge.webp`};
+    return {...art,portrait:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/a-viuva-escarlate/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-colecionador-de-cabecas') {
+    const forms = {...(art.forms || {})};
+    forms.voto = {...(forms.voto || {}),empty:`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-voto-empty.webp`};
+    return {...art,portrait:`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/portrait.webp`,passive:`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`/art/characters/o-colecionador-de-cabecas/dark-pictorial-rework-20261029/skill-${slot}.webp`])),forms};
+  }
+  if (animeFirstRework20261028Art.has(id)) {
+    const base = `/art/characters/${id}/anime-first-rework-20261028`;
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (animeFirstRework20261026Art.has(id)) {
     const base = `/art/characters/${id}/anime-first-rework-20261026`;
@@ -1230,6 +1372,14 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       ...(Object.keys(forms).length ? {forms} : {})};
   }
+  if (id === 'o-surdo') {
+    const base = `/art/characters/o-surdo/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),echo:`${base}/skill-impulso-echo.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
+      forms};
+  }
   if (painterlySilencioArt.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261025`;
     const forms = {...(art.forms || {})};
@@ -1241,6 +1391,20 @@ export function revisedArtFor(id, art) {
     const base = `/art/characters/${id}/painterly-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'a-mao-que-toma') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.tecnica = {...(forms.tecnica || {}),open:`${base}/skill-tecnica-open.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'o-devorador') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.impulso = {...(forms.impulso || {}),starved:`${base}/skill-impulso-starved.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
   }
   if (painterlyFomeArt.has(id)) {
     const base = `/art/characters/${id}/painterly-rework-20261025`;
@@ -1286,13 +1450,8 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (id === 'o-soberano-quebrado') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
-    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
-      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
-  }
-  if (['a-juiza-de-ferro','o-trono-vazio'].includes(id)) {
-    const base = `/art/characters/${id}/painterly-rework-20261026`;
+  if (id === 'o-trono-vazio') {
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
@@ -1331,6 +1490,17 @@ export function revisedArtFor(id, art) {
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
+
+  if (id === 'o-elo-dourado') {
+    const base = '/art/characters/o-elo-dourado/anime-pictorial-rework-20261101';
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
+  if (id === 'a-que-une') {
+    const base = '/art/characters/a-que-une/anime-pictorial-rework-20261101';
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
+  }
   if (id === 'o-que-revela') {
     const base = `/art/characters/${id}/hybrid-rework-20261025`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
@@ -1342,32 +1512,39 @@ export function revisedArtFor(id, art) {
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-mascara-dupla') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-sussurro') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
-  if (['o-tecelao-de-mentiras','a-boca-de-vidro'].includes(id)) {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+  if (id === 'o-tecelao-de-mentiras') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
+    const forms = {...(art.forms || {})};
+    forms.tecnica = {...(forms.tecnica || {}),unweave:`${base}/skill-tecnica-unweave.webp`};
+    return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
+      abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),forms};
+  }
+  if (id === 'a-boca-de-vidro') {
+    const base = `/art/characters/${id}/dark-pictorial-rework-20261030`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-herdeiro-cativo') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'a-regente-de-cinzas') {
-    const base = `/art/characters/${id}/style-reference-rework-20261025`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`]))};
   }
   if (id === 'o-principe-das-correntes') {
-    const base = `/art/characters/${id}/painterly-rework-20261026`;
+    const base = `/art/characters/${id}/graphic-2-5d-rework-20261029`;
     return {...art,portrait:`${base}/portrait.webp`,passive:`${base}/passive.webp`,
       abilities:Object.fromEntries(Object.keys(art.abilities).map(slot=>[slot,`${base}/skill-${slot}.webp`])),
       forms:{...art.forms,impulso:{...art.forms?.impulso,drag:`${base}/skill-impulso-drag.webp`}}};
@@ -1446,5 +1623,6 @@ export function reviseKitIdentity(kit, revision) {
     passive:{...kit.passive,name:text(kit.passive.name),description:text(kit.passive.description)},
     abilities:kit.abilities.map(ability)};
 }
+
 
 

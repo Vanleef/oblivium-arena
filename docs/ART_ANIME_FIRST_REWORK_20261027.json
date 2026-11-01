@@ -1,0 +1,197 @@
+{
+  "id": "anime-first-rework-20261027",
+  "date": "2026-10-27",
+  "game": "Oblivium Arena",
+  "style": "Anime-forward 2.5D; expressive graphic shapes, firm ink contours, angular cel-shaded shadows and painterly depth in environments. Inferno characters must read as distinct malicious entities; avoid photorealism, glossy CGI and industrial technology.",
+  "characters": {
+    "o-falso-profeta": {
+      "displayName": "O Impostor",
+      "activeRoute": "/art/characters/o-falso-profeta/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-falso-profeta-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/o-falso-profeta-confess-anime-first-rework-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/skill-despertar.webp",
+        "/art/characters/o-falso-profeta/anime-first-rework-20261027/skill-tecnica-confess.webp"
+      ]
+    },
+    "o-corretor-de-memorias": {
+      "displayName": "O Falsário",
+      "activeRoute": "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-corretor-de-memorias-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/o-corretor-de-memorias-skill-voto-correction-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-corretor-de-memorias/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "o-tecelao-de-mentiras": {
+      "displayName": "O Intrigante",
+      "activeRoute": "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-tecelao-de-mentiras-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/o-tecelao-de-mentiras-unweave-anime-first-rework-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/skill-despertar.webp",
+        "/art/characters/o-tecelao-de-mentiras/anime-first-rework-20261027/skill-tecnica-unweave.webp"
+      ]
+    },
+    "a-boca-de-vidro": {
+      "displayName": "A Serpe",
+      "activeRoute": "/art/characters/a-boca-de-vidro/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/a-boca-de-vidro-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/passive.webp",
+        "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/a-boca-de-vidro/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "o-incendiario": {
+      "displayName": "O Incendiário",
+      "activeRoute": "/art/characters/o-incendiario/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-incendiario-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/o-incendiario-fagulhas-em-cadeia-correction-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/o-incendiario/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-incendiario/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "a-brasa-eterna": {
+      "displayName": "A Brasa Eterna",
+      "activeRoute": "/art/characters/a-brasa-eterna/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/a-brasa-eterna-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [
+        "art/source/a-brasa-eterna-sufoco-das-cinzas-correction-20261027.webp",
+        "art/source/a-brasa-eterna-labareda-sufocante-anime-first-rework-20261027.webp",
+        "art/source/a-brasa-eterna-cinzas-de-sufoco-anime-first-rework-20261027.webp",
+        "art/source/a-brasa-eterna-fornalha-sepulcral-anime-first-rework-20261027.webp"
+      ],
+      "assets": [
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/passive.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-despertar.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-impulso-smother.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-tecnica-smother.webp",
+        "/art/characters/a-brasa-eterna/anime-first-rework-20261027/skill-voto-smother.webp"
+      ]
+    },
+    "o-colecionador-de-cabecas": {
+      "displayName": "O Colecionador",
+      "activeRoute": "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-colecionador-de-cabecas-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-colecionador-de-cabecas/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "gemeos-do-cutelo": {
+      "displayName": "Gêmeos do Cutelo",
+      "activeRoute": "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/gemeos-do-cutelo-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/passive.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/gemeos-do-cutelo/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "o-carrasco-sem-rosto": {
+      "displayName": "O Carrasco",
+      "activeRoute": "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/o-carrasco-sem-rosto-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/passive.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/o-carrasco-sem-rosto/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    },
+    "a-mae-rubra": {
+      "displayName": "A Matriarca",
+      "aliases": [
+        "A Mãe Rubra"
+      ],
+      "activeRoute": "/art/characters/a-mae-rubra/anime-first-rework-20261027",
+      "world": "Inferno",
+      "sourceSheet": "art/source/a-mae-rubra-anime-first-rework-20261027-sheet.webp",
+      "supplementarySources": [],
+      "assets": [
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/portrait.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/passive.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-impulso.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-tecnica.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-voto.webp",
+        "/art/characters/a-mae-rubra/anime-first-rework-20261027/skill-despertar.webp"
+      ]
+    }
+  },
+  "visualReview": {
+    "status": "reviewed",
+    "checks": [
+      "All six active character sets inspected for anime-first 2.5D style, identity consistency, anatomy and distinct framing.",
+      "Infernal environments match Malebolge, the Mentira roster and Chama; no industrial technology or generic armored soldiers.",
+      "Single-target frames show one ghoul; area frames show three opponents; O Intrigante's cleanse alternate shows three allies.",
+      "Personal invulnerability frames show only the user.",
+      "O Impostor's confession and O Intrigante's unweave alternates have standalone art; O Falsário's Liquidação panel is corrected to one target.",
+      "O Incendiário's Fagulhas em Cadeia and A Brasa Eterna's Cinzas de Sufoco show exactly three ghouls.",
+      "A Brasa Eterna's three suffocation-form variants have separate art; O Incendiário's area icon and A Brasa Eterna's single-target Sufoco icon have corrected sources.",
+      "O Colecionador’s Galeria keeps one target; trophy echoes do not depict extra enemies.",
+      "Gêmeos do Cutelo remain one playable character represented by two adult male twins with shared features and distinct silhouettes; each holds one cleaver.",
+      "Gêmeos do Cutelo’s all-enemy scene shows exactly three ghouls.",
+      "O Carrasco sem Rosto retains a completely blank hood; attacks show ghouls and personal defense shows only the user.",
+      "A Matriarca’s Cordão Rubro shows one ghoul, Partilha da Mãe supports one ally, Berço de Sangue shows exactly three ghouls, and Casulo Rubro protects only her.",
+      "Hand anatomy, weapon grips, character continuity, ability correspondence, infernal environments and varied scene framing were reviewed across the four sets."
+    ]
+  }
+}

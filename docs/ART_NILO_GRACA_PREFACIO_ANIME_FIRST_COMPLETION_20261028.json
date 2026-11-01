@@ -1,0 +1,46 @@
+{
+  "id": "nilo-graca-prefacio-anime-first-completion-20261028",
+  "characterId": "nilo-graca-prefacio",
+  "displayName": "Nilo, Prefácio de Graça",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "artDirection": "Anime 2.5D pictórico; arquitetura elevada de mármore, jardins geométricos, água imóvel e luz filtrada. Nilo mantém a mecha marfim e olhos cinza-azulados, com manto marfim, ouro antigo, carvão e índigo. A Graça é luz contida, marca e proteção solene. Sem asas, halo, arma ou tecnologia.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-graca-prefacio-anime-first-completion-20261028/portrait.webp",
+      "scene": "Retrato de busto com manto marfim e ouro antigo; Nilo observa os jardins geométricos e colunatas de Paraíso."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-graca-prefacio-anime-first-completion-20261028/passive.webp",
+      "scene": "Uma marca pequena em forma de pétala liga o alvo escolhido ao peito de Nilo, preparando resposta e restauração."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-graca-prefacio-anime-first-completion-20261028/skill-impulso.webp",
+      "scene": "Nilo, sozinho, recupera o fôlego sentado em degrau de mármore; luz marfim aquece os próprios ferimentos."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-graca-prefacio-anime-first-completion-20261028/skill-tecnica.webp",
+      "scene": "Nilo marca um condenado por trás; a sombra dele se abre como uma fresta, expondo vulnerabilidade."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-graca-prefacio-anime-first-completion-20261028/skill-voto.webp",
+      "scene": "A marca concentra um único feixe de Luz Contida contra o alvo no reflexo do espelho d'água, em composição aérea."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/nilo-graca-prefacio/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/nilo-graca-prefacio-anime-first-completion-20261028/skill-despertar.webp",
+      "scene": "Plano de luz marfim e ouro intercepta fragmentos de mármore enquanto Nilo assume uma postura estável de proteção."
+    }
+  ]
+}

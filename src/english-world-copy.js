@@ -31,7 +31,7 @@ export const englishWorldPhrases = {
   "Rio de passagem das almas; clima melancólico.": "A river of passage for souls; melancholic in tone.",
   "Limiar sombrio, nem luz nem trevas totais; clima ambíguo.": "A shadowed threshold, neither fully light nor dark; ambiguous in tone.",
   "Três mundos, vinte e dois Reinos, uma escolha": "Three Worlds, Twenty-Two Kingdoms, One Choice",
-  "140 ALMAS · 22 REINOS · 3 MUNDOS": "140 SOULS · 22 KINGDOMS · 3 REALMS",
+  "150 ALMAS · 22 REINOS · 3 MUNDOS": "150 SOULS · 22 KINGDOMS · 3 WORLDS",
   "Codex de Reinos": "Kingdom Codex",
   "Sinergias discretas de Reino, Mundo e afinidade": "Subtle Kingdom, Realm, and affinity synergies",
 
@@ -275,3 +275,4 @@ export const englishWorldPhrases = {
   "O caminho se abre.": "The path opens.",
   "Cada escolha, um destino.": "Every choice shapes a fate."
 };
+

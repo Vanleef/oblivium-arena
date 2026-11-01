@@ -25,3 +25,4 @@ Os 140 testes funcionais passaram, incluindo a troca e a restauração das duas 
 Dois testes antigos de presença de arquivos de arte foram excluídos desta execução porque os binários históricos não estão materializados neste checkout. Os caminhos de arte do catálogo são conferidos contra a árvore completa do GitHub e os novos arquivos locais, sem criar arquivos substitutos. A verificação visual da prévia é registrada separadamente após a publicação do branch de revisão.
 
 Este relatório registra somente este lote. Os totais de 22/10 em `ART_REVISION_STATUS.md` permanecem como histórico, pois outras revisões de 23/10 têm manifestos próprios.
+

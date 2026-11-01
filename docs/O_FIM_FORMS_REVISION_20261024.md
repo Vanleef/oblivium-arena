@@ -34,3 +34,4 @@ Inventário dos oito arquivos novos, prompts resumidos e hashes: `ART_O_FIM_COHE
 ## Verificação
 
 Validação local desta revisão: **304 testes aprovados**, build com **928 arquivos**, auditoria com 100 personagens, 675 referências e **626 caminhos presentes, nenhum ausente**. As oito artes novas têm hashes e dimensões verificados. O deploy de artes e kits `4618cbfe1360369a01c42b9bb060544384547f2d` ficou READY. No Codex público, conferi os retratos, os sinais visuais compartilhados, arquétipos, Essências e técnicas. A revisão identificou que o resumo do Laço dos Ausentes ocultava seu bônus e Atordoamento condicionais. A correção do resumo está no commit `59a5d49bfe42646d5e22513d28968cd8e2fd794a`, também READY; conferi os rótulos em português e inglês e o selo de apoio no Círculo de Interdição.
+

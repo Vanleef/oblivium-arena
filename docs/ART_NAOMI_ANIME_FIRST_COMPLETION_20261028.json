@@ -1,0 +1,28 @@
+{
+  "id": "naomi-anime-first-completion-20261028",
+  "characterId": "naomi",
+  "displayName": "Naomi — Persistência",
+  "world": "Paraíso",
+  "kingdom": "Estelar",
+  "artDirection": "Anime 2.5D de leitura clara e acabamento pictórico digital; arquitetura ordenada de mármore e jardins geométricos sob luz filtrada, silêncio solene em azul-noturno, marfim e verde-sálvia. Naomi é uma mulher de cerca de 45 anos, pele castanha escura, olhos âmbar, cabelo preto crespo em coroa baixa trançada com uma mecha grisalha, ombros robustos, manto verde-sálvia com forro marfim e túnica castanha. Sem asas, auréola, tecnologia ou armas.",
+  "assets": [
+    {
+      "slot": "passive",
+      "path": "/art/characters/naomi/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/naomi-anime-first-completion-20261028-passive.webp",
+      "scene": "Naomi ampara o antebraço de uma aliada sem nome, com proteção marfim discreta nos dois."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/naomi/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/naomi-anime-first-completion-20261028-skill-voto.webp",
+      "scene": "Vista elevada: Naomi e dois aliados sem nome avançam juntos; facetas protegem e fitas de aflição se desfazem."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/naomi/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/naomi-anime-first-completion-20261028-skill-despertar.webp",
+      "scene": "Perfil em corpo inteiro: Naomi firma os pés e levanta o manto para desviar estilhaços com pregas de proteção."
+    }
+  ]
+}

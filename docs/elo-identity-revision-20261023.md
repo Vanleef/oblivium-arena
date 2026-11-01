@@ -39,3 +39,4 @@ Os arquivos finais ficam em `art/characters/<id>/elo-revision-20261023/`, em Web
 ## Integração e validação
 
 IDs permanentes, posse, trios salvos, mundos, Elos e efeitos mecânicos foram preservados. A comparação de todas as passivas, habilidades e formas alternativas dos 100 personagens confirmou que apenas apresentação e referências de arte mudaram. A busca no Codex e na formação aceita o nome atual, o nome original e os títulos intermediários já usados nas prévias.
+

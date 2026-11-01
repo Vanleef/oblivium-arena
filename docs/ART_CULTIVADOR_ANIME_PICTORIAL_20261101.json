@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-01",
+  "characterIds": [
+    "o-cultivador"
+  ],
+  "candidateSlotsAdded": 6,
+  "candidateSlotsActivated": 6,
+  "status": "rejected_by_user_direction_feedback",
+  "report": "docs/ART_CULTIVADOR_ANIME_PICTORIAL_20261101.json",
+  "displayName": "Rowan, O Cultivador",
+  "identityRecordName": "Palladius",
+  "mechanicsPreserved": true,
+  "variantsInRuntime": [],
+  "slots": [
+    "portrait",
+    "passive",
+    "impulso",
+    "tecnica",
+    "voto",
+    "despertar"
+  ],
+  "art": {
+    "portrait": "/art/characters/o-cultivador/anime-pictorial-rework-20261101/portrait.webp",
+    "passive": "/art/characters/o-cultivador/anime-pictorial-rework-20261101/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-cultivador/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "tecnica": "/art/characters/o-cultivador/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "voto": "/art/characters/o-cultivador/anime-pictorial-rework-20261101/skill-voto.webp",
+      "despertar": "/art/characters/o-cultivador/anime-pictorial-rework-20261101/skill-despertar.webp"
+    }
+  },
+  "sourceDirectory": "art/source/o-cultivador-anime-pictorial-rework-20261101",
+  "validation": {
+    "images": 6,
+    "runtimeSize": "512x512 WebP",
+    "archivalSize": "768x768 JPEG",
+    "visualInspection": "Visible limbs, gaze, target count, physical manifestations, identity and composition checked. Not user approval.",
+    "targetCounts": {
+      "portrait": 1,
+      "passive": 2,
+      "impulso": 3,
+      "tecnica": 3,
+      "voto": 2,
+      "despertar": 2
+    }
+  },
+  "notes": [
+    "Preserved old portrait identity without mechanical waterwheel backdrop.",
+    "Arar a Alma shows one enemy and one injured ally; Colheita de Fôlego includes caster and two allies.",
+    "No alternate skills or body forms found for criacao:2 in kit-evolutions.js, kit-expansion.js and body-forms.js."
+  ],
+  "migration": {
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 689,
+    "remainingSlots": 309,
+    "fullyMigratedEntries": 104,
+    "remainingEntries": 46,
+    "awaitingVisualApprovalSlots": 682,
+    "approvedSlots": 7
+  },
+  "supersededBy": "docs/ART_CULTIVADOR_STYLE_CORRECTION_20261101.json",
+  "rejectionReason": "Traços destoantes da direção e linha de arte definida para o jogo."
+}

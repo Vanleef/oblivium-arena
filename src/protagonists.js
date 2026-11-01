@@ -3109,8 +3109,8 @@ const supportingProfiles = [
   },
   {
     "id": "seraphim",
-    "name": "Seraphim",
-    "englishName": "Seraphim",
+    "name": "Seraph",
+    "englishName": "Seraph",
     "family": "seraphim",
     "version": 1,
     "eloId": "protecao",
@@ -3124,10 +3124,10 @@ const supportingProfiles = [
     "englishRole": "Paradise Echo",
     "combo": "Amparar sem exigir fé",
     "englishCombo": "Shelter Without Demanding Faith",
-    "mechanic": "Seraphim fortalece a defesa e restaura quem recebeu o peso do combate.",
-    "englishMechanic": "Seraphim strengthens defenses and restores those who have borne the weight of battle.",
-    "lore": "Seraphim é um eco de Paraíso, uma presença de pureza que incomoda até quem acredita estar fazendo o bem. Seu cuidado não pergunta se a pessoa merece.",
-    "englishLore": "Seraphim is an echo of Paradise, a presence of purity that unsettles even those who believe they are doing good. Its care does not ask whether someone deserves it.",
+    "mechanic": "Seraph fortalece a defesa e restaura quem recebeu o peso do combate.",
+    "englishMechanic": "Seraph strengthens defenses and restores those who have borne the weight of battle.",
+    "lore": "Seraph é um eco de Paraíso, uma presença de pureza que incomoda até quem acredita estar fazendo o bem. Seu cuidado não pergunta se a pessoa merece.",
+    "englishLore": "Seraph is an echo of Paradise, a presence of purity that unsettles even those who believe they are doing good. Its care does not ask whether someone deserves it.",
     "synergyEloIds": [
       "protecao",
       "cura"
@@ -3145,7 +3145,7 @@ const supportingProfiles = [
         "healWeakestAlly": 3
       },
       "description": "Uma vez por rodada, depois de uma cura efetiva, gera 1 Graça e restaura 3 de Vida ao aliado vivo mais ferido.",
-      "englishDescription": "Once per round, after effective healing, Seraphim generates 1 Grace and restores 3 Health to the living ally with the lowest Health percentage."
+      "englishDescription": "Once per round, after effective healing, Seraph generates 1 Grace and restores 3 Health to the living ally with the lowest Health percentage."
     },
     "skills": [
       {
@@ -3186,8 +3186,8 @@ const supportingProfiles = [
   },
   {
     "id": "seraphim-o-eco",
-    "name": "Seraphim, o Eco",
-    "englishName": "Seraphim, the Echo",
+    "name": "Seraph, o Eco",
+    "englishName": "Seraph, the Echo",
     "family": "seraphim",
     "version": 2,
     "eloId": "protecao",
@@ -3201,10 +3201,10 @@ const supportingProfiles = [
     "englishRole": "Celestial Vigil",
     "combo": "Converter proteção em retorno",
     "englishCombo": "Turn Protection Into Recovery",
-    "mechanic": "Cada guarda erguida por Seraphim prepara cura para quem ainda está ferido.",
-    "englishMechanic": "Every guard Seraphim raises prepares healing for those still wounded.",
-    "lore": "O Eco é o que resta quando a presença de Seraphim se afasta. A pureza permanece, mas agora parece uma lembrança que cada aliado precisa aprender a carregar.",
-    "englishLore": "The Echo is what remains when Seraphim's presence withdraws. Its purity remains, now like a memory each ally must learn to carry.",
+    "mechanic": "Cada guarda erguida por Seraph prepara cura para quem ainda está ferido.",
+    "englishMechanic": "Every guard Seraph raises prepares healing for those still wounded.",
+    "lore": "O Eco é o que resta quando a presença de Seraph se afasta. A pureza permanece, mas agora parece uma lembrança que cada aliado precisa aprender a carregar.",
+    "englishLore": "The Echo is what remains when Seraph's presence withdraws. Its purity remains, now like a memory each ally must learn to carry.",
     "synergyEloIds": [
       "protecao",
       "cura"
@@ -3218,7 +3218,7 @@ const supportingProfiles = [
         "healTeam": 2
       },
       "description": "Uma vez por rodada, depois de conceder ao menos 5 de Defesa em uma habilidade de apoio, restaura 2 de Vida a cada aliado.",
-      "englishDescription": "Once per round, after granting at least 5 Defense with a support ability, Seraphim restores 2 Health to each ally."
+      "englishDescription": "Once per round, after granting at least 5 Defense with a support ability, Seraph restores 2 Health to each ally."
     },
     "skills": [
       {
@@ -3423,8 +3423,8 @@ const supportingProfiles = [
     "id": "khoren-caminho",
     "name": "Zalmoxis",
     "englishName": "Zalmoxis",
-    "identityTitle": "O Caminho",
-    "englishIdentityTitle": "The Path",
+    "identityTitle": "A Abnegação",
+    "englishIdentityTitle": "The Selfless One",
     "family": "cosmic-leaders",
     "version": 1,
     "eloId": "correntes-quebradas",
@@ -3514,8 +3514,8 @@ const supportingProfiles = [
   },
   {
     "id": "elaris-prologo",
-    "name": "Elaris",
-    "englishName": "Elaris",
+    "name": "Seraph",
+    "englishName": "Seraph",
     "identityTitle": "O Prólogo",
     "englishIdentityTitle": "The Prologue",
     "family": "cosmic-leaders",
@@ -3531,10 +3531,10 @@ const supportingProfiles = [
     "englishRole": "Guardian of Paradise",
     "combo": "Restaure um aliado para gerar Graça; proteja-o ou enfraqueça a ameaça.",
     "englishCombo": "Restore an ally to generate Grace; protect them or weaken the threat.",
-    "mechanic": "Elaris converte o primeiro amparo bem-sucedido de cada rodada em Graça. A equipe decide entre sustentar aliados, remover aflições ou interromper a ofensiva inimiga.",
-    "englishMechanic": "Once per round, Elaris turns a successful act of support into Grace. The team chooses between restoring allies, cleansing afflictions, and interrupting enemy pressure.",
-    "lore": "Elaris protege o Paraíso e preserva a possibilidade de recomeçar. Sua tutela não apaga as perdas, mas impede que elas determinem o próximo passo.",
-    "englishLore": "Elaris protects Paradise and preserves the possibility of a new beginning. This shelter does not erase loss, but keeps it from deciding the next step.",
+    "mechanic": "Seraph converte o primeiro amparo bem-sucedido de cada rodada em Graça. A equipe decide entre sustentar aliados, remover aflições ou interromper a ofensiva inimiga.",
+    "englishMechanic": "Once per round, Seraph turns a successful act of support into Grace. The team chooses between restoring allies, cleansing afflictions, and interrupting enemy pressure.",
+    "lore": "Seraph protege o Paraíso e preserva a possibilidade de recomeçar. Sua tutela não apaga as perdas, mas impede que elas determinem o próximo passo.",
+    "englishLore": "Seraph protects Paradise and preserves the possibility of a new beginning. This shelter does not erase loss, but keeps it from deciding the next step.",
     "synergyEloIds": [
       "criacao",
       "cura",
@@ -4187,7 +4187,6 @@ const antagonistProfiles = [
       "name": "Cláusula de Prisão",
       "englishName": "Prison Clause",
       "trigger": "hit",
-      "minimumShield": 5,
       "effect": {
         "sealSupportTarget": 1
       },
@@ -4575,3 +4574,5 @@ export const protagonistCharacters = compileList(protagonistProfiles);
 export const supportingCharacters = compileList(supportingProfiles.map(profile => ({ ...profile, protagonist: false })));
 export const antagonistCharacters = compileList(antagonistProfiles.map(profile => ({ ...profile, protagonist: false, npcOnly: true })));
 export const protagonistEnglishPhrases = Object.freeze({ ...phraseCopy });
+
+

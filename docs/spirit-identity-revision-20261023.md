@@ -39,3 +39,4 @@ Total: **25 imagens novas**, em `art/characters/<id>/spirit-revision-20261023/`,
 ## Integração
 
 IDs, posse, trios salvos, mundos, Elos, Vida, custos, recargas, alvos, efeitos e transições de formas permanecem iguais. A comparação estrutural de todo o elenco exclui apenas metadados de apresentação. A busca continua aceitando os nomes anteriores e atuais, e as instruções das formas alternativas acompanham os novos nomes.
+

@@ -1,3 +1,4 @@
+import { rosterIdentityOverrides } from "./roster-identity-overrides.js";
 import { characters } from "./data.js";
 import { FINAL_BOSS, createFinalBossAbilities } from "./final-boss.js";
 
@@ -34,7 +35,7 @@ const characterCopy = {
     passive: "Sheltering Blood"
   },
   "o-soberano-quebrado": {
-    lore: "He carries a fractured authority that must be recognized at every encounter. When he takes up the crown, he spreads decrees and decides who must kneel. Each will he subjugates restores part of the dominion he offers to Crown.",
+    lore: "He carries a fractured authority that must be recognized at every encounter. When he takes up the crown, he spreads decrees and decides who must kneel. Each will he subjugates restores part of the dominion he offers to Magma.",
     combo: "Assume your ruling Form to spread decrees, weaken the enemy line, and raise a throne for your team.",
     passive: "Shattered Authority"
   },
@@ -44,22 +45,22 @@ const characterCopy = {
     passive: "Might Makes Right"
   },
   "o-trono-vazio": {
-    lore: "He turns obedience into power, even far from the throne. His decrees strip others of the right to respond, while his vassals' guard extends Crown's dominion.",
+    lore: "He turns obedience into power, even far from the throne. His decrees strip others of the right to respond, while his vassals' guard extends Magma's dominion.",
     combo: "Seal the enemy's offense, prepare a response that protects an ally, and strengthen your vassals' guard.",
     passive: "Delegated Authority"
   },
   "o-principe-das-correntes": {
-    lore: "He inherited the shackles of a dynasty and made them an instrument of ascent. He binds a soul, tightens the same bond, and gathers the strength to close the prison. To him, Crown's inheritance matters only while someone remains beneath his rule.",
+    lore: "He inherited the shackles of a dynasty and made them an instrument of ascent. He binds a soul, tightens the same bond, and gathers the strength to close the prison. To him, Magma's inheritance matters only while someone remains beneath his rule.",
     combo: "Bind a victim, then choose whether to tighten the same shackle or spend your Charges on the prison.",
     passive: "Inherited Shackle"
   },
   "a-regente-de-cinzas": {
-    lore: "A colossal matriarch forged from a dynasty’s ashes, she bears the marks of the empire she helped build on her aged face. Her authority is built on forced submission. She uses heated iron as an example to others and keeps her enforcers standing to prolong the Crown’s dominion.",
+    lore: "A colossal matriarch forged from a dynasty’s ashes, she bears the marks of the empire she helped build on her aged face. Her authority is built on forced submission. She uses heated iron as an example to others and keeps her enforcers standing to prolong the Magma’s dominion.",
     combo: "Burn through resistance with the yoke's iron, strengthen your executioners, and punish anyone already burning.",
     passive: "Loyalty Through Fear"
   },
   "o-herdeiro-cativo": {
-    lore: "A dynastic soul inhabits this living porcelain effigy, with its long neck and crimson eyes. His chain-link left forearm holds together the fractures that store his ambition. He keeps the shackles to subdue those who follow; every lost shard strengthens his claim to Crown’s throne.",
+    lore: "A dynastic soul inhabits this living porcelain effigy, with its long neck and crimson eyes. His chain-link left forearm holds together the fractures that store his ambition. He keeps the shackles to subdue those who follow; every lost shard strengthens his claim to Magma’s throne.",
     combo: "Turn lost Health into a stronger fist; recover or spend your Charges to seize the throne.",
     passive: "Chained Ambition"
   },
@@ -340,7 +341,7 @@ Object.assign(characterCopy, {
     passive: "Thread of Principle"
   },
   "o-que-pesa": {
-    lore: "He faces the consequence before passing judgment. He gathers the weight of each deed to stop excess with a proportional decision, without resorting to Crown's oppression.",
+    lore: "He faces the consequence before passing judgment. He gathers the weight of each deed to stop excess with a proportional decision, without resorting to Magma's oppression.",
     combo: "Weigh, judge, and restore balance; your decision prepares a different option for the next cycle.",
     passive: "The Scales' Patience"
   },
@@ -575,10 +576,10 @@ Object.assign(phrases, {
   [FINAL_BOSS.name]: FINAL_BOSS.nameEn,
   [FINAL_BOSS.title]: FINAL_BOSS.titleEn,
   [`${FINAL_BOSS.name}, ${FINAL_BOSS.title}`]: `${FINAL_BOSS.nameEn}, ${FINAL_BOSS.titleEn}`,
-  [FINAL_BOSS.lore]: "Naram-Sin has no fixed face or Form. It takes the shape of the greatest fear of whoever observes it: each person sees a unique manifestation, even when several souls look upon it at once.",
-  [FINAL_BOSS.artNote]: "The original Form keeps its approved silhouette: a slender, faceless sovereign with gold rings and dark mantles with rooted ivory, now without a crown. The Tyrant is the only Form with a crown: a low, broad, asymmetrical war diadem. It becomes a hunched colossus with enormous fists and localized ivory plates and fragments on one shoulder, forearm, and hands; the Predator remains a low, mobile beast; the Ruin floats without a crown, with a fragmented torso, four spectral arms, binding threads, and bone-white fragments on its chest and arms. Each Form keeps only a few traces of Naram-Sin. No appearance is its true Form.",
+  [FINAL_BOSS.lore]: "The Final Rift has no fixed face or Form. It takes the shape of the greatest fear of whoever observes it: each person sees a unique manifestation, even when several souls look upon it at once.",
+  [FINAL_BOSS.artNote]: "The original Form keeps its approved silhouette: a slender, faceless sovereign with gold rings and dark mantles with rooted ivory, now without a crown. The Tyrant is the only Form with a crown: a low, broad, asymmetrical war diadem. It becomes a hunched colossus with enormous fists and localized ivory plates and fragments on one shoulder, forearm, and hands; the Predator remains a low, mobile beast; the Ruin floats without a crown, with a fragmented torso, four spectral arms, binding threads, and bone-white fragments on its chest and arms. Each Form keeps only a few traces of the Final Rift. No appearance is its true Form.",
   [FINAL_BOSS.mechanic]: "Three Manifestations of Fear",
-  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant breaks guards with brute force and grows stronger as Health falls, using Ash; the Predator hunts with Rupture; the Ruin binds and interrupts with spectral magic and Grace. Unreachable End restores 10 Health and returns Naram-Sin to the original Form. Cooldowns belong to each slot and carry across Forms.",
+  [FINAL_BOSS.combo]: "In its original Form, choose a manifestation. Each one changes the portrait, techniques, archetype, Essence, and entry effect. The Tyrant breaks guards with brute force and grows stronger as Health falls, using Ash; the Predator hunts with Rupture; the Ruin binds and interrupts with spectral magic and Grace. Unreachable End restores 10 Health and returns the Final Rift to the original Form. Cooldowns belong to each slot and carry across Forms.",
   "Forma original": "Original Form",
   "Assumir Tirano": "Assume the Tyrant",
   "Assumir Predador": "Assume the Predator",
@@ -657,4 +658,8 @@ Object.assign(phrases, {
   "Metamorfose de feras infernais": "Infernal Beast Metamorphosis",
   "Forma humanoide": "Humanoid Form"
 });
+for (const identity of Object.values(rosterIdentityOverrides)) {
+  if (identity.lore && identity.englishLore) phrases[identity.lore] = identity.englishLore;
+}
 export const englishCharacterPhrases = phrases;
+

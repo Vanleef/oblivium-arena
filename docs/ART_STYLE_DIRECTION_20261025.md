@@ -161,3 +161,4 @@ A partir desta revisão, a leitura de animação anime é a prioridade. A pintur
 - Preservar a variedade de composição das habilidades e a auditoria de mãos, dedos, articulações e continuidade dos membros descritas acima.
 
 Esta prioridade anime-first foi aplicada às revisões de O Falso Profeta, O Corretor de Memórias e A Pira Errante em `anime-first-rework-20261026`.
+

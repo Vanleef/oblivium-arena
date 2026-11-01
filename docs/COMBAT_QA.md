@@ -70,3 +70,4 @@ As execuções de maior pico foram moderadas: O Furor perde 5 de dano base e 5 d
 - A previsão é conservadora e usa apenas o estado atual: não consulta a fila do jogador nem sorteios futuros. Não é uma busca exaustiva por todas as sequências possíveis.
 - A inspeção de personagem mostra os efeitos ativos com origem, gatilho e valores. O campo continua com quatro ícones por personagem.
 - Reações de cura e proteção informam origem e beneficiários; a regeneração tem uma etapa de apresentação no início do turno.
+

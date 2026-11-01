@@ -1,0 +1,202 @@
+{
+  "title": "Gorath — O Devorador — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "o-devorador",
+  "characterName": "Gorath",
+  "characterTitle": "O Devorador",
+  "aliases": [
+    "O Devorador"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Pútrido",
+  "essence": "Cinza",
+  "style": "Anime-first 2.5D de fantasia sombria pictórica: pinceladas angulares, contornos manuais, hachuras, sombras de corte e materialidade tátil.",
+  "identity": "Gorath é uma fera infernal quadrúpede, baixa e pesada, com exatamente quatro patas, uma única cabeça horizontal de focinho longo, mandíbula larga com dentes angulares de bronze, olhos âmbar fendidos, couro negro, crista óssea no dorso, garganta inchada com veios minerais âmbar e cauda curta. Não tem braços, mãos, tronco humanoide, membros extras ou segunda cabeça. Na forma Fome sem Corpo, abre-se um vazio sobrenatural único entre as costelas, sem órgãos expostos.",
+  "environment": "Inferno/Pútrido: neve suja misturada a cinza, basalto negro, rachaduras carmesim e formações naturais que lembram mandíbulas. A essência drenada aparece em partículas rubro-âmbar discretas; sem tecnologia, máquinas ou soldados.",
+  "sceneVariety": "Retrato baixo em três quartos, passiva reversa lateral, bote rente ao chão, variante faminta em reversa próxima, saliva em perfil lateral, drenagem em close baixo, defesa zenital e retrato lateral da forma starved.",
+  "anatomyReview": "Oito imagens inspecionadas. A fera conserva uma cabeça, quatro patas e corpo quadrúpede; a forma starved acrescenta apenas uma cavidade torácica vazia, sem órgãos, boca ou membros extras. Passiva, Mordida da Alma, variante, Saliva Corrosiva e Engolir a Essência mostram um ghoul cada; o despertar protege somente a fera; os dois retratos não têm alvo. A defesa e os ataques têm ações distintas e físicas. Nenhuma mecânica foi alterada.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "active": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Corpo Saciado",
+      "targetCount": "none",
+      "camera": "Ângulo baixo em três quartos, corpo inteiro",
+      "scene": "A fera gira o focinho ao perceber algo fora do quadro, apoiada na neve suja sobre o basalto.",
+      "prompt": "Retrato reativo de corpo inteiro do quadrúpede em Inferno/Pútrido; exatamente quatro patas, uma cabeça e uma mandíbula longa.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/portrait.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 91420,
+      "sourceBytes": 294933,
+      "activeSha256": "87852feb9efd638d76b7128c33f979b639c8da3d3a1cc6710a3439ebb577ec5d",
+      "sourceSha256": "8d3a4d8cf80796d77cefc7af8d35e73cdef0db704bb95bc816bbf775afb3c131",
+      "generatedSource": "exec-2a1f8b3d-9f04-400d-b23e-3019ed96e0f6.png",
+      "generatedSourceSha256": "d6e6fd4796cd6a6a5d826d42de5c9b2d4c7cdaf79bae44f3b8aecbeb6845a8fa"
+    },
+    {
+      "slot": "passive",
+      "name": "Fome Crescente",
+      "targetCount": "one ghoul",
+      "camera": "Reversa lateral próxima ao chão",
+      "scene": "Após ferir um ghoul, a fera suga partículas rubro-âmbar da mesma vítima; as fissuras no pescoço se reabrem e pequenas escoriações se fecham.",
+      "prompt": "Uma vítima ghoul ferida perde motes de essência que retornam ao pescoço da fera e fecham suas escoriações.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/passive.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 90600,
+      "sourceBytes": 296532,
+      "activeSha256": "20b744a4e6d7417bbe61289a483a5fa69e81cae80ad21d357d0ca78d47d7e1de",
+      "sourceSha256": "7cbb76e2ea18d610eca57e68935be382c4933decdcee0c531cd8f1f30b0bb4b3",
+      "generatedSource": "exec-19d91872-3830-4a2c-9024-f66f42e982b5.png",
+      "generatedSourceSha256": "6cf0a0eede86fc3ffe7d1fea551de527e237ae4c74de0ef138402a2c3e4ccd06"
+    },
+    {
+      "slot": "impulso",
+      "name": "Mordida da Alma",
+      "targetCount": "one ghoul",
+      "camera": "Bote lateral rente ao chão",
+      "scene": "A fera salta em arco baixo e prende a mandíbula no ombro de um ghoul, sem arrancar membros; as patas dianteiras escavam a neve.",
+      "prompt": "Bote baixo com mordida em um único ghoul; o corpo quadrúpede impulsiona o golpe.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/impulso.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 90796,
+      "sourceBytes": 309003,
+      "activeSha256": "952a19e687edee5ede4f198efa2296b0c037ffdeb9746d170ae9baab0ba95853",
+      "sourceSha256": "41bbd6009763aae284ef90e5537e2da1c036b40cfa9749cabbd2f6e488197604",
+      "generatedSource": "exec-efa2803c-a7b6-4e87-8573-3c886ecef6db.png",
+      "generatedSourceSha256": "de39c55a20bb5df446cc63822c4fef30c5cd83d1a71a9ce62ce0d2619fc442dc"
+    },
+    {
+      "slot": "form:impulso:starved",
+      "name": "Fome sem Corpo — Mordida da Alma",
+      "targetCount": "one ghoul",
+      "camera": "Reversa próxima por trás do ghoul",
+      "scene": "Na forma faminta, o mesmo animal morde um único ghoul; um vazio sobrenatural abre-se entre as costelas e puxa a essência da vítima.",
+      "prompt": "Variante de baixa Vida: quadrúpede com cavidade torácica vazia, mordendo um ghoul e drenando essência.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/skill-impulso-starved.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/impulso-starved.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 90496,
+      "sourceBytes": 302781,
+      "activeSha256": "5933500064e92703d8c8b0fea4df0dd08ffdeb7bd6eb61f01da3c89825403e6d",
+      "sourceSha256": "91854925bd8140d06ab7f96bac1c80a4e2f3cd7fd5481587635be660b525e445",
+      "generatedSource": "exec-81dbede4-d445-479e-bf60-da4cff9bcfe2.png",
+      "generatedSourceSha256": "f2894a09e854c22e10f82998ef2c34177b5f26502964548a3d985292806b9cf1"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Saliva Corrosiva",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral médio",
+      "scene": "Uma golfada viscosa de saliva espiritual corrói e desfaz o escudo de cinza de um ghoul, expondo o alvo.",
+      "prompt": "Golfada espessa de saliva espiritual atinge o escudo de cinza de um ghoul e o dissolve.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/tecnica.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 80762,
+      "sourceBytes": 281939,
+      "activeSha256": "baa74e8eacb88714b9f42065d74b825fbddb9832c350505dd180509646152a7a",
+      "sourceSha256": "54c0b0c86fd65dd5cd4a9515a78dbb46ef90d9948ff09a7bc315bf501c49709a",
+      "generatedSource": "exec-e96070af-361e-40b8-83cb-be18405f535d.png",
+      "generatedSourceSha256": "2cc26a27d3ed6ffed5a28bbb4088fc226ef421ab438adc2c76dd4e90265632a2"
+    },
+    {
+      "slot": "voto",
+      "name": "Engolir a Essência",
+      "targetCount": "one wounded ghoul",
+      "camera": "Close baixo em três quartos",
+      "scene": "Um ghoul ferido cambaleia enquanto uma massa de partículas rubro-âmbar é puxada do peito para a mandíbula aberta da fera.",
+      "prompt": "A fera consome a essência de um único ghoul ferido; o corpo permanece inteiro, sem feixe fino.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/voto.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 87454,
+      "sourceBytes": 303460,
+      "activeSha256": "5b3ecdf4102ff77f05e8414fcc8eda6abb0f367335718a796dc7c83aba9b1944",
+      "sourceSha256": "6552bc1386ad937122eaed187d47a1c91ac3434ec6453f553abfbccfafd4f74d",
+      "generatedSource": "exec-16920943-0c12-4a52-b5d1-9f438a9ad440.png",
+      "generatedSourceSha256": "227a431fc98ebc1107b78d2d7f2cdbafc5dfe63b60ed2fbb51fbd3ca7e68bf8e"
+    },
+    {
+      "slot": "despertar",
+      "name": "Mandíbula do Vazio / Couraça Voraz",
+      "targetCount": "self only",
+      "camera": "Zenital oblíquo defensivo",
+      "scene": "A fera se encolhe com as quatro patas junto ao corpo; uma couraça de cinza e fragmentos de basalto envolve somente o usuário e detém estilhaços vindos de fora do quadro.",
+      "prompt": "Defesa pessoal: couraça espiritual envolve o quadrúpede e detém estilhaços; nenhum atacante visível.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/despertar.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 114746,
+      "sourceBytes": 379886,
+      "activeSha256": "10123876595452a9ba0230698c8dd1e10f643bf1983837ff8675de3dc7562fc8",
+      "sourceSha256": "53e901f47cdd81e3a13828a28dcf67bfac76914391857ab13a2c9ab184ba88c9",
+      "generatedSource": "exec-1d397734-bc37-4f04-88ce-c5f2a601a177.png",
+      "generatedSourceSha256": "24052b397f31b8110e0791b578430649307906a41a74e2780fea1607b17d8c33"
+    },
+    {
+      "slot": "body:starved",
+      "name": "Retrato — Fome sem Corpo",
+      "targetCount": "none",
+      "camera": "Plano baixo lateral, corpo inteiro",
+      "scene": "A forma ferida se mantém alerta; o vazio negro entre as costelas consome alguns motes, sem sangue ou órgãos expostos.",
+      "prompt": "Retrato do quadrúpede transformado, cavidade torácica vazia, quatro patas e sem outros personagens.",
+      "activePath": "/art/characters/o-devorador/dark-pictorial-rework-20261030/portrait-starved.webp",
+      "sourcePath": "art/source/o-devorador-dark-pictorial-rework-20261030/portrait-starved.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 89610,
+      "sourceBytes": 295869,
+      "activeSha256": "0ff0e4710b89e9b56d45c89189b8ce31f47a931934fef79f36b2ab48d8ea4b9c",
+      "sourceSha256": "a7e77d8e86ace985a2183077789db710cb2577ef38d1dbae4a3d1279f5fd55c3",
+      "generatedSource": "exec-a40892aa-541b-4945-a875-6a2ad57918ad.png",
+      "generatedSourceSha256": "68863edd29d9f52ef33ed4de559260db10766acb9679fe8077fb7fe795a8d85f"
+    }
+  ]
+}

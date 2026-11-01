@@ -1,0 +1,146 @@
+{
+  "id": "stella-phoebe-dark-pictorial-rework-20261031",
+  "characterId": "a-mensageira-do-amanha",
+  "displayName": "Stella (Phoebe), A Mensageira",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "previousArtDirection": "Anime-first 2.5D colorida, com fantasia heroica e cenário de viagem.",
+  "artDirection": "Dark fantasy pictórica 2.5D, pinceladas espessas e angulares, azul-índigo e carvão com recorte de marfim e ouro-alaranjado; cenas de entrega, rota e combate claramente distintas.",
+  "identity": "Mulher jovem de pele castanha, cachos verdes volumosos, olhos dourados, casaco de viagem marfim, cachecol laranja queimado, alça marrom de mensageira e uma luva escura. Carrega mensagens simples sem letras visíveis; expressão otimista e ágil.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "f90b2191cd51d7d8b5f8f5b879286a6667320f795685771879a69a574e894e7e",
+      "activeSha256": "0fa8144bc4f2e31d454575cb92f07f8e2f2208cdc52b241c842b8710887b48e2",
+      "scene": "Retrato de Stella com cachos verdes, olhos dourados, cachecol laranja e token de entrega."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "8e232c43abc05b2cb9c8de7a307a1b8cf37087cd8f5a073d79d6882ed5821be2",
+      "activeSha256": "3f5fc0e203f399cee97cba70be48ee65141f5e36c89ee08ab9df86abce2c0855",
+      "scene": "Stella atravessa uma muralha partida seguindo uma pequena luz de rota em direção a quem espera."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "9af05e68327545221bce309f8eb6b0b917c9b75de1af9ab0bd179b8dd722599f",
+      "activeSha256": "a47ec0d8166b12ddc5a569d57e323c4250797c9abff98b89c6fcd5eb414205db",
+      "scene": "Um sinal âmbar-azul marca um único inimigo e revela sua posição."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "b9f4a20b02c2b1ef7bacb41d6ee5d6692f16ba9a18526125fc7a7419b7d61e5b",
+      "activeSha256": "641c3c9231b712d3f412f672e0f737d0043bc6c8a2f5a7c1c9438477f52a7a50",
+      "scene": "Stella entrega um token luminoso a um aliado; o calor restaura sua força e forma um escudo."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "a9892b10a825e0752043675b11e138793f63e77e1ee0ca037885268b4f434f98",
+      "activeSha256": "58fa5c42048fce38bc6bbbdab696ad9eecfc6706ad35d39b71ea0131261a2a40",
+      "scene": "A energia atinge um inimigo previamente marcado, enquanto a mensagem renova o fôlego de um aliado."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "081178158dba8af91840dd7cbcb6c134ec1423785ab7f4e844549beab91f72af",
+      "activeSha256": "bf3ce897fa2f00371b5c16f9a42a41a2547920db70f2a8b7edc7b7308bbdf2c6",
+      "scene": "Stella abre uma passagem luminosa sobre uma ponte em ruínas e guia os aliados rumo à aurora."
+    },
+    {
+      "slot": "impulso:delivered",
+      "path": "/art/characters/a-mensageira-do-amanha/dark-pictorial-rework-20261031/skill-impulso-delivered.webp",
+      "source": "art/source/a-mensageira-do-amanha-dark-pictorial-rework-20261031/impulso-delivered.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "5ff5b74e3627d0f801337bbeb9a7d7ff03b02269d40807c667a3937a2644a8a2",
+      "activeSha256": "9641287435e1514dfdbae0ea3765dd70ae366dcec94dad85a28e3d5c7e4ba971",
+      "scene": "Forma Mensagem Recebida: o sinal atinge um inimigo e devolve uma linha de luz que cura o aliado mais ferido."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Esperança",
+    "stage": "base",
+    "emotion": "Promessa de chegada",
+    "visualMarkers": [
+      "cachos verdes",
+      "olhos dourados",
+      "casaco marfim",
+      "cachecol laranja",
+      "alça de mensageira",
+      "luva escura"
+    ]
+  },
+  "formState": {
+    "formKey": "delivered",
+    "abilityId": "impulso",
+    "formName": "Mensagem Recebida",
+    "attackName": "Mensagem Recebida",
+    "mechanic": "Dano de energia que transfere recuperação ao aliado proporcionalmente mais ferido."
+  }
+}

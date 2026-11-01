@@ -19,3 +19,4 @@ As capturas abaixo são da aplicação real, sem injeção de estado ou manipula
 ![Identidade anime](qa/identity-anime.jpg)
 
 ![Seleção de eventos Ouro](qa/augment-selection.jpg)
+

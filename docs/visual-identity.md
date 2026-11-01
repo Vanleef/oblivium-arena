@@ -80,3 +80,4 @@ Em 27/10/2026, a mariposa principal e sua variante violeta foram redesenhadas na
 ### Fundo transparente da marca
 
 O emblema ativo `art/interface/moth-violet-20261027/brand-moth-192.webp` preserva canal alpha. Componentes de marca devem manter fundo transparente e não acrescentar placas, molduras ou halos opacos ao redor do recorte.
+

@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-01",
+  "characterIds": [
+    "a-arquiteta-verde",
+    "o-primeiro-canto"
+  ],
+  "candidateSlotsAdded": 14,
+  "candidateSlotsActivated": 14,
+  "status": "candidate_integrated_pending_visual_approval",
+  "report": "docs/ART_ARQUITETA_RESSONANTE_ANIME_PICTORIAL_20261101.json",
+  "names": {
+    "a-arquiteta-verde": "Verdant, A Arquiteta",
+    "o-primeiro-canto": "Prim, O Ressonante"
+  },
+  "mechanicsPreserved": true,
+  "routes": {
+    "a-arquiteta-verde": {
+      "portrait": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/portrait.webp",
+      "passive": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/passive.webp",
+      "abilities": {
+        "impulso": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-impulso.webp",
+        "tecnica": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-tecnica.webp",
+        "voto": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-voto.webp",
+        "despertar": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-despertar.webp"
+      },
+      "forms": {
+        "impulso": {
+          "beam": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-impulso-beam.webp"
+        },
+        "voto": {
+          "collapse": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-voto-collapse.webp"
+        }
+      }
+    },
+    "o-primeiro-canto": {
+      "portrait": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/portrait.webp",
+      "passive": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/passive.webp",
+      "abilities": {
+        "impulso": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-impulso.webp",
+        "tecnica": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-tecnica.webp",
+        "voto": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-voto.webp",
+        "despertar": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-despertar.webp"
+      }
+    }
+  },
+  "migration": {
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 717,
+    "remainingSlots": 281,
+    "fullyMigratedEntries": 108,
+    "remainingEntries": 42,
+    "awaitingVisualApprovalSlots": 710,
+    "approvedSlots": 7
+  },
+  "sources": [
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101"
+  ],
+  "hashes": {
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/portrait.webp": "8720745205c2579fd418e9314e9d6e0ad7ba7637ddbd8e2bcf6c1a92a1c0c298",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/portrait.jpg": "fb20b2f59a3db23311e5eb2343eb3725c22c7a49a8a49f0e4314dd4ae63ef3ed",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/passive.webp": "8b47c650dabfe0a7d199c9c444ce6d2dff5913537375db0c093be39d47bd765b",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/passive.jpg": "32c47a9b49bca9b3ed0bf355e7fdd7e923409628a66037c8b25aa18c7ee08e31",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-impulso.webp": "3d7a4cfa667ac62835f72ce39ead5a1a3ab35c59d73cf17361ce6948ce7d10d9",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/skill-impulso.jpg": "fdc69c69e835f9dd158741a3c053b05640e46ccd0a6d647f55f24ac0755ca5ff",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-tecnica.webp": "a41b261c60cab6d3ff69bc2510325417ea92d39daf04ca233985f96ac1963793",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/skill-tecnica.jpg": "67bdf8319fe23463431c2d0c89a00f60e597a09f470ee22b75ed275900533517",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-voto.webp": "9d677e9b541eeae5fbe0d3fb26928a6258b2a5a7a5ef932ca0a56d3ccac704f9",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/skill-voto.jpg": "4668f8377d46b7d482be4cf297e0b5318dd3fce7edadb9630951eb2ea37d4150",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-despertar.webp": "3a31341022250012405ea87a143bdada10bb09088a3050f416a15ae261059054",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/skill-despertar.jpg": "3883d6a0a1516fc71c8bc8942122884419d02ad33442d2b6a8ef607dbddee38b",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-impulso-beam.webp": "6de0f8aa874bdd8f89ab6d4b5fc587e37609e6b190fbea2ddd1fdb59d1f90982",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/skill-impulso-beam.jpg": "1276636a7a51d5f18db85bf51d2b760dbe421cd63e8a08fb13284c01eec3f7d7",
+    "art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-voto-collapse.webp": "98c65575726afc3577aedefd4c553ac050b0b4ba80723077d5b0ebd8bb66b710",
+    "art/source/a-arquiteta-verde-anime-pictorial-rework-20261101/skill-voto-collapse.jpg": "dc21011d7ac9b5756bb1bb4e7b2e639aeb637fe5b8320e7a7f2c785ad077dabb",
+    "art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/portrait.webp": "8ec5b2579018dfbc58e270e0eac6112c6a20e13cfd2d96b0bad02f2d5c815825",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101/portrait.jpg": "8da767471c8dd604d3c785b4023c52dd7fddfd17693e3cc03a15c813b7cb9c3c",
+    "art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/passive.webp": "72f1337c04d83fff71f9d2b86f5e4d6ab5e7fb894acc04d3215592b76a9cb02f",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101/passive.jpg": "406a3bf5e5001dc944d835274bf7b7bbb817908f3f49d5dfc5b391e70ae36ab8",
+    "art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-tecnica.webp": "e3e30dfd48defc89ad521480faf728e81ccdb9a393e9758900b7158d7085536d",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101/skill-tecnica.jpg": "90f1a4ce5d4d968c20f6a49a4500e7a2afc75c52ff177e8d19be206866412b57",
+    "art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-despertar.webp": "7be63b156fd5e66593a6530588a667f4c191161c65eb3a202540a5abb972f4f2",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101/skill-despertar.jpg": "4c51fa49d27b2033dd1129ac251e497a500b4f0271204bde843acc981dc41560",
+    "art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-impulso.webp": "8b5a327889f9529ee50ac457cee8fac6af67771d0fe599668357ac710f8d2a91",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101/skill-impulso.jpg": "d7a71bba531153367b176eb6f9c58014189fe0d7f688dedc7bec294ab1a6a069",
+    "art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-voto.webp": "8d490331f7adbed936d34f2640d4440fe6e154f724831dee48e79b3a63786b96",
+    "art/source/o-primeiro-canto-anime-pictorial-rework-20261101/skill-voto.jpg": "3796c6565671e8d141e3def5db8699246791409342c9b3b530f57aa8396d32b1"
+  },
+  "visualInspection": {
+    "status": "model_inspected_pending_user_visual_approval",
+    "checks": [
+      "anime drawn facial construction",
+      "canonical identity",
+      "visible limb continuity",
+      "action-related gaze",
+      "target counts",
+      "team versus personal defense",
+      "dedicated variants",
+      "scene and expression variety"
+    ],
+    "targetCounts": {
+      "a-arquiteta-verde": {
+        "portrait": 1,
+        "passive": 4,
+        "impulso": 2,
+        "tecnica": 3,
+        "voto": 2,
+        "despertar": 2,
+        "impulso-beam": 2,
+        "voto-collapse": 4
+      },
+      "o-primeiro-canto": {
+        "portrait": "Prim plus small bird",
+        "passive": 2,
+        "impulso": 2,
+        "tecnica": 3,
+        "voto": 4,
+        "despertar": 2
+      }
+    }
+  },
+  "verdantRevision": {
+    "userRequest": "varie as cenas de verdant e expressoes dela",
+    "initialPreviewDisposition": "replaced_before_integration_for_scene_and_expression_variety",
+    "revisedSkillScenes": 7,
+    "retainedPortrait": true,
+    "expressions": {
+      "portrait": "focused observation",
+      "passive": "startled alertness",
+      "impulso": "forceful exertion / open-mouth cry",
+      "tecnica": "relief and reassuring small smile",
+      "voto": "clenched-teeth determination",
+      "despertar": "sudden alarm",
+      "beam": "strain and concern for ally",
+      "collapse": "urgent shout and resolve"
+    },
+    "sceneSettings": {
+      "passive": "circular tower balcony",
+      "impulso": "spiral stair",
+      "tecnica": "rain shelter",
+      "voto": "flooded arcade",
+      "despertar": "dim enclosed cloister",
+      "beam": "underside of walkway",
+      "collapse": "high view into collapsing circular hall"
+    },
+    "notes": [
+      "Two distinct anonymous allies replace lookalike background figures.",
+      "No combat mechanics changed; revisions replace previews without adding extra logical slots."
+    ]
+  },
+  "resonantNotes": [
+    "Thin luminous ribbons removed from team support scene in favor of air/material displacement.",
+    "Small orb and connector near lips removed from Nota Primordial.",
+    "One enemy in impulse; three in Voto; self-evasion in defense."
+  ],
+  "prompts": {
+    "architect": {
+      "base": "ONE square replacement skill artwork for VERDANT. Attached image is IDENTITY AND ANIME 2.5D PICTORIAL style anchor ONLY; DO NOT copy its crouching pose, downward serious facial expression, composition or garden background. Same olive light-skinned adult woman, BLACK HIGH BUN/wooden pin/loose black locks, dark drawn anime eyes, structured IVORY wrap tunic angular shoulders, round JADE BROOCH with green tassel, JADE sash. Preserve physical traits and age. Clear hand-drawn anime face, grouped hair, angular painted volume, selective contours, controlled localized material brushwork; no photorealism, glossy 3D, flat vector or global cracked peeling texture. Paradise/Empyrean colors white/ivory/gold/silver/pale blue/green. VARY environment/framing/body action and facial emotion as specified. No camera gaze, no posing, no machinery/technology, no angel wings, no text/collage. Coherent shoulders/neck/spine/hips, TWO arms per human, correct elbows and hands; expressions visibly respond to scene. Powers are physical jade-root/ivory-stone structures, not light wires. Other people are anonymous and MUST NOT COPY Verdant: elder ally is bald dark-brown-skinned man with white short beard and plain pale-blue robe, young ally is brown-skinned woman with SHORT SILVER BOB and plain silver-gray cloak, neither has jade brooch or green sash. Scene: ",
+      "scenes": {
+        "passive": "Fundação Viva. CAMERA: eye level from BEHIND Verdant's right shoulder as she abruptly TURNS HEAD back toward TWO allies. Body twists naturally at waist, one arm raised in immediate checking gesture, other hand holds newly solidified waist-high stone buttress. EXPRESSION: eyebrows lifted in startled alertness, lips parted as she checks whether they are safe, gaze directed at allies, NOT down at stone. Bald elder ally ducks, silver-bob woman braces against a separate jade-white guard. In extreme foreground left a cropped ONE ghoul arm loses its stone shield in falling chunks; removal of enemy defense has strengthened ALL THREE small guards around trio. Exactly FOUR FIGURES TOTAL: Verdant + two allies + one partly cropped ghoul. Location: narrow CIRCULAR balcony around an ivory tower, cloudy wind and pale blue sky, close spatial tension, no repeated monumental garden panorama. Main jade brooch partly visible as torso twists, hands unambiguous.",
+        "impulso": "Pilar Ascendente. CAMERA: very LOW side WIDE view showing Verdant's FULL BODY stepping forcefully DOWN onto a broad stair with front HEEL, torso upright and leaning into weight transfer, one arm thrown behind for balance and other forearm raised toward incoming enemy. NO crouching with palm on ground. EXPRESSION: clear exertion, jaw open in a brief forceful cry, brows compressed and eyes fixed on ONE hostile ghoul rising on a newly erupting JADE-WHITE stone pillar. Exactly TWO figures. Pillar has a small geometric jade notch marking ghoul, lifts and exposes its guard physically, stone clods at contact. Location: diagonal SPIRAL STAIR around open silver-blue light well, different architecture and light from portrait. Coherent planted foot, bent supporting knee and opposite extended leg, no impossible spine or floating caster.",
+        "tecnica": "Abóbada Verde, TEAM DEFENSE. CAMERA: WIDE EYE-LEVEL from INSIDE a finished shelter during gentle RAIN, outside blurred white terraces and pale blue rain curtains. Exactly THREE figures: Verdant seated sideways on broken step, bald elder man catching breath on lower ledge, short silver-bob woman leaning against sheltered arch foot. Solid root-and-ivory ribs make connected DOME over all three. Verdant has one hand resting open against arch to maintain it, other hand extends toward the elder to steady him. EXPRESSION: visible relieved breath and SMALL REASSURING SMILE toward ally, cheeks and brows softened, eyes looking at him, not camera; quiet kindness after danger, not a triumphant pose. Allies respond with tired relief. No enemy. Broad cool rainy shadows, jade-green reflected light on face, weighted wet sleeve hems, natural separate hands and bodies. Do not repeat kneeling measuring pose or two-hands bracing composition.",
+        "voto": "Convergência dos Pilares, ONE TARGET. CAMERA: CLOSE oblique view from BEHIND enemy's shoulder, foreground ghoul partly cropped, Verdant visible across frame in twisting grounded stance. She PULLS BOTH HANDS inward at chest/waist level, elbows bent naturally and shoulders linked, forcefully drawing TWO vertical ivory-jade pillars against ONE marked ghoul's external stone guard. EXPRESSION: teeth clenched, neck/cheeks tense, eyes narrowed in determined effort directed at target; stronger emotion than ordinary frown, no smile and no sadism. Exactly TWO figures. Environment: shallow FLOODED ivory arcade, force ripples the water and breaks guard stone; dust dampened, dark pale-blue reflections, high side light. Mark carved green on a pillar at contact. No falling roof; this is single-target inward convergence. No beam or mechanical tracks.",
+        "despertar": "Geometria Intocável, PERSONAL DEFENSE. CAMERA: over Verdant's LEFT BACK, face visible in sharp 3/4 profile as she RECOILS and rapidly ducks behind a low faceted jade-white wall. Torso turns and weight retreats one clear step, one palm catches TOP EDGE of wall for balance, opposite forearm held defensively near face WITHOUT crossing or disconnecting arms. EXPRESSION: GENUINE SUDDEN ALARM, wide anime eyes, raised inner brows, mouth slightly open as she tracks ONE ghoul claw missing her face and striking outer wall. Exactly TWO figures, no allies. Location: dim IVORY LIBRARY-LIKE CLOISTER with stone niches and moss, a single cold shaft of silver light, no outdoor panorama, no books/machinery required. Claw hits stone not flesh, intact protection, visible stone grit, natural flinch, not a calm portrait.",
+        "impulso-beam": "Viga de Apoio, ONE ALLY. CAMERA: very LOW close side view UNDER a broken suspended walkway, Verdant upright in a grounded stance PUSHES a thick diagonal living JADE-WHITE structural BEAM into place with FOREARM and SHOULDER while the other hand presses beam footing into stone. Exactly Verdant and ONE anonymous wounded woman, the SHORT SILVER-BOB ally in plain gray cloak, seated safely beneath beam arch; small green shoots cradle her bandaged forearm for slow regeneration. Verdant's pose carries real WEIGHT through shoulder, legs bent plausibly, no impossible overhead arm stretch. EXPRESSION: effort and strain, mouth tight, one eye squinting, faint sweat, gaze checking ally/beam footing with worried care. Location: underside of white stone footbridge with deep blue cloud void below and green reflected water, broad dark shadow and narrow gold rim. Physical material beam, never laser. Two separate bodies, no cloned main character.",
+        "voto-collapse": "Colapsar a Abóbada, ALL THREE ENEMIES. CAMERA: EXTREME HIGH bird's-eye WIDE view down through the break in a circular JADE-WHITE DOME. Exactly FOUR FIGURES: Verdant at near outer rim, THREE different ghouls on lower floor widely spaced and clearly countable. Verdant is in MID-RETREAT, one knee bent on stair, one hand SLAMS palm down onto arch foot while opposite arm protects her face from falling stone. EXPRESSION visible in tilted upward 3/4 face: urgent open-mouthed SHOUT, brows raised with fear and resolve, eyes tracking collapsing structure, not camera. THREE LARGE roof sections fall, one onto each enemy's raised guard, non-graphic; her own nearby small protective buttress crumbles, showing defense spent. Location: interior CIRCULAR HALL exposed to swirling blue-silver clouds, no garden panorama. Large readable silhouettes, controlled dust, not confetti shard storm. Distinct from two pillars squeezing one enemy; this is roof collapse and urgent escape."
+      }
+    },
+    "resonant": {
+      "base": "ONE square game artwork. Preserve attached PRIM identity and EXACT drawn ANIME 2.5D PICTORIAL finish: androgynous YOUNG ADULT MAN, very dark BLUE-CHARCOAL skin, short IVORY LOCS, GOLD FRECKLES on nose/cheeks, gold HOOP EARRINGS, dark TEAL high-neck tunic, weighted RUST-ORANGE shawl, simple BAMBOO FLUTE. Never lighten skin or change hair, no beard. Drawn expressive anime eyes/facial planes, grouped locs, angular painted volume, controlled material texture, clear silhouette, selective contours, deep cool shadow and cinematic light. No photographic pores, realistic skin anatomy, glossy 3D, flat vector, all-over cracked/peeling paint noise. Paradise/Empyrean ivory/blue/silver/green/gold environment; rust is garment accent, no red background, no sun-emblem banners, no mechanical technology, wings/halos. Natural reactions, gaze tracks action NEVER viewer; correct human anatomy, two arms each, hands and flute physically connected with plausible finger placement on ONE continuous flute. No thin laser beams or magical wires. Sound manifests in DENSE AIR PRESSURE, fluttering cloth, moving dust/stone and tactile golden resonance forms. No text/panels/watermark. Scene: ",
+      "scenes": {
+        "passive": "Eco de Nascimento. EXTREME CLOSE over Prim's shoulder, emphasizing one small solid GOLD resonance ring settling around middle of bamboo flute after healing. Only part of Prim's dark hands and flute visible foreground, part of ivory locs on left, avoid repeating portrait full head framing. Behind, exactly ONE anonymous injured adult ally in pale blue looks at their own bandaged wrist restored and uncurls fingers with relief. Golden dense ring shows stored charge, not a floating music-note icon. Exactly Prim plus ONE ally, no enemies/bird. Soft garden alcove in deep cool shadow with green/silver filtered light, distinct limbs not overlapping, no glowing strings.",
+        "impulso": "Nota Primordial. WIDE LOW SIDE action, exactly Prim and ONE hostile ash-gray ghoul. Prim leans into an emphatic flute note, both hands correctly grip ONE bamboo flute at lips, shoulders and planted legs exerting breath. A SHORT BROAD dense air-pressure front rolls along stone floor and strikes ghoul's torso, physically pushing dust, bending weeds and lifting two loose floor tiles at point of contact. Not a beam from flute; attack is environment displacement. Ghoul staggers backward, watching impact, Prim's eyes directed at ghoul with forceful focus. ONE small solid gold resonance bead beside flute represents generated Graça. High white marble bridge over silver-blue cloud, no additional people.",
+        "tecnica": "Refrão da Vida. HIGH DIAGONAL medium-wide view of EXACTLY THREE PEOPLE: Prim playing flute center, ONE anonymous adult dark-haired woman in silver-blue to left, ONE anonymous older brown-skinned man in ivory to right. Both allies straighten from weary kneeling positions, bandages settle and minor scrapes close; their expressions show renewed readiness and relief. Prim looks toward their recovery with concentrated empathy, cheeks/breath natural, both hands on ONE continuous flute. Gentle DENSE curved air ripples move fallen leaves evenly around all three, no thin luminous wires, no beam. Stone terrace under white flowering tree, deep blue shade, green-gold filtered light, distinct silhouettes and anatomically separate hands. No enemies.",
+        "voto": "Canto que Abre o Mundo. Over-shoulder LOW WIDE view from behind Prim's left side; face visible in sharp profile watching EXACTLY THREE HOSTILE GHOULS spaced across an amphitheatre stair. Prim plants one foot forward, plays ONE bamboo flute with both hands, shawl swept backward by force. A BROAD dense AIR PRESSURE FRONT sweeps the amphitheatre floor, raising a solid rolling ridge of dust, petals and loose stone tiles that strikes all THREE enemies, each recoiling in different physical pose, no gore. Four figures total. NOT three lasers, not energy strings, not floating musical symbols; pressure visible via displaced material and painted air mass. Pale marble amphitheatre against blue mist, silver-gold light, clear count of three opponents.",
+        "despertar": "Pausa Anterior ao Som, PERSONAL evasive defense. Tight lateral frame: Prim sharply stops playing and lowers flute close against own chest with one hand, opposite palm braces an ivory column as body pivots to slip behind it. Exactly ONE ghoul claw sweeps past the place Prim just occupied and hits the column, with stone grit suspended in the sudden quiet. Prim's dark anime eyes follow passing claw, alert startled expression, shoulders and spine turn plausibly; no impossible arm twists. Shawl folds heavily with movement, no ally, no duplicate figure/afterimage. Shadowed cloister with pale green reflected light and cool silver edge, no beams, no visible damage to Prim."
+      }
+    }
+  }
+}

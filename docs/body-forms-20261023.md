@@ -65,3 +65,4 @@ A revisão em 320 px ficou sem transbordamento horizontal: área de conteúdo 30
 
 
 O fluxo normal da campanha também foi conferido: Fortaleza de Luz foi enfileirada com a única unidade inicial de Essência, do tipo Cinza; retirar o pagamento bloqueou a confirmação e mover o foco para o controle disponível preservou o uso por teclado. Enter completou o pagamento e a confirmação executou a defesa, exibindo INVULNERÁVEL.
+

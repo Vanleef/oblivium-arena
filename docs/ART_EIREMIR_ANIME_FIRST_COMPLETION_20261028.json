@@ -1,0 +1,47 @@
+{
+  "id": "eiremir-anime-first-completion-20261028",
+  "date": "2026-10-28",
+  "characterId": "eiremir",
+  "displayName": "Eiremir",
+  "world": "Limbo",
+  "realm": "Limbo",
+  "artDirection": "Anime 2.5D pictórico shonen no Limbo. Pessoa adulta andrógina de pele castanho-escura, cachos negros volumosos com reflexos violetas e olhos lilases claros, vestida em camadas de carvão e violeta. O vazio, os arcos quebrados e os fluxos violetas reforçam a anomalia espelhada. Paleta roxa, cinza, lilás e azul desbotado; anatomia e ação legíveis, sem tecnologia ou armas. Poses, olhares e expressões naturais e coerentes com a ação; preservar suas características físicas fora de efeitos previstos pelo kit. Em cenas de ação, Eiremir orienta olhar e expressão ao evento, sem contato visual com a câmera ou pose de apresentação.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/eiremir/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/eiremir-anime-first-completion-20261028/portrait.webp",
+      "scene": "Eiremir se volta para uma fenda que se abre fora do quadro, atento ao movimento no Limbo, sob um manto carvão."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/eiremir/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/eiremir-anime-first-completion-20261028/passive.webp",
+      "scene": "Eiremir fecha naturalmente a mão ao redor do mote violeta que retorna da marca no ombro de uma alma pálida; o olhar acompanha a essência. O punho tem silhueta natural e articulada."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/eiremir/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/eiremir-anime-first-completion-20261028/impulso.webp",
+      "scene": "De costas em ângulo baixo, Eiremir transfere o peso durante um passo e volta o rosto de perfil para a alma encapuzada ao longe; uma marca violeta aparece em seu ombro entre arcos quebrados."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/eiremir/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/eiremir-anime-first-completion-20261028/tecnica.webp",
+      "scene": "Eiremir se firma atrás de uma coluna partida, tronco virado para uma alma idosa cinza-pálida que recua; o fluxo retorna pela manga e uma linha violeta rompe a sombra do alvo."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/eiremir/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/eiremir-anime-first-completion-20261028/voto.webp",
+      "scene": "Em primeiro plano, a alma marcada se dobra quando a marca violeta colapsa numa ressonância; Eiremir acompanha o impacto em perfil ao fundo, no fim de um giro de corpo."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/eiremir/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/eiremir-anime-first-completion-20261028/despertar.webp",
+      "scene": "Eiremir, sozinho, recua quando uma onda de sombra atinge sua barreira violeta; joelhos flexionados, um pé desliza e o rosto se contrai enquanto acompanha a força que chega."
+    }
+  ]
+}

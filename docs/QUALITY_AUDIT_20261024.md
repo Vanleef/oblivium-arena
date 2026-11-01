@@ -41,3 +41,4 @@ No desenvolvimento, `npm run dev` prepara armazenamento local em `.pma-dev-data.
 - `node scripts/simulate-combat.mjs` verifica partidas completas e invariantes de estado com sementes fixas.
 - `node scripts/simulate-combat.mjs --difficulty-ladder` compara a curva sem progresso e com Legados acumulados.
 - QA visual no navegador e avaliação de builds humanas continuam necessárias para fechar o balanço e o acabamento artístico.
+

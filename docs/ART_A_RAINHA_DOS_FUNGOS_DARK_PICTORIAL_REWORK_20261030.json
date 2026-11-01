@@ -1,0 +1,164 @@
+{
+  "title": "Myra — A Rainha dos Fungos — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "a-rainha-dos-fungos",
+  "characterName": "Myra",
+  "characterTitle": "A Rainha dos Fungos",
+  "aliases": [
+    "A Rainha dos Fungos"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Pútrido",
+  "essence": "Graça",
+  "style": "Dark fantasy anime-first 2.5D pictórica, pinceladas angulares, contornos manuais, hachuras, sombras de corte e textura tátil de tecido, basalto e fungos.",
+  "identity": "Myra, mulher adulta de cerca de 40 anos, pele lavanda, bob preto, rosto fino e severo, vestido marfim de gola alta, manto de cogumelos roxos e cetro de raiz entalhada. Humana e de anatomia coerente.",
+  "environment": "Inferno/Pútrido: ruínas de basalto, fuligem, estruturas antigas e luz carmesim contida. Sem tecnologia, maquinaria, gore ou horror corporal.",
+  "sceneVariety": "Retrato baixo, close lateral no cogumelo, golpe lateral com projétil físico, proteção oblíqua do trio, ataque por cima do ombro e defesa traseira baixa.",
+  "anatomyReview": "Seis candidatas inspecionadas. Beatrix mantém pele lavanda, bob preto e anatomia humana. A cena de proteção tem exatamente Beatrix e dois aliados, sem inimigos. As cenas ofensivas mostram um único alvo. A defesa mostra um atacante e um dardo curto parado na superfície do manto, fora do corpo.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — A Rainha dos Fungos",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Beatrix encara o observador com pele lavanda, bob preto, vestido marfim de gola alta, manto de cogumelos roxos e cetro de raiz entalhada.",
+      "prompt": "Retrato humano de Beatrix, adulta de cerca de 40 anos; pele lavanda, bob preto, vestido marfim de gola alta, manto de cogumelos roxos e cetro de raiz. Sem figuras extras.",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-6bf5991f-816f-4b69-bd43-d1a953e7f62a.png",
+      "generatedSourceSha256": "514552d01720fb53fccd9f08c8bdaec7e8b36470e8609ccf5c128ef2c3610992",
+      "generatedSourceBytes": 3045887,
+      "candidatePath": "art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/a-rainha-dos-fungos-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "candidateBytes": 80954,
+      "candidateSha256": "96532bba9de79e7b0a8b2efcbdb2cac489b2cc4ca3e17bf3bfd2ee4df05fba74",
+      "sourceBytes": 226766,
+      "sourceSha256": "cbe49b40b42846883d1347d07ae3bc903fa1d2bebb7d55395c0a2cb8df095c84"
+    },
+    {
+      "slot": "passive",
+      "name": "Colônia Viva",
+      "targetCount": "none",
+      "camera": "Close lateral de rosto, mãos e manto",
+      "scene": "Beatrix examina um único cogumelo roxo preso ao manto e abre suas lamelas com os dedos; esporos finos assentam na colônia.",
+      "prompt": "Close das mãos humanas de Beatrix abrindo as lamelas de um único cogumelo preso ao manto; esporos físicos discretos, sem símbolos flutuantes.",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-14e4d101-45d5-44a6-b26b-22e3e0344f95.png",
+      "generatedSourceSha256": "caaf21309769f55af72a720148f667ba5a4d4d4691a89016c7bb2fee1f6b8246",
+      "generatedSourceBytes": 2756096,
+      "candidatePath": "art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/a-rainha-dos-fungos-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "candidateBytes": 65836,
+      "candidateSha256": "17aea89701d0c79b69fd61bdf04bd6876d6092d2c34ab8c36b3567517f4308ef",
+      "sourceBytes": 195538,
+      "sourceSha256": "1a36e8197cd10429aa4a589312bccc8604395107679dfe7fd0c19c522be15f37"
+    },
+    {
+      "slot": "impulso",
+      "name": "Semear Esporos",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral baixo e amplo",
+      "scene": "Beatrix aponta o cetro de raiz e lança um único caroço de esporos duro contra um ghoul; a trajetória é física, sem raio de energia.",
+      "prompt": "Um único ghoul alvo; um projétil esférico de esporo lançado pelo cetro de raiz, ação física e legível, sem feixe ou explosão em área.",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-bd593486-fda1-49ab-8a3e-81240e5a8ed8.png",
+      "generatedSourceSha256": "41ac6c6f72326ff18929ec39d88a671132f925550fa7c9f532be05214c5399f8",
+      "generatedSourceBytes": 2823697,
+      "candidatePath": "art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/a-rainha-dos-fungos-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "candidateBytes": 75218,
+      "candidateSha256": "98ddfda13f5f0b69117653c7472e0360382840ea2563a8dd5ef3a17c20288aee",
+      "sourceBytes": 216172,
+      "sourceSha256": "e6b3c26bce8deadef4982807d5fa2631abaf08320471224c5b44dd2e4ba52225"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Micélio de Amparo",
+      "targetCount": "trio aliado: Beatrix e duas pessoas",
+      "camera": "Vista alta oblíqua",
+      "scene": "Beatrix e exatamente dois aliados distintos ficam sob um dossel protetor baixo de micélio em camadas; não há inimigos na cena.",
+      "prompt": "Exatamente três pessoas — Beatrix, reconhecível pelo bob preto e pele lavanda, e dois aliados diferentes — protegidas sob um dossel de micélio; sem inimigos.",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-be91d008-72f9-4e76-a712-0fd8d3ed0322.png",
+      "generatedSourceSha256": "460736c07317ec9b3cfb82a3e904e2bd0b75a92f6f06c4cac3db07fda36d934f",
+      "generatedSourceBytes": 3143921,
+      "candidatePath": "art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/a-rainha-dos-fungos-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "candidateBytes": 85594,
+      "candidateSha256": "69eebd2758dae9c38926c9aab5e99ab5a7e879808b02bb44e32240529677bb88",
+      "sourceBytes": 236115,
+      "sourceSha256": "dd7f03444b0481e1004059c60349f22964bafd6e2b9ffd1c9c7a92952a3fd0c8"
+    },
+    {
+      "slot": "voto",
+      "name": "Florir da Colônia",
+      "targetCount": "one marked ghoul",
+      "camera": "Reversa por cima do ombro",
+      "scene": "Beatrix canaliza o cetro para um único ghoul já marcado; o micélio cobre a manopla e apaga o brilho da armadura, sem atingir carne.",
+      "prompt": "Um ghoul já marcado; micélio físico se fixa na superfície da manopla e torna o metal fosco, sem horror corporal, sem outros inimigos.",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-95fb9183-3caf-4542-b892-5b20758e13a6.png",
+      "generatedSourceSha256": "1b277276af1061d7e09025d279807d0cb4671e20dba7224335717576b9765828",
+      "generatedSourceBytes": 3002355,
+      "candidatePath": "art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/a-rainha-dos-fungos-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "candidateBytes": 73942,
+      "candidateSha256": "76c970bbd669e997e5be768aa879aadcb3e8eec9852dc1767c57a58495f8d523",
+      "sourceBytes": 219084,
+      "sourceSha256": "954b6b9e45a811902bf27adcf488b9a59e738d0ee214acd9038affc8ff5fb69d"
+    },
+    {
+      "slot": "despertar",
+      "name": "Coroa de Esporos",
+      "targetCount": "self; one attacker",
+      "camera": "Reversa baixa por trás de Beatrix",
+      "scene": "Um único ghoul tenta acertar Beatrix com um dardo curto arremessado à mão; o manto rígido de cogumelos detém o dardo fora de suas costas.",
+      "prompt": "Beatrix, bob preto e pele lavanda; um único atacante arremessa à mão um único dardo curto sem emplumação; o dardo para na camada externa do manto, sem ferir o corpo.",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-b12a03eb-e399-46b5-881e-89f232551680.png",
+      "generatedSourceSha256": "3115351794844928317eb4d7e1009b4498464f34520e88cfeec79a64fb921ede",
+      "generatedSourceBytes": 2861520,
+      "candidatePath": "art/characters/a-rainha-dos-fungos/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/a-rainha-dos-fungos-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "candidateBytes": 74068,
+      "candidateSha256": "5c5c8dde72f6e1494e8ed035ef49535ab8be56e8709bc97d01bcdb6ac1d74626",
+      "sourceBytes": 213306,
+      "sourceSha256": "026ded32422c868fefd80653020b586c2b13ebcd8feed0a8e128bb64cb62d095"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "o-espelho-dark-pictorial-rework-20261101",
+  "characterId": "o-espelho",
+  "displayName": "Parrhasius, O Espelho",
+  "world": "Inferno",
+  "realm": "Oblívio",
+  "artDirection": "Dark fantasy pictórica PMA 2.5D: pinceladas angulares visíveis, contornos manuais, hachuras, sombras profundas, materialidade tátil e luz de recorte. Inferno/Oblívio em preto, carvão, vermelho-sangue, oxblood e brasa.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/portrait.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e2a6c1985c272debd183eb3a3e358d446a5ed5e31b986c3bcaade4731435029d",
+      "activeSha256": "787c4d75cc8af5f2d67446c353ed87d28f91f835590ff0b78c2981ef07191c43",
+      "scene": "Close em 3/4: olhos cinzentos e fios marfim nas locs, manto negro e fragmentos de obsidiana; Oblívio em vermelho e carvão."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/passive.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "d69ae1e88e5f8dfd2a7ee4a106e1e86cbb25f8417b295b76a891f9fa3770c00d",
+      "activeSha256": "a6e764a373d45f4babba82d2015c5b715ff845c3c8924c5d4e16b568b55120f9",
+      "scene": "Impacto visto por cima do ombro: o golpe do ghoul racha a guarda espelhada ainda firme e devolve estilhaços ao punho agressor."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/skill-impulso.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/skill-impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ad79282497986cd2d35e9397176e3c7ff2f6d45ff78b0627b504a26f108e8583",
+      "activeSha256": "2cf696669a07a906fc02d50e6994a8b416d3c600752bf00c26cb266697e7eac9",
+      "scene": "Parrhasius vira uma lasca de espelho para revelar a fissura vulnerável no ombro de um único ghoul e a atinge com um plano vermelho denso."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/skill-tecnica.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/skill-tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "8db929db26474f3cc4736fc17d13539525f87f44fcd5e4e87d204e7f4cba3e7c",
+      "activeSha256": "5fb95f3954f6ac93c0d19392c4f01ec218677cb7608e63d9888bc2b0861fdbff",
+      "scene": "Parry em diagonal: Parrhasius gira o corpo e desvia o cutelo do único ghoul com uma placa de obsidiana; a intenção começa a retornar."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/skill-voto.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/skill-voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "98fe347156fba8b10043f6facccdac7235c81e5f7a9f795c3dd5f429673264c0",
+      "activeSha256": "50e67a4082911e7e80a2c13ffcc8a3be34b3541d333da4f0d351d98976243386",
+      "scene": "Golpe perfurante em um ponto já exposto: um estilhaço atravessa a guarda do ghoul e rompe placas protetoras reais."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/skill-despertar.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/skill-despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "9592c5cd2976cdd5302589ec258609bab390dab467caf73fc29491f9c5441263",
+      "activeSha256": "bde6791d5b4bd8bdb58ede32173e73d8ed6700177b4ab7139a491c7a57c781b9",
+      "scene": "Vista alta e fechada: Parrhasius recolhe cabeça e ombro atrás de uma grande placa curva de vidro vulcânico que absorve o golpe."
+    },
+    {
+      "slot": "impulso:returned",
+      "path": "/art/characters/o-espelho/dark-pictorial-rework-20261101/skill-impulso-returned.webp",
+      "source": "art/source/o-espelho-dark-pictorial-rework-20261101/skill-impulso-returned.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "7884eda49c9255ab80fba6cde9eb618ba4a6ed0f37b904222c5095760d22898b",
+      "activeSha256": "e56857488a9549e75ffd4b31bd91cd7662efeef452a2eff49972969ba63bca5d",
+      "scene": "O estilhaço retorna pelo arco do golpe e perfura o ghoul; placas de proteção escurecidas se soltam e caem."
+    }
+  ],
+  "previousArtDirection": "Acabamento anterior anime 2.5D com cenário glacial e reflexos frios; reformulado para dark fantasy pictórica infernal, com efeitos materiais e variedade de enquadramento.",
+  "identity": "Parrhasius mantém pele marrom-escura, rosto estreito, locs pretos curtos com mechas marfim e olhos cinzentos claros. Veste manto ritual carvão, cachecol escuro e poucas placas de obsidiana espelhada talhadas e presas ao tecido; sem tecnologia ou armadura mecânica.",
+  "mechanicsPreserved": true,
+  "visualApproval": "rejected_by_user_direction_feedback",
+  "revisionDate": "2026-11-01",
+  "revisionSummary": "Sete imagens refeitas: seis slots-base e a forma dedicada Estilhaço Devolvido. As ações, alvos únicos, defesa, passiva de retorno e efeitos de exposição/perfuração/expurgo seguem o kit; a composição varia entre retrato, impacto, parry, ataque e proteção. As versões deste bloco foram posteriormente rejeitadas pelo usuário por desalinhamento com a linha de arte do projeto e substituídas pelo relatório de correção conjunta de 2026-11-01.",
+  "reviewChecklist": {
+    "identity": "Pele marrom-escura, locs pretos com fios marfim, olhos cinzentos e roupa escura preservados do retrato canônico.",
+    "worldPalette": "Inferno/Oblívio em carvão, preto, vermelho profundo e brasa; sem paleta glacial, dourada ou azul.",
+    "rendering": "Autorrevisão inicial classificou a candidata como pictórica, mas o usuário rejeitou o resultado por acabamento cinematográfico e polido demais; a nova correção conjunta deve ser tratada como a candidata atual.",
+    "anatomy": "Gestos e apoios conferidos nas sete cenas; mãos, ombros, braços e articulações legíveis.",
+    "actionsAndTargets": "Ataques individuais mostram um único ghoul; a passiva e o contra-ataque têm duas figuras; a defesa mostra apenas Parrhasius e o golpe entrando de fora do quadro.",
+    "mechanics": "Imagem Verdadeira expõe uma abertura; Devolver a Intenção prepara o contra-ataque; Fratura da Ilusão perfura e desfaz a guarda; Dentro do Reflexo protege o próprio Parrhasius; Estilhaço Devolvido remove camadas protetoras e restaura a forma-base.",
+    "restrictions": "Sem duplicação/reflexo corporal de Parrhasius, tecnologia, mecanismo, feixe fino, magia sem materialidade, gore ou texto.",
+    "visualApproval": "Versão anterior rejeitada por feedback explícito do usuário; substituída por candidata pendente no relatório de correção."
+  },
+  "status": "superseded_by_direction_correction",
+  "supersededBy": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
+  "directionFeedback": "O usuário apontou que os dois blocos mais recentes não condiziam com a direção e a linha de arte do projeto. A revisão confirmou acabamento excessivamente cinematográfico e polido, sem correspondência suficiente com as pinceladas angulares, contornos manuais e hachuras da referência oficial."
+}
