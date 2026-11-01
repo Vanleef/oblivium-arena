@@ -75,6 +75,16 @@
       "characterId": "o-elo-dourado",
       "slot": "despertar",
       "prompt": "Square fantasy game ability illustration. First reference exact character identity, second reference DRAWING STYLE ONLY: strong anime facial construction and expressive ink contours, clear graphic shadows and hair shapes. No copying the second reference character/clothes/roses. Anime 2.5D pictorial, Arcane dramatic painted volume and lighting, Spider-Verse graphic energy, controlled sparse texture, clean readable silhouettes. No photoreal face, realistic 3D, peeling/cracked/mosaic texture, technology, text or UI. Correct natural anatomy and hands. Never camera eye contact or posed expressions. Paraíso ivory stone, filtered gold light, pale blues and light greens. Exactly Damon and ONE attacker. Damon plants his feet and raises chain-bound forearm; incoming blade hits compact interlocking gold ward and glances aside. Calm protective resolve under strain, attacker startled. Profile angle, coherent arms/hips/shoulders, personal protection only, no other figures."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "tecnica",
+      "prompt": "Square fantasy game illustration, anime 2.5D pictorial, expressive drawn contours, stylized anime faces, angular painted volume, dramatic cinematic contrast, controlled texture. Preserve reference Damon's stocky broad brown-skinned middle-aged build, dark curls, ivory sleeves, green apron, wrist cuff and short heavy chain. No photorealism/realistic 3D, cracked/mosaic surface, technology, text or UI. Correct natural anatomy. Candid narrative action, never look at viewer. Avoid lined-up characters, extended fists toward viewer, and raised-forearm sword-block composition. PROMESSA DE COMBATE: exactly THREE allies total: Damon and two unnamed companions. Wide HIGH OBLIQUE view down an ivory garden stairway, cool blue shadow and shafts of gold. They are moving at different depths: one companion vaults down a step ahead, Damon turns mid-stride to catch the forearm of the second companion who has stumbled behind him. His other hand holds a short heavy ritual chain by his hip; compact golden protection settles into all THREE people's clothes as broad woven plates, no floating shards or thin beams. Damon looks directly at the stumbling companion, mouth open calling encouragement, brows concerned; front ally glances back alertly, rear ally strains to regain footing. Bodies carry momentum, knees bent, asymmetrical silhouettes and clear arm continuity. Three people cooperating during danger, no enemy visible. No identical armor or matching poses."
+    },
+    {
+      "characterId": "o-elo-dourado",
+      "slot": "despertar",
+      "prompt": "Square fantasy game illustration, anime 2.5D pictorial, expressive drawn contours, stylized anime faces, angular painted volume, dramatic cinematic contrast, controlled texture. Preserve reference Damon's stocky broad brown-skinned middle-aged build, dark curls, ivory sleeves, green apron, wrist cuff and short heavy chain. No photorealism/realistic 3D, cracked/mosaic surface, technology, text or UI. Correct natural anatomy. Candid narrative action, never look at viewer. Avoid lined-up characters, extended fists toward viewer, and raised-forearm sword-block composition. ELO INQUEBRÁVEL, PERSONAL INVULNERABILITY: Damon ALONE, only one character, no attacker. Low wide side view at knee height in a shaded marble passage with blue/green reflected light and one gold light shaft. A heavy stone lintel has just collapsed from above; Damon drops onto one bent knee, leans forward and tucks chin while his cuff chain coils into a compact dense golden shell along his back and shoulders. Falling stone pieces break and slide around the invulnerable shell, chipping floor beside his planted boot. Both hands open and naturally spread toward ground for balance, not fists or overhead blocks. His face in side profile follows the nearest falling stone, involuntary clenched jaw and eyes narrowed against dust. Whole body readable, plausible hips/knees/shoulders, real startled defensive motion with weight. No huge magic bubble, no beam, no other people."
     }
   ],
   "nextAction": "Generate the eleven missing pieces under the current direction, review every piece for style, anatomy, gaze, scene expression and target counts, then replace both complete active kits. Do not reuse rejected previews as final assets.",
@@ -165,15 +175,15 @@
     },
     {
       "path": "art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-tecnica.webp",
-      "local": "/workspace/scratch/f3f1a914fa5c/correction-final/art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-tecnica.webp",
-      "bytes": 92760,
-      "sha256": "c954d4257c7b3f0f3caed076c4dbfc8f6a56594baf9d23f765b13e3f1350a9d1"
+      "local": "/workspace/scratch/f3f1a914fa5c/replacements-damon/art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "bytes": 97308,
+      "sha256": "102b033b035afd23bfc8df2dc6d31f8059cadf8074664d86ec92276c2899e51a"
     },
     {
       "path": "art/source/o-elo-dourado/anime-pictorial-rework-20261101/skill-tecnica.jpg",
-      "local": "/workspace/scratch/f3f1a914fa5c/correction-final/art/source/o-elo-dourado/anime-pictorial-rework-20261101/skill-tecnica.jpg",
-      "bytes": 234688,
-      "sha256": "a61b15a668c9a5d54f7f790ca7b5f824ebe713f0a4df02afbef8dcea0dc1eeae"
+      "local": "/workspace/scratch/f3f1a914fa5c/replacements-damon/art/source/o-elo-dourado/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "bytes": 232533,
+      "sha256": "a9b5b05bcbf69480476a14a70996230713d91db8a908f983f796aeab6aeacb85"
     },
     {
       "path": "art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-voto.webp",
@@ -189,15 +199,15 @@
     },
     {
       "path": "art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-despertar.webp",
-      "local": "/workspace/scratch/f3f1a914fa5c/correction-final/art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-despertar.webp",
-      "bytes": 74770,
-      "sha256": "5a6619bf2b5d669e2a4e1c68b3cf10fbab579ae2e29c8cd37c137d97f441151f"
+      "local": "/workspace/scratch/f3f1a914fa5c/replacements-damon/art/characters/o-elo-dourado/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "bytes": 87748,
+      "sha256": "56ec99be37382f210093dd0f4ba79978448305892043e722e76d9e738acf1c14"
     },
     {
       "path": "art/source/o-elo-dourado/anime-pictorial-rework-20261101/skill-despertar.jpg",
-      "local": "/workspace/scratch/f3f1a914fa5c/correction-final/art/source/o-elo-dourado/anime-pictorial-rework-20261101/skill-despertar.jpg",
-      "bytes": 190773,
-      "sha256": "963edd05ea8dba19d0581ddcf2b281b98ad5d22df033002c2c4dd8117c4e507e"
+      "local": "/workspace/scratch/f3f1a914fa5c/replacements-damon/art/source/o-elo-dourado/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "bytes": 211538,
+      "sha256": "e74af70dc6a7accb716e31054aa26205150495b189904767fc34fd446e2216a4"
     },
     {
       "path": "art/characters/a-que-une/anime-pictorial-rework-20261101/portrait.webp",
@@ -231,5 +241,20 @@
     "targets": "Single enemy for focused attacks, one ally for concentrated support, three allies total for group support.",
     "anatomy": "Inspected visible limbs, hands, shoulders and contact; no obvious extra limbs identified.",
     "limitations": "User visual approval remains pending; no automated test can establish artistic approval."
+  },
+  "latestSceneReplacement": {
+    "date": "2026-11-01",
+    "characterId": "o-elo-dourado",
+    "slots": [
+      "tecnica",
+      "despertar"
+    ],
+    "reason": "User rejected unnatural and repetitive compositions.",
+    "scenes": {
+      "tecnica": "Three allies in motion on stairs; Damon supports a stumbling ally, protected trio.",
+      "despertar": "Damon alone crouches under falling masonry, ritual links protect his back."
+    },
+    "status": "candidate_revised_pending_visual_approval",
+    "mechanicsPreserved": true
   }
 }
