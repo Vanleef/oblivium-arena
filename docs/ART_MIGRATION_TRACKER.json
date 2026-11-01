@@ -74,10 +74,10 @@
   "appIconFilesCompleted": 6,
   "appIconFilesTotal": 6,
   "pending": [
-    "Migrar os 53 personagens restantes e suas formas dedicadas para a direção dark fantasy pictórica.",
+    "Migrar os 51 personagens restantes e suas formas dedicadas para a direção dark fantasy pictórica.",
     "Criar imagens próprias para as 29 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Revisar visualmente os 637 ativos candidatos integrados na direção dark fantasy atual; sete já foram aprovados."
+    "Revisar visualmente os 649 ativos candidatos integrados na direção dark fantasy atual; sete já foram aprovados."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -118,12 +118,12 @@
   "latestDarkPictorialBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-olho-desarmado"
+      "o-elo-dourado"
     ],
     "candidateSlotsAdded": 6,
     "candidateSlotsActivated": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json"
+    "report": "docs/ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
   },
   "currentDirectionCorrectionHistory": [
     {
@@ -298,11 +298,11 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 650,
-    "remainingSlots": 348,
-    "fullyMigratedEntries": 98,
-    "remainingEntries": 52,
-    "awaitingVisualApprovalSlots": 643,
+    "integratedCandidateSlots": 656,
+    "remainingSlots": 342,
+    "fullyMigratedEntries": 99,
+    "remainingEntries": 51,
+    "awaitingVisualApprovalSlots": 649,
     "approvedSlots": 7
   },
   "latestVisualCorrection": {

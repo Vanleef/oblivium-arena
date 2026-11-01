@@ -6,16 +6,16 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 113,
-  "newAbilityScenesSaved": 586,
+  "newPortraitsSaved": 114,
+  "newAbilityScenesSaved": 591,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Revisar visualmente as 14 artes corrigidas de Parrhasius e Idrisi; as versões anteriores foram recusadas por desalinhamento da linha pictórica.",
-    "Continuar a migração dos 52 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 51 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 29 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 643 ativos candidatos pendentes na direção atual, incluindo o novo bloco corrigido de 14 imagens."
+    "Revisar visualmente os 649 ativos candidatos pendentes na direção atual, incluindo o novo bloco corrigido de 14 imagens."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -82,7 +82,8 @@
     "aMaoProductionReport": "docs/ART_A_MAO_QUE_TOMA_DARK_PICTORIAL_REWORK_20261030.json",
     "parrhasiusProductionReport": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json",
     "idrisiProductionReport": "docs/ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json",
-    "haythamProductionReport": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json"
+    "haythamProductionReport": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json",
+    "aureliaProductionReport": "docs/ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
   },
   "planningNotes": [
     "Atlas e Colapsar a Abóbada consomem toda a Defesa do usuário.",
@@ -225,19 +226,21 @@
       "mechanicsPreserved": true
     },
     "haythamArtwork": "6 JPEG source images at 768x768 and 6 active WebP assets at 512x512; identity, Sol palette, one-target scenes, single-ally support, personal evasion and anatomy reviewed; candidates pending visual approval.",
-    "haythamRuntime": "Updated art routes only; no combat mechanics or combat fields changed."
+    "haythamRuntime": "Updated art routes only; no combat mechanics or combat fields changed.",
+    "aureliaArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; identidade canônica, paleta Vênus, ações, anatomia, mãos, contagens de alvos e proteção do trio revisadas; aguardam aprovação visual.",
+    "aureliaRuntime": "Rotas de arte e documentação atualizadas; nenhuma mecânica de combate alterada."
   },
   "latestProduction": {
     "date": "2026-11-01",
-    "characterId": "o-olho-desarmado",
-    "characterName": "Haytham",
-    "title": "O Vidente",
+    "characterId": "o-elo-dourado",
+    "characterName": "Aurelia / Damon",
+    "title": "O Fraterno",
     "candidateSlots": 6,
     "existingFormSlotsActivated": 0,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json"
+    "report": "docs/ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
   },
-  "newDarkPictorialCandidateAssets": 572,
+  "newDarkPictorialCandidateAssets": 578,
   "latestRegistryIntegration": {
     "date": "2026-11-01",
     "newCharacterRows": [
@@ -265,7 +268,8 @@
     "updatedCharacterRows": [
       "o-incendiario",
       "nilo-cinza-epilogo",
-      "o-olho-desarmado"
+      "o-olho-desarmado",
+      "o-elo-dourado"
     ],
     "candidateAssetRoutesWired": 150,
     "correctedReports": [
@@ -282,7 +286,8 @@
       "ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json",
       "ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json",
       "ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
-      "ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json"
+      "ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json",
+      "ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
     ],
     "anatomyCorrections": [
       {
@@ -319,6 +324,11 @@
         "characterId": "a-cartografa-da-clareza",
         "slot": "seven-assets",
         "change": "Refação pela referência pictórica oficial; removidos instrumentos mecânicos; anatomia, ações e contagem de alvos conferidas; mecânicas preservadas."
+      },
+      {
+        "characterId": "o-elo-dourado",
+        "slot": "six-assets",
+        "change": "Refação pictórica para Paraíso/Vênus; identidade canônica, continuidade da corrente, ações e contagens de alvos conferidas."
       }
     ],
     "status": "candidate_integrated_pending_visual_approval"

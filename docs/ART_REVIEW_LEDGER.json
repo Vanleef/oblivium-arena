@@ -990,7 +990,13 @@
     "o-olho-desarmado:base:impulso",
     "o-olho-desarmado:base:tecnica",
     "o-olho-desarmado:base:voto",
-    "o-olho-desarmado:base:despertar"
+    "o-olho-desarmado:base:despertar",
+    "o-elo-dourado:base:portrait",
+    "o-elo-dourado:base:passive",
+    "o-elo-dourado:base:impulso",
+    "o-elo-dourado:base:tecnica",
+    "o-elo-dourado:base:voto",
+    "o-elo-dourado:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1644,7 +1650,13 @@
     "o-olho-desarmado:base:impulso",
     "o-olho-desarmado:base:tecnica",
     "o-olho-desarmado:base:voto",
-    "o-olho-desarmado:base:despertar"
+    "o-olho-desarmado:base:despertar",
+    "o-elo-dourado:base:portrait",
+    "o-elo-dourado:base:passive",
+    "o-elo-dourado:base:impulso",
+    "o-elo-dourado:base:tecnica",
+    "o-elo-dourado:base:voto",
+    "o-elo-dourado:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2300,9 +2312,9 @@
   },
   "latestCandidateBatch": {
     "date": "2026-11-01",
-    "characterId": "o-olho-desarmado",
+    "characterId": "o-elo-dourado",
     "candidateSlots": 6,
-    "report": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json",
+    "report": "docs/ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json",
     "status": "candidate_integrated_pending_visual_approval"
   }
 }
