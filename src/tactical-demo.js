@@ -44,6 +44,7 @@ function queueMarkup(){
  return `<ol class="queue">${effective.map((queued,rank)=>{const i=queued.order,a=state.draft[i],u=state.battle.allies.find(u=>u.id===a.actorId),form=a.type==='skill'?u.skillBook.find(k=>k.id===a.abilityId):null,variant=form?.forms?.find(f=>f.formKey===a.formKey),name=a.type==='move'?`Mover até ${cellLabel(a.path.at(-1))}`:variant?.name||form?.name;return `<li><span class="order">${rank+1}</span><div class="description"><strong>${esc(u.name)}</strong> · ${esc(name)}<small>${a.type==='move'?'Movimento':priorityNames[tacticalSpec(u,variant||form).priority]}</small></div><div class="controls"><button data-order="${i}" data-direction="-1" aria-label="Subir ação de ${esc(u.name)}" ${queueNeighbor(i,-1)===null||state.busy?'disabled':''}>↑</button><button data-order="${i}" data-direction="1" aria-label="Descer ação de ${esc(u.name)}" ${queueNeighbor(i,1)===null||state.busy?'disabled':''}>↓</button><button data-remove="${i}" aria-label="Remover ação de ${esc(u.name)}" ${state.busy?'disabled':''}>×</button></div></li>`;}).join('')}</ol>`;
 }
 function portraitSrc(unit){return unit?.art?.portrait||'';}
+function animationAbility(unit,event){const base=event?.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;if(!base)return null;const key=event.formKey;if(!key||key===(base.formKey||'base'))return base;return base._formRoot?.forms?.find(form=>form.formKey===key)||base.forms?.find(form=>form.formKey===key)||base;}
 function patternGrid(pattern){
  const hot={self:[4],cell:[4],line:[3,4,5],cross:[1,3,4,5,7],square:[0,1,2,3,4,5,6,7,8],x:[0,2,4,6,8]}[pattern]||[4];
  return '<span class="area-preview" aria-hidden="true">'+Array.from({length:9},(_,i)=>'<i class="'+(i===4?'origin ':'')+(hot.includes(i)?'hot':'')+'"></i>').join('')+'</span>';
@@ -72,7 +73,7 @@ function boardMarkup(s){
   const unit=occupied(s,p),blocked=obstacle(s,p),reachable=state.mode==='move'&&u&&findPath(s,u.id,p);
   const classes=['cell',blocked?'blocked':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':''].filter(Boolean).join(' ');
   const animClass=unit&&anim?.actorId===unit.id?(anim.type==='move'?'animate-move':anim.type==='skill'?(anim.category===1?'animate-defense':'animate-skill'):'animate-prepare'):'';
-  const animAbility=unit&&anim?.actorId===unit.id&&anim.abilityId?unit.abilities.find(k=>k.id===anim.abilityId):null;
+  const animAbility=unit&&anim?.actorId===unit.id?animationAbility(unit,anim):null;
   const effect=animAbility?(Object.keys(getAbilityResourceCosts(unit,animAbility)).find(k=>k!=='random')||'essence'):'essence';
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait,depthScale=(.89+p.y*.035).toFixed(3),motionId=animAbility?.id||anim?.type||'',motionVariant=motionId?[...motionId].reduce((n,ch)=>n+ch.charCodeAt(0),0)%3:0;
   return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" style="--depth-scale:'+depthScale+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+'" '+(state.busy?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+
@@ -83,7 +84,7 @@ function render(){
  const s=shown(),u=selectedUnit(s),preview=actionPreview(),locked=state.busy||state.battle.tactical.stage==='finished';
  const uses=state.draft.reduce((n,a)=>n+(a.actorId===u?.id),0),a=u?.abilities.find(a=>a.id===state.mode),proposed=candidate(),check=proposed?previewTacticalPlan(state.battle,'player',[...state.draft,proposed]):null;
  const anim=state.animation,animUnit=anim?tacticalUnits(state.battle).find(c=>c.id===anim.actorId):null;
- const animAbility=anim?.abilityId?animUnit?.abilities.find(k=>k.id===anim.abilityId):null,animArt=animAbility?.art||portraitSrc(animUnit);
+ const animAbility=animationAbility(animUnit,anim),animArt=animAbility?.art||portraitSrc(animUnit);
  const callout=anim?'<div class="arena-callout active" data-family="'+esc(anim.family||'strike')+'" data-pose="'+esc(anim.pose||'ready')+'" aria-live="polite">'+(animArt?'<img class="callout-art" src="'+esc(animArt)+'" alt="">':'')+'<span><strong>'+esc(animUnit?.name||'Arena')+'</strong> · '+esc(anim.title||(anim.type==='move'?'Reposicionamento':'Técnica revelada'))+'</span></div>':'<div class="arena-callout">POSICIONE O TRIO · LEIA A ÁREA · REVELE AS AÇÕES</div>';
  const cards=u?[actionCardMarkup(u,null,true),...u.abilities.map(k=>actionCardMarkup(u,k))].join(''):'<p class="muted">Selecione uma alma para abrir seu baralho de técnicas.</p>';
  root.innerHTML='<div class="shell"><header class="topbar"><a class="brand" href="/">OBLIVIUM ARENA</a><span class="eyebrow">TRÊS ALMAS · UM PLANO</span><a href="/" class="muted">Voltar ao jogo ↗</a></header>'+
@@ -103,14 +104,14 @@ function teamSelect(side,index){const units=side==='player'?state.battle.allies:
 function paintAnimationPose(event,frame){
  state.animation={...event,...frame};
  if(!root.querySelectorAll){render();return;}
- for(const token of root.querySelectorAll('.token'))if(token.dataset.unitId===event.actorId){token.dataset.family=frame.family;token.dataset.pose=frame.pose;const image=token.querySelector('.token-art');if(image){const useSkill=['release','impact','followthrough','transfer'].includes(frame.pose)&&token.dataset.skillArt;image.src=useSkill?token.dataset.skillArt:token.dataset.portrait;}}
+ for(const token of root.querySelectorAll('.token'))if(token.dataset.unitId===event.actorId){token.dataset.family=frame.family;token.dataset.pose=frame.pose;const image=token.querySelector('.token-art');if(image){const useSkill=['release','impact','followthrough','transfer'].includes(frame.pose)&&event.abilityArt||(['release','impact','followthrough','transfer'].includes(frame.pose)&&token.dataset.skillArt);image.src=useSkill?(event.abilityArt||token.dataset.skillArt):token.dataset.portrait;}}
  const callout=root.querySelector('.arena-callout');if(callout){callout.dataset.family=frame.family;callout.dataset.pose=frame.pose;}
 }
 function animateRound(events){
  const sequence=events.filter(e=>(e.type==='move'||e.type==='skill')&&e.actorId);
  if(!sequence.length)return;
  const revision=++state.revision;state.busy=true;
- (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=event.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;const frames=tacticalAnimationFrames(ability,event.type);for(const [index,frame]of frames.entries()){if(revision!==state.revision)return;if(index===0){state.animation={...event,...frame};render();}else paintAnimationPose(event,frame);await new Promise(resolve=>setTimeout(resolve,frame.pose==='impact'?115:65));}}
+ (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=animationAbility(unit,event);const frames=tacticalAnimationFrames(ability,event.type);for(const [index,frame]of frames.entries()){if(revision!==state.revision)return;if(index===0){state.animation={...event,...frame};render();}else paintAnimationPose(event,frame);await new Promise(resolve=>setTimeout(resolve,frame.pose==='impact'?115:65));}}
   if(revision!==state.revision)return;state.animation=null;state.busy=false;render();
  })();
 }
