@@ -984,7 +984,13 @@
     "a-cartografa-da-clareza:base:tecnica",
     "a-cartografa-da-clareza:base:voto",
     "a-cartografa-da-clareza:base:despertar",
-    "a-cartografa-da-clareza:form:tecnica:shortcut"
+    "a-cartografa-da-clareza:form:tecnica:shortcut",
+    "o-olho-desarmado:base:portrait",
+    "o-olho-desarmado:base:passive",
+    "o-olho-desarmado:base:impulso",
+    "o-olho-desarmado:base:tecnica",
+    "o-olho-desarmado:base:voto",
+    "o-olho-desarmado:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1632,7 +1638,13 @@
     "a-cartografa-da-clareza:base:tecnica",
     "a-cartografa-da-clareza:base:voto",
     "a-cartografa-da-clareza:base:despertar",
-    "a-cartografa-da-clareza:form:tecnica:shortcut"
+    "a-cartografa-da-clareza:form:tecnica:shortcut",
+    "o-olho-desarmado:base:portrait",
+    "o-olho-desarmado:base:passive",
+    "o-olho-desarmado:base:impulso",
+    "o-olho-desarmado:base:tecnica",
+    "o-olho-desarmado:base:voto",
+    "o-olho-desarmado:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2285,5 +2297,12 @@
     "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
     "status": "candidate_revised_pending_visual_approval",
     "previousVersionDisposition": "rejected_by_user_direction_feedback"
+  },
+  "latestCandidateBatch": {
+    "date": "2026-11-01",
+    "characterId": "o-olho-desarmado",
+    "candidateSlots": 6,
+    "report": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json",
+    "status": "candidate_integrated_pending_visual_approval"
   }
 }

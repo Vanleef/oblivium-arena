@@ -29,6 +29,16 @@ export const characterArtRegistry = {
       }
     }
   },
+  "o-olho-desarmado": {
+    "portrait": "/art/characters/o-olho-desarmado/dark-pictorial-rework-20261101/portrait.webp",
+    "passive": "/art/characters/o-olho-desarmado/dark-pictorial-rework-20261101/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/o-olho-desarmado/dark-pictorial-rework-20261101/skill-impulso.webp",
+      "tecnica": "/art/characters/o-olho-desarmado/dark-pictorial-rework-20261101/skill-tecnica.webp",
+      "voto": "/art/characters/o-olho-desarmado/dark-pictorial-rework-20261101/skill-voto.webp",
+      "despertar": "/art/characters/o-olho-desarmado/dark-pictorial-rework-20261101/skill-despertar.webp"
+    }
+  },
   "o-carrasco-sem-rosto": {
     "portrait": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/portrait.webp",
     "passive": "/art/characters/o-carrasco-sem-rosto/dark-pictorial-rework-20261029/passive.webp",

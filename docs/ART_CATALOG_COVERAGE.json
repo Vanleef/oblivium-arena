@@ -1710,7 +1710,7 @@
     },
     {
       "id": "o-olho-desarmado",
-      "name": "Arcane",
+      "name": "Haytham",
       "title": "O Vidente",
       "realm": "Paraíso",
       "kingdom": "Sol",
@@ -1718,7 +1718,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-elo-dourado",
@@ -2795,24 +2804,21 @@
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 644,
-    "remainingSlots": 354,
-    "fullyMigratedEntries": 97,
-    "remainingEntries": 53,
-    "awaitingVisualApprovalSlots": 637,
+    "integratedCandidateSlots": 650,
+    "remainingSlots": 348,
+    "fullyMigratedEntries": 98,
+    "remainingEntries": 52,
+    "awaitingVisualApprovalSlots": 643,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-espelho",
-      "a-cartografa-da-clareza"
+      "o-olho-desarmado"
     ],
-    "candidateSlotsAdded": 0,
-    "candidateSlotsReplaced": 14,
-    "candidateSlotsActivated": 14,
-    "previousCandidateStatus": "rejected_by_user_direction_feedback",
-    "status": "candidate_revised_pending_visual_approval",
-    "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json"
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json"
   }
 }
