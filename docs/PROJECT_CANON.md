@@ -21,6 +21,10 @@ Gerado por `npm run docs:generate`. Nomes e títulos: `src/roster-identity-overr
 | Identidades físicas e figurinos | [CHARACTER_VISUAL_IDENTITIES.md](CHARACTER_VISUAL_IDENTITIES.md) |
 | Estado da migração visual | [ART_REVISION_STATUS.md](ART_REVISION_STATUS.md) |
 
+## Propostas de evolução
+
+- [Combate tático 5×5 e duas ações por personagem](TACTICAL_COMBAT_PROPOSAL.md): proposta em avaliação, com planejamento simultâneo, padrões de área e Técnicas Misteriosas. Ainda não substitui as regras vigentes.
+
 ## Convenções
 
 - Marca: **Oblivium Arena**. PMA e Post Mortem Arena são nomes históricos; IDs, arquivos e variáveis com esse prefixo podem continuar por compatibilidade.

@@ -106,6 +106,10 @@ O [índice canônico do projeto](docs/PROJECT_CANON.md) reúne as referências v
 - [Avaliação do combate](docs/COMBAT_QA.md)
 - [Arena online](docs/online-arena.md)
 
+## Proposta de evolução do combate
+
+A [proposta de combate tático 5×5](docs/TACTICAL_COMBAT_PROPOSAL.md) descreve planejamento simultâneo, duas ações por personagem e Técnicas Misteriosas. É um documento de design em avaliação; o motor atual ainda usa o fluxo descrito acima.
+
 ## Estado do projeto
 
 Protótipo jogável em desenvolvimento. A expansão do elenco, a revisão visual, o balanceamento e a validação dos recursos online continuam em andamento. A branch `main` representa o conteúdo integrado; trabalhos em pull requests podem conter artes e recursos ainda em revisão.
