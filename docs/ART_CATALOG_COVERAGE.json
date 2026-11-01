@@ -14,7 +14,7 @@
     "entriesWithAnyBaseMissing": 0,
     "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
-    "formsSharedWithBase": 26,
+    "formsSharedWithBase": 24,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0
   },
@@ -1911,11 +1911,19 @@
       "cohort": "original",
       "baseSlots": 6,
       "missingSlots": [],
-      "pendingDedicatedForms": [
-        "a-arquiteta-verde:form:impulso:beam",
-        "a-arquiteta-verde:form:voto:collapse"
+      "pendingDedicatedForms": [],
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar",
+        "impulso:beam",
+        "voto:collapse"
       ],
-      "fullyReviewed": false
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-primeiro-canto",
@@ -1927,7 +1935,16 @@
       "baseSlots": 6,
       "missingSlots": [],
       "pendingDedicatedForms": [],
-      "fullyReviewed": false
+      "fullyReviewed": false,
+      "currentDirectionSlots": [
+        "portrait",
+        "passive",
+        "impulso",
+        "tecnica",
+        "voto",
+        "despertar"
+      ],
+      "currentDirectionStatus": "candidate_integrated_pending_visual_approval"
     },
     {
       "id": "o-passo-interrompido",
@@ -2874,11 +2891,11 @@
   "currentDirectionMigration": {
     "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 703,
-    "remainingSlots": 295,
-    "fullyMigratedEntries": 106,
-    "remainingEntries": 44,
-    "awaitingVisualApprovalSlots": 696,
+    "integratedCandidateSlots": 717,
+    "remainingSlots": 281,
+    "fullyMigratedEntries": 108,
+    "remainingEntries": 42,
+    "awaitingVisualApprovalSlots": 710,
     "approvedSlots": 7
   },
   "latestDarkPictorialBatch": {
@@ -2894,13 +2911,13 @@
   "latestAnimePictorialBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-que-cria",
-      "a-semente"
+      "a-arquiteta-verde",
+      "o-primeiro-canto"
     ],
     "candidateSlotsAdded": 14,
     "candidateSlotsActivated": 14,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ARTIFICE_SEMENTE_ANIME_PICTORIAL_20261101.json"
+    "report": "docs/ART_ARQUITETA_RESSONANTE_ANIME_PICTORIAL_20261101.json"
   },
   "latestCorrectionBatch": {
     "date": "2026-11-01",

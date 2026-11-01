@@ -1043,7 +1043,21 @@
     "a-semente:base:tecnica",
     "a-semente:base:voto",
     "a-semente:base:despertar",
-    "a-semente:form:impulso:fruit"
+    "a-semente:form:impulso:fruit",
+    "a-arquiteta-verde:base:portrait",
+    "a-arquiteta-verde:base:passive",
+    "a-arquiteta-verde:base:impulso",
+    "a-arquiteta-verde:base:tecnica",
+    "a-arquiteta-verde:base:voto",
+    "a-arquiteta-verde:base:despertar",
+    "a-arquiteta-verde:form:impulso:beam",
+    "a-arquiteta-verde:form:voto:collapse",
+    "o-primeiro-canto:base:portrait",
+    "o-primeiro-canto:base:passive",
+    "o-primeiro-canto:base:impulso",
+    "o-primeiro-canto:base:tecnica",
+    "o-primeiro-canto:base:voto",
+    "o-primeiro-canto:base:despertar"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1750,7 +1764,21 @@
     "a-semente:base:tecnica",
     "a-semente:base:voto",
     "a-semente:base:despertar",
-    "a-semente:form:impulso:fruit"
+    "a-semente:form:impulso:fruit",
+    "a-arquiteta-verde:base:portrait",
+    "a-arquiteta-verde:base:passive",
+    "a-arquiteta-verde:base:impulso",
+    "a-arquiteta-verde:base:tecnica",
+    "a-arquiteta-verde:base:voto",
+    "a-arquiteta-verde:base:despertar",
+    "a-arquiteta-verde:form:impulso:beam",
+    "a-arquiteta-verde:form:voto:collapse",
+    "o-primeiro-canto:base:portrait",
+    "o-primeiro-canto:base:passive",
+    "o-primeiro-canto:base:impulso",
+    "o-primeiro-canto:base:tecnica",
+    "o-primeiro-canto:base:voto",
+    "o-primeiro-canto:base:despertar"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2499,12 +2527,12 @@
   "latestCandidateBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-que-cria",
-      "a-semente"
+      "a-arquiteta-verde",
+      "o-primeiro-canto"
     ],
     "candidateSlotsAdded": 14,
     "candidateSlotsActivated": 14,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_ARTIFICE_SEMENTE_ANIME_PICTORIAL_20261101.json"
+    "report": "docs/ART_ARQUITETA_RESSONANTE_ANIME_PICTORIAL_20261101.json"
   }
 }

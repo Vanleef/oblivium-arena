@@ -1,4 +1,32 @@
 export const characterArtRegistry = {
+"a-arquiteta-verde": {
+  "portrait": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-despertar.webp"
+  },
+  "forms": {
+    "impulso": {
+      "beam": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-impulso-beam.webp"
+    },
+    "voto": {
+      "collapse": "/art/characters/a-arquiteta-verde/anime-pictorial-rework-20261101/skill-voto-collapse.webp"
+    }
+  }
+},
+"o-primeiro-canto": {
+  "portrait": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/portrait.webp",
+  "passive": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/passive.webp",
+  "abilities": {
+    "impulso": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-impulso.webp",
+    "tecnica": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-tecnica.webp",
+    "voto": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-voto.webp",
+    "despertar": "/art/characters/o-primeiro-canto/anime-pictorial-rework-20261101/skill-despertar.webp"
+  }
+},
 "o-que-cria": {
   "portrait": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/portrait.webp",
   "passive": "/art/characters/o-que-cria/anime-pictorial-rework-20261101/passive.webp",
