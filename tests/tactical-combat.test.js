@@ -14,6 +14,11 @@ test('5×5 começa sem empilhamento e rejeita formações inválidas',()=>{
  assert.throws(()=>createTacticalBattle([first[0],first[0],first[1]],second));
  assert.throws(()=>createTacticalBattle(first,second,{obstacles:[{x:0,y:1}]}));
 });
+test('buffs, memórias e efeitos de Legado entram no estado tático',()=>{
+ const base=createTacticalBattle(first,second,{seed:7}),upgraded=createTacticalBattle(first,second,{seed:7,buffs:['ward','essence','edge'],memories:[{id:'test',stacks:1,effect:{armor:2}}],globalEffects:{startingCharge:1}});
+ assert.equal(upgraded.allies[0].shield,12);assert.equal(upgraded.resources.essence,base.resources.essence+1);assert.equal(upgraded.buffs.damage,.12);assert.equal(upgraded.allies[0].armor,2);assert.equal(upgraded.allies[0].charge,1);
+});
+
 test('duas ações por alma, até seis, com payload validado sem mutar o combate',()=>{
  const s=create(),u=s.allies[0],before=JSON.stringify(s),p=findPath(s,u.id,{x:1,y:1});
  assert.equal(previewTacticalPlan(s,'player',[{type:'move',actorId:u.id,path:p},{type:'move',actorId:u.id,path:[{x:2,y:1}]},{type:'move',actorId:u.id,path:[{x:3,y:1}]}]).ok,false);

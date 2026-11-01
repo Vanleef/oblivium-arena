@@ -101,3 +101,5 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 /* A área de técnica preserva largura para títulos longos e leitura dos custos. */
 .skills{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
 .skill{min-height:104px}
+
+.active-upgrades{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#d9c9a5}.active-upgrades>div,.reward-choices{display:flex;gap:8px;flex-wrap:wrap}.active-upgrades span{border:1px solid #8d7449;border-radius:999px;padding:5px 9px;font-size:.8rem}.reward-choices button{display:grid;gap:5px;text-align:left;padding:12px;background:#171a1d;color:#f0e7d4;border:1px solid #887044;border-radius:8px;cursor:pointer}.reward-choices small{color:#c5b99f}.result>p{margin:10px 0}

@@ -21,7 +21,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  for(const ids of [playerIds,enemyIds])if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!tacticalRoster.includes(id)))throw Error('Escolha três personagens distintos do elenco piloto em cada lado.');
  const enemyTeam=enemyIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
- const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
+ const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
  s.tactical={version:1,size:5,positions:{},obstacles:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  for(const [side,x]of [['player',0],['enemy',4]])team(s,side).forEach((u,i)=>{s.tactical.positions[u.id]={x,y:i+1};});
