@@ -110,6 +110,12 @@ O [índice canônico do projeto](docs/PROJECT_CANON.md) reúne as referências v
 
 A [proposta de combate tático 5×5](docs/TACTICAL_COMBAT_PROPOSAL.md) descreve planejamento simultâneo, duas ações por personagem e Técnicas Misteriosas. É um documento de design em avaliação; o motor atual ainda usa o fluxo descrito acima.
 
+## Protótipo de combate tático
+
+Na branch de revisão, execute `npm run dev` e abra `/tactical.html` para testar o tabuleiro 5×5 contra a IA. Há seis kits piloto, duas ações por personagem, fila editável, áreas de efeito e reserva de Essência. Defesas são ativadas antes das ofensivas.
+
+`npm run test:tactical` executa os testes específicos. Veja [o estado do protótipo](docs/TACTICAL_COMBAT_PROTOTYPE.md) para regras, validação e limites. A campanha e a Arena online continuam usando o combate atual.
+
 ## Estado do projeto
 
 Protótipo jogável em desenvolvimento. A expansão do elenco, a revisão visual, o balanceamento e a validação dos recursos online continuam em andamento. A branch `main` representa o conteúdo integrado; trabalhos em pull requests podem conter artes e recursos ainda em revisão.

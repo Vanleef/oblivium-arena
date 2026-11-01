@@ -4,6 +4,10 @@
 
 As decisões da proposta estão separadas das recomendações para o protótipo e dos pontos que ainda precisam de definição. Os exemplos de novas técnicas não alteram automaticamente os kits existentes.
 
+## Protótipo disponível na revisão
+
+O primeiro protótipo está implementado em `/tactical.html`, com seis kits, duas ações, reserva de Essência, padrões espaciais e IA. A regra experimental adotada ativa defesas antes das ofensivas. Consulte [TACTICAL_COMBAT_PROTOTYPE.md](TACTICAL_COMBAT_PROTOTYPE.md) para o escopo e os testes. A migração do catálogo inteiro, as Técnicas Misteriosas e a integração à campanha/online ainda não fazem parte dessa entrega.
+
 ## 1. Objetivo e decisões da proposta
 
 Manter o combate 3v3 e a campanha roguelite, acrescentando planejamento simultâneo, posição e padrões de área. O espaço de decisão passa a combinar onde estar, qual região ameaçar e como ordenar as ações do trio.

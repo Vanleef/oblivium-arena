@@ -8,6 +8,7 @@
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test",
+    "test:tactical": "node --test tests/tactical-combat.test.js tests/tactical-ui.test.js",
     "docs:generate": "node scripts/generate-project-docs.mjs",
     "audit:art": "node scripts/audit-art.mjs"
   },

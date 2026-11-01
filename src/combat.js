@@ -274,8 +274,8 @@ function notifyDefeat(s,target,killer){
 }
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
 function apply(s,actor,a,targetId,randomPayment,action={}){
-  const valid=getValidTargets(s,actor,a),targets=["team","all-enemies"].includes(a.target)?valid:[valid.find(u=>u.id===targetId)||(a.target==="self"?actor:null)].filter(Boolean);
-  if(!targets.length){log(s,`${actor.name}: ${a.name} não encontra um alvo válido.`);return {skipped:true,reason:"Alvo indisponível ou Invulnerável."};}
+  const valid=getValidTargets(s,actor,a).filter(u=>!action.spatialTargetIds||action.spatialTargetIds.includes(u.id)),targets=["team","all-enemies"].includes(a.target)?valid:[valid.find(u=>u.id===targetId)||(a.target==="self"?actor:null)].filter(Boolean);
+  if(!targets.length&&!action.boardCast){log(s,`${actor.name}: ${a.name} não encontra um alvo válido.`);return {skipped:true,reason:"Alvo indisponível ou Invulnerável."};}
   const p=pool(s,actor.side),payment=resolveResourcePayment(getAbilityResourceCosts(actor,a),p,randomPayment);
   if(!payment.ok){log(s,`${actor.name} não tem os tipos de Essência escolhidos para ${a.name}.`);return {skipped:true,reason:"Essências escolhidas removidas antes da resolução."};}
   const costs=payment.costs;
@@ -296,10 +296,10 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
    }
    for(const key of possible)if(absorption[key]!=null)absorption[key]=Math.min(100,absorption[key]+5);
   }
-  const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),priorBodyForm=actor.bodyForm||"base",charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,totalPurged=0,affected=0;const reactions=[];
+  const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),priorBodyForm=actor.bodyForm||"base",charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,totalPurged=0,affected=0;const reactions=[],affectedTargetIds=[];
   for(const target of targets){
     if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterRequiresShield||target.shield>0)&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter,effect=target.counterEffect;target.counter=0;const r=hit(s,actor,value,{damageType:target.counterDamageType||"physical",ignoreInvulnerability:true}),notes=[];if(effect?.drainEssence){const n=transfer(s,target.side,effect.drainEssence.amount||1,false,effect.drainEssence.resource||null);if(n)notes.push(`remove ${n} ${essenceName(effect.drainEssence.resource)}`);}if(effect?.stealEssence){const n=transfer(s,target.side,effect.stealEssence.amount||1,true,effect.stealEssence.resource||null);if(n)notes.push(`rouba ${n} Essência`);}if(effect?.generateEssence?.resource){const n=gain(s,target.side,effect.generateEssence.resource,effect.generateEssence.amount||1);if(n)notes.push(`gera ${n} ${essenceName(effect.generateEssence.resource)}`);}if(effect?.dot&&actor.hp>0){actor.dots.push({...effect.dot,sourceId:target.id,skillId:a.id});notes.push("aplica aflição");}if(effect?.expose&&actor.hp>0){actor.exposed=Math.max(actor.exposed,effect.expose);actor.exposedFresh=true;notes.push("expõe o agressor");}if(effect?.mark&&actor.hp>0){actor.marks[effect.mark]={sourceId:target.id,turns:effect.markTurns||2,label:effect.label||"Contra-ataque"};notes.push("marca o agressor");}log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano${notes.length?` · ${notes.join(" · ")}`:""}.`);if(actor.hp<=0)notifyDefeat(s,actor,target);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);triggerPassive(s,owner||(!target.counterSourceId?target:null),"counter",{target,attacker:actor,ability:a,dealt:r.dealt});target.counterFormChanges=[];target.counterEffect=null;target.counterRequiresShield=false;continue;}
-    affected++;
+    affected++;affectedTargetIds.push(target.id);
     const combo=a.combo&&meetsCondition(target,a.combo.condition,actor);let value=0,purgedThis=0,fractureSpend=0;
     if(!isFriendly){
       if(a.damage)triggerPassive(s,actor,"attack",{target,ability:a,costs,damageType:a.damageType||"physical"});
@@ -332,7 +332,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   }
   // Self benefits of an offensive area skill are granted once per cast.
   if(!isFriendly&&affected)applySupport(s,actor,{...a,reactive:null,regen:null,sealSupport:0,sealAttack:0,healingBlock:0,reduceCooldown:0},actor,charges,action);
-  if(isFriendly)log(s,`${actor.name} usa ${a.name}${a.target==="team"?" no trio":` em ${targets[0].name}`}${a.invulnerable?": Invulnerável por 1 turno":": apoio aplicado"}.`);
+  if(isFriendly&&targets.length)log(s,`${actor.name} usa ${a.name}${a.target==="team"?" no trio":` em ${targets[0].name}`}${a.invulnerable?": Invulnerável por 1 turno":": apoio aplicado"}.`);
   if(affected){if(a.lifesteal){const sharedFamine=eloSynergyPeers(team(s,actor.side),actor,"lifesteal");heal(actor,Math.floor(totalDamage*a.lifesteal)+sharedFamine);}if(totalDamage&&actor.passive?.type==="leech"){const passive=actor.passive,typed=passive.healByDamageType,amount=typed?(typed[a.damageType||"physical"]||0):passive.amount;if(amount)heal(actor,amount+eloSynergyPeers(team(s,actor.side),actor,"lifesteal"));}if(isFriendly&&actor.passive?.type==="support")heal(actor,actor.passive.amount);if(a.drain||a.steal){const extra=eloSynergyPeers(team(s,actor.side),actor,"essence"),n=transfer(s,actor.side,(a.steal||a.drain)+extra,Boolean(a.steal));log(s,`${a.steal?"Roubo":"Drenagem"} de Essência: ${n} ${n===1?"unidade":"unidades"}.`);}}
   if(affected){if(a.shieldToDamage?.consume)actor.shield=0;if(a.wardFromDamage)shield(actor,Math.min(20,Math.floor(totalDamage*a.wardFromDamage)));if(a.shieldFromStripped)shield(actor,Math.min(15,Math.floor(totalStripped*a.shieldFromStripped)));if(a.siphonToAlly){const beneficiary=nearest(team(s,actor.side));if(beneficiary)heal(beneficiary,Math.min(15,Math.floor(totalDamage*a.siphonToAlly)));}if(a.escalating&&a.damage)actor.skillGrowth[skillGrowthKey(a)]=Math.min(a.escalating.max,(actor.skillGrowth[skillGrowthKey(a)]||0)+a.escalating.amount);}
   if(a.damage&&affected){actor.globalStrikeUsed=true;if(actor.side==="player"&&s.global.lifesteal)heal(actor,Math.floor(totalDamage*Math.min(.6,s.global.lifesteal)));}
@@ -356,7 +356,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   if(actor.side==="player"&&targets.some(unit=>unit.hp<=0)&&s.global.essenceOnKill){s.essenceKillRound||={};if(s.essenceKillRound.player!==s.round){const amount=gain(s,"player","ruptura",s.global.essenceOnKill);s.essenceKillRound.player=s.round;if(amount)log(s,`${actor.name} · Espólio da queda: +${amount} Ruptura.`);}}
   if(actor.side==="player"&&shifted&&s.global.formEssence){s.formEssenceRound||={};if(s.formEssenceRound.player!==s.round){const amount=gain(s,"player",actor.bodyResource||actor.affinity||"essence",s.global.formEssence);s.formEssenceRound.player=s.round;if(amount)log(s,`${actor.name} · Reflexo faminto: +${amount} Essência após mudar de Forma.`);}}
   if(actor.side==="player"&&isFriendly&&!a.defense&&s.global.supportEssence){s.supportEssenceRound||={};if(s.supportEssenceRound.player!==s.round){const amount=gain(s,"player","graca",s.global.supportEssence);s.supportEssenceRound.player=s.round;if(amount)log(s,`${actor.name} · Refrão de apoio: +${amount} Graça.`);}}
-  return {skipped:false,totalDamage,reactions,abilityArt:a.art,formKey:a.formKey||"base"};
+  return {skipped:false,totalDamage,reactions,affectedTargetIds,abilityArt:a.art,formKey:a.formKey||"base"};
 }
 function drawEssence(s,side){
   const count=living(team(s,side)).length,draws=[];
@@ -431,7 +431,7 @@ function tickEffects(s){
   if(u.hp<=0)continue;
   for(const d of u.dots){const r=hit(s,u,d.damage,{damageType:"affliction",ignoreInvulnerability:true});log(s,`${u.name}: ${d.tag} causa ${r.dealt} de aflição.`);if(u.hp<=0){const source=[...s.allies,...s.enemies].find(unit=>unit.id===d.sourceId);notifyDefeat(s,u,source);}d.turns--;if(u.hp<=0)break;}
   u.dots=u.dots.filter(d=>d.turns>0);
-  for(const [id,m]of Object.entries(u.marks)){m.turns--;if(m.turns<=0)delete u.marks[id];}
+  for(const [id,m]of Object.entries(u.marks)){if(s.tactical&&m.appliedRound===s.round)continue;m.turns--;if(m.turns<=0)delete u.marks[id];}
   if(u.resonanceTargetId){if(!byId(enemies(s,u.side),u.resonanceTargetId)){u.resonanceTargetId=null;u.resonanceTurns=0;u.resonanceFresh=false;}else if(u.resonanceFresh)u.resonanceFresh=false;else if(--u.resonanceTurns<=0){log(s,`${u.name} perde a ressonância.`);u.resonanceTargetId=null;u.resonanceTurns=0;}}
   const tick=(turnsKey,freshKey,expire)=>{if(!u[turnsKey])return;if(u[freshKey])u[freshKey]=false;else if(--u[turnsKey]<=0){u[turnsKey]=0;if(expire)expire();}};
   tick("stealthTurns","stealthFresh");
@@ -440,7 +440,7 @@ function tickEffects(s){
   tick("collapseTurns","collapseFresh",()=>{u.collapseLevel=0;});
  }
 }
-function nextTurn(s,recoveries){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
+function nextTurn(s,recoveries,skipAI=false){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];if(!skipAI)planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
 function resolveAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();
   if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
@@ -517,4 +517,33 @@ export function continueDuel(s){
   }
   resolveNextAction(s);
  }
+}
+
+
+// The board adapter reuses the same technique effects, payments and form system.
+// These entry points do not change the alternating combat entry points above.
+export function resolveBoardTechnique(s,action,spatialTargetIds){
+ refreshSkillForms(s);
+ const actor=byId(team(s,action.side),action.actorId),a=actor?.abilities.find(a=>a.id===action.abilityId);
+ if(!actor||!a||actor.stunned||actor.cooldowns[a.id]||skillSealReason(actor,a))return {skipped:true,reason:!actor?'Personagem fora de combate.':actor.stunned?'Atordoado.':actor.cooldowns[a?.id]?'Técnica em recarga.':skillSealReason(actor,a)||'Técnica indisponível.'};
+ if(action.formKey&&action.formKey!==(a.formKey||'base'))return {skipped:true,reason:'A preparação não se confirmou; forma indisponível.'};
+ const timed=['stunned','weakened','sealSupport','sealAttack','healingBlock'];
+ const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,Object.fromEntries(timed.map(k=>[k,u[k]||0]))]));
+ s.resolutionSide=action.side;
+ const result=apply(s,actor,a,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
+ for(const u of [...s.allies,...s.enemies]){
+  u.boardFresh||={};
+  for(const k of timed)if(u[k]>before.get(u.id)[k]||(result.affectedTargetIds?.includes(u.id)&&a[k]&&u[k]>0))u.boardFresh[k]=s.round;
+  if(result.affectedTargetIds?.includes(u.id)&&a.mark&&u.marks[a.mark]?.sourceId===actor.id)u.marks[a.mark].appliedRound=s.round;
+ }
+ return {...result,title:a.name};
+}
+export function finishBoardRound(s){
+ const units=[...s.allies,...s.enemies],preserved=new Map();
+ for(const u of units)preserved.set(u.id,Object.fromEntries(Object.entries(u.boardFresh||{}).filter(([,r])=>r===s.round).map(([key])=>[key,u[key]])));
+ const reactions=[];endActing(s,s.allies,reactions);endActing(s,s.enemies,reactions);endOpposing(s,s.allies);endOpposing(s,s.enemies);tickEffects(s);
+ for(const u of units)Object.assign(u,preserved.get(u.id));
+ if(!living(s.allies).length&&!living(s.enemies).length){s.phase='draw';return {done:true,reactions};}
+ if(outcome(s))return {done:true,reactions};
+ const recoveries=[];nextTurn(s,recoveries,true);return {done:false,reactions,recoveries};
 }
