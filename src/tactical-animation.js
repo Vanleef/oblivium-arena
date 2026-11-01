@@ -33,6 +33,9 @@ export function tacticalAnimationFrames(ability,type='skill'){
 }
 
 const actionArtPoses=new Set(['release','impact','followthrough','transfer','counter']);
+export function tacticalImpactActive(event){
+ return event?.type==='skill'&&!event.skipped&&['impact','counter'].includes(event.pose);
+}
 export function tacticalFrameArt(ability,pose,portrait=''){
  return ability?.art&&actionArtPoses.has(pose)?ability.art:portrait;
 }
