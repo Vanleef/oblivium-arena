@@ -6,16 +6,16 @@
     "runtimeEntries": 150,
     "logicalArtSlots": 998
   },
-  "newPortraitsSaved": 114,
-  "newAbilityScenesSaved": 591,
+  "newPortraitsSaved": 115,
+  "newAbilityScenesSaved": 596,
   "scenesBlockedByQuota": [],
   "unstartedInCurrentBatch": 0,
   "nextActions": [
     "Revisar visualmente as 14 artes corrigidas de Parrhasius e Idrisi; as versões anteriores foram recusadas por desalinhamento da linha pictórica.",
-    "Continuar a migração dos 51 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
+    "Continuar a migração dos 50 personagens restantes e das formas dedicadas para a direção dark fantasy pictórica.",
     "Produzir imagens dedicadas para as 29 variantes ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e fazer a revisão visual final da defesa de Baal e do kit de Atlas, incluindo a correção anatômica de Sustentar o Céu.",
-    "Revisar visualmente os 649 ativos candidatos pendentes na direção atual, incluindo o novo bloco corrigido de 14 imagens."
+    "Revisar visualmente os 655 ativos candidatos pendentes na direção atual, incluindo o novo bloco corrigido de 14 imagens."
   ],
   "authorization": "The user asked to continue until all characters, including unillustrated entries, are complete. Do not treat this checkpoint as task completion.",
   "generationBlock": {
@@ -130,13 +130,13 @@
     "bulkirArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; escolhas revisadas manualmente; 50 candidatos do Perchance contados, 6 integrados.",
     "bulkirRuntime": "Somente referências de arte e documentação de cobertura; sem mudanças em mecânicas ou campos de combate.",
     "darkPictorialAssets": {
-      "candidateSlots": 630,
-      "integratedSlots": 630,
+      "candidateSlots": 662,
+      "integratedSlots": 662,
       "activeWebpDimensions": "512x512",
       "sourceJpegDimensions": "768x768",
       "status": "visual approval pending",
-      "fullyMigratedEntries": 95,
-      "pendingVisualApprovalSlots": 623,
+      "fullyMigratedEntries": 100,
+      "pendingVisualApprovalSlots": 655,
       "approvedSlots": 7
     },
     "atlasDarkPictorialArtwork": "6 source JPEGs at 768×768 and 6 active WebP assets at 512×512; candidate set integrated, awaiting visual approval.",
@@ -228,19 +228,21 @@
     "haythamArtwork": "6 JPEG source images at 768x768 and 6 active WebP assets at 512x512; identity, Sol palette, one-target scenes, single-ally support, personal evasion and anatomy reviewed; candidates pending visual approval.",
     "haythamRuntime": "Updated art routes only; no combat mechanics or combat fields changed.",
     "aureliaArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; identidade canônica, paleta Vênus, ações, anatomia, mãos, contagens de alvos e proteção do trio revisadas; aguardam aprovação visual.",
-    "aureliaRuntime": "Rotas de arte e documentação atualizadas; nenhuma mecânica de combate alterada."
+    "aureliaRuntime": "Rotas de arte e documentação atualizadas; nenhuma mecânica de combate alterada.",
+    "aTecelaArtwork": "6 fontes JPEG 768×768 e 6 ativos WebP 512×512; identidade, paleta Vênus, trama material, anatomia e contagens de alvos conferidas; candidatas pendentes de aprovação visual.",
+    "aTecelaRuntime": "Rotas de arte atualizadas; nenhuma mecânica ou campo de combate alterado."
   },
   "latestProduction": {
     "date": "2026-11-01",
-    "characterId": "o-elo-dourado",
-    "characterName": "Aurelia / Damon",
-    "title": "O Fraterno",
+    "characterId": "a-que-une",
+    "characterName": "Destiny / Berenice",
+    "title": "A Tecelã",
     "candidateSlots": 6,
     "existingFormSlotsActivated": 0,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
+    "report": "docs/ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json"
   },
-  "newDarkPictorialCandidateAssets": 578,
+  "newDarkPictorialCandidateAssets": 584,
   "latestRegistryIntegration": {
     "date": "2026-11-01",
     "newCharacterRows": [
@@ -269,9 +271,10 @@
       "o-incendiario",
       "nilo-cinza-epilogo",
       "o-olho-desarmado",
-      "o-elo-dourado"
+      "o-elo-dourado",
+      "a-que-une"
     ],
-    "candidateAssetRoutesWired": 150,
+    "candidateAssetRoutesWired": 156,
     "correctedReports": [
       "ART_ARISTIDES_DARK_PICTORIAL_REWORK_20261031.json",
       "ART_MAQRIZI_DARK_PICTORIAL_REWORK_20261031.json",
@@ -287,7 +290,8 @@
       "ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json",
       "ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
       "ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json",
-      "ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json"
+      "ART_AURELIA_O_FRATERNO_DARK_PICTORIAL_REWORK_20261101.json",
+      "ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json"
     ],
     "anatomyCorrections": [
       {
@@ -329,6 +333,11 @@
         "characterId": "o-elo-dourado",
         "slot": "six-assets",
         "change": "Refação pictórica para Paraíso/Vênus; identidade canônica, continuidade da corrente, ações e contagens de alvos conferidas."
+      },
+      {
+        "characterId": "a-que-une",
+        "slot": "six-assets",
+        "change": "Refação para Paraíso/Vênus pela direção pictórica oficial; identidade, mãos, trama material, anatomia e contagens de alvos conferidas."
       }
     ],
     "status": "candidate_integrated_pending_visual_approval"
@@ -351,9 +360,9 @@
   },
   "latestDirectionBatch": {
     "date": "2026-11-01",
-    "characterId": "o-olho-desarmado",
+    "characterId": "a-que-une",
     "candidateSlots": 6,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_HAYTHAM_O_VIDENTE_DARK_PICTORIAL_REWORK_20261101.json"
+    "report": "docs/ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json"
   }
 }

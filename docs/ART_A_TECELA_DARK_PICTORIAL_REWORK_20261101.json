@@ -1,0 +1,135 @@
+{
+  "id": "a-tecela-dark-pictorial-rework-20261101",
+  "characterId": "a-que-une",
+  "displayName": "Destiny / Berenice, A Tecelã",
+  "world": "Paraíso",
+  "realm": "Vênus",
+  "status": "candidate_integrated_pending_visual_approval",
+  "date": "2026-11-01",
+  "artDirection": "Dark fantasy pictórica densa do PMA em 2.5D: pinceladas angulares visíveis, contornos manuais, hachuras, matéria tátil, sombras azul-violeta e luz filtrada. Paleta de Paraíso/Vênus: marfim, branco, dourado antigo, azul-claro, turquesa e pedra clara.",
+  "identity": "Preservei a identidade do retrato canônico: senhora idosa de pele morena quente, traços gentis e atentos, tranças prateadas com contas turquesa, brincos azul-esverdeados e xale índigo com padrão ocre ferrugem.",
+  "mechanicsPreserved": true,
+  "previousArtDirection": "As artes ativas tinham acabamento quase fotográfico e iluminação lisa. Foram refeitas com pincelada pictórica visível, planos gráficos e textura material na direção atual.",
+  "revisionSummary": "Seis artes-base refeitas: retrato, passiva, Impulso, Técnica, Voto e Despertar. As cenas mostram retorno de vigor após o apoio, fio material contra um único inimigo, cuidado e proteção de uma aliada, o amparo do trio completo e invulnerabilidade pessoal.",
+  "rosterIdentityNote": "O override do elenco usa Destiny, enquanto o registro de identidade usa Berenice. A arte preserva o desenho do retrato canônico sem alterar a identidade exibida.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "logicalKey": "a-que-une:base:portrait",
+      "path": "/art/characters/a-que-une/dark-pictorial-rework-20261101/portrait.webp",
+      "source": "art/source/a-que-une-dark-pictorial-rework-20261101/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "0b6d932f682014e426cec3e4ea3f4b9e95d38b94ddf16de707bfb1dbd55c4de0",
+      "activeSha256": "33451d0c44df4f513fb61f5557f0e2abdce625757e44d540edeab8cd80797907",
+      "generatedImage": "generated_images/exec-b24baeb6-d523-4106-b1cb-7dc035f1a550.png",
+      "scene": "Retrato 3/4 de Berenice/Destiny, com tranças prateadas presas por contas turquesa, brincos azul-esverdeados e xale índigo; arcadas claras de Vênus ao fundo."
+    },
+    {
+      "slot": "passive",
+      "logicalKey": "a-que-une:base:passive",
+      "path": "/art/characters/a-que-une/dark-pictorial-rework-20261101/passive.webp",
+      "source": "art/source/a-que-une-dark-pictorial-rework-20261101/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "daa9d6f33af4073d36c23eb9e91af0d850d344c1760b37f7cbd6f3b9a3264afb",
+      "activeSha256": "752e436e2e401ba237dcd97d50bffe3f61e4b1524465cd9c0fd0dd057e1ce72d",
+      "generatedImage": "generated_images/exec-a0a19d94-7dfe-40ba-a156-7cb12ac1d1bd.png",
+      "scene": "Berenice estabiliza uma única aliada ferida com contato e uma faixa trançada; o retorno de vigor chega à mão da própria Tecelã."
+    },
+    {
+      "slot": "impulso",
+      "logicalKey": "a-que-une:base:impulso",
+      "path": "/art/characters/a-que-une/dark-pictorial-rework-20261101/skill-impulso.webp",
+      "source": "art/source/a-que-une-dark-pictorial-rework-20261101/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "e0e1598f0a18a4fc75c317badf6ab45e330dab662fac4064a48da3ad7cd4ade9",
+      "activeSha256": "25307f84c62ee2dace2e1ebd2f0ddff66e31685348167dafba5fd38a03b5c0a3",
+      "generatedImage": "generated_images/exec-b02b60c4-de3a-4149-a510-64adc86211df.png",
+      "scene": "Um cordão grosso, material e trançado prende um único ghoul; a vitalidade retorna por essa mesma trama à palma de Berenice."
+    },
+    {
+      "slot": "tecnica",
+      "logicalKey": "a-que-une:base:tecnica",
+      "path": "/art/characters/a-que-une/dark-pictorial-rework-20261101/skill-tecnica.webp",
+      "source": "art/source/a-que-une-dark-pictorial-rework-20261101/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "783258396f05bfae8ae85537723cd1e73382d6db5f4f61ec474502441b004472",
+      "activeSha256": "9738ea64683562cce2e019cc17c41d9ea7d356eccccfb092885878fe7634df03",
+      "generatedImage": "generated_images/exec-23f5f0e1-f359-449d-8516-0ac6bb97d56a.png",
+      "scene": "Berenice aplica uma faixa-manto protetora a uma única aliada; duas marcas atadas indicam a recuperação gradual, enquanto resíduos de aflição se desprendem."
+    },
+    {
+      "slot": "voto",
+      "logicalKey": "a-que-une:base:voto",
+      "path": "/art/characters/a-que-une/dark-pictorial-rework-20261101/skill-voto.webp",
+      "source": "art/source/a-que-une-dark-pictorial-rework-20261101/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "0196dd2c3e9a86c6d913701bc5cb65bfa485350b002ded408f1a2431cbb216ec",
+      "activeSha256": "51913eb93018abe13132704611912e4a8377c555d974ff116108ddf214fb012a",
+      "generatedImage": "generated_images/exec-0737cea3-2e3b-423e-9704-d6c8cb4bf343.png",
+      "scene": "O trio completo, Berenice e exatamente dois aliados, une os braços por uma trama larga; todos recebem alento e fortalecimento."
+    },
+    {
+      "slot": "despertar",
+      "logicalKey": "a-que-une:base:despertar",
+      "path": "/art/characters/a-que-une/dark-pictorial-rework-20261101/skill-despertar.webp",
+      "source": "art/source/a-que-une-dark-pictorial-rework-20261101/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "b1fb4d3b889f0a8a6867f791e0dc1caf23cde64a7349cb235f9dc006303fd649",
+      "activeSha256": "e8c58feb4c8d5f381127af6371af7354bab5816dca1c777030eeba271a041bb2",
+      "generatedImage": "generated_images/exec-afd1f34a-309e-432e-8d2a-0a2b03ebb850.png",
+      "scene": "Berenice se protege dentro de uma trama espessa que recebe o golpe de um único ghoul e o desvia sem feri-la."
+    }
+  ],
+  "reviewChecklist": {
+    "identity": "Pele morena quente, idade, tranças prateadas com contas turquesa, brincos e xale índigo conferidos contra o retrato canônico; conflito Destiny/Berenice anotado.",
+    "worldPalette": "Paraíso/Vênus: pedra clara, marfim, branco, azul filtrado, turquesa e dourado antigo, com sombras azul-violeta.",
+    "rendering": "Pintura matte 2.5D com pinceladas angulares legíveis, contornos manuais, hachuras e planos gráficos; sem acabamento fotográfico ou render 3D.",
+    "anatomy": "Rostos, mãos, braços, tensão das faixas e contatos físicos conferidos; poses reagem às ações.",
+    "actionsAndTargets": "Passiva: Berenice e uma aliada. Impulso: um ghoul. Técnica: uma aliada. Voto: trio completo, Berenice e dois aliados. Despertar: proteção pessoal contra um ghoul.",
+    "mechanics": "Cuidar em Conjunto restaura 5 de Vida à Tecelã uma vez por rodada quando um apoio restaura pelo menos 10 de Vida a um aliado. Fio de Encontro causa 15 de dano espiritual a um inimigo e devolve à usuária 50% do dano causado. Reunir os Fragmentos restaura 15 de Vida, concede 10 de Defesa destrutível, regenera 4 de Vida no início dos próximos 2 turnos e remove aflições e condições prejudiciais. Fôlego Coletivo restaura 15 de Vida a cada aliado e aumenta em 5 o dano até o fim do próximo turno de cada beneficiado. Entrelaçar de Luz torna a usuária Invulnerável por 1 turno.",
+    "restrictions": "Fios aparecem como trama larga, tangível e tensionada. Nenhum feixe fino, maquinário, arma moderna, personagem nomeado adicional ou texto legível.",
+    "visualApproval": "Candidatas integradas e inspecionadas; aprovação visual pendente."
+  }
+}
