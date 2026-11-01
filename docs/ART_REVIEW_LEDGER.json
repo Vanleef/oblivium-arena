@@ -977,7 +977,14 @@
     "o-espelho:base:tecnica",
     "o-espelho:base:voto",
     "o-espelho:base:despertar",
-    "o-espelho:form:impulso:returned"
+    "o-espelho:form:impulso:returned",
+    "a-cartografa-da-clareza:base:portrait",
+    "a-cartografa-da-clareza:base:passive",
+    "a-cartografa-da-clareza:base:impulso",
+    "a-cartografa-da-clareza:base:tecnica",
+    "a-cartografa-da-clareza:base:voto",
+    "a-cartografa-da-clareza:base:despertar",
+    "a-cartografa-da-clareza:form:tecnica:shortcut"
   ],
   "currentDirectionApprovedAssetKeys": [
     "o-surdo:base:portrait",
@@ -1618,7 +1625,14 @@
     "o-espelho:base:tecnica",
     "o-espelho:base:voto",
     "o-espelho:base:despertar",
-    "o-espelho:form:impulso:returned"
+    "o-espelho:form:impulso:returned",
+    "a-cartografa-da-clareza:base:portrait",
+    "a-cartografa-da-clareza:base:passive",
+    "a-cartografa-da-clareza:base:impulso",
+    "a-cartografa-da-clareza:base:tecnica",
+    "a-cartografa-da-clareza:base:voto",
+    "a-cartografa-da-clareza:base:despertar",
+    "a-cartografa-da-clareza:form:tecnica:shortcut"
   ],
   "currentDirectionCorrectionHistory": [
     {
@@ -2154,6 +2168,41 @@
       "key": "o-espelho:form:impulso:returned",
       "correctedAt": "2026-11-01",
       "note": "Parrhasius redesenhado para dark fantasy pictórica em Inferno/Oblívio; identidade, mecânica e anatomia conferidas. Slot impulso:returned; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:portrait",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:passive",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:impulso",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:tecnica",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:voto",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:base:despertar",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
+    },
+    {
+      "key": "a-cartografa-da-clareza:form:tecnica:shortcut",
+      "correctedAt": "2026-11-01",
+      "note": "Idrisi redesenhada para dark fantasy pictórica de Paraíso/Sol; identidade, mecânica, anatomia e alvos conferidos; candidata pendente de aprovação visual."
     }
   ]
 }

@@ -74,10 +74,10 @@
   "appIconFilesCompleted": 6,
   "appIconFilesTotal": 6,
   "pending": [
-    "Migrar os 54 personagens restantes e suas formas dedicadas para a direção dark fantasy pictórica.",
-    "Criar imagens próprias para as 30 variantes de habilidade ainda compartilhadas.",
+    "Migrar os 53 personagens restantes e suas formas dedicadas para a direção dark fantasy pictórica.",
+    "Criar imagens próprias para as 29 variantes de habilidade ainda compartilhadas.",
     "Revisar os nove retratos de forma corporal e a revisão visual final da defesa de Baal e do kit de Atlas.",
-    "Revisar visualmente os 630 ativos candidatos integrados na direção dark fantasy atual; sete já foram aprovados."
+    "Revisar visualmente os 637 ativos candidatos integrados na direção dark fantasy atual; sete já foram aprovados."
   ],
   "scopeNote": "A cobertura de arquivos e a aprovação visual são medidas distintas. Os contadores anime-first abaixo são históricos; currentDirectionMigration acompanha a nova direção.",
   "fullRosterArt": {
@@ -93,7 +93,7 @@
     "entriesWithAnyBaseMissing": 0,
     "entriesWithoutAnyBaseArt": 0,
     "brokenExplicitReferences": 0,
-    "formsSharedWithBase": 31,
+    "formsSharedWithBase": 30,
     "formsMissing": 0,
     "bodyPortraitsMissing": 0,
     "manualStyleReview": {
@@ -106,11 +106,11 @@
     "currentDirectionMigration": {
       "name": "dark fantasy pictórica PMA",
       "targetLogicalSlots": 998,
-      "integratedCandidateSlots": 637,
-      "remainingSlots": 361,
-      "fullyMigratedEntries": 96,
-      "remainingEntries": 54,
-      "awaitingVisualApprovalSlots": 630,
+      "integratedCandidateSlots": 644,
+      "remainingSlots": 354,
+      "fullyMigratedEntries": 97,
+      "remainingEntries": 53,
+      "awaitingVisualApprovalSlots": 637,
       "approvedSlots": 7
     }
   },
@@ -118,12 +118,12 @@
   "latestDarkPictorialBatch": {
     "date": "2026-11-01",
     "characterIds": [
-      "o-espelho"
+      "a-cartografa-da-clareza"
     ],
     "candidateSlotsAdded": 7,
     "candidateSlotsActivated": 7,
     "status": "candidate_integrated_pending_visual_approval",
-    "report": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json"
+    "report": "docs/ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json"
   },
   "currentDirectionCorrectionHistory": [
     {
@@ -265,24 +265,34 @@
       "logicalSlotsReworked": 6,
       "logicalSlotsAdded": 1,
       "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-11-01",
+      "characterId": "a-cartografa-da-clareza",
+      "characterName": "Idrisi, A Cartógrafa",
+      "feedback": "O retrato e as habilidades ainda usavam cenário glacial, luz suave e instrumentos de navegação incompatíveis com Sol e com a direção pictórica atual.",
+      "correction": "Refiz seis slots-base e a forma Atalho da Clareza em dark fantasy pictórica 2.5D. Mantive pele marrom-escura, cabeça raspada, olhos âmbar e manto azul-acinzentado; substituí ferramentas mecânicas por mapas artesanais, sulcos de mármore e rotas de luz densa. Marca, carga, defesa, apoio ao trio, convergência e cura de um aliado preservados; anatomia e alvos revisados.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 1,
+      "status": "candidate_reworked_pending_visual_approval"
     }
   ],
   "currentDirectionMigration": {
     "name": "dark fantasy pictórica PMA",
     "targetLogicalSlots": 998,
-    "integratedCandidateSlots": 637,
-    "remainingSlots": 361,
-    "fullyMigratedEntries": 96,
-    "remainingEntries": 54,
-    "awaitingVisualApprovalSlots": 630,
+    "integratedCandidateSlots": 644,
+    "remainingSlots": 354,
+    "fullyMigratedEntries": 97,
+    "remainingEntries": 53,
+    "awaitingVisualApprovalSlots": 637,
     "approvedSlots": 7
   },
   "latestVisualCorrection": {
     "date": "2026-11-01",
-    "characterId": "o-espelho",
-    "title": "Parrhasius, O Espelho",
+    "characterId": "a-cartografa-da-clareza",
+    "title": "Idrisi, A Cartógrafa",
     "revisedSlots": 7,
-    "report": "docs/ART_PARRHASIUS_DARK_PICTORIAL_REWORK_20261101.json",
+    "report": "docs/ART_IDRISI_CARTOGRAFA_CLAREZA_DARK_PICTORIAL_REWORK_20261101.json",
     "status": "candidate_revised_pending_visual_approval",
     "mechanicsPreserved": true
   }

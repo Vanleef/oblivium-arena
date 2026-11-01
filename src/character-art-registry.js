@@ -1,4 +1,19 @@
 export const characterArtRegistry = {
+  "a-cartografa-da-clareza": {
+    "portrait": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/portrait.webp",
+    "passive": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/passive.webp",
+    "abilities": {
+      "impulso": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/skill-impulso.webp",
+      "tecnica": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/skill-tecnica.webp",
+      "voto": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/skill-voto.webp",
+      "despertar": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/skill-despertar.webp"
+    },
+    "forms": {
+      "tecnica": {
+        "shortcut": "/art/characters/a-cartografa-da-clareza/dark-pictorial-rework-20261101/skill-tecnica-shortcut.webp"
+      }
+    }
+  },
   "o-espelho": {
     "portrait": "/art/characters/o-espelho/dark-pictorial-rework-20261101/portrait.webp",
     "passive": "/art/characters/o-espelho/dark-pictorial-rework-20261101/passive.webp",
