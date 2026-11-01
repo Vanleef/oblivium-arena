@@ -4,7 +4,7 @@ import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacti
 import {planTacticalAI} from './tactical-ai.js';
 import {boardCells,cellLabel,sameCell,findPath,cellKey,occupied,obstacle} from './tactical-board.js';
 import {tacticalRoster,tacticalSpec,patternNames,priorityNames} from './tactical-kits.js';
-import {tacticalAnimationFrames,tacticalFrameArt} from './tactical-animation.js';
+import {tacticalAnimationFrames,tacticalFrameArt,tacticalImpactActive} from './tactical-animation.js';
 import {tacticalSpriteFrame,tacticalSpriteStyle,paintTacticalToken} from './tactical-sprites.js';
 import {getAbilityResourceCosts,resourceIds} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
@@ -69,7 +69,7 @@ function actionCardMarkup(actor,ability,isMove=false){
  '<span class="card-footer"><span class="card-cost">'+cost+'</span><span class="action-point">1 AÇÃO</span></span></button>';
 }
 function boardMarkup(s){
- const aim=new Set(aimed(s).map(cellKey)),u=selectedUnit(s),anim=state.animation,wave=new Set((anim?.cells||[]).map(cellKey)),hits=new Set(anim?.targets||[]);
+ const aim=new Set(aimed(s).map(cellKey)),u=selectedUnit(s),anim=state.animation,impact=tacticalImpactActive(anim),wave=new Set((impact?anim?.cells||[]:[]).map(cellKey)),hits=new Set(impact&&anim.totalDamage>0?anim.affectedTargetIds||anim.targets||[]:[]);
  return '<div class="board" role="group" aria-label="Arena tática em grade de cinco por cinco">'+boardCells().map(p=>{
   const unit=occupied(s,p),blocked=obstacle(s,p),reachable=state.mode==='move'&&u&&findPath(s,u.id,p);
   const classes=['cell',blocked?'blocked':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':''].filter(Boolean).join(' ');
@@ -107,6 +107,7 @@ function paintAnimationPose(event,frame){
  state.animation={...event,...frame};
  if(!root.querySelectorAll){render();return;}
  const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId);
+ if(!tacticalImpactActive(state.animation))for(const cell of root.querySelectorAll('.cell.wave, .cell.hit'))cell.classList.remove('wave','hit',...Array.from(cell.classList).filter(name=>name.startsWith('wave-')));
  for(const token of root.querySelectorAll('.token'))paintTacticalToken(token,unit,event,frame);
  const callout=root.querySelector('.arena-callout');if(callout){callout.dataset.family=frame.family;callout.dataset.pose=frame.pose;}
 }
