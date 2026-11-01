@@ -117,3 +117,22 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .token.hit .token-art{transform:translateX(calc(-50% + 6px)) rotate(2deg);filter:brightness(1.7) sepia(.2)}
 .arena-callout[data-pose="impact"] .callout-art{filter:brightness(1.45);transform:scale(1.12)}
 @media(prefers-reduced-motion:reduce){.token .token-art{will-change:auto}}
+
+/* 2.5D staging: portrait depth, breathing idle, and character-specific pose offsets. */
+.token{transform:scale(var(--depth-scale,1));transform-origin:50% 100%;}
+.token[data-family="idle"] .token-art{animation:portrait-breathe 2.7s steps(1,end) infinite;animation-delay:calc(var(--depth-scale,1)*-0.22s)}
+.token[data-variant="1"][data-pose="windup"] .token-art{transform:translateX(calc(-50% - 6px)) translateY(-5px) rotate(-5deg) scale(1.02)}
+.token[data-variant="1"][data-pose="impact"] .token-art{transform:translateX(calc(-50% + 15px)) translateY(-1px) rotate(3deg) scale(1.08)}
+.token[data-variant="2"][data-pose="windup"] .token-art{transform:translateX(calc(-50% - 2px)) translateY(-10px) rotate(2deg) scale(1.06)}
+.token[data-variant="2"][data-pose="impact"] .token-art{transform:translateX(calc(-50% + 4px)) translateY(-9px) rotate(-4deg) scale(1.12)}
+.token.enemy[data-pose="release"] .token-art,.token.enemy[data-pose="impact"] .token-art{filter:brightness(1.45) saturate(1.2) drop-shadow(0 0 16px #df756a)}
+.token.player[data-pose="release"] .token-art,.token.player[data-pose="impact"] .token-art{filter:brightness(1.35) drop-shadow(0 0 16px #e8ce85)}
+@keyframes portrait-breathe{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}32%{transform:translateX(-50%) translateY(-2px) scale(.99,1.015)}68%{transform:translateX(-50%) translateY(-1px) scale(1.01,.995)}}
+
+.token[data-family="support"][data-pose="release"] .token-art,.token[data-family="support"][data-pose="transfer"] .token-art{filter:brightness(1.4) drop-shadow(0 0 16px #9bd5a6)}
+.token[data-family="guard"][data-pose="guard"] .token-art,.token[data-family="guard"][data-pose="impact"] .token-art{filter:brightness(1.5) drop-shadow(0 0 15px #9acfe1)}
+.token[data-family="bind"][data-pose="release"] .token-art,.token[data-family="bind"][data-pose="hold"] .token-art{filter:brightness(1.45) drop-shadow(0 0 16px #b89ae9)}
+.cell.wave-strike:after,.cell.wave-burst:after{background:radial-gradient(ellipse,#f4d396,#e55b4999 45%,transparent 78%)}
+.cell.wave-bind:after{background:radial-gradient(ellipse,#d6b2ef,#9866cf99 45%,transparent 78%)}
+.cell.wave-support:after{background:radial-gradient(ellipse,#d0ecc2,#70c98b99 45%,transparent 78%)}
+.cell.wave-guard:after{background:radial-gradient(ellipse,#c8edf6,#69b4d899 45%,transparent 78%)}

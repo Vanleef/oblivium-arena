@@ -70,12 +70,12 @@ function boardMarkup(s){
  const aim=new Set(aimed(s).map(cellKey)),u=selectedUnit(s),anim=state.animation,wave=new Set((anim?.cells||[]).map(cellKey)),hits=new Set(anim?.targets||[]);
  return '<div class="board" role="group" aria-label="Arena tática em grade de cinco por cinco">'+boardCells().map(p=>{
   const unit=occupied(s,p),blocked=obstacle(s,p),reachable=state.mode==='move'&&u&&findPath(s,u.id,p);
-  const classes=['cell',blocked?'blocked':'',aim.has(cellKey(p))?'aim':'',reachable?'reachable':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':''].filter(Boolean).join(' ');
+  const classes=['cell',blocked?'blocked':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':''].filter(Boolean).join(' ');
   const animClass=unit&&anim?.actorId===unit.id?(anim.type==='move'?'animate-move':anim.type==='skill'?(anim.category===1?'animate-defense':'animate-skill'):'animate-prepare'):'';
   const animAbility=unit&&anim?.actorId===unit.id&&anim.abilityId?unit.abilities.find(k=>k.id===anim.abilityId):null;
   const effect=animAbility?(Object.keys(getAbilityResourceCosts(unit,animAbility)).find(k=>k!=='random')||'essence'):'essence';
-  const side=unit?.side||'',art=portraitSrc(unit);
-  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+'" '+(state.busy?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+
+  const side=unit?.side||'',art=portraitSrc(unit),depthScale=(.89+p.y*.035).toFixed(3),motionId=animAbility?.id||anim?.type||'',motionVariant=motionId?[...motionId].reduce((n,ch)=>n+ch.charCodeAt(0),0)%3:0;
+  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" style="--depth-scale:'+depthScale+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+'" '+(state.busy?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+
    (unit?'<span class="token '+esc(side)+' '+animClass+(unit.stunned?' stunned':'')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'">'+(art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
@@ -100,11 +100,17 @@ function render(){
  '<section class="panel active-upgrades"><strong>Aprendizados da expedição · encontro '+state.run.encounter+'</strong><div>'+state.run.buffs.map(id=>{const b=buffs.find(x=>x.id===id);return b?'<span>'+esc(b.title)+'</span>':''}).join('')+(state.run.memories.length?'<span>'+state.run.memories.length+' memória(s)</span>':'')+'</div></section><details class="panel setup"><summary>Nova formação · seis kits piloto</summary><div class="setup-fields"><div class="team-selects"><label>Seu trio</label>'+[0,1,2].map(i=>teamSelect('player',i)).join('')+'</div><div class="team-selects"><label>Trio adversário</label>'+[0,1,2].map(i=>teamSelect('enemy',i)).join('')+'</div><label>Mapa<select id="map-choice"><option value="open">Arena aberta</option><option value="ruins">Ruínas · duas colunas de pedra</option></select></label><label>Semente<input id="seed-choice" type="number" min="1" max="999999" value="'+state.seed+'"></label></div><button data-command="restart">Iniciar novo confronto</button></details><footer class="footer"><span>PROTÓTIPO LOCAL · IA SEM ACESSO À FILA OCULTA</span><span>As campanhas e a Arena online mantêm o combate atual.</span></footer></div>';
 }
 function teamSelect(side,index){const units=side==='player'?state.battle.allies:state.battle.enemies,chosen=units[index].sourceId||units[index].id;return `<select id="${side}-choice-${index}" aria-label="${side==='player'?'Aliado':'Adversário'} ${index+1}">${tacticalRoster.map(id=>`<option value="${id}" ${id===chosen?'selected':''}>${esc(characterById[id].name)} — ${esc(characterById[id].identityTitle)}</option>`).join('')}</select>`;}
+function paintAnimationPose(event,frame){
+ state.animation={...event,...frame};
+ if(!root.querySelectorAll){render();return;}
+ for(const token of root.querySelectorAll('.token'))if(token.dataset.unitId===event.actorId){token.dataset.family=frame.family;token.dataset.pose=frame.pose;}
+ const callout=root.querySelector('.arena-callout');if(callout){callout.dataset.family=frame.family;callout.dataset.pose=frame.pose;}
+}
 function animateRound(events){
  const sequence=events.filter(e=>(e.type==='move'||e.type==='skill')&&e.actorId);
  if(!sequence.length)return;
  const revision=++state.revision;state.busy=true;
- (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=event.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;const frames=tacticalAnimationFrames(ability,event.type);for(const frame of frames){if(revision!==state.revision)return;state.animation={...event,...frame};render();await new Promise(resolve=>setTimeout(resolve,68));}}
+ (async()=>{for(const event of sequence){const unit=tacticalUnits(state.battle).find(c=>c.id===event.actorId),ability=event.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;const frames=tacticalAnimationFrames(ability,event.type);for(const [index,frame]of frames.entries()){if(revision!==state.revision)return;if(index===0){state.animation={...event,...frame};render();}else paintAnimationPose(event,frame);await new Promise(resolve=>setTimeout(resolve,68));}}
   if(revision!==state.revision)return;state.animation=null;state.busy=false;render();
  })();
 }
