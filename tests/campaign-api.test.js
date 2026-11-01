@@ -31,7 +31,7 @@ test('API de campanha exige origem e sessão, mantém contas isoladas e ignora p
  const register=async(email,handle)=>call(accountHandler,{body:{op:'register',email,handle,password:'senha-longa-para-teste-2026'}});
  const first=await register('pma-campaign-one@example.test','RotaUm');assert.equal(first.status,200);
  const firstSession=first.headers['set-cookie'].find(value=>value.startsWith('pma_session=')).match(/pma_session=([a-f0-9]{64})/)[1];
- const started=await call(campaignHandler,{session:firstSession,body:{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}});
+ const started=await call(campaignHandler,{session:firstSession,body:{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0}});
  assert.equal(started.status,200);assert.equal(started.data.profile.run.serverOwned,true);
  const forged=await call(accountHandler,{session:firstSession,body:{op:'save',profile:{...started.data.profile,xp:500000,fragments:500000,ownedIds:[...started.data.profile.ownedIds,'o-fim'],completedElos:['sangria'],run:null}}});
  assert.equal(forged.status,200);assert.equal(forged.data.profile.xp,0);assert.equal(forged.data.profile.fragments,0);assert.deepEqual(forged.data.profile.completedElos,[]);assert.ok(forged.data.profile.run.serverOwned);
