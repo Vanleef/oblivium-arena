@@ -254,3 +254,15 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .cell.aim{box-shadow:none}
 .cell.blocked{border-color:transparent}
 .cell.reachable:not(.aim){border-color:transparent}
+
+/* Camadas explícitas para arte dos personagens, sombra de contato e etiquetas. */
+.arena-stage{
+  background-image:linear-gradient(180deg,#10131a10 0%,#080b1030 100%),url('/art/arenas/limbo-ruins.webp');
+  background-position:center,center 52%;
+  background-size:cover,cover;
+  background-repeat:no-repeat,no-repeat;
+}
+.token:before{z-index:0}
+.token:after{z-index:0}
+.token-art,.token .token-sprite{z-index:1}
+.token-copy,.token .hp,.token em{z-index:2}
