@@ -638,3 +638,68 @@ body,.auth-screen{
 .shell .board .cell.aim-danger{outline-color:#ff7777;background:#fb4d4d24!important}
 @keyframes move-trail{to{stroke-dashoffset:-24}}
 @media(prefers-reduced-motion:reduce){.path-trail{animation:none}}
+
+/* Planejamento por unidade, duas posições editáveis e um comando de rodada. */
+.party-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.shell .party-tab{position:relative;display:flex;align-items:center;text-align:left;gap:9px;padding:8px;border:1px solid #58606d;border-radius:7px;background:#111722;color:#b8c1cc;min-width:0}
+.party-tab img{width:37px;height:43px;object-fit:cover;object-position:50% 20%;border-radius:4px}
+.party-tab>span:nth-child(2){min-width:0;flex:1}.party-tab strong{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis}
+.party-tab small{display:block;font-size:10px;color:#9ba5b2;margin-top:3px}
+.shell .party-tab.selected{border-color:#f1d089;background:linear-gradient(135deg,#57472b66,#1b222c);box-shadow:inset 0 2px #f1d089;color:#fff0cb}
+.party-tab kbd{position:absolute;right:5px;top:3px;font-size:8px;color:#a5a6a5}
+.action-pips{display:flex;gap:4px}.action-pips i{display:block;width:8px;height:8px;border:1px solid #84919e;transform:rotate(45deg)}
+.action-pips i.filled{background:#e8cb86;border-color:#ffe7ae}
+.target-hint{display:flex;align-items:center;gap:8px;justify-content:center;color:#abb6c5;font-size:11px;min-height:24px;margin-top:4px}
+.target-hint:empty{display:none}
+.target-hint kbd,.field-prompt kbd{font-size:9px;padding:2px 4px;border:1px solid #ffffff40;border-radius:3px;margin-left:4px}
+.field-prompt{position:absolute;z-index:95;top:30%;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;width:max-content;max-width:90%;padding:7px 10px;background:#0c1420ed;border:1px solid #b3dce97a;border-radius:8px;font-size:11px;box-shadow:0 3px 12px #0007;pointer-events:auto}
+.field-prompt .valid{color:#c4f4f1}.field-prompt .invalid{color:#ffb4aa}
+.field-prompt button{padding:4px 7px;min-width:28px;background:transparent}
+.edit-tools{display:flex;align-items:center;flex-wrap:wrap;gap:6px;border:1px solid #b8995b99;border-radius:6px;padding:8px;margin-top:8px;background:#41351e33}
+.edit-tools strong{margin-right:auto;font-size:11px}.edit-tools button{font-size:10px;padding:5px 8px;min-height:30px}
+.squad-timeline{padding:0 0 10px}
+.timeline-heading,.timeline-row{display:grid;grid-template-columns:130px minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center}
+.timeline-heading{font-size:10px;color:#a6b0be;margin-bottom:7px}
+.timeline-heading strong{font-size:12px;color:#e8dec6}.timeline-heading>span{text-align:center}
+.timeline-row{position:relative;padding:5px;border:1px solid transparent;border-radius:6px;margin-top:4px;background:#0b111aaa}
+.timeline-row.selected{border-color:#d8b76566;background:#30302770}
+.timeline-row:after{content:"›";position:absolute;left:calc(50% + 64px);top:50%;transform:translate(-50%,-50%);color:#748291;pointer-events:none}
+.shell .timeline-actor{display:flex;align-items:center;gap:7px;min-width:0;border:0;background:transparent;padding:3px;text-align:left}
+.timeline-actor img{width:27px;height:31px;object-fit:cover;object-position:50% 20%;border-radius:3px}
+.timeline-actor b{font-size:11px;overflow:hidden;text-overflow:ellipsis}
+.shell .plan-slot{display:flex;align-items:center;min-width:0;gap:7px;min-height:42px;border-radius:5px;padding:6px 10px;text-align:left;background:#1a2330;border-color:#6470806e}
+.plan-slot strong{font-size:11px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.plan-slot small{font-size:9px;color:#a9b6c9}.slot-icon{font-size:16px;color:#e6d49c}
+.shell .plan-slot.empty{border-style:dashed;background:transparent;color:#8592a4;font-size:10px}
+.plan-slot.empty b{font-size:18px;color:#acb9c8}
+.shell .plan-slot.occupied:hover{border-color:#e9ce91;background:#2c3540}
+.shell .plan-slot.editing{border-color:#f5d585;box-shadow:0 0 0 1px #f5d58588;background:#493f2966}
+.plan-error{font-size:11px;color:#ffb29e;margin:8px 0}
+.command-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #52617255;padding-top:10px}
+.plan-tools{display:flex;gap:5px}.plan-tools button{font-size:10px;min-height:34px;padding:5px 10px}
+.plan-readiness{font-size:13px;color:#f1e1bd;text-align:center}
+.plan-readiness>span{display:block;font-size:10px;color:#98a5b7;margin-top:3px}
+.shell .round-commit{position:relative;isolation:isolate;display:flex;align-items:center;gap:10px;padding:6px 17px 6px 6px;border-radius:40px;border:1px solid #dac084;background:linear-gradient(140deg,#3e382b,#1a2533);color:#f3dfb1;overflow:hidden;text-align:left;touch-action:none;user-select:none}
+.round-commit>span{position:relative;z-index:1}
+.commit-symbol{display:grid;place-items:center;width:41px;height:41px;border:1px solid #dbc58480;border-radius:50%;color:#f7dda2}
+.round-commit strong{display:block;font-size:13px}.round-commit small{display:block;font-size:9px;color:#c0b79f;margin-top:3px}
+.round-commit:before{content:"";position:absolute;inset:0;right:auto;width:0;background:#c7a75a66;z-index:0}
+.round-commit.holding:before{animation:commit-charge .7s linear forwards}
+.round-commit.holding .commit-symbol{box-shadow:0 0 12px #f0cf7b}
+@keyframes commit-charge{to{width:100%}}
+@media(max-width:700px){
+ .party-tabs{gap:4px}.shell .party-tab{gap:5px;padding:6px 4px;align-items:center}
+ .party-tab img{width:24px;height:32px}.party-tab strong{font-size:10px}.party-tab small{font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .party-tab kbd{display:none}.action-pips{position:absolute;right:5px;bottom:4px;gap:3px}.action-pips i{width:5px;height:5px}
+ .timeline-heading,.timeline-row{grid-template-columns:65px minmax(0,1fr) minmax(0,1fr);gap:8px}
+ .timeline-heading{font-size:8px}.timeline-heading strong{font-size:10px}
+ .timeline-row{padding:3px}.timeline-row:after{display:none}
+ .timeline-actor img{width:22px;height:28px}.timeline-actor b{font-size:9px}.shell .timeline-actor{gap:4px;padding:0}
+ .shell .plan-slot{padding:5px;gap:4px;min-height:43px}.plan-slot strong{font-size:9px}.plan-slot small{display:none}.plan-slot.empty{font-size:8px}
+ .command-bar{display:grid;grid-template-columns:1fr auto;gap:8px}
+ .plan-tools{grid-column:1/-1;justify-content:flex-start}.plan-readiness{text-align:left;font-size:12px}
+ .shell .round-commit{padding-right:12px}.round-commit strong{font-size:11px}.round-commit small{font-size:8px}.commit-symbol{width:35px;height:35px}
+ .field-prompt{top:25%;font-size:9px;max-width:92%;padding:5px 7px}
+ .field-prompt kbd{display:none}.target-hint{font-size:10px}
+ .edit-tools strong{flex:1 0 100%}
+}
