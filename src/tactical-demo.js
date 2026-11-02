@@ -20,7 +20,32 @@ const planningView=()=>{const p=actionPreview();return p.ok?p.projection:state.b
 const activeAnchor=()=>state.anchor||state.hoverAnchor;
 const selectedUnit=s=>s.allies.find(u=>u.id===state.selected&&u.hp>0);
 const formFor=(s,a)=>s.allies.find(u=>u.id===a.actorId)?.abilities.find(k=>k.id===a.abilityId);
-function aimed(s){s=planningView();const u=selectedUnit(s);if(!u)return [];if(state.mode==='move')return activeAnchor()?(findPath(s,u.id,activeAnchor())||[]):[];const a=u.abilities.find(a=>a.id===state.mode);return a&&activeAnchor()?tacticalArea(s,u,a,activeAnchor(),orientation(s,u,activeAnchor())):[];}
+function movementPreview(s=planningView()){
+ const unit=selectedUnit(s),destination=activeAnchor();if(!unit||!destination)return null;
+ const origin=s.tactical.positions[unit.id],found=findPath(s,unit.id,destination);
+ if(found)return {origin,destination,path:found,valid:true};
+ const path=[],at={...origin};
+ while(!sameCell(at,destination)&&path.length<5){at.x+=Math.sign(destination.x-at.x);at.y+=Math.sign(destination.y-at.y);path.push({...at});}
+ return {origin,destination,path,valid:false};
+}
+function movementTrailMarkup(move){
+ if(!move||!move.path.length)return '';
+ const points=[move.origin,...move.path].map(p=>(p.x*100+50)+','+(p.y*100+86)).join(' '),color=move.valid?'#94edf5':'#ff6666';
+ return '<svg class="preview-path '+(move.valid?'':'invalid')+'" viewBox="0 0 500 500" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="movement-arrow" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="'+color+'"/></marker></defs><polyline class="path-glow" points="'+points+'" stroke="'+color+'"/><polyline class="path-trail" points="'+points+'" stroke="'+color+'" marker-end="url(#movement-arrow)"/></svg>';
+}
+function paintPlanningPreview(){
+ const board=root.querySelector('.board');if(!board||state.busy)return;
+ const plan=planningView(),move=state.mode==='move'?movementPreview(plan):null,cells=new Set(aimed(plan).map(cellKey)),unit=selectedUnit(plan),ability=unit?.abilities.find(a=>a.id===state.mode);
+ const targets=new Set(ability&&activeAnchor()?tacticalTargets(plan,unit,ability,activeAnchor(),orientation(plan,unit,activeAnchor())):[]);
+ board.querySelectorAll('.move-hologram,.preview-path').forEach(e=>e.remove());
+ for(const cell of board.querySelectorAll('[data-cell]')){
+  cell.classList.toggle('aim',cells.has(cell.dataset.cell));
+  cell.classList.toggle('aim-danger',Boolean(move&&!move.valid&&cells.has(cell.dataset.cell)));
+  cell.classList.toggle('preview-target',targets.has(cell.querySelector('.token')?.dataset.unitId));
+ }
+ if(move){board.insertAdjacentHTML('afterbegin',movementTrailMarkup(move));board.querySelector('[data-cell="'+cellKey(move.destination)+'"]')?.insertAdjacentHTML('beforeend',ghostMarkup(unit,!move.valid));}
+}
+function aimed(s){s=planningView();const u=selectedUnit(s);if(!u)return [];if(state.mode==='move')return movementPreview(s)?.path||[];const a=u.abilities.find(a=>a.id===state.mode);return a&&activeAnchor()?tacticalArea(s,u,a,activeAnchor(),orientation(s,u,activeAnchor())):[];}
 function orientation(s,u,anchor){const origin=s.tactical.positions[u.id],dx=Math.sign(anchor.x-origin.x),dy=Math.sign(anchor.y-origin.y);return [dx||(!dy?1:0),dy];}
 function candidate(){
  const s=planningView(),u=selectedUnit(s);if(!u||!activeAnchor())return null;
@@ -82,9 +107,9 @@ function unitEffects(u){
  return effects;
 }
 function effectsMarkup(u){return '<span class="unit-effects">'+unitEffects(u).map(e=>'<i title="'+esc(e.label)+'" aria-label="'+esc(e.label)+'">'+e.icon+'</i>').join('')+'</span>';}
-function ghostMarkup(unit){
+function ghostMarkup(unit,invalid=false){
  const f=tacticalSpriteFrame(unit);
- return f?'<span class="move-hologram" aria-hidden="true"><span class="token-sprite"><span class="sprite-viewport"><img class="sprite-sheet" alt="" src="'+esc(f.src)+'" style="width:'+f.sheetColumns*100+'%;height:'+f.sheetRows*100+'%;left:'+(-f.column*100)+'%;top:'+(-f.row*100)+'%"></span></span></span>':'';
+ return f?'<span class="move-hologram '+(invalid?'invalid':'')+'" aria-hidden="true"><span class="token-sprite"><span class="sprite-viewport"><img class="sprite-sheet" alt="" src="'+esc(f.src)+'" style="width:'+f.sheetColumns*100+'%;height:'+f.sheetRows*100+'%;left:'+(-f.column*100)+'%;top:'+(-f.row*100)+'%"></span></span></span>':'';
 }
 function displaySnapshot(){const s=state.battle;return JSON.parse(JSON.stringify({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,chests:s.tactical.chests}));}
 function combatDelta(unit,event){
@@ -113,11 +138,11 @@ function turnOrderMarkup(s){
 }
 
 function boardMarkup(s){
- const plan=planningView(),proposed=candidate(),ability=selectedUnit(plan)?.abilities.find(a=>a.id===state.mode),affected=new Set(ability&&activeAnchor()?tacticalTargets(plan,selectedUnit(plan),ability,activeAnchor(),orientation(plan,selectedUnit(plan),activeAnchor())):[]),ghost=state.mode==='move'&&proposed?.type==='move'?proposed.path.at(-1):null;
+ const plan=planningView(),movement=state.mode==='move'?movementPreview(plan):null,ability=selectedUnit(plan)?.abilities.find(a=>a.id===state.mode),affected=new Set(ability&&activeAnchor()?tacticalTargets(plan,selectedUnit(plan),ability,activeAnchor(),orientation(plan,selectedUnit(plan),activeAnchor())):[]),ghost=movement?.destination||null;
  const aim=new Set(aimed(s).map(cellKey)),u=selectedUnit(s),anim=state.animation,impact=tacticalImpactActive(anim),wave=new Set((impact?anim?.cells||[]:[]).map(cellKey)),hits=new Set(tacticalDamagedTargets(anim));
- return '<div class="board" role="group" aria-label="Arena tática em grade de cinco por cinco">'+boardCells().map(p=>{
+ return '<div class="board" role="group" aria-label="Arena tática em grade de cinco por cinco">'+movementTrailMarkup(movement)+boardCells().map(p=>{
   const unit=occupied(s,p),chest=s.tactical.chests.find(item=>sameCell(item.position,p)),blocked=obstacle(s,p),reachable=state.mode==='move'&&u&&findPath(plan,u.id,p);
-  const classes=['cell',blocked?'blocked':'',chest?'treasure-cell':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':'',unit&&affected.has(unit.id)?'preview-target':'',unit?.id===anim?.actorId?'acting-cell':''].filter(Boolean).join(' ');
+  const classes=['cell',blocked?'blocked':'',chest?'treasure-cell':'',aim.has(cellKey(p))?'aim':'',movement&&!movement.valid&&aim.has(cellKey(p))?'aim-danger':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':'',unit&&affected.has(unit.id)?'preview-target':'',unit?.id===anim?.actorId?'acting-cell':''].filter(Boolean).join(' ');
   const animClass=unit&&anim?.actorId===unit.id?(anim.type==='move'?'animate-move':anim.type==='skill'?(anim.category===1?'animate-defense':'animate-skill'):'animate-prepare'):'';
   const animAbility=unit&&anim?.actorId===unit.id?animationAbility(unit,anim):null;
   const effect=animAbility?(Object.keys(getAbilityResourceCosts(unit,animAbility)).find(k=>k!=='random')||'essence'):'essence';
@@ -125,7 +150,7 @@ function boardMarkup(s){
   const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait,depthScale=(.89+p.y*.035).toFixed(3),motionId=animAbility?.id||anim?.type||'',motionVariant=motionId?[...motionId].reduce((n,ch)=>n+ch.charCodeAt(0),0)%3:0;
   return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(chest?', baú disponível':'')+'" '+(state.busy||state.battle.tactical.stage!=='planning'||Boolean(state.chestOffer)?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+(wave.has(cellKey(p))?tacticalVfxMarkup(anim.family):'')+
-   fallenAt(p,anim)+(ghost&&sameCell(ghost,p)?ghostMarkup(selectedUnit(plan)):'')+(!state.busy?state.draft.filter(a=>a.type==='move'&&sameCell(a.path.at(-1),p)).map(a=>{const actor=state.battle.allies.find(u=>u.id===a.actorId);return '<span class="destination-marker" title="Destino confirmado de '+esc(actor.name)+'"><img src="'+esc(portraitSrc(actor))+'" alt="'+esc(actor.name)+'"></span>';}).join(''):'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%"></span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
+   fallenAt(p,anim)+(ghost&&sameCell(ghost,p)?ghostMarkup(selectedUnit(plan),!movement.valid):'')+(!state.busy?state.draft.filter(a=>a.type==='move'&&sameCell(a.path.at(-1),p)).map(a=>{const actor=state.battle.allies.find(u=>u.id===a.actorId);return '<span class="destination-marker" title="Destino confirmado de '+esc(actor.name)+'"><img src="'+esc(portraitSrc(actor))+'" alt="'+esc(actor.name)+'"></span>';}).join(''):'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%"></span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 let arenaAssetRevision=0,arenaFirstPaintComplete=false;
@@ -160,7 +185,7 @@ function render(){
  '<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+arenaHudMarkup(s)+callout+boardMarkup(s)+'</div>'+
  '<section class="combat-dock"><div class="action-heading"><strong>'+esc(u?.name||'Selecione uma alma')+'</strong><span>'+uses+'/2 ações</span><span>'+(state.busy?esc(state.animation?.title||'Resolução'):state.mode==='move'?'Movimento':esc(a?.name||''))+'</span></div><div class="skills arena-skills">'+cards+'</div>'+
  '<div class="action-confirm"><p>'+(state.mode==='move'?'Toque numa casa. O holograma mostra o destino; confirme para reservar.':esc(a?.description||'Toque numa carta e escolha a região na grade.'))+'</p><button class="primary" data-command="add" '+(locked||!check?.ok||!state.anchor?'disabled':'')+'>'+(state.mode==='move'?'Confirmar destino':'Reservar técnica')+(state.anchor?' · '+cellLabel(state.anchor):'')+'</button></div>'+
- '<p class="notice" role="status">'+esc(state.message||(check&&!check.ok?check.reason:'')||(!preview.ok?preview.reason:''))+'</p></section>'+
+ '<p class="notice" role="status">'+esc(state.message||(state.mode==='move'&&movementPreview()?.valid===false?'Destino fora do alcance de dois passos ou caminho bloqueado.':'')||(check&&!check.ok?check.reason:'')||(!preview.ok?preview.reason:''))+'</p></section>'+
  '<section class="plan-panel"><div class="plan-heading"><strong>Seu plano · '+state.draft.length+'/6</strong><button class="primary" data-command="confirm" '+(locked||!preview.ok?'disabled':'')+'>'+(state.busy?'Executando…':'Revelar e executar')+'</button></div>'+queueMarkup()+'</section></section>'+
  '<details class="combat-log"><summary>Resolução da rodada</summary><ol>'+(state.busy?(state.completedEvents||[]):state.lastEvents).map(e=>'<li>'+esc(e.title)+(e.actorId?' · '+esc(tacticalUnits(state.battle).find(u=>u.id===e.actorId)?.name):'')+'</li>').join('')+'</ol></details>'+
  '<details id="formation" class="panel setup"><summary>Nova formação · '+tacticalRoster.length+' personagens</summary><div class="setup-fields"><div class="team-selects"><label>Seu trio</label>'+[0,1,2].map(i=>teamSelect('player',i)).join('')+'</div><div class="team-selects"><label>Oposição</label>'+[0,1,2].map(i=>teamSelect('enemy',i)).join('')+'</div><label>Mapa<select id="map-choice"><option value="open">Arena aberta</option><option value="ruins">Ruínas</option></select></label><label>Semente<input id="seed-choice" type="number" value="'+state.seed+'"></label></div><button data-command="restart">Iniciar confronto</button></details></div>';
@@ -238,6 +263,7 @@ root.addEventListener('click',event=>{
  if(command==='next-encounter'){if(state.chestOffer)return;const next=advanceTacticalRun(state.run,state.battle);if(!next)return;state.seed=next.seed;try{state.battle=createTacticalBattle(next.player,next.enemy,{seed:next.seed,buffs:next.buffs,memories:next.memories,globalEffects:next.globalEffects,teamHealth:next.teamHealth});}catch(e){state.message=e.message;render();return;}Object.assign(state,{draft:[],selected:state.battle.allies.find(u=>u.hp>0)?.id,mode:'move',anchor:null,payment:null,lastEvents:[],animation:null,playback:null,message:'',chestOffer:null});prepareEnemy();return;}
  if(command==='restart'){state.run=createTacticalRun();const ids=side=>[0,1,2].map(i=>document.getElementById(`${side}-choice-${i}`).value),seed=Number(document.getElementById('seed-choice').value);start(ids('player'),ids('enemy'),Number.isSafeInteger(seed)?seed:1,document.getElementById('map-choice').value==='ruins');}
 });
-root.addEventListener('pointerover',event=>{if(state.busy||state.anchor||state.chestOffer)return;const cell=event.target.closest('[data-cell]');if(!cell)return;const [x,y]=cell.dataset.cell.split(',').map(Number);if(sameCell(state.hoverAnchor,{x,y}))return;state.hoverAnchor={x,y};render();});
+root.addEventListener('pointerover',event=>{if(state.busy||state.anchor||state.chestOffer)return;const cell=event.target.closest('[data-cell]');if(!cell)return;const [x,y]=cell.dataset.cell.split(',').map(Number);if(sameCell(state.hoverAnchor,{x,y}))return;state.hoverAnchor={x,y};paintPlanningPreview();});
+root.addEventListener('pointerout',event=>{if(state.busy||state.anchor||!state.hoverAnchor)return;if(event.target.closest?.('.board')&&!event.relatedTarget?.closest?.('.board')){state.hoverAnchor=null;paintPlanningPreview();}});
 root.addEventListener('change',event=>{if(event.target.dataset.payment){const value=Number(event.target.value);state.payment[event.target.dataset.payment]=value;state.message='';render();}});
 start();

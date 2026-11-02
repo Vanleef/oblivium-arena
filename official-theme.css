@@ -629,3 +629,12 @@ body,.auth-screen{
 
 /* Destinos confirmados ficam no centro da casa, livres dos pés da fileira seguinte. */
 .destination-marker{top:calc(50% - 11px);bottom:auto}
+
+.preview-path{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
+.preview-path polyline{fill:none;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.path-glow{stroke-width:11;opacity:.16}
+.path-trail{stroke-width:2;stroke-dasharray:7 5;animation:move-trail .7s linear infinite}
+.move-hologram.invalid{filter:sepia(1) saturate(7) hue-rotate(315deg) drop-shadow(0 0 6px #ff4242);opacity:.65}
+.shell .board .cell.aim-danger{outline-color:#ff7777;background:#fb4d4d24!important}
+@keyframes move-trail{to{stroke-dashoffset:-24}}
+@media(prefers-reduced-motion:reduce){.path-trail{animation:none}}
