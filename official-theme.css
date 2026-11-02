@@ -610,3 +610,8 @@ body,.auth-screen{
 }
 
 .essence-pulse .essence-square{animation:essence-flash .7s ease-out}@keyframes essence-flash{0%{box-shadow:0 0 14px #d8b661;transform:scale(1.08)}100%{box-shadow:none;transform:scale(1)}}
+
+/* O piso visível se estende por todas as fileiras, inclusive as da frente. */
+.combat-shell .arena-backdrop{width:155%;height:155%;left:-27.5%;top:-13%}
+.combat-shell .board{top:46%;bottom:5%}
+@media(max-width:700px){.combat-shell .board{top:46%;bottom:5%}}
