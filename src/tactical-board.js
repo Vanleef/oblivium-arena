@@ -4,6 +4,9 @@ export const directions=Object.freeze([[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[
 export const cellKey=p=>`${p.x},${p.y}`;
 export const sameCell=(a,b)=>Boolean(a&&b&&a.x===b.x&&a.y===b.y);
 export const onBoard=p=>Boolean(p&&Number.isInteger(p.x)&&Number.isInteger(p.y)&&p.x>=0&&p.x<BOARD_SIZE&&p.y>=0&&p.y<BOARD_SIZE);
+// Rotate a cell through the board center so the opponent mirrors the full formation.
+export const mirrorCell=p=>onBoard(p)?{x:BOARD_SIZE-1-p.x,y:BOARD_SIZE-1-p.y}:null;
+export const mirrorDirection=d=>Array.isArray(d)&&d.length===2?[-d[0],-d[1]]:null;
 export const distance=(a,b)=>Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
 export const cellLabel=p=>onBoard(p)?`${'ABCDE'[p.x]}${p.y+1}`:'—';
 export const boardCells=()=>Array.from({length:25},(_,i)=>({x:i%5,y:Math.floor(i/5)}));
