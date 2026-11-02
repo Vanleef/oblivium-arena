@@ -55,8 +55,16 @@ export function tacticalDamagedTargets(event){
 export function tacticalFrameDuration(event){
  if(event?.type==='move'&&event.pose==='airborne')return 280;
  if(event?.type==='move'&&event.pose==='landing')return 160;
- return tacticalImpactActive(event)?560:65;
+ if(event?.type==='skill'&&!event.skipped){
+  if(tacticalImpactActive(event))return 560;
+  if(['travel','spread'].includes(event.pose))return 340;
+  if(event.pose==='windup'||event.pose==='brace')return 180;
+  if(event.index===0||['anticipate','gather','inhale','compress'].includes(event.pose))return 120;
+  if(event.pose==='release')return 100;
+ }
+ return 65;
 }
 export function tacticalFrameArt(ability,pose,portrait=''){
  return ability?.art&&actionArtPoses.has(pose)?ability.art:portrait;
 }
+

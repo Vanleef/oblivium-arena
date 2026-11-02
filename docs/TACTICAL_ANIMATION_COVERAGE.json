@@ -161,7 +161,7 @@
   {
     "id": "gemeos-do-cutelo",
     "name": "Vale e Soren",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": true,
     "skills": [
       {
@@ -417,7 +417,7 @@
   {
     "id": "o-trono-vazio",
     "name": "Lucien",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": true,
     "skills": [
       {
@@ -461,7 +461,7 @@
   {
     "id": "o-principe-das-correntes",
     "name": "Demetrius",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": true,
     "skills": [
       {
@@ -558,15 +558,15 @@
   {
     "id": "o-herdeiro-cativo",
     "name": "Malrik",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Punho Acorrentado",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -575,7 +575,7 @@
         "name": "Resistência do Pretendente",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -584,7 +584,7 @@
         "name": "Tomada do Trono",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -593,7 +593,7 @@
         "name": "Guarda Dinástica",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }
@@ -602,7 +602,7 @@
   {
     "id": "o-sussurro",
     "name": "Vesper",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": true,
     "skills": [
       {
@@ -646,15 +646,15 @@
   {
     "id": "a-mascara-dupla",
     "name": "Nyx",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Rosto Emprestado",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -672,7 +672,7 @@
         "name": "O Outro Rosto",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -681,7 +681,7 @@
         "name": "Traição Revelada",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -690,7 +690,7 @@
         "name": "Troca de Máscara",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }
@@ -699,15 +699,15 @@
   {
     "id": "o-tecelao-de-mentiras",
     "name": "Orin",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Fio de Engano",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -716,7 +716,7 @@
         "name": "Rede de Falsidades",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -724,8 +724,8 @@
         "id": "tecnica",
         "name": "Desatar a Trama",
         "form": "unweave",
-        "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "dedicatedAtlas": true,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -734,7 +734,7 @@
         "name": "Nó da Contradição",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -743,7 +743,7 @@
         "name": "Fora da Trama",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }
@@ -752,15 +752,15 @@
   {
     "id": "a-boca-de-vidro",
     "name": "Sylvara",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Sibilo Cortante",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -769,7 +769,7 @@
         "name": "Reflexo Traiçoeiro",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -778,7 +778,7 @@
         "name": "Coro de Estilhaços",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -787,7 +787,7 @@
         "name": "Reflexo Desviado",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }

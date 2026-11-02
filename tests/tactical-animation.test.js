@@ -16,7 +16,7 @@ import {tacticalRoster} from '../src/tactical-kits.js';
 import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
 
 test('os kits piloto têm atlas transparente e quadros distintos para cada ação',async()=>{
- assert.equal(Object.keys(tacticalSpriteAtlases).length,21);
+ assert.equal(Object.keys(tacticalSpriteAtlases).length,tacticalRoster.length);
  for(const id of tacticalRoster){
   const unit=characterById[id],atlas=tacticalSpriteAtlases[id];assert.ok(atlas,id);
   const bytes=await readFile(new URL('..'+atlas.src,import.meta.url));
@@ -38,23 +38,23 @@ test('os kits piloto têm atlas transparente e quadros distintos para cada açã
 });
 
 test('Fio de Memória usa seis quadros próprios e restaura o atlas base ao mover',()=>{
- const unit=characterById.nilo,sheet={style:{}},token={dataset:{unitId:unit.id},querySelector:s=>s==='.sprite-sheet'?sheet:null};
+ const unit=characterById.nilo,sheet={style:{}},token={style:{setProperty(){}},dataset:{unitId:unit.id},closest:()=>null,querySelector:s=>s==='.sprite-sheet'?sheet:null};
  const event={actorId:unit.id,type:'skill',abilityId:'tecnica'};
  paintTacticalToken(token,unit,event,{family:'bind',pose:'impact',index:5});
- assert.match(sheet.style.backgroundImage,/fio-de-memoria/);
- assert.equal(sheet.style.backgroundSize,'300% 200%');assert.equal(sheet.style.backgroundPosition,'0% 100%');
+ assert.match(sheet.src,/fio-de-memoria/);
+ assert.equal(sheet.style.width,'300%');assert.equal(sheet.style.height,'200%');assert.equal(sheet.style.left,'0%');assert.equal(sheet.style.top,'-100%');
  paintTacticalToken(token,unit,{actorId:unit.id,type:'move'},{family:'move',pose:'launch',index:3});
- assert.match(sheet.style.backgroundImage,/nilo.webp/);assert.equal(sheet.style.backgroundSize,'600% 600%');
+ assert.match(sheet.src,/nilo.webp/);assert.equal(sheet.style.width,'600%');assert.equal(sheet.style.height,'600%');
 });
 
 test('reprodução atualiza o recorte do ator correto no DOM e preserva os demais',()=>{
- const unit=characterById[tacticalRoster[0]],sheet={style:{}},token={dataset:{unitId:unit.id},querySelector:s=>s==='.sprite-sheet'?sheet:null};
+ const unit=characterById[tacticalRoster[0]],sheet={style:{}},token={style:{setProperty(){}},dataset:{unitId:unit.id},closest:()=>null,querySelector:s=>s==='.sprite-sheet'?sheet:null};
  const event={actorId:unit.id,type:'skill',abilityId:'impulso'};
  const frames=tacticalAnimationFrames(unit.abilities[0]);
- paintTacticalToken(token,unit,event,frames[1]);assert.equal(sheet.style.backgroundPosition,'20% 40%');
- paintTacticalToken(token,unit,event,frames.find(f=>f.pose==='impact'));assert.equal(sheet.style.backgroundPosition,'60% 40%');assert.equal(token.dataset.pose,'impact');
- token.dataset.unitId='other';assert.equal(paintTacticalToken(token,unit,event,frames[6]),false);assert.equal(sheet.style.backgroundPosition,'60% 40%');
- const image={src:''},fallback={dataset:{unitId:unit.id,portrait:'/portrait.webp',skillArt:'/skill.webp'},querySelector:s=>s==='.token-art'?image:null};
+ paintTacticalToken(token,unit,event,frames[1]);assert.equal(sheet.style.left,'-100%');assert.equal(sheet.style.top,'-200%');
+ paintTacticalToken(token,unit,event,frames.find(f=>f.pose==='impact'));assert.equal(sheet.style.left,'-300%');assert.equal(sheet.style.top,'-200%');assert.equal(token.dataset.pose,'impact');
+ token.dataset.unitId='other';assert.equal(paintTacticalToken(token,unit,event,frames[6]),false);assert.equal(sheet.style.left,'-300%');assert.equal(sheet.style.top,'-200%');
+ const image={src:''},fallback={style:{setProperty(){}},closest:()=>null,dataset:{unitId:unit.id,portrait:'/portrait.webp',skillArt:'/skill.webp'},querySelector:s=>s==='.token-art'?image:null};
  paintTacticalToken(fallback,unit,event,{family:'slash',pose:'impact'});assert.equal(image.src,'/skill.webp');
  paintTacticalToken(fallback,unit,event,{family:'slash',pose:'ready'});assert.equal(image.src,'/portrait.webp');
 });
@@ -67,7 +67,7 @@ test('impactos visuais só aparecem no contato de habilidades efetivamente execu
  assert.equal(tacticalImpactActive({type:'move',pose:'landing'}),false);
  assert.equal(tacticalFrameDuration({type:'skill',pose:'impact'}),560);
  assert.equal(tacticalFrameDuration({type:'skill',pose:'counter'}),560);
- assert.equal(tacticalFrameDuration({type:'move',pose:'landing'}),65);
+ assert.equal(tacticalFrameDuration({type:'move',pose:'landing'}),160);
 });
 
 test('reação de dano em área distingue alvos protegidos de alvos atingidos',async()=>{
@@ -89,3 +89,12 @@ test('os atlas de Ashara, Judith e Sanson apontam para os sprites normalizados d
   assert.deepEqual([atlas.columns,atlas.rows,atlas.cellSize],[6,6,209]);
  }
 });
+
+test('Orin tem atlas próprio para Desatar a Trama sem emprestar formas desconhecidas',()=>{
+ const unit=characterById['o-tecelao-de-mentiras'];
+ const frame=tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'unweave',pose:'impact',index:5});
+ assert.match(frame.src,/desatar-a-trama-v1/);
+ assert.deepEqual([frame.sheetColumns,frame.sheetRows],[3,2]);
+ assert.equal(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'missing'}),null);
+});
+

@@ -1,27 +1,27 @@
 # Cobertura de animações táticas
 
-21/150 entradas com atlas base conectado. 84/689 técnicas e formas com recorte mapeado.
+25/150 entradas com atlas base conectado. 101/689 técnicas e formas com recorte mapeado.
 
-Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família. O atlas de Vale e Soren representa uma única unidade por dois corpos; a forma `cross` de Corte em Contratempo e a forma `drag` de Demetrius seguem no fallback até receberem arte própria.
+Atlas específicos de habilidade conectados: 2. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
 | Riven (o-acougueiro) | Sim | Sim | 4/5 |
 | Lira (a-viuva-escarlate) | Sim | Sim | 4/5 |
 | Thorne (o-colecionador-de-cabecas) | Sim | Sim | 4/5 |
-| Vale e Soren (gemeos-do-cutelo) | Sim | Não | 4/5 |
+| Vale e Soren (gemeos-do-cutelo) | Sim | Sim | 4/5 |
 | Sanson (o-carrasco-sem-rosto) | Sim | Sim | 4/4 |
 | Selene (a-mae-rubra) | Sim | Sim | 4/4 |
 | Darius (o-soberano-quebrado) | Sim | Sim | 4/7 |
 | Judith (a-juiza-de-ferro) | Sim | Sim | 4/4 |
-| Lucien (o-trono-vazio) | Sim | Não | 4/4 |
-| Demetrius (o-principe-das-correntes) | Sim | Não | 4/5 |
+| Lucien (o-trono-vazio) | Sim | Sim | 4/4 |
+| Demetrius (o-principe-das-correntes) | Sim | Sim | 4/5 |
 | Ashara (a-regente-de-cinzas) | Sim | Sim | 4/4 |
-| Malrik (o-herdeiro-cativo) | Pendente | Não | 0/4 |
-| Vesper (o-sussurro) | Sim | Não | 4/4 |
-| Nyx (a-mascara-dupla) | Pendente | Não | 0/5 |
-| Orin (o-tecelao-de-mentiras) | Pendente | Não | 0/5 |
-| Sylvara (a-boca-de-vidro) | Pendente | Não | 0/4 |
+| Malrik (o-herdeiro-cativo) | Sim | Sim | 4/4 |
+| Vesper (o-sussurro) | Sim | Sim | 4/4 |
+| Nyx (a-mascara-dupla) | Sim | Sim | 4/5 |
+| Orin (o-tecelao-de-mentiras) | Sim | Sim | 5/5 |
+| Sylvara (a-boca-de-vidro) | Sim | Sim | 4/4 |
 | Cassian (o-falso-profeta) | Pendente | Não | 0/5 |
 | Annius (o-corretor-de-memorias) | Pendente | Não | 0/4 |
 | Ignis (o-incendiario) | Pendente | Não | 0/4 |

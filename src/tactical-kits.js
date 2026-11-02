@@ -1,5 +1,5 @@
 // Deliberately reviewed pilot kits. The full roster is not automatically remapped.
-export const tacticalRoster=Object.freeze(['o-acougueiro','a-viuva-escarlate','o-escudo-vivo','o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde','nilo','naomi','kael','diana','a-mae-rubra','o-soberano-quebrado','o-colecionador-de-cabecas','vaas','a-regente-de-cinzas','a-juiza-de-ferro','o-carrasco-sem-rosto','a-mascara-dupla','o-herdeiro-cativo']);
+export const tacticalRoster=Object.freeze(['o-acougueiro','a-viuva-escarlate','o-escudo-vivo','o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde','nilo','naomi','kael','diana','a-mae-rubra','o-soberano-quebrado','o-colecionador-de-cabecas','vaas','a-regente-de-cinzas','a-juiza-de-ferro','o-carrasco-sem-rosto','a-mascara-dupla','o-herdeiro-cativo','gemeos-do-cutelo','o-trono-vazio','o-principe-das-correntes','o-sussurro','o-tecelao-de-mentiras','a-boca-de-vidro']);
 export const patternNames=Object.freeze({self:'Pessoal',cell:'Uma célula',line:'Frente · 2 células',cross:'Cruz',square:'Área 3×3',x:'Diagonal em X'});
 export function tacticalSpec(actor,ability){
  if(ability.target==='self')return {pattern:'self',range:0,priority:1,limit:1,vision:false};
@@ -11,3 +11,4 @@ export function tacticalSpec(actor,ability){
  return {pattern:'cell',range:(actor.sourceId||actor.id)==='o-odio-encarnado'?2:3,priority:ability.damage||ability.dot||ability.dots?2:1,limit:1,vision:true};
 }
 export const priorityNames=Object.freeze(['Movimento','Preparação / Defesa','Ofensiva']);
+
