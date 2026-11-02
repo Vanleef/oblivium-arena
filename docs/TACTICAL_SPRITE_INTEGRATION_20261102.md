@@ -1,10 +1,10 @@
 # Atlas táticos — 2 de novembro de 2026
 
-Incluí os atlases de **Ashara, A Déspota**, **Judith, A Magistrada**, **Sanson, O Carrasco** e **Vale e Soren, Gêmeos do Cutelo**, **Lucien, O Suserano**, e **Demetrius, O Príncipe**, e **Vesper, O Sussurro**. Usei a segunda versão do atlas de Sanson.
+O registro reúne nove atlas de combate em grade 6×6, cada um com 36 quadros. Ashara, Judith, Sanson, Vale e Soren, Lucien, Demetrius e Vesper mantêm as margens documentadas de pelo menos 7 px. Nyx e Malrik usam quadros isolados da grade de origem e largura máxima de 108 px no campo, pois alguns pixels da arte original encostam nas bordas internas.
 
-Todos os atlases usam grade transparente 6×6 de 1254×1254 px e pelo menos 7 px de margem por quadro. Ashara, Judith e Sanson têm os pés alinhados em y=201 numa célula de 209 px. O atlas dos Gêmeos mostra uma única unidade por dois corpos; Lucien e Demetrius mantêm seus traços das referências oficiais; Vesper conserva a silhueta anfíbia e o leque de ferro. As alturas variam conforme a ação. Os três primeiros desta lista seguem selecionáveis no piloto; os sete estão no registro de sprites e cobrem repouso, movimento, Impulso, Técnica, Voto e Despertar.
+Ashara, Judith, Sanson, Nyx e Malrik ficam selecionáveis no piloto. Quatro entradas permanecem apenas no registro de atlas: Gêmeos do Cutelo, Lucien, Demetrius e Vesper. Corrigi também a seleção da linha de habilidade: agora ela usa um slot explícito, quando disponível, ou a posição da habilidade entre as quatro habilidades do personagem (Impulso, Técnica, Voto e Despertar). Isso faz os eventos cujos IDs são nomes de habilidade escolherem a animação correta.
 
-Cobertura com atlas: **21 de 150 personagens**, **756 desenhos**. Vale e Soren têm quatro recortes mapeados de cinco; Lucien e Vesper, quatro de quatro; Demetrius, quatro de cinco. As formas `cross` de Corte em Contratempo e `drag` de Demetrius mantêm fallback. O relatório JSON e a tabela de cobertura foram atualizados.
+Cobertura com atlas: **23 de 150 personagens**, **828 desenhos**. Vale e Soren têm quatro recortes mapeados de cinco; Lucien e Vesper, quatro de quatro; Demetrius, quatro de cinco. As formas `cross` de Corte em Contratempo e `drag` de Demetrius mantêm fallback.
 
 | Personagem | ID | Arquivo |
 | --- | --- | --- |
@@ -15,3 +15,5 @@ Cobertura com atlas: **21 de 150 personagens**, **756 desenhos**. Vale e Soren t
 | Lucien, O Suserano | o-trono-vazio | art/animations/tactical-pilot-20261102/lucien.webp |
 | Demetrius, O Príncipe | o-principe-das-correntes | art/animations/tactical-pilot-20261102/demetrius.webp |
 | Vesper, O Sussurro | o-sussurro | art/animations/tactical-pilot-20261102/vesper.webp |
+| Nyx, A Máscara Dupla | a-mascara-dupla | art/animations/tactical-pilot-20261102/nyx.webp |
+| Malrik, O Herdeiro | o-herdeiro-cativo | art/animations/tactical-pilot-20261102/malrik.webp |

@@ -12,12 +12,21 @@ export const tacticalSpriteAtlases=Object.freeze({
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),
+ 'a-mascara-dupla':Object.freeze({src:'/art/animations/tactical-pilot-20261102/nyx.webp',columns:6,rows:6,cellSize:209}),
+ 'o-herdeiro-cativo':Object.freeze({src:'/art/animations/tactical-pilot-20261102/malrik.webp',columns:6,rows:6,cellSize:209}),
  'gemeos-do-cutelo':Object.freeze({src:'/art/animations/tactical-pilot-20261102/gemeos-do-cutelo.webp',columns:6,rows:6,cellSize:209}),
  'o-trono-vazio':Object.freeze({src:'/art/animations/tactical-pilot-20261102/lucien.webp',columns:6,rows:6,cellSize:209}),
  'o-principe-das-correntes':Object.freeze({src:'/art/animations/tactical-pilot-20261102/demetrius.webp',columns:6,rows:6,cellSize:209}),
  'o-sussurro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/vesper.webp',columns:6,rows:6,cellSize:209})
 });
 const rows=Object.freeze({idle:0,move:1,impulso:2,tecnica:3,voto:4,despertar:5});
+const skillRows=Object.freeze(['impulso','tecnica','voto','despertar']);
+function skillRowFor(unit,event){
+ const direct=[event?.animationSlot,event?.slot,event?.clip,event?.abilityId].find(key=>typeof key==='string'&&Object.prototype.hasOwnProperty.call(rows,key));
+ if(direct)return direct;
+ const index=unit?.abilities?.findIndex(ability=>ability.id===event?.abilityId)??-1;
+ return skillRows[index]??null;
+}
 export const tacticalSkillAtlases=Object.freeze({
  'nilo/tecnica/base':Object.freeze({src:'/art/animations/nilo-skills-20261102/fio-de-memoria.webp',columns:3,rows:2})
 });
@@ -27,8 +36,8 @@ export function tacticalSpriteFrame(unit,event=null){
  const atlas=tacticalSpriteAtlases[unit?.sourceId||unit?.id];
  if(!atlas)return null;
  if(event?.formKey&&event.formKey!=='base')return null;
- const clip=event?.type==='move'?'move':event?.type==='skill'?event.abilityId:'idle';
- if(rows[clip]===undefined)return null;
+ const clip=event?.type==='move'?'move':event?.type==='skill'?skillRowFor(unit,event):'idle';
+ if(!clip||rows[clip]===undefined)return null;
  const index=Number.isInteger(event?.index)?Math.max(0,Math.min(7,event.index)):0;
  const column=['projectile','affliction'].includes(event?.family)&&event.pose==='recover'?4:event?.pose==='ready'?(index===0?0:5):(poseColumns[event?.pose]??columns[index]);
  const skill=event?.type==='skill'?tacticalSkillAtlases[`${unit.sourceId||unit.id}/${clip}/${event.formKey||'base'}`]:null;
