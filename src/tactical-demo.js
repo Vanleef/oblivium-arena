@@ -91,7 +91,7 @@ function boardMarkup(s){
    (chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(unit.stunned?' stunned':'')+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%"></span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
-let arenaAssetRevision=0;
+let arenaAssetRevision=0,arenaFirstPaintComplete=false;
 function paintArenaAssetsWhenDecoded(){
  const revision=++arenaAssetRevision,images=[...root.querySelectorAll('.arena-backdrop,.sprite-sheet')];
  Promise.all(images.map(image=>typeof image.decode==='function'?image.decode().catch(()=>undefined):Promise.resolve())).then(()=>{
@@ -102,6 +102,12 @@ function paintArenaAssetsWhenDecoded(){
   stage.style.visibility='hidden';
   void stage.offsetHeight;
   stage.style.visibility=previousVisibility;
+  if(!arenaFirstPaintComplete){
+   arenaFirstPaintComplete=true;
+   const top=window.scrollY,max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+   window.scrollTo(0,top<max?top+1:Math.max(0,top-1));
+   requestAnimationFrame(()=>window.scrollTo(0,top));
+  }
  });
 }
 function render(){
