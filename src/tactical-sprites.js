@@ -41,6 +41,8 @@ export function tacticalSpriteStyle(frame){
 export function paintTacticalToken(token,unit,event,frame){
  if(!unit||token.dataset.unitId!==event.actorId)return false;
  token.dataset.family=frame.family;token.dataset.pose=frame.pose;
+ const fromY=event.before?.positions?.[unit.id]?.y??event.from?.y??0,toY=event.after?.positions?.[unit.id]?.y??event.to?.y??fromY,hopRows=event.type==='move'?toY-fromY:0;
+ token.dataset.hop=String(event.type==='move'&&frame.pose==='airborne'&&hopRows!==0);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
  const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame});
  if(sprite&&atlasFrame){sprite.style.backgroundImage=`url('${atlasFrame.src}')`;sprite.style.backgroundSize=`${atlasFrame.sheetColumns*100}% ${atlasFrame.sheetRows*100}%`;sprite.style.backgroundPosition=`${atlasFrame.x}% ${atlasFrame.y}%`;return true;}
  const image=token.querySelector('.token-art');
