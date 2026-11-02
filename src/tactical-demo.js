@@ -95,8 +95,13 @@ let arenaAssetRevision=0;
 function paintArenaAssetsWhenDecoded(){
  const revision=++arenaAssetRevision,images=[...root.querySelectorAll('.arena-backdrop,.sprite-sheet')];
  Promise.all(images.map(image=>typeof image.decode==='function'?image.decode().catch(()=>undefined):Promise.resolve())).then(()=>{
-  if(revision!==arenaAssetRevision||!root.querySelector('.arena-stage'))return;
-  if(!root.classList.contains('arena-assets-ready'))root.classList.add('arena-assets-ready');
+  if(revision!==arenaAssetRevision)return;
+  const stage=root.querySelector('.arena-stage');if(!stage)return;
+  root.classList.add('arena-assets-ready');
+  const previousVisibility=stage.style.visibility;
+  stage.style.visibility='hidden';
+  void stage.offsetHeight;
+  stage.style.visibility=previousVisibility;
  });
 }
 function render(){
