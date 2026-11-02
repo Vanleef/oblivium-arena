@@ -214,15 +214,15 @@
   {
     "id": "o-carrasco-sem-rosto",
     "name": "Sanson",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Sentença sem Nome",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -231,7 +231,7 @@
         "name": "Queda da Guilhotina",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -240,7 +240,7 @@
         "name": "Última Respiração",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -249,7 +249,7 @@
         "name": "Capuz do Esquecimento",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }
@@ -373,15 +373,15 @@
   {
     "id": "a-juiza-de-ferro",
     "name": "Judith",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Acusação Imposta",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -390,7 +390,7 @@
         "name": "Interdição da Defesa",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -399,7 +399,7 @@
         "name": "Sentença de Submissão",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -408,7 +408,7 @@
         "name": "Toga Inviolável",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }
@@ -514,15 +514,15 @@
   {
     "id": "a-regente-de-cinzas",
     "name": "Ashara",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Ferro do Jugo",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -531,7 +531,7 @@
         "name": "Ordem Absoluta",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -540,7 +540,7 @@
         "name": "Esmagar a Resistência",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -549,7 +549,7 @@
         "name": "Privilégio Soberano",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }

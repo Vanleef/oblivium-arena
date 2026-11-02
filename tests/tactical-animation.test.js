@@ -16,7 +16,7 @@ import {tacticalRoster} from '../src/tactical-kits.js';
 import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
 
 test('os kits piloto têm atlas transparente e quadros distintos para cada ação',async()=>{
- assert.equal(Object.keys(tacticalSpriteAtlases).length,14);
+ assert.equal(Object.keys(tacticalSpriteAtlases).length,17);
  for(const id of tacticalRoster){
   const unit=characterById[id],atlas=tacticalSpriteAtlases[id];assert.ok(atlas,id);
   const bytes=await readFile(new URL('..'+atlas.src,import.meta.url));
@@ -78,4 +78,14 @@ test('reação de dano em área distingue alvos protegidos de alvos atingidos',a
  assert.deepEqual(tacticalDamagedTargets(event),['a','c']);
  assert.deepEqual(tacticalDamagedTargets({...event,pose:'windup'}),[]);
  assert.deepEqual(tacticalDamagedTargets({...event,skipped:true}),[]);
+});
+
+test('os atlas de Ashara, Judith e Sanson apontam para os sprites normalizados de 2026-11-02',()=>{
+ const expected={'a-regente-de-cinzas':'ashara','a-juiza-de-ferro':'judith','o-carrasco-sem-rosto':'sanson'};
+ for(const [id,name] of Object.entries(expected)){
+  const atlas=tacticalSpriteAtlases[id];
+  assert.ok(tacticalRoster.includes(id),id+' precisa estar no piloto');
+  assert.equal(atlas.src,'/art/animations/tactical-pilot-20261102/'+name+'.webp');
+  assert.deepEqual([atlas.columns,atlas.rows,atlas.cellSize],[6,6,209]);
+ }
 });

@@ -1,11 +1,18 @@
 // Candidate hand-drawn atlas coverage is intentionally separate from the generic
 // pose fallback. A mapped form is required: unknown forms never borrow base art.
 const root='/art/animations/tactical-pilot-20261101';
-export const tacticalSpriteAtlases=Object.freeze(Object.fromEntries([
+const pilotAtlasEntries=[
  ['o-acougueiro','riven'],['a-viuva-escarlate','lira'],['o-escudo-vivo','aegis'],
  ['o-passo-interrompido','chronos'],['o-odio-encarnado','corvin'],['a-arquiteta-verde','verdant'],
  ['nilo','nilo'],['naomi','naomi'],['kael','kael'],['diana','diana'],['a-mae-rubra','selene'],['o-soberano-quebrado','darius'],['o-colecionador-de-cabecas','thorne'],['vaas','vaas']
-].map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})])));
+];
+const pilotAtlases=Object.fromEntries(pilotAtlasEntries.map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})]));
+export const tacticalSpriteAtlases=Object.freeze({
+ ...pilotAtlases,
+ 'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
+ 'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
+ 'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209})
+});
 const rows=Object.freeze({idle:0,move:1,impulso:2,tecnica:3,voto:4,despertar:5});
 export const tacticalSkillAtlases=Object.freeze({
  'nilo/tecnica/base':Object.freeze({src:'/art/animations/nilo-skills-20261102/fio-de-memoria.webp',columns:3,rows:2})

@@ -1,6 +1,6 @@
 # Cobertura de animações táticas
 
-14/150 entradas com atlas base conectado. 56/689 técnicas e formas com recorte mapeado.
+17/150 entradas com atlas base conectado. 68/689 técnicas e formas com recorte mapeado.
 
 Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família.
 
@@ -10,13 +10,13 @@ Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam
 | Lira (a-viuva-escarlate) | Sim | Sim | 4/5 |
 | Thorne (o-colecionador-de-cabecas) | Sim | Sim | 4/5 |
 | Vale e Soren (gemeos-do-cutelo) | Pendente | Não | 0/5 |
-| Sanson (o-carrasco-sem-rosto) | Pendente | Não | 0/4 |
+| Sanson (o-carrasco-sem-rosto) | Sim | Sim | 4/4 |
 | Selene (a-mae-rubra) | Sim | Sim | 4/4 |
 | Darius (o-soberano-quebrado) | Sim | Sim | 4/7 |
-| Judith (a-juiza-de-ferro) | Pendente | Não | 0/4 |
+| Judith (a-juiza-de-ferro) | Sim | Sim | 4/4 |
 | Lucien (o-trono-vazio) | Pendente | Não | 0/4 |
 | Demetrius (o-principe-das-correntes) | Pendente | Não | 0/5 |
-| Ashara (a-regente-de-cinzas) | Pendente | Não | 0/4 |
+| Ashara (a-regente-de-cinzas) | Sim | Sim | 4/4 |
 | Malrik (o-herdeiro-cativo) | Pendente | Não | 0/4 |
 | Vesper (o-sussurro) | Pendente | Não | 0/4 |
 | Nyx (a-mascara-dupla) | Pendente | Não | 0/5 |
