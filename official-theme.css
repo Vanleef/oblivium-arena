@@ -626,3 +626,6 @@ body,.auth-screen{
 @keyframes combat-fall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(10px) rotate(25deg)}}
 @media(max-width:700px){.combat-number{font-size:16px;top:-30px}.falling-unit .token-sprite,.move-hologram .token-sprite{width:clamp(52px,17vw,76px);height:clamp(52px,17vw,76px)}}
 @media(prefers-reduced-motion:reduce){.combat-number,.falling-unit{animation:none}}
+
+/* Destinos confirmados ficam no centro da casa, livres dos pés da fileira seguinte. */
+.destination-marker{top:calc(50% - 11px);bottom:auto}
