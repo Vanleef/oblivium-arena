@@ -243,3 +243,14 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
   .board{width:min(100%,72vh);gap:2px}
   .cell:before{border-color:#d8c69a30}
 }
+
+/* Casas transparentes e estados sem preenchimento opaco: o cenário permanece contínuo sob o campo. */
+.cell:nth-child(odd),
+.cell.aim,
+.cell.reachable:not(.aim),
+.cell.blocked{
+  background:transparent;
+}
+.cell.aim{box-shadow:none}
+.cell.blocked{border-color:transparent}
+.cell.reachable:not(.aim){border-color:transparent}
