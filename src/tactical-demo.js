@@ -108,6 +108,9 @@ function paintArenaAssetsWhenDecoded(){
    stage.style.display='none';
    void stage.offsetHeight;
    stage.style.display=previousDisplay;
+   const top=window.scrollY,max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+   window.scrollTo(0,top<max?top+1:Math.max(0,top-1));
+   requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo(0,top)));
   }
  });
 }
