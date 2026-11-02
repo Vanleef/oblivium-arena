@@ -418,14 +418,14 @@
     "id": "o-trono-vazio",
     "name": "Lucien",
     "selectable": false,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Decreto de Submissão",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -434,7 +434,7 @@
         "name": "Interdição Soberana",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -443,7 +443,7 @@
         "name": "Guarda dos Vassalos",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -452,7 +452,7 @@
         "name": "Suserania Inviolável",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }
@@ -462,14 +462,14 @@
     "id": "o-principe-das-correntes",
     "name": "Demetrius",
     "selectable": false,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Primeiro Grilhão",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -487,7 +487,7 @@
         "name": "Arrasto do Príncipe",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -496,7 +496,7 @@
         "name": "Cárcere Dinástico",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -505,7 +505,7 @@
         "name": "Corrente Exterior",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }

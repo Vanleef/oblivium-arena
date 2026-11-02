@@ -1,8 +1,8 @@
 # Cobertura de animações táticas
 
-18/150 entradas com atlas base conectado. 72/689 técnicas e formas com recorte mapeado.
+20/150 entradas com atlas base conectado. 80/689 técnicas e formas com recorte mapeado.
 
-Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família. O atlas de Vale e Soren representa uma única unidade por dois corpos; a forma `cross` de Corte em Contratempo segue no fallback até receber arte própria.
+Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família. O atlas de Vale e Soren representa uma única unidade por dois corpos; a forma `cross` de Corte em Contratempo e a forma `drag` de Demetrius seguem no fallback até receberem arte própria.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
@@ -14,8 +14,8 @@ Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam
 | Selene (a-mae-rubra) | Sim | Sim | 4/4 |
 | Darius (o-soberano-quebrado) | Sim | Sim | 4/7 |
 | Judith (a-juiza-de-ferro) | Sim | Sim | 4/4 |
-| Lucien (o-trono-vazio) | Pendente | Não | 0/4 |
-| Demetrius (o-principe-das-correntes) | Pendente | Não | 0/5 |
+| Lucien (o-trono-vazio) | Sim | Não | 4/4 |
+| Demetrius (o-principe-das-correntes) | Sim | Não | 4/5 |
 | Ashara (a-regente-de-cinzas) | Sim | Sim | 4/4 |
 | Malrik (o-herdeiro-cativo) | Pendente | Não | 0/4 |
 | Vesper (o-sussurro) | Pendente | Não | 0/4 |

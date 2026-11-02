@@ -16,7 +16,7 @@ import {tacticalRoster} from '../src/tactical-kits.js';
 import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
 
 test('os kits piloto têm atlas transparente e quadros distintos para cada ação',async()=>{
- assert.equal(Object.keys(tacticalSpriteAtlases).length,18);
+ assert.equal(Object.keys(tacticalSpriteAtlases).length,20);
  for(const id of tacticalRoster){
   const unit=characterById[id],atlas=tacticalSpriteAtlases[id];assert.ok(atlas,id);
   const bytes=await readFile(new URL('..'+atlas.src,import.meta.url));

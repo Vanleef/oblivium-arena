@@ -2,10 +2,10 @@
   "date": "2026-11-02",
   "status": "pilot-expanded",
   "coverage": {
-    "atlasCharacters": 18,
+    "atlasCharacters": 20,
     "rosterCharacters": 150,
     "drawingsPerAtlas": 36,
-    "totalDrawings": 648,
+    "totalDrawings": 720,
     "allCharactersComplete": false,
     "allTechniqueVariantsComplete": false
   },
@@ -28,9 +28,9 @@
     "grid": "6x6 verified",
     "sourceDimensions": "1254x1254 RGBA",
     "webpHeader": "RIFF/WEBP",
-    "frameBounds": "all 144 frames across four integrated atlases remain inside a minimum 7px cell margin",
-    "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Gêmeos frames retain action-specific vertical placement",
-    "runtimeMappings": "The tactical roster stays at 17 selectable units; Vale e Soren add one non-selectable atlas entry"
+    "frameBounds": "all 216 frames across six reported atlases remain inside a minimum 7px cell margin",
+    "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Vale and Soren, Lucien and Demetrius use action-specific vertical placement",
+    "runtimeMappings": "The tactical roster stays at 17 selectable units; Vale and Soren, Lucien, and Demetrius add three non-selectable atlas entries"
   },
   "assets": [
     {
@@ -71,6 +71,27 @@
       "sha256": "23b6d8b50228aa3eeaeeb0dccfe887b87bfc8b2174c39527e90e0968fe62254b",
       "minimumFrameMarginPx": 7,
       "unmappedForm": "cross"
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "Lucien",
+      "title": "O Suserano",
+      "source": "graphic-2-5d-rework-20261029/portrait.webp",
+      "file": "art/animations/tactical-pilot-20261102/lucien.webp",
+      "bytes": 1172560,
+      "sha256": "693fbe5ebfa348b488de3d7d8a6bbdd4740b246469b8c8732e8f3045a7f85afd",
+      "minimumFrameMarginPx": 7
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "Demetrius",
+      "title": "O Príncipe",
+      "source": "graphic-2-5d-rework-20261029/portrait.webp",
+      "file": "art/animations/tactical-pilot-20261102/demetrius.webp",
+      "bytes": 1247592,
+      "sha256": "eaa66f7026c6958d5838538ca104b68524dc8b9d71696cac839a4640eaa40e25",
+      "minimumFrameMarginPx": 9,
+      "unmappedForm": "drag"
     }
   ]
 }
