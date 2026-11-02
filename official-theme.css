@@ -797,3 +797,10 @@ body,.auth-screen{
 }
 
 @media(max-width:700px){.movement-guide:has(.movement-cancel) .movement-legend{display:none}}
+
+/* Falta de Essência: arte desaturada, nome e custos legíveis. */
+.shell .arena-skills .skill.essence-unavailable{border-color:#66707b;background:#161b22;box-shadow:0 2px 5px #0006}
+.shell .arena-skills .skill.essence-unavailable .card-art img{filter:grayscale(1) brightness(.65)}
+.shell .arena-skills .skill.essence-unavailable .card-title{opacity:.8}
+.shell .arena-skills .skill.essence-unavailable .card-pattern{filter:grayscale(1);opacity:.6}
+.shell .arena-skills .skill.essence-unavailable[aria-pressed=true]{border-color:#adbbc9;box-shadow:0 0 0 1px #adbbc966}
