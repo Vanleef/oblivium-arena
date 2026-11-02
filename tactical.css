@@ -361,3 +361,9 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
   0%,100%{transform:scale(1)}
   50%{transform:scale(1.014,1.008)}
 }
+
+/* Camada de exibição do cenário e dimensão explícita para cada janela do atlas. */
+.arena-backdrop{z-index:0}
+.arena-stage:before,.arena-stage:after{z-index:1}
+.arena-callout,.board{z-index:2}
+.token-sprite{height:min(var(--sprite-max-width,120px),96%)}
