@@ -95,8 +95,8 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
  s.tactical={version:1,size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
- team(s,'player').forEach((u,i)=>{s.tactical.positions[u.id]={x:0,y:i+1};});
- team(s,'enemy').forEach((u,i)=>{s.tactical.positions[u.id]=mirrorCell({x:0,y:i+1});});
+ team(s,'player').forEach((u,i)=>{s.tactical.positions[u.id]={x:i===1?1:0,y:i+1};});
+ team(s,'enemy').forEach((u,i)=>{s.tactical.positions[u.id]=mirrorCell({x:i===1?1:0,y:i+1});});
  const obstacles=config.obstacles||[];
  if(!Array.isArray(obstacles)||obstacles.some(p=>!onBoard(p)||occupied(s,p))||new Set(obstacles.map(cellKey)).size!==obstacles.length)throw Error('Obstáculos inválidos.');
  s.tactical.obstacles=obstacles.map(cleanPoint);s.phase='tactical-planning';s.queue=[];s.intents=[];
