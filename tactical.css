@@ -266,3 +266,22 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .token:after{z-index:0}
 .token-art,.token .token-sprite{z-index:1}
 .token-copy,.token .hp,.token em{z-index:2}
+
+/* Idle imóvel: só expansão e relaxamento respiratório, com a base dos pés ancorada. */
+.token[data-sprite="true"][data-family="idle"] .sprite-sheet{
+  animation:atlas-breathe 3s ease-in-out infinite;
+  transform-origin:50% 100%;
+}
+.token[data-family="idle"] .token-art{
+  animation:portrait-breathe 3s ease-in-out infinite;
+  animation-delay:0s;
+  transform-origin:50% 100%;
+}
+@keyframes atlas-breathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.014,1.008)}
+}
+@keyframes portrait-breathe{
+  0%,100%{transform:translateX(-50%) scale(1)}
+  50%{transform:translateX(-50%) scale(1.014,1.008)}
+}
