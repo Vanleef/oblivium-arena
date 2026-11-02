@@ -777,3 +777,23 @@ body,.auth-screen{
  .move-origin-label{left:2px;bottom:2px;padding:2px;font-size:6px}
  .combat-shell .field-prompt.movement-prompt{top:36%;font-size:8px;padding:4px 6px}
 }
+
+/* Rota numerada e origem prevista da próxima ação. */
+.movement-origin-copy{font-size:10px;color:#adc6d3}
+.movement-route{font-size:12px;letter-spacing:.05em;font-weight:700;color:#d9ffff}
+.movement-input-hint{font-size:10px;color:#e1f9fc}
+.movement-guide:has(.movement-cancel){padding-right:30px;padding-left:30px}
+.shell .movement-cancel{position:absolute;right:3px;top:3px;display:grid;place-items:center;width:25px;min-height:25px;padding:0;border:0;background:transparent;color:#c3dce5;pointer-events:auto}
+.route-step{position:absolute;top:4px;left:6px;z-index:9;display:flex;align-items:center;gap:4px;pointer-events:none}
+.route-step>b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid #ddffff;background:#17616df2;color:#fff;font:700 11px/1 system-ui;box-shadow:0 1px 5px #0008}
+.route-step>small{font:700 8px/1 system-ui;color:#e4ffff;text-shadow:0 1px 3px #000}
+.route-destination>b{border-color:#e7ffff;box-shadow:0 0 0 2px #71d9e748}
+@media(max-width:700px){
+ .movement-guide{top:14%;gap:3px;padding:5px 8px}
+ .movement-origin-copy{font-size:8px}.movement-route{font-size:10px}.movement-input-hint{font-size:8px}
+ .movement-guide:has(.movement-cancel){padding-right:25px;padding-left:10px}
+ .shell .movement-cancel{width:22px;min-height:22px}
+ .route-step{top:2px;left:3px;gap:3px}.route-step>b{width:15px;height:15px;font-size:9px}.route-step>small{font-size:6px}
+}
+
+@media(max-width:700px){.movement-guide:has(.movement-cancel) .movement-legend{display:none}}
