@@ -55,3 +55,18 @@ export function tacticalResolutionFeedback(event){
  else if(!notes.length)notes.push('Efeitos aplicados aos alvos disponíveis.');
  return [...notes,...(event.augmentNotes||[])];
 }
+
+// Describes existing kits without adding hidden team bonuses.
+export function tacticalTrioIdentity(units){
+ const living=units.filter(u=>u.hp>0),notes=[];
+ const skills=u=>u.abilities||[];
+ const expose=living.find(u=>skills(u).some(a=>a.expose));
+ const striker=living.find(u=>u.id!==expose?.id&&skills(u).some(a=>a.damage&&a.damageType!=='affliction'));
+ if(expose&&striker)notes.push({title:'Abrir e punir',text:expose.name+' pode aplicar Exposto; '+striker.name+' aproveita a brecha com dano direto.'});
+ const guard=living.find(u=>skills(u).some(a=>a.shield&&['ally','team','friendly'].includes(a.target)));
+ if(guard)notes.push({title:'Sustentar a linha',text:guard.name+' protege aliados dentro da área de suas habilidades.'});
+ const combo=living.find(u=>skills(u).some(a=>a.combo));
+ if(combo)notes.push({title:'Preparar e concluir',text:combo.name+' tem golpes condicionais. Confira a condição na carta antes de encadear.'});
+ if(!notes.length)notes.push({title:'Controle de posição',text:'Use a primeira ação para ajustar a origem do golpe e a segunda para atacar ou recuar.'});
+ return notes.slice(0,3);
+}

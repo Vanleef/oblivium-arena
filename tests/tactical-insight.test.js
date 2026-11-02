@@ -31,3 +31,9 @@ test('a resolução explica interrupção, dano e absorção com snapshots reais
  const notes=tacticalResolutionFeedback({type:'skill',targets:['a'],before:{allies:[],enemies:[{id:'a',name:'Alvo',hp:100,shield:8}]},after:{allies:[],enemies:[{id:'a',name:'Alvo',hp:92,shield:0}]}});
  assert.ok(notes.some(t=>t.includes('perdeu 8')));assert.ok(notes.some(t=>t.includes('absorveu 8')));
 });
+
+test('identidade do trio descreve kits públicos e não concede bônus',async()=>{
+ const {tacticalTrioIdentity}=await import('../src/tactical-insight.js');const s=setup(),before=JSON.stringify(s);
+ const notes=tacticalTrioIdentity(s.allies);assert.ok(notes.some(n=>n.text.includes('Lira')&&n.text.includes('Riven')));assert.equal(JSON.stringify(s),before);
+ assert.ok(tacticalTrioIdentity([{id:'solo',name:'Solo',hp:100,abilities:[]}]).length);
+});

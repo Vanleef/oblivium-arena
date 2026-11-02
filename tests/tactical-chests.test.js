@@ -37,3 +37,13 @@ test('Essência de combo não financia ações futuras antes da geração',()=>{
  const s=setup(),u=s.allies[1];s.resources={cinza:1,graca:1,essence:0,ruptura:0};s.enemies[0].exposed=1;s.tactical.positions[s.enemies[0].id]={x:2,y:2};addTacticalAugment(s,'player',{type:'exposed-essence',resource:'cinza'});
  const plan=[{type:'skill',actorId:u.id,abilityId:'impulso',anchor:{x:2,y:2},orientation:[1,0],formKey:'base'},{type:'skill',actorId:u.id,abilityId:'tecnica',anchor:s.tactical.positions[u.id],orientation:[1,0],formKey:'base'}];assert.equal(previewTacticalPlan(s,'player',plan).ok,false);
 });
+
+test('aviso público reserva casa na rodada anterior e o baú surge ali mesmo ocupada',()=>{
+ const s=createTacticalBattle(['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],{seed:1});
+ const tick=()=>{assert.equal(submitTacticalPlan(s,'player',[]).ok,true);assert.equal(submitTacticalPlan(s,'enemy',[]).ok,true);return resolveTacticalRound(s);};
+ tick();assert.equal(s.round,2);assert.equal(s.tactical.nextChest,undefined);
+ tick();assert.equal(s.round,3);assert.equal(s.tactical.nextChest.round,4);const point={...s.tactical.nextChest.position};
+ s.tactical.positions[s.allies[0].id]={...point};
+ const clone=JSON.parse(JSON.stringify(s));assert.deepEqual(clone.tactical.nextChest,s.tactical.nextChest);
+ const result=tick();assert.equal(s.round,4);assert.deepEqual(s.tactical.chests[0].position,point);assert.equal(s.tactical.nextChest,null);assert.equal(result.events.find(e=>e.type==='chest-spawn').after.nextChest,null);
+});

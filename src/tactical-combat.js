@@ -55,13 +55,20 @@ function makeChestOffer(s,side,chest){
  const tier=chestTier(s,side);
  return {id:`${chest.id}:${side}`,chestId:chest.id,side,tier,tierName:chestTierNames[tier],round:s.round,options:tacticalChestOptions(s,side,tier)};
 }
+function announceTacticalChest(s){
+ if(s.round%4!==3)return;
+ const center={x:2,y:2};
+ const point=boardCells().filter(p=>!obstacle(s,p)&&!s.tactical.chests.some(c=>sameCell(c.position,p)))
+  .sort((a,b)=>distance(a,center)-distance(b,center)||a.y-b.y||a.x-b.x)[0];
+ if(point)s.tactical.nextChest={position:{...point},round:s.round+1};
+}
 function spawnTacticalChest(s){
- const center={x:2,y:2},point=boardCells().filter(p=>!occupied(s,p)&&!obstacle(s,p)&&!s.tactical.chests.some(chest=>sameCell(chest.position,p)))
+ const center={x:2,y:2},point=s.tactical.nextChest?.position||boardCells().filter(p=>!occupied(s,p)&&!obstacle(s,p)&&!s.tactical.chests.some(chest=>sameCell(chest.position,p)))
   .sort((a,b)=>distance(a,center)-distance(b,center)||a.y-b.y||a.x-b.x)[0];
  if(!point)return null;
  const before=replayState(s);
  const chest={id:`chest-${s.round}-${s.tactical.chestSequence++}`,position:point,spawnedRound:s.round};
- s.tactical.chests.push(chest);stamp(s,{type:'chest-spawn',title:'Um baú apareceu na arena',chest:copy(chest),before,after:replayState(s)});
+ s.tactical.nextChest=null;s.tactical.chests.push(chest);stamp(s,{type:'chest-spawn',title:'Um baú apareceu na arena',chest:copy(chest),before,after:replayState(s)});
  return chest;
 }
 export function chooseTacticalChestReward(s,offerId,optionId){
@@ -86,7 +93,9 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  team(s,'enemy').forEach((u,i)=>{s.tactical.positions[u.id]=mirrorCell({x:i===1?1:0,y:i+1});});
  const obstacles=config.obstacles||[];
  if(!Array.isArray(obstacles)||obstacles.some(p=>!onBoard(p)||occupied(s,p))||new Set(obstacles.map(cellKey)).size!==obstacles.length)throw Error('Obstáculos inválidos.');
- s.tactical.obstacles=obstacles.map(cleanPoint);s.phase='tactical-planning';s.queue=[];s.intents=[];
+ s.tactical.obstacles=obstacles.map(cleanPoint);
+ if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
+ s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
 }
 
@@ -230,7 +239,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
-function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,chests:s.tactical.chests});}
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -243,7 +252,7 @@ export function resolveTacticalRound(s){
  }
  if(s.tactical.stage!=='finished'){
   const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
-  if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.round%4===0)spawnTacticalChest(s);}
+  if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.round%4===0)spawnTacticalChest(s);else announceTacticalChest(s);}
  }
  for(const offer of s.tactical.pendingChestRewards)offer.options=tacticalChestOptions(s,offer.side,offer.tier);
  if(s.tactical.pendingChestRewards.length&&s.tactical.stage==='planning'){s.tactical.stage='reward';s.phase='tactical-reward';}

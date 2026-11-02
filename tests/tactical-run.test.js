@@ -20,3 +20,17 @@ test('não oferece melhorias nem avança expedição sem vitória concluída',()
  const run=createTacticalRun(),battle=createTacticalBattle(player,enemy,{seed:2});
  assert.deepEqual(offerTacticalRewards(run,battle,2),[]);assert.equal(advanceTacticalRun(run,battle),null);assert.equal(run.encounter,1);
 });
+
+test('trilhas mantêm derrotados, limitam cura e aplicam risco somente à oposição',()=>{
+ const battle=createTacticalBattle(player,enemy,{seed:7});battle.phase='victory';battle.tactical.stage='finished';battle.allies[0].hp=96;battle.allies[1].hp=40;battle.allies[2].hp=0;
+ const run=createTacticalRun(),next=advanceTacticalRun(run,battle,'recovery');
+ assert.deepEqual(Object.values(next.teamHealth),[100,58,0]);assert.equal(run.history[0].route,'recovery');
+ const riskRun=createTacticalRun(),risk=advanceTacticalRun(riskRun,battle,'risk'),nextBattle=createTacticalBattle(risk.player,risk.enemy,risk);
+ assert.equal(riskRun.rewardCount,4);assert.ok(nextBattle.enemies.every(u=>u.shield>=18));assert.equal(nextBattle.allies[0].shield,0);
+ nextBattle.phase='victory';nextBattle.tactical.stage='finished';assert.equal(offerTacticalRewards(riskRun,nextBattle,7).length,4);
+});
+test('descoberta altera adversários e trilha inválida não modifica a expedição',()=>{
+ const battle=createTacticalBattle(player,enemy);battle.phase='victory';battle.tactical.stage='finished';
+ const run=createTacticalRun(),before=JSON.stringify(run);assert.equal(advanceTacticalRun(run,battle,'inventada'),null);assert.equal(JSON.stringify(run),before);
+ const next=advanceTacticalRun(run,battle,'discovery');assert.equal(new Set(next.enemy).size,3);assert.notDeepEqual(next.enemy,enemy);assert.deepEqual(next.player,player);assert.doesNotThrow(()=>createTacticalBattle(next.player,next.enemy,next));
+});
