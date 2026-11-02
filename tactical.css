@@ -285,3 +285,38 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
   0%,100%{transform:translateX(-50%) scale(1)}
   50%{transform:translateX(-50%) scale(1.014,1.008)}
 }
+
+/* As casas viram apenas divisórias; o cenário atravessa a grade sem painéis coloridos. */
+.arena-stage{
+  background-color:#10131a;
+  background-image:url('/art/arenas/limbo-ruins.webp')!important;
+  background-position:center 52%;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.arena-stage:before{
+  background:linear-gradient(180deg,#10131a08 0%,transparent 48%,#090c1038 100%);
+}
+.cell{
+  border:1px solid #d8c69a44;
+  background:transparent!important;
+}
+.cell:before{display:none}
+.cell:nth-child(odd){background:transparent!important}
+.cell.aim{
+  outline:1px solid #f0d38b;
+  outline-offset:-2px;
+  box-shadow:none;
+}
+.cell.reachable:not(.aim){
+  outline:1px solid #9dcdd066;
+  outline-offset:-2px;
+}
+.cell.blocked{
+  background:#11151a66!important;
+  border-color:#b89b7150;
+}
+.cell.active{
+  outline:2px solid #f0d38b;
+  outline-offset:-2px;
+}
