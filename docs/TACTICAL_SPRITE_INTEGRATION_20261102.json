@@ -23,7 +23,9 @@
     "Unknown forms retain illustrated fallback instead of borrowing the base atlas.",
     "Cancelled skills are excluded from animation.",
     "Reduced-motion preference skips replay and unlocks planning.",
-    "Skill rows resolve from an explicit animationSlot/slot/clip or the actor's ordered four abilities: Impulso, Técnica, Voto, Despertar."
+    "Skill rows resolve from an explicit animationSlot/slot/clip or the actor's ordered four abilities: Impulso, Técnica, Voto, Despertar.",
+    "Idle holds the first full-body frame and uses a subtle breathing motion instead of cycling through six different poses.",
+    "The tactical board shows an original Limbo ruins-and-waterfall stage behind translucent grid tiles."
   ],
   "validation": {
     "grid": "6x6 verified",
@@ -31,7 +33,8 @@
     "webpHeader": "RIFF/WEBP",
     "frameBounds": "The seven earlier atlas sheets (252 frames) retain their documented minimum 7px cell margins. Nyx and Malrik have source pixels touching internal cell edges; each frame is isolated by the 6x6 sheet crop and displayed at max-width 108px to fit inside one 5x5 board cell.",
     "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Vale and Soren, Lucien, Demetrius and Vesper use action-specific vertical placement",
-    "runtimeMappings": "The tactical roster has 19 selectable units, including Nyx and Malrik. Vale and Soren, Lucien, Demetrius, and Vesper remain four non-selectable atlas entries."
+    "runtimeMappings": "The tactical roster has 19 selectable units, including Nyx and Malrik. Vale and Soren, Lucien, Demetrius, and Vesper remain four non-selectable atlas entries.",
+    "stageBackdrop": "art/arenas/limbo-ruins.webp, 1448x1086 WebP, 4:3 composition"
   },
   "assets": [
     {

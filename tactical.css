@@ -7,16 +7,16 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .topbar{border-bottom-color:#504638}
 .layout{grid-template-columns:minmax(480px,1.22fr) minmax(390px,.88fr);gap:18px}
 .panel{border-color:#353841;background:linear-gradient(145deg,#1b2027e8,#11151b);box-shadow:0 14px 35px #0003}
-.arena-stage{position:relative;isolation:isolate;padding:13px 12px 10px;border:1px solid #65553d;border-radius:10px;overflow:hidden;background:radial-gradient(ellipse at 50% 52%,#52605475 0%,#2d33334a 37%,transparent 72%),linear-gradient(180deg,#151d26,#162126 47%,#23251f);box-shadow:inset 0 0 52px #020407a8,0 12px 25px #0006}
+.arena-stage{position:relative;isolation:isolate;padding:13px 12px 10px;border:1px solid #65553d;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#10131a20 0%,#080b1050 100%),url('/art/arenas/limbo-ruins.webp') center 52%/cover no-repeat;box-shadow:inset 0 0 52px #020407a8,0 12px 25px #0006}
 .arena-stage:before,.arena-stage:after{content:"";position:absolute;z-index:-1;pointer-events:none}
-.arena-stage:before{inset:0;background:linear-gradient(180deg,transparent 51%,#090c10aa),radial-gradient(ellipse at 50% 85%,#d1ad6040,transparent 46%)}
+.arena-stage:before{inset:0;background:linear-gradient(180deg,#10131a20 0%,transparent 35%,#090c1070 100%),radial-gradient(ellipse at 50% 85%,#d1ad6020,transparent 46%)}
 .arena-stage:after{left:8%;right:8%;bottom:5%;height:20%;border-radius:50%;background:#d5ad5720;filter:blur(24px)}
 .arena-callout{min-height:30px;margin:0 0 7px;padding:6px 9px;border-left:2px solid transparent;color:#c6c0b2;font-family:Georgia,serif;font-size:.83rem;letter-spacing:.035em}
 .arena-callout.active{border-color:#ddbd79;color:#f1dcaa;background:linear-gradient(90deg,#d7b56c20,transparent);animation:callout-in .28s ease-out}
 .board{gap:4px;aspect-ratio:1.24;max-height:730px;transform:perspective(1100px) rotateX(5deg);transform-origin:50% 62%;filter:drop-shadow(0 15px 12px #0007)}
 .cell{z-index:0;padding:2px;border:0;border-radius:3px;background:transparent;overflow:visible;isolation:isolate}
-.cell:before{content:"";position:absolute;inset:4px 2px 7px;z-index:-2;border:1px solid #c4aa7140;background:linear-gradient(145deg,#41463d9c,#242c2aab 55%,#192022d9);clip-path:polygon(0 3%,96% 0,100% 92%,4% 100%);box-shadow:0 8px 0 #080a0c}
-.cell:nth-child(5n+1):before,.cell:nth-child(5n+3):before{background:linear-gradient(145deg,#3d413a99,#20282aa6 58%,#191e20d9)}
+.cell:before{content:"";position:absolute;inset:4px 2px 7px;z-index:-2;border:1px solid #c4aa7140;background:linear-gradient(145deg,#41463d78,#242c2a80 55%,#192022a0);clip-path:polygon(0 3%,96% 0,100% 92%,4% 100%);box-shadow:0 8px 0 #080a0c}
+.cell:nth-child(5n+1):before,.cell:nth-child(5n+3):before{background:linear-gradient(145deg,#3d413a70,#20282a78 58%,#191e2098)}
 .cell:after{content:"";position:absolute;inset:5px 3px 8px;z-index:-1;opacity:0;pointer-events:none;background:radial-gradient(ellipse,#d7bc7890,#bd584c44 58%,transparent 76%);transform:scale(.55)}
 .cell.blocked:before{background:repeating-linear-gradient(130deg,#5a4c3e 0 9px,#342e2a 9px 18px);border-color:#88715b}
 .cell.aim:before{border-color:#e8cd8a;background:linear-gradient(145deg,#987445c9,#514131dd 58%,#302a22)}
@@ -160,9 +160,9 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 @keyframes sprite-impact{0%,100%{transform:translateX(-50%)}30%{transform:translateX(calc(-50% + 7px)) rotate(3deg);filter:brightness(1.8)}65%{transform:translateX(calc(-50% - 4px)) rotate(-2deg)}}
 @keyframes sprite-impact-enemy{0%,100%{transform:translateX(-50%) scaleX(-1)}30%{transform:translateX(calc(-50% - 7px)) scaleX(-1) rotate(3deg);filter:brightness(1.8)}65%{transform:translateX(calc(-50% + 4px)) scaleX(-1) rotate(-2deg)}}
 .sprite-sheet{display:block;width:100%;height:100%;background-size:600% 600%;background-repeat:no-repeat}
-.token[data-sprite="true"][data-family="idle"] .sprite-sheet{animation:atlas-idle 1.2s steps(1,end) infinite}
+.token[data-sprite="true"][data-family="idle"] .sprite-sheet{animation:atlas-breathe 2.4s ease-in-out infinite;transform-origin:50% 100%}
 .token.stunned .sprite-sheet{animation-play-state:paused!important;filter:saturate(.35)}
-@keyframes atlas-idle{0%,100%{background-position-x:0%}16.67%{background-position-x:20%}33.33%{background-position-x:40%}50%{background-position-x:60%}66.67%{background-position-x:80%}83.33%{background-position-x:100%}}
+@keyframes atlas-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
 @media(prefers-reduced-motion:reduce){.token[data-sprite="true"] .sprite-sheet{animation:none!important}}
 /* Input is locked during playback; combatants retain full visual contrast. */
 .cell:disabled{opacity:1}

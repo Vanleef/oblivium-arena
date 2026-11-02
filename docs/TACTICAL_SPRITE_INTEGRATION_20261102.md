@@ -2,7 +2,7 @@
 
 O registro reúne nove atlas de combate em grade 6×6, cada um com 36 quadros. Ashara, Judith, Sanson, Vale e Soren, Lucien, Demetrius e Vesper mantêm as margens documentadas de pelo menos 7 px. Nyx e Malrik usam quadros isolados da grade de origem e largura máxima de 108 px no campo, pois alguns pixels da arte original encostam nas bordas internas.
 
-Ashara, Judith, Sanson, Nyx e Malrik ficam selecionáveis no piloto. Quatro entradas permanecem apenas no registro de atlas: Gêmeos do Cutelo, Lucien, Demetrius e Vesper. Corrigi também a seleção da linha de habilidade: agora ela usa um slot explícito, quando disponível, ou a posição da habilidade entre as quatro habilidades do personagem (Impulso, Técnica, Voto e Despertar). Isso faz os eventos cujos IDs são nomes de habilidade escolherem a animação correta.
+Ashara, Judith, Sanson, Nyx e Malrik ficam selecionáveis no piloto. Quatro entradas permanecem apenas no registro de atlas: Gêmeos do Cutelo, Lucien, Demetrius e Vesper. O idle mantém o primeiro quadro de corpo inteiro com uma respiração sutil, sem percorrer as outras poses. O tabuleiro agora usa um cenário original de ruínas e cachoeira do Limbo sob as casas semitransparentes. Corrigi também a seleção da linha de habilidade: agora ela usa um slot explícito, quando disponível, ou a posição da habilidade entre as quatro habilidades do personagem (Impulso, Técnica, Voto e Despertar). Isso faz os eventos cujos IDs são nomes de habilidade escolherem a animação correta.
 
 Cobertura com atlas: **23 de 150 personagens**, **828 desenhos**. Vale e Soren têm quatro recortes mapeados de cinco; Lucien e Vesper, quatro de quatro; Demetrius, quatro de cinco. As formas `cross` de Corte em Contratempo e `drag` de Demetrius mantêm fallback.
 
