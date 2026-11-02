@@ -263,7 +263,7 @@ function commitPlan(){if(state.busy||state.chestOffer||state.anchor||Number.isIn
 const r=submitTacticalPlan(state.battle,'player',state.draft,state.payment);if(!r.ok){state.message=r.reason;render();return;}
   const result=resolveTacticalRound(state.battle);if(!result.ok){state.message=result.reason;render();return;}
   state.planHistory=[];state.editIndex=null;state.lastEvents=result.events;state.chestOffer=result.chestRewards?.[0]||null;if(result.finished&&state.battle.phase==='victory'){state.rewardChoices=offerTacticalRewards(state.run,state.battle,state.seed+state.run.encounter);}state.draft=[];state.payment=null;state.anchor=null;state.hoverAnchor=null;state.mode='move';state.selected=state.battle.allies.find(u=>u.hp>0)?.id;state.message='';
-  state.playback=result.events.find(e=>e.before)?.before||null;animateRound(result.events);
+  state.playback=result.events.find(e=>e.before)?.before||null;root.querySelector('.arena-toolbar')?.scrollIntoView({behavior:'instant',block:'start'});animateRound(result.events);
  
 }
 function render(){
@@ -390,4 +390,3 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('keyup',e=>{if(['Enter',' '].includes(e.key))cancelCommit();});
 root.addEventListener('change',event=>{if(event.target.dataset.payment){const value=Number(event.target.value);state.payment[event.target.dataset.payment]=value;state.message='';render();}});
 start();
-
