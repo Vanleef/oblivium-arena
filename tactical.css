@@ -15,8 +15,8 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .arena-callout.active{border-color:#ddbd79;color:#f1dcaa;background:linear-gradient(90deg,#d7b56c20,transparent);animation:callout-in .28s ease-out}
 .board{gap:4px;aspect-ratio:1.24;max-height:730px;transform:perspective(1100px) rotateX(5deg);transform-origin:50% 62%;filter:drop-shadow(0 15px 12px #0007)}
 .cell{z-index:0;padding:2px;border:0;border-radius:3px;background:transparent;overflow:visible;isolation:isolate}
-.cell:before{content:"";position:absolute;inset:4px 2px 7px;z-index:-2;border:1px solid #c4aa7140;background:linear-gradient(145deg,#41463d78,#242c2a80 55%,#192022a0);clip-path:polygon(0 3%,96% 0,100% 92%,4% 100%);box-shadow:0 8px 0 #080a0c}
-.cell:nth-child(5n+1):before,.cell:nth-child(5n+3):before{background:linear-gradient(145deg,#3d413a70,#20282a78 58%,#191e2098)}
+.cell:before{content:"";position:absolute;inset:4px 2px 7px;z-index:-2;border:1px solid #c4aa7140;background:linear-gradient(145deg,#41463d5c,#242c2a66 55%,#19202280);clip-path:polygon(0 3%,96% 0,100% 92%,4% 100%);box-shadow:0 8px 0 #080a0c}
+.cell:nth-child(5n+1):before,.cell:nth-child(5n+3):before{background:linear-gradient(145deg,#3d413a55,#20282a60 58%,#191e2078)}
 .cell:after{content:"";position:absolute;inset:5px 3px 8px;z-index:-1;opacity:0;pointer-events:none;background:radial-gradient(ellipse,#d7bc7890,#bd584c44 58%,transparent 76%);transform:scale(.55)}
 .cell.blocked:before{background:repeating-linear-gradient(130deg,#5a4c3e 0 9px,#342e2a 9px 18px);border-color:#88715b}
 .cell.aim:before{border-color:#e8cd8a;background:linear-gradient(145deg,#987445c9,#514131dd 58%,#302a22)}
