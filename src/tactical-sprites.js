@@ -4,7 +4,7 @@ const root='/art/animations/tactical-pilot-20261101';
 export const tacticalSpriteAtlases=Object.freeze(Object.fromEntries([
  ['o-acougueiro','riven'],['a-viuva-escarlate','lira'],['o-escudo-vivo','aegis'],
  ['o-passo-interrompido','chronos'],['o-odio-encarnado','corvin'],['a-arquiteta-verde','verdant'],
- ['nilo','nilo'],['naomi','naomi'],['kael','kael'],['diana','diana'],['a-mae-rubra','selene'],['o-soberano-quebrado','darius'],['o-colecionador-de-cabecas','thorne']
+ ['nilo','nilo'],['naomi','naomi'],['kael','kael'],['diana','diana'],['a-mae-rubra','selene'],['o-soberano-quebrado','darius'],['o-colecionador-de-cabecas','thorne'],['vaas','vaas']
 ].map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})])));
 const rows=Object.freeze({idle:0,move:1,impulso:2,tecnica:3,voto:4,despertar:5});
 export const tacticalSkillAtlases=Object.freeze({
@@ -19,7 +19,7 @@ export function tacticalSpriteFrame(unit,event=null){
  const clip=event?.type==='move'?'move':event?.type==='skill'?event.abilityId:'idle';
  if(rows[clip]===undefined)return null;
  const index=Number.isInteger(event?.index)?Math.max(0,Math.min(7,event.index)):0;
- const column=event?.family==='projectile'&&event.pose==='recover'?4:event?.pose==='ready'?(index===0?0:5):(poseColumns[event?.pose]??columns[index]);
+ const column=['projectile','affliction'].includes(event?.family)&&event.pose==='recover'?4:event?.pose==='ready'?(index===0?0:5):(poseColumns[event?.pose]??columns[index]);
  const skill=event?.type==='skill'?tacticalSkillAtlases[`${unit.sourceId||unit.id}/${clip}/${event.formKey||'base'}`]:null;
  if(skill){const row=Math.floor(column/skill.columns),col=column%skill.columns;return {src:skill.src,clip,row,column:col,x:col*100/(skill.columns-1),y:row*100/(skill.rows-1),sheetColumns:skill.columns,sheetRows:skill.rows};}
  return {src:atlas.src,clip,row:rows[clip],column,x:column*20,y:rows[clip]*20,sheetColumns:6,sheetRows:6};

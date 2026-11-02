@@ -1,0 +1,91 @@
+/* Official OA palette: charcoal, brushed gold and warm ivory.
+   World and combat resource colors remain semantic, independent of branding. */
+:root,body{
+  --oa-ink:#101113;--oa-deep:#151618;--oa-surface:#1c1d20;
+  --oa-raised:#252629;--oa-high:#303034;
+  --oa-gold:#e8bd69;--oa-gold-light:#ffe5a1;--oa-bronze:#98703e;
+  --oa-ivory:#f6f0e3;--oa-copy:#d7d1c6;--oa-muted:#b6b0a5;
+  --oa-line:#e8bd692e;--oa-line-strong:#e8bd6961;
+  --bg:var(--oa-ink);--panel:var(--oa-surface);--panel-2:var(--oa-raised);--panel-3:var(--oa-high);
+  --text:var(--oa-ivory);--muted:var(--oa-muted);--dim:#a09b91;
+  --line:var(--oa-line);--line-strong:var(--oa-line-strong);
+  --gold:var(--oa-gold);--gold-bright:var(--oa-gold-light);--ink:var(--oa-deep);
+  --moth-ink:var(--oa-ink);--moth-deep:var(--oa-deep);--moth-surface:var(--oa-surface);--moth-raised:var(--oa-raised);
+  --moth-ivory:var(--oa-ivory);--moth-gold:var(--oa-gold);--moth-gold-light:var(--oa-gold-light);
+  --pma-ink:var(--oa-ink);--pma-ink-raised:var(--oa-deep);--pma-surface:var(--oa-surface);
+  --pma-surface-raised:var(--oa-raised);--pma-surface-high:var(--oa-high);
+  --pma-ivory:var(--oa-ivory);--pma-copy:var(--oa-copy);--pma-muted:var(--oa-muted);
+  --pma-line:var(--oa-line);--pma-line-strong:var(--oa-line-strong);
+  color-scheme:dark;
+}
+body,.auth-screen{
+  color:var(--oa-ivory);
+  background:radial-gradient(ellipse at 15% 0,#b78b3814,transparent 42rem),linear-gradient(155deg,#1a1b1e,var(--oa-ink) 65%);
+}
+::selection{background:#e8bd6955;color:var(--oa-gold-light)}
+:is(button,a,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--oa-gold-light);outline-offset:3px}
+.topbar,.auth-topbar,.status-strip,.site-footer{background:linear-gradient(110deg,#25221b80,#151618dc);border-color:var(--oa-line)}
+.brand-name b,.auth-brand b,.auth-intro h1,.auth-card h2,.profile-heading h1{color:var(--oa-ivory)}
+.brand-name small,.eyebrow,.auth-intro>.eyebrow,.auth-card-heading .eyebrow,.auth-intro h1 em,.hero-copy h1 em{color:var(--oa-gold)}
+.auth-intro>.eyebrow span{background:var(--oa-gold);box-shadow:0 0 12px #e8bd6940}
+.brand-mark,.auth-moth{filter:drop-shadow(0 3px 12px #c69c4440)}
+.auth-moth-halo{background:radial-gradient(ellipse,#bd913b24,transparent 72%)}
+.nav-link,.auth-topbar nav button{color:var(--oa-muted)}
+.nav-link:hover,.auth-topbar nav button:hover{color:var(--oa-ivory);background:#e8bd6910}
+.nav-link.active{color:var(--oa-gold-light);border-color:var(--oa-line-strong);background:linear-gradient(120deg,#e8bd691b,#1c1d20);box-shadow:inset 0 -2px var(--oa-gold)}
+.nav-link.active .ui-icon{color:var(--oa-gold)}
+.nav-link.active::after{background:linear-gradient(90deg,var(--oa-bronze),var(--oa-gold-light),var(--oa-gold))}
+.hero-panel{background:linear-gradient(120deg,#1e1f22f5,#151618cc);border-color:var(--oa-line-strong)}
+.hero-art::after{background:linear-gradient(90deg,#151618f5,#151618a0 28%,transparent 70%),linear-gradient(0deg,#151618dd,transparent 72%)}
+.hero-copy p,.hero-gate-caption span,.auth-intro>p,.auth-card-heading p,.status-quote{color:var(--oa-muted)}
+.realm-tab,.realm-campaign,.team-builder,.roster-browser,.codex-card,.resonance-card,.choice-panel,.completion-panel,.arena-profile,.panel,
+.auth-card,.profile-form,.profile-side,.tutorial-public{background:linear-gradient(145deg,var(--oa-raised),var(--oa-deep));border-color:var(--oa-line)}
+.realm-tab::after{background:linear-gradient(90deg,#151618d9,#15161866)}
+.realm-tab.selected{background:var(--oa-raised)}
+.campaign-heading,.journey-heading{background:linear-gradient(110deg,#2b2821,var(--oa-deep));border-color:var(--oa-line)}
+.world-panorama::before{background:linear-gradient(90deg,#101113e8,#10111333 80%),linear-gradient(0deg,#101113b8,transparent)}
+.world-elo,.expedition-panel,.expedition-card,.team-slot,.roster-card,.codex-card-body,.codex-passive,.codex-skill,.legacy-hall,
+.arena-stats article,.arena-match,.arena-reading,.arena-plan,.battle-log,.world-history{background-color:var(--oa-surface);border-color:var(--oa-line)}
+.world-elo.active,.world-elo.selected,.roster-card.chosen{border-color:var(--oa-gold);box-shadow:inset 0 -2px var(--oa-gold)}
+.search-box,.energy-total,.combat-resource,.auth-switch,.language-control{background:var(--oa-deep);border-color:var(--oa-line)}
+.filter-row button{color:var(--oa-copy);border-color:var(--oa-line)}
+.filter-row button.active,.auth-switch button.active{color:var(--oa-gold-light);background:#e8bd691c;border-color:var(--oa-line-strong)}
+.codex-card-head,.codex-skill,.codex-entity-kit{background:var(--oa-deep)}
+.codex-stat{background:linear-gradient(110deg,color-mix(in srgb,var(--accent) 9%,var(--oa-surface)),var(--oa-deep))}
+.realm-synergy-guide{background:var(--oa-surface);border-color:var(--oa-line)}
+.codex-select-filters select,.search-box input{background:var(--oa-ink);color:var(--oa-copy)}
+.filter-row button.active{box-shadow:inset 0 -2px var(--oa-gold)}
+.codex-card-body,.codex-entity{background:linear-gradient(135deg,var(--oa-raised),var(--oa-deep));border-color:var(--oa-line)}
+.codex-skill p,.codex-passive span,.codex-lore,.unit-lore,.codex-entity p,.auth-worlds span{color:var(--oa-copy)}
+.codex-entity small,.section-count,.campaign-heading>span,.auth-card label small,.auth-footnote{color:var(--oa-muted)}
+.journey-shell{background:var(--oa-deep);border-color:var(--oa-line-strong)}
+.journey-atlas{background:radial-gradient(ellipse,color-mix(in srgb,var(--accent) 10%,var(--oa-raised)),var(--oa-ink) 78%)}
+.journey-sidebar,.journey-footer,.journey-feedback,.queue-action,.arena-round-hint{background:var(--oa-surface)!important;border-color:var(--oa-line)}
+.journey-choice,.turn-review{background:linear-gradient(135deg,#302b21,var(--oa-deep));border-color:var(--oa-line-strong)}
+.journey-choice:hover,.journey-choice.route-preview{background:linear-gradient(135deg,#3a3327,var(--oa-raised))}
+.waypoint-disc{background:linear-gradient(145deg,#393124,var(--oa-deep));box-shadow:inset 0 0 0 3px var(--oa-ink),0 4px 12px #0006}
+.button-gold,button.primary,.auth-nav-cta{color:#19150e;background:linear-gradient(125deg,#ffe9ae,#e8bd69 55%,#c69548);border-color:var(--oa-gold-light);text-shadow:none}
+.button-gold:hover,button.primary:hover:not(:disabled),.auth-nav-cta:hover{color:#19150e;background:linear-gradient(125deg,#fff0c5,#f1cd82);border-color:var(--oa-gold-light)}
+.button-outline{color:var(--oa-gold-light);border-color:var(--oa-line-strong);background:#e8bd690c}
+.button-outline:hover{background:#e8bd691c;border-color:var(--oa-gold)}
+.auth-card input,.profile-form input,.profile-form textarea,select,input{color:var(--oa-ivory);background:var(--oa-ink);border-color:var(--oa-line-strong)}
+.auth-card input:focus{border-color:var(--oa-gold);box-shadow:0 0 0 3px #e8bd691c}
+.auth-card input::placeholder{color:#a19b90}
+.auth-card label,.profile-form>label{color:var(--oa-copy)}
+.auth-worlds span{background:var(--oa-surface);border-color:var(--oa-line)}
+.language-control button{color:var(--oa-muted)!important}
+.language-control button.active{color:var(--oa-gold-light)!important;background:#e8bd691c!important;border-color:var(--oa-line-strong)!important}
+.avatar-small,.avatar-large,.avatar-choice{border-color:var(--oa-gold);background:var(--oa-raised)}
+.player-chip .avatar-small{box-shadow:0 0 15px #e8bd6926}
+.avatar-soul,.profile-form legend,.profile-side h2{color:var(--oa-gold-light)}
+.avatar-grid button{color:var(--oa-copy);background:var(--oa-deep)}
+.avatar-grid button[aria-pressed=true]{border-color:var(--oa-gold);box-shadow:0 0 16px #e8bd6926}
+.augment-card{color:var(--oa-ivory);background:radial-gradient(ellipse at 50% 19%,var(--augment-dark),transparent 53%),linear-gradient(165deg,var(--oa-raised),var(--oa-deep) 80%)}
+/* Tactical controls use the same brand while board/team signals retain their colors. */
+.shell .round{border-color:var(--oa-line-strong)}
+.shell button,.shell .pill,.shell .queue-item,.shell .skill-card{background:var(--oa-surface);border-color:var(--oa-line);color:var(--oa-copy)}
+.shell button:hover:not(:disabled){background:var(--oa-raised);border-color:var(--oa-gold)}
+.shell button.selected,.shell button.active,.shell .skill-card.selected{border-color:var(--oa-gold);background:#e8bd691c;color:var(--oa-gold-light)}
+.shell button.primary{color:#19150e;background:linear-gradient(125deg,#ffe9ae,#e8bd69 55%,#c69548);border-color:var(--oa-gold-light)}
+.shell .queue-item small,.shell .muted{color:var(--oa-muted)}
+.shell .cell.active{outline-color:var(--oa-gold-light)}

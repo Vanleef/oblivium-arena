@@ -5995,15 +5995,15 @@
   {
     "id": "vaas",
     "name": "Vaas",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Verdade Plantada",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -6012,7 +6012,7 @@
         "name": "Véu de Veneno",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -6021,7 +6021,7 @@
         "name": "O Rosto que Falta",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -6030,7 +6030,7 @@
         "name": "Última Máscara",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       }

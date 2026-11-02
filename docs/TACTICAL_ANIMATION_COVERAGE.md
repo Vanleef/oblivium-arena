@@ -1,6 +1,6 @@
 # Cobertura de animações táticas
 
-13/150 entradas com atlas base conectado. 52/689 técnicas e formas com recorte mapeado.
+14/150 entradas com atlas base conectado. 56/689 técnicas e formas com recorte mapeado.
 
 Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família.
 
@@ -124,7 +124,7 @@ Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam
 | Kael (kael) | Sim | Sim | 4/4 |
 | Kael (kael-o-quebrado) | Pendente | Não | 0/4 |
 | Kael (kael-o-filhote-de-ferro) | Pendente | Não | 0/4 |
-| Vaas (vaas) | Pendente | Não | 0/4 |
+| Vaas (vaas) | Sim | Sim | 4/4 |
 | Vaas (vaas-o-sem-rosto) | Pendente | Não | 0/4 |
 | Diana (diana) | Sim | Sim | 4/4 |
 | Diana (diana-a-guarda) | Pendente | Não | 0/4 |
