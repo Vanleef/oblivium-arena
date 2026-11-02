@@ -382,3 +382,34 @@ body,.auth-screen{
   .arena-skills .card-title small{font-size:6px}
   .arena-skills .area-preview{grid-template-columns:repeat(3,6px);grid-template-rows:repeat(3,6px)}
 }
+
+
+/* Render scene and atlas layers only after their image data has decoded. */
+.arena-backdrop{
+  display:block!important;
+  position:absolute;
+  z-index:0;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 52%;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease-out;
+}
+.arena-stage:after{
+  inset:0;
+  height:auto;
+  border-radius:0;
+  z-index:1;
+  background:none;
+  opacity:1;
+}
+.arena-stage:before{z-index:1}
+.token-sprite{opacity:0;transition:opacity .16s ease-out}
+#tactical-app.arena-assets-ready .arena-backdrop,
+#tactical-app.arena-assets-ready .token-sprite{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .arena-backdrop,.token-sprite{transition:none}
+}
