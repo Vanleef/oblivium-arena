@@ -77,7 +77,7 @@ function editAction(index){
  state.anchor={...(ref.type==='move'?ref.path.at(-1):ref.anchor)};state.message='Altere a carta ou a casa. Toque novamente no alvo para salvar.';render();
 }
 function partyTabs(){
- return '<nav class="party-tabs" aria-label="Selecionar personagem">'+state.battle.allies.map((u,i)=>{const count=state.draft.filter(a=>a.actorId===u.id).length;return '<button class="party-tab '+(u.id===state.selected?'selected':'')+'" data-actor="'+esc(u.id)+'" aria-pressed="'+(u.id===state.selected)+'" '+(state.busy||u.hp<=0?'disabled':'')+'><img src="'+esc(portraitSrc(u))+'" alt=""><span><strong>'+esc(u.name)+'</strong><small>'+count+'/2 ações · '+(u.hp>0?'disponível':'derrotado')+'</small></span><span class="action-pips">'+[0,1].map(n=>'<i class="'+(count>n?'filled':'')+'"></i>').join('')+'</span><kbd>'+(i+1)+'</kbd></button>';}).join('')+'</nav>';
+ return '<nav class="party-tabs" aria-label="Selecionar personagem">'+shown().allies.map((u,i)=>{const count=state.draft.filter(a=>a.actorId===u.id).length;return '<button class="party-tab '+(u.id===state.selected?'selected':'')+'" data-actor="'+esc(u.id)+'" aria-pressed="'+(u.id===state.selected)+'" '+(state.busy||u.hp<=0?'disabled':'')+'><img src="'+esc(portraitSrc(u))+'" alt=""><span><strong>'+esc(u.name)+'</strong><small>'+count+'/2 ações · '+(u.hp>0?'disponível':'derrotado')+'</small></span><span class="action-pips">'+[0,1].map(n=>'<i class="'+(count>n?'filled':'')+'"></i>').join('')+'</span><kbd>'+(i+1)+'</kbd></button>';}).join('')+'</nav>';
 }
 function queueMarkup(){
  const p=actionPreview(),locked=state.busy;
@@ -94,7 +94,7 @@ function editTools(){
 function targetHint(){
  if(!state.anchor)return '<span>Escolha uma carta e toque na grade para ver a prévia.</span>';
  const ref=candidate(),check=ref?previewTacticalPlan(state.battle,'player',draftWithCandidate(ref)):null;
- return '<span class="'+(check?.ok?'valid':'invalid')+'">'+(check?.ok?(state.mode==='move'?'Toque novamente nesta casa para adicionar o movimento':'Toque novamente no alvo para adicionar a técnica'):'Destino ou ação indisponível')+' <kbd>Enter</kbd></span><button data-command="cancel-target" title="Cancelar seleção">✕</button>';
+ return '<span class="'+(check?.ok?'valid':'invalid')+'">'+(check?.ok?(Number.isInteger(state.editIndex)?'Toque novamente no alvo para salvar a alteração':state.mode==='move'?'Toque novamente nesta casa para adicionar o movimento':'Toque novamente no alvo ou na carta pessoal para adicionar a técnica'):'Destino ou ação indisponível')+' <kbd>Enter</kbd></span><button data-command="cancel-target" title="Cancelar seleção">✕</button>';
 }
 function portraitSrc(unit){return unit?.art?.portrait||'';}
 function animationAbility(unit,event){const base=event?.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;if(!base)return null;const key=event.formKey;if(!key||key===(base.formKey||'base'))return base;return base._formRoot?.forms?.find(form=>form.formKey===key)||base.forms?.find(form=>form.formKey===key)||base;}
