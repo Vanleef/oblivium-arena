@@ -8,7 +8,7 @@ import {tacticalRoster,tacticalSpec,patternNames,priorityNames} from './tactical
 import {tacticalAnimationFrames,tacticalFrameArt,tacticalImpactActive,tacticalFrameDuration,tacticalDamagedTargets} from './tactical-animation.js';
 import {tacticalSpriteFrame,paintTacticalToken} from './tactical-sprites.js';
 import {tacticalVfxMarkup} from './tactical-vfx.js';
-import {getAbilityResourceCosts,resourceIds} from './resource-costs.js';
+import {getAbilityResourceCosts,resourceIds,resolveResourcePayment} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
@@ -151,6 +151,21 @@ function cardCostMarkup(actor,ability){
  if(!entries.length)return '<span class="cost-free">SEM CUSTO</span>';
  return entries.map(([id,count])=>'<span class="cost-item" title="'+esc(count+' '+(names[id]||id))+'">'+Array.from({length:count},()=>'<i class="cost-pip '+esc(id)+'" aria-hidden="true"></i>').join('')+' '+esc(names[id]||id)+'</span>').join('');
 }
+function cardResourceStatus(actor,ability){
+ if(state.busy)return {ok:true};
+ const preview=actionPreview(),reserved=preview.ok?{...preview.payment.fixed,random:preview.payment.required}:{};
+ const costFor=ref=>{
+  if(ref.type!=='skill')return {};
+  const unit=state.battle.allies.find(u=>u.id===ref.actorId);
+  const base=unit?.skillBook.find(a=>a.id===ref.abilityId)||unit?.abilities.find(a=>a.id===ref.abilityId);
+  const skill=base?.forms?.find(a=>a.formKey===ref.formKey)||base;
+  return unit&&skill?getAbilityResourceCosts(ref.actorId===actor.id?actor:unit,skill):{};
+ };
+ if(!preview.ok)for(const ref of state.draft)for(const [id,n]of Object.entries(costFor(ref)))reserved[id]=(reserved[id]||0)+n;
+ if(Number.isInteger(state.editIndex))for(const [id,n]of Object.entries(costFor(state.draft[state.editIndex])))reserved[id]=Math.max(0,(reserved[id]||0)-n);
+ for(const [id,n]of Object.entries(getAbilityResourceCosts(actor,ability)))reserved[id]=(reserved[id]||0)+n;
+ return resolveResourcePayment(reserved,state.battle.resources);
+}
 function actionCardMarkup(actor,ability,isMove=false){
  const spec=isMove?{pattern:'line',range:2,priority:0}:tacticalSpec(actor,ability);
  const mode=isMove?'move':ability.id,selected=state.busy?(isMove?state.animation?.type==='move':state.animation?.abilityId===ability?.id):state.mode===mode,art=isMove?portraitSrc(actor):(ability.art||portraitSrc(actor));
@@ -158,8 +173,9 @@ function actionCardMarkup(actor,ability,isMove=false){
  const power=ability&&(ability.damage?'DANO '+ability.damage:ability.dots?'DANO '+ability.dots[0]:ability.dot?'AFIÇÃO '+ability.dot:ability.heal?'CURA '+ability.heal:ability.shield?'DEFESA '+ability.shield:'');
  const description=isMove?'Até duas células · ortogonal ou diagonal':(spec.range?patternNames[spec.pattern]+' · alcance '+spec.range:'Próprio usuário')+(power?' · '+power:'');
  const cost=isMove?'<span class="cost-free">LIVRE</span>':cardCostMarkup(actor,ability),blocked=state.busy||Boolean(state.chestOffer)||(!isMove&&(actor.cooldowns[ability.id]||actor.stunned));
+ const resourceStatus=isMove?{ok:true}:cardResourceStatus(actor,ability),unaffordable=!resourceStatus.ok;
  const heat=patternGrid(isMove?'square':spec.pattern);
- return '<button class="skill action-card" data-mode="'+esc(mode)+'" aria-pressed="'+selected+'" aria-label="'+esc(name+'; '+description+'; '+(isMove?'1 ação, sem custo':costText(actor,ability)))+'" '+(blocked?'disabled':'')+'>'+
+ return '<button class="skill action-card '+(unaffordable?'essence-unavailable':'')+'" data-resource-affordable="'+!unaffordable+'" title="'+(unaffordable?'Essência insuficiente para adicionar esta habilidade ao plano.':'')+'" data-mode="'+esc(mode)+'" aria-pressed="'+selected+'" aria-label="'+esc(name+'; '+description+'; '+(isMove?'1 ação, sem custo':costText(actor,ability))+(unaffordable?'; Essência insuficiente':''))+'" '+(blocked?'disabled':'')+'>'+
  '<span class="card-head"><span class="card-art">'+(art?'<img src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span class="card-type">'+esc(label)+'</span></span><span class="card-title"><strong>'+esc(name)+'</strong><small>'+esc(description)+'</small></span></span>'+
  '<span class="card-pattern">'+heat+'<span class="area-label">'+(isMove?'2 casas':esc(patternNames[spec.pattern]))+'</span></span>'+
  '<span class="card-footer"><span class="card-cost">'+cost+'</span><span class="action-point">1 AÇÃO</span></span></button>';
