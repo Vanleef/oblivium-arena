@@ -11,7 +11,8 @@ export const tacticalSpriteAtlases=Object.freeze({
  ...pilotAtlases,
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
- 'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209})
+ 'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),
+ 'gemeos-do-cutelo':Object.freeze({src:'/art/animations/tactical-pilot-20261102/gemeos-do-cutelo.webp',columns:6,rows:6,cellSize:209})
 });
 const rows=Object.freeze({idle:0,move:1,impulso:2,tecnica:3,voto:4,despertar:5});
 export const tacticalSkillAtlases=Object.freeze({

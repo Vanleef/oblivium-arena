@@ -1,15 +1,15 @@
 # Cobertura de animações táticas
 
-17/150 entradas com atlas base conectado. 68/689 técnicas e formas com recorte mapeado.
+18/150 entradas com atlas base conectado. 72/689 técnicas e formas com recorte mapeado.
 
-Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família.
+Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família. O atlas de Vale e Soren representa uma única unidade por dois corpos; a forma `cross` de Corte em Contratempo segue no fallback até receber arte própria.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
 | Riven (o-acougueiro) | Sim | Sim | 4/5 |
 | Lira (a-viuva-escarlate) | Sim | Sim | 4/5 |
 | Thorne (o-colecionador-de-cabecas) | Sim | Sim | 4/5 |
-| Vale e Soren (gemeos-do-cutelo) | Pendente | Não | 0/5 |
+| Vale e Soren (gemeos-do-cutelo) | Sim | Não | 4/5 |
 | Sanson (o-carrasco-sem-rosto) | Sim | Sim | 4/4 |
 | Selene (a-mae-rubra) | Sim | Sim | 4/4 |
 | Darius (o-soberano-quebrado) | Sim | Sim | 4/7 |

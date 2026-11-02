@@ -2,10 +2,10 @@
   "date": "2026-11-02",
   "status": "pilot-expanded",
   "coverage": {
-    "atlasCharacters": 17,
+    "atlasCharacters": 18,
     "rosterCharacters": 150,
     "drawingsPerAtlas": 36,
-    "totalDrawings": 612,
+    "totalDrawings": 648,
     "allCharactersComplete": false,
     "allTechniqueVariantsComplete": false
   },
@@ -28,9 +28,9 @@
     "grid": "6x6 verified",
     "sourceDimensions": "1254x1254 RGBA",
     "webpHeader": "RIFF/WEBP",
-    "frameBounds": "all 108 new frames remain inside a 7px cell margin",
-    "feetBaseline": "all new frames aligned at y=201 within each 209px cell",
-    "runtimeMappings": "3 characters added to tactical roster and atlas registry"
+    "frameBounds": "all 144 frames across four integrated atlases remain inside a minimum 7px cell margin",
+    "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Gêmeos frames retain action-specific vertical placement",
+    "runtimeMappings": "The tactical roster stays at 17 selectable units; Vale e Soren add one non-selectable atlas entry"
   },
   "assets": [
     {
@@ -60,6 +60,17 @@
       "file": "art/animations/tactical-pilot-20261102/sanson.webp",
       "bytes": 405436,
       "sha256": "942dc169e347acc2537113697b4ac341724a63802dbe6ed1699b96a8a2b5d5a0"
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "name": "Vale e Soren",
+      "title": "Gêmeos do Cutelo",
+      "source": "Atlas de sprites 6×6, transparente",
+      "file": "art/animations/tactical-pilot-20261102/gemeos-do-cutelo.webp",
+      "bytes": 1171634,
+      "sha256": "23b6d8b50228aa3eeaeeb0dccfe887b87bfc8b2174c39527e90e0968fe62254b",
+      "minimumFrameMarginPx": 7,
+      "unmappedForm": "cross"
     }
   ]
 }
