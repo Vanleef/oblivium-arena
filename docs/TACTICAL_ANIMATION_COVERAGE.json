@@ -1,0 +1,7403 @@
+[
+  {
+    "id": "o-acougueiro",
+    "name": "Riven",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Incisão de Abate",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Reabrir a Ferida",
+        "form": "reopen",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Talho Imobilizante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Sentença do Cutelo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo entre Lâminas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-viuva-escarlate",
+    "name": "Lira",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fio Escarlate",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Fio Reverso",
+        "form": "revenge",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Véu da Viúva",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Beijo da Última Noite",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Véu de Sangue",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-colecionador-de-cabecas",
+    "name": "Thorne",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Laço de Caça",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Cobrança do Caçador",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Galeria de Troféus",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Caça sem Troféus",
+        "form": "empty",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Sombra do Colecionador",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "gemeos-do-cutelo",
+    "name": "Vale e Soren",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Cutelo da Esquerda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Cutelo da Direita",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Corte em Contratempo",
+        "form": "cross",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Encontro das Lâminas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Dança Cruzada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-carrasco-sem-rosto",
+    "name": "Sanson",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sentença sem Nome",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Queda da Guilhotina",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Última Respiração",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Capuz do Esquecimento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-mae-rubra",
+    "name": "Selene",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Cordão Rubro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Partilha da Mãe",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Berço de Sangue",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Casulo Rubro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-soberano-quebrado",
+    "name": "Darius",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Decreto do Rei Caído",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Decreto sobre Todos",
+        "form": "edict",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ajoelhar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Cadeia de Juramento",
+        "form": "edict",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Coroa sobre Ruínas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Trono Incontestável",
+        "form": "edict",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Trono Interior",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-juiza-de-ferro",
+    "name": "Judith",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Acusação Imposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Interdição da Defesa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Sentença de Submissão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Toga Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-trono-vazio",
+    "name": "Lucien",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Decreto de Submissão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Interdição Soberana",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Guarda dos Vassalos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Suserania Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-principe-das-correntes",
+    "name": "Demetrius",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Primeiro Grilhão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Apertar o Grilhão",
+        "form": "drag",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Arrasto do Príncipe",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Cárcere Dinástico",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Corrente Exterior",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-regente-de-cinzas",
+    "name": "Ashara",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Ferro do Jugo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ordem Absoluta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Esmagar a Resistência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Privilégio Soberano",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-herdeiro-cativo",
+    "name": "Malrik",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Punho Acorrentado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Resistência do Pretendente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Tomada do Trono",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Guarda Dinástica",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-sussurro",
+    "name": "Vesper",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Palavra Envenenada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Segredo Cobrado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Aviso Falso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Voz sem Origem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-mascara-dupla",
+    "name": "Nyx",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Rosto Emprestado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Gesto de Outro Rosto",
+        "form": "other",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "O Outro Rosto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Traição Revelada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Troca de Máscara",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-tecelao-de-mentiras",
+    "name": "Orin",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fio de Engano",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Rede de Falsidades",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Desatar a Trama",
+        "form": "unweave",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Nó da Contradição",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fora da Trama",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-boca-de-vidro",
+    "name": "Sylvara",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sibilo Cortante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reflexo Traiçoeiro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Coro de Estilhaços",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Reflexo Desviado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-falso-profeta",
+    "name": "Cassian",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Promessa do Profeta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Bênção Falsa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Confissão do Falso Santo",
+        "form": "confess",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Milagre Fabricado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Imagem Sagrada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-corretor-de-memorias",
+    "name": "Annius",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Lembrança Hipotecada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Esquecer a Defesa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Liquidação do Passado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Memória Substituta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-incendiario",
+    "name": "Ignis",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pavio de Ódio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Fagulhas em Cadeia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Detonação Negra",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Corpo de Fumaça",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-brasa-eterna",
+    "name": "Emberlyn",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Brasa que Permanece",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Labareda Sufocante",
+        "form": "smother",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Sufoco das Cinzas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Cinzas de Sufoco",
+        "form": "smother",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fornalha Interior",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fornalha Sepulcral",
+        "form": "smother",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Manto de Cinzas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-odio-encarnado",
+    "name": "Corvin",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Punho de Rancor",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Punho do Ódio Solto",
+        "form": "rage",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Alimentar o Ódio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Explosão do Ressentimento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ressentimento sem Freio",
+        "form": "eruption",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fúria Intocável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-filho-da-cinza",
+    "name": "Ragnar",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Brasa do Ressentimento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Rancor Reaceso",
+        "form": "rebirth",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Nutrir o Rancor",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Revide Incandescente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Dissolução em Cinzas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-pira-errante",
+    "name": "Lyra",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Brasa Punitiva",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Revanche Ardente",
+        "form": "reply",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Guarda Vingativa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Cerco Incandescente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo entre Brasas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-coracao-em-furia",
+    "name": "Pyros",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Batida Escaldante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Sangue em Ebulição",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Coração em Erupção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pulso Intangível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-devorador",
+    "name": "Gorath",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Mordida da Alma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Fome sem Corpo",
+        "form": "starved",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Saliva Corrosiva",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Engolir a Essência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Mandíbula do Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-mao-que-toma",
+    "name": "Ravena",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Dedos da Cobiça",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Entesourar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Abrir o Cofre",
+        "form": "open",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Confisco da Alma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Espólio Intocável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-estomago-sem-fundo",
+    "name": "Drake",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Consumir a Guarda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reserva Consumida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fome Devorante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Corpo Recolhido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-senhora-do-ultimo-pao",
+    "name": "Helena",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca da Privação",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ração dos Submissos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Tributo da Fome",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Celeiro Lacrado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-credor",
+    "name": "Marrow",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Assinar a Dívida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Juros Acumulados",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Execução do Contrato",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Cláusula de Ausência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-balanca-vazia",
+    "name": "Fortuna",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Cobrança da Penúria",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Adiantamento Vital",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Confisco Coletivo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Penhor Inalcançável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-apodrecido",
+    "name": "Aldric",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Contato da Ruína",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Tecido Cedido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Decomposição Completa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Casca Morta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-praga-andante",
+    "name": "Mire",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Febre Andante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Contágio do Caminho",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Febre de Retorno",
+        "form": "fever",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Crise Pestilenta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Névoa Contaminada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-corrupto",
+    "name": "Pact",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Acordo Podre",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Quebrar a Confiança",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Preço da Corrupção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Privilégio Oculto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-rainha-dos-fungos",
+    "name": "Myra",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Semear Esporos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Micélio de Amparo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Florescer para os Vivos",
+        "form": "bloom",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Florir da Colônia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Esporos da Última Colheita",
+        "form": "cloud",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Coroa de Esporos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-medico-de-vermes",
+    "name": "Bram",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Incisão Parasitária",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Hospedeiro Renovado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Drenagem da Colônia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Corpo entre Vermes",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-jardim-morto",
+    "name": "Thorn",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Raiz Necrosada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Trama Necrosada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Definhar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Casca Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-observou",
+    "name": "Elias",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Memória da Omissão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Recusar Interferência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Peso da Indiferença",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Retaliação do Espectador",
+        "form": "witness",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fora do Acontecimento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-porta-fechada",
+    "name": "Mira",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Batida sem Resposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Guarida Seletiva",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Não Há Saída",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar Interdito",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-surdo",
+    "name": "Voss",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Impacto Abafado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Clamor sem Retorno",
+        "form": "echo",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Interditar a Voz",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Decreto do Silêncio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Silêncio Absoluto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-testemunha-cega",
+    "name": "Iris",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Segredo Exposto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Resposta Preparada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Acusação Oportunista",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Depoimento Retido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-quarto-vazio",
+    "name": "Hollow",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Convite ao Isolamento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ninguém Vem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Estadia sem Retorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Porta do Desamparo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-vigia-ausente",
+    "name": "Reed",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Passagem Desguarnecida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Espera Cúmplice",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Cobrar o Abandono",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Golpe da Retaguarda",
+        "form": "ambush",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Posto Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-possui",
+    "name": "Maren",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Selo da Posse",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Nervos Tomados",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Espoliação Vital",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Desligar o Corpo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-pele-alheia",
+    "name": "Quill",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Garras Cambiantes",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Garras Predatórias",
+        "form": "skin",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Mergulho Alado",
+        "form": "shell",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Quimera Predatória",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Descartar o Molde",
+        "form": "shed",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Recolher as Asas",
+        "form": "shell",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Quimera Alada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Instinto de Revide",
+        "form": "skin",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Espinhos Alados",
+        "form": "shell",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Corpo Substituto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-desejo-quebrado",
+    "name": "Desire",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Ímpeto Profano",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Contato Invasivo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Violação da Forma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Forma Intangível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-marionetista-de-nervos",
+    "name": "Liora",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fio Nervoso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Puxar a Vontade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Manter o Comando",
+        "form": "hold",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Romper o Comando",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fios Fora de Fase",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-espelho-carnal",
+    "name": "Echo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Molde Vulnerável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Vínculo Parasita",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Romper o Molde",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Duplicata Intangível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-costureira",
+    "name": "Sable",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Ponto de Corte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Sutura de Domínio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reforçar os Pontos",
+        "form": "remove",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Desfazer os Pontos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Costura de Ausência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-apaga",
+    "name": "Noctis",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca da Anulação",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Anulação Definitiva",
+        "form": "erase",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Dissolver a Guarda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Extinguir o Traço",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fora da Existência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-ausencia",
+    "name": "Vespera",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Toque Ausente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ataque a Ninguém",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ausência Contagiosa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Não Estar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-fim-silencioso",
+    "name": "Erebus",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Presságio de Extinção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Cessar da Vontade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Sem Últimas Palavras",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Silêncio Residual",
+        "form": "residual",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Instante sem Tempo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-menino-sem-sombra",
+    "name": "Ashen",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Toque da Desolação",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Recompor o Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Recolher a Presença",
+        "form": "hide",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Extinguir a Presença",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Presença Nula",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-ultima-pagina",
+    "name": "Soren",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Inscrever o Fim",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Rasura Terminal",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Encerrar o Vestígio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Folha Nula",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-lugar-de-ninguem",
+    "name": "Niith",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Apagar o Terreno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Coordenada Nula",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Eliminar o Vestígio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Contorno Inexistente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-escudo-vivo",
+    "name": "Aegis",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Golpe do Bastião",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Avanço da Égide",
+        "form": "advance",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Voto de Amparo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Resposta da Égide",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fortaleza de Luz",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-muralha",
+    "name": "Bastion",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Impacto do Baluarte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Muralha Partilhada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Investida do Baluarte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Baluarte Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-ficou",
+    "name": "Caius",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Não Recuar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Amparo Abnegado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Permanecer de Pé",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Promessa Inquebrável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-ultimo-guardiao",
+    "name": "Gideon",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Investida Vigilante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Sentinela de Resposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Revide Radiante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Guarda Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-sentinela-azul",
+    "name": "Azure",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sinal Azul",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Linha de Proteção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Lança do Horizonte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Vigília Intangível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-mao-que-cura",
+    "name": "Elara",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Toque da Compaixão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Mãos Restauradoras",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Reequilibrar a Dor",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Luz sem Ferida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-restaurador",
+    "name": "Theron",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pulso de Retorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Restituir a Forma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Reserva Restauradora",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Reserva Imaculada",
+        "form": "pure",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Forma Preservada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-luz-que-restaura",
+    "name": "Liora",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Clarão Incisivo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Restituir Vigor",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fluxo Vital",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Forma Luminosa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-jardineira-das-feridas",
+    "name": "Iris",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Raiz Contundente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Infusão Restauradora",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Espinhos Sedativos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pétalas de Refúgio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-pulso-sereno",
+    "name": "Seren",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pulsação Desarmante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Respirar Novamente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Quietude Profunda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pausa do Coração",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-equilibrio",
+    "name": "Aldric",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Peso do Excesso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Amparo Equânime",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Resposta Equânime",
+        "form": "verdict",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Veredito Proporcional",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Posição Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-lamina-justa",
+    "name": "Justus",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Corte de Princípio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Parada Equânime",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Sentença da Lâmina",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo Equânime",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-pesa",
+    "name": "Aristides",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pesar os Atos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Prato Ascendente",
+        "form": "balance",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reduzir o Excesso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Decisão Ponderada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Entre os Pratos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-testemunha-integra",
+    "name": "Maqrizi",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Registrar a Verdade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Prova Irrefutável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Testemunho Íntegro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Testemunho Protegido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-julgador-gentil",
+    "name": "Benedict",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Advertência do Juiz",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reparação Justa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Limite da Clemência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Trégua Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-chama-que-nao-apaga",
+    "name": "Caelum",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fagulha do Amanhã",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Chama do Recomeço",
+        "form": "dawn",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Não se Apagar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Aurora Imorredoura",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Chama Intocável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-levanta",
+    "name": "Hector",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Passo de Retorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Erguer o Companheiro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Enquanto Eu Respirar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Instante de Superação",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-voz",
+    "name": "Hope",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Palavra de Coragem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Coro de Muitas Vozes",
+        "form": "chorus",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Hino da Perseverança",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Encerrar o Hino",
+        "form": "solo",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Não Seremos Calados",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Nota Inalcançável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-portador-da-aurora",
+    "name": "Aurora",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Lança da Primeira Luz",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Carregar a Aurora",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Abrir o Horizonte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Além do Horizonte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-mensageira-do-amanha",
+    "name": "Stella",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sinal do Amanhã",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Mensagem Recebida",
+        "form": "delivered",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Mensagem de Alento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "O Amanhã Chegou",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passagem da Mensagem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-revela",
+    "name": "Veritas",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Luz sem Mentira",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Clareza Partilhada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Verdade Incisiva",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Transparência Absoluta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-luz-nua",
+    "name": "Crates",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Foco da Clareza",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Desvelar a Guarda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Clarão sem Véu",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Feixe Inatingível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-espelho",
+    "name": "Parrhasius",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Imagem Verdadeira",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Estilhaço Devolvido",
+        "form": "returned",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Devolver a Intenção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fratura da Ilusão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Dentro do Reflexo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-cartografa-da-clareza",
+    "name": "Cartes",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Traçar a Abertura",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Caminho Seguro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Atalho da Clareza",
+        "form": "shortcut",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Convergência das Rotas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fora das Coordenadas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-olho-desarmado",
+    "name": "Arcane",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Olhar Desarmante",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Amparo da Clareza",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Intenção Desvendada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Véu da Serenidade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-elo-dourado",
+    "name": "Aurelia",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Laço do Elo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Promessa de Combate",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Corrente Dourada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Elo Inquebrável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-que-une",
+    "name": "Destiny",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fio de Encontro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reunir os Fragmentos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fôlego Coletivo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Entrelaçar de Luz",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-vinculo",
+    "name": "Elowen",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Selo do Pacto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Responder pelo Outro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Resposta da Aliança",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Laço Intangível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "os-tres-irmaos",
+    "name": "Trinity",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Primeira Cadência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Segunda Voz",
+        "form": "second",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Terceira Voz",
+        "form": "third",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Segunda Cadência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Terceira Cadência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo em Uníssono",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-guardia-das-promessas",
+    "name": "Isolde",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Selo do Juramento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Honrar o Pacto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Renovar o Pacto",
+        "form": "fulfill",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Resposta do Juramento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pacto Inviolável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-que-cria",
+    "name": "Cedric",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fragmento Nascente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Forma que Rompe",
+        "form": "construct",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Forma de Amparo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Obra Convergente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Forma Impossível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-semente",
+    "name": "Sprout",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca Germinal",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Fruto do Porvir",
+        "form": "fruit",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Abrigo do Broto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Florescer da Marca",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Casulo de Origem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-cultivador",
+    "name": "Rowan",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Arar a Alma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Colheita de Fôlego",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ramos da Resposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Abrigo das Raízes",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-arquiteta-verde",
+    "name": "Verdant",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pilar Ascendente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Viga de Apoio",
+        "form": "beam",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Abóbada Verde",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Convergência dos Pilares",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Colapsar a Abóbada",
+        "form": "collapse",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Geometria Intocável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-primeiro-canto",
+    "name": "Prim",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Nota Primordial",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Refrão da Vida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Canto que Abre o Mundo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pausa Anterior ao Som",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-passo-interrompido",
+    "name": "Chronos",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fissura do Passo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Passo Seguinte",
+        "form": "next",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Passo Anterior",
+        "form": "previous",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Entre Dois Instantes",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Golpe Descontínuo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo Fora do Tempo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-linha-partida",
+    "name": "Fract",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Extremidade Solta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Reatar a Linha",
+        "form": "mend",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Nó de Emergência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Puxar o Fim da Linha",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Linha Inalcançável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-eco-sem-dono",
+    "name": "Echo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Eco Residual",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Eco sem Origem",
+        "form": "stolen",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Devolver a Voz",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Voz Devolvida",
+        "form": "stolen",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Coro sem Origem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ressonância Roubada",
+        "form": "stolen",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Eco Intangível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-porta-que-flutua",
+    "name": "Rift",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Abertura Impossível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Passagem de Retorno",
+        "form": "return",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Atalho Suspenso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fechar a Passagem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Do Outro Lado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-nome-esquecido",
+    "name": "Obliv",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sílaba Perdida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Esquecer a Forma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ninguém Responde",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Nome Fora da Memória",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-relogio-afogado",
+    "name": "Chronicle",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Segundo Afogado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ponteiro Imóvel",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Devolver os Segundos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Retomar o Instante",
+        "form": "release",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Instante Submerso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-asa-invertida",
+    "name": "Lyra",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pena ao Contrário",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Peso da Asa",
+        "form": "weight",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Voo Reverso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Cair para o Alto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Asa Fora do Plano",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-andarilho-de-vidro",
+    "name": "Crystal",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pegada de Vidro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reflexo do Andarilho",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Travessia Estilhaçada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo Transparente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-sombra-inconstante",
+    "name": "Shade",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sombra Atrás da Alma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Fingir Presença",
+        "form": "feign",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Mudar de Contorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Retomar a Sombra",
+        "form": "resume",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "A Sombra se Fecha",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Contorno Imaterial",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-ponte-rasgada",
+    "name": "Bridge",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Romper o Apoio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ponte de Emergência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Queda da Travessia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Entre as Margens",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "a-alma-em-suspenso",
+    "name": "Soren",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pulso Suspenso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "impulso",
+        "name": "Fôlego Emprestado",
+        "form": "lend",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Ancorar o Fôlego",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Soltar a Âncora",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Suspensão Absoluta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo",
+    "name": "Nilo",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Toque Receptivo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Fio de Memória",
+        "form": "base",
+        "dedicatedAtlas": true,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Devolver o Eco",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-o-prefacio",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Corte Escarro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Brasa Direta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ferida que Consome",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-graca-prefacio",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Toque de Clareza",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Marca de Caça",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Luz Contida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-ruptura-prefacio",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Corte Residual",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Marca do Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Resposta do Intervalo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Estilhaço",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-cinza-epilogo",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Lâmina de Sangue e Fogo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Golpe Mentiroso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ativar Expansão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Carne Aberta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-5",
+        "name": "Execução Prematura",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-graca-epilogo",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sustento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Revelação",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Punho de Clareza",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Verdade que Prende",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-ruptura-epilogo",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Passo no Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Corte Silencioso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Armadilha de Sombra",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Resposta do Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-cinza-final",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca Infernal",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Devastação",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Abrir Colapso I",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Abrir Colapso II",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-5",
+        "name": "Encerrar Colapso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-6",
+        "name": "Mentira Letal",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-7",
+        "name": "Podridão Devoradora",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-8",
+        "name": "Execução Infernal",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Silêncio de Cinza",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-graca-final",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Erguer Pilar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Julgamento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Revelação Forte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Forma de Graça",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-5",
+        "name": "Campo de Controle",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-6",
+        "name": "Intervenção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-7",
+        "name": "Verdade Absoluta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Limiar Sagrado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-ruptura-final",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sombra Rachada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Corte do Interstício",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Marca Residual",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Armadilha Profunda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-5",
+        "name": "Resposta Partida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-6",
+        "name": "Despedaçamento",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Último Impulso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "nilo-o-epilogo",
+    "name": "Nilo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Âncora Vazia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Restituir Vestígio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Resposta Serena",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pausa sem Corrupção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "o-eco-de-nilo",
+    "name": "Sael",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Vestígio de Cinza",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Amparo Remanescente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fenda Suspensa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fragmento de Éter",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-5",
+        "name": "Vínculo de Ressonância",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-6",
+        "name": "Recompor o Intervalo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-7",
+        "name": "Convergência sem Nome",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-8",
+        "name": "Desatar a Ressonância",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica-9",
+        "name": "Avaliar o Nome",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fecho Incompleto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "naomi",
+    "name": "Naomi",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Brasa que Permanece",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Mão Estendida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Roda de Esperança",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Voto de Permanência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "naomi-a-que-permanece",
+    "name": "Naomi",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Passo que Levanta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Vigília Compartilhada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Promessa Renovada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Ainda Aqui",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "naomi-a-raiz",
+    "name": "Naomi",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Ramo Ascendente",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Raízes de Amparo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Florescer apesar de Tudo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Tronco Imóvel",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "kael",
+    "name": "Kael",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Dever Mal Cumprido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Passo do Executor",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Preço da Ordem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Ajoelhar não é Ceder",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "kael-o-quebrado",
+    "name": "Kael",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Guarda Estilhaçada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Interrupção Tardia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Punho sem Ordem",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fragmento de Escudo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "kael-o-filhote-de-ferro",
+    "name": "Kael",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pequeno Baluarte",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Garra de Ferro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Promessa de Aço",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Abrigo de Ferro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "vaas",
+    "name": "Vaas",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Verdade Plantada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Véu de Veneno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "O Rosto que Falta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Última Máscara",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "vaas-o-sem-rosto",
+    "name": "Vaas",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sussurro sem Dono",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Silêncio Comprado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ruptura da Máscara",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Ausência Calculada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "diana",
+    "name": "Diana",
+    "selectable": true,
+    "baseAtlas": true,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pulso Restaurador",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Diagnóstico Preciso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Sutura de Campo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Respirar Primeiro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": true,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "diana-a-guarda",
+    "name": "Diana",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Guarda de Campo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Braço de Contenção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Círculo de Retorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Ficar entre",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "diana-a-que-ainda-segura",
+    "name": "Diana",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Cuidado que Atravessa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Sutura do Limiar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ninguém Cai Só",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Ainda Segurando",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "teras",
+    "name": "Teras",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Olhar de Anomalia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Registro de Decadência",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Pergunta sem Resposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Vigília Imóvel",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "teras-o-observador",
+    "name": "Teras",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Margem Exposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Vazio em Suspenso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Coleta Silenciosa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Passo para Trás",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "victor",
+    "name": "Victor",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Decreto Final",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Trono sem Reino",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Sucessão Forçada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Último Mandato",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "silas",
+    "name": "Silas",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Laço de Tendão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Pele de Vigia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Nervo Contido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Corpo entre Nós",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "silas-o-leal",
+    "name": "Silas",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Pele Partilhada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Nó de Lealdade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Devolver a Agressão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Abrigo Vinculado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "orion",
+    "name": "Orion",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Rastro de Éter",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Captura Vetorial",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Dúvida Calculada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Janela de Contenção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "doggo",
+    "name": "Doggo",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Mordida de Cobrança",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Mão que Toma",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Reserva Escondida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Fingir de Morto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "hans",
+    "name": "Hans",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Informação Venenosa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Decadência Compartilhada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Hospitalidade Negada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Esconderijo Insalubre",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "xian",
+    "name": "Xian",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Passo sem Ruído",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Porta Fechada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Vácuo de Resposta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Quarto Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "xian-o-imovel",
+    "name": "Xian",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Vigília de Pedra",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Selo de Omissão",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ninguém Responde",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Não Dar um Passo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "seraphim",
+    "name": "Seraph",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Manto de Asas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Toque sem Culpa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Luz que Permanece",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Asa Fechada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "seraphim-o-eco",
+    "name": "Seraph",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Círculo de Guarda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Reverso da Queda",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Cântico de Retorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Última Vigília",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "eiremir",
+    "name": "Eiremir",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Fenda que Observa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Fluxo Reverso",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ressonância Impossível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Reflexo de Limbo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "eiremir-o-espelho-partido",
+    "name": "Eiremir",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Estilhaço de Retorno",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Espelho de Correntes",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ruptura Recursiva",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Caco Invulnerável",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "khoren-caminho",
+    "name": "Zalmoxis",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Traçar Rota",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Cobrar Travessia",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Desfecho de Trajeto",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Travessia Reversa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "elaris-prologo",
+    "name": "Seraph",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Primeiro Fôlego",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Véu do Amanhecer",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Adiar o Crepúsculo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Amparo Primordial",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "cain",
+    "name": "Cain",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca do Primeiro Erro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Repetir a Sentença",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Ferida Consentida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Cicatriz de Sangue",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "lilith",
+    "name": "Lilith",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Recusa de Aurora",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Esperança Interrompida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Nada a Restaurar",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Véu sem Amanhã",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "caliope",
+    "name": "Calíope",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Verso Plantado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Rima de Exposição",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Refrão Roubado",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Cortina de Espelhos",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "serena",
+    "name": "Serena",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca Nervosa",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Memória Reaberta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Pulso de Interdição",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Pele de Lembrança",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "placido",
+    "name": "Plácido",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Artigo de Ferro",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Interdição Formal",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Cláusula de Continuidade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Estado de Exceção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "baal",
+    "name": "Baal",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Sermão Incendiário",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Fé a Ferro e Fogo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Pira dos Fiéis",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Manto de Cinzas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "atlas",
+    "name": "Atlas",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Ombro do Mundo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Peso sem Medida",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Colapso de Autoridade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Sustentar o Céu",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "merlindrope",
+    "name": "Merlindrope",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Grade de Éter",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Porta que Não Abre",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Celas Concêntricas",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Parede de Regras",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "bulkir",
+    "name": "Bulkir",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Punho que Apaga",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Mordida de Identidade",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Esmagar o Último Vestígio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Carapaça Faminta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "voronir",
+    "name": "Voronir",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Marca de Captura",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Rede de Contenção",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Captura do Receptáculo",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Armadilha de Vazio",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  },
+  {
+    "id": "icarus",
+    "name": "Icarus",
+    "selectable": false,
+    "baseAtlas": false,
+    "skills": [
+      {
+        "id": "impulso",
+        "name": "Asa Fraturada",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "tecnica",
+        "name": "Sol Proibido",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "voto",
+        "name": "Fenda que Arrasta",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      },
+      {
+        "id": "despertar",
+        "name": "Altitude Impossível",
+        "form": "base",
+        "dedicatedAtlas": false,
+        "mappedAtlas": false,
+        "sharedVfx": true,
+        "customVfx": false
+      }
+    ]
+  }
+]

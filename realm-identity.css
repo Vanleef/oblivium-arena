@@ -12,7 +12,7 @@
 .unit-lore{color:#c5bbca;line-height:1.65}
 @media(max-width:600px){.codex-entity{grid-template-columns:1fr}.codex-entity>img{height:auto;max-height:330px;object-fit:contain;background:#0f0b11}.codex-entity>div{padding:20px}.codex-entity h2{font-size:28px}}
 .brand-mark{width:64px;height:56px;flex:none;object-fit:contain;object-position:center;transform:none;border:0;border-radius:0;background:none;box-shadow:none;filter:none}
-.battle-result::after{background-image:url('/art/interface/moth-violet-20261023/brand-moth.webp')}
+.battle-result::after{background-image:url('/icon-512.png?v=official-oa-20261101c')}
 @media(max-width:680px){.brand-mark{width:52px;height:48px}}
 .elo-crest,.elo-sigil{background:none;border:0;border-radius:0;box-shadow:none}
 .world-elo .world-crest,.expedition-heading .expedition-crest{filter:none}

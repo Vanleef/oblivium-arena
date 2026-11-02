@@ -36,6 +36,25 @@ const actionArtPoses=new Set(['release','impact','followthrough','transfer','cou
 export function tacticalImpactActive(event){
  return event?.type==='skill'&&!event.skipped&&['impact','counter'].includes(event.pose);
 }
+// A multi-target action can damage one target while another is protected.
+// Use the replay snapshots to animate only units that actually lost HP or shield.
+export function tacticalDamagedTargets(event){
+ if(!tacticalImpactActive(event)||!(event.totalDamage>0))return [];
+ const candidates=event.affectedTargetIds||event.targets||[];
+ if(!event.before||!event.after)return candidates;
+ const units=s=>[...(s.allies||[]),...(s.enemies||[])];
+ const before=new Map(units(event.before).map(u=>[u.id,u]));
+ const after=new Map(units(event.after).map(u=>[u.id,u]));
+ return candidates.filter(id=>{
+  const a=before.get(id),b=after.get(id);
+  return a&&b&&((b.hp??0)<(a.hp??0)||(b.shield??0)<(a.shield??0));
+ });
+}
+// Keep the impact visible for the full target-reaction animation before
+// playback advances and removes the affected-cell classes.
+export function tacticalFrameDuration(event){
+ return tacticalImpactActive(event)?560:65;
+}
 export function tacticalFrameArt(ability,pose,portrait=''){
  return ability?.art&&actionArtPoses.has(pose)?ability.art:portrait;
 }

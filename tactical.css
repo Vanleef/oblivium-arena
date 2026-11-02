@@ -164,3 +164,8 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 @media(prefers-reduced-motion:reduce){.token[data-sprite="true"] .sprite-sheet{animation:none!important}}
 /* Input is locked during playback; combatants retain full visual contrast. */
 .cell:disabled{opacity:1}
+
+/* Six independently painted frames per shared effect family. */
+.cell-vfx{position:absolute;inset:-12% -8%;z-index:7;pointer-events:none;background-image:url('/art/animations/tactical-vfx-20261102/impact-families.webp');background-size:600% 400%;background-position:0 var(--vfx-row);animation:cell-vfx-frames .5s steps(5,end) both}
+@keyframes cell-vfx-frames{to{background-position:100% var(--vfx-row)}}
+@media(prefers-reduced-motion:reduce){.cell-vfx{display:none}}

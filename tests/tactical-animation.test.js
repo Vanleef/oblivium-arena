@@ -15,8 +15,8 @@ import {readFile} from 'node:fs/promises';
 import {tacticalRoster} from '../src/tactical-kits.js';
 import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
 
-test('seis kits piloto têm atlas transparente e quadros distintos para cada ação',async()=>{
- assert.equal(Object.keys(tacticalSpriteAtlases).length,6);
+test('os kits piloto têm atlas transparente e quadros distintos para cada ação',async()=>{
+ assert.equal(Object.keys(tacticalSpriteAtlases).length,13);
  for(const id of tacticalRoster){
   const unit=characterById[id],atlas=tacticalSpriteAtlases[id];assert.ok(atlas,id);
   const bytes=await readFile(new URL('..'+atlas.src,import.meta.url));
@@ -26,14 +26,25 @@ test('seis kits piloto têm atlas transparente e quadros distintos para cada aç
   for(const [row,abilityId]of ['impulso','tecnica','voto','despertar'].entries()){
    const frames=tacticalAnimationFrames(unit.abilities.find(a=>a.id===abilityId));
    const sampled=frames.map(frame=>tacticalSpriteFrame(unit,{type:'skill',abilityId,...frame}));
-   assert.ok(sampled.every(f=>f.row===row+2));assert.equal(new Set(sampled.map(f=>f.column)).size,6);
+   if(sampled[0].sheetRows===6)assert.ok(sampled.every(f=>f.row===row+2));
+   assert.equal(new Set(sampled.map(f=>`${f.row}/${f.column}`)).size,6);
    const contact=frames.findIndex(f=>f.pose==='impact'||f.pose==='counter');
-   assert.ok([3,4].includes(sampled[contact].column),'o contato mostra o desenho ofensivo');
+   assert.ok([3,4].includes(sampled[contact].sheetRows===6?sampled[contact].column:sampled[contact].row*sampled[contact].sheetColumns+sampled[contact].column),'o contato mostra o desenho ofensivo');
   }
   assert.equal(tacticalSpriteFrame(unit,{type:'move',index:3}).row,1);
   assert.equal(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'unmapped-form'}),null);
  }
  assert.equal(tacticalSpriteFrame({id:'unknown'}),null);
+});
+
+test('Fio de Memória usa seis quadros próprios e restaura o atlas base ao mover',()=>{
+ const unit=characterById.nilo,sheet={style:{}},token={dataset:{unitId:unit.id},querySelector:s=>s==='.sprite-sheet'?sheet:null};
+ const event={actorId:unit.id,type:'skill',abilityId:'tecnica'};
+ paintTacticalToken(token,unit,event,{family:'bind',pose:'impact',index:5});
+ assert.match(sheet.style.backgroundImage,/fio-de-memoria/);
+ assert.equal(sheet.style.backgroundSize,'300% 200%');assert.equal(sheet.style.backgroundPosition,'0% 100%');
+ paintTacticalToken(token,unit,{actorId:unit.id,type:'move'},{family:'move',pose:'launch',index:3});
+ assert.match(sheet.style.backgroundImage,/nilo.webp/);assert.equal(sheet.style.backgroundSize,'600% 600%');
 });
 
 test('reprodução atualiza o recorte do ator correto no DOM e preserva os demais',()=>{
@@ -49,9 +60,22 @@ test('reprodução atualiza o recorte do ator correto no DOM e preserva os demai
 });
 
 test('impactos visuais só aparecem no contato de habilidades efetivamente executadas',async()=>{
- const {tacticalImpactActive}=await import('../src/tactical-animation.js');
+ const {tacticalImpactActive,tacticalFrameDuration}=await import('../src/tactical-animation.js');
  for(const pose of ['ready','anticipate','windup','release','travel','recover'])assert.equal(tacticalImpactActive({type:'skill',pose}),false,pose);
  for(const pose of ['impact','counter'])assert.equal(tacticalImpactActive({type:'skill',pose}),true,pose);
  assert.equal(tacticalImpactActive({type:'skill',pose:'impact',skipped:true}),false);
  assert.equal(tacticalImpactActive({type:'move',pose:'landing'}),false);
+ assert.equal(tacticalFrameDuration({type:'skill',pose:'impact'}),560);
+ assert.equal(tacticalFrameDuration({type:'skill',pose:'counter'}),560);
+ assert.equal(tacticalFrameDuration({type:'move',pose:'landing'}),65);
+});
+
+test('reação de dano em área distingue alvos protegidos de alvos atingidos',async()=>{
+ const {tacticalDamagedTargets}=await import('../src/tactical-animation.js');
+ const event={type:'skill',pose:'impact',totalDamage:10,affectedTargetIds:['a','b','c'],
+  before:{allies:[],enemies:[{id:'a',hp:100,shield:0},{id:'b',hp:100,shield:0},{id:'c',hp:100,shield:8}]},
+  after:{allies:[],enemies:[{id:'a',hp:90,shield:0},{id:'b',hp:100,shield:0},{id:'c',hp:100,shield:3}]}};
+ assert.deepEqual(tacticalDamagedTargets(event),['a','c']);
+ assert.deepEqual(tacticalDamagedTargets({...event,pose:'windup'}),[]);
+ assert.deepEqual(tacticalDamagedTargets({...event,skipped:true}),[]);
 });

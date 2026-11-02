@@ -3,18 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Protótipo tático roguelite 3v3 nos três mundos espirituais.",
+  "description": "Prot\u00f3tipo t\u00e1tico roguelite 3v3 nos tr\u00eas mundos espirituais.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test",
-    "test:tactical": "node --test tests/tactical-combat.test.js tests/tactical-run.test.js tests/tactical-animation.test.js tests/tactical-ui.test.js",
+    "test:tactical": "node --test tests/tactical-combat.test.js tests/tactical-run.test.js tests/tactical-animation.test.js tests/tactical-ui.test.js tests/tactical-vfx.test.js",
     "docs:generate": "node scripts/generate-project-docs.mjs",
-    "audit:art": "node scripts/audit-art.mjs"
+    "audit:art": "node scripts/audit-art.mjs",
+    "audit:animation": "node scripts/audit-tactical-animation.mjs"
   },
   "engines": {
     "node": ">=20"
   }
 }
-
-
