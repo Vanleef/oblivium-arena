@@ -53,7 +53,7 @@ export function paintTacticalToken(token,unit,event,frame){
  const fromY=event.before?.positions?.[unit.id]?.y??event.from?.y??0,toY=event.after?.positions?.[unit.id]?.y??event.to?.y??fromY,hopRows=event.type==='move'?toY-fromY:0;
  const laneHop=event.type==='move'&&frame.pose==='airborne'&&hopRows!==0;token.dataset.hop=String(laneHop);token.closest('.cell')?.classList.toggle('hop',laneHop);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
  const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame});
- if(sprite&&atlasFrame){sprite.style.backgroundImage=`url('${atlasFrame.src}')`;sprite.style.backgroundSize=`${atlasFrame.sheetColumns*100}% ${atlasFrame.sheetRows*100}%`;sprite.style.backgroundPosition=`${atlasFrame.x}% ${atlasFrame.y}%`;return true;}
+ if(sprite&&atlasFrame){sprite.src=atlasFrame.src;sprite.style.width=`${atlasFrame.sheetColumns*100}%`;sprite.style.height=`${atlasFrame.sheetRows*100}%`;sprite.style.left=`${-atlasFrame.column*100}%`;sprite.style.top=`${-atlasFrame.row*100}%`;return true;}
  const image=token.querySelector('.token-art');
  if(image){
   const action=['release','impact','followthrough','transfer','counter'].includes(frame.pose);

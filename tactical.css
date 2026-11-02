@@ -320,3 +320,44 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
   outline:2px solid #f0d38b;
   outline-offset:-2px;
 }
+
+/* Fundos e sprites como elementos de imagem explícitos para renderizar com consistência. */
+.arena-stage{background-color:#10131a;background-image:none!important}
+.arena-stage:before,.arena-stage:after{z-index:0}
+.arena-backdrop{
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 52%;
+  pointer-events:none;
+}
+.arena-callout,.board{position:relative;z-index:1}
+.token-sprite{
+  overflow:hidden;
+}
+.sprite-viewport{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  transform-origin:50% 100%;
+}
+.sprite-viewport .sprite-sheet{
+  position:absolute;
+  display:block;
+  max-width:none;
+  object-fit:fill;
+  background:none;
+}
+.token[data-sprite="true"][data-family="idle"] .sprite-sheet{animation:none!important}
+.token[data-sprite="true"][data-family="idle"] .sprite-viewport{
+  animation:atlas-breathe 3s ease-in-out infinite;
+  transform-origin:50% 100%;
+}
+.token.stunned .sprite-viewport{animation-play-state:paused!important}
+@keyframes atlas-breathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.014,1.008)}
+}
