@@ -1,38 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-test('interface permite selecionar, mover, reordenar, remover e resolver até a próxima rodada',async()=>{
- const handlers={},fields={};const root={innerHTML:'',addEventListener(type,handler){handlers[type]=handler;}};
- const previousDocument=globalThis.document;
- globalThis.document={getElementById:id=>id==='tactical-app'?root:(fields[id]||={value:''})};
- const click=dataset=>handlers.click({target:{closest:()=>({dataset,disabled:false})}});
- const ready=()=>new Promise(resolve=>setTimeout(resolve,5));
+test('planejamento privado explica a segunda passagem, permite editar e executa com confirmação mantida',async()=>{
+ const rootHandlers={},documentHandlers={},root={innerHTML:'',querySelector:()=>null,querySelectorAll:()=>[],addEventListener(type,handler){rootHandlers[type]=handler;}};
+ const saved={document:globalThis.document,Image:globalThis.Image,matchMedia:globalThis.matchMedia,requestAnimationFrame:globalThis.requestAnimationFrame};
+ globalThis.document={getElementById:()=>root,addEventListener(type,handler){documentHandlers[type]=handler;}};
+ globalThis.Image=class {};globalThis.matchMedia=()=>({matches:true});globalThis.requestAnimationFrame=fn=>fn();
+ const click=dataset=>rootHandlers.click({target:{closest:()=>({dataset,disabled:false})}});
+ const until=async predicate=>{for(let i=0;i<120;i++){if(predicate())return;await new Promise(resolve=>setTimeout(resolve,40));}assert.fail('A interface não chegou ao estado esperado.');};
  try{
-  await import('../src/tactical-demo.js?ui-flow-test');await ready();
-  assert.match(root.innerHTML,/Arena tática/);assert.equal((root.innerHTML.match(/data-unit-id=/g)||[]).length,6);assert.equal((root.innerHTML.match(/data-sprite="true"/g)||[]).length,6);assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.match(root.innerHTML,/Revelar e resolver rodada/);
-  click({cell:'2,0'});assert.match(root.innerHTML,/Adicionar movimento · C1/);click({command:'add'});assert.match(root.innerHTML,/Mover até C1/);assert.match(root.innerHTML,/1 \/ 6/);
-  click({mode:'impulso'});click({cell:'4,2'});click({command:'add'});assert.match(root.innerHTML,/Incisão de Abate/);
-  click({actor:'a-viuva-escarlate'});click({cell:'1,2'});click({command:'add'});assert.match(root.innerHTML,/Mover até B3/);assert.match(root.innerHTML,/3 \/ 6/);
-  click({order:'2',direction:'-1'});assert.ok(root.innerHTML.indexOf('Mover até B3')<root.innerHTML.indexOf('Mover até C1'));
-  click({remove:'0'});assert.match(root.innerHTML,/2 \/ 6/);assert.doesNotMatch(root.innerHTML,/Mover até B3/);
-  click({command:'payment'});assert.equal((root.innerHTML.match(/data-payment=/g)||[]).length,4);click({command:'payment'});assert.doesNotMatch(root.innerHTML,/data-payment=/);
-  click({command:'confirm'});await ready();for(let i=0;i<100&&root.innerHTML.includes('A oposição está planejando');i++)await new Promise(resolve=>setTimeout(resolve,100));assert.match(root.innerHTML,/<small>RODADA<\/small><b>2<\/b>/);assert.match(root.innerHTML,/0 \/ 6/);assert.match(root.innerHTML,/Encerramento da rodada/);assert.match(root.innerHTML,/As campanhas e a Arena online mantêm o combate atual/);
-  assert.doesNotMatch(root.innerHTML,/Não foi possível planejar/);
- }finally{globalThis.document=previousDocument;}
-});
-
-test('movimento reduzido encerra a reprodução e libera a próxima rodada',async()=>{
- const handlers={},root={innerHTML:'',addEventListener(type,handler){handlers[type]=handler;}};
- const previousDocument=globalThis.document,previousMatchMedia=globalThis.matchMedia;
- globalThis.document={getElementById:()=>root};
- globalThis.matchMedia=()=>({matches:true});
- try{
-  await import('../src/tactical-demo.js?reduced-motion-flow');
-  await new Promise(resolve=>setTimeout(resolve,5));
-  handlers.click({target:{closest:()=>({dataset:{command:'confirm'},disabled:false})}});
-  await new Promise(resolve=>setTimeout(resolve,5));
-  assert.match(root.innerHTML,/<small>RODADA<\/small><b>2<\/b>/);
-  assert.doesNotMatch(root.innerHTML,/arena-callout active/);
-  assert.match(root.innerHTML,/<button class="primary confirm" data-command="confirm" >Revelar e resolver rodada/);
- }finally{globalThis.document=previousDocument;globalThis.matchMedia=previousMatchMedia;}
+  await import('../src/tactical-demo.js?private-planning-flow');await until(()=>root.innerHTML.includes('Planejamento privado'));
+  assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.match(root.innerHTML,/Seu plano · privado/);
+  click({cell:'1,1'});click({cell:'1,1'});assert.match(root.innerHTML,/Mover · B2/);
+  click({mode:'impulso'});click({cell:'2,1'});assert.match(root.innerHTML,/2ª passagem · iniciativa 1/);assert.match(root.innerHTML,/parte de B2/);assert.match(root.innerHTML,/Reposicionamento/);assert.match(root.innerHTML,/Posição e proteção podem alterar/);
+  click({cell:'2,1'});assert.match(root.innerHTML,/2\/6 ações/);
+  click({edit:'0'});click({command:'remove-edit'});assert.match(root.innerHTML,/1\/6 ações/);
+  click({command:'undo-plan'});assert.match(root.innerHTML,/2\/6 ações/);
+  const button={dataset:{command:'commit-hold'},disabled:false,classList:{add(){},remove(){}}};
+  rootHandlers.pointerdown({button:0,clientX:0,clientY:0,target:{closest:()=>button}});
+  documentHandlers.pointerup();await new Promise(resolve=>setTimeout(resolve,720));assert.match(root.innerHTML,/Planejamento privado · rodada 1/);
+  rootHandlers.pointerdown({button:0,clientX:0,clientY:0,target:{closest:()=>button}});
+  await until(()=>root.innerHTML.includes('Planejamento privado · rodada 2'));
+  assert.match(root.innerHTML,/0\/6 ações/);assert.match(root.innerHTML,/resolution-feedback/);assert.doesNotMatch(root.innerHTML,/Não foi possível planejar/);
+ }finally{for(const [key,value]of Object.entries(saved)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
 });

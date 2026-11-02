@@ -1,3 +1,4 @@
+import {tacticalChestOptions,addTacticalAugment,triggerTacticalAugments} from './tactical-chests.js';
 import {orderTacticalActions} from './tactical-order.js';
 import {characterById} from './data.js';
 import {getResonance} from './rules.js';
@@ -21,26 +22,6 @@ const cleanPoint=p=>onBoard(p)?{x:p.x,y:p.y}:null;
 const chestTierNames=Object.freeze({silver:'Prateado',gold:'Dourado',prismatic:'Prismático'});
 function livingTeam(s,side){return team(s,side).filter(u=>u.hp>0);}
 function chestTier(s,side){const count=livingTeam(s,side).length;return count<=1?'prismatic':count===2?'gold':'silver';}
-function chestOptions(tier){
- const options={
-  silver:[
-   {id:'heal',title:'Sopro de Prata',text:'Cure 22% da Vida máxima da alma mais ferida.',effect:{type:'heal-lowest',fraction:.22}},
-   {id:'ward',title:'Manto Prateado',text:'Conceda 12 de Escudo a cada alma viva.',effect:{type:'shield-team',amount:12}},
-   {id:'essence',title:'Essência Lapidada',text:'Receba 2 de Éter.',effect:{type:'essence',amount:2}}
-  ],
-  gold:[
-   {id:'revive',title:'Retorno Dourado',text:'Reviva uma alma caída com 35% da Vida máxima.',effect:{type:'revive',fraction:.35}},
-   {id:'valor',title:'Ímpeto Dourado',text:'Conceda +10 de dano ao próximo ataque de cada alma viva.',effect:{type:'boost-team',amount:10}},
-   {id:'essence',title:'Veio de Ouro',text:'Receba 4 de Éter.',effect:{type:'essence',amount:4}}
-  ],
-  prismatic:[
-   {id:'revive',title:'Renascimento Prismático',text:'Reviva uma alma caída com 65% da Vida máxima.',effect:{type:'revive',fraction:.65}},
-   {id:'renewal',title:'Restauração Prismática',text:'Restaure toda a Vida e remova aflições da alma viva.',effect:{type:'full-recover'}},
-   {id:'surge',title:'Sobrecarga Prismática',text:'Receba 6 de Éter, 24 de Escudo e +20 de dano no próximo ataque.',effect:{type:'prismatic-surge'}}
-  ]
- };
- return options[tier].map(option=>({...option}));
-}
 function rewardCell(s,unitId){
  const origin=s.tactical.positions[unitId]||{x:0,y:2};
  return boardCells().filter(p=>!occupied(s,p,unitId)&&!obstacle(s,p)&&!s.tactical.chests.some(chest=>sameCell(chest.position,p)))
@@ -53,7 +34,10 @@ function applyChestEffect(s,side,effect){
  if(effect.type==='heal-lowest'){
   const target=[...living].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp||a.id.localeCompare(b.id))[0];healUnit(target,effect.fraction);
  }else if(effect.type==='shield-team')for(const unit of living)addShield(unit,effect.amount);
- else if(effect.type==='essence')pool.essence=(pool.essence||0)+effect.amount;
+ else if(effect.type==='essence')pool[effect.resource||'essence']=(pool[effect.resource||'essence']||0)+effect.amount;
+ else if(effect.type==='blood-essence'){const unit=[...living].sort((a,b)=>b.hp-a.hp||a.id.localeCompare(b.id))[0];if(unit&&unit.hp>12){unit.hp-=12;pool[effect.resource]=(pool[effect.resource]||0)+effect.amount;}}
+ else if(effect.type==='augment')addTacticalAugment(s,side,effect.augment);
+ else if(effect.type==='cleanse-team')for(const unit of living){unit.dots=[];unit.marks={};unit.reactives=(unit.reactives||[]).filter(r=>!r.harmful);for(const key of ['stunned','weakened','exposed','sealSupport','sealAttack','healingBlock'])unit[key]=0;}
  else if(effect.type==='boost-team')for(const unit of living){unit.boost=Math.max(unit.boost||0,effect.amount);unit.boostFresh=true;}
  else if(effect.type==='revive'){
   const downed=units.filter(unit=>unit.hp<=0).sort((a,b)=>a.id.localeCompare(b.id))[0];
@@ -69,7 +53,7 @@ function applyChestEffect(s,side,effect){
 }
 function makeChestOffer(s,side,chest){
  const tier=chestTier(s,side);
- return {id:`${chest.id}:${side}`,chestId:chest.id,side,tier,tierName:chestTierNames[tier],round:s.round,options:chestOptions(tier)};
+ return {id:`${chest.id}:${side}`,chestId:chest.id,side,tier,tierName:chestTierNames[tier],round:s.round,options:tacticalChestOptions(s,side,tier)};
 }
 function spawnTacticalChest(s){
  const center={x:2,y:2},point=boardCells().filter(p=>!occupied(s,p)&&!obstacle(s,p)&&!s.tactical.chests.some(chest=>sameCell(chest.position,p)))
@@ -86,6 +70,7 @@ export function chooseTacticalChestReward(s,offerId,optionId){
  const option=offer.options.find(item=>item.id===optionId);if(!option)return fail('Aprimoramento inválido.');
  applyChestEffect(s,'player',option.effect);
  s.tactical.pendingChestRewards.shift();
+ for(const pending of s.tactical.pendingChestRewards)pending.options=tacticalChestOptions(s,pending.side,pending.tier);
  if(!s.tactical.pendingChestRewards.length&&s.tactical.stage==='reward'){s.tactical.stage='planning';s.phase='tactical-planning';}
  return {ok:true,offer:copy(offer),option:copy(option),next:copy(s.tactical.pendingChestRewards[0]||null)};
 }
@@ -144,7 +129,8 @@ function move(s,ref,strict=false){
  let at=s.tactical.positions[actor.id],moved=0;const from={...at},steps=[];
  for(const step of ref.path){if(!canStep(s,actor.id,at,step)){if(strict)return {skipped:true,reason:'Caminho bloqueado.'};break;}const previous={...at};at={...step};s.tactical.positions[actor.id]=at;steps.push({from:previous,to:{...at}});moved++;}
  actor.actedThisTurn=true;
- return {skipped:!moved,moved,from,to:{...at},steps,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
+ const augmentNotes=moved?triggerTacticalAugments(s,ref.side,actor,'move'):[];
+ return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
 }
 function execute(s,ref,{projection=false}={}){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor)return {skipped:true,reason:'Personagem fora de combate.'};
@@ -154,7 +140,10 @@ function execute(s,ref,{projection=false}={}){
  const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id],anchor=spec.pattern==='self'?origin:ref.anchor;
  if(!onBoard(anchor)||distance(origin,anchor)>spec.range||!tacticalArea(s,actor,ability,anchor,ref.orientation).length)return {skipped:true,reason:'A região ficou fora de alcance ou da linha de visão.'};
  const cells=tacticalArea(s,actor,ability,anchor,ref.orientation),ids=tacticalTargets(s,actor,ability,anchor,ref.orientation);
+ const exposedBefore=ids.map(id=>tacticalUnits(s).find(u=>u.id===id)).filter(u=>u?.exposed).map(u=>({id:u.id,hp:u.hp,shield:u.shield||0}));
  const result=resolveBoardTechnique(s,{...ref,targetId:ids[0]||null},ids);
+ const exposedHit=exposedBefore.some(old=>{const u=tacticalUnits(s).find(u=>u.id===old.id);return u&&(u.hp<old.hp||(u.shield||0)<old.shield);});
+ const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit}):[];
  const chestsOpened=[];
  if(!projection&&!result.skipped&&(ability.damage>0||ability.dot||ability.dots?.length)){
   const hits=s.tactical.chests.filter(chest=>cells.some(point=>sameCell(point,chest.position)));
@@ -170,7 +159,7 @@ function execute(s,ref,{projection=false}={}){
    }
   }
  }
- return {...result,targets:ids,cells,...(chestsOpened.length?{chestsOpened,title:`${result.title||ability.name} · baú aberto`}:{})};
+ return {...result,targets:ids,cells,augmentNotes,...(chestsOpened.length?{chestsOpened,title:`${result.title||ability.name} · baú aberto`}:{})};
 }
 
 function normalizePlan(s,side,actions){
@@ -253,9 +242,10 @@ export function resolveTacticalRound(s){
   if(boardOutcome(s))break;
  }
  if(s.tactical.stage!=='finished'){
-  const endingRound=s.round,before=replayState(s),result=finishBoardRound(s);stamp(s,{round:endingRound,type:'effects',title:'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
+  const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
   if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.round%4===0)spawnTacticalChest(s);}
  }
+ for(const offer of s.tactical.pendingChestRewards)offer.options=tacticalChestOptions(s,offer.side,offer.tier);
  if(s.tactical.pendingChestRewards.length&&s.tactical.stage==='planning'){s.tactical.stage='reward';s.phase='tactical-reward';}
  s.tactical.plans={};s.queue=[];s.intents=[];s.resolution=[];s.resolutionSide=null;
  return {ok:true,events:copy(s.tactical.events),chestRewards:copy(s.tactical.pendingChestRewards),finished:s.tactical.stage==='finished'};

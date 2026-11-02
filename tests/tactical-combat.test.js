@@ -54,14 +54,14 @@ test('movimento parcial para antes de passagem disputada',()=>{
  round(s,[{type:'move',actorId:s.allies[0].id,path:[{x:1,y:0},{x:2,y:0}]}],[{type:'move',actorId:s.enemies[0].id,path:[{x:2,y:0}]}]);
  assert.deepEqual(s.tactical.positions[s.enemies[0].id],{x:2,y:0});assert.deepEqual(s.tactical.positions[s.allies[0].id],{x:1,y:0});
 });
-test('mira fixa permite escapar da área e uma técnica lançada paga mesmo se errar',()=>{
- const s=close(create()),u=s.allies[0],e=s.enemies[0],before={...s.resources};
+test('movimento com iniciativa anterior escapa da mira fixa e o disparo ainda paga',()=>{
+ const s=close(create(2)),u=s.allies[0],e=s.enemies[0],before={...s.resources};
  const result=round(s,[skill(u,'impulso',{x:2,y:1})],[{type:'move',actorId:e.id,path:[{x:2,y:0}]}]);
  assert.equal(e.hp,100);assert.ok(Object.values(before).reduce((a,b)=>a+b)-Object.values(s.resources).reduce((a,b)=>a+b)>=-3);
  const cast=result.events.find(e=>e.type==='skill');assert.equal(cast.skipped,false);assert.equal(cast.totalDamage,0);
 });
-test('Invulnerável ativa antes da ofensiva e recarga não avança por ação',()=>{
- const s=close(create()),u=s.allies[0],e=s.enemies[0];
+test('Invulnerável com iniciativa anterior protege e recarga não avança por ação',()=>{
+ const s=close(create(2)),u=s.allies[0],e=s.enemies[0];
  round(s,[skill(u,'impulso',{x:2,y:1})],[skill(e,'despertar',{x:2,y:1})]);
  assert.equal(e.hp,100);assert.equal(e.cooldowns.despertar,4);assert.equal(e.invulnerable,0);
  for(let i=0;i<3;i++)round(s);assert.equal(e.cooldowns.despertar,1);round(s);assert.equal(e.cooldowns.despertar,undefined);
@@ -101,8 +101,8 @@ test('serialização preserva resolução, pagamentos, formas e posições',()=>
  assert.deepEqual(a.tactical.positions,b.tactical.positions);assert.deepEqual(a.resources,b.resources);assert.deepEqual(a.allies.map(u=>[u.hp,u.skillForms]),b.allies.map(u=>[u.hp,u.skillForms]));
 });
 
-test('contra-ataque preparado reage à ofensiva da mesma rodada',()=>{
- const s=create(),u=s.allies[1],e=s.enemies[0];s.tactical.positions[u.id]={x:1,y:2};s.tactical.positions[e.id]={x:2,y:2};
+test('contra-ataque preparado com iniciativa anterior reage na mesma rodada',()=>{
+ const s=create();[s.allies[0],s.allies[1]]=[s.allies[1],s.allies[0]];const u=s.allies[0],e=s.enemies[0];s.tactical.positions[u.id]={x:1,y:2};s.tactical.positions[e.id]={x:2,y:2};
  const before=e.hp;const r=round(s,[skill(u,'tecnica',{x:1,y:2})],[skill(e,'impulso',{x:1,y:2})]);
  assert.ok(r.events.some(e=>e.reactions?.length));assert.ok(e.hp<before);assert.equal(u.hp,100);
 });
@@ -111,7 +111,7 @@ test('Verdant protege apenas a cruz e colapsa a região 3×3 sem atingir fora da
  for(const k of ['resources','enemyResources'])Object.assign(s[k],{essence:10,cinza:10,graca:10,ruptura:10});
  s.tactical.positions[u.id]={x:2,y:2};
  const p=[skill(u,'tecnica',{x:2,y:2}),skill(u,'voto',{x:3,y:2},'collapse')];
- assert.ok(previewTacticalPlan(s,'player',p.slice(0,1)).projection.allies[0].shield>0);const result=round(s,p),cast=result.events.find(e=>e.type==='skill'&&e.formKey==='collapse');assert.equal(cast.targets.length,3);assert.equal(u.shield,0);assert.equal(s.allies[1].shield,0);assert.equal(s.allies[2].shield,0);
+ assert.ok(previewTacticalPlan(s,'player',p.slice(0,1)).projection.allies[0].shield>0);const result=round(s,p),cast=result.events.find(e=>e.type==='skill'&&e.formKey==='collapse');assert.equal(cast.targets.length,3);assert.equal(u.shield,0);assert.equal(s.allies[1].shield,18);assert.equal(s.allies[2].shield,0);
 });
 test('a queda cancela as duas ações restantes da vítima',()=>{
  const s=close(create()),u=s.allies[0],e=s.enemies[0];e.hp=1;

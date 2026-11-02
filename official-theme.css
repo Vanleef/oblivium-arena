@@ -833,3 +833,18 @@ body,.auth-screen{
 @keyframes atlas-breathing{from{left:0}to{left:-500%}}
 @media(prefers-reduced-motion:reduce){.token[data-idle-atlas=true] .sprite-sheet{animation:none}}
 
+/* Explicações privadas ficam no painel de planejamento, fora da grade. */
+.private-insight{padding:10px 12px;margin-top:8px;border:1px solid #83a4b84a;border-radius:7px;background:#101925;color:#c0cddb;font-size:11px;line-height:1.4}
+.private-insight[hidden]{display:none}
+.insight-top{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;color:#e3eff8;font-size:11px}
+.insight-top>b{color:#c2dfeb}.private-insight p{margin:5px 0 0}
+.private-insight .insight-condition{color:#adbacb;font-size:10px}.insight-warning{color:#ffb3a7}
+.combo-notes{list-style:none;margin:6px 0 0;padding:0;color:#e6d296}.combo-notes li{margin-top:3px}
+.slot-combo{color:#e6cf89;font-size:16px}.passage-rule{font-size:10px;color:#aebed0;margin:0 0 10px;line-height:1.4}
+.resolution-feedback{display:block;color:#a9bdcc;font-size:11px;margin:3px 0 8px}
+.active-augments{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.active-augments>span{font-size:10px;border:1px solid #8a739959;padding:4px 7px;border-radius:4px;background:#2a2338;color:#d7c5ef}
+.chest-reward{scroll-margin-top:8px}.chest-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shell .chest-options>button{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:8px;padding:16px;border:1px solid #bea46e;border-radius:9px;background:linear-gradient(145deg,#252534,#111925);color:#eee4d0;min-height:160px}
+.chest-options .reward-category{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#baa6d3}.chest-options strong{font-size:15px}.chest-options small{font-size:12px;line-height:1.5}.chest-options em{font-size:10px;font-style:normal;line-height:1.4;color:#aabbd0;margin-top:auto}
+@media(max-width:700px){.private-insight{padding:8px;font-size:10px}.insight-top{font-size:10px;gap:4px}.private-insight .insight-condition{font-size:9px}.chest-options{grid-template-columns:1fr}.shell .chest-options>button{min-height:110px;padding:12px;gap:6px}.chest-options strong{font-size:14px}.chest-options small{font-size:11px}.passage-rule{font-size:9px}}
+
