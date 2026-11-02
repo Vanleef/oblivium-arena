@@ -521,3 +521,6 @@ body,.auth-screen{
  .hud-unit-copy b{font-size:7px}.hud-unit-copy small{font-size:5px}
  .arena-hud{height:8%;min-height:38px}
 }
+
+/* Enquadramento do piso: a borda do penhasco fica abaixo da última fileira. */
+.arena-backdrop{inset:auto;left:-15%;top:-8%;width:130%;height:130%;object-fit:fill}
