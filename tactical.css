@@ -151,8 +151,8 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 /* Six-by-six transparent atlases: a drawing per frame, anchored at the feet. */
 .token[data-sprite="true"]{max-width:none;isolation:isolate}
 .token[data-sprite="true"]:after{display:none}
-.token-sprite{position:absolute;z-index:-1;left:50%;bottom:24px;width:var(--sprite-width,140%);max-width:var(--sprite-max-width,166px);aspect-ratio:1;transform:translateX(-50%);filter:drop-shadow(0 5px 3px #0008)}
-.token[data-unit-id="gemeos-do-cutelo"]{--sprite-width:156%;--sprite-max-width:184px}.token[data-unit-id="o-sussurro"]{--sprite-width:150%;--sprite-max-width:178px}
+.token-sprite{position:absolute;z-index:-1;left:50%;bottom:24px;width:var(--sprite-width,140%);max-width:var(--sprite-max-width,120px);aspect-ratio:1;transform:translateX(-50%);filter:drop-shadow(0 5px 3px #0008)}
+.token[data-unit-id="gemeos-do-cutelo"]{--sprite-width:156%;--sprite-max-width:138px}.token[data-unit-id="o-sussurro"]{--sprite-width:150%;--sprite-max-width:132px}
 .token.enemy .token-sprite{transform:translateX(-50%) scaleX(-1)}
 .cell.hit .token-sprite{animation:sprite-impact .32s ease-out both}
 .cell.hit .token.enemy .token-sprite{animation-name:sprite-impact-enemy}
