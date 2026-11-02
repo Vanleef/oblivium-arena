@@ -1,3 +1,4 @@
+import {orderTacticalActions} from './tactical-order.js';
 import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
@@ -74,8 +75,9 @@ function spawnTacticalChest(s){
  const center={x:2,y:2},point=boardCells().filter(p=>!occupied(s,p)&&!obstacle(s,p)&&!s.tactical.chests.some(chest=>sameCell(chest.position,p)))
   .sort((a,b)=>distance(a,center)-distance(b,center)||a.y-b.y||a.x-b.x)[0];
  if(!point)return null;
+ const before=replayState(s);
  const chest={id:`chest-${s.round}-${s.tactical.chestSequence++}`,position:point,spawnedRound:s.round};
- s.tactical.chests.push(chest);stamp(s,{type:'chest-spawn',title:'Um baú apareceu na arena',chest:copy(chest)});
+ s.tactical.chests.push(chest);stamp(s,{type:'chest-spawn',title:'Um baú apareceu na arena',chest:copy(chest),before,after:replayState(s)});
  return chest;
 }
 export function chooseTacticalChestReward(s,offerId,optionId){
@@ -121,7 +123,7 @@ function definition(s,ref){
  return current;
 }
 function priority(s,ref){return ref.type==='move'?0:tacticalSpec(actorFor(s,ref.side,ref.actorId),definition(s,ref)).priority;}
-function orderedOwn(s,refs){return [...refs].sort((a,b)=>priority(s,a)-priority(s,b)||a.order-b.order);}
+function orderedOwn(s,refs){return orderTacticalActions(s,refs);}
 
 export function tacticalArea(s,actor,ability,anchor,orientation){
  const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id];
@@ -244,19 +246,14 @@ export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
  const player=s.tactical.plans.player,enemy=s.tactical.plans.enemy,first=s.round%2?s.tactical.firstSide:(s.tactical.firstSide==='player'?'enemy':'player');
- const rankSide={player:0,enemy:0},actions=[];
- for(const side of ['player','enemy'])for(const category of [0,1,2]){
-  rankSide[side]=0;
-  for(const ref of s.tactical.plans[side].filter(r=>priority(s,r)===category).sort((a,b)=>a.order-b.order))actions.push({...ref,category,rank:rankSide[side]++});
- }
- actions.sort((a,b)=>a.category-b.category||a.rank-b.rank||(a.side===first?-1:1));
+ const actions=orderTacticalActions(s,[...player,...enemy],first).map(ref=>({...ref,category:priority(s,ref)}));
  stamp(s,{type:'reveal',title:'Planos revelados',actions:copy(actions)});
  for(const ref of actions){
   const before=replayState(s),result=execute(s,ref);stamp(s,{...ref,...result,before,after:replayState(s),title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
   if(boardOutcome(s))break;
  }
  if(s.tactical.stage!=='finished'){
-  const endingRound=s.round,result=finishBoardRound(s);stamp(s,{round:endingRound,type:'effects',title:'Encerramento da rodada',reactions:result.reactions||[],recoveries:result.recoveries||[]});
+  const endingRound=s.round,before=replayState(s),result=finishBoardRound(s);stamp(s,{round:endingRound,type:'effects',title:'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
   if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.round%4===0)spawnTacticalChest(s);}
  }
  if(s.tactical.pendingChestRewards.length&&s.tactical.stage==='planning'){s.tactical.stage='reward';s.phase='tactical-reward';}

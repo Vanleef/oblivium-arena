@@ -53,8 +53,8 @@ export function tacticalDamagedTargets(event){
 // Keep the impact visible for the full target-reaction animation before
 // playback advances and removes the affected-cell classes.
 export function tacticalFrameDuration(event){
- if(event?.type==='move'&&event.pose==='airborne')return 150;
- if(event?.type==='move'&&event.pose==='landing')return 105;
+ if(event?.type==='move'&&event.pose==='airborne')return 280;
+ if(event?.type==='move'&&event.pose==='landing')return 160;
  return tacticalImpactActive(event)?560:65;
 }
 export function tacticalFrameArt(ability,pose,portrait=''){
