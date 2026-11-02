@@ -187,3 +187,59 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .chest-option strong{font-family:Georgia,serif;color:#f0d994}
 .chest-option small{font-size:.72rem;line-height:1.45;color:#c8c0aa}
 @media(max-width:690px){.chest-options{grid-template-columns:1fr}.chest-option{min-height:0}.treasure-chest{width:44%;height:38%}}
+
+/* Grade tática uniforme: mesmas dimensões para as 25 casas, sem perspectiva que comprima as fileiras. */
+.board{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-rows:repeat(5,minmax(0,1fr));
+  gap:3px;
+  width:min(100%,680px,72vh);
+  aspect-ratio:1;
+  max-height:none;
+  margin-inline:auto;
+  transform:none;
+  filter:drop-shadow(0 12px 14px #0006);
+}
+.cell{
+  padding:0;
+  border:0;
+  border-radius:2px;
+  background:transparent;
+  overflow:visible;
+}
+.cell:before{
+  inset:0;
+  border:1px solid #d8c69a36;
+  border-radius:2px;
+  background:#111b2029;
+  clip-path:none;
+  box-shadow:none;
+}
+.cell:nth-child(odd):before{
+  background:#d5c59a12;
+}
+.cell.blocked:before{
+  border-color:#b89b7138;
+  background:repeating-linear-gradient(135deg,#4d493f4a 0 8px,#2023264a 8px 16px);
+  box-shadow:inset 0 0 0 1px #16171755;
+}
+.cell.aim:before{
+  border-color:#f0d38b;
+  background:#d2a4562a;
+}
+.cell.reachable:not(.aim):before{
+  border-color:#9dcdd066;
+  background:#5d9ca124;
+}
+.cell.active:before{
+  border-color:#f0d38b;
+  box-shadow:inset 0 0 0 1px #f0d38b66;
+}
+.cell.active{
+  outline:none;
+}
+@media(max-width:690px){
+  .board{width:min(100%,72vh);gap:2px}
+  .cell:before{border-color:#d8c69a30}
+}
