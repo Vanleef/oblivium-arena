@@ -89,3 +89,296 @@ body,.auth-screen{
 .shell button.primary{color:#19150e;background:linear-gradient(125deg,#ffe9ae,#e8bd69 55%,#c69548);border-color:var(--oa-gold-light)}
 .shell .queue-item small,.shell .muted{color:var(--oa-muted)}
 .shell .cell.active{outline-color:var(--oa-gold-light)}
+
+
+/* Tela de combate inspirada na composição de Inuyasha: Demon Tournament, adaptada para 5 × 5. */
+.shell .board-panel{
+  padding:14px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#171a1d,#101316);
+  border-color:#4b4438;
+}
+.shell .board-panel>.board-bar{margin-bottom:9px}
+.arena-stage{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  padding:9px 10px 10px;
+  border:3px ridge #b0873c;
+  border-radius:5px;
+  background:#101317;
+  box-shadow:inset 0 0 0 1px #f4df9e38,0 9px 24px #0009;
+}
+.arena-stage:after{
+  inset:0;
+  height:auto;
+  border-radius:0;
+  background:url('/art/arenas/limbo-ruins.webp') center 52%/cover no-repeat;
+  filter:none;
+  opacity:.94;
+  z-index:0;
+}
+.arena-stage:before{
+  inset:0;
+  background:linear-gradient(180deg,#1011164a 0%,#10111618 34%,#11141912 67%,#090b0d70 100%);
+  z-index:1;
+}
+.arena-hud,.arena-callout,.board,.arena-card-tray{position:relative;z-index:2}
+.arena-hud{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr);
+  align-items:stretch;
+  gap:5px;
+  min-height:48px;
+  padding:5px;
+  border:1px solid #c49a4c;
+  border-radius:3px;
+  background:linear-gradient(90deg,#131519ed,#2b241bef 50%,#131519ed);
+  box-shadow:inset 0 0 0 1px #f3d88c24,0 3px 7px #0009;
+}
+.hud-team{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;
+  gap:3px;
+  min-width:0;
+  padding-top:9px;
+}
+.hud-team-label{
+  position:absolute;
+  top:0;
+  left:3px;
+  z-index:1;
+  color:#edcf85;
+  font:700 7px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.12em;
+}
+.hud-team-enemy .hud-team-label{right:3px;left:auto}
+.hud-unit{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  min-width:0;
+  padding:2px;
+  border:1px solid #85714980;
+  background:#080a0cbf;
+}
+.hud-team-enemy .hud-unit{flex-direction:row-reverse;text-align:right}
+.hud-unit img{
+  flex:none;
+  width:21px;
+  height:27px;
+  object-fit:cover;
+  object-position:50% 18%;
+  border:1px solid #c4a962;
+  background:#222;
+}
+.hud-team-enemy .hud-unit img{transform:scaleX(-1);border-color:#b96c61}
+.hud-unit-copy{display:block;min-width:0;flex:1}
+.hud-unit-copy b{
+  display:block;
+  overflow:hidden;
+  color:#f2ead8;
+  font:700 8px/1.1 Inter,system-ui,sans-serif;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.hud-unit-copy small{
+  display:block;
+  margin-top:2px;
+  color:#c9c1b2;
+  font:6px/1.1 Inter,system-ui,sans-serif;
+  white-space:nowrap;
+}
+.hud-unit-copy>i{
+  display:block;
+  height:3px;
+  margin-top:2px;
+  overflow:hidden;
+  background:#252624;
+}
+.hud-unit-copy>i em{display:block;height:100%;background:linear-gradient(90deg,#75b57e,#d4c779)}
+.hud-team-enemy .hud-unit-copy>i em{margin-left:auto;background:linear-gradient(90deg,#c75e56,#e6a36f)}
+.hud-unit.fallen{opacity:.42;filter:grayscale(1)}
+.hud-round{
+  display:grid;
+  align-content:center;
+  justify-items:center;
+  border-inline:1px solid #d0ad5b66;
+  color:#f4d987;
+  text-align:center;
+}
+.hud-round small{font:700 6px/1 Inter,system-ui,sans-serif;letter-spacing:.08em}
+.hud-round b{font:700 22px/.95 Georgia,serif}
+.arena-callout{
+  min-height:24px;
+  margin:0;
+  padding:4px 8px;
+  border-left:1px solid #d5b160;
+  background:#11151ac2;
+  color:#e0d7c3;
+  font:10px/1.35 Inter,system-ui,sans-serif;
+  letter-spacing:.05em;
+}
+.arena-callout.active{background:#151515db}
+.callout-art{width:26px;height:26px}
+.board{
+  width:100%;
+  height:clamp(300px,48vw,370px);
+  max-height:none;
+  aspect-ratio:auto;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-rows:repeat(5,minmax(0,1fr));
+  gap:1px;
+  margin:0 auto;
+  padding:1px;
+  border:1px solid #dfd0a450;
+  background:#10171a26;
+  transform:none;
+  filter:none;
+}
+.cell{
+  min-width:0;
+  min-height:0;
+  padding:0;
+  border:1px solid #e5dbbd39;
+  border-radius:0;
+  background:transparent!important;
+  overflow:visible;
+}
+.cell .coord{left:3px;top:2px;font-size:7px;color:#fff4d3;opacity:.42}
+.cell.aim{outline:1px solid #f3d184;outline-offset:-2px;background:#dbac5330!important;box-shadow:none}
+.cell.reachable:not(.aim){outline:1px solid #b0d8d766;outline-offset:-2px}
+.cell.active{outline:2px solid #f3d184;outline-offset:-2px}
+.cell.blocked{background:#14171970!important;border-color:#c3aa7950}
+.cell-vfx{inset:-14% -10%}
+.token{
+  width:92%;
+  max-width:none;
+  min-height:0;
+  height:100%;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent!important;
+  box-shadow:none;
+}
+.token:before{
+  bottom:1px;
+  left:23%;
+  right:23%;
+  height:10px;
+  border-radius:50%;
+  background:#050607c7;
+  filter:blur(4px);
+}
+.token:after{inset:0 0 12px;background:linear-gradient(180deg,transparent 58%,#080a0c88 100%)}
+.token-art{
+  bottom:12px;
+  height:calc(100% - 8px);
+  object-fit:contain;
+  object-position:50% 100%;
+  clip-path:none;
+  mask-image:none;
+}
+.token-sprite{
+  bottom:12px;
+  height:min(var(--sprite-max-width,120px),116%);
+}
+.token-copy{
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index:3;
+  padding:15px 2px 2px;
+  background:linear-gradient(180deg,transparent,#080b10b8 54%,#080b10d9);
+}
+.token-copy b{font-size:clamp(8px,.9vw,11px)}
+.token-copy small{font-size:clamp(6px,.55vw,8px)}
+.token .hp{height:2px;margin:1px auto 0}
+.arena-card-tray{
+  min-width:0;
+  padding:6px 7px 3px;
+  border:1px solid #b18b49b8;
+  background:linear-gradient(180deg,#111318ed,#181a1adf);
+  box-shadow:inset 0 1px #f5dfa039,0 3px 7px #0009;
+}
+.arena-card-label{
+  display:block;
+  margin:0 0 4px;
+  color:#edcf85;
+  font:700 7px/1.2 Inter,system-ui,sans-serif;
+  letter-spacing:.13em;
+}
+.arena-skills{
+  display:flex;
+  flex-flow:row nowrap;
+  gap:7px;
+  margin:0;
+  padding:2px 2px 8px;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scrollbar-color:#9c814b #141619;
+  scrollbar-width:thin;
+}
+.arena-skills .skill{
+  flex:0 0 184px;
+  width:184px;
+  min-width:0;
+  min-height:94px;
+  grid-template-columns:minmax(0,1fr) 48px;
+  grid-template-rows:auto auto;
+  gap:4px 5px;
+  padding:6px;
+  border-radius:4px;
+  background:linear-gradient(145deg,#302b21,#14181a 62%);
+}
+.arena-skills .card-head{grid-template-columns:43px minmax(0,1fr);gap:5px}
+.arena-skills .card-art{width:43px;height:43px;border-radius:2px}
+.arena-skills .card-title strong{font-size:10px}
+.arena-skills .card-title small{font-size:7px}
+.arena-skills .card-pattern{gap:3px;padding:2px;border-left-color:#7461425c}
+.arena-skills .area-preview{grid-template-columns:repeat(3,7px);grid-template-rows:repeat(3,7px);gap:1px}
+.arena-skills .area-label{max-width:40px;font-size:6px}
+.arena-skills .card-footer{padding-top:4px}
+.arena-skills .cost-item,.arena-skills .action-point{font-size:6px}
+.arena-skills .cost-pip{width:6px;height:6px}
+.arena-plan-hint{
+  padding:9px 10px;
+  border:1px solid #544c3e;
+  background:#111418;
+  color:#aaa391;
+  font-size:11px;
+  line-height:1.45;
+}
+@media(max-width:760px){
+  .shell .board-panel{padding:10px}
+  .arena-stage{gap:6px;padding:7px}
+  .arena-hud{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);gap:2px;padding:3px}
+  .hud-unit{gap:2px;padding:1px}
+  .hud-unit img{width:17px;height:23px}
+  .hud-unit-copy b{font-size:7px}
+  .hud-unit-copy small{font-size:5px}
+  .hud-team{gap:2px;padding-top:8px}
+  .hud-team-label{font-size:6px}
+  .hud-round b{font-size:18px}
+  .arena-callout{font-size:9px}
+  .board{height:clamp(290px,67vw,350px)}
+  .arena-skills .skill{flex-basis:176px;width:176px}
+}
+@media(max-width:430px){
+  .arena-hud{grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr)}
+  .hud-team{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hud-unit img{width:13px;height:19px}
+  .hud-unit-copy b{font-size:6px}
+  .hud-unit-copy small{font-size:4.5px}
+  .hud-unit-copy>i{height:2px}
+  .board{height:290px}
+  .arena-skills .skill{flex-basis:166px;width:166px;min-height:90px}
+  .arena-skills .card-head{grid-template-columns:38px minmax(0,1fr)}
+  .arena-skills .card-art{width:38px;height:40px}
+  .arena-skills .card-title strong{font-size:9px}
+  .arena-skills .card-title small{font-size:6px}
+  .arena-skills .area-preview{grid-template-columns:repeat(3,6px);grid-template-rows:repeat(3,6px)}
+}
