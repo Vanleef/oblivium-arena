@@ -1,6 +1,6 @@
 # Cobertura de animações táticas
 
-20/150 entradas com atlas base conectado. 80/689 técnicas e formas com recorte mapeado.
+21/150 entradas com atlas base conectado. 84/689 técnicas e formas com recorte mapeado.
 
 Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família. O atlas de Vale e Soren representa uma única unidade por dois corpos; a forma `cross` de Corte em Contratempo e a forma `drag` de Demetrius seguem no fallback até receberem arte própria.
 
@@ -18,7 +18,7 @@ Atlas específicos de habilidade conectados: 1. Os demais recortes mapeados usam
 | Demetrius (o-principe-das-correntes) | Sim | Não | 4/5 |
 | Ashara (a-regente-de-cinzas) | Sim | Sim | 4/4 |
 | Malrik (o-herdeiro-cativo) | Pendente | Não | 0/4 |
-| Vesper (o-sussurro) | Pendente | Não | 0/4 |
+| Vesper (o-sussurro) | Sim | Não | 4/4 |
 | Nyx (a-mascara-dupla) | Pendente | Não | 0/5 |
 | Orin (o-tecelao-de-mentiras) | Pendente | Não | 0/5 |
 | Sylvara (a-boca-de-vidro) | Pendente | Não | 0/4 |

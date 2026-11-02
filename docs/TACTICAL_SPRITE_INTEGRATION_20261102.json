@@ -2,10 +2,10 @@
   "date": "2026-11-02",
   "status": "pilot-expanded",
   "coverage": {
-    "atlasCharacters": 20,
+    "atlasCharacters": 21,
     "rosterCharacters": 150,
     "drawingsPerAtlas": 36,
-    "totalDrawings": 720,
+    "totalDrawings": 756,
     "allCharactersComplete": false,
     "allTechniqueVariantsComplete": false
   },
@@ -28,9 +28,9 @@
     "grid": "6x6 verified",
     "sourceDimensions": "1254x1254 RGBA",
     "webpHeader": "RIFF/WEBP",
-    "frameBounds": "all 216 frames across six reported atlases remain inside a minimum 7px cell margin",
-    "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Vale and Soren, Lucien and Demetrius use action-specific vertical placement",
-    "runtimeMappings": "The tactical roster stays at 17 selectable units; Vale and Soren, Lucien, and Demetrius add three non-selectable atlas entries"
+    "frameBounds": "all 252 frames across seven reported atlases remain inside a minimum 7px cell margin",
+    "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Vale and Soren, Lucien, Demetrius and Vesper use action-specific vertical placement",
+    "runtimeMappings": "The tactical roster stays at 17 selectable units; Vale and Soren, Lucien, Demetrius, and Vesper add four non-selectable atlas entries"
   },
   "assets": [
     {
@@ -92,6 +92,16 @@
       "sha256": "eaa66f7026c6958d5838538ca104b68524dc8b9d71696cac839a4640eaa40e25",
       "minimumFrameMarginPx": 9,
       "unmappedForm": "drag"
+    },
+    {
+      "id": "o-sussurro",
+      "name": "Vesper",
+      "title": "O Sussurro",
+      "source": "dark-pictorial-rework-20261030/portrait.webp",
+      "file": "art/animations/tactical-pilot-20261102/vesper.webp",
+      "bytes": 891872,
+      "sha256": "4bcef8edad7ef6db1bcfd8ec9a584a9460a9e05ba6c2d834356829b6e653087e",
+      "minimumFrameMarginPx": 16
     }
   ]
 }
