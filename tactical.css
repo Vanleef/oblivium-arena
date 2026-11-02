@@ -367,3 +367,23 @@ body{background:radial-gradient(ellipse at 50% 25%,#39332b66,transparent 43%),ra
 .arena-stage:before,.arena-stage:after{z-index:1}
 .arena-callout,.board{z-index:2}
 .token-sprite{height:min(var(--sprite-max-width,120px),96%)}
+
+/* O fundo preenche o palco; figuras e grade ficam nas camadas superiores. */
+.arena-backdrop{display:none}
+.arena-stage:after{
+  inset:0;
+  height:auto;
+  border-radius:0;
+  background:url('/art/arenas/limbo-ruins.webp') center 52%/cover no-repeat;
+  filter:none;
+  opacity:.92;
+  z-index:0;
+}
+.arena-stage:before{z-index:1}
+.arena-callout,.board{z-index:2}
+.token:before{z-index:0}
+.token:after{z-index:1}
+.token-art,.token .token-sprite{z-index:2}
+.token-copy,.token .hp,.token em{z-index:3}
+.sprite-viewport{z-index:0}
+.sprite-viewport .sprite-sheet{z-index:0;visibility:visible;opacity:1}
