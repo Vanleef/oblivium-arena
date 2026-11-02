@@ -615,3 +615,14 @@ body,.auth-screen{
 .combat-shell .arena-backdrop{width:155%;height:155%;left:-27.5%;top:-13%}
 .combat-shell .board{top:46%;bottom:5%}
 @media(max-width:700px){.combat-shell .board{top:46%;bottom:5%}}
+
+.unit-effects{max-width:48px;flex-wrap:wrap}.unit-effects i{pointer-events:auto}
+.combat-number{position:absolute;left:50%;top:-45px;z-index:12;font:700 22px/1 Georgia,serif;color:#ffe7b3;text-shadow:0 2px 3px #000;pointer-events:none;animation:combat-number .7s ease-out both}
+.combat-number.damage{color:#ffac9c}.combat-number.healing{color:#a7edb8}.combat-number.shielding{color:#b9d9ff;font-size:16px}
+.falling-unit{position:absolute;inset:0;pointer-events:none;z-index:2;animation:combat-fall .7s ease-out both;transform-origin:50% 100%}
+.falling-unit .token-sprite{opacity:1!important;filter:grayscale(.6)}
+.falling-unit.enemy .token-sprite{transform:translateX(-50%) scaleX(-1)}
+@keyframes combat-number{from{opacity:1;transform:translate(-50%,0)}to{opacity:0;transform:translate(-50%,-30px)}}
+@keyframes combat-fall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(10px) rotate(25deg)}}
+@media(max-width:700px){.combat-number{font-size:16px;top:-30px}.falling-unit .token-sprite,.move-hologram .token-sprite{width:clamp(52px,17vw,76px);height:clamp(52px,17vw,76px)}}
+@media(prefers-reduced-motion:reduce){.combat-number,.falling-unit{animation:none}}
