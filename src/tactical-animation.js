@@ -32,7 +32,6 @@ export function tacticalAnimationFrames(ability,type='skill'){
  return sequences[family].map((pose,index)=>({family,pose,index,count:sequences[family].length}));
 }
 
-const actionArtPoses=new Set(['release','impact','followthrough','transfer','counter']);
 export function tacticalImpactActive(event){
  return event?.type==='skill'&&!event.skipped&&['impact','counter'].includes(event.pose);
 }
@@ -67,7 +66,9 @@ export function tacticalFrameDuration(event){
  return 95;
 }
 export function tacticalFrameArt(ability,pose,portrait=''){
- return ability?.art&&actionArtPoses.has(pose)?ability.art:portrait;
+ // Character cut-ins and ability illustrations belong to the card/VFX layer.
+ // The board token keeps its registered character portrait for every pose.
+ return portrait;
 }
 
 

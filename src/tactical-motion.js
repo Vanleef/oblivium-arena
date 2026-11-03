@@ -3,12 +3,11 @@ import {tacticalIdleCrops} from './tactical-idle-crops.js';
 export function tacticalIdleTiming(unit,now=Date.now()){
  const key=[unit?.id||unit?.sourceId||'idle',unit?.bodyForm||'base'].join(':');
  let hash=0;for(const char of key)hash=(hash*31+char.charCodeAt(0))>>>0;
- const cycle=1600+(hash%5)*80,phase=((now+hash%cycle)%cycle+cycle)%cycle;
+ const cycle=1520+(hash%4)*70,phase=((now+hash%cycle)%cycle+cycle)%cycle;
  return {cycle,phase,framePeriod:cycle/10};
 }
 export function tacticalIdleStyle(unit,now=Date.now()){
- const {cycle,phase,framePeriod}=tacticalIdleTiming(unit,now);
- const frames=tacticalIdleCrops[unit?.sourceId||unit?.id]||[];
+ const {cycle,phase}=tacticalIdleTiming(unit,now),frames=tacticalIdleCrops[unit?.sourceId||unit?.id]||[];
  const crops=frames.map((frame,index)=>`--idle-left-${index}:${frame.left}%;--idle-top-${index}:${frame.top}%;--idle-clip-${index}:inset(${frame.clip.map(n=>n+'%').join(' ')});`).join('');
  return `--idle-cycle:${cycle}ms;--idle-delay:-${phase}ms;`+crops;
 }

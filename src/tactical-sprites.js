@@ -1,5 +1,4 @@
 import {tacticalFrameDuration} from './tactical-animation.js';
-import {blendTacticalSpriteFrame} from './tactical-motion.js';
 // Candidate hand-drawn atlas coverage is intentionally separate from the generic
 // pose fallback. A mapped form is required: unknown forms never borrow base art.
 const root='/art/animations/tactical-pilot-20261101';
@@ -51,15 +50,9 @@ const frameColumns=Object.freeze({
 export function tacticalSpriteFrame(unit,event=null){
  const atlas=tacticalSpriteAtlases[unit?.sourceId||unit?.id];
  if(!atlas)return null;
- const clip=event?.type==='move'?'move':event?.type==='skill'?skillRowFor(unit,event):'idle';
- if(!clip||rows[clip]===undefined)return null;
- const index=Number.isInteger(event?.index)?Math.max(0,Math.min(7,event.index)):0;
- const poseMap=frameColumns[event?.family]||frameColumns.strike;
- const column=event?.pose==='ready'?(index===0?0:5):(poseMap[event?.pose]??Math.min(5,index));
- const skill=event?.type==='skill'?tacticalSkillAtlases[`${unit.sourceId||unit.id}/${clip}/${event.formKey||'base'}`]:null;
- if(event?.formKey&&event.formKey!=='base'&&!skill)return null;
- if(skill){const row=Math.floor(column/skill.columns),col=column%skill.columns;return {src:skill.src,clip,row,column:col,x:col*100/(skill.columns-1),y:row*100/(skill.rows-1),sheetColumns:skill.columns,sheetRows:skill.rows};}
- return {src:atlas.src,idleAnimated:clip==='idle',clip,row:rows[clip],column,x:column*20,y:rows[clip]*20,sheetColumns:6,sheetRows:6};
+ // Hold one registered drawing for the full move. Atlas cells were generated
+ // as separate poses and their framing is not stable enough for frame swaps.
+ return {src:atlas.src,idleAnimated:false,clip:'idle',row:0,column:0,x:0,y:0,sheetColumns:atlas.columns,sheetRows:atlas.rows};
 }
 export function tacticalSpriteStyle(frame){
  return `background-image:url('${frame.src}');background-size:${frame.sheetColumns*100}% ${frame.sheetRows*100}%;background-position:${frame.x}% ${frame.y}%`;
@@ -67,20 +60,19 @@ export function tacticalSpriteStyle(frame){
 export function paintTacticalToken(token,unit,event,frame){
  if(!unit||token.dataset.unitId!==event.actorId)return false;
  const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame});
- const duration=tacticalFrameDuration({...event,...frame});if(sprite&&atlasFrame)blendTacticalSpriteFrame(sprite,atlasFrame,duration);
+ const duration=tacticalFrameDuration({...event,...frame});
  token.dataset.idleAtlas='false';token.dataset.family=frame.family;token.dataset.pose=frame.pose;
  token.style.setProperty('--pose-duration',`${duration}ms`);
  const fromY=event.before?.positions?.[unit.id]?.y??event.from?.y??0,toY=event.after?.positions?.[unit.id]?.y??event.to?.y??fromY,hopRows=event.type==='move'?toY-fromY:0;
  const start=event.before?.positions?.[unit.id]||event.from||{x:0,y:0},aim=event.anchor||event.to||start;
- let dx=Math.sign(aim.x-start.x),dy=Math.sign(aim.y-start.y);if(!dx&&!dy){dx=event.orientation?.[0]||1;dy=event.orientation?.[1]||0;}
- token.style.setProperty('--windup-x',`${-dx*5}%`);token.style.setProperty('--windup-y',`${-dy*4}%`);token.style.setProperty('--lunge-x',`${dx*14}%`);token.style.setProperty('--lunge-y',`${dy*10}%`);token.style.setProperty('--follow-x',`${dx*6}%`);token.style.setProperty('--follow-y',`${dy*4}%`);
- const laneHop=event.type==='move'&&frame.pose==='airborne'&&hopRows!==0;token.dataset.hop=String(laneHop);token.closest('.cell')?.classList.toggle('hop',laneHop);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
- if(sprite&&atlasFrame){sprite.src=atlasFrame.src;sprite.style.width=`${atlasFrame.sheetColumns*100}%`;sprite.style.height=`${atlasFrame.sheetRows*100}%`;sprite.style.left=`${-atlasFrame.column*100}%`;sprite.style.top=`${-atlasFrame.row*100}%`;sprite.style.removeProperty('clip-path');return true;}
- const image=token.querySelector('.token-art');
- if(image){
-  const action=['release','impact','followthrough','transfer','counter'].includes(frame.pose);
-  image.src=action&&token.dataset.skillArt?token.dataset.skillArt:token.dataset.portrait;
+ if(event.type==='move'){
+  const board=token.closest('.board'),fromCell=token.closest('.cell'),toCell=board?.querySelector(`[data-cell="${event.to?.x},${event.to?.y}"]`);
+  if(fromCell&&toCell){const a=fromCell.getBoundingClientRect(),b=toCell.getBoundingClientRect(),x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;token.style.setProperty('--travel-x',`${x}px`);token.style.setProperty('--travel-y',`${y}px`);token.style.setProperty('--travel-mid-x',`${x*.52}px`);token.style.setProperty('--travel-mid-y',`${y*.52}px`);}
  }
+ let dx=Math.sign(aim.x-start.x),dy=Math.sign(aim.y-start.y);if(!dx&&!dy){dx=event.orientation?.[0]||1;dy=event.orientation?.[1]||0;}
+ token.style.setProperty('--windup-x',`${-dx*2}%`);token.style.setProperty('--windup-y',`${-dy*2}%`);token.style.setProperty('--lunge-x',`${dx*5}%`);token.style.setProperty('--lunge-y',`${dy*4}%`);token.style.setProperty('--follow-x',`${dx*2}%`);token.style.setProperty('--follow-y',`${dy*1}%`);
+ const laneHop=event.type==='move'&&frame.pose==='airborne'&&hopRows!==0;token.dataset.hop=String(laneHop);token.closest('.cell')?.classList.toggle('hop',laneHop);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
+ if(sprite&&atlasFrame&&sprite.getAttribute('src')!==atlasFrame.src)sprite.src=atlasFrame.src;
  return true;
 }
 
