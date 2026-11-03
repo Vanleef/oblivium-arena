@@ -62,3 +62,72 @@
  .token .sprite-viewport,.token .token-art{transition:none!important}
 }
 
+/* Dense mesh-skinned idle: 48 registered frames from one identity-preserving source pose. */
+.token[data-family="idle"] .sprite-viewport{animation:none!important;transform:none}
+.token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){
+ animation:oblivium-rig-wait 1s steps(1,end) infinite!important;
+ animation-delay:0s!important;
+}
+@keyframes oblivium-rig-wait{0%,100%{left:var(--idle-left-0,0%);top:var(--idle-top-0,0%);clip-path:var(--idle-clip-0,inset(0%))}}
+.token[data-idle-rig="true"][data-family="idle"] .sprite-sheet[data-rig-atlas="true"]{
+ animation:oblivium-dense-idle var(--idle-cycle,1920ms) steps(1,end) infinite!important;
+ animation-delay:var(--idle-delay,0ms)!important;
+}
+@keyframes oblivium-dense-idle{
+0.000000%{left:0%;top:0%}
+2.083333%{left:-100%;top:0%}
+4.166667%{left:-200%;top:0%}
+6.250000%{left:-300%;top:0%}
+8.333333%{left:-400%;top:0%}
+10.416667%{left:-500%;top:0%}
+12.500000%{left:-600%;top:0%}
+14.583333%{left:-700%;top:0%}
+16.666667%{left:0%;top:-100%}
+18.750000%{left:-100%;top:-100%}
+20.833333%{left:-200%;top:-100%}
+22.916667%{left:-300%;top:-100%}
+25.000000%{left:-400%;top:-100%}
+27.083333%{left:-500%;top:-100%}
+29.166667%{left:-600%;top:-100%}
+31.250000%{left:-700%;top:-100%}
+33.333333%{left:0%;top:-200%}
+35.416667%{left:-100%;top:-200%}
+37.500000%{left:-200%;top:-200%}
+39.583333%{left:-300%;top:-200%}
+41.666667%{left:-400%;top:-200%}
+43.750000%{left:-500%;top:-200%}
+45.833333%{left:-600%;top:-200%}
+47.916667%{left:-700%;top:-200%}
+50.000000%{left:0%;top:-300%}
+52.083333%{left:-100%;top:-300%}
+54.166667%{left:-200%;top:-300%}
+56.250000%{left:-300%;top:-300%}
+58.333333%{left:-400%;top:-300%}
+60.416667%{left:-500%;top:-300%}
+62.500000%{left:-600%;top:-300%}
+64.583333%{left:-700%;top:-300%}
+66.666667%{left:0%;top:-400%}
+68.750000%{left:-100%;top:-400%}
+70.833333%{left:-200%;top:-400%}
+72.916667%{left:-300%;top:-400%}
+75.000000%{left:-400%;top:-400%}
+77.083333%{left:-500%;top:-400%}
+79.166667%{left:-600%;top:-400%}
+81.250000%{left:-700%;top:-400%}
+83.333333%{left:0%;top:-500%}
+85.416667%{left:-100%;top:-500%}
+87.500000%{left:-200%;top:-500%}
+89.583333%{left:-300%;top:-500%}
+91.666667%{left:-400%;top:-500%}
+93.750000%{left:-500%;top:-500%}
+95.833333%{left:-600%;top:-500%}
+97.916667%{left:-700%;top:-500%}
+100.000000%{left:0%;top:0%}
+}
+.token.stunned .sprite-sheet[data-rig-atlas="true"]{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+ .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){animation:none!important}
+ .token[data-idle-rig="true"][data-family="idle"] .sprite-sheet[data-rig-atlas="true"]{animation:none!important;left:0%!important;top:0%!important}
+}
+
+

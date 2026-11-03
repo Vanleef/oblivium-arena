@@ -1,3 +1,4 @@
+import {installContinuousIdle} from './tactical-continuous-idle.js';
 import {tacticalIdleStyle,tacticalIdleLayerMarkup} from './tactical-motion.js';
 import {installTacticalDrag} from './tactical-drag.js';
 import {tacticalHandGroups,tacticalSlotAction,reorderTacticalSlots,tacticalTurnIncome} from './tactical-hand.js';
@@ -439,7 +440,7 @@ function render(){
  '<section class="combat-dock hand-dock">'+playbackActionMarkup()+cardSlotsMarkup(preview,locked)+handMarkup()+specialChoicesMarkup(u)+compactActionHint(u,locked)+activeAugmentsMarkup()+'</section></section>'+
  '<details class="combat-log"><summary>Resolução da rodada</summary><ol>'+(state.busy?(state.completedEvents||[]):state.lastEvents).map(e=>'<li>'+esc(e.title)+(e.actorId?' · '+esc(tacticalUnits(state.battle).find(u=>u.id===e.actorId)?.name):'')+(tacticalResolutionFeedback(e).length?'<span class="resolution-feedback">'+tacticalResolutionFeedback(e).map(esc).join(' ')+'</span>':'')+'</li>').join('')+'</ol></details>'+
  '<details id="formation" class="panel setup"><summary>Nova formação</summary><div class="setup-fields"><div class="team-selects"><label>Seu trio</label>'+[0,1,2].map(i=>teamSelect('player',i)).join('')+'</div><div class="team-selects"><label>Oposição</label>'+[0,1,2].map(i=>teamSelect('enemy',i)).join('')+'</div><label>Mapa<select id="map-choice"><option value="open">Arena aberta</option><option value="ruins">Ruínas</option></select></label>'+environmentSelect()+'<label>Semente<input id="seed-choice" type="number" value="'+state.seed+'"></label></div><button data-command="restart">Iniciar confronto</button></details></div>';
- restoreHandScroll();announceTurnIncome();paintArenaAssetsWhenDecoded();syncPlaybackRate();
+ restoreHandScroll();announceTurnIncome();paintArenaAssetsWhenDecoded();installContinuousIdle(root,tacticalUnits(s));syncPlaybackRate();
 }
 function teamSelect(side,index){const units=side==='player'?state.battle.allies:state.battle.enemies,chosen=units[index].sourceId||units[index].id;return `<select id="${side}-choice-${index}" aria-label="${side==='player'?'Aliado':'Adversário'} ${index+1}">${(side==='player'?tacticalRoster:tacticalOpponentRoster).map(id=>`<option value="${id}" ${id===chosen?'selected':''}>${esc(characterById[id].name)} — ${esc(characterById[id].identityTitle)}</option>`).join('')}</select>`;}
 function paintAnimationPose(event,frame){
@@ -547,3 +548,4 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('keyup',e=>{if(['Enter',' '].includes(e.key))cancelCommit();});
 root.addEventListener('change',event=>{if(event.target.dataset.payment){const value=Number(event.target.value);state.payment[event.target.dataset.payment]=value;state.message='';render();}});
 start();
+
