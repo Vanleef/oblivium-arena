@@ -1,18 +1,19 @@
+import {tacticalIdleCrops} from './tactical-idle-crops.js';
 // Stable absolute phases keep idle continuous across planning and replay DOM refreshes.
 export function tacticalIdleTiming(unit,now=Date.now()){
  const key=[unit?.id||unit?.sourceId||'idle',unit?.bodyForm||'base'].join(':');
  let hash=0;for(const char of key)hash=(hash*31+char.charCodeAt(0))>>>0;
- const cycle=4600+(hash%7)*240,phase=((now+hash%cycle)%cycle+cycle)%cycle;
+ const cycle=1600+(hash%5)*80,phase=((now+hash%cycle)%cycle+cycle)%cycle;
  return {cycle,phase,framePeriod:cycle/10};
 }
 export function tacticalIdleStyle(unit,now=Date.now()){
  const {cycle,phase,framePeriod}=tacticalIdleTiming(unit,now);
- return `--idle-cycle:${cycle}ms;--idle-delay:-${phase}ms;--idle-blend:${framePeriod}ms;`;
+ const frames=tacticalIdleCrops[unit?.sourceId||unit?.id]||[];
+ const crops=frames.map((frame,index)=>`--idle-left-${index}:${frame.left}%;--idle-top-${index}:${frame.top}%;--idle-clip-${index}:inset(${frame.clip.map(n=>n+'%').join(' ')});`).join('');
+ return `--idle-cycle:${cycle}ms;--idle-delay:-${phase}ms;`+crops;
 }
-export function tacticalIdleLayerMarkup(frame){
- if(!frame?.idleAnimated)return '';
- return `<img class="sprite-sheet idle-next-frame" src="${frame.src}" alt="" aria-hidden="true" style="width:${frame.sheetColumns*100}%;height:${frame.sheetRows*100}%;left:-100%;top:0%">`;
-}
+// Idle has one opaque, clipped drawing at a time; no doubled silhouettes or neighbor fragments.
+export function tacticalIdleLayerMarkup(){return '';}
 // Briefly dissolve the previous drawing; the source atlas is never interpolated sideways.
 export function blendTacticalSpriteFrame(sprite,next,duration){
  const parent=sprite?.parentElement;
@@ -25,3 +26,4 @@ export function blendTacticalSpriteFrame(sprite,next,duration){
  fade.finished.catch(()=>{}).finally(()=>previous.remove());
  return true;
 }
+

@@ -1,13 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
+import {tacticalIdleCrops} from '../src/tactical-idle-crops.js';
 import {tacticalFrameDuration,tacticalAnimationFrames} from '../src/tactical-animation.js';
 import {tacticalIdleTiming,tacticalIdleStyle,tacticalIdleLayerMarkup,blendTacticalSpriteFrame} from '../src/tactical-motion.js';
 
 test('todos os 25 atlas existentes usam a primeira fileira no idle, sem emprestar atlas desconhecido',()=>{
  for(const id of Object.keys(tacticalSpriteAtlases)){
   const frame=tacticalSpriteFrame({id});assert.equal(frame.row,0);assert.equal(frame.column,0);assert.equal(frame.idleAnimated,true);
-  const layer=tacticalIdleLayerMarkup(frame);assert.match(layer,/idle-next-frame/);assert.match(layer,/left:-100%;top:0%/);
+  assert.equal(tacticalIdleLayerMarkup(frame),'');assert.equal(tacticalIdleCrops[id].length,6);assert.match(tacticalIdleStyle({id},1000),/--idle-clip-5:inset/);
   assert.equal(tacticalSpriteFrame({id},{type:'move',pose:'ready'}).idleAnimated,false);
  }
  assert.equal(tacticalSpriteFrame({id:'unknown'}),null);assert.equal(tacticalIdleLayerMarkup(null),'');
@@ -15,7 +16,7 @@ test('todos os 25 atlas existentes usam a primeira fileira no idle, sem empresta
 test('fase de respiração continua através das atualizações do DOM e não sincroniza os personagens',()=>{
  const unit={id:'o-acougueiro'},a=tacticalIdleTiming(unit,1000),b=tacticalIdleTiming(unit,1100);
  assert.equal((b.phase-a.phase+a.cycle)%a.cycle,100);assert.deepEqual(tacticalIdleTiming(unit,1000+a.cycle),a);
- assert.notDeepEqual(tacticalIdleTiming({id:'a-viuva-escarlate'},1000),a);assert.equal(a.framePeriod,a.cycle/10);
+ assert.notDeepEqual(tacticalIdleTiming({id:'a-viuva-escarlate'},1000),a);assert.equal(a.framePeriod,a.cycle/10);assert.ok(a.cycle<=2000);assert.ok(a.framePeriod<=200);
  assert.match(tacticalIdleStyle(unit,1000),/--idle-delay:-[\d.]+ms/);
 });
 test('cadência dá tempo a antecipação e recuperação e mantém o contato e o deslocamento sincronizados',()=>{
@@ -35,4 +36,12 @@ test('dissolução não cria duplicatas quando o quadro não muda, respeita movi
  assert.equal(blendTacticalSpriteFrame(sprite,{src:'/atlas.webp',column:1,row:0},200),true);assert.equal(appended,1);settle();await new Promise(resolve=>setTimeout(resolve,0));assert.equal(removed,1);
  const old=globalThis.matchMedia;globalThis.matchMedia=()=>({matches:true});
  try{assert.equal(blendTacticalSpriteFrame(sprite,{src:'/atlas.webp',column:2,row:0},200),false);assert.equal(appended,1);}finally{if(old===undefined)delete globalThis.matchMedia;else globalThis.matchMedia=old;}
+});
+
+
+test('recorte da Lira preserva a pose e exclui os fragmentos vermelhos do quadro vizinho',()=>{
+ const frame=tacticalIdleCrops['a-viuva-escarlate'][3],sourceWidth=1254;
+ const left=frame.clip[3]/100*sourceWidth,right=(1-frame.clip[1]/100)*sourceWidth;
+ assert.ok(left<=632&&left>620);assert.ok(right>=793&&right<831);
+ const anchoredFoot=724+frame.left/100*209;assert.ok(Math.abs(anchoredFoot-104.5)<.01);
 });

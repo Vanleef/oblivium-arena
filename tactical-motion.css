@@ -1,37 +1,40 @@
 /* Every mapped atlas has six idle drawings in row zero. No interpolation across cells. */
 .token[data-family="idle"] .sprite-viewport{
- animation:oblivium-idle-body var(--idle-cycle,5200ms) ease-in-out infinite!important;
+ animation:oblivium-idle-body var(--idle-cycle,1760ms) ease-in-out infinite!important;
  animation-delay:var(--idle-delay,0ms)!important;transform-origin:50% 100%;
 }
 .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){
- animation:oblivium-idle-current var(--idle-cycle,5200ms) steps(1,end) infinite!important;
- animation-delay:var(--idle-delay,0ms)!important;top:0%!important;
+ animation:oblivium-idle-current var(--idle-cycle,1760ms) steps(1,end) infinite!important;
+ animation-delay:var(--idle-delay,0ms)!important;
 }
-.token[data-family="idle"] .sprite-sheet.idle-next-frame{
- animation:oblivium-idle-next var(--idle-cycle,5200ms) steps(1,end) infinite,oblivium-idle-mix var(--idle-blend,520ms) linear infinite!important;
- animation-delay:var(--idle-delay,0ms),var(--idle-delay,0ms)!important;
-}
+.idle-next-frame{display:none!important}
 @keyframes oblivium-idle-current{
- 0%,100%{left:0%}10%,90%{left:-100%}20%,80%{left:-200%}30%,70%{left:-300%}40%,60%{left:-400%}50%{left:-500%}
+0%{left:var(--idle-left-0,-0%);top:var(--idle-top-0,0%);clip-path:var(--idle-clip-0,inset(0%))}
+10%{left:var(--idle-left-1,-100%);top:var(--idle-top-1,0%);clip-path:var(--idle-clip-1,inset(0%))}
+20%{left:var(--idle-left-2,-200%);top:var(--idle-top-2,0%);clip-path:var(--idle-clip-2,inset(0%))}
+30%{left:var(--idle-left-3,-300%);top:var(--idle-top-3,0%);clip-path:var(--idle-clip-3,inset(0%))}
+40%{left:var(--idle-left-4,-400%);top:var(--idle-top-4,0%);clip-path:var(--idle-clip-4,inset(0%))}
+50%{left:var(--idle-left-5,-500%);top:var(--idle-top-5,0%);clip-path:var(--idle-clip-5,inset(0%))}
+60%{left:var(--idle-left-4,-400%);top:var(--idle-top-4,0%);clip-path:var(--idle-clip-4,inset(0%))}
+70%{left:var(--idle-left-3,-300%);top:var(--idle-top-3,0%);clip-path:var(--idle-clip-3,inset(0%))}
+80%{left:var(--idle-left-2,-200%);top:var(--idle-top-2,0%);clip-path:var(--idle-clip-2,inset(0%))}
+90%{left:var(--idle-left-1,-100%);top:var(--idle-top-1,0%);clip-path:var(--idle-clip-1,inset(0%))}
+100%{left:var(--idle-left-0,-0%);top:var(--idle-top-0,0%);clip-path:var(--idle-clip-0,inset(0%))}
 }
-@keyframes oblivium-idle-next{
- 0%,80%,100%{left:-100%}10%,70%{left:-200%}20%,60%{left:-300%}30%,50%{left:-400%}40%{left:-500%}90%{left:0%}
-}
-@keyframes oblivium-idle-mix{0%,78%{opacity:0}100%{opacity:1}}
 @keyframes oblivium-idle-body{
- 0%,100%{transform:scale(1,1) rotate(-.12deg)}
- 45%{transform:scale(1.008,1.025) rotate(.12deg)}
- 72%{transform:scale(1.004,1.012) rotate(0)}
+ 0%,100%{transform:scale(1,1)}
+ 45%{transform:scale(1.004,1.012)}
+ 72%{transform:scale(1.002,1.006)}
 }
 /* Portrait fallback breathes continuously without pretending it has a frame atlas. */
 .token[data-family="idle"] .token-art{
- animation:oblivium-idle-portrait var(--idle-cycle,5200ms) ease-in-out infinite!important;
+ animation:oblivium-idle-portrait var(--idle-cycle,1760ms) ease-in-out infinite!important;
  animation-delay:var(--idle-delay,0ms)!important;transform-origin:50% 100%;
 }
 @keyframes oblivium-idle-portrait{
  0%,100%{transform:translateX(-50%) scale(1,1)}
- 45%{transform:translateX(-50%) scale(1.008,1.025)}
- 72%{transform:translateX(-50%) scale(1.004,1.012)}
+ 45%{transform:translateX(-50%) scale(1.002,1.006)}
+ 72%{transform:translateX(-50%) scale(1.002,1.006)}
 }
 .sprite-previous-frame{pointer-events:none;z-index:3!important;animation:none!important}
 .token:not([data-family="idle"]) .idle-next-frame{display:none}
@@ -54,7 +57,8 @@
 .token.stunned .sprite-sheet,.token.stunned .sprite-viewport,.token.stunned .token-art{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){
  .token[data-family="idle"] .sprite-viewport,.token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame),.token[data-family="idle"] .sprite-sheet.idle-next-frame,.token[data-family="idle"] .token-art{animation:none!important}
- .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){left:0%!important}
+ .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){left:var(--idle-left-0,0%)!important;top:var(--idle-top-0,0%)!important;clip-path:var(--idle-clip-0,inset(0%))!important}
  .idle-next-frame{display:none!important}
  .token .sprite-viewport,.token .token-art{transition:none!important}
 }
+
