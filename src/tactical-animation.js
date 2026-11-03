@@ -54,19 +54,20 @@ export function tacticalDamagedTargets(event){
 // playback advances and removes the affected-cell classes.
 export function tacticalFrameDuration(event){
  if(event?.type==='move'){
-  return ({ready:120,anticipate:160,compress:170,launch:130,airborne:420,landing:160,settle:190})[event.pose]||140;
+  return ({ready:85,anticipate:125,compress:110,launch:95,airborne:310,landing:150,settle:115})[event.pose]||120;
  }
  if(event?.type==='skill'&&!event.skipped){
-  if(tacticalImpactActive(event))return 560;
-  if(['travel','spread'].includes(event.pose))return 420;
-  if(['windup','brace','guard'].includes(event.pose))return 240;
-  if(['anticipate','gather','inhale','compress'].includes(event.pose))return 190;
-  if(['release','thrust'].includes(event.pose))return 150;
-  if(['recover','settle','withdraw','transfer','hold','followthrough'].includes(event.pose))return 190;
+  if(tacticalImpactActive(event))return 430;
+  if(['travel','spread'].includes(event.pose))return 310;
+  if(['windup','brace','guard'].includes(event.pose))return 190;
+  if(['anticipate','gather','inhale','compress'].includes(event.pose))return 135;
+  if(['release','thrust'].includes(event.pose))return 115;
+  if(['recover','settle','withdraw','transfer','hold','followthrough'].includes(event.pose))return 150;
  }
- return 120;
+ return 95;
 }
 export function tacticalFrameArt(ability,pose,portrait=''){
  return ability?.art&&actionArtPoses.has(pose)?ability.art:portrait;
 }
+
 

@@ -21,8 +21,10 @@ export function blendTacticalSpriteFrame(sprite,next,duration){
  const same=(sprite.getAttribute('src')===next.src&&sprite.style.left===`${-next.column*100}%`&&sprite.style.top===`${-next.row*100}%`);
  if(same)return false;
  for(const old of parent.querySelectorAll('.sprite-previous-frame'))old.remove();
- const previous=sprite.cloneNode(false);previous.className='sprite-sheet sprite-previous-frame';previous.setAttribute('aria-hidden','true');parent.append(previous);
- const fade=previous.animate([{opacity:1},{opacity:0}],{duration:Math.min(100,Math.max(45,duration*.35)),easing:'ease-out',fill:'forwards'});
+ const rendered=getComputedStyle(sprite),previous=sprite.cloneNode(false);previous.className='sprite-sheet sprite-previous-frame';previous.setAttribute('aria-hidden','true');
+ for(const property of ['width','height','left','top','clip-path','object-fit','object-position'])previous.style.setProperty(property,rendered.getPropertyValue(property));
+ parent.append(previous);
+ const fade=previous.animate([{opacity:1},{opacity:0}],{duration:Math.min(90,Math.max(55,duration*.28)),easing:'cubic-bezier(.22,.7,.3,1)',fill:'forwards'});
  fade.finished.catch(()=>{}).finally(()=>previous.remove());
  return true;
 }
