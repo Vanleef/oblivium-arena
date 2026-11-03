@@ -129,3 +129,11 @@
   transform:translateY(-14px) scale(1.08);
  }
 }
+
+/* Keep only the cards interactive; transparent space must not block the arena. */
+.card-battle .combat-dock.hand-dock{height:auto;min-height:0;pointer-events:none}
+.card-battle .combat-dock.hand-dock .hand-scroll{
+ width:100%;height:auto;min-height:0;max-height:none;margin:0;
+ padding:8px 8px calc(10px + env(safe-area-inset-bottom));
+ align-items:flex-end;justify-content:center;pointer-events:auto;
+}
