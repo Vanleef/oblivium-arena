@@ -137,3 +137,9 @@
  padding:8px 8px calc(10px + env(safe-area-inset-bottom));
  align-items:flex-end;justify-content:center;pointer-events:auto;
 }
+
+/* Match page scroll reserve to the compact fixed hand, including mobile safe areas. */
+.card-battle.combat-shell.card-battle{--hand-dock-size:180px;padding-bottom:190px}
+@media(max-width:700px){
+ .card-battle.combat-shell.card-battle{--hand-dock-size:156px;padding-bottom:calc(190px + env(safe-area-inset-bottom))}
+}
