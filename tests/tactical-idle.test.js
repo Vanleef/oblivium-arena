@@ -45,3 +45,10 @@ test('recorte da Lira preserva a pose e exclui os fragmentos vermelhos do quadro
  assert.ok(left<=632&&left>620);assert.ok(right>=793&&right<831);
  const anchoredFoot=724+frame.left/100*209;assert.ok(Math.abs(anchoredFoot-104.5)<.01);
 });
+
+test('as seis poses cabem na janela de idle sem cortar os braços ao alinhar os pés',()=>{
+ for(const [id,frames] of Object.entries(tacticalIdleCrops))for(const frame of frames){
+  const left=frame.clip[3]*6+frame.left,right=(100-frame.clip[1])*6+frame.left;
+  assert.ok(left>=-.002&&right<=100.002,id+' possui silhueta cortada');
+ }
+});
