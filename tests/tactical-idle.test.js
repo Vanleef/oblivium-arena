@@ -1,15 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
-import {tacticalIdleCrops} from '../src/tactical-idle-crops.js';
 import {tacticalFrameDuration,tacticalAnimationFrames} from '../src/tactical-animation.js';
 import {tacticalIdleTiming,tacticalIdleStyle,tacticalIdleLayerMarkup,blendTacticalSpriteFrame} from '../src/tactical-motion.js';
 
-test('todos os 25 atlas existentes usam a primeira fileira no idle, sem emprestar atlas desconhecido',()=>{
+test('os atlas registrados preservam a mesma célula inteira durante idle e ação',()=>{
  for(const id of Object.keys(tacticalSpriteAtlases)){
-  const frame=tacticalSpriteFrame({id});assert.equal(frame.row,0);assert.equal(frame.column,0);assert.equal(frame.idleAnimated,true);
-  assert.equal(tacticalIdleLayerMarkup(frame),'');assert.equal(tacticalIdleCrops[id].length,6);assert.match(tacticalIdleStyle({id},1000),/--idle-clip-5:inset/);
-  assert.equal(tacticalSpriteFrame({id},{type:'move',pose:'ready'}).idleAnimated,false);
+  const unit={id},idle=tacticalSpriteFrame(unit),move=tacticalSpriteFrame(unit,{type:'move',pose:'airborne'}),skill=tacticalSpriteFrame(unit,{type:'skill',pose:'impact'});
+  assert.equal(idle.row,0);assert.equal(idle.column,0);assert.equal(idle.idleAnimated,false);
+  for(const frame of [move,skill])assert.deepEqual([frame.src,frame.row,frame.column],[idle.src,0,0]);
+  assert.equal(tacticalIdleLayerMarkup(idle),'');
+  assert.doesNotMatch(tacticalIdleStyle(unit,1000),/--idle-(?:clip|left|top)-/);
  }
  assert.equal(tacticalSpriteFrame({id:'unknown'}),null);assert.equal(tacticalIdleLayerMarkup(null),'');
 });
@@ -20,13 +21,18 @@ test('fase de respiração continua através das atualizações do DOM e não si
  assert.match(tacticalIdleStyle(unit,1000),/--idle-delay:-[\d.]+ms/);
 });
 test('cadência dá tempo a antecipação e recuperação e mantém o contato e o deslocamento sincronizados',()=>{
- for(const frame of tacticalAnimationFrames({damage:12,damageType:'physical'}))assert.ok(tacticalFrameDuration({type:'skill',...frame})>=120);
- assert.equal(tacticalFrameDuration({type:'move',pose:'airborne'}),420);
- assert.equal(tacticalFrameDuration({type:'skill',pose:'impact'}),560);
- const sheet={style:{}},values={},unit={id:'o-acougueiro'};
+ const frames=tacticalAnimationFrames({damage:12,damageType:'physical'});
+ for(const frame of frames)assert.ok(tacticalFrameDuration({type:'skill',...frame})>=95);
+ assert.ok(tacticalFrameDuration({type:'skill',pose:'anticipate'})>=130);
+ assert.ok(tacticalFrameDuration({type:'skill',pose:'release'})>=110);
+ assert.equal(tacticalFrameDuration({type:'move',pose:'airborne'}),310);
+ assert.equal(tacticalFrameDuration({type:'skill',pose:'impact'}),430);
+ const sheet={style:{},getAttribute:()=>''},values={},unit={id:'o-acougueiro'};
  const token={style:{setProperty(k,v){values[k]=v;}},dataset:{unitId:unit.id},closest:()=>null,querySelector:()=>sheet};
  paintTacticalToken(token,unit,{actorId:unit.id,type:'move'},{family:'move',pose:'airborne',index:4});
- assert.equal(values['--pose-duration'],'420ms');assert.equal(sheet.style.top,'-100%');
+ assert.equal(values['--pose-duration'],'310ms');
+ assert.equal(sheet.src,'/art/animations/tactical-pilot-20261101/riven.webp');
+ assert.equal(tacticalSpriteFrame(unit,{type:'move',pose:'airborne'}).column,0);
 });
 test('dissolução não cria duplicatas quando o quadro não muda, respeita movimento reduzido e remove a camada anterior',async()=>{
  let appended=0,removed=0,settle;const parent={querySelectorAll:()=>[],append(){appended++;}};
@@ -38,17 +44,3 @@ test('dissolução não cria duplicatas quando o quadro não muda, respeita movi
  try{assert.equal(blendTacticalSpriteFrame(sprite,{src:'/atlas.webp',column:2,row:0},200),false);assert.equal(appended,1);}finally{if(old===undefined)delete globalThis.matchMedia;else globalThis.matchMedia=old;}
 });
 
-
-test('recorte da Lira preserva a pose e exclui os fragmentos vermelhos do quadro vizinho',()=>{
- const frame=tacticalIdleCrops['a-viuva-escarlate'][3],sourceWidth=1254;
- const left=frame.clip[3]/100*sourceWidth,right=(1-frame.clip[1]/100)*sourceWidth;
- assert.ok(left<=632&&left>620);assert.ok(right>=793&&right<831);
- const anchoredFoot=724+frame.left/100*209;assert.ok(Math.abs(anchoredFoot-104.5)<.01);
-});
-
-test('as seis poses cabem na janela de idle sem cortar os braços ao alinhar os pés',()=>{
- for(const [id,frames] of Object.entries(tacticalIdleCrops))for(const frame of frames){
-  const left=frame.clip[3]*6+frame.left,right=(100-frame.clip[1])*6+frame.left;
-  assert.ok(left>=-.002&&right<=100.002,id+' possui silhueta cortada');
- }
-});
