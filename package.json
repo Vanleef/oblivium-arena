@@ -8,7 +8,7 @@
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test",
-    "test:tactical": "node --test tests/tactical-combat.test.js tests/tactical-run.test.js tests/tactical-animation.test.js tests/tactical-ui.test.js tests/tactical-vfx.test.js tests/tactical-order.test.mjs tests/tactical-cinematic.test.js tests/tactical-insight.test.js tests/tactical-chests.test.js tests/tactical-environment.test.js tests/tactical-kits.test.js tests/tactical-advanced-kits.test.js tests/tactical-hand.test.js",
+    "test:tactical": "node --test tests/tactical-combat.test.js tests/tactical-run.test.js tests/tactical-animation.test.js tests/tactical-ui.test.js tests/tactical-vfx.test.js tests/tactical-order.test.mjs tests/tactical-cinematic.test.js tests/tactical-insight.test.js tests/tactical-chests.test.js tests/tactical-environment.test.js tests/tactical-kits.test.js tests/tactical-advanced-kits.test.js tests/tactical-hand.test.js tests/tactical-idle.test.js",
     "docs:generate": "node scripts/generate-project-docs.mjs",
     "audit:art": "node scripts/audit-art.mjs",
     "smoke:tactical": "node scripts/smoke-tactical-catalogue.mjs",

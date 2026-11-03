@@ -1,3 +1,5 @@
+import {tacticalFrameDuration} from './tactical-animation.js';
+import {blendTacticalSpriteFrame} from './tactical-motion.js';
 // Candidate hand-drawn atlas coverage is intentionally separate from the generic
 // pose fallback. A mapped form is required: unknown forms never borrow base art.
 const root='/art/animations/tactical-pilot-20261101';
@@ -45,7 +47,7 @@ export function tacticalSpriteFrame(unit,event=null){
  const skill=event?.type==='skill'?tacticalSkillAtlases[`${unit.sourceId||unit.id}/${clip}/${event.formKey||'base'}`]:null;
  if(event?.formKey&&event.formKey!=='base'&&!skill)return null;
  if(skill){const row=Math.floor(column/skill.columns),col=column%skill.columns;return {src:skill.src,clip,row,column:col,x:col*100/(skill.columns-1),y:row*100/(skill.rows-1),sheetColumns:skill.columns,sheetRows:skill.rows};}
- return {src:atlas.src,idleAnimated:Boolean(atlas.idleAnimated&&clip==='idle'),clip,row:rows[clip],column,x:column*20,y:rows[clip]*20,sheetColumns:6,sheetRows:6};
+ return {src:atlas.src,idleAnimated:clip==='idle',clip,row:rows[clip],column,x:column*20,y:rows[clip]*20,sheetColumns:6,sheetRows:6};
 }
 export function tacticalSpriteStyle(frame){
  return `background-image:url('${frame.src}');background-size:${frame.sheetColumns*100}% ${frame.sheetRows*100}%;background-position:${frame.x}% ${frame.y}%`;
@@ -53,10 +55,11 @@ export function tacticalSpriteStyle(frame){
 export function paintTacticalToken(token,unit,event,frame){
  if(!unit||token.dataset.unitId!==event.actorId)return false;
  token.dataset.idleAtlas='false';token.dataset.family=frame.family;token.dataset.pose=frame.pose;
+ const duration=tacticalFrameDuration({...event,...frame});token.style.setProperty('--pose-duration',`${duration}ms`);
  const fromY=event.before?.positions?.[unit.id]?.y??event.from?.y??0,toY=event.after?.positions?.[unit.id]?.y??event.to?.y??fromY,hopRows=event.type==='move'?toY-fromY:0;
  const laneHop=event.type==='move'&&frame.pose==='airborne'&&hopRows!==0;token.dataset.hop=String(laneHop);token.closest('.cell')?.classList.toggle('hop',laneHop);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
  const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame});
- if(sprite&&atlasFrame){sprite.src=atlasFrame.src;sprite.style.width=`${atlasFrame.sheetColumns*100}%`;sprite.style.height=`${atlasFrame.sheetRows*100}%`;sprite.style.left=`${-atlasFrame.column*100}%`;sprite.style.top=`${-atlasFrame.row*100}%`;return true;}
+ if(sprite&&atlasFrame){blendTacticalSpriteFrame(sprite,atlasFrame,duration);sprite.src=atlasFrame.src;sprite.style.width=`${atlasFrame.sheetColumns*100}%`;sprite.style.height=`${atlasFrame.sheetRows*100}%`;sprite.style.left=`${-atlasFrame.column*100}%`;sprite.style.top=`${-atlasFrame.row*100}%`;return true;}
  const image=token.querySelector('.token-art');
  if(image){
   const action=['release','impact','followthrough','transfer','counter'].includes(frame.pose);

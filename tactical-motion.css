@@ -1,0 +1,60 @@
+/* Every mapped atlas has six idle drawings in row zero. No interpolation across cells. */
+.token[data-family="idle"] .sprite-viewport{
+ animation:oblivium-idle-body var(--idle-cycle,5200ms) ease-in-out infinite!important;
+ animation-delay:var(--idle-delay,0ms)!important;transform-origin:50% 100%;
+}
+.token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){
+ animation:oblivium-idle-current var(--idle-cycle,5200ms) steps(1,end) infinite!important;
+ animation-delay:var(--idle-delay,0ms)!important;top:0%!important;
+}
+.token[data-family="idle"] .sprite-sheet.idle-next-frame{
+ animation:oblivium-idle-next var(--idle-cycle,5200ms) steps(1,end) infinite,oblivium-idle-mix var(--idle-blend,520ms) linear infinite!important;
+ animation-delay:var(--idle-delay,0ms),var(--idle-delay,0ms)!important;
+}
+@keyframes oblivium-idle-current{
+ 0%,100%{left:0%}10%,90%{left:-100%}20%,80%{left:-200%}30%,70%{left:-300%}40%,60%{left:-400%}50%{left:-500%}
+}
+@keyframes oblivium-idle-next{
+ 0%,80%,100%{left:-100%}10%,70%{left:-200%}20%,60%{left:-300%}30%,50%{left:-400%}40%{left:-500%}90%{left:0%}
+}
+@keyframes oblivium-idle-mix{0%,78%{opacity:0}100%{opacity:1}}
+@keyframes oblivium-idle-body{
+ 0%,100%{transform:scale(1,1) rotate(-.12deg)}
+ 45%{transform:scale(1.008,1.025) rotate(.12deg)}
+ 72%{transform:scale(1.004,1.012) rotate(0)}
+}
+/* Portrait fallback breathes continuously without pretending it has a frame atlas. */
+.token[data-family="idle"] .token-art{
+ animation:oblivium-idle-portrait var(--idle-cycle,5200ms) ease-in-out infinite!important;
+ animation-delay:var(--idle-delay,0ms)!important;transform-origin:50% 100%;
+}
+@keyframes oblivium-idle-portrait{
+ 0%,100%{transform:translateX(-50%) scale(1,1)}
+ 45%{transform:translateX(-50%) scale(1.008,1.025)}
+ 72%{transform:translateX(-50%) scale(1.004,1.012)}
+}
+.sprite-previous-frame{pointer-events:none;z-index:3!important;animation:none!important}
+.token:not([data-family="idle"]) .idle-next-frame{display:none}
+.token:not([data-family="idle"]) .sprite-viewport{
+ animation:none!important;transform-origin:50% 100%;
+ transition:transform var(--pose-duration,190ms) cubic-bezier(.22,.65,.35,1);
+}
+.token:not([data-family="idle"]) .token-art{
+ transition:transform var(--pose-duration,190ms) cubic-bezier(.22,.65,.35,1),filter 180ms ease-out;
+}
+.token[data-pose="anticipate"] .sprite-viewport,.token[data-pose="compress"] .sprite-viewport{transform:scale(1.01,.985)}
+.token[data-pose="windup"] .sprite-viewport{transform:translateX(-2px) rotate(-1deg)}
+.token[data-pose="gather"] .sprite-viewport,.token[data-pose="brace"] .sprite-viewport{transform:scale(1.012,1.015)}
+.token[data-pose="release"] .sprite-viewport,.token[data-pose="thrust"] .sprite-viewport{transform:translateX(2px) rotate(.6deg)}
+.token[data-pose="impact"] .sprite-viewport,.token[data-pose="counter"] .sprite-viewport{transform:scale(1.025,1.02)}
+.token[data-pose="ready"] .sprite-viewport,.token[data-pose="recover"] .sprite-viewport,.token[data-pose="settle"] .sprite-viewport{transform:none}
+.combat-shell .token[data-family="move"][data-pose="airborne"]{
+ animation:coordinated-step var(--pose-duration,420ms) cubic-bezier(.3,.05,.4,1) both!important;
+}
+.token.stunned .sprite-sheet,.token.stunned .sprite-viewport,.token.stunned .token-art{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+ .token[data-family="idle"] .sprite-viewport,.token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame),.token[data-family="idle"] .sprite-sheet.idle-next-frame,.token[data-family="idle"] .token-art{animation:none!important}
+ .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){left:0%!important}
+ .idle-next-frame{display:none!important}
+ .token .sprite-viewport,.token .token-art{transition:none!important}
+}
