@@ -46,3 +46,10 @@ O comando `npm run test:tactical` inclui os testes de ordem, interface, animaç�
 - Abaixo da arena, a reprodução identifica Seu trio/Oponente, personagem, habilidade, passagem e rota/área do evento atual. Os espaços próprios não aparecem misturados às cartas do oponente.
 - Casas vazias deixaram de receber o destaque de ator, que agora exige um personagem presente.
 - Os 60 testes táticos passaram, incluindo editar a primeira ação, revisar/corrigir a segunda, desfazer ambas e impedir envio do plano inválido. Conferido também na prévia Vercel do commit 563136a: mudança da primeira ação preservando a segunda marcada para revisão, correção da segunda liberando o envio, ausência de destaque em casas vazias, painel do ator próprio e do oponente, e rodada seguinte com plano vazio. Em desktop de 1348 px, a largura do documento correspondeu à viewport; teste em celular físico permanece pendente.
+
+## Continuação da avaliação de design: consequência e ritmo
+- O motor registra alvos previstos pela própria simulação privada, descartando campos desse tipo enviados pelo cliente. No replay, os snapshots permitem distinguir quem saiu da área, ficou Invulnerável ou já havia sido derrotado. Sem evidência de alvo previsto, não afirma que alguém fugiu.
+- As explicações aparecem junto à ação no impacto e permanecem disponíveis no histórico da rodada. Não antecipam o plano secreto do adversário.
+- Repetições curtas é uma opção separada de 1×/2×/3×. A primeira ativação mantém sua apresentação; repetições da mesma habilidade/forma/personagem no combate reduzem preparação e recuperação, preservando viagem e contato. Eliminações e mudanças reais de forma corporal sempre mantêm a sequência completa.
+- A identificação de repetições reinicia em um novo combate e não altera custos, resolução, ordem ou snapshots. Mudar a opção vale para as próximas ações reproduzidas.
+- Ainda pendentes do roteiro amplo: regras ambientais por Mundo, trilhas narrativas completas por Reino, mais efeitos de baú e validação com jogadores/mobile físico. As três trilhas táticas atuais não equivalem à campanha narrativa completa.

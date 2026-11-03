@@ -1,3 +1,4 @@
+import {tacticalResolutionFeedback} from '../src/tactical-insight.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,tacticalArea,exchangeTacticalEssence} from '../src/tactical-combat.js';
@@ -58,6 +59,7 @@ test('movimento com iniciativa anterior escapa da mira fixa e o disparo ainda pa
  const s=close(create(2)),u=s.allies[0],e=s.enemies[0],before={...s.resources};
  const result=round(s,[skill(u,'impulso',{x:2,y:1})],[{type:'move',actorId:e.id,path:[{x:2,y:0}]}]);
  assert.equal(e.hp,100);assert.ok(Object.values(before).reduce((a,b)=>a+b)-Object.values(s.resources).reduce((a,b)=>a+b)>=-3);
+ const shot=result.events.find(event=>event.actorId===u.id&&event.type==='skill');assert.deepEqual(shot.previewTargetIds,[e.id]);assert.ok(tacticalResolutionFeedback(shot).some(note=>note.includes('saiu da área antes do impacto')));
  const cast=result.events.find(e=>e.type==='skill');assert.equal(cast.skipped,false);assert.equal(cast.totalDamage,0);
 });
 test('Invulnerável com iniciativa anterior protege e recarga não avança por ação',()=>{

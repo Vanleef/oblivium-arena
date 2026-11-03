@@ -44,6 +44,14 @@ export function tacticalResolutionFeedback(event){
  if(event.type==='move')return [event.reason||('Chegou a '+cellLabel(event.to)+'.'),...(event.augmentNotes||[])];
  if(event.type!=='skill')return event.augmentNotes||[];
  const notes=[],before=new Map(tacticalUnits(event.before||{allies:[],enemies:[]}).map(u=>[u.id,u]));
+ for(const id of event.previewTargetIds||[]){
+  if(event.targets?.includes(id))continue;
+  const unit=before.get(id),position=event.before?.positions?.[id];if(!unit)continue;
+  if(unit.hp<=0)notes.push(unit.name+': já estava fora de combate.');
+  else if(position&&!event.cells?.some(p=>sameCell(p,position)))notes.push(unit.name+': saiu da área antes do impacto.');
+  else if(unit.invulnerable)notes.push(unit.name+': protegido por Invulnerável no impacto.');
+ }
+
  for(const unit of tacticalUnits(event.after||{allies:[],enemies:[]})){
   const old=before.get(unit.id);if(!old)continue;
   const hp=unit.hp-old.hp,shield=(unit.shield||0)-(old.shield||0);

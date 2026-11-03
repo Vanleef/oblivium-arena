@@ -12,7 +12,8 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
   await import('../src/tactical-demo.js?private-planning-flow');await until(()=>root.innerHTML.includes('Planejamento privado'));
   assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.doesNotMatch(root.innerHTML,/acting-cell/);assert.match(root.innerHTML,/Seu plano · privado/);assert.match(root.innerHTML,/Ação selecionada/);assert.match(root.innerHTML,/Velocidade das animações/);assert.ok(root.innerHTML.indexOf('class="movement-guide"')>root.innerHTML.indexOf('class="combat-dock"'));
   const speedButtons=[1,2,3].map(n=>({dataset:{speed:String(n)},setAttribute(key,value){this[key]=value;}}));root.querySelectorAll=selector=>selector==='[data-speed]'?speedButtons:[];click({speed:'3'});assert.equal(speedButtons[2]['aria-pressed'],'true');assert.equal(speedButtons[0]['aria-pressed'],'false');
-  click({cell:'1,1'});click({cell:'1,1'});assert.match(root.innerHTML,/Mover · B2/);
+  click({command:'compact-replay'});
+  click({cell:'1,1'});click({cell:'1,1'});assert.match(root.innerHTML,/Mover · B2/);assert.match(root.innerHTML,/class="compact-replay" aria-pressed="true"/);
   click({mode:'impulso'});click({cell:'2,1'});assert.match(root.innerHTML,/2ª passagem · iniciativa 1/);assert.match(root.innerHTML,/parte de B2/);assert.match(root.innerHTML,/Reposicionamento/);assert.match(root.innerHTML,/Posição e proteção podem alterar/);
   click({cell:'2,1'});assert.match(root.innerHTML,/2\/6 ações/);
   click({edit:'0'});click({command:'remove-edit'});assert.match(root.innerHTML,/1\/6 ações/);

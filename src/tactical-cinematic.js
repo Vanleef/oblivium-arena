@@ -1,7 +1,7 @@
 import {tacticalAnimationFrames} from './tactical-animation.js';
 const escapeHtml=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export function tacticalCutinActive(event){
- return event?.type==='skill'&&!event.skipped&&!(event.pose==='ready'&&event.index>0)&&['ready','anticipate','gather','inhale','compress','windup','brace','guard','release','thrust'].includes(event.pose);
+ return event?.type==='skill'&&!event.skipped&&!(event.compactReplay&&event.repeated&&!tacticalHighlightEvent(event))&&!(event.pose==='ready'&&event.index>0)&&['ready','anticipate','gather','inhale','compress','windup','brace','guard','release','thrust'].includes(event.pose);
 }
 export function tacticalCutinMarkup(actor,ability,event){
  if(!actor||!tacticalCutinActive(event))return '';
@@ -37,3 +37,19 @@ export function tacticalPlaybackFrames(actor,ability,event){
  return frames.map((frame,index)=>({...frame,index,count:frames.length}));
 }
 
+
+// Preserve full presentation for defeats and actual body transformations, including a defeated actor.
+export function tacticalHighlightEvent(event){
+ if(event?.type!=='skill'||event.skipped||!event.before||!event.after)return false;
+ const before=new Map([...(event.before.allies||[]),...(event.before.enemies||[])].map(u=>[u.id,u]));
+ return [...(event.after.allies||[]),...(event.after.enemies||[])].some(u=>{
+  const old=before.get(u.id);return old&&(old.hp>0&&u.hp<=0||(old.bodyForm||'base')!==(u.bodyForm||'base'));
+ });
+}
+export function tacticalReplayFrames(actor,ability,event){
+ const frames=tacticalPlaybackFrames(actor,ability,event);
+ if(!event.compactReplay||!event.repeated||event.type!=='skill'||event.skipped||tacticalHighlightEvent(event))return frames;
+ // Keep travel before contact and one full impact; only shorten repeated preparation/recovery.
+ const compact=frames.filter((frame,i)=>i===0||i===frames.length-1||['release','thrust','travel','spread','impact','counter'].includes(frame.pose));
+ return compact.map((frame,index)=>({...frame,index,count:compact.length}));
+}

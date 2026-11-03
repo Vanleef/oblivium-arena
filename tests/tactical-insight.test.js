@@ -37,3 +37,15 @@ test('identidade do trio descreve kits públicos e não concede bônus',async()=
  const notes=tacticalTrioIdentity(s.allies);assert.ok(notes.some(n=>n.text.includes('Lira')&&n.text.includes('Riven')));assert.equal(JSON.stringify(s),before);
  assert.ok(tacticalTrioIdentity([{id:'solo',name:'Solo',hp:100,abilities:[]}]).length);
 });
+
+test('feedback distingue alvo que saiu, protegido e já derrotado sem inventar movimento',()=>{
+ const base={type:'skill',actorId:'a',previewTargetIds:['e'],targets:[],cells:[{x:1,y:1}],before:{allies:[{id:'a',name:'Aliado',hp:100}],enemies:[{id:'e',name:'Alvo',hp:100}],positions:{e:{x:2,y:1}}},after:{allies:[{id:'a',name:'Aliado',hp:100}],enemies:[{id:'e',name:'Alvo',hp:100}]}};
+ assert.ok(tacticalResolutionFeedback(base).some(n=>n.includes('saiu da área')));
+ const protectedEvent=structuredClone(base);protectedEvent.before.positions.e={x:1,y:1};protectedEvent.before.enemies[0].invulnerable=1;
+ assert.ok(tacticalResolutionFeedback(protectedEvent).some(n=>n.includes('protegido por Invulnerável')));
+ assert.ok(!tacticalResolutionFeedback(protectedEvent).some(n=>n.includes('saiu da área')));
+ const defeated=structuredClone(base);defeated.before.enemies[0].hp=0;
+ assert.ok(tacticalResolutionFeedback(defeated).some(n=>n.includes('já estava fora de combate')));
+ const unknown=structuredClone(base);delete unknown.previewTargetIds;
+ assert.ok(!tacticalResolutionFeedback(unknown).some(n=>n.includes('saiu da área')));
+});

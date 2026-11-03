@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalCutinActive,tacticalCutinMarkup,tacticalProjectileKind,tacticalProjectileMarkup,tacticalPlaybackFrames} from '../src/tactical-cinematic.js';
+import {tacticalCutinActive,tacticalCutinMarkup,tacticalProjectileKind,tacticalProjectileMarkup,tacticalPlaybackFrames,tacticalReplayFrames,tacticalHighlightEvent} from '../src/tactical-cinematic.js';
 import {tacticalFrameDuration} from '../src/tactical-animation.js';
 const actor={id:'serpe',sourceId:'a-boca-de-vidro',name:'Sylvara',realm:'Inferno',side:'player',art:{portrait:'/portrait.webp'}};
 const ability={name:'Sibilo Cortante',target:'enemy',damage:15,damageType:'piercing'};
@@ -36,3 +36,26 @@ test('a arte da forma ativa é usada na vinheta',()=>{
  assert.match(tacticalCutinMarkup({...actor,art:{portrait:'/form.webp'}},ability,{...event,pose:'gather'}),/form.webp/);
 });
 
+
+test('repetições curtas preservam trajeto, contato e a primeira ativação',()=>{
+ const full=tacticalReplayFrames(actor,ability,{...event,compactReplay:true});
+ const repeated={...event,compactReplay:true,repeated:true};
+ const short=tacticalReplayFrames(actor,ability,repeated);
+ assert.ok(short.length<full.length);assert.equal(short.filter(f=>f.pose==='impact').length,1);
+ assert.ok(short.findIndex(f=>f.pose==='travel')<short.findIndex(f=>f.pose==='impact'));
+ assert.equal(tacticalCutinActive({...repeated,pose:'windup'}),false);
+ assert.deepEqual(tacticalReplayFrames(actor,ability,{...repeated,compactReplay:false}),full);
+ assert.deepEqual(tacticalReplayFrames(actor,ability,{...repeated,type:'move'}),tacticalPlaybackFrames(actor,ability,{...event,type:'move'}));
+});
+test('eliminações e transformações mantêm a apresentação completa mesmo quando repetidas',()=>{
+ const before={...event.before,allies:[{id:actor.id,hp:100,bodyForm:'base'}],enemies:[{id:'foe',hp:12}]};
+ for(const after of [
+  {allies:[{id:actor.id,hp:100,bodyForm:'base'}],enemies:[{id:'foe',hp:0}]},
+  {allies:[{id:actor.id,hp:100,bodyForm:'awakened'}],enemies:[{id:'foe',hp:12}]}
+ ]){
+  const highlight={...event,before,after,compactReplay:true,repeated:true};
+  assert.equal(tacticalHighlightEvent(highlight),true);assert.equal(tacticalCutinActive({...highlight,pose:'windup'}),true);
+  assert.deepEqual(tacticalReplayFrames(actor,ability,highlight),tacticalPlaybackFrames(actor,ability,highlight));
+ }
+ assert.equal(tacticalHighlightEvent({...event,before,after:before}),false);
+});

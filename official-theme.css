@@ -928,3 +928,6 @@ body,.auth-screen{
 .playback-action>p{margin:0;font-size:12px;color:#f5c2ae}
 .playback-action.opponent{border-color:#b97683;border-left-color:#e0a2ae;background:#34212d}
 .playback-action.opponent>div{color:#efc5cc}
+
+.shell .playback-controls .compact-replay{min-width:0;font-size:11px;white-space:normal;line-height:1.2;max-width:100px}
+.playback-action .action-result{margin:3px 0 0;padding:7px 0 0 16px;border-top:1px solid #ffffff24;font-size:12px;line-height:1.5;color:#efdfc9}

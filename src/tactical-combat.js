@@ -211,6 +211,7 @@ export function previewTacticalPlan(s,side,actions,selected){
    for(const id of resourceIds)projection[poolKey(side)][id]=10000;
   }
   const result=execute(projection,ref,{projection:true});
+  if(ref.type==='skill')ref.previewTargetIds=[...(result.targets||[])];
   if(result.skipped)return fail(result.reason||'Ação inválida na prévia.');
  }
  const sum=costs.reduce((out,{cost})=>{for(const [id,n]of Object.entries(cost))out[id]=(out[id]||0)+n;return out;},{});
