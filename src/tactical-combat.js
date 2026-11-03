@@ -124,7 +124,7 @@ function orderedOwn(s,refs){return orderTacticalActions(s,refs);}
 export function tacticalArea(s,actor,ability,anchor,orientation){
  const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id];
  if(!origin||!onBoard(anchor)||distance(origin,anchor)>spec.range)return [];
- if(spec.pattern==='line'&&!directions.some(d=>d[0]===orientation?.[0]&&d[1]===orientation?.[1]))return [];
+ if(['line','cone'].includes(spec.pattern)&&!directions.some(d=>d[0]===orientation?.[0]&&d[1]===orientation?.[1]))return [];
  const cells=patternCells(spec.pattern,origin,anchor,orientation,spec.length);
  if(spec.vision&&!lineOfSight(s,origin,anchor))return [];
  return cells.filter(p=>!obstacle(s,p)&&(!spec.vision||lineOfSight(s,origin,p)));
@@ -143,16 +143,29 @@ function move(s,ref,strict=false){
  const augmentNotes=moved?triggerTacticalAugments(s,ref.side,actor,'move'):[];
  return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
 }
+function displaceTargets(s,actor,ids,displacement){
+ if(!displacement)return [];
+ const origin=s.tactical.positions[actor.id],moves=[];
+ for(const id of ids){
+  const target=tacticalUnits(s).find(u=>u.id===id);if(!target||target.hp<=0||actor.hp<=0)continue;
+  const from={...s.tactical.positions[id]},sign=displacement.kind==='pull'?-1:1;
+  const dx=Math.sign(from.x-origin.x)*sign,dy=Math.sign(from.y-origin.y)*sign,to={x:from.x+dx,y:from.y+dy};
+  const moved=canStep(s,id,from,to);if(moved)s.tactical.positions[id]={...to};
+  moves.push({actorId:id,name:target.name,kind:displacement.kind,from,to:moved?{...to}:from,moved});
+ }
+ return moves;
+}
 function execute(s,ref,{projection=false}={}){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor)return {skipped:true,reason:'Personagem fora de combate.'};
  if(ref.type==='move')return move(s,ref,projection);
  refreshSkillForms(s);const ability=actor.abilities.find(a=>a.id===ref.abilityId);
  if(!ability)return {skipped:true,reason:'Técnica indisponível.'};
- const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id],anchor=spec.pattern==='self'?origin:ref.anchor;
+ const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id],anchor=spec.range===0?origin:ref.anchor;
  if(!onBoard(anchor)||distance(origin,anchor)>spec.range||!tacticalArea(s,actor,ability,anchor,ref.orientation).length)return {skipped:true,reason:'A região ficou fora de alcance ou da linha de visão.'};
  const cells=tacticalArea(s,actor,ability,anchor,ref.orientation),ids=tacticalTargets(s,actor,ability,anchor,ref.orientation);
  const exposedBefore=ids.map(id=>tacticalUnits(s).find(u=>u.id===id)).filter(u=>u?.exposed).map(u=>({id:u.id,hp:u.hp,shield:u.shield||0}));
  const result=resolveBoardTechnique(s,{...ref,targetId:ids[0]||null},ids);
+ const displacements=!result.skipped?displaceTargets(s,actor,result.affectedTargetIds||[],spec.displacement):[];
  const exposedHit=exposedBefore.some(old=>{const u=tacticalUnits(s).find(u=>u.id===old.id);return u&&(u.hp<old.hp||(u.shield||0)<old.shield);});
  const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit}):[];
  const chestsOpened=[];
@@ -170,7 +183,7 @@ function execute(s,ref,{projection=false}={}){
    }
   }
  }
- return {...result,targets:ids,cells,augmentNotes,...(chestsOpened.length?{chestsOpened,title:`${result.title||ability.name} · baú aberto`}:{})};
+ return {...result,targets:ids,cells,displacements,augmentNotes,...(chestsOpened.length?{chestsOpened,title:`${result.title||ability.name} · baú aberto`}:{})};
 }
 
 function normalizePlan(s,side,actions){
@@ -213,7 +226,7 @@ export function previewTacticalPlan(s,side,actions,selected){
    for(const id of resourceIds)projection[poolKey(side)][id]=10000;
   }
   const result=execute(projection,ref,{projection:true});
-  if(ref.type==='skill')ref.previewTargetIds=[...(result.targets||[])];
+  if(ref.type==='skill'){ref.previewTargetIds=[...(result.targets||[])];ref.previewDisplacements=copy(result.displacements||[]);}
   if(result.skipped)return fail(result.reason||'Ação inválida na prévia.');
  }
  const sum=costs.reduce((out,{cost})=>{for(const [id,n]of Object.entries(cost))out[id]=(out[id]||0)+n;return out;},{});

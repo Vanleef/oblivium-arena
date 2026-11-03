@@ -65,3 +65,13 @@ O comando `npm run test:tactical` inclui os testes de ordem, interface, animaç�
 - Conferência da etapa anterior na prévia d039dc9: controle Repetições curtas ativado e mensagens de perda de Vida visíveis junto à ação no impacto.
 
 Verificação da prévia b8a3a95: seletor com as quatro opções, regra de Limbo anunciada antes do plano, C3 marcada e transitável, Riven movido para C3 e recebendo 6 de Escudo no histórico, transição para rodada 2 e ausência de erros da aplicação no navegador. Desktop de 1348 px sem rolagem horizontal. 70 testes táticos e build aprovados; mobile físico e balanceamento com jogadores continuam pendentes.
+
+## Adaptação espacial dos kits: primeira leva de 40
+- Os 25 kits anteriores receberam revisão individual e 15 novos entraram no seletor: Falso Profeta, Falsário, Incendiário, Brasa Eterna, Ressentido, Vingadora, Colérico, Devorador, Saqueadora, Insaciável, Senhora do Último Pão, Credor, Usurária, Apodrecido e Pestilência.
+- Cada slot e forma revisada tem geometria explícita. Linhas de 2/3 casas, cones, diagonais e varreduras pessoais complementam células, cruzes e áreas 3×3. Formas que trocam inimigo/aliado/trio usam a área da forma ativa.
+- Arrasto do Príncipe puxa uma casa. Punho do Ódio Solto, Avanço da Égide, Tomada do Trono e Coração em Erupção empurram uma casa; Engolir a Essência puxa. Só alvos efetivamente afetados e vivos são deslocados. Invulnerável, contra-ataques que anulam, obstáculos, bordas e ocupantes impedem a movimentação. Não há dano de colisão, ação extra nem ativação de bônus de movimento por deslocamento forçado.
+- A projeção privada inclui os deslocamentos do próprio plano, permitindo preparar um golpe da segunda passagem e mostrar quem reposicionou o alvo. A execução reavalia ocupação e cancela deslocamentos inviáveis, sem atravessar unidades.
+- Cartas mostram diagramas de 5×5, descrição espacial e alcance reais. Passivas têm explicação recolhível e continuam automáticas, sem ocupar os dois espaços. Custos, recargas e valores canônicos não foram reequilibrados nesta etapa.
+- Corrigidos IDs duplicados nos kits longos de Nilo: a quarta técnica ofensiva passa a tecnica-4; despertar fica reservado à defesa. Os nomes, valores e artes por índice permanecem.
+- Cobertura: 40/150 kits, 186 técnicas/formas. Restam 110 kits para adaptação individual. 25 dos 40 têm atlas base; os 15 novos usam as artes existentes. Lordes não foram liberados no seletor.
+- Validação adicional: 15 combates com sementes fixas, 154 ações planejadas por IA e nenhuma falha de resolução. Na suíte legada de formas/identidade, 16 testes passaram e 28 falhas já existentes foram reproduzidas no código anterior, com os mesmos nomes e nenhuma falha nova.

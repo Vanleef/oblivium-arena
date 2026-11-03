@@ -1,0 +1,4875 @@
+{
+  "summary": {
+    "adapted": 40,
+    "total": 150,
+    "pending": 110,
+    "techniquesAndForms": 186,
+    "adaptedWithBaseAtlas": 25
+  },
+  "characters": [
+    {
+      "id": "o-acougueiro",
+      "name": "Riven",
+      "title": "O Ceifador de Tolos",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Faro de Sangue",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Incisão de Abate",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "reopen",
+          "name": "Reabrir a Ferida",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Talho Imobilizante",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Sentença do Cutelo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Passo entre Lâminas",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-viuva-escarlate",
+      "name": "Lira",
+      "title": "A Noiva da Lua",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Luto Faminto",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Fio Escarlate",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "revenge",
+          "name": "Fio Reverso",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Véu da Viúva",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Beijo da Última Noite",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Véu de Sangue",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-colecionador-de-cabecas",
+      "name": "Thorne",
+      "title": "O Colecionador",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Primeiro Troféu",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Laço de Caça",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Cobrança do Caçador",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Galeria de Troféus",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "empty",
+          "name": "Caça sem Troféus",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Sombra do Colecionador",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "name": "Vale e Soren",
+      "title": "As Lâminas Gêmeas",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Ritmo dos Gêmeos",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Cutelo da Esquerda",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Cutelo da Direita",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "cross",
+          "name": "Corte em Contratempo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Encontro das Lâminas",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "ring",
+            "range": 0
+          },
+          "rule": "Ao redor · alcance 0 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 2,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Dança Cruzada",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-carrasco-sem-rosto",
+      "name": "Sanson",
+      "title": "O Carrasco",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Sem Apelação",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Sentença sem Nome",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Queda da Guilhotina",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Última Respiração",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Capuz do Esquecimento",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-mae-rubra",
+      "name": "Selene",
+      "title": "A Matriarca",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Sangue que Acolhe",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Cordão Rubro",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Partilha da Mãe",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Berço de Sangue",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Casulo Rubro",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-soberano-quebrado",
+      "name": "Darius",
+      "title": "O Soberano",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Autoridade Estilhaçada",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Decreto do Rei Caído",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "edict",
+          "name": "Decreto sobre Todos",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Ajoelhar",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "tecnica",
+          "form": "edict",
+          "name": "Cadeia de Juramento",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "square",
+            "range": 3
+          },
+          "rule": "Área 3×3 · alcance 3 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Coroa sobre Ruínas",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "edict",
+          "name": "Trono Incontestável",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Trono Interior",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-juiza-de-ferro",
+      "name": "Judith",
+      "title": "A Magistrada",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Lei do Mais Forte",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Acusação Imposta",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Interdição da Defesa",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Sentença de Submissão",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Toga Inviolável",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "Lucien",
+      "title": "O Suserano",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Autoridade Delegada",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Decreto de Submissão",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Interdição Soberana",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Guarda dos Vassalos",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Suserania Inviolável",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "Demetrius",
+      "title": "O Príncipe",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Grilhão Herdado",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Primeiro Grilhão",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "drag",
+          "name": "Apertar o Grilhão",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Arrasto do Príncipe",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2,
+            "displacement": {
+              "kind": "pull",
+              "distance": 1
+            }
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área · Puxa 1 casa; para diante de obstáculos, bordas e ocupantes.",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Cárcere Dinástico",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Corrente Exterior",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-regente-de-cinzas",
+      "name": "Ashara",
+      "title": "A Déspota",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Lealdade pelo Medo",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Ferro do Jugo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Ordem Absoluta",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Esmagar a Resistência",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Privilégio Soberano",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-herdeiro-cativo",
+      "name": "Malrik",
+      "title": "O Herdeiro",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Ambição Acorrentada",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Punho Acorrentado",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Resistência do Pretendente",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Tomada do Trono",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1,
+            "displacement": {
+              "kind": "push",
+              "distance": 1
+            }
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área · Empurra 1 casa; para diante de obstáculos, bordas e ocupantes.",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Guarda Dinástica",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-sussurro",
+      "name": "Vesper",
+      "title": "O Sussurro",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Segredo em Circulação",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Palavra Envenenada",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Segredo Cobrado",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Aviso Falso",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Voz sem Origem",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-mascara-dupla",
+      "name": "Nyx",
+      "title": "A Máscara Dupla",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Segundo Rosto",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Rosto Emprestado",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "other",
+          "name": "Gesto de Outro Rosto",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "O Outro Rosto",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Traição Revelada",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Troca de Máscara",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-tecelao-de-mentiras",
+      "name": "Orin",
+      "title": "O Intrigante",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Trama Paciente",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Fio de Engano",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Rede de Falsidades",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "x",
+            "range": 2
+          },
+          "rule": "Diagonal em X · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "tecnica",
+          "form": "unweave",
+          "name": "Desatar a Trama",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Nó da Contradição",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Fora da Trama",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-boca-de-vidro",
+      "name": "Sylvara",
+      "title": "A Serpe",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Verdade Fraturada",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Sibilo Cortante",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 3,
+            "length": 3
+          },
+          "rule": "Frente · 3 células · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Reflexo Traiçoeiro",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Coro de Estilhaços",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cone",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Cone frontal · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 2,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Reflexo Desviado",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-falso-profeta",
+      "name": "Cassian",
+      "title": "O Falso Profeta",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Fé Desviada",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Promessa do Profeta",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Bênção Falsa",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "confess",
+          "name": "Confissão do Falso Santo",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Milagre Fabricado",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Imagem Sagrada",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-corretor-de-memorias",
+      "name": "Annius",
+      "title": "O Falsário",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Arquivo Roubado",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Lembrança Hipotecada",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Esquecer a Defesa",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Liquidação do Passado",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Memória Substituta",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-incendiario",
+      "name": "Ignis",
+      "title": "O Incendiário",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Pavio Aceso",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Pavio de Ódio",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Fagulhas em Cadeia",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Detonação Negra",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Corpo de Fumaça",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-brasa-eterna",
+      "name": "Emberlyn",
+      "title": "A Brasa Eterna",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Calor Persistente",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Brasa que Permanece",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "smother",
+          "name": "Labareda Sufocante",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Sufoco das Cinzas",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "tecnica",
+          "form": "smother",
+          "name": "Cinzas de Sufoco",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cone",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Cone frontal · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Fornalha Interior",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "smother",
+          "name": "Fornalha Sepulcral",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Manto de Cinzas",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-odio-encarnado",
+      "name": "Corvin",
+      "title": "O Furor",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Raiva sem Freio",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Punho de Rancor",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "rage",
+          "name": "Punho do Ódio Solto",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1,
+            "displacement": {
+              "kind": "push",
+              "distance": 1
+            }
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área · Empurra 1 casa; para diante de obstáculos, bordas e ocupantes.",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Alimentar o Ódio",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Explosão do Ressentimento",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "eruption",
+          "name": "Ressentimento sem Freio",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Fúria Intocável",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-filho-da-cinza",
+      "name": "Ragnar",
+      "title": "O Ressentido",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Rancor Latente",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Brasa do Ressentimento",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "rebirth",
+          "name": "Rancor Reaceso",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Nutrir o Rancor",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Revide Incandescente",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Dissolução em Cinzas",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-pira-errante",
+      "name": "Lyra",
+      "title": "A Vingadora",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Rancor Encouraçado",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Brasa Punitiva",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "reply",
+          "name": "Revanche Ardente",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Guarda Vingativa",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Cerco Incandescente",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "x",
+            "range": 2
+          },
+          "rule": "Diagonal em X · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 2,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Passo entre Brasas",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-coracao-em-furia",
+      "name": "Pyros",
+      "title": "O Colérico",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Pulso Irado",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Batida Escaldante",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Sangue em Ebulição",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Coração em Erupção",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1,
+            "displacement": {
+              "kind": "push",
+              "distance": 1
+            }
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área · Empurra 1 casa; para diante de obstáculos, bordas e ocupantes.",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Pulso Intangível",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-devorador",
+      "name": "Gorath",
+      "title": "O Devorador",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Fome Crescente",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Mordida da Alma",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "starved",
+          "name": "Fome sem Corpo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Saliva Corrosiva",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Engolir a Essência",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1,
+            "displacement": {
+              "kind": "pull",
+              "distance": 1
+            }
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área · Puxa 1 casa; para diante de obstáculos, bordas e ocupantes.",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Mandíbula do Vazio",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-mao-que-toma",
+      "name": "Ravena",
+      "title": "A Saqueadora",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Posse Insaciável",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Dedos da Cobiça",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Entesourar",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "open",
+          "name": "Abrir o Cofre",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Confisco da Alma",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Espólio Intocável",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "name": "Drake",
+      "title": "O Insaciável",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Assimilação",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Consumir a Guarda",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Reserva Consumida",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Fome Devorante",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Corpo Recolhido",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-senhora-do-ultimo-pao",
+      "name": "Helena",
+      "title": "A Matriarca",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Lucro da Privação",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Marca da Privação",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Ração dos Submissos",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Tributo da Fome",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Celeiro Lacrado",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-credor",
+      "name": "Marrow",
+      "title": "O Credor",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Juros da Alma",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Assinar a Dívida",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Juros Acumulados",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Execução do Contrato",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Cláusula de Ausência",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-balanca-vazia",
+      "name": "Fortuna",
+      "title": "A Usurária",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Lucro da Carência",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Cobrança da Penúria",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Adiantamento Vital",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Confisco Coletivo",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Penhor Inalcançável",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-apodrecido",
+      "name": "Aldric",
+      "title": "O Apodrecido",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Carne em Ruína",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Contato da Ruína",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Tecido Cedido",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Decomposição Completa",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 1
+          },
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Casca Morta",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-praga-andante",
+      "name": "Mire",
+      "title": "A Pestilência",
+      "adapted": true,
+      "baseAtlas": false,
+      "passive": "Hospedeira da Praga",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Febre Andante",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Contágio do Caminho",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "tecnica",
+          "form": "fever",
+          "name": "Febre de Retorno",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Crise Pestilenta",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 3
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Névoa Contaminada",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-corrupto",
+      "name": "Pact",
+      "title": "O Corrupto",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Lucro da Ruína",
+      "techniques": []
+    },
+    {
+      "id": "a-rainha-dos-fungos",
+      "name": "Myra",
+      "title": "A Rainha dos Fungos",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Colônia Viva",
+      "techniques": []
+    },
+    {
+      "id": "o-medico-de-vermes",
+      "name": "Bram",
+      "title": "O Inoculador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Simbiose Corrupta",
+      "techniques": []
+    },
+    {
+      "id": "o-jardim-morto",
+      "name": "Thorn",
+      "title": "O Definhador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Seiva Corrosiva",
+      "techniques": []
+    },
+    {
+      "id": "o-que-observou",
+      "name": "Elias",
+      "title": "O Espectador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Indiferença Vigilante",
+      "techniques": []
+    },
+    {
+      "id": "a-porta-fechada",
+      "name": "Mira",
+      "title": "A Carcereira",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Abrigo dos Cúmplices",
+      "techniques": []
+    },
+    {
+      "id": "o-surdo",
+      "name": "Voss",
+      "title": "O Silenciador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Clamor Sufocado",
+      "techniques": []
+    },
+    {
+      "id": "a-testemunha-cega",
+      "name": "Iris",
+      "title": "A Cúmplice",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Cumplicidade Velada",
+      "techniques": []
+    },
+    {
+      "id": "o-quarto-vazio",
+      "name": "Hollow",
+      "title": "O Anfitrião",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Hospitalidade Negada",
+      "techniques": []
+    },
+    {
+      "id": "o-vigia-ausente",
+      "name": "Reed",
+      "title": "O Desertor",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Oportunismo",
+      "techniques": []
+    },
+    {
+      "id": "o-que-possui",
+      "name": "Maren",
+      "title": "O Usurpador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Vínculo de Usurpação",
+      "techniques": []
+    },
+    {
+      "id": "a-pele-alheia",
+      "name": "Quill",
+      "title": "A Metamorfa",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Adaptação Predatória",
+      "techniques": []
+    },
+    {
+      "id": "o-desejo-quebrado",
+      "name": "Desire",
+      "title": "O Profanador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Avidez Profana",
+      "techniques": []
+    },
+    {
+      "id": "a-marionetista-de-nervos",
+      "name": "Liora",
+      "title": "A Marionetista",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Laço Enrijecido",
+      "techniques": []
+    },
+    {
+      "id": "o-espelho-carnal",
+      "name": "Echo",
+      "title": "O Simulacro",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Eco da Dor",
+      "techniques": []
+    },
+    {
+      "id": "a-costureira",
+      "name": "Sable",
+      "title": "A Suturadora",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Sutura que Ancora",
+      "techniques": []
+    },
+    {
+      "id": "o-que-apaga",
+      "name": "Noctis",
+      "title": "O Anulador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Prova da Negação",
+      "techniques": []
+    },
+    {
+      "id": "a-ausencia",
+      "name": "Vespera",
+      "title": "A Ausência",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Falta de Substância",
+      "techniques": []
+    },
+    {
+      "id": "o-fim-silencioso",
+      "name": "Erebus",
+      "title": "O Arauto",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Cobrança do Último Instante",
+      "techniques": []
+    },
+    {
+      "id": "o-menino-sem-sombra",
+      "name": "Ashen",
+      "title": "O Desolador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Resíduo de Penumbra",
+      "techniques": []
+    },
+    {
+      "id": "a-ultima-pagina",
+      "name": "Soren",
+      "title": "A Escriba",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Círculo de Apagamento",
+      "techniques": []
+    },
+    {
+      "id": "o-lugar-de-ninguem",
+      "name": "Niith",
+      "title": "O Fim",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Sustento do Apagamento",
+      "techniques": []
+    },
+    {
+      "id": "o-escudo-vivo",
+      "name": "Aegis",
+      "title": "O Escudo Vivo",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Ficarei Aqui",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Golpe do Bastião",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "advance",
+          "name": "Avanço da Égide",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2,
+            "displacement": {
+              "kind": "push",
+              "distance": 1
+            }
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área · Empurra 1 casa; para diante de obstáculos, bordas e ocupantes.",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Voto de Amparo",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Resposta da Égide",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Fortaleza de Luz",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-muralha",
+      "name": "Bastion",
+      "title": "A Muralha",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Pedra sobre Pedra",
+      "techniques": []
+    },
+    {
+      "id": "o-que-ficou",
+      "name": "Caius",
+      "title": "O Abnegado",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Presença que Sustenta",
+      "techniques": []
+    },
+    {
+      "id": "o-ultimo-guardiao",
+      "name": "Gideon",
+      "title": "O Guardião",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Última Vigília",
+      "techniques": []
+    },
+    {
+      "id": "a-sentinela-azul",
+      "name": "Azure",
+      "title": "A Sentinela",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Olhar de Vigília",
+      "techniques": []
+    },
+    {
+      "id": "a-mao-que-cura",
+      "name": "Elara",
+      "title": "A Compassiva",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "A Dor é Vista",
+      "techniques": []
+    },
+    {
+      "id": "o-restaurador",
+      "name": "Theron",
+      "title": "O Restaurador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Recomposição Contínua",
+      "techniques": []
+    },
+    {
+      "id": "a-luz-que-restaura",
+      "name": "Liora",
+      "title": "A Sanadora",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Amparo Recíproco",
+      "techniques": []
+    },
+    {
+      "id": "a-jardineira-das-feridas",
+      "name": "Iris",
+      "title": "A Boticária",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Remédio Perene",
+      "techniques": []
+    },
+    {
+      "id": "o-pulso-sereno",
+      "name": "Seren",
+      "title": "O Sereno",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ritmo Sereno",
+      "techniques": []
+    },
+    {
+      "id": "o-equilibrio",
+      "name": "Aldric",
+      "title": "O Árbitro",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Medida Justa",
+      "techniques": []
+    },
+    {
+      "id": "a-lamina-justa",
+      "name": "Justus",
+      "title": "A Íntegra",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Fio do Princípio",
+      "techniques": []
+    },
+    {
+      "id": "o-que-pesa",
+      "name": "Aristides",
+      "title": "O Regulador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Paciência da Balança",
+      "techniques": []
+    },
+    {
+      "id": "a-testemunha-integra",
+      "name": "Maqrizi",
+      "title": "A Testemunha",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Voz sem Distorção",
+      "techniques": []
+    },
+    {
+      "id": "o-julgador-gentil",
+      "name": "Benedict",
+      "title": "O Juiz",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Clemência Inabalável",
+      "techniques": []
+    },
+    {
+      "id": "a-chama-que-nao-apaga",
+      "name": "Caelum",
+      "title": "A Perseverante",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ainda Há Amanhã",
+      "techniques": []
+    },
+    {
+      "id": "o-que-levanta",
+      "name": "Hector",
+      "title": "O Tenaz",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Levantar Outra Vez",
+      "techniques": []
+    },
+    {
+      "id": "a-voz",
+      "name": "Hope",
+      "title": "A Voz",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Coro de Coragem",
+      "techniques": []
+    },
+    {
+      "id": "o-portador-da-aurora",
+      "name": "Aurora",
+      "title": "O Alvorecer",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Primeiro Horizonte",
+      "techniques": []
+    },
+    {
+      "id": "a-mensageira-do-amanha",
+      "name": "Stella",
+      "title": "A Mensageira",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Promessa de Chegada",
+      "techniques": []
+    },
+    {
+      "id": "o-que-revela",
+      "name": "Veritas",
+      "title": "O Revelador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Nada a Esconder",
+      "techniques": []
+    },
+    {
+      "id": "a-luz-nua",
+      "name": "Crates",
+      "title": "A Lúcida",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Sem Disfarce",
+      "techniques": []
+    },
+    {
+      "id": "o-espelho",
+      "name": "Parrhasius",
+      "title": "O Espelho",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Reflexo Honesto",
+      "techniques": []
+    },
+    {
+      "id": "a-cartografa-da-clareza",
+      "name": "Cartes",
+      "title": "A Cartógrafa",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Rota sem Engano",
+      "techniques": []
+    },
+    {
+      "id": "o-olho-desarmado",
+      "name": "Arcane",
+      "title": "O Vidente",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ver sem Ferir",
+      "techniques": []
+    },
+    {
+      "id": "o-elo-dourado",
+      "name": "Aurelia",
+      "title": "O Fraterno",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Força Compartilhada",
+      "techniques": []
+    },
+    {
+      "id": "a-que-une",
+      "name": "Destiny",
+      "title": "A Tecelã",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Cuidar em Conjunto",
+      "techniques": []
+    },
+    {
+      "id": "o-vinculo",
+      "name": "Elowen",
+      "title": "O Altruísta",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Pacto de Permanência",
+      "techniques": []
+    },
+    {
+      "id": "os-tres-irmaos",
+      "name": "Trinity",
+      "title": "Os Três Irmãos",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Passo de Irmandade",
+      "techniques": []
+    },
+    {
+      "id": "a-guardia-das-promessas",
+      "name": "Isolde",
+      "title": "A Juramentada",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Promessa Cumprida",
+      "techniques": []
+    },
+    {
+      "id": "o-que-cria",
+      "name": "Cedric",
+      "title": "O Artífice",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ideia Persistente",
+      "techniques": []
+    },
+    {
+      "id": "a-semente",
+      "name": "Sprout",
+      "title": "A Semente",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Potência Latente",
+      "techniques": []
+    },
+    {
+      "id": "o-cultivador",
+      "name": "Rowan",
+      "title": "O Cultivador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ciclo da Colheita",
+      "techniques": []
+    },
+    {
+      "id": "a-arquiteta-verde",
+      "name": "Verdant",
+      "title": "A Arquiteta",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Fundação Viva",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Pilar Ascendente",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "beam",
+          "name": "Viga de Apoio",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Abóbada Verde",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Convergência dos Pilares",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "collapse",
+          "name": "Colapsar a Abóbada",
+          "target": "all-enemies",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 2,
+            "pattern": "square",
+            "range": 3
+          },
+          "rule": "Área 3×3 · alcance 3 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 2,
+            "essence": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Geometria Intocável",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "o-primeiro-canto",
+      "name": "Prim",
+      "title": "O Ressonante",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Eco de Nascimento",
+      "techniques": []
+    },
+    {
+      "id": "o-passo-interrompido",
+      "name": "Chronos",
+      "title": "O Descontínuo",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Passo que Retorna",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Fissura do Passo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "next",
+          "name": "Passo Seguinte",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "impulso",
+          "form": "previous",
+          "name": "Passo Anterior",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Entre Dois Instantes",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 2
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Golpe Descontínuo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 1
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Passo Fora do Tempo",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "a-linha-partida",
+      "name": "Fract",
+      "title": "A Cindida",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Tensão da Ruptura",
+      "techniques": []
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "name": "Echo",
+      "title": "O Eco",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ressonância sem Dono",
+      "techniques": []
+    },
+    {
+      "id": "a-porta-que-flutua",
+      "name": "Rift",
+      "title": "A Errante",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Limite Suspenso",
+      "techniques": []
+    },
+    {
+      "id": "o-nome-esquecido",
+      "name": "Obliv",
+      "title": "O Esquecido",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Nome que se Dissolve",
+      "techniques": []
+    },
+    {
+      "id": "o-relogio-afogado",
+      "name": "Chronicle",
+      "title": "O Cronista",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Tempo em Reserva",
+      "techniques": []
+    },
+    {
+      "id": "a-asa-invertida",
+      "name": "Lyra",
+      "title": "A Inversa",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Queda Ascendente",
+      "techniques": []
+    },
+    {
+      "id": "o-andarilho-de-vidro",
+      "name": "Crystal",
+      "title": "O Andarilho",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Fome da Penumbra",
+      "techniques": []
+    },
+    {
+      "id": "a-sombra-inconstante",
+      "name": "Shade",
+      "title": "A Oscilante",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Fome da Penumbra",
+      "techniques": []
+    },
+    {
+      "id": "a-ponte-rasgada",
+      "name": "Bridge",
+      "title": "A Peregrina",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Vão Persistente",
+      "techniques": []
+    },
+    {
+      "id": "a-alma-em-suspenso",
+      "name": "Soren",
+      "title": "O Eremita",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Âncora Persistente",
+      "techniques": []
+    },
+    {
+      "id": "nilo",
+      "name": "Nilo",
+      "title": "O Receptáculo",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Registro Aberto",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Toque Receptivo",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Fio de Memória",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Devolver o Eco",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "random": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Limiar",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "nilo-o-prefacio",
+      "name": "Nilo",
+      "title": "Prefácio de Cinza",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ferida Aberta",
+      "techniques": []
+    },
+    {
+      "id": "nilo-graca-prefacio",
+      "name": "Nilo",
+      "title": "Prefácio de Graça",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Marca de Caça",
+      "techniques": []
+    },
+    {
+      "id": "nilo-ruptura-prefacio",
+      "name": "Nilo",
+      "title": "Prefácio de Ruptura",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Resíduo de Status",
+      "techniques": []
+    },
+    {
+      "id": "nilo-cinza-epilogo",
+      "name": "Nilo",
+      "title": "Epílogo de Cinza",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Expansão de Cinza",
+      "techniques": []
+    },
+    {
+      "id": "nilo-graca-epilogo",
+      "name": "Nilo",
+      "title": "Epílogo de Graça",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Clareza Momentânea",
+      "techniques": []
+    },
+    {
+      "id": "nilo-ruptura-epilogo",
+      "name": "Nilo",
+      "title": "Epílogo de Ruptura",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Sombra Preparada",
+      "techniques": []
+    },
+    {
+      "id": "nilo-cinza-final",
+      "name": "Nilo",
+      "title": "O Sem Rastro",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Limiar de Colapso",
+      "techniques": []
+    },
+    {
+      "id": "nilo-graca-final",
+      "name": "Nilo",
+      "title": "O que Mantém de Pé",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Pilares Vivos",
+      "techniques": []
+    },
+    {
+      "id": "nilo-ruptura-final",
+      "name": "Nilo",
+      "title": "O que se Parte",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Contagem de Fraturas",
+      "techniques": []
+    },
+    {
+      "id": "nilo-o-epilogo",
+      "name": "Nilo",
+      "title": "Nilo Purificado",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Alma sem Essências",
+      "techniques": []
+    },
+    {
+      "id": "o-eco-de-nilo",
+      "name": "Sael",
+      "title": "O Eco das Quatro Essências",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Harmonia das Quatro Essências",
+      "techniques": []
+    },
+    {
+      "id": "naomi",
+      "name": "Naomi",
+      "title": "A Persistência",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Ninguém Fica para Trás",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Brasa que Permanece",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Mão Estendida",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Roda de Esperança",
+          "target": "team",
+          "spec": {
+            "vision": true,
+            "limit": 3,
+            "priority": 1,
+            "pattern": "cross",
+            "range": 2
+          },
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Voto de Permanência",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "naomi-a-que-permanece",
+      "name": "Naomi",
+      "title": "A Que Permanece",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "O Cuidado Retorna",
+      "techniques": []
+    },
+    {
+      "id": "naomi-a-raiz",
+      "name": "Naomi",
+      "title": "A Raiz",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Raiz sob Pressão",
+      "techniques": []
+    },
+    {
+      "id": "kael",
+      "name": "Kael",
+      "title": "A Culpa Imaculada",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Culpa que Alimenta",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Dever Mal Cumprido",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Passo do Executor",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "line",
+            "range": 2,
+            "length": 2
+          },
+          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Preço da Ordem",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Ajoelhar não é Ceder",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "kael-o-quebrado",
+      "name": "Kael",
+      "title": "O Quebrado",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Resposta à Ruptura",
+      "techniques": []
+    },
+    {
+      "id": "kael-o-filhote-de-ferro",
+      "name": "Kael",
+      "title": "Coração de Aço",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Último de Pé",
+      "techniques": []
+    },
+    {
+      "id": "vaas",
+      "name": "Vaas",
+      "title": "Máscaras",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "Máscara Predatória",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Verdade Plantada",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Véu de Veneno",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "O Rosto que Falta",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Última Máscara",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "vaas-o-sem-rosto",
+      "name": "Vaas",
+      "title": "O Sem Rosto",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Confisco de Identidade",
+      "techniques": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "title": "O Amparo",
+      "adapted": true,
+      "baseAtlas": true,
+      "passive": "A Dor é Vista",
+      "techniques": [
+        {
+          "slot": "impulso",
+          "form": "base",
+          "name": "Pulso Restaurador",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "tecnica",
+          "form": "base",
+          "name": "Diagnóstico Preciso",
+          "target": "enemy",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 2,
+            "pattern": "cell",
+            "range": 3
+          },
+          "rule": "Uma célula · alcance 3 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "random": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "voto",
+          "form": "base",
+          "name": "Sutura de Campo",
+          "target": "ally",
+          "spec": {
+            "vision": true,
+            "limit": 1,
+            "priority": 1,
+            "pattern": "cell",
+            "range": 2
+          },
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "costs": {
+            "affinity": 1,
+            "essence": 1
+          },
+          "cooldown": 0
+        },
+        {
+          "slot": "despertar",
+          "form": "base",
+          "name": "Respirar Primeiro",
+          "target": "self",
+          "spec": {
+            "pattern": "self",
+            "range": 0,
+            "limit": 1,
+            "vision": false,
+            "priority": 1
+          },
+          "rule": "Pessoal",
+          "costs": {
+            "random": 1
+          },
+          "cooldown": 4
+        }
+      ]
+    },
+    {
+      "id": "diana-a-guarda",
+      "name": "Diana",
+      "title": "A Guarda",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "O Impacto é Dividido",
+      "techniques": []
+    },
+    {
+      "id": "diana-a-que-ainda-segura",
+      "name": "Diana",
+      "title": "A Que Ainda Segura",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "A Mão Ainda Segura",
+      "techniques": []
+    },
+    {
+      "id": "teras",
+      "name": "Teras",
+      "title": "O Observador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Nota de Campo",
+      "techniques": []
+    },
+    {
+      "id": "teras-o-observador",
+      "name": "Teras",
+      "title": "O Leitor de Fendas",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Leitura da Fenda",
+      "techniques": []
+    },
+    {
+      "id": "victor",
+      "name": "Victor",
+      "title": "O Regente",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Autoridade Residual",
+      "techniques": []
+    },
+    {
+      "id": "silas",
+      "name": "Silas",
+      "title": "A Lealdade",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Laço de Vigília",
+      "techniques": []
+    },
+    {
+      "id": "silas-o-leal",
+      "name": "Silas",
+      "title": "O Leal",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Promessa que Aguenta",
+      "techniques": []
+    },
+    {
+      "id": "orion",
+      "name": "Orion",
+      "title": "O Rastreador",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Prova Irrefutável",
+      "techniques": []
+    },
+    {
+      "id": "doggo",
+      "name": "Doggo",
+      "title": "O Sobrevivente",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Ração de Emergência",
+      "techniques": []
+    },
+    {
+      "id": "hans",
+      "name": "Hans",
+      "title": "O Informante",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Juros de Decadência",
+      "techniques": []
+    },
+    {
+      "id": "xian",
+      "name": "Xian",
+      "title": "O Imóvel",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Resposta Muda",
+      "techniques": []
+    },
+    {
+      "id": "xian-o-imovel",
+      "name": "Xian",
+      "title": "A Sentinela do Vazio",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Quietude Inquebrável",
+      "techniques": []
+    },
+    {
+      "id": "seraphim",
+      "name": "Seraph",
+      "title": "O Prólogo",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Graça sem Julgamento",
+      "techniques": []
+    },
+    {
+      "id": "seraphim-o-eco",
+      "name": "Seraph",
+      "title": "O Prólogo",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Refrão de Vigília",
+      "techniques": []
+    },
+    {
+      "id": "eiremir",
+      "name": "Eiremir",
+      "title": "A Anomalia",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Reflexo de Essência",
+      "techniques": []
+    },
+    {
+      "id": "eiremir-o-espelho-partido",
+      "name": "Eiremir",
+      "title": "O Espelho Partido",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Estilhaço Reativo",
+      "techniques": []
+    },
+    {
+      "id": "khoren-caminho",
+      "name": "Zalmoxis",
+      "title": "A Abnegação",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Marco de Passagem",
+      "techniques": []
+    },
+    {
+      "id": "elaris-prologo",
+      "name": "Seraph",
+      "title": "O Prólogo",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Primeira Graça",
+      "techniques": []
+    },
+    {
+      "id": "cain",
+      "name": "Cain",
+      "title": "O Reflexo Cruel",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Culpa que Morde",
+      "techniques": []
+    },
+    {
+      "id": "lilith",
+      "name": "Lilith",
+      "title": "A Negação",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Amanhã Negado",
+      "techniques": []
+    },
+    {
+      "id": "caliope",
+      "name": "Calíope",
+      "title": "A Falsária",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Assinatura Falsa",
+      "techniques": []
+    },
+    {
+      "id": "serena",
+      "name": "Serena",
+      "title": "A Sombra do Passado",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Lembrança Invasiva",
+      "techniques": []
+    },
+    {
+      "id": "placido",
+      "name": "Plácido",
+      "title": "O Arquiteto da Ordem",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Regra Aplicada",
+      "techniques": []
+    },
+    {
+      "id": "baal",
+      "name": "Baal",
+      "title": "O Fanático",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Liturgia da Brasa",
+      "techniques": []
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "title": "O Portador do Sistema",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Peso Acumulado",
+      "techniques": []
+    },
+    {
+      "id": "merlindrope",
+      "name": "Merlindrope",
+      "title": "O Carcereiro",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Cláusula de Prisão",
+      "techniques": []
+    },
+    {
+      "id": "bulkir",
+      "name": "Bulkir",
+      "title": "O Devorador de Identidade",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Fome de Nomes",
+      "techniques": []
+    },
+    {
+      "id": "voronir",
+      "name": "Voronir",
+      "title": "O Caçador de Receptáculos",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Rastreamento de Anomalia",
+      "techniques": []
+    },
+    {
+      "id": "icarus",
+      "name": "Icarus",
+      "title": "O Portador da Fenda",
+      "adapted": false,
+      "baseAtlas": false,
+      "passive": "Queda Compartilhada",
+      "techniques": []
+    }
+  ]
+}

@@ -33,8 +33,10 @@ export function explainTacticalPlan(battle,side,actions){
   if(ability?.damage&&actor.boost>(base.boost||0))combos.push('Ataque fortalecido: +'+actor.boost+' de dano preparado.');
   if(ability?.combo&&targets.some(target=>meetsCondition(target,ability.combo.condition,actor)))combos.push('Condição de combo ativa: '+conditionName(ability.combo.condition)+'.');
   if(ability?.damage&&ability.damageType!=='affliction'&&targets.some(target=>target.exposed)){const producer=[...details].reverse().find(d=>d.appliesExpose&&d.targets.some(t=>targets.some(target=>target.exposed&&target.id===t.id)));combos.push('Alvo Exposto'+(producer?' por '+producer.actorName:'')+': pode receber +10 de dano se continuar atingível.');}
+  for(const target of targets){const producer=[...details].reverse().find(d=>d.displacements?.some(m=>m.actorId===target.id&&m.moved));if(producer)combos.push('Alvo reposicionado por '+producer.actorName+': '+target.name+' na área planejada.');}
   prefix.push(ref);const result=previewTacticalPlan(battle,side,prefix);
-  details.push({draftIndex:ref.order,actorId:actor.id,actorName:actor.name,type:ref.type,slot:ref.slot+1,turnRank:ref.turnRank+1,origin:{...origin},destination:{...destination},name:ref.type==='move'?'Mover para '+cellLabel(destination):ability?.name||'Habilidade',cells:cells.map(p=>({...p})),targets:targets.map(u=>({id:u.id,name:u.name,side:u.side})),combos,appliesExpose:Boolean(ability?.expose),ok:before.ok&&result.ok,reason:!before.ok?before.reason:result.reason||'',conditional:Boolean(ability&&!['self','ally','friendly','team'].includes(ability.target)),positionChanged:!sameCell(origin,battle.tactical.positions[actor.id])});
+  const displacements=result.ok?result.actions.find(a=>a.order===prefix.length-1)?.previewDisplacements||[]:[];
+  details.push({displacements,draftIndex:ref.order,actorId:actor.id,actorName:actor.name,type:ref.type,slot:ref.slot+1,turnRank:ref.turnRank+1,origin:{...origin},destination:{...destination},name:ref.type==='move'?'Mover para '+cellLabel(destination):ability?.name||'Habilidade',cells:cells.map(p=>({...p})),targets:targets.map(u=>({id:u.id,name:u.name,side:u.side})),combos,appliesExpose:Boolean(ability?.expose),ok:before.ok&&result.ok,reason:!before.ok?before.reason:result.reason||'',conditional:Boolean(ability&&!['self','ally','friendly','team'].includes(ability.target)),positionChanged:!sameCell(origin,battle.tactical.positions[actor.id])});
  }
  return details;
 }
@@ -52,6 +54,7 @@ export function tacticalResolutionFeedback(event){
   else if(unit.invulnerable)notes.push(unit.name+': protegido por Invulnerável no impacto.');
  }
 
+ for(const move of event.displacements||[])notes.push(move.name+': '+(move.moved?(move.kind==='pull'?'puxado':'empurrado')+' de '+cellLabel(move.from)+' para '+cellLabel(move.to):'deslocamento impedido por ocupante, borda ou obstáculo')+'.');
  for(const unit of tacticalUnits(event.after||{allies:[],enemies:[]})){
   const old=before.get(unit.id);if(!old)continue;
   const hp=unit.hp-old.hp,shield=(unit.shield||0)-(old.shield||0);

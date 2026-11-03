@@ -943,3 +943,15 @@ body,.auth-screen{
 .environment-inferno .environment-mark{color:#ff9d82}.environment-paraiso .environment-mark{color:#ffedb2}
 .board .cell.environment-contact{outline:3px solid #f6debd;outline-offset:-3px}
 @media(max-width:700px){.environment-rule{padding:8px;gap:5px;font-size:11px}.environment-rule span,.environment-rule small{flex-basis:100%}.environment-mark{font-size:17px}}
+
+.arena-skills .area-preview.tactical-pattern{grid-template-columns:repeat(5,4px);grid-template-rows:repeat(5,4px);gap:1px}
+.tactical-rule{font-size:12px;color:#ddc5f5}
+.token.forced-move{animation:forced-step .24s ease-out both}
+@keyframes forced-step{from{translate:var(--forced-x) var(--forced-y)}to{translate:0 0}}
+@media(prefers-reduced-motion:reduce){.token.forced-move{animation:none}}
+/* Extra techniques from advanced kits can wrap without obscuring the board. */
+@media(max-width:700px){.arena-skills .area-preview.tactical-pattern{grid-template-columns:repeat(5,3px);grid-template-rows:repeat(5,3px)}}
+
+.tactical-passive{margin:6px 0 10px;padding:7px 10px;border:1px solid #6c587a66;border-radius:6px;background:#1e1928}
+.tactical-passive summary{cursor:pointer;color:#ddc7ed;font-size:12px;line-height:1.5;min-height:28px}.tactical-passive summary small{color:#b5a8c1;font-size:11px;margin-left:8px}
+.tactical-passive p{font-size:12px;margin:6px 0;line-height:1.5}

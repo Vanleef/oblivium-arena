@@ -4474,7 +4474,7 @@ const antagonistProfiles = [
   }
 ];
 
-const slotIds = ["impulso", "tecnica", "voto", "despertar"];
+const slotIds = ["impulso", "tecnica", "voto"];
 const phraseCopy = {};
 export const protagonistCharacterNames = Object.fromEntries([...protagonistProfiles, ...supportingProfiles, ...antagonistProfiles].map((profile) => [profile.name, profile.englishName]));
 

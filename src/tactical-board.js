@@ -40,7 +40,12 @@ export function patternCells(kind,origin,anchor,direction=[1,0],length=2){
  else if(kind==='cross')points=[[0,0],[1,0],[-1,0],[0,1],[0,-1]].map(([x,y])=>({x:anchor.x+x,y:anchor.y+y}));
  else if(kind==='x')points=[[0,0],[1,1],[-1,1],[1,-1],[-1,-1]].map(([x,y])=>({x:anchor.x+x,y:anchor.y+y}));
  else if(kind==='square')points=Array.from({length:9},(_,i)=>({x:anchor.x+i%3-1,y:anchor.y+Math.floor(i/3)-1}));
+ else if(kind==='ring')points=directions.map(([x,y])=>({x:origin.x+x,y:origin.y+y}));
+ else if(kind==='cone'){
+  const [dx,dy]=direction;
+  points=boardCells().filter(p=>{const x=p.x-origin.x,y=p.y-origin.y,forward=x*dx+y*dy;return distance(origin,p)>0&&distance(origin,p)<=length&&forward>0&&Math.abs(x*dy-y*dx)<=forward;});
+ }
  else if(kind==='line')points=Array.from({length},(_,i)=>({x:origin.x+direction[0]*(i+1),y:origin.y+direction[1]*(i+1)}));
  else points=[anchor];
- return points.filter(onBoard);
+ return [...new Map(points.filter(onBoard).map(p=>[cellKey(p),p])).values()];
 }

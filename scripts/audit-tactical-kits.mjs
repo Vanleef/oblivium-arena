@@ -1,0 +1,10 @@
+import {writeFile} from 'node:fs/promises';
+import {characters} from '../src/data.js';
+import {tacticalRoster,tacticalSpec,tacticalRuleText} from '../src/tactical-kits.js';
+import {tacticalSpriteAtlases} from '../src/tactical-sprites.js';
+const rows=characters.map(c=>({id:c.id,name:c.name,title:c.identityTitle,adapted:tacticalRoster.includes(c.id),baseAtlas:Boolean(tacticalSpriteAtlases[c.id]),passive:c.passive?.name,
+ techniques:tacticalRoster.includes(c.id)?c.abilities.flatMap(a=>[a,...(a.forms||[]).filter(f=>(f.formKey||'base')!=='base')].map(f=>({slot:a.id,form:f.formKey||'base',name:f.name,target:f.target,spec:tacticalSpec(c,f),rule:tacticalRuleText(c,f),costs:f.costs,cooldown:f.cooldown}))):[]}));
+const summary={adapted:rows.filter(r=>r.adapted).length,total:rows.length,pending:rows.filter(r=>!r.adapted).length,techniquesAndForms:rows.flatMap(r=>r.techniques).length,adaptedWithBaseAtlas:rows.filter(r=>r.adapted&&r.baseAtlas).length};
+await writeFile(new URL('../docs/TACTICAL_KIT_ADAPTATION.json',import.meta.url),JSON.stringify({summary,characters:rows},null,2)+'\n');
+await writeFile(new URL('../docs/TACTICAL_KIT_ADAPTATION.md',import.meta.url),'# Adaptação dos kits ao tabuleiro\n\n'+`${summary.adapted}/${summary.total} kits com revisão espacial explícita; ${summary.pending} pendentes. ${summary.techniquesAndForms} habilidades/formas mapeadas. ${summary.adaptedWithBaseAtlas} dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.\n\n`+'Duas ações por personagem, primeiras ações de todos antes das segundas. Custos, recargas, Vida e passivas canônicas preservados. Puxões e empurrões são modificadores exclusivos do adaptador tático. Lordes não foram adicionados ao elenco livre.\n\n'+'| Personagem | Revisão espacial | Atlas base | Técnicas/formas |\n| --- | --- | --- | --- |\n'+rows.map(r=>`| ${r.name}, ${r.title} | ${r.adapted?'Adaptado':'Pendente'} | ${r.baseAtlas?'Sim':'Pendente'} | ${r.techniques.length||'—'} |`).join('\n')+'\n');
+console.log(summary);
