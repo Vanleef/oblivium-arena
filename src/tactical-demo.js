@@ -117,6 +117,7 @@ function movementPreview(s=planningView()){
  const destination=activeAnchor(),options=movementChoices(s);if(!options.unit||!destination)return null;
  const {origin,unit}=options,found=options.paths.get(cellKey(destination));
  if(found)return {origin,destination,path:found,valid:true,reason:''};
+ if(!state.anchor)return null;
  const path=findPath(s,unit.id,destination,24)||[],at={...origin};
  if(!path.length)while(!sameCell(at,destination)&&path.length<5){at.x+=Math.sign(destination.x-at.x);at.y+=Math.sign(destination.y-at.y);path.push({...at});}
  const reason=options.reason||options.reasons.get(cellKey(destination))||(sameCell(origin,destination)?'Esta é a casa de partida.':obstacle(s,destination)?'Obstáculo: escolha uma casa livre.':occupied(s,destination,unit.id)?'Casa ocupada: escolha uma casa livre.':findPath(s,unit.id,destination,24)?'Fora do alcance: '+movementRange(s,unit.id)+' casa(s).':'Caminho bloqueado: não há passagem livre.');
@@ -142,9 +143,9 @@ function paintPlanningPreview(){
  }
  const guide=root.querySelector('.movement-guide');if(guide)guide.outerHTML=movementGuideMarkup(plan);
  const insight=root.querySelector('.private-insight');if(insight)insight.outerHTML=privateInsightMarkup();
- if(move){board.insertAdjacentHTML('afterbegin',movementTrailMarkup(move));board.querySelector('[data-cell="'+cellKey(move.destination)+'"]')?.insertAdjacentHTML('beforeend',ghostMarkup(unit,!move.valid));}
+ if(move?.valid){board.insertAdjacentHTML('afterbegin',movementTrailMarkup(move));board.querySelector('[data-cell="'+cellKey(move.destination)+'"]')?.insertAdjacentHTML('beforeend',ghostMarkup(unit,!move.valid));}
 }
-function aimed(s){s=planningView();const u=selectedUnit(s);if(!u)return [];if(state.mode==='move')return movementPreview(s)?.path||[];const a=u.abilities.find(a=>a.id===state.mode);return a&&activeAnchor()?tacticalArea(s,u,a,activeAnchor(),orientation(s,u,activeAnchor())):[];}
+function aimed(s){s=planningView();const u=selectedUnit(s);if(!u)return [];if(state.mode==='move'){const move=movementPreview(s);return move?.valid?move.path:[];}const a=u.abilities.find(a=>a.id===state.mode);return a&&activeAnchor()?tacticalArea(s,u,a,activeAnchor(),orientation(s,u,activeAnchor())):[];}
 function orientation(s,u,anchor){const origin=s.tactical.positions[u.id],dx=Math.sign(anchor.x-origin.x),dy=Math.sign(anchor.y-origin.y);return [dx||(!dy?1:0),dy];}
 function candidate(){
  const s=planningView(),u=selectedUnit(s);if(!u||!activeAnchor())return null;
@@ -375,7 +376,7 @@ function turnOrderMarkup(s){
 }
 
 function boardMarkup(s){
- const plan=planningView(),options=state.mode==='move'&&!state.busy?movementChoices(plan):null,movement=state.mode==='move'?movementPreview(plan):null,ability=selectedUnit(plan)?.abilities.find(a=>a.id===state.mode),affected=new Set(ability&&activeAnchor()?tacticalTargets(plan,selectedUnit(plan),ability,activeAnchor(),orientation(plan,selectedUnit(plan),activeAnchor())):[]),ghost=movement?.destination||null;
+ const plan=planningView(),options=state.mode==='move'&&!state.busy?movementChoices(plan):null,movement=state.mode==='move'?movementPreview(plan):null,ability=selectedUnit(plan)?.abilities.find(a=>a.id===state.mode),affected=new Set(ability&&activeAnchor()?tacticalTargets(plan,selectedUnit(plan),ability,activeAnchor(),orientation(plan,selectedUnit(plan),activeAnchor())):[]),ghost=movement?.valid?movement.destination:null;
  const aim=new Set(aimed(s).map(cellKey)),u=selectedUnit(s),anim=state.animation,impact=tacticalImpactActive(anim),wave=new Set((impact?anim?.cells||[]:[]).map(cellKey)),hits=new Set(tacticalDamagedTargets(anim));
  return '<div class="board '+(options?'movement-mode':'')+'" role="group" aria-label="Arena tática em grade de cinco por cinco">'+movementTrailMarkup(movement)+tacticalProjectileMarkup(anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null,anim?animationAbility(tacticalUnits(s).find(u=>u.id===anim.actorId),anim):null,anim)+boardCells().map(p=>{
   const environment=s.tactical.environment,environmentCell=environment&&sameCell(environment.position,p);
