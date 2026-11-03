@@ -22,7 +22,10 @@ function candidates(s,side,used){
   for(const a of u.abilities){
    if(u.cooldowns[a.id])continue;const spec=tacticalSpec(u,a),origin=s.tactical.positions[u.id];
    const anchors=spec.range===0?[origin]:['ally','friendly','team'].includes(a.target)?own.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]):other.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]);
-   for(const anchor of anchors){const orientation=[Math.sign(anchor.x-origin.x)||(anchor.y===origin.y?(side==='player'?1:-1):0),Math.sign(anchor.y-origin.y)];result.push({type:'skill',actorId:u.id,abilityId:a.id,formKey:a.formKey||'base',anchor:{...anchor},orientation});}
+   const spends=[{}];
+   if(a.spendResidueMax&&u.residue)spends.push({residueSpend:Math.min(a.spendResidueMax,u.residue)});
+   if(a.spendFracturesMax)spends.push({fractureSpend:a.spendFracturesMax});
+   for(const anchor of anchors){const orientation=[Math.sign(anchor.x-origin.x)||(anchor.y===origin.y?(side==='player'?1:-1):0),Math.sign(anchor.y-origin.y)];for(const spend of spends)result.push({...spend,type:'skill',actorId:u.id,abilityId:a.id,formKey:a.formKey||'base',anchor:{...anchor},orientation});}
   }
  }return result;
 }

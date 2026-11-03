@@ -86,5 +86,7 @@ Verificação final desta leva: 79 testes táticos e build aprovados. Na prévia
 - Resíduo e Fraturas têm seletores por ação e limites canônicos validados no motor. Gastos inválidos são rejeitados; Resíduo é debitado nos dois lados. A resolução continua limitando Fraturas aos efeitos presentes em cada alvo no impacto.
 - Sombra Preparada recebe uma escolha explícita de dano ou resposta ampla, validada por lado, estado pendente e confirmação do plano. A oposição escolhe automaticamente antes de planejar.
 - A IA considera valor público de preparações avançadas e mantém o isolamento do plano rival.
-- Validação: 88 testes táticos aprovados; 150 combates com sementes fixas, 1.800 ações planejadas e zero erros de resolução, Vida inválida ou sobreposição de sobreviventes. Build aprovado. Em recursos/formas, 28 de 33 testes passaram; as mesmas cinco falhas foram reproduzidas no código anterior, sem regressão nova nesse conjunto.
+- Validação: 89 testes táticos aprovados; 150 combates com sementes fixas, 1.800 ações planejadas e zero erros de resolução, Vida inválida ou sobreposição de sobreviventes. Build aprovado. Em recursos/formas, 28 de 33 testes passaram; as mesmas cinco falhas foram reproduzidas no código anterior, sem regressão nova nesse conjunto.
 - A cobertura acima se refere ao adaptador de combate. Continuam pendentes o balanceamento com jogadores, ensaios prolongados de todas as combinações, validação em celular físico e atlas exclusivos; apenas 25 entradas têm atlas base conectado.
+
+- A IA também considera o gasto opcional de Resíduo e Fraturas. Na interface, a preparação do confronto é identificada separadamente da resolução da rodada.

@@ -1,3 +1,4 @@
+import {planTacticalAI} from '../src/tactical-ai.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {characters,worldLeaders} from '../src/data.js';
@@ -68,4 +69,10 @@ test('metamorfa terrestre e alada usam alcances diferentes na segunda passagem',
   const ref=skill(u,'impulso',anchor,{formKey}),p=previewTacticalPlan(s,'player',[skill(u,activation),ref]);assert.equal(p.ok,true,formKey);
   const form=p.projection.allies[0].abilities.find(a=>a.id==='impulso');assert.equal(tacticalSpec(u,form).pattern,pattern);
  }
+});
+
+test('IA aproveita Resíduo disponível e o plano debita o gasto escolhido',()=>{
+ const {s,u}=setup('nilo','enemy');u.residue=2;for(const other of s.enemies)if(other!==u)other.stunned=1;
+ const plan=planTacticalAI(s,'enemy');assert.ok(plan.some(ref=>ref.actorId===u.id&&ref.residueSpend===2));assert.equal(u.residue,2);
+ const p=previewTacticalPlan(s,'enemy',plan);assert.equal(p.ok,true);assert.equal(p.projection.enemies[0].residue,0);
 });
