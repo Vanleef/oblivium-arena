@@ -18,7 +18,12 @@ export function canStep(s,actorId,from,to,{through=false}={}){
  if(from.x!==to.x&&from.y!==to.y){const a={x:to.x,y:from.y},b={x:from.x,y:to.y};if((obstacle(s,a)||(!through&&occupied(s,a,actorId)))&&(obstacle(s,b)||(!through&&occupied(s,b,actorId))))return false;}
  return true;
 }
-export function findPath(s,actorId,to,maxSteps=2){
+export function movementRange(s,actorId){
+ const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);
+ const extra=(s.tactical.augments?.[unit?.side]||[]).filter(a=>a.type==='movement-range'&&(!a.expiresAt||a.expiresAt>=s.round)).reduce((n,a)=>Math.max(n,Math.max(0,Math.floor(a.amount||0))),0);
+ return 1+Math.min(2,extra);
+}
+export function findPath(s,actorId,to,maxSteps=movementRange(s,actorId)){
  const start=s.tactical.positions[actorId];if(!onBoard(to)||!start||sameCell(start,to))return null;
  const pending=[{at:start,path:[]}],visited=new Set([cellKey(start)]);
  while(pending.length){const current=pending.shift();if(current.path.length>=maxSteps)continue;

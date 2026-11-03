@@ -9,7 +9,7 @@ import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenc
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec} from './tactical-kits.js';
-import {onBoard,sameCell,distance,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,mirrorCell,mirrorDirection} from './tactical-board.js';
+import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,mirrorCell,mirrorDirection} from './tactical-board.js';
 
 export const tacticalUnits=s=>[...s.allies,...s.enemies];
 const team=(s,side)=>side==='player'?s.allies:s.enemies;
@@ -198,7 +198,7 @@ function normalizePlan(s,side,actions){
   const actor=actorFor(s,side,ref.actorId);if(!actor||actor.stunned)return fail('Personagem indisponível.');
   counts[actor.id]=(counts[actor.id]||0)+1;if(counts[actor.id]>2)return fail('Cada personagem tem duas ações.');
   if(ref.type==='move'){
-   if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>2||ref.path.some(p=>!onBoard(p)))return fail('Movimento inválido.');
+   if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>movementRange(s,actor.id)||ref.path.some(p=>!onBoard(p)))return fail('Movimento inválido.');
    refs.push({type:'move',actorId:actor.id,side,path:ref.path.map(cleanPoint),order});
   }else if(ref.type==='skill'){
    const ability=actor.abilities.find(a=>a.id===ref.abilityId);if(!ability)return fail('Técnica inválida.');

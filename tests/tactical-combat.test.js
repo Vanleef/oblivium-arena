@@ -1,8 +1,9 @@
+import {addTacticalAugment} from '../src/tactical-chests.js';
 import {tacticalResolutionFeedback} from '../src/tactical-insight.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,tacticalArea,exchangeTacticalEssence} from '../src/tactical-combat.js';
-import {findPath,patternCells,onBoard,cellKey,lineOfSight} from '../src/tactical-board.js';
+import {movementRange,findPath,patternCells,onBoard,cellKey,lineOfSight} from '../src/tactical-board.js';
 import {planTacticalAI} from '../src/tactical-ai.js';
 const first=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],second=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
 const create=(seed=1)=>{const s=createTacticalBattle(first,second,{seed});for(const u of [...s.allies,...s.enemies])u.passive=null;for(const k of ['resources','enemyResources'])Object.assign(s[k],{essence:10,cinza:10,graca:10,ruptura:10});return s;};
@@ -27,7 +28,7 @@ test('duas ações por alma, até seis, com payload validado sem mutar o combate
  assert.equal(JSON.stringify(s),before);
 });
 test('movimento aceita diagonais e bloqueia ocupação, saltos e cantos fechados',()=>{
- const s=create(),u=s.allies[0];assert.equal(findPath(s,u.id,{x:2,y:0}).length,2);
+ const s=create(),u=s.allies[0];assert.equal(movementRange(s,u.id),1);assert.equal(findPath(s,u.id,{x:2,y:0}),null);assert.equal(findPath(s,u.id,{x:1,y:0}).length,1);assert.equal(previewTacticalPlan(s,'player',[{type:'move',actorId:u.id,path:[{x:1,y:0},{x:2,y:0}]}]).ok,false);
  assert.equal(findPath(s,u.id,s.tactical.positions[s.allies[1].id]),null);
  assert.equal(previewTacticalPlan(s,'player',[{type:'move',actorId:u.id,path:[{x:3,y:1}]}]).ok,false);
  s.tactical.obstacles=[{x:1,y:1},{x:0,y:0}];assert.equal(previewTacticalPlan(s,'player',[{type:'move',actorId:u.id,path:[{x:1,y:0}]}]).ok,false);
@@ -51,7 +52,7 @@ test('conflito de destino usa iniciativa alternada sem empilhar',()=>{
  assert.equal(new Set(Object.values(s.tactical.positions).map(cellKey)).size,6);
 });
 test('movimento parcial para antes de passagem disputada',()=>{
- const s=create(2);s.tactical.positions[s.allies[0].id]={x:0,y:0};s.tactical.positions[s.enemies[0].id]={x:3,y:0};
+ const s=create(2);addTacticalAugment(s,'player',{type:'movement-range',amount:1});s.tactical.positions[s.allies[0].id]={x:0,y:0};s.tactical.positions[s.enemies[0].id]={x:3,y:0};
  round(s,[{type:'move',actorId:s.allies[0].id,path:[{x:1,y:0},{x:2,y:0}]}],[{type:'move',actorId:s.enemies[0].id,path:[{x:2,y:0}]}]);
  assert.deepEqual(s.tactical.positions[s.enemies[0].id],{x:2,y:0});assert.deepEqual(s.tactical.positions[s.allies[0].id],{x:1,y:0});
 });
@@ -134,7 +135,7 @@ test('stun recém-aplicado continua válido na próxima janela de planejamento',
 
 
 test('replay guarda posições anteriores e posteriores de cada movimento sem referências mutáveis',()=>{
- const s=create(),u=s.allies[0],from={...s.tactical.positions[u.id]},path=findPath(s,u.id,{x:2,y:0});
+ const s=create(),u=s.allies[0],from={...s.tactical.positions[u.id]},path=findPath(s,u.id,{x:1,y:0});
  const result=round(s,[{type:'move',actorId:u.id,path}]);const event=result.events.find(e=>e.type==='move');
  assert.deepEqual(event.before.positions[u.id],from);assert.deepEqual(event.after.positions[u.id],path.at(-1));
  s.tactical.positions[u.id]={x:4,y:4};assert.deepEqual(event.after.positions[u.id],path.at(-1));
