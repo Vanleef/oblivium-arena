@@ -11,9 +11,9 @@ const shapes={
 };
 const kit=(slots,forms={},displacements={})=>({slots:Object.fromEntries(slots.map((shape,i)=>[['impulso','tecnica','voto'][i]||'tecnica-'+(i+1),shape])),forms,displacements});
 const initialKitProfiles={
- 'o-acougueiro':kit(['blade','blade','blade'],{'impulso/reopen':'blade'}),
+ 'o-acougueiro':kit(['touch','blade','reach'],{'impulso/reopen':'blade'}),
  'a-viuva-escarlate':kit(['ranged','personal','reach'],{'impulso/revenge':'ranged'}),
- 'o-escudo-vivo':kit(['reach','cross','reach'],{'impulso/advance':'blade'},{'impulso/advance':'push'}),
+ 'o-escudo-vivo':kit(['touch','cross','reach'],{'impulso/advance':'blade'},{'impulso/advance':'push'}),
  'o-passo-interrompido':kit(['ranged','reach','reach'],{'impulso/next':'reach','impulso/previous':'ranged'}),
  'o-odio-encarnado':kit(['reach','personal','reach'],{'impulso/rage':'touch','voto/eruption':'reach'},{'impulso/rage':'push'}),
  'a-arquiteta-verde':kit(['ranged','cross','ranged'],{'impulso/beam':'ranged','voto/collapse':'square'}),
