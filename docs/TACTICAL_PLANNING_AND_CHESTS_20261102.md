@@ -31,3 +31,11 @@ O comando `npm run test:tactical` inclui os testes de ordem, interface, animaç�
 - As cartas mostram uma descrição persistente da ação selecionada, custo e espaço 1/2. Com dois espaços preenchidos, os botões de edição permanecem disponíveis e novas inclusões ficam bloqueadas.
 - Movimento e instruções de confirmação ficam no painel sob a arena. No celular, as cinco cartas usam colunas de largura igual, o plano quebra os nomes em linhas e os principais controles têm pelo menos 44 px de altura.
 - Verificação automatizada: 60 testes táticos, incluindo casa anunciada ocupada, risco, cura limitada sem reviver derrotados, troca de oposição, identidade sem mutação, seleção de velocidade e edição/exclusão de ações.
+
+## Continuação: acompanhar e revisar o plano
+- O plano enviado permanece aberto durante a reprodução, com os espaços do trio em Aguardando, Em ação, Concluída ou Interrompida. O destaque acompanha personagem e passagem, inclusive em movimentos com vários passos.
+- A reprodução usa uma cópia do plano próprio e das suas explicações antes da resolução. Não revalida o plano contra o estado da rodada futura nem consulta o plano secreto do rival.
+- Edição, inversão e exclusão reavaliam os espaços: ações inválidas recebem Revisar, motivo persistente na sequência e indicação nos espaços do personagem. Desfazer restaura a validade quando recupera a preparação necessária.
+- O plano de reprodução é descartado ao terminar a rodada ou reiniciar a formação; o próximo planejamento começa vazio. Durante reprodução os espaços ficam bloqueados para edição.
+- Verificação: 60 testes táticos, incluindo remover um movimento que sustentava o seguinte, desfazer, confirmação cancelada, plano aberto no replay, passagem por estados de execução/conclusão e limpeza na rodada seguinte; build local concluído.
+- A conferência visual desta continuação ficou pendente: o ambiente não tinha navegador instalado e o download do Chromium retornou um arquivo inválido.

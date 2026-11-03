@@ -16,12 +16,20 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
   click({mode:'impulso'});click({cell:'2,1'});assert.match(root.innerHTML,/2ª passagem · iniciativa 1/);assert.match(root.innerHTML,/parte de B2/);assert.match(root.innerHTML,/Reposicionamento/);assert.match(root.innerHTML,/Posição e proteção podem alterar/);
   click({cell:'2,1'});assert.match(root.innerHTML,/2\/6 ações/);
   click({edit:'0'});click({command:'remove-edit'});assert.match(root.innerHTML,/1\/6 ações/);
-  click({command:'undo-plan'});assert.match(root.innerHTML,/2\/6 ações/);
+  click({command:'undo-plan'});assert.match(root.innerHTML,/2\/6 ações/);assert.doesNotMatch(root.innerHTML,/needs-review/);
+  click({command:'clear-plan'});click({cell:'1,1'});click({cell:'1,1'});click({cell:'2,1'});click({cell:'2,1'});assert.match(root.innerHTML,/2\/6 ações/);
+  click({edit:'0'});click({command:'remove-edit'});assert.match(root.innerHTML,/plan-slot occupied\s+needs-review/);assert.match(root.innerHTML,/class="slot-reason"/);assert.match(root.innerHTML,/Revisar 1ª ação/);
+  click({command:'undo-plan'});assert.doesNotMatch(root.innerHTML,/needs-review/);
   const button={dataset:{command:'commit-hold'},disabled:false,classList:{add(){},remove(){}}};
   rootHandlers.pointerdown({button:0,clientX:0,clientY:0,target:{closest:()=>button}});
   documentHandlers.pointerup();await new Promise(resolve=>setTimeout(resolve,720));assert.match(root.innerHTML,/Planejamento privado · rodada 1/);
   rootHandlers.pointerdown({button:0,clientX:0,clientY:0,target:{closest:()=>button}});
+  await until(()=>root.innerHTML.includes('ações em reprodução'));
+  assert.match(root.innerHTML,/2 ações em reprodução/);assert.match(root.innerHTML,/class="plan-details" open/);assert.match(root.innerHTML,/plan-slot occupied\s+executing/);assert.match(root.innerHTML,/aria-current="step"/);assert.match(root.innerHTML,/plan-slot occupied\s+waiting/);assert.doesNotMatch(root.innerHTML,/class="plan-error"/);
+  await until(()=>/plan-slot occupied\s+completed/.test(root.innerHTML));
+  assert.match(root.innerHTML,/Concluída 1ª ação/);assert.match(root.innerHTML,/2 ações em reprodução/);
   await until(()=>root.innerHTML.includes('Planejamento privado · rodada 2'));
+  assert.doesNotMatch(root.innerHTML,/ações em reprodução|plan-slot occupied/);
   assert.match(root.innerHTML,/0\/6 ações/);assert.match(root.innerHTML,/resolution-feedback/);assert.doesNotMatch(root.innerHTML,/Não foi possível planejar/);
  }finally{for(const [key,value]of Object.entries(saved)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
 });

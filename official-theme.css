@@ -904,3 +904,20 @@ body,.auth-screen{
 }
 @media(max-width:360px){.shell .combat-dock .arena-skills .skill{height:104px}.arena-skills .card-title strong{font-size:9px}.party-tab strong{font-size:11px}.party-tab small{font-size:9px}.playback-controls{gap:2px}.shell .playback-controls button{min-width:30px}}
 @media(max-height:500px) and (orientation:landscape){.combat-shell .arena-stage{aspect-ratio:2.4}.combat-shell{max-width:980px}}
+
+/* A sequência permanece legível durante a reprodução e após edições. */
+.shell .plan-slot.needs-review,.shell .selected-slot.needs-review{border-color:#ed9a88;background:#43252e}
+.shell .plan-slot.executing,.shell .selected-slot.executing{border-color:#d7c0ff;background:#513966;box-shadow:inset 3px 0 #dec7ff;opacity:1}
+.shell .plan-slot.completed,.shell .selected-slot.completed{border-color:#7abca0;background:#1c3530;opacity:1}
+.shell .plan-slot.interrupted,.shell .selected-slot.interrupted{border-color:#eda888;background:#432c28;opacity:1}
+.shell .plan-slot.waiting,.shell .selected-slot.waiting{opacity:.8}
+.timeline-row.acting{border-color:#c9a7f5;background:#392e4c}
+.shell .plan-slot.needs-review{flex-wrap:wrap}
+.plan-slot .slot-reason{flex-basis:100%;font-size:11px;line-height:1.35;color:#ffb9aa;white-space:normal}
+.shell .plan-slot .slot-status,.shell .selected-slot .slot-status{display:block;flex:none;font-size:10px}
+.plan-slot.needs-review .slot-status,.selected-slot.needs-review .slot-status{color:#ffb9aa}
+@media(max-width:700px){
+ .shell .plan-slot{flex-wrap:wrap}
+ .shell .plan-slot .slot-status{flex-basis:100%;font-size:10px}
+ .shell .selected-slot .slot-status{font-size:9px}
+}
