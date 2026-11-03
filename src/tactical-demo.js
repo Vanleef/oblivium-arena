@@ -358,7 +358,7 @@ function commandActionMarkup(actor,ability,isMove,locked,progress){
  const name=isMove?'Mover':ability.name;
  const summary=isMove?movementText(actor)+' · sem Essência':costText(actor,ability)+(cooldown?' · recarga '+cooldown:'');
  const detail=isMove?'Escolha uma casa destacada da grade.':(ability.description||tacticalRuleText(actor,ability));
- const reason=locked?'Aguarde o planejamento.':wrongPass?'Conclua a '+(progress.pass===0?'1ª':'2ª')+' ação de cada personagem antes de avançar.':full?'As duas ações deste personagem já foram escolhidas.':requirement||(actor.stunned?'Personagem atordoado.':cooldown?'Recarga: '+cooldown+' rodada(s).':!affordable?'Essência insuficiente.':detail);
+ const reason=locked?'Aguarde o planejamento.':full?'As duas ações deste personagem já foram escolhidas.':wrongPass?'Conclua a '+(progress.pass===0?'1ª':'2ª')+' ação de cada personagem antes de avançar.':requirement||(actor.stunned?'Personagem atordoado.':cooldown?'Recarga: '+cooldown+' rodada(s).':!affordable?'Essência insuficiente.':detail);
  return '<button class="command-action '+(selected?'selected':'')+(!affordable?' essence-unavailable':'')+'" data-hand-actor="'+esc(actor.id)+'" data-mode="'+esc(mode)+'" aria-pressed="'+selected+'" aria-label="'+esc(name+' · '+summary+(disabled?'; '+reason:''))+'" title="'+esc(reason)+'" '+(disabled?'disabled':'')+'><span class="command-art">'+(art?'<img src="'+esc(art)+'" alt="" loading="lazy">':'<i>'+(isMove?'↗':'✦')+'</i>')+'</span><span class="command-copy"><b>'+esc(name)+'</b><small>'+esc(summary)+'</small></span></button>';
 }
 function commandPaletteMarkup(actor,locked){
