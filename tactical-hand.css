@@ -78,3 +78,14 @@
 @media(prefers-reduced-motion:reduce){.new-turn-income{animation:none}.card-battle .hand-cards button.action-card{transition:none}}
 .card-battle .hand-cards .action-card *,.card-battle .card-socket *{pointer-events:none;-webkit-user-drag:none}
 .card-battle .card-socket.pending-target{border-color:#c5a7eb;box-shadow:0 0 12px #c5a7eb44}.card-battle .card-socket.pending-target small{color:#dbc4ef}
+.card-battle button.socket-owner{width:100%;min-height:27px;margin:0 0 5px;padding:0;border:0;background:none;cursor:pointer}
+@media(min-width:701px){
+ .card-battle .hand-cards .action-card+.action-card{margin-left:-50px}
+ .card-battle .hand-cards .action-card .card-title{right:auto;width:58px}
+ .card-battle .hand-cards .action-card .card-title strong{font-size:11px}
+ .card-battle .hand-cards .action-card .card-cost{max-width:61px}
+ .card-battle .hand-cards .action-card .card-pattern{left:4px;right:auto}
+ .card-battle .hand-cards .action-card:hover,.card-battle .hand-cards .action-card:focus-visible{z-index:8;transform:translateY(-9px)}
+ .card-battle .hand-cards .action-card:hover .card-title,.card-battle .hand-cards .action-card:focus-visible .card-title{width:auto;right:6px}
+ .card-battle .hand-cards .action-card:hover .card-cost,.card-battle .hand-cards .action-card:focus-visible .card-cost{max-width:none}
+}

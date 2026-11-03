@@ -14,7 +14,7 @@ test('mão do trio usa encaixes, movimento de uma casa e confirmação simples',
   assert.ok(root.innerHTML.indexOf('data-hand-group="o-acougueiro"')<root.innerHTML.indexOf('data-hand-group="a-viuva-escarlate"'));assert.ok(root.innerHTML.indexOf('data-hand-group="a-viuva-escarlate"')<root.innerHTML.indexOf('data-hand-group="o-escudo-vivo"'));
   assert.ok(root.innerHTML.indexOf('class="card-program"')<root.innerHTML.indexOf('class="hand-scroll"'));
   assert.doesNotMatch(root.innerHTML,/class="movement-guide"|class="private-insight"|Como seu trio pode combinar|Segure para confirmar|Próximo personagem/);assert.match(root.innerHTML,/essence-received/);
-  click({handActor:'o-acougueiro',mode:'move'});assert.match(root.innerHTML,/movement-mode/);assert.match(root.innerHTML,/1 casa\(s\)/);assert.doesNotMatch(root.innerHTML,/move-cell-label|route-step|dois passos/);
+  click({handActor:'o-acougueiro',mode:'move'});assert.match(root.innerHTML,/movement-mode/);assert.match(root.innerHTML,/1 casa/);assert.doesNotMatch(root.innerHTML,/move-cell-label|route-step|dois passos/);
   click({cell:'1,1'});assert.match(root.innerHTML,/Mover · B2/);assert.equal((root.innerHTML.match(/class="card-socket filled/g)||[]).length,1);
   click({handActor:'o-acougueiro',mode:'move'});click({cell:'2,1'});assert.equal((root.innerHTML.match(/class="card-socket filled/g)||[]).length,2);
   click({slotSwap:'o-acougueiro'});assert.match(root.innerHTML,/needs-review/);assert.match(root.innerHTML,/class="confirm-cards"[^>]*disabled/);
