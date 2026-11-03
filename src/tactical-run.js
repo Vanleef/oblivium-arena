@@ -30,5 +30,5 @@ export function advanceTacticalRun(run,battle,routeId=null){
  const offset=((battle.rngState||battle.round)>>>0)+run.encounter*3;
  let opponents=routeId==='discovery'?Array.from({length:3},(_,i)=>tacticalRoster[(offset+i)%tacticalRoster.length]):ids('enemy');
  if(routeId==='discovery'&&opponents.every((id,i)=>id===ids('enemy')[i]))opponents=Array.from({length:3},(_,i)=>tacticalRoster[(offset+i+1)%tacticalRoster.length]);
- return {player:ids('player'),enemy:opponents,routeEnemyShield:routeId==='risk'?18:0,seed:(battle.rngState||battle.round)+run.encounter,buffs:[...run.buffs],memories:[...run.memories],globalEffects:{...run.globalEffects},teamHealth:{...run.teamHealth}};
+ return {environment:battle.tactical.environment?.id||null,player:ids('player'),enemy:opponents,routeEnemyShield:routeId==='risk'?18:0,seed:(battle.rngState||battle.round)+run.encounter,buffs:[...run.buffs],memories:[...run.memories],globalEffects:{...run.globalEffects},teamHealth:{...run.teamHealth}};
 }

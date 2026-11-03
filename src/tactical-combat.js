@@ -1,3 +1,4 @@
+import {createTacticalEnvironment,resolveTacticalEnvironment} from './tactical-environment.js';
 import {tacticalChestOptions,addTacticalAugment,triggerTacticalAugments} from './tactical-chests.js';
 import {orderTacticalActions} from './tactical-order.js';
 import {characterById} from './data.js';
@@ -88,12 +89,13 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
- s.tactical={version:1,size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
+ s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  team(s,'player').forEach((u,i)=>{s.tactical.positions[u.id]={x:i===1?1:0,y:i+1};});
  team(s,'enemy').forEach((u,i)=>{s.tactical.positions[u.id]=mirrorCell({x:i===1?1:0,y:i+1});});
  const obstacles=config.obstacles||[];
  if(!Array.isArray(obstacles)||obstacles.some(p=>!onBoard(p)||occupied(s,p))||new Set(obstacles.map(cellKey)).size!==obstacles.length)throw Error('Obstáculos inválidos.');
  s.tactical.obstacles=obstacles.map(cleanPoint);
+ if(s.tactical.environment&&obstacles.some(p=>sameCell(p,s.tactical.environment.position)))throw Error('A casa ambiental não pode ser um obstáculo.');
  if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
  s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
@@ -240,7 +242,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
-function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -250,6 +252,11 @@ export function resolveTacticalRound(s){
  for(const ref of actions){
   const before=replayState(s),result=execute(s,ref);stamp(s,{...ref,...result,before,after:replayState(s),title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
   if(boardOutcome(s))break;
+ }
+ if(s.tactical.stage!=='finished'&&s.tactical.environment){
+  const before=replayState(s),augmentNotes=resolveTacticalEnvironment(s);
+  stamp(s,{type:'environment',title:s.tactical.environment.title,augmentNotes,cells:[{...s.tactical.environment.position}],before,after:replayState(s)});
+  boardOutcome(s);
  }
  if(s.tactical.stage!=='finished'){
   const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});

@@ -1,3 +1,4 @@
+import {tacticalEnvironmentDelta} from './tactical-environment.js';
 import {tacticalView,previewTacticalPlan,tacticalUnits} from './tactical-combat.js';
 import {boardCells,findPath,distance} from './tactical-board.js';
 import {tacticalSpec} from './tactical-kits.js';
@@ -10,6 +11,7 @@ function score(s,side){
   if(u.hp>0&&alive.length){const p=s.tactical.positions[u.id],nearest=Math.min(...alive.map(e=>distance(p,s.tactical.positions[e.id])));value-=nearest*5;value+=(2-Math.abs(p.y-2))*.4;if(u.invulnerable&&nearest<=3)value+=8;}
  }
  for(const u of opposition){value-=u.hp*1.6+(u.hp>0?80:0)+u.shield*.25;if(u.stunned)value+=10;if(u.weakened)value+=3;value+=Object.values(u.marks).filter(m=>own.some(a=>a.id===m.sourceId)).length*2;value+=u.dots.reduce((n,d)=>n+d.damage*d.turns*.6,0);}
+ for(const u of [...own,...opposition]){const delta=tacticalEnvironmentDelta(s,u);value+=(u.side===side?1:-1)*(delta.hp*1.5+delta.shield*.28);}
  return value;
 }
 function candidates(s,side,used){

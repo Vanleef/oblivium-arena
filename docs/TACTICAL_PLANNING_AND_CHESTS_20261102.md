@@ -53,3 +53,13 @@ O comando `npm run test:tactical` inclui os testes de ordem, interface, animaç�
 - Repetições curtas é uma opção separada de 1×/2×/3×. A primeira ativação mantém sua apresentação; repetições da mesma habilidade/forma/personagem no combate reduzem preparação e recuperação, preservando viagem e contato. Eliminações e mudanças reais de forma corporal sempre mantêm a sequência completa.
 - A identificação de repetições reinicia em um novo combate e não altera custos, resolução, ordem ou snapshots. Mudar a opção vale para as próximas ações reproduzidas.
 - Ainda pendentes do roteiro amplo: regras ambientais por Mundo, trilhas narrativas completas por Reino, mais efeitos de baú e validação com jogadores/mobile físico. As três trilhas táticas atuais não equivalem à campanha narrativa completa.
+
+## Regras ambientais opcionais por Mundo
+- A formação oferece Sem regra ambiental (padrão), Inferno/Círculo de Brasas, Paraíso/Santuário de Luz e Limbo/Manto de Névoa. São protótipos selecionáveis para a expedição tática; não constituem a campanha narrativa completa.
+- Uma única casa central C3 fica marcada desde o primeiro planejamento, com descrição persistente. Continua transitável, pode conter um baú e usa as mesmas regras para aliados e rivais.
+- Depois das duas passagens e antes da expiração de estados, brasas causam 6 de dano ambiental: Escudo absorve, Invulnerável bloqueia, Armadura não reduz. O santuário recupera 6 de Vida, respeitando limite e bloqueio de cura, sem reviver. A névoa concede 6 de Escudo até metade da Vida máxima.
+- A posição final decide o efeito: passar pela casa e sair antes do fim das ações não ativa a regra. Uma eliminação ambiental pode encerrar o confronto. O replay inclui snapshots, efeitos e mensagens.
+- A regra escolhida persiste nos próximos encontros das três trilhas táticas. Sem regra selecionada, o funcionamento anterior permanece igual.
+- A IA avalia o resultado ambiental público ao planejar, sem consultar a fila secreta. A prévia de ações não aplica antecipadamente os efeitos de fim de rodada.
+- Testes cobrem configuração, obstáculos, ordem, posição final, Escudo/Invulnerável, limites, cura bloqueada, não ressurreição, derrota, serialização, persistência nas trilhas, IA e seleção na interface.
+- Conferência da etapa anterior na prévia d039dc9: controle Repetições curtas ativado e mensagens de perda de Vida visíveis junto à ação no impacto.

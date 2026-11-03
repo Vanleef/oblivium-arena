@@ -38,5 +38,10 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
   await until(()=>root.innerHTML.includes('Planejamento privado · rodada 2'));
   assert.doesNotMatch(root.innerHTML,/ações em reprodução|plan-slot occupied/);
   assert.match(root.innerHTML,/0\/6 ações/);assert.match(root.innerHTML,/resolution-feedback/);assert.doesNotMatch(root.innerHTML,/Não foi possível planejar/);
+  const formation={'player-choice-0':'o-acougueiro','player-choice-1':'a-viuva-escarlate','player-choice-2':'o-escudo-vivo','enemy-choice-0':'o-passo-interrompido','enemy-choice-1':'o-odio-encarnado','enemy-choice-2':'a-arquiteta-verde','seed-choice':'1','map-choice':'open','environment-choice':'limbo'};
+  globalThis.document.getElementById=id=>id==='tactical-app'?root:{value:formation[id]};
+  click({command:'restart'});await until(()=>root.innerHTML.includes('Planejamento privado · rodada 1'));
+  assert.match(root.innerHTML,/environment-rule limbo/);assert.match(root.innerHTML,/Mesma regra para os dois lados/);assert.match(root.innerHTML,/value="limbo" selected/);assert.equal((root.innerHTML.match(/class="cell environment-cell/g)||[]).length,1);
+
  }finally{for(const [key,value]of Object.entries(saved)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
 });
