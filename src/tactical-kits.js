@@ -13,7 +13,7 @@ const kit=(slots,forms={},displacements={})=>({slots:Object.fromEntries(slots.ma
 const initialKitProfiles={
  'o-acougueiro':kit(['blade','blade','blade'],{'impulso/reopen':'blade'}),
  'a-viuva-escarlate':kit(['ranged','personal','reach'],{'impulso/revenge':'ranged'}),
- 'o-escudo-vivo':kit(['reach','reach','reach'],{'impulso/advance':'blade'},{'impulso/advance':'push'}),
+ 'o-escudo-vivo':kit(['reach','cross','reach'],{'impulso/advance':'blade'},{'impulso/advance':'push'}),
  'o-passo-interrompido':kit(['ranged','reach','reach'],{'impulso/next':'reach','impulso/previous':'ranged'}),
  'o-odio-encarnado':kit(['reach','personal','reach'],{'impulso/rage':'touch','voto/eruption':'reach'},{'impulso/rage':'push'}),
  'a-arquiteta-verde':kit(['ranged','cross','ranged'],{'impulso/beam':'ranged','voto/collapse':'square'}),
@@ -70,3 +70,4 @@ export function tacticalRuleText(actor,ability){
  const spec=tacticalSpec(actor,ability);
  return (spec.pattern==='self'?'Pessoal':tacticalPatternLabel(spec)+' · alcance '+spec.range+' · até '+spec.limit+' alvo(s) na área')+(spec.displacement?' · '+(spec.displacement.kind==='pull'?'Puxa':'Empurra')+' 1 casa; para diante de obstáculos, bordas e ocupantes.':'');
 }
+

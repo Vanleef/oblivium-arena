@@ -82,7 +82,7 @@ const rosters = {
     K("Desolação", "O território corrói todos; a ruína do alvo escolhido alimenta a sobrevivência.", P("Habitar o Nada", "renew",3), [A("Chão de Ninguém",5,2,{target:"all-enemies",dot:D("decadencia",5,2),cooldown:1}), A("Endereço Inexistente",15,1,{mark:"lugar",weaken:1}), F("Engolido pelo Lugar",25,"mark:lugar",10,{lifesteal:.5,damageType:"affliction"})], "Território Impossível")
   ],
   protecao: [
-    K("Protetor", "Proteja um aliado e use a própria guarda como base para o contra-golpe.", P("Ficarei Aqui", "ward",5), [A("Golpe do Bastião",15,1,{shield:10,target:"enemy"}), S("Voto de Amparo",{shield:25,reduce:5}), F("Resposta da Égide",25,"selfShielded",15,{damageType:"piercing"})], "Fortaleza de Luz"),
+    K("Protetor", "Marque a ameaça no tabuleiro, cubra o trio dentro da área do Voto e converta sua guarda numa resposta perfurante.", P("Ficarei Aqui", "ward",5), [A("Golpe do Bastião",15,1,{expose:1}), S("Voto de Amparo",{target:"team",shield:22,reduce:4},2), F("Resposta da Égide",25,"selfShielded",15,{damageType:"piercing"})], "Fortaleza de Luz"),
     K("Fortificação", "Erga a muralha para o trio e carregue força para romper a linha adversária.", P("Pedra sobre Pedra", "ward",4), [A("Impacto do Baluarte",15,1,{gainCharge:1}), S("Muralha Partilhada",{target:"team",shield:18},2), A("Avanço do Bastão",20,2,{perChargeDamage:8,spendCharge:true,expose:1,cooldown:1})], "Além do Baluarte"),
     K("Sacrifício", "Permaneça ao lado dos feridos e transforme a resistência em um retorno decisivo.", P("Presença que Sustenta", "support",5), [A("Não Recuar",20,1,{reduce:5,target:"enemy"}), S("Lugar ao Meu Lado",{heal:15,shield:20,selfDamage:5},2), F("Eu Ainda Estou Aqui",25,"selfWounded",15,{lifesteal:.3})], "Promessa Inquebrável"),
     K("Contra-ataque", "Defenda o aliado ameaçado com um contra-ataque e interrompa o inimigo marcado pela vigília.", P("Última Vigília", "retaliate",4), [A("Lança da Guarda",20,1,{mark:"vigiado"}), S("Sentinela de Resposta",{counter:25,shield:10},2), F("Alvorecer do Guardião",25,"mark:vigiado",10,{combo:{condition:"mark:vigiado",bonusDamage:10,stun:1},cooldown:2})], "Guarda Inviolável"),
@@ -428,4 +428,5 @@ export function buildCharacterKit(eloId, index, art) {
 export const kitCount=Object.values(rosters).reduce((sum,list)=>sum+list.length,0);
 
 export function allSkillForms(character){return character.abilities.flatMap(a=>[a,...(a.forms||[])]);}
+
 
