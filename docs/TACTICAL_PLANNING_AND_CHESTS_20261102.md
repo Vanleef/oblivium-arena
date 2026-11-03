@@ -38,4 +38,11 @@ O comando `npm run test:tactical` inclui os testes de ordem, interface, animaç�
 - Edição, inversão e exclusão reavaliam os espaços: ações inválidas recebem Revisar, motivo persistente na sequência e indicação nos espaços do personagem. Desfazer restaura a validade quando recupera a preparação necessária.
 - O plano de reprodução é descartado ao terminar a rodada ou reiniciar a formação; o próximo planejamento começa vazio. Durante reprodução os espaços ficam bloqueados para edição.
 - Verificação: 60 testes táticos, incluindo remover um movimento que sustentava o seguinte, desfazer, confirmação cancelada, plano aberto no replay, passagem por estados de execução/conclusão e limpeza na rodada seguinte; build local concluído.
-- A conferência visual desta continuação ficou pendente: o ambiente não tinha navegador instalado e o download do Chromium retornou um arquivo inválido.
+- A conferência visual inicialmente pendente foi retomada no navegador remoto: confirmado aviso após exclusão, restauração ao desfazer, espaços Em ação/Aguardando durante o replay e transição para o planejamento da rodada 2.
+
+## Continuação: edição em sequência e identificação do ator
+- Editar uma ação anterior pode deixar as posteriores para revisão. A nova ação precisa ser válida até seu próprio ponto na ordem pública; não são aceitos custos, caminhos ou preparações inválidos da ação editada. O envio da rodada continua exigindo o plano inteiro válido.
+- Os destinos e a confirmação usam a mesma regra de validação da edição. O jogador pode corrigir o próximo espaço ou desfazer sem apagar a sequência inteira.
+- Abaixo da arena, a reprodução identifica Seu trio/Oponente, personagem, habilidade, passagem e rota/área do evento atual. Os espaços próprios não aparecem misturados às cartas do oponente.
+- Casas vazias deixaram de receber o destaque de ator, que agora exige um personagem presente.
+- Os 60 testes táticos passaram, incluindo editar a primeira ação, revisar/corrigir a segunda, desfazer ambas e impedir envio do plano inválido. A conferência visual da nova prévia será registrada após o deploy.

@@ -10,7 +10,7 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
  const until=async predicate=>{for(let i=0;i<120;i++){if(predicate())return;await new Promise(resolve=>setTimeout(resolve,40));}assert.fail('A interface não chegou ao estado esperado.');};
  try{
   await import('../src/tactical-demo.js?private-planning-flow');await until(()=>root.innerHTML.includes('Planejamento privado'));
-  assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.match(root.innerHTML,/Seu plano · privado/);assert.match(root.innerHTML,/Ação selecionada/);assert.match(root.innerHTML,/Velocidade das animações/);assert.ok(root.innerHTML.indexOf('class="movement-guide"')>root.innerHTML.indexOf('class="combat-dock"'));
+  assert.equal((root.innerHTML.match(/data-cell=/g)||[]).length,25);assert.doesNotMatch(root.innerHTML,/acting-cell/);assert.match(root.innerHTML,/Seu plano · privado/);assert.match(root.innerHTML,/Ação selecionada/);assert.match(root.innerHTML,/Velocidade das animações/);assert.ok(root.innerHTML.indexOf('class="movement-guide"')>root.innerHTML.indexOf('class="combat-dock"'));
   const speedButtons=[1,2,3].map(n=>({dataset:{speed:String(n)},setAttribute(key,value){this[key]=value;}}));root.querySelectorAll=selector=>selector==='[data-speed]'?speedButtons:[];click({speed:'3'});assert.equal(speedButtons[2]['aria-pressed'],'true');assert.equal(speedButtons[0]['aria-pressed'],'false');
   click({cell:'1,1'});click({cell:'1,1'});assert.match(root.innerHTML,/Mover · B2/);
   click({mode:'impulso'});click({cell:'2,1'});assert.match(root.innerHTML,/2ª passagem · iniciativa 1/);assert.match(root.innerHTML,/parte de B2/);assert.match(root.innerHTML,/Reposicionamento/);assert.match(root.innerHTML,/Posição e proteção podem alterar/);
@@ -18,6 +18,10 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
   click({edit:'0'});click({command:'remove-edit'});assert.match(root.innerHTML,/1\/6 ações/);
   click({command:'undo-plan'});assert.match(root.innerHTML,/2\/6 ações/);assert.doesNotMatch(root.innerHTML,/needs-review/);
   click({command:'clear-plan'});click({cell:'1,1'});click({cell:'1,1'});click({cell:'2,1'});click({cell:'2,1'});assert.match(root.innerHTML,/2\/6 ações/);
+  click({edit:'0'});click({cell:'0,0'});click({cell:'0,0'});
+  assert.match(root.innerHTML,/Mover · A1/);assert.match(root.innerHTML,/Revisar 2ª ação/);assert.match(root.innerHTML,/Ação atualizada. Revise os espaços/);assert.match(root.innerHTML,/<button class="round-commit"[^>]*disabled/);
+  click({edit:'1'});click({cell:'1,0'});click({cell:'1,0'});assert.doesNotMatch(root.innerHTML,/needs-review/);assert.match(root.innerHTML,/Mover · B1/);
+  click({command:'undo-plan'});assert.match(root.innerHTML,/Revisar 2ª ação/);click({command:'undo-plan'});assert.doesNotMatch(root.innerHTML,/needs-review/);
   click({edit:'0'});click({command:'remove-edit'});assert.match(root.innerHTML,/plan-slot occupied\s+needs-review/);assert.match(root.innerHTML,/class="slot-reason"/);assert.match(root.innerHTML,/Revisar 1ª ação/);
   click({command:'undo-plan'});assert.doesNotMatch(root.innerHTML,/needs-review/);
   const button={dataset:{command:'commit-hold'},disabled:false,classList:{add(){},remove(){}}};
@@ -25,7 +29,9 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
   documentHandlers.pointerup();await new Promise(resolve=>setTimeout(resolve,720));assert.match(root.innerHTML,/Planejamento privado · rodada 1/);
   rootHandlers.pointerdown({button:0,clientX:0,clientY:0,target:{closest:()=>button}});
   await until(()=>root.innerHTML.includes('ações em reprodução'));
-  assert.match(root.innerHTML,/2 ações em reprodução/);assert.match(root.innerHTML,/class="plan-details" open/);assert.match(root.innerHTML,/plan-slot occupied\s+executing/);assert.match(root.innerHTML,/aria-current="step"/);assert.match(root.innerHTML,/plan-slot occupied\s+waiting/);assert.doesNotMatch(root.innerHTML,/class="plan-error"/);
+  assert.match(root.innerHTML,/2 ações em reprodução/);assert.match(root.innerHTML,/Seu trio · Riven/);assert.equal((root.innerHTML.match(/acting-cell/g)||[]).length,1);assert.match(root.innerHTML,/class="plan-details" open/);assert.match(root.innerHTML,/plan-slot occupied\s+executing/);assert.match(root.innerHTML,/aria-current="step"/);assert.match(root.innerHTML,/plan-slot occupied\s+waiting/);assert.doesNotMatch(root.innerHTML,/class="plan-error"/);
+  await until(()=>root.innerHTML.includes('playback-action opponent'));
+  assert.match(root.innerHTML,/Oponente ·/);assert.doesNotMatch(root.innerHTML,/class="selected-plan"/);
   await until(()=>/plan-slot occupied\s+completed/.test(root.innerHTML));
   assert.match(root.innerHTML,/Concluída 1ª ação/);assert.match(root.innerHTML,/2 ações em reprodução/);
   await until(()=>root.innerHTML.includes('Planejamento privado · rodada 2'));
