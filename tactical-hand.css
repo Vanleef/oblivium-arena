@@ -143,3 +143,60 @@
 @media(max-width:700px){
  .card-battle.combat-shell.card-battle{--hand-dock-size:156px;padding-bottom:calc(190px + env(safe-area-inset-bottom))}
 }
+
+
+/* Comandos contextuais: sem mão fixa nem encaixes vazios. */
+.card-battle.combat-shell.card-battle{--hand-dock-size:0px;padding-bottom:20px!important}
+@media(max-width:700px){.card-battle.combat-shell.card-battle{padding-bottom:calc(20px + env(safe-area-inset-bottom))!important}}
+.card-battle .command-dock{display:grid;gap:8px;margin:10px 0 0;padding:9px 4px 4px;border:0;border-top:1px solid #cbb77b42;background:transparent;box-shadow:none}
+.card-battle .command-header{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:38px}
+.card-battle .command-status{display:flex;align-items:baseline;gap:10px;min-width:0}
+.card-battle .command-status>b{color:#e5ce91;font-size:11px;letter-spacing:.12em;white-space:nowrap}
+.card-battle .command-status>span,.card-battle .command-select-hint{color:#bdb6ab;font-size:12px}
+.card-battle .command-actions{display:flex;align-items:stretch;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#736143 transparent;padding:2px 2px 6px}
+.card-battle .command-action{flex:1 0 136px;min-width:120px;max-width:210px;min-height:59px;display:flex;align-items:center;gap:8px;padding:7px 9px;text-align:left;border:1px solid #b39a6338;border-radius:7px;background:linear-gradient(145deg,#171b20aa,#11151a88);color:#eee5d2;box-shadow:0 2px 7px #0003;transition:transform .16s,border-color .16s,background .16s,filter .16s}
+.card-battle .command-action:hover:not(:disabled),.card-battle .command-action:focus-visible{transform:translateY(-3px);border-color:#e0c984;background:linear-gradient(145deg,#302a20,#171a1d);outline:none}
+.card-battle .command-action.selected{border-color:#e2cb8d;box-shadow:0 0 0 1px #e0c98455,0 3px 12px #d7bb6a20}
+.card-battle .command-action:disabled{cursor:not-allowed;opacity:.48}
+.card-battle .command-action.essence-unavailable{filter:grayscale(.82);opacity:.44}
+.card-battle .command-art{width:34px;height:40px;flex:none;overflow:hidden;border:1px solid #c6a96575;border-radius:4px;background:#0f1115}
+.card-battle .command-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.card-battle .command-art>i{display:grid;width:100%;height:100%;place-items:center;color:#f1d897;font-style:normal;font-size:22px}
+.card-battle .command-copy{display:grid;gap:4px;min-width:0}
+.card-battle .command-copy>b{font-family:Georgia,serif;font-size:12px;line-height:1.08;color:#f1e5ca;overflow:hidden;text-overflow:ellipsis}
+.card-battle .command-copy>small{font-size:10px;line-height:1.15;color:#c8b98e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-battle .planned-actions{display:flex;align-items:center;flex-wrap:wrap;gap:5px;min-height:22px}
+.card-battle .planned-actions>span:first-child{margin-right:3px;color:#a39a87;font-size:9px;letter-spacing:.12em}
+.card-battle .planned-action-group{display:inline-flex;align-items:center;gap:1px}
+.card-battle .planned-action,.card-battle .planned-remove,.card-battle .planned-swap{min-height:26px;padding:3px 7px;border:1px solid #bba77455;border-radius:5px;background:#14171bcc;color:#e4d6b5;font-size:10px}
+.card-battle .planned-action{display:flex;align-items:center;gap:5px}
+.card-battle .planned-action>b{color:#e7c978}
+.card-battle .planned-remove{padding:2px 7px;color:#c49a8e}
+.card-battle .planned-swap{color:#e2cb8d}
+.card-battle .hud-action-markers{display:flex;gap:3px;margin-top:2px}
+.card-battle .hud-action-markers i{display:grid;place-items:center;width:12px;height:12px;border-radius:50%;border:1px solid #d7c081;background:#161820;color:#f2deaa;font-size:8px;font-style:normal}
+.card-battle .hud-action-markers:empty{display:none}
+.card-battle .command-dock .hand-context{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:0;margin:0;padding:0;border:0;background:transparent;color:#c9c1b4;font-size:11px}
+.card-battle .command-dock .hand-context:empty{display:none}
+.card-battle .command-dock .hand-context>span{margin:0}
+.card-battle .command-dock .hand-inspector{font-size:11px}
+.card-battle .command-dock .tactical-spend{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+.card-battle .command-dock .tactical-spend strong{margin-right:4px;color:#d8c69c;font-size:11px}
+.card-battle .command-dock .tactical-spend button{min-height:28px;padding:4px 8px}
+.card-battle .confirm-cards{flex:none;width:42px;height:42px}
+.card-battle .hud-unit-copy{min-width:0}
+@media(max-width:700px){
+ .card-battle .command-dock{gap:5px;margin-top:6px;padding:6px 2px 3px}
+ .card-battle .command-header{min-height:34px}
+ .card-battle .command-status{gap:6px;flex-wrap:wrap}
+ .card-battle .command-status>b{font-size:9px}
+ .card-battle .command-status>span,.card-battle .command-select-hint{font-size:10px}
+ .card-battle .command-actions{gap:5px}
+ .card-battle .command-action{flex:0 0 132px;min-width:132px;max-width:132px;min-height:51px;padding:5px 6px;gap:6px}
+ .card-battle .command-art{width:28px;height:34px}
+ .card-battle .command-copy>b{font-size:11px}
+ .card-battle .command-copy>small{font-size:9px}
+ .card-battle .planned-action,.card-battle .planned-remove,.card-battle .planned-swap{min-height:25px;font-size:9px}
+ .card-battle .command-dock .hand-context{font-size:10px}
+ .card-battle .confirm-cards{width:38px;height:38px}
+}
