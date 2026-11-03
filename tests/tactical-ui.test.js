@@ -42,6 +42,12 @@ test('planejamento privado explica a segunda passagem, permite editar e executa 
   globalThis.document.getElementById=id=>id==='tactical-app'?root:{value:formation[id]};
   click({command:'restart'});await until(()=>root.innerHTML.includes('Planejamento privado · rodada 1'));
   assert.match(root.innerHTML,/environment-rule limbo/);assert.match(root.innerHTML,/Mesma regra para os dois lados/);assert.match(root.innerHTML,/value="limbo" selected/);assert.equal((root.innerHTML.match(/class="cell environment-cell/g)||[]).length,1);
+  formation['player-choice-0']='o-eco-de-nilo';click({command:'restart'});await until(()=>root.innerHTML.includes('Planejamento privado · rodada 1'));
+  assert.match(root.innerHTML,/arena-skills expanded-kit/);assert.equal((root.innerHTML.match(/data-mode=/g)||[]).length,11);assert.match(root.innerHTML,/data-mode="tecnica-9"/);assert.match(root.innerHTML,/136 jogáveis · 150 adversários/);
+  formation['player-choice-0']='nilo-cinza-final';click({command:'restart'});await until(()=>root.innerHTML.includes('Planejamento privado · rodada 1'));
+  assert.match(root.innerHTML,/Requer Colapso I/);click({mode:'voto'});click({mode:'voto'});assert.match(root.innerHTML,/1\/6 ações/);assert.doesNotMatch(root.innerHTML,/title="Requer Colapso I/);
+  formation['player-choice-0']='nilo';click({command:'restart'});await until(()=>root.innerHTML.includes('Planejamento privado · rodada 1'));click({mode:'voto'});assert.match(root.innerHTML,/Resíduo disponível/);assert.match(root.innerHTML,/data-spend-kind="residue"/);
+
 
  }finally{for(const [key,value]of Object.entries(saved)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
 });

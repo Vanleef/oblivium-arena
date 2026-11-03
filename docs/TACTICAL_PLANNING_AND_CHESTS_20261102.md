@@ -77,3 +77,14 @@ Verificação da prévia b8a3a95: seletor com as quatro opções, regra de Limbo
 - Validação adicional: 15 combates com sementes fixas, 154 ações planejadas por IA e nenhuma falha de resolução. Na suíte legada de formas/identidade, 16 testes passaram e 28 falhas já existentes foram reproduzidas no código anterior, com os mesmos nomes e nenhuma falha nova.
 
 Verificação final desta leva: 79 testes táticos e build aprovados. Na prévia c5385d8, confirmado seletor com 40 personagens, passivas recolhíveis, carta de Sylvara com Cone frontal/alcance 2/3 alvos e diagrama de 25 células; Demetrius moveu para B2 e puxou Corvin de D3 para C2, com resultado registrado e rodada 2 iniciada. Nenhum erro da aplicação no navegador e nenhuma rolagem horizontal em desktop de 1348 px. Mobile físico e balanceamento com jogadores permanecem pendentes.
+
+## Continuação de 03/11/2026: catálogo completo e kits avançados
+- Mapeamento espacial inicial ampliado para as 150 entradas e 689 habilidades/formas. A segunda revisão tem definições explícitas por slot e variante, incluindo formas terrestres/aladas, suportes, NPCs e versões longas de Nilo.
+- O laboratório oferece 136 entradas no trio livre. Onze NPCs e os três lordes podem ser escolhidos apenas como oposição. Isso não concede posse nem modifica as exigências de desbloqueio da campanha.
+- Kits com mais de quatro técnicas passam a distribuir todas as cartas em linhas, mantendo dois espaços de ação por personagem. As técnicas extras preservam IDs, custos e recargas próprios.
+- Requisitos de Colapso, Expansão, Forma de Graça, Pilares, Cargas de Intervenção e Vínculo de Ressonância são checados antes do pagamento, tanto na projeção quanto no impacto. Uma preparação na primeira passagem pode habilitar a segunda; perder o modo antes da resolução interrompe a técnica sem cobrar seu custo.
+- Resíduo e Fraturas têm seletores por ação e limites canônicos validados no motor. Gastos inválidos são rejeitados; Resíduo é debitado nos dois lados. A resolução continua limitando Fraturas aos efeitos presentes em cada alvo no impacto.
+- Sombra Preparada recebe uma escolha explícita de dano ou resposta ampla, validada por lado, estado pendente e confirmação do plano. A oposição escolhe automaticamente antes de planejar.
+- A IA considera valor público de preparações avançadas e mantém o isolamento do plano rival.
+- Validação: 88 testes táticos aprovados; 150 combates com sementes fixas, 1.800 ações planejadas e zero erros de resolução, Vida inválida ou sobreposição de sobreviventes. Build aprovado. Em recursos/formas, 28 de 33 testes passaram; as mesmas cinco falhas foram reproduzidas no código anterior, sem regressão nova nesse conjunto.
+- A cobertura acima se refere ao adaptador de combate. Continuam pendentes o balanceamento com jogadores, ensaios prolongados de todas as combinações, validação em celular físico e atlas exclusivos; apenas 25 entradas têm atlas base conectado.

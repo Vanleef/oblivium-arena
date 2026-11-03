@@ -285,7 +285,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   triggerPassive(s,actor,"essenceSpent",{costs,ability:a});
   const spent=Object.values(costs).reduce((n,value)=>n+value,0);
   if(actor.side==="enemy"&&spent>=2)for(const unit of s.allies)triggerPassive(s,unit,"enemyEssenceSpent",{attacker:actor,ability:a,costs,spent});
-  if(actor.side==="player"&&action.residueSpend){const amount=Math.min(actor.residue||0,a.spendResidueMax||0,Math.max(0,Math.floor(action.residueSpend)));actor.residue-=amount;action={...action,residueSpend:amount};if(amount)log(s,`${actor.name} gasta ${amount} Resíduo.`);}
+  if(action.residueSpend){const amount=Math.min(actor.residue||0,a.spendResidueMax||0,Math.max(0,Math.floor(action.residueSpend)));actor.residue-=amount;action={...action,residueSpend:amount};if(amount)log(s,`${actor.name} gasta ${amount} Resíduo.`);}
   const absorption=s.niloAbsorption;
   if(actor.side==="player"&&absorption&&s.campaignRealm){
    const category=a.absorption||null,possible=new Set(category?[category]:[]);

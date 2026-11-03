@@ -2,7 +2,7 @@ import {createTacticalEnvironment} from '../src/tactical-environment.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {characters,characterById} from '../src/data.js';
-import {tacticalRoster,tacticalSpec,tacticalRuleText} from '../src/tactical-kits.js';
+import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText} from '../src/tactical-kits.js';
 import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalArea} from '../src/tactical-combat.js';
 import {patternCells,mirrorCell,mirrorDirection,cellKey} from '../src/tactical-board.js';
 import {explainTacticalPlan,tacticalResolutionFeedback} from '../src/tactical-insight.js';
@@ -11,15 +11,15 @@ const support=['a-viuva-escarlate','o-escudo-vivo'],foes=['o-passo-interrompido'
 function setup(id){const s=createTacticalBattle([id,...support],foes);for(const u of [...s.allies,...s.enemies])u.passive=null;for(const key of ['resources','enemyResources'])s[key]={essence:20,cinza:20,graca:20,ruptura:20};s.tactical.positions[s.allies[0].id]={x:0,y:1};s.tactical.positions[s.enemies[0].id]={x:2,y:1};return s;}
 const skill=(actorId,abilityId,anchor,formKey='base')=>({type:'skill',actorId,abilityId,anchor,formKey,orientation:[1,0]});
 function round(s,own,enemy=[]){assert.equal(submitTacticalPlan(s,'player',own).ok,true);assert.equal(submitTacticalPlan(s,'enemy',enemy).ok,true);return resolveTacticalRound(s);}
-test('40 kits e suas formas têm áreas explícitas sem alterar custos, recargas ou passivas canônicas',()=>{
- assert.equal(tacticalRoster.length,40);const before=JSON.stringify(characters);let count=0;
- for(const id of tacticalRoster){const c=characterById[id];assert.ok(c,id);for(const a of c.abilities)for(const f of [a,...(a.forms||[])]){
+test('150 kits e suas formas têm áreas explícitas sem alterar custos, recargas ou passivas canônicas',()=>{
+ assert.equal(tacticalOpponentRoster.length,150);const before=JSON.stringify(characters);let count=0;
+ for(const id of tacticalOpponentRoster){const c=characterById[id];assert.ok(c,id);for(const a of c.abilities)for(const f of [a,...(a.forms||[])]){
   const spec=tacticalSpec(c,f);assert.ok(Number.isInteger(spec.range)&&spec.range>=0&&spec.range<=4,id+'/'+f.name);
   assert.ok([1,3].includes(spec.limit));assert.match(tacticalRuleText(c,f),/Pessoal|alcance/);
   if(f.target==='self'){assert.equal(spec.range,0);assert.equal(spec.pattern,'self');}
   const enemy={...c,sourceId:id,id:'rival-'+id};assert.deepEqual(tacticalSpec(enemy,f),spec);count++;
  }}
- assert.ok(count>180);assert.equal(JSON.stringify(characters),before);
+ assert.equal(count,689);assert.equal(JSON.stringify(characters),before);
 });
 test('variantes que mudam de alvo recebem a geometria da forma ativa',()=>{
  const c=characterById['o-tecelao-de-mentiras'],base=c.abilities.find(a=>a.id==='tecnica'),form=base.forms.find(a=>a.formKey==='unweave');

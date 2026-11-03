@@ -1,3 +1,4 @@
+import {tacticalRequirementReason} from './tactical-requirements.js';
 import {createTacticalEnvironment,resolveTacticalEnvironment} from './tactical-environment.js';
 import {tacticalChestOptions,addTacticalAugment,triggerTacticalAugments} from './tactical-chests.js';
 import {orderTacticalActions} from './tactical-order.js';
@@ -7,7 +8,7 @@ import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} fro
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
-import {tacticalRoster,tacticalSpec} from './tactical-kits.js';
+import {tacticalRoster,tacticalOpponentRoster,tacticalSpec} from './tactical-kits.js';
 import {onBoard,sameCell,distance,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,mirrorCell,mirrorDirection} from './tactical-board.js';
 
 export const tacticalUnits=s=>[...s.allies,...s.enemies];
@@ -84,7 +85,7 @@ export function chooseTacticalChestReward(s,offerId,optionId){
 }
 
 export function createTacticalBattle(playerIds,enemyIds,config={}){
- for(const ids of [playerIds,enemyIds])if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!tacticalRoster.includes(id)))throw Error('Escolha três personagens distintos do elenco piloto em cada lado.');
+ for(const [side,ids]of [['player',playerIds],['enemy',enemyIds]])if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!(side==='player'?tacticalRoster:tacticalOpponentRoster).includes(id)))throw Error('Escolha três personagens distintos disponíveis para este lado. Lordes e NPCs não entram no trio livre.');
  const enemyTeam=enemyIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
@@ -160,6 +161,8 @@ function execute(s,ref,{projection=false}={}){
  if(ref.type==='move')return move(s,ref,projection);
  refreshSkillForms(s);const ability=actor.abilities.find(a=>a.id===ref.abilityId);
  if(!ability)return {skipped:true,reason:'Técnica indisponível.'};
+ const requirement=tacticalRequirementReason(s,actor,ability);if(requirement)return {skipped:true,reason:requirement};
+ if((ref.residueSpend||0)>(actor.residue||0))return {skipped:true,reason:'Resíduo insuficiente no momento da ação.'};
  const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id],anchor=spec.range===0?origin:ref.anchor;
  if(!onBoard(anchor)||distance(origin,anchor)>spec.range||!tacticalArea(s,actor,ability,anchor,ref.orientation).length)return {skipped:true,reason:'A região ficou fora de alcance ou da linha de visão.'};
  const cells=tacticalArea(s,actor,ability,anchor,ref.orientation),ids=tacticalTargets(s,actor,ability,anchor,ref.orientation);
@@ -204,7 +207,8 @@ function normalizePlan(s,side,actions){
    const anchor=cleanPoint(ref.anchor||s.tactical.positions[actor.id]);if(!anchor)return fail('Região inválida.');
    const orientation=ref.orientation||(side==='player'?[1,0]:mirrorDirection([1,0]));
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
-   refs.push({type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],order});
+   const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}
+   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],order});
   }else return fail('Tipo de ação inválido.');
  }
  return {ok:true,actions:refs};
@@ -245,6 +249,12 @@ export function submitTacticalPlan(s,side,actions,selected){
  s.tactical.plans[side]=copy(result.actions);
  if(s.tactical.plans.player&&s.tactical.plans.enemy){s.tactical.stage='ready';s.phase='tactical-ready';}
  return {ok:true,ready:s.tactical.stage==='ready'};
+}
+export function chooseTacticalShadow(s,side,actorId,choice){
+ if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side])return fail('A escolha está bloqueada.');
+ const actor=actorFor(s,side,actorId);if(!actor?.shadowChoicePending||!['damage','response'].includes(choice))return fail('Resposta da Sombra indisponível.');
+ actor.shadowChoicePending=false;if(choice==='damage')actor.shadowDamageBonus=5;else actor.shadowBroadCounter=true;
+ return {ok:true};
 }
 export function exchangeTacticalEssence(s,side,target,selected){
  if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side])return fail('A reserva está bloqueada.');

@@ -955,3 +955,11 @@ body,.auth-screen{
 .tactical-passive{margin:6px 0 10px;padding:7px 10px;border:1px solid #6c587a66;border-radius:6px;background:#1e1928}
 .tactical-passive summary{cursor:pointer;color:#ddc7ed;font-size:12px;line-height:1.5;min-height:28px}.tactical-passive summary small{color:#b5a8c1;font-size:11px;margin-left:8px}
 .tactical-passive p{font-size:12px;margin:6px 0;line-height:1.5}
+
+/* Long kits retain every card and the same two action slots. */
+.combat-dock .arena-skills.expanded-kit{display:grid;grid-template-columns:repeat(5,minmax(0,112px));height:auto;max-height:none;overflow:visible;justify-content:center;align-items:stretch;gap:6px}
+.shell .combat-dock .arena-skills.expanded-kit .skill{width:100%;height:122px;min-width:0;max-width:none}
+@media(max-width:700px){.combat-dock .arena-skills.expanded-kit{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.shell .combat-dock .arena-skills.expanded-kit .skill{height:112px}}
+
+.tactical-spend{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:8px 0;padding:8px;border:1px solid #76658c;border-radius:6px;background:#201a2d;font-size:12px}
+.tactical-spend strong{margin-right:6px}.shell .tactical-spend button{min-width:38px;min-height:38px;padding:6px;font-size:12px}.tactical-spend button[aria-pressed=true]{background:#6a4c82;border-color:#d9b9fa}

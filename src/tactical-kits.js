@@ -1,3 +1,5 @@
+import {characters,worldLeaders} from './data.js';
+import {tacticalKitWave2} from './tactical-kits-wave2.js';
 // Explicit spatial review: only these kits enter the tactical roster.
 // Form overrides are keyed by slot/form; combat stats and costs remain canonical.
 const shapes={
@@ -7,8 +9,8 @@ const shapes={
  cross:{pattern:'cross',range:2},square:{pattern:'square',range:3},nearSquare:{pattern:'square',range:1},
  diagonal:{pattern:'x',range:2},cone:{pattern:'cone',range:2,length:2},sweep:{pattern:'ring',range:0}
 };
-const kit=(slots,forms={},displacements={})=>({slots:Object.fromEntries(['impulso','tecnica','voto'].map((id,i)=>[id,slots[i]])),forms,displacements});
-export const tacticalKitProfiles=Object.freeze({
+const kit=(slots,forms={},displacements={})=>({slots:Object.fromEntries(slots.map((shape,i)=>[['impulso','tecnica','voto'][i]||'tecnica-'+(i+1),shape])),forms,displacements});
+const initialKitProfiles={
  'o-acougueiro':kit(['blade','blade','blade'],{'impulso/reopen':'blade'}),
  'a-viuva-escarlate':kit(['ranged','personal','reach'],{'impulso/revenge':'ranged'}),
  'o-escudo-vivo':kit(['reach','reach','reach'],{'impulso/advance':'blade'},{'impulso/advance':'push'}),
@@ -46,8 +48,11 @@ export const tacticalKitProfiles=Object.freeze({
  'a-balanca-vazia':kit(['ranged','ranged','cross']),
  'o-apodrecido':kit(['touch','reach','touch']),
  'a-praga-andante':kit(['ranged','cross','reach'],{'tecnica/fever':'reach'})
-});
-export const tacticalRoster=Object.freeze(Object.keys(tacticalKitProfiles));
+};
+export const tacticalKitProfiles=Object.freeze({...initialKitProfiles,...Object.fromEntries(Object.entries(tacticalKitWave2).map(([id,args])=>[id,kit(...args)]))});
+export const tacticalOpponentRoster=Object.freeze(Object.keys(tacticalKitProfiles));
+const leaderIds=new Set(Object.values(worldLeaders).map(leader=>leader.rosterId));
+export const tacticalRoster=Object.freeze(characters.filter(c=>tacticalKitProfiles[c.id]&&!c.npcOnly&&!leaderIds.has(c.id)).map(c=>c.id));
 export const patternNames=Object.freeze({self:'Pessoal',cell:'Uma célula',line:'Frente',cross:'Cruz',square:'Área 3×3',x:'Diagonal em X',cone:'Cone frontal',ring:'Ao redor'});
 export const priorityNames=Object.freeze(['Movimento','Preparação / Defesa','Ofensiva']);
 export function tacticalSpec(actor,ability){

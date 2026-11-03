@@ -1,8 +1,8 @@
 # Adaptação dos kits ao tabuleiro
 
-40/150 kits com revisão espacial explícita; 110 pendentes. 186 habilidades/formas mapeadas. 25 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
+150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 25 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
 
-Duas ações por personagem, primeiras ações de todos antes das segundas. Custos, recargas, Vida e passivas canônicas preservados. Puxões e empurrões são modificadores exclusivos do adaptador tático. Lordes não foram adicionados ao elenco livre.
+Duas ações por personagem, primeiras ações de todos antes das segundas. Custos, recargas, Vida e passivas canônicas preservados. A adaptação inclui requisitos dos modos avançados, Resíduo, Fraturas e Sombra Preparada. Puxões e empurrões são modificadores exclusivos do adaptador tático. 136 personagens podem ser escolhidos no laboratório tático; 14 NPCs/lordes só entram como oposição. O laboratório não concede desbloqueios na campanha.
 
 | Personagem | Revisão espacial | Atlas base | Técnicas/formas |
 | --- | --- | --- | --- |
@@ -38,121 +38,121 @@ Duas ações por personagem, primeiras ações de todos antes das segundas. Cust
 | Fortuna, A Usurária | Adaptado | Pendente | 4 |
 | Aldric, O Apodrecido | Adaptado | Pendente | 4 |
 | Mire, A Pestilência | Adaptado | Pendente | 5 |
-| Pact, O Corrupto | Pendente | Pendente | — |
-| Myra, A Rainha dos Fungos | Pendente | Pendente | — |
-| Bram, O Inoculador | Pendente | Pendente | — |
-| Thorn, O Definhador | Pendente | Pendente | — |
-| Elias, O Espectador | Pendente | Pendente | — |
-| Mira, A Carcereira | Pendente | Pendente | — |
-| Voss, O Silenciador | Pendente | Pendente | — |
-| Iris, A Cúmplice | Pendente | Pendente | — |
-| Hollow, O Anfitrião | Pendente | Pendente | — |
-| Reed, O Desertor | Pendente | Pendente | — |
-| Maren, O Usurpador | Pendente | Pendente | — |
-| Quill, A Metamorfa | Pendente | Pendente | — |
-| Desire, O Profanador | Pendente | Pendente | — |
-| Liora, A Marionetista | Pendente | Pendente | — |
-| Echo, O Simulacro | Pendente | Pendente | — |
-| Sable, A Suturadora | Pendente | Pendente | — |
-| Noctis, O Anulador | Pendente | Pendente | — |
-| Vespera, A Ausência | Pendente | Pendente | — |
-| Erebus, O Arauto | Pendente | Pendente | — |
-| Ashen, O Desolador | Pendente | Pendente | — |
-| Soren, A Escriba | Pendente | Pendente | — |
-| Niith, O Fim | Pendente | Pendente | — |
+| Pact, O Corrupto | Adaptado | Pendente | 4 |
+| Myra, A Rainha dos Fungos | Adaptado | Pendente | 6 |
+| Bram, O Inoculador | Adaptado | Pendente | 4 |
+| Thorn, O Definhador | Adaptado | Pendente | 4 |
+| Elias, O Espectador | Adaptado | Pendente | 5 |
+| Mira, A Carcereira | Adaptado | Pendente | 4 |
+| Voss, O Silenciador | Adaptado | Pendente | 5 |
+| Iris, A Cúmplice | Adaptado | Pendente | 4 |
+| Hollow, O Anfitrião | Adaptado | Pendente | 4 |
+| Reed, O Desertor | Adaptado | Pendente | 5 |
+| Maren, O Usurpador | Adaptado | Pendente | 4 |
+| Quill, A Metamorfa | Adaptado | Pendente | 10 |
+| Desire, O Profanador | Adaptado | Pendente | 4 |
+| Liora, A Marionetista | Adaptado | Pendente | 5 |
+| Echo, O Simulacro | Adaptado | Pendente | 4 |
+| Sable, A Suturadora | Adaptado | Pendente | 5 |
+| Noctis, O Anulador | Adaptado | Pendente | 5 |
+| Vespera, A Ausência | Adaptado | Pendente | 4 |
+| Erebus, O Arauto | Adaptado | Pendente | 5 |
+| Ashen, O Desolador | Adaptado | Pendente | 5 |
+| Soren, A Escriba | Adaptado | Pendente | 4 |
+| Niith, O Fim | Adaptado | Pendente | 4 |
 | Aegis, O Escudo Vivo | Adaptado | Sim | 5 |
-| Bastion, A Muralha | Pendente | Pendente | — |
-| Caius, O Abnegado | Pendente | Pendente | — |
-| Gideon, O Guardião | Pendente | Pendente | — |
-| Azure, A Sentinela | Pendente | Pendente | — |
-| Elara, A Compassiva | Pendente | Pendente | — |
-| Theron, O Restaurador | Pendente | Pendente | — |
-| Liora, A Sanadora | Pendente | Pendente | — |
-| Iris, A Boticária | Pendente | Pendente | — |
-| Seren, O Sereno | Pendente | Pendente | — |
-| Aldric, O Árbitro | Pendente | Pendente | — |
-| Justus, A Íntegra | Pendente | Pendente | — |
-| Aristides, O Regulador | Pendente | Pendente | — |
-| Maqrizi, A Testemunha | Pendente | Pendente | — |
-| Benedict, O Juiz | Pendente | Pendente | — |
-| Caelum, A Perseverante | Pendente | Pendente | — |
-| Hector, O Tenaz | Pendente | Pendente | — |
-| Hope, A Voz | Pendente | Pendente | — |
-| Aurora, O Alvorecer | Pendente | Pendente | — |
-| Stella, A Mensageira | Pendente | Pendente | — |
-| Veritas, O Revelador | Pendente | Pendente | — |
-| Crates, A Lúcida | Pendente | Pendente | — |
-| Parrhasius, O Espelho | Pendente | Pendente | — |
-| Cartes, A Cartógrafa | Pendente | Pendente | — |
-| Arcane, O Vidente | Pendente | Pendente | — |
-| Aurelia, O Fraterno | Pendente | Pendente | — |
-| Destiny, A Tecelã | Pendente | Pendente | — |
-| Elowen, O Altruísta | Pendente | Pendente | — |
-| Trinity, Os Três Irmãos | Pendente | Pendente | — |
-| Isolde, A Juramentada | Pendente | Pendente | — |
-| Cedric, O Artífice | Pendente | Pendente | — |
-| Sprout, A Semente | Pendente | Pendente | — |
-| Rowan, O Cultivador | Pendente | Pendente | — |
+| Bastion, A Muralha | Adaptado | Pendente | 4 |
+| Caius, O Abnegado | Adaptado | Pendente | 4 |
+| Gideon, O Guardião | Adaptado | Pendente | 4 |
+| Azure, A Sentinela | Adaptado | Pendente | 4 |
+| Elara, A Compassiva | Adaptado | Pendente | 4 |
+| Theron, O Restaurador | Adaptado | Pendente | 5 |
+| Liora, A Sanadora | Adaptado | Pendente | 4 |
+| Iris, A Boticária | Adaptado | Pendente | 4 |
+| Seren, O Sereno | Adaptado | Pendente | 4 |
+| Aldric, O Árbitro | Adaptado | Pendente | 5 |
+| Justus, A Íntegra | Adaptado | Pendente | 4 |
+| Aristides, O Regulador | Adaptado | Pendente | 5 |
+| Maqrizi, A Testemunha | Adaptado | Pendente | 4 |
+| Benedict, O Juiz | Adaptado | Pendente | 4 |
+| Caelum, A Perseverante | Adaptado | Pendente | 5 |
+| Hector, O Tenaz | Adaptado | Pendente | 4 |
+| Hope, A Voz | Adaptado | Pendente | 6 |
+| Aurora, O Alvorecer | Adaptado | Pendente | 4 |
+| Stella, A Mensageira | Adaptado | Pendente | 5 |
+| Veritas, O Revelador | Adaptado | Pendente | 4 |
+| Crates, A Lúcida | Adaptado | Pendente | 4 |
+| Parrhasius, O Espelho | Adaptado | Pendente | 5 |
+| Cartes, A Cartógrafa | Adaptado | Pendente | 5 |
+| Arcane, O Vidente | Adaptado | Pendente | 4 |
+| Aurelia, O Fraterno | Adaptado | Pendente | 4 |
+| Destiny, A Tecelã | Adaptado | Pendente | 4 |
+| Elowen, O Altruísta | Adaptado | Pendente | 4 |
+| Trinity, Os Três Irmãos | Adaptado | Pendente | 6 |
+| Isolde, A Juramentada | Adaptado | Pendente | 5 |
+| Cedric, O Artífice | Adaptado | Pendente | 5 |
+| Sprout, A Semente | Adaptado | Pendente | 5 |
+| Rowan, O Cultivador | Adaptado | Pendente | 4 |
 | Verdant, A Arquiteta | Adaptado | Sim | 6 |
-| Prim, O Ressonante | Pendente | Pendente | — |
+| Prim, O Ressonante | Adaptado | Pendente | 4 |
 | Chronos, O Descontínuo | Adaptado | Sim | 6 |
-| Fract, A Cindida | Pendente | Pendente | — |
-| Echo, O Eco | Pendente | Pendente | — |
-| Rift, A Errante | Pendente | Pendente | — |
-| Obliv, O Esquecido | Pendente | Pendente | — |
-| Chronicle, O Cronista | Pendente | Pendente | — |
-| Lyra, A Inversa | Pendente | Pendente | — |
-| Crystal, O Andarilho | Pendente | Pendente | — |
-| Shade, A Oscilante | Pendente | Pendente | — |
-| Bridge, A Peregrina | Pendente | Pendente | — |
-| Soren, O Eremita | Pendente | Pendente | — |
+| Fract, A Cindida | Adaptado | Pendente | 5 |
+| Echo, O Eco | Adaptado | Pendente | 7 |
+| Rift, A Errante | Adaptado | Pendente | 5 |
+| Obliv, O Esquecido | Adaptado | Pendente | 4 |
+| Chronicle, O Cronista | Adaptado | Pendente | 5 |
+| Lyra, A Inversa | Adaptado | Pendente | 5 |
+| Crystal, O Andarilho | Adaptado | Pendente | 4 |
+| Shade, A Oscilante | Adaptado | Pendente | 6 |
+| Bridge, A Peregrina | Adaptado | Pendente | 4 |
+| Soren, O Eremita | Adaptado | Pendente | 5 |
 | Nilo, O Receptáculo | Adaptado | Sim | 4 |
-| Nilo, Prefácio de Cinza | Pendente | Pendente | — |
-| Nilo, Prefácio de Graça | Pendente | Pendente | — |
-| Nilo, Prefácio de Ruptura | Pendente | Pendente | — |
-| Nilo, Epílogo de Cinza | Pendente | Pendente | — |
-| Nilo, Epílogo de Graça | Pendente | Pendente | — |
-| Nilo, Epílogo de Ruptura | Pendente | Pendente | — |
-| Nilo, O Sem Rastro | Pendente | Pendente | — |
-| Nilo, O que Mantém de Pé | Pendente | Pendente | — |
-| Nilo, O que se Parte | Pendente | Pendente | — |
-| Nilo, Nilo Purificado | Pendente | Pendente | — |
-| Sael, O Eco das Quatro Essências | Pendente | Pendente | — |
+| Nilo, Prefácio de Cinza | Adaptado | Pendente | 4 |
+| Nilo, Prefácio de Graça | Adaptado | Pendente | 4 |
+| Nilo, Prefácio de Ruptura | Adaptado | Pendente | 5 |
+| Nilo, Epílogo de Cinza | Adaptado | Pendente | 6 |
+| Nilo, Epílogo de Graça | Adaptado | Pendente | 5 |
+| Nilo, Epílogo de Ruptura | Adaptado | Pendente | 5 |
+| Nilo, O Sem Rastro | Adaptado | Pendente | 9 |
+| Nilo, O que Mantém de Pé | Adaptado | Pendente | 8 |
+| Nilo, O que se Parte | Adaptado | Pendente | 7 |
+| Nilo, Nilo Purificado | Adaptado | Pendente | 4 |
+| Sael, O Eco das Quatro Essências | Adaptado | Pendente | 10 |
 | Naomi, A Persistência | Adaptado | Sim | 4 |
-| Naomi, A Que Permanece | Pendente | Pendente | — |
-| Naomi, A Raiz | Pendente | Pendente | — |
+| Naomi, A Que Permanece | Adaptado | Pendente | 4 |
+| Naomi, A Raiz | Adaptado | Pendente | 4 |
 | Kael, A Culpa Imaculada | Adaptado | Sim | 4 |
-| Kael, O Quebrado | Pendente | Pendente | — |
-| Kael, Coração de Aço | Pendente | Pendente | — |
+| Kael, O Quebrado | Adaptado | Pendente | 4 |
+| Kael, Coração de Aço | Adaptado | Pendente | 4 |
 | Vaas, Máscaras | Adaptado | Sim | 4 |
-| Vaas, O Sem Rosto | Pendente | Pendente | — |
+| Vaas, O Sem Rosto | Adaptado | Pendente | 4 |
 | Diana, O Amparo | Adaptado | Sim | 4 |
-| Diana, A Guarda | Pendente | Pendente | — |
-| Diana, A Que Ainda Segura | Pendente | Pendente | — |
-| Teras, O Observador | Pendente | Pendente | — |
-| Teras, O Leitor de Fendas | Pendente | Pendente | — |
-| Victor, O Regente | Pendente | Pendente | — |
-| Silas, A Lealdade | Pendente | Pendente | — |
-| Silas, O Leal | Pendente | Pendente | — |
-| Orion, O Rastreador | Pendente | Pendente | — |
-| Doggo, O Sobrevivente | Pendente | Pendente | — |
-| Hans, O Informante | Pendente | Pendente | — |
-| Xian, O Imóvel | Pendente | Pendente | — |
-| Xian, A Sentinela do Vazio | Pendente | Pendente | — |
-| Seraph, O Prólogo | Pendente | Pendente | — |
-| Seraph, O Prólogo | Pendente | Pendente | — |
-| Eiremir, A Anomalia | Pendente | Pendente | — |
-| Eiremir, O Espelho Partido | Pendente | Pendente | — |
-| Zalmoxis, A Abnegação | Pendente | Pendente | — |
-| Seraph, O Prólogo | Pendente | Pendente | — |
-| Cain, O Reflexo Cruel | Pendente | Pendente | — |
-| Lilith, A Negação | Pendente | Pendente | — |
-| Calíope, A Falsária | Pendente | Pendente | — |
-| Serena, A Sombra do Passado | Pendente | Pendente | — |
-| Plácido, O Arquiteto da Ordem | Pendente | Pendente | — |
-| Baal, O Fanático | Pendente | Pendente | — |
-| Atlas, O Portador do Sistema | Pendente | Pendente | — |
-| Merlindrope, O Carcereiro | Pendente | Pendente | — |
-| Bulkir, O Devorador de Identidade | Pendente | Pendente | — |
-| Voronir, O Caçador de Receptáculos | Pendente | Pendente | — |
-| Icarus, O Portador da Fenda | Pendente | Pendente | — |
+| Diana, A Guarda | Adaptado | Pendente | 4 |
+| Diana, A Que Ainda Segura | Adaptado | Pendente | 4 |
+| Teras, O Observador | Adaptado | Pendente | 4 |
+| Teras, O Leitor de Fendas | Adaptado | Pendente | 4 |
+| Victor, O Regente | Adaptado | Pendente | 4 |
+| Silas, A Lealdade | Adaptado | Pendente | 4 |
+| Silas, O Leal | Adaptado | Pendente | 4 |
+| Orion, O Rastreador | Adaptado | Pendente | 4 |
+| Doggo, O Sobrevivente | Adaptado | Pendente | 4 |
+| Hans, O Informante | Adaptado | Pendente | 4 |
+| Xian, O Imóvel | Adaptado | Pendente | 4 |
+| Xian, A Sentinela do Vazio | Adaptado | Pendente | 4 |
+| Seraph, O Prólogo | Adaptado | Pendente | 4 |
+| Seraph, O Prólogo | Adaptado | Pendente | 4 |
+| Eiremir, A Anomalia | Adaptado | Pendente | 4 |
+| Eiremir, O Espelho Partido | Adaptado | Pendente | 4 |
+| Zalmoxis, A Abnegação | Adaptado | Pendente | 4 |
+| Seraph, O Prólogo | Adaptado | Pendente | 4 |
+| Cain, O Reflexo Cruel | Adaptado | Pendente | 4 |
+| Lilith, A Negação | Adaptado | Pendente | 4 |
+| Calíope, A Falsária | Adaptado | Pendente | 4 |
+| Serena, A Sombra do Passado | Adaptado | Pendente | 4 |
+| Plácido, O Arquiteto da Ordem | Adaptado | Pendente | 4 |
+| Baal, O Fanático | Adaptado | Pendente | 4 |
+| Atlas, O Portador do Sistema | Adaptado | Pendente | 4 |
+| Merlindrope, O Carcereiro | Adaptado | Pendente | 4 |
+| Bulkir, O Devorador de Identidade | Adaptado | Pendente | 4 |
+| Voronir, O Caçador de Receptáculos | Adaptado | Pendente | 4 |
+| Icarus, O Portador da Fenda | Adaptado | Pendente | 4 |
