@@ -39,7 +39,7 @@ test('Legados repetidos são agrupados e ofertas evitam efeitos já no limite',(
 });
 test('contra-ataque informa origem e alvo da reação para a animação correta',()=>{
  const battle=createBattle([ids[0]],[{id:'counter',name:'Revidador',realm:'Inferno',abilities:[{id:'idle',name:'Observar',target:'self',costs:{}}]}],{rng:()=>.41});battle.enemies[0].counter=17;
- chooseAction(battle,ids[0],'impulso','counter');commitTurn(battle);const result=resolveNextAction(battle);
- assert.equal(result.event.reactions.length,1);assert.deepEqual(result.event.reactions[0],{actorId:'counter',targetId:ids[0],actorName:'Revidador',damage:12});
+ battle.resources={essence:5,cinza:5,graca:5,ruptura:5};assert.equal(chooseAction(battle,ids[0],'impulso','counter').ok,true);assert.equal(commitTurn(battle).ok,true);const result=resolveNextAction(battle);
+ assert.equal(result.event.reactions.length,1);assert.deepEqual(result.event.reactions[0],{actorId:'counter',targetId:ids[0],actorName:'Revidador',damage:17});
 });
 

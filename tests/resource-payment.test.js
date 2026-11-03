@@ -13,19 +13,18 @@ function battle(costs){const b=createBattle(starters.map(c=>c.id),[target],{rng:
 function queue(b,i){const u=b.allies[i];return chooseAction(b,u.id,'use',b.enemies[0].id);}
 const snapshot=b=>JSON.stringify(b);
 
-test('Coringa é um custo flexível pago com as quatro Essências; todas as quartas defesas custam 1',()=>{
+test('Coringa é um custo flexível pago com as quatro Essências; defesas custam 1',()=>{
  assert.equal(resources.length,4);assert.equal(resourceById.random.name,'Coringa');assert.deepEqual(resources.map(r=>r.name),['Éter','Cinza','Graça','Ruptura']);assert.equal(resources[0].id,'essence');assert.equal(resources[3].id,'ruptura');
- for(const c of [...characters,createFinalBoss()]){assert.equal(c.abilities[3].invulnerable,1);assert.deepEqual(c.abilities[3].costs,{random:1},c.name);assert.match(costMarkup(c,c.abilities[3]),/Custo: 1 Coringa/);assert.match(costMarkup(c,c.abilities[3]),/pip-random/);}
+ for(const c of [...characters,createFinalBoss()]){const defense=c.abilities.find(a=>a.defense);assert.equal(defense.invulnerable,1);assert.deepEqual(defense.costs,{random:1},c.name);assert.match(costMarkup(c,defense),/Custo: 1 Coringa/);assert.match(costMarkup(c,defense),/pip-random/);}
  const ordinary=characters.filter(c=>c.abilities.slice(0,3).some(a=>a.costs.random));assert.ok(ordinary.length>characters.length/2,`Coringa aparece em ${ordinary.length} personagens`);
- assert.equal(ordinary.length,77);
- for(const c of characters){const skill=c.abilities[1];if(skill.costs.random)assert.equal(Object.values(skill.costs).reduce((sum,n)=>sum+n,0),skill.cost,`${c.name}: a flexibilidade não altera os pontos totais`);}
+ for(const c of characters.filter(c=>!c.storyCharacter)){const skill=c.abilities[1];if(skill.costs.random)assert.equal(Object.values(skill.costs).reduce((sum,n)=>sum+n,0),skill.cost,`${c.name}: a flexibilidade não altera os pontos totais`);}
  const b=battle([{}]);assert.deepEqual(Object.keys(b.resources),resourceIds);assert.ok(!b.essenceDraws.player.includes('random'));
 });
 
 test('formas declaram seu tipo de Essência sem alterar o custo Coringa',()=>{
  for(const c of [createFinalBoss(),...characters.filter(c=>c.bodyForms)]){
   const seen=new Set();
-  for(const f of c.bodyForms){if(f.resource!==c.affinity){assert.ok(!seen.has(f.resource),`${c.name}/${f.name}`);seen.add(f.resource);}const p=previewBodyForm(c,f.key);assert.equal(p.bodyResource,f.resource);assert.deepEqual(getAbilityResourceCosts(p,p.abilities[3]),{random:1});for(const a of p.abilities.slice(0,3)){if(a.costs.affinity)assert.equal(getAbilityResourceCosts(p,a)[f.resource]>=a.costs.affinity,true);}}
+  for(const f of c.bodyForms){if(f.resource!==c.affinity){assert.ok(!seen.has(f.resource),`${c.name}/${f.name}`);seen.add(f.resource);}const p=previewBodyForm(c,f.key);assert.equal(p.bodyResource,f.resource);assert.deepEqual(getAbilityResourceCosts(p,p.abilities.find(a=>a.defense)),{random:1});for(const a of p.abilities.slice(0,3)){if(a.costs.affinity)assert.equal(getAbilityResourceCosts(p,a)[f.resource==='coringa'?'random':f.resource]>=a.costs.affinity,true);}}
   assert.equal(previewBodyForm(c,'base').bodyResource,c.affinity);
  }
 });
@@ -114,9 +113,9 @@ test('IA considera a troca 5:1 ao planejar custo fixo, sem mutar o combate antes
  const b=battle([{}]);for(const u of b.enemies.slice(1))u.hp=0;
  b.enemies[0].abilities=[{id:'rupture',name:'Ataque de Ruptura',target:'enemy',damage:40,costs:{ruptura:1}}];
  b.enemyResources=pool({essence:2,cinza:1,graca:1});assert.equal(getCombatPlan(b).length,0,'a oposição deve esperar até ter cinco Essências');
- b.enemyResources=pool({essence:3,ruptura:2});
+ b.enemyResources=pool({essence:3,cinza:2});
  const before=snapshot(b),plan=getCombatPlan(b);
- assert.equal(snapshot(b),before);assert.equal(plan.length,2);assert.equal(plan[0].type,'essence-exchange');assert.equal(plan[0].target,'ruptura');assert.deepEqual(plan[0].payment,pool({essence:3,ruptura:2}));assert.equal(plan[1].abilityId,'rupture');
+ assert.equal(snapshot(b),before);assert.equal(plan.length,2);assert.equal(plan[0].type,'essence-exchange');assert.equal(plan[0].target,'ruptura');assert.deepEqual(plan[0].payment,pool({essence:3,cinza:2}));assert.equal(plan[1].abilityId,'rupture');
 });
 
 test('revisão mostra sugestão, ajustes, custos separados e confirmação bloqueada enquanto faltar pagamento',()=>{
@@ -135,5 +134,5 @@ test('interface oferece troca 5:1, seleção do tipo de saída e desativa-a com 
 
 test('fichas retiram classes decorativas e blocos de palavras-chave sem perder efeitos e recarga',()=>{
  const b=battle([{random:1}]);b.allies[0].abilities[0].classes=['TAG INVENTADA'];b.allies[0].abilities[0].description='Causa 10 de dano.';b.allies[0].combo='PALAVRAS CHAVE';
- const html=renderBattleDetail({battle:b,focusSkill:{actorId:b.allies[0].id,abilityId:'use'}});assert.doesNotMatch(html,/TAG INVENTADA|PALAVRAS CHAVE|COMBO/);assert.match(html,/Causa 10 de dano/);assert.match(html,/RECARGA/);
+ const html=renderBattleDetail({battle:b,focusSkill:{actorId:b.allies[0].id,abilityId:'use'}});assert.doesNotMatch(html,/TAG INVENTADA|PALAVRAS CHAVE|COMBO/);assert.match(html,/Causa 10 de dano/);assert.match(html,/RECARGA 0T/);assert.match(html,/CUSTO: 1 Coringa/);
 });

@@ -3,10 +3,13 @@ import { characterById } from '../src/data.js';
 import { createDuel, submitDuelTurn, continueDuel } from '../src/combat.js';
 import { beginInfluences, chooseInfluence } from '../src/world-influences.js';
 import { rankForRating, playerLevel } from '../src/player-level.js';
+import { migrateBattleSkillIds } from '../src/battle-migration.js';
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const profileKey=id=>`profile:${id}`;
 const terminal=s=>['victory','defeat'].includes(s.phase);
+// Persist data only: RNG and planner functions are reattached on each request.
+const persistedMatch=match=>JSON.parse(JSON.stringify(match));
 export function attachRandom(s){s.rng=()=>{s.randomState=(Math.imul(s.randomState,1664525)+1013904223)>>>0;return s.randomState/4294967296;};s.enemyPlanner=()=>[];}
 export function rankedResult(a,b,winner){
  const expected=1/(1+10**((b.rating-a.rating)/400));const delta=Math.max(8,Math.round(28*((winner===0?1:0)-expected))*(winner===0?1:-1));
@@ -37,6 +40,7 @@ export class ArenaService{
    if(op==='ack'&&match?.settled){p.matchId=null;await tx.set(profileKey(id),p);match=null;}
    const side=match?.players.indexOf(id);
    if(match&&side<0)fail('Partida indisponível.',403);
+   if(match&&migrateBattleSkillIds(match.battle))match.version++;
    if(match&&!match.settled&&match.deadline<=now){const current=match.battle.phase==='influence'?match.battle.influenceDraft.side:match.battle.turnSide;match.battle.phase=terminal({phase:match.battle.influenceResume})?match.battle.influenceResume:current==='player'?'defeat':'victory';match.reason='Tempo esgotado';match.version++;}
    if(op==='queue'&&!match){
     const ids=input.team;if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!characterById[id]))fail('Escolha três personagens diferentes.');
@@ -46,7 +50,7 @@ export class ArenaService{
      if(other&&!other.matchId){
       const first=randomBytes(1)[0]%2===0;const players=first?[p.id,other.id]:[other.id,p.id],teams=first?[ids,rival.team]:[rival.team,ids];let randomState=randomBytes(4).readUInt32LE();const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
       const battle=createDuel(teams[0],teams[1],{rng:random});battle.randomState=randomState;beginInfluences(battle,randomState);
-      match={id:randomUUID(),players,battle,version:1,deadline:now+120000,created:now,settled:false};p.matchId=match.id;other.matchId=match.id;await tx.set(profileKey(other.id),other);await tx.set(profileKey(id),p);await tx.set(`match:${match.id}`,match,86400);
+      match={id:randomUUID(),players,battle,version:1,deadline:now+120000,created:now,settled:false};p.matchId=match.id;other.matchId=match.id;await tx.set(profileKey(other.id),other);await tx.set(profileKey(id),p);await tx.set(`match:${match.id}`,persistedMatch(match),86400);
      }
     }
     if(!match){if(queue.length>=100)fail('Fila cheia. Tente novamente.',429);queue.push({id,team:ids,rating:p.rating,since:previous?.since||now,touched:now});}
@@ -69,7 +73,7 @@ export class ArenaService{
      for(const row of result){await tx.set(profileKey(row.id),row);const old=leaderboard.findIndex(q=>q.id===row.id);if(old>=0)leaderboard.splice(old,1);leaderboard.push({id:row.id,name:row.name,rating:row.rating,wins:row.wins,losses:row.losses});}
      leaderboard.sort((a,b)=>b.rating-a.rating);await tx.set('leaderboard',leaderboard.slice(0,100));match.settled=true;match.result=result.map(row=>({id:row.id,rating:row.rating}));p=result.find(row=>row.id===id);
     }
-    await tx.set(`match:${match.id}`,match,86400);
+    await tx.set(`match:${match.id}`,persistedMatch(match),86400);
    }
    const leaderboard=(await tx.get('leaderboard')||[]).slice(0,25);
    return {profile:{...p,rank:rankForRating(p.rating),level:playerLevel(p.xp)},leaderboard,match:match?{id:match.id,version:match.version,deadline:match.deadline,reason:match.reason,settled:match.settled,battle:publicBattle(match,match.players.indexOf(id))}:null};

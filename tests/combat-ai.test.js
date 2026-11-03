@@ -77,11 +77,11 @@ test('planejamento não modifica combate, não lê fila do jogador nem sorteia E
 });
 
 test('a previsão de conversão financia a próxima ação sem alterar a reserva real',()=>{
- const converter=enemy('converter',[{id:'converter',name:'Converter Essência',target:'enemy',damage:20,costs:{essence:1,random:1},convertEssence:{from:'essence',to:'random',amount:1}}]);
- const follow=enemy('eco',[strike('golpe-coringa',5,{costs:{random:1}})]),b=battle([converter,follow]);
+ const converter=enemy('converter',[{id:'converter',name:'Converter Essência',target:'enemy',damage:20,costs:{essence:1,random:1},convertEssence:{from:'essence',to:'cinza',amount:1}}]);
+ const follow=enemy('eco',[strike('golpe-cinza',5,{costs:{cinza:1}})]),b=battle([converter,follow]);
  b.enemyResources={essence:3,cinza:0,graca:0,ruptura:0};
  const before=JSON.stringify(b.enemyResources),plan=getCombatPlan(b);
- assert.deepEqual(plan.map(action=>action.abilityId),['converter','golpe-coringa']);
+ assert.deepEqual(plan.map(action=>action.abilityId),['converter','golpe-cinza']);
  assert.equal(JSON.stringify(b.enemyResources),before,'planejamento não debita nem converte a reserva real');
 });
 

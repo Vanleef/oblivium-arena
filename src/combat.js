@@ -146,7 +146,7 @@ function applySupport(s,actor,a,receiver,charges,action={}){
   return {healed,shielded,cleansed};
 }
 function passiveBonus(actor,target){const p=actor.passive;if(!p)return 0;if(p.type==="hunter"&&meetsCondition(target,p.condition,actor)||p.type==="firstHit"&&!actor.passiveUsed||p.type==="comeback"&&actor.hp<=50)return p.amount;return 0;}
-function attackValue(s,actor,a,target,charges=actor.charge,action={},purged=0){
+function attackValue(s,actor,a,target,charges=actor.charge,action={},purged=0,prePurgeExtra){
   if(!a.damage)return 0;
   const g=actor.side==="player"?s.global:{},typeBonus=a.damageType==="energy"?g.spiritualPower:a.damageType==="piercing"?g.piercingPower:a.damageType==="affliction"?g.afflictionPower:g.physicalPower;
   const globalDamage=(typeBonus||0)+(!actor.globalStrikeUsed?(g.firstStrike||0):0),combo=a.combo&&meetsCondition(target,a.combo.condition,actor);
@@ -173,7 +173,7 @@ function attackValue(s,actor,a,target,charges=actor.charge,action={},purged=0){
   const modeBonus=actor.ashExpansionTurns?7:actor.collapseLevel===2?10:actor.collapseLevel===1?6:0;
   const fractureBonus=(a.fractureBonusDamage||0)*(action.fractureSpend||0);
   const residueBonus=(a.residueBonusDamage||0)*(action.residueSpend||0);
-  return Math.max(0,Math.round((a.damage+worldDamageBonus(s,actor,a,target,charges)+extraDamage(actor,target,a)+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+eloComboBonus+passiveBonus(actor,target)+dotBonus+ownMarkBonus+statusBonus+purgeBonus+pillarBonus+markBonus+clarityBonus+shadowBonus+nextBonus+stealthBonus+modeBonus+fractureBonus+residueBonus+actor.boost-(actor.weakened?10:0))*multiplier));
+  return Math.max(0,Math.round((a.damage+worldDamageBonus(s,actor,a,target,charges)+(prePurgeExtra??extraDamage(actor,target,a))+globalDamage+(a.perChargeDamage||0)*charges+(combo?a.combo.bonusDamage||0:0)+eloComboBonus+passiveBonus(actor,target)+dotBonus+ownMarkBonus+statusBonus+purgeBonus+pillarBonus+markBonus+clarityBonus+shadowBonus+nextBonus+stealthBonus+modeBonus+fractureBonus+residueBonus+actor.boost-(actor.weakened?10:0))*multiplier));
 }
 function purgeTargetBuffs(target,limit="all"){
  const keys=["boost","reduction","counter"];let removed=0;
@@ -303,10 +303,11 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
     const combo=a.combo&&meetsCondition(target,a.combo.condition,actor);let value=0,purgedThis=0,fractureSpend=0;
     if(!isFriendly){
       if(a.damage)triggerPassive(s,actor,"attack",{target,ability:a,costs,damageType:a.damageType||"physical"});
+      const prePurgeExtra=a.purgeBonusDamage&&(a.purge||a.purgeBuffs)?extraDamage(actor,target,a):undefined;
       if(a.stripShield){totalStripped+=Math.min(target.shield,a.stripShield);target.shield=Math.max(0,target.shield-a.stripShield);}
       if(a.purge||a.purgeBuffs)purgedThis=purgeTargetBuffs(target,a.purgeBuffs||"all");totalPurged+=purgedThis;
       fractureSpend=a.spendFracturesMax?Math.min(statusCount(target),a.spendFracturesMax,Math.max(0,Math.floor(action.fractureSpend||0))):0;
-      value=attackValue(s,actor,a,target,charges,{...action,fractureSpend},purgedThis);
+      value=attackValue(s,actor,a,target,charges,{...action,fractureSpend},purgedThis,prePurgeExtra);
       const ignoreDefense=actor.feridaAbertaTargets?.[target.id]||0;
       const r=a.damage?hit(s,target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability,ignoreDefense}):{dealt:0,blocked:0};
       if((r.dealt||r.blocked)&&ignoreDefense)delete actor.feridaAbertaTargets[target.id];

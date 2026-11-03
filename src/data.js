@@ -1,3 +1,4 @@
+import { reviseRosterCharacter } from "./roster-revisions.js";
 import {withFlexibleCosts} from './flexible-costs.js';
 import { buildCharacterKit, describeAbility } from "./kits.js";
 import { protagonistCharacters, supportingCharacters, antagonistCharacters } from "./protagonists.js";
@@ -277,7 +278,8 @@ const rawCharacters = [
   ...supportingCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character)))),
   ...antagonistCharacters.map((character) => attachArenaKitAssignment(assignCharacterArchetypes(withFlexibleCosts(character))))
 ];
-export const characters = rawCharacters.map(character => {
+export const characters = rawCharacters.map(originalCharacter => {
+  const character = reviseRosterCharacter(originalCharacter);
   const legacyEloId = character.legacyEloId || character.eloId;
   const kingdomId = kingdomOverrides[character.id] || defaultKingdomByTrack[legacyEloId]
     || (character.realm === "Limbo" ? "vestibulo" : character.realm === "Paraíso" ? "estelar" : "flagelo");

@@ -3,6 +3,7 @@ import {resolveResourcePayment,resolveEssenceExchange} from '../src/resource-cos
 import {pathToFileURL} from 'node:url';
 import {writeFile} from 'node:fs/promises';
 import {characters, elos} from '../src/data.js';
+import {defaultKingdomByTrack} from '../src/kingdoms.js';
 import {seededRandom, shuffled, normalizeCampaign, globalChoices, aggregateGlobal} from '../src/progression.js';
 import {createBattle, createEnemyTeam, getCombatPlan, chooseAction, commitTurn, resolveNextAction, getAbilityResourceCosts, exchangeEssence} from '../src/combat.js';
 
@@ -12,7 +13,8 @@ export function assertBattleState(b) {
   for (const u of [...b.allies,...b.enemies]) {
     assert.ok(Number.isInteger(u.hp) && u.hp >= 0 && u.hp <= u.maxHp, `${u.name}: Vida inválida`);
     assert.ok(Number.isInteger(u.shield) && u.shield >= 0 && u.shield <= Math.round(u.maxHp * .5), `${u.name}: Defesa inválida`);
-    assert.ok(u.abilities.length === 4 && u.abilities[3].defense && u.abilities[3].cooldown === 4, `${u.name}: defesa alterada`);
+    assert.ok(u.abilities.length >= 4 && u.abilities.at(-1).defense && u.abilities.at(-1).cooldown === 4, `${u.name}: defesa alterada`);
+    assert.equal(new Set(u.abilities.map(a=>a.id)).size,u.abilities.length,`${u.name}: identificadores de técnica duplicados`);
     for (const n of Object.values(u.cooldowns)) assert.ok(Number.isInteger(n) && n >= 0, `${u.name}: recarga inválida`);
   }
 }
@@ -43,7 +45,8 @@ function assertEnemyPlan(b) {
 export function simulateMatch(index, pass=0, maxRounds=100, options={}) {
   const seed=options.seed??21000+index*101+pass*10007, rng=seededRandom(seed), anchor=characters[index%characters.length];
   const ids=options.playerIds||[anchor.id,...shuffled(characters.filter(c=>c.id!==anchor.id),rng).slice(0,2).map(c=>c.id)];
-  const elo=options.eloId?elos.find(e=>e.id===options.eloId):elos[(index+pass)%elos.length];
+  const resolvedEloId=options.eloId?(defaultKingdomByTrack[options.eloId]||options.eloId):undefined;
+  const elo=options.eloId?elos.find(e=>e.id===resolvedEloId):elos[(index+pass)%elos.length];
   if(!elo)throw new Error(`Elo desconhecido: ${options.eloId}`);
   const encounter=options.encounter||['normal','elite','boss'][pass%3],difficulty=options.difficulty??[0,3,6][pass%3],sequence=options.sequence??index;
   const b=createBattle(ids,createEnemyTeam(elo,ids,encounter,sequence,{difficulty}),{rng,difficulty,globalEffects:options.globalEffects});

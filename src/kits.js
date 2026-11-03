@@ -295,6 +295,7 @@ export function describeAbility(a) {
     parts.push(purgeText);
   }
   if(a.damageIfPurged)parts.push(`Se remover pelo menos um buff, causa +${a.damageIfPurged} de dano.`);
+  if(a.purgeBonusDamage)parts.push(`Causa +${a.purgeBonusDamage} de dano por bônus de dano, redução ou contra-ataque ativo antes de removê-los, até +12.`);
   if(a.executeIfHpAtMost)parts.push(`Executa o alvo se, após o dano, ele ficar com ${a.executeIfHpAtMost} de Vida ou menos.`);
   if(a.spendResidueMax) {
     if(a.residueCounterBonus)parts.push(`Pode gastar até ${a.spendResidueMax} Resíduos; cada um acrescenta +${a.residueCounterBonus} ao contra-ataque.`);

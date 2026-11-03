@@ -10,6 +10,8 @@ const supported = new Set(["pt-BR", "en"]);
 
 const phraseTranslations = Object.fromEntries(Object.entries({
   "Oblivium Arena": "Oblivium Arena",
+  "Causa 15 de dano espiritual a um inimigo. Causa +4 de dano por bônus de dano, redução ou contra-ataque ativo antes de removê-los, até +12. Não pode ser anulado por Contra-ataque. Remove bônus de dano, redução e contra-ataque do alvo.": "Deals 15 spiritual damage to one enemy. Deals +4 damage for each damage bonus, reduction, or counterattack active before removal, up to +12. Cannot be negated by a Counterattack. Removes the target's damage bonus, reduction, and counterattack.",
+  "Causa 10 de dano físico a um inimigo. Causa +3 de dano por bônus de dano, redução ou contra-ataque ativo antes de removê-los, até +12. Não pode ser anulado por Contra-ataque. Remove bônus de dano, redução e contra-ataque do alvo. Remove 20 de Defesa antes do dano.": "Deals 10 physical damage to one enemy. Deals +3 damage for each damage bonus, reduction, or counterattack active before removal, up to +12. Cannot be negated by a Counterattack. Removes the target's damage bonus, reduction, and counterattack. Removes 20 Defense before dealing damage.",
   "IDENTIDADE · SAEL, O ECO DAS QUATRO ESSÊNCIAS": "IDENTITY · SAEL, THE ECHO OF FOUR ESSENCES",
   "As três barras se fundiram em uma forma só.": "The three bars have merged into one form.",
   "30 · Prefácio 70 · Epílogo 100 · Final": "30 · Preface 70 · Epilogue 100 · Final",

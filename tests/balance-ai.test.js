@@ -16,7 +16,7 @@ test("Rupturas altas aumentam Vida, dano e defesas da oposição", () => {
   assert.ok(rupture.armor > normal.armor);
   assert.ok(rupture.regen > normal.regen);
 
-  const elo = elos.find((item) => item.id === "protecao");
+  const elo = elos.find((item) => item.id === "oblivio");
   const easy = createEnemyTeam(elo, team, "normal", 0, { difficulty: 0 });
   const hard = createEnemyTeam(elo, team, "normal", 0, { difficulty: 6 });
   assert.ok(hard[0].maxHp > easy[0].maxHp);
@@ -46,7 +46,7 @@ test("ofertas de aprimoramento priorizam categorias diferentes", () => {
 });
 
 test("escudos param em metade da Vida máxima", () => {
-  const elo = elos.find((item) => item.id === "protecao");
+  const elo = elos.find((item) => item.id === "oblivio");
   const enemies = createEnemyTeam(elo, team, "normal", 0, { difficulty: 0 }).slice(0, 1);
   const battle = createBattle(team, enemies, { enemyPlanner: () => [] });
   const actor = battle.allies[0];
