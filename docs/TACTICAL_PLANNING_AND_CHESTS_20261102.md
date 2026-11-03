@@ -63,3 +63,5 @@ O comando `npm run test:tactical` inclui os testes de ordem, interface, animaç�
 - A IA avalia o resultado ambiental público ao planejar, sem consultar a fila secreta. A prévia de ações não aplica antecipadamente os efeitos de fim de rodada.
 - Testes cobrem configuração, obstáculos, ordem, posição final, Escudo/Invulnerável, limites, cura bloqueada, não ressurreição, derrota, serialização, persistência nas trilhas, IA e seleção na interface.
 - Conferência da etapa anterior na prévia d039dc9: controle Repetições curtas ativado e mensagens de perda de Vida visíveis junto à ação no impacto.
+
+Verificação da prévia b8a3a95: seletor com as quatro opções, regra de Limbo anunciada antes do plano, C3 marcada e transitável, Riven movido para C3 e recebendo 6 de Escudo no histórico, transição para rodada 2 e ausência de erros da aplicação no navegador. Desktop de 1348 px sem rolagem horizontal. 70 testes táticos e build aprovados; mobile físico e balanceamento com jogadores continuam pendentes.
