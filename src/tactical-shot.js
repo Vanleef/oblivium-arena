@@ -21,8 +21,13 @@ export function tacticalShot(event){
  const lift=pre?(close?2:5):contact?(close?4:8):0;
  const tilt=(event.family==='pierce'?4:8)*Math.sign(vx);
  const scale=pre?(defense?1.055:.97):contact?(close?1.065:1.035):1;
- const focus=contact?1.075:pre?1.04:tail?1.035:1;
- return {from,to,focus,focusX:clamp((from.x+to.x+1)*10,14,86),focusY:clamp((from.y+to.y+1)*10,15,85),
+ const nearLeft=Math.min(from.x,to.x)===0,nearRight=Math.max(from.x,to.x)===4;
+ // The stage clips its scenery. Reduce zoom when a silhouette is already at an outer edge.
+ const zoom=contact?1.075:pre?1.04:tail?1.035:1;
+ const focus=Math.min(zoom,nearLeft&&nearRight?1.02:nearLeft||nearRight?1.035:1.075);
+ const center=(from.x+to.x+1)*10;
+ const focusX=nearLeft&&!nearRight?Math.min(center,23):nearRight&&!nearLeft?Math.max(center,77):clamp(center,14,86);
+ return {from,to,focus,focusX,focusY:clamp((from.y+to.y+1)*10,15,85),
   x:vx*shift,y:vy*shift,lift,tilt:pre?-tilt*.6:contact?tilt:tail?tilt*.25:0,scale};
 }
 
