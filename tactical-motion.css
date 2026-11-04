@@ -675,7 +675,7 @@
  scale:var(--shot-zoom,1);transform-origin:var(--shot-x,50%) var(--shot-y,50%);
  transition:scale var(--shot-duration,160ms) cubic-bezier(.19,.72,.24,1);
 }
-.alternating-battle .shot-model{
+.alternating-battle .board .token .shot-model{
  translate:var(--model-x,0px) var(--model-y,0px);
  rotate:var(--model-tilt,0deg);
  scale:var(--model-scale,1);
