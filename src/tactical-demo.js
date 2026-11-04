@@ -1,3 +1,5 @@
+import {applyTacticalShot} from './tactical-shot.js';
+import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
 import {tacticalIdleStyle,tacticalIdleLayerMarkup} from './tactical-motion.js';
 import {tacticalTurnIncome} from './tactical-hand.js';
 import {skillSealReason} from './combat-effects.js';
@@ -62,7 +64,7 @@ function syncPlaybackRate(){
   if(target?.closest?.('.arena-stage,.arena-toolbar')&&!target.closest('.token[data-family="idle"]'))animation.playbackRate=state.playbackSpeed;
  }
 }
-function playbackControls(){return '<nav class="playback-controls" aria-label="Velocidade das animações"><span>Ritmo</span>'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.playbackSpeed===n)+'">'+n+'×</button>').join('')+'<button data-command="compact-replay" class="compact-replay" aria-pressed="'+state.compactReplay+'" title="Encurta ativações repetidas; preserva eliminações e transformações.">Repetições curtas</button></nav>';}
+function playbackControls(){return '<nav class="playback-controls" aria-label="Velocidade das animações"><span>Ritmo</span>'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.playbackSpeed===n)+'">'+n+'×</button>').join('')+'<button data-command="toggle-audio" aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">'+(audioEnabled()?'♪':'♪̸')+'</button><button data-command="compact-replay" class="compact-replay" aria-pressed="'+state.compactReplay+'" title="Encurta ativações repetidas; preserva eliminações e transformações.">Repetições curtas</button></nav>';}
 function routeMarkup(){return '<section class="route-choices"><h3>Escolha a próxima trilha</h3><p>A Vida e os aprimoramentos da expedição acompanham o trio.</p><div>'+tacticalRoutes.map(r=>'<button data-route="'+r.id+'"><small>'+esc(r.kind)+'</small><strong>'+esc(r.title)+'</strong><em>'+esc(r.story)+'</em><span>'+esc(r.text)+'</span></button>').join('')+'</div></section>';}
 function activeAugmentsMarkup(){
  const augments=(state.battle.tactical.augments?.player||[]).filter(a=>!a.expiresAt||a.expiresAt>=state.battle.round);
@@ -267,7 +269,7 @@ function boardMarkup(s,selection){
   const sprite=unit?tacticalSpriteFrame(unit,anim?.actorId===unit.id?anim:null):null;
   const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait;
-  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family,caster?.realm,source,p):'')+
+  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family,caster?.realm,source,p,Boolean(unit&&(hits.has(unit.id)||anim.affectedTargetIds?.includes(unit.id)||anim.type==='guard'))):'')+
    (unit?activationSignal(unit,spent):'')+(chestFlash?'<span class="chest-flash" aria-hidden="true"><i></i></span>':'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i></i></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
@@ -301,6 +303,7 @@ function playActivation(result){
 function commitActivation(){
  if(!playerTurn())return;
  const selection=selectionPreview();if(!selection?.result.ok)return;
+ if(!selection.sprint)playCombatCue('prepare',selection.ability?'strike':'guard');
  const result=submitTacticalActivation(state.battle,'player',state.selected,selection.refs);
  if(result.ok&&!result.waiting)playActivation(result);
  else if(result.ok){const actorId=state.selected;clearSelection();state.sealedActor=actorId;state.resourceMenu=null;render();}
@@ -356,11 +359,12 @@ async function paintExchangeMovement(event,pause,reduced){
   const landing=root.querySelector('.cell[data-cell="'+cellKey(step.to)+'"]');
   if(!token?.animate||!landing||reduced)continue;
   const a=token.closest('.cell').getBoundingClientRect(),b=landing.getBoundingClientRect();
-  const dx=b.left-a.left,dy=b.top-a.top,lift=Math.min(20,a.height*.35);
-  token.animate([{translate:'0 0'},{translate:(dx*.48)+'px '+(dy*.48-lift)+'px',offset:.48},{translate:dx+'px '+dy+'px'}],
+  const dx=b.left-a.left,dy=b.top-a.top,lift=Math.min(16,a.height*.28);
+  token.animate([{translate:'0 0',scale:'1 1',offset:0},{translate:(dx*.06)+'px '+(dy*.06+2)+'px',scale:'1.035 .95',offset:.16},{translate:(dx*.58)+'px '+(dy*.58-lift)+'px',scale:'1 1.04',offset:.53},{translate:dx+'px '+dy+'px',scale:'1.055 .94',offset:.94},{translate:dx+'px '+dy+'px',scale:'1 1'}],
    {duration,easing:'cubic-bezier(.28,.06,.32,1)',fill:'forwards'});
  }
  await pause(duration);
+ if(event.moves.length)playCombatCue('step');
  state.playback=event.after;
  state.animation={...event,pose:'landing'};
  render();
@@ -395,7 +399,13 @@ function animateRound(events){
     const impact=event.type==='move'?frame.pose==='landing':['impact','counter'].includes(frame.pose);
     if(impact&&!applied){applied=true;state.playback=event.after;for(const id of changedUnits(event))state.recentEffects[id]=Date.now()+2400;recordTerrainImpact({...event,...frame});}
     if(index===0||impact||!event.actorId)render();else paintAnimationPose(event,frame);
-    await pause(reduced?40:(event.actorId?tacticalFrameDuration({...event,...frame}):impact?850:180)/state.playbackSpeed);
+    const duration=reduced?40:(event.actorId?tacticalFrameDuration(state.animation):impact?650:140)/state.playbackSpeed;
+    if(!reduced)applyTacticalShot(root.querySelector('.arena-stage'),state.animation,duration);
+    if(!event.skipped&&event.actorId){
+     if(impact)playCombatCue('contact',frame.family);
+     else if(['release','thrust'].includes(frame.pose))playCombatCue('release',frame.family);
+    }
+    await pause(duration);
    }
    state.playback=event.after;state.completedEvents.push(event);
   }
@@ -453,6 +463,7 @@ function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy
 root.addEventListener('click',event=>{
  const el=event.target.closest('button');if(!el||el.disabled)return;
  if(el.dataset.speed){const speed=Number(el.dataset.speed);if([1,2,3].includes(speed)){state.playbackSpeed=speed;for(const b of root.querySelectorAll('[data-speed]'))b.setAttribute('aria-pressed',String(Number(b.dataset.speed)===speed));syncPlaybackRate();}return;}
+ if(el.dataset.command==='toggle-audio'){setAudioEnabled(!audioEnabled());el.setAttribute('aria-pressed',String(audioEnabled()));el.textContent=audioEnabled()?'♪':'♪̸';return;}
  if(el.dataset.command==='compact-replay'){state.compactReplay=!state.compactReplay;el.setAttribute?.('aria-pressed',String(state.compactReplay));return;}
  if(state.busy)return;if(state.chestOffer&&!el.dataset.chestChoice)return;
  if(el.dataset.spendKind){const n=Number(el.dataset.spendValue);if(['residue','fracture'].includes(el.dataset.spendKind)&&Number.isInteger(n)&&n>=0){state.spendChoice??={residue:0,fracture:0};state.spendChoice[el.dataset.spendKind]=n;render();}return;}

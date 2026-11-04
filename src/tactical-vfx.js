@@ -7,7 +7,7 @@ export function tacticalVfxMarkup(family){
  return row===null?'':`<span class="cell-vfx" aria-hidden="true" style="--vfx-row:${row*100/3}%"></span>`;
 }
 
-export function tacticalExchangeVfxMarkup(family,realm,source,point){
+export function tacticalExchangeVfxMarkup(family,realm,source,point,contact=false){
  if(tacticalVfxRow(family)===null)return '';
  const world=realm==='Inferno'?'inferno':realm==='Paraíso'?'paraiso':'limbo';
  const dx=source&&point?point.x-source.x:0,dy=source&&point?point.y-source.y:0;
@@ -16,5 +16,5 @@ export function tacticalExchangeVfxMarkup(family,realm,source,point){
   const spread=(index-2)*24,recoil=index%2?24:34;
   return `<b style="--spread:${spread}deg;--recoil:${recoil}px;--delay:${index*12}ms"></b>`;
  }).join('');
- return `<span class="exchange-impact" data-family="${family}" data-world="${world}" aria-hidden="true" style="--impact-angle:${angle}deg"><i></i><i></i><i></i><span class="impact-fragments">${fragments}</span></span>`;
+ return `<span class="exchange-impact" data-family="${family}" data-world="${world}" data-contact="${contact}" aria-hidden="true" style="--impact-angle:${angle}deg"><i></i><i></i><i></i><em class="impact-material"></em><span class="impact-fragments">${fragments}</span></span>`;
 }
