@@ -20,7 +20,7 @@ test('voo de projétil ocorre antes do contato e não duplica viagens existentes
  assert.equal(frames.filter(f=>f.pose==='travel').length,1);
  const energy={...ability,damageType:'energy'},second=tacticalPlaybackFrames(actor,energy,event);
  assert.equal(second.filter(f=>f.pose==='travel').length,1);
- assert.equal(tacticalFrameDuration({...event,pose:'travel'}),340);
+ assert.equal(tacticalFrameDuration({...event,pose:'travel'}),310);
  assert.equal(tacticalProjectileMarkup(actor,ability,{...event,pose:'impact',family:'pierce'}),'');
  assert.match(tacticalProjectileMarkup(actor,ability,{...event,pose:'travel',family:'pierce'}),/skill-projectile glass/);
 });

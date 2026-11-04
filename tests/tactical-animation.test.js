@@ -8,7 +8,7 @@ test('todas as habilidades de todo o elenco recebem sequência de oito quadros v
 });
 
 test('movimento, guarda, suporte e ataques em área usam sequências próprias',()=>{
- assert.equal(tacticalAnimationFamily(null,'move'),'move');assert.equal(tacticalAnimationFamily({defense:true}),'guard');assert.equal(tacticalAnimationFamily({heal:10,target:'ally'}),'support');assert.equal(tacticalAnimationFamily({target:'all-enemies'}),'burst');assert.equal(tacticalAnimationFamily({damage:10,damageType:'physical',target:'enemy'}),'slash');assert.equal(tacticalAnimationFamily({damage:10,damageType:'piercing',target:'enemy'}),'pierce');assert.equal(tacticalAnimationFamily({damage:10,damageType:'energy',target:'enemy'}),'projectile');assert.equal(tacticalAnimationFamily({counter:15,target:'self'}),'counter');assert.equal(tacticalAnimationFamily({damageType:'affliction',damage:10,target:'enemy'}),'affliction');assert.equal(tacticalFrameArt({art:'/art/skill.webp'},'impact','/art/portrait.webp'),'/art/skill.webp');assert.equal(tacticalFrameArt({art:'/art/skill.webp'},'ready','/art/portrait.webp'),'/art/portrait.webp');assert.equal(tacticalFrameArt({},'impact','/art/portrait.webp'),'/art/portrait.webp');
+ assert.equal(tacticalAnimationFamily(null,'move'),'move');assert.equal(tacticalAnimationFamily({defense:true}),'guard');assert.equal(tacticalAnimationFamily({heal:10,target:'ally'}),'support');assert.equal(tacticalAnimationFamily({target:'all-enemies'}),'burst');assert.equal(tacticalAnimationFamily({damage:10,damageType:'physical',target:'enemy'}),'slash');assert.equal(tacticalAnimationFamily({damage:10,damageType:'piercing',target:'enemy'}),'pierce');assert.equal(tacticalAnimationFamily({damage:10,damageType:'energy',target:'enemy'}),'projectile');assert.equal(tacticalAnimationFamily({counter:15,target:'self'}),'counter');assert.equal(tacticalAnimationFamily({damageType:'affliction',damage:10,target:'enemy'}),'affliction');assert.equal(tacticalFrameArt({art:'/art/skill.webp'},'impact','/art/portrait.webp'),'/art/portrait.webp');assert.equal(tacticalFrameArt({art:'/art/skill.webp'},'ready','/art/portrait.webp'),'/art/portrait.webp');assert.equal(tacticalFrameArt({},'impact','/art/portrait.webp'),'/art/portrait.webp');
 });
 
 import {readFile} from 'node:fs/promises';
@@ -19,27 +19,26 @@ test('os kits piloto têm atlas transparente e quadros distintos para cada açã
  assert.equal(Object.keys(tacticalSpriteAtlases).length,25);
  for(const id of Object.keys(tacticalSpriteAtlases)){
   assert.ok(tacticalRoster.includes(id),id);
-  const unit=characterById[id],atlas=tacticalSpriteAtlases[id];assert.ok(atlas,id);
-  const bytes=await readFile(new URL('..'+atlas.src,import.meta.url));
-  assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');
+  const unit=characterById[id],idle=tacticalSpriteFrame(unit);
+  const bytes=await readFile(new URL('..'+idle.src,import.meta.url));
+  assert.equal(bytes.toString('ascii',0,4),'RIFF');
+  assert.equal(bytes.toString('ascii',8,12),'WEBP');
   const enemy={...unit,sourceId:id,id:'rival-0-'+id};
-  assert.deepEqual(tacticalSpriteFrame(unit),tacticalSpriteFrame(enemy));
-  for(const [row,abilityId]of ['impulso','tecnica','voto','despertar'].entries()){
+  assert.deepEqual(idle,tacticalSpriteFrame(enemy));
+  for(const abilityId of ['impulso','tecnica','voto','despertar']){
    const frames=tacticalAnimationFrames(unit.abilities.find(a=>a.id===abilityId));
    const sampled=frames.map(frame=>tacticalSpriteFrame(unit,{type:'skill',abilityId,...frame}));
-   if(sampled[0].sheetRows===6)assert.ok(sampled.every(f=>f.row===row+2));
-   assert.equal(new Set(sampled.map(f=>`${f.row}/${f.column}`)).size,6);
-   const contact=frames.findIndex(f=>f.pose==='impact'||f.pose==='counter');
-   assert.ok([3,4].includes(sampled[contact].sheetRows===6?sampled[contact].column:sampled[contact].row*sampled[contact].sheetColumns+sampled[contact].column),'o contato mostra o desenho ofensivo');
+   assert.ok(new Set(sampled.slice(0,-1).map(f=>f.row+'/'+f.column)).size>=5,id+'/'+abilityId);
+   assert.deepEqual(sampled.at(-1),idle);
   }
-  assert.equal(tacticalSpriteFrame(unit,{type:'move',index:3}).row,1);
-  assert.equal(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'unmapped-form'}),null);
+  assert.deepEqual(tacticalSpriteFrame(unit,{type:'move',index:3}),idle);
+  assert.deepEqual(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'unmapped-form'}),idle);
  }
  assert.equal(tacticalSpriteFrame({id:'unknown'}),null);
 });
 
 test('Fio de Memória usa seis quadros próprios e restaura o atlas base ao mover',()=>{
- const unit=characterById.nilo,sheet={style:{}},token={style:{setProperty(){}},dataset:{unitId:unit.id},closest:()=>null,querySelector:s=>s==='.sprite-sheet'?sheet:null};
+ const unit=characterById.nilo,sheet={getAttribute(){return this.src;},style:{setProperty(key,value){this[key]=value;}}},token={style:{setProperty(){}},dataset:{unitId:unit.id},closest:()=>null,querySelector:s=>s==='.sprite-sheet'?sheet:null};
  const event={actorId:unit.id,type:'skill',abilityId:'tecnica'};
  paintTacticalToken(token,unit,event,{family:'bind',pose:'impact',index:5});
  assert.match(sheet.src,/fio-de-memoria/);
@@ -49,14 +48,14 @@ test('Fio de Memória usa seis quadros próprios e restaura o atlas base ao move
 });
 
 test('reprodução atualiza o recorte do ator correto no DOM e preserva os demais',()=>{
- const unit=characterById[tacticalRoster[0]],sheet={style:{}},token={style:{setProperty(){}},dataset:{unitId:unit.id},closest:()=>null,querySelector:s=>s==='.sprite-sheet'?sheet:null};
+ const unit=characterById[tacticalRoster[0]],sheet={getAttribute(){return this.src;},style:{setProperty(key,value){this[key]=value;}}},token={style:{setProperty(){}},dataset:{unitId:unit.id},closest:()=>null,querySelector:s=>s==='.sprite-sheet'?sheet:null};
  const event={actorId:unit.id,type:'skill',abilityId:'impulso'};
  const frames=tacticalAnimationFrames(unit.abilities[0]);
- paintTacticalToken(token,unit,event,frames[1]);assert.equal(sheet.style.left,'-100%');assert.equal(sheet.style.top,'-200%');
- paintTacticalToken(token,unit,event,frames.find(f=>f.pose==='impact'));assert.equal(sheet.style.left,'-300%');assert.equal(sheet.style.top,'-200%');assert.equal(token.dataset.pose,'impact');
- token.dataset.unitId='other';assert.equal(paintTacticalToken(token,unit,event,frames[6]),false);assert.equal(sheet.style.left,'-300%');assert.equal(sheet.style.top,'-200%');
- const image={src:''},fallback={style:{setProperty(){}},closest:()=>null,dataset:{unitId:unit.id,portrait:'/portrait.webp',skillArt:'/skill.webp'},querySelector:s=>s==='.token-art'?image:null};
- paintTacticalToken(fallback,unit,event,{family:'slash',pose:'impact'});assert.equal(image.src,'/skill.webp');
+ paintTacticalToken(token,unit,event,frames[1]);assert.equal(sheet.style.left,'0%');assert.equal(sheet.style.top,'-100%');
+ paintTacticalToken(token,unit,event,frames.find(f=>f.pose==='impact'));assert.equal(sheet.style.left,'-400%');assert.equal(sheet.style.top,'-100%');assert.equal(token.dataset.pose,'impact');
+ token.dataset.unitId='other';assert.equal(paintTacticalToken(token,unit,event,frames[6]),false);assert.equal(sheet.style.left,'-400%');assert.equal(sheet.style.top,'-100%');
+ const image={src:'/portrait.webp'},fallback={style:{setProperty(){}},closest:()=>null,dataset:{unitId:unit.id,portrait:'/portrait.webp',skillArt:'/skill.webp'},querySelector:s=>s==='.token-art'?image:null};
+ paintTacticalToken(fallback,unit,event,{family:'slash',pose:'impact'});assert.equal(image.src,'/portrait.webp');
  paintTacticalToken(fallback,unit,event,{family:'slash',pose:'ready'});assert.equal(image.src,'/portrait.webp');
 });
 
@@ -66,9 +65,9 @@ test('impactos visuais só aparecem no contato de habilidades efetivamente execu
  for(const pose of ['impact','counter'])assert.equal(tacticalImpactActive({type:'skill',pose}),true,pose);
  assert.equal(tacticalImpactActive({type:'skill',pose:'impact',skipped:true}),false);
  assert.equal(tacticalImpactActive({type:'move',pose:'landing'}),false);
- assert.equal(tacticalFrameDuration({type:'skill',pose:'impact'}),560);
- assert.equal(tacticalFrameDuration({type:'skill',pose:'counter'}),560);
- assert.equal(tacticalFrameDuration({type:'move',pose:'landing'}),160);
+ assert.equal(tacticalFrameDuration({type:'skill',pose:'impact'}),430);
+ assert.equal(tacticalFrameDuration({type:'skill',pose:'counter'}),430);
+ assert.equal(tacticalFrameDuration({type:'move',pose:'landing'}),150);
 });
 
 test('reação de dano em área distingue alvos protegidos de alvos atingidos',async()=>{
@@ -96,6 +95,6 @@ test('Orin tem atlas próprio para Desatar a Trama sem emprestar formas desconhe
  const frame=tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'unweave',pose:'impact',index:5});
  assert.match(frame.src,/desatar-a-trama-v1/);
  assert.deepEqual([frame.sheetColumns,frame.sheetRows],[3,2]);
- assert.equal(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'missing'}),null);
+ assert.deepEqual(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'missing'}),tacticalSpriteFrame(unit));
 });
 

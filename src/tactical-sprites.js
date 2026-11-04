@@ -60,15 +60,29 @@ export function tacticalSpriteFrame(unit,event=null){
  const id=unit?.sourceId||unit?.id,body=bodyAtlasNames[id],original=tacticalSpriteAtlases[id];
  if(!original)return null;
  const finished=event?.pose==='ready'&&event.index>0;
- const baseSkill=body&&event?.type==='skill'&&!event.skipped&&!finished&&(!event.formKey||event.formKey==='base');
- const skill=baseSkill?skillRowFor(unit,event):null;
- const row=skillRows.includes(skill)?skillRows.indexOf(skill)+1:0;
- let column=row?(bodyColumns[event.pose]??0):0;
- // For threaded casts the weapon continues its follow-through after launch.
- if(row&&event.pose==='impact'&&['bind','affliction','projectile'].includes(event.family))column=4;
- const src=body?`/art/animations/tactical-body-20261104/${body}.webp`:original.src;
- const sheetRows=body?5:original.rows,sheetColumns=original.columns;
- return {src,idleAnimated:false,clip:row?skill:'idle',bodyClip:row>0,row,column,
+ const casting=event?.type==='skill'&&!event.skipped&&!finished;
+ const form=event?.formKey||'base';
+ const dedicated=casting?tacticalSkillAtlases[[id,event.abilityId,form].join('/')]:null;
+ const skill=casting&&form==='base'?skillRowFor(unit,event):null;
+ const bodyClip=Boolean(dedicated||skillRows.includes(skill));
+ let row=0,column=0;
+ if(dedicated){
+  const frame=bodyColumns[event.pose]??0;
+  row=Math.floor(frame/dedicated.columns);
+  column=frame%dedicated.columns;
+ }else if(body&&bodyClip){
+  row=skillRows.indexOf(skill)+1;
+  column=bodyColumns[event.pose]??0;
+  // Threaded casts continue their follow-through after launch.
+  if(event.pose==='impact'&&['bind','affliction','projectile'].includes(event.family))column=4;
+ }else if(!body&&skillRows.includes(skill)){
+  row=rows[skill];
+  column=frameColumns[event.family]?.[event.pose]??0;
+ }
+ const src=dedicated?.src||(body?`/art/animations/tactical-body-20261104/${body}.webp`:original.src);
+ const sheetRows=dedicated?.rows||(body?5:original.rows);
+ const sheetColumns=dedicated?.columns||original.columns;
+ return {src,idleAnimated:false,clip:dedicated?event.abilityId:row?skill:'idle',bodyClip,row,column,
   x:column*100/(sheetColumns-1),y:row*100/(sheetRows-1),sheetColumns,sheetRows};
 }
 export function tacticalSpriteInline(frame){
