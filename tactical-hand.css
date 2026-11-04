@@ -200,3 +200,123 @@
  .card-battle .command-dock .hand-context{font-size:10px}
  .card-battle .confirm-cards{width:38px;height:38px}
 }
+
+/* A mão de ações flutua dentro do cenário; a grade continua clicável ao redor dela. */
+.card-battle .arena-stage>.arena-command-dock{
+ position:absolute;z-index:14;left:50%;bottom:8px;width:min(700px,calc(100% - 24px));
+ transform:translateX(-50%);display:grid;gap:2px;margin:0;padding:0 5px;
+ border:0;border-radius:0;background:none;box-shadow:none;overflow:visible;
+ pointer-events:none;isolation:isolate
+}
+.card-battle .arena-command-dock .command-header{
+ position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;
+ min-height:28px;padding:0 4px;pointer-events:none
+}
+.card-battle .arena-command-dock .command-status{
+ display:flex;align-items:baseline;gap:8px;min-width:0;text-shadow:0 2px 6px #000
+}
+.card-battle .arena-command-dock .command-status>b{
+ color:#f1d994;font-size:9px;letter-spacing:.13em;white-space:nowrap
+}
+.card-battle .arena-command-dock .command-status>span{
+ color:#f0e8d5;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.card-battle .arena-command-dock .arena-command-feedback{
+ display:flex;align-items:center;justify-content:flex-end;min-width:38px;min-height:34px;
+ margin-left:auto;pointer-events:auto
+}
+.card-battle .arena-command-dock .arena-command-feedback .confirm-cards{
+ display:grid;place-items:center;width:38px;min-width:38px;height:38px;min-height:38px;
+ padding:0;border-radius:50%;pointer-events:auto
+}
+.card-battle .arena-command-dock .arena-command-feedback .confirm-cards svg{width:17px;height:17px;fill:currentColor}
+.card-battle .arena-command-dock .arena-command-feedback .arena-income{
+ position:relative;display:grid;grid-template-columns:1fr;gap:1px;min-height:0;width:auto;max-width:320px;
+ padding:0;border:0;border-radius:0;background:none;box-shadow:none;overflow:visible;animation:none
+}
+.card-battle .arena-command-dock .arena-command-feedback .arena-income:before{content:none}
+.card-battle .arena-command-dock .arena-command-feedback .arena-income-title{font-size:6px;letter-spacing:.12em;text-align:right;text-shadow:0 2px 6px #000}
+.card-battle .arena-command-dock .arena-command-feedback .arena-income-items{justify-content:flex-end;gap:4px}
+.card-battle .arena-command-dock .arena-command-feedback .arena-income-item{padding:3px 5px;border-radius:999px;background:#11131bd9;box-shadow:0 0 12px color-mix(in srgb,var(--essence-tint),transparent 72%)}
+.card-battle .arena-command-dock .planned-actions{justify-content:center;min-height:20px;gap:4px;pointer-events:auto}
+.card-battle .arena-command-dock .planned-actions>span:first-child{display:none}
+.card-battle .arena-command-dock .planned-action,.card-battle .arena-command-dock .planned-remove,.card-battle .arena-command-dock .planned-swap{min-height:22px;padding:2px 6px;border-color:#d8c28075;background:#11131bdc;color:#f0dfb3;font-size:9px}
+.card-battle .arena-command-dock .command-actions.arena-cards{
+ display:flex;align-items:flex-end;justify-content:center;gap:0;min-height:0;width:100%;
+ padding:28px 0 5px;overflow:visible;pointer-events:none
+}
+.card-battle .arena-command-dock .arena-cards .action-card{
+ position:relative;flex:0 0 clamp(86px,8.5vw,116px);width:clamp(86px,8.5vw,116px);height:clamp(120px,12vw,154px);
+ min-width:0;min-height:0;max-width:none;margin-left:-47px;padding:0;overflow:hidden;
+ transform:translateY(var(--fan-lift,0px)) rotate(var(--fan-angle,0deg));
+ border:1px solid #c0a56e;border-radius:8px;background:#181a20;
+ box-shadow:0 5px 14px #000a;cursor:pointer;pointer-events:auto;touch-action:manipulation;
+ transition:transform .18s cubic-bezier(.18,.8,.25,1),border-color .18s,box-shadow .18s,filter .18s
+}
+.card-battle .arena-command-dock .arena-cards .action-card:first-child{margin-left:0}
+.card-battle .arena-command-dock .arena-cards .action-card:hover:not(:disabled),
+.card-battle .arena-command-dock .arena-cards .action-card:focus-visible,
+.card-battle .arena-command-dock .arena-cards .action-card[aria-pressed=true]{
+ z-index:32!important;transform:translateY(-15px) rotate(0deg) scale(1.06);
+ border-color:#fff0b7;box-shadow:0 0 0 1px #fff0b7,0 8px 22px #000b,0 0 18px #e0c47b44
+}
+.card-battle .arena-command-dock .arena-cards .action-card.essence-unavailable{filter:grayscale(.82);opacity:.48}
+.card-battle .arena-command-dock .arena-cards .action-card:disabled{cursor:not-allowed}
+.card-battle .arena-command-dock .arena-cards .action-card .card-title{left:6px;right:6px;bottom:29px;width:auto}
+.card-battle .arena-command-dock .arena-cards .action-card .card-title strong{font-size:11px;line-height:1.08}
+.card-battle .arena-command-dock .arena-cards .action-card .card-title small{font-size:7px;line-height:1.15}
+.card-battle .arena-command-dock .arena-cards .action-card:hover .card-title small,
+.card-battle .arena-command-dock .arena-cards .action-card:focus-visible .card-title small,
+.card-battle .arena-command-dock.is-targeting .arena-cards .action-card[aria-pressed=true] .card-title small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;color:#e8ddc8}
+.card-battle .arena-command-dock .arena-cards .action-card .card-pattern{top:7px;right:7px;left:auto;padding:4px}
+.card-battle .arena-command-dock .arena-cards .action-card .area-preview.tactical-pattern{grid-template-columns:repeat(5,6px);grid-template-rows:repeat(5,6px);gap:1px}
+.card-battle .arena-command-dock .arena-cards .action-card .card-footer{height:25px;padding:3px 5px}
+.card-battle .arena-command-dock .arena-cards .action-card .cost-item{font-size:7px}
+.card-battle .arena-command-dock .arena-cards .action-card .cost-pip{width:5px;height:5px}
+.card-battle .arena-command-dock .arena-cards .action-card .action-point{font-size:6px}
+.card-battle .arena-command-dock .hand-context{display:flex;align-items:center;justify-content:center;gap:8px;min-height:0;margin:0;padding:2px;color:#fff0cf;font-size:10px;text-shadow:0 2px 6px #000;pointer-events:auto}
+.card-battle .arena-command-dock .hand-context>span{padding:0}
+.card-battle .arena-command-dock .hand-context>button{min-width:28px;min-height:28px;padding:0;border:0;background:transparent;font-size:18px}
+.card-battle .arena-command-dock .hand-inspector{max-width:min(560px,92vw);margin:0 auto;color:#f0e6d0;text-align:center;pointer-events:auto}
+.card-battle .arena-command-dock .hand-inspector>summary{color:#e3ce98;text-shadow:0 2px 6px #000}
+.card-battle .arena-command-dock.is-targeting .planned-actions{display:none}
+.card-battle .arena-command-dock.is-targeting .command-actions.arena-cards{padding-top:3px}
+.card-battle .arena-command-dock.is-targeting .arena-cards .action-card:not([aria-pressed=true]){display:none}
+.card-battle .arena-command-dock.is-targeting .arena-cards .action-card[aria-pressed=true]{
+ flex-basis:108px;width:108px;height:146px;margin-left:0;transform:translateY(-4px) scale(1.02)
+}
+.card-battle .arena-command-dock.is-targeting .command-header{min-height:24px}
+.card-battle .arena-command-dock.is-targeting .command-status{display:none}
+.card-battle .arena-command-dock.is-targeting .command-header:has(.arena-income){display:none}
+.card-battle .arena-command-dock .command-actions button *{pointer-events:none;-webkit-user-drag:none}
+@media(max-width:700px){
+ .card-battle .arena-stage>.arena-command-dock{bottom:max(5px,env(safe-area-inset-bottom));width:calc(100% - 12px);padding:0 2px}
+ .card-battle .arena-command-dock .command-header{min-height:22px;padding:0 2px}
+ .card-battle .arena-command-dock .command-status{gap:5px}
+ .card-battle .arena-command-dock .command-status>b{font-size:7px;letter-spacing:.08em}
+ .card-battle .arena-command-dock .command-status>span{font-size:8px}
+ .card-battle .arena-command-dock .arena-command-feedback .confirm-cards{width:34px;min-width:34px;height:34px;min-height:34px}
+ .card-battle .arena-command-dock .arena-command-feedback .arena-income{max-width:min(250px,68vw)}
+ .card-battle .arena-command-dock .arena-command-feedback .arena-income-title{font-size:5px}
+ .card-battle .arena-command-dock .arena-command-feedback .arena-income-items{gap:2px}
+ .card-battle .arena-command-dock .arena-command-feedback .arena-income-item{gap:2px;padding:2px 4px}
+ .card-battle .arena-command-dock .arena-command-feedback .arena-income-item small{font-size:5px}
+ .card-battle .arena-command-dock .planned-actions{gap:2px;min-height:18px}
+ .card-battle .arena-command-dock .planned-action,.card-battle .arena-command-dock .planned-remove,.card-battle .arena-command-dock .planned-swap{min-height:20px;padding:2px 4px;font-size:7px}
+ .card-battle .arena-command-dock .command-actions.arena-cards{padding:22px 0 3px}
+ .card-battle .arena-command-dock .arena-cards .action-card{flex-basis:clamp(68px,23vw,90px);width:clamp(68px,23vw,90px);height:clamp(100px,35vw,132px);margin-left:clamp(-52px,-13vw,-38px);border-radius:6px}
+ .card-battle .arena-command-dock .arena-cards .action-card:first-child{margin-left:0}
+ .card-battle .arena-command-dock .arena-cards .action-card .card-title{left:4px;right:4px;bottom:25px}
+ .card-battle .arena-command-dock .arena-cards .action-card .card-title strong{font-size:9px}
+ .card-battle .arena-command-dock .arena-cards .action-card .card-title small{font-size:6px}
+ .card-battle .arena-command-dock .arena-cards .action-card .card-pattern{top:5px;right:5px;padding:2px}
+ .card-battle .arena-command-dock .arena-cards .action-card .area-preview.tactical-pattern{grid-template-columns:repeat(5,4px);grid-template-rows:repeat(5,4px);gap:1px}
+ .card-battle .arena-command-dock .arena-cards .action-card .card-footer{height:22px;padding:2px 3px}
+ .card-battle .arena-command-dock .arena-cards .action-card .cost-item{font-size:6px}
+ .card-battle .arena-command-dock .arena-cards .action-card .cost-pip{width:4px;height:4px}
+ .card-battle .arena-command-dock .arena-cards .action-card .action-point{display:none}
+ .card-battle .arena-command-dock.is-targeting .command-actions.arena-cards{padding-top:0}
+ .card-battle .arena-command-dock.is-targeting .arena-cards .action-card[aria-pressed=true]{flex-basis:92px;width:92px;height:128px}
+ .card-battle .arena-command-dock .hand-context{font-size:8px;gap:4px}
+ .card-battle .arena-command-dock .hand-context>button{min-width:24px;min-height:24px;font-size:16px}
+}

@@ -298,17 +298,22 @@ function cardResourceStatus(actor,ability){
 }
 function actionCardMarkup(actor,ability,isMove=false,fanOffset=0,fanIndex=0){
  const spec=isMove?{pattern:'line',range:movementRange(state.battle,actor.id),priority:0}:tacticalSpec(actor,ability);
- const mode=isMove?'move':ability.id,selected=state.busy?(isMove?state.animation?.type==='move':state.animation?.abilityId===ability?.id):state.selected===actor.id&&state.mode===mode,art=isMove?portraitSrc(actor):(ability.art||portraitSrc(actor));
- const label=isMove?'MOVIMENTO':priorityNames[spec.priority].toUpperCase(),name=isMove?'Movimento':ability.name;
+ const mode=isMove?'move':ability.id,selected=state.selected===actor.id&&state.mode===mode,art=isMove?portraitSrc(actor):(ability.art||portraitSrc(actor));
+ const name=isMove?'Movimento':ability.name;
  const power=ability&&(ability.damage?'DANO '+ability.damage:ability.dots?'DANO '+ability.dots[0]:ability.dot?'AFIÇÃO '+ability.dot:ability.heal?'CURA '+ability.heal:ability.shield?'DEFESA '+ability.shield:'');
  const description=isMove?movementText(actor)+' · ortogonal ou diagonal':(spec.range?tacticalPatternLabel(spec)+' · alcance '+spec.range+' · até '+spec.limit+(spec.limit===1?' alvo':' alvos')+' na área':'Próprio usuário')+(power?' · '+power:'');
+ const progress=actionPlanProgress(),count=progress.counts.get(actor.id)||0;
+ const editing=Number.isInteger(state.editIndex)&&state.draft[state.editIndex]?.actorId===actor.id;
+ const wrongPass=count!==progress.pass&&!editing,full=count>=2&&!editing;
  const requirement=state.busy||isMove?'':tacticalRequirementReason(planningView(),actor,ability);
- const full=!Number.isInteger(state.editIndex)&&state.draft.filter(a=>a.actorId===actor.id).length>=2;
- const cost=isMove?'<span class="cost-free">LIVRE</span>':cardCostMarkup(actor,ability),blocked=Boolean(requirement)||full||state.busy||Boolean(state.chestOffer)||(!isMove&&(actor.cooldowns[ability.id]||actor.stunned));
+ const cooldown=!isMove?(actor.cooldowns[ability.id]||0):0;
+ const cost=isMove?'<span class="cost-free">LIVRE</span>':cardCostMarkup(actor,ability);
  const resourceStatus=isMove?{ok:true}:cardResourceStatus(actor,ability),unaffordable=!resourceStatus.ok;
+ const blockReason=requirement||(full?'As duas ações deste personagem já foram escolhidas.':wrongPass?'Conclua a '+(progress.pass===0?'1ª':'2ª')+' ação de cada personagem antes de avançar.':actor.stunned?'Personagem atordoado.':cooldown?'Recarga: '+cooldown+' rodada(s).':unaffordable?'Essência insuficiente.':'');
+ const blocked=Boolean(blockReason)||Boolean(state.busy)||Boolean(state.chestOffer);
  const heat=patternGrid(isMove?{pattern:'move',range:movementRange(state.battle,actor.id)}:spec);
  const fanAngle=Math.max(-5,Math.min(5,fanOffset*.55)),fanLift=-Math.min(18,Math.abs(fanOffset)*2);
- return '<button class="skill action-card '+(unaffordable?'essence-unavailable':'')+'" style="--fan-angle:'+fanAngle+'deg;--fan-lift:'+fanLift+'px;z-index:'+(10+fanIndex)+'" data-resource-affordable="'+!unaffordable+'" title="'+esc(requirement||(full?'Duas ações escolhidas. Toque em um espaço para editar.':actor.stunned?'Personagem atordoado.':!isMove&&actor.cooldowns[ability.id]?'Recarga: '+actor.cooldowns[ability.id]+' rodada(s).':unaffordable?'Essência insuficiente.':(isMove?description:ability.description||description)))+'" data-hand-actor="'+esc(actor.id)+'" data-mode="'+esc(mode)+'" aria-pressed="'+selected+'" aria-label="'+esc(name+'; '+description+'; '+(isMove?'1 ação, sem custo':costText(actor,ability))+(requirement?'; '+requirement:'')+(unaffordable?'; Essência insuficiente':''))+'" '+(blocked?'disabled':'')+'>'+
+ return '<button class="skill action-card '+(unaffordable?'essence-unavailable':'')+'" style="--fan-angle:'+fanAngle+'deg;--fan-lift:'+fanLift+'px;z-index:'+(10+fanIndex)+'" data-resource-affordable="'+!unaffordable+'" title="'+esc(blockReason||(isMove?description:ability.description||description))+'" data-hand-actor="'+esc(actor.id)+'" data-mode="'+esc(mode)+'" aria-pressed="'+selected+'" aria-label="'+esc(name+'; '+description+'; '+(isMove?'1 ação, sem custo':costText(actor,ability))+(blockReason?'; '+blockReason:''))+'" '+(blocked?'disabled':'')+'>'+
  '<span class="card-head"><span class="card-art">'+(art?'<img src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span class="card-type">'+esc(actor.name)+'</span></span><span class="card-title"><strong>'+esc(name)+'</strong><small>'+esc(description)+'</small></span></span>'+
  '<span class="card-pattern">'+heat+'<span class="area-label">'+(isMove?movementText(actor):esc(tacticalPatternLabel(spec)))+'</span></span>'+
  '<span class="card-footer"><span class="card-cost">'+cost+'</span><span class="action-point">1 AÇÃO</span></span></button>';
@@ -364,17 +369,24 @@ function commandActionMarkup(actor,ability,isMove,locked,progress){
 function commandPaletteMarkup(actor,locked){
  if(!actor||locked||state.battle.tactical.stage!=='planning'||state.chestOffer)return '';
  const progress=actionPlanProgress(),current=progress.pass===0?'1ª PASSAGEM':'2ª PASSAGEM';
- const sub=progress.ready?'Todas as ações estão planejadas.':progress.pass===0?'Primeira ação de cada personagem · '+progress.completed+'/'+progress.living.length:'Segunda ação de cada personagem · '+progress.completed+'/'+progress.living.length;
- const actions=[commandActionMarkup(actor,null,true,locked,progress),...actor.abilities.map(ability=>commandActionMarkup(actor,ability,false,locked,progress))].join('');
- return '<section class="command-dock" aria-label="Comandos de '+esc(actor.name)+'"><header class="command-header"><div class="command-status"><b>'+esc(progress.ready?'PLANO PRONTO':current)+'</b><span>'+esc(progress.ready?'Confirme para resolver a rodada.':sub)+'</span></div>'+(progress.ready?confirmCardsMarkup(actionPreview(),locked):'<span class="command-select-hint">Selecione uma ação</span>')+'</header><div class="command-actions" role="group" aria-label="Movimento e habilidades">'+actions+'</div>'+plannedActionsMarkup(actor)+(state.mode?specialChoicesMarkup(actor)+compactActionHint(actor,locked):'')+'</section>';
+ const sub=progress.ready?'Plano pronto':progress.pass===0?'Primeira ação · '+progress.completed+'/'+progress.living.length:'Segunda ação · '+progress.completed+'/'+progress.living.length;
+ const items=[{ability:null,isMove:true},...actor.abilities.map(ability=>({ability,isMove:false}))],center=(items.length-1)/2;
+ const cards=items.map((item,index)=>actionCardMarkup(actor,item.ability,item.isMove,index-center,index)).join('');
+ const feedback=arenaCommandFeedbackMarkup(progress,actionPreview(),locked);
+ const selection=state.mode?compactActionHint(actor,locked):'';
+ return '<section class="command-dock arena-command-dock '+(state.mode?'is-targeting':'')+'" aria-label="Ações de '+esc(actor.name)+' dentro da arena"><header class="command-header"><div class="command-status"><b>'+esc(current)+'</b><span>'+esc(actor.name+' · '+sub)+'</span></div><div class="arena-command-feedback" aria-live="polite">'+feedback+'</div></header>'+plannedActionsMarkup(actor)+'<div class="command-actions arena-cards hand-cards" role="group" aria-label="Cartas de movimento e habilidades de '+esc(actor.name)+'">'+cards+'</div>'+(state.mode?specialChoicesMarkup(actor)+selection:'')+'</section>';
 }
-
 function confirmCardsMarkup(preview,locked){
  return '<button class="confirm-cards" data-command="commit" '+(locked||!preview.ok||!actionPlanProgress().ready||Boolean(state.mode)||Number.isInteger(state.editIndex)?'disabled':'')+' aria-label="Confirmar ações · Espaço" title="'+esc(preview.ok?'Confirmar rodada · Espaço':preview.reason)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>';
 }
 function essenceArrivalMarkup(announcement){
  const items=resourceIds.filter(id=>(announcement.counts[id]||0)>0);
  return '<div class="arena-income" role="status" aria-label="Essências recebidas neste turno"><span class="arena-income-title">ESSÊNCIAS DESTE TURNO</span><div class="arena-income-items">'+items.map((id,index)=>'<span class="arena-income-item '+esc(id)+'" style="--arrival-delay:'+(index*90)+'ms"><i aria-hidden="true"></i><b>+'+announcement.counts[id]+'</b><small>'+esc(names[id])+' · total '+announcement.total[id]+'</small></span>').join('')+'</div></div>';
+}
+function arenaCommandFeedbackMarkup(progress,preview,locked){
+ const announcement=state.incomeAnnouncement?.round===state.battle.round&&state.incomeAnnouncement.until>Date.now()?state.incomeAnnouncement:null;
+ if(announcement)return essenceArrivalMarkup(announcement);
+ return progress.ready?confirmCardsMarkup(preview,locked):'';
 }
 function arenaPlanFeedbackMarkup(preview,locked){
  const announcement=state.incomeAnnouncement?.round===state.battle.round&&state.incomeAnnouncement.until>Date.now()?state.incomeAnnouncement:null;
@@ -435,15 +447,14 @@ function announceTurnIncome(){
  state.incomeRound=state.battle.round;const round=state.incomeRound,counts=tacticalTurnIncome(state.battle),total={...state.battle.resources};
  if(!Object.values(counts).some(Boolean))return;
  const announcement=state.incomeAnnouncement={round,counts,total,until:Date.now()+3000};
- const host=root.querySelector('.arena-plan-feedback');if(host)host.innerHTML=essenceArrivalMarkup(announcement);
+ const host=root.querySelector('.arena-command-feedback');if(host)host.innerHTML=essenceArrivalMarkup(announcement);
  setTimeout(()=>{
   if(state.incomeAnnouncement!==announcement)return;
   state.incomeAnnouncement=null;
-  const target=root.querySelector('.arena-plan-feedback');
-  if(target)target.innerHTML=confirmCardsMarkup(actionPreview(),state.busy||state.battle.tactical.stage!=='planning'||Boolean(state.chestOffer));
+  const target=root.querySelector('.arena-command-feedback');
+  if(target)target.innerHTML=arenaCommandFeedbackMarkup(actionPlanProgress(),actionPreview(),state.busy||state.battle.tactical.stage!=='planning'||Boolean(state.chestOffer));
  },3000);
 }
-
 function arenaHudMarkup(s){
  const team=(units,side,label)=>'<div class="hud-team hud-team-'+side+'"><span class="hud-team-label">'+label+'</span>'+units.map(unit=>{const planned=side==='player'?state.draft.map((action,index)=>({action,index})).filter(ref=>ref.action.actorId===unit.id):[];return '<button class="hud-unit '+(state.selected===unit.id?'selected':'')+' '+(state.animation?.actorId===unit.id?'acting':'')+' '+(unit.hp<=0?'fallen':'')+'" '+(side==='player'?'data-actor="'+esc(unit.id)+'"':'')+' '+(unit.hp<=0||state.busy?'disabled':'')+' title="'+esc(unit.name+(planned.length?' · '+planned.map((ref,index)=>(index+1)+'ª '+actionName(ref.action)).join(' · '):''))+'"><img src="'+esc(portraitSrc(unit))+'" alt=""><span class="hud-unit-copy"><b>'+esc(unit.name)+'</b><small>'+Math.max(0,unit.hp)+' PV</small><i><em style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></em></i><span class="hud-action-markers" aria-hidden="true">'+planned.map((ref,index)=>'<i>'+(index+1)+'</i>').join('')+'</span></span></button>';}).join('')+'</div>';
  return '<div class="arena-hud">'+team(s.allies,'player','SEU TRIO')+'<div class="hud-round"><small>RODADA</small><b>'+s.round+'</b></div>'+team(s.enemies,'enemy','OPONENTE')+'</div>';
@@ -555,7 +566,7 @@ function render(){
  const finished=!state.busy&&state.battle.tactical.stage==='finished'?'<section class="result">'+(state.battle.phase==='victory'?'Vitória':state.battle.phase==='draw'?'Empate':'Derrota')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-reward="'+esc(b.id)+'"><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':routeMarkup()):'')+'</section>':'';
  root.innerHTML='<div class="shell combat-shell card-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Encontro '+state.run.encounter+(state.run.route?' · '+esc(tacticalRoutes.find(r=>r.id===state.run.route)?.title):'')+'</span><a href="#formation">Formação</a></header>'+offer+finished+
  '<section class="battle-surface"><div class="arena-toolbar '+(state.animation?.type==='effects'&&state.animation?.pose==='impact'?'essence-pulse':'')+'">'+compactResources(s)+playbackControls()+'<span class="battle-phase">'+(state.preparingEnemy?'Preparando confronto · rodada '+s.round:state.busy?'Resolvendo · '+((anim?.slot??0)+1)+'ª passagem':'Rodada '+s.round)+'</span></div>'+exchange+turnOrderMarkup(s)+
- environmentMarkup(s)+chestObjectiveMarkup(s)+'<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim)+arenaHudMarkup(s)+callout+boardMarkup(s)+'</div>'+commands+playbackActionMarkup()+'</section>'+
+ environmentMarkup(s)+chestObjectiveMarkup(s)+'<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim)+arenaHudMarkup(s)+callout+boardMarkup(s)+commands+'</div>'+playbackActionMarkup()+'</section>'+
  
  '<section class="combat-extras">'+activeAugmentsMarkup()+'</section>'+
  '<details class="combat-log"><summary>Resolução da rodada</summary><ol>'+(state.busy?(state.completedEvents||[]):state.lastEvents).map(e=>'<li>'+esc(e.title)+(e.actorId?' · '+esc(tacticalUnits(state.battle).find(u=>u.id===e.actorId)?.name):'')+(tacticalResolutionFeedback(e).length?'<span class="resolution-feedback">'+tacticalResolutionFeedback(e).map(esc).join(' ')+'</span>':'')+'</li>').join('')+'</ol></details>'+
