@@ -367,7 +367,7 @@ function commandActionMarkup(actor,ability,isMove,locked,progress){
  return '<button class="command-action '+(selected?'selected':'')+(!affordable?' essence-unavailable':'')+'" data-hand-actor="'+esc(actor.id)+'" data-mode="'+esc(mode)+'" aria-pressed="'+selected+'" aria-label="'+esc(name+' · '+summary+(disabled?'; '+reason:''))+'" title="'+esc(reason)+'" '+(disabled?'disabled':'')+'><span class="command-art">'+(art?'<img src="'+esc(art)+'" alt="" loading="lazy">':'<i>'+(isMove?'↗':'✦')+'</i>')+'</span><span class="command-copy"><b>'+esc(name)+'</b><small>'+esc(summary)+'</small></span></button>';
 }
 function commandPaletteMarkup(actor,locked){
- if(!actor||locked||state.battle.tactical.stage!=='planning'||state.chestOffer)return '';
+ if(!actor||locked||state.battle.tactical.stage!=='planning'||state.chestOffer)return '<div class="arena-command-dock-reserve" aria-hidden="true"></div>';
  const progress=actionPlanProgress(),current=progress.pass===0?'1ª PASSAGEM':'2ª PASSAGEM';
  const sub=progress.ready?'Plano pronto':progress.pass===0?'Primeira ação · '+progress.completed+'/'+progress.living.length:'Segunda ação · '+progress.completed+'/'+progress.living.length;
  const items=[{ability:null,isMove:true},...actor.abilities.map(ability=>({ability,isMove:false}))],center=(items.length-1)/2;
@@ -376,17 +376,17 @@ function commandPaletteMarkup(actor,locked){
  const selection=state.mode?compactActionHint(actor,locked):'';
  return '<section class="command-dock arena-command-dock '+(state.mode?'is-targeting':'')+'" aria-label="Ações de '+esc(actor.name)+' dentro da arena"><header class="command-header"><div class="command-status"><b>'+esc(current)+'</b><span>'+esc(actor.name+' · '+sub)+'</span></div><div class="arena-command-feedback" aria-live="polite">'+feedback+'</div></header>'+plannedActionsMarkup(actor)+'<div class="command-actions arena-cards hand-cards" role="group" aria-label="Cartas de movimento e habilidades de '+esc(actor.name)+'">'+cards+'</div>'+(state.mode?specialChoicesMarkup(actor)+selection:'')+'</section>';
 }
+function arenaCommandFeedbackMarkup(progress,preview,locked){
+ const announcement=state.incomeAnnouncement?.round===state.battle.round&&state.incomeAnnouncement.until>Date.now()?state.incomeAnnouncement:null;
+ if(announcement)return essenceArrivalMarkup(announcement);
+ return progress.ready?confirmCardsMarkup(preview,locked):'';
+}
 function confirmCardsMarkup(preview,locked){
  return '<button class="confirm-cards" data-command="commit" '+(locked||!preview.ok||!actionPlanProgress().ready||Boolean(state.mode)||Number.isInteger(state.editIndex)?'disabled':'')+' aria-label="Confirmar ações · Espaço" title="'+esc(preview.ok?'Confirmar rodada · Espaço':preview.reason)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>';
 }
 function essenceArrivalMarkup(announcement){
  const items=resourceIds.filter(id=>(announcement.counts[id]||0)>0);
  return '<div class="arena-income" role="status" aria-label="Essências recebidas neste turno"><span class="arena-income-title">ESSÊNCIAS DESTE TURNO</span><div class="arena-income-items">'+items.map((id,index)=>'<span class="arena-income-item '+esc(id)+'" style="--arrival-delay:'+(index*90)+'ms"><i aria-hidden="true"></i><b>+'+announcement.counts[id]+'</b><small>'+esc(names[id])+' · total '+announcement.total[id]+'</small></span>').join('')+'</div></div>';
-}
-function arenaCommandFeedbackMarkup(progress,preview,locked){
- const announcement=state.incomeAnnouncement?.round===state.battle.round&&state.incomeAnnouncement.until>Date.now()?state.incomeAnnouncement:null;
- if(announcement)return essenceArrivalMarkup(announcement);
- return progress.ready?confirmCardsMarkup(preview,locked):'';
 }
 function arenaPlanFeedbackMarkup(preview,locked){
  const announcement=state.incomeAnnouncement?.round===state.battle.round&&state.incomeAnnouncement.until>Date.now()?state.incomeAnnouncement:null;
@@ -455,6 +455,7 @@ function announceTurnIncome(){
   if(target)target.innerHTML=arenaCommandFeedbackMarkup(actionPlanProgress(),actionPreview(),state.busy||state.battle.tactical.stage!=='planning'||Boolean(state.chestOffer));
  },3000);
 }
+
 function arenaHudMarkup(s){
  const team=(units,side,label)=>'<div class="hud-team hud-team-'+side+'"><span class="hud-team-label">'+label+'</span>'+units.map(unit=>{const planned=side==='player'?state.draft.map((action,index)=>({action,index})).filter(ref=>ref.action.actorId===unit.id):[];return '<button class="hud-unit '+(state.selected===unit.id?'selected':'')+' '+(state.animation?.actorId===unit.id?'acting':'')+' '+(unit.hp<=0?'fallen':'')+'" '+(side==='player'?'data-actor="'+esc(unit.id)+'"':'')+' '+(unit.hp<=0||state.busy?'disabled':'')+' title="'+esc(unit.name+(planned.length?' · '+planned.map((ref,index)=>(index+1)+'ª '+actionName(ref.action)).join(' · '):''))+'"><img src="'+esc(portraitSrc(unit))+'" alt=""><span class="hud-unit-copy"><b>'+esc(unit.name)+'</b><small>'+Math.max(0,unit.hp)+' PV</small><i><em style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></em></i><span class="hud-action-markers" aria-hidden="true">'+planned.map((ref,index)=>'<i>'+(index+1)+'</i>').join('')+'</span></span></button>';}).join('')+'</div>';
  return '<div class="arena-hud">'+team(s.allies,'player','SEU TRIO')+'<div class="hud-round"><small>RODADA</small><b>'+s.round+'</b></div>'+team(s.enemies,'enemy','OPONENTE')+'</div>';
