@@ -20,7 +20,7 @@ export function tacticalChestOptions(s,side,tier){
  if(hurt&&hurt.hp<hurt.maxHp)add(rank===2?'renewal':'heal',rank===2?'Restauração Prismática':'Sopro Restaurador',rank===2?'Restaure toda a Vida e remova aflições das almas vivas.':'Cure até '+Math.round(hurt.maxHp*fraction)+' de Vida da alma mais ferida.',rank===2?{type:'full-recover'}:{type:'heal-lowest',fraction},hurt.name+' está com '+hurt.hp+'/'+hurt.maxHp+' de Vida.','recuperação',80+(1-hurt.hp/hurt.maxHp)*20);
  if(living.some(harmful))add('cleanse','Desatar os Males','Remova aflições, marcas e condições prejudiciais do seu trio.',{type:'cleanse-team'},'Há condições prejudiciais nas suas almas.','recuperação',90);
  if(living.some(u=>(u.shield||0)<Math.round(u.maxHp*.5)))add('ward','Manto de Proteção','Conceda '+ward+' de Escudo a cada alma viva.',{type:'shield-team',amount:ward},'Protege '+living.length+' alma(s) contra os próximos golpes.','proteção',65);
- if(!augments.some(a=>a.type==='movement-range'&&a.amount>=Math.min(2,rank+1)))add('movement-range','Passo Ampliado','Movimento alcança até '+(1+Math.min(2,rank+1))+' casas neste combate.',{type:'augment',augment:{type:'movement-range',amount:Math.min(2,rank+1),title:'Passo Ampliado'}},'Amplia os destinos de cada ação de movimento.','movimento',72);
+ if(!s.tactical.activation&&!augments.some(a=>a.type==='movement-range'&&a.amount>=Math.min(2,rank+1)))add('movement-range','Passo Ampliado','Movimento alcança até '+(1+Math.min(2,rank+1))+' casas neste combate.',{type:'augment',augment:{type:'movement-range',amount:Math.min(2,rank+1),title:'Passo Ampliado'}},'Amplia os destinos de cada ação de movimento.','movimento',72);
  const offensive=living.some(u=>u.abilities.some(a=>a.damage||a.dot||a.dots));
  if(offensive&&living.some(u=>(u.boost||0)<boost))add('valor','Ímpeto Ritual','Conceda +'+boost+' de dano temporário às almas vivas.',{type:'boost-team',amount:boost},'Seu trio possui habilidades ofensivas.','ofensiva',60);
  if(!augments.some(a=>a.type==='step-ward'&&a.amount>=stepWard))add('step-ward','Passo Residual','Após se mover, receba '+stepWard+' de Escudo. Uma vez por alma por rodada, neste combate.',{type:'augment',augment:{type:'step-ward',amount:stepWard,title:'Passo Residual'}},'Transforma movimentação em proteção.','movimento',75);
@@ -32,7 +32,8 @@ export function tacticalChestOptions(s,side,tier){
  const pool=candidates.filter(o=>o!==recovery&&o.id!=='essence');
  // Deterministic variation between chests; no extra RNG consumption or hidden enemy plan.
  const offset=(s.round+(s.tactical.chestSequence||0)+(side==='enemy'?1:0))%Math.max(1,pool.length);
- const build=pool[offset]||candidates.find(o=>o.id!=='essence');
+ const lasting=pool.filter(o=>o.effect.type==='augment');
+ const build=s.tactical.activation?lasting[offset%lasting.length]:pool[offset]||candidates.find(o=>o.id!=='essence');
  const first=recovery||candidates.find(o=>o.id==='ward')||build;
  const second=build!==first?build:pool.find(o=>o!==first);
  const selected=[first,second,candidates.find(o=>o.id==='essence')].filter(Boolean);

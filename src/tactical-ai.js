@@ -52,11 +52,13 @@ export function planTacticalAIActivation(s,side='enemy'){
   for(const move of moves){
    const projected=move.length?previewTacticalActivation(view,side,unit.id,move).projection:view;
    if(!projected)continue;
-   const actions=[{type:'guard',actorId:unit.id},...candidates(projected,side,{},unit.id)];
-   for(const action of actions){
-    const refs=[...move,action],preview=previewTacticalActivation(view,side,unit.id,refs);
+   const path=move[0]?.path||[],sprint=path.length===2;
+   const orders=sprint?[move]:[{type:'guard',actorId:unit.id},...candidates(projected,side,{},unit.id)].map(action=>[...move,action]);
+   for(const refs of orders){
+    const preview=previewTacticalActivation(view,side,unit.id,refs);
     if(!preview.ok)continue;
-    const value=score(preview.projection,side)-Object.values(preview.payment.costs).reduce((sum,n)=>sum+n,0)*.2;
+    const collects=view.tactical.chests.some(chest=>path.some(point=>distance(point,chest.position)===0));
+    const value=score(preview.projection,side)+(collects?24:0)-Object.values(preview.payment.costs).reduce((sum,n)=>sum+n,0)*.2;
     if(!best||value>best.value)best={actorId:unit.id,actions:refs,value};
    }
   }

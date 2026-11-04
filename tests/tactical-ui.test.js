@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView} from '../src/tactical-combat.js';
+import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward} from '../src/tactical-combat.js';
 import {planTacticalAIActivation} from '../src/tactical-ai.js';
 
 const player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
@@ -83,6 +83,35 @@ test('uma troca avança sem esperar um lado que já não pode agir',()=>{
  assert.equal(battle.round,1);
 });
 
+test('correr gasta a sequência e recolher o baú oferece um aprimoramento ativo',()=>{
+ const battle=createTacticalBattle(player,enemy,{seed:1,alternating:true});
+ assert.equal(battle.tactical.nextChest.round,2);
+ for(let i=0;i<3;i++){
+  const ally=player[i],rival=battle.enemies[i].id;
+  assert.equal(submitTacticalActivation(battle,'player',ally,[guard(ally)]).waiting,true);
+  assert.equal(submitTacticalActivation(battle,'enemy',rival,[guard(rival)]).ok,true);
+ }
+ const [chest]=battle.tactical.chests;
+ assert.equal(chest.spawnedRound,2);
+ const ally=player[0],rival=battle.enemies[0].id;
+ const run={type:'move',actorId:ally,path:[{x:1,y:1},chest.position]};
+ assert.equal(previewTacticalActivation(battle,'player',ally,[run,guard(ally)]).ok,false);
+ assert.equal(submitTacticalActivation(battle,'player',ally,[run]).waiting,true);
+ const exchange=submitTacticalActivation(battle,'enemy',rival,[guard(rival)]);
+ assert.equal(exchange.events.filter(e=>e.type==='exchange-move').length,2);
+ assert.equal(exchange.events.some(e=>e.type==='guard'&&e.side==='player'),false);
+ assert.ok(battle.tactical.activation.spent.includes(ally));
+ assert.equal(battle.tactical.chests.length,0);
+ assert.equal(battle.tactical.stage,'reward');
+ const [offer]=exchange.chestRewards,upgrade=offer.options.find(o=>o.effect.type==='augment');
+ assert.equal(offer.options.length,3);
+ assert.ok(upgrade);
+ assert.ok(chooseTacticalChestReward(battle,offer.id,upgrade.id).ok);
+ assert.equal(battle.tactical.stage,'planning');
+ assert.ok(battle.tactical.augments.player.some(a=>a.type===upgrade.effect.augment.type));
+ assert.equal(chooseTacticalChestReward(battle,offer.id,upgrade.id).ok,false);
+});
+
 test('interface distingue seleção privada, revelação e ativação já consumida',async()=>{
  const handlers={},keys={},root={innerHTML:'',querySelector:selector=>selector.includes('[data-command="commit"]')&&root.innerHTML.includes('data-command="commit"  aria-label')?{}:null,querySelectorAll:()=>[],addEventListener(type,handler){handlers[type]=handler;}};
  const saved={document:globalThis.document,Image:globalThis.Image,matchMedia:globalThis.matchMedia,requestAnimationFrame:globalThis.requestAnimationFrame};
@@ -100,6 +129,10 @@ test('interface distingue seleção privada, revelação e ativação já consum
   assert.doesNotMatch(root.innerHTML,/activation-signal acting/);
   assert.match(root.innerHTML,/movimento disponível, 1 casa/);
   assert.ok(root.innerHTML.lastIndexOf('data-cell=')<root.innerHTML.indexOf('activation-dock'));
+  click({cell:'2,1'});
+  assert.match(root.innerHTML,/Duas casas · apenas movimento/);
+  assert.match(root.innerHTML,/data-mode="guard" disabled/);
+  assert.match(root.innerHTML,/data-command="commit"  aria-label/);
   click({cell:'1,1'});
   assert.match(root.innerHTML,/→ B2/);
   click({mode:'despertar'});

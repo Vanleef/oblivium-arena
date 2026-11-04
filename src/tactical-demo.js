@@ -4,7 +4,7 @@ import {skillSealReason} from './combat-effects.js';
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {tacticalEnvironments} from './tactical-environment.js';
 import {tacticalResolutionFeedback} from './tactical-insight.js';
-import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalReplayFrames,tacticalHighlightEvent} from './tactical-cinematic.js';
+import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
 import {characterById} from './data.js';
 import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
 import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits} from './tactical-combat.js';
@@ -52,7 +52,7 @@ function environmentSelect(){return '<label>Regra ambiental<select id="environme
 function chestObjectiveMarkup(s){
  const incoming=s.tactical.nextChest,chests=s.tactical.chests||[];
  if(!incoming&&!chests.length)return '';
- return '<div class="chest-objective" role="status"><b>◇ '+(incoming?'Baú na rodada '+incoming.round+' · '+cellLabel(incoming.position):'Baú disponível · '+chests.map(c=>cellLabel(c.position)).join(', '))+'</b><span>'+(incoming?'Posição pública para os dois lados. Prepare sua aproximação.':'Cause dano na casa do baú para escolher 1 de 3 aprimoramentos.')+'</span></div>';
+ return '<div class="chest-objective" role="status"><b>◇ '+(incoming?'Baú na rodada '+incoming.round+' · '+cellLabel(incoming.position):'Baú disponível · '+chests.map(c=>cellLabel(c.position)).join(', '))+'</b><span>'+(incoming?'Posição pública para os dois lados. Prepare sua aproximação.':'Passe pela casa do baú ou acerte-a com uma técnica ofensiva. Escolha 1 de 3 recompensas.')+'</span></div>';
 }
 function trioIdentityMarkup(){return '<details class="trio-identity"><summary>Como seu trio pode combinar</summary><div>'+tacticalTrioIdentity(state.battle.allies).map(n=>'<p><b>'+esc(n.title)+'</b><span>'+esc(n.text)+'</span></p>').join('')+'</div><small>Sinergias do kit. O resultado depende da área, da ordem e das defesas do rival.</small></details>';}
 function syncPlaybackRate(){
@@ -65,7 +65,6 @@ function syncPlaybackRate(){
 function playbackControls(){return '<nav class="playback-controls" aria-label="Velocidade das animações"><span>Ritmo</span>'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.playbackSpeed===n)+'">'+n+'×</button>').join('')+'<button data-command="compact-replay" class="compact-replay" aria-pressed="'+state.compactReplay+'" title="Encurta ativações repetidas; preserva eliminações e transformações.">Repetições curtas</button></nav>';}
 function routeMarkup(){return '<section class="route-choices"><h3>Escolha a próxima trilha</h3><p>A Vida e os aprimoramentos da expedição acompanham o trio.</p><div>'+tacticalRoutes.map(r=>'<button data-route="'+r.id+'"><small>'+esc(r.kind)+'</small><strong>'+esc(r.title)+'</strong><em>'+esc(r.story)+'</em><span>'+esc(r.text)+'</span></button>').join('')+'</div></section>';}
 function activeAugmentsMarkup(){
- if(state.busy)return '';
  const augments=(state.battle.tactical.augments?.player||[]).filter(a=>!a.expiresAt||a.expiresAt>=state.battle.round);
  return augments.length?'<div class="active-augments" aria-label="Aprimoramentos deste combate">'+augments.map(a=>'<span title="'+esc(a.type==='step-ward'?'Mover gera '+a.amount+' de Escudo, uma vez por alma por rodada.':a.type==='round-essence'?'Gera 1 Essência ao fim de cada rodada, até a rodada '+a.expiresAt+'.':'Dano em Exposto gera 1 Essência, uma vez por rodada.')+'">◆ '+esc(a.title)+'</span>').join('')+'</div>':'';
 }
@@ -85,7 +84,8 @@ function automaticSkillAim(s,unit,ability){
  for(const anchor of boardCells()){
   if(Math.max(Math.abs(anchor.x-origin.x),Math.abs(anchor.y-origin.y))>spec.range)continue;
   const facing=orientation(s,unit,anchor),cells=tacticalArea(s,unit,ability,anchor,facing);if(!cells.length)continue;
-  const ids=tacticalTargets(s,unit,ability,anchor,facing);let score=0;
+  const ids=tacticalTargets(s,unit,ability,anchor,facing);
+  let score=(ability.damage>0||ability.dot||ability.dots?.length)&&s.tactical.chests.some(chest=>cells.some(cell=>sameCell(cell,chest.position)))?35:0;
   for(const id of ids){
    const target=units.get(id);if(!target)continue;
    const ally=allies.has(id),missing=Math.max(0,(target.maxHp||target.hp)-target.hp)/(target.maxHp||1);
@@ -105,7 +105,9 @@ function automaticSkillAim(s,unit,ability){
  return {anchor,orientation:facing,score:0};
 }
 function selectionPreview(s=planningView()){
- const unit=selectedUnit(s);if(!unit||!state.mode)return null;
+ const unit=selectedUnit(s);if(!unit)return null;
+ if(state.path?.length===2){const refs=moveRefs();return {unit,cells:[],targets:[],refs,result:preview(refs),sprint:true};}
+ if(!state.mode)return null;
  if(state.mode==='guard'){
   const refs=[...moveRefs(),{type:'guard',actorId:unit.id}];
   return {unit,cells:[s.tactical.positions[unit.id]],targets:[unit.id],refs,result:preview(refs)};
@@ -133,26 +135,27 @@ function selectDestination(cell){
  const stay=sameCell(origin,cell)||sameCell(state.path?.at(-1),cell);
  const path=stay?null:findPath(state.battle,state.selected,cell);
  if(!stay&&!path)return;
- state.path=path;state.spendChoice={};state.message='';render();
+ state.path=path;if(path?.length===2)state.mode=null;state.spendChoice={};state.message='';render();
 }
 function portraitSrc(unit){return unit?.art?.portrait||'';}
 function animationAbility(unit,event){const base=event?.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;if(!base)return null;const key=event.formKey;if(!key||key===(base.formKey||'base'))return base;return base._formRoot?.forms?.find(form=>form.formKey===key)||base.forms?.find(form=>form.formKey===key)||base;}
 function activationCommands(actor,selection,projected){
  if(!playerTurn()||!actor)return '';
+ const sprint=selection?.sprint;
  const buttons=actor.abilities.map(ability=>{
   const cost=costText(actor,ability),payment=resolveResourcePayment(getAbilityResourceCosts(actor,ability),state.battle.resources);
-  const reason=actor.cooldowns[ability.id]?'Recarga · '+actor.cooldowns[ability.id]+' rodada(s)':skillSealReason(actor,ability)||tacticalRequirementReason(projected,actor,ability)||(!payment.ok?'Essência insuficiente':'');
+  const reason=sprint?'Corrida usa toda a ativação':actor.cooldowns[ability.id]?'Recarga · '+actor.cooldowns[ability.id]+' rodada(s)':skillSealReason(actor,ability)||tacticalRequirementReason(projected,actor,ability)||(!payment.ok?'Essência insuficiente':'');
   const art=ability.art||portraitSrc(actor);
   return '<button data-mode="'+esc(ability.id)+'" aria-pressed="'+(state.mode===ability.id)+'" title="'+esc(reason||ability.name+' · '+cost)+'" '+(reason?'disabled':'')+'>'+
    (art?'<img src="'+esc(art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(ability.name)+'</b><small>'+esc(reason||cost)+'</small></span></button>';
  }).join('');
  const description=selection?.ability?(selection.ability.description||tacticalRuleText(actor,selection.ability)):'Guarda concede até 6 de Escudo.';
- const hint=state.message||(selection?(selection.result.ok?description:selection.result.reason):'Escolha uma técnica. Mover é opcional.');
+ const hint=state.message||(sprint?'Duas casas · apenas movimento':selection?(selection.result.ok?description:selection.result.reason):'Uma casa + técnica ou Guarda · duas casas para correr.');
  return '<section class="activation-dock" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+
-  '<button data-mode="guard" aria-pressed="'+(state.mode==='guard')+'"><span><b>◇ Guarda</b><small>Sem custo</small></span></button></div>'+
+  '<button data-mode="guard" '+(sprint?'disabled':'')+' aria-pressed="'+(state.mode==='guard')+'"><span><b>◇ Guarda</b><small>Sem custo</small></span></button></div>'+
   '<div class="activation-controls"><span><b>'+esc(actor.name)+(state.path?' → '+cellLabel(state.path.at(-1)):'')+'</b><small role="status">'+esc(hint)+'</small></span>'+
   '<button class="activation-execute" data-command="commit" '+(!selection?.result.ok?'disabled':'')+' aria-label="Executar ativação (Espaço)" title="Executar ativação (Espaço)">▶</button></div>'+
-  specialChoicesMarkup(actor)+passiveMarkup(actor)+'</section>';
+  (sprint?'':specialChoicesMarkup(actor))+passiveMarkup(actor)+'</section>';
 }
 function essenceArrivalMarkup(announcement){
  const items=resourceIds.filter(id=>(announcement.counts[id]||0)>0);
@@ -248,6 +251,9 @@ function boardMarkup(s,selection){
  return '<div class="board '+(options?'movement-mode ':'')+(selection?'technique-preview':'')+'" role="group" aria-label="Arena tática em grade de cinco por cinco">'+movementTrailMarkup(movement)+tacticalProjectileMarkup(anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null,anim?animationAbility(tacticalUnits(s).find(u=>u.id===anim.actorId),anim):null,anim)+boardCells().map(p=>{
   const environment=s.tactical.environment,environmentCell=environment&&sameCell(environment.position,p);
   const unit=occupied(s,p),chest=s.tactical.chests.find(item=>sameCell(item.position,p)),blocked=obstacle(s,p),reachable=options?findPath(s,mover.id,p):null,atOrigin=origin&&sameCell(origin,p);
+  const chestEvent=anim?.type==='chest-spawn'&&anim.pose==='impact'?anim.chest:
+   (anim?.type==='exchange-move'&&anim.pose==='landing'||impact)?anim.chestsOpened?.find(item=>sameCell(item.position,p)):null;
+  const chestFlash=chestEvent&&sameCell(chestEvent.position,p);
   const warning=anim?.type==='skill'&&!anim.skipped&&!impact&&anim.cells?.some(cell=>sameCell(cell,p));
   const clash=anim?.type==='exchange-move'&&anim.stopped.some(step=>sameCell(step.to,p));
   const landing=anim?.type==='exchange-move'&&anim.pose==='landing'&&anim.moves.some(step=>sameCell(step.to,p));
@@ -260,7 +266,7 @@ function boardMarkup(s,selection){
   const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait;
   return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family):'')+
-   (unit?activationSignal(unit,spent):'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
+   (unit?activationSignal(unit,spent):'')+(chestFlash?'<span class="chest-flash" aria-hidden="true"><i></i></span>':'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i></i></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 let arenaAssetRevision=0,arenaFirstPaintComplete=false;
@@ -311,11 +317,11 @@ function render(){
  const offer=state.chestOffer&&!state.busy?'<section class="chest-reward panel"><h2>Baú · '+esc(state.chestOffer.tierName)+'</h2><p>Escolha 1 de 3 opções para o seu trio. '+state.battle.allies.filter(u=>u.hp>0).length+' alma(s) viva(s).</p><div class="chest-options">'+state.chestOffer.options.map(o=>'<button data-chest-choice="'+esc(o.id)+'" data-chest-offer="'+esc(state.chestOffer.id)+'"><span class="reward-category">'+esc(o.category||'Aprimoramento')+'</span><strong>'+esc(o.title)+'</strong><small>'+esc(o.text)+'</small><em>'+esc(o.reason||'')+'</em></button>').join('')+'</div></section>':'';
  const exchange=state.resourceMenu&&!state.busy?'<div class="essence-popover"><strong>Converter Essências · 5 → 1</strong><p>Receber '+names[state.resourceMenu]+'. O pagamento usa cinco Essências da reserva.</p><button data-command="exchange" '+(locked?'disabled':'')+'>Converter para '+names[state.resourceMenu]+'</button><button data-command="close-resources">Fechar</button></div>':'';
  const finished=!state.busy&&state.battle.tactical.stage==='finished'?'<section class="result">'+(state.battle.phase==='victory'?'Vitória':state.battle.phase==='draw'?'Empate':'Derrota')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-reward="'+esc(b.id)+'"><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':routeMarkup()):'')+'</section>':'';
- root.innerHTML='<div class="shell combat-shell card-battle alternating-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Encontro '+state.run.encounter+(state.run.route?' · '+esc(tacticalRoutes.find(r=>r.id===state.run.route)?.title):'')+'</span><a href="#formation">Formação</a></header>'+offer+finished+
- '<section class="battle-surface"><div class="arena-toolbar '+(state.animation?.type==='effects'&&state.animation?.pose==='impact'?'essence-pulse':'')+'">'+compactResources(s,selection)+playbackControls()+'<span class="battle-phase" role="status">'+('Rodada '+s.round+' · '+(state.busy?'Em ação':playerTurn()?(state.selected?'Planejando':'Escolha um aliado'):state.chestOffer?'Aprimoramento':state.battle.tactical.stage==='finished'?'Confronto encerrado':'Aguardando a troca'))+'</span></div>'+(!state.selected&&state.message?'<p class="activation-notice" role="status">'+esc(state.message)+'</p>':'')+exchange+'<div class="activation-income">'+(state.incomeAnnouncement?.until>Date.now()?essenceArrivalMarkup(state.incomeAnnouncement):'')+'</div>'+
- environmentMarkup(s)+chestObjectiveMarkup(s)+'<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+(tacticalHighlightEvent(anim)?tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim):'')+arenaHudMarkup(s)+(!state.busy&&state.battle.tactical.plans.player?'<span class="exchange-seal" role="status" aria-label="Ordem selada, aguardando o oponente">◆</span>':'')+callout+boardMarkup(s,selection)+'</div>'+commands+'</section>'+
+ root.innerHTML='<div class="shell combat-shell card-battle alternating-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Encontro '+state.run.encounter+(state.run.route?' · '+esc(tacticalRoutes.find(r=>r.id===state.run.route)?.title):'')+'</span><a href="#formation">Formação</a></header>'+finished+
+ '<section class="battle-surface"><div class="arena-toolbar '+(state.animation?.type==='effects'&&state.animation?.pose==='impact'?'essence-pulse':'')+'">'+compactResources(s,selection)+playbackControls()+'<span class="battle-phase" role="status">'+('Rodada '+s.round+' · '+(state.busy?'Em ação':playerTurn()?(state.selected?'Planejando':'Escolha um aliado'):state.chestOffer?'Aprimoramento':state.battle.tactical.stage==='finished'?'Confronto encerrado':'Aguardando a troca'))+'</span></div>'+activeAugmentsMarkup()+(!state.selected&&state.message?'<p class="activation-notice" role="status">'+esc(state.message)+'</p>':'')+exchange+'<div class="activation-income">'+(state.incomeAnnouncement?.until>Date.now()?essenceArrivalMarkup(state.incomeAnnouncement):'')+'</div>'+
+ environmentMarkup(s)+chestObjectiveMarkup(s)+'<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim)+arenaHudMarkup(s)+(!state.busy&&state.battle.tactical.plans.player?'<span class="exchange-seal" role="status" aria-label="Ordem selada, aguardando o oponente">◆</span>':'')+callout+boardMarkup(s,selection)+'</div>'+offer+commands+'</section>'+
  
- '<section class="combat-extras">'+activeAugmentsMarkup()+'</section>'+
+
  '<details class="combat-log"><summary>Resolução da rodada</summary><ol>'+(state.busy?(state.completedEvents||[]):state.lastEvents).map(e=>'<li>'+esc(e.title)+(e.actorId?' · '+esc(tacticalUnits(state.battle).find(u=>u.id===e.actorId)?.name):'')+(tacticalResolutionFeedback(e).length?'<span class="resolution-feedback">'+tacticalResolutionFeedback(e).map(esc).join(' ')+'</span>':'')+'</li>').join('')+'</ol></details>'+
  '<details id="formation" class="panel setup"><summary>Nova formação</summary><div class="setup-fields"><div class="team-selects"><label>Seu trio</label>'+[0,1,2].map(i=>teamSelect('player',i)).join('')+'</div><div class="team-selects"><label>Oposição</label>'+[0,1,2].map(i=>teamSelect('enemy',i)).join('')+'</div><label>Mapa<select id="map-choice"><option value="open">Arena aberta</option><option value="ruins">Ruínas</option></select></label>'+environmentSelect()+'<label>Semente<input id="seed-choice" type="number" value="'+state.seed+'"></label></div><button data-command="restart">Iniciar confronto</button></details></div>';
  if(focusKey&&!state.busy){
@@ -452,7 +458,7 @@ root.addEventListener('click',event=>{
  if(el.dataset.resourceMenu){state.resourceMenu=el.dataset.resourceMenu;render();return;}
  if(el.dataset.command==='commit'){commitActivation();return;}
  if(el.dataset.actor){selectActor(el.dataset.actor);return;}
- if(el.dataset.mode&&playerTurn()&&state.selected){
+ if(el.dataset.mode&&playerTurn()&&state.selected&&state.path?.length!==2){
   if(state.mode===el.dataset.mode){commitActivation();return;}
   state.mode=el.dataset.mode;state.spendChoice={};state.message='';render();return;
  }

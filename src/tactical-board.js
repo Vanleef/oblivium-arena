@@ -19,6 +19,7 @@ export function canStep(s,actorId,from,to,{through=false}={}){
  return true;
 }
 export function movementRange(s,actorId){
+ if(s.tactical.activation)return 2;
  const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);
  const extra=(s.tactical.augments?.[unit?.side]||[]).filter(a=>a.type==='movement-range'&&(!a.expiresAt||a.expiresAt>=s.round)).reduce((n,a)=>Math.max(n,Math.max(0,Math.floor(a.amount||0))),0);
  return 1+Math.min(2,extra);
