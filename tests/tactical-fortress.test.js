@@ -33,6 +33,10 @@ test('o ataque equipado atinge a área depois de mover, sem gastar Essência',()
  Object.assign(s.tactical.positions,{[actor]:{x:2,y:2},[s.enemies[0].id]:{x:4,y:2}});
  for(const u of s.enemies)u.stunned=5;
  for(const key of Object.keys(s.resources))s.resources[key]=0;
+ const preview=previewTacticalActivation(s,'player',actor,order(actor,3,2,'impulso'));
+ assert.deepEqual(preview.projection.tactical.positions[actor],{x:3,y:2});
+ assert.deepEqual(s.tactical.positions[actor],{x:2,y:2});
+ assert.ok(preview.aim.targets.includes(s.enemies[0].id));
  const result=exchange(s,actor,3,2,'impulso');
  const attack=result.events.find(e=>e.actorId===actor&&e.type==='skill');
  assert.ok(attack?.totalDamage>0);

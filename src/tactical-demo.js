@@ -417,6 +417,21 @@ async function paintExchangeMovement(event,pause,reduced){
   token.animate([{translate:'0 0',scale:'1 1',offset:0},{translate:(dx*.06)+'px '+(dy*.06+2)+'px',scale:'1.035 .95',offset:.16},{translate:(dx*.58)+'px '+(dy*.58-lift)+'px',scale:'1 1.04',offset:.53},{translate:dx+'px '+dy+'px',scale:'1.055 .94',offset:.94},{translate:dx+'px '+dy+'px',scale:'1 1'}],
    {duration,easing:'cubic-bezier(.28,.06,.32,1)',fill:'forwards'});
  }
+ if(!reduced&&state.battle.tactical.fortress){
+  for(const step of event.stopped){
+   const token=root.querySelector('.cell[data-cell="'+cellKey(step.from)+'"] .token');
+   const target=root.querySelector('.cell[data-cell="'+cellKey(step.to)+'"]');
+   if(!token?.animate||!target)continue;
+   const from=token.closest('.cell').getBoundingClientRect(),to=target.getBoundingClientRect();
+   const dx=to.left-from.left,dy=to.top-from.top;
+   token.animate([
+    {translate:'0 0',scale:'1'},
+    {translate:(dx*.35)+'px '+(dy*.35)+'px',scale:'1.06 .94',offset:.38},
+    {translate:(-dx*.06)+'px '+(-dy*.06)+'px',scale:'.98 1.03',offset:.67},
+    {translate:'0 0',scale:'1'}
+   ],{duration,easing:'ease-out'});
+  }
+ }
  if(walkers.length){
   const stride=[['anticipate',.16],['launch',.24],['airborne',.4],['landing',.2]];
   for(const [pose,fraction] of stride){
@@ -532,21 +547,36 @@ function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy
  try{state.battle=createTacticalBattle(player,enemy,{seed,alternating:true,fortress:fortressMode,environment,obstacles:ruins?(fortressMode?[{x:4,y:1},{x:4,y:4}]:[{x:2,y:1},{x:2,y:3}]):[],buffs:state.run.buffs,memories:state.run.memories,globalEffects:state.run.globalEffects,teamHealth:state.run.teamHealth});}catch(e){state.message=e.message;render();return;}
  resetEncounter(seed);
 }
+const fortressPreviewClasses=['fortress-aim','fortress-aim-destination','fortress-aim-contact'];
 function clearFortressAim(){
- for(const cell of root.querySelectorAll('.fortress-aim'))cell.classList.remove('fortress-aim');
+ for(const cell of root.querySelectorAll('.fortress-aim,.fortress-aim-destination,.fortress-aim-contact'))cell.classList.remove(...fortressPreviewClasses);
 }
 function paintFortressAim(event){
  if(!state.battle.tactical.fortress||!playerTurn()||!state.selected)return;
- const cell=event.target.closest('.cell[data-cell]');if(!cell||cell.contains(event.relatedTarget))return;
+ const cell=event.target.closest('.cell[data-cell]');
+ if(cell&&cell.contains(event.relatedTarget))return;
  clearFortressAim();
+ if(!cell?.classList.contains('reachable'))return;
  const [x,y]=cell.dataset.cell.split(',').map(Number);
  const path=findPath(state.battle,state.selected,{x,y});if(!path)return;
  const result=preview([{type:'move',actorId:state.selected,path,abilityId:state.mode||undefined}]);
- for(const point of result.aim?.cells||[])root.querySelector('[data-cell="'+cellKey(point)+'"]')?.classList.add('fortress-aim');
+ if(!result.ok)return;
+ cell.classList.add('fortress-aim-destination');
+ const positions=result.projection.tactical.positions;
+ const targets=new Set((result.aim?.targets||[]).map(id=>positions[id]).filter(Boolean).map(cellKey));
+ for(const point of result.aim?.cells||[]){
+  const key=cellKey(point),affected=root.querySelector('[data-cell="'+key+'"]');
+  affected?.classList.add('fortress-aim');
+  if(targets.has(key))affected?.classList.add('fortress-aim-contact');
+ }
+}
+function leaveFortressAim(event){
+ if(!event.relatedTarget?.closest?.('.board'))clearFortressAim();
 }
 root.addEventListener('pointerover',paintFortressAim);
 root.addEventListener('focusin',paintFortressAim);
-root.addEventListener('pointerleave',clearFortressAim);
+root.addEventListener('pointerout',leaveFortressAim);
+root.addEventListener('focusout',leaveFortressAim);
 root.addEventListener('click',event=>{
  const el=event.target.closest('button');if(!el||el.disabled)return;
  if(el.dataset.speed){const speed=Number(el.dataset.speed);if([1,2,3].includes(speed)){state.playbackSpeed=speed;for(const b of root.querySelectorAll('[data-speed]'))b.setAttribute('aria-pressed',String(Number(b.dataset.speed)===speed));syncPlaybackRate();}return;}
