@@ -59,3 +59,9 @@ test('eliminações e transformações mantêm a apresentação completa mesmo q
  }
  assert.equal(tacticalHighlightEvent({...event,before,after:before}),false);
 });
+
+test('Fio de Memória usa um fio durante o trajeto',()=>{
+ const nilo={id:'nilo',side:'player'};
+ const cast={type:'skill',actorId:'nilo',abilityId:'tecnica',family:'bind',anchor:{x:2,y:0},before:{positions:{nilo:{x:0,y:0}}}};
+ assert.equal(tacticalProjectileKind(nilo,{target:'enemy'},cast),'thread');
+});

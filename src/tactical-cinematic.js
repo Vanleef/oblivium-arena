@@ -15,6 +15,7 @@ export function tacticalProjectileKind(actor,ability,event){
  const id=actor?.sourceId||actor?.id||'';
  const origin=event.before?.positions?.[actor?.id],destination=event.anchor;
  if(!origin||!destination||origin.x===destination.x&&origin.y===destination.y)return null;
+ if(id==='nilo'&&event.abilityId==='tecnica'&&(!event.formKey||event.formKey==='base'))return 'thread';
  if(['o-tecelao-de-mentiras','a-viuva-escarlate'].includes(id))return 'thread';
  if(id==='a-boca-de-vidro')return 'glass';
  if(!['projectile','affliction','bind'].includes(event.family))return null;

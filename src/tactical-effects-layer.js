@@ -81,6 +81,9 @@ export class TacticalEffectsLayer {
   };
   const from=worldPoint(event.before.positions[event.actorId]),to=worldPoint(event.anchor);
   const now=performance.now(),color=palette(actor,event.family),radius=Math.max(9,Math.min(34,this.height/tracks.rows.length*.44));
+  const actorId=actor?.sourceId||actor?.id;
+  const cutlass=actorId==='o-acougueiro'&&['impulso','tecnica','voto'].includes(event.abilityId);
+  const bastion=actorId==='o-escudo-vivo'&&['tecnica','despertar'].includes(event.abilityId);
   const push=(kind,point,extra={})=>{
    if(point)this.effects.push({kind,point,from,to,color,radius,family:event.family,now,duration,reduced,...extra});
   };
@@ -94,7 +97,7 @@ export class TacticalEffectsLayer {
     const {reaction,x,y}=contact;
     const guard=reaction==='block'||reaction==='shield';
     const tint=guard?palettes.guard:reaction==='heal'?palettes.support:color;
-    push('impact',worldPoint(contact.point,.54),{reaction,angle:x||y?Math.atan2(y,x):undefined,color:tint,particles:reaction==='effect'?0:particles});
+    push('impact',worldPoint(contact.point,.54),{reaction,cutlass,bastion,angle:x||y?Math.atan2(y,x):undefined,color:tint,particles:reaction==='effect'?0:particles});
    }
    if(!contacts.length)push('miss',to||from);
   }
@@ -136,7 +139,18 @@ function drawEffect(ctx,fx,t){
   ring(ctx,x,y,r*.65,light,p*.56);
  }else if(kind==='travel'){
   const {from,to}=fx,dx=to.x-from.x,dy=to.y-from.y;
-  const head=1-(1-p)**1.45,tail=Math.max(0,head-(fx.projectile==='thread'?.36:.22));
+  const head=1-(1-p)**1.45,tail=Math.max(0,head-.22);
+  if(fx.projectile==='thread'){
+   const hx=dx*head,hy=dy*head,bend=r*.65*Math.sin(p*Math.PI)*(1-p);
+   ctx.translate(from.x,from.y);
+   ctx.globalAlpha=.88;
+   for(const [width,color] of [[4,dark],[1.5,light]]){
+    ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(hx*.48-Math.sin(angle)*bend,hy*.48+Math.cos(angle)*bend,hx,hy);
+    ctx.stroke();
+   }
+   ctx.restore();return;
+  }
   ctx.lineCap='round';
   for(const [width,color] of [[r*.30,dark],[r*.15,mid],[2,light]]){
    ctx.lineWidth=width;ctx.strokeStyle=color;ctx.globalAlpha=.9;
@@ -177,6 +191,15 @@ function drawEffect(ctx,fx,t){
     ctx.moveTo(px,py-r*.10);ctx.lineTo(px,py+r*.10);
    }
    ctx.stroke();
+  }else if(guard&&fx.bastion){
+   const spread=1+Math.max(0,1-p*4)*.65;
+   for(let i=-1;i<=1;i++){
+    const cx=i*r*.48*spread,cy=Math.abs(i)*r*.20*spread;
+    ctx.beginPath();ctx.moveTo(cx-r*.23,cy-r*.55);ctx.lineTo(cx+r*.23,cy-r*.55);
+    ctx.lineTo(cx+r*.20,cy+r*.15);ctx.lineTo(cx,cy+r*.43);ctx.lineTo(cx-r*.20,cy+r*.15);
+    ctx.closePath();ctx.fillStyle=i===0?dark:mid;ctx.fill();
+    ctx.strokeStyle=light;ctx.lineWidth=1.4;ctx.stroke();
+   }
   }else if(guard){
    for(let i=0;i<6;i++){const a=i*TAU/6;ctx.lineTo(Math.sin(a)*r*.63,Math.cos(a)*r*.84);}
    ctx.closePath();ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
@@ -190,9 +213,18 @@ function drawEffect(ctx,fx,t){
    ctx.moveTo(-r*.92,0);ctx.lineTo(r*.28,-r*.30*fade);ctx.lineTo(r*1.34,0);ctx.lineTo(r*.28,r*.30*fade);ctx.closePath();ctx.fill();
    ctx.fillStyle=light;ctx.beginPath();ctx.moveTo(-r*.6,0);ctx.lineTo(r*.38,-r*.085*fade);ctx.lineTo(r*1.1,0);ctx.lineTo(r*.38,r*.085*fade);ctx.fill();
   }
+  if(heavy&&fx.cutlass&&!reduced){
+   ctx.fillStyle=dark;ctx.globalAlpha=fade;
+   ctx.beginPath();
+   for(let i=0;i<fx.particles;i++){
+    const px=r*(i%5-2)*(.2+p*.27),py=r*(.42-Math.sin(p*Math.PI)*(.4+(i%3)*.25));
+    ctx.moveTo(px-r*.10,py);ctx.lineTo(px+r*.06,py-r*.14);ctx.lineTo(px+r*.12,py+r*.06);ctx.closePath();
+   }
+   ctx.fill();
+  }
   ctx.strokeStyle=light;ctx.lineWidth=1.5;ctx.globalAlpha=fade*.8;
   ctx.beginPath();
-  for(let i=0;i<fx.particles;i++){
+  for(let i=0;i<fx.particles&&!(heavy&&fx.cutlass);i++){
    const a=i*2.39996,reach=r*(.48+(i%3)*.20)*p;
    const dx=Math.cos(a),dy=Math.sin(a);
    ctx.moveTo(dx*reach,dy*reach);
