@@ -1,0 +1,76 @@
+{
+  "id": "nilo-cinza-final-anime-first-completion-20261028",
+  "characterId": "nilo-cinza-final",
+  "displayName": "Nilo, o Sem Rastro",
+  "world": "Inferno",
+  "realm": "Estige",
+  "artDirection": "Anime 2.5D pictórico e gótico, inspirado no Inferno de Dante. Rio negro-vermelho, basalto, arcos, almas condenadas ao longe, cinza e focos quentes de brasa. Nilo preserva pele castanha média, cabelo azul-negro com mecha marfim, tecidos carvão e cinza gastos, faixa índigo e cordão vermelho queimado. O Colapso usa cinza, fogo, tecido e esforço físico, sem armadura, arma ou tecnologia.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/portrait.webp",
+      "scene": "Retrato de Nilo, o Sem Rastro, com o rosto sujo de cinza, o cordão vermelho queimado e o Estige infernal atrás de colunas de basalto."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/passive.webp",
+      "scene": "Nilo se firma na escadaria de basalto enquanto duas bordas concêntricas de cinza e um cordão ritual apertado marcam os limiares crescentes do Colapso; o corpo demonstra o custo e a mão busca poder encerrá-lo."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-impulso.webp",
+      "scene": "Close lateral: a mão aberta de Nilo deixa uma pequena Marca Infernal negro-carmesim no ombro do manto de uma condenada mais velha; ela se vira para ver a marca."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica.webp",
+      "scene": "Nilo atinge de lado as costelas de um condenado robusto; o alvo dobra contra o basalto, uma costura da túnica chamuscada e um traço vermelho discreto sugerem Sangramento e Queimadura."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-voto.webp",
+      "scene": "Nilo se senta contra uma coluna do Estige, comprimindo o próprio flanco enquanto o cordão vermelho brilha através do tecido rasgado: a escolha de abrir o primeiro Colapso cobra seu corpo."
+    },
+    {
+      "slot": "despertar-4",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-despertar-4.webp",
+      "scene": "Nilo ajoelhado e apoiado numa palma sobre o basalto, cercado por um segundo anel mais escuro e intenso que o primeiro; o corpo tensionado mostra a abertura do Colapso II."
+    },
+    {
+      "slot": "tecnica-5",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-5.webp",
+      "scene": "Vista quase superior de Nilo ajoelhado, soltando o cordão vermelho que cai frouxo na névoa do rio; ombros cedem com o fim voluntário do Colapso."
+    },
+    {
+      "slot": "tecnica-6",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-6.webp",
+      "scene": "A película dourada de proteção falsa se desprende do manto de um condenado de pele oliva; Nilo pressiona a luz restante com a palma e o homem perde o equilíbrio."
+    },
+    {
+      "slot": "tecnica-7",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-7.webp",
+      "scene": "O pequeno selo negro-carmesim já marcado na manga de um condenado idoso escurece e o tecido esfarela em sal negro; Nilo observa de perfil ao fundo, sem ferir carne."
+    },
+    {
+      "slot": "tecnica-8",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-tecnica-8.webp",
+      "scene": "Um condenado pálido cai sobre um joelho depois de um golpe físico decisivo; Nilo já passa adiante, braço recolhido, enquanto o anel de cinza no chão se rompe."
+    },
+    {
+      "slot": "despertar-9",
+      "path": "/art/characters/nilo-cinza-final/anime-first-completion-20261028/skill-despertar-9.webp",
+      "source": "/art/source/nilo-cinza-final-anime-first-completion-20261028/skill-despertar-9.webp",
+      "scene": "Nilo sozinho visto de cima numa ponte de basalto sob chuva de cinza; uma proteção baixa de pedra e cinza prende brasas na borda enquanto o rio ao redor fica silencioso."
+    }
+  ]
+}

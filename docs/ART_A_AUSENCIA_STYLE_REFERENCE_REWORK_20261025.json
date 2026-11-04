@@ -1,0 +1,145 @@
+{
+  "title": "A Ausência — revisão pictórica por âncoras",
+  "date": "2026-10-25",
+  "characterId": "a-ausencia",
+  "name": "A Ausência",
+  "world": "Inferno",
+  "elo": "Vazio",
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "styleClarification": "Acabamento pictórico é a direção principal para todas as artes; as referências a Arcane/Aranhaverso orientam apenas energia, silhueta e composição.",
+  "gameplayChanged": false,
+  "styleReference": "As três imagens listadas em styleReferencePaths orientam o acabamento pictórico; o retrato próprio e a identidade abaixo orientam o personagem.",
+  "setting": "Inferno/Vazio: cidade lunar, bacia de sal, canal submerso, passagem de banho, praça e escadaria vertical.",
+  "identity": "Humanoide alto, esguio e andrógino, interior negro sem rosto, borda ciano-branca fina, contorno posterior fragmentado; sem olhos, boca, pele, roupa ou acessórios.",
+  "moralTone": "Ser infernal vil e movido pela maldade; eventual discordância de O Fim não o torna bondoso.",
+  "sourceSheetPath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetDimensions": "1536x1024",
+  "sourceSheetBytes": 595168,
+  "sourceSheetSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+  "activeDirectory": "art/characters/a-ausencia/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "sourceDimensions": "1536x1024; O Apodrecido passive source 1254x1254",
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/a-ausencia/style-reference-rework-20261025/portrait.webp",
+      "sourcePath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "cc9b8175ba8dfa2e90a5849eac2a1a4cbebc64e7a1eabcb06c7ec1ea21a11f17",
+      "sourceSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+      "activeBytes": 76084,
+      "sourceBytes": 595168,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "A entidade sem rosto em perfil sob uma lua crescente.",
+      "camera": "Close em perfil de três quartos.",
+      "setting": "Cidade lunar de Vazio, com arco quebrado."
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/a-ausencia/style-reference-rework-20261025/passive.webp",
+      "sourcePath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "3aca6179a7651382bd48b27b2f4463e5cb449df53ea58c93cbfa0d4bbbefde6e",
+      "sourceSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+      "activeBytes": 84488,
+      "sourceBytes": 595168,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Uma camada fina de Defesa se forma ao redor da própria entidade, sem inimigos.",
+      "camera": "Plano médio aberto em ângulo alto oblíquo.",
+      "setting": "Bacia vazia de sal."
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/a-ausencia/style-reference-rework-20261025/skill-impulso.webp",
+      "sourcePath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "993567f6444c60959ab9bb8c122310e4099e664ce186aa67896448ea7baae759",
+      "sourceSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+      "activeBytes": 77840,
+      "sourceBytes": 595168,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "A Ausência toca e drena a Essência de uma única vítima.",
+      "camera": "Plano lateral fechado à altura da água.",
+      "setting": "Canal submerso."
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/a-ausencia/style-reference-rework-20261025/skill-tecnica.webp",
+      "sourcePath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "b24c87eb175d4962e69f3fc1275a4694ef26f4c72c987527a874424e200170b6",
+      "sourceSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+      "activeBytes": 90930,
+      "sourceBytes": 595168,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "Um único atacante avança e recebe a resposta de A Ausência.",
+      "camera": "Diagonal próxima acima do ombro do atacante.",
+      "setting": "Passagem de banho subterrânea."
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/a-ausencia/style-reference-rework-20261025/skill-voto.webp",
+      "sourcePath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "2ae6a13c8ca1f936194ee97299ccfd9669c1f159fd876a9de62a2a035d10f426",
+      "sourceSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+      "activeBytes": 87688,
+      "sourceBytes": 595168,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Uma onda atravessa exatamente três inimigos e enfraquece seus contornos.",
+      "camera": "Plano baixo aberto, com os três alvos separados.",
+      "setting": "Praça lunar de Vazio."
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/a-ausencia/style-reference-rework-20261025/skill-despertar.webp",
+      "sourcePath": "art/source/a-ausencia-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "3346273e2d172b50fc5b30339c0a619962cc5bf78b45ce1034e86e0ff9dfbd3e",
+      "sourceSha256": "0863764947a2a8fe572abf7e12e09e1dc3675e4da67b5af544ade013eccf9f9a",
+      "activeBytes": 88042,
+      "sourceBytes": 595168,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "Um golpe de luz atravessa o espaço onde A Ausência estava; somente a entidade aparece.",
+      "camera": "Vista alta em perfil durante a esquiva.",
+      "setting": "Escadaria vertical."
+    }
+  ],
+  "visualReview": "Seis recortes revistos sob a definição pictórica; a entidade mantém perfil faceless sem detalhes biológicos artificiais. Ataque unitário, resposta a um atacante, área com exatamente três inimigos e defesa individual estão visualmente distintos.",
+  "reviewStatus": "revisado visualmente contra as três âncoras e a direção pictórica atual"
+}

@@ -1,0 +1,182 @@
+{
+  "title": "Gêmeos do Cutelo — revisão pictórica por âncoras",
+  "date": "2026-10-25",
+  "characterId": "gemeos-do-cutelo",
+  "name": "Gêmeos do Cutelo",
+  "aliases": [],
+  "kitPreserved": [
+    {
+      "slot": "passive",
+      "name": "Ritmo dos Gêmeos",
+      "effect": "Bônus de caça contra um inimigo exposto."
+    },
+    {
+      "slot": "impulso",
+      "name": "Cutelo da Esquerda",
+      "target": "um inimigo",
+      "effect": "Dano físico e Exposição."
+    },
+    {
+      "slot": "tecnica",
+      "name": "Cutelo da Direita",
+      "target": "um inimigo",
+      "effect": "Dano físico e Sangramento por dois turnos."
+    },
+    {
+      "slot": "voto",
+      "name": "Encontro das Lâminas",
+      "target": "todos os inimigos (exatamente três)",
+      "effect": "Ataque em área com bônus contra inimigos expostos."
+    },
+    {
+      "slot": "despertar",
+      "name": "Dança Cruzada",
+      "target": "os próprios gêmeos",
+      "effect": "Evasão pessoal conjunta."
+    }
+  ],
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "styleClarification": "Pintura digital pictórica é a direção principal; Arcane/Aranhaverso orientam apenas energia e composição quando compatíveis.",
+  "world": "Inferno",
+  "elo": "Sangria",
+  "moralTone": "Ser do Inferno vil e guiado pela maldade. Pode discordar de O Fim, mas nunca é bondoso.",
+  "gameplayChanged": false,
+  "styleReference": "As três imagens em styleReferencePaths orientam somente o acabamento pictórico; a descrição preserva a identidade do personagem.",
+  "setting": "Inferno/Sangria: salão de basalto enegrecido, piso úmido, arcos góticos e luz de fornalha vermelha.",
+  "identity": "Par de gêmeos fraternos adultos, inequivocamente irmãos pelo mesmo formato de olhos, sobrancelhas, ponte do nariz, maçãs do rosto, boca e queixo. A mulher tem pele marrom-escura, cachos pretos curtos, cicatriz pálida em cruz na testa e argolas de latão; o homem tem pele clara e cabelo preto liso jogado de lado. As diferenças de pele, cabelo e cicatriz não apagam a semelhança facial herdada. Ambos têm a mesma idade e usam uniformes pretos de gola alta com fechos de latão, faixas vinho e munhequeiras de couro. Cada um carrega exatamente um cutelo de ferro. São infernais cruéis, nunca benevolentes.",
+  "sourceSheetPath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+  "sourceSheetDimensions": "1536x1024",
+  "sourceSheetBytes": 728840,
+  "sourceSheetSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+  "activeDirectory": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025/portrait.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 97062,
+      "activeSha256": "1cebf5fc2bec7dc6554088c9449693bd542f81219f8767d60bd5fd4c2a3e7647",
+      "sourcePath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 728840,
+      "sourceSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "Os dois gêmeos aparecem lado a lado, com o mesmo olhar, nariz, maçãs do rosto, sobrancelhas e queixo; pele, cabelo e cicatriz os distinguem.",
+      "camera": "Retrato duplo em close, pose espelhada e mesma idade legíveis.",
+      "targetCount": 0,
+      "sourceRevision": "v2 twins"
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025/passive.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 100116,
+      "activeSha256": "46231c770e55a22951ece055650721077327c9bcf30c5f2706e16f9671772ea6",
+      "sourcePath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 728840,
+      "sourceSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Os gêmeos sincronizam os cutelos diante de um único inimigo Exposto; a semelhança dos rostos e a postura espelhada deixam claro que são irmãos gêmeos.",
+      "camera": "Plano baixo em três quartos, os três personagens inteiros e contáveis.",
+      "targetCount": 1,
+      "sourceRevision": "v2 twins"
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025/skill-impulso.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 96692,
+      "activeSha256": "863e58b36c9107ffcd26a8c6c892e786d8758fef8004e24c8bd260981e659a4e",
+      "sourcePath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 728840,
+      "sourceSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "A mulher abre a guarda de um inimigo sem armadura enquanto o irmão repete o mesmo ângulo de corte ao lado; um alvo apenas.",
+      "camera": "Plano diagonal próximo ao movimento conjunto.",
+      "targetCount": 1,
+      "sourceRevision": "v2 twins"
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025/skill-tecnica.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 96136,
+      "activeSha256": "2094070d46b1f38ec35e368fcc36938a41db0ff2c3fa010ce462692f8c364a6a",
+      "sourcePath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 728840,
+      "sourceSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "O homem conclui o corte contra um único inimigo sem armadura e a irmã acompanha com postura espelhada.",
+      "camera": "Câmera baixa pela lateral do alvo, dois irmãos e uma vítima.",
+      "targetCount": 1,
+      "sourceRevision": "v2 twins"
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025/skill-voto.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 103138,
+      "activeSha256": "3adc41e59fbda473a86358a437defc7c997670b59b2885778e054edf773dd825",
+      "sourcePath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 728840,
+      "sourceSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+      "sourceRevision": "v2 twins",
+      "scene": "Os dois gêmeos cruzam seus cutelos numa investida coordenada contra exatamente três inimigos sem armadura, todos distintos e contáveis.",
+      "camera": "Vista frontal baixa, exatamente cinco pessoas no quadro.",
+      "targetCount": 3,
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 4
+      }
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/gemeos-do-cutelo/style-reference-rework-20261025/skill-despertar.webp",
+      "activeDimensions": "512x512",
+      "activeBytes": 93614,
+      "activeSha256": "7f25c3ba0513ef1c201d3af451ffbf88fe7884ffdcfaf522c28f8859a7ce0cba",
+      "sourcePath": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-twins-v2-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceBytes": 728840,
+      "sourceSha256": "6187198953820f57b445822046be76229360c0355c89b9ce2f2bcc7c3cc1d512",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "Os gêmeos giram costas com costas e escapam juntos da linha de ataque; só os dois usuários aparecem.",
+      "camera": "Plano médio diagonal, movimento espelhado e sem figuras adicionais.",
+      "targetCount": 0,
+      "sourceRevision": "v2 twins"
+    }
+  ],
+  "twinRelationship": "Gêmeos fraternos; todas as cenas devem preservar idade igual, semelhança facial herdada e movimentos espelhados, mantendo as diferenças de pele, cabelo e cicatriz.",
+  "supersedes": "art/source/gemeos-do-cutelo-style-reference-rework-20261025-sheet.webp"
+}

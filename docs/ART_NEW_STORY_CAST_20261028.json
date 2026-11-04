@@ -1,0 +1,104 @@
+{
+  "scope": "First portraits of previously unillustrated story profiles; ability images remain pending.",
+  "tool": "built-in image_gen",
+  "stylePrompt": "One square portrait for Oblivium Arena. Clean high-quality hand-drawn ANIME cel-animation key visual: confident black contours, expressive stylized anime face, broad FLAT color fills, just one or two large hard-edged shadow planes per surface, smooth matte materials, restrained small highlights. Broad graphic hair shapes. Quiet layered low-contrast background and strong readable silhouette at 512px. No skin texture, realism, glossy CGI, painted grain, fine scratches, cinematic bloom, blurred depth of field, dense particles, anatomical errors, text, letters or UI. Exactly ONE character, chest-up three-quarter portrait, hands mostly outside the frame. Clothing should look functional and distinctive, no unnecessary ornaments, no generic armored soldier. Keep dramatic atmosphere through shape and value separation, not noisy surface detail.",
+  "identityBriefs": {
+    "nilo": {
+      "name": "Nilo — Receptáculo",
+      "identity": "Adult young man, about 24, medium-brown skin, short dark navy-black textured hair with one distinct ivory forelock over right brow, gray-blue anime eyes, calm searching expression, slim athletic build. An asymmetrical short ivory mantle over a charcoal wrap vest; a muted indigo sash crosses upper torso. One broad simple dark cuff on left wrist. Four small dormant geometric fracture marks at collarbone/forearm symbolize receptivity, not wounds; no glow web. No scythe, religious ritual, blood symbols, or borrowed anime character costume. Identity of an intact soul in coma, able to receive traces without belonging to one Essence.",
+      "scene": "Current Kingdom Vestíbulo, Limbo: quiet pale-gray boundary mist, one broken doorway without a door, an empty stone path disappearing into violet-gray. Chest-up slightly high oblique view, he looks off toward the open passage to left. Muted ivory/indigo/charcoal palette."
+    },
+    "naomi": {
+      "name": "Naomi — Persistência",
+      "identity": "Adult woman about 45, warm deep-brown skin, broad kind angular face, short dense black curls arranged as a low braided crown with one ash-gray streak, amber eyes, firm compassionate expression. Sturdy shoulders, practical layered sage-green mantle with warm ivory lining over a dark earth-brown wrap tunic. Cloth wraps at wrists, visible mending seams as a few simple lines; one small plain oval ochre clasp, no elaborate jewelry or weapon. Her history: continued caring for strangers after losing family, died from exhaustion without abandoning others.",
+      "scene": "Current Kingdom Estelar, Paraíso: broad quiet midnight-blue geometric star vault and pale ivory stone terrace, just three tiny flat star shapes. Chest-up eye-level three-quarter portrait, gaze focused gently off to right. No halo or angel wings. Warm sage/ivory/earth palette."
+    },
+    "kael": {
+      "name": "Kael — Arrependimento",
+      "identity": "Adult man about 34, olive-brown skin, strong square jaw with short dark stubble, tired steel-gray anime eyes, short charcoal hair swept backward with a slim pale streak at LEFT temple. A small old scar on lower lip, no cross-nose scar. Broad athletic body. Faded slate-blue former executioner's field coat, charcoal collar, simple rust-red inner wrap; one broken iron chain band on forearm. No heavy plate armor, no helmet, no rank insignia or generic military uniform. A chipped straight short sword is sheathed at waist, mostly outside portrait; one consistent weapon only. A guilty former soldier seeking endurance, restrained expression rather than swagger.",
+      "scene": "Current Kingdom Purgatório, Limbo: broad pale weathered stone terraces and a washed-out horizon under gray-violet sky. Low eye-level chest-up three-quarter view, gaze down toward his own broken chain out of frame. Matte slate/charcoal/rust palette. No lava."
+    },
+    "vaas": {
+      "name": "Vaas — Máscaras",
+      "identity": "Adult male infernal deceiver about 32, narrow angular face, muted lavender-gray skin, black-plum slicked-back hair with one sharp asymmetric forward lock, thin amber slit pupils, unnaturally long shadow at the jaw. A smooth blank half-mask of dark ivory porcelain covers LEFT cheek and temple but leaves mouth and right eye visible; no skull gore. A thin second false profile appears as one flat shadow shape behind his cheek, subtle and clearly graphic. Slim shoulders, asymmetrical plum-black long coat with muted teal lining and simple narrow collar, one silver rectangular clasp. Elegant dangerous restraint, no crown, no cape of feathers, no generic horns or armor.",
+      "scene": "Current Kingdom Malebolge, Inferno: quiet broad tiers of crooked stone fraud trenches and one blind arch, sulfur-gray mist and tarnished ochre accents. Close slightly elevated portrait, gaze calculatingly toward lower right. Graphic plum/teal/ivory-gray palette. No flames flooding frame."
+    },
+    "diana": {
+      "name": "Diana — Amparo",
+      "identity": "Adult woman about 40, light warm-brown skin, strong cheekbones and broad practical shoulders, short honey-brown straight bob tucked behind left ear with a pale ash streak, calm steel-blue anime eyes, focused caring expression. Off-white functional healer's coat with blue-gray rolled collar over a charcoal undershirt, broad ochre cloth belt, plain wrapped forearms. Medical identity conveyed by clean cloth and a folded bandage strap; no red-cross logo, modern devices, syringes, stethoscope, armor, maid costume or decorative neck cravat. A protective physician soul defined by care after loss.",
+      "scene": "Current Kingdom Lua, Paraíso: broad pale moonlit stone steps and a still silver-blue pool, one large matte crescent shape faintly reflected, no halos or wings. Chest-up three-quarter view at eye level, gaze attentively toward left. Quiet ivory/blue-gray/ochre palette."
+    },
+    "teras": {
+      "name": "Teras — Observador",
+      "identity": "An adult infernal observer with a distinctive nonhuman construct-like form: an elongated smooth obsidian-gray ceramic head, THREE small aligned ivory eye apertures across its upper face with faint violet centers, no human mouth, no hood, no crown. A single clean bone-white jaw plate sits seamlessly at lower face, no dangling gore. Thin long shoulders beneath a dark indigo mantle with a blunt flat ivory collar, two simple silver cord loops falling down chest, long ceramic forearm just at edge of frame with one violet fissure. Deliberate scholarly stillness, an entity studying souls and Nilo, not a human mage or generic demon. Keep face geometrically expressive through head angle and eye apertures.",
+      "scene": "Current Kingdom Blasfêmia, Inferno: broad simplified rows of sealed basalt tombs with a few dull red seams under ash-gray sky, no readable inscriptions. Slightly low side three-quarter portrait, head tilts curiously toward right. Matte obsidian/indigo/ivory with very small violet accents. No flowing lava or excessive texture."
+    }
+  },
+  "corrections": {
+    "kael": "Redraw IMAGE 1 in the clean flat ANIME cel rendering style of IMAGE 2. IMAGE 1 is Kael, preserve his exact mature male face, short charcoal hair with pale temple streak, tired gray eyes, short stubble, lip scar, slate field coat, rust inner wrap, chain band and sheathed sword. IMAGE 2 is STYLE ONLY; do not transfer Nilo's youthful face, white forelock or ivory mantle. Remove the dense cloth grain, stone grain and soft realistic shading. Use crisp confident contours, broad flat fills and only 1-2 large hard-edged shadow shapes on each surface. Coat smooth matte slate with just a few fold lines, simplified worn hem. Stubble represented by a few clean graphic dashes, no realistic skin texture. Quiet background as broad pale Purgatório terrace shapes and ash-violet negative space; no finely rendered masonry. Preserve composition, head tilt, gaze downward and character age. One square image, no letters, no extra people or effects."
+  },
+  "characters": {
+    "nilo": {
+      "status": "portrait_reviewed_abilities_pending",
+      "activePortrait": "/art/characters/nilo/anime-first-completion-20261028/portrait.webp",
+      "sourcePortrait": "art/source/full-roster/nilo-portrait.webp",
+      "generatedScenes": {
+        "tecnica": {
+          "activePath": "/art/characters/nilo/anime-first-completion-20261028/skill-tecnica.webp",
+          "sourcePath": "art/source/full-roster/nilo-tecnica.webp",
+          "reviewStatus": "needs_correction"
+        },
+        "passive": {
+          "activePath": "/art/characters/nilo/anime-first-completion-20261028/passive.webp",
+          "sourcePath": "art/source/full-roster/nilo-passive.webp",
+          "reviewStatus": "needs_correction"
+        },
+        "voto": {
+          "activePath": "/art/characters/nilo/anime-first-completion-20261028/skill-voto.webp",
+          "sourcePath": "art/source/full-roster/nilo-voto.webp",
+          "reviewStatus": "needs_correction"
+        }
+      },
+      "portraitReviewStatus": "needs_correction"
+    },
+    "naomi": {
+      "status": "portrait_reviewed_abilities_pending",
+      "activePortrait": "/art/characters/naomi/anime-first-completion-20261028/portrait.webp",
+      "sourcePortrait": "art/source/full-roster/naomi-portrait.webp",
+      "generatedScenes": {
+        "impulso": {
+          "activePath": "/art/characters/naomi/anime-first-completion-20261028/skill-impulso.webp",
+          "sourcePath": "art/source/full-roster/naomi-impulso.webp",
+          "reviewStatus": "visually_reviewed"
+        },
+        "tecnica": {
+          "activePath": "/art/characters/naomi/anime-first-completion-20261028/skill-tecnica.webp",
+          "sourcePath": "art/source/full-roster/naomi-tecnica.webp",
+          "reviewStatus": "visually_reviewed"
+        }
+      }
+    },
+    "kael": {
+      "status": "portrait_reviewed_abilities_pending",
+      "activePortrait": "/art/characters/kael/anime-first-completion-20261028/portrait.webp",
+      "sourcePortrait": "art/source/full-roster/kael-portrait.webp"
+    },
+    "vaas": {
+      "status": "portrait_reviewed_abilities_pending",
+      "activePortrait": "/art/characters/vaas/anime-first-completion-20261028/portrait.webp",
+      "sourcePortrait": "art/source/full-roster/vaas-portrait.webp",
+      "portraitReviewStatus": "needs_correction"
+    },
+    "diana": {
+      "status": "portrait_reviewed_abilities_pending",
+      "activePortrait": "/art/characters/diana/anime-first-completion-20261028/portrait.webp",
+      "sourcePortrait": "art/source/full-roster/diana-portrait.webp"
+    },
+    "teras": {
+      "status": "portrait_reviewed_abilities_pending",
+      "activePortrait": "/art/characters/teras/anime-first-completion-20261028/portrait.webp",
+      "sourcePortrait": "art/source/full-roster/teras-portrait.webp"
+    }
+  },
+  "status": "in_progress_blocked_by_image_generation_quota"
+}

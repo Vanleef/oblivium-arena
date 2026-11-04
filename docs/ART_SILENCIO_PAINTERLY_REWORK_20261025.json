@@ -1,0 +1,299 @@
+{
+  "date": "2026-10-25",
+  "title": "Lote pictórico de Silêncio I: O Espectador, A Carcereira e O Silenciador",
+  "style": "Pintura digital pictórica com pinceladas visíveis, camadas de tinta, bordas pintadas e volumes construídos por formas de cor.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "counts": {
+    "baseCharacters": 3,
+    "baseAssets": 18,
+    "alternateFormAssets": 2,
+    "sourceFiles": 5
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cell": "512x512"
+  },
+  "characters": [
+    {
+      "id": "o-que-observou",
+      "name": "O Espectador",
+      "identity": "Homem idoso de barba e bigode brancos, chapéu escuro de aba larga, lente-monóculo azul de aro de latão, sobretudo azul-negro e instrumento óptico. Presencia o sofrimento e escolhe não responder; guarda a falha alheia como arma.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-que-observou/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato fechado do Espectador com barba branca, chapéu e lente-monóculo azul.",
+          "sourcePath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/passive.webp",
+          "scene": "Natureza-morta de monóculo, caderno e sino; um pedido de socorro permanece ignorado no reflexo, sem pessoas visíveis.",
+          "sourcePath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Memória da Omissão marca um único inimigo enquanto o Espectador registra sua falha.",
+          "sourcePath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Recusar Interferência: o próprio Espectador refrata uma agressão e prepara o contra-ataque, sem aliados ou inimigos visíveis.",
+          "sourcePath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Peso da Indiferença comprime exatamente um inimigo marcado sob páginas e sombras suspensas.",
+          "sourcePath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "O Espectador sozinho sai do acontecimento por uma fenda lunar; defesa pessoal sem outros personagens.",
+          "sourcePath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-que-observou-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "a-porta-fechada",
+      "name": "A Carcereira",
+      "identity": "Mulher adulta de pele escura, cabelo curto cacheado grisalho, casaco azul-marinho de gola alta e chaves de latão. Determina quem encontra abrigo e deixa vítimas sem resposta do lado de fora.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/a-porta-fechada/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/a-porta-fechada/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato da Carcereira com cachos grisalhos, gola azul e chaves junto ao rosto.",
+          "sourcePath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/a-porta-fechada/painterly-rework-20261025/passive.webp",
+          "scene": "A Carcereira fecha uma porta pesada para abrigar apenas seus cúmplices; uma mão sem rosto fica do lado de fora.",
+          "sourcePath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/a-porta-fechada/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Batida sem Resposta enfraquece exatamente um inimigo contra a porta de ferro.",
+          "sourcePath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/a-porta-fechada/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Guarida Seletiva fecha um abrigo ao redor da Carcereira e exatamente uma aliada; dois aliados visíveis ao todo, sem inimigos.",
+          "sourcePath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/a-porta-fechada/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Não Há Saída prende exatamente um inimigo marcado num corredor de portas convergentes.",
+          "sourcePath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/a-porta-fechada/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "A Carcereira atravessa sozinha um limiar inacessível, com a porta se fechando ao redor dela.",
+          "sourcePath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/a-porta-fechada-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "o-surdo",
+      "name": "O Silenciador",
+      "identity": "Homem adulto calvo, olhos frios, máscara acústica rígida de placas quadradas pretas, manto carvão e azul-petróleo, ombreiras escuras e rachaduras de energia ciano. Ouve, mas escolhe extinguir a resposta.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-surdo/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato estreito do Silenciador, calvo, com máscara acústica preta e olhos frios.",
+          "sourcePath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/passive.webp",
+          "scene": "Placas da máscara abafam anéis de vibração antes que eles se espalhem, sem personagens adicionais.",
+          "sourcePath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Clamor Sufocado comprime o som em torno de um único inimigo, que deixa cair a arma.",
+          "sourcePath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Interditar a Voz prende exatamente um inimigo por uma faixa ciano; estátuas de pedra ao fundo permanecem inertes.",
+          "sourcePath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Decreto do Silêncio achata a sombra de um único inimigo enfraquecido com pressão inaudível.",
+          "sourcePath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "O Silenciador sozinho dentro de um bolsão imóvel; destroços param na fronteira da defesa pessoal.",
+          "sourcePath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-surdo-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-surdo-painterly-rework-20261025-sheet.webp"
+    }
+  ],
+  "alternateForms": [
+    {
+      "characterId": "o-que-observou",
+      "character": "O Espectador",
+      "form": "witness",
+      "name": "Retaliação do Espectador",
+      "assets": [
+        {
+          "slot": "skill-voto-witness",
+          "activePath": "art/characters/o-que-observou/painterly-rework-20261025/skill-voto-witness.webp",
+          "sourcePath": "art/source/o-que-observou-skill-voto-witness-source.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual preservada a 1254 × 1254 e reduzida para 512 × 512.",
+          "scene": "A evidência retorna pela lente e atinge exatamente um agressor que acabou de atacar.",
+          "targetCount": 1
+        }
+      ]
+    },
+    {
+      "characterId": "o-surdo",
+      "character": "O Silenciador",
+      "form": "echo",
+      "name": "Clamor sem Retorno",
+      "assets": [
+        {
+          "slot": "skill-impulso-echo",
+          "activePath": "art/characters/o-surdo/painterly-rework-20261025/skill-impulso-echo.webp",
+          "sourcePath": "art/source/o-surdo-skill-impulso-echo-source.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual preservada a 1254 × 1254 e reduzida para 512 × 512.",
+          "scene": "O eco ciano retorna sobre exatamente um inimigo enfraquecido, lançando-o contra a parede.",
+          "targetCount": 1
+        }
+      ]
+    }
+  ],
+  "visualReview": "Pranchas, recortes e fontes quadradas inspecionados quanto a identidade ativa, acabamento pictórico, anatomia, expressões, silhuetas, alvos e variedade de enquadramento. O Espectador e O Silenciador mantêm uma única vítima em todas as habilidades ofensivas e formas; a Carcereira protege uma aliada escolhida e suas técnicas ofensivas mostram um único inimigo. Os efeitos pessoais mostram apenas o usuário. As estátuas ao fundo na técnica do Silenciador são inertes. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou."
+}

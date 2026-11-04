@@ -1,0 +1,47 @@
+{
+  "id": "silas-anime-first-completion-20261028",
+  "date": "2026-10-28",
+  "characterId": "silas",
+  "displayName": "Silas",
+  "world": "Paraíso",
+  "realm": "Vênus",
+  "artDirection": "Anime 2.5D pictórico e ornado no Paraíso de Vênus: claustros de mármore claro, roseirais geométricos e água sob luz filtrada. Silas é um homem adulto de traços do leste asiático, cabelo preto comprido com trança prateada, túnica índigo e azul-petróleo, tecido marfim, sash vinho e fios vermelhos de lealdade. A proteção surge de tecido, fios e luz, sem armadura, armas, halos ou tecnologia.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/silas/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/portrait.webp",
+      "scene": "Retrato de Silas no claustro de Vênus, com roseiral geométrico e fios vermelhos trançados ao sash."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/silas/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/passive.webp",
+      "scene": "Silas ampara um aliado no degrau; fios de tecido partem do pulso e formam uma pequena proteção no ombro."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/silas/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/impulso.webp",
+      "scene": "Um laço de seda vinho prende o manto de uma alma pálida; a postura do alvo cede sem articulação forçada."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/silas/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/tecnica.webp",
+      "scene": "Silas cobre o ombro de uma aliada com seda luminosa; uma fita escura se desfaz em pétala de luz."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/silas/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/voto.webp",
+      "scene": "Um fio vinho passa pela sombra da manga do alvo e fecha um nó, selando seu movimento ofensivo."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/silas/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/silas-anime-first-completion-20261028/despertar.webp",
+      "scene": "Silas cruza o limiar à frente de dois aliados; tecido marfim e fios vermelhos envolvem seu corpo como proteção."
+    }
+  ]
+}

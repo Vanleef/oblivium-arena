@@ -1,0 +1,144 @@
+{
+  "title": "O Escudo Vivo — revisão pictórica por âncoras",
+  "date": "2026-10-25",
+  "characterId": "o-escudo-vivo",
+  "name": "O Escudo Vivo",
+  "world": "Paraíso",
+  "elo": "Proteção",
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "styleClarification": "Acabamento pictórico é a direção principal para todas as artes; as referências a Arcane/Aranhaverso orientam apenas energia, silhueta e composição.",
+  "gameplayChanged": false,
+  "styleReference": "As três imagens listadas em styleReferencePaths orientam o acabamento pictórico; o retrato próprio e a identidade abaixo orientam o personagem.",
+  "setting": "Paraíso/Proteção: passagem protegida junto à muralha marcada por mãos pequenas e canais rasos, conforme a cena do Elo.",
+  "identity": "Armadura clara gasta, visor e peito de vitral azul-cobalto, filigrana dourada fina, pano marfim e escudo oval de vitral.",
+  "sourceSheetPath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetDimensions": "1536x1024",
+  "sourceSheetBytes": 776056,
+  "sourceSheetSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+  "activeDirectory": "art/characters/o-escudo-vivo/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "sourceDimensions": "1536x1024; O Apodrecido passive source 1254x1254",
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-escudo-vivo/style-reference-rework-20261025/portrait.webp",
+      "sourcePath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "671b9d9eff663a9260781bed6cbe56442f9c48eef4be8f0645d54f04d77641be",
+      "sourceSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+      "activeBytes": 111314,
+      "sourceBytes": 776056,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "O Escudo Vivo intercepta uma lança no cruzamento protegido.",
+      "camera": "Close baixo em três quartos.",
+      "setting": "Passagem de Paraíso junto à muralha marcada por mãos pequenas."
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-escudo-vivo/style-reference-rework-20261025/passive.webp",
+      "sourcePath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "8add49b5558803dfd705895ef6f33c491be40a1fe4992ecf16902e7a55af3793",
+      "sourceSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+      "activeBytes": 118690,
+      "sourceBytes": 776056,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "O escudo é fincado no chão sob o golpe de uma maça; sua guarda pessoal se forma sem aliados presentes.",
+      "camera": "Plano aberto alto por trás.",
+      "setting": "Cruzamento com canais rasos."
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/o-escudo-vivo/style-reference-rework-20261025/skill-impulso.webp",
+      "sourcePath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "806926e65f4d5fea6c7efcbc5351cd41b822ae4b183d75d3c4917574b054de07",
+      "sourceSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+      "activeBytes": 116954,
+      "sourceBytes": 776056,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "Avança com o escudo contra exatamente um inimigo e mantém uma guarda própria.",
+      "camera": "Lateral inclinada à altura da cintura.",
+      "setting": "Passagem de pedra protegida."
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/o-escudo-vivo/style-reference-rework-20261025/skill-tecnica.webp",
+      "sourcePath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "24bd545a0a1e5d1785f23543d19c8f5e645ba0a3f555dc8847ad5e9d86e3daa2",
+      "sourceSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+      "activeBytes": 108358,
+      "sourceBytes": 776056,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "Ampara exatamente um aliado ferido com um escudo compacto.",
+      "camera": "Sobre o ombro do aliado.",
+      "setting": "Muralha clara com canais rasos."
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/o-escudo-vivo/style-reference-rework-20261025/skill-voto.webp",
+      "sourcePath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "4bc05cd9e2cdc0e8147f0e8f3a44d45cbafa4eb5b46d00f46198b681bfdf1f00",
+      "sourceSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+      "activeBytes": 108382,
+      "sourceBytes": 776056,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Contra-ataca com perfuração contra um inimigo que abriu a guarda.",
+      "camera": "Perfil lateral à altura do ombro.",
+      "setting": "Arcada de passagem em Paraíso."
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/o-escudo-vivo/style-reference-rework-20261025/skill-despertar.webp",
+      "sourcePath": "art/source/o-escudo-vivo-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "3e61b67b08f66ed6e3cddb7370fe410561de71eb7b8e640cb98cd10e8fce4850",
+      "sourceSha256": "9688c5bcf80a28f6f104ca667bef69fc34d71e466fe341e31ab54a93f81370fc",
+      "activeBytes": 122076,
+      "sourceBytes": 776056,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "Uma barreira própria detém um golpe descendente; O Escudo Vivo fica sozinho dentro da proteção.",
+      "camera": "Plano aberto baixo.",
+      "setting": "Cruzamento protegido."
+    }
+  ],
+  "visualReview": "Seis recortes revistos sob a definição pictórica; defesa pessoal sem aliados, avanço contra um inimigo, apoio a exatamente um aliado e contra-ataque unitário estão diferenciados.",
+  "reviewStatus": "revisado visualmente contra as três âncoras e a direção pictórica atual"
+}

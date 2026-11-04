@@ -1,0 +1,102 @@
+{
+  "title": "Reestilização híbrida pintada — O Revelador",
+  "date": "2026-10-25",
+  "characterId": "o-que-revela",
+  "characterName": "O Revelador",
+  "form": "Verdade",
+  "world": "Paraíso",
+  "elo": "Verdade",
+  "worldSetting": "rotas gravadas em pedra clara junto a nascentes e passagens de água; marcos expostos deixam desvios visíveis quando a luz encontra a superfície",
+  "style": "animação híbrida 2.5D/2D pintada, planos foscos de pedra, tecido e pele, pinceladas irregulares, contornos quebrados e luz natural contida",
+  "identity": "homem negro mais velho, de ombros largos, cachos curtos grisalhos e barba curta; casaco azul-acinzentado, manto de pedra clara e arnês prático de mapas, com prisma de mão",
+  "mechanicsPreserved": true,
+  "activeActionScenes": true,
+  "targetCountsPreserved": true,
+  "status": "integrated",
+  "assets": [
+    {
+      "asset": "portrait",
+      "path": "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+      "source": "art/source/o-revelador-hybrid-rework-20261025/portrait.webp",
+      "source_sha256": "725986a000e792b3f81e3a189bc0b501e6a21e4d4e220049cf07c4ca30c562c5",
+      "sha256": "9bff4d1159ac28ed5792d48fbd67b6578f666cb6e1f8fbe0e82dd97615cc97b4",
+      "bytes": 66642,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "O Revelador se inclina sobre uma rota entalhada junto a uma nascente e usa o prisma para localizar um desvio quase apagado.",
+      "camera": "plano médio próximo em três quartos alto, mãos e mapa de pedra em primeiro plano"
+    },
+    {
+      "asset": "passive",
+      "path": "art/characters/o-que-revela/hybrid-rework-20261025/passive.webp",
+      "source": "art/source/o-revelador-hybrid-rework-20261025/passive.webp",
+      "source_sha256": "7761bc0ed363718cb328e2add832642af5c84b5c3440b261965d6a16cb4ab3c6",
+      "sha256": "fd4af266489ff5b72320d6530c3dd9d4112be8e71f9cd6e36017048cb5976440",
+      "bytes": 50542,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Ao atingir uma única vítima já exposta, ele recolhe um fragmento de Éter que se desprende da reserva adversária.",
+      "camera": "sobre o ombro do inimigo, prisma e fragmento no plano focal"
+    },
+    {
+      "asset": "skill-impulso",
+      "path": "art/characters/o-que-revela/hybrid-rework-20261025/skill-impulso.webp",
+      "source": "art/source/o-revelador-hybrid-rework-20261025/skill-impulso.webp",
+      "source_sha256": "939fc80164d5b006f888aa1660cfd05c4560f2244c61d064bec526cf275ade0e",
+      "sha256": "0a3ca4a7ab6cd9bc85a4c9ccc20c4c4c949e62a62d96821f5782cee3d3416646",
+      "bytes": 63618,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Luz sem Mentira: um raio curto do prisma descola a camada ilusória de proteção de um único adversário.",
+      "camera": "perfil lateral baixo, com o alvo em primeiro plano e o Revelador avançando ao fundo"
+    },
+    {
+      "asset": "skill-tecnica",
+      "path": "art/characters/o-que-revela/hybrid-rework-20261025/skill-tecnica.webp",
+      "source": "art/source/o-revelador-hybrid-rework-20261025/skill-tecnica.webp",
+      "source_sha256": "917e2714b5ecfaf7b19c516ccb03246d53f8abe407ce7a5c6ca5fd8a7325ed52",
+      "sha256": "52c2cdff1ca7ae6269f5af46abe3522dff39bebe5f8e0f550b9ec97f3ae3cc59",
+      "bytes": 80966,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Clareza Partilhada: o Revelador desfaz aflições em dois aliados enquanto os três atravessam uma passagem molhada.",
+      "camera": "plongée oblíqua ampla, grupo em diagonal e água limpa ocupando o espaço negativo"
+    },
+    {
+      "asset": "skill-voto",
+      "path": "art/characters/o-que-revela/hybrid-rework-20261025/skill-voto.webp",
+      "source": "art/source/o-revelador-hybrid-rework-20261025/skill-voto.webp",
+      "source_sha256": "c309bd983fe70a5cdc2a22a866893b6fd5a3e8ebec65403254f4d5f6dcb41ebe",
+      "sha256": "dfda5c05d303035dbbdddb4f3fbd818e8528e9ccc5af2f7831012047c7e41b95",
+      "bytes": 59882,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Verdade Incisiva: numa investida curta, ele enfia o prisma na fresta da armadura de um único inimigo exposto.",
+      "camera": "plongée oblíqua por trás do alvo, cotovelos dobrados e contato no centro do quadro"
+    },
+    {
+      "asset": "skill-despertar",
+      "path": "art/characters/o-que-revela/hybrid-rework-20261025/skill-despertar.webp",
+      "source": "art/source/o-revelador-hybrid-rework-20261025/skill-despertar.webp",
+      "source_sha256": "680bfb5abd046919d83d5726a094fe82baa8107aa8b6e245743a76fe5d9d143a",
+      "sha256": "b489f215fcd47c994e525af530b34982026221850bbe93ea19465e655de69c49",
+      "bytes": 67398,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Transparência Absoluta: sozinho, ele se encolhe atrás do antebraço enquanto uma luz de ataque de fora do quadro se curva ao redor de seu corpo.",
+      "camera": "plano oblíquo baixo por trás do ombro esquerdo, com a nascente vista de cima"
+    }
+  ]
+}

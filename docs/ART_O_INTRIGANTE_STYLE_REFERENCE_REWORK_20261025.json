@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-25",
+  "characterId": "o-tecelao-de-mentiras",
+  "name": "O Intrigante",
+  "style": "Pintura digital pictórica com pinceladas visíveis e tinta em camadas, comparada diretamente às três âncoras confirmadas pelo usuário.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "sourceSheet": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetPath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+  "sourceDimensions": "1536x1024",
+  "sourceSheetDimensions": "1536x1024",
+  "activeDirectory": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "gameplayChanged": false,
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/portrait.webp",
+      "scene": "Retrato no arquivo infernal de tinturas, com porcelana rachada, olho jade e olho vazio preservados.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/passive.webp",
+      "scene": "Um único adversário marcado por fio espiritual no arquivo; o Intrigante mantém o controle da trama.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "impulso",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-impulso.webp",
+      "scene": "Fio de engano preso ao pulso da arma de um único inimigo.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "tecnica",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-tecnica.webp",
+      "scene": "Três adversários atingidos pela rede de fios e enfraquecidos.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "voto",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-voto.webp",
+      "scene": "Um nó de contradição se aperta em torno de um único alvo marcado.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "despertar",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-despertar.webp",
+      "scene": "Defesa pessoal: o Intrigante evita um golpe ao se recolher entre fios e faixas de papel.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1536x1024",
+      "sourceMethod": "Recorte quadrado de 512 × 512 da prancha 3 × 2 original.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-tecnica-unweave",
+      "activePath": "art/characters/o-tecelao-de-mentiras/style-reference-rework-20261025/skill-tecnica-unweave.webp",
+      "scene": "Exatamente três aliados infernais no total, incluindo o Intrigante, têm os fios nocivos desatados para voltarem à intriga; o gesto é utilitário e calculado.",
+      "sourcePath": "art/source/o-tecelao-de-mentiras-style-reference-rework-20261025-skill-tecnica-unweave.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Fonte individual quadrada; sprite ativo reduzido a 512 × 512.",
+      "activeDimensions": "512x512"
+    }
+  ],
+  "visualReview": "Prancha e recortes inspecionados para identidade, acabamento pictórico, continuidade das formas, anatomia, quantidade de alvos e direção moral infernal. Rotas de formas alternativas preservadas sob a nova pasta."
+}

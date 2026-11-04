@@ -1,0 +1,131 @@
+{
+  "date": "2026-11-02",
+  "status": "pilot-expanded",
+  "coverage": {
+    "atlasCharacters": 23,
+    "rosterCharacters": 150,
+    "drawingsPerAtlas": 36,
+    "totalDrawings": 828,
+    "allCharactersComplete": false,
+    "allTechniqueVariantsComplete": false
+  },
+  "layout": {
+    "columns": 6,
+    "rows": 6,
+    "width": 1254,
+    "height": 1254,
+    "cellSize": 209,
+    "feetBaselineLocalY": 201
+  },
+  "behavior": [
+    "Only the acting unit changes frames.",
+    "Base atlas supplies idle, move, impulso, tecnica, voto and despertar rows.",
+    "Unknown forms retain illustrated fallback instead of borrowing the base atlas.",
+    "Cancelled skills are excluded from animation.",
+    "Reduced-motion preference skips replay and unlocks planning.",
+    "Skill rows resolve from an explicit animationSlot/slot/clip or the actor's ordered four abilities: Impulso, Técnica, Voto, Despertar.",
+    "Idle holds the first full-body frame and uses a subtle breathing motion instead of cycling through six different poses.",
+    "The tactical board shows an original Limbo ruins-and-waterfall stage behind translucent grid tiles."
+  ],
+  "validation": {
+    "grid": "6x6 verified",
+    "sourceDimensions": "1254x1254 RGBA",
+    "webpHeader": "RIFF/WEBP",
+    "frameBounds": "The seven earlier atlas sheets (252 frames) retain their documented minimum 7px cell margins. Nyx and Malrik have source pixels touching internal cell edges; each frame is isolated by the 6x6 sheet crop and displayed at max-width 108px to fit inside one 5x5 board cell.",
+    "feetBaseline": "Ashara, Judith and Sanson frames aligned at y=201; Vale and Soren, Lucien, Demetrius and Vesper use action-specific vertical placement",
+    "runtimeMappings": "The tactical roster has 19 selectable units, including Nyx and Malrik. Vale and Soren, Lucien, Demetrius, and Vesper remain four non-selectable atlas entries.",
+    "stageBackdrop": "art/arenas/limbo-ruins.webp, 1448x1086 WebP, 4:3 composition"
+  },
+  "assets": [
+    {
+      "id": "a-regente-de-cinzas",
+      "name": "Ashara",
+      "title": "A Déspota",
+      "source": "Ashara: atlas de 36 sprites.png",
+      "file": "art/animations/tactical-pilot-20261102/ashara.webp",
+      "bytes": 612982,
+      "sha256": "eca3b059f5590255d9dd1d4b59d23606e782d5efeacad90dcd10d790d3b73604"
+    },
+    {
+      "id": "a-juiza-de-ferro",
+      "name": "Judith",
+      "title": "A Magistrada",
+      "source": "Judith em combate — atlas de sprites.png",
+      "file": "art/animations/tactical-pilot-20261102/judith.webp",
+      "bytes": 603892,
+      "sha256": "87b1cb9ba91c99b27f41d499e39c200dc29f592465ce48df4938af2da6f52211"
+    },
+    {
+      "id": "o-carrasco-sem-rosto",
+      "name": "Sanson",
+      "title": "O Carrasco",
+      "version": "segunda versão",
+      "source": "36 poses do carrasco encapuzado.png",
+      "file": "art/animations/tactical-pilot-20261102/sanson.webp",
+      "bytes": 405436,
+      "sha256": "942dc169e347acc2537113697b4ac341724a63802dbe6ed1699b96a8a2b5d5a0"
+    },
+    {
+      "id": "gemeos-do-cutelo",
+      "name": "Vale e Soren",
+      "title": "Gêmeos do Cutelo",
+      "source": "Atlas de sprites 6×6, transparente",
+      "file": "art/animations/tactical-pilot-20261102/gemeos-do-cutelo.webp",
+      "bytes": 1171634,
+      "sha256": "23b6d8b50228aa3eeaeeb0dccfe887b87bfc8b2174c39527e90e0968fe62254b",
+      "minimumFrameMarginPx": 7,
+      "unmappedForm": "cross"
+    },
+    {
+      "id": "o-trono-vazio",
+      "name": "Lucien",
+      "title": "O Suserano",
+      "source": "graphic-2-5d-rework-20261029/portrait.webp",
+      "file": "art/animations/tactical-pilot-20261102/lucien.webp",
+      "bytes": 1172560,
+      "sha256": "693fbe5ebfa348b488de3d7d8a6bbdd4740b246469b8c8732e8f3045a7f85afd",
+      "minimumFrameMarginPx": 7
+    },
+    {
+      "id": "o-principe-das-correntes",
+      "name": "Demetrius",
+      "title": "O Príncipe",
+      "source": "graphic-2-5d-rework-20261029/portrait.webp",
+      "file": "art/animations/tactical-pilot-20261102/demetrius.webp",
+      "bytes": 1247592,
+      "sha256": "eaa66f7026c6958d5838538ca104b68524dc8b9d71696cac839a4640eaa40e25",
+      "minimumFrameMarginPx": 9,
+      "unmappedForm": "drag"
+    },
+    {
+      "id": "o-sussurro",
+      "name": "Vesper",
+      "title": "O Sussurro",
+      "source": "dark-pictorial-rework-20261030/portrait.webp",
+      "file": "art/animations/tactical-pilot-20261102/vesper.webp",
+      "bytes": 891872,
+      "sha256": "4bcef8edad7ef6db1bcfd8ec9a584a9460a9e05ba6c2d834356829b6e653087e",
+      "minimumFrameMarginPx": 16
+    },
+    {
+      "id": "a-mascara-dupla",
+      "name": "Nyx",
+      "title": "A Máscara Dupla",
+      "source": "Atlas 6×6 de Nyx com espaçamento.png",
+      "file": "art/animations/tactical-pilot-20261102/nyx.webp",
+      "bytes": 639380,
+      "sha256": "07a7c0a102f76d2d14dbab3ef0c928595a4a23d02f2aeab1b92df4d9f707c966",
+      "maxSpriteWidthPx": 108
+    },
+    {
+      "id": "o-herdeiro-cativo",
+      "name": "Malrik",
+      "title": "O Herdeiro",
+      "source": "Malrik, herdeiro de porcelana, em 36 poses.png",
+      "file": "art/animations/tactical-pilot-20261102/malrik.webp",
+      "bytes": 658534,
+      "sha256": "a3c6ed4ca98b9c1ea44b7e761b4f11140c80b3d90d773eede6aac1c41beacedd",
+      "maxSpriteWidthPx": 108
+    }
+  ]
+}

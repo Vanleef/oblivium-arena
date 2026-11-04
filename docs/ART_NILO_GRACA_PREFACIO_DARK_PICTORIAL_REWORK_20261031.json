@@ -1,0 +1,122 @@
+{
+  "id": "nilo-graca-prefacio-dark-pictorial-rework-20261031",
+  "characterId": "nilo-graca-prefacio",
+  "displayName": "Nilo, Prefácio de Graça",
+  "world": "Paraíso",
+  "realm": "Estelar",
+  "previousArtDirection": "Anime 2.5D pictórico claro e suave.",
+  "artDirection": "Anime-first 2.5D pictórico, alto contraste solene, contornos manuais, pinceladas densas, sombras angulares, materialidade de mármore e tecido; paleta de Paraíso em branco, marfim, ouro antigo, azul claro e verde discreto. Em +Graça: bondade visível, traços dourados na pele, aura branca ao redor do corpo e fios brancos no cabelo, mantendo olhos cinza-azulados; sem traços angelicais de ++Graça.",
+  "identity": "Nilo-base de 24 anos, pele castanha média, cabelo azul-negro com uma mecha marfim sobre a sobrancelha direita, olhos cinza-azulados, manto marfim com borda de ouro antigo, roupa carvão e faixa índigo. Sem asas, halo, arma ou tecnologia. Na versão +Graça, Nilo tem expressão bondosa, marcas douradas na pele, aura branca visível ao redor do corpo e fios em tons brancos no cabelo; os olhos permanecem cinza-azulados, sem anatomia angelical.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "b1a158ab55f5a322dcc76aed77d870d474d0c8729d4d9089cab695246a5b0a9f",
+      "activeSha256": "a4ac73092eb6914cd1caafae9e592bcf96c5ebad8c9321898c287ebdd3327be5",
+      "scene": "Retrato próximo em 3/4; Nilo reage com bondade a um tremor na água, com aura branca delineando os ombros."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "c4fc2ec0758d8e65552c3efe230ff9a06876c354818c8db6f2514f26f50a199c",
+      "activeSha256": "caa65475a0fe3a3537c574e51eec703d55c0cd51f563c02009e23933c41a8f60",
+      "scene": "Vista alta sobre a piscina: Nilo ajoelhado acompanha uma marca dourada de pétala no ombro de um alvo através do reflexo imóvel."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "f00cf31ece29cfa0e1f51391bac520eb828325053365182060b6c14900ac367f",
+      "activeSha256": "92dd6af53536becf80c73814602eda3af119e24c032372ca0ed2d38bf9c84413",
+      "scene": "Plano aberto lateral em nível baixo: Nilo sentado junto a uma coluna de mármore recompõe o próprio ferimento com luz marfim."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "4edb267392cd270b2eaceea56f57e3e562bb53151b9ae5fe698562753b1ebc45",
+      "activeSha256": "3e83bea3d4d36655b3bf6c5504dc9e7eb3803ad58aaadbf55ef5bbb76bfe1785",
+      "scene": "Vista traseira em 3/4: Nilo aplica uma pequena marca dourada no ombro esquerdo de um alvo; a sombra se abre numa fissura estreita no chão."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "eaf8dbfa1012b1f5bdc21cc373125f2546df5b3bbdabb94f504ff079fe2f5b4e",
+      "activeSha256": "1f4233c759619f826b76c1499d9e7048ab7bdc7002f1d3ffac34d300adbba371",
+      "scene": "Ângulo alto oblíquo: fragmento marfim compacto com núcleo dourado atinge o selo no braço de um alvo, que recua sobre a água."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/nilo-graca-prefacio/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "source": "art/source/nilo-graca-prefacio-dark-pictorial-rework-20261031/despertar.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "4b592bd9a4b18bf96709b616e4129d70e015a9c1510dc35b255d2ae79dccd7b9",
+      "activeSha256": "432d74aa669f569eecff7537c3c5cde126169ff0ff19bb8e1b0592627e2dc1ea",
+      "scene": "Plano baixo em 3/4: Nilo mantém uma mão apoiada no mármore e a outra sobre o peito enquanto a barreira de luz marfim desvia exatamente três estilhaços; dois braços claramente ligados ao corpo."
+    }
+  ],
+  "mechanicsPreserved": true,
+  "visualApproval": "pending",
+  "essenceState": {
+    "essence": "Graça",
+    "stage": "+",
+    "emotionalState": "Bondoso",
+    "appearance": {
+      "bodyMarkings": "traços dourados pelo corpo",
+      "aura": "aura branca ao redor do corpo",
+      "hair": "tons e fios brancos sobre o cabelo azul-negro, preservando a mecha marfim",
+      "eyes": "cinza-azulados; não completamente dourados",
+      "distinctionFrom": "++Graça, que acrescenta estrutura corporal angelical e olhos completamente dourados"
+    }
+  }
+}

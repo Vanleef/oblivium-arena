@@ -1,0 +1,165 @@
+{
+  "title": "Mire — A Pestilência — revisão dark fantasy pictórica",
+  "date": "2026-10-30",
+  "characterId": "a-praga-andante",
+  "characterName": "Mire",
+  "characterTitle": "A Pestilência",
+  "aliases": [
+    "A Praga Andante",
+    "A Pestilência"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Pútrido",
+  "essence": "Cinza",
+  "style": "Anime-first 2.5D dark fantasy pictórica, pinceladas angulares, contornos manuais e hachuras localizadas, com textura tátil de fungos e pedra.",
+  "identity": "Entidade fúngica não humana: uma nuvem ambulante com copa de cogumelos violetas, longos tentáculos verde-escuros, exatamente três luzes pálidas e um pequeno sino suspenso. Sem rosto, tronco ou membros humanos.",
+  "environment": "Inferno/Pútrido: ruínas de basalto, fuligem, passagens antigas e luz carmesim contida. Sem tecnologia ou maquinaria, gore ou horror corporal.",
+  "sceneVariety": "Retrato baixo, vista alta da passiva, golpe lateral, ataque aéreo em área, close pelo lado do alvo e defesa frontal fechada.",
+  "anatomyReview": "Seis candidatas inspecionadas. A Pestilência mantém a identidade de nuvem fúngica não humana; os tentáculos são orgânicos, sem braços ou pernas humanos. A passiva mostra dois ghouls contaminados; Febre Andante e Crise Pestilenta mostram um alvo cada; Contágio do Caminho mostra três alvos; a defesa mostra apenas a própria entidade.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "candidate": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — A Pestilência",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Uma única nuvem fúngica não humana paira diante de ruínas basálticas: copa violeta, tentáculos verde-escuros, três luzes pálidas e um sino de ferro suspenso.",
+      "prompt": "Retrato fechado de uma única aparição fúngica não humana, sem rosto ou corpo humano; preservar copa violeta, tendrils verde-escuros, exatamente três luzes e um sino.",
+      "candidatePath": "art/characters/a-praga-andante/dark-pictorial-rework-20261030/portrait.webp",
+      "sourcePath": "art/source/a-praga-andante-dark-pictorial-rework-20261030/portrait.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-7eaaa5fd-8ae1-468c-8c8b-c275e79cda7d.png",
+      "generatedSourceSha256": "395f46efb0aa1eedb5a109c084ab9eeb71e96719166de9caf6cfa2889b1cb80c",
+      "generatedSourceBytes": 2801006,
+      "candidateBytes": 72598,
+      "candidateSha256": "32f36d2f7d59f6e30f42cff193564de484fa3e3426ae2b17f1ecb6146a78e9a2",
+      "sourceBytes": 205149,
+      "sourceSha256": "930208b04c67ff47d13708a1105f476355200dba39dea208df282502d4550be4"
+    },
+    {
+      "slot": "passive",
+      "name": "Hospedeira da Praga",
+      "targetCount": "two poisoned ghouls",
+      "camera": "Vista alta oblíqua",
+      "scene": "A nuvem paira junto ao chão enquanto absorve os esporos de exatamente dois ghouls já envenenados; suas três luzes ganham brilho.",
+      "prompt": "Uma única nuvem de cogumelos recebe esporos de exatamente dois ghouls distintos já contaminados; sem outros alvos.",
+      "candidatePath": "art/characters/a-praga-andante/dark-pictorial-rework-20261030/passive.webp",
+      "sourcePath": "art/source/a-praga-andante-dark-pictorial-rework-20261030/passive.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-bb9a9ab8-f3e0-4603-b52c-c5c9dbc6c46e.png",
+      "generatedSourceSha256": "ac84c53632d7e80191ac85cab6160eaf159d8d40d90dff3725b0761904b7f8a6",
+      "generatedSourceBytes": 2708926,
+      "candidateBytes": 67696,
+      "candidateSha256": "b371d84419cc4f7e96a9581aebfb29d2f22d15257c78e6551b89f460883d9ee1",
+      "sourceBytes": 198246,
+      "sourceSha256": "f943b9da0e36133606ef2668a5ffa9683b347fb2f1c62013a7f7033749b151de"
+    },
+    {
+      "slot": "impulso",
+      "name": "Febre Andante",
+      "targetCount": "one ghoul",
+      "camera": "Perfil lateral baixo",
+      "scene": "Um tentáculo fúngico desfere um golpe físico contra um ghoul único; esporos aderem ao tecido externo durante o recuo da vítima.",
+      "prompt": "Um tentáculo orgânico atinge fisicamente exatamente um ghoul e deixa esporos no tecido; sem feixe, aliados ou outros inimigos.",
+      "candidatePath": "art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-impulso.webp",
+      "sourcePath": "art/source/a-praga-andante-dark-pictorial-rework-20261030/impulso.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-23727125-55e3-477f-8894-23474e8bc8f7.png",
+      "generatedSourceSha256": "59afe4ff5bbdc5771e18afefb5e571972a8902426b42787bfd9783b289b419bf",
+      "generatedSourceBytes": 2763263,
+      "candidateBytes": 80532,
+      "candidateSha256": "ba70255827fcfcf87359990ef4d9c16aedb873cf0ebba53d0764f75f49d76754",
+      "sourceBytes": 223722,
+      "sourceSha256": "69aeb1d93cc2718a13bf7a31e951e32d7900de6a0ebd38b964b2820797a3aba2"
+    },
+    {
+      "slot": "tecnica",
+      "name": "Contágio do Caminho",
+      "targetCount": "three ghouls",
+      "camera": "Vista aérea inclinada",
+      "scene": "A nuvem atravessa um caminho estreito e espalha veneno por exatamente três ghouls, que reagem de formas diferentes ao enxame de esporos.",
+      "prompt": "Ataque em área com exatamente três ghouls distintos sob o mesmo véu de esporos; sem aliados e sem alvos adicionais.",
+      "candidatePath": "art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-tecnica.webp",
+      "sourcePath": "art/source/a-praga-andante-dark-pictorial-rework-20261030/tecnica.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-a470f599-3b0d-4177-b7ae-95df0f6f070a.png",
+      "generatedSourceSha256": "332197096bfb4cf279f04ec7117b124de474278147e5e83868ec0004267c6b55",
+      "generatedSourceBytes": 3083385,
+      "candidateBytes": 76166,
+      "candidateSha256": "107d502d87b480ef363a80764004012919c1cfa1e3a32029e81fc8a7a7b39a44",
+      "sourceBytes": 219322,
+      "sourceSha256": "a4a7968c9d17784d912c5c1fde2ab18d8f842b8bb19de3fed33eda52fd8f2cb0"
+    },
+    {
+      "slot": "voto",
+      "name": "Crise Pestilenta",
+      "targetCount": "one already-poisoned ghoul",
+      "camera": "Close lateral pelo lado do alvo",
+      "scene": "Um ghoul já contaminado recebe a concentração súbita da nuvem; as pernas cedem e o olhar perde o foco, indicando atordoamento, sem ferida ou decomposição corporal.",
+      "prompt": "Impacto concentrado em exatamente um ghoul já envenenado; reação clara de atordoamento; fungo atinge apenas a roupa e a superfície da pele.",
+      "candidatePath": "art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-voto.webp",
+      "sourcePath": "art/source/a-praga-andante-dark-pictorial-rework-20261030/voto.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-35b2082d-5867-41a4-9f6e-288668148a8c.png",
+      "generatedSourceSha256": "cbee89b7ca8e10724e86744cea2779090c2caa3c1b0dd6cb668296ac5222f592",
+      "generatedSourceBytes": 2632339,
+      "candidateBytes": 71480,
+      "candidateSha256": "99c4a4878f5ec364ccbe4af056bac156b363cb15f75015102e5d30123aa28df3",
+      "sourceBytes": 198761,
+      "sourceSha256": "ba3f25d195162d8de4c209ad524871e45aa59422b851cb0a4cc054b4d3188f2c"
+    },
+    {
+      "slot": "despertar",
+      "name": "Névoa Contaminada",
+      "targetCount": "self only",
+      "camera": "Close frontal defensivo",
+      "scene": "A própria nuvem fecha os tentáculos ao redor do centro e forma uma casca protetora de cogumelos; fragmentos de cinza desviam do casulo.",
+      "prompt": "Defesa pessoal da nuvem fúngica, sem aliados, inimigos ou outros seres na cena; casulo protetor apenas ao redor da personagem.",
+      "candidatePath": "art/characters/a-praga-andante/dark-pictorial-rework-20261030/skill-despertar.webp",
+      "sourcePath": "art/source/a-praga-andante-dark-pictorial-rework-20261030/despertar.jpg",
+      "candidateDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "generatedSource": "exec-16c1a620-ffa0-4dbb-bf79-b9a8f2dc435e.png",
+      "generatedSourceSha256": "7499de4ea2fbe0e23bb202ec6e5eca3d40052d208859725db348cfa0c050b9e4",
+      "generatedSourceBytes": 2854816,
+      "candidateBytes": 73770,
+      "candidateSha256": "8fc327d5445a5bdadb5188d5166362841261298df4f6ecc0cd30fa2d942bd2d0",
+      "sourceBytes": 205551,
+      "sourceSha256": "64e5509832b3a9dbebddca6424c80b734306f68e93a2a30208accbe0495bc472"
+    }
+  ]
+}

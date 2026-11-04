@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-25",
+  "characterId": "o-apodrecido",
+  "name": "O Apodrecido",
+  "world": "Inferno",
+  "elo": "Podridão",
+  "status": "active-revision",
+  "previousArtAssessment": "Os seis caminhos base estavam presentes, mas ainda usavam o acabamento anime 2D antigo; existência de arquivo não equivalia a revisão visual.",
+  "loreEnvironment": "O reino morto descrito na história do Elo: mármore rachado, estruturas em ruína e raízes avançando sob as pedras em direção a uma fonte de calor enterrada.",
+  "styleDirection": "Animação híbrida 3D/2D pintada, volumes estilizados, planos de cor foscos, contorno gráfico irregular, pincel visível, sombras desenhadas e semitom localizado. Sem fotorealismo ou acabamento CGI polido.",
+  "preservedIdentity": [
+    "lenhador idoso",
+    "pele cinza-amarronzada de casca",
+    "rosto humano gasto e estreito",
+    "barba com musgo",
+    "cabelo longo pálido como raízes",
+    "placa assimétrica de madeira sobre um ombro",
+    "casaco terroso gasto",
+    "um machado de poda curvo"
+  ],
+  "kitPreserved": [
+    {
+      "slot": "passive",
+      "name": "Carne em Ruína",
+      "effect": "Suas habilidades causam +4 de dano se o alvo está com Decadência."
+    },
+    {
+      "slot": "impulso",
+      "name": "Contato da Ruína",
+      "target": "one enemy",
+      "effect": "Dano físico e Decadência por 3 turnos."
+    },
+    {
+      "slot": "tecnica",
+      "name": "Tecido Cedido",
+      "target": "one enemy",
+      "effect": "Dano físico, Enfraquece e remove Defesa."
+    },
+    {
+      "slot": "voto",
+      "name": "Decomposição Completa",
+      "target": "one enemy",
+      "effect": "Aflição concentrada, com bônus contra alvo com Decadência."
+    },
+    {
+      "slot": "despertar",
+      "name": "Casca Morta",
+      "target": "self",
+      "effect": "Invulnerabilidade pessoal por 1 turno."
+    }
+  ],
+  "scenes": [
+    {
+      "slot": "portrait",
+      "camera": "close three-quarter profile",
+      "action": "Testa uma raiz que rompe o piso de mármore, apoiando-se na parede; machado baixo.",
+      "setting": "arcada quebrada do reino morto, árvores secas além do muro."
+    },
+    {
+      "slot": "passive",
+      "camera": "low close view over the enemy shoulder",
+      "action": "Observa um adversário já tomado por Decadência perder a guarda; não golpeia ainda.",
+      "setting": "subsolo sob o fórum de mármore, raízes elevando as lajes."
+    },
+    {
+      "slot": "impulso",
+      "camera": "medium lateral action",
+      "action": "Golpe físico de machado curvo contra a borda do escudo de um alvo; líquen inicia a decadência.",
+      "setting": "pátio aberto, fonte de mármore quebrada e troncos secos."
+    },
+    {
+      "slot": "tecnica",
+      "camera": "low tilted ground angle",
+      "action": "Raiz do piso derruba um adversário e o gancho do machado desloca seu escudo.",
+      "setting": "galeria coberta de mármore com coluna caída."
+    },
+    {
+      "slot": "voto",
+      "camera": "bird's-eye view",
+      "action": "Aplica líquen na armadura de um inimigo já decadente; a aflição se concentra.",
+      "setting": "galeria superior de torre partida, árvore morta atravessa o teto."
+    },
+    {
+      "slot": "despertar",
+      "camera": "over-the-shoulder close action",
+      "action": "A placa de madeira detém uma lança enquanto o usuário se curva sob o impacto; proteção individual.",
+      "setting": "passagem estreita na muralha colapsada."
+    }
+  ],
+  "assets": [
+    {
+      "slot": "portrait",
+      "sourcePath": "art/source/o-apodrecido-hybrid-rework-20261025/portrait.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "7a684d6b49d81d1928a7fc9022cdbab5c53570579ec65801c066fc109e6e25be",
+      "runtimePath": "art/characters/o-apodrecido/hybrid-rework-20261025/portrait.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "5d25984cd51dd3d40038280c0f73bea85e2d28ba662081696e29f6e193b6cf93"
+    },
+    {
+      "slot": "passive",
+      "sourcePath": "art/source/o-apodrecido-hybrid-rework-20261025/passive.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "f18c4512a97d76d21c66f057a3ba154ddb90681c26b29afae829e32f3d9ac75d",
+      "runtimePath": "art/characters/o-apodrecido/hybrid-rework-20261025/passive.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "ec65f321fbde96708501b5c146af7c6d435e54468ac757b1a681e26e8f1593bf"
+    },
+    {
+      "slot": "impulso",
+      "sourcePath": "art/source/o-apodrecido-hybrid-rework-20261025/skill-impulso.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "fb4afad99c031aef330bbfdd523a3cdc0fc6ad1cf5f5c6f056d0e3680d452e10",
+      "runtimePath": "art/characters/o-apodrecido/hybrid-rework-20261025/skill-impulso.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "1bb80f1aebb0d24e8e842486114fa8baf42c4f572ba6556bedd4a9db4927acf8"
+    },
+    {
+      "slot": "tecnica",
+      "sourcePath": "art/source/o-apodrecido-hybrid-rework-20261025/skill-tecnica.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "ff2e54125cd3aadd5e41b8666402bc0b4082b017e4d8252ece9c211ddf171e5b",
+      "runtimePath": "art/characters/o-apodrecido/hybrid-rework-20261025/skill-tecnica.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "7266c3da281ce2808b8d238f84f2fa2e25a3e8e74cd29ce9ddd1a8579b0b4e9d"
+    },
+    {
+      "slot": "voto",
+      "sourcePath": "art/source/o-apodrecido-hybrid-rework-20261025/skill-voto.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "5d7c992a3b686bf0abbeb7d8948646b38a8983d123aee8f6c83bd3133de700d1",
+      "runtimePath": "art/characters/o-apodrecido/hybrid-rework-20261025/skill-voto.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "423c6175438cd78721c959b55bd830e47b0db08bd742ed7984cf29d5cf6b7dd6"
+    },
+    {
+      "slot": "despertar",
+      "sourcePath": "art/source/o-apodrecido-hybrid-rework-20261025/skill-despertar.webp",
+      "sourceResolution": "1024x1024",
+      "sourceSha256": "c872ac8263b89173828baf8437abe9ab1769719042f252487c203ea7f532126b",
+      "runtimePath": "art/characters/o-apodrecido/hybrid-rework-20261025/skill-despertar.webp",
+      "runtimeResolution": "512x512",
+      "runtimeSha256": "737b1fd581544abb7e490fce0310e99e57b251eac8d5dce7810860bc61179887"
+    }
+  ]
+}

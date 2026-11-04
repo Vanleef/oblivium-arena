@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-24",
+  "generator": "image_gen.imagegen (built-in)",
+  "scope": "Rework Tyrant and Ruin to share O Fim’s approved character identity while keeping their forms and battle effects distinct.",
+  "references": [
+    "approved-elo-union-20261023/portrait.webp",
+    "body-forms-distinct-20261024/portrait-predator.webp"
+  ],
+  "style": "Square 2D dark shonen anime, bold ink contours, flat colors, hard cel shadows, no text or UI.",
+  "identityMotifs": [
+    "faceless black void",
+    "thorn crown",
+    "linked gold chest rings",
+    "ragged dark mantle",
+    "asymmetric cracked ivory armor with green roots",
+    "small crimson seams"
+  ],
+  "forms": {
+    "tyrant": {
+      "archetype": "berserker",
+      "essence": "cinza",
+      "identity": "heavy brute-force humanoid",
+      "skills": [
+        "charge-building punch",
+        "guard-breaking strike",
+        "charge and missing-Health finisher"
+      ]
+    },
+    "predator": {
+      "archetype": "burst",
+      "essence": "ruptura",
+      "identity": "low six-limbed mobile hunter",
+      "art": "Existing Predator form retained."
+    },
+    "ruin": {
+      "archetype": "control",
+      "essence": "graca",
+      "identity": "slender floating spectral caster",
+      "skills": [
+        "spectral Mark",
+        "single-target bind and Stun",
+        "area restraint and support seal"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "key": "portrait-tyrant",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/portrait-tyrant.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 126904,
+      "sha256": "650a3bc864e084f6bde60bfa3b39966b6ffd53fb92a0fd4100a1444046634a04",
+      "source": "exec-5e09a325-86db-4e87-912a-037fd44bd897.png",
+      "sourceSha256": "a86e5e50705b290dc8964383d083ccff4ba7647e6ba3cffa1d8048bcf77c9bc5",
+      "promptSummary": "Broad humanoid brute with O Fim’s void face, thorn crown, linked gold rings, root-veined ivory armor, and ragged mantle.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "portrait-ruin",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/portrait-ruin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 123452,
+      "sha256": "3753ae6a31605e31a3c357aba901a5841e1e0d07430ca0e2ed3e19b487c3f454",
+      "source": "exec-c0b09086-5698-4099-aa47-766648e7dcd7.png",
+      "sourceSha256": "0f8bbc454377181068c40d71847e97bd4b38229973c5904fb4038fd7123d0878",
+      "promptSummary": "Slender floating caster preserving O Fim’s crown, void face, rings, asymmetric ivory armor, and mantle; violet spectral loops controlled by one raised hand.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "skill-tyrant-punch",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/skill-tyrant-punch.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 94836,
+      "sha256": "65b2d663a2de57d0443b228b29ac9dd58a90e5b8e73321f0349d7db7a4e80c8d",
+      "source": "exec-56e419ed-4aef-4a24-9329-854e0f834f81.png",
+      "sourceSha256": "c11aeaaabc28ae42eed127b062e3e44b43d2bdf552eccffba462e458f5bce2f3",
+      "promptSummary": "Tyrant drives a heavy fist into one armored enemy.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "skill-tyrant-break",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/skill-tyrant-break.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 103126,
+      "sha256": "fac7fdffec98e204e6f63fa38be03e85a65a47cea36bb49ecf5115a49a4e519d",
+      "source": "exec-11db65f4-70a1-409b-b8ce-2779eae28881.png",
+      "sourceSha256": "89512715784af6006e966564aa647263f26f9c136b506f7678b3068f92265b8b",
+      "promptSummary": "Tyrant smashes one enemy’s raised shield with a crushing blow.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "skill-tyrant-finisher",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/skill-tyrant-finisher.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 127876,
+      "sha256": "6be6ba5356b3a331badcda0e7eea7b08a777afc2f5be7a60a1ad6d0417fd07f5",
+      "source": "exec-bba211d9-1c2b-426f-8f2c-ed4bc6340fec.png",
+      "sourceSha256": "4eca7e216fd40f3785e4c9ad318d9ca169b75c7dc792e2abb879634c5e72f121",
+      "promptSummary": "Tyrant lands a ground-breaking finisher; crimson seams flare as he grows more dangerous at low Health.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "skill-ruin-thread",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/skill-ruin-thread.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 66826,
+      "sha256": "2b13efab23ed288c41220257a0c876c5f21c5c4aa705b4f56c773f03f60af171",
+      "source": "exec-ea8971d2-1ca8-440e-bc1b-32b9f0538695.png",
+      "sourceSha256": "7c6c45c84a23416f3534d6abd996cc6d6c211abd022ac2d213cbb721c6779157",
+      "promptSummary": "Ruin guides a precise violet thread to mark and pin one enemy’s wrist.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "skill-ruin-bind",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/skill-ruin-bind.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 78970,
+      "sha256": "d0e4a69193f0e94fab160a9667f3b521f5f9362f8e9f0ba9fe6b5a6458a4ea86",
+      "source": "exec-ba21a2aa-73fb-409f-a715-9abeba59b931.png",
+      "sourceSha256": "6f6de18daa0da1e36d441a2a046e6e6b279579b02a579e6fec120b0c83ba8ae3",
+      "promptSummary": "Ruin binds one enemy’s arms with spectral bands and interrupts a support spell.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    },
+    {
+      "key": "skill-ruin-circle",
+      "path": "art/characters/o-fim/body-forms-cohesive-20261024/skill-ruin-circle.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 99646,
+      "sha256": "0f5e4498bf2a37e46932657cc29e5aecf090a0944add6ec1dca49c4f1895221f",
+      "source": "exec-6af1e8b7-2562-4ffe-9e95-5cfad3691657.png",
+      "sourceSha256": "cb8f010a7626560d38496f96c836f69bda043f50f87de695bd115ced34e11c79",
+      "promptSummary": "Ruin restrains three enemies inside a spectral control circle and seals support.",
+      "review": "The new silhouette keeps recognizable O Fim motifs; the action image reads clearly at compact Codex size."
+    }
+  ]
+}

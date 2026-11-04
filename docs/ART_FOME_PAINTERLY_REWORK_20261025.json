@@ -1,0 +1,289 @@
+{
+  "date": "2026-10-25",
+  "title": "Lote pictórico de Fome I: O Devorador, A Saqueadora e O Insaciável",
+  "style": "Pintura digital pictórica com pinceladas visíveis, camadas de tinta, bordas pintadas e volumes construídos por formas de cor.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "counts": {
+    "baseCharacters": 3,
+    "baseAssets": 18,
+    "alternateFormAssets": 2,
+    "sourceFiles": 5
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cell": "512x512"
+  },
+  "characters": [
+    {
+      "id": "o-devorador",
+      "name": "O Devorador",
+      "identity": "Fera infernal quadrúpede; couro escuro, placas ósseas pálidas assimétricas, mandíbula larga, dentes de bronze, olho âmbar; Fome sem Corpo abre um vazio violeta na garganta.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-devorador/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato de três quartos da fera quadrúpede, com a mandíbula larga e as placas ósseas em primeiro plano.",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/passive.webp",
+          "scene": "Essência dourada escorre de um ferimento no flanco do próprio Devorador e recompõe a pele rumo à garganta.",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Perspectiva baixa: as mandíbulas avançam contra um único inimigo, sem gore.",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Saliva violeta corrói a guarda de um único inimigo; o foco está na saliva e na proteção rachada.",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Depois do golpe, um único mote de Essência do alvo é tragado pela garganta da fera.",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "A fera se agacha sobre as quatro patas enquanto as placas ósseas se fecham em defesa pessoal.",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-devorador-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-devorador-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "a-mao-que-toma",
+      "name": "A Saqueadora",
+      "identity": "Mulher infernal de pele castanha quente, cachos azul-petróleo de um lado e lateral raspada, olhos dourados, argola de ouro, jaqueta verde-oliva e uma grande mão espectral dourada separada de seus dois braços.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/a-mao-que-toma/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/a-mao-que-toma/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato fechado com expressão predatória, cachos, lateral raspada, argola e reflexo da mão espectral.",
+          "sourcePath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/a-mao-que-toma/painterly-rework-20261025/passive.webp",
+          "scene": "Close do olho e dos dedos reais se fechando sobre um pequeno mote roubado, sem multidão.",
+          "sourcePath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/a-mao-que-toma/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "A mão espectral pinça Essência da aura de exatamente um inimigo, em perspectiva da vítima.",
+          "sourcePath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/a-mao-que-toma/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "A Saqueadora guarda seus próprios motes em uma bolsa enquanto uma guarda dourada envolve somente seu ombro e costelas.",
+          "sourcePath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/a-mao-que-toma/painterly-rework-20261025/skill-voto.webp",
+          "scene": "A mão espectral remove a proteção de um único inimigo e puxa seus fragmentos luminosos.",
+          "sourcePath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/a-mao-que-toma/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "A Saqueadora sozinha, protegida por uma barreira compacta em forma de cofre que detém uma arma atacante.",
+          "sourcePath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/a-mao-que-toma-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "o-estomago-sem-fundo",
+      "name": "O Insaciável",
+      "identity": "Homem infernal de corpo pesado, cabelo escuro penteado para trás, olhos dourados, vestes carvão e violeta e gola segmentada dourada; incorpora a proteção roubada ao corpo, sem ser um receptáculo literal.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato ascendente do Insaciável com expressão calculista, cabelo penteado para trás e gola metálica.",
+          "sourcePath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025/passive.webp",
+          "scene": "Fragmentos de uma guarda recém-removida formam uma placa na gola e no ombro do próprio Insaciável.",
+          "sourcePath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "A proteção de um único inimigo se rompe e seus fragmentos passam ao torso do Insaciável.",
+          "sourcePath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "O Insaciável pressiona o esterno enquanto uma membrana violeta e dourada protege somente o próprio corpo.",
+          "sourcePath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025/skill-voto.webp",
+          "scene": "A sombra de exatamente um inimigo e sua aura são puxadas para um eclipse junto ao Insaciável.",
+          "sourcePath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/o-estomago-sem-fundo/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "O manto e as placas se fecham sobre o usuário e desviam uma lâmina; defesa pessoal.",
+          "sourcePath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-estomago-sem-fundo-painterly-rework-20261025-sheet.webp"
+    }
+  ],
+  "alternateForms": [
+    {
+      "characterId": "o-devorador",
+      "character": "O Devorador",
+      "form": "starved",
+      "name": "Fome sem Corpo",
+      "assets": [
+        {
+          "slot": "portrait-starved",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/portrait-starved.webp",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-portrait-starved.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual reduzida para 512 × 512.",
+          "scene": "A mesma fera de quatro patas, agora com vazio violeta abrindo a garganta e parte do tórax."
+        },
+        {
+          "slot": "skill-impulso-starved",
+          "activePath": "art/characters/o-devorador/painterly-rework-20261025/skill-impulso-starved.webp",
+          "sourcePath": "art/source/o-devorador-painterly-rework-20261025-skill-impulso-starved.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual reduzida para 512 × 512.",
+          "scene": "A mordida de Fome sem Corpo puxa a Essência de um único inimigo para a garganta-vazio."
+        }
+      ]
+    }
+  ],
+  "visualReview": "Pranchas e recortes foram inspecionados quanto à identidade, pinceladas, composição, continuidade e anatomia. O Devorador permanece quadrúpede; ataques mostram um alvo e defesas mostram somente o usuário. A Saqueadora conserva dois braços e duas mãos reais; a mão espectral é um efeito separado. O Insaciável preserva a identidade ativa de homem pesado em roupas violeta e douradas, incorporando guardas sem voltar ao conceito de receptáculo literal. Nenhuma regra, alvo, custo, efeito, duração ou recarga mudou."
+}

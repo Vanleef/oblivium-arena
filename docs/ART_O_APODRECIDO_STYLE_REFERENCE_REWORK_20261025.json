@@ -1,0 +1,171 @@
+{
+  "title": "O Apodrecido — revisão pictórica por âncoras",
+  "date": "2026-10-25",
+  "characterId": "o-apodrecido",
+  "name": "O Apodrecido",
+  "world": "Inferno",
+  "elo": "Podridão",
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "styleClarification": "Acabamento pictórico é a direção principal para todas as artes; as referências a Arcane/Aranhaverso orientam apenas energia, silhueta e composição.",
+  "gameplayChanged": false,
+  "styleReference": "As três imagens listadas em styleReferencePaths orientam o acabamento pictórico; o retrato próprio e a identidade abaixo orientam o personagem.",
+  "setting": "Inferno/Podridão: reino morto de mármore rachado, estruturas em ruína e raízes avançando sob as pedras em direção ao calor enterrado.",
+  "identity": "Lenhador idoso infernal de pele cinza-amarronzada como casca, rosto humano estreito e gasto, barba com musgo, cabelo longo pálido como raízes, placa assimétrica de madeira no ombro, casaco terroso gasto e exatamente um machado de poda curvo.",
+  "moralTone": "Ser infernal vil e movido pela maldade; eventual discordância de O Fim não o torna bondoso.",
+  "kitPreserved": [
+    {
+      "slot": "passive",
+      "name": "Carne em Ruína",
+      "effect": "Suas habilidades causam +4 de dano se o alvo está com Decadência."
+    },
+    {
+      "slot": "impulso",
+      "name": "Contato da Ruína",
+      "target": "um inimigo",
+      "effect": "Dano físico e Decadência por 3 turnos."
+    },
+    {
+      "slot": "tecnica",
+      "name": "Tecido Cedido",
+      "target": "um inimigo",
+      "effect": "Dano físico, Enfraquece e remove Defesa."
+    },
+    {
+      "slot": "voto",
+      "name": "Decomposição Completa",
+      "target": "um inimigo",
+      "effect": "Aflição concentrada, com bônus contra alvo com Decadência."
+    },
+    {
+      "slot": "despertar",
+      "name": "Casca Morta",
+      "target": "si mesmo",
+      "effect": "Invulnerabilidade pessoal por 1 turno."
+    }
+  ],
+  "sourceSheetPath": "art/source/o-apodrecido-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetDimensions": "1536x1024",
+  "sourceSheetBytes": 688474,
+  "sourceSheetSha256": "da1499ac1481aa452adcb45268e74fad1a692f888de31de8460e8d114c1ebdfe",
+  "activeDirectory": "art/characters/o-apodrecido/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "sourceDimensions": "1536x1024; O Apodrecido passive source 1254x1254",
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/o-apodrecido/style-reference-rework-20261025/portrait.webp",
+      "sourcePath": "art/source/o-apodrecido-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "82752dd7cc29d7af53945d7d4f642a38f66b69743e0c6808d6fc29f8038a42ab",
+      "sourceSha256": "da1499ac1481aa452adcb45268e74fad1a692f888de31de8460e8d114c1ebdfe",
+      "activeBytes": 116018,
+      "sourceBytes": 688474,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "O Apodrecido testa uma raiz que rompe o mármore; o machado permanece baixo.",
+      "camera": "Close em perfil de três quartos.",
+      "setting": "Arcada quebrada do reino morto, com árvores secas além do muro."
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/o-apodrecido/style-reference-rework-20261025/passive.webp",
+      "sourcePath": "art/source/o-apodrecido-style-reference-rework-20261025-passive-v2.webp",
+      "activeSha256": "9d89d124742066021c2d134c370f13479a09ce037720bdd0788945b17c84ad27",
+      "sourceSha256": "1c6312e13c96137bb8e1bc8bc1962016035c9b3f76406eafc6b9e1639a1e0bdb",
+      "activeBytes": 102800,
+      "sourceBytes": 480356,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1254x1254",
+      "scene": "Um único inimigo já tomado por Decadência exibe armadura rachada; O Apodrecido o observa com satisfação cruel, sem golpear.",
+      "camera": "Vista baixa por trás do ombro do único alvo.",
+      "setting": "Fórum subterrâneo em ruínas, sem outras figuras."
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/o-apodrecido/style-reference-rework-20261025/skill-impulso.webp",
+      "sourcePath": "art/source/o-apodrecido-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "e6153707d282aa397767a51f5aad4e44095fd4b9b83a2129f1eb2b75ec5454e4",
+      "sourceSha256": "da1499ac1481aa452adcb45268e74fad1a692f888de31de8460e8d114c1ebdfe",
+      "activeBytes": 97076,
+      "sourceBytes": 688474,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 1,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "O machado curvo atinge a borda do escudo de um único alvo e inicia a decadência.",
+      "camera": "Ação lateral média.",
+      "setting": "Pátio com fonte de mármore quebrada e troncos secos."
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/o-apodrecido/style-reference-rework-20261025/skill-tecnica.webp",
+      "sourcePath": "art/source/o-apodrecido-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "478883fc6fe6f3051d18ab837b55b0c14640a18bb97778e673300c6300c5865f",
+      "sourceSha256": "da1499ac1481aa452adcb45268e74fad1a692f888de31de8460e8d114c1ebdfe",
+      "activeBytes": 114276,
+      "sourceBytes": 688474,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 1,
+        "cropInset": 4
+      },
+      "scene": "Uma raiz derruba um único adversário e o gancho do machado desloca sua defesa.",
+      "camera": "Ângulo baixo inclinado junto ao chão.",
+      "setting": "Galeria de mármore com coluna caída."
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/o-apodrecido/style-reference-rework-20261025/skill-voto.webp",
+      "sourcePath": "art/source/o-apodrecido-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "14cbb0f3764c9b191f74209cc0c9d7fa1e6146624a6bccd18d5dcfe0a11f3dc2",
+      "sourceSha256": "da1499ac1481aa452adcb45268e74fad1a692f888de31de8460e8d114c1ebdfe",
+      "activeBytes": 86958,
+      "sourceBytes": 688474,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 2,
+        "cropInset": 4
+      },
+      "scene": "Líquen se concentra na armadura de um único inimigo já decadente.",
+      "camera": "Vista superior oblíqua.",
+      "setting": "Galeria de torre partida, com árvore morta atravessando o teto."
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/o-apodrecido/style-reference-rework-20261025/skill-despertar.webp",
+      "sourcePath": "art/source/o-apodrecido-style-reference-rework-20261025-sheet.webp",
+      "activeSha256": "ceb7b6a9eabff40b37bb2934c9803f9597ec0a89c6c9d513df3edc2697f47d65",
+      "sourceSha256": "da1499ac1481aa452adcb45268e74fad1a692f888de31de8460e8d114c1ebdfe",
+      "activeBytes": 112408,
+      "sourceBytes": 688474,
+      "activeDimensions": "512x512",
+      "sourceDimensions": "1536x1024",
+      "sourceCell": {
+        "row": 2,
+        "column": 3,
+        "cropInset": 4
+      },
+      "scene": "A placa de madeira detém uma lança enquanto O Apodrecido se curva sob o impacto; só ele aparece.",
+      "camera": "Close sobre o ombro, próximo da ação.",
+      "setting": "Passagem estreita na muralha colapsada."
+    }
+  ],
+  "visualReview": "Seis recortes revistos sob a definição pictórica: identidade preservada, cenas distintas e um alvo por habilidade unitária. A passiva foi substituída por fonte individual para remover silhuetas humanas ambíguas; o personagem lê como vil e predatório.",
+  "reviewStatus": "revisado visualmente contra as três âncoras e a direção pictórica atual"
+}

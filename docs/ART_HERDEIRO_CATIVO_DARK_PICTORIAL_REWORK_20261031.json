@@ -1,0 +1,167 @@
+{
+  "title": "Reformulação pictórica de O Herdeiro Cativo",
+  "date": "2026-10-31",
+  "generatedWith": "image_gen.imagegen",
+  "characterId": "o-herdeiro-cativo",
+  "characterName": "Malrik",
+  "characterTitle": "O Herdeiro",
+  "aliases": [
+    "O Herdeiro Cativo",
+    "Arminius"
+  ],
+  "realm": "Inferno",
+  "kingdom": "Coroa",
+  "essence": "Ambição",
+  "style": "Fantasia sombria pictórica densa, anime 2.5D, pinceladas angulares visíveis, contornos manuais, hachuras e sombras de corte; porcelana marfim e azul-cobalto contra ferro carvão, brasa e ruínas de Coroa.",
+  "identity": "Malrik, O Herdeiro: efígie imperial viva de porcelana que abriga uma alma dinástica; corpo extremamente alto e estreito, pescoço longo e articulações angulares coerentes. Rosto de cerâmica marfim com nariz adunco, boca assimétrica, sobrancelhas pretas incisas e dois olhos pequenos carmesim com pupilas brancas horizontais. Fratura azul-cobalto diagonal da bochecha direita à testa esquerda. Crista baixa assimétrica de espinhos curtos de porcelana negra, sem cabelo humano. Braço direito de porcelana intacta; antebraço esquerdo em treliça contínua de elos de ferro ao redor de núcleo cerâmico, mão de porcelana com cinco dedos. Túnica dinástica rígida marfim e azul-ardósia, ombreira negra esquerda, golas geométricas e manilhas. Sem coroa.",
+  "environment": "Inferno/Coroa: corredores de prisão dinástica, portões de ferro, basalto frio, relevos imperiais partidos e céu de cinzas.",
+  "sceneVariety": "Retrato de reação; carga absorvida sem cura; golpe de punho em perfil; resistência com tala corporal; descarga de três cargas em um alvo; bloqueio solo com placas e corrente.",
+  "anatomyReview": "Seis cenas revisadas. A anatomia preserva somente dois braços: direito de porcelana intacta e esquerdo de treliça contínua; mãos de cinco dedos. Impulso e Voto têm um alvo cada; cenas de passiva, técnica e Despertar são individuais. As fraturas antigas permanecem visíveis.",
+  "gameplayChanged": false,
+  "status": "candidate_integrated_pending_visual_approval",
+  "format": {
+    "active": "WebP 512x512, quality 86",
+    "source": "JPEG 768x768, quality 92"
+  },
+  "assets": [
+    {
+      "slot": "portrait",
+      "name": "Retrato — Malrik / O Herdeiro",
+      "targetCount": "none",
+      "camera": "Close baixo em três quartos",
+      "scene": "Malrik reage ao ruído das correntes e as puxa contra o peito, com a fratura cobalto cruzando a face.",
+      "promptSummary": "Retrato da efígie alta de porcelana marfim, olhos rubros, fratura azul-cobalto, crista negra baixa e antebraço esquerdo de correntes.",
+      "activePath": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/portrait.webp",
+      "sourcePath": "art/source/o-herdeiro-cativo-dark-pictorial-rework-20261031/portrait.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 87062,
+      "sourceBytes": 320195,
+      "activeSha256": "e625664eca57c03bb17f4cf2428bea967723e937bd94d45f938da6e816a495f1",
+      "sourceSha256": "ced4d6b07e56deb7a4bf936bf4ded178e5beae210f2d97d4c5e131487d1026cb",
+      "generatedSource": "exec-0fa623e0-a7d8-4417-87c3-8df3766c0f94.png",
+      "generatedSourceSha256": "d6acd2debe9b25396c8b3114a55174d105aaf338fcb4cd4b064290d5d33c649c",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "passive",
+      "name": "Passiva — Ambição Acorrentada",
+      "targetCount": "self only",
+      "camera": "Plano médio íntimo",
+      "scene": "Um fragmento se solta da fratura do tórax, mas a rachadura permanece aberta; ele se prende à treliça do antebraço esquerdo como nova carga.",
+      "promptSummary": "Uma lasca do peito vira carga no antebraço de correntes sem curar ou fechar as fraturas antigas.",
+      "activePath": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/passive.webp",
+      "sourcePath": "art/source/o-herdeiro-cativo-dark-pictorial-rework-20261031/passive.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 94486,
+      "sourceBytes": 336491,
+      "activeSha256": "46cf28037eca8fea635326a7190b56b710f66097156b8a22022f1cd173f4ea33",
+      "sourceSha256": "93e0df87c86fdbc95951c0dd07c4100d8ca50b213ee5cc9168ec162cf73618b4",
+      "generatedSource": "exec-606a9442-0333-4b81-876e-af721f3d0e53.png",
+      "generatedSourceSha256": "39229309f35cd5ab1090751092c3634bd9a68cc78a5997b31ad0db3ba2fd4e14",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "skill-impulso",
+      "name": "Impulso — Punho Acorrentado",
+      "targetCount": "one enemy",
+      "camera": "Perfil lateral com eixo de força claro",
+      "scene": "O punho esquerdo de correntes acerta o peito de exatamente um ghoul, com o corpo de Malrik alinhado ao golpe.",
+      "promptSummary": "O punho esquerdo em treliça de ferro atinge um único ghoul; sem outro alvo ou gore.",
+      "activePath": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "sourcePath": "art/source/o-herdeiro-cativo-dark-pictorial-rework-20261031/impulso.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 105996,
+      "sourceBytes": 357099,
+      "activeSha256": "f813aa035242cdb53b798aa6cb3026ed2aff32f97551a14496cd994d6bfe38d8",
+      "sourceSha256": "a90e9eecb954173a85e95d2fbd9b118cd0cce992d5891bfbb813ac418e04ff15",
+      "generatedSource": "exec-e9ec0ee9-b2f0-4014-b9ab-cb3bda518add.png",
+      "generatedSourceSha256": "20780c9ff1045072c15c6a5ee3abe622f867ee782e0fe6d626dd94f4d2478e4a",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "skill-tecnica",
+      "name": "Técnica — Resistência do Pretendente",
+      "targetCount": "self only",
+      "camera": "Plano médio lateral",
+      "scene": "Malrik pressiona fragmentos de porcelana de volta ao esterno com a mão direita intacta enquanto o antebraço esquerdo de correntes envolve o torso como tala; as fraturas continuam abertas.",
+      "promptSummary": "Autoproteção, não cura: a mão intacta repõe fragmentos e o braço de correntes sustenta o próprio torso.",
+      "activePath": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "sourcePath": "art/source/o-herdeiro-cativo-dark-pictorial-rework-20261031/tecnica.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 86250,
+      "sourceBytes": 315818,
+      "activeSha256": "3d0c3918047b7fc783465914439c5622436b94c4d79bbe8938e5d3e062543eee",
+      "sourceSha256": "c0b0d1a98ac19b0672fae1750a60955594b6f6c797bdc1edd9f1676f77ebfb70",
+      "generatedSource": "exec-6b18e66d-12a0-4992-965b-f28e6da67f9d.png",
+      "generatedSourceSha256": "0a241222d2c6459173fa01f27612acdbd19a249cdbf0f30f7850554ca2aa9dbb",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "skill-voto",
+      "name": "Voto — Tomada do Trono",
+      "targetCount": "one enemy",
+      "camera": "Ação baixa frontal",
+      "scene": "O punho esquerdo descarrega três cargas contra um único ghoul e parte o relevo de basalto; uma nova fratura abre no pulso de Malrik.",
+      "promptSummary": "Três cargas do punho de correntes atingem um ghoul, quebrando pedra e abrindo uma fratura nova no próprio pulso.",
+      "activePath": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-voto.webp",
+      "sourcePath": "art/source/o-herdeiro-cativo-dark-pictorial-rework-20261031/voto.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 111760,
+      "sourceBytes": 371138,
+      "activeSha256": "ecd5a3db3ed33b3f472ceef776bd6855ea22a9b0d6a445a39e8847b75d99e504",
+      "sourceSha256": "581168c79a3e0a72e539fc528673ac115812a99b6b07d26d5a334b7945e61a26",
+      "generatedSource": "exec-77a7b73e-59c0-4f35-adc6-c3b508fe6aab.png",
+      "generatedSourceSha256": "060c3bb2a231c6d303376f0c35aec521fb919f10a49ab373fc6e8714d4b380d7",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "slot": "skill-despertar",
+      "name": "Despertar — Guarda Dinástica",
+      "targetCount": "self only",
+      "camera": "Três quartos defensivo",
+      "scene": "Treliça de correntes e placas de porcelana detêm um golpe de osso vindo de fora do quadro; as fraturas antigas não se curam.",
+      "promptSummary": "Defesa individual de Malrik contra um golpe de osso fora de quadro, sem curar fraturas.",
+      "activePath": "/art/characters/o-herdeiro-cativo/dark-pictorial-rework-20261031/skill-despertar.webp",
+      "sourcePath": "art/source/o-herdeiro-cativo-dark-pictorial-rework-20261031/despertar.jpg",
+      "activeDimensions": "512x512",
+      "sourceDimensions": "768x768",
+      "generatedDimensions": [
+        1254,
+        1254
+      ],
+      "activeBytes": 104992,
+      "sourceBytes": 344996,
+      "activeSha256": "cf5ee7eb33918b0fce98d8496cd78fbcc778356bfea34f510cc042ebfb71fe9f",
+      "sourceSha256": "7339298685e8c5b5a0c3d8b4f300b86ea4bc1a021b1dd7b11c707a1eb04948eb",
+      "generatedSource": "exec-2677b68f-7091-491c-aa59-2bf7a1b73a52.png",
+      "generatedSourceSha256": "ff4ac41478740a58e2bdfe4b1f0f9d6d82bfcb310b347f4c3cfd08165285feac",
+      "integrationStatus": "candidate_integrated_pending_visual_approval"
+    }
+  ],
+  "correctionNote": "Seis slots base receberam artes próprias na direção pictórica atual. Apenas imagens, rotas e documentação foram alteradas; as mecânicas não mudaram. Candidato pendente de aprovação visual."
+}

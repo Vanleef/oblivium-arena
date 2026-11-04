@@ -1,0 +1,22 @@
+> **Registro histórico.** Nomes, títulos, contagens, regras e direções visuais deste relatório refletem sua etapa de produção. Para o estado vigente, consulte [o índice canônico](PROJECT_CANON.md), [o catálogo atual](CHARACTER_CATALOG.md) e [a direção de arte](ART_DIRECTION.md). IDs e caminhos antigos permanecem por compatibilidade.
+
+# Ragnar — O Ressentido
+
+Sete candidatas cobrem retrato, passiva, quatro habilidades-base e a variação Rancor Reaceso. Ragnar continua sendo um homem adulto jovem, esguio e de pele castanho-escura, com cachos brancos, poncho de cinzas sobre roupa carmesim, apito de argila e alforje de cinzas.
+
+As três cenas ofensivas contêm exatamente um ghoul. Rancor Latente, Nutrir o Rancor e Dissolução em Cinzas mostram efeitos no próprio personagem. Cinza, brasa e basalto aparecem como matéria física; nenhuma luz de cura divina ou tecnologia foi adicionada. Custos, alvos, efeitos e recargas permanecem inalterados. As sete artes aguardam aprovação visual final.
+
+Ativos WebP 512×512: `art/characters/o-filho-da-cinza/dark-pictorial-rework-20261030`; fontes JPEG 768×768: `art/source/o-filho-da-cinza-dark-pictorial-rework-20261030`. Manifesto: `docs/ART_O_FILHO_DA_CINZA_DARK_PICTORIAL_REWORK_20261030.json`.
+
+| Slot | Cena |
+| --- | --- |
+| portrait | Ragnar olha por baixo do capuz irregular; os cachos brancos, o poncho de cinzas, a camisa carmesim e o apito simples de argila identificam sua silhueta adulta. |
+| passive | Uma brasa se firma nos panos do pulso quando cinzas do próprio alforje retornam ao peito de Ragnar; ele mantém o olhar cansado. Sem outros personagens ou luz de cura divina. |
+| impulso | Ragnar expele um único sopro compacto de cinza e brasa pelo apito de argila; um ghoul recebe o impacto espiritual e recua, marcado por uma brasa. |
+| form:impulso:rebirth | Três anéis estreitos de cinza convergem em um único ghoul; ao mesmo tempo, uma camada de fuligem nociva se desprende do braço de Ragnar, consumindo as cargas acumuladas. |
+| tecnica | Ragnar recolhe cinza do próprio alforje e a respira de volta ao peito; a postura recupera firmeza enquanto pequenas brasas se apagam em fuligem. |
+| voto | Ragnar desfere um revide físico contra um único ghoul; um traço em zigue-zague de cinza incandescente atravessa a guarda do alvo e deixa queimadura. |
+| despertar | A silhueta de Ragnar se desfaz em cinza e brasas, deslizando por uma passagem estreita entre blocos de basalto; nenhum adversário é atingido. |
+
+As rotas do runtime foram atualizadas apenas para as novas artes; nenhuma mecânica foi alterada.
+

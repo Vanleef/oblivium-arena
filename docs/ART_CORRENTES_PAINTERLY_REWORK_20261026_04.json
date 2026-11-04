@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-26",
+  "revision": "20261026-lot4",
+  "title": "Lote pictórico de Correntes Quebradas IV: A Peregrina, O Ancorado e O Açougueiro",
+  "generator": "image_gen.imagegen (ferramenta integrada)",
+  "style": "Pintura a óleo com pinceladas e impasto visíveis, formas de anime 2.5D, iluminação contrastada, contornos expressivos e sobreposição de textura gráfica e pictórica. Arcane e Spider-Verse como referências de atmosfera e energia; sem aparência flat, fotorrealismo ou render 3D.",
+  "counts": {
+    "characters": 3,
+    "mainScenes": 18,
+    "sourceSheets": 3,
+    "gameplayChanged": false
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cellDimensions": "512x512",
+    "cropMethod": "Recorte central de 500x500 px com margem de 6 px por célula, ampliado para 512x512; RGB WebP quality 91. Os quadros de Voto da Peregrina e do Ancorado foram regenerados em separado e substituídos nas folhas-fonte finais."
+  },
+  "characters": [
+    {
+      "id": "a-ponte-rasgada",
+      "name": "A Peregrina",
+      "aliases": ["A Ponte Rasgada"],
+      "activeDirectory": "art/characters/a-ponte-rasgada",
+      "sourceSheet": "art/source/a-ponte-rasgada-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {"activePath": "/art/characters/a-ponte-rasgada/portrait.webp", "slot": "portrait", "scene": "Retrato baixo de rosto envelhecido, casaco vermelho ferrugem, cabo negro no ombro e ponte suspensa ao amanhecer.", "targetCount": "self", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-ponte-rasgada/passive.webp", "slot": "passive", "scene": "A abertura na armadura de um inimigo Exposto aparece em linha carmesim; a personagem fica no canto do quadro, sem atacar.", "targetCount": "1 inimigo Exposto", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-ponte-rasgada/skill-impulso.webp", "slot": "skill-impulso", "scene": "Bota prende uma laje flutuante enquanto o cabo de tensão puxa o escudo de um inimigo para o lado, removendo Defesa e expondo-o.", "targetCount": "1 inimigo", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-ponte-rasgada/skill-tecnica.webp", "slot": "skill-tecnica", "scene": "Três aliados, incluindo a Peregrina, recebem guarda de treliças carmesins ancoradas em blocos; um golpe atinge a proteção de um aliado.", "targetCount": "3 aliados", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-ponte-rasgada/skill-voto.webp", "slot": "skill-voto", "scene": "Vista aérea de exatamente três inimigos em plataformas separadas, atingidos por linhas de tensão carmesim enquanto as pontes se rompem.", "targetCount": "todos os 3 inimigos", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-ponte-rasgada/skill-despertar.webp", "slot": "skill-despertar", "scene": "A Peregrina recolhe o degrau sob si e cai para uma travessia inferior, enquanto uma espada cruza o lugar vazio acima de sua cabeça.", "targetCount": "self", "width": 512, "height": 512}
+      ]
+    },
+    {
+      "id": "a-alma-em-suspenso",
+      "name": "O Ancorado",
+      "aliases": ["A Alma em Suspenso"],
+      "activeDirectory": "art/characters/a-alma-em-suspenso",
+      "sourceSheet": "art/source/a-alma-em-suspenso-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {"activePath": "/art/characters/a-alma-em-suspenso/portrait.webp", "slot": "portrait", "scene": "Retrato sereno com cachos azul-escuros, mecha prateada, casaco coral e recipiente de fôlego âmbar sobre a névoa do Limbo.", "targetCount": "self", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-alma-em-suspenso/passive.webp", "slot": "passive", "scene": "Fita de fôlego retorna ao próprio peito e repara uma pequena costura de luz no tecido; regeneração pessoal.", "targetCount": "self", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-alma-em-suspenso/skill-impulso.webp", "slot": "skill-impulso", "scene": "Pulso âmbar atinge uma única armadura; uma pequena esfera adicional junto ao pingente mostra a carga acumulada.", "targetCount": "1 inimigo", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-alma-em-suspenso/skill-tecnica.webp", "slot": "skill-tecnica", "scene": "Fôlego branco envolve um aliado ferido e forma guarda âmbar; o Ancorado demonstra esforço pelo custo de Vida.", "targetCount": "1 aliado", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-alma-em-suspenso/skill-voto.webp", "slot": "skill-voto", "scene": "Close do torso de um inimigo preso por três fitas de fôlego convergindo em pulso âmbar; o pingente do Ancorado aparece na borda do quadro.", "targetCount": "1 inimigo", "width": 512, "height": 512},
+        {"activePath": "/art/characters/a-alma-em-suspenso/skill-despertar.webp", "slot": "skill-despertar", "scene": "O Ancorado flutua poucos centímetros dentro de um oval de fôlego enquanto uma lança passa sob os pés descalços sem contato.", "targetCount": "self", "width": 512, "height": 512}
+      ]
+    },
+    {
+      "id": "o-acougueiro",
+      "name": "O Açougueiro",
+      "aliases": [],
+      "activeDirectory": "art/characters/o-acougueiro",
+      "sourceSheet": "art/source/o-acougueiro-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {"activePath": "/art/characters/o-acougueiro/portrait.webp", "slot": "portrait", "scene": "Close de olhos intensos e máscara metálica rebitada diante da oficina de forja; cutelo único e avental vermelho de couro.", "targetCount": "self", "width": 512, "height": 512},
+        {"activePath": "/art/characters/o-acougueiro/passive.webp", "slot": "passive", "scene": "Rastro carmesim de um ferimento já existente sobe da manga de um inimigo até a máscara; uma centelha de Ruptura surge junto ao cinto.", "targetCount": "equipe; condição de 1 inimigo com Sangramento", "width": 512, "height": 512},
+        {"activePath": "/art/characters/o-acougueiro/skill-impulso.webp", "slot": "skill-impulso", "scene": "Depois do corte, um inimigo segura o ombro com um talho superficial que continua brilhando em carmesim; o Açougueiro fica distante.", "targetCount": "1 inimigo", "width": 512, "height": 512},
+        {"activePath": "/art/characters/o-acougueiro/skill-tecnica.webp", "slot": "skill-tecnica", "scene": "Choque carmesim atinge a articulação da armadura de um inimigo, que cambaleia Atordoado e deixa a arma cair; sem corte de tendões ou gore.", "targetCount": "1 inimigo", "width": 512, "height": 512},
+        {"activePath": "/art/characters/o-acougueiro/skill-voto.webp", "slot": "skill-voto", "scene": "A lâmina larga abre o escudo de um único inimigo Sangrando ao longo de uma linha carmesim que consome a marca; sem gore.", "targetCount": "1 inimigo Sangrando", "width": 512, "height": 512},
+        {"activePath": "/art/characters/o-acougueiro/skill-despertar.webp", "slot": "skill-despertar", "scene": "O Açougueiro desvia o corpo atrás do lado plano do cutelo enquanto uma espada encontra o metal longe do tronco; defesa pessoal.", "targetCount": "self", "width": 512, "height": 512}
+      ]
+    }
+  ],
+  "visualReview": "As 18 artes foram revisadas em recortes individuais. Os alvos coletivos da Peregrina foram contados (três aliados na técnica e três inimigos no Voto). Os Votos da Peregrina e do Ancorado foram recompostos para reduzir mãos em perspectiva forte. O Açougueiro mantém máscara e cutelo únicos; o Sangramento foi representado sem gore. Mecânicas e alvos do jogo não foram alterados."
+}

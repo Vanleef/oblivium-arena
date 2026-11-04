@@ -1,0 +1,83 @@
+{
+  "id": "sael-anime-first-completion-20261028",
+  "date": "2026-10-28",
+  "characterId": "o-eco-de-nilo",
+  "displayName": "Sael — O Eco das Quatro Essências",
+  "world": "Limbo",
+  "realm": "Aqueronte",
+  "artDirection": "Anime 2.5D pictórico e gótico do Limbo. Sael é uma alma andrógina de pele castanho-bronze, olhos âmbar e ciano, cabelo azul-negro trançado com mecha marfim, e roupas em cinza, marfim e índigo com costura vermelho-ouro. O cais partido, as filas e o rio imóvel do Aqueronte sustentam a transição. Quatro essências surgem como fios de tecido e luz, nunca como aparato. Anatomia coerente, gestos naturais, enquadramentos variados, nenhuma tecnologia ou arma.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/portrait.webp",
+      "scene": "Close do retrato de Sael diante do cais partido e da fila de almas anônimas do Aqueronte."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/passive.webp",
+      "scene": "Sael reúne brasa, marfim, violeta e ciano em quatro fios que convergem na palma aberta; vista alta sobre o cais quebrado e o Aqueronte, as quatro essências distintas, sem outros personagens."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-impulso.webp",
+      "scene": "Fenda estreita de luz e sombra expõe a silhueta de uma alma condenada; Sael em primeiro plano lateral, o tecido da manga esticado e partículas violetas se desprendendo no cais do Aqueronte."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-tecnica.webp",
+      "scene": "Em close íntimo, Sael oferece uma esfera ciano a uma viajante anônima junto à margem; a luz do rio reflete na mão aberta e nas vestes gastas da aliada."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-voto.webp",
+      "scene": "Vista oblíqua no cais: uma condenada anônima vacila sob uma fenda suspensa de sombra e luz; o reflexo revela sua silhueta e motes violetas pairam, sem duelo frontal."
+    },
+    {
+      "slot": "despertar-4",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-despertar-4.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-despertar-4.webp",
+      "scene": "Close por cima do ombro: um mote ciano de Essência se desprende da dobra de um manto anônimo e pousa na mão aberta de Sael; reflexos fraturados na água."
+    },
+    {
+      "slot": "tecnica-5",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-5.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-tecnica-5.webp",
+      "scene": "Plano diagonal amplo: Sael e uma alma anônima ficam em pedras opostas, ligados por fio fino de quatro cores que pulsa entre as barras de tecido de suas roupas sobre o rio escuro."
+    },
+    {
+      "slot": "tecnica-6",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-6.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-tecnica-6.webp",
+      "scene": "Vista alta do trio: Sael entre uma aliada idosa de pele umbra e uma alma jovem de cabelo ruivo; véu tecido marfim-ciano se espalha sob os três, removendo poeira escura."
+    },
+    {
+      "slot": "tecnica-7",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-7.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-tecnica-7.webp",
+      "scene": "Plano lateral junto ao chão: arco tecido em quatro cores converge na costura do manto de um condenado visto de costas; o alvo cede os joelhos e Sael permanece distante ao fundo."
+    },
+    {
+      "slot": "tecnica-8",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-8.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-tecnica-8.webp",
+      "scene": "Quase ao nível da água, um fio de quatro cores se parte entre duas mangas; três motes se libertam e abrem uma onda circular de luz violeta sobre o rio do Aqueronte."
+    },
+    {
+      "slot": "tecnica-9",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-tecnica-9.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-tecnica-9.webp",
+      "scene": "Sael observa uma silhueta encapuzada refletida no Aqueronte; fios coloridos convergem num ponto branco entre ambos, com grande espaço negativo e sem letras ou escrita."
+    },
+    {
+      "slot": "despertar-10",
+      "path": "/art/characters/o-eco-de-nilo/anime-first-completion-20261028/skill-despertar-10.webp",
+      "source": "/art/source/o-eco-de-nilo-anime-first-completion-20261028/skill-despertar-10.webp",
+      "scene": "Sael sozinho sob um arco quebrado ergue o braço enquanto dois planos de tecido e fios coloridos barram cinza e névoa no limite, sem formar uma bolha; postura estável e concentrada."
+    }
+  ]
+}

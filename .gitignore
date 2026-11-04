@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.pma-dev-data.json
+.pma-dev-data.json.tmp
+.env
+.env.*

@@ -1,0 +1,361 @@
+{
+  "updatedAt": "2026-11-01",
+  "approvedArtDirection": "Anime 2.5D pictórico: desenho anime legível, contornos expressivos, volume pintado, influência Arcane e Spider-Verse, textura controlada; poses naturais e olhares ligados à cena. docs/ART_DIRECTION.md prevalece.",
+  "totalBaseCharacterSets": 100,
+  "totalBaseSprites": 600,
+  "animeFirstComplete": 28,
+  "animeFirstSpritesComplete": 168,
+  "animeFirstPending": 72,
+  "animeFirstSpritesPending": 432,
+  "infernoRosterCount": 55,
+  "infernoRedesignReviewed": 19,
+  "infernoPendingVisualReview": 36,
+  "infernoCharacterIds": [
+    "o-acougueiro",
+    "a-viuva-escarlate",
+    "o-colecionador-de-cabecas",
+    "gemeos-do-cutelo",
+    "o-carrasco-sem-rosto",
+    "a-mae-rubra",
+    "o-soberano-quebrado",
+    "a-juiza-de-ferro",
+    "o-principe-das-correntes",
+    "a-regente-de-cinzas",
+    "o-herdeiro-cativo",
+    "o-sussurro",
+    "a-mascara-dupla",
+    "o-tecelao-de-mentiras",
+    "a-boca-de-vidro",
+    "o-falso-profeta",
+    "o-corretor-de-memorias",
+    "o-incendiario",
+    "a-brasa-eterna",
+    "o-odio-encarnado",
+    "o-filho-da-cinza",
+    "a-pira-errante",
+    "o-coracao-em-furia",
+    "o-devorador",
+    "a-mao-que-toma",
+    "o-estomago-sem-fundo",
+    "a-senhora-do-ultimo-pao",
+    "o-credor",
+    "a-balanca-vazia",
+    "o-apodrecido",
+    "a-praga-andante",
+    "o-corrupto",
+    "a-rainha-dos-fungos",
+    "o-medico-de-vermes",
+    "o-jardim-morto",
+    "o-que-observou",
+    "a-porta-fechada",
+    "o-surdo",
+    "a-testemunha-cega",
+    "o-quarto-vazio",
+    "o-vigia-ausente",
+    "o-que-possui",
+    "a-pele-alheia",
+    "o-desejo-quebrado",
+    "a-marionetista-de-nervos",
+    "o-espelho-carnal",
+    "a-costureira",
+    "o-que-apaga",
+    "a-ausencia",
+    "o-fim-silencioso",
+    "o-menino-sem-sombra",
+    "a-ultima-pagina",
+    "o-lugar-de-ninguem",
+    "o-que-pesa",
+    "o-trono-vazio"
+  ],
+  "alternativeArtCompleted": 3,
+  "alternativeArtTotal": 66,
+  "logoFilesCompleted": 7,
+  "logoFilesTotal": 7,
+  "appIconFilesCompleted": 6,
+  "appIconFilesTotal": 6,
+  "pending": [
+    "Migrar os 47 personagens e 315 slots restantes; conferir todas as formas e variações.",
+    "Revisar as variantes ainda compartilhadas e a anatomia de cada imagem.",
+    "Revisar visualmente as 676 candidatas integradas; 7 aprovações anteriores registradas.",
+    "Auditar os lotes anteriores pela direção vigente; contagem de integração não comprova aderência visual."
+  ],
+  "scopeNote": "Os contadores anime-first iniciais são históricos. currentDirectionMigration conta candidatas integradas, incluindo lotes anteriores que precisam ser auditados conforme ART_DIRECTION.md vigente. Geração, integração e aprovação são medidas distintas.",
+  "fullRosterArt": {
+    "rosterEntries": 150,
+    "originalEntries": 100,
+    "storyEntries": 50,
+    "baseSlots": 923,
+    "abilityFormSlots": 66,
+    "bodyPortraitSlots": 9,
+    "totalLogicalSlots": 998,
+    "basePresent": 923,
+    "baseMissing": 0,
+    "entriesWithAnyBaseMissing": 0,
+    "entriesWithoutAnyBaseArt": 0,
+    "brokenExplicitReferences": 0,
+    "formsSharedWithBase": 27,
+    "formsMissing": 0,
+    "bodyPortraitsMissing": 0,
+    "manualStyleReview": {
+      "definition": "Contadores históricos da direção anime-first anterior; não equivalem à aprovação na direção dark fantasy atual.",
+      "reviewedSlots": 27,
+      "correctionSlots": 5,
+      "fullyReviewedEntries": 2,
+      "pendingSlots": 971
+    },
+    "currentDirectionMigration": {
+      "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+      "targetLogicalSlots": 998,
+      "integratedCandidateSlots": 683,
+      "remainingSlots": 315,
+      "fullyMigratedEntries": 103,
+      "remainingEntries": 47,
+      "awaitingVisualApprovalSlots": 676,
+      "approvedSlots": 7
+    }
+  },
+  "executionStatus": "active_anime_2_5d_pictorial_migration",
+  "latestDarkPictorialBatch": {
+    "date": "2026-11-01",
+    "characterIds": [
+      "a-que-une"
+    ],
+    "candidateSlotsAdded": 6,
+    "candidateSlotsActivated": 6,
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_A_TECELA_DARK_PICTORIAL_REWORK_20261101.json"
+  },
+  "currentDirectionCorrectionHistory": [
+    {
+      "date": "2026-10-30",
+      "characterId": "a-pira-errante",
+      "characterName": "Lyra / A Vingadora",
+      "feedback": "O traje preto e carmesim com manto parecia visualmente copiado de outras personagens do Inferno.",
+      "correction": "Refiz as sete artes com túnica curta cinza-clara, calças carvão, faixa ferrugem curta, bracelete ritual direito e lanterna esquerda; removi manto, capa e véu.",
+      "logicalSlotsReworked": 7,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-mao-que-toma",
+      "characterName": "A Saqueadora",
+      "feedback": "O relatório anterior listava sete artes integradas, mas só duas imagens estavam na pasta e o personagem não tinha entrada no registro de arte.",
+      "correction": "Geradas e integradas as cinco artes faltantes, registradas as sete rotas e acrescentada uma imagem dedicada para a variante Abrir o Cofre.",
+      "logicalSlotsReworked": 4,
+      "logicalSlotsAdded": 1,
+      "status": "candidate_integrated_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-lamina-justa",
+      "characterName": "Justus — A Íntegra",
+      "feedback": "A arte ativa de Parada Equânime ainda mostrava descontinuidade entre braço, mão, cabo, guarda e lâmina.",
+      "correction": "Substituída a candidata ativa por uma edição com continuidade anatômica do ombro à mão e espada em peça única; a rota do jogo continua apontando para o arquivo corrigido.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-testemunha-integra",
+      "characterName": "Maqrizi — A Testemunha",
+      "feedback": "O retrato ainda mostrava uma mão extra: uma na lente, outra na palma aberta e uma terceira na bengala.",
+      "correction": "Substituído o retrato ativo por uma versão com duas mãos e sem bengala no quadro; rotas e relatório foram alinhados às imagens existentes.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "multiple-art-kits",
+      "characterName": "Auditoria de integração do registro de arte",
+      "feedback": "Treze kits tinham conjuntos dark fantasy completos sem linha no registro; Ignis ainda apontava para a direção anime-first; dois relatórios usavam nomes de arquivo inexistentes para habilidades.",
+      "correction": "Adicionadas rotas para 13 kits, Ignis foi ligado ao conjunto dark fantasy, e os relatórios de Aristides e Maqrizi foram corrigidos para os nomes de arquivos ativos existentes.",
+      "logicalSlotsReworked": 0,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_assets_registered_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-lamina-justa",
+      "characterName": "Justus — A Íntegra",
+      "feedback": "A primeira correção manteve continuidade da espada, mas a forma de fechar a mão sobre o cabo ainda precisava ficar mais clara.",
+      "correction": "Ajustada novamente a mão: dedos envolvem a empunhadura e polegar se opõe a eles; punho alinhado ao antebraço. Relatório e fonte atualizados.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-lamina-justa",
+      "characterName": "Justus — A Íntegra",
+      "feedback": "A revisão seguinte ainda precisava mostrar com clareza o polegar em oposição e os dedos fechando ao redor do cabo.",
+      "correction": "Substituída a imagem ativa por uma terceira edição com pega legível, polegar opositor e punho alinhado; fonte e relatório atualizados.",
+      "logicalSlotsReworked": 1,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "a-luz-que-restaura",
+      "characterName": "Caelum — A Perseverante",
+      "feedback": "As seis artes candidatas ainda tinham acabamento fotográfico e efeitos de luz genéricos; a composição do Voto também trazia uma garra ambígua no primeiro plano.",
+      "correction": "Refeito o kit completo em dark fantasy pictórica 2.5D, com ações físicas, paleta de Paraíso e identidade preservada. A garra ambígua do Voto foi removida.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "nilo",
+      "characterName": "Nilo — Receptáculo Instável",
+      "feedback": "As seis artes ativas ainda tinham acabamento claro e suave demais para a direção pictórica atual.",
+      "correction": "Refeitas as seis cenas em anime-first 2.5D pictórico, preservando identidade e traje; os efeitos físicos de essência, resíduo, fio e defesa foram mostrados no Vestíbulo do Limbo.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "nilo-o-prefacio",
+      "characterName": "Nilo, Prefácio de Cinza",
+      "feedback": "As seis artes ativas ainda seguiam o acabamento anime 2.5D claro e suave da direção anterior.",
+      "correction": "Refeitas as seis cenas em anime-first 2.5D pictórico infernal, preservando rosto, mecha marfim, manto chamuscado e cordão vermelho; efeitos de aflição, fio, brasa e defesa mantidos sem alterar mecânicas.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "nilo-graca-prefacio",
+      "characterName": "Nilo, Prefácio de Graça",
+      "feedback": "As seis artes ativas ainda seguiam o acabamento anime 2.5D claro e suave da direção anterior.",
+      "correction": "Refeitas as seis cenas em anime-first 2.5D pictórico de Paraíso, preservando a identidade e o manto marfim com ouro antigo; Graça aparece como marca, resposta, restauração e proteção contida.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "nilo-ruptura-prefacio",
+      "characterName": "Nilo, Prefácio de Ruptura",
+      "feedback": "As sete artes ativas ainda seguiam o acabamento anime 2.5D claro e suave da direção anterior.",
+      "correction": "Refeitas as sete cenas em dark fantasy pictórica 2.5D do Limbo/Umbral, preservando rosto, mecha marfim, manto de ardósia, cachecol claro e faixa índigo; a fenda, a marca, o contra-ataque, o impacto no alvo marcado e a esquiva pela porta incompleta mantêm alvos e anatomia legíveis, sem tecnologia.",
+      "logicalSlotsReworked": 7,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-10-31",
+      "characterId": "nilo-ruptura-epilogo",
+      "characterName": "Nilo, Epílogo de Ruptura",
+      "feedback": "As sete artes ativas ainda seguiam o acabamento anime 2.5D claro e suave da direção anterior.",
+      "correction": "Refeitas em dark fantasy pictórica 2.5D do Limbo/Umbral, preservando rosto, cabelo com mecha marfim e tecidos carvão/índigo; a sombra bifurcada, os alvos individuais, o contra-ataque à besta-sombra e a esquiva pessoal pelo limiar receberam cenas próprias e legíveis.",
+      "logicalSlotsReworked": 7,
+      "logicalSlotsAdded": 0,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-11-01",
+      "characterId": "o-espelho",
+      "characterName": "Parrhasius, O Espelho",
+      "feedback": "O retrato e as habilidades ainda usavam um cenário glacial e acabamento anterior incompatíveis com Inferno/Oblívio e com a direção pictórica atual.",
+      "correction": "Refiz seis slots-base e a forma Estilhaço Devolvido em dark fantasy pictórica 2.5D; preservei pele marrom-escura, locs com mechas marfim, olhos cinzentos e vestes escuras. Exposição, contra-ataque, proteção pessoal, perfuração, expurgo e alvos únicos mantidos; anatomia e materialidade de obsidiana revisadas.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 1,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-11-01",
+      "characterId": "a-cartografa-da-clareza",
+      "characterName": "Idrisi, A Cartógrafa",
+      "feedback": "O retrato e as habilidades ainda usavam cenário glacial, luz suave e instrumentos de navegação incompatíveis com Sol e com a direção pictórica atual.",
+      "correction": "Refiz seis slots-base e a forma Atalho da Clareza em dark fantasy pictórica 2.5D. Mantive pele marrom-escura, cabeça raspada, olhos âmbar e manto azul-acinzentado; substituí ferramentas mecânicas por mapas artesanais, sulcos de mármore e rotas de luz densa. Marca, carga, defesa, apoio ao trio, convergência e cura de um aliado preservados; anatomia e alvos revisados.",
+      "logicalSlotsReworked": 6,
+      "logicalSlotsAdded": 1,
+      "status": "candidate_reworked_pending_visual_approval"
+    },
+    {
+      "date": "2026-11-01",
+      "characterIds": [
+        "o-espelho",
+        "a-cartografa-da-clareza"
+      ],
+      "characterNames": [
+        "Parrhasius, O Espelho",
+        "Idrisi, A Cartógrafa"
+      ],
+      "feedback": "Os dois blocos mais recentes não condizem com a direção e linha de arte do projeto.",
+      "correction": "Refeitas as 14 artes com a referência pictórica oficial, pinceladas angulares, contornos manuais, hachuras e materiais táteis. Identidades, paletas Inferno/Oblívio e Paraíso/Sol, ações, anatomia e contagens de alvos mantidas; elementos mecânicos de navegação removidos.",
+      "logicalSlotsReworked": 14,
+      "logicalSlotsAdded": 0,
+      "previousCandidateStatus": "rejected_by_user_direction_feedback",
+      "status": "candidate_revised_pending_visual_approval",
+      "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json"
+    },
+    {
+      "date": "2026-11-01",
+      "characterIds": [
+        "o-cultivador"
+      ],
+      "revisedSlots": 6,
+      "report": "docs/ART_CULTIVADOR_STYLE_CORRECTION_20261101.json",
+      "status": "candidate_revised_pending_visual_approval",
+      "mechanicsPreserved": true,
+      "previousVersionDisposition": "rejected_by_user_direction_feedback",
+      "feedback": "Traços destoantes da direção e linha de arte definida para o jogo.",
+      "correction": "Reconstructed drawn anime facial planes, eyes and grouped hair; localized painterly volume and material texture; removed photographic skin detailing. No user approval implied."
+    }
+  ],
+  "currentDirectionMigration": {
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 732,
+    "remainingSlots": 266,
+    "fullyMigratedEntries": 110,
+    "remainingEntries": 40,
+    "awaitingVisualApprovalSlots": 725,
+    "approvedSlots": 7
+  },
+  "latestVisualCorrection": {
+    "date": "2026-11-01",
+    "characterIds": [
+      "o-espelho",
+      "a-cartografa-da-clareza"
+    ],
+    "titles": [
+      "Parrhasius, O Espelho",
+      "Idrisi, A Cartógrafa"
+    ],
+    "revisedSlots": 14,
+    "report": "docs/ART_TWO_KITS_DARK_PICTORIAL_DIRECTION_CORRECTION_20261101.json",
+    "status": "candidate_revised_pending_visual_approval",
+    "mechanicsPreserved": true,
+    "previousCandidateStatus": "rejected_by_user_direction_feedback"
+  },
+  "latestAnimePictorialBatch": {
+    "date": "2026-11-01",
+    "characterIds": [
+      "o-passo-interrompido",
+      "a-linha-partida"
+    ],
+    "candidateSlotsAdded": 15,
+    "candidateSlotsActivated": 15,
+    "status": "candidate_integrated_pending_visual_approval",
+    "report": "docs/ART_DESCONTINUO_CINDIDA_ANIME_PICTORIAL_20261101.json"
+  },
+  "latestCorrectionBatch": {
+    "date": "2026-11-01",
+    "characterIds": [
+      "o-cultivador"
+    ],
+    "revisedSlots": 6,
+    "report": "docs/ART_CULTIVADOR_STYLE_CORRECTION_20261101.json",
+    "status": "candidate_revised_pending_visual_approval",
+    "mechanicsPreserved": true,
+    "previousVersionDisposition": "rejected_by_user_direction_feedback",
+    "feedback": "Traços destoantes da direção e linha de arte definida para o jogo.",
+    "correction": "Reconstructed drawn anime facial planes, eyes and grouped hair; localized painterly volume and material texture; removed photographic skin detailing. No user approval implied."
+  }
+}

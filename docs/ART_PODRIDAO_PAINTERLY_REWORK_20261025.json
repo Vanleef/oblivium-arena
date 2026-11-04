@@ -1,0 +1,317 @@
+{
+  "date": "2026-10-25",
+  "title": "Lote pictórico de Podridão: A Pestilência, O Corrupto e A Rainha dos Fungos",
+  "style": "Pintura digital pictórica com pinceladas visíveis, camadas de tinta, bordas pintadas e volumes construídos por formas de cor.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "counts": {
+    "baseCharacters": 3,
+    "baseAssets": 18,
+    "alternateFormAssets": 3,
+    "sourceFiles": 6
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cell": "512x512"
+  },
+  "characters": [
+    {
+      "id": "a-praga-andante",
+      "name": "A Pestilência",
+      "identity": "Uma nuvem fúngica ambulante não humana, com copa de cogumelos violetas, longos tentáculos verde-escuros, três luzes pálidas e um pequeno sino. A presença espalha praga sem assumir forma humana.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/a-praga-andante/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato da nuvem violeta não humana, com três luzes pálidas e o sino suspenso.",
+          "sourcePath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/passive.webp",
+          "scene": "A nuvem envolve exatamente dois inimigos já envenenados, com esporos mantendo a praga ativa.",
+          "sourcePath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Um único inimigo recebe a febre da nuvem ambulante.",
+          "sourcePath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "O contágio se espalha por exatamente três inimigos no caminho da Pestilência.",
+          "sourcePath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 3
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Um único inimigo já contaminado sofre a cobrança concentrada dos esporos.",
+          "sourcePath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "A nuvem fecha os próprios tentáculos em uma defesa pessoal, sem aliados.",
+          "sourcePath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/a-praga-andante-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "o-corrupto",
+      "name": "O Corrupto",
+      "identity": "Nobre infernal esguio de pele clara, cabelos negros longos, olhos dourados, gola alta marfim e roupa escura com detalhes dourados. Um espinho ou cristal verde marca sua corrupção; sua postura é calculista e predatória.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/o-corrupto/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/o-corrupto/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato do nobre de cabelos longos, olhos dourados e espinho verde.",
+          "sourcePath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/o-corrupto/painterly-rework-20261025/passive.webp",
+          "scene": "Um brilho vantajoso é arrancado do adversário e convertido em essência para o Corrupto.",
+          "sourcePath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/o-corrupto/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Acordo Podre marca um único inimigo sob a ponta do espinho verde.",
+          "sourcePath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/o-corrupto/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Quebrar a Confiança atinge um único alvo enquanto o pacto se parte.",
+          "sourcePath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/o-corrupto/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Preço da Corrupção cobra de uma única vítima e alimenta a proteção do nobre.",
+          "sourcePath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/o-corrupto/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "O Corrupto se protege sozinho por meio de espinhos verdes, sem aliados.",
+          "sourcePath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/o-corrupto-painterly-rework-20261025-sheet.webp"
+    },
+    {
+      "id": "a-rainha-dos-fungos",
+      "name": "A Rainha dos Fungos",
+      "identity": "Mulher pálida de cabelo preto curto em corte reto, olhos dourados e manto de raízes marfim sob cogumelos violetas. Sua colônia protege por posse e se espalha para contaminar.",
+      "styleReferencePaths": [
+        "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+        "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+        "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+      ],
+      "sourceDimensions": "1536x1024",
+      "sourceSheetDimensions": "1536x1024",
+      "activeDimensions": "512x512",
+      "activeDirectory": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025",
+      "gameplayChanged": false,
+      "assets": [
+        {
+          "slot": "portrait",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/portrait.webp",
+          "scene": "Retrato da Rainha sob cogumelos violetas e manto de raízes marfim.",
+          "sourcePath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 1 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "passive",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/passive.webp",
+          "scene": "Micélio crescente registra a colônia e reúne a carga de seus esporos.",
+          "sourcePath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 2 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": null
+        },
+        {
+          "slot": "impulso",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-impulso.webp",
+          "scene": "Semear Esporos contamina um único inimigo.",
+          "sourcePath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 3 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "tecnica",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-tecnica.webp",
+          "scene": "Micélio de Amparo sustenta exatamente três aliados ao todo: a Rainha e dois companheiros.",
+          "sourcePath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 4 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 3
+        },
+        {
+          "slot": "voto",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-voto.webp",
+          "scene": "Florir da Colônia atinge uma única vítima envolta em raízes e cogumelos.",
+          "sourcePath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 5 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": 1
+        },
+        {
+          "slot": "despertar",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-despertar.webp",
+          "scene": "A Rainha se recolhe sob uma coroa fúngica protetora, sem aliados.",
+          "sourcePath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+          "sourceDimensions": "1536x1024",
+          "sourceMethod": "Recorte de 512 × 512 da célula 6 da prancha 3 × 2.",
+          "activeDimensions": "512x512",
+          "targetCount": "self"
+        }
+      ],
+      "sourceSheet": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp",
+      "sourceSheetPath": "art/source/a-rainha-dos-fungos-painterly-rework-20261025-sheet.webp"
+    }
+  ],
+  "alternateForms": [
+    {
+      "characterId": "a-praga-andante",
+      "character": "A Pestilência",
+      "form": "fever",
+      "name": "Febre de Retorno",
+      "assets": [
+        {
+          "slot": "skill-tecnica-fever",
+          "activePath": "art/characters/a-praga-andante/painterly-rework-20261025/skill-tecnica-fever.webp",
+          "sourcePath": "art/source/a-praga-andante-skill-tecnica-fever-source.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual preservada a 1254 × 1254 e reduzida para 512 × 512.",
+          "scene": "A nuvem condensa a febre de retorno sobre exatamente um inimigo envenenado.",
+          "targetCount": 1
+        }
+      ]
+    },
+    {
+      "characterId": "a-rainha-dos-fungos",
+      "character": "A Rainha dos Fungos",
+      "form": "bloom",
+      "name": "Florescer para os Vivos",
+      "assets": [
+        {
+          "slot": "skill-tecnica-bloom",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-tecnica-bloom.webp",
+          "sourcePath": "art/source/a-rainha-dos-fungos-skill-tecnica-bloom-source.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual preservada a 1254 × 1254 e reduzida para 512 × 512.",
+          "scene": "A Rainha sustenta exatamente três aliados ao todo, incluindo a si própria e dois companheiros, com micélio coercivo.",
+          "targetCount": 3
+        }
+      ]
+    },
+    {
+      "characterId": "a-rainha-dos-fungos",
+      "character": "A Rainha dos Fungos",
+      "form": "cloud",
+      "name": "Esporos da Última Colheita",
+      "assets": [
+        {
+          "slot": "skill-voto-cloud",
+          "activePath": "art/characters/a-rainha-dos-fungos/painterly-rework-20261025/skill-voto-cloud.webp",
+          "sourcePath": "art/source/a-rainha-dos-fungos-skill-voto-cloud-source.webp",
+          "sourceDimensions": "1254x1254",
+          "activeDimensions": "512x512",
+          "sourceMethod": "Fonte quadrada individual preservada a 1254 × 1254 e reduzida para 512 × 512.",
+          "scene": "A nuvem de esporos atinge exatamente três inimigos distintos.",
+          "targetCount": 3
+        }
+      ]
+    }
+  ],
+  "visualReview": "Pranchas, recortes e imagens individuais inspecionados visualmente para identidade, acabamento pictórico, anatomia, expressões, silhuetas, alvos e continuidade. A Pestilência permanece não humana; Febre de Retorno atinge um inimigo e Contágio do Caminho mostra exatamente três. As habilidades individuais de O Corrupto mostram uma vítima, e a defesa é pessoal. O micélio da Rainha mostra exatamente três aliados ao todo; a forma em nuvem atinge exatamente três inimigos. Nenhum custo, alvo, efeito, duração, recarga ou regra mudou."
+}

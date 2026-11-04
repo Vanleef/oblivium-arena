@@ -1,0 +1,62 @@
+{
+  "id": "anime-first-rework-20261026-08",
+  "date": "2026-10-26",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "style": "Anime-forward 2.5D with bold drawn contours, expressive stylized faces, angular cel-shadow planes, textured materials and cinematic depth; avoid photorealism and naturalistic facial rendering.",
+  "approvedStyleAnchors": [
+    "art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp",
+    "art/source/a-pira-errante-anime-first-rework-20261026-sheet.webp"
+  ],
+  "sourceFormat": {
+    "sheet": "1536x1024 WebP",
+    "grid": "3x2 equal panels",
+    "crop": "504x504 with 4px inset, resized to 512x512 WebP"
+  },
+  "characters": {
+    "o-corretor-de-memorias": {
+      "name": "O Corretor de Memórias (O Falsário)",
+      "previousSourceSheet": "art/source/o-corretor-de-memorias-anime-first-rework-20261026-sheet.webp",
+      "sourceSheet": "art/source/o-corretor-de-memorias-anime-first-rework-20261026-v2-sheet.webp",
+      "activeRoute": "/art/characters/o-corretor-de-memorias/anime-first-rework-20261026",
+      "assets": [
+        "art/characters/o-corretor-de-memorias/anime-first-rework-20261026/portrait.webp",
+        "art/characters/o-corretor-de-memorias/anime-first-rework-20261026/passive.webp",
+        "art/characters/o-corretor-de-memorias/anime-first-rework-20261026/skill-impulso.webp",
+        "art/characters/o-corretor-de-memorias/anime-first-rework-20261026/skill-tecnica.webp",
+        "art/characters/o-corretor-de-memorias/anime-first-rework-20261026/skill-voto.webp",
+        "art/characters/o-corretor-de-memorias/anime-first-rework-20261026/skill-despertar.webp"
+      ],
+      "identityPreserved": [
+        "elderly face and white topknot/beard",
+        "teal patterned robe and chest straps",
+        "wooden memory-card case",
+        "gold articulated RIGHT-hand prosthesis; natural LEFT hand"
+      ],
+      "review": [
+        "All six existing scenes and panel order retained.",
+        "Stylized facial planes, bold contours and cel shadows now match the approved anime-forward references more closely.",
+        "Hand, prosthesis side, costume and character age checked across the sheet.",
+        "No combat or gameplay values changed."
+      ]
+    },
+    "a-pira-errante": {
+      "name": "A Pira Errante",
+      "sourceSheet": "art/source/a-pira-errante-anime-first-rework-20261026-sheet.webp",
+      "activeRoute": "/art/characters/a-pira-errante/anime-first-rework-20261026",
+      "reviewStatus": "reviewed_pass",
+      "review": [
+        "The active six-scene set matches the approved anime-forward line and the user's preferred Errante direction.",
+        "Distinct scenes, fire identity and personal-defense composition remain clear; no replacement needed."
+      ]
+    }
+  },
+  "audit": {
+    "completedBaseSets": 19,
+    "totalBaseSets": 100,
+    "completedBaseSprites": 114,
+    "totalBaseSprites": 600,
+    "pendingBaseSets": 81,
+    "gameplayChanged": false
+  }
+}

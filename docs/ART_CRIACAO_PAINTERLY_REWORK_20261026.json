@@ -1,0 +1,270 @@
+{
+  "date": "2026-10-26",
+  "title": "Lote pictórico de Criação: O Artífice, A Semente e O Cultivador",
+  "generator": "image_gen.imagegen (ferramenta integrada)",
+  "style": "Pintura digital matte com pinceladas visíveis e variadas, camadas de pigmento, contornos quebrados, massas de cor legíveis e luz cinematográfica contida.",
+  "counts": {
+    "characters": 3,
+    "mainScenes": 18,
+    "sourceSheets": 3,
+    "gameplayChanged": false
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cellDimensions": "512x512",
+    "cropMethod": "Recorte central de 500x500 px com margem de 6 px por célula, ampliado para 512x512; RGB WebP quality 91."
+  },
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "sourceFiles": [
+    {
+      "path": "art/source/o-artifice-painterly-rework-20261026-sheet.webp",
+      "title": "O Artífice — folha de seis cenas",
+      "dimensions": "1536x1024",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cellOrder": [
+        "Retrato",
+        "Ideia Persistente",
+        "Fragmento Nascente",
+        "Forma de Amparo",
+        "Obra Convergente",
+        "Forma Impossível"
+      ]
+    },
+    {
+      "path": "art/source/a-semente-painterly-rework-20261026-sheet.webp",
+      "title": "A Semente — folha de seis cenas",
+      "dimensions": "1536x1024",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cellOrder": [
+        "Retrato",
+        "Potência Latente",
+        "Semente da Ruptura",
+        "Abrigo do Broto",
+        "Germinar por Dentro",
+        "Casulo de Origem"
+      ]
+    },
+    {
+      "path": "art/source/o-cultivador-painterly-rework-20261026-sheet.webp",
+      "title": "O Cultivador — folha de seis cenas",
+      "dimensions": "1536x1024",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cellOrder": [
+        "Retrato",
+        "Ciclo da Colheita",
+        "Arar a Alma",
+        "Colheita de Fôlego",
+        "Ramos da Resposta",
+        "Abrigo das Raízes"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "o-que-cria",
+      "name": "O Artífice",
+      "aliases": [
+        "O que Cria"
+      ],
+      "activeDirectory": "art/characters/o-que-cria",
+      "sourceSheets": [
+        "art/source/o-artifice-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/art/characters/o-que-cria/portrait.webp",
+          "scene": "Retrato do escultor árabe de barba cacheada, avental terracota e sobrancelha clara.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 27416,
+          "sha256": "eb6605366d91be5d1f24201801613c7fd11565b20a057dc721a4c6d12317d059"
+        },
+        {
+          "activePath": "/art/characters/o-que-cria/passive.webp",
+          "scene": "Mãos refinam uma andorinha de argila junto aos cinzéis; uma película cerâmica protege o próprio antebraço.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 34242,
+          "sha256": "99c1057a13ef1e6495e086b98fe0cd5cbe9b649a15243d1f5114d3bea71315ce"
+        },
+        {
+          "activePath": "/art/characters/o-que-cria/skill-impulso.webp",
+          "scene": "Uma pequena ave de argila atinge exatamente um inimigo na praia.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 34084,
+          "sha256": "6a3e1ca4d50e1447869465b8647e329b814144c0cfc508dfdb3abdabec0f5dc3"
+        },
+        {
+          "activePath": "/art/characters/o-que-cria/skill-tecnica.webp",
+          "scene": "Estrutura cerâmica protege exatamente um aliado com uma couraça articulada.",
+          "targetCount": "1 aliado",
+          "width": 512,
+          "height": 512,
+          "bytes": 36174,
+          "sha256": "64ecb3f2e4974db8d66590905aa5b2961f4ae228f0102545650a5235e9276dec"
+        },
+        {
+          "activePath": "/art/characters/o-que-cria/skill-voto.webp",
+          "scene": "Ramos cerâmicos convergem contra exatamente um inimigo no deserto florido.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 47310,
+          "sha256": "f92048ea4be6832f10892d96a56a0faf41dc139a7cb7bbafc70f0cb135e48fb8"
+        },
+        {
+          "activePath": "/art/characters/o-que-cria/skill-despertar.webp",
+          "scene": "O próprio Artífice se abriga atrás de uma placa de argila que detém uma lâmina.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 35294,
+          "sha256": "e258fe41463492ae9af9c02d4446f6ec5946f0263034246119bc4ed81da53ecd"
+        }
+      ]
+    },
+    {
+      "id": "a-semente",
+      "name": "A Semente",
+      "aliases": [],
+      "activeDirectory": "art/characters/a-semente",
+      "sourceSheets": [
+        "art/source/a-semente-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/art/characters/a-semente/portrait.webp",
+          "scene": "Retrato confiante da mulher adulta de baixa estatura, cachos rosa, lenço verde e cápsula de cobre.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 41728,
+          "sha256": "6bbcb5a51a05f337dd40cc2115cf2a98ee8de5e6744376c34afcb9bf17a36be8"
+        },
+        {
+          "activePath": "/art/characters/a-semente/passive.webp",
+          "scene": "A cápsula abre e uma muda azul-esverdeada devolve um pulso de vigor à própria mão.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 25026,
+          "sha256": "c5401e3d51c0c009a7442f742089872de4ba4cfc3ef41bf0ac8b29857073ad44"
+        },
+        {
+          "activePath": "/art/characters/a-semente/skill-impulso.webp",
+          "scene": "Projétil de semente atinge e marca exatamente um inimigo junto ao moinho.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 38418,
+          "sha256": "d6ef03a5aa792c8e1e4d5f635be5e02a98a3b8faf6b161bc4eda9653af2fc2e7"
+        },
+        {
+          "activePath": "/art/characters/a-semente/skill-tecnica.webp",
+          "scene": "Brotos envolvem a bota rachada de exatamente um aliado e formam proteção.",
+          "targetCount": "1 aliado",
+          "width": 512,
+          "height": 512,
+          "bytes": 40898,
+          "sha256": "b8e269c57ff2fa110035c8e7038ddcfc0d93f6f901e3c8bacfb3e48986fea197"
+        },
+        {
+          "activePath": "/art/characters/a-semente/skill-voto.webp",
+          "scene": "A marca germina em padrão azul-esverdeado sobre a armadura de exatamente um inimigo.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 34450,
+          "sha256": "424f028ce29c5ebbce096d62aa09839391677fea887e6092f2339331a6210c1a"
+        },
+        {
+          "activePath": "/art/characters/a-semente/skill-despertar.webp",
+          "scene": "A Semente se esquiva sob uma folha grande enquanto uma flecha passa por ela.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 33868,
+          "sha256": "7c11271d5151fa61e5d153101590db9c631f546ff76f5627a4b2c7f41bac350e"
+        }
+      ]
+    },
+    {
+      "id": "o-cultivador",
+      "name": "O Cultivador",
+      "aliases": [],
+      "activeDirectory": "art/characters/o-cultivador",
+      "sourceSheets": [
+        "art/source/o-cultivador-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/art/characters/o-cultivador/portrait.webp",
+          "scene": "Retrato do cultivador indígena idoso, cabelos grisalhos presos, manto de palha e dibber de madeira.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 46988,
+          "sha256": "7bbd23c811c4996fd3fa45b3a828c274183ce428140889475e6955d39f13a941"
+        },
+        {
+          "activePath": "/art/characters/o-cultivador/passive.webp",
+          "scene": "Ele rega três mudas ordenadas; um pulso verde de recuperação retorna à própria mão.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 44128,
+          "sha256": "04854ee4739d0b93134207a857f8501204ff926d416d40b73e54b74d645bf4a9"
+        },
+        {
+          "activePath": "/art/characters/o-cultivador/skill-impulso.webp",
+          "scene": "O dibber abre o solo e raízes enfraquecem exatamente um inimigo no bosque.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 56642,
+          "sha256": "54d4bf1a020bed0e5abcdfa87212f910ab73d9bd60b1deead3b053459a5f8daf"
+        },
+        {
+          "activePath": "/art/characters/o-cultivador/skill-tecnica.webp",
+          "scene": "O Cultivador e exatamente dois aliados recebem vigor de uma horta em terraços; três ao todo.",
+          "targetCount": "3 aliados, incluindo o usuário",
+          "width": 512,
+          "height": 512,
+          "bytes": 53242,
+          "sha256": "e4f2a9687c15515516c8c5a917b542be5e0f2c79192bcaf9fb5c7f81c1c20acc"
+        },
+        {
+          "activePath": "/art/characters/o-cultivador/skill-voto.webp",
+          "scene": "Treliça de raízes arranca a guarda de exatamente um inimigo no celeiro.",
+          "targetCount": "1",
+          "width": 512,
+          "height": 512,
+          "bytes": 43614,
+          "sha256": "fb37b86bf0454fcdda4b400ec218c3d89f0a2d3a9682d4a7bd299a93a6dcfbb6"
+        },
+        {
+          "activePath": "/art/characters/o-cultivador/skill-despertar.webp",
+          "scene": "O Cultivador se ergue em raízes enquanto uma espada passa abaixo de seus pés.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 47922,
+          "sha256": "b51e86b2b039085b8cff8013aca1030f03167fc97ccab615724c07241af53824"
+        }
+      ]
+    }
+  ],
+  "visualReview": "As três folhas e recortes foram inspecionados. O Artífice cria pequenas aves de argila e estruturas cerâmicas ramificadas, sem virar um golem; A Semente é uma mulher adulta de baixa estatura e corpo proporcional, nunca infantilizada; O Cultivador mantém raízes ordenadas e cultivadas. Apoios mostram um aliado ou o trio completo conforme o kit. Ataques mostram exatamente um inimigo e defesas pessoais mostram somente o usuário. Custos, alvos, efeitos, durações, recargas e regras foram preservados."
+}

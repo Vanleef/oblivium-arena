@@ -1,0 +1,102 @@
+{
+  "title": "Reestilização híbrida pintada — O Vidente",
+  "date": "2026-10-25",
+  "characterId": "o-olho-desarmado",
+  "characterName": "O Vidente",
+  "form": "Verdade",
+  "world": "Paraíso",
+  "elo": "Verdade",
+  "worldSetting": "mirante sombreado, rotas gravadas em pedra, passagens naturais entre árvores e abrigo simples com água limpa",
+  "style": "animação híbrida 2D/2.5D pintada à mão, gouache fosco, pinceladas irregulares, contornos quebrados, volumes simples e luz natural sem brilho de render",
+  "identity": "homem jovem, baixo e esguio, pele oliva, cabelo preto liso até o maxilar, sem barba e pequena cicatriz na sobrancelha; túnica curta cor de argila, faixa verde-musgo e ataduras de linho; sem arma ou prisma",
+  "mechanicsPreserved": true,
+  "activeActionScenes": true,
+  "targetCountsPreserved": true,
+  "status": "integrated",
+  "assets": [
+    {
+      "asset": "portrait",
+      "path": "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp",
+      "source": "art/source/o-vidente-hybrid-rework-20261025/portrait.webp",
+      "source_sha256": "9a8b56ec899edb6b09a035262185e9c8521309d3f33dda4b342487801e733d79",
+      "sha256": "34375ad5abfaccae8673bb0d4036cab3af727199066aaacddb3bac6323d74b88",
+      "bytes": 45318,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "O Vidente observa alguém fora do quadro junto ao mirante sombreado onde duas rotas marcadas se encontram.",
+      "camera": "perfil médio lateral à altura dos olhos, corpo voltado para longe da câmera"
+    },
+    {
+      "asset": "passive",
+      "path": "art/characters/o-olho-desarmado/hybrid-rework-20261025/passive.webp",
+      "source": "art/source/o-vidente-hybrid-rework-20261025/passive.webp",
+      "source_sha256": "2d6e7019db9dc78a4e92c144cef12bc78c45e070ece32b39c6ade121f01732a9",
+      "sha256": "607c5d01dbf67fe92453f438a7b9a0b638fbfedceab3bce35fbdbf9f5f5e1355",
+      "bytes": 47014,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Depois de amparar alguém fora de quadro, O Vidente pausa sozinho e refaz a atadura do próprio antebraço; os nós dos dedos recuperam a cor enquanto a respiração se acalma.",
+      "camera": "close alto por cima do ombro, mãos e rosto em diagonal"
+    },
+    {
+      "asset": "skill-impulso",
+      "path": "art/characters/o-olho-desarmado/hybrid-rework-20261025/skill-impulso.webp",
+      "source": "art/source/o-vidente-hybrid-rework-20261025/skill-impulso.webp",
+      "source_sha256": "cf8519a3b27c7985fb9a6d660846a7906f70f5b4293bfb661e0c25c1ef7da8db",
+      "sha256": "8270a24c6da4e18371ad0bf809e8b5881c0b07c729e0948b97cf2d51e569b15f",
+      "bytes": 51784,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Olhar Desarmante interrompe a lâmina erguida de um único inimigo; O Vidente desvia seu antebraço e revela uma abertura na guarda.",
+      "camera": "ângulo baixo por trás do ombro do oponente, Vidente em três quartos"
+    },
+    {
+      "asset": "skill-tecnica",
+      "path": "art/characters/o-olho-desarmado/hybrid-rework-20261025/skill-tecnica.webp",
+      "source": "art/source/o-vidente-hybrid-rework-20261025/skill-tecnica.webp",
+      "source_sha256": "5fe279355a6e278a1184286491263574ebe62eae9fff5423143c277be60e27fe",
+      "sha256": "5a6dc71cdffbfbb4d4e10e9d2bb6e3770c0a0ac40739222c4fd78d56feaf8291",
+      "bytes": 55124,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Amparo da Clareza mostra O Vidente sustentando e erguendo um aliado enquanto limpa a aflição de sua manga; duas pessoas no total.",
+      "camera": "plano lateral próximo à altura da cintura, corpos em diagonal"
+    },
+    {
+      "asset": "skill-voto",
+      "path": "art/characters/o-olho-desarmado/hybrid-rework-20261025/skill-voto.webp",
+      "source": "art/source/o-vidente-hybrid-rework-20261025/skill-voto.webp",
+      "source_sha256": "035aa6dbdb8f6b9b0966ba49505dcde78d33f410934047b61cc4c16b314caa03",
+      "sha256": "10fd63106644fc147ef8a9708b40d567dd6b87411ee90455184e2065053bf54c",
+      "bytes": 72896,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Intenção Desvendada acerta um único adversário exposto com golpe curto de palma no peito; o corpo do alvo cede ao impacto.",
+      "camera": "plano amplo rente ao chão em perfil lateral"
+    },
+    {
+      "asset": "skill-despertar",
+      "path": "art/characters/o-olho-desarmado/hybrid-rework-20261025/skill-despertar.webp",
+      "source": "art/source/o-vidente-hybrid-rework-20261025/skill-despertar.webp",
+      "source_sha256": "52a47a746eddf4478d49f2b616317712e274e67ce2c17e598836a03a0ae479bf",
+      "sha256": "fc87c94edf5bf2653348d86001a18f7248be154f2ee172f96f32ff42f6f61050",
+      "bytes": 72158,
+      "dimensions": [
+        512,
+        512
+      ],
+      "scene": "Véu da Serenidade: sozinho, O Vidente se esquiva atrás de um marco de pedra enquanto um golpe de fora do quadro cruza o espaço vazio.",
+      "camera": "plongée diagonal alta sobre o marco e a figura em rotação"
+    }
+  ]
+}

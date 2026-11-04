@@ -1,0 +1,172 @@
+{
+  "id": "nilo-graca-final-dark-pictorial-rework-20261031",
+  "characterId": "nilo-graca-final",
+  "displayName": "Nilo, o que Mantém de Pé",
+  "world": "Paraíso",
+  "realm": "Empíreo",
+  "previousArtDirection": "Anime 2.5D pictórico e gótico.",
+  "artDirection": "Anime-first 2.5D pictórico de dark fantasy, pinceladas angulares densas, contornos manuais e hachuras, com mármore claro, água parada, jardins geométricos e luz marfim-dourada. Para Final de Graça, Nilo conserva a pureza de ++Graça: olhos inteiramente dourados, marcas douradas, aura branca e fios marfim no cabelo. Relevos de penas permanecem detalhes do manto e da região dos ombros; sem asas separadas, halo ou membros adicionais.",
+  "identity": "Nilo, 24 anos, pele castanha média, cabelo azul-negro desalinhado com uma mecha marfim, olhos totalmente dourados e marcas luminosas finas no rosto, pescoço e clavículas. Veste manto marfim com bordados de ouro antigo, camadas carvão e faixa índigo. A presença angelical é sugerida por relevo simétrico integrado ao manto, sem apêndices anatômicos separados.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/portrait.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/portrait.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "a0b6161c106c77848d4084e3239da3219aa46267e04a072aaf27385adc99cd1f",
+      "activeSha256": "ede5ffa8a34298c92a6a1de2c10d3df4576d251bd6d7e7fae302a01036eff6f1",
+      "scene": "Retrato próximo em 3/4 de Nilo nas alturas do Empíreo, com olhos totalmente dourados, marcas luminosas e manto marfim-carvão bordado em ouro antigo."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/passive.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/passive.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "358ca4241601fbedc456b71f5b4b579892abeb8547ace2ee1e2960fb3503f0dd",
+      "activeSha256": "18fffd5da07ed601ce91e7a489b6eb6d914f9576c0e9979cffb99b5252e23b97",
+      "scene": "Nilo observa dois Pilares vivos numa perspectiva elevada; a lasca atinge um deles e a luz retorna ao punho de Nilo como Carga de Intervenção."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-impulso.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/impulso.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "6d6318dad6b2a2e8d8f1499b10ab36c47745426a1bcc92f70c444f2332aec740",
+      "activeSha256": "ef796147fa74fc50d32f59cf30898a00a519ce61db0323458d5ab40b86e403f8",
+      "scene": "Nilo ajoelhado ampara uma mulher mais velha de pele escura e cabelos prateados curtos; uma arcada de mármore luminoso se ergue atrás dela como Pilar."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-tecnica.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/tecnica.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "65ab77a83ba000b937edf1dbf12ebeca011aae7225ab3125c4e827700c174dcf",
+      "activeSha256": "6a05dc43548c83fccd0f1038db4484b0deafdfd3d0483698c5f7d6d523d47c68",
+      "scene": "Um feixe estreito de luz filtrada contrai a sombra de um jovem condenado de pele acobreada que feriu um Pilar; Nilo acompanha o Julgamento de lado."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-voto.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/voto.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "60bc7496874409c3d1925a06d97c6d6178f2ca6c3dfde79d3fbf55a66325d021",
+      "activeSha256": "dfc287a3be61e3ae4b36ee904490d4a03892830b35ea25542a9740aa2d7a76ab",
+      "scene": "Nilo ergue duas películas douradas falsas do manto de um condenado mais velho de pele oliva, expondo o tecido gasto e a expressão cansada."
+    },
+    {
+      "slot": "despertar-4",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-despertar-4.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/despertar-4.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "9ab1b7ba97d7fd1e3bbb0a3a9ae49e9cabb37638bf0a02577309b90f396ebd12",
+      "activeSha256": "c864c8df33dbdeb1844d79795f5e61af03c1407f2be3749271ae8735d2e97267",
+      "scene": "Nilo sozinho em caminho elevado de mármore; o manto se abre em camadas e seus fios de ouro antigo se acendem ao despertar a Forma de Graça."
+    },
+    {
+      "slot": "tecnica-5",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-tecnica-5.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/tecnica-5.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "ad107e71bb1e8431e35d78dfd2ad183bff0992a097e6c8ced93a8c3467f147c0",
+      "activeSha256": "5249d074de1c51287a4fe30906b82590664e3c7c1a04e46f4687738ff3105a3b",
+      "scene": "Vista elevada do jardim: uma onda plana de luz filtrada contrai as sombras de três condenados distintos e enfraquece o homem barbado à frente."
+    },
+    {
+      "slot": "tecnica-6",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-tecnica-6.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/tecnica-6.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "3326408a98cea13aa3af0d1dd5c56da427ca28404381b0f5c95fea1f3e018059",
+      "activeSha256": "70f8980317bc68d519201086548e86f2b62a6e58793c3ff6185842d2dbfc6414",
+      "scene": "Nilo se interpõe entre um Pilar aliado e um agressor; o golpe escuro é contido pelo manto e retorna como marca de aflição no atacante."
+    },
+    {
+      "slot": "tecnica-7",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-tecnica-7.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/tecnica-7.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "477b38a87f601904f2ef3552400929ccebb69be27374f78a6e526b5ccff8b818",
+      "activeSha256": "c2dbf02b47509ff7e04329029b45e450a707c1e71c7c102a9bd72c4bc1a95b2f",
+      "scene": "Nilo ajoelha-se junto a uma Pilar aliada de pele escura e cachos curtos; fuligem de aflições se dissolve na água enquanto a manga rasgada se recompõe."
+    },
+    {
+      "slot": "despertar-8",
+      "path": "/art/characters/nilo-graca-final/dark-pictorial-rework-20261031/skill-despertar-8.webp",
+      "source": "art/source/nilo-graca-final-dark-pictorial-rework-20261031/despertar-8.jpg",
+      "sourceDimensions": [
+        768,
+        768
+      ],
+      "activeDimensions": [
+        512,
+        512
+      ],
+      "sourceSha256": "aa7bddb1af4dd31cd450a1820ae68576e6a95e93c554c0aaa7808e8f2d2fb355",
+      "activeSha256": "e6021a9da269d1dad1a51ade2b2bd60074ca8e50d69ad84d82f961507404c380",
+      "scene": "Nilo sozinho nas escadarias do Empíreo; um plano fino de luz-pedra junto ao manto detém pétalas e poeira no limite da proteção."
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-26",
+  "revision": "20261026-lot9",
+  "title": "Lote pictórico de Mentira IX: A Máscara Dupla, O Intrigante e A Serpe",
+  "generator": "image_gen.imagegen (ferramenta integrada)",
+  "style": "Pintura a óleo com pinceladas e impasto visíveis, formas de anime 2.5D, iluminação contrastada, contornos expressivos e sobreposição de textura gráfica e pictórica. Arcane e Spider-Verse como referências de atmosfera e energia; sem aparência flat, fotorrealismo ou render 3D.",
+  "counts": {
+    "characters": 3,
+    "mainScenes": 18,
+    "sourceSheets": 3,
+    "gameplayChanged": false
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cellDimensions": "512x512",
+    "cropMethod": "Recorte central de 500x500 px com margem de 6 px por célula, ampliado para 512x512; RGB WebP quality 91. O quadro skill-voto da Máscara Dupla foi regenerado para manter apenas as duas máscaras físicas da personagem e recomposto na folha-fonte final."
+  },
+  "characters": [
+    {
+      "id": "a-mascara-dupla",
+      "name": "A Máscara Dupla",
+      "aliases": [],
+      "activeDirectory": "art/characters/a-mascara-dupla",
+      "sourceSheet": "art/source/a-mascara-dupla-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {
+          "activePath": "/art/characters/a-mascara-dupla/portrait.webp",
+          "slot": "portrait",
+          "scene": "Retrato baixo da mulher de pele escura e cachos prateados no jardim teatral; a máscara sorridente de marfim está na mão, a máscara solene negra no cinto.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-mascara-dupla/passive.webp",
+          "slot": "passive",
+          "scene": "A Máscara Dupla segura a máscara negra junto ao peito e recupera força enquanto a luz jade de um único inimigo ferido se dissipa em direção a ela.",
+          "targetCount": "1 inimigo ferido",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-mascara-dupla/skill-impulso.webp",
+          "slot": "skill-impulso",
+          "scene": "A máscara sorridente de marfim toca a couraça de um único inimigo e deixa uma pequena marca simbólica, sem outra máscara física.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-mascara-dupla/skill-tecnica.webp",
+          "slot": "skill-tecnica",
+          "scene": "A máscara negra intercepta a lança de um único atacante e devolve a força contra ele numa superfície angular compacta.",
+          "targetCount": "1 atacante",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-mascara-dupla/skill-voto.webp",
+          "slot": "skill-voto",
+          "scene": "Um golpe de cotovelo atinge o torso protegido de um inimigo marcado; sua marca se desfaz em fragmentos geométricos sem rosto e uma centelha de recurso segue para a personagem.",
+          "targetCount": "1 inimigo marcado",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-mascara-dupla/skill-despertar.webp",
+          "slot": "skill-despertar",
+          "scene": "A mulher ergue a máscara de marfim junto à face enquanto seu único corpo vira contornos de papel que deixam uma flecha passar ao lado.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "id": "o-tecelao-de-mentiras",
+      "name": "O Intrigante",
+      "aliases": [
+        "O Tecelão de Mentiras"
+      ],
+      "activeDirectory": "art/characters/o-tecelao-de-mentiras",
+      "sourceSheet": "art/source/o-tecelao-de-mentiras-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {
+          "activePath": "/art/characters/o-tecelao-de-mentiras/portrait.webp",
+          "slot": "portrait",
+          "scene": "O espírito esguio repousa no pomar de amoreiras ao entardecer; rosto de porcelana com um olho jade e uma órbita negra, cinco carretéis de latão no arco da cabeça.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-tecelao-de-mentiras/passive.webp",
+          "slot": "passive",
+          "scene": "Um nó de marfim já marcado brilha no ombro de um único inimigo enquanto o Tecelão observa sem atacar.",
+          "targetCount": "1 inimigo marcado",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-tecelao-de-mentiras/skill-impulso.webp",
+          "slot": "skill-impulso",
+          "scene": "Um fio físico contínuo sai do carretel e prende o pulso armado de um único inimigo, baixando a espada e deixando um nó na couraça.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-tecelao-de-mentiras/skill-tecnica.webp",
+          "slot": "skill-tecnica",
+          "scene": "Vista alta da praça têxtil: exatamente três inimigos separados têm suas armas presas por uma rede baixa de fios contínuos conectados ao carretel do Tecelão.",
+          "targetCount": "todos os 3 inimigos",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-tecelao-de-mentiras/skill-voto.webp",
+          "slot": "skill-voto",
+          "scene": "Um nó angular se aperta ao redor da armadura de um inimigo marcado; o brilho jade retorna e o alvo cai de joelho atordoado.",
+          "targetCount": "1 inimigo marcado",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/o-tecelao-de-mentiras/skill-despertar.webp",
+          "slot": "skill-despertar",
+          "scene": "O Tecelão atravessa sozinho uma abertura entre fios tensos enquanto uma flecha é detida do lado de fora de seu ombro.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "id": "a-boca-de-vidro",
+      "name": "A Serpe",
+      "aliases": [
+        "A Boca de Vidro"
+      ],
+      "activeDirectory": "art/characters/a-boca-de-vidro",
+      "sourceSheet": "art/source/a-boca-de-vidro-painterly-rework-20261026-sheet.webp",
+      "assets": [
+        {
+          "activePath": "/art/characters/a-boca-de-vidro/portrait.webp",
+          "slot": "portrait",
+          "scene": "Close da Serpe de pele cinza-azulada, olhos cianos, cabelo claro trançado e mandíbula de vidro conectada ao rosto, na torre de observação.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-boca-de-vidro/passive.webp",
+          "slot": "passive",
+          "scene": "A Serpe observa a costura já exposta na armadura de um único inimigo no antigo escritório, sem golpe novo.",
+          "targetCount": "1 inimigo Exposto",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-boca-de-vidro/skill-impulso.webp",
+          "slot": "skill-impulso",
+          "scene": "Uma única meia-lua de vidro ciano sai dos lábios da Serpe e perfura a guarda do escudo de um inimigo, sem tocar a carne.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-boca-de-vidro/skill-tecnica.webp",
+          "slot": "skill-tecnica",
+          "scene": "O impacto de vidro racha a proteção do antebraço de um único inimigo; uma joia de recurso perde o brilho e cai ao chão.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-boca-de-vidro/skill-voto.webp",
+          "slot": "skill-voto",
+          "scene": "Vista alta no anfiteatro: três crescents sonoros distintos atingem exatamente três inimigos separados em formação aberta.",
+          "targetCount": "todos os 3 inimigos",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "activePath": "/art/characters/a-boca-de-vidro/skill-despertar.webp",
+          "slot": "skill-despertar",
+          "scene": "A Serpe inclina o corpo e desvia de uma flecha; uma refração atravessa o próprio torso e a ponta atinge a parede atrás.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    }
+  ]
+}

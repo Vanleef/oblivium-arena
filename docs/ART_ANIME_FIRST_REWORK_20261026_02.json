@@ -1,0 +1,96 @@
+{
+  "id": "anime-first-line-rework-20261026-02",
+  "date": "2026-10-26",
+  "status": "integrated_reviewed",
+  "tool": "built-in image_gen",
+  "style": "Anime-forward 2.5D: bold drawn contours, expressive stylized faces, angular cel-shadow planes, textured fabric and environments, dimensional painterly depth; less naturalistic facial rendering and no photorealism.",
+  "approvedStyleAnchor": "art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp",
+  "sourceFormat": {
+    "sheet": "1536x1024 WebP",
+    "grid": "3x2 square panels",
+    "crop": "504x504 with 4px inset, resized to 512x512 WebP"
+  },
+  "characters": {
+    "a-porta-que-flutua": {
+      "name": "A Porta que Flutua",
+      "identityReference": "art/source/a-porta-que-flutua-sheet.webp",
+      "sourceSheet": "art/source/a-porta-que-flutua-anime-first-20261026-sheet.webp",
+      "generationFile": "output/artworks/a-errante-portais-do-limbo-anime-2-5d-v2.png",
+      "activeAssets": [
+        "art/characters/a-porta-que-flutua/portrait.webp",
+        "art/characters/a-porta-que-flutua/passive.webp",
+        "art/characters/a-porta-que-flutua/skill-impulso.webp",
+        "art/characters/a-porta-que-flutua/skill-tecnica.webp",
+        "art/characters/a-porta-que-flutua/skill-voto.webp",
+        "art/characters/a-porta-que-flutua/skill-despertar.webp"
+      ]
+    },
+    "a-viuva-escarlate": {
+      "name": "A Viúva Escarlate",
+      "identityReference": "art/source/a-viuva-escarlate-sheet.webp",
+      "sourceSheet": "art/source/a-viuva-escarlate-anime-first-20261026-sheet.webp",
+      "generationFile": "output/artworks/a-viuva-sangria-anime-2-5d-v1.png",
+      "activeAssets": [
+        "art/characters/a-viuva-escarlate/portrait.webp",
+        "art/characters/a-viuva-escarlate/passive.webp",
+        "art/characters/a-viuva-escarlate/skill-impulso.webp",
+        "art/characters/a-viuva-escarlate/skill-tecnica.webp",
+        "art/characters/a-viuva-escarlate/skill-voto.webp",
+        "art/characters/a-viuva-escarlate/skill-despertar.webp"
+      ]
+    },
+    "o-colecionador-de-cabecas": {
+      "name": "O Colecionador de Cabeças",
+      "identityReference": "art/source/o-colecionador-de-cabecas-sheet.webp",
+      "sourceSheet": "art/source/o-colecionador-de-cabecas-anime-first-20261026-sheet.webp",
+      "generationFile": "output/artworks/o-colecionador-sangria-anime-2-5d-v1.png",
+      "activeAssets": [
+        "art/characters/o-colecionador-de-cabecas/portrait.webp",
+        "art/characters/o-colecionador-de-cabecas/passive.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-impulso.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-tecnica.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-voto.webp",
+        "art/characters/o-colecionador-de-cabecas/skill-despertar.webp"
+      ]
+    },
+    "gemeos-do-cutelo": {
+      "name": "Gêmeos do Cutelo",
+      "identityReference": "art/source/gemeos-do-cutelo-sheet.webp",
+      "sourceSheet": "art/source/gemeos-do-cutelo-anime-first-20261026-sheet.webp",
+      "generationFile": "output/artworks/gemeos-do-cutelo-anime-2-5d-v1.png",
+      "activeAssets": [
+        "art/characters/gemeos-do-cutelo/portrait.webp",
+        "art/characters/gemeos-do-cutelo/passive.webp",
+        "art/characters/gemeos-do-cutelo/skill-impulso.webp",
+        "art/characters/gemeos-do-cutelo/skill-tecnica.webp",
+        "art/characters/gemeos-do-cutelo/skill-voto.webp",
+        "art/characters/gemeos-do-cutelo/skill-despertar.webp"
+      ],
+      "correctionSource": "art/source/gemeos-do-cutelo-encontro-das-laminas-correction-20261026.webp"
+    },
+    "o-carrasco-sem-rosto": {
+      "name": "O Carrasco sem Rosto",
+      "identityReference": "art/source/o-carrasco-sem-rosto-sheet.webp",
+      "sourceSheet": "art/source/o-carrasco-sem-rosto-anime-first-20261026-sheet.webp",
+      "generationFile": "output/artworks/o-carrasco-sem-rosto-anime-2-5d-v1.png",
+      "activeAssets": [
+        "art/characters/o-carrasco-sem-rosto/portrait.webp",
+        "art/characters/o-carrasco-sem-rosto/passive.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-impulso.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-tecnica.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-voto.webp",
+        "art/characters/o-carrasco-sem-rosto/skill-despertar.webp"
+      ]
+    }
+  },
+  "review": [
+    "Five base character sets replaced at their stable active routes: 30 sprites total.",
+    "Identity, abilities, realms, target counts, and gameplay were preserved.",
+    "Gêmeos do Cutelo's Encontro das Lâminas was corrected and visually checked to show exactly three enemies.",
+    "All six sprites per character are square 512x512 WebP; source sheets remain archived."
+  ],
+  "pendingScope": "The other 95 base character sets, all alternative-form art, and other game visuals still require migration and review against the approved style.",
+  "supplementarySourceFormat": {
+    "art/source/gemeos-do-cutelo-encontro-das-laminas-correction-20261026.webp": "1024x1024 WebP"
+  }
+}

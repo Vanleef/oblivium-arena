@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-25",
+  "generator": "image_gen.imagegen (built-in)",
+  "scope": "Redesign Tyrant and Ruin as distinct transformations; reserve the only crown across O Fim's forms for Tyrant, with the original crown removal documented in ART_O_FIM_CROWNLESS_ORIGINAL_20261025.json; preserve the existing Predator art.",
+  "references": [
+    "approved-elo-union-20261023/portrait.webp",
+    "body-forms-distinct-20261024/portrait-predator.webp"
+  ],
+  "style": "Square dark gothic anime fantasy with charcoal silhouettes, ember and spectral violet lighting, no text or UI.",
+  "identityMotifs": [
+    "featureless black void face",
+    "faint red eye slits",
+    "small broken gold link",
+    "sparse ivory shard and root details",
+    "war crown exclusive to Tyrant"
+  ],
+  "forms": {
+    "tyrant": {
+      "archetype": "berserker",
+      "essence": "cinza",
+      "silhouette": "colossal low-centered siege brute with asymmetrical arms and giant fists",
+      "crown": "broad, low, asymmetrical iron war diadem with three blocklike wedges",
+      "ivory": "one small forearm shard"
+    },
+    "predator": {
+      "archetype": "burst",
+      "essence": "ruptura",
+      "silhouette": "low six-limbed mobile hunter",
+      "art": "Existing Predator art retained; no crown."
+    },
+    "ruin": {
+      "archetype": "control",
+      "essence": "graca",
+      "silhouette": "crownless levitating fragmented controller with four asymmetrical arms and no legs",
+      "magic": "violet spectral threads, binding web and interdiction circle",
+      "ivory": "one tiny shard"
+    }
+  },
+  "assets": [
+    {
+      "key": "portrait-tyrant",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/portrait-tyrant.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 173606,
+      "sha256": "49068a36fda328b103529f59538da32d786656264c876eb0ca1d9607b3bc2cef",
+      "source": "exec-e2e4407e-b88f-4b51-a6ad-07b7c62c3796.png",
+      "sourceSha256": "eb8024f620c7a5e9cd2cb5b866fb5e483d472c296dcc708503ab95e49da9244d",
+      "promptSummary": "Broad, low siege brute with a redesigned heavy iron war crown exclusive to Tyrant; retains only the black void face, faint red eyes, tiny gold links and one small ivory root shard.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "portrait-ruin",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/portrait-ruin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 155964,
+      "sha256": "4f07b430721cba9c1a7963a1b501c0a8204c441d1f5a0d77276e1eaa44fc5192",
+      "source": "exec-6c71986b-36bf-43ec-9eb4-aa493f348084.png",
+      "sourceSha256": "980542f61d7cc8c1935fa193556ccec6ce8ee2ad66413fcf40bf79adab9ab454",
+      "promptSummary": "Crownless floating spectral controller with four asymmetric arms, hollow fragmented torso and violet threads; retains only the black void face, faint red eyes, one tiny gold link and a single small ivory shard.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "skill-tyrant-punch",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/skill-tyrant-punch.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 119110,
+      "sha256": "cf409a0d6ba1534bd4d87fa4eefa4d2c33dfe0088b893da009a1058669c6b5d4",
+      "source": "exec-d16e2286-88a8-4a2b-bc11-82d94bce3780.png",
+      "sourceSha256": "2ff3e0c05818c708626c860390c10339d9a14220d107ec0b1b868da9ac91fcdc",
+      "promptSummary": "Tyrant drives a crushing fist into basalt, showing mass and brute force.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "skill-tyrant-break",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/skill-tyrant-break.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 109998,
+      "sha256": "c3724a1a9df578b01a29125cf6d46a03eb3e3aa702e4dad8584c28c51f150377",
+      "source": "exec-0371c354-de8d-4fee-8066-4ff25702002b.png",
+      "sourceSha256": "5480411b96f6f21846e7b405d8421096671c9cffc54156829b7747d8ad4c5ae7",
+      "promptSummary": "Tyrant smashes through an enemy guard with a heavy forearm.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "skill-tyrant-finisher",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/skill-tyrant-finisher.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 121798,
+      "sha256": "1d750fc34033e1544410b94201879ef2be41e6ffa33da911703f41fa6cbc34a5",
+      "source": "exec-ce76273a-a603-463f-a128-3943d249c74e.png",
+      "sourceSha256": "7a369030df64ec9b6baa2652f8cb2c22db7c25012b408ece42dadf0b8cae0312",
+      "promptSummary": "Tyrant lands the final double-fist impact in a crater of ash and stone.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "skill-ruin-thread",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/skill-ruin-thread.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 88808,
+      "sha256": "241a279343850f74792bfe8c2e93f165e1d20efa84fa173e952861700b03136d",
+      "source": "exec-7999dd70-c5ee-48e2-8042-19c973a0fb2e.png",
+      "sourceSha256": "aaac1f52ac6428b59d3bcf3765d5013b1cc35a8ac701696e0a338385e25880ad",
+      "promptSummary": "Ruin marks one enemy with a precise spectral thread.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "skill-ruin-bind",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/skill-ruin-bind.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 101864,
+      "sha256": "964be6269982b8c75ef23ea42ffbe1410d2a70f2197513d4b798965d3cbc6603",
+      "source": "exec-b1b63e35-39a8-4290-8d63-f14de984dbeb.png",
+      "sourceSha256": "7b595404c9f4a142cecbce4ed5631328a4e2140e95d243dc11a5194dba858dbc",
+      "promptSummary": "Ruin closes a violet thread cage around one enemy, interrupting movement.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    },
+    {
+      "key": "skill-ruin-circle",
+      "path": "art/characters/o-fim/body-forms-transformed-20261025/skill-ruin-circle.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 107148,
+      "sha256": "10f130fcfbd97b803441b54c9f676ee59905d6fbc2f30b5991351a052d8aa470",
+      "source": "exec-61d09e7d-35db-4d62-9edb-731d7a34641a.png",
+      "sourceSha256": "b9369f690a5abeaba6f19f637f0f376ab2f8de2db91e2f63a22fd49ba09e130f",
+      "promptSummary": "Ruin controls the enemy line with a large spectral interdiction circle.",
+      "review": "Retains a few recognizable details from the approved original while using a transformed body silhouette."
+    }
+  ]
+}

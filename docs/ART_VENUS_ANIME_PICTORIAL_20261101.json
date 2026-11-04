@@ -1,0 +1,414 @@
+{
+  "date": "2026-11-01",
+  "status": "candidate_integrated_pending_visual_approval",
+  "direction": "docs/ART_DIRECTION.md",
+  "characterIds": [
+    "o-vinculo",
+    "os-tres-irmaos",
+    "a-guardia-das-promessas"
+  ],
+  "logicalAssets": 21,
+  "dedicatedVariants": 3,
+  "mechanicsSource": "docs/COMBAT_KITS.md",
+  "mechanicsPreserved": true,
+  "assets": [
+    {
+      "path": "art/characters/o-vinculo/anime-pictorial-rework-20261101/portrait.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/o-vinculo/anime-pictorial-rework-20261101/portrait.webp",
+      "bytes": 67780,
+      "sha256": "f18a11eb7a3231487eee410dd78ad8d0564058ba3c1b0ba8437a61779b42a3e4"
+    },
+    {
+      "path": "art/source/o-vinculo/anime-pictorial-rework-20261101/portrait.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/o-vinculo/anime-pictorial-rework-20261101/portrait.jpg",
+      "bytes": 172888,
+      "sha256": "c616b621c8b672878ce1de9224a5d17e576d11d31cad648b0c6041f607e719ae"
+    },
+    {
+      "path": "art/characters/o-vinculo/anime-pictorial-rework-20261101/passive.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/o-vinculo/anime-pictorial-rework-20261101/passive.webp",
+      "bytes": 95862,
+      "sha256": "68ebc95d95676f033f68d176ff51ce18f548e4a62db73e3a7dbe087e180e4990"
+    },
+    {
+      "path": "art/source/o-vinculo/anime-pictorial-rework-20261101/passive.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/o-vinculo/anime-pictorial-rework-20261101/passive.jpg",
+      "bytes": 229023,
+      "sha256": "df56a69fcd969516002db172c60e3fef6ac4435f290123121a9ffd0f3ffae343"
+    },
+    {
+      "path": "art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "bytes": 106114,
+      "sha256": "f3ad4b466b3756eed015bb0eb44f808a4ecfca662098b7e0596f67b079b4af11"
+    },
+    {
+      "path": "art/source/o-vinculo/anime-pictorial-rework-20261101/skill-impulso.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/o-vinculo/anime-pictorial-rework-20261101/skill-impulso.jpg",
+      "bytes": 242818,
+      "sha256": "cc5feb3ef279f2d13b3d54662d538f903b40f12f1d1c41a30d850c620bcfdfab"
+    },
+    {
+      "path": "art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "bytes": 91080,
+      "sha256": "af1593d51fd14398491333d0f32d7c6c3dd3fa041aea907633f8db4489c2dcf4"
+    },
+    {
+      "path": "art/source/o-vinculo/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/o-vinculo/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "bytes": 210658,
+      "sha256": "eea59aefcfd8e6ed249ac19641b258360e53c154a1000eb14cc0835643790838"
+    },
+    {
+      "path": "art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-voto.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-voto.webp",
+      "bytes": 101900,
+      "sha256": "ad6d08f4834628873af5bb8bbdbb9b2c57475fb0657dd7e8c80c503f22e8f401"
+    },
+    {
+      "path": "art/source/o-vinculo/anime-pictorial-rework-20261101/skill-voto.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/o-vinculo/anime-pictorial-rework-20261101/skill-voto.jpg",
+      "bytes": 238839,
+      "sha256": "2ec6bc09f2a3734dd9991913a7fe40452e96e073fb4bb3d6d5181e0141482bf4"
+    },
+    {
+      "path": "art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/o-vinculo/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "bytes": 114130,
+      "sha256": "0803cb74e47cc2f605304840586ba530dde6ba10021773d1c2533ce6f97168bf"
+    },
+    {
+      "path": "art/source/o-vinculo/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/o-vinculo/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "bytes": 257085,
+      "sha256": "add2a677a90c5e4310b9e0f99706c90d6a80b41296995a012feaf82a9094e8dc"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/portrait.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/portrait.webp",
+      "bytes": 84074,
+      "sha256": "d38fa7d405ff454081bfeba9ad3297c2e054cb006bb5ea397069de53cf97de4f"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/portrait.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/portrait.jpg",
+      "bytes": 209184,
+      "sha256": "8a59e1a2c9d55e99198f0a6ed2aa0a9558391e91ae5e8f995acee568548873af"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/passive.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/passive.webp",
+      "bytes": 109378,
+      "sha256": "5d77213c6381ebe5f032e806d0f0c042e29a99538dbc5ea1ac4b70b9c73fb5d6"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/passive.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/passive.jpg",
+      "bytes": 263762,
+      "sha256": "5b8a92810ba40b736c071ec32c6807fab5853dbbfcd8ce8f932c8f9f9eb3da37"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "bytes": 103192,
+      "sha256": "de1325c9e14dcf34f9fcff0f7f77a0c76a2c6cf3c4e0cc11c020b176d7f29950"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso.jpg",
+      "bytes": 240952,
+      "sha256": "de07f76f17ff501ca5ae3c217e4b8599c0ea3a774ac25e039bf45f7f4a0b0c93"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-second.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-second.webp",
+      "bytes": 83728,
+      "sha256": "6f0ed59d51e684f0a9289df69f37ec1bc671d8d7581eafa59cff1259cf1f6b89"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-second.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-second.jpg",
+      "bytes": 205749,
+      "sha256": "4262bd66303f0552e85cac109379138ae89f7a056409f07b344c6b84e87ac67c"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-third.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-third.webp",
+      "bytes": 102010,
+      "sha256": "9987ec789dcd03c78108294e827d239489b52d06024caa07a8e9a73fd7ce9379"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-third.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-impulso-third.jpg",
+      "bytes": 242440,
+      "sha256": "36a6b3099df7dfe21205cfd9f6e2cf40bdbb814c7b2725a80fb800eafb05323c"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "bytes": 97194,
+      "sha256": "fd7b88686f9088ba67d7ce0a1653cf928bb9f51e550454e8193130952741aa46"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "bytes": 232114,
+      "sha256": "8c4d163581e970dd13a27aa47be15008f831aba2e3b5c3636645f602af758c17"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-voto.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-voto.webp",
+      "bytes": 134756,
+      "sha256": "1c87e9910a308063231b0bc6d82a92586e64426dd940e65974b38efa53166a0f"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-voto.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-voto.jpg",
+      "bytes": 329430,
+      "sha256": "c74b6ad9572f63d48b3a534b6b2d99bacf520a3e17fc73c75e4a98a71aa4fab3"
+    },
+    {
+      "path": "art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/os-tres-irmaos/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "bytes": 99484,
+      "sha256": "fa61abcdf1e0a13f926d8d3a1b45aaa844b99d3307bed4a6857e672649534829"
+    },
+    {
+      "path": "art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/os-tres-irmaos/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "bytes": 238974,
+      "sha256": "7e23673786eb939cf0afb5bc8a48fce6f690e9587280beeebcb5c553bacdc8f7"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/portrait.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/portrait.webp",
+      "bytes": 71566,
+      "sha256": "1dded6cc40369fa65cf797ff69a91fc4f91a072edf0e44c1501a26420f3dcc11"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/portrait.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/portrait.jpg",
+      "bytes": 180521,
+      "sha256": "d4dd592f6b7ea370866219cac9529638c2e7c47fdaf0f7291624013d6d0e24c5"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/passive.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/passive.webp",
+      "bytes": 68174,
+      "sha256": "ed8d52be0389bd1a9343546b5d3d16a1a16e5e392e5b48e9d1bace1bfd024f18"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/passive.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/passive.jpg",
+      "bytes": 177250,
+      "sha256": "9b9ce66c9299eb064ecab1992e047e363ba57cccf003011b5349f00a8409b3b0"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-impulso.webp",
+      "bytes": 90644,
+      "sha256": "14a4c043bc7862d4f91fb0e4d2e58bd4e5cf46b5f530189f3a86dac922dab8d9"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-impulso.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-impulso.jpg",
+      "bytes": 218902,
+      "sha256": "10d22256f302c064576b90cf22a5e8ca6128735408eb7de70b44e1d8ca36a40f"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica.webp",
+      "bytes": 88348,
+      "sha256": "7291a02e512814fe64f3e832b792c9a7d4abece2e98026d717c78a7e6c113f2c"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica.jpg",
+      "bytes": 206017,
+      "sha256": "603fff1b943daf843ec9cb2da278693dd5903f81b2eb553ba37d532673e5df70"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica-fulfill.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica-fulfill.webp",
+      "bytes": 78350,
+      "sha256": "33754b189f76ec902ace5adad9b93a40d88de49a01de4dea50a01d633c298fa0"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica-fulfill.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-tecnica-fulfill.jpg",
+      "bytes": 190559,
+      "sha256": "6e413a30fe2f6cabfdd110ef35d61b28e6360a490a370b065ceef700726b796c"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-voto.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-voto.webp",
+      "bytes": 96136,
+      "sha256": "ab666ea64b7b73a8086cc9559741d8ff2a8b1efeb4ed3b2e1a357c6e2f003166"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-voto.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-voto.jpg",
+      "bytes": 229236,
+      "sha256": "b9d0852654582fb744ff5eecfba70270b039a9c5311983e8d992517e1771a8b1"
+    },
+    {
+      "path": "art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/characters/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-despertar.webp",
+      "bytes": 102470,
+      "sha256": "da7c118aab9de6b285e87c5a69a83c7bc3894d7762bf47e071dfcdf0e554efc6"
+    },
+    {
+      "path": "art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "local": "/workspace/scratch/f3f1a914fa5c/venus-batch/art/source/a-guardia-das-promessas/anime-pictorial-rework-20261101/skill-despertar.jpg",
+      "bytes": 229268,
+      "sha256": "6929768007a400d7287da19b0a340aa710082daa880f9c03fcb25038a2368cdb"
+    }
+  ],
+  "scenes": [
+    {
+      "characterId": "o-vinculo",
+      "slot": "portrait",
+      "prompt": "Square finished fantasy game ability art, anime 2.5D pictorial. Image 1 IDENTITY ONLY: preserve this young adult slim brown-skinned man with vitiligo on face/neck/hands, short dense black curls, handmade rectangular glasses, burgundy high-collared tunic, white gloves, divided heart medallion and paired short silver ritual rods connected by a short gold chain. No modern technology. Image 2 DRAWING STYLE ONLY: clear anime face construction, expressive ink contours, graphic shadow planes; do not copy its woman, costume, roses. Arcane inspired painted volumes and dramatic lighting, Spider-Verse graphic energy and restrained hatching. Controlled material texture, no photographic skin/3D, cracked/mosaic/peeling finish. Paraíso/Vênus, ivory/gold, pale blue/green light; varied garden/stone settings. Natural anatomy and hands, eyes react to action, never looking at viewer, no posing, no text/UI. Candid waist-up side three-quarter composition in a shaded cloister. He has just heard someone call behind him, turns head and eyes toward that off-frame person with alert concern, one hand checks his divided medallion, the other hangs relaxed with the ritual rods. Ivory light from a doorway, cool blue shadows, quiet emotional weight.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-50908f18-0223-41bb-a3b6-54753045d48e.png"
+    },
+    {
+      "characterId": "o-vinculo",
+      "slot": "passive",
+      "prompt": "Square finished fantasy game ability art, anime 2.5D pictorial. Image 1 IDENTITY ONLY: preserve this young adult slim brown-skinned man with vitiligo on face/neck/hands, short dense black curls, handmade rectangular glasses, burgundy high-collared tunic, white gloves, divided heart medallion and paired short silver ritual rods connected by a short gold chain. No modern technology. Image 2 DRAWING STYLE ONLY: clear anime face construction, expressive ink contours, graphic shadow planes; do not copy its woman, costume, roses. Arcane inspired painted volumes and dramatic lighting, Spider-Verse graphic energy and restrained hatching. Controlled material texture, no photographic skin/3D, cracked/mosaic/peeling finish. Paraíso/Vênus, ivory/gold, pale blue/green light; varied garden/stone settings. Natural anatomy and hands, eyes react to action, never looking at viewer, no posing, no text/UI. PACTO DE PERMANÊNCIA: only the user, no other characters. After taking a blow in previous exchange he sits briefly on a broken marble step, presses his bruised ribs with one gloved hand and plants a ritual rod on the step with the other to push himself upright. A compact solid pale-gold pact layer settles over torn cloth at his ribs, signifying renewed defense. He winces and exhales, eyes downward at injury. High oblique view, clearly injured but resolute.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-084b7038-8fd9-4087-8f90-9fcf50dea4fa.png"
+    },
+    {
+      "characterId": "o-vinculo",
+      "slot": "impulso",
+      "prompt": "Square finished fantasy game ability art, anime 2.5D pictorial. Image 1 IDENTITY ONLY: preserve this young adult slim brown-skinned man with vitiligo on face/neck/hands, short dense black curls, handmade rectangular glasses, burgundy high-collared tunic, white gloves, divided heart medallion and paired short silver ritual rods connected by a short gold chain. No modern technology. Image 2 DRAWING STYLE ONLY: clear anime face construction, expressive ink contours, graphic shadow planes; do not copy its woman, costume, roses. Arcane inspired painted volumes and dramatic lighting, Spider-Verse graphic energy and restrained hatching. Controlled material texture, no photographic skin/3D, cracked/mosaic/peeling finish. Paraíso/Vênus, ivory/gold, pale blue/green light; varied garden/stone settings. Natural anatomy and hands, eyes react to action, never looking at viewer, no posing, no text/UI. SELO DO PACTO: exactly user and ONE ghoul. Low lateral full-body view: he steps in and uses the heel of a ritual rod to strike ghoul's upper arm, knocking its guard open and exposing it. Ghoul twists in recoil, one shoulder forced back; dense gold essence at contact only. User's face concentrated, teeth clenched, gaze fixed on struck shoulder. Two rods each held in a distinct hand, clear wrists and weapon continuity, no light beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-521d93cb-8d80-4c85-adf2-7336af627c12.png"
+    },
+    {
+      "characterId": "o-vinculo",
+      "slot": "tecnica",
+      "prompt": "Square finished fantasy game ability art, anime 2.5D pictorial. Image 1 IDENTITY ONLY: preserve this young adult slim brown-skinned man with vitiligo on face/neck/hands, short dense black curls, handmade rectangular glasses, burgundy high-collared tunic, white gloves, divided heart medallion and paired short silver ritual rods connected by a short gold chain. No modern technology. Image 2 DRAWING STYLE ONLY: clear anime face construction, expressive ink contours, graphic shadow planes; do not copy its woman, costume, roses. Arcane inspired painted volumes and dramatic lighting, Spider-Verse graphic energy and restrained hatching. Controlled material texture, no photographic skin/3D, cracked/mosaic/peeling finish. Paraíso/Vênus, ivory/gold, pale blue/green light; varied garden/stone settings. Natural anatomy and hands, eyes react to action, never looking at viewer, no posing, no text/UI. RESPONDER PELO OUTRO: exactly THREE figures, user, ONE injured unnamed ally and ONE attacking ghoul. From above the ally's shoulder, user steps between them and uses his connected ritual rods to catch and turn ghoul's attacking wrist away; compact pale-gold pact plates protect the ally's torso. The counteraction drives the ghoul backward, ally flinches behind him, user looks firmly at attacking wrist, brows drawn with concern and effort. Clear physical interception, short taut gold chain, no thin energy strings.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-a23dcdef-b13f-4690-b16d-1c9c4687d9ee.png"
+    },
+    {
+      "characterId": "o-vinculo",
+      "slot": "voto",
+      "prompt": "Square finished fantasy game ability art, anime 2.5D pictorial. Image 1 IDENTITY ONLY: preserve this young adult slim brown-skinned man with vitiligo on face/neck/hands, short dense black curls, handmade rectangular glasses, burgundy high-collared tunic, white gloves, divided heart medallion and paired short silver ritual rods connected by a short gold chain. No modern technology. Image 2 DRAWING STYLE ONLY: clear anime face construction, expressive ink contours, graphic shadow planes; do not copy its woman, costume, roses. Arcane inspired painted volumes and dramatic lighting, Spider-Verse graphic energy and restrained hatching. Controlled material texture, no photographic skin/3D, cracked/mosaic/peeling finish. Paraíso/Vênus, ivory/gold, pale blue/green light; varied garden/stone settings. Natural anatomy and hands, eyes react to action, never looking at viewer, no posing, no text/UI. RESPOSTA DA ALIANÇA: exactly user and ONE exposed ghoul. Dynamic rear three-quarter view, user pivots on planted foot and lands a rod-assisted elbow strike to ghoul's open side, compact golden mark fractures at impact; small restorative warmth settles into user's bruised ribs. Fierce effortful expression in profile, eyes on contact, ghoul doubles over. Natural hips/spine/shoulders, entirely different action from first rod strike, no ray.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-1f488b48-f937-4b4b-93b7-dbe571ab4f9c.png"
+    },
+    {
+      "characterId": "o-vinculo",
+      "slot": "despertar",
+      "prompt": "Square finished fantasy game ability art, anime 2.5D pictorial. Image 1 IDENTITY ONLY: preserve this young adult slim brown-skinned man with vitiligo on face/neck/hands, short dense black curls, handmade rectangular glasses, burgundy high-collared tunic, white gloves, divided heart medallion and paired short silver ritual rods connected by a short gold chain. No modern technology. Image 2 DRAWING STYLE ONLY: clear anime face construction, expressive ink contours, graphic shadow planes; do not copy its woman, costume, roses. Arcane inspired painted volumes and dramatic lighting, Spider-Verse graphic energy and restrained hatching. Controlled material texture, no photographic skin/3D, cracked/mosaic/peeling finish. Paraíso/Vênus, ivory/gold, pale blue/green light; varied garden/stone settings. Natural anatomy and hands, eyes react to action, never looking at viewer, no posing, no text/UI. LAÇO INTANGÍVEL personal invulnerability: exactly user and ONE ghoul. Wide ground-level view across a shallow marble pool. User takes a sliding backward step as the ghoul's lunge meets a dense close-fitting pale-gold pact shell along his side, claw diverted into water with concrete splash. Hands held apart at waist with the two short ritual rods, no raised-arm block. He watches the ghoul's claw with startled controlled concentration, weight shifted naturally, knees bent and feet coherent. Cool blue shadows, filtered light, no bubble or beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-f2d1c6b7-6000-410e-bf8f-bc85ac88b9db.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "portrait",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. Candid shoulder-level diagonal view in a cloister doorway: oldest kneels adjusting torn binding on his wrist, middle brother leans to listen to him, youngest at doorway looks back worriedly. Three people only, intimate familial cooperation, varied height/planes and natural concerned expressions.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-8e806e2d-95c2-4b89-99c5-6f696e2ef8d0.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "passive",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. PASSO DE IRMANDADE: exactly three brothers, no enemy. They cross a fractured ivory footbridge, middle brother tests next step, youngest steadies oldest by forearm, oldest watches footing. Broad compact gold guard settles at each medallion/cloth shoulder. Wide overhead oblique view, distinct grounded feet, tense concentration and mutual care.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-0d9eb1be-f57f-4ad5-9495-14ba185dd283.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "impulso",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. PRIMEIRA CADÊNCIA: oldest brother in rust cloak drives a short firm palm strike into ONE ghoul's ribs, forcing an opening; two brothers behind him prepare next motion, four figures total. Low side view, weight transfer clear, oldest gritted teeth, gaze at impact. One small solid gold charge at medallion, no beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-6ab89374-f8ea-4b9b-a33f-d33645c9c371.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "impulso-second",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. SEGUNDA VOZ healing variation: exactly three brothers only. Youngest in purple kneels and uses both hands to bind oldest's hurt arm with broad ivory cloth, dense warm light at wound; middle brother leans by opening keeping watch off-frame. Youngest urgently focused, oldest winces and exhales, different from attack. Close high view, clear hand count.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-d61f7c58-a58e-43bc-8939-f46e0004dd2a.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "impulso-third",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. TERCEIRA VOZ finishing variation: middle long-haired brother lunges through opening and lands shoulder/forearm strike on ONE ghoul, three compact solid gold medallion echoes collapse at contact as stored charges are spent. Oldest and youngest visible behind in different supporting stances, four figures total. Rear three-quarter low angle, middle fierce effort, foe doubles over, no beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-cb7e3da9-7354-4a57-b0a8-a570c69d71b9.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "tecnica",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. SEGUNDA CADÊNCIA team defense: exactly three brothers. In a garden stairwell they brace at different elevations behind heavy hanging ivory cloth; oldest anchors cloth at low step, middle stretches it across narrow opening, youngest secures end on stone pillar. Dense gold essence reinforces cloth as tangible guard. User trio only, urgent practical cooperation, side wide angle, no aligned fists or group portrait.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-1f7d52fe-5e54-4d1f-aeda-0100d037939e.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "voto",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. TERCEIRA CADÊNCIA area attack: exactly SIX figures, three brothers versus exactly THREE separate ghouls. Wide bird's-eye action across open marble courtyard, all bodies spatially separated. Each brother hits ONE different ghoul through coordinated palm/forearm/body strikes; compact dense gold impact on each contact, stored bronze-gold charge plates break outward. Distinct silhouettes, no crowd/background people, expressive exertion, no laser or duplicated limbs.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-c6accf0f-5b12-410f-a825-87a32031b0d2.png"
+    },
+    {
+      "characterId": "os-tres-irmaos",
+      "slot": "despertar",
+      "prompt": "Square finished fantasy game art, anime 2.5D pictorial, Arcane dramatic painted volume, Spider-Verse expressive contours and restrained graphic hatching. Reference1 exact identities, reference2 drawing style ONLY; never copy its woman/roses/clothes. THREE BROTHERS form ONE playable character: older stout silver-haired man with white moustache, rust cloak and ivory scarf; tall middle brother long tied black hair, teal cloak/ivory scarf; younger adult black curls, purple cloak/ivory scarf. All share bronze star medallions. Preserve ages, silhouettes and kinship. Paraíso/Vênus, ivory marble, pale blue, filtered gold and green. Correct coherent anatomy, no extra limbs. Expressive anime faces, controlled texture, no photo/realistic 3D, cracked/peeling/mosaic surface. No technology/text/UI. No one looks at viewer, no posed lineup. PASSO EM UNÍSSONO personal invulnerability for the three-body user: exactly three brothers only. Ground-level rear diagonal view as they pivot together through a narrow arch, broad ivory cloaks form dense layered pale-gold guard against an onrushing spray of loose marble chips. Each body reacts differently, oldest crouches, middle turns torso, youngest steps sideways. Glances toward incoming stones, effort and alertness, coherent feet/hips. No huge bubble or beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-3118274d-7492-47f3-86c8-ac0ef6659d10.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "portrait",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. Candid medium side profile inside quiet garden cloister, she bends to inspect a frayed oath knot tied to her mantle, fingers testing its tension, eyes lowered in thoughtful concern. Cool green reflected light with warm edge light, natural task, no presentation pose.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-8b93a0f3-33ab-4190-8d33-922f50688227.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "passive",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. PROMESSA CUMPRIDA: exactly user and ONE wounded unnamed ally. She secures a broad ivory protective mantle over the ally's bruised shoulder; dense knotted gold weave settles as defense and a small wound closes underneath. Ally releases a painful breath, she watches the shoulder with attentive seriousness. Close side view, two clear distinct hands, no beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-c69d051f-8304-4092-b78a-5dabf124450a.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "impulso",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. SELO DO JURAMENTO: exactly user and ONE ghoul. She steps into its attack and presses the heel of her open palm against its sternum, stamping a compact tangible gold knot mark into hide, spiritual impact folds its torso back. Low rear three-quarter view, braid swings with momentum, fierce focused eyes on target, hand anatomically clear, no ray.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-ddbd50ee-89e0-4c10-955a-321d2d4e6b40.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "tecnica",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. HONRAR O PACTO: exactly user and ONE injured ally. Wide high oblique view on marble terrace: she pulls heavy ivory cloth from her mantle across crouching ally's back, gold oath knots form solid protective ribs in cloth while she tends a small injury. Her expression grave reassuring focus, ally looks up with tense trust. User standing and leaning, ally crouched, no posed embrace or beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-ba46b8a1-ce7d-4f6c-bc2a-2458172b449a.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "tecnica-fulfill",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. RENOVAR O PACTO variation after ally wounded: exactly user and ONE badly injured unnamed ally. Different angle: knee-height close view through garden herbs, she kneels beside seated ally and pulls a bloodied old bandage off their forearm; underneath a fresh dense silver-gold woven binding restores the wound and burns away black harmful residue. Concern and determination on her face, ally winces then exhales relief. Clear hands, no beam.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-f11535d5-adb8-44b4-bfbd-0b4260c47e0c.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "voto",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. RESPOSTA DO JURAMENTO: exactly user and ONE marked ghoul. Dynamic lateral full-body action, she pivots with planted foot and drives a firm forearm/body strike into the ghoul's gold knot mark, slamming its shoulder into marble pillar and stunning it. Compact solid gold impact at contact, ghoul dazed and unbalanced, her brows knit and jaw clenched with effort. Coherent joints and no extra hands; no laser.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-ad6dfa7a-2168-4b27-a004-94eff75408fb.png"
+    },
+    {
+      "characterId": "a-guardia-das-promessas",
+      "slot": "despertar",
+      "prompt": "Square finished fantasy game illustration, anime 2.5D pictorial. Image1 exact identity: adult fair freckled woman, green eyes, thick red side braid tied with ivory bands, black high-collared tunic, heavy ivory mantle with gold knotted clasp. Preserve identity and proportions. Image2 drawing style only, do not copy woman/roses/clothes. Strong anime face construction, expressive ink contours, angular painted volume, Arcane dramatic light and Spider-Verse graphic energy, selective controlled texture. No photorealistic anatomy/3D, cracked/mosaic/peeling surfaces, technology, text/UI. Paraíso/Vênus ivory, gold, pale blue, silver and green light. Correct anatomy/hands, no camera gaze, natural scene-reactive expression and movement. PACTO INVIOLÁVEL personal invulnerability: user ALONE only one figure. Bird's-eye diagonal view across a narrow garden causeway, she abruptly shifts her weight backward as dense thorned vines lash from the side and slide harmlessly across her heavy ivory mantle, its gold oath-knot weave holding firm. One hand clutches mantle clasp at chest, other open behind for balance. Face turns directly toward incoming vines, startled resolute expression. Clear full body, different from arm block, no beam or huge bubble.",
+      "generatedFile": "/workspace/scratch/f3f1a914fa5c/generated_images/exec-c20957fa-65e9-4a06-bb09-495134e3f9b9.png"
+    }
+  ],
+  "review": {
+    "identities": "Preservadas por referência própria; divergências entre nomes do roster e identity.js não foram alteradas.",
+    "anatomy": "Inspecionados membros visíveis, mãos e continuidade das poses.",
+    "gazeAndExpression": "Reações específicas de dor, esforço, cuidado, vigilância e cooperação; sem olhar frontal para espectador.",
+    "targets": "Alvos individuais, apoios concentrados e defesa do trio correspondem aos kits; Terceira Cadência mostra três irmãos e três ghouls.",
+    "refinements": "Passiva e dois apoios da Juramentada refeitos com aliada própria para impedir cópia da personagem de referência.",
+    "userApproval": "pending"
+  },
+  "coverage": {
+    "name": "Anime 2.5D pictórico PMA — integração de candidatas, aprovação visual separada",
+    "targetLogicalSlots": 998,
+    "integratedCandidateSlots": 683,
+    "remainingSlots": 315,
+    "fullyMigratedEntries": 103,
+    "remainingEntries": 47,
+    "awaitingVisualApprovalSlots": 676,
+    "approvedSlots": 7
+  }
+}

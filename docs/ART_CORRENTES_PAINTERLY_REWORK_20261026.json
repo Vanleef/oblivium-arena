@@ -1,0 +1,326 @@
+{
+  "date": "2026-10-26",
+  "title": "Lote pictórico de Correntes Quebradas I: O Descontínuo, A Cindida e O Eco",
+  "generator": "image_gen.imagegen (ferramenta integrada)",
+  "style": "Pintura digital matte com pinceladas visíveis e variadas, camadas de pigmento, contornos quebrados, massas de cor legíveis e luz cinematográfica contida.",
+  "counts": {
+    "characters": 3,
+    "mainScenes": 18,
+    "sourceSheets": 3,
+    "correctionFrames": 1,
+    "gameplayChanged": false,
+    "supplementalAssets": 2
+  },
+  "sourceGrid": {
+    "layout": "3x2",
+    "dimensions": "1536x1024",
+    "cellDimensions": "512x512",
+    "cropMethod": "Recorte central de 500x500 px com margem de 6 px por célula, ampliado para 512x512; RGB WebP quality 91. Um quadro de Golpe Descontínuo foi corrigido e ampliado a partir de fonte quadrada após inspeção. Dois quadros adicionais em fonte quadrada cobrem arte de forma alternativa."
+  },
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "sourceFiles": [
+    {
+      "path": "art/source/o-passo-interrompido-painterly-rework-20261026-sheet.webp",
+      "title": "O Descontínuo — folha de seis cenas",
+      "dimensions": "1536x1024",
+      "bytes": 575870,
+      "sha256": "86901f9bb3768fce6d98a33c06084faee5b620edb2a5ee98f27059475005328b",
+      "cellOrder": [
+        "Retrato",
+        "Passo que Retorna",
+        "Fissura do Passo",
+        "Entre Dois Instantes",
+        "Golpe Descontínuo",
+        "Passo Fora do Tempo"
+      ]
+    },
+    {
+      "path": "art/source/a-linha-partida-painterly-rework-20261026-sheet.webp",
+      "title": "A Cindida — folha de seis cenas",
+      "dimensions": "1536x1024",
+      "bytes": 520438,
+      "sha256": "e9cb72bd12ac4148cb7a495eb4b941c4f62a5954c0a069fad7e17a7b4105e598",
+      "cellOrder": [
+        "Retrato",
+        "Tensão da Ruptura",
+        "Extremidade Solta",
+        "Nó de Emergência",
+        "Puxar o Fim da Linha",
+        "Linha Inalcançável"
+      ]
+    },
+    {
+      "path": "art/source/o-eco-sem-dono-painterly-rework-20261026-sheet.webp",
+      "title": "O Eco — folha de seis cenas",
+      "dimensions": "1536x1024",
+      "bytes": 586804,
+      "sha256": "16b348e8e938c043be2939c0f8122d47c93c37f3a48daef7c198fb83aa848bb5",
+      "cellOrder": [
+        "Retrato",
+        "Ressonância sem Dono",
+        "Eco Residual",
+        "Devolver a Voz",
+        "Coro sem Origem",
+        "Eco Intangível"
+      ]
+    },
+    {
+      "path": "art/source/o-descontinuo-skill-voto-correction-20261026.webp",
+      "title": "Golpe Descontínuo — recorte corrigido após inspeção visual",
+      "dimensions": "1254x1254",
+      "bytes": 391394,
+      "sha256": "6c892a6e0086d06a8ed4f1449c162ec285609bccc2930eb662ad1f465991cd8f",
+      "derivedFrom": "art/source/o-passo-interrompido-painterly-rework-20261026-sheet.webp"
+    },
+    {
+      "path": "art/source/a-cindida-reatar-linha-painterly-20261026.webp",
+      "title": "Reatar a Linha — arte ativa da forma alternativa",
+      "dimensions": "1254x1254",
+      "bytes": 347638,
+      "sha256": "492d0c216132084dbbbd4811b5cc2542c7e9de24de0de66d805788c7a34feb14"
+    },
+    {
+      "path": "art/source/o-eco-ressonancia-roubada-portrait-painterly-20261026.webp",
+      "title": "Ressonância Roubada — retrato alternativo",
+      "dimensions": "1254x1254",
+      "bytes": 367946,
+      "sha256": "ddfa8e01495783c6097860c6637e8467896fc7f9d7418a2b7e00dfcf2af84ad3"
+    }
+  ],
+  "characters": [
+    {
+      "id": "o-passo-interrompido",
+      "name": "O Descontínuo",
+      "aliases": [
+        "O Passo Interrompido"
+      ],
+      "activeDirectory": "art/characters/o-passo-interrompido",
+      "sourceSheets": [
+        "art/source/o-passo-interrompido-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/art/characters/o-passo-interrompido/portrait.webp",
+          "scene": "Retrato do adulto andrógino com pele oliva clara, olhos violeta e âmbar, cabelo assimétrico preto e branco, casaco marfim-violeta e prisma facetado no cinto.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 86282,
+          "sha256": "1883de9b6eb496c5a573768de9fd5e57ab2ec0582f7e60724cfa2740bf9a7163"
+        },
+        {
+          "activePath": "/art/characters/o-passo-interrompido/passive.webp",
+          "scene": "Prisma no cinto divide em pequenos deslocamentos apenas a sombra própria sobre a praia ao entardecer.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 85488,
+          "sha256": "2ec9ee159188f8d6a7be8d15ecc456886ae217c4bceb3c8d5c3cf9a6c41a2c76"
+        },
+        {
+          "activePath": "/art/characters/o-passo-interrompido/skill-impulso.webp",
+          "scene": "Fissura curta aberta pelo calcanhar atinge e marca exatamente um inimigo na caverna de raízes ascendentes.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512,
+          "bytes": 92364,
+          "sha256": "2cea1a27046100fc969156e26ec7b46c5c6b328f40d951dcf92808c47511bd93"
+        },
+        {
+          "activePath": "/art/characters/o-passo-interrompido/skill-tecnica.webp",
+          "scene": "O Descontínuo cruza degraus desalinhados e chuta exatamente um inimigo no aqueduto inclinado.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512,
+          "bytes": 99452,
+          "sha256": "1c9cfac8d33f8617f8f2eb9eb560a319501dc16cf4a3661111cf2d8ecac191c9"
+        },
+        {
+          "activePath": "/art/characters/o-passo-interrompido/skill-voto.webp",
+          "scene": "Golpe concentrado consome cargas contra o único inimigo marcado; o quadro corrigido mostra apenas o usuário e esse alvo.",
+          "targetCount": "1 inimigo marcado",
+          "width": 512,
+          "height": 512,
+          "bytes": 106692,
+          "sha256": "d185642970954276a880ee45533e013bcfa91efcfed1537430f417cc5343cf1e"
+        },
+        {
+          "activePath": "/art/characters/o-passo-interrompido/skill-despertar.webp",
+          "scene": "Defesa pessoal: o casaco atravessa uma fenda oblíqua e evita uma espada que passa atrás do tronco; agressor fora do quadro.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 91918,
+          "sha256": "6dfcf3dc248a9b91b761a1402288a33c76d8cf13b9d0e817b96e49939e54da71"
+        }
+      ]
+    },
+    {
+      "id": "a-linha-partida",
+      "name": "A Cindida",
+      "aliases": [
+        "A Linha Partida"
+      ],
+      "activeDirectory": "art/characters/a-linha-partida/continuation-revision-20261023",
+      "sourceSheets": [
+        "art/source/a-linha-partida-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/portrait.webp",
+          "scene": "Retrato da mulher alta e esguia de 36 anos, pele oliva clara, sobrancelhas preta e branca, cabelo preto irregular, casaco violeta curto e calças brancas enroladas.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 78848,
+          "sha256": "1b4c371bdb5e87d00591ec9c77519dbd48f4b2bb071a9ec902246296390d98c5"
+        },
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/passive.webp",
+          "scene": "Mãos de cinco dedos examinam um ponto de costura vermelha rompida na própria manga ao lado do desmanchador de costura.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 69400,
+          "sha256": "0b92c6752230f4a3d7ed47e9dac6935b7891d44126f7cacf6b888c4e3f097fb5"
+        },
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/skill-impulso.webp",
+          "scene": "Corte curto com desmanchador envia uma única linha vermelha quebrada contra exatamente um inimigo encouraçado.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512,
+          "bytes": 87382,
+          "sha256": "5ca43581b3e38e8a1922e118c22559478e85991e24a8cf53d0cd612a70d8a68e"
+        },
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/skill-tecnica.webp",
+          "scene": "Nó de Emergência ampara exatamente uma aliada com linha espacial; A Cindida aparece sob esforço, sem ferida explícita.",
+          "targetCount": "1 aliada",
+          "width": 512,
+          "height": 512,
+          "bytes": 71424,
+          "sha256": "616bbcc71e69b274ce35bde5c955737c9e83457e58fdcad0c309089e15d67433"
+        },
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/skill-voto.webp",
+          "scene": "Linha espacial puxa exatamente um inimigo já marcado para o ponto de ruptura; o alvo permanece inteiro.",
+          "targetCount": "1 inimigo marcado",
+          "width": 512,
+          "height": 512,
+          "bytes": 90674,
+          "sha256": "de19dc879750d0605e84986c287638d047796ffa38f8e0a78145bb088cb4caf8"
+        },
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/skill-despertar.webp",
+          "scene": "Defesa pessoal: uma costura espacial contorna somente A Cindida e deixa uma flecha passar pelo vazio; agressor fora do quadro.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 84914,
+          "sha256": "d92f97a7e9c940b7d539ed9369624b76e2f73b35ca71b0f3aeebf1e60bdcd69d"
+        }
+      ],
+      "alternateAssets": [
+        {
+          "activePath": "/art/characters/a-linha-partida/continuation-revision-20261023/skill-impulso-mend.webp",
+          "form": "mend",
+          "scene": "Reatar a Linha: a Cindida protege e limpa exatamente uma aliada com um nó espacial vermelho, sem inimigo visível.",
+          "targetCount": "1 aliada",
+          "width": 512,
+          "height": 512,
+          "bytes": 92586,
+          "sha256": "9113e7a0e1480d7d3efaa5a1dfc21e35d5111ef2e8733475ab54416be6da274c"
+        }
+      ]
+    },
+    {
+      "id": "o-eco-sem-dono",
+      "name": "O Eco",
+      "aliases": [
+        "O Eco sem Dono"
+      ],
+      "activeDirectory": "art/characters/o-eco-sem-dono",
+      "sourceSheets": [
+        "art/source/o-eco-sem-dono-painterly-rework-20261026-sheet.webp"
+      ],
+      "assets": [
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/body-forms-20261023/portrait-base.webp",
+          "scene": "Retrato do homem aparição de 45 anos, pele arenosa, olhos cansados, cabelo cinza penteado para trás, cachecol azul-pálido assimétrico e sino de bronze vazio.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 90794,
+          "sha256": "1b683f45bea43a275a2a25ecca9a8c3ba3457839c00a52d365dc2d52613a7bcb"
+        },
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/form-revision-20261023/passive.webp",
+          "scene": "Detalhe do sino antigo sem badalo e do punho azul; uma única pós-imagem ciano tardia ecoa o próprio gesto.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 93100,
+          "sha256": "cb0a62b8cee06b2a40c405b50626e3544a55e2ca64be3fdf972e43c412fbf676"
+        },
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/form-revision-20261023/skill-impulso.webp",
+          "scene": "O sino vazio acerta exatamente um inimigo; um impacto ciano atrasado acompanha o mesmo golpe.",
+          "targetCount": "1 inimigo",
+          "width": 512,
+          "height": 512,
+          "bytes": 91790,
+          "sha256": "8f70d936eae68f98a98161a9837070cd107f6e9eaaa1f4e71f994afcb4be0df7"
+        },
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/form-revision-20261023/skill-tecnica.webp",
+          "scene": "Devolver a Voz concede contra-ataque a exatamente um aliado; O Eco e uma aliada enfrentam um projétil vindo de fora do quadro.",
+          "targetCount": "1 aliado",
+          "width": 512,
+          "height": 512,
+          "bytes": 106412,
+          "sha256": "82fc9ab6c1f11cd2b6191f01dfb824e5037a687e82b1fcb1a2e16718eb0bad08"
+        },
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/form-revision-20261023/skill-voto.webp",
+          "scene": "Coro sem Origem atinge exatamente três inimigos distintos com ondas ciano; uma pós-imagem única do usuário não se confunde com um alvo.",
+          "targetCount": "3 inimigos",
+          "width": 512,
+          "height": 512,
+          "bytes": 108756,
+          "sha256": "88828386f24ea88c92c617b6a1e63bd71a390567bbc76635ba4673347289672f"
+        },
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/form-revision-20261023/skill-despertar.webp",
+          "scene": "Defesa pessoal: anel de ressonância protege apenas O Eco e o sino vazio contra um projétil fora de quadro.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 89610,
+          "sha256": "2f317461eded725871639d09363757949c19d288dc85db11b00cd747305eedce"
+        }
+      ],
+      "activeDirectories": [
+        "art/characters/o-eco-sem-dono/form-revision-20261023",
+        "art/characters/o-eco-sem-dono/body-forms-20261023"
+      ],
+      "alternateAssets": [
+        {
+          "activePath": "/art/characters/o-eco-sem-dono/body-forms-20261023/portrait-stolen.webp",
+          "form": "stolen",
+          "scene": "Retrato alternativo da Ressonância Roubada: um único eco ciano translúcido acompanha o próprio O Eco.",
+          "targetCount": "self",
+          "width": 512,
+          "height": 512,
+          "bytes": 108562,
+          "sha256": "6c11b180d278dcfe967cf933e8ca33c023a8cb86c9e5d1a994fd5e9b5a025b34"
+        }
+      ]
+    }
+  ],
+  "visualReview": "Inspeção visual concluída nos 18 sprites base e duas artes suplementares de formas ativas. O Descontínuo conserva olhos de cores diferentes, cabelo preto e branco, casaco marfim-violeta e prisma facetado; Golpe Descontínuo recebeu correção para mostrar somente o único alvo marcado. A Cindida preserva a sobrancelha bicolor, casaco violeta, calças brancas e desmanchador, usando uma costura espacial vermelha sem mutilação. O Eco mantém anatomia humana, cachecol azul assimétrico e sino de bronze sem badalo, com apenas uma pós-imagem tardia. Ataques focados mostram um inimigo, os apoios de A Cindida e O Eco mostram um aliado cada, Coro sem Origem mostra exatamente três inimigos e as três defesas protegem somente o usuário. Custos, alvos, valores, efeitos, durações, recargas e regras permaneceram intactos. Reatar a Linha mostra um único aliado; o retrato alternativo do Eco mantém uma só pós-imagem."
+}

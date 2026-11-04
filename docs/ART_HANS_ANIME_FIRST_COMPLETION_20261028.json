@@ -1,0 +1,47 @@
+{
+  "id": "hans-anime-first-completion-20261028",
+  "date": "2026-10-28",
+  "characterId": "hans",
+  "displayName": "Hans",
+  "world": "Inferno",
+  "realm": "Pútrido",
+  "artDirection": "Anime 2.5D pictórico e gótico no Inferno de Dante, Pútrido/Podridão: pomar afogado, água parada, árvores de frutos escuros, fungos pálidos e névoa verde-negra. Hans é um homem maduro da África Oriental, de barba prateada, túnica verde-fuligem e xale vinho. A decadência surge como pétalas, pólen, raízes e marcas sobre tecido; sem ferramentas, armas, armadura, mecanismos ou gore.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/hans/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/hans-anime-first-completion-20261028/portrait.webp",
+      "scene": "Hans observa o pomar doente do Inferno, com manto verde-fuligem e xale vinho, sob galhos de frutos escurecidos e flores pálidas de fungo."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/hans/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/hans-anime-first-completion-20261028/passive.webp",
+      "scene": "Hans apoia a mão no peito e recupera uma brasa de cinza enquanto duas almas com sinais de decomposição permanecem separadas ao fundo."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/hans/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/hans-anime-first-completion-20261028/impulso.webp",
+      "scene": "Hans inclina uma folha de espinheiro escuro; pólen verde-negro alcança uma alma de trança longa, que se curva e prende a respiração."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/hans/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/hans-anime-first-completion-20261028/tecnica.webp",
+      "scene": "Vista alta do pomar: uma onda de pétalas e esporos de decadência alcança três almas condenadas ao mesmo tempo, enquanto Hans observa do terraço."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/hans/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/hans-anime-first-completion-20261028/voto.webp",
+      "scene": "Uma alma ergue luz de cura, mas um ramo de espinheiro atravessa a roupa sobre o ombro e apaga o brilho; Hans segura o outro extremo do ramo."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/hans/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/hans-anime-first-completion-20261028/despertar.webp",
+      "scene": "Hans se recolhe num nicho formado por raízes mortas; um véu de fungo e névoa fecha a entrada ao redor do seu manto."
+    }
+  ]
+}

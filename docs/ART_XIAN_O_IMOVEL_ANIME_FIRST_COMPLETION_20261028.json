@@ -1,0 +1,47 @@
+{
+  "id": "xian-o-imovel-anime-first-completion-20261028",
+  "date": "2026-10-28",
+  "characterId": "xian-o-imovel",
+  "displayName": "Xian, o Imóvel",
+  "world": "Inferno",
+  "realm": "Tártaro",
+  "artDirection": "Anime 2.5D pictórico e gótico no Inferno de Dante, Tártaro: tribunal congelado de mármore negro, piscina imóvel e fendas violetas. A forma sentinela de Xian preserva o rosto e porte reconhecíveis, com cabelo prateado, robes marfim/carvão/violeta e sash vinho. Defesa por peso, sombra, geada e ruptura arcana, sem armas, armadura, mecanismos ou tecnologia.",
+  "assets": [
+    {
+      "slot": "portrait",
+      "path": "/art/characters/xian-o-imovel/anime-first-completion-20261028/portrait.webp",
+      "source": "/art/source/xian-o-imovel-anime-first-completion-20261028/portrait.webp",
+      "scene": "Retrato da forma sentinela de Xian, reconhecível pelo maxilar largo e mecha escura no cabelo prateado; o manto marfim e violeta cai sob lintéis gelados."
+    },
+    {
+      "slot": "passive",
+      "path": "/art/characters/xian-o-imovel/anime-first-completion-20261028/passive.webp",
+      "source": "/art/source/xian-o-imovel-anime-first-completion-20261028/passive.webp",
+      "scene": "Xian desvia um golpe com o antebraço; a fissura de Ruptura acende sob seu pé e a luz de apoio desaparece nos pulsos do agressor."
+    },
+    {
+      "slot": "impulso",
+      "path": "/art/characters/xian-o-imovel/anime-first-completion-20261028/skill-impulso.webp",
+      "source": "/art/source/xian-o-imovel-anime-first-completion-20261028/impulso.webp",
+      "scene": "Xian intercepta um golpe de antebraço e devolve um pulso de pressão que faz o oponente recuar sobre a piscina imóvel."
+    },
+    {
+      "slot": "tecnica",
+      "path": "/art/characters/xian-o-imovel/anime-first-completion-20261028/skill-tecnica.webp",
+      "source": "/art/source/xian-o-imovel-anime-first-completion-20261028/tecnica.webp",
+      "scene": "A sombra de Xian sobe pelo manto do alvo e deixa um selo violeta que extingue a chama ofensiva sem ferir a pele."
+    },
+    {
+      "slot": "voto",
+      "path": "/art/characters/xian-o-imovel/anime-first-completion-20261028/skill-voto.webp",
+      "source": "/art/source/xian-o-imovel-anime-first-completion-20261028/voto.webp",
+      "scene": "Uma alma já enfraquecida mal consegue erguer a mão; um ponto violeta atravessa apenas seu tecido enquanto Xian permanece distante."
+    },
+    {
+      "slot": "despertar",
+      "path": "/art/characters/xian-o-imovel/anime-first-completion-20261028/skill-despertar.webp",
+      "source": "/art/source/xian-o-imovel-anime-first-completion-20261028/despertar.webp",
+      "scene": "Xian fica imóvel no centro do tribunal de mármore negro, com o véu violeta e a neve de pétalas girando sem tocá-lo."
+    }
+  ]
+}

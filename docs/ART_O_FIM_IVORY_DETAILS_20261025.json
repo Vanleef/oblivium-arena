@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-25",
+  "generator": "image_gen.imagegen (built-in)",
+  "scope": "Add restrained bone-white details to Tyrant and Ruin, matching the material of Predator’s bone plates while preserving each form’s distinct silhouette, palette and scenes.",
+  "reference": "art/characters/o-fim/body-forms-distinct-20261024/portrait-predator.webp",
+  "preserved": "Predator art is unchanged. Tyrant remains the only crowned form. Ruin remains crownless.",
+  "style": "Square dark gothic anime fantasy with charcoal silhouettes, ember or spectral violet lighting, no text or UI.",
+  "assets": [
+    {
+      "key": "portrait-tyrant",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/portrait-tyrant.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 154048,
+      "sha256": "22779f119dc556bf383fd6c127fb403b8f6b2e68ed79a64dbc4907fa4c3049d4",
+      "source": "exec-5299bb62-d389-4703-b0e9-ef12d005188e.png",
+      "sourceSha256": "6b0fd0bf180067151c7a7f94c59bd02dea6beb8b68d90f6ac2e99c9036cf7d9b",
+      "promptSummary": "Localized matte ivory bone plates on one massive shoulder, a forearm and a few knuckles, keeping the basalt body and war diadem visually dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "portrait-ruin",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/portrait-ruin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 120650,
+      "sha256": "656791cf73f1d2a40594f176a6b0e7325c18670b5b4def22eb2e2534014fb994",
+      "source": "exec-d8afc4f2-61d0-41dd-9c6b-7ecb5bf20a35.png",
+      "sourceSha256": "714f2f51284a5fdfb0795e1f21a02f3275d90bf629520b93e229b09b4ca2ded3",
+      "promptSummary": "Small matte ivory bone fragments at the collarbone, one forearm and lower torso, keeping the floating four-armed silhouette and violet spectral effects dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "skill-tyrant-punch",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/skill-tyrant-punch.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 97824,
+      "sha256": "3c387e386f8c8a3d0842976492eb873330f53ae8479e16128a0e13711197c5c3",
+      "source": "exec-43e522d5-5343-45bc-b233-b486791e1e3c.png",
+      "sourceSha256": "b5b8104af877ef73eada76c09a6bb91a9bad0fa89291c1307f2d0314ebb74c05",
+      "promptSummary": "Localized matte ivory bone plates on one massive shoulder, a forearm and a few knuckles, keeping the basalt body and war diadem visually dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "skill-tyrant-break",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/skill-tyrant-break.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 95458,
+      "sha256": "3cfb9bd833488a8900155e46fc78c0889f33e2405e9ba73c07412ca143e59359",
+      "source": "exec-0e09edaf-6eac-44b7-ad71-c0f585487bce.png",
+      "sourceSha256": "3e0661667f8cd28acd8b61aadc3df38ba7a917a82ce68bba3a67bd495a14dd4f",
+      "promptSummary": "Localized matte ivory bone plates on one massive shoulder, a forearm and a few knuckles, keeping the basalt body and war diadem visually dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "skill-tyrant-finisher",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/skill-tyrant-finisher.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 99784,
+      "sha256": "e1e209c61b128455a2eb8ea16797da1e9fc9182647379baf71e22eb43ab506fe",
+      "source": "exec-d1e77497-ae8d-4452-b651-f43078fdb8a7.png",
+      "sourceSha256": "fa952c66b222fe63d947032860eb88b117aeef77f014c96e380cb362c148b9da",
+      "promptSummary": "Localized matte ivory bone plates on one massive shoulder, a forearm and a few knuckles, keeping the basalt body and war diadem visually dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "skill-ruin-thread",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/skill-ruin-thread.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 70534,
+      "sha256": "9a4937120222a09e24b2fac3fc94658a43f9ce45f0397a025a7aaa30a38f8395",
+      "source": "exec-10fc2ee7-b08f-461c-a6ab-edaf3254fa32.png",
+      "sourceSha256": "75a2d5ab6f5602b0ce72842e4be53ea8b8a34a258e0707235a7c4bf6951fc73a",
+      "promptSummary": "Small matte ivory bone fragments at the collarbone, one forearm and lower torso, keeping the floating four-armed silhouette and violet spectral effects dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "skill-ruin-bind",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/skill-ruin-bind.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 88570,
+      "sha256": "4ced396183c4588bcbea62d0263909e869741943ab22e891198b382646adae31",
+      "source": "exec-4b8f29af-0d46-40e7-bf77-672b14a9f5ca.png",
+      "sourceSha256": "e454a747f3c5255b5e442cf95dd32d096bd2fa8615fdeef2c2ba82bfe538c692",
+      "promptSummary": "Small matte ivory bone fragments at the collarbone, one forearm and lower torso, keeping the floating four-armed silhouette and violet spectral effects dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    },
+    {
+      "key": "skill-ruin-circle",
+      "path": "art/characters/o-fim/body-forms-ivory-20261025/skill-ruin-circle.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 90796,
+      "sha256": "de5ba4806ad875441fe60a8383be72e3d6d4478829e061fcd21a10c6d4defe60",
+      "source": "exec-c3e02ad6-05fe-4c98-b201-0a6207ea8fc4.png",
+      "sourceSha256": "52586af0a6f2219de19850930b5d2e7af6b56eb152bb47b5efa79722a83039c6",
+      "promptSummary": "Small matte ivory bone fragments at the collarbone, one forearm and lower torso, keeping the floating four-armed silhouette and violet spectral effects dominant.",
+      "review": "The ivory accents are visibly related to Predator’s pale bone plates while remaining localized and consistent with this form’s silhouette. Tyrant keeps the only crown; Ruin remains crownless."
+    }
+  ]
+}

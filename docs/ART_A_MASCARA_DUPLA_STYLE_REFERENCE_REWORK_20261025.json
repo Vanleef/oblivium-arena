@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-25",
+  "characterId": "a-mascara-dupla",
+  "name": "A Máscara Dupla",
+  "style": "Pintura digital pictórica (painterly/oil painting), com pinceladas visíveis, camadas de tinta fosca, planos de cor pintados, contornos expressivos e acabamento claramente ilustrado; sem aparência fotográfica ou CGI polido.",
+  "styleReferencePaths": [
+    "art/characters/o-fim/hybrid-animation-20261025/portrait.webp",
+    "art/characters/o-que-revela/hybrid-rework-20261025/portrait.webp",
+    "art/characters/o-olho-desarmado/hybrid-rework-20261025/portrait.webp"
+  ],
+  "setting": "Mentira à noite: teatro antigo, camarim, espelhos, cortinas vermelhas, palco e balcão de pedra.",
+  "identity": "Mulher de pele castanha escura, cachos curtos branco-prateados, capa branca, roupa preta de gola alta e fechos dourados, brincos longos e máscaras marfim com filigrana dourada. Na forma da Traição, o cabelo escurece e se alonga; meia máscara cobre um lado de um único rosto e o olho âmbar real permanece visível.",
+  "sourceSheet": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+  "sourceSheetPath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+  "sourceDimensions": "1254x1254",
+  "sourceSheetDimensions": "1254x1254",
+  "activeDirectory": "art/characters/a-mascara-dupla/style-reference-rework-20261025",
+  "activeDimensions": "512x512",
+  "gameplayChanged": false,
+  "assets": [
+    {
+      "slot": "portrait",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/portrait.webp",
+      "scene": "Retrato no balcão do teatro, máscara sorridente na mão e cachos prateados visíveis.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "passive",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/passive.webp",
+      "scene": "No camarim, dois rostos de marfim e um único mote de essência entre eles; o espelho mostra apenas o reflexo alinhado da mesma mulher.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-impulso",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/skill-impulso.webp",
+      "scene": "Um guarda percebe a marca vermelha e o vínculo com a própria sombra ao olhar o espelho.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-tecnica",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/skill-tecnica.webp",
+      "scene": "Vista alta do palco: um guarda recua quando a própria sombra mascarada rebate o impacto.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-voto",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/skill-voto.webp",
+      "scene": "Após o golpe, um único alvo ajoelha atrás da cortina; um mote sai da palma aberta rumo à máscara na cadeira.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-despertar",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/skill-despertar.webp",
+      "scene": "Defesa pessoal comunicada por uma máscara intacta e uma adaga partida sobre veludo, sem corpos.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "portrait-base",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/portrait-base.webp",
+      "scene": "Forma base com máscara inteira sobre o rosto, cachos prateados curtos e segunda máscara presa à faixa vermelha.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "portrait-betrayal",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/portrait-betrayal.webp",
+      "scene": "Forma da Traição: o mesmo rosto contínuo, cabelo escurecido e alongado, meia máscara e um olho âmbar real visível.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    },
+    {
+      "slot": "skill-impulso-other",
+      "activePath": "art/characters/a-mascara-dupla/style-reference-rework-20261025/skill-impulso-other.webp",
+      "scene": "Na perspectiva do atacante, um fragmento de porcelana rebate um único golpe como uma onda rubra e dourada.",
+      "sourcePath": "art/source/a-mascara-dupla-style-reference-rework-20261025-sheet.webp",
+      "sourceDimensions": "1254x1254",
+      "sourceMethod": "Recorte interno quadrado de prancha 3 × 3; a fonte foi preservada em 1254 × 1254 e cada célula de 410 × 410 foi ampliada para 512 × 512.",
+      "activeDimensions": "512x512"
+    }
+  ],
+  "visualReview": "Inspecionados nove recortes, continuidade das duas formas, alinhamento dos reflexos, anatomy, número de corpos e variação de câmera.",
+  "userArtDirectionClarification": "A linha geral é pintura digital pictórica/painterly, com pinceladas perceptíveis; Arcane/Aranhaverso são referências amplas de energia visual apenas.",
+  "world": "Inferno",
+  "elo": "Mentira",
+  "moralTone": "Ser do Inferno vil e guiado pela maldade. Pode discordar de O Fim, mas nunca é bondoso."
+}
