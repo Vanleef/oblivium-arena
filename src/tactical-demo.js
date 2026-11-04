@@ -6,7 +6,7 @@ import {skillSealReason} from './combat-effects.js';
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {tacticalEnvironments} from './tactical-environment.js';
 import {tacticalResolutionFeedback} from './tactical-insight.js';
-import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
+import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalProjectileKind,tacticalReplayFrames} from './tactical-cinematic.js';
 import {characterById} from './data.js';
 import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
 import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits,fortressCooldown,fortressTechniqueSpec} from './tactical-combat.js';
@@ -15,9 +15,11 @@ import {boardCells,boardWidth,boardHeight,boardTracks,cellLabel,sameCell,findPat
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText,patternNames} from './tactical-kits.js';
 import {tacticalFrameArt,tacticalImpactActive,tacticalFrameDuration,tacticalDamagedTargets} from './tactical-animation.js';
 import {tacticalSpriteFrame,tacticalSpriteInline,paintTacticalToken} from './tactical-sprites.js';
+import {TacticalEffectsLayer} from './tactical-effects-layer.js';
 import {tacticalExchangeVfxMarkup} from './tactical-vfx.js';
 import {getAbilityResourceCosts,resourceIds,resolveResourcePayment} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
+let tacticalEffects;
 let aiWorker,aiJob,aiSequence=0;
 const projectilePreload=new Image();projectilePreload.src='/art/animations/tactical-vfx-20261102/projectile-materials-v1.webp';
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
@@ -276,7 +278,7 @@ function boardMarkup(s,selection){
  const layout=s.tactical.fortress?' style="--fort-cols:'+tracks.columns.length+';--fort-rows:'+tracks.rows.length+'"':'';
  const source=impact?anim.before?.positions?.[anim.actorId]:null;
  const caster=impact?tacticalUnits(s).find(actor=>actor.id===anim.actorId):null;
- return '<div class="board '+(options?'movement-mode ':'')+(selection?'technique-preview':'')+'"'+layout+' role="group" aria-label="Arena tática em grade '+tracks.columns.length+' por '+tracks.rows.length+'">'+movementTrailMarkup(movement,s)+tacticalProjectileMarkup(anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null,anim?animationAbility(tacticalUnits(s).find(u=>u.id===anim.actorId),anim):null,anim)+boardCells(s).map(p=>{
+ return '<div class="board '+(options?'movement-mode ':'')+(selection?'technique-preview':'')+'"'+layout+' role="group" aria-label="Arena tática em grade '+tracks.columns.length+' por '+tracks.rows.length+'">'+movementTrailMarkup(movement,s)+(s.tactical.fortress?'':tacticalProjectileMarkup(anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null,anim?animationAbility(tacticalUnits(s).find(u=>u.id===anim.actorId),anim):null,anim))+boardCells(s).map(p=>{
   const environment=s.tactical.environment,environmentCell=environment&&sameCell(environment.position,p);
   const unit=occupied(s,p),chest=s.tactical.chests.find(item=>sameCell(item.position,p)),blocked=obstacle(s,p),reachable=options?findPath(s,mover.id,p):null,atOrigin=origin&&sameCell(origin,p);
   const chestEvent=anim?.type==='chest-spawn'&&anim.pose==='impact'?anim.chest:
@@ -293,21 +295,18 @@ function boardMarkup(s,selection){
   const sprite=unit?tacticalSpriteFrame(unit,anim?.actorId===unit.id?anim:null):null;
   const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait;
-  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(s.tactical.fortress&&p.x===0?', fortaleza aliada':s.tactical.fortress&&p.x===boardWidth(s)-1?', fortaleza inimiga':'')+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family,caster?.realm,source,p,Boolean(unit&&(hits.has(unit.id)||anim.affectedTargetIds?.includes(unit.id)||anim.type==='guard'))):'')+
+  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(s.tactical.fortress&&p.x===0?', fortaleza aliada':s.tactical.fortress&&p.x===boardWidth(s)-1?', fortaleza inimiga':'')+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(!s.tactical.fortress&&wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family,caster?.realm,source,p,Boolean(unit&&(hits.has(unit.id)||anim.affectedTargetIds?.includes(unit.id)||anim.type==='guard'))):'')+
    (unit?activationSignal(unit,spent):'')+(chestFlash?'<span class="chest-flash" aria-hidden="true"><i></i></span>':'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i></i></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-body-clip="'+Boolean(sprite?.bodyClip)+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="'+tacticalSpriteInline(sprite)+'">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 let arenaAssetRevision=0,arenaFirstPaintComplete=false;
 function paintArenaAssetsWhenDecoded(){
+ if(arenaFirstPaintComplete)return;
  const revision=++arenaAssetRevision,images=[...root.querySelectorAll('.arena-backdrop,.sprite-sheet')];
  Promise.all(images.map(image=>typeof image.decode==='function'?image.decode().catch(()=>undefined):Promise.resolve())).then(()=>{
   if(revision!==arenaAssetRevision)return;
   const stage=root.querySelector('.arena-stage');if(!stage)return;
   root.classList.add('arena-assets-ready');
-  const previousVisibility=stage.style.visibility;
-  stage.style.visibility='hidden';
-  void stage.offsetHeight;
-  stage.style.visibility=previousVisibility;
   if(!arenaFirstPaintComplete){
    arenaFirstPaintComplete=true;
    const top=window.scrollY,stageTop=(root.querySelector('.battle-surface')||stage).getBoundingClientRect().top+top;
@@ -357,6 +356,7 @@ function render(){
   const attribute=focusKey.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase());
   [...root.querySelectorAll('[data-'+attribute+']')].find(button=>!button.disabled&&button.dataset[focusKey]===focused[focusKey]&&button.dataset.spendKind===focused.spendKind)?.focus({preventScroll:true});
  }
+ if(tacticalEffects?.frame)tacticalEffects.attach(root.querySelector('.board'));
  announceTurnIncome();paintArenaAssetsWhenDecoded();syncPlaybackRate();
 }
 function teamSelect(side,index){const units=side==='player'?state.battle.allies:state.battle.enemies,chosen=units[index].sourceId||units[index].id;return `<select id="${side}-choice-${index}" aria-label="${side==='player'?'Aliado':'Adversário'} ${index+1}">${(side==='player'?tacticalRoster:tacticalOpponentRoster).map(id=>`<option value="${id}" ${id===chosen?'selected':''}>${esc(characterById[id].name)} — ${esc(characterById[id].identityTitle)}</option>`).join('')}</select>`;}
@@ -366,13 +366,31 @@ function paintAnimationPose(event,frame){
  const snapshot=event.before||shown(),unit=[...(snapshot.allies||[]),...(snapshot.enemies||[])].find(c=>c.id===event.actorId),ability=animationAbility(unit,event);
  const stage=root.querySelector('.arena-stage'),cutin=stage?.querySelector('.skill-cutin');
  if(cutin){if(tacticalCutinActive(state.animation))cutin.dataset.pose=frame.pose;else cutin.remove();}
+ if(!state.battle.tactical.fortress){
  stage?.querySelectorAll('.skill-projectile').forEach(node=>node.remove());
  const projectile=tacticalProjectileMarkup(unit,ability,state.animation);if(projectile)stage?.querySelector('.board')?.insertAdjacentHTML('beforeend',projectile);
+ }
  if(!tacticalImpactActive(state.animation))for(const effect of root.querySelectorAll('.cell-vfx,.exchange-impact'))effect.remove();
  if(!tacticalImpactActive(state.animation))for(const cell of root.querySelectorAll('.cell.wave, .cell.hit'))cell.classList.remove('wave','hit',...Array.from(cell.classList).filter(name=>name.startsWith('wave-')));
- for(const token of root.querySelectorAll('.token'))paintTacticalToken(token,unit,event,frame);
+ const token=stage?.querySelector('.token[data-unit-id="'+esc(event.actorId)+'"]');
+ if(token&&paintTacticalToken(token,unit,event,frame)&&state.battle.tactical.fortress){
+  token.style.setProperty('--pose-duration',Math.round(tacticalFrameDuration(state.animation)*.68/state.playbackSpeed)+'ms');
+ }
  const callout=root.querySelector('.arena-callout');if(callout){callout.dataset.family=frame.family;callout.dataset.pose=frame.pose;}
- syncPlaybackRate();
+ if(!state.battle.tactical.fortress)syncPlaybackRate();
+}
+function paintFortressEffects(event,unit,ability,index,impact,duration,reduced){
+ const phase=impact?'impact':index===0?'prepare':['release','thrust'].includes(event.pose)?'release':['travel','spread'].includes(event.pose)?'travel':null;
+ if(!phase||!unit||event.skipped||typeof requestAnimationFrame!=='function')return;
+ const projectile=tacticalProjectileKind(unit,ability,event);
+ if(phase==='travel'&&(!projectile||reduced))return;
+ if(!tacticalEffects){
+  const canvas=document.createElement('canvas');
+  canvas.className='tactical-effects-canvas';
+  canvas.setAttribute('aria-hidden','true');
+  tacticalEffects=new TacticalEffectsLayer(canvas);
+ }
+ tacticalEffects.emit(root.querySelector('.board'),event,unit,phase,phase==='impact'?Math.max(duration,90):duration,{reduced,projectile});
 }
 async function paintExchangeMovement(event,pause,reduced){
  const duration=reduced?40:(event.closure?420:state.battle.tactical.fortress?190:event.moves.length?320:185)/state.playbackSpeed;
@@ -430,9 +448,10 @@ function animateRound(events){
     if(index===0||impact||!event.actorId)render();else paintAnimationPose(event,frame);
     const base=event.actorId?tacticalFrameDuration(state.animation):impact?650:140;
     const duration=reduced?40:Math.round(base*(state.battle.tactical.fortress?.68:1))/state.playbackSpeed;
+    if(state.battle.tactical.fortress)paintFortressEffects(state.animation,unit,ability,index,impact,duration,reduced);
     if(!reduced&&!state.battle.tactical.fortress)applyTacticalShot(root.querySelector('.arena-stage'),state.animation,duration);
     if(!event.skipped&&event.actorId){
-     if(impact)playCombatCue('contact',frame.family);
+     if(impact&&(!state.battle.tactical.fortress||event.affectedTargetIds?.length||event.type==='guard'))playCombatCue('contact',frame.family);
      else if(['release','thrust'].includes(frame.pose))playCombatCue('release',frame.family);
     }
     await pause(duration);
@@ -482,6 +501,7 @@ function resumeActivation(){
  if(state.chestOffer)root.querySelector('.chest-reward')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function resetEncounter(seed){
+ tacticalEffects?.clear();
  aiJob=null;clearSelection();
  Object.assign(state,{incomeRound:0,incomeAnnouncement:null,replaySeenSkills:new Set(),recentEffects:{},terrainEffects:{},resourceMenu:null,lastEvents:[],logRound:0,animation:null,playback:null,seed,rewardChoices:[],chestOffer:null});
  resumeActivation();
