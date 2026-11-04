@@ -274,9 +274,9 @@ function notifyDefeat(s,target,killer){
 }
 function outcome(s){if(!living(s.enemies).length)s.phase="victory";else if(!living(s.allies).length)s.phase="defeat";if(["victory","defeat"].includes(s.phase)){s.intents=[];s.resolution=[];s.queue=[];log(s,s.phase==="victory"?"Vitória! A próxima escolha da trilha será revelada.":"O trio caiu. Uma Corrente da Alma se rompe.");return true;}return false;}
 function apply(s,actor,a,targetId,randomPayment,action={}){
-  const valid=getValidTargets(s,actor,a).filter(u=>!action.spatialTargetIds||action.spatialTargetIds.includes(u.id)),targets=["team","all-enemies"].includes(a.target)?valid:[valid.find(u=>u.id===targetId)||(a.target==="self"?actor:null)].filter(Boolean);
+  const valid=getValidTargets(s,actor,a).filter(u=>!action.spatialTargetIds||action.spatialTargetIds.includes(u.id)),targets=(s.tactical?.fortress&&action.boardCast||["team","all-enemies"].includes(a.target))?valid:[valid.find(u=>u.id===targetId)||(a.target==="self"?actor:null)].filter(Boolean);
   if(!targets.length&&!action.boardCast){log(s,`${actor.name}: ${a.name} não encontra um alvo válido.`);return {skipped:true,reason:"Alvo indisponível ou Invulnerável."};}
-  const p=pool(s,actor.side),payment=resolveResourcePayment(getAbilityResourceCosts(actor,a),p,randomPayment);
+  const p=pool(s,actor.side),payment=s.tactical?.fortress&&action.boardCast?{ok:true,costs:{}}:resolveResourcePayment(getAbilityResourceCosts(actor,a),p,randomPayment);
   if(!payment.ok){log(s,`${actor.name} não tem os tipos de Essência escolhidos para ${a.name}.`);return {skipped:true,reason:"Essências escolhidas removidas antes da resolução."};}
   const costs=payment.costs;
   for(const [id,n]of Object.entries(costs))p[id]-=n;actor.actedThisTurn=true;
@@ -348,9 +348,10 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   if(actor.markNextFresh)actor.markNextFresh=false;else if(a.damage&&actor.markNextTargetId&&targets.some(target=>target.id===actor.markNextTargetId)){if(actor.markNextHeal)heal(actor,actor.markNextHeal);actor.markNextTargetId=null;actor.markNextBonus=0;actor.markNextHeal=0;}
   if(a.damage){actor.shadowDamageBonus=0;if(actor.nextSkillBonus){for(const target of targets)if(actor.nextSkillExpose){target.exposed=Math.max(target.exposed,actor.nextSkillExpose);target.exposedFresh=true;triggerPassive(s,actor,"statusApplied",{target,ability:a,condition:"status"});}actor.nextSkillBonus=0;actor.nextSkillExpose=0;}}
   if(a.clearEchoLink){actor.resonanceTargetId=null;actor.resonanceTurns=0;actor.resonanceFresh=false;}
-  if(a.cooldown){actor.cooldowns[a.id]=Math.max(actor.cooldowns[a.id]||0,a.cooldown);actor.cooldownFresh.push(a.id);}
+  const cooldown=action.boardCast&&s.tactical?.fortress?action.fortressCooldown:a.cooldown;
+  if(cooldown){actor.cooldowns[a.id]=Math.max(actor.cooldowns[a.id]||0,cooldown);actor.cooldownFresh.push(a.id);}
   const ownShift=affected&&a.shift?.some(t=>t.slot===a.id&&t.form!=="base");
-  if(ownShift&&actor.skillForms[a.id]&&a.cooldown){actor.skillForms[a.id].returnCooldown=actor.cooldowns[a.id];delete actor.cooldowns[a.id];actor.cooldownFresh=actor.cooldownFresh.filter(id=>id!==a.id);}
+  if(!s.tactical?.fortress&&ownShift&&actor.skillForms[a.id]&&a.cooldown){actor.skillForms[a.id].returnCooldown=actor.cooldowns[a.id];delete actor.cooldowns[a.id];actor.cooldownFresh=actor.cooldownFresh.filter(id=>id!==a.id);}
   triggerReactives(s,actor,a.defense?"defense":isFriendly?"support":"attack",null,effectsContext(s,reactions));
   refreshSkillForms(s);if((actor.bodyForm||"base")!==priorBodyForm)triggerPassive(s,actor,"formChange",{from:priorBodyForm,to:actor.bodyForm||"base",costs,ability:a});const shifted=priorForms!==actor.abilities.map(a=>a.formKey||"base").join(":");worldAfterAction(s,actor,a,{affected,totalDamage,killed:targets.some(u=>u.hp<=0),shifted,helpful:isFriendly},{heal,shield,log,reactions});const synergies=team(s,actor.side);if(shifted){const formGuard=eloSynergyPeers(synergies,actor,"form")*2;if(formGuard){const gained=shield(actor,formGuard);if(gained){reactions.push({kind:"world",actorId:actor.id,targetId:actor.id,actorName:actor.name,label:"Pele em vigília",shield:gained});log(s,`${actor.name} · Pele em vigília: +${gained} Defesa.`);}}}if(isFriendly&&!a.defense){const supportGuard=eloSynergyPeers(synergies,actor,"support");if(supportGuard){const gained=shield(actor,supportGuard);if(gained){reactions.push({kind:"world",actorId:actor.id,targetId:actor.id,actorName:actor.name,label:"Promessa partilhada",shield:gained});log(s,`${actor.name} · Promessa partilhada: +${gained} Defesa.`);}}}
   if(actor.side==="player"&&targets.some(unit=>unit.hp<=0)&&s.global.essenceOnKill){s.essenceKillRound||={};if(s.essenceKillRound.player!==s.round){const amount=gain(s,"player","ruptura",s.global.essenceOnKill);s.essenceKillRound.player=s.round;if(amount)log(s,`${actor.name} · Espólio da queda: +${amount} Ruptura.`);}}
@@ -375,7 +376,7 @@ function applyNaturalTurnStart(s,side,recoveries=[]){
 }
 function grantTurn(s,recoveries=[]){
   // Both sides draw before any start-of-turn passive can manipulate either reserve.
-  drawEssence(s,"player");drawEssence(s,"enemy");
+  if(!s.tactical?.fortress){drawEssence(s,"player");drawEssence(s,"enemy");}
   const order=s.round%2?["player","enemy"]:["enemy","player"];
   for(const side of ["player","enemy"])applyNaturalTurnStart(s,side,recoveries);
   const refreshAndTriggerForms=()=>{const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,u.bodyForm||"base"]));refreshSkillForms(s);for(const u of [...s.allies,...s.enemies]){const from=before.get(u.id)||"base",to=u.bodyForm||"base";if(from!==to)triggerPassive(s,u,"formChange",{from,to});}};
@@ -440,7 +441,7 @@ function tickEffects(s){
   tick("collapseTurns","collapseFresh",()=>{u.collapseLevel=0;});
  }
 }
-function nextTurn(s,recoveries,skipAI=false){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];if(!skipAI)planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
+function nextTurn(s,recoveries,skipAI=false){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];if(!skipAI)planAI(s);log(s,s.tactical?.fortress?`Rodada ${s.round}.`:`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
 function resolveAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();
   if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}

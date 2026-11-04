@@ -24,7 +24,8 @@ export function tacticalProjectileMarkup(actor,ability,event){
  const kind=tacticalProjectileKind(actor,ability,event);
  if(!kind||!['travel','spread'].includes(event.pose))return '';
  const origin=event.before.positions[actor.id],destination=event.anchor;
- const fromX=(origin.x+.5)*20,fromY=(origin.y+.7)*20,toX=(destination.x+.5)*20,toY=(destination.y+.7)*20;
+ const w=100/(event.before.width||5),h=100/(event.before.height||5);
+ const fromX=(origin.x+.5)*w,fromY=(origin.y+.7)*h,toX=(destination.x+.5)*w,toY=(destination.y+.7)*h;
  const angle=Math.atan2((toY-fromY)*.42,toX-fromX)*180/Math.PI;
  return '<span class="skill-projectile '+kind+'" aria-hidden="true" style="--projectile-from-x:'+fromX+'%;--projectile-from-y:'+fromY+'%;--projectile-to-x:'+toX+'%;--projectile-to-y:'+toY+'%;--projectile-angle:'+angle+'deg;--projectile-row:'+projectileRows[kind]*100/3+'%"><span class="projectile-material"></span></span>';
 }

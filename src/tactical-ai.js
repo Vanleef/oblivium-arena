@@ -48,6 +48,21 @@ export function planTacticalAI(publicState,side='enemy'){
 export function planTacticalAIActivation(s,side='enemy'){
  const view=tacticalView(s,side);let best=null;
  for(const unit of tacticalActivationUnits(view,side)){
+  if(view.tactical.fortress){
+   const edge=side==='player'?8:0,start=view.tactical.positions[unit.id];
+   for(const to of boardCells(view)){
+    const path=findPath(view,unit.id,to);if(!path)continue;
+    for(const ability of unit.abilities){
+     const actions=[{type:'move',actorId:unit.id,path,abilityId:ability.id}],preview=previewTacticalActivation(view,side,unit.id,actions);
+     if(!preview.ok)continue;
+     const value=(Math.abs(start.x-edge)-Math.abs(to.x-edge))*8+(to.x===edge?42:0)
+       +(preview.aim?.targets.length||0)*((ability.damage||0)*.5+(ability.stun?11:0)+(ability.heal?4:0))
+       +(!unit.cooldowns[ability.id]?1:0)-Math.abs(to.y-start.y)*.2;
+     if(!best||value>best.value)best={actorId:unit.id,actions,value};
+    }
+   }
+   continue;
+  }
   const moves=[[],...boardCells().map(to=>findPath(view,unit.id,to)).filter(Boolean).map(path=>[{type:'move',actorId:unit.id,path}])];
   for(const move of moves){
    const projected=move.length?previewTacticalActivation(view,side,unit.id,move).projection:view;

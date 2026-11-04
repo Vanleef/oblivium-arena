@@ -709,3 +709,16 @@
  0%{scale:.55 .8;opacity:0}24%{scale:1;opacity:.72}100%{scale:1.18 1.1;opacity:0}
 }
 @media(prefers-reduced-motion:reduce){.impact-material{animation:none;opacity:.44}}
+
+.fortress-battle .board{grid-template:repeat(6,minmax(0,1fr))/repeat(9,minmax(0,1fr));}
+.fortress-battle .board .cell.fortress-home,.fortress-battle .board .cell.fortress-rival{
+ box-shadow:inset 0 -3px var(--fortress-color);background:color-mix(in srgb,var(--fortress-color) 14%,transparent)!important;
+}
+.fortress-home{--fortress-color:#82c9e9}
+.fortress-rival{--fortress-color:#f1a27c}
+.fortress-battle .fortress-progress{display:flex;align-items:center;gap:clamp(5px,1.2vw,16px);font-size:clamp(.65rem,1.1vw,.85rem)}
+.fortress-progress b:first-child{color:#a3dbf7}
+.fortress-progress b:last-child{color:#ffc09f}
+@media(max-width:550px){
+ .fortress-battle .token[data-sprite=true] .token-sprite{width:clamp(35px,12vw,65px);height:clamp(35px,12vw,65px)}
+}
