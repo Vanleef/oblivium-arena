@@ -1010,18 +1010,60 @@
 }
 .fortress-battle .arena-stage>.combat-log,.fortress-battle .arena-stage>.combat-augment-strip,.fortress-battle .arena-stage>.environment-objective{position:relative;z-index:4}
 
-.token .tactical-status-tags{bottom:auto;top:0;left:50%;right:auto;translate:-50% -40%;max-width:none;flex-wrap:nowrap;gap:2px;pointer-events:none}
-.token.enemy .tactical-status-tags{right:auto;left:50%;flex-direction:row}
-.tactical-status-tags i{width:auto;min-width:17px;height:17px;display:flex;gap:2px;padding:0 3px;font-size:.7rem;pointer-events:none}
-.tactical-status-tags small{display:inline;font:700 .58rem/1 system-ui}
-.tactical-status-tags .status-buff,.arena-status-details .status-buff{color:#a5f0ce;border-color:#59b99c}
-.tactical-status-tags .status-debuff,.arena-status-details .status-debuff{color:#ffd2c7;border-color:#cf7d83}
-.tactical-status-tags .status-terrain,.arena-status-details .status-terrain{color:#dacbff;border-color:#ab91ea}
+.arena-status-details .status-buff{color:#a5f0ce;border-color:#59b99c}
+.arena-status-details .status-debuff{color:#ffd2c7;border-color:#cf7d83}
+.arena-status-details .status-terrain{color:#dacbff;border-color:#ab91ea}
 .arena-stage>.arena-status-details{position:relative;z-index:4;color:#eae3fa;font-size:.8rem}
 .arena-status-details ul{display:grid;gap:5px;padding:0;list-style:none}
 .arena-status-details li{border-inline-start:2px solid;padding:3px 7px}
 .arena-status-details li span{display:block;color:#d2c9db}
-@media(prefers-reduced-motion:no-preference){
- .tactical-status-tags .status-gained{animation:status-inscribed .6s ease-out both}
+
+.tactical-status-vfx{position:absolute;inset:0;z-index:9;pointer-events:none}
+.tactical-status-vfx i{position:absolute;display:block;pointer-events:none}
+.tactical-status-vfx [data-status-vfx="stunned"]{
+ inset:2% auto auto 50%;width:58%;height:13%;translate:-50% 0;border-radius:50%;
+ border:1px solid #ffdf8e;border-inline-color:transparent;box-shadow:0 0 7px #f6cf7660;
 }
-@keyframes status-inscribed{0%{scale:.65;opacity:.45}35%{scale:1.18;box-shadow:0 0 10px currentColor}100%{scale:1;opacity:1}}
+.tactical-status-vfx [data-status-vfx="stunned"]::after{
+ content:"";position:absolute;left:0;top:0;width:4px;height:4px;border-radius:50%;
+ background:#fff8d1;box-shadow:0 0 7px 2px #ffdd88;
+}
+.tactical-status-vfx [data-status-vfx="frozen"]{
+ inset:10% 16% 12%;background:linear-gradient(135deg,#8ce7ff9c,#317fd448,#dcfaff9c);
+ clip-path:polygon(15% 15%,50% 0,75% 14%,100% 83%,76% 100%,15% 89%,0 59%);
+}
+.token:has([data-status-vfx="frozen"]) :is(.sprite-viewport,.token-art){
+ filter:grayscale(.72) sepia(.55) hue-rotate(155deg) saturate(1.75) brightness(1.2);
+}
+.tactical-status-vfx :is([data-status-vfx="shield"],[data-status-vfx="invulnerable"],[data-status-vfx="counter"],[data-status-vfx="reduction"]){
+ inset:12% 8% 9%;border:1px solid #99e6ffb8;border-radius:48% 48% 40% 40%;
+ box-shadow:inset 0 0 8px #8fd8f97a;
+}
+.tactical-status-vfx [data-status-vfx="invulnerable"]{border:2px double #ffe9a1;box-shadow:inset 0 0 12px #ffd77d93}
+.tactical-status-vfx [data-status-vfx="counter"]{border-inline-start:3px solid #cbb5ff}
+.tactical-status-vfx :is([data-status-vfx="regeneration"],[data-status-vfx="boost"]){
+ inset:auto 15% 7%;height:20%;border-radius:50%;background:radial-gradient(ellipse,#89efc990,transparent 70%);
+}
+.tactical-status-vfx [data-status-vfx="boost"]{background:radial-gradient(ellipse,#ffcd82ad,transparent 70%)}
+.tactical-status-vfx :is([data-status-vfx="marked"],[data-status-vfx="exposed"],[data-status-vfx="weakened"]){
+ inset:auto 9% 5%;height:17%;border-radius:50%;border:1px dashed #fc868b;box-shadow:0 0 7px #d34b6d77;
+}
+.tactical-status-vfx :is([data-status-vfx="sealAttack"],[data-status-vfx="sealSupport"],[data-status-vfx="healingBlock"]){
+ inset:40% 11% 32%;border-block:1px solid #ed91b9;transform:rotate(-12deg);background:#9b346633;
+}
+.tactical-status-vfx [data-status-vfx="affliction"]{
+ inset:30% 15% 8%;background:radial-gradient(ellipse at 22% 75%,#f17d9b77,transparent 43%),radial-gradient(ellipse at 78% 28%,#b64b9377,transparent 44%);
+}
+@media(prefers-reduced-motion:no-preference){
+ .tactical-status-vfx [data-status-vfx="stunned"]{animation:status-orbit 1.25s linear infinite}
+ .tactical-status-vfx.status-gained{animation:status-materialize .5s ease-out both}
+}
+@keyframes status-orbit{to{rotate:1turn}}
+@keyframes status-materialize{from{opacity:.18}to{opacity:1}}
+.tactical-status-vfx [data-status-vfx^="terrain-"]{
+ inset:auto 12% 2%;height:15%;border-radius:50%;border-bottom:2px solid var(--status-ground,#8bcfff);opacity:.76;
+}
+.tactical-status-vfx [data-status-vfx="terrain-oil"]{--status-ground:#d3b455}
+.tactical-status-vfx [data-status-vfx="terrain-fire"]{--status-ground:#ff9359}
+.tactical-status-vfx [data-status-vfx="terrain-air"]{--status-ground:#b8f4dc}
+.tactical-status-vfx [data-status-vfx="terrain-electric"]{--status-ground:#d5b0ff;border-bottom-style:dashed}

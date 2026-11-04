@@ -1,6 +1,7 @@
 import {elements,surfaceAt} from './tactical-elements.js';
 
 const timed=[
+ ['frozen','❄','Congelado','O corpo está coberto de gelo.'],
  ['stunned','✦','Atordoado','Impede a ativação.'],
  ['weakened','↓','Enfraquecido','Reduz o dano causado.'],
  ['sealAttack','⊘','Ataque selado','Bloqueia técnicas ofensivas.'],
