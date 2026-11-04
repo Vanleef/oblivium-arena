@@ -4,7 +4,7 @@ import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../s
 import {tacticalFrameDuration,tacticalAnimationFrames} from '../src/tactical-animation.js';
 import {tacticalIdleTiming,tacticalIdleStyle,tacticalIdleLayerMarkup,blendTacticalSpriteFrame} from '../src/tactical-motion.js';
 
-test('os atlas registrados preservam a mesma célula inteira durante idle e ação',()=>{
+test('os atlas preservam a célula de repouso para movimento e ações sem técnica identificada',()=>{
  for(const id of Object.keys(tacticalSpriteAtlases)){
   const unit={id},idle=tacticalSpriteFrame(unit),move=tacticalSpriteFrame(unit,{type:'move',pose:'airborne'}),skill=tacticalSpriteFrame(unit,{type:'skill',pose:'impact'});
   assert.equal(idle.row,0);assert.equal(idle.column,0);assert.equal(idle.idleAnimated,false);
@@ -31,7 +31,7 @@ test('cadência dá tempo a antecipação e recuperação e mantém o contato e 
  const token={style:{setProperty(k,v){values[k]=v;}},dataset:{unitId:unit.id},closest:()=>null,querySelector:()=>sheet};
  paintTacticalToken(token,unit,{actorId:unit.id,type:'move'},{family:'move',pose:'airborne',index:4});
  assert.equal(values['--pose-duration'],'310ms');
- assert.equal(sheet.src,'/art/animations/tactical-pilot-20261101/riven.webp');
+ assert.equal(sheet.src,tacticalSpriteFrame(unit).src);
  assert.equal(tacticalSpriteFrame(unit,{type:'move',pose:'airborne'}).column,0);
 });
 test('dissolução não cria duplicatas quando o quadro não muda, respeita movimento reduzido e remove a camada anterior',async()=>{
