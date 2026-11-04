@@ -243,3 +243,24 @@ test('área frontal segue a direção da grade e termina no obstáculo',()=>{
  s.tactical.obstacles=[{x:3,y:1}];
  assert.deepEqual(tacticalArea(s,actor,basic,{x:2,y:2},[1,-1]),[]);
 });
+
+test('a rotação oferece 13 aprimoramentos distintos e a Maré transforma o piso',()=>{
+ const options=new Set();
+ for(let offset=0;offset<13;offset++){
+  const s=battle(),actor=allies[0];
+  for(const u of s.enemies)u.stunned=5;
+  s.tactical.fortress.rewardSequence=offset;
+  s.tactical.positions[actor]={x:7,y:1};
+  const result=exchange(s,actor,8,1);
+  const [offer]=result.chestRewards;
+  assert.equal(new Set(offer.options.map(o=>o.id)).size,3);
+  for(const o of offer.options)options.add(o.id);
+  if(offer.options.some(o=>o.id==='tide')){
+   assert.ok(chooseTacticalChestReward(s,offer.id,'tide').ok);
+   assert.equal(surfaceAt(s,{x:8,y:1})?.element,'water');
+   assert.equal(surfaceAt(s,{x:7,y:2})?.element,'water');
+   assert.equal(surfaceAt(s,{x:6,y:1}),null);
+  }
+ }
+ assert.equal(options.size,13);
+});

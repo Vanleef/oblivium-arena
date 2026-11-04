@@ -36,6 +36,12 @@ function applyChestEffect(s,side,effect){
  const healUnit=(unit,fraction)=>{if(unit&&unit.hp>0)unit.hp=Math.min(unit.maxHp,unit.hp+Math.max(1,Math.round(unit.maxHp*fraction)));};
  const addShield=(unit,amount)=>{if(unit?.hp>0)unit.shield=Math.min(Math.round(unit.maxHp*.5),unit.shield+amount);};
  if(effect.type==='fortress-heal')healUnit(units.find(u=>u.id===effect.actorId),.4);
+ else if(effect.type==='fortress-ward')addShield(units.find(u=>u.id===effect.actorId),24);
+ else if(effect.type==='fortress-surface'){
+  const origin=s.tactical.positions[effect.actorId];
+  const cells=boardCells(s).filter(p=>distance(origin,p,s)<=1&&!obstacle(s,p));
+  applyElementalArea(s,effect.element,cells,[]);
+ }
  else if(effect.type==='fortress-leap'){
   if(!s.tactical.fortress.leaps.includes(effect.actorId))s.tactical.fortress.leaps.push(effect.actorId);
  }else if(effect.type==='fortress-rally'){
@@ -445,7 +451,7 @@ function applyRivalRewards(s,finished=false){
   if(finished||!livingTeam(s,'enemy').length)break;
   const before=replayState(s),option=offer.fortress?offer.options[0]:tacticalChestOptions(s,'enemy',offer.tier)[0];
   applyChestEffect(s,'enemy',option.effect);
-  stamp(s,{type:'effects',title:'Aprimoramento rival · '+option.title,before,after:replayState(s)});
+  stamp(s,{type:'effects',rewardActorId:offer.fortress?offer.actorId:null,title:'Aprimoramento rival · '+option.title,description:option.text,before,after:replayState(s)});
  }
  delete s.tactical.enemyChestRewards;
 }
@@ -535,7 +541,13 @@ function queueFortressReward(s,side,actorId,source){
   {id:'leap',title:'Salto do Cavalo',category:'Movimento',text:actor.name+' pode saltar em L com sua única ação.',effect:{type:'fortress-leap',actorId:id}},
   {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Libera um ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId:id}},
   {id:'team-heal',title:'Pacto dos Sobreviventes',category:'Coletivo',text:'Recupere até 14 de Vida de cada aliado vivo.',effect:{type:'fortress-rally'}},
-  {id:'refresh',title:'Pulso de Vigília',category:'Recarga',text:'Reduza em uma rodada as recargas dos aliados vivos.',effect:{type:'fortress-refresh'}}
+  {id:'refresh',title:'Pulso de Vigília',category:'Recarga',text:'Reduza em uma rodada as recargas dos aliados vivos.',effect:{type:'fortress-refresh'}},
+  {id:'ward',title:'Égide Solitária',category:'Individual',text:'Concede 24 de Escudo a '+actor.name+'.',effect:{type:'fortress-ward',actorId:id}},
+  {id:'cleanse',title:'Rito de Purificação',category:'Coletivo',text:'Remove aflições, marcas e efeitos de controle dos aliados vivos.',effect:{type:'cleanse-team'}},
+  {id:'resolve',title:'Voto de Retaliação',category:'Coletivo',text:'Os aliados vivos recebem 6 de bônus de dano até o fim da rodada seguinte.',effect:{type:'boost-team',amount:6}},
+  {id:'tide',title:'Círculo da Maré',category:'Campo',text:'Espalha Água na casa de '+actor.name+' e nas casas adjacentes.',effect:{type:'fortress-surface',actorId:id,element:'water'}},
+  {id:'pitch',title:'Selo de Piche',category:'Campo',text:'Espalha Óleo na casa de '+actor.name+' e nas casas adjacentes.',effect:{type:'fortress-surface',actorId:id,element:'oil'}},
+  {id:'static',title:'Coroa de Estática',category:'Campo',text:'Eletrifica a casa de '+actor.name+' e as casas adjacentes, sem atordoar.',effect:{type:'fortress-surface',actorId:id,element:'electric'}}
  ].filter(option=>option.id!=='leap'||!f.leaps.includes(id)).filter(option=>option.id!=='breach'||!actor.abilities.some(a=>a.id==='fortress-breach'));
  const sequence=f.rewardSequence++,offset=sequence%options.length;
  const offer={id:'fortress:'+sequence,side,fortress:true,source,actorId,options:[options[offset],options[(offset+2)%options.length],options[(offset+3)%options.length]]};
