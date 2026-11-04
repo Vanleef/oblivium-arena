@@ -33,7 +33,7 @@ export function tacticalAnimationFrames(ability,type='skill'){
 }
 
 export function tacticalImpactActive(event){
- return event?.type==='skill'&&!event.skipped&&['impact','counter'].includes(event.pose);
+ return ['skill','guard'].includes(event?.type)&&!event.skipped&&['impact','counter'].includes(event.pose);
 }
 // A multi-target action can damage one target while another is protected.
 // Use the replay snapshots to animate only units that actually lost HP or shield.
@@ -56,14 +56,15 @@ export function tacticalFrameDuration(event){
   return ({ready:85,anticipate:125,compress:110,launch:95,airborne:310,landing:150,settle:115})[event.pose]||120;
  }
  if(event?.type==='skill'&&!event.skipped){
-  if(tacticalImpactActive(event))return 430;
-  if(['travel','spread'].includes(event.pose))return 310;
-  if(['windup','brace','guard'].includes(event.pose))return 190;
-  if(['anticipate','gather','inhale','compress'].includes(event.pose))return 135;
+  if(tacticalImpactActive(event))return 340;
+  if(['travel','spread'].includes(event.pose))return 280;
+  if(['windup','brace','guard'].includes(event.pose))return 120;
+  if(['anticipate','gather','inhale','compress'].includes(event.pose))return 95;
   if(['release','thrust'].includes(event.pose))return 115;
-  if(['recover','settle','withdraw','transfer','hold','followthrough'].includes(event.pose))return 150;
+  if(['recover','settle','withdraw','transfer','hold','followthrough'].includes(event.pose))return 105;
  }
- return 95;
+ if(event?.type==='guard')return event.pose==='impact'?295:105;
+ return 85;
 }
 export function tacticalFrameArt(ability,pose,portrait=''){
  // Character cut-ins and ability illustrations belong to the card/VFX layer.

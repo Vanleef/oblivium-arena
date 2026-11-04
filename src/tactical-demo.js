@@ -4,16 +4,16 @@ import {skillSealReason} from './combat-effects.js';
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {tacticalEnvironments} from './tactical-environment.js';
 import {tacticalResolutionFeedback} from './tactical-insight.js';
-import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
+import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalReplayFrames,tacticalHighlightEvent} from './tactical-cinematic.js';
 import {characterById} from './data.js';
 import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
-import {createTacticalBattle,previewTacticalActivation,resolveTacticalActivation,tacticalActivationUnits,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits} from './tactical-combat.js';
+import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits} from './tactical-combat.js';
 import {planTacticalAIActivation} from './tactical-ai.js';
 import {boardCells,cellLabel,sameCell,findPath,movementRange,cellKey,occupied,obstacle} from './tactical-board.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText} from './tactical-kits.js';
 import {tacticalFrameArt,tacticalImpactActive,tacticalFrameDuration,tacticalDamagedTargets} from './tactical-animation.js';
 import {tacticalSpriteFrame,paintTacticalToken} from './tactical-sprites.js';
-import {tacticalVfxMarkup} from './tactical-vfx.js';
+import {tacticalExchangeVfxMarkup} from './tactical-vfx.js';
 import {getAbilityResourceCosts,resourceIds,resolveResourcePayment} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
 const projectilePreload=new Image();projectilePreload.src='/art/animations/tactical-vfx-20261102/projectile-materials-v1.webp';
@@ -23,7 +23,7 @@ const state={compactReplay:true,playbackSpeed:1,battle:null,run:createTacticalRu
 const costText=(u,a)=>Object.entries(getAbilityResourceCosts(u,a)).map(([k,n])=>`${n} ${names[k]||k}`).join(' + ')||'Sem custo';
 const shown=()=>state.playback?{...state.battle,...state.playback,tactical:{...state.battle.tactical,positions:state.playback.positions,chests:state.playback.chests||[],nextChest:state.playback.nextChest||null}}:state.battle;
 const available=()=>tacticalActivationUnits(state.battle,'player');
-const playerTurn=()=>!state.busy&&state.battle.tactical.stage==='planning'&&state.battle.tactical.activation.side==='player';
+const playerTurn=()=>!state.busy&&state.battle.tactical.stage==='planning'&&!state.battle.tactical.plans.player&&available().length>0;
 const moveRefs=()=>state.path?[{type:'move',actorId:state.selected,path:state.path}]:[];
 const preview=actions=>previewTacticalActivation(state.battle,'player',state.selected,actions);
 const selectedUnit=s=>s.allies.find(u=>u.id===state.selected&&u.hp>0);
@@ -42,15 +42,6 @@ function specialChoicesMarkup(unit){
 function passiveMarkup(unit){
  if(!unit?.passive)return '';
  return '<details class="tactical-passive"><summary>Passiva · '+esc(unit.passive.name)+' <small>Automática · não ocupa ações</small></summary><p>'+esc(unit.passive.description||'')+'</p></details>';
-}
-function playbackActionMarkup(){
- const event=state.animation;if(!state.busy||!event)return '';
- const unit=tacticalUnits(shown()).find(u=>u.id===event.actorId);
- const ability=unit?animationAbility(unit,event):null;
- const name=event.type==='move'?'Movimento':ability?.name||event.title;
- const route=event.type==='move'&&event.from&&event.to?cellLabel(event.from)+' → '+cellLabel(event.to):event.cells?.length?'Área: '+event.cells.map(cellLabel).join(', '):'';
- const notes=!event.skipped&&['impact','counter'].includes(event.pose)?tacticalResolutionFeedback(event):[];
- return '<section class="playback-action '+(event.side==='enemy'?'opponent':'')+'" aria-label="Ação em execução"><div><strong>'+esc(unit?(event.side==='enemy'?'Oponente · ':'Seu trio · ')+unit.name:'Arena')+'</strong><span>'+esc(event.actorId?'Ativação':'Evento da rodada')+'</span></div><b>'+esc(name)+'</b>'+(route?'<small>'+esc(route)+'</small>':'')+(event.reason?'<p>'+esc(event.reason)+'</p>':'')+(notes.length?'<ul class="action-result">'+notes.map(note=>'<li>'+esc(note)+'</li>').join('')+'</ul>':'')+'</section>';
 }
 function environmentMarkup(s){
  const rule=s.tactical.environment;if(!rule)return '';
@@ -180,13 +171,26 @@ function announceTurnIncome(){
  },3000);
 }
 
+function activationMark(unit,spent){
+ if(state.animation?.actorId===unit.id||state.animation?.actors?.some(actor=>actor.id===unit.id)||state.animation?.moves?.some(move=>move.actorId===unit.id)||state.animation?.stopped?.some(move=>move.actorId===unit.id))return 'acting';
+ if(spent.includes(unit.id))return 'spent';
+ if(unit.side==='player'&&state.selected===unit.id)return 'selected';
+ if(unit.hp<=0||unit.stunned)return 'inactive';
+ return unit.side==='player'?'ready':'';
+}
+function activationSignal(unit,spent){
+ const mark=activationMark(unit,spent);
+ const interrupted=mark==='acting'&&state.animation?.actorId===unit.id&&state.animation.skipped;
+ const icon=interrupted?'×':mark==='spent'?'✓':mark==='selected'?'⌄':mark==='acting'?'✦':'';
+ return mark&&mark!=='inactive'?'<span class="activation-signal '+mark+(interrupted?' interrupted':'')+'" aria-hidden="true"><i></i><b>'+icon+'</b></span>':'';
+}
 function arenaHudMarkup(s){
- const spent=state.battle.tactical.activation.spent;
+ const spent=state.playback?.activationSpent||state.battle.tactical.activation.spent;
  const team=(units,side,label)=>'<div class="hud-team hud-team-'+side+'"><span class="hud-team-label">'+label+'</span>'+units.map(unit=>{
   const used=spent.includes(unit.id),inactive=unit.hp<=0||used||unit.stunned;
-  const status=unit.hp<=0?'Fora de combate':used?'Já agiu':unit.stunned?'Atordoado':'Pode agir';
-  const classes='hud-unit '+(state.selected===unit.id?'selected ':'')+(state.animation?.actorId===unit.id?'acting ':'')+(unit.hp<=0?'fallen ':'')+(used?'activation-spent':'');
-  const content='<img src="'+esc(portraitSrc(unit))+'" alt=""><span class="hud-unit-copy"><b>'+esc(unit.name)+'</b><small>'+Math.max(0,unit.hp)+' PV <span class="activation-marker" aria-hidden="true">'+(used?'✓':inactive?'–':'◆')+'</span></small><i><em style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></em></i></span>';
+  const mark=activationMark(unit,spent),status=unit.hp<=0?'Fora de combate':mark==='spent'?'Já agiu':unit.stunned?'Atordoado':mark==='selected'?'Selecionado em segredo':mark==='acting'?'Em ação':'Pode agir';
+  const classes='hud-unit '+(state.selected===unit.id?'selected ':'')+(state.animation?.actorId===unit.id?'acting ':'')+(unit.hp<=0?'fallen ':'')+(used?'activation-spent ':'')+'mark-'+mark;
+  const content='<img src="'+esc(portraitSrc(unit))+'" alt=""><span class="hud-unit-copy"><b>'+esc(unit.name)+'</b><small>'+Math.max(0,unit.hp)+' PV <span class="activation-marker" aria-hidden="true">'+(mark==='spent'?'✓':mark==='selected'?'◈':mark==='acting'?'✦':inactive?'–':'◆')+'</span></small><i><em style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></em></i></span>';
   const title=esc(unit.name+' · '+status);
   return side==='player'?'<button class="'+classes+'" data-actor="'+esc(unit.id)+'" '+(inactive||!playerTurn()?'disabled':'')+' aria-pressed="'+(state.selected===unit.id)+'" title="'+title+'">'+content+'</button>':'<div class="'+classes+'" title="'+title+'">'+content+'</div>';
  }).join('')+'</div>';
@@ -205,7 +209,7 @@ function ghostMarkup(unit,invalid=false){
  const f=tacticalSpriteFrame(unit);
  return f?'<span class="move-hologram '+(invalid?'invalid':'')+'" aria-hidden="true"><span class="token-sprite"><span class="sprite-viewport"><img class="sprite-sheet" alt="" src="'+esc(f.src)+'" style="width:'+f.sheetColumns*100+'%;height:'+f.sheetRows*100+'%;left:'+(-f.column*100)+'%;top:'+(-f.row*100)+'%"></span></span></span>':'';
 }
-function displaySnapshot(){const s=state.battle;return JSON.parse(JSON.stringify({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null}));}
+function displaySnapshot(){const s=state.battle;return JSON.parse(JSON.stringify({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,activationSpent:[...s.tactical.activation.spent],positions:s.tactical.positions,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null}));}
 function combatDelta(unit,event){
  if(!event?.before||!event?.after||!['impact','counter'].includes(event.pose))return '';
  const before=[...event.before.allies,...event.before.enemies].find(u=>u.id===unit.id),after=[...event.after.allies,...event.after.enemies].find(u=>u.id===unit.id);if(!before||!after)return '';
@@ -238,11 +242,13 @@ function boardMarkup(s,selection){
  const mover=playerTurn()?selectedUnit(s):null,origin=mover?s.tactical.positions[mover.id]:null;
  const ghost=state.path?.at(-1),movement=ghost&&origin?{origin,destination:ghost,path:state.path,valid:true}:null;
  const options=Boolean(mover),ready=playerTurn()?new Set(available().map(u=>u.id)):new Set(),affected=new Set(selection?.targets||[]),aim=new Set((selection?.cells||[]).map(cellKey));
- const anim=state.animation,impact=tacticalImpactActive(anim),wave=new Set((impact?anim?.cells||[]:[]).map(cellKey)),hits=new Set(tacticalDamagedTargets(anim));
+ const anim=state.animation,spent=state.playback?.activationSpent||state.battle.tactical.activation.spent,impact=tacticalImpactActive(anim),wave=new Set((impact?anim?.cells||[]:[]).map(cellKey)),hits=new Set(tacticalDamagedTargets(anim));
  return '<div class="board '+(options?'movement-mode ':'')+(selection?'technique-preview':'')+'" role="group" aria-label="Arena tática em grade de cinco por cinco">'+movementTrailMarkup(movement)+tacticalProjectileMarkup(anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null,anim?animationAbility(tacticalUnits(s).find(u=>u.id===anim.actorId),anim):null,anim)+boardCells().map(p=>{
   const environment=s.tactical.environment,environmentCell=environment&&sameCell(environment.position,p);
   const unit=occupied(s,p),chest=s.tactical.chests.find(item=>sameCell(item.position,p)),blocked=obstacle(s,p),reachable=options?findPath(s,mover.id,p):null,atOrigin=origin&&sameCell(origin,p);
-  const terrain=state.terrainEffects?.[cellKey(p)],classes=['cell',environmentCell?'environment-cell environment-'+environment.id:'',environmentCell&&anim?.type==='environment'&&anim.pose==='impact'?'environment-contact':'',blocked?'blocked':'',chest?'treasure-cell':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable move-steps-'+reachable.length:'',atOrigin?'move-origin':'',options&&!reachable&&!atOrigin?'move-unavailable':'',unit&&ready.has(unit.id)?'activation-ready':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':'',unit&&affected.has(unit.id)?'preview-target':'',unit&&anim?.actorId===unit.id?'acting-cell':''].filter(Boolean).join(' ');
+  const clash=anim?.type==='exchange-move'&&anim.stopped.some(step=>sameCell(step.to,p));
+  const landing=anim?.type==='exchange-move'&&anim.pose==='landing'&&anim.moves.some(step=>sameCell(step.to,p));
+  const terrain=state.terrainEffects?.[cellKey(p)],classes=['cell',environmentCell?'environment-cell environment-'+environment.id:'',environmentCell&&anim?.type==='environment'&&anim.pose==='impact'?'environment-contact':'',blocked?'blocked':'',chest?'treasure-cell':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable move-steps-'+reachable.length:'',atOrigin?'move-origin':'',options&&!reachable&&!atOrigin?'move-unavailable':'',unit&&ready.has(unit.id)?'activation-ready':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':'',unit&&affected.has(unit.id)?'preview-target':'',unit&&activationMark(unit,spent)==='acting'?'acting-cell':''].filter(Boolean).join(' ');
   const forced=unit&&impact?anim?.displacements?.find(d=>d.actorId===unit.id&&d.moved):null;
   const animClass=unit&&anim?.actorId===unit.id?(anim.type==='move'?'animate-move':anim.type==='skill'?(anim.category===1?'animate-defense':'animate-skill'):'animate-prepare'):'';
   const animAbility=unit&&anim?.actorId===unit.id?animationAbility(unit,anim):null;
@@ -250,8 +256,8 @@ function boardMarkup(s,selection){
   const sprite=unit?tacticalSpriteFrame(unit,anim?.actorId===unit.id?anim:null):null;
   const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait;
-  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(wave.has(cellKey(p))?tacticalVfxMarkup(anim.family):'')+
-   fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
+  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family):'')+
+   (unit?activationSignal(unit,spent):'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 let arenaAssetRevision=0,arenaFirstPaintComplete=false;
@@ -284,8 +290,10 @@ function playActivation(result){
 function commitActivation(){
  if(!playerTurn())return;
  const selection=selectionPreview();if(!selection?.result.ok)return;
- const result=resolveTacticalActivation(state.battle,'player',state.selected,selection.refs);
- if(result.ok)playActivation(result);else{state.message=result.reason;render();}
+ const result=submitTacticalActivation(state.battle,'player',state.selected,selection.refs);
+ if(result.ok&&!result.waiting)playActivation(result);
+ else if(result.ok){clearSelection();state.resourceMenu=null;render();}
+ else{state.message=result.reason;render();}
 }
 function render(){
  const focused=document.activeElement?.dataset;
@@ -295,14 +303,14 @@ function render(){
  const locked=!playerTurn();
  const anim=state.animation,actor=anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null;
 
- const callout=anim?'<div class="arena-callout active" role="status">'+esc(actor?.name||'Rodada')+' · '+esc(anim.title||'')+'</div>':'';
+ const callout=anim?'<div class="exchange-accessible-status" role="status">'+esc((actor?.name?actor.name+' · ':'')+(anim.title||'')+(anim.reason?' · '+anim.reason:''))+'</div>':'';
  const commands=activationCommands(actorPlan,selection,projected);
  const offer=state.chestOffer&&!state.busy?'<section class="chest-reward panel"><h2>Baú · '+esc(state.chestOffer.tierName)+'</h2><p>Escolha 1 de 3 opções para o seu trio. '+state.battle.allies.filter(u=>u.hp>0).length+' alma(s) viva(s).</p><div class="chest-options">'+state.chestOffer.options.map(o=>'<button data-chest-choice="'+esc(o.id)+'" data-chest-offer="'+esc(state.chestOffer.id)+'"><span class="reward-category">'+esc(o.category||'Aprimoramento')+'</span><strong>'+esc(o.title)+'</strong><small>'+esc(o.text)+'</small><em>'+esc(o.reason||'')+'</em></button>').join('')+'</div></section>':'';
  const exchange=state.resourceMenu&&!state.busy?'<div class="essence-popover"><strong>Converter Essências · 5 → 1</strong><p>Receber '+names[state.resourceMenu]+'. O pagamento usa cinco Essências da reserva.</p><button data-command="exchange" '+(locked?'disabled':'')+'>Converter para '+names[state.resourceMenu]+'</button><button data-command="close-resources">Fechar</button></div>':'';
  const finished=!state.busy&&state.battle.tactical.stage==='finished'?'<section class="result">'+(state.battle.phase==='victory'?'Vitória':state.battle.phase==='draw'?'Empate':'Derrota')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-reward="'+esc(b.id)+'"><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':routeMarkup()):'')+'</section>':'';
  root.innerHTML='<div class="shell combat-shell card-battle alternating-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Encontro '+state.run.encounter+(state.run.route?' · '+esc(tacticalRoutes.find(r=>r.id===state.run.route)?.title):'')+'</span><a href="#formation">Formação</a></header>'+offer+finished+
- '<section class="battle-surface"><div class="arena-toolbar '+(state.animation?.type==='effects'&&state.animation?.pose==='impact'?'essence-pulse':'')+'">'+compactResources(s,selection)+playbackControls()+'<span class="battle-phase" role="status">'+('Rodada '+s.round+' · '+(state.preparingEnemy?'Vez do oponente':state.busy?'Em ação':playerTurn()?(state.selected?'Sua vez':'Sua vez · escolha um aliado'):state.chestOffer?'Aprimoramento':state.battle.tactical.stage==='finished'?'Confronto encerrado':'Vez do oponente'))+'</span></div>'+(!state.selected&&state.message?'<p class="activation-notice" role="status">'+esc(state.message)+'</p>':'')+exchange+'<div class="activation-income">'+(state.incomeAnnouncement?.until>Date.now()?essenceArrivalMarkup(state.incomeAnnouncement):'')+'</div>'+
- environmentMarkup(s)+chestObjectiveMarkup(s)+'<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim)+arenaHudMarkup(s)+callout+boardMarkup(s,selection)+'</div>'+commands+playbackActionMarkup()+'</section>'+
+ '<section class="battle-surface"><div class="arena-toolbar '+(state.animation?.type==='effects'&&state.animation?.pose==='impact'?'essence-pulse':'')+'">'+compactResources(s,selection)+playbackControls()+'<span class="battle-phase" role="status">'+('Rodada '+s.round+' · '+(state.busy?'Em ação':playerTurn()?(state.selected?'Planejando':'Escolha um aliado'):state.chestOffer?'Aprimoramento':state.battle.tactical.stage==='finished'?'Confronto encerrado':'Aguardando a troca'))+'</span></div>'+(!state.selected&&state.message?'<p class="activation-notice" role="status">'+esc(state.message)+'</p>':'')+exchange+'<div class="activation-income">'+(state.incomeAnnouncement?.until>Date.now()?essenceArrivalMarkup(state.incomeAnnouncement):'')+'</div>'+
+ environmentMarkup(s)+chestObjectiveMarkup(s)+'<div class="arena-stage"><img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+(tacticalHighlightEvent(anim)?tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim):'')+arenaHudMarkup(s)+(!state.busy&&state.battle.tactical.plans.player?'<span class="exchange-seal" role="status" aria-label="Ordem selada, aguardando o oponente">◆</span>':'')+callout+boardMarkup(s,selection)+'</div>'+commands+'</section>'+
  
  '<section class="combat-extras">'+activeAugmentsMarkup()+'</section>'+
  '<details class="combat-log"><summary>Resolução da rodada</summary><ol>'+(state.busy?(state.completedEvents||[]):state.lastEvents).map(e=>'<li>'+esc(e.title)+(e.actorId?' · '+esc(tacticalUnits(state.battle).find(u=>u.id===e.actorId)?.name):'')+(tacticalResolutionFeedback(e).length?'<span class="resolution-feedback">'+tacticalResolutionFeedback(e).map(esc).join(' ')+'</span>':'')+'</li>').join('')+'</ol></details>'+
@@ -322,28 +330,53 @@ function paintAnimationPose(event,frame){
  if(cutin){if(tacticalCutinActive(state.animation))cutin.dataset.pose=frame.pose;else cutin.remove();}
  stage?.querySelectorAll('.skill-projectile').forEach(node=>node.remove());
  const projectile=tacticalProjectileMarkup(unit,ability,state.animation);if(projectile)stage?.querySelector('.board')?.insertAdjacentHTML('beforeend',projectile);
- if(!tacticalImpactActive(state.animation))for(const effect of root.querySelectorAll('.cell-vfx'))effect.remove();
+ if(!tacticalImpactActive(state.animation))for(const effect of root.querySelectorAll('.cell-vfx,.exchange-impact'))effect.remove();
  if(!tacticalImpactActive(state.animation))for(const cell of root.querySelectorAll('.cell.wave, .cell.hit'))cell.classList.remove('wave','hit',...Array.from(cell.classList).filter(name=>name.startsWith('wave-')));
  for(const token of root.querySelectorAll('.token'))paintTacticalToken(token,unit,event,frame);
  const callout=root.querySelector('.arena-callout');if(callout){callout.dataset.family=frame.family;callout.dataset.pose=frame.pose;}
  syncPlaybackRate();
 }
-function movementReplayPoint(snapshot,actorId,point){return snapshot?.positions?{...snapshot,positions:{...snapshot.positions,[actorId]:{...point}}}:snapshot;}
-function animationEvents(events){return events.flatMap(event=>event.type==='move'&&event.steps?.length?event.steps.map(step=>({...event,before:movementReplayPoint(event.before,event.actorId,step.from),after:movementReplayPoint(event.before,event.actorId,step.to),from:step.from,to:step.to,moved:1,steps:[step]})):[event]);}
+async function paintExchangeMovement(event,pause,reduced){
+ const duration=reduced?40:(event.moves.length?320:185)/state.playbackSpeed;
+ state.animation=event;
+ render();
+ for(const step of event.moves){
+  const token=root.querySelector('.cell[data-cell="'+cellKey(step.from)+'"] .token');
+  const landing=root.querySelector('.cell[data-cell="'+cellKey(step.to)+'"]');
+  if(!token?.animate||!landing||reduced)continue;
+  const a=token.closest('.cell').getBoundingClientRect(),b=landing.getBoundingClientRect();
+  const dx=b.left-a.left,dy=b.top-a.top,lift=Math.min(20,a.height*.35);
+  token.animate([{translate:'0 0'},{translate:(dx*.48)+'px '+(dy*.48-lift)+'px',offset:.48},{translate:dx+'px '+dy+'px'}],
+   {duration,easing:'cubic-bezier(.28,.06,.32,1)',fill:'forwards'});
+ }
+ await pause(duration);
+ state.playback=event.after;
+ state.animation={...event,pose:'landing'};
+ render();
+ await pause(reduced?25:85/state.playbackSpeed);
+}
 function animateRound(events){
- const sequence=animationEvents(events).filter(e=>e.before&&e.after);
+ const sequence=events.filter(e=>e.before&&e.after);
  const revision=++state.revision;state.busy=true;state.completedEvents=[];state.recentEffects={};const seenSkills=state.replaySeenSkills??=new Set();
  const reduced=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
  const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
  (async()=>{
   for(const sourceEvent of sequence){
+   if(revision!==state.revision)return;
+   if(sourceEvent.type==='exchange-reveal'||sourceEvent.type==='exchange-move'){
+    state.playback=sourceEvent.before;
+    if(sourceEvent.type==='exchange-move')await paintExchangeMovement(sourceEvent,pause,reduced);
+    else{state.animation=sourceEvent;render();await pause(reduced?35:260/state.playbackSpeed);}
+    state.completedEvents.push(sourceEvent);
+    continue;
+   }
    const key=sourceEvent.type==='skill'?[sourceEvent.actorId,sourceEvent.abilityId,sourceEvent.formKey||'base'].join(':'):null;
    const event={...sourceEvent,compactReplay:state.compactReplay,repeated:Boolean(key&&seenSkills.has(key))};
    if(key&&!event.skipped)seenSkills.add(key);
    if(revision!==state.revision)return;
    state.playback=event.before;
    const unit=[...(event.before.allies||[]),...(event.before.enemies||[])].find(u=>u.id===event.actorId),ability=animationAbility(unit,event);
-   const frames=event.actorId&&!event.skipped&&event.type!=='guard'?tacticalReplayFrames(unit,ability,event):[{family:'support',pose:'ready',index:0},{family:'support',pose:'impact',index:1}];
+   const frames=event.actorId&&!event.skipped&&event.type!=='guard'?tacticalReplayFrames(unit,ability,event):[{family:event.type==='guard'?'guard':'support',pose:'ready',index:0},{family:event.type==='guard'?'guard':'support',pose:'impact',index:1}];
    let applied=false;
    for(const [index,frame]of frames.entries()){
     if(revision!==state.revision)return;
@@ -361,17 +394,16 @@ function animateRound(events){
  })();
 }
 function resumeActivation(){
- if(state.battle.tactical.stage==='planning'&&state.battle.tactical.activation.side==='enemy'){
-  state.preparingEnemy=true;state.busy=true;const revision=++state.revision;render();
+ if(state.battle.tactical.stage==='planning'&&!state.battle.tactical.plans.enemy&&tacticalActivationUnits(state.battle,'enemy').length){
+  const battle=state.battle,exchange=battle.tactical.activation.exchange,round=battle.round;
   setTimeout(()=>{
-   if(revision!==state.revision)return;
-   for(const unit of tacticalActivationUnits(state.battle,'enemy'))if(unit.shadowChoicePending)chooseTacticalShadow(state.battle,'enemy',unit.id,'damage');
-   const plan=planTacticalAIActivation(state.battle);
-   const result=plan&&resolveTacticalActivation(state.battle,'enemy',plan.actorId,plan.actions);
-   state.preparingEnemy=false;state.busy=false;
-   if(result?.ok)playActivation(result);else{state.message=result?.reason||'O oponente ficou sem uma ação válida.';render();}
+   if(battle!==state.battle||battle.round!==round||battle.tactical.activation.exchange!==exchange||battle.tactical.stage!=='planning'||battle.tactical.plans.enemy)return;
+   for(const unit of tacticalActivationUnits(battle,'enemy'))if(unit.shadowChoicePending)chooseTacticalShadow(battle,'enemy',unit.id,'damage');
+   const plan=planTacticalAIActivation(battle);
+   const result=plan&&submitTacticalActivation(battle,'enemy',plan.actorId,plan.actions);
+   if(result?.ok&&!result.waiting)playActivation(result);
+   else if(!result?.ok){state.message=result?.reason||'O oponente ficou sem uma ação válida.';render();}
   },0);
-  return;
  }
  render();
  if(state.chestOffer)root.querySelector('.chest-reward')?.scrollIntoView({behavior:'smooth',block:'start'});

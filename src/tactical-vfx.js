@@ -6,3 +6,8 @@ export function tacticalVfxMarkup(family){
  const row=tacticalVfxRow(family);
  return row===null?'':`<span class="cell-vfx" aria-hidden="true" style="--vfx-row:${row*100/3}%"></span>`;
 }
+
+export function tacticalExchangeVfxMarkup(family){
+ if(tacticalVfxRow(family)===null)return '';
+ return `<span class="exchange-impact" data-family="${family}" aria-hidden="true"><i></i><i></i><i></i></span>`;
+}

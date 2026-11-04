@@ -160,6 +160,7 @@ function displaceTargets(s,actor,ids,displacement){
 }
 function execute(s,ref,{projection=false}={}){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor)return {skipped:true,reason:'Personagem fora de combate.'};
+ if(s.tactical.activation&&actor.stunned)return {skipped:true,reason:'Atordoado.'};
  if(ref.type==='move')return move(s,ref,projection);
  if(ref.type==='guard'){
   const guard=Math.max(0,Math.min(6,Math.floor(actor.maxHp/2)-actor.shield));
@@ -259,13 +260,13 @@ export function submitTacticalPlan(s,side,actions,selected){
  return {ok:true,ready:s.tactical.stage==='ready'};
 }
 export function chooseTacticalShadow(s,side,actorId,choice){
- if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side]||(s.tactical.activation&&s.tactical.activation.side!==side))return fail('A escolha está bloqueada.');
+ if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side])return fail('A escolha está bloqueada.');
  const actor=actorFor(s,side,actorId);if(!actor?.shadowChoicePending||!['damage','response'].includes(choice))return fail('Resposta da Sombra indisponível.');
  actor.shadowChoicePending=false;if(choice==='damage')actor.shadowDamageBonus=5;else actor.shadowBroadCounter=true;
  return {ok:true};
 }
 export function exchangeTacticalEssence(s,side,target,selected){
- if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side]||(s.tactical.activation&&s.tactical.activation.side!==side))return fail('A reserva está bloqueada.');
+ if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side])return fail('A reserva está bloqueada.');
  const result=resolveEssenceExchange(s[poolKey(side)],target,selected);if(result.ok)s[poolKey(side)]=result.pool;
  return result;
 }
@@ -273,7 +274,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
-function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,positions:s.tactical.positions,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -293,40 +294,73 @@ export function tacticalActivationUnits(s,side){
  const activation=s.tactical.activation;
  return activation?livingTeam(s,side).filter(u=>!u.stunned&&!activation.spent.includes(u.id)):[];
 }
+const sides=['player','enemy'];
+const endsActivation=ref=>ref?.type==='skill'||ref?.type==='guard';
 function resetTacticalActivation(s){
- s.tactical.activation={side:tacticalFirstSide(s),spent:[]};
- if(!tacticalActivationUnits(s,s.tactical.activation.side).length)s.tactical.activation.side=otherSide(s.tactical.activation.side);
+ s.tactical.activation={exchange:1,spent:[]};
 }
 export function previewTacticalActivation(s,side,actorId,actions,selected){
- if(!validSide(side)||s.tactical.activation?.side!==side||s.tactical.stage!=='planning')return fail('Aguarde a sua vez.');
+ if(!validSide(side)||!s.tactical.activation||s.tactical.stage!=='planning'||s.tactical.plans[side]||s.tactical.confirmed?.[side])return fail('Aguarde a próxima troca.');
  if(!tacticalActivationUnits(s,side).some(u=>u.id===actorId))return fail('Este personagem não pode agir agora.');
- if(!Array.isArray(actions)||actions.length>2||actions.some((ref,i)=>ref?.actorId!==actorId||(i===0?!['move','skill','guard'].includes(ref.type):actions[0].type!=='move'||!['skill','guard'].includes(ref.type))))return fail('Escolha um movimento opcional seguido de uma técnica ou Guarda.');
+ if(!Array.isArray(actions)||actions.length>2||actions.some(ref=>ref?.actorId!==actorId)||
+    (actions.length===1&&actions[0].type!=='move'&&!endsActivation(actions[0]))||
+    (actions.length===2&&(actions[0].type!=='move'||!endsActivation(actions[1]))))return fail('Escolha um movimento opcional seguido de uma técnica ou Guarda.');
  return previewTacticalPlan(s,side,actions,selected);
 }
-export function resolveTacticalActivation(s,side,actorId,actions,selected){
+export function submitTacticalActivation(s,side,actorId,actions,selected){
  const plan=previewTacticalActivation(s,side,actorId,actions,selected);
  if(!plan.ok)return plan;
- if(!['skill','guard'].includes(plan.actions.at(-1)?.type))return fail('Escolha uma técnica ou Guarda.');
- s.tactical.events=[];
- s.tactical.activation.spent.push(actorId);
- for(const ref of plan.actions){
-  const before=replayState(s),result=execute(s,ref);
-  stamp(s,{...ref,...result,category:ref.type==='guard'?1:priority(s,ref),before,after:replayState(s),title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
-  if(boardOutcome(s))break;
- }
- advanceTacticalActivation(s,side);
- return tacticalResolution(s);
+ if(!endsActivation(plan.actions.at(-1)))return fail('Escolha uma técnica ou Guarda.');
+ // Store only a sealed order. No position, status, Essência or RNG changes on the first confirmation.
+ s.tactical.plans[side]=copy(plan.actions);
+ if(sides.some(k=>!s.tactical.plans[k]&&tacticalActivationUnits(s,k).length))return {ok:true,waiting:true};
+ return resolveTacticalExchange(s);
 }
-function advanceTacticalActivation(s,side){
- if(s.tactical.stage==='finished')return;
- const rival=otherSide(side);
- if(tacticalActivationUnits(s,rival).length)s.tactical.activation.side=rival;
- else if(tacticalActivationUnits(s,side).length)s.tactical.activation.side=side;
- else{
-  finishTacticalRound(s);
-  while(s.tactical.stage==='planning'&&!tacticalActivationUnits(s,s.tactical.activation.side).length)finishTacticalRound(s);
+function resolveExchangeMovement(s,paths){
+ const interrupted=new Set();
+ for(let index=0;paths.some(ref=>ref.path.length>index&&!interrupted.has(ref.actorId));index++){
+  const before=replayState(s);
+  const steps=paths.filter(ref=>ref.path.length>index&&!interrupted.has(ref.actorId)).map(ref=>{
+   const from={...s.tactical.positions[ref.actorId]},to=ref.path[index];
+   return {actorId:ref.actorId,side:ref.side,from,to};
+  });
+  // Validate against the same board before moving either participant.
+  const moving=steps.filter(step=>canStep(s,step.actorId,step.from,step.to)&&!steps.some(other=>other!==step&&sameCell(step.to,other.to)));
+  const stopped=steps.filter(step=>!moving.includes(step));
+  for(const step of stopped)interrupted.add(step.actorId);
+  for(const step of moving)s.tactical.positions[step.actorId]={...step.to};
+  for(const step of moving)if(index===0){
+   const actor=actorFor(s,step.side,step.actorId);actor.actedThisTurn=true;
+   step.augmentNotes=triggerTacticalAugments(s,step.side,actor,'move');
+  }
+  stamp(s,{type:'exchange-move',title:stopped.length?'Passagem bloqueada':'Movimento',moves:moving,stopped,before,after:replayState(s)});
  }
- pauseForTacticalRewards(s);
+}
+function resolveTacticalExchange(s){
+ const activation=s.tactical.activation,plans=sides.map(side=>s.tactical.plans[side]).filter(Boolean);
+ const paths=plans.filter(refs=>refs[0].type==='move').map(refs=>refs[0]);
+ const first=activation.exchange%2?tacticalFirstSide(s):otherSide(tacticalFirstSide(s));
+ const commands=plans.map(refs=>{
+  const ref=refs.at(-1),origin=refs[0].path?.at(-1)||s.tactical.positions[ref.actorId];
+  return {ref,origin,category:ref.type==='guard'?1:priority(s,ref)};
+ }).sort((a,b)=>a.category-b.category||Number(b.ref.side===first)-Number(a.ref.side===first));
+ s.tactical.plans={};s.tactical.events=[];
+ const reveal=replayState(s);
+ stamp(s,{type:'exchange-reveal',title:'Ordens reveladas',actors:commands.map(({ref,category})=>({id:ref.actorId,side:ref.side,category})),before:reveal,after:reveal});
+ resolveExchangeMovement(s,paths);
+ for(const {ref,origin,category} of commands){
+  const before=replayState(s),at=s.tactical.positions[ref.actorId];
+  const action=ref.type==='skill'?{...ref,anchor:{x:at.x+ref.anchor.x-origin.x,y:at.y+ref.anchor.y-origin.y}}:ref;
+  activation.spent.push(ref.actorId);
+  const result=execute(s,action);
+  stamp(s,{...action,...result,category,before,after:replayState(s),title:result.title||'Técnica interrompida'});
+ }
+ if(!boardOutcome(s)){
+  activation.exchange++;
+  while(s.tactical.stage==='planning'&&!sides.some(side=>tacticalActivationUnits(s,side).length))finishTacticalRound(s);
+  pauseForTacticalRewards(s);
+ }
+ return tacticalResolution(s);
 }
 function pauseForTacticalRewards(s){
  for(const offer of s.tactical.pendingChestRewards)offer.options=tacticalChestOptions(s,offer.side,offer.tier);

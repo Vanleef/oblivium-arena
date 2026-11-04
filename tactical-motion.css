@@ -532,3 +532,78 @@
 }
 
 
+
+/* Sealed exchanges: selection, reveal and completion have different silhouettes. */
+.exchange-accessible-status{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+.alternating-battle .skill-cutin .cutin-title{display:none}
+.alternating-battle .arena-stage:has(.cell.wave) .board{animation:none}
+.alternating-battle .activation-signal{
+ --signal:#9be8ec;position:absolute;z-index:12;left:50%;bottom:3%;width:58%;height:22%;
+ transform:translateX(-50%);pointer-events:none;color:var(--signal);
+}
+.activation-signal i{position:absolute;inset:0;border:1px solid currentColor;border-radius:50%}
+.activation-signal b{
+ position:absolute;left:50%;bottom:0;translate:-50% 45%;display:grid;place-items:center;
+ min-width:16px;height:16px;border-radius:50%;font-size:12px;line-height:1;color:inherit;
+}
+.activation-signal.ready i{inset:44% auto auto 50%;width:5px;height:5px;rotate:45deg;translate:-50% 0;border-radius:0;background:currentColor;opacity:.7}
+.activation-signal.selected i{border:2px solid currentColor;box-shadow:0 0 0 4px #9be8ec29,inset 0 0 10px #9be8ec32}
+.activation-signal.selected b{background:#142930}
+.activation-signal.acting{--signal:#ffdb91}
+.cell:has(.token.enemy) .activation-signal.acting{--signal:#ff927f}
+.activation-signal.acting i{border:2px solid currentColor;box-shadow:0 0 15px currentColor;animation:exchange-actor .32s ease-out both}
+.activation-signal.acting b{background:#241827}
+.activation-signal.spent{--signal:#e1d8d1}
+.activation-signal.spent i{display:none}
+.activation-signal.spent b{background:#28232ee8;border:1px solid #dad0c46e}
+.alternating-battle .hud-unit.mark-selected .activation-marker{color:#a5f4fb}
+.alternating-battle .hud-unit.mark-acting .activation-marker{color:#ffdc93}
+.alternating-battle .hud-unit.activation-spent{opacity:1}
+.alternating-battle .hud-unit.activation-spent .activation-marker{color:#ddd0d8}
+.alternating-battle .hud-unit.activation-spent img{filter:saturate(.5)}
+.exchange-seal{position:absolute;z-index:7;left:50%;top:78px;translate:-50% 0;color:#f2d59b;text-shadow:0 0 12px #d5b683;pointer-events:none}
+
+.exchange-impact,.exchange-dust,.exchange-clash{position:absolute;inset:0;pointer-events:none;z-index:10}
+.exchange-impact{--material:#f5be80;--light:#fff0c4}
+.exchange-impact[data-family=affliction],.exchange-impact[data-family=bind]{--material:#ce77e9;--light:#f1c7ff}
+.exchange-impact[data-family=support]{--material:#96e1ac;--light:#f1ffbf}
+.exchange-impact[data-family=guard],.exchange-impact[data-family=counter]{--material:#b0d8ef;--light:#e5f4ff}
+.exchange-impact i{
+ position:absolute;left:50%;bottom:13%;width:74%;height:43%;translate:-50% 0;
+ border-radius:50%;border:2px solid var(--material);opacity:0;
+ animation:exchange-ripple .34s cubic-bezier(.16,.7,.25,1) both;
+}
+.exchange-impact i:nth-child(2){width:91%;height:48%;border-width:1px;animation-delay:.055s}
+.exchange-impact i:nth-child(3){
+ left:50%;bottom:17%;width:65%;height:77%;border:0;rotate:-24deg;
+ background:linear-gradient(120deg,transparent 22%,var(--material) 47%,var(--light) 50%,transparent 58%);
+ clip-path:polygon(0 77%,39% 45%,100% 18%,58% 62%,0 91%);
+ animation:exchange-slice .27s cubic-bezier(.13,.85,.24,1) both;
+}
+.exchange-impact:is([data-family=guard],[data-family=support],[data-family=counter]) i:nth-child(3){
+ width:38%;height:74%;rotate:0;clip-path:polygon(50% 0,100% 21%,87% 75%,50% 100%,13% 75%,0 21%);
+ background:radial-gradient(ellipse at center,#151725aa 12%,var(--material) 80%,var(--light));animation-name:exchange-ward;
+}
+.exchange-impact:is([data-family=bind],[data-family=affliction]) i:nth-child(3){
+ rotate:0;clip-path:polygon(0 100%,25% 44%,38% 71%,52% 0,61% 65%,86% 37%,100% 100%);
+ background:linear-gradient(0deg,var(--material),var(--light));animation-name:exchange-ward;
+}
+.exchange-dust:before,.exchange-clash:before{
+ content:"";position:absolute;left:50%;bottom:9%;width:65%;height:26%;translate:-50%;
+ border-radius:50%;background:radial-gradient(ellipse,#ece1c96b,transparent 72%);
+ animation:exchange-ripple .27s ease-out both;
+}
+.exchange-clash i{
+ position:absolute;left:27%;right:27%;top:47%;height:2px;background:#ffb69d;rotate:24deg;
+ box-shadow:0 0 12px #ff886b;animation:exchange-slice .34s ease-out both;
+}
+.exchange-clash i+i{rotate:-24deg}
+@keyframes exchange-actor{from{scale:.76;opacity:.25}to{scale:1;opacity:1}}
+@keyframes exchange-ripple{from{scale:.48;opacity:.9}to{scale:1.28;opacity:0}}
+@keyframes exchange-slice{0%{scale:.35 .7;opacity:0}25%{scale:1;opacity:1}100%{scale:1.26 1;opacity:0}}
+@keyframes exchange-ward{0%{scale:.7;opacity:0}26%{scale:1;opacity:.88}100%{scale:1.12;opacity:0}}
+@media(prefers-reduced-motion:reduce){
+ .activation-signal.acting i,.exchange-impact i,.exchange-dust:before,.exchange-clash:before,.exchange-clash i{animation:none;opacity:.75}
+}
+.activation-signal.acting.interrupted i{border-style:dashed;box-shadow:none}
+.activation-signal.interrupted b{color:#ffb0a0}
