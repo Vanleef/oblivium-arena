@@ -324,8 +324,12 @@
 }
 
 /* One character's techniques live on the arena edge, outside the board. */
-.alternating-battle .arena-stage>.activation-dock{
- position:relative;z-index:3;width:min(100%,760px);margin:12px auto 0;padding:0 2px 6px;
+.combat-shell.alternating-battle .arena-stage{
+ aspect-ratio:auto;height:clamp(450px,66svh,710px);
+}
+.alternating-battle .battle-surface>.activation-dock{
+ position:relative;z-index:3;padding:8px max(8px,calc((100% - 760px)/2));
+ border-top:1px solid #ab90c255;background:#13101bed;
 }
 .activation-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(106px,1fr));gap:6px}
 .activation-options button{
@@ -358,10 +362,15 @@
 @media(max-width:550px){
  .activation-options{grid-template-columns:repeat(2,minmax(0,1fr))}
  .activation-options img{width:27px;height:30px}
- .alternating-battle .arena-stage>.activation-dock{margin-top:9px}
+ .combat-shell.alternating-battle .arena-stage{height:clamp(390px,98vw,460px)}
+ .combat-shell.alternating-battle .board{top:38%;bottom:5%}
 }
 .alternating-battle .board.technique-preview .cell.aim:not(.aim-danger){
  background:#dec17965!important;border:1px solid #ffe4a0a6;
  box-shadow:inset 0 0 16px #e1be6b70;
 }
 .alternating-battle .activation-notice{position:relative;z-index:3;margin:6px 12px;color:#f6dda4}
+@media(max-height:500px) and (orientation:landscape){
+ .combat-shell.alternating-battle .arena-stage{height:380px}
+ .combat-shell.alternating-battle .board{top:35%;bottom:4%}
+}
