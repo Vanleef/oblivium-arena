@@ -1,3 +1,4 @@
+import {surfaceDamageFactor} from './tactical-elements.js';
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
 export {getAbilityResourceCosts} from "./resource-costs.js";
 import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
@@ -308,7 +309,8 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
       fractureSpend=a.spendFracturesMax?Math.min(statusCount(target),a.spendFracturesMax,Math.max(0,Math.floor(action.fractureSpend||0))):0;
       value=attackValue(s,actor,a,target,charges,{...action,fractureSpend},purgedThis);
       const ignoreDefense=actor.feridaAbertaTargets?.[target.id]||0;
-      const r=a.damage?hit(s,target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability,ignoreDefense}):{dealt:0,blocked:0};
+      const damage=action.boardCast&&s.tactical?.fortress&&action.element?value*surfaceDamageFactor(s,target.id,action.element):value;
+      const r=a.damage?hit(s,target,damage,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability,ignoreDefense}):{dealt:0,blocked:0};
       if((r.dealt||r.blocked)&&ignoreDefense)delete actor.feridaAbertaTargets[target.id];
       totalDamage+=r.dealt;
       if(a.damage&&a.executeIfHpAtMost!=null&&target.hp>0&&target.hp<=a.executeIfHpAtMost){target.hp=0;target.executed=true;log(s,`${target.name} é executado por ${a.name}.`);}

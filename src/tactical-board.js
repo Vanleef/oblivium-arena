@@ -43,7 +43,7 @@ export function canStep(s,actorId,from,to,{through=false,movement=false}={}){
  return true;
 }
 export function movementRange(s,actorId){
- if(s.tactical.fortress)return 1;
+ if(s.tactical.fortress)return s.tactical.weather?.id==='wind'&&s.tactical.weather.round===s.round?2:1;
  if(s.tactical.activation)return 2;
  const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);
  const extra=(s.tactical.augments?.[unit?.side]||[]).filter(a=>a.type==='movement-range'&&(!a.expiresAt||a.expiresAt>=s.round)).reduce((n,a)=>Math.max(n,Math.max(0,Math.floor(a.amount||0))),0);
@@ -51,7 +51,14 @@ export function movementRange(s,actorId){
 }
 export function findPath(s,actorId,to,maxSteps=movementRange(s,actorId)){
  const start=s.tactical.positions[actorId];if(!onBoard(to,s)||!start||sameCell(start,to))return null;
- if(s.tactical.fortress)return maxSteps>0&&canStep(s,actorId,start,to,{movement:true})?[to]:null;
+ if(s.tactical.fortress){
+  if(maxSteps>0&&canStep(s,actorId,start,to,{movement:true}))return [to];
+  if(maxSteps<2||movementRange(s,actorId)<2)return null;
+  const a=boardMetricPoint(s,start),b=boardMetricPoint(s,to),dx=b.x-a.x,dy=b.y-a.y;
+  if(Math.max(Math.abs(dx),Math.abs(dy))!==2||(dx&&dy&&Math.abs(dx)!==Math.abs(dy)))return null;
+  const {columns,rows}=boardTracks(s),mid={x:columns[a.x+dx/2],y:rows[a.y+dy/2]};
+  return canStep(s,actorId,start,mid)&&canStep(s,actorId,mid,to)?[mid,to]:null;
+ }
  const steps=directions;
  const pending=[{at:start,path:[]}],visited=new Set([cellKey(start)]);
  while(pending.length){const current=pending.shift();if(current.path.length>=maxSteps)continue;

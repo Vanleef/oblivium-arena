@@ -1,7 +1,8 @@
+import {applyFieldEvent,surfaceAt,pruneSurfaces} from '../src/tactical-elements.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,chooseTacticalChestReward} from '../src/tactical-combat.js';
-import {boardCells,findPath,cellLabel,fortressClosure} from '../src/tactical-board.js';
+import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,chooseTacticalChestReward,tacticalArea} from '../src/tactical-combat.js';
+import {boardCells,findPath,cellLabel,fortressClosure,cellKey} from '../src/tactical-board.js';
 import {planTacticalAIActivation} from '../src/tactical-ai.js';
 
 const allies=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
@@ -44,7 +45,7 @@ test('o ataque equipado atinge a área depois de mover, sem gastar Essência',()
  assert.ok(s.allies[0].cooldowns.impulso>0);
 });
 
-test('a primeira invasão oferece três escolhas e o terceiro aliado na fortaleza encerra a partida',()=>{
+test('cada invasão oferece três escolhas e a chegada do trio mantém a partida ativa',()=>{
  const s=battle();
  for(const u of s.enemies)u.stunned=5;
  const first=allies[0],second=allies[1],third=allies[2];
@@ -57,8 +58,11 @@ test('a primeira invasão oferece três escolhas e o terceiro aliado na fortalez
  const another=exchange(s,second,8,3);
  assert.ok(chooseTacticalChestReward(s,another.chestRewards[0].id,another.chestRewards[0].options[0].id).ok);
  const last=exchange(s,third,8,5);
- assert.ok(last.finished);
- assert.equal(s.phase,'victory');
+ assert.equal(last.finished,false);
+ assert.equal(last.chestRewards.length,1);
+ assert.ok(s.allies.every(unit=>s.tactical.positions[unit.id].x===8));
+ assert.ok(chooseTacticalChestReward(s,last.chestRewards[0].id,last.chestRewards[0].options[0].id).ok);
+ assert.equal(s.tactical.stage,'planning');
 });
 
 test('a IA ainda pode avançar com o ataque equipado em recarga',()=>{
@@ -111,6 +115,7 @@ test('fecha as bordas após as rodadas 10, 15 e 25 e expulsa ocupantes para casa
  const limits=[[10,42],[15,28],[25,20]];
  for(const [round,total] of limits){
   s.round=round;
+  s.allies[0].stunned=0;
   s.tactical.activation.spent=allies.slice(1);
   s.tactical.positions[actor]={x:3,y:3};
   const other=allies[1];
@@ -163,4 +168,78 @@ test('os dois trios começam com ataque básico frontal equipado e podem usá-lo
  }
  const classic=createTacticalBattle(allies,rivals);
  assert.ok(classic.allies.every(unit=>!unit.abilities.some(a=>a.id===basic)));
+});
+
+test('o dano usa a superfície anterior e as reações mudam o piso depois do contato',()=>{
+ const cast=(element,surface)=>{
+  const s=battle(),actor=s.allies[0],target=s.enemies[0],point={x:4,y:2};
+  for(const enemy of s.enemies.slice(1))enemy.stunned=5;
+  s.tactical.positions[actor.id]={x:2,y:2};
+  s.tactical.positions[target.id]=point;
+  target.armor=0;
+  actor.abilities[0]={...actor.abilities[0],element,_formRoot:{...actor.abilities[0]._formRoot,element}};
+  if(surface)s.tactical.surfaces[cellKey(point)]={element:surface,until:3};
+  const result=submitTacticalActivation(s,'player',actor.id,order(actor.id,3,2,'impulso'));
+  assert.ok(result.waiting);
+  const response=submitTacticalActivation(s,'enemy',target.id,order(target.id,4,3));
+  // Move away in the opponent's sealed order and move the hit cell to the new lane.
+  return {s,response,point,target};
+ };
+ const empty=cast('water',null);
+ assert.equal(surfaceAt(empty.s,empty.point)?.element,'water');
+ function impact(element,surface){
+  const s=battle(),actor=s.allies[0],target=s.enemies[0],point={x:4,y:2};
+  for(const enemy of s.enemies)enemy.stunned=3;
+  s.tactical.positions[actor.id]={x:2,y:2};
+  s.tactical.positions[target.id]=point;
+  actor.abilities[0]={...actor.abilities[0],element,_formRoot:{...actor.abilities[0]._formRoot,element}};
+  if(surface)s.tactical.surfaces[cellKey(point)]={element:surface,until:3};
+  const result=submitTacticalActivation(s,'player',actor.id,order(actor.id,3,2,'impulso'));
+  return {event:result.events.find(e=>e.abilityId==='impulso'),s,point,target};
+ }
+ const plain=impact('fire',null),steam=impact('fire','water'),ignite=impact('fire','oil');
+ assert.ok(steam.event.totalDamage<plain.event.totalDamage);
+ assert.ok(ignite.event.totalDamage>plain.event.totalDamage);
+ assert.equal(steam.event.elemental.changes['4,2'],'steam');
+ assert.equal(surfaceAt(steam.s,steam.point),null);
+ assert.equal(surfaceAt(ignite.s,ignite.point).element,'fire');
+ const wind=impact('air','water');
+ assert.deepEqual(wind.event.elemental.stuns,[wind.target.id]);
+ assert.equal(wind.target.boardFresh.stunned,1);
+ wind.s.round=3;pruneSurfaces(wind.s);
+ assert.equal(surfaceAt(wind.s,wind.point),null);
+});
+
+test('Tempestade começa na rodada 4 e o Vendaval permite dois passos livres e uma técnica',()=>{
+ const s=battle(),actor=s.allies[0];
+ s.round=3;
+ for(const enemy of s.enemies)enemy.stunned=3;
+ s.tactical.activation.spent=allies.slice(1);
+ const result=submitTacticalActivation(s,'player',actor.id,order(actor.id,1,1));
+ const storm=result.events.find(e=>e.type==='field-event');
+ assert.equal(storm.id,'storm');
+ assert.equal(storm.strikes.length,2);
+ assert.equal(s.allies.filter(u=>u.stunned).length,1);
+ assert.ok(storm.cells.every(point=>surfaceAt(s,point)?.until===9));
+ s.round=8;actor.stunned=0;
+ for(const enemy of s.enemies)enemy.stunned=3;
+ assert.equal(applyFieldEvent(s).id,'wind');
+ const from=s.tactical.positions[actor.id],to={x:from.x+2,y:from.y};
+ const path=findPath(s,actor.id,to);
+ assert.equal(path.length,2);
+ s.tactical.obstacles.push(path[0]);
+ assert.equal(findPath(s,actor.id,to),null);
+ s.tactical.obstacles.pop();
+ const move={type:'move',actorId:actor.id,path,abilityId:'despertar'};
+ const windy=submitTacticalActivation(s,'player',actor.id,[move]);
+ assert.equal(windy.events.filter(e=>e.type==='exchange-move').length,2);
+ assert.ok(windy.events.some(e=>e.type==='skill'&&e.abilityId==='despertar'));
+});
+
+test('área frontal segue a direção da grade e termina no obstáculo',()=>{
+ const s=battle(),actor=s.allies[0],basic=actor.abilities.find(a=>a.id==='fortress-basic');
+ s.tactical.positions[actor.id]={x:2,y:2};
+ assert.deepEqual(tacticalArea(s,actor,basic,{x:2,y:2},[1,-1]),[{x:3,y:1}]);
+ s.tactical.obstacles=[{x:3,y:1}];
+ assert.deepEqual(tacticalArea(s,actor,basic,{x:2,y:2},[1,-1]),[]);
 });
