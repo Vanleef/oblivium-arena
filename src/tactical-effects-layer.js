@@ -29,7 +29,8 @@ export function tacticalImpactContacts(event){
   const point=event.before?.positions?.[unit.id],next=after.get(unit.id);
   if(!next||!affected.has(unit.id)||!point||!pointKeys.has(point.x+','+point.y))return [];
   const shieldDelta=(next.shield||0)-(unit.shield||0);
-  const reaction=next.hp<unit.hp?'damage':shieldDelta<0?'block':next.hp>unit.hp?'heal':shieldDelta>0||event.type==='guard'?'shield':'effect';
+  const protectionGained=shieldDelta>0||(next.invulnerable||0)>(unit.invulnerable||0)||event.type==='guard';
+  const reaction=next.hp<unit.hp?'damage':shieldDelta<0?'block':next.hp>unit.hp?'heal':protectionGained?'shield':'effect';
   const dx=origin?point.x-origin.x:0,dy=origin?point.y-origin.y:0;
   const length=Math.hypot(dx,dy)||1;
   return [{id:unit.id,point,reaction,x:dx/length,y:dy/length}];

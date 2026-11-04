@@ -18,6 +18,8 @@ test('contatos distinguem dano, absorção, cura e proteção, com direção por
  const contacts=tacticalImpactContacts(event);
  assert.deepEqual(contacts.map(c=>c.reaction),['block','damage','shield','heal','effect','effect']);
  assert.deepEqual(contacts[1],{id:'a1',point:positions.a1,reaction:'damage',x:0,y:1});
+ const invulnerability={...next,allies:next.allies.map((unit,i)=>i===4?{...unit,invulnerable:1}:unit)};
+ assert.equal(tacticalImpactContacts({...event,after:invulnerability})[4].reaction,'shield');
  assert.deepEqual(tacticalImpactContacts({...impact,affectedTargetIds:[]}),[]);
  assert.deepEqual(tacticalImpactContacts({...impact,pose:'travel'}),[]);
  assert.deepEqual(tacticalImpactContacts({...impact,skipped:true}),[]);
