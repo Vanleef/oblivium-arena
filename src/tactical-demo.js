@@ -401,7 +401,8 @@ function paintAnimationPose(event,frame){
 }
 function paintFortressEffects(event,unit,ability,index,impact,duration,reduced){
  const phase=impact?'impact':index===0?'prepare':['release','thrust'].includes(event.pose)?'release':['travel','spread'].includes(event.pose)?'travel':null;
- if(!phase||!unit||event.skipped||typeof requestAnimationFrame!=='function')return;
+ const field=impact&&(event.type==='field-event'||event.closure||event.rewardActorId);
+ if(!phase||(!unit&&!field)||event.skipped||typeof requestAnimationFrame!=='function')return;
  const projectile=tacticalProjectileKind(unit,ability,event);
  if(phase==='travel'&&(!projectile||reduced))return;
  if(!tacticalEffects){
@@ -418,6 +419,7 @@ async function paintExchangeMovement(event,pause,reduced){
  const walkers=[];
  state.animation=event;
  render();
+ if(event.closure)paintFortressEffects(event,null,null,0,true,duration,reduced);
  for(const step of event.moves){
   const token=root.querySelector('.cell[data-cell="'+cellKey(step.from)+'"] .token');
   const landing=root.querySelector('.cell[data-cell="'+cellKey(step.to)+'"]');
@@ -608,7 +610,7 @@ root.addEventListener('click',event=>{
  }
  if(el.dataset.cell){const [x,y]=el.dataset.cell.split(',').map(Number);selectDestination({x,y});return;}
 
- if(el.dataset.chestChoice){const before=displaySnapshot();const r=chooseTacticalChestReward(state.battle,el.dataset.chestOffer,el.dataset.chestChoice);if(!r.ok){state.message=r.reason;render();return;}state.chestOffer=r.next;state.message='';animateRound([{type:'effects',title:'Aprimoramento · '+r.option.title,before,after:displaySnapshot()}]);return;}
+ if(el.dataset.chestChoice){const before=displaySnapshot();const r=chooseTacticalChestReward(state.battle,el.dataset.chestOffer,el.dataset.chestChoice);if(!r.ok){state.message=r.reason;render();return;}state.chestOffer=r.next;state.message='';animateRound([{type:'effects',rewardActorId:r.offer.fortress?r.offer.actorId:null,title:'Aprimoramento · '+r.option.title,before,after:displaySnapshot()}]);return;}
  if(el.dataset.reward){if(!chooseTacticalReward(state.run,state.rewardChoices,el.dataset.reward))return;state.rewardChoices=[];render();return;}
  const command=el.dataset.command;
  if(command==='close-resources'){state.resourceMenu=null;render();return;}

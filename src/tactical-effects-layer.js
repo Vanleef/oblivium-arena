@@ -8,6 +8,13 @@ const palettes={
  support:['#efffdb','#72e8a5','#28746b'],
  guard:['#f0faff','#8dd9ff','#3552a4']
 };
+const fieldColors={
+ storm:['#f9efff','#b79aff'],wind:['#e9fff1','#98dcca'],rain:['#e0f8ff','#75b8ef'],
+ collapse:['#f1dbff','#a17dd5'],reward:['#fff0c2','#e7ac5e'],
+ water:['#d9fbff','#56c4ef'],oil:['#fff4ad','#bb9c49'],fire:['#fff1bd','#ff7955'],
+ air:['#e7fff6','#99dbbc'],electric:['#f4e9ff','#b79aff'],
+ steam:['#fff','#b8d9e4'],ignite:['#fff1a3','#ff9838'],conduct:['#fff','#bc91ff']
+};
 const material={
  'o-acougueiro':'inferno','a-viuva-escarlate':'inferno','o-escudo-vivo':'guard',
  'o-passo-interrompido':'limbo','o-odio-encarnado':'inferno','a-arquiteta-verde':'support'
@@ -87,10 +94,32 @@ export class TacticalEffectsLayer {
   const push=(kind,point,extra={})=>{
    if(point)this.effects.push({kind,point,from,to,color,radius,family:event.family,now,duration,reduced,...extra});
   };
+  if(!reduced&&phase==='impact'){
+   if(event.type==='field-event'){
+    if(event.id==='wind')push('gust',{x:this.width/2,y:this.height/2},{width:this.width,height:this.height});
+    const strikes=new Set((event.strikes||[]).map(point=>point.x+','+point.y));
+    for(const point of (event.cells||[]).slice(0,8)){
+     const struck=strikes.has(point.x+','+point.y);
+     push(struck?'thunder':'field-splash',worldPoint(point),{colors:fieldColors[event.id],field:event.id});
+    }
+   }else if(event.closure){
+    const stride=Math.max(1,Math.ceil(event.cells.length/12));
+    for(const [index,point] of event.cells.entries())if(index%stride===0)
+     push('falling-shards',worldPoint(point),{colors:fieldColors.collapse});
+   }else if(event.rewardActorId){
+    push('reward',worldPoint(event.after.positions[event.rewardActorId]),{colors:fieldColors.reward});
+   }else if(event.element){
+    const changes=Object.entries(event.elemental?.changes||{});
+    for(const [key,change] of changes.slice(0,8)){
+     const [x,y]=key.split(',').map(Number);
+     push('element-reaction',worldPoint({x,y}),{colors:fieldColors[change],change});
+    }
+   }
+  }
   if(phase==='prepare')push('charge',from);
   if(phase==='release'&&!projectile&&!reduced)push('swing',from);
   if(phase==='travel'&&from&&to)push('travel',from,{projectile});
-  if(phase==='impact'){
+  if(phase==='impact'&&actor){
    const contacts=tacticalImpactContacts(event);
    const particles=reduced||!contacts.length?0:Math.min(10,Math.floor(tacticalParticleBudget/contacts.length));
    for(const contact of contacts){
@@ -134,7 +163,8 @@ function drawEffect(ctx,fx,t){
  const p=reduced ? .38 : t,fade=1-p;
  const angle=fx.angle??(fx.from&&fx.to?Math.atan2(fx.to.y-fx.from.y,fx.to.x-fx.from.x):0);
  ctx.save();
- if(kind==='charge'){
+ if(fx.colors||kind==='gust')drawFieldEffect(ctx,fx,p);
+ else if(kind==='charge'){
   ring(ctx,x,y,r*(1-p*.44),mid,Math.sin(p*Math.PI)*.7,2);
   ring(ctx,x,y,r*.65,light,p*.56);
  }else if(kind==='travel'){
@@ -233,4 +263,62 @@ function drawEffect(ctx,fx,t){
   ctx.stroke();
  }
  ctx.restore();
+}
+
+function drawFieldEffect(ctx,fx,p){
+ const {point:{x,y},radius:r,kind}=fx;
+ const fade=1-p;
+ if(kind==='gust'){
+  const [light,mid]=fieldColors.wind;
+  ctx.lineCap='round';
+  for(let i=0;i<7;i++){
+   const start=(p*1.35-.42+i%3*.09)*fx.width;
+   const lineY=(i+1)*fx.height/8;
+   const length=fx.width*(.13+i%3*.045);
+   ctx.globalAlpha=Math.sin(Math.PI*p)*.64;
+   ctx.strokeStyle=i%2?light:mid;ctx.lineWidth=i%2?1:2;
+   ctx.beginPath();ctx.moveTo(start,lineY+8);
+   ctx.quadraticCurveTo(start+length*.66,lineY-12,start+length,lineY);ctx.stroke();
+  }
+  return;
+ }
+ const [light,mid]=fx.colors;
+ if(kind==='thunder'){
+  const pulse=Math.max(0,1-p*3.2);
+  ctx.strokeStyle=light;ctx.lineWidth=2;ctx.globalAlpha=pulse;
+  ctx.beginPath();ctx.moveTo(x-r*.35,y-r*2.5);
+  ctx.lineTo(x+r*.22,y-r*1.45);ctx.lineTo(x-r*.08,y-r*.93);ctx.lineTo(x,y);
+  ctx.moveTo(x+r*.22,y-r*1.45);ctx.lineTo(x+r*.72,y-r*.8);
+  ctx.stroke();
+  ring(ctx,x,y,r*(.24+p*1.25),mid,fade*.9,2);
+  ring(ctx,x,y,r*(.14+p*.8),light,fade*.63);
+ }else if(kind==='field-splash'){
+  if(fx.field==='rain'){
+   ctx.strokeStyle=light;ctx.lineWidth=1.5;ctx.globalAlpha=fade;
+   ctx.beginPath();ctx.moveTo(x+r*.26*fade,y-r*fade);ctx.lineTo(x+r*.32*fade,y-r*1.38*fade);ctx.stroke();
+  }
+  ring(ctx,x,y,r*(.2+p*.7),mid,fade*.78,1.5);
+ }else if(kind==='reward'){
+  ring(ctx,x,y,r*(.65+p*.5),mid,fade,2);
+  ctx.fillStyle=light;ctx.globalAlpha=Math.sin(Math.PI*p);
+  const dy=y-r*(.35+p*1.45);
+  ctx.beginPath();ctx.moveTo(x,dy-r*.42);ctx.lineTo(x+r*.22,dy);
+  ctx.lineTo(x,dy+r*.42);ctx.lineTo(x-r*.22,dy);ctx.closePath();ctx.fill();
+ }else{
+  const falling=kind==='falling-shards',steam=fx.change==='steam';
+  ring(ctx,x,y,r*(.28+p*.82),mid,fade*.8,1.5);
+  ctx.fillStyle=light;ctx.globalAlpha=fade*.78;
+  ctx.beginPath();
+  for(let i=-1;i<=1;i++){
+   const px=x+i*r*(.24+p*.3),py=y+(falling?p*p:-p)*r*(.85+Math.abs(i)*.18);
+   if(steam){
+    const size=r*(.07+p*.12);
+    ctx.moveTo(px+size,py);
+    ctx.ellipse(px,py,size,size*.62,0,0,TAU);
+   }else{
+    ctx.moveTo(px-r*.09,py);ctx.lineTo(px+r*.02,py-r*.13);ctx.lineTo(px+r*.11,py+r*.06);ctx.closePath();
+   }
+  }
+  ctx.fill();
+ }
 }

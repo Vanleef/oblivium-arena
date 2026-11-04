@@ -49,3 +49,26 @@ test('limita resolução e partículas e encerra a animação após o impacto',(
   assert.ok(layer.effects.every(fx=>fx.particles===0));
  }finally{globalThis.requestAnimationFrame=saved;}
 });
+
+test('eventos usam a camada compartilhada com efeitos limitados e respeitam movimento reduzido',()=>{
+ const ctx=new Proxy({}, {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}};
+ const board={clientWidth:900,clientHeight:600,append(node){node.parentElement=this;}};
+ const saved=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  const layer=new TacticalEffectsLayer(canvas);
+  const event={type:'field-event',id:'storm',before,cells,strikes:cells.slice(0,2)};
+  layer.emit(board,event,null,'impact',400,{reduced:true});
+  assert.equal(layer.effects.length,0);
+  layer.emit(board,event,null,'impact',400);
+  assert.equal(layer.effects.filter(fx=>fx.kind==='thunder').length,2);
+  assert.equal(layer.effects.length,8);
+  layer.tick(performance.now()+100);
+  layer.tick(performance.now()+450);
+  assert.equal(layer.frame,0);
+  layer.emit(board,{type:'exchange-move',closure:true,before,cells},null,'impact',400);
+  assert.ok(layer.effects.length<=12);
+  assert.ok(layer.effects.every(fx=>fx.kind==='falling-shards'));
+ }finally{globalThis.requestAnimationFrame=saved;}
+});
