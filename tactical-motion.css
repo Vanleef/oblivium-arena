@@ -648,3 +648,24 @@
 }
 .alternating-battle .exchange-cutin.enemy .cutin-art{mask-image:linear-gradient(to left,#000 16%,#0009 53%,transparent 98%),linear-gradient(to bottom,transparent,#000 16% 67%,transparent)}
 @media(prefers-reduced-motion:reduce){.chest-flash i{animation:none;opacity:.65}}
+
+.exchange-impact[data-world=inferno]:not([data-family=guard],[data-family=support],[data-family=counter]){--material:#ef704f;--light:#ffd4a0}
+.exchange-impact[data-world=paraiso]:not([data-family=guard],[data-family=support],[data-family=counter]){--material:#f4ce86;--light:#fff7da}
+.exchange-impact[data-world=limbo]:not([data-family=guard],[data-family=support],[data-family=counter]){--material:#c3a0ed;--light:#f0e0ff}
+.exchange-impact:is([data-family=slash],[data-family=pierce],[data-family=strike],[data-family=projectile]) i:nth-child(3){rotate:var(--impact-angle)}
+.exchange-impact[data-family=pierce] i:nth-child(3){clip-path:polygon(0 43%,100% 49%,0 68%)}
+.exchange-impact[data-family=projectile] i:nth-child(3){clip-path:polygon(0 50%,30% 25%,85% 35%,100% 50%,72% 64%,26% 72%)}
+.exchange-impact[data-family=burst] i:nth-child(3){rotate:0;clip-path:polygon(50% 0,62% 31%,87% 19%,79% 44%,100% 52%,72% 65%,81% 96%,52% 78%,26% 100%,29% 68%,0 57%,24% 46%,14% 18%,41% 31%)}
+.impact-fragments{position:absolute;left:50%;top:58%;rotate:var(--impact-angle);pointer-events:none}
+.impact-fragments b{
+ position:absolute;left:0;top:0;width:9px;height:2px;transform-origin:0 50%;
+ background:var(--light);box-shadow:0 0 5px var(--material);opacity:0;
+ animation:impact-fragment .26s var(--delay) cubic-bezier(.15,.75,.3,1) both;
+}
+.exchange-impact:is([data-family=guard],[data-family=support],[data-family=counter],[data-family=bind],[data-family=affliction]) .impact-fragments{rotate:-90deg}
+@keyframes impact-fragment{
+ 0%{transform:rotate(var(--spread)) translateX(0) scaleX(.25);opacity:0}
+ 20%{opacity:.95}
+ 100%{transform:rotate(var(--spread)) translateX(var(--recoil)) scaleX(.4);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){.impact-fragments{display:none}}

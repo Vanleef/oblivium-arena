@@ -7,7 +7,14 @@ export function tacticalVfxMarkup(family){
  return row===null?'':`<span class="cell-vfx" aria-hidden="true" style="--vfx-row:${row*100/3}%"></span>`;
 }
 
-export function tacticalExchangeVfxMarkup(family){
+export function tacticalExchangeVfxMarkup(family,realm,source,point){
  if(tacticalVfxRow(family)===null)return '';
- return `<span class="exchange-impact" data-family="${family}" aria-hidden="true"><i></i><i></i><i></i></span>`;
+ const world=realm==='Inferno'?'inferno':realm==='Paraíso'?'paraiso':'limbo';
+ const dx=source&&point?point.x-source.x:0,dy=source&&point?point.y-source.y:0;
+ const angle=Math.round(Math.atan2(dy*.55,dx)*180/Math.PI)||0;
+ const fragments=Array.from({length:5},(_,index)=>{
+  const spread=(index-2)*24,recoil=index%2?24:34;
+  return `<b style="--spread:${spread}deg;--recoil:${recoil}px;--delay:${index*12}ms"></b>`;
+ }).join('');
+ return `<span class="exchange-impact" data-family="${family}" data-world="${world}" aria-hidden="true" style="--impact-angle:${angle}deg"><i></i><i></i><i></i><span class="impact-fragments">${fragments}</span></span>`;
 }
