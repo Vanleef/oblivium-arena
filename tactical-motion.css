@@ -607,3 +607,11 @@
 }
 .activation-signal.acting.interrupted i{border-style:dashed;box-shadow:none}
 .activation-signal.interrupted b{color:#ffb0a0}
+.exchange-warning{
+ position:absolute;inset:11% 5%;pointer-events:none;
+ border:1px solid #f4cb8d85;border-radius:6px;
+ background:radial-gradient(ellipse at 50% 80%,#e9ad681b,transparent 68%);
+}
+.activation-signal.sealed i{border:2px double currentColor;box-shadow:0 0 9px #9be8ec60}
+.activation-signal.sealed b{background:#142930;font-size:9px}
+.alternating-battle .hud-unit.mark-sealed .activation-marker{color:#a5f4fb}

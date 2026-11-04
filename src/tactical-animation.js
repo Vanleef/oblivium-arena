@@ -56,15 +56,16 @@ export function tacticalFrameDuration(event){
   return ({ready:85,anticipate:125,compress:110,launch:95,airborne:310,landing:150,settle:115})[event.pose]||120;
  }
  if(event?.type==='skill'&&!event.skipped){
-  if(tacticalImpactActive(event))return 340;
-  if(['travel','spread'].includes(event.pose))return 280;
-  if(['windup','brace','guard'].includes(event.pose))return 120;
-  if(['anticipate','gather','inhale','compress'].includes(event.pose))return 95;
+  const exchange=event.presentation==='exchange';
+  if(tacticalImpactActive(event))return exchange?340:430;
+  if(['travel','spread'].includes(event.pose))return exchange?280:310;
+  if(['windup','brace','guard'].includes(event.pose))return exchange?120:190;
+  if(['anticipate','gather','inhale','compress'].includes(event.pose))return exchange?95:135;
   if(['release','thrust'].includes(event.pose))return 115;
-  if(['recover','settle','withdraw','transfer','hold','followthrough'].includes(event.pose))return 105;
+  if(['recover','settle','withdraw','transfer','hold','followthrough'].includes(event.pose))return exchange?105:150;
  }
  if(event?.type==='guard')return event.pose==='impact'?295:105;
- return 85;
+ return event?.presentation==='exchange'?85:95;
 }
 export function tacticalFrameArt(ability,pose,portrait=''){
  // Character cut-ins and ability illustrations belong to the card/VFX layer.

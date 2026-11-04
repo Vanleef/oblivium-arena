@@ -7,7 +7,7 @@ import {tacticalResolutionFeedback} from './tactical-insight.js';
 import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalReplayFrames,tacticalHighlightEvent} from './tactical-cinematic.js';
 import {characterById} from './data.js';
 import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
-import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits} from './tactical-combat.js';
+import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits} from './tactical-combat.js';
 import {planTacticalAIActivation} from './tactical-ai.js';
 import {boardCells,cellLabel,sameCell,findPath,movementRange,cellKey,occupied,obstacle} from './tactical-board.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText} from './tactical-kits.js';
@@ -16,6 +16,7 @@ import {tacticalSpriteFrame,paintTacticalToken} from './tactical-sprites.js';
 import {tacticalExchangeVfxMarkup} from './tactical-vfx.js';
 import {getAbilityResourceCosts,resourceIds,resolveResourcePayment} from './resource-costs.js';
 const root=document.getElementById('tactical-app');
+let aiWorker,aiJob,aiSequence=0;
 const projectilePreload=new Image();projectilePreload.src='/art/animations/tactical-vfx-20261102/projectile-materials-v1.webp';
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
@@ -117,7 +118,7 @@ function selectionPreview(s=planningView()){
  return {unit,ability,cells:tacticalArea(s,unit,ability,anchor,orientation),targets:tacticalTargets(s,unit,ability,anchor,orientation),refs,result:preview(refs)};
 }
 function clearSelection(){
- Object.assign(state,{selected:null,path:null,mode:null,spendChoice:{},message:''});
+ Object.assign(state,{selected:null,sealedActor:null,path:null,mode:null,spendChoice:{},message:''});
 }
 function selectActor(id){
  if(!playerTurn()||!available().some(u=>u.id===id))return;
@@ -174,6 +175,7 @@ function announceTurnIncome(){
 function activationMark(unit,spent){
  if(state.animation?.actorId===unit.id||state.animation?.actors?.some(actor=>actor.id===unit.id)||state.animation?.moves?.some(move=>move.actorId===unit.id)||state.animation?.stopped?.some(move=>move.actorId===unit.id))return 'acting';
  if(spent.includes(unit.id))return 'spent';
+ if(unit.side==='player'&&state.sealedActor===unit.id)return 'sealed';
  if(unit.side==='player'&&state.selected===unit.id)return 'selected';
  if(unit.hp<=0||unit.stunned)return 'inactive';
  return unit.side==='player'?'ready':'';
@@ -181,16 +183,16 @@ function activationMark(unit,spent){
 function activationSignal(unit,spent){
  const mark=activationMark(unit,spent);
  const interrupted=mark==='acting'&&state.animation?.actorId===unit.id&&state.animation.skipped;
- const icon=interrupted?'×':mark==='spent'?'✓':mark==='selected'?'⌄':mark==='acting'?'✦':'';
+ const icon=interrupted?'×':mark==='spent'?'✓':mark==='sealed'?'◆':mark==='selected'?'⌄':mark==='acting'?'✦':'';
  return mark&&mark!=='inactive'?'<span class="activation-signal '+mark+(interrupted?' interrupted':'')+'" aria-hidden="true"><i></i><b>'+icon+'</b></span>':'';
 }
 function arenaHudMarkup(s){
  const spent=state.playback?.activationSpent||state.battle.tactical.activation.spent;
  const team=(units,side,label)=>'<div class="hud-team hud-team-'+side+'"><span class="hud-team-label">'+label+'</span>'+units.map(unit=>{
   const used=spent.includes(unit.id),inactive=unit.hp<=0||used||unit.stunned;
-  const mark=activationMark(unit,spent),status=unit.hp<=0?'Fora de combate':mark==='spent'?'Já agiu':unit.stunned?'Atordoado':mark==='selected'?'Selecionado em segredo':mark==='acting'?'Em ação':'Pode agir';
+  const mark=activationMark(unit,spent),status=unit.hp<=0?'Fora de combate':mark==='spent'?'Já agiu':unit.stunned?'Atordoado':mark==='sealed'?'Ordem privada selada':mark==='selected'?'Selecionado em segredo':mark==='acting'?'Em ação':'Pode agir';
   const classes='hud-unit '+(state.selected===unit.id?'selected ':'')+(state.animation?.actorId===unit.id?'acting ':'')+(unit.hp<=0?'fallen ':'')+(used?'activation-spent ':'')+'mark-'+mark;
-  const content='<img src="'+esc(portraitSrc(unit))+'" alt=""><span class="hud-unit-copy"><b>'+esc(unit.name)+'</b><small>'+Math.max(0,unit.hp)+' PV <span class="activation-marker" aria-hidden="true">'+(mark==='spent'?'✓':mark==='selected'?'◈':mark==='acting'?'✦':inactive?'–':'◆')+'</span></small><i><em style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></em></i></span>';
+  const content='<img src="'+esc(portraitSrc(unit))+'" alt=""><span class="hud-unit-copy"><b>'+esc(unit.name)+'</b><small>'+Math.max(0,unit.hp)+' PV <span class="activation-marker" aria-hidden="true">'+(mark==='spent'?'✓':mark==='sealed'?'▣':mark==='selected'?'◈':mark==='acting'?'✦':inactive?'–':'◆')+'</span></small><i><em style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></em></i></span>';
   const title=esc(unit.name+' · '+status);
   return side==='player'?'<button class="'+classes+'" data-actor="'+esc(unit.id)+'" '+(inactive||!playerTurn()?'disabled':'')+' aria-pressed="'+(state.selected===unit.id)+'" title="'+title+'">'+content+'</button>':'<div class="'+classes+'" title="'+title+'">'+content+'</div>';
  }).join('')+'</div>';
@@ -246,6 +248,7 @@ function boardMarkup(s,selection){
  return '<div class="board '+(options?'movement-mode ':'')+(selection?'technique-preview':'')+'" role="group" aria-label="Arena tática em grade de cinco por cinco">'+movementTrailMarkup(movement)+tacticalProjectileMarkup(anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null,anim?animationAbility(tacticalUnits(s).find(u=>u.id===anim.actorId),anim):null,anim)+boardCells().map(p=>{
   const environment=s.tactical.environment,environmentCell=environment&&sameCell(environment.position,p);
   const unit=occupied(s,p),chest=s.tactical.chests.find(item=>sameCell(item.position,p)),blocked=obstacle(s,p),reachable=options?findPath(s,mover.id,p):null,atOrigin=origin&&sameCell(origin,p);
+  const warning=anim?.type==='skill'&&!anim.skipped&&!impact&&anim.cells?.some(cell=>sameCell(cell,p));
   const clash=anim?.type==='exchange-move'&&anim.stopped.some(step=>sameCell(step.to,p));
   const landing=anim?.type==='exchange-move'&&anim.pose==='landing'&&anim.moves.some(step=>sameCell(step.to,p));
   const terrain=state.terrainEffects?.[cellKey(p)],classes=['cell',environmentCell?'environment-cell environment-'+environment.id:'',environmentCell&&anim?.type==='environment'&&anim.pose==='impact'?'environment-contact':'',blocked?'blocked':'',chest?'treasure-cell':'',aim.has(cellKey(p))?'aim':'',wave.has(cellKey(p))&&anim?.family?'wave-'+anim.family:'',reachable?'reachable move-steps-'+reachable.length:'',atOrigin?'move-origin':'',options&&!reachable&&!atOrigin?'move-unavailable':'',unit&&ready.has(unit.id)?'activation-ready':'',unit?.id===state.selected?'active':'',wave.has(cellKey(p))?'wave':'',unit&&hits.has(unit.id)?'hit':'',unit&&affected.has(unit.id)?'preview-target':'',unit&&activationMark(unit,spent)==='acting'?'acting-cell':''].filter(Boolean).join(' ');
@@ -256,7 +259,7 @@ function boardMarkup(s,selection){
   const sprite=unit?tacticalSpriteFrame(unit,anim?.actorId===unit.id?anim:null):null;
   const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait;
-  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family):'')+
+  return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'" data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="--depth-scale:1;z-index:'+(p.y*10+1)+'" aria-label="'+cellLabel(p)+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family):'')+
    (unit?activationSignal(unit,spent):'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i>◇</i><small>BAÚ</small></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="width:'+sprite.sheetColumns*100+'%;height:'+sprite.sheetRows*100+'%;left:'+(-sprite.column*100)+'%;top:'+(-sprite.row*100)+'%">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':'')+(unit?effectsMarkup(unit)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
@@ -292,7 +295,7 @@ function commitActivation(){
  const selection=selectionPreview();if(!selection?.result.ok)return;
  const result=submitTacticalActivation(state.battle,'player',state.selected,selection.refs);
  if(result.ok&&!result.waiting)playActivation(result);
- else if(result.ok){clearSelection();state.resourceMenu=null;render();}
+ else if(result.ok){const actorId=state.selected;clearSelection();state.sealedActor=actorId;state.resourceMenu=null;render();}
  else{state.message=result.reason;render();}
 }
 function render(){
@@ -371,7 +374,7 @@ function animateRound(events){
     continue;
    }
    const key=sourceEvent.type==='skill'?[sourceEvent.actorId,sourceEvent.abilityId,sourceEvent.formKey||'base'].join(':'):null;
-   const event={...sourceEvent,compactReplay:state.compactReplay,repeated:Boolean(key&&seenSkills.has(key))};
+   const event={...sourceEvent,presentation:'exchange',compactReplay:state.compactReplay,repeated:Boolean(key&&seenSkills.has(key))};
    if(key&&!event.skipped)seenSkills.add(key);
    if(revision!==state.revision)return;
    state.playback=event.before;
@@ -393,23 +396,45 @@ function animateRound(events){
   resumeActivation();
  })();
 }
+function acceptEnemyOrder(job,plan){
+ if(aiJob!==job)return;
+ aiJob=null;
+ const {battle,round,exchange}=job;
+ if(battle!==state.battle||battle.round!==round||battle.tactical.activation.exchange!==exchange||battle.tactical.stage!=='planning'||battle.tactical.plans.enemy)return;
+ const result=plan&&submitTacticalActivation(battle,'enemy',plan.actorId,plan.actions);
+ if(result?.ok&&!result.waiting)playActivation(result);
+ else if(!result?.ok){state.message=result?.reason||'O oponente ficou sem uma ação válida.';render();}
+}
+function planEnemyOrder(battle){
+ const exchange=battle.tactical.activation.exchange,round=battle.round;
+ if(aiJob?.battle===battle&&aiJob.exchange===exchange&&aiJob.round===round)return;
+ for(const unit of tacticalActivationUnits(battle,'enemy'))if(unit.shadowChoicePending)chooseTacticalShadow(battle,'enemy',unit.id,'damage');
+ const job=aiJob={id:++aiSequence,battle,round,exchange,view:tacticalView(battle,'enemy')};
+ const fallback=()=>setTimeout(()=>{if(aiJob===job)acceptEnemyOrder(job,planTacticalAIActivation(job.view));},0);
+ if(typeof Worker!=='function'){fallback();return;}
+ try{
+  if(!aiWorker){
+   aiWorker=new Worker(new URL('./tactical-ai-worker.js',import.meta.url),{type:'module'});
+   aiWorker.addEventListener('message',({data})=>{
+    if(aiJob?.id!==data.id)return;
+    const current=aiJob;
+    acceptEnemyOrder(current,data.failed?planTacticalAIActivation(current.view):data.plan);
+   });
+   aiWorker.addEventListener('error',()=>{
+    aiWorker.terminate();aiWorker=null;
+    if(aiJob){const current=aiJob;acceptEnemyOrder(current,planTacticalAIActivation(current.view));}
+   });
+  }
+  aiWorker.postMessage({id:job.id,view:job.view});
+ }catch{fallback();}
+}
 function resumeActivation(){
- if(state.battle.tactical.stage==='planning'&&!state.battle.tactical.plans.enemy&&tacticalActivationUnits(state.battle,'enemy').length){
-  const battle=state.battle,exchange=battle.tactical.activation.exchange,round=battle.round;
-  setTimeout(()=>{
-   if(battle!==state.battle||battle.round!==round||battle.tactical.activation.exchange!==exchange||battle.tactical.stage!=='planning'||battle.tactical.plans.enemy)return;
-   for(const unit of tacticalActivationUnits(battle,'enemy'))if(unit.shadowChoicePending)chooseTacticalShadow(battle,'enemy',unit.id,'damage');
-   const plan=planTacticalAIActivation(battle);
-   const result=plan&&submitTacticalActivation(battle,'enemy',plan.actorId,plan.actions);
-   if(result?.ok&&!result.waiting)playActivation(result);
-   else if(!result?.ok){state.message=result?.reason||'O oponente ficou sem uma ação válida.';render();}
-  },0);
- }
+ if(state.battle.tactical.stage==='planning'&&!state.battle.tactical.plans.enemy&&tacticalActivationUnits(state.battle,'enemy').length)planEnemyOrder(state.battle);
  render();
  if(state.chestOffer)root.querySelector('.chest-reward')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function resetEncounter(seed){
- clearSelection();
+ aiJob=null;clearSelection();
  Object.assign(state,{incomeRound:0,incomeAnnouncement:null,replaySeenSkills:new Set(),recentEffects:{},terrainEffects:{},resourceMenu:null,lastEvents:[],logRound:0,animation:null,playback:null,seed,rewardChoices:[],chestOffer:null});
  resumeActivation();
 }
