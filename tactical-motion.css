@@ -1009,3 +1009,19 @@
  font:700 clamp(.85rem,3vw,1.5rem)/1 Georgia,serif;text-shadow:0 0 9px #d197d8;
 }
 .fortress-battle .arena-stage>.combat-log,.fortress-battle .arena-stage>.combat-augment-strip,.fortress-battle .arena-stage>.environment-objective{position:relative;z-index:4}
+
+.token .tactical-status-tags{bottom:auto;top:0;left:50%;right:auto;translate:-50% -40%;max-width:none;flex-wrap:nowrap;gap:2px;pointer-events:none}
+.token.enemy .tactical-status-tags{right:auto;left:50%;flex-direction:row}
+.tactical-status-tags i{width:auto;min-width:17px;height:17px;display:flex;gap:2px;padding:0 3px;font-size:.7rem;pointer-events:none}
+.tactical-status-tags small{display:inline;font:700 .58rem/1 system-ui}
+.tactical-status-tags .status-buff,.arena-status-details .status-buff{color:#a5f0ce;border-color:#59b99c}
+.tactical-status-tags .status-debuff,.arena-status-details .status-debuff{color:#ffd2c7;border-color:#cf7d83}
+.tactical-status-tags .status-terrain,.arena-status-details .status-terrain{color:#dacbff;border-color:#ab91ea}
+.arena-stage>.arena-status-details{position:relative;z-index:4;color:#eae3fa;font-size:.8rem}
+.arena-status-details ul{display:grid;gap:5px;padding:0;list-style:none}
+.arena-status-details li{border-inline-start:2px solid;padding:3px 7px}
+.arena-status-details li span{display:block;color:#d2c9db}
+@media(prefers-reduced-motion:no-preference){
+ .tactical-status-tags .status-gained{animation:status-inscribed .6s ease-out both}
+}
+@keyframes status-inscribed{0%{scale:.65;opacity:.45}35%{scale:1.18;box-shadow:0 0 10px currentColor}100%{scale:1;opacity:1}}

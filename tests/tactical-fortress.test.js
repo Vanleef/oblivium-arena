@@ -264,3 +264,18 @@ test('a rotação oferece 13 aprimoramentos distintos e a Maré transforma o pis
  }
  assert.equal(options.size,13);
 });
+
+test('marcas, aflições e superfícies distinguem duração de valor de proteção',async()=>{
+ const {tacticalStatuses}=await import('../src/tactical-statuses.js');
+ const s=battle(),unit=s.allies[0],point=s.tactical.positions[unit.id];
+ unit.stunned=1;unit.shield=8;unit.marks.test={label:'Marca de Teste',turns:2};
+ unit.dots=[{tag:'queimadura',turns:3}];
+ s.tactical.surfaces[cellKey(point)]={element:'water',until:3};
+ const statuses=tacticalStatuses(unit,s);
+ assert.equal(statuses.find(effect=>effect.id==='shield').value,8);
+ assert.equal(statuses.find(effect=>effect.id==='stunned').value,'1T');
+ assert.equal(statuses.find(effect=>effect.id==='mark:test').value,'2T');
+ assert.equal(statuses.find(effect=>effect.kind==='terrain').value,undefined);
+ s.tactical.positions[unit.id]={x:1,y:point.y};
+ assert.ok(!tacticalStatuses(unit,s).some(effect=>effect.kind==='terrain'));
+});
