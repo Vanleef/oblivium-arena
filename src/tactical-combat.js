@@ -11,6 +11,11 @@ import {skillSealReason} from './combat-effects.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec} from './tactical-kits.js';
 import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,boardHeight,boardTracks,boardMetricPoint,mirrorCell,mirrorDirection,fortressClosure} from './tactical-board.js';
 
+const fortressBasicAttack=Object.freeze({
+ id:'fortress-basic',name:'Ataque Básico',description:'Causa 12 de dano físico na primeira casa à frente após o movimento.',
+ target:'enemy',damage:12,damageType:'physical',cooldown:0,formKey:'base'
+});
+
 export const tacticalUnits=s=>[...s.allies,...s.enemies];
 const team=(s,side)=>side==='player'?s.allies:s.enemies;
 const poolKey=side=>side==='player'?'resources':'enemyResources';
@@ -114,7 +119,11 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
   Object.assign(s.tactical,{width:9,height:6,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{}}});
-  for(const u of tacticalUnits(s)){u.hp=u.maxHp=100;s.tactical.fortress.equipped[u.id]=u.abilities[0].id;}
+  for(const u of tacticalUnits(s)){
+   u.hp=u.maxHp=100;
+   u.abilities.push({...fortressBasicAttack});
+   s.tactical.fortress.equipped[u.id]=fortressBasicAttack.id;
+  }
  }
  const start=i=>s.tactical.fortress?{x:0,y:i*2+1}:{x:i===1?1:0,y:i+1};
  team(s,'player').forEach((u,i)=>{s.tactical.positions[u.id]=start(i);});
@@ -460,6 +469,7 @@ function finishTacticalRound(s){
 }
 
 export function fortressCooldown(ability){
+ if(ability.id===fortressBasicAttack.id)return 0;
  return Math.max(1,ability.cooldown||0,ability.invulnerable?4:ability.stun||ability.sealAttack||(ability.damage||0)>=30?3:(ability.damage||0)>=18||ability.heal||ability.shield?2:1);
 }
 export function fortressAim(s,actor,ability,facing){

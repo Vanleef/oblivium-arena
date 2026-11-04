@@ -138,3 +138,29 @@ test('o aviso de fechamento usa as mesmas faixas que a arena remove',()=>{
  assert.equal(fortressClosure(s,26),null);
  assert.equal(fortressClosure({tactical:{}},10),null);
 });
+
+test('os dois trios começam com ataque básico frontal equipado e podem usá-lo em rodadas consecutivas',()=>{
+ const s=battle(),actor=allies[0],target=s.enemies[0].id,basic='fortress-basic';
+ for(const unit of [...s.allies,...s.enemies]){
+  assert.equal(s.tactical.fortress.equipped[unit.id],basic);
+  assert.equal(unit.abilities.filter(a=>a.id===basic).length,1);
+ }
+ for(const unit of s.enemies)unit.stunned=5;
+ s.tactical.positions[target]={x:4,y:2};
+ for(let round=1;round<=2;round++){
+  assert.equal(s.round,round);
+  s.tactical.positions[actor]={x:2,y:2};
+  const result=exchange(s,actor,3,2);
+  const hit=result.events.find(e=>e.actorId===actor&&e.type==='skill');
+  assert.equal(hit?.abilityId,basic);
+  assert.deepEqual(hit.cells,[{x:4,y:2}]);
+  assert.ok(hit.totalDamage>0);
+  assert.equal(s.allies[0].cooldowns[basic],undefined);
+  if(round===1){
+   assert.ok(exchange(s,allies[1],1,3).ok);
+   assert.ok(exchange(s,allies[2],1,5).ok);
+  }
+ }
+ const classic=createTacticalBattle(allies,rivals);
+ assert.ok(classic.allies.every(unit=>!unit.abilities.some(a=>a.id===basic)));
+});
