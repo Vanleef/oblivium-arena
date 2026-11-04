@@ -336,7 +336,7 @@ export function submitTacticalActivation(s,side,actorId,actions,selected){
  return resolveTacticalExchange(s);
 }
 function resolveExchangeMovement(s,paths){
- const interrupted=new Set();
+ const interrupted=new Set(),moved=new Set();
  for(let index=0;paths.some(ref=>ref.path.length>index&&!interrupted.has(ref.actorId));index++){
   const before=replayState(s);
   const steps=paths.filter(ref=>ref.path.length>index&&!interrupted.has(ref.actorId)).map(ref=>{
@@ -347,7 +347,7 @@ function resolveExchangeMovement(s,paths){
   const moving=steps.filter(step=>canStep(s,step.actorId,step.from,step.to,{movement:true})&&!steps.some(other=>other!==step&&sameCell(step.to,other.to)));
   const stopped=steps.filter(step=>!moving.includes(step));
   for(const step of stopped)interrupted.add(step.actorId);
-  for(const step of moving)s.tactical.positions[step.actorId]={...step.to};
+  for(const step of moving){s.tactical.positions[step.actorId]={...step.to};moved.add(step.actorId);}
   for(const step of moving)if(index===0){
    const actor=actorFor(s,step.side,step.actorId);actor.actedThisTurn=true;
    step.augmentNotes=triggerTacticalAugments(s,step.side,actor,'move');
@@ -360,6 +360,7 @@ function resolveExchangeMovement(s,paths){
   }
   stamp(s,{type:'exchange-move',title:chestsOpened.length?'Baú recolhido':stopped.length?'Passagem bloqueada':'Movimento',moves:moving,stopped,chestsOpened,before,after:replayState(s)});
  }
+ return moved;
 }
 function resolveTacticalExchange(s){
  const activation=s.tactical.activation,plans=sides.map(side=>s.tactical.plans[side]).filter(Boolean);
@@ -372,13 +373,13 @@ function resolveTacticalExchange(s){
  s.tactical.plans={};s.tactical.events=[];
  const reveal=replayState(s);
  stamp(s,{type:'exchange-reveal',title:'Ordens reveladas',actors:commands.map(({ref,category})=>({id:ref.actorId,side:ref.side,category})),before:reveal,after:reveal});
- resolveExchangeMovement(s,paths);
+ const moved=resolveExchangeMovement(s,paths);
  const conquered=s.tactical.fortress&&fortressOutcome(s);
  for(const {ref,origin,category} of commands){
   if(s.tactical.fortress){
    activation.spent.push(ref.actorId);
    s.tactical.fortress.equipped[ref.actorId]=ref.abilityId;
-   if(conquered||!sameCell(s.tactical.positions[ref.actorId],ref.path[0]))continue;
+   if(conquered||!moved.has(ref.actorId))continue;
    const actor=actorFor(s,ref.side,ref.actorId),ability=actor?.abilities.find(a=>a.id===ref.abilityId);
    if(!ability||actor.cooldowns[ability.id])continue;
    const before=replayState(s),aim=fortressAim(s,actor,ability);
@@ -461,7 +462,7 @@ function fortressPreview(s,side,actorId,actions){
  if(move.abilityId&&abilityId!==s.tactical.fortress.equipped[actorId]&&actor.cooldowns[abilityId])return fail('Técnica em recarga.');
  const projection=planningCopy(s);
  projection.tactical.positions[actorId]={...move.path[0]};
- const aim=!actor.cooldowns[abilityId]&&fortressAim(projection,actor,ability);
+ const aim=!actor.cooldowns[abilityId]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(projection,actor,ability)&&fortressAim(projection,actor,ability);
  return {ok:true,projection,ability,aim,actions:[{type:'move',side,actorId,abilityId,path:move.path.map(p=>({x:p.x,y:p.y}))}]};
 }
 function claimFortressEntry(s,{actorId,side,to}){
@@ -473,7 +474,7 @@ function claimFortressEntry(s,{actorId,side,to}){
   {id:'rampart',title:'Muralha de Cinzas',category:'Campo',text:'Ergue um obstáculo em uma casa livre perto da fortaleza invadida.',effect:{type:'fortress-terrain'}},
   {id:'rally',title:'Bastião Partilhado',category:'Coletivo',text:'Concede 14 de Escudo a cada aliado vivo.',effect:{type:'shield-team',amount:14}},
   {id:'leap',title:'Salto do Cavalo',category:'Movimento',text:'Pode saltar em L, como um cavalo do xadrez. Conta como a única ação da ativação.',effect:{type:'fortress-leap',actorId}},
-  {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Equipa uma nova opção de ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId}}
+  {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Libera um ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId}}
  ];
  const offset=(fortress.entered.length-1)%options.length;
  const offer={id:'fortress:'+actorId,side,fortress:true,tierName:'Fortaleza',options:[options[offset],options[(offset+2)%5],options[(offset+3)%5]]};

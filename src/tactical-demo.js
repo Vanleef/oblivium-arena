@@ -153,9 +153,10 @@ function activationCommands(actor,selection,projected){
   const equipped=state.mode||state.battle.tactical.fortress.equipped[actor.id];
   const buttons=actor.abilities.map(a=>{
    const remaining=actor.cooldowns[a.id]||0;
-   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining?'disabled':'')+' title="'+esc(a.description||a.name)+'"><span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:'Recarga · '+fortressCooldown(a)+' rodada(s)')+'</small></span></button>';
+   const blocked=skillSealReason(actor,a)||tacticalRequirementReason(projected,actor,a);
+   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||a.description||a.name)+'"><span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||'Recarga · '+fortressCooldown(a)+' rodada(s)')+'</small></span></button>';
   }).join('');
-  const hint=selection?.result.ok?(selection.result.aim?selection.ability.description||'A técnica será executada após o movimento.':'Movimento disponível. A técnica equipada está em recarga ou sem área válida.'):'Equipe uma técnica e escolha uma casa adjacente.';
+  const hint=selection?.result.ok?(selection.result.aim?selection.ability.description||'A técnica será executada após o movimento.':'Movimento disponível. A técnica equipada está indisponível nesta ativação.'):'Equipe uma técnica e escolha uma casa adjacente.';
   return '<section class="activation-dock" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+'</div><div class="activation-controls"><span><b>'+esc(actor.name)+(state.path?' → '+cellLabel(state.path[0]):'')+'</b><small role="status">'+esc(hint)+'</small></span><button data-command="commit" class="activation-execute" '+(!selection?.result.ok?'disabled':'')+' aria-label="Executar ativação (Espaço)">▶</button></div>'+passiveMarkup(actor)+'</section>';
  }
  const sprint=selection?.sprint;
