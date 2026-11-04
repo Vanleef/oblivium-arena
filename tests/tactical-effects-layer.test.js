@@ -9,10 +9,19 @@ const before={width:9,height:6,allies,positions};
 const after={...before,allies:allies.map((unit,i)=>({...unit,shield:i?10:0}))};
 const impact={type:'skill',pose:'impact',family:'burst',actorId:'a0',before,after,cells,totalDamage:10,affectedTargetIds:allies.map(u=>u.id)};
 
-test('a área inteira mantém efeitos fortes apenas nas unidades atingidas',()=>{
- assert.deepEqual(tacticalImpactContacts(impact),allies.map((unit,i)=>({point:positions[unit.id],heavy:i===0})));
- assert.deepEqual(tacticalImpactContacts({...impact,totalDamage:0,affectedTargetIds:[]}),[]);
- assert.deepEqual(tacticalImpactContacts({...impact,type:'guard',totalDamage:0,affectedTargetIds:[]}),[{point:positions.a0,heavy:false}]);
+test('contatos distinguem dano, absorção, cura e proteção, com direção por alvo',()=>{
+ const next={...after,allies:after.allies.map((unit,i)=>({
+  ...unit,hp:i===1?80:100,shield:i===2?20:unit.shield
+ }))};
+ const old={...before,allies:allies.map((unit,i)=>({...unit,hp:i===3?70:100}))};
+ const event={...impact,before:old,after:next};
+ const contacts=tacticalImpactContacts(event);
+ assert.deepEqual(contacts.map(c=>c.reaction),['block','damage','shield','heal','effect','effect']);
+ assert.deepEqual(contacts[1],{id:'a1',point:positions.a1,reaction:'damage',x:0,y:1});
+ assert.deepEqual(tacticalImpactContacts({...impact,affectedTargetIds:[]}),[]);
+ assert.deepEqual(tacticalImpactContacts({...impact,pose:'travel'}),[]);
+ assert.deepEqual(tacticalImpactContacts({...impact,skipped:true}),[]);
+ assert.equal(tacticalImpactContacts({...impact,type:'guard',after:before,affectedTargetIds:[]})[0].reaction,'shield');
 });
 
 test('limita resolução e partículas e encerra a animação após o impacto',()=>{

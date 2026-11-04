@@ -1,5 +1,5 @@
 import {boardTracks} from './tactical-board.js';
-import {tacticalDamagedTargets} from './tactical-animation.js';
+import {tacticalImpactActive} from './tactical-animation.js';
 
 const palettes={
  inferno:['#fff2b2','#ff6840','#751f36'],
@@ -18,14 +18,22 @@ const TAU=Math.PI*2;
 export const tacticalParticleBudget=36;
 
 export function tacticalImpactContacts(event){
- const damaged=new Set(tacticalDamagedTargets(event));
- const affected=new Set([...(event.affectedTargetIds||[]),...(event.type==='guard'?[event.actorId]:[])]);
+ if(!tacticalImpactActive(event))return [];
+ const affected=new Set(event.affectedTargetIds||event.targets||[]);
+ if(event.type==='guard')affected.add(event.actorId);
+ if(!affected.size)return [];
  const pointKeys=new Set((event.cells||[]).map(p=>p.x+','+p.y));
+ const after=new Map([...(event.after?.allies||[]),...(event.after?.enemies||[])].map(unit=>[unit.id,unit]));
+ const origin=event.before?.positions?.[event.actorId];
  return [...(event.before?.allies||[]),...(event.before?.enemies||[])].flatMap(unit=>{
-  if(!damaged.has(unit.id)&&!affected.has(unit.id))return [];
-  const point=event.before?.positions?.[unit.id];
-  return point&&pointKeys.has(point.x+','+point.y)?[{point,heavy:damaged.has(unit.id)}]:[];
- }).sort((a,b)=>Number(b.heavy)-Number(a.heavy)).slice(0,6);
+  const point=event.before?.positions?.[unit.id],next=after.get(unit.id);
+  if(!next||!affected.has(unit.id)||!point||!pointKeys.has(point.x+','+point.y))return [];
+  const shieldDelta=(next.shield||0)-(unit.shield||0);
+  const reaction=next.hp<unit.hp?'damage':shieldDelta<0?'block':next.hp>unit.hp?'heal':shieldDelta>0||event.type==='guard'?'shield':'effect';
+  const dx=origin?point.x-origin.x:0,dy=origin?point.y-origin.y:0;
+  const length=Math.hypot(dx,dy)||1;
+  return [{id:unit.id,point,reaction,x:dx/length,y:dy/length}];
+ });
 }
 
 export function tacticalEffectResolution(width,height,dpr=1){
@@ -81,7 +89,12 @@ export class TacticalEffectsLayer {
   if(phase==='impact'){
    const contacts=tacticalImpactContacts(event);
    const particles=reduced||!contacts.length?0:Math.min(10,Math.floor(tacticalParticleBudget/contacts.length));
-   for(const contact of contacts)push('impact',worldPoint(contact.point,.54),{heavy:contact.heavy,particles});
+   for(const contact of contacts){
+    const {reaction,x,y}=contact;
+    const guard=reaction==='block'||reaction==='shield';
+    const tint=guard?palettes.guard:reaction==='heal'?palettes.support:color;
+    push('impact',worldPoint(contact.point,.54),{reaction,angle:x||y?Math.atan2(y,x):undefined,color:tint,particles:reaction==='effect'?0:particles});
+   }
    if(!contacts.length)push('miss',to||from);
   }
   if(this.effects.length&&!this.frame){
@@ -115,7 +128,7 @@ function ring(ctx,x,y,r,color,alpha,width=1){
 function drawEffect(ctx,fx,t){
  const {point:{x,y},radius:r,color:[light,mid,dark],kind,reduced,family}=fx;
  const p=reduced ? .38 : t,fade=1-p;
- const angle=fx.from&&fx.to?Math.atan2(fx.to.y-fx.from.y,fx.to.x-fx.from.x):0;
+ const angle=fx.angle??(fx.from&&fx.to?Math.atan2(fx.to.y-fx.from.y,fx.to.x-fx.from.x):0);
  ctx.save();
  if(kind==='charge'){
   ring(ctx,x,y,r*(1-p*.44),mid,Math.sin(p*Math.PI)*.7,2);
@@ -146,13 +159,24 @@ function drawEffect(ctx,fx,t){
    ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
   }
  }else{
-  ring(ctx,x,y,r*(.49+p*1.22),mid,fade*.84,fx.heavy?2.5:1.5);
+  const guard=fx.reaction==='block'||fx.reaction==='shield'||shields.has(family);
+  const heal=fx.reaction==='heal';
+  const heavy=fx.reaction==='damage';
+  ring(ctx,x,y,r*(.49+p*1.22),mid,fade*.84,heavy?2.5:1.5);
   ctx.translate(x,y-r*.40);
-  if(!shields.has(family)&&!control.has(family))ctx.rotate(angle);
+  if(!guard&&!heal&&!control.has(family))ctx.rotate(angle);
   ctx.globalAlpha=fade*.87;
   ctx.fillStyle=mid;
   ctx.beginPath();
-  if(shields.has(family)){
+  if(heal){
+   ctx.strokeStyle=light;ctx.lineWidth=2;
+   for(let i=0;i<3;i++){
+    const px=(i-1)*r*.38,py=-r*(.12+(i%2)*.38+p*.55);
+    ctx.moveTo(px-r*.10,py);ctx.lineTo(px+r*.10,py);
+    ctx.moveTo(px,py-r*.10);ctx.lineTo(px,py+r*.10);
+   }
+   ctx.stroke();
+  }else if(guard){
    for(let i=0;i<6;i++){const a=i*TAU/6;ctx.lineTo(Math.sin(a)*r*.63,Math.cos(a)*r*.84);}
    ctx.closePath();ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
   }else if(control.has(family)){
@@ -161,7 +185,7 @@ function drawEffect(ctx,fx,t){
     ctx.moveTo(left-r*.20,r*.33);ctx.lineTo(left+r*.10,-r*(.55+(i%2)*.3)*fade);ctx.lineTo(left+r*.22,r*.33);
    }
    ctx.fill();
-  }else{
+  }else if(heavy){
    ctx.moveTo(-r*.92,0);ctx.lineTo(r*.28,-r*.30*fade);ctx.lineTo(r*1.34,0);ctx.lineTo(r*.28,r*.30*fade);ctx.closePath();ctx.fill();
    ctx.fillStyle=light;ctx.beginPath();ctx.moveTo(-r*.6,0);ctx.lineTo(r*.38,-r*.085*fade);ctx.lineTo(r*1.1,0);ctx.lineTo(r*.38,r*.085*fade);ctx.fill();
   }

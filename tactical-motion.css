@@ -803,3 +803,21 @@
   transform:translateY(3%) scale(1.08,.93);
  }
 }
+
+@media(prefers-reduced-motion:no-preference){
+ .fortress-battle .cell[data-reaction="damage"] :is(.sprite-viewport,.token[data-sprite="false"] .token-art){
+  animation:oblivium-directional-recoil 225ms cubic-bezier(.19,.7,.27,1) both!important;
+ }
+ .fortress-battle .cell[data-reaction="block"] :is(.sprite-viewport,.token[data-sprite="false"] .token-art){
+  animation:oblivium-shield-brace 195ms ease-out both!important;
+ }
+}
+@keyframes oblivium-directional-recoil{
+ 0%,100%{translate:0 0;scale:1}
+ 18%{translate:var(--recoil-x) var(--recoil-y);scale:.96 .88}
+ 52%{translate:calc(var(--recoil-x)*.45) calc(var(--recoil-y)*.45);scale:1.02 .98}
+}
+@keyframes oblivium-shield-brace{
+ 0%,100%{translate:0 0;scale:1}
+ 24%{translate:calc(var(--recoil-x)*.22) calc(var(--recoil-y)*.22);scale:1.05 .93}
+}
