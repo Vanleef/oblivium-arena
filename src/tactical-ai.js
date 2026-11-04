@@ -1,5 +1,5 @@
 import {tacticalEnvironmentDelta} from './tactical-environment.js';
-import {tacticalView,previewTacticalPlan,tacticalUnits} from './tactical-combat.js';
+import {tacticalView,previewTacticalPlan,previewTacticalActivation,tacticalActivationUnits} from './tactical-combat.js';
 import {boardCells,findPath,distance} from './tactical-board.js';
 import {tacticalSpec} from './tactical-kits.js';
 
@@ -15,10 +15,10 @@ function score(s,side){
  for(const u of [...own,...opposition]){const delta=tacticalEnvironmentDelta(s,u);value+=(u.side===side?1:-1)*(delta.hp*1.5+delta.shield*.28);}
  return value;
 }
-function candidates(s,side,used){
+function candidates(s,side,used,actorId){
  const own=side==='player'?s.allies:s.enemies,other=side==='player'?s.enemies:s.allies,result=[];
- for(const u of own.filter(u=>u.hp>0&&!u.stunned&&(used[u.id]||0)<2)){
-  for(const to of boardCells()){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});}
+ for(const u of own.filter(u=>u.hp>0&&!u.stunned&&(used[u.id]||0)<2&&(!actorId||u.id===actorId))){
+  if(!actorId)for(const to of boardCells()){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});}
   for(const a of u.abilities){
    if(u.cooldowns[a.id])continue;const spec=tacticalSpec(u,a),origin=s.tactical.positions[u.id];
    const anchors=spec.range===0?[origin]:['ally','friendly','team'].includes(a.target)?own.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]):other.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]);
@@ -42,4 +42,24 @@ export function planTacticalAI(publicState,side='enemy'){
   if(!best)break;({actions,preview,value}=best);
  }
  return actions;
+}
+
+
+export function planTacticalAIActivation(s,side='enemy'){
+ const view=tacticalView(s,side);let best=null;
+ for(const unit of tacticalActivationUnits(view,side)){
+  const moves=[[],...boardCells().map(to=>findPath(view,unit.id,to)).filter(Boolean).map(path=>[{type:'move',actorId:unit.id,path}])];
+  for(const move of moves){
+   const projected=move.length?previewTacticalActivation(view,side,unit.id,move).projection:view;
+   if(!projected)continue;
+   const actions=[{type:'guard',actorId:unit.id},...candidates(projected,side,{},unit.id)];
+   for(const action of actions){
+    const refs=[...move,action],preview=previewTacticalActivation(view,side,unit.id,refs);
+    if(!preview.ok)continue;
+    const value=score(preview.projection,side)-Object.values(preview.payment.costs).reduce((sum,n)=>sum+n,0)*.2;
+    if(!best||value>best.value)best={actorId:unit.id,actions:refs,value};
+   }
+  }
+ }
+ return best;
 }

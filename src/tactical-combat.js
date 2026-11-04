@@ -1,7 +1,7 @@
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {createTacticalEnvironment,resolveTacticalEnvironment} from './tactical-environment.js';
 import {tacticalChestOptions,addTacticalAugment,triggerTacticalAugments} from './tactical-chests.js';
-import {orderTacticalActions} from './tactical-order.js';
+import {orderTacticalActions,tacticalFirstSide} from './tactical-order.js';
 import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
@@ -17,6 +17,7 @@ const poolKey=side=>side==='player'?'resources':'enemyResources';
 const copy=value=>JSON.parse(JSON.stringify(value));
 const planningCopy=s=>copy({...s,tactical:{...s.tactical,events:[]}});
 const fail=reason=>({ok:false,reason});
+const otherSide=side=>side==='player'?'enemy':'player';
 const validSide=side=>side==='player'||side==='enemy';
 const actorFor=(s,side,id)=>team(s,side).find(u=>u.id===id&&u.hp>0);
 const stamp=(s,event)=>{s.tactical.events.push({round:s.round,...event});};
@@ -98,6 +99,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  s.tactical.obstacles=obstacles.map(cleanPoint);
  if(s.tactical.environment&&obstacles.some(p=>sameCell(p,s.tactical.environment.position)))throw Error('A casa ambiental não pode ser um obstáculo.');
  if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
+ if(config.alternating)resetTacticalActivation(s);
  s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
 }
@@ -159,6 +161,11 @@ function displaceTargets(s,actor,ids,displacement){
 function execute(s,ref,{projection=false}={}){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor)return {skipped:true,reason:'Personagem fora de combate.'};
  if(ref.type==='move')return move(s,ref,projection);
+ if(ref.type==='guard'){
+  const guard=Math.max(0,Math.min(6,Math.floor(actor.maxHp/2)-actor.shield));
+  actor.shield+=guard;actor.actedThisTurn=true;
+  return {title:'Guarda',cells:[s.tactical.positions[actor.id]],targets:[actor.id]};
+ }
  refreshSkillForms(s);const ability=actor.abilities.find(a=>a.id===ref.abilityId);
  if(!ability)return {skipped:true,reason:'Técnica indisponível.'};
  const requirement=tacticalRequirementReason(s,actor,ability);if(requirement)return {skipped:true,reason:requirement};
@@ -209,7 +216,8 @@ function normalizePlan(s,side,actions){
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
    const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}
    refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],order});
-  }else return fail('Tipo de ação inválido.');
+  }else if(ref.type==='guard'&&s.tactical.activation){refs.push({type:'guard',actorId:actor.id,side,order});}
+  else return fail('Tipo de ação inválido.');
  }
  return {ok:true,actions:refs};
 }
@@ -244,20 +252,20 @@ export function previewTacticalPlan(s,side,actions,selected){
 }
 
 export function submitTacticalPlan(s,side,actions,selected){
- if(s.tactical.stage!=='planning'||!validSide(side)||s.tactical.plans[side])return fail('Este lado já confirmou ou a rodada terminou.');
+ if(s.tactical.activation||s.tactical.stage!=='planning'||!validSide(side)||s.tactical.plans[side])return fail('Este lado já confirmou ou a rodada terminou.');
  const result=previewTacticalPlan(s,side,actions,selected);if(!result.ok)return result;
  s.tactical.plans[side]=copy(result.actions);
  if(s.tactical.plans.player&&s.tactical.plans.enemy){s.tactical.stage='ready';s.phase='tactical-ready';}
  return {ok:true,ready:s.tactical.stage==='ready'};
 }
 export function chooseTacticalShadow(s,side,actorId,choice){
- if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side])return fail('A escolha está bloqueada.');
+ if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side]||(s.tactical.activation&&s.tactical.activation.side!==side))return fail('A escolha está bloqueada.');
  const actor=actorFor(s,side,actorId);if(!actor?.shadowChoicePending||!['damage','response'].includes(choice))return fail('Resposta da Sombra indisponível.');
  actor.shadowChoicePending=false;if(choice==='damage')actor.shadowDamageBonus=5;else actor.shadowBroadCounter=true;
  return {ok:true};
 }
 export function exchangeTacticalEssence(s,side,target,selected){
- if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side])return fail('A reserva está bloqueada.');
+ if(!validSide(side)||s.tactical.stage!=='planning'||s.tactical.plans[side]||(s.tactical.activation&&s.tactical.activation.side!==side))return fail('A reserva está bloqueada.');
  const result=resolveEssenceExchange(s[poolKey(side)],target,selected);if(result.ok)s[poolKey(side)]=result.pool;
  return result;
 }
@@ -276,6 +284,58 @@ export function resolveTacticalRound(s){
   const before=replayState(s),result=execute(s,ref);stamp(s,{...ref,...result,before,after:replayState(s),title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
   if(boardOutcome(s))break;
  }
+ finishTacticalRound(s);
+ pauseForTacticalRewards(s);
+ return tacticalResolution(s);
+}
+
+export function tacticalActivationUnits(s,side){
+ const activation=s.tactical.activation;
+ return activation?livingTeam(s,side).filter(u=>!u.stunned&&!activation.spent.includes(u.id)):[];
+}
+function resetTacticalActivation(s){
+ s.tactical.activation={side:tacticalFirstSide(s),spent:[]};
+ if(!tacticalActivationUnits(s,s.tactical.activation.side).length)s.tactical.activation.side=otherSide(s.tactical.activation.side);
+}
+export function previewTacticalActivation(s,side,actorId,actions,selected){
+ if(!validSide(side)||s.tactical.activation?.side!==side||s.tactical.stage!=='planning')return fail('Aguarde a sua vez.');
+ if(!tacticalActivationUnits(s,side).some(u=>u.id===actorId))return fail('Este personagem não pode agir agora.');
+ if(!Array.isArray(actions)||actions.length>2||actions.some((ref,i)=>ref?.actorId!==actorId||(i===0?!['move','skill','guard'].includes(ref.type):actions[0].type!=='move'||!['skill','guard'].includes(ref.type))))return fail('Escolha um movimento opcional seguido de uma técnica ou Guarda.');
+ return previewTacticalPlan(s,side,actions,selected);
+}
+export function resolveTacticalActivation(s,side,actorId,actions,selected){
+ const plan=previewTacticalActivation(s,side,actorId,actions,selected);
+ if(!plan.ok)return plan;
+ if(!['skill','guard'].includes(plan.actions.at(-1)?.type))return fail('Escolha uma técnica ou Guarda.');
+ s.tactical.events=[];
+ s.tactical.activation.spent.push(actorId);
+ for(const ref of plan.actions){
+  const before=replayState(s),result=execute(s,ref);
+  stamp(s,{...ref,...result,category:ref.type==='guard'?1:priority(s,ref),before,after:replayState(s),title:ref.type==='move'?'Movimento':result.title||'Técnica cancelada'});
+  if(boardOutcome(s))break;
+ }
+ advanceTacticalActivation(s,side);
+ return tacticalResolution(s);
+}
+function advanceTacticalActivation(s,side){
+ if(s.tactical.stage==='finished')return;
+ const rival=otherSide(side);
+ if(tacticalActivationUnits(s,rival).length)s.tactical.activation.side=rival;
+ else if(tacticalActivationUnits(s,side).length)s.tactical.activation.side=side;
+ else{
+  finishTacticalRound(s);
+  while(s.tactical.stage==='planning'&&!tacticalActivationUnits(s,s.tactical.activation.side).length)finishTacticalRound(s);
+ }
+ pauseForTacticalRewards(s);
+}
+function pauseForTacticalRewards(s){
+ for(const offer of s.tactical.pendingChestRewards)offer.options=tacticalChestOptions(s,offer.side,offer.tier);
+ if(s.tactical.pendingChestRewards.length&&s.tactical.stage==='planning'){s.tactical.stage='reward';s.phase='tactical-reward';}
+}
+function tacticalResolution(s){
+ return {ok:true,events:copy(s.tactical.events),chestRewards:copy(s.tactical.pendingChestRewards),finished:s.tactical.stage==='finished'};
+}
+function finishTacticalRound(s){
  if(s.tactical.stage!=='finished'&&s.tactical.environment){
   const before=replayState(s),augmentNotes=resolveTacticalEnvironment(s);
   stamp(s,{type:'environment',title:s.tactical.environment.title,augmentNotes,cells:[{...s.tactical.environment.position}],before,after:replayState(s)});
@@ -283,10 +343,7 @@ export function resolveTacticalRound(s){
  }
  if(s.tactical.stage!=='finished'){
   const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
-  if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.round%4===0)spawnTacticalChest(s);else announceTacticalChest(s);}
+  if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.tactical.activation)resetTacticalActivation(s);if(s.round%4===0)spawnTacticalChest(s);else announceTacticalChest(s);}
  }
- for(const offer of s.tactical.pendingChestRewards)offer.options=tacticalChestOptions(s,offer.side,offer.tier);
- if(s.tactical.pendingChestRewards.length&&s.tactical.stage==='planning'){s.tactical.stage='reward';s.phase='tactical-reward';}
  s.tactical.plans={};s.queue=[];s.intents=[];s.resolution=[];s.resolutionSide=null;
- return {ok:true,events:copy(s.tactical.events),chestRewards:copy(s.tactical.pendingChestRewards),finished:s.tactical.stage==='finished'};
 }

@@ -322,3 +322,46 @@
  .card-battle .arena-command-dock .hand-context{font-size:8px;gap:4px}
  .card-battle .arena-command-dock .hand-context>button{min-width:24px;min-height:24px;font-size:16px}
 }
+
+/* One character's techniques live on the arena edge, outside the board. */
+.alternating-battle .arena-stage>.activation-dock{
+ position:relative;z-index:3;width:min(100%,760px);margin:12px auto 0;padding:0 2px 6px;
+}
+.activation-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(106px,1fr));gap:6px}
+.activation-options button{
+ display:flex;align-items:center;gap:6px;min-width:0;min-height:46px;padding:4px 6px;text-align:left;
+ background:#171322ed;border-color:#ab90c26b;color:#f4ecfa;
+}
+.activation-options button[aria-pressed=true]{border-color:#f6d894;background:#382a45;box-shadow:inset 0 0 12px #e2bdf525}
+.activation-options button:disabled{filter:saturate(.25)}
+.activation-options img{width:32px;height:36px;object-fit:cover;flex:none;border-radius:4px}
+.activation-options b,.activation-options small,.activation-controls small{display:block;line-height:1.25;overflow-wrap:anywhere}
+.activation-options b{font-size:.76rem}
+.activation-options small,.activation-controls small{font-size:.68rem;color:#ddd0e8}
+.activation-controls{
+ display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding:4px 4px 4px 8px;
+ background:linear-gradient(90deg,#140f1ce8,#140f1c9c);border-radius:6px;color:#f4ecfa;
+}
+.activation-controls b{font-size:.8rem}
+.activation-controls .activation-execute{
+ display:grid;place-items:center;flex:none;width:44px;height:44px;padding:0;border-radius:50%;
+ color:#f6dda4;border-color:#bba46c;background:#2b1f33;
+}
+.activation-controls .activation-execute:hover:not(:disabled){background:#493451}
+.alternating-battle .activation-marker{color:#e8cd8e}
+.alternating-battle .hud-unit.activation-spent{opacity:.63}
+.alternating-battle .activation-income{position:relative;z-index:3;pointer-events:none}
+.alternating-battle .activation-income .arena-income{position:absolute;inset:2px auto auto 50%;transform:translateX(-50%);width:max-content;max-width:95%}
+.alternating-battle .activation-dock .tactical-passive{margin:6px 0 0}
+.alternating-battle .cell.activation-ready .token{cursor:pointer}
+.alternating-battle .cell:disabled{opacity:1}
+@media(max-width:550px){
+ .activation-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .activation-options img{width:27px;height:30px}
+ .alternating-battle .arena-stage>.activation-dock{margin-top:9px}
+}
+.alternating-battle .board.technique-preview .cell.aim:not(.aim-danger){
+ background:#dec17965!important;border:1px solid #ffe4a0a6;
+ box-shadow:inset 0 0 16px #e1be6b70;
+}
+.alternating-battle .activation-notice{position:relative;z-index:3;margin:6px 12px;color:#f6dda4}
