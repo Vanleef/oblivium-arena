@@ -9,7 +9,7 @@ import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenc
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec} from './tactical-kits.js';
-import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,boardHeight,boardTracks,boardMetricPoint,mirrorCell,mirrorDirection} from './tactical-board.js';
+import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,boardHeight,boardTracks,boardMetricPoint,mirrorCell,mirrorDirection,fortressClosure} from './tactical-board.js';
 
 export const tacticalUnits=s=>[...s.allies,...s.enemies];
 const team=(s,side)=>side==='player'?s.allies:s.enemies;
@@ -531,10 +531,11 @@ function registerFortressDeaths(s){
  }
 }
 function closeFortressBoard(s,completed){
- if(![10,15,25].includes(completed))return;
+ const closure=fortressClosure(s,completed);
+ if(!closure)return;
  const before=replayState(s),f=s.tactical.fortress,previous=boardCells(s);
- if(completed===15)f.closedRows.push(0,boardHeight(s)-1);
- else {const ring=completed===10?1:2;f.closedColumns.push(ring,boardWidth(s)-1-ring);}
+ const tracks=closure.axis==='y'?f.closedRows:f.closedColumns;
+ tracks.push(...closure.tracks);
  const moves=[];
  for(const unit of tacticalUnits(s)){
   const from=s.tactical.positions[unit.id];

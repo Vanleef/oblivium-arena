@@ -833,3 +833,23 @@
 .fortress-battle .cell.fortress-aim-contact .token-sprite{
  filter:drop-shadow(0 0 4px #ffca7c);
 }
+
+.fortress-battle .collapse-marker{
+ position:absolute;inset:3px;pointer-events:none;border:1px dashed #e9ad79b0;
+ background:repeating-linear-gradient(135deg,#e69a5826 0 2px,transparent 2px 9px);
+ border-radius:3px;
+}
+.fortress-battle .collapse-imminent .collapse-marker{
+ border:1px solid #ff977c;
+ background:repeating-linear-gradient(135deg,#e67e5650 0 3px,transparent 3px 9px);
+}
+@media(prefers-reduced-motion:no-preference){
+ .fortress-battle .closing-track .terrain-tile{
+  animation:fortress-floor-collapse 400ms cubic-bezier(.55,.12,.85,.48) both;
+ }
+}
+@keyframes fortress-floor-collapse{
+ 0%{opacity:1}
+ 32%{opacity:.9;translate:0 1px}
+ 100%{opacity:0;translate:0 10px;scale:.94 .85}
+}

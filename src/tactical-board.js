@@ -2,6 +2,13 @@
 export const BOARD_SIZE=5;
 export const boardWidth=s=>s?.tactical?.width??BOARD_SIZE;
 export const boardHeight=s=>s?.tactical?.height??BOARD_SIZE;
+export function fortressClosure(s,round){
+ if(!s?.tactical?.fortress)return null;
+ if(round===15)return {axis:'y',tracks:[0,boardHeight(s)-1]};
+ if(round!==10&&round!==25)return null;
+ const offset=round===10?1:2;
+ return {axis:'x',tracks:[offset,boardWidth(s)-1-offset]};
+}
 export function boardTracks(s){
  const layout=s?.tactical?.fortress;
  return {columns:Array.from({length:boardWidth(s)},(_,i)=>i).filter(i=>!layout?.closedColumns?.includes(i)),

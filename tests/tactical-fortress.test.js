@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,chooseTacticalChestReward} from '../src/tactical-combat.js';
-import {boardCells,findPath,cellLabel} from '../src/tactical-board.js';
+import {boardCells,findPath,cellLabel,fortressClosure} from '../src/tactical-board.js';
 import {planTacticalAIActivation} from '../src/tactical-ai.js';
 
 const allies=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
@@ -127,4 +127,14 @@ test('fecha as bordas após as rodadas 10, 15 e 25 e expulsa ocupantes para casa
  }
  s.tactical.positions[actor]={x:3,y:3};
  assert.ok(findPath(s,actor,{x:0,y:3}));
+});
+
+test('o aviso de fechamento usa as mesmas faixas que a arena remove',()=>{
+ const s=battle();
+ assert.equal(fortressClosure(s,9),null);
+ assert.deepEqual(fortressClosure(s,10),{axis:'x',tracks:[1,7]});
+ assert.deepEqual(fortressClosure(s,15),{axis:'y',tracks:[0,5]});
+ assert.deepEqual(fortressClosure(s,25),{axis:'x',tracks:[2,6]});
+ assert.equal(fortressClosure(s,26),null);
+ assert.equal(fortressClosure({tactical:{}},10),null);
 });
