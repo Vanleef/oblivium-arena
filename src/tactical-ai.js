@@ -56,7 +56,7 @@ export function planTacticalAIActivation(s,side='enemy'){
      const actions=[{type:'move',actorId:unit.id,path,abilityId:ability.id}],preview=previewTacticalActivation(view,side,unit.id,actions);
      if(!preview.ok)continue;
      const value=(Math.abs(start.x-edge)-Math.abs(to.x-edge))*8+(to.x===edge?42:0)
-       +(preview.aim?.targets.length||0)*((ability.damage||0)*.5+(ability.stun?11:0)+(ability.heal?4:0))
+       +(preview.aim?.targets?.length||0)*((ability.damage||0)*.5+(ability.stun?11:0)+(ability.heal?4:0))
        +(!unit.cooldowns[ability.id]?1:0)-Math.abs(to.y-start.y)*.2;
      if(!best||value>best.value)best={actorId:unit.id,actions,value};
     }

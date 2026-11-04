@@ -462,7 +462,8 @@ function fortressPreview(s,side,actorId,actions){
  if(move.abilityId&&abilityId!==s.tactical.fortress.equipped[actorId]&&actor.cooldowns[abilityId])return fail('Técnica em recarga.');
  const projection=planningCopy(s);
  projection.tactical.positions[actorId]={...move.path[0]};
- const aim=!actor.cooldowns[abilityId]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(projection,actor,ability)&&fortressAim(projection,actor,ability);
+ const ready=!actor.cooldowns[abilityId]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(projection,actor,ability);
+ const aim=ready?fortressAim(projection,actor,ability):null;
  return {ok:true,projection,ability,aim,actions:[{type:'move',side,actorId,abilityId,path:move.path.map(p=>({x:p.x,y:p.y}))}]};
 }
 function claimFortressEntry(s,{actorId,side,to}){

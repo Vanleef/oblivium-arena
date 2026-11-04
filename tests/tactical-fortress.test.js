@@ -56,3 +56,13 @@ test('a primeira invasão oferece três escolhas e o terceiro aliado na fortalez
  assert.ok(last.finished);
  assert.equal(s.phase,'victory');
 });
+
+test('a IA ainda pode avançar com o ataque equipado em recarga',()=>{
+ const s=battle();
+ for(const unit of s.enemies)for(const ability of unit.abilities)unit.cooldowns[ability.id]=2;
+ const plan=planTacticalAIActivation(s);
+ assert.ok(plan);
+ const result=previewTacticalActivation(s,'enemy',plan.actorId,plan.actions);
+ assert.ok(result.ok);
+ assert.equal(result.aim,null);
+});
