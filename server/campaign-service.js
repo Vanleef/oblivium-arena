@@ -58,7 +58,7 @@ function startBattle(profile,run,node){
  run.bossIds||=selectBossRoster(run.team||profile.team,opponents.length>=3?opponents:roster,run.seed);
  run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
- const enemies=createEnemyTeam(elo,run.team,nodeType,run.encounter,{difficulty:run.difficulty||0,bossIds:run.bossIds});
+ const enemies=createEnemyTeam(elo,run.team,nodeType,run.encounter,{difficulty:run.difficulty||0,bossIds:run.bossIds,campaign:true});
  const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed,campaignRealm:elo.realm,niloAbsorption:run.niloAbsorption});
  beginInfluences(battle,seed);
  run.currentNodeId=node.id;run.battle=storeBattle(battle);

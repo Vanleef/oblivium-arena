@@ -23,7 +23,7 @@ async function fixture(){
 
 test('servidor cria trilhas com semente própria e controla progressão e recompensas',async()=>{
  const {accounts,campaign,session}=await fixture();
- const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0});
+ const started=await campaign.request(session,{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0});
  assert.equal(started.profile.run.serverOwned,true);assert.ok(Number.isInteger(started.profile.run.seed));assert.equal(started.profile.xp,0);
  const before=started.profile.run.seed;
  await accounts.update(session,{profile:{...started.profile,run:null,seed:1,ownedIds:[...started.profile.ownedIds,'o-fim'],completedElos:['sangria'],xp:1000000,fragments:1000000}});
@@ -34,7 +34,7 @@ test('servidor cria trilhas com semente própria e controla progressão e recomp
 
 test('marca de trilha enviada no perfil não substitui a autorização privada da conta',async()=>{
  const {accounts,campaign,session}=await fixture();
- await accounts.mutateAccount(session,account=>{account.profile.run={serverOwned:true,serverRunId:'forged',eloId:'sangria',map:[],team:[],availableNodeIds:[]};});
+ await accounts.mutateAccount(session,account=>{account.profile.run={serverOwned:true,serverRunId:'forged',eloId:'flagelo',map:[],team:[],availableNodeIds:[]};});
  const synced=await campaign.request(session,{op:'sync'});
  assert.equal(synced.profile.run,null);
  await assert.rejects(campaign.request(session,{op:'turn',actions:[],payment:{}}),{status:400});
@@ -42,7 +42,7 @@ test('marca de trilha enviada no perfil não substitui a autorização privada d
 
 test('combates de campanha usam o estado persistido no servidor e impedem vitória ou custo falso',async()=>{
  const {accounts,campaign,session}=await fixture();
- const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0});
+ const started=await campaign.request(session,{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0});
  const node=started.profile.run.map[0][0];
  const encounter=await campaign.request(session,{op:'select-node',nodeId:node.id});
  assert.equal(encounter.battle.phase,'influence');assert.ok(encounter.battle.influenceDraft.options.length);
@@ -59,7 +59,7 @@ test('combates de campanha usam o estado persistido no servidor e impedem vitór
 
 test('servidor valida custo Coringa e a identidade da forma antes de consumir o turno',async()=>{
  const {campaign,session}=await fixture();
- const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
+ const started=await campaign.request(session,{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
  let battle=(await campaign.request(session,{op:'select-node',nodeId:node.id})).battle;
  await campaign.request(session,{op:'influence',eventId:battle.influenceDraft.options[0]});
  const state=(await accountsCurrent(campaign,session));battle=state.battle;
@@ -72,7 +72,7 @@ test('servidor valida custo Coringa e a identidade da forma antes de consumir o 
 
 test('campanha valida e aplica a troca 5:1 no estado autoritativo antes do turno',async()=>{
  const {accounts,campaign,session}=await fixture();
- const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
+ const started=await campaign.request(session,{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
  let battle=(await campaign.request(session,{op:'select-node',nodeId:node.id})).battle;
  await campaign.request(session,{op:'influence',eventId:battle.influenceDraft.options[0]});
  await accounts.mutateAccount(session,account=>{account.profile.run.battle.resources={essence:2,cinza:1,graca:1,ruptura:1};});
@@ -85,7 +85,7 @@ test('campanha valida e aplica a troca 5:1 no estado autoritativo antes do turno
 
 test('turnos e sorteios continuam no servidor após serializar o combate entre requisições',async()=>{
  const {campaign,session}=await fixture();
- const started=await campaign.request(session,{op:'start',eloId:'sangria',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
+ const started=await campaign.request(session,{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0}),node=started.profile.run.map[0][0];
  let battle=(await campaign.request(session,{op:'select-node',nodeId:node.id})).battle;
  await campaign.request(session,{op:'influence',eventId:battle.influenceDraft.options[0]});
  const staleRound=battle.round;
@@ -101,3 +101,17 @@ test('turnos e sorteios continuam no servidor após serializar o combate entre r
 async function accountsCurrent(campaign,session){
  const result=await campaign.accounts.current(session);return {profile:result.profile,battle:result.battle||null};
 }
+
+test('servidor abre encontro de chefe com cinco inimigos e preserva as criaturas ao sincronizar',async()=>{
+ const {accounts,campaign,session}=await fixture();
+ const started=await campaign.request(session,{op:'start',eloId:'flagelo',variantId:'hunt',difficulty:0});
+ const nodeId=started.profile.run.availableNodeIds[0];
+ await accounts.mutateAccount(session,account=>{
+  account.profile.run.map.flat().find(node=>node.id===nodeId).type='boss';
+ });
+ const encounter=await campaign.request(session,{op:'select-node',nodeId});
+ assert.equal(encounter.battle.enemies.length,5);
+ assert.equal(encounter.battle.enemies.filter(unit=>unit.npcOnly).length,2);
+ const resumed=await campaign.request(session,{op:'sync'});
+ assert.deepEqual(resumed.battle.enemies.map(unit=>unit.id),encounter.battle.enemies.map(unit=>unit.id));
+});
