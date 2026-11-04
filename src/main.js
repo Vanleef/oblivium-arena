@@ -288,7 +288,7 @@ function startEncounter(node) {
   const specialFinale = nodeType === "finale";
   const encounterType = specialFinale ? "boss" : nodeType;
   const battleTeam=profile.run?.team||profile.team;
-  const enemies = createEnemyTeam(elo, battleTeam, encounterType, profile.run?.encounter || 0, {difficulty:profile.run?.difficulty||0,bossIds:profile.run?.bossIds});
+  const enemies = createEnemyTeam(elo, battleTeam, encounterType, profile.run?.encounter || 0, {difficulty:profile.run?.difficulty||0,bossIds:profile.run?.bossIds,campaign:true});
   if (specialFinale) {
     // Keep encounter scaling, but no unrelated source character's passive or forms.
     const {maxHp}=enemies[0];

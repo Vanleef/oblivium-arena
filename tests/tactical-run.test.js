@@ -34,3 +34,18 @@ test('descoberta altera adversários e trilha inválida não modifica a expediç
  const run=createTacticalRun(),before=JSON.stringify(run);assert.equal(advanceTacticalRun(run,battle,'inventada'),null);assert.equal(JSON.stringify(run),before);
  const next=advanceTacticalRun(run,battle,'discovery');assert.equal(new Set(next.enemy).size,3);assert.notDeepEqual(next.enemy,enemy);assert.deepEqual(next.player,player);assert.doesNotThrow(()=>createTacticalBattle(next.player,next.enemy,next));
 });
+
+test('Conquista leva aprimoramentos táticos e criaturas a encontros de até cinco oponentes',()=>{
+ const s=createTacticalBattle(player,enemy,{fortress:true});
+ s.phase='victory';s.tactical.stage='finished';
+ const run=createTacticalRun();
+ const offers=offerTacticalRewards(run,s,1);
+ assert.ok(chooseTacticalReward(run,offers,'shield'));
+ run.encounter=3;
+ const next=advanceTacticalRun(run,s,'risk');
+ const battle=createTacticalBattle(next.player,next.enemy,{...next,fortress:true});
+ assert.equal(battle.enemies.length,5);
+ assert.equal(battle.enemies.filter(unit=>unit.npcOnly).length,2);
+ assert.equal(new Set(battle.enemies.map(unit=>JSON.stringify(battle.tactical.positions[unit.id]))).size,5);
+ assert.ok(battle.allies.every(unit=>unit.shield>=12));
+});

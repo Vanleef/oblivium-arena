@@ -56,6 +56,7 @@ export const tacticalRoster=Object.freeze(characters.filter(c=>tacticalKitProfil
 export const patternNames=Object.freeze({self:'Pessoal',cell:'Uma célula',line:'Frente',cross:'Cruz',square:'Área 3×3',x:'Diagonal em X',cone:'Cone frontal',ring:'Ao redor'});
 export const priorityNames=Object.freeze(['Movimento','Preparação / Defesa','Ofensiva']);
 export function tacticalSpec(actor,ability){
+ if(actor.npcOnly&&ability.id==='creature-strike')return {pattern:'line',range:2,length:2,limit:1,vision:true,priority:2};
  if(ability.id==='fortress-basic')return {pattern:'line',range:1,length:1,limit:1,vision:true,priority:2};
  if(ability.id==='fortress-breach')return {pattern:'cross',range:2,length:2,limit:3,vision:true,priority:2};
  if(ability.target==='self')return {...shapes.personal,priority:1};

@@ -1,4 +1,4 @@
-import { realmEmblem, uiIcon } from "./ui-icons.js";
+import { uiIcon } from "./ui-icons.js";
 import { renderAugmentCard, effectGlyph, augmentGlyph } from "./augment-cards.js";
 import { characterById, characters } from './data.js';
 import { eloCrest } from './crests.js';
@@ -9,6 +9,27 @@ import { campaignArc, campaignChapter } from './story-content.js';
 
 const requirementsMarkup=access=>`<ul class="elo-requirements">${access.requirements.map(r=>`<li class="${r.current>=r.total?'met':''}"><span>${r.current>=r.total?'✓':'◇'} ${esc(r.label)}</span><b>${Math.min(r.current,r.total)}/${r.total}</b></li>`).join('')}</ul>`;
 const english=()=>getLanguage()==="en";
+const atlasLandmarks={
+ inferno:['oblivio','tormenta','putrido','flagelo','estige','magma','blasfemia','malebolge','tartaro'],
+ paraiso:['lua','mercurio','venus','sol','marte','jupiter','saturno','estelar','empireo'],
+ limbo:['vestibulo','aqueronte','umbral','purgatorio']
+};
+function campaignAtlas(realm,route,selected,profile,difficulty){
+ const landmarks=atlasLandmarks[realm.id]||[];
+ const coordinates=landmarks.length===4?[[27,24],[73,38],[29,73],[72,69]]:Array.from({length:9},(_,index)=>[22+index%3*28,20+Math.floor(index/3)*29]);
+ const nodes=route.map((kingdom,index)=>{
+  const pin=landmarks.indexOf(kingdom.id);
+  return {kingdom,index,point:coordinates[pin]||[50,50],access:eloAccess(profile,kingdom,difficulty)};
+ });
+ const path=nodes.map(({point})=>point.join(',')).join(' ');
+ return `<div class="campaign-atlas atlas-${realm.id}" aria-label="${english()?'World map':'Mapa do mundo'} · ${esc(realm.name)}">
+ <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="${path}" /></svg>
+ ${nodes.map(({kingdom,index,point,access})=>{
+  const cleared=(profile.eloProgress[kingdom.id]?.clearedDifficulties||[]).includes(difficulty);
+  const status=cleared?(english()?'Cleared':'Concluído'):access.unlocked?(english()?'Available':'Disponível'):(english()?'Locked':'Bloqueado');
+  return `<button class="atlas-node ${cleared?'cleared':access.unlocked?'unlocked':'locked'}" data-select-elo="${kingdom.id}" style="--pin-x:${point[0]}%;--pin-y:${point[1]}%" aria-pressed="${selected.id===kingdom.id}" aria-label="${esc(kingdom.name+' · '+status)}"><i>${cleared?'✓':index+1}</i><b>${esc(kingdom.name)}</b></button>`;
+ }).join('')}</div>`;
+}
 export function renderCampaign(profile,state,realm) {
   const route=campaignKingdoms(realm.id),selected=route.find(e=>e.id===state.eloId)||route[0];
   const max=maxDifficulty(profile,selected.id),difficulty=Math.min(state.difficulty??max,max);
@@ -24,7 +45,7 @@ export function renderCampaign(profile,state,realm) {
     : (english()? "Clear every realm and defeat the leader at the highest difficulty to recruit them." : "Conclua todos os reinos e derrote o lorde na dificuldade máxima para recrutá-lo.");
   return `<section class="realm-campaign realm-${realm.id}">
     <header class="campaign-heading"><div><div class="eyebrow">${esc(realm.name.toUpperCase())} · ${english()?"WORLD CAMPAIGN":"CAMPANHA DO MUNDO"}</div><h2>${esc(realm.title)}</h2></div><span>${clearCount}/${route.length} ${english()?"REALMS CLEARED":"REINOS CONCLUÍDOS"} · ${esc(difficultyName(difficulty).toUpperCase())}</span></header>
-    <div class="world-panorama panorama-${realm.id}" aria-label="${esc(realm.name)}"><div>${realmEmblem(realm.id)}<span><small>${english()?"WORLD CAMPAIGN · STORY ROUTE":"CAMPANHA DO MUNDO · ROTA DA HISTÓRIA"}</small><b>${esc(arc.title)}</b></span></div></div>
+    ${campaignAtlas(realm,route,selected,profile,difficulty)}
     <aside class="campaign-story-card"><div class="campaign-story-copy"><small>${esc(chapter.label)}</small><p>${esc(arc.opening)}</p><span>${esc(arc.route)}</span></div><div class="campaign-leader-target"><small>${english()?"WORLD LEADER":"LORDE DO MUNDO"}</small><b>${esc(leader?.name||arc.leaderName)}${leader?.identityTitle?`, ${esc(leader.identityTitle)}`:""}</b><span>${esc(leaderStatus)}</span><p>${esc(rewardLine)}</p></div></aside>
     <div class="campaign-route-progress"><span>${clearCount}/${route.length} ${english()?"realms cleared on":"reinos concluídos em"} ${esc(difficultyName(difficulty))}</span><i><b style="width:${route.length?clearCount/route.length*100:0}%"></b></i></div>
     <div class="campaign-layout"><div class="realm-road">${route.map((elo,index)=>{

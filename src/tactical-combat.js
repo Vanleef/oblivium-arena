@@ -118,8 +118,13 @@ export function chooseTacticalChestReward(s,offerId,optionId){
 }
 
 export function createTacticalBattle(playerIds,enemyIds,config={}){
- for(const [side,ids]of [['player',playerIds],['enemy',enemyIds]])if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!(side==='player'?tacticalRoster:tacticalOpponentRoster).includes(id)))throw Error('Escolha três personagens distintos disponíveis para este lado. Lordes e NPCs não entram no trio livre.');
- const enemyTeam=enemyIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
+ const extended=Boolean(config.fortress&&config.campaign);
+ const validIds=(ids,min,max)=>Array.isArray(ids)&&ids.length>=min&&ids.length<=max&&new Set(ids).size===ids.length;
+ if(!validIds(playerIds,3,3)||playerIds.some(id=>!tacticalRoster.includes(id))||
+  !validIds(enemyIds,3,extended?5:3)||enemyIds.some(id=>!tacticalOpponentRoster.includes(id)))throw Error('Formação inválida para este modo.');
+ const creatures=extended?(config.creatures||[]):[];
+ if(enemyIds.length+creatures.length>5||creatures.some(unit=>!unit.npcOnly||!unit.abilities?.length))throw Error('Encontro de campanha inválido.');
+ const enemyTeam=[...enemyIds.map(id=>characterById[id]),...creatures].map((unit,i)=>({...unit,sourceId:unit.id,id:'rival-'+i+'-'+unit.id}));
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
@@ -127,20 +132,29 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  if(config.fortress){
   Object.assign(s.tactical,{width:9,height:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{}}});
   for(const u of tacticalUnits(s)){
-   u.hp=u.maxHp=100;
+   if(!u.npcOnly){u.maxHp=100;u.hp=config.teamHealth?.[u.id]??100;}
    u.abilities.push({...fortressBasicAttack});
    s.tactical.fortress.equipped[u.id]=fortressBasicAttack.id;
   }
  }
  const start=i=>s.tactical.fortress?{x:0,y:i*2+1}:{x:i===1?1:0,y:i+1};
  team(s,'player').forEach((u,i)=>{s.tactical.positions[u.id]=start(i);});
- team(s,'enemy').forEach((u,i)=>{s.tactical.positions[u.id]=mirrorCell(start(i),s);});
+ team(s,'enemy').forEach((u,i)=>{
+  const point=extended&&enemyTeam.length>3?{x:0,y:[1,3,5,0,2][i]}:start(i);
+  s.tactical.positions[u.id]=mirrorCell(point,s);
+ });
  const obstacles=config.obstacles||[];
  if(!Array.isArray(obstacles)||obstacles.some(p=>!onBoard(p,s)||occupied(s,p))||new Set(obstacles.map(cellKey)).size!==obstacles.length)throw Error('Obstáculos inválidos.');
  s.tactical.obstacles=obstacles.map(cleanPoint);
  if(s.tactical.environment&&obstacles.some(p=>sameCell(p,s.tactical.environment.position)))throw Error('A casa ambiental não pode ser um obstáculo.');
- if(config.routeEnemyShield&&!config.fortress)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
+ if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
  if(config.alternating||config.fortress){resetTacticalActivation(s);if(!config.fortress)announceTacticalChest(s);}
+ if(s.tactical.fortress)for(const reward of config.fortressRewards||[]){
+  if(reward==='shield')applyChestEffect(s,'player',{type:'shield-team',amount:12});
+  if(reward==='heal')applyChestEffect(s,'player',{type:'fortress-rally'});
+  if(reward==='purify')for(const unit of livingTeam(s,'player'))unit.armor=(unit.armor||0)+3;
+  if(reward==='leap')for(const unit of livingTeam(s,'player'))s.tactical.fortress.leaps.push(unit.id);
+ }
  s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
 }

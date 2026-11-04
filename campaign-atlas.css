@@ -1,0 +1,25 @@
+/* Illustrated territorial campaign atlas. */
+.campaign-atlas{
+ --atlas-position:0%;
+ position:relative;isolation:isolate;width:min(100%,810px);margin-inline:auto;aspect-ratio:1;
+ border:1px solid #c5a77c7a;border-radius:16px;overflow:hidden;margin-bottom:20px;
+ background:radial-gradient(ellipse at 50% 40%,#47334d,#161120 85%);
+ box-shadow:inset 0 0 80px #07060d,0 18px 40px #06050c80;
+}
+.campaign-atlas.atlas-paraiso{--atlas-position:50%;background-color:#34364a}
+.campaign-atlas.atlas-limbo{--atlas-position:100%;background-color:#302449}
+.campaign-atlas::before{content:"";position:absolute;inset:0;z-index:-1;background:url('/art/arenas/campaign-atlas.webp') var(--atlas-position) center/300% 100% no-repeat;opacity:.92}
+.campaign-atlas::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;box-shadow:inset 0 0 75px #090713b5}
+.campaign-atlas svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.campaign-atlas polyline{fill:none;stroke:#f7d896bb;stroke-width:.48;stroke-dasharray:1.5 1.1;stroke-linejoin:round}
+.campaign-atlas .atlas-node{position:absolute;left:var(--pin-x);top:var(--pin-y);translate:-50% -50%;display:grid;justify-items:center;gap:4px;min-width:44px;padding:3px;color:#fff1d3;background:none;border:none;cursor:pointer}
+.atlas-node i{display:grid;place-items:center;width:36px;aspect-ratio:1;border:1px solid #e9c990;border-radius:50%;background:#23172c;box-shadow:0 3px 10px #080711; font-style:normal}
+.atlas-node b{padding:3px 6px;background:#151021e8;border-radius:4px;font-size:clamp(.65rem,1.35vw,1rem);white-space:nowrap}
+.atlas-node.locked i{border-style:dashed;color:#ddd0e7;background:#161525}
+.atlas-node.cleared i{color:#143621;background:#b8e7c4}
+.atlas-node[aria-pressed="true"] i{background:#fff0c6;color:#291a2c;box-shadow:0 0 18px #f8cf8e}
+@media(prefers-reduced-motion:no-preference){
+ .atlas-node i{transition:scale .2s,box-shadow .2s}
+ .atlas-node:is(:hover,:focus-visible) i{scale:1.13;box-shadow:0 0 18px #f8cf8e}
+}
+@media(max-width:600px){.campaign-atlas{min-height:0}.atlas-node i{width:31px}}
