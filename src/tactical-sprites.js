@@ -47,12 +47,33 @@ const frameColumns=Object.freeze({
  counter:Object.freeze({ready:0,anticipate:1,brace:2,guard:3,deflect:4,counter:5,recover:5}),
  support:Object.freeze({ready:0,anticipate:1,gather:2,release:3,impact:4,transfer:5,settle:5})
 });
+const bodyAtlasNames=Object.freeze({
+ 'o-acougueiro':'riven','a-viuva-escarlate':'lira','o-escudo-vivo':'aegis',
+ 'o-passo-interrompido':'chronos','o-odio-encarnado':'corvin','a-arquiteta-verde':'verdant'
+});
+const bodyColumns=Object.freeze({
+ ready:0,anticipate:0,compress:1,inhale:1,gather:1,windup:1,brace:1,
+ guard:2,release:2,thrust:2,travel:3,spread:3,deflect:3,impact:3,
+ counter:4,followthrough:4,hold:4,withdraw:4,transfer:4,recover:5,settle:5
+});
 export function tacticalSpriteFrame(unit,event=null){
- const atlas=tacticalSpriteAtlases[unit?.sourceId||unit?.id];
- if(!atlas)return null;
- // Hold one registered drawing for the full move. Atlas cells were generated
- // as separate poses and their framing is not stable enough for frame swaps.
- return {src:atlas.src,idleAnimated:false,clip:'idle',row:0,column:0,x:0,y:0,sheetColumns:atlas.columns,sheetRows:atlas.rows};
+ const id=unit?.sourceId||unit?.id,body=bodyAtlasNames[id],original=tacticalSpriteAtlases[id];
+ if(!original)return null;
+ const finished=event?.pose==='ready'&&event.index>0;
+ const baseSkill=body&&event?.type==='skill'&&!event.skipped&&!finished&&(!event.formKey||event.formKey==='base');
+ const skill=baseSkill?skillRowFor(unit,event):null;
+ const row=skillRows.includes(skill)?skillRows.indexOf(skill)+1:0;
+ let column=row?(bodyColumns[event.pose]??0):0;
+ // For threaded casts the weapon continues its follow-through after launch.
+ if(row&&event.pose==='impact'&&['bind','affliction','projectile'].includes(event.family))column=4;
+ const src=body?`/art/animations/tactical-body-20261104/${body}.webp`:original.src;
+ const sheetRows=body?5:original.rows,sheetColumns=original.columns;
+ return {src,idleAnimated:false,clip:row?skill:'idle',bodyClip:row>0,row,column,
+  x:column*100/(sheetColumns-1),y:row*100/(sheetRows-1),sheetColumns,sheetRows};
+}
+export function tacticalSpriteInline(frame){
+ const important=frame.bodyClip?'!important':'';
+ return 'width:'+frame.sheetColumns*100+'%;height:'+frame.sheetRows*100+'%;left:'+(-frame.column*100)+'%'+important+';top:'+(-frame.row*100)+'%'+important;
 }
 export function tacticalSpriteStyle(frame){
  return `background-image:url('${frame.src}');background-size:${frame.sheetColumns*100}% ${frame.sheetRows*100}%;background-position:${frame.x}% ${frame.y}%`;
@@ -61,7 +82,7 @@ export function paintTacticalToken(token,unit,event,frame){
  if(!unit||token.dataset.unitId!==event.actorId)return false;
  const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame});
  const duration=tacticalFrameDuration({...event,...frame});
- token.dataset.idleAtlas='false';token.dataset.family=frame.family;token.dataset.pose=frame.pose;
+ token.dataset.idleAtlas='false';token.dataset.bodyClip=String(Boolean(atlasFrame?.bodyClip));token.dataset.family=frame.family;token.dataset.pose=frame.pose;
  token.style.setProperty('--pose-duration',`${duration}ms`);
  const fromY=event.before?.positions?.[unit.id]?.y??event.from?.y??0,toY=event.after?.positions?.[unit.id]?.y??event.to?.y??fromY,hopRows=event.type==='move'?toY-fromY:0;
  const start=event.before?.positions?.[unit.id]||event.from||{x:0,y:0},aim=event.anchor||event.to||start;
@@ -72,7 +93,16 @@ export function paintTacticalToken(token,unit,event,frame){
  let dx=Math.sign(aim.x-start.x),dy=Math.sign(aim.y-start.y);if(!dx&&!dy){dx=event.orientation?.[0]||1;dy=event.orientation?.[1]||0;}
  token.style.setProperty('--windup-x',`${-dx*2}%`);token.style.setProperty('--windup-y',`${-dy*2}%`);token.style.setProperty('--lunge-x',`${dx*5}%`);token.style.setProperty('--lunge-y',`${dy*4}%`);token.style.setProperty('--follow-x',`${dx*2}%`);token.style.setProperty('--follow-y',`${dy*1}%`);
  const laneHop=event.type==='move'&&frame.pose==='airborne'&&hopRows!==0;token.dataset.hop=String(laneHop);token.closest('.cell')?.classList.toggle('hop',laneHop);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
- if(sprite&&atlasFrame&&sprite.getAttribute('src')!==atlasFrame.src)sprite.src=atlasFrame.src;
+ if(sprite&&atlasFrame){
+  if(sprite.getAttribute('src')!==atlasFrame.src)sprite.src=atlasFrame.src;
+  if(sprite.style?.setProperty){
+   const priority=atlasFrame.bodyClip?'important':'';
+   sprite.style.setProperty('left',(-atlasFrame.column*100)+'%',priority);
+   sprite.style.setProperty('top',(-atlasFrame.row*100)+'%',priority);
+   sprite.style.setProperty('width',atlasFrame.sheetColumns*100+'%');
+   sprite.style.setProperty('height',atlasFrame.sheetRows*100+'%');
+  }
+ }
  return true;
 }
 

@@ -40,10 +40,11 @@ export function applyTacticalShot(stage,event,duration){
  const cell=token?.closest('.cell');
  const model=token?.querySelector('.sprite-viewport,.token-art');
  if(!cell||!model)return;
+ const drawn=token.dataset.bodyClip==='true',weight=drawn?.38:1;
  model.classList.add('shot-model');
  model.style.setProperty('--shot-duration',duration+'ms');
- model.style.setProperty('--model-x',shot.x*cell.clientWidth+'px');
- model.style.setProperty('--model-y',shot.y*cell.clientHeight-shot.lift+'px');
- model.style.setProperty('--model-tilt',shot.tilt+'deg');
- model.style.setProperty('--model-scale',shot.scale);
+ model.style.setProperty('--model-x',shot.x*cell.clientWidth*weight+'px');
+ model.style.setProperty('--model-y',(shot.y*cell.clientHeight-shot.lift)*weight+'px');
+ model.style.setProperty('--model-tilt',(drawn?0:shot.tilt)+'deg');
+ model.style.setProperty('--model-scale',drawn?1:shot.scale);
 }
