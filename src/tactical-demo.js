@@ -1,3 +1,4 @@
+import {conquestTechnique} from './conquest-techniques.js';
 import {elements,surfaceAt,techniqueElement} from './tactical-elements.js';
 import {applyTacticalShot} from './tactical-shot.js';
 import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
@@ -159,9 +160,9 @@ function activationCommands(actor,selection,projected){
    const remaining=actor.cooldowns[a.id]||0;
    const blocked=skillSealReason(actor,a)||tacticalRequirementReason(projected,actor,a);
    const shape=fortressTechniqueSpec(projected,actor,a),cooldown=fortressCooldown(a),element=elements[techniqueElement(actor,a)];
-   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[a.description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||patternNames[shape.pattern]+' · '+(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span></button>';
+   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[conquestTechnique(a).description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||patternNames[shape.pattern]+' · '+(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span></button>';
   }).join('');
-  const technique=actor.abilities.find(ability=>ability.id===equipped);
+  const technique=actor.abilities.map(conquestTechnique).find(ability=>ability.id===equipped);
   const hint=state.message||technique?.description||'Equipe a técnica e toque na casa de destino para agir.';
   return '<section class="activation-dock" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+'</div><p class="fortress-dock-tip">'+esc(hint)+'</p>'+passiveMarkup(actor)+'</section>';
  }

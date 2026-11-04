@@ -49,3 +49,14 @@ test('Conquista leva aprimoramentos táticos e criaturas a encontros de até cin
  assert.equal(new Set(battle.enemies.map(unit=>JSON.stringify(battle.tactical.positions[unit.id]))).size,5);
  assert.ok(battle.allies.every(unit=>unit.shield>=12));
 });
+
+test('técnicas de Conquista convertem roubo e geração em efeitos úteis sem Essência',async()=>{
+ const {conquestTechnique}=await import('../src/conquest-techniques.js');
+ const ability={target:'enemy',damage:12,steal:2,generateEssence:{resource:'cinza',amount:1}};
+ const revised=conquestTechnique(ability);
+ assert.equal(revised.stripShield,6);
+ assert.equal(revised.shield,10);
+ assert.equal(revised.steal,0);
+ assert.equal(revised.generateEssence,null);
+ assert.equal(ability.steal,2);
+});

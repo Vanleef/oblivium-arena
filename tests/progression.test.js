@@ -79,3 +79,13 @@ test('todos os 17 Elos podem ser abertos pela progressão e o elenco inteiro pod
  assert.equal(p.ownedIds.length,100);assert.equal(p.completedElos.length,17);
 });
 
+
+test('a campanha permite quatro oponentes em elites e cinco nos chefes, com criaturas exclusivas',()=>{
+ const realm=realms.find(realm=>realm.id==='inferno'),elo=realm.elos[0];
+ for(const [kind,count] of [['normal',3],['elite',4],['boss',5]]){
+  const team=createEnemyTeam(elo,ids,kind,0,{campaign:true});
+  assert.equal(team.length,count);
+  assert.equal(team.filter(unit=>unit.npcOnly).length,count-3);
+  assert.ok(team.filter(unit=>unit.npcOnly).every(unit=>unit.abilities.length===2&&!characterById[unit.sourceId]));
+ }
+});

@@ -1,3 +1,4 @@
+import {conquestTechnique} from './conquest-techniques.js';
 import {campaignCreature} from './campaign-creatures.js';
 import {surfaceDamageFactor} from './tactical-elements.js';
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
@@ -539,7 +540,8 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  const timed=['stunned','weakened','sealSupport','sealAttack','healingBlock'];
  const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,Object.fromEntries(timed.map(k=>[k,u[k]||0]))]));
  s.resolutionSide=action.side;
- const result=apply(s,actor,a,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
+ const technique=s.tactical?.fortress?conquestTechnique(a):a;
+ const result=apply(s,actor,technique,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
  for(const u of [...s.allies,...s.enemies]){
   u.boardFresh||={};
   for(const k of timed)if(u[k]>before.get(u.id)[k]||(result.affectedTargetIds?.includes(u.id)&&a[k]&&u[k]>0))u.boardFresh[k]=s.round;
