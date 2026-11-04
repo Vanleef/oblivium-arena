@@ -401,6 +401,8 @@ function paintFortressEffects(event,unit,ability,index,impact,duration,reduced){
 }
 async function paintExchangeMovement(event,pause,reduced){
  const duration=reduced?40:(event.closure?420:state.battle.tactical.fortress?190:event.moves.length?320:185)/state.playbackSpeed;
+ const actors=new Map([...event.before.allies,...event.before.enemies].map(unit=>[unit.id,unit]));
+ const walkers=[];
  state.animation=event;
  render();
  for(const step of event.moves){
@@ -409,10 +411,23 @@ async function paintExchangeMovement(event,pause,reduced){
   if(!token?.animate||!landing||reduced)continue;
   const a=token.closest('.cell').getBoundingClientRect(),b=landing.getBoundingClientRect();
   const dx=b.left-a.left,dy=b.top-a.top,lift=Math.min(16,a.height*.28);
+  const actor=actors.get(step.actorId);
+  const sprite=token.querySelector('.sprite-sheet');
+  if(sprite&&!event.closure&&tacticalSpriteFrame(actor,{type:'move',pose:'airborne'})?.clip==='move')walkers.push({sprite,actor});
   token.animate([{translate:'0 0',scale:'1 1',offset:0},{translate:(dx*.06)+'px '+(dy*.06+2)+'px',scale:'1.035 .95',offset:.16},{translate:(dx*.58)+'px '+(dy*.58-lift)+'px',scale:'1 1.04',offset:.53},{translate:dx+'px '+dy+'px',scale:'1.055 .94',offset:.94},{translate:dx+'px '+dy+'px',scale:'1 1'}],
    {duration,easing:'cubic-bezier(.28,.06,.32,1)',fill:'forwards'});
  }
- await pause(duration);
+ if(walkers.length){
+  const stride=[['anticipate',.16],['launch',.24],['airborne',.4],['landing',.2]];
+  for(const [pose,fraction] of stride){
+   for(const {sprite,actor} of walkers){
+    const frame=tacticalSpriteFrame(actor,{type:'move',pose});
+    sprite.style.setProperty('left',(-frame.column*100)+'%','important');
+    sprite.style.setProperty('top',(-frame.row*100)+'%','important');
+   }
+   await pause(duration*fraction);
+  }
+ }else await pause(duration);
  if(event.moves.length)playCombatCue('step');
  state.playback=event.after;
  state.animation={...event,pose:'landing'};

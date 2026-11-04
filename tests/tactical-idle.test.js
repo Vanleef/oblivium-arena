@@ -4,11 +4,11 @@ import {tacticalSpriteAtlases,tacticalSpriteFrame,paintTacticalToken} from '../s
 import {tacticalFrameDuration,tacticalAnimationFrames} from '../src/tactical-animation.js';
 import {tacticalIdleTiming,tacticalIdleStyle,tacticalIdleLayerMarkup,blendTacticalSpriteFrame} from '../src/tactical-motion.js';
 
-test('os atlas preservam a célula de repouso para movimento e ações sem técnica identificada',()=>{
+test('ações sem técnica identificada preservam a pose de repouso',()=>{
  for(const id of Object.keys(tacticalSpriteAtlases)){
-  const unit={id},idle=tacticalSpriteFrame(unit),move=tacticalSpriteFrame(unit,{type:'move',pose:'airborne'}),skill=tacticalSpriteFrame(unit,{type:'skill',pose:'impact'});
+  const unit={id},idle=tacticalSpriteFrame(unit),skill=tacticalSpriteFrame(unit,{type:'skill',pose:'impact'});
   assert.equal(idle.row,0);assert.equal(idle.column,0);assert.equal(idle.idleAnimated,false);
-  for(const frame of [move,skill])assert.deepEqual([frame.src,frame.row,frame.column],[idle.src,0,0]);
+  assert.deepEqual(skill,idle);
   assert.equal(tacticalIdleLayerMarkup(idle),'');
   assert.doesNotMatch(tacticalIdleStyle(unit,1000),/--idle-(?:clip|left|top)-/);
  }
@@ -44,3 +44,13 @@ test('dissolução não cria duplicatas quando o quadro não muda, respeita movi
  try{assert.equal(blendTacticalSpriteFrame(sprite,{src:'/atlas.webp',column:2,row:0},200),false);assert.equal(appended,1);}finally{if(old===undefined)delete globalThis.matchMedia;else globalThis.matchMedia=old;}
 });
 
+
+test('atlas com linha de movimento alternam apoio, impulso, voo e aterrissagem',()=>{
+ const unit={id:'nilo'};
+ const step=pose=>tacticalSpriteFrame(unit,{type:'move',pose});
+ assert.deepEqual(['anticipate','launch','airborne','landing'].map(pose=>{
+  const frame=step(pose);
+  return [frame.clip,frame.row,frame.column];
+ }),[['move',1,1],['move',1,2],['move',1,3],['move',1,4]]);
+ assert.deepEqual(step('ready'),tacticalSpriteFrame(unit));
+});

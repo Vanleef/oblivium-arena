@@ -64,7 +64,8 @@ export function tacticalSpriteFrame(unit,event=null){
  const form=event?.formKey||'base';
  const dedicated=casting?tacticalSkillAtlases[[id,event.abilityId,form].join('/')]:null;
  const skill=casting&&form==='base'?skillRowFor(unit,event):null;
- const bodyClip=Boolean(dedicated||skillRows.includes(skill));
+ const moving=!body&&event?.type==='move'&&!finished&&Boolean(frameColumns.move[event.pose]);
+ const bodyClip=Boolean(dedicated||skillRows.includes(skill)||moving);
  let row=0,column=0;
  if(dedicated){
   const frame=bodyColumns[event.pose]??0;
@@ -75,6 +76,9 @@ export function tacticalSpriteFrame(unit,event=null){
   column=bodyColumns[event.pose]??0;
   // Threaded casts continue their follow-through after launch.
   if(event.pose==='impact'&&['bind','affliction','projectile'].includes(event.family))column=4;
+ }else if(moving){
+  row=rows.move;
+  column=frameColumns.move[event.pose];
  }else if(!body&&skillRows.includes(skill)){
   row=rows[skill];
   column=frameColumns[event.family]?.[event.pose]??0;
@@ -82,7 +86,7 @@ export function tacticalSpriteFrame(unit,event=null){
  const src=dedicated?.src||(body?`/art/animations/tactical-body-20261104/${body}.webp`:original.src);
  const sheetRows=dedicated?.rows||(body?5:original.rows);
  const sheetColumns=dedicated?.columns||original.columns;
- return {src,idleAnimated:false,clip:dedicated?event.abilityId:row?skill:'idle',bodyClip,row,column,
+ return {src,idleAnimated:false,clip:dedicated?event.abilityId:moving?'move':row?skill:'idle',bodyClip,row,column,
   x:column*100/(sheetColumns-1),y:row*100/(sheetRows-1),sheetColumns,sheetRows};
 }
 export function tacticalSpriteInline(frame){
