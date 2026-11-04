@@ -11,7 +11,7 @@ test('baús oferecem três escolhas únicas, contextualizadas e determinísticas
  s.allies[1].hp=100;s.allies[1].stunned=2;assert.ok(tacticalChestOptions(s,'player','silver').some(o=>o.id==='cleanse'));
 });
 test('baú da quarta rodada preserva Prateado, Dourado e Prismático por vivos',()=>{
- for(const alive of [3,2,1]){const s=setup();for(let i=alive;i<3;i++)s.allies[i].hp=0;s.round=4;s.resources={essence:20,cinza:20,graca:20,ruptura:20};s.tactical.chests=[{id:'test',position:{x:2,y:1}}];const actor=s.allies[0];s.tactical.positions[actor.id]={x:1,y:1};const result=round(s,[{type:'skill',actorId:actor.id,abilityId:'impulso',anchor:{x:2,y:1},orientation:[1,0],formKey:'base'}]);const offer=result.chestRewards[0];assert.ok(offer);assert.equal(offer.tier,{3:'silver',2:'gold',1:'prismatic'}[alive]);assert.equal(offer.options.length,3);if(alive<3)assert.ok(offer.options.some(o=>o.id==='revive'));}
+ for(const alive of [3,2,1]){const s=setup();for(let i=alive;i<3;i++)s.allies[i].hp=0;s.round=4;s.resources={essence:20,cinza:20,graca:20,ruptura:20};s.tactical.chests=[{id:'test',position:{x:2,y:1}}];const actor=s.allies[0];s.tactical.positions[actor.id]={x:1,y:1};const result=round(s,[{type:'skill',actorId:actor.id,abilityId:'impulso',anchor:{x:2,y:1},orientation:[1,0],formKey:'base'}]);const offer=result.chestRewards[0];assert.ok(offer);assert.equal(offer.tier,{3:'silver',2:'gold',1:'prismatic'}[alive]);assert.equal(offer.options.length,3);if(alive<3)assert.ok(offer.options.every(o=>o.id!=='revive'));}
 });
 test('Passo Residual aplica escudo após mover, uma vez por alma por rodada',()=>{
  const s=setup(),actor=s.allies[0];addTacticalAugment(s,'player',{type:'step-ward',amount:8,title:'Passo Residual'});const initial=actor.shield;

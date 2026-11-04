@@ -1,3 +1,4 @@
+import {boardMetricPoint,boardTracks} from './tactical-board.js';
 import {tacticalAnimationFrames} from './tactical-animation.js';
 const escapeHtml=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export function tacticalCutinActive(event){
@@ -23,8 +24,9 @@ const projectileRows={thread:0,glass:1,ember:2,shard:3};
 export function tacticalProjectileMarkup(actor,ability,event){
  const kind=tacticalProjectileKind(actor,ability,event);
  if(!kind||!['travel','spread'].includes(event.pose))return '';
- const origin=event.before.positions[actor.id],destination=event.anchor;
- const w=100/(event.before.width||5),h=100/(event.before.height||5);
+ const grid={tactical:event.before},tracks=boardTracks(grid);
+ const origin=boardMetricPoint(grid,event.before.positions[actor.id]),destination=boardMetricPoint(grid,event.anchor);
+ const w=100/tracks.columns.length,h=100/tracks.rows.length;
  const fromX=(origin.x+.5)*w,fromY=(origin.y+.7)*h,toX=(destination.x+.5)*w,toY=(destination.y+.7)*h;
  const angle=Math.atan2((toY-fromY)*.42,toX-fromX)*180/Math.PI;
  return '<span class="skill-projectile '+kind+'" aria-hidden="true" style="--projectile-from-x:'+fromX+'%;--projectile-from-y:'+fromY+'%;--projectile-to-x:'+toX+'%;--projectile-to-y:'+toY+'%;--projectile-angle:'+angle+'deg;--projectile-row:'+projectileRows[kind]*100/3+'%"><span class="projectile-material"></span></span>';

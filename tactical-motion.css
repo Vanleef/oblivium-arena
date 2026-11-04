@@ -722,3 +722,52 @@
 @media(max-width:550px){
  .fortress-battle .token[data-sprite=true] .token-sprite{width:clamp(35px,12vw,65px);height:clamp(35px,12vw,65px)}
 }
+
+.fortress-battle .board{
+ grid-template:repeat(var(--fort-rows,6),minmax(0,1fr))/repeat(var(--fort-cols,9),minmax(0,1fr));
+}
+.fortress-battle .arena-stage:after{
+ background:linear-gradient(180deg,#160f27 0%,#34245473 34%,transparent 62%),url('/art/arenas/limbo-ruins.webp') center 55%/cover;
+ opacity:1;
+}
+.fortress-battle .arena-stage:before{
+ background:radial-gradient(ellipse at 50% 73%,transparent 32%,#0e0b199c 92%);
+}
+.fortress-battle .board .cell.fortress-home,.fortress-battle .board .cell.fortress-rival{
+ border-inline:1px solid color-mix(in srgb,var(--fortress-color) 48%,transparent);
+ background:repeating-linear-gradient(135deg,transparent 0 13px,color-mix(in srgb,var(--fortress-color) 10%,transparent) 14px 15px),linear-gradient(0deg,color-mix(in srgb,var(--fortress-color) 34%,#191223),#22182f99)!important;
+ box-shadow:inset 0 0 14px color-mix(in srgb,var(--fortress-color) 26%,transparent),inset 0 -2px var(--fortress-color);
+}
+.fortress-battle .cell.fortress-home::after,.fortress-battle .cell.fortress-rival::after{
+ content:"";display:block;position:absolute;inset:auto 0 5px;margin:auto;width:7px;height:7px;
+ border:1px solid var(--fortress-color);rotate:45deg;pointer-events:none;opacity:.8;
+}
+.fortress-battle .board .cell.reachable:not(.aim){background:#63c5d43b!important;outline:1px solid #8fd9dc;outline-offset:-3px}
+.fortress-battle .activation-options button{
+ background:linear-gradient(145deg,#2f2341,#161222);border-color:#8e7398;color:#f6e8f8;
+}
+.fortress-battle .activation-options button[aria-pressed=true]{border-color:#edca86;background:linear-gradient(145deg,#59405f,#30223f);box-shadow:inset 0 -2px #edca86}
+.fortress-dock-tip{margin:7px 0 0;font-size:.77rem;color:#d8c5ea}
+.fortress-battle.awaiting-actor .hud-team-player .hud-unit:not(:disabled){
+ border-color:#a1e1ee;box-shadow:inset 3px 0 #a1e1ee,0 0 8px #8fdbef44;
+}
+.fortress-battle.awaiting-actor .cell.activation-ready .activation-signal.ready{
+ color:#bdf9ff;opacity:1;filter:drop-shadow(0 0 6px #96f8ff);
+}
+.fortress-battle.awaiting-actor .cell.activation-ready .activation-signal.ready i{width:9px;height:9px;animation:fortress-ready 1.15s ease-in-out infinite alternate}
+@keyframes fortress-ready{from{scale:.8;opacity:.65}to{scale:1.22;opacity:1}}
+.fortress-battle .chest-reward{
+ background:linear-gradient(150deg,#2e2244,#16121f);border-color:#c9a66c;
+ box-shadow:inset 0 1px #ffe4ab66,0 8px 24px #08060db0;
+}
+.fortress-battle .chest-options button{background:linear-gradient(150deg,#463055,#21152f);border-color:#9c7ca7;color:#f7e6ff}
+.fortress-battle .reward-sigil{color:#f0cf86;text-shadow:0 0 9px #e4b65e}
+.fortress-battle.board-closing .arena-stage{box-shadow:inset 0 0 65px #9a55d878}
+.fortress-battle .exchange-impact i,.fortress-battle .impact-material{animation-duration:.21s}
+@media(prefers-reduced-motion:reduce){.fortress-battle.awaiting-actor .cell.activation-ready .activation-signal.ready i{animation:none}}
+.fortress-battle .skill-projectile{animation-duration:.19s}
+.fortress-battle .board .cell.fortress-aim{box-shadow:inset 0 0 0 2px #f5bd80,inset 0 0 22px #e4a06762}
+.fortress-battle .board .cell.closing-track{
+ outline:1px solid #e3a5ff;background:#a260be60!important;
+ box-shadow:inset 0 0 22px #d799ffb3;
+}

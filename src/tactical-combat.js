@@ -9,7 +9,7 @@ import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenc
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec} from './tactical-kits.js';
-import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,mirrorCell,mirrorDirection} from './tactical-board.js';
+import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,boardHeight,boardTracks,boardMetricPoint,mirrorCell,mirrorDirection} from './tactical-board.js';
 
 export const tacticalUnits=s=>[...s.allies,...s.enemies];
 const team=(s,side)=>side==='player'?s.allies:s.enemies;
@@ -25,17 +25,18 @@ const cleanPoint=p=>onBoard(p)?{x:p.x,y:p.y}:null;
 const chestTierNames=Object.freeze({silver:'Prateado',gold:'Dourado',prismatic:'Prismático'});
 function livingTeam(s,side){return team(s,side).filter(u=>u.hp>0);}
 function chestTier(s,side){const count=livingTeam(s,side).length;return count<=1?'prismatic':count===2?'gold':'silver';}
-function rewardCell(s,unitId){
- const origin=s.tactical.positions[unitId]||{x:0,y:2};
- return boardCells(s).filter(p=>!occupied(s,p,unitId)&&!obstacle(s,p)&&!s.tactical.chests.some(chest=>sameCell(chest.position,p)))
-  .sort((a,b)=>distance(a,origin)-distance(b,origin)||Math.abs(a.x-2)-Math.abs(b.x-2)||a.y-b.y||a.x-b.x)[0]||null;
-}
 function applyChestEffect(s,side,effect){
  const units=team(s,side),living=livingTeam(s,side),pool=s[poolKey(side)];
  const healUnit=(unit,fraction)=>{if(unit&&unit.hp>0)unit.hp=Math.min(unit.maxHp,unit.hp+Math.max(1,Math.round(unit.maxHp*fraction)));};
  const addShield=(unit,amount)=>{if(unit?.hp>0)unit.shield=Math.min(Math.round(unit.maxHp*.5),unit.shield+amount);};
  if(effect.type==='fortress-heal')healUnit(units.find(u=>u.id===effect.actorId),.4);
- else if(effect.type==='fortress-leap')s.tactical.fortress.leaps.push(effect.actorId);
+ else if(effect.type==='fortress-leap'){
+  if(!s.tactical.fortress.leaps.includes(effect.actorId))s.tactical.fortress.leaps.push(effect.actorId);
+ }else if(effect.type==='fortress-rally'){
+  for(const unit of living)healUnit(unit,.14);
+ }else if(effect.type==='fortress-refresh'){
+  for(const unit of living)for(const [id,left] of Object.entries(unit.cooldowns)){if(left<=1)delete unit.cooldowns[id];else unit.cooldowns[id]--;}
+ }
  else if(effect.type==='fortress-terrain'){
   const enemyEdge=side==='player'?boardWidth(s)-1:0;
   const point=boardCells(s).filter(p=>p.x>0&&p.x<boardWidth(s)-1&&!occupied(s,p)&&!obstacle(s,p)&&!sameCell(p,s.tactical.environment?.position)).sort((a,b)=>Math.abs(a.x-enemyEdge)-Math.abs(b.x-enemyEdge)||Math.abs(a.y-2)-Math.abs(b.y-2))[0];
@@ -52,12 +53,7 @@ function applyChestEffect(s,side,effect){
  else if(effect.type==='augment')addTacticalAugment(s,side,effect.augment);
  else if(effect.type==='cleanse-team')for(const unit of living){unit.dots=[];unit.marks={};unit.reactives=(unit.reactives||[]).filter(r=>!r.harmful);for(const key of ['stunned','weakened','exposed','sealSupport','sealAttack','healingBlock'])unit[key]=0;}
  else if(effect.type==='boost-team')for(const unit of living){unit.boost=Math.max(unit.boost||0,effect.amount);unit.boostFresh=true;}
- else if(effect.type==='revive'){
-  const downed=units.filter(unit=>unit.hp<=0).sort((a,b)=>a.id.localeCompare(b.id))[0];
-  const point=downed&&rewardCell(s,downed.id);
-  if(downed&&point){downed.hp=Math.max(1,Math.round(downed.maxHp*effect.fraction));downed.shield=0;downed.dots=[];downed.stunned=0;downed.weakened=0;s.tactical.positions[downed.id]=point;}
-  else healUnit([...living].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0],effect.fraction);
- }else if(effect.type==='full-recover'){
+ else if(effect.type==='full-recover'){
   for(const unit of living){unit.hp=unit.maxHp;unit.dots=[];unit.stunned=0;unit.weakened=0;unit.exposed=0;}
  }else if(effect.type==='prismatic-surge'){
   pool.essence=(pool.essence||0)+6;
@@ -117,7 +113,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
  s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
-  Object.assign(s.tactical,{width:9,height:6,fortress:{entered:[],leaps:[],equipped:{}}});
+  Object.assign(s.tactical,{width:9,height:6,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{}}});
   for(const u of tacticalUnits(s)){u.hp=u.maxHp=100;s.tactical.fortress.equipped[u.id]=u.abilities[0].id;}
  }
  const start=i=>s.tactical.fortress?{x:0,y:i*2+1}:{x:i===1?1:0,y:i+1};
@@ -153,19 +149,36 @@ function definition(s,ref){
 function priority(s,ref){return ref.type==='move'?0:tacticalSpec(actorFor(s,ref.side,ref.actorId),definition(s,ref)).priority;}
 function orderedOwn(s,refs){return orderTacticalActions(s,refs);}
 
+function actionSpec(s,actor,ability){
+ const base=tacticalSpec(actor,ability);
+ if(s.tactical.fortress&&(!ability.formKey||ability.formKey==='base')){
+  const id=actor.sourceId||actor.id,slot=ability.id;
+  if(id==='o-acougueiro'&&slot==='impulso')return {...base,pattern:'line',range:1,length:1};
+  if(id==='o-acougueiro'&&slot==='voto')return {...base,pattern:'cone',range:2,length:2};
+  if(id==='a-viuva-escarlate'&&slot==='impulso')return {...base,pattern:'line',range:2,length:2};
+  if(id==='o-escudo-vivo'&&slot==='impulso')return {...base,pattern:'line',range:1,length:1,displacement:{kind:'push',distance:1}};
+ }
+ if(!s.tactical.fortress||ability.id==='fortress-breach'||base.pattern==='self')return base;
+ const support=['ally','friendly','team'].includes(ability.target);
+ if(support)return {...base,pattern:ability.target==='team'?'cross':'cell',range:2};
+ if(base.pattern==='line'||base.pattern==='cone')return {...base,range:Math.min(base.range,2),length:Math.min(base.length||2,3)};
+ if(ability.stun||ability.sealAttack||ability.weaken)return {...base,pattern:base.pattern==='cell'?'cross':base.pattern,range:Math.min(base.range,2)};
+ return {...base,range:Math.min(base.range,2)};
+}
+export const fortressTechniqueSpec=actionSpec;
 export function tacticalArea(s,actor,ability,anchor,orientation){
- const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id];
- if(!origin||!onBoard(anchor,s)||distance(origin,anchor)>spec.range)return [];
+ const spec=actionSpec(s,actor,ability),origin=s.tactical.positions[actor.id];
+ if(!origin||!onBoard(anchor,s)||distance(origin,anchor,s)>spec.range)return [];
  if(['line','cone'].includes(spec.pattern)&&!directions.some(d=>d[0]===orientation?.[0]&&d[1]===orientation?.[1]))return [];
  const cells=patternCells(spec.pattern,origin,anchor,orientation,spec.length,s);
  if(spec.vision&&!lineOfSight(s,origin,anchor))return [];
  return cells.filter(p=>!obstacle(s,p)&&(!spec.vision||lineOfSight(s,origin,p)));
 }
 export function tacticalTargets(s,actor,ability,anchor,orientation){
- const cells=tacticalArea(s,actor,ability,anchor,orientation),spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id];
+ const cells=tacticalArea(s,actor,ability,anchor,orientation),spec=actionSpec(s,actor,ability),origin=s.tactical.positions[actor.id];
  return getValidTargets(s,actor,ability).filter(u=>u.hp>0&&cells.some(p=>sameCell(p,s.tactical.positions[u.id])))
  .filter(u=>['self','ally','friendly','team'].includes(ability.target)||!u.invulnerable||ability.ignoreInvulnerability)
- .sort((a,b)=>distance(origin,s.tactical.positions[a.id])-distance(origin,s.tactical.positions[b.id])||a.id.localeCompare(b.id)).slice(0,s.tactical.fortress?undefined:spec.limit).map(u=>u.id);
+ .sort((a,b)=>distance(origin,s.tactical.positions[a.id],s)-distance(origin,s.tactical.positions[b.id],s)||a.id.localeCompare(b.id)).slice(0,s.tactical.fortress?undefined:spec.limit).map(u=>u.id);
 }
 function move(s,ref,strict=false){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor||actor.stunned)return {skipped:true,reason:actor?'Atordoado.':'Personagem fora de combate.'};
@@ -181,8 +194,14 @@ function displaceTargets(s,actor,ids,displacement){
  for(const id of ids){
   const target=tacticalUnits(s).find(u=>u.id===id);if(!target||target.hp<=0||actor.hp<=0)continue;
   const from={...s.tactical.positions[id]},sign=displacement.kind==='pull'?-1:1;
-  const dx=Math.sign(from.x-origin.x)*sign,dy=Math.sign(from.y-origin.y)*sign,to={x:from.x+dx,y:from.y+dy};
-  const moved=canStep(s,id,from,to);if(moved)s.tactical.positions[id]={...to};
+  const dx=Math.sign(from.x-origin.x)*sign,dy=Math.sign(from.y-origin.y)*sign;
+  let to={x:from.x+dx,y:from.y+dy};
+  if(s.tactical.fortress){const pos=boardMetricPoint(s,from),tracks=boardTracks(s);to={x:tracks.columns[pos.x+dx],y:tracks.rows[pos.y+dy]};}
+  const moved=canStep(s,id,from,to);
+  if(moved){
+   s.tactical.positions[id]={...to};
+   if(s.tactical.fortress)claimFortressEntry(s,{actorId:id,side:target.side,to});
+  }
   moves.push({actorId:id,name:target.name,kind:displacement.kind,from,to:moved?{...to}:from,moved});
  }
  return moves;
@@ -200,8 +219,8 @@ function execute(s,ref,{projection=false}={}){
  if(!ability)return {skipped:true,reason:'Técnica indisponível.'};
  const requirement=tacticalRequirementReason(s,actor,ability);if(requirement)return {skipped:true,reason:requirement};
  if((ref.residueSpend||0)>(actor.residue||0))return {skipped:true,reason:'Resíduo insuficiente no momento da ação.'};
- const spec=tacticalSpec(actor,ability),origin=s.tactical.positions[actor.id],anchor=spec.range===0?origin:ref.anchor;
- if(!onBoard(anchor,s)||distance(origin,anchor)>spec.range||!tacticalArea(s,actor,ability,anchor,ref.orientation).length)return {skipped:true,reason:'A região ficou fora de alcance ou da linha de visão.'};
+ const spec=actionSpec(s,actor,ability),origin=s.tactical.positions[actor.id],anchor=spec.range===0?origin:ref.anchor;
+ if(!onBoard(anchor,s)||distance(origin,anchor,s)>spec.range||!tacticalArea(s,actor,ability,anchor,ref.orientation).length)return {skipped:true,reason:'A região ficou fora de alcance ou da linha de visão.'};
  const cells=tacticalArea(s,actor,ability,anchor,ref.orientation),ids=tacticalTargets(s,actor,ability,anchor,ref.orientation);
  const exposedBefore=ids.map(id=>tacticalUnits(s).find(u=>u.id===id)).filter(u=>u?.exposed).map(u=>({id:u.id,hp:u.hp,shield:u.shield||0}));
  const result=resolveBoardTechnique(s,{...ref,targetId:ids[0]||null},ids);
@@ -290,7 +309,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
-function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,width:s.tactical.width,height:s.tactical.height,obstacles:s.tactical.obstacles,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,fortress:s.tactical.fortress,width:s.tactical.width,height:s.tactical.height,obstacles:s.tactical.obstacles,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -374,7 +393,7 @@ function resolveTacticalExchange(s){
  const reveal=replayState(s);
  stamp(s,{type:'exchange-reveal',title:'Ordens reveladas',actors:commands.map(({ref,category})=>({id:ref.actorId,side:ref.side,category})),before:reveal,after:reveal});
  const moved=resolveExchangeMovement(s,paths);
- const conquered=s.tactical.fortress&&fortressOutcome(s);
+ let conquered=s.tactical.fortress&&fortressOutcome(s);
  for(const {ref,origin,category} of commands){
   if(s.tactical.fortress){
    activation.spent.push(ref.actorId);
@@ -382,11 +401,12 @@ function resolveTacticalExchange(s){
    if(conquered||!moved.has(ref.actorId))continue;
    const actor=actorFor(s,ref.side,ref.actorId),ability=actor?.abilities.find(a=>a.id===ref.abilityId);
    if(!ability||actor.cooldowns[ability.id])continue;
-   const before=replayState(s),aim=fortressAim(s,actor,ability);
+   const before=replayState(s),aim=fortressAim(s,actor,ability,ref.facing);
    if(!aim)continue;
    const action={...ref,type:'skill',...aim,formKey:ability.formKey||'base',fortressCooldown:fortressCooldown(ability)};
    const result=execute(s,action);
    stamp(s,{...action,...result,category:1,before,after:replayState(s),title:result.title||'Técnica interrompida'});
+   if(fortressOutcome(s)){conquered=true;break;}
    continue;
   }
   if(ref.type==='move')continue;
@@ -396,13 +416,8 @@ function resolveTacticalExchange(s){
   const result=execute(s,action);
   stamp(s,{...action,...result,category,before,after:replayState(s),title:result.title||'Técnica interrompida'});
  }
- for(const offer of s.tactical.enemyChestRewards||[]){
-  if(conquered)break;
-  const before=replayState(s),option=offer.fortress?offer.options[0]:tacticalChestOptions(s,'enemy',offer.tier)[0];
-  applyChestEffect(s,'enemy',option.effect);
-  stamp(s,{type:'effects',title:'Aprimoramento rival · '+option.title,before,after:replayState(s)});
- }
- delete s.tactical.enemyChestRewards;
+ if(s.tactical.fortress)registerFortressDeaths(s);
+ applyRivalRewards(s,conquered);
  if(!conquered&&!boardOutcome(s)){
   activation.exchange++;
   while(s.tactical.stage==='planning'&&!sides.some(side=>tacticalActivationUnits(s,side).length)){
@@ -412,6 +427,15 @@ function resolveTacticalExchange(s){
   pauseForTacticalRewards(s);
  }
  return tacticalResolution(s);
+}
+function applyRivalRewards(s,finished=false){
+ for(const offer of s.tactical.enemyChestRewards||[]){
+  if(finished||!livingTeam(s,'enemy').length)break;
+  const before=replayState(s),option=offer.fortress?offer.options[0]:tacticalChestOptions(s,'enemy',offer.tier)[0];
+  applyChestEffect(s,'enemy',option.effect);
+  stamp(s,{type:'effects',title:'Aprimoramento rival · '+option.title,before,after:replayState(s)});
+ }
+ delete s.tactical.enemyChestRewards;
 }
 function pauseForTacticalRewards(s){
  for(const offer of s.tactical.pendingChestRewards)if(!offer.fortress)offer.options=tacticalChestOptions(s,offer.side,offer.tier);
@@ -424,30 +448,36 @@ function finishTacticalRound(s){
  if(s.tactical.stage!=='finished'&&s.tactical.environment){
   const before=replayState(s),augmentNotes=resolveTacticalEnvironment(s);
   stamp(s,{type:'environment',title:s.tactical.environment.title,augmentNotes,cells:[{...s.tactical.environment.position}],before,after:replayState(s)});
+  if(s.tactical.fortress)registerFortressDeaths(s);
   boardOutcome(s);
  }
  if(s.tactical.stage!=='finished'){
   const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:s.tactical.fortress?'Efeitos e recargas':'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
-  if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.tactical.activation)resetTacticalActivation(s);if(!s.tactical.fortress){if(chestSpawnRound(s))spawnTacticalChest(s);else announceTacticalChest(s);}}
+  if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.tactical.activation)resetTacticalActivation(s);if(s.tactical.fortress)closeFortressBoard(s,endingRound);else if(chestSpawnRound(s))spawnTacticalChest(s);else announceTacticalChest(s);}
  }
+ if(s.tactical.fortress){registerFortressDeaths(s);applyRivalRewards(s,s.tactical.stage==='finished');}
  s.tactical.plans={};s.queue=[];s.intents=[];s.resolution=[];s.resolutionSide=null;
 }
 
 export function fortressCooldown(ability){
  return Math.max(1,ability.cooldown||0,ability.invulnerable?4:ability.stun||ability.sealAttack||(ability.damage||0)>=30?3:(ability.damage||0)>=18||ability.heal||ability.shield?2:1);
 }
-export function fortressAim(s,actor,ability){
+export function fortressAim(s,actor,ability,facing){
  const origin=s.tactical.positions[actor.id],forward=actor.side==='player'?1:-1;
- const spec=tacticalSpec(actor,ability);
- const anchors=spec.range===0?[origin]:boardCells(s).filter(p=>distance(origin,p)<=spec.range);
+ const spec=actionSpec(s,actor,ability);
+ const support=['self','ally','friendly','team'].includes(ability.target);
+ const direction=facing||[forward,0];
+ const anchors=spec.range===0?[origin]:boardCells(s).filter(p=>distance(origin,p,s)<=spec.range);
+ const directional=!support&&['line','cone'].includes(spec.pattern);
  let best=null;
  for(const anchor of anchors){
   const dx=Math.sign(anchor.x-origin.x),dy=Math.sign(anchor.y-origin.y);
-  const orientation=[dx||(!dy?forward:0),dy];
+  const orientation=directional?direction:[dx||(!dy?forward:0),dy];
+  if(!support&&!directional&&(anchor.x-origin.x)*direction[0]+(anchor.y-origin.y)*direction[1]<0)continue;
   const cells=tacticalArea(s,actor,ability,anchor,orientation);
   if(!cells.length)continue;
   const targets=tacticalTargets(s,actor,ability,anchor,orientation);
-  const value=targets.length*10+(anchor.x-origin.x)*forward*.18-distance(origin,anchor)*.03;
+  const value=targets.length*10+(anchor.x-origin.x)*forward*.18-distance(origin,anchor,s)*.03;
   if(!best||value>best.value)best={anchor,orientation,cells,targets,value};
  }
  return best;
@@ -463,24 +493,60 @@ function fortressPreview(s,side,actorId,actions){
  const projection=planningCopy(s);
  projection.tactical.positions[actorId]={...move.path[0]};
  const ready=!actor.cooldowns[abilityId]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(projection,actor,ability);
- const aim=ready?fortressAim(projection,actor,ability):null;
- return {ok:true,projection,ability,aim,actions:[{type:'move',side,actorId,abilityId,path:move.path.map(p=>({x:p.x,y:p.y}))}]};
+ const from=s.tactical.positions[actorId],to=move.path[0],facing=[Math.sign(to.x-from.x),Math.sign(to.y-from.y)];
+ const aim=ready?fortressAim(projection,actor,ability,facing):null;
+ return {ok:true,projection,ability,aim,actions:[{type:'move',side,actorId,abilityId,facing,path:move.path.map(p=>({x:p.x,y:p.y}))}]};
 }
 function claimFortressEntry(s,{actorId,side,to}){
- const fortress=s.tactical.fortress,edge=side==='player'?boardWidth(s)-1:0;
- if(to.x!==edge||fortress.entered.includes(actorId))return;
- fortress.entered.push(actorId);
- const options=[
-  {id:'recover',title:'Fôlego do Invasor',category:'Individual',text:'Recupere até 40 de Vida.',effect:{type:'fortress-heal',actorId}},
-  {id:'rampart',title:'Muralha de Cinzas',category:'Campo',text:'Ergue um obstáculo em uma casa livre perto da fortaleza invadida.',effect:{type:'fortress-terrain'}},
+ const f=s.tactical.fortress,home=side==='player'?0:boardWidth(s)-1,enemy=boardWidth(s)-1-home;
+ if(to.x===home&&f.entered.includes(actorId)&&!f.rearmed.includes(actorId))f.rearmed.push(actorId);
+ if(to.x!==enemy||(f.entered.includes(actorId)&&!f.rearmed.includes(actorId)))return;
+ if(!f.entered.includes(actorId))f.entered.push(actorId);
+ f.rearmed=f.rearmed.filter(id=>id!==actorId);
+ queueFortressReward(s,side,actorId,'invasion');
+}
+function queueFortressReward(s,side,actorId,source){
+ const f=s.tactical.fortress,units=livingTeam(s,side),actor=units.find(u=>u.id===actorId)||[...units].sort((a,b)=>a.hp-b.hp)[0];
+ if(!actor)return;
+ const id=actor.id,options=[
+  {id:'recover',title:'Fôlego do Invasor',category:'Individual',text:'Recupere até 40 de Vida de '+actor.name+'.',effect:{type:'fortress-heal',actorId:id}},
+  {id:'rampart',title:'Muralha de Cinzas',category:'Campo',text:'Ergue um obstáculo em uma casa livre perto da fortaleza rival.',effect:{type:'fortress-terrain'}},
   {id:'rally',title:'Bastião Partilhado',category:'Coletivo',text:'Concede 14 de Escudo a cada aliado vivo.',effect:{type:'shield-team',amount:14}},
-  {id:'leap',title:'Salto do Cavalo',category:'Movimento',text:'Pode saltar em L, como um cavalo do xadrez. Conta como a única ação da ativação.',effect:{type:'fortress-leap',actorId}},
-  {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Libera um ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId}}
- ];
- const offset=(fortress.entered.length-1)%options.length;
- const offer={id:'fortress:'+actorId,side,fortress:true,tierName:'Fortaleza',options:[options[offset],options[(offset+2)%5],options[(offset+3)%5]]};
+  {id:'leap',title:'Salto do Cavalo',category:'Movimento',text:actor.name+' pode saltar em L com sua única ação.',effect:{type:'fortress-leap',actorId:id}},
+  {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Libera um ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId:id}},
+  {id:'team-heal',title:'Pacto dos Sobreviventes',category:'Coletivo',text:'Recupere até 14 de Vida de cada aliado vivo.',effect:{type:'fortress-rally'}},
+  {id:'refresh',title:'Pulso de Vigília',category:'Recarga',text:'Reduza em uma rodada as recargas dos aliados vivos.',effect:{type:'fortress-refresh'}}
+ ].filter(option=>option.id!=='leap'||!f.leaps.includes(id)).filter(option=>option.id!=='breach'||!actor.abilities.some(a=>a.id==='fortress-breach'));
+ const sequence=f.rewardSequence++,offset=sequence%options.length;
+ const offer={id:'fortress:'+sequence,side,fortress:true,source,actorId,options:[options[offset],options[(offset+2)%options.length],options[(offset+3)%options.length]]};
  if(side==='player')s.tactical.pendingChestRewards.push(offer);
  else (s.tactical.enemyChestRewards??=[]).push(offer);
+}
+function registerFortressDeaths(s){
+ const f=s.tactical.fortress;
+ for(const unit of tacticalUnits(s)){
+  if(unit.hp>0||f.fallen.includes(unit.id))continue;
+  f.fallen.push(unit.id);
+  queueFortressReward(s,unit.side,unit.id,'loss');
+ }
+}
+function closeFortressBoard(s,completed){
+ if(![10,15,25].includes(completed))return;
+ const before=replayState(s),f=s.tactical.fortress,previous=boardCells(s);
+ if(completed===15)f.closedRows.push(0,boardHeight(s)-1);
+ else {const ring=completed===10?1:2;f.closedColumns.push(ring,boardWidth(s)-1-ring);}
+ const moves=[];
+ for(const unit of tacticalUnits(s)){
+  const from=s.tactical.positions[unit.id];
+  if(unit.hp<=0||onBoard(from,s))continue;
+  const free=boardCells(s).filter(p=>p.x>0&&p.x<boardWidth(s)-1&&!occupied(s,p))
+   .sort((a,b)=>distance(a,from)-distance(b,from)||Math.abs(a.x-from.x)+Math.abs(a.y-from.y)-Math.abs(b.x-from.x)-Math.abs(b.y-from.y)||a.y-b.y||a.x-b.x);
+  const to=free.find(p=>!obstacle(s,p))||free[0];
+  if(!to)throw Error('Não há uma casa livre para o fechamento.');
+  if(obstacle(s,to))s.tactical.obstacles=s.tactical.obstacles.filter(p=>!sameCell(p,to));
+  s.tactical.positions[unit.id]=to;moves.push({actorId:unit.id,side:unit.side,from,to});
+ }
+ stamp(s,{type:'exchange-move',title:'O tabuleiro se fecha',closure:true,cells:previous.filter(p=>!onBoard(p,s)),moves,stopped:[],before,after:replayState(s)});
 }
 function fortressOutcome(s){
  const entered=side=>team(s,side).every(u=>u.hp>0&&s.tactical.positions[u.id].x===(side==='player'?boardWidth(s)-1:0));

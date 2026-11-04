@@ -66,3 +66,61 @@ test('a IA ainda pode avançar com o ataque equipado em recarga',()=>{
  assert.ok(result.ok);
  assert.equal(result.aim,null);
 });
+
+test('um invasor só ganha outro aprimoramento depois de passar pela própria fortaleza',()=>{
+ const s=battle(),id=allies[0];
+ for(const enemy of s.enemies)enemy.stunned=50;
+ function advance(from,to){
+  s.tactical.activation.spent=[];
+  s.tactical.positions[id]={x:from,y:1};
+  const result=submitTacticalActivation(s,'player',id,order(id,to,1));
+  assert.ok(result.ok,result.reason);
+  return result;
+ }
+ const first=advance(7,8).chestRewards[0];
+ assert.ok(chooseTacticalChestReward(s,first.id,first.options[0].id).ok);
+ assert.deepEqual(advance(7,8).chestRewards,[]);
+ assert.deepEqual(advance(1,0).chestRewards,[]);
+ const again=advance(7,8).chestRewards[0];
+ assert.ok(again);
+ assert.notEqual(again.id,first.id);
+});
+
+test('uma baixa concede três opções aos sobreviventes uma única vez e nenhuma revive',()=>{
+ const s=battle(),actor=allies[0];
+ for(const enemy of s.enemies)enemy.stunned=50;
+ s.allies[1].hp=0;
+ const first=submitTacticalActivation(s,'player',actor,order(actor,1,1));
+ const [offer]=first.chestRewards;
+ assert.equal(offer.source,'loss');
+ assert.equal(offer.options.length,3);
+ assert.ok(offer.options.every(option=>option.effect.type!=='revive'));
+ chooseTacticalChestReward(s,offer.id,offer.options[0].id);
+ const another=submitTacticalActivation(s,'player',allies[2],order(allies[2],1,5));
+ assert.deepEqual(another.chestRewards,[]);
+ assert.equal(s.allies[1].hp,0);
+});
+
+test('fecha as bordas após as rodadas 10, 15 e 25 e expulsa ocupantes para casas centrais',()=>{
+ const s=battle(),actor=allies[0];
+ for(const enemy of s.enemies)enemy.stunned=100;
+ const limits=[[10,42],[15,28],[25,20]];
+ for(const [round,total] of limits){
+  s.round=round;
+  s.tactical.activation.spent=allies.slice(1);
+  s.tactical.positions[actor]={x:3,y:3};
+  const other=allies[1];
+  s.tactical.positions[other]=round===10?{x:1,y:2}:round===15?{x:0,y:0}:{x:2,y:2};
+  const result=submitTacticalActivation(s,'player',actor,order(actor,4,3));
+  assert.ok(result.ok);
+  const closing=result.events.find(event=>event.closure);
+  assert.ok(closing);
+  assert.equal(boardCells(s).length,total);
+  const pushed=closing.moves.find(step=>step.actorId===other);
+  assert.ok(pushed);
+  assert.ok(pushed.to.x>0&&pushed.to.x<8);
+  assert.equal(new Set([...s.allies,...s.enemies].map(u=>JSON.stringify(s.tactical.positions[u.id]))).size,6);
+ }
+ s.tactical.positions[actor]={x:3,y:3};
+ assert.ok(findPath(s,actor,{x:0,y:3}));
+});

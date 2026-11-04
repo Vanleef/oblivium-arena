@@ -2,22 +2,35 @@
 export const BOARD_SIZE=5;
 export const boardWidth=s=>s?.tactical?.width??BOARD_SIZE;
 export const boardHeight=s=>s?.tactical?.height??BOARD_SIZE;
+export function boardTracks(s){
+ const layout=s?.tactical?.fortress;
+ return {columns:Array.from({length:boardWidth(s)},(_,i)=>i).filter(i=>!layout?.closedColumns?.includes(i)),
+  rows:Array.from({length:boardHeight(s)},(_,i)=>i).filter(i=>!layout?.closedRows?.includes(i))};
+}
+export function boardMetricPoint(s,p){
+ const {columns,rows}=boardTracks(s);
+ return {x:columns.indexOf(p.x),y:rows.indexOf(p.y)};
+}
 export const directions=Object.freeze([[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]]);
 export const cellKey=p=>`${p.x},${p.y}`;
 export const sameCell=(a,b)=>Boolean(a&&b&&a.x===b.x&&a.y===b.y);
-export const onBoard=(p,s)=>Boolean(p&&Number.isInteger(p.x)&&Number.isInteger(p.y)&&p.x>=0&&p.x<boardWidth(s)&&p.y>=0&&p.y<boardHeight(s));
+export const onBoard=(p,s)=>Boolean(p&&Number.isInteger(p.x)&&Number.isInteger(p.y)&&p.x>=0&&p.x<boardWidth(s)&&p.y>=0&&p.y<boardHeight(s)&&!s?.tactical?.fortress?.closedColumns?.includes(p.x)&&!s?.tactical?.fortress?.closedRows?.includes(p.y));
 // Rotate a cell through the board center so the opponent mirrors the full formation.
 export const mirrorCell=(p,s)=>onBoard(p,s)?{x:boardWidth(s)-1-p.x,y:boardHeight(s)-1-p.y}:null;
 export const mirrorDirection=d=>Array.isArray(d)&&d.length===2?[-d[0],-d[1]]:null;
-export const distance=(a,b)=>Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
+export function distance(a,b,s){
+ if(s?.tactical?.fortress){a=boardMetricPoint(s,a);b=boardMetricPoint(s,b);}
+ return Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
+}
 export const cellLabel=p=>onBoard(p,{tactical:{width:9,height:6}})?`${'ABCDEFGHI'[p.x]}${p.y+1}`:'—';
-export const boardCells=s=>{const w=boardWidth(s);return Array.from({length:w*boardHeight(s)},(_,i)=>({x:i%w,y:Math.floor(i/w)}));};
+export const boardCells=s=>{const {columns,rows}=boardTracks(s);return rows.flatMap(y=>columns.map(x=>({x,y})));};
 export function occupied(s,point,except){return [...s.allies,...s.enemies].find(u=>u.hp>0&&u.id!==except&&sameCell(s.tactical.positions[u.id],point));}
 export const obstacle=(s,p)=>s.tactical.obstacles.some(b=>sameCell(b,p));
 export function canStep(s,actorId,from,to,{through=false,movement=false}={}){
  if(!onBoard(from,s)||!onBoard(to,s)||obstacle(s,to))return false;
- const dx=Math.abs(to.x-from.x),dy=Math.abs(to.y-from.y);
- if(distance(from,to)!==1)return Boolean(movement&&s.tactical.fortress?.leaps.includes(actorId)&&dx*dy===2&&!occupied(s,to,actorId));
+ const aMetric=s.tactical.fortress?boardMetricPoint(s,from):from,bMetric=s.tactical.fortress?boardMetricPoint(s,to):to;
+ const dx=Math.abs(bMetric.x-aMetric.x),dy=Math.abs(bMetric.y-aMetric.y);
+ if(Math.max(dx,dy)!==1)return Boolean(movement&&s.tactical.fortress?.leaps.includes(actorId)&&dx*dy===2&&!occupied(s,to,actorId));
  if(!through&&occupied(s,to,actorId))return false;
  if(from.x!==to.x&&from.y!==to.y){const a={x:to.x,y:from.y},b={x:from.x,y:to.y};if((obstacle(s,a)||(!through&&occupied(s,a,actorId)))&&(obstacle(s,b)||(!through&&occupied(s,b,actorId))))return false;}
  return true;
@@ -31,7 +44,8 @@ export function movementRange(s,actorId){
 }
 export function findPath(s,actorId,to,maxSteps=movementRange(s,actorId)){
  const start=s.tactical.positions[actorId];if(!onBoard(to,s)||!start||sameCell(start,to))return null;
- const steps=s.tactical.fortress?.leaps.includes(actorId)?[...directions,[1,2],[1,-2],[-1,2],[-1,-2],[2,1],[2,-1],[-2,1],[-2,-1]]:directions;
+ if(s.tactical.fortress)return maxSteps>0&&canStep(s,actorId,start,to,{movement:true})?[to]:null;
+ const steps=directions;
  const pending=[{at:start,path:[]}],visited=new Set([cellKey(start)]);
  while(pending.length){const current=pending.shift();if(current.path.length>=maxSteps)continue;
   for(const [dx,dy]of steps){const next={x:current.at.x+dx,y:current.at.y+dy};if(visited.has(cellKey(next))||!canStep(s,actorId,current.at,next,{movement:true}))continue;
@@ -40,6 +54,10 @@ export function findPath(s,actorId,to,maxSteps=movementRange(s,actorId)){
  }return null;
 }
 export function lineOfSight(s,a,b){
+ if(s.tactical.fortress){
+  const projected={tactical:{obstacles:s.tactical.obstacles.filter(p=>onBoard(p,s)).map(p=>boardMetricPoint(s,p))}};
+  return lineOfSight(projected,boardMetricPoint(s,a),boardMetricPoint(s,b));
+ }
  // Supercover: a ray may not squeeze through a blocked diagonal corner.
  let x=a.x,y=a.y;const nx=Math.abs(b.x-a.x),ny=Math.abs(b.y-a.y),sx=Math.sign(b.x-a.x),sy=Math.sign(b.y-a.y);let ix=0,iy=0;
  while(ix<nx||iy<ny){const decision=(1+2*ix)*ny-(1+2*iy)*nx;if(decision===0){if(obstacle(s,{x:x+sx,y})&&obstacle(s,{x,y:y+sy}))return false;x+=sx;y+=sy;ix++;iy++;}else if(decision<0){x+=sx;ix++;}else{y+=sy;iy++;}if(obstacle(s,{x,y}))return false;}
@@ -47,6 +65,10 @@ export function lineOfSight(s,a,b){
 }
 export function patternCells(kind,origin,anchor,direction=[1,0],length=2,s){
  if(!onBoard(origin,s)||!onBoard(anchor,s))return [];
+ if(s?.tactical?.fortress){
+  const {columns,rows}=boardTracks(s),grid={tactical:{width:columns.length,height:rows.length}};
+  return patternCells(kind,boardMetricPoint(s,origin),boardMetricPoint(s,anchor),direction,length,grid).map(p=>({x:columns[p.x],y:rows[p.y]}));
+ }
  let points=[];
  if(kind==='self')points=[origin];
  else if(kind==='cross')points=[[0,0],[1,0],[-1,0],[0,1],[0,-1]].map(([x,y])=>({x:anchor.x+x,y:anchor.y+y}));

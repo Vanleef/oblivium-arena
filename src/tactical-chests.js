@@ -1,5 +1,4 @@
 import {getAbilityResourceCosts,resourceIds} from './resource-costs.js';
-import {boardCells,occupied,obstacle} from './tactical-board.js';
 const resourceNames={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura'};
 const teams=(s,side)=>side==='player'?s.allies:s.enemies;
 export function tacticalChestResource(s,side){
@@ -10,13 +9,11 @@ export function tacticalChestResource(s,side){
 }
 const harmful=u=>u.dots?.length||Object.keys(u.marks||{}).length||u.reactives?.some(r=>r.harmful)||['stunned','weakened','exposed','sealSupport','sealAttack','healingBlock'].some(k=>u[k]>0);
 export function tacticalChestOptions(s,side,tier){
- const units=teams(s,side),living=units.filter(u=>u.hp>0),hurt=[...living].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0],downed=units.filter(u=>u.hp<=0).sort((a,b)=>a.id.localeCompare(b.id));
+ const units=teams(s,side),living=units.filter(u=>u.hp>0),hurt=[...living].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0];
  const resource=tacticalChestResource(s,side),label=resourceNames[resource],rank={silver:0,gold:1,prismatic:2}[tier]??0;
  const ward=[12,20,32][rank],boost=[6,12,20][rank],stepWard=[8,12,18][rank],mana=[2,4,6][rank],fraction=[.22,.4,1][rank];
  const augments=s.tactical.augments?.[side]||[],candidates=[];
  const add=(id,title,text,effect,reason,category,score)=>candidates.push({id,title,text,effect,reason,category,score});
- const hasSpace=boardCells().some(p=>!occupied(s,p)&&!obstacle(s,p)&&!s.tactical.chests.some(c=>c.position.x===p.x&&c.position.y===p.y));
- if(rank>0&&downed.length&&hasSpace)add('revive',rank===2?'Renascimento Prismático':'Retorno Dourado','Reviva uma alma caída com '+Math.round((rank===2?.65:.35)*downed[0].maxHp)+' de Vida.',{type:'revive',fraction:rank===2?.65:.35},downed.length+' alma(s) caída(s) podem voltar ao combate.','recuperação',110);
  if(hurt&&hurt.hp<hurt.maxHp)add(rank===2?'renewal':'heal',rank===2?'Restauração Prismática':'Sopro Restaurador',rank===2?'Restaure toda a Vida e remova aflições das almas vivas.':'Cure até '+Math.round(hurt.maxHp*fraction)+' de Vida da alma mais ferida.',rank===2?{type:'full-recover'}:{type:'heal-lowest',fraction},hurt.name+' está com '+hurt.hp+'/'+hurt.maxHp+' de Vida.','recuperação',80+(1-hurt.hp/hurt.maxHp)*20);
  if(living.some(harmful))add('cleanse','Desatar os Males','Remova aflições, marcas e condições prejudiciais do seu trio.',{type:'cleanse-team'},'Há condições prejudiciais nas suas almas.','recuperação',90);
  if(living.some(u=>(u.shield||0)<Math.round(u.maxHp*.5)))add('ward','Manto de Proteção','Conceda '+ward+' de Escudo a cada alma viva.',{type:'shield-team',amount:ward},'Protege '+living.length+' alma(s) contra os próximos golpes.','proteção',65);
