@@ -156,7 +156,7 @@ function activationCommands(actor,selection,projected){
    const remaining=actor.cooldowns[a.id]||0;
    const blocked=skillSealReason(actor,a)||tacticalRequirementReason(projected,actor,a);
    const shape=fortressTechniqueSpec(projected,actor,a);
-   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||a.description||a.name)+'"><span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||patternNames[shape.pattern]+' · Recarga '+fortressCooldown(a))+'</small></span></button>';
+   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||a.description||a.name)+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||patternNames[shape.pattern]+' · Recarga '+fortressCooldown(a))+'</small></span></button>';
   }).join('');
   const hint='Equipe a técnica e toque na casa de destino para agir.';
   return '<section class="activation-dock" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+'</div><p class="fortress-dock-tip">'+esc(hint)+'</p>'+passiveMarkup(actor)+'</section>';
@@ -495,7 +495,7 @@ function clearFortressAim(){
 }
 function paintFortressAim(event){
  if(!state.battle.tactical.fortress||!playerTurn()||!state.selected)return;
- const cell=event.target.closest('.cell[data-cell]');if(!cell)return;
+ const cell=event.target.closest('.cell[data-cell]');if(!cell||cell.contains(event.relatedTarget))return;
  clearFortressAim();
  const [x,y]=cell.dataset.cell.split(',').map(Number);
  const path=findPath(state.battle,state.selected,{x,y});if(!path)return;

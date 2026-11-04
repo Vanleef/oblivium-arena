@@ -771,3 +771,6 @@
  outline:1px solid #e3a5ff;background:#a260be60!important;
  box-shadow:inset 0 0 22px #d799ffb3;
 }
+.fortress-battle .activation-options img{width:34px;height:36px;border:1px solid #c09cb75c;object-position:50% 35%}
+.fortress-battle .chest-options button:hover{border-color:#f2d296;background:linear-gradient(150deg,#5a3e66,#2a1a3b)}
+.fortress-battle .reward-category{color:#edd099}
