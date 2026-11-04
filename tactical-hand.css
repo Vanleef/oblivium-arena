@@ -204,7 +204,7 @@
 /* A mão de ações flutua dentro do cenário; a grade continua clicável ao redor dela. */
 .card-battle .arena-stage>.arena-command-dock{
  position:relative;z-index:14;left:auto;top:auto;bottom:auto;width:min(700px,calc(100% - 24px));
- transform:none;display:grid;align-content:end;gap:2px;min-height:258px;margin:8px auto 4px;padding:0 5px 5px;
+ transform:none;display:grid;align-content:end;gap:2px;min-height:258px;margin:20px auto 4px;padding:0 5px 5px;
  border:0;border-radius:0;background:none;box-shadow:none;overflow:visible;
  pointer-events:none;isolation:isolate
 }
@@ -291,7 +291,7 @@
 .card-battle .arena-command-dock.is-targeting .command-header:has(.arena-income){display:none}
 .card-battle .arena-command-dock .command-actions button *{pointer-events:none;-webkit-user-drag:none}
 @media(max-width:700px){
- .card-battle .arena-stage>.arena-command-dock{width:calc(100% - 12px);min-height:234px;margin:6px auto 3px;padding:0 2px 3px}
+ .card-battle .arena-stage>.arena-command-dock{width:calc(100% - 12px);min-height:234px;margin:12px auto 3px;padding:0 2px 3px}
  .card-battle .arena-stage>.arena-command-dock-reserve{height:240px}
  .card-battle .arena-command-dock .command-header{min-height:22px;padding:0 2px}
  .card-battle .arena-command-dock .command-status{gap:5px}
