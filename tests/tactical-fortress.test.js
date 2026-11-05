@@ -53,7 +53,8 @@ test('cada invasão oferece três escolhas e a chegada do trio mantém a partida
  const result=exchange(s,first,8,1);
  assert.equal(result.chestRewards[0].options.length,3);
  assert.equal(s.tactical.stage,'reward');
- assert.equal(result.chestRewards[0].tier,'silver');
+ assert.equal(result.chestRewards[0].invasion,true);
+ assert.ok(result.chestRewards[0].options.every(o=>o.effect.type==='fortress-penalty'));
  assert.ok(chooseTacticalChestReward(s,result.chestRewards[0].id,result.chestRewards[0].options[0].id).ok);
  const another=exchange(s,second,8,3);
  assert.ok(chooseTacticalChestReward(s,another.chestRewards[0].id,another.chestRewards[0].options[0].id).ok);
@@ -75,7 +76,7 @@ test('a IA ainda pode avançar com o ataque equipado em recarga',()=>{
  assert.equal(result.aim,null);
 });
 
-test('um invasor só ganha outro aprimoramento depois de passar pela própria fortaleza',()=>{
+test('um invasor só impõe outra penalidade depois de passar pela própria fortaleza',()=>{
  const s=battle(),id=allies[0];
  for(const enemy of s.enemies)enemy.stunned=50;
  function advance(from,to){
@@ -94,19 +95,11 @@ test('um invasor só ganha outro aprimoramento depois de passar pela própria fo
  assert.notEqual(again.id,first.id);
 });
 
-test('uma baixa concede três opções aos sobreviventes uma única vez e nenhuma revive',()=>{
- const s=battle(),actor=allies[0];
- for(const enemy of s.enemies)enemy.stunned=50;
+test('uma baixa não concede aprimoramentos nem transfere recompensas',()=>{
+ const s=battle(),actor=allies[0];for(const enemy of s.enemies)enemy.stunned=50;
  s.allies[1].hp=0;
- const first=submitTacticalActivation(s,'player',actor,order(actor,1,1));
- const [offer]=first.chestRewards;
- assert.equal(offer.source,'loss');
- assert.equal(offer.options.length,3);
- assert.ok(offer.options.every(option=>option.effect.type!=='revive'));
- chooseTacticalChestReward(s,offer.id,offer.options[0].id);
- const another=submitTacticalActivation(s,'player',allies[2],order(allies[2],1,5));
- assert.deepEqual(another.chestRewards,[]);
- assert.equal(s.allies[1].hp,0);
+ const result=submitTacticalActivation(s,'player',actor,order(actor,1,1));
+ assert.deepEqual(result.chestRewards,[]);assert.equal(s.allies[1].hp,0);
 });
 
 test('fecha as bordas após as rodadas 10, 15 e 25 e expulsa ocupantes para casas centrais',()=>{
@@ -242,24 +235,6 @@ test('área frontal segue a direção da grade e termina no obstáculo',()=>{
  assert.deepEqual(tacticalArea(s,actor,basic,{x:2,y:2},[1,-1]),[{x:3,y:1}]);
  s.tactical.obstacles=[{x:3,y:1}];
  assert.deepEqual(tacticalArea(s,actor,basic,{x:2,y:2},[1,-1]),[]);
-});
-
-test('a progressão inicial oferece três opções Prata compatíveis por invasão',()=>{
- const options=new Set();
- for(let offset=0;offset<20;offset++){
-  const s=battle(),actor=allies[0];
-  for(const u of s.enemies)u.stunned=5;
-  s.tactical.fortress.rewardSequence=offset;
-  s.tactical.positions[actor]={x:7,y:1};
-  const [offer]=exchange(s,actor,8,1).chestRewards;
-  assert.equal(offer.tier,'silver');
-  assert.equal(new Set(offer.options.map(o=>o.id)).size,3);
-  for(const o of offer.options){
-   options.add(o.id);
-   assert.equal(o.effect.actorId,actor);
-  }
- }
- assert.ok(options.size>=6);
 });
 
 test('marcas, aflições e superfícies distinguem duração de valor de proteção',async()=>{

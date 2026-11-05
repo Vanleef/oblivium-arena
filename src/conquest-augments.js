@@ -97,10 +97,26 @@ export function conquestAugmentPool(s,side,actor,tier){
   !(o.id==='leap'&&s.tactical.fortress.leaps.includes(actor.id))&&
   !owned.some(a=>a.actorId===actor.id&&a.id===o.id)).map(({eligible,kingdoms,...o})=>({...o,category:o.characterId?'Exclusivo de '+actor.name:'Aprimoramento',reason:'Portador · '+actor.name,effect:{...o.effect,actorId:actor.id,augmentId:o.id,title:o.title,tier:o.tier}}));
 }
+// Every objective reward belongs to its collector and one named ability.
+export function objectiveAugmentPool(s,side,actor,tier){
+ if(!actor||actor.hp<=0)return [];
+ const rank={silver:0,gold:1,prismatic:2}[tier]??0,owned=s.tactical.augments?.[side]||[],result=[];
+ for(const ability of actor.abilities){
+  const definitions=[['damage','Impacto','damage',[2,4,6][rank],ability.damage],['heal','Sutura','heal',[3,5,8][rank],ability.heal],['shield','Égide','shield',[3,5,8][rank],ability.shield],['counter','Resposta','counter',[2,4,7][rank],ability.counter],['dot','Aflição','dot',[1,2,3][rank],ability.dot||ability.dots?.length]];
+  if(ability.id==='fortress-basic')definitions.push(['ward','Guarda no Impacto','shield',[2,4,6][rank],true],['mend','Fôlego no Impacto','heal',[1,2,3][rank],true]);
+  for(const [key,label,stat,amount,eligible] of definitions){
+   if(!eligible)continue;
+   const id=['objective',actor.sourceId||actor.id,ability.id,key,tier].join(':'),stacks=owned.filter(a=>a.actorId===actor.id&&a.id?.startsWith(id+':')).length,proc=key==='ward'||key==='mend';
+   result.push({id,title:label+' · '+ability.name,tier,characterId:actor.sourceId||actor.id,category:'Exclusivo de '+actor.name,reason:actor.name+' · '+ability.name,
+    text:proc?ability.name+' passa a '+(stat==='heal'?'recuperar '+amount+' de Vida do portador':'conceder '+amount+' de Escudo ao portador')+' ao acertar. Uma vez por rodada.':ability.name+' recebe +'+amount+' '+(stat==='dot'?'de dano de aflição por rodada':stat==='heal'?'de cura':stat==='shield'?'de Escudo':'de dano')+' neste combate.',
+    effect:{type:'conquest-augment',id:id+':'+stacks,augmentId:id+':'+stacks,actorId:actor.id,abilityId:ability.id,trigger:proc?'basic-hit':ability.id==='fortress-basic'?'basic':'modify',stat,amount,title:label+' · '+ability.name,tier}});
+  }
+ }return result;
+}
 export function conquestOfferOptions(s,offer,exclude=[]){
  const units=offer.side==='player'?s.allies:s.enemies;
  const actor=units.find(u=>u.id===offer.actorId&&u.hp>0);
- const pool=conquestAugmentPool(s,offer.side,actor,offer.tier);
+ const pool=offer.objective?objectiveAugmentPool(s,offer.side,actor,offer.tier):conquestAugmentPool(s,offer.side,actor,offer.tier);
  const excluded=new Set(exclude);
  const available=pool.filter(o=>!excluded.has(o.id));
  const seed=[s.rngState||1,s.round,offer.id,offer.rerolls||0].join(':');

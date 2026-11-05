@@ -1318,3 +1318,20 @@
  }
 }
 @keyframes directional-idle{0%,100%{left:0}25%,75%{left:-100%}50%{left:-200%}}
+
+/* Private objectives and bounded, proportional growth. */
+.objective-pulse{--objective-color:#d6e5f2;position:absolute;inset:9%;z-index:3;pointer-events:none;border:2px solid var(--objective-color);border-radius:50%;color:var(--objective-color);box-shadow:0 0 15px var(--objective-color),inset 0 0 12px color-mix(in srgb,var(--objective-color) 35%,transparent)}
+.objective-pulse[data-tier="gold"]{--objective-color:#ffd170}
+.objective-pulse[data-tier="prismatic"]{--objective-color:#e7b0ff;background:conic-gradient(#9cf4e92b,#f0a2ff52,#ffe4a330,#9cf4e92b)}
+.objective-pulse i{position:absolute;inset:-8%;border:1px solid currentColor;border-radius:50%}
+.objective-pulse b{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(14px,2vw,26px);text-shadow:0 0 8px currentColor}
+@media(prefers-reduced-motion:no-preference){.objective-pulse{animation:objective-breathe 1.7s ease-in-out infinite}.objective-pulse i{animation:objective-ripple 1.7s ease-out infinite}}
+@keyframes objective-breathe{50%{opacity:.55;filter:brightness(1.35)}}
+@keyframes objective-ripple{to{scale:1.18;opacity:0}}
+.invasion-target{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;color:#e6d5ec}
+.invasion-target select{max-width:100%;background:#21192d;color:#fff;padding:8px;border:1px solid #ac85b7;border-radius:6px}
+.fortress-battle .arena-field .cell .token{width:100%;height:100%;min-height:0;max-height:none;max-width:none;margin:0;padding:0}
+.conquest-model{position:absolute;inset:0;container-type:size;pointer-events:none}
+.fortress-battle .arena-field .token .conquest-model :is(.token-sprite,.token-art){width:calc(70cqw * var(--upgrade-growth,1));height:calc(70cqw * var(--upgrade-growth,1));max-width:96%;max-height:none;bottom:0;scale:1;transform-origin:center bottom;transition:width .3s ease,height .3s ease}
+.fortress-battle .arena-field .token .conquest-model .token-art{object-fit:contain;scale:var(--facing-sign,1) 1}
+@media(prefers-reduced-motion:reduce){.conquest-model :is(.token-sprite,.token-art){transition:none!important}}

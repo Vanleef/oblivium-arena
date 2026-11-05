@@ -48,7 +48,7 @@ export function triggerTacticalAugments(s,side,actor,kind,{exposedHit=false,abil
  const budget={heal:0,shield:0};
  for(const augment of s.tactical.augments?.[side]||[]){
   if(augment.type==='conquest-augment'){
-   if(augment.actorId!==actor.id||actor.hp<=0)continue;
+   if(augment.actorId!==actor.id||actor.hp<=0||augment.abilityId&&ability?.id!==augment.abilityId)continue;
    const key=side+':'+actor.id+':'+augment.id;
    if(s.tactical.augmentTriggers[key]===s.round)continue;
    const basic=ability?.id==='fortress-basic';

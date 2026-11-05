@@ -54,14 +54,15 @@ export function planTacticalAIActivation(s,side='enemy'){
    const edge=side==='player'?8:0,start=view.tactical.positions[unit.id];
    const {entered,rearmed}=view.tactical.fortress;
    const eligible=!entered.includes(unit.id)||rearmed.includes(unit.id);
-   const objective=eligible?edge:8-edge;
+   const objective=eligible?edge:8-edge,goal=view.tactical.objectives?.[side]?.position;
    for(const to of boardCells(view)){
     const path=findPath(view,unit.id,to);if(!path)continue;
     for(const base of unit.abilities){
      const ability=conquestAugmentedAbility(view,unit,conquestTechnique(base));
      const actions=[{type:'move',actorId:unit.id,path,abilityId:ability.id}],preview=previewTacticalActivation(view,side,unit.id,actions);
      if(!preview.ok)continue;
-     const value=(Math.abs(start.x-objective)-Math.abs(to.x-objective))*5+(to.x===objective?18:0)
+     const objectiveValue=goal?(distance(start,goal,view)-distance(to,goal,view))*8+(distance(to,goal,view)===0?30:0):0;
+     const value=objectiveValue+(Math.abs(start.x-objective)-Math.abs(to.x-objective))*5+(to.x===objective?18:0)
        +(preview.aim?.targets?.length||0)*((ability.damage||0)*.5+(ability.stun?11:0)+(ability.heal?4:0))
        +(!unit.cooldowns[ability.id]?1:0)-Math.abs(to.y-start.y)*.2;
      if(!best||value>best.value)best={actorId:unit.id,actions,value};
