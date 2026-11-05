@@ -39,6 +39,20 @@ export function conquestPassive(passive){
 }
 
 
+// Reactions cannot consume a resource that does not exist in Conquista.
+function convertReaction(effect,kind){
+ const count=(effect.drain||0)+['drainEssence','stealEssence','generateEssence','convertEssence'].reduce((n,key)=>n+(effect[key]?(effect[key].amount??1):0),0);
+ if(!count)return {...effect};
+ const stat=kind==='counterEffect'?'shieldBearer':'shieldSource';
+ return {...effect,drain:0,drainEssence:null,stealEssence:null,generateEssence:null,convertEssence:null,[stat]:(effect[stat]||0)+count*3};
+}
+function reactionText(effect,counter=false){
+ if(!effect)return '';
+ const timing=counter?'Após contra-atacar':({damaged:'Se o portador sofrer dano',attack:'Se o portador atacar',support:'Se o portador usar apoio',defense:'Se o portador usar defesa',skill:'Se o portador usar uma técnica',idle:'Se o portador terminar a rodada sem agir'}[effect.trigger]||'Ao ativar a reação');
+ const parts=[effect.damage&&('causa '+effect.damage+' de dano'),effect.heal&&('cura '+effect.heal+' de Vida do portador'),effect.healSource&&('cura '+effect.healSource+' de Vida de quem preparou o efeito'),effect.healBoth&&('cura '+effect.healBoth+' de Vida de quem preparou e de quem recebeu o efeito'),effect.shield&&('concede '+effect.shield+' de Escudo ao portador'),effect.shieldSource&&('concede '+effect.shieldSource+' de Escudo a quem preparou o efeito'),effect.shieldBearer&&('concede '+effect.shieldBearer+' de Escudo ao portador'),effect.exposeAttacker&&'expõe o agressor',effect.expose&&'aplica Exposto',effect.dot&&('aplica '+(effect.dot.tag||'aflição')+' de '+effect.dot.damage+' de dano por '+effect.dot.turns+' rodada(s)')].filter(Boolean);
+ return parts.length?timing+': '+parts.join('; ')+'. Uma ativação'+(!counter?' em até '+(effect.turns||1)+' rodada(s)':'')+'.':'';
+}
+
 // Values assume 100 starting Health and one technique after each movement.
 export function conquestTechnique(ability){
  const converted=convertTechnique(ability);
@@ -67,8 +81,8 @@ export function conquestTechnique(ability){
  if(result.combo)result.combo={...result.combo,...(result.combo.stun?{stun:1}:{})};
  if(result.regen)result.regen={...result.regen,heal:Math.min(result.regen.heal||0,team?3:4),turns:Math.min(result.regen.turns||1,2)};
  for(const key of ['reactive','counterEffect'])if(result[key]){
-  const effect={...result[key]};
-  for(const stat of ['damage','heal','healSource','healBoth','shield','shieldSource'])if(effect[stat]>8)effect[stat]=8;
+  const effect=convertReaction(result[key],key);
+  for(const stat of ['damage','heal','healSource','healBoth','shield','shieldSource','shieldBearer'])if(effect[stat]>8)effect[stat]=8;
   if(effect.turns>2)effect.turns=2;
   if(effect.dot)effect.dot=balanceDot(effect.dot);
   result[key]=effect;
@@ -104,7 +118,12 @@ export function conquestTechnique(ability){
   result.perChargeDamage&&('Causa +'+result.perChargeDamage+' de dano por Carga.'),
   result.perChargeHeal&&('Cura +'+result.perChargeHeal+' por Carga.'),
   result.lifesteal&&('Recupera '+Math.round(result.lifesteal*100)+'% do dano causado.'),
-  result.reactive?.damage&&('Reação preparada: '+result.reactive.damage+' de dano.'),
+  reactionText(result.reactive),
+  reactionText(result.counterEffect,true),
+  result.selfDamage&&('O usuário perde '+result.selfDamage+' de Vida, sem ser derrotado por esse efeito.'),
+  result.reduceCooldown&&('Reduz em '+result.reduceCooldown+' a recarga das técnicas não defensivas do alvo.'),
+  result.healingBlock&&('Reduz a cura recebida em '+Math.round(result.healingBlock*100)+'%.'),
+  result.maxUses&&('Limite de '+result.maxUses+' uso(s) no combate.'),
   result.weaken&&'Aplica Enfraquecido.',
   result.sealAttack&&'Sela ataques por 1 rodada.',
   result.sealSupport&&'Sela apoios por 1 rodada.',

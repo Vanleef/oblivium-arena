@@ -4,7 +4,7 @@
 
 A postura base é horizontal e aponta para longe da última fortaleza alcançada. A animação pode virar durante uma técnica e restaura a postura na recuperação.
 
-29/150 personagens têm atlas base. Atlas base por slot e VFX compartilhados não equivalem a animações exclusivas para todas as formas, passivas e habilidades. O trabalho visual está em andamento.
+35/150 personagens têm atlas base. Atlas base por slot e VFX compartilhados não equivalem a animações exclusivas para todas as formas, passivas e habilidades. O trabalho visual está em andamento.
 
 | Personagem | Atlas base | Técnicas/formas |
 | --- | --- | --- |
@@ -29,12 +29,12 @@ A postura base é horizontal e aponta para longe da última fortaleza alcançada
 | Ignis | Conectado | 4 |
 | Emberlyn | Conectado | 7 |
 | Corvin | Conectado | 6 |
-| Ragnar | Pendente | 5 |
-| Lyra | Pendente | 5 |
-| Pyros | Pendente | 4 |
-| Gorath | Pendente | 5 |
-| Ravena | Pendente | 5 |
-| Drake | Pendente | 4 |
+| Ragnar | Conectado | 5 |
+| Lyra | Conectado | 5 |
+| Pyros | Conectado | 4 |
+| Gorath | Conectado | 5 |
+| Ravena | Conectado | 5 |
+| Drake | Conectado | 4 |
 | Helena | Pendente | 4 |
 | Marrow | Pendente | 4 |
 | Fortuna | Pendente | 4 |

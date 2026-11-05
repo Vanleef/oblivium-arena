@@ -38,3 +38,44 @@ test('regeneration, reactive damage and lifesteal retain identity within seconda
  assert.ok(a.description.includes('Regenera 4 de Vida por 2'));
  assert.equal(source.regen.heal,9);
 });
+
+test('resource reactions become bounded wards and show their trigger without mutating the original',()=>{
+ const raw={id:'counter',target:'ally',counter:20,counterEffect:{drainEssence:{resource:'essence',amount:1},expose:1},reactive:{trigger:'support',turns:1,damage:5,drain:1}};
+ const converted=conquestTechnique(raw);
+ assert.equal(converted.counterEffect.drainEssence,null);
+ assert.equal(converted.counterEffect.shieldBearer,3);
+ assert.equal(converted.reactive.drain,0);
+ assert.equal(converted.reactive.shieldSource,3);
+ assert.ok(converted.description.includes('Após contra-atacar'));
+ assert.ok(converted.description.includes('portador usar apoio'));
+ assert.deepEqual(conquestTechnique(converted),converted,'rebalancing twice must not generate more shield');
+ assert.equal(raw.reactive.drain,1);
+ assert.equal(raw.counterEffect.drainEssence.amount,1);
+});
+
+test('counter resource conversion actually shields its bearer without changing either resource pool',async()=>{
+ const {createTacticalBattle}=await import('../src/tactical-combat.js');
+ const {resolveBoardTechnique}=await import('../src/combat.js');
+ const s=createTacticalBattle(['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],{fortress:true});
+ const bearer=s.allies[0],enemy=s.enemies[0];
+ for(const key of ['resources','enemyResources'])for(const id of Object.keys(s[key]))s[key][id]=0;
+ const pools=JSON.stringify([s.resources,s.enemyResources]);
+ bearer.counter=20;bearer.counterEffect=conquestTechnique({id:'counter',counterEffect:{drainEssence:{amount:1}}}).counterEffect;
+ const oldShield=bearer.shield;
+ resolveBoardTechnique(s,{side:'enemy',actorId:enemy.id,abilityId:'fortress-basic',formKey:'base',fortressCooldown:0},[bearer.id]);
+ assert.equal(bearer.counter,0);
+ assert.equal(bearer.shield,oldShield+3);
+ assert.equal(JSON.stringify([s.resources,s.enemyResources]),pools);
+});
+
+test('harmful support trap grants its converted ward to the living caster',async()=>{
+ const {triggerReactives}=await import('../src/combat-effects.js');
+ const source={id:'caster',hp:100,shield:0},victim={id:'victim',hp:100,reactives:[]};
+ victim.reactives.push({...conquestTechnique({id:'trap',reactive:{trigger:'support',turns:1,damage:5,drain:1}}).reactive,sourceId:source.id,harmful:true});
+ const s={allies:[source],enemies:[victim]},reactions=[];
+ triggerReactives(s,victim,'support',null,{reactions,hit:(u,n)=>(u.hp-=n,{dealt:n}),shield:(u,n)=>(u.shield+=n,n),log(){},transfer(){throw Error('Conquista reaction must not use a resource pool');}});
+ assert.equal(source.shield,3);
+ assert.equal(victim.hp,95);
+ assert.equal(victim.reactives.length,0);
+ assert.ok(reactions.some(r=>r.targetId===source.id&&r.shield===3));
+});

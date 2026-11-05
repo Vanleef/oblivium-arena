@@ -6,7 +6,7 @@
     "opponentsOnly": 14,
     "pending": 0,
     "techniquesAndForms": 689,
-    "adaptedWithBaseAtlas": 29
+    "adaptedWithBaseAtlas": 35
   },
   "characters": [
     {
@@ -2117,7 +2117,7 @@
       "title": "O Ressentido",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Rancor Latente",
       "techniques": [
         {
@@ -2220,7 +2220,7 @@
       "title": "A Vingadora",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Rancor Encouraçado",
       "techniques": [
         {
@@ -2324,7 +2324,7 @@
       "title": "O Colérico",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Pulso Irado",
       "techniques": [
         {
@@ -2412,7 +2412,7 @@
       "title": "O Devorador",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Fome Crescente",
       "techniques": [
         {
@@ -2519,7 +2519,7 @@
       "title": "A Saqueadora",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Posse Insaciável",
       "techniques": [
         {
@@ -2622,7 +2622,7 @@
       "title": "O Insaciável",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Assimilação",
       "techniques": [
         {

@@ -7,7 +7,7 @@ const pilotAtlasEntries=[
  ['o-passo-interrompido','chronos'],['o-odio-encarnado','corvin'],['a-arquiteta-verde','verdant'],
  ['nilo','nilo'],['naomi','naomi'],['kael','kael'],['diana','diana'],['a-mae-rubra','selene'],['o-soberano-quebrado','darius'],['o-colecionador-de-cabecas','thorne'],['vaas','vaas']
 ];
-const expansionAtlases=Object.fromEntries([['o-falso-profeta','cassian'],['o-corretor-de-memorias','annius'],['o-incendiario','ignis'],['a-brasa-eterna','emberlyn']].map(([id,name])=>[id,Object.freeze({src:'/art/animations/tactical-expansion-20261105/'+name+'.webp',columns:6,rows:6,cellSize:160,phased:true})]));
+const expansionAtlases=Object.fromEntries([['o-falso-profeta','cassian'],['o-corretor-de-memorias','annius'],['o-incendiario','ignis'],['a-brasa-eterna','emberlyn'],['o-filho-da-cinza','ragnar'],['a-pira-errante','lyra'],['o-coracao-em-furia','pyros'],['o-devorador','gorath'],['a-mao-que-toma','ravena'],['o-estomago-sem-fundo','drake']].map(([id,name])=>[id,Object.freeze({src:'/art/animations/tactical-expansion-20261105/'+name+'.webp',columns:6,rows:6,cellSize:160,phased:true})]));
 const pilotAtlases=Object.fromEntries(pilotAtlasEntries.map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})]));
 export const tacticalSpriteAtlases=Object.freeze({
  ...pilotAtlases,...expansionAtlases,
@@ -33,6 +33,10 @@ function skillRowFor(unit,event){
  return skillRows[index]??null;
 }
 export const tacticalSkillAtlases=Object.freeze({
+ 'o-filho-da-cinza/impulso/rebirth':Object.freeze({src:'/art/animations/tactical-expansion-20261105/ragnar-rebirth.webp',columns:3,rows:2}),
+ 'a-pira-errante/impulso/reply':Object.freeze({src:'/art/animations/tactical-expansion-20261105/lyra-reply.webp',columns:3,rows:2}),
+ 'o-devorador/impulso/starved':Object.freeze({src:'/art/animations/tactical-expansion-20261105/gorath-starved.webp',columns:3,rows:2}),
+ 'a-mao-que-toma/tecnica/open':Object.freeze({src:'/art/animations/tactical-expansion-20261105/ravena-open.webp',columns:3,rows:2}),
  'o-tecelao-de-mentiras/tecnica/unweave':Object.freeze({src:'/art/animations/orin-skills-20261102/desatar-a-trama-v1.webp',columns:3,rows:2}),
  'nilo/tecnica/base':Object.freeze({src:'/art/animations/nilo-skills-20261102/fio-de-memoria.webp',columns:3,rows:2})
 });

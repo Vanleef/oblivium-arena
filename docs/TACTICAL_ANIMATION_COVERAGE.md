@@ -1,38 +1,38 @@
 # Cobertura de animações táticas
 
-29/150 entradas com atlas base conectado. 137/689 técnicas e formas com recorte mapeado.
+35/150 entradas com atlas base conectado. 145/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
-Atlas específicos de habilidade conectados: 2. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX são compartilhados por família.
+Atlas específicos de habilidade conectados: 6. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
-| Riven (o-acougueiro) | Sim | Sim | 5/5 |
-| Lira (a-viuva-escarlate) | Sim | Sim | 5/5 |
-| Thorne (o-colecionador-de-cabecas) | Sim | Sim | 5/5 |
-| Vale e Soren (gemeos-do-cutelo) | Sim | Sim | 5/5 |
+| Riven (o-acougueiro) | Sim | Sim | 4/5 |
+| Lira (a-viuva-escarlate) | Sim | Sim | 4/5 |
+| Thorne (o-colecionador-de-cabecas) | Sim | Sim | 4/5 |
+| Vale e Soren (gemeos-do-cutelo) | Sim | Sim | 4/5 |
 | Sanson (o-carrasco-sem-rosto) | Sim | Sim | 4/4 |
 | Selene (a-mae-rubra) | Sim | Sim | 4/4 |
-| Darius (o-soberano-quebrado) | Sim | Sim | 7/7 |
+| Darius (o-soberano-quebrado) | Sim | Sim | 4/7 |
 | Judith (a-juiza-de-ferro) | Sim | Sim | 4/4 |
 | Lucien (o-trono-vazio) | Sim | Sim | 4/4 |
-| Demetrius (o-principe-das-correntes) | Sim | Sim | 5/5 |
+| Demetrius (o-principe-das-correntes) | Sim | Sim | 4/5 |
 | Ashara (a-regente-de-cinzas) | Sim | Sim | 4/4 |
 | Malrik (o-herdeiro-cativo) | Sim | Sim | 4/4 |
 | Vesper (o-sussurro) | Sim | Sim | 4/4 |
-| Nyx (a-mascara-dupla) | Sim | Sim | 5/5 |
+| Nyx (a-mascara-dupla) | Sim | Sim | 4/5 |
 | Orin (o-tecelao-de-mentiras) | Sim | Sim | 5/5 |
 | Sylvara (a-boca-de-vidro) | Sim | Sim | 4/4 |
-| Cassian (o-falso-profeta) | Sim | Sim | 5/5 |
+| Cassian (o-falso-profeta) | Sim | Sim | 4/5 |
 | Annius (o-corretor-de-memorias) | Sim | Sim | 4/4 |
 | Ignis (o-incendiario) | Sim | Sim | 4/4 |
-| Emberlyn (a-brasa-eterna) | Sim | Sim | 7/7 |
-| Corvin (o-odio-encarnado) | Sim | Sim | 6/6 |
-| Ragnar (o-filho-da-cinza) | Pendente | Sim | 0/5 |
-| Lyra (a-pira-errante) | Pendente | Sim | 0/5 |
-| Pyros (o-coracao-em-furia) | Pendente | Sim | 0/4 |
-| Gorath (o-devorador) | Pendente | Sim | 0/5 |
-| Ravena (a-mao-que-toma) | Pendente | Sim | 0/5 |
-| Drake (o-estomago-sem-fundo) | Pendente | Sim | 0/4 |
+| Emberlyn (a-brasa-eterna) | Sim | Sim | 4/7 |
+| Corvin (o-odio-encarnado) | Sim | Sim | 4/6 |
+| Ragnar (o-filho-da-cinza) | Sim | Sim | 5/5 |
+| Lyra (a-pira-errante) | Sim | Sim | 5/5 |
+| Pyros (o-coracao-em-furia) | Sim | Sim | 4/4 |
+| Gorath (o-devorador) | Sim | Sim | 5/5 |
+| Ravena (a-mao-que-toma) | Sim | Sim | 5/5 |
+| Drake (o-estomago-sem-fundo) | Sim | Sim | 4/4 |
 | Helena (a-senhora-do-ultimo-pao) | Pendente | Sim | 0/4 |
 | Marrow (o-credor) | Pendente | Sim | 0/4 |
 | Fortuna (a-balanca-vazia) | Pendente | Sim | 0/4 |
@@ -60,7 +60,7 @@ Atlas específicos de habilidade conectados: 2. Os demais recortes mapeados usam
 | Ashen (o-menino-sem-sombra) | Pendente | Sim | 0/5 |
 | Soren (a-ultima-pagina) | Pendente | Sim | 0/4 |
 | Niith (o-lugar-de-ninguem) | Pendente | Não | 0/4 |
-| Aegis (o-escudo-vivo) | Sim | Sim | 5/5 |
+| Aegis (o-escudo-vivo) | Sim | Sim | 4/5 |
 | Bastion (a-muralha) | Pendente | Sim | 0/4 |
 | Caius (o-que-ficou) | Pendente | Sim | 0/4 |
 | Gideon (o-ultimo-guardiao) | Pendente | Sim | 0/4 |
@@ -93,9 +93,9 @@ Atlas específicos de habilidade conectados: 2. Os demais recortes mapeados usam
 | Cedric (o-que-cria) | Pendente | Sim | 0/5 |
 | Sprout (a-semente) | Pendente | Sim | 0/5 |
 | Rowan (o-cultivador) | Pendente | Sim | 0/4 |
-| Verdant (a-arquiteta-verde) | Sim | Sim | 6/6 |
+| Verdant (a-arquiteta-verde) | Sim | Sim | 4/6 |
 | Prim (o-primeiro-canto) | Pendente | Sim | 0/4 |
-| Chronos (o-passo-interrompido) | Sim | Sim | 6/6 |
+| Chronos (o-passo-interrompido) | Sim | Sim | 4/6 |
 | Fract (a-linha-partida) | Pendente | Sim | 0/5 |
 | Echo (o-eco-sem-dono) | Pendente | Sim | 0/7 |
 | Rift (a-porta-que-flutua) | Pendente | Sim | 0/5 |

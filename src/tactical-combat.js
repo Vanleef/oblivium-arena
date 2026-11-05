@@ -579,7 +579,7 @@ export function fortressAim(s,actor,ability,facing){
  const origin=s.tactical.positions[actor.id],forward=actor.side==='player'?1:-1;
  const spec=actionSpec(s,actor,ability);
  const support=['self','ally','friendly','team'].includes(ability.target);
- const direction=facing||unitFacing(s,actor);
+ const direction=support?unitFacing(s,actor):(facing||unitFacing(s,actor));
  const directional=!support&&['line','cone'].includes(spec.pattern);
  const anchors=spec.range===0||directional?[origin]:boardCells(s).filter(p=>distance(origin,p,s)<=spec.range);
  const units=new Map(tacticalUnits(s).map(unit=>[unit.id,unit]));

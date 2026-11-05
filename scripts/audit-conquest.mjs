@@ -2,12 +2,13 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {characters} from '../src/data.js';
 import {conquestTechnique,conquestPassive} from '../src/conquest-techniques.js';
 import {fortressCooldown} from '../src/tactical-combat.js';
+import {tacticalClipCoverage} from '../src/tactical-animation-coverage.js';
 import {tacticalSpec} from '../src/tactical-kits.js';
 import {tacticalSpriteAtlases,tacticalSkillAtlases} from '../src/tactical-sprites.js';
 const entries=characters.map(actor=>({id:actor.id,name:actor.name,baseAtlas:Boolean(tacticalSpriteAtlases[actor.id]),passive:conquestPassive(actor.passive),techniques:actor.abilities.flatMap(base=>[base,...base.forms||[]].map(form=>{
  const raw={...base,...form},ability=conquestTechnique(raw);
  const {forms,_formRoot,...effective}=ability;
- return {id:base.id,form:form.formKey||'base',name:ability.name,area:tacticalSpec(actor,raw),cooldown:fortressCooldown(ability),dedicatedAtlas:Boolean(tacticalSkillAtlases[`${actor.id}/${base.id}/${form.formKey||'base'}`]),effective};
+ return {id:base.id,form:form.formKey||'base',name:ability.name,area:tacticalSpec(actor,raw),cooldown:fortressCooldown(ability),...tacticalClipCoverage(actor,base,form),effective};
 }))}));
 const summary={characters:entries.length,techniquesAndForms:entries.reduce((n,c)=>n+c.techniques.length,0),baseAtlases:entries.filter(c=>c.baseAtlas).length,missingBaseAtlases:entries.filter(c=>!c.baseAtlas).map(c=>c.id)};
 await mkdir(new URL('../docs/',import.meta.url),{recursive:true});

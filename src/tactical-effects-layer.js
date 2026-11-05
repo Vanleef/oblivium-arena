@@ -8,6 +8,10 @@ const palettes={
  ritual:['#fff0c1','#d6a65d','#7c233d'],
  memory:['#eee4dd','#b6a7c8','#483c58'],
  cinder:['#ffe7a0','#f26b35','#44242c'],
+ pulse:['#ffd7b1','#da403c','#542231'],
+ jaw:['#ead1a7','#a75745','#342730'],
+ relic:['#ffe8ad','#c69451','#62313c'],
+ hunger:['#ead8c3','#9c626c','#302c3d'],
  support:['#efffdb','#72e8a5','#28746b'],
  guard:['#f0faff','#8dd9ff','#3552a4']
 };
@@ -22,7 +26,7 @@ const material={
  'o-acougueiro':'inferno','a-viuva-escarlate':'inferno','o-escudo-vivo':'guard',
  'o-passo-interrompido':'limbo','o-odio-encarnado':'inferno','a-arquiteta-verde':'support'
 };
-export const tacticalEffectSignatures=Object.freeze({'o-falso-profeta':'ritual','o-corretor-de-memorias':'memory','o-incendiario':'cinder','a-brasa-eterna':'cinder'});
+export const tacticalEffectSignatures=Object.freeze({'o-falso-profeta':'ritual','o-corretor-de-memorias':'memory','o-incendiario':'cinder','a-brasa-eterna':'cinder','o-filho-da-cinza':'cinder','a-pira-errante':'cinder','o-coracao-em-furia':'pulse','o-devorador':'jaw','a-mao-que-toma':'relic','o-estomago-sem-fundo':'hunger'});
 const signatures=tacticalEffectSignatures;
 const shields=new Set(['guard','counter','support']);
 const control=new Set(['bind','affliction']);
@@ -274,7 +278,8 @@ function drawEffect(ctx,fx,t){
   ctx.save();ctx.translate(x,y-r*.3);ctx.globalAlpha=fade*.85;
   const count=fx.particles;
   for(let i=0;i<count;i++){
-   const a=i*2.39996,reach=r*(.3+p*(.8+i%3*.18));
+   const a=i*2.39996,inward=fx.signature==='jaw'||fx.signature==='hunger';
+   const reach=r*(inward?1.15-p*.9:.3+p*(.8+i%3*.18));
    const px=Math.cos(a)*reach,py=Math.sin(a)*reach*.55-p*r*.3;
    ctx.save();ctx.translate(px,py);ctx.rotate(a+p);
    ctx.fillStyle=i%3===0?light:i%2?mid:dark;
@@ -284,6 +289,13 @@ function drawEffect(ctx,fx,t){
    }else if(fx.signature==='ritual'){
     ctx.lineWidth=r*.08;ctx.strokeStyle=i%2?mid:light;
     ctx.beginPath();ctx.arc(0,0,r*.18,0,Math.PI*1.25);ctx.stroke();
+   }else if(fx.signature==='relic'){
+    ctx.beginPath();ctx.moveTo(-r*.16,-r*.08);ctx.lineTo(r*.11,-r*.13);ctx.lineTo(r*.17,r*.06);ctx.lineTo(-r*.10,r*.12);ctx.closePath();ctx.fill();
+    ctx.strokeStyle=light;ctx.lineWidth=.8;ctx.stroke();
+   }else if(fx.signature==='hunger'){
+    ctx.globalAlpha=fade*.45;ctx.beginPath();ctx.ellipse(0,0,r*.20,r*.11,a,0,TAU);ctx.fill();
+   }else if(fx.signature==='jaw'){
+    ctx.beginPath();ctx.moveTo(-r*.13,-r*.12);ctx.lineTo(r*.13,-r*.08);ctx.lineTo(0,r*.18);ctx.closePath();ctx.fill();
    }else{
     ctx.beginPath();ctx.moveTo(-r*.12,r*.05);ctx.lineTo(-r*.02,-r*.16);ctx.lineTo(r*.11,-r*.04);ctx.lineTo(r*.05,r*.13);ctx.closePath();ctx.fill();
    }

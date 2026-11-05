@@ -98,3 +98,11 @@ test('older saved fortress visits migrate using entered and rearmed flags',()=>{
  s.tactical.fortress.rearmed.push(a.id);
  assert.deepEqual(unitFacing(s,a),[1,0]);
 });
+
+test('self support preserves fortress stance even after a vertical movement',()=>{
+ const s=make(),actor=s.allies[0],ability=actor.abilities.find(a=>a.target==='self');
+ assert.deepEqual(fortressAim(s,actor,ability,[0,-1]).orientation,[1,0]);
+ faceMovement(s,actor.id,{x:7,y:2},{x:8,y:2});
+ s.tactical.positions[actor.id]={x:7,y:2};
+ assert.deepEqual(fortressAim(s,actor,ability,[0,1]).orientation,[-1,0]);
+});

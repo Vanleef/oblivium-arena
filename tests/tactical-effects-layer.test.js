@@ -80,7 +80,7 @@ test('ritual, memory and cinder signatures reuse the shared particle budget',()=
  const saved=globalThis.requestAnimationFrame;
  try{
   globalThis.requestAnimationFrame=()=>1;
-  for(const [id,signature] of [['o-falso-profeta','ritual'],['o-corretor-de-memorias','memory'],['o-incendiario','cinder'],['a-brasa-eterna','cinder']]){
+  for(const [id,signature] of [['o-falso-profeta','ritual'],['o-corretor-de-memorias','memory'],['o-incendiario','cinder'],['a-brasa-eterna','cinder'],['o-filho-da-cinza','cinder'],['a-pira-errante','cinder'],['o-coracao-em-furia','pulse'],['o-devorador','jaw'],['a-mao-que-toma','relic'],['o-estomago-sem-fundo','hunger']]){
    const layer=new TacticalEffectsLayer(canvas);
    layer.emit(board,impact,{...allies[0],sourceId:id},'impact',200);
    assert.ok(layer.effects.every(f=>f.signature===signature));

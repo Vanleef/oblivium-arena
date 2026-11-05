@@ -1,6 +1,6 @@
 # Adaptação dos kits ao tabuleiro
 
-150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 29 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
+150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 35 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
 
 Conquista: ativações simultâneas, um movimento seguido de técnica por personagem a cada rodada. Vida inicial 100, técnicas sem custo de Essência e recargas/equivalências próprias no adaptador conquest-techniques.js. A adaptação inclui requisitos dos modos avançados, Resíduo, Fraturas e Sombra Preparada. Puxões e empurrões são modificadores exclusivos do adaptador tático. 136 personagens podem ser escolhidos no laboratório tático; 14 NPCs/lordes só entram como oposição. O laboratório não concede desbloqueios na campanha.
 
@@ -27,12 +27,12 @@ Conquista: ativações simultâneas, um movimento seguido de técnica por person
 | Ignis, O Incendiário | Adaptado | Sim | 4 |
 | Emberlyn, A Brasa Eterna | Adaptado | Sim | 7 |
 | Corvin, O Furor | Adaptado | Sim | 6 |
-| Ragnar, O Ressentido | Adaptado | Pendente | 5 |
-| Lyra, A Vingadora | Adaptado | Pendente | 5 |
-| Pyros, O Colérico | Adaptado | Pendente | 4 |
-| Gorath, O Devorador | Adaptado | Pendente | 5 |
-| Ravena, A Saqueadora | Adaptado | Pendente | 5 |
-| Drake, O Insaciável | Adaptado | Pendente | 4 |
+| Ragnar, O Ressentido | Adaptado | Sim | 5 |
+| Lyra, A Vingadora | Adaptado | Sim | 5 |
+| Pyros, O Colérico | Adaptado | Sim | 4 |
+| Gorath, O Devorador | Adaptado | Sim | 5 |
+| Ravena, A Saqueadora | Adaptado | Sim | 5 |
+| Drake, O Insaciável | Adaptado | Sim | 4 |
 | Helena, A Matriarca | Adaptado | Pendente | 4 |
 | Marrow, O Credor | Adaptado | Pendente | 4 |
 | Fortuna, A Usurária | Adaptado | Pendente | 4 |
