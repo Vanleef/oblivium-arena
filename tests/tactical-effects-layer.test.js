@@ -72,3 +72,22 @@ test('eventos usam a camada compartilhada com efeitos limitados e respeitam movi
   assert.ok(layer.effects.every(fx=>fx.kind==='falling-shards'));
  }finally{globalThis.requestAnimationFrame=saved;}
 });
+
+test('ritual, memory and cinder signatures reuse the shared particle budget',()=>{
+ const ctx=new Proxy({}, {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}};
+ const board={clientWidth:900,clientHeight:600,append(node){node.parentElement=this;}};
+ const saved=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  for(const [id,signature] of [['o-falso-profeta','ritual'],['o-corretor-de-memorias','memory'],['o-incendiario','cinder'],['a-brasa-eterna','cinder']]){
+   const layer=new TacticalEffectsLayer(canvas);
+   layer.emit(board,impact,{...allies[0],sourceId:id},'impact',200);
+   assert.ok(layer.effects.every(f=>f.signature===signature));
+   assert.ok(layer.effects.reduce((n,f)=>n+f.particles,0)<=tacticalParticleBudget);
+   layer.tick(performance.now()+80);
+   layer.tick(performance.now()+250);
+   assert.equal(layer.effects.length,0);
+  }
+ }finally{globalThis.requestAnimationFrame=saved;}
+});

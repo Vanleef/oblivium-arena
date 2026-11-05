@@ -6,7 +6,7 @@
     "opponentsOnly": 14,
     "pending": 0,
     "techniquesAndForms": 689,
-    "adaptedWithBaseAtlas": 25
+    "adaptedWithBaseAtlas": 29
   },
   "characters": [
     {
@@ -27,11 +27,10 @@
             "vision": true,
             "limit": 1,
             "priority": 2,
-            "pattern": "line",
-            "range": 2,
-            "length": 2
+            "pattern": "cell",
+            "range": 1
           },
-          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
           "costs": {
             "affinity": 1
           },
@@ -86,11 +85,10 @@
             "vision": true,
             "limit": 1,
             "priority": 2,
-            "pattern": "line",
-            "range": 2,
-            "length": 2
+            "pattern": "cell",
+            "range": 2
           },
-          "rule": "Frente · 2 células · alcance 2 · até 1 alvo(s) na área",
+          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
           "costs": {
             "affinity": 1,
             "essence": 1
@@ -1577,7 +1575,7 @@
       "title": "O Falso Profeta",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Fé Desviada",
       "techniques": [
         {
@@ -1681,7 +1679,7 @@
       "title": "O Falsário",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Arquivo Roubado",
       "techniques": [
         {
@@ -1766,7 +1764,7 @@
       "title": "O Incendiário",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Pavio Aceso",
       "techniques": [
         {
@@ -1851,7 +1849,7 @@
       "title": "A Brasa Eterna",
       "adapted": true,
       "selectable": true,
-      "baseAtlas": false,
+      "baseAtlas": true,
       "passive": "Calor Persistente",
       "techniques": [
         {
@@ -5339,9 +5337,9 @@
             "limit": 1,
             "priority": 2,
             "pattern": "cell",
-            "range": 2
+            "range": 1
           },
-          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "rule": "Uma célula · alcance 1 · até 1 alvo(s) na área",
           "costs": {
             "affinity": 1
           },
@@ -5375,17 +5373,18 @@
           "slot": "tecnica",
           "form": "base",
           "name": "Voto de Amparo",
-          "target": "ally",
+          "target": "team",
           "spec": {
             "vision": true,
-            "limit": 1,
+            "limit": 3,
             "priority": 1,
-            "pattern": "cell",
+            "pattern": "cross",
             "range": 2
           },
-          "rule": "Uma célula · alcance 2 · até 1 alvo(s) na área",
+          "rule": "Cruz · alcance 2 · até 3 alvo(s) na área",
           "costs": {
-            "affinity": 1
+            "affinity": 1,
+            "random": 1
           },
           "cooldown": 0
         },

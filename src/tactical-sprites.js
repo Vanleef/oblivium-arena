@@ -7,9 +7,10 @@ const pilotAtlasEntries=[
  ['o-passo-interrompido','chronos'],['o-odio-encarnado','corvin'],['a-arquiteta-verde','verdant'],
  ['nilo','nilo'],['naomi','naomi'],['kael','kael'],['diana','diana'],['a-mae-rubra','selene'],['o-soberano-quebrado','darius'],['o-colecionador-de-cabecas','thorne'],['vaas','vaas']
 ];
+const expansionAtlases=Object.fromEntries([['o-falso-profeta','cassian'],['o-corretor-de-memorias','annius'],['o-incendiario','ignis'],['a-brasa-eterna','emberlyn']].map(([id,name])=>[id,Object.freeze({src:'/art/animations/tactical-expansion-20261105/'+name+'.webp',columns:6,rows:6,cellSize:160,phased:true})]));
 const pilotAtlases=Object.fromEntries(pilotAtlasEntries.map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})]));
 export const tacticalSpriteAtlases=Object.freeze({
- ...pilotAtlases,
+ ...pilotAtlases,...expansionAtlases,
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),
@@ -25,6 +26,7 @@ export const tacticalSpriteAtlases=Object.freeze({
 const rows=Object.freeze({idle:0,move:1,impulso:2,tecnica:3,voto:4,despertar:5});
 const skillRows=Object.freeze(['impulso','tecnica','voto','despertar']);
 function skillRowFor(unit,event){
+ if(event?.abilityId==='fortress-basic')return 'impulso';
  const direct=[event?.animationSlot,event?.slot,event?.clip,event?.abilityId].find(key=>typeof key==='string'&&Object.prototype.hasOwnProperty.call(rows,key));
  if(direct)return direct;
  const index=unit?.abilities?.findIndex(ability=>ability.id===event?.abilityId)??-1;
@@ -105,6 +107,9 @@ export function tacticalSpriteFrame(unit,event=null,facing=null){
   row=rows[skill];
   column=frameColumns[event.family]?.[event.pose]??0;
  }
+ if(original.phased&&!dedicated&&bodyClip){
+  column=({ready:0,anticipate:1,compress:1,gather:2,inhale:2,brace:2,windup:2,guard:3,release:3,thrust:3,impact:3,travel:4,spread:4,deflect:4,counter:4,followthrough:4,hold:5,withdraw:4,transfer:4,recover:5,settle:5,launch:2,airborne:3,landing:4})[event.pose]??0;
+ }
  const src=dedicated?.src||(body?`/art/animations/tactical-body-20261104/${body}.webp`:original.src);
  const sheetRows=dedicated?.rows||(body?5:original.rows);
  const sheetColumns=dedicated?.columns||original.columns;
@@ -120,7 +125,9 @@ export function tacticalSpriteStyle(frame){
 }
 export function paintTacticalToken(token,unit,event,frame){
  if(!unit||token.dataset.unitId!==event.actorId)return false;
- const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame},event.orientation||event.after?.facings?.[unit.id]);
+ const restoring=frame.pose==='ready'&&frame.index>0;
+ const orientation=(restoring?event.after?.facings?.[unit.id]:event.orientation)||event.after?.facings?.[unit.id];
+ const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame},orientation);
  const duration=tacticalFrameDuration({...event,...frame});
  token.dataset.idleAtlas='false';token.dataset.bodyClip=String(Boolean(atlasFrame?.bodyClip));token.dataset.family=frame.family;token.dataset.pose=frame.pose;
  token.style.setProperty('--pose-duration',`${duration}ms`);
@@ -130,7 +137,7 @@ export function paintTacticalToken(token,unit,event,frame){
   const board=token.closest('.board'),fromCell=token.closest('.cell'),toCell=board?.querySelector(`[data-cell="${event.to?.x},${event.to?.y}"]`);
   if(fromCell&&toCell){const a=fromCell.getBoundingClientRect(),b=toCell.getBoundingClientRect(),x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;token.style.setProperty('--travel-x',`${x}px`);token.style.setProperty('--travel-y',`${y}px`);token.style.setProperty('--travel-mid-x',`${x*.52}px`);token.style.setProperty('--travel-mid-y',`${y*.52}px`);}
  }
- let dx=event.orientation?.[0]??Math.sign(aim.x-start.x),dy=event.orientation?.[1]??Math.sign(aim.y-start.y);if(!dx&&!dy){dx=event.orientation?.[0]||1;dy=event.orientation?.[1]||0;}
+ let dx=orientation?.[0]??Math.sign(aim.x-start.x),dy=orientation?.[1]??Math.sign(aim.y-start.y);if(!dx&&!dy){dx=orientation?.[0]||1;dy=orientation?.[1]||0;}
  token.dataset.directional=String(Boolean(atlasFrame?.directional));
  token.style.setProperty('--facing-sign',atlasFrame?.directional?1:dx<0?-1:1);
  token.style.setProperty('--windup-x',`${-dx*2}%`);token.style.setProperty('--windup-y',`${-dy*2}%`);token.style.setProperty('--lunge-x',`${dx*5}%`);token.style.setProperty('--lunge-y',`${dy*4}%`);token.style.setProperty('--follow-x',`${dx*2}%`);token.style.setProperty('--follow-y',`${dy*1}%`);

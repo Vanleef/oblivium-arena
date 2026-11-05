@@ -182,7 +182,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,fortress:config.fortress,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
- s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},facings:{},scene:combatScene(config.scene).id,obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
+ s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},facings:{},aimFacings:{},lastFortresses:{},scene:combatScene(config.scene).id,obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
   Object.assign(s.tactical,{width:9,height:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{},progress:conquestProgress(config.augmentProgress)}});
   for(const u of tacticalUnits(s)){
@@ -197,6 +197,10 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
   const point=extended&&enemyTeam.length>3?{x:0,y:[1,3,5,0,2][i]}:start(i);
   s.tactical.positions[u.id]=mirrorCell(point,s);
  });
+ if(s.tactical.fortress)for(const unit of tacticalUnits(s)){
+  s.tactical.lastFortresses[unit.id]=unit.side==='player'?0:boardWidth(s)-1;
+  s.tactical.facings[unit.id]=unitFacing(s,unit);
+ }
  const obstacles=config.obstacles||[];
  if(!Array.isArray(obstacles)||obstacles.some(p=>!onBoard(p,s)||occupied(s,p))||new Set(obstacles.map(cellKey)).size!==obstacles.length)throw Error('Obstáculos inválidos.');
  s.tactical.obstacles=obstacles.map(cleanPoint);
@@ -300,6 +304,7 @@ function displaceTargets(s,actor,ids,displacement){
   const moved=canStep(s,id,from,to);
   if(moved){
    s.tactical.positions[id]={...to};
+   faceMovement(s,id,from,to);
    if(s.tactical.fortress)claimFortressEntry(s,{actorId:id,side:target.side,to});
   }
   moves.push({actorId:id,name:target.name,kind:displacement.kind,from,to:moved?{...to}:from,moved});
@@ -411,7 +416,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
-function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,surfaces:s.tactical.surfaces,weather:s.tactical.weather,fortress:s.tactical.fortress,width:s.tactical.width,height:s.tactical.height,obstacles:s.tactical.obstacles,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,facings:s.tactical.facings,scene:s.tactical.scene,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,surfaces:s.tactical.surfaces,weather:s.tactical.weather,fortress:s.tactical.fortress,width:s.tactical.width,height:s.tactical.height,obstacles:s.tactical.obstacles,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,facings:s.tactical.facings,lastFortresses:s.tactical.lastFortresses,aimFacings:s.tactical.aimFacings,scene:s.tactical.scene,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -502,7 +507,7 @@ function resolveTacticalExchange(s){
    if(!moved.has(ref.actorId))continue;
    const actor=actorFor(s,ref.side,ref.actorId),ability=actor?.abilities.find(a=>a.id===ref.abilityId);
    if(!ability||actor.cooldowns[ability.id])continue;
-   const before=replayState(s),aim=fortressAim(s,actor,ability,unitFacing(s,actor));
+   const before=replayState(s),aim=fortressAim(s,actor,ability,s.tactical.aimFacings?.[actor.id]||unitFacing(s,actor));
    if(!aim)continue;
    const action={...ref,type:'skill',...aim,formKey:ability.formKey||'base',fortressCooldown:fortressCooldown(ability)};
    const result=execute(s,action);

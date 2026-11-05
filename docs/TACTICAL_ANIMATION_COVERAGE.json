@@ -19,7 +19,7 @@
         "name": "Reabrir a Ferida",
         "form": "reopen",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -72,7 +72,7 @@
         "name": "Fio Reverso",
         "form": "revenge",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -143,7 +143,7 @@
         "name": "Caça sem Troféus",
         "form": "empty",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -187,7 +187,7 @@
         "name": "Corte em Contratempo",
         "form": "cross",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -319,7 +319,7 @@
         "name": "Decreto sobre Todos",
         "form": "edict",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -337,7 +337,7 @@
         "name": "Cadeia de Juramento",
         "form": "edict",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -355,7 +355,7 @@
         "name": "Trono Incontestável",
         "form": "edict",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -478,7 +478,7 @@
         "name": "Apertar o Grilhão",
         "form": "drag",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -663,7 +663,7 @@
         "name": "Gesto de Outro Rosto",
         "form": "other",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -796,212 +796,212 @@
   {
     "id": "o-falso-profeta",
     "name": "Cassian",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Promessa do Profeta",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "tecnica",
         "name": "Bênção Falsa",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "tecnica",
         "name": "Confissão do Falso Santo",
         "form": "confess",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "voto",
         "name": "Milagre Fabricado",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "despertar",
         "name": "Imagem Sagrada",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       }
     ]
   },
   {
     "id": "o-corretor-de-memorias",
     "name": "Annius",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Lembrança Hipotecada",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "tecnica",
         "name": "Esquecer a Defesa",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "voto",
         "name": "Liquidação do Passado",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "despertar",
         "name": "Memória Substituta",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       }
     ]
   },
   {
     "id": "o-incendiario",
     "name": "Ignis",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Pavio de Ódio",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "tecnica",
         "name": "Fagulhas em Cadeia",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "voto",
         "name": "Detonação Negra",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "despertar",
         "name": "Corpo de Fumaça",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       }
     ]
   },
   {
     "id": "a-brasa-eterna",
     "name": "Emberlyn",
-    "selectable": false,
-    "baseAtlas": false,
+    "selectable": true,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Brasa que Permanece",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "impulso",
         "name": "Labareda Sufocante",
         "form": "smother",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "tecnica",
         "name": "Sufoco das Cinzas",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "tecnica",
         "name": "Cinzas de Sufoco",
         "form": "smother",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "voto",
         "name": "Fornalha Interior",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "voto",
         "name": "Fornalha Sepulcral",
         "form": "smother",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       },
       {
         "id": "despertar",
         "name": "Manto de Cinzas",
         "form": "base",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
-        "customVfx": false
+        "customVfx": true
       }
     ]
   },
@@ -1025,7 +1025,7 @@
         "name": "Punho do Ódio Solto",
         "form": "rage",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -1052,7 +1052,7 @@
         "name": "Ressentimento sem Freio",
         "form": "eruption",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -1070,7 +1070,7 @@
   {
     "id": "o-filho-da-cinza",
     "name": "Ragnar",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1123,7 +1123,7 @@
   {
     "id": "a-pira-errante",
     "name": "Lyra",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1176,7 +1176,7 @@
   {
     "id": "o-coracao-em-furia",
     "name": "Pyros",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1220,7 +1220,7 @@
   {
     "id": "o-devorador",
     "name": "Gorath",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1273,7 +1273,7 @@
   {
     "id": "a-mao-que-toma",
     "name": "Ravena",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1326,7 +1326,7 @@
   {
     "id": "o-estomago-sem-fundo",
     "name": "Drake",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1370,7 +1370,7 @@
   {
     "id": "a-senhora-do-ultimo-pao",
     "name": "Helena",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1414,7 +1414,7 @@
   {
     "id": "o-credor",
     "name": "Marrow",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1458,7 +1458,7 @@
   {
     "id": "a-balanca-vazia",
     "name": "Fortuna",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1502,7 +1502,7 @@
   {
     "id": "o-apodrecido",
     "name": "Aldric",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1546,7 +1546,7 @@
   {
     "id": "a-praga-andante",
     "name": "Mire",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1599,7 +1599,7 @@
   {
     "id": "o-corrupto",
     "name": "Pact",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1643,7 +1643,7 @@
   {
     "id": "a-rainha-dos-fungos",
     "name": "Myra",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1705,7 +1705,7 @@
   {
     "id": "o-medico-de-vermes",
     "name": "Bram",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1749,7 +1749,7 @@
   {
     "id": "o-jardim-morto",
     "name": "Thorn",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1793,7 +1793,7 @@
   {
     "id": "o-que-observou",
     "name": "Elias",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1846,7 +1846,7 @@
   {
     "id": "a-porta-fechada",
     "name": "Mira",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1890,7 +1890,7 @@
   {
     "id": "o-surdo",
     "name": "Voss",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1943,7 +1943,7 @@
   {
     "id": "a-testemunha-cega",
     "name": "Iris",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -1987,7 +1987,7 @@
   {
     "id": "o-quarto-vazio",
     "name": "Hollow",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2031,7 +2031,7 @@
   {
     "id": "o-vigia-ausente",
     "name": "Reed",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2084,7 +2084,7 @@
   {
     "id": "o-que-possui",
     "name": "Maren",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2128,7 +2128,7 @@
   {
     "id": "a-pele-alheia",
     "name": "Quill",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2226,7 +2226,7 @@
   {
     "id": "o-desejo-quebrado",
     "name": "Desire",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2270,7 +2270,7 @@
   {
     "id": "a-marionetista-de-nervos",
     "name": "Liora",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2323,7 +2323,7 @@
   {
     "id": "o-espelho-carnal",
     "name": "Echo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2367,7 +2367,7 @@
   {
     "id": "a-costureira",
     "name": "Sable",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2420,7 +2420,7 @@
   {
     "id": "o-que-apaga",
     "name": "Noctis",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2473,7 +2473,7 @@
   {
     "id": "a-ausencia",
     "name": "Vespera",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2517,7 +2517,7 @@
   {
     "id": "o-fim-silencioso",
     "name": "Erebus",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2570,7 +2570,7 @@
   {
     "id": "o-menino-sem-sombra",
     "name": "Ashen",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2623,7 +2623,7 @@
   {
     "id": "a-ultima-pagina",
     "name": "Soren",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2728,7 +2728,7 @@
         "name": "Avanço da Égide",
         "form": "advance",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -2764,7 +2764,7 @@
   {
     "id": "a-muralha",
     "name": "Bastion",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2808,7 +2808,7 @@
   {
     "id": "o-que-ficou",
     "name": "Caius",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2852,7 +2852,7 @@
   {
     "id": "o-ultimo-guardiao",
     "name": "Gideon",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2896,7 +2896,7 @@
   {
     "id": "a-sentinela-azul",
     "name": "Azure",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2940,7 +2940,7 @@
   {
     "id": "a-mao-que-cura",
     "name": "Elara",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -2984,7 +2984,7 @@
   {
     "id": "o-restaurador",
     "name": "Theron",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3037,7 +3037,7 @@
   {
     "id": "a-luz-que-restaura",
     "name": "Liora",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3081,7 +3081,7 @@
   {
     "id": "a-jardineira-das-feridas",
     "name": "Iris",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3125,7 +3125,7 @@
   {
     "id": "o-pulso-sereno",
     "name": "Seren",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3169,7 +3169,7 @@
   {
     "id": "o-equilibrio",
     "name": "Aldric",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3222,7 +3222,7 @@
   {
     "id": "a-lamina-justa",
     "name": "Justus",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3266,7 +3266,7 @@
   {
     "id": "o-que-pesa",
     "name": "Aristides",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3319,7 +3319,7 @@
   {
     "id": "a-testemunha-integra",
     "name": "Maqrizi",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3363,7 +3363,7 @@
   {
     "id": "o-julgador-gentil",
     "name": "Benedict",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3407,7 +3407,7 @@
   {
     "id": "a-chama-que-nao-apaga",
     "name": "Caelum",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3460,7 +3460,7 @@
   {
     "id": "o-que-levanta",
     "name": "Hector",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3504,7 +3504,7 @@
   {
     "id": "a-voz",
     "name": "Hope",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3566,7 +3566,7 @@
   {
     "id": "o-portador-da-aurora",
     "name": "Aurora",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3610,7 +3610,7 @@
   {
     "id": "a-mensageira-do-amanha",
     "name": "Stella",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3663,7 +3663,7 @@
   {
     "id": "o-que-revela",
     "name": "Veritas",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3707,7 +3707,7 @@
   {
     "id": "a-luz-nua",
     "name": "Crates",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3751,7 +3751,7 @@
   {
     "id": "o-espelho",
     "name": "Parrhasius",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3804,7 +3804,7 @@
   {
     "id": "a-cartografa-da-clareza",
     "name": "Cartes",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3857,7 +3857,7 @@
   {
     "id": "o-olho-desarmado",
     "name": "Arcane",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3901,7 +3901,7 @@
   {
     "id": "o-elo-dourado",
     "name": "Aurelia",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3945,7 +3945,7 @@
   {
     "id": "a-que-une",
     "name": "Destiny",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -3989,7 +3989,7 @@
   {
     "id": "o-vinculo",
     "name": "Elowen",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4033,7 +4033,7 @@
   {
     "id": "os-tres-irmaos",
     "name": "Trinity",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4095,7 +4095,7 @@
   {
     "id": "a-guardia-das-promessas",
     "name": "Isolde",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4148,7 +4148,7 @@
   {
     "id": "o-que-cria",
     "name": "Cedric",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4201,7 +4201,7 @@
   {
     "id": "a-semente",
     "name": "Sprout",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4254,7 +4254,7 @@
   {
     "id": "o-cultivador",
     "name": "Rowan",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4315,7 +4315,7 @@
         "name": "Viga de Apoio",
         "form": "beam",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -4342,7 +4342,7 @@
         "name": "Colapsar a Abóbada",
         "form": "collapse",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -4360,7 +4360,7 @@
   {
     "id": "o-primeiro-canto",
     "name": "Prim",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4421,7 +4421,7 @@
         "name": "Passo Seguinte",
         "form": "next",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -4430,7 +4430,7 @@
         "name": "Passo Anterior",
         "form": "previous",
         "dedicatedAtlas": false,
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "sharedVfx": true,
         "customVfx": false
       },
@@ -4466,7 +4466,7 @@
   {
     "id": "a-linha-partida",
     "name": "Fract",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4519,7 +4519,7 @@
   {
     "id": "o-eco-sem-dono",
     "name": "Echo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4590,7 +4590,7 @@
   {
     "id": "a-porta-que-flutua",
     "name": "Rift",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4643,7 +4643,7 @@
   {
     "id": "o-nome-esquecido",
     "name": "Obliv",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4687,7 +4687,7 @@
   {
     "id": "o-relogio-afogado",
     "name": "Chronicle",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4740,7 +4740,7 @@
   {
     "id": "a-asa-invertida",
     "name": "Lyra",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4793,7 +4793,7 @@
   {
     "id": "o-andarilho-de-vidro",
     "name": "Crystal",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4837,7 +4837,7 @@
   {
     "id": "a-sombra-inconstante",
     "name": "Shade",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4899,7 +4899,7 @@
   {
     "id": "a-ponte-rasgada",
     "name": "Bridge",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -4943,7 +4943,7 @@
   {
     "id": "a-alma-em-suspenso",
     "name": "Soren",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5040,7 +5040,7 @@
   {
     "id": "nilo-o-prefacio",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5084,7 +5084,7 @@
   {
     "id": "nilo-graca-prefacio",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5128,7 +5128,7 @@
   {
     "id": "nilo-ruptura-prefacio",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5159,7 +5159,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Estilhaço",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5181,7 +5181,7 @@
   {
     "id": "nilo-cinza-epilogo",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5212,7 +5212,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Carne Aberta",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5243,7 +5243,7 @@
   {
     "id": "nilo-graca-epilogo",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5274,7 +5274,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Verdade que Prende",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5296,7 +5296,7 @@
   {
     "id": "nilo-ruptura-epilogo",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5327,7 +5327,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Resposta do Vazio",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5349,7 +5349,7 @@
   {
     "id": "nilo-cinza-final",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5380,7 +5380,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Abrir Colapso II",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5438,7 +5438,7 @@
   {
     "id": "nilo-graca-final",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5469,7 +5469,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Forma de Graça",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5518,7 +5518,7 @@
   {
     "id": "nilo-ruptura-final",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5549,7 +5549,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Armadilha Profunda",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5589,7 +5589,7 @@
   {
     "id": "nilo-o-epilogo",
     "name": "Nilo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5633,7 +5633,7 @@
   {
     "id": "o-eco-de-nilo",
     "name": "Sael",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5664,7 +5664,7 @@
         "customVfx": false
       },
       {
-        "id": "despertar",
+        "id": "tecnica-4",
         "name": "Fragmento de Éter",
         "form": "base",
         "dedicatedAtlas": false,
@@ -5775,7 +5775,7 @@
   {
     "id": "naomi-a-que-permanece",
     "name": "Naomi",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5819,7 +5819,7 @@
   {
     "id": "naomi-a-raiz",
     "name": "Naomi",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5907,7 +5907,7 @@
   {
     "id": "kael-o-quebrado",
     "name": "Kael",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -5951,7 +5951,7 @@
   {
     "id": "kael-o-filhote-de-ferro",
     "name": "Kael",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6039,7 +6039,7 @@
   {
     "id": "vaas-o-sem-rosto",
     "name": "Vaas",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6127,7 +6127,7 @@
   {
     "id": "diana-a-guarda",
     "name": "Diana",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6171,7 +6171,7 @@
   {
     "id": "diana-a-que-ainda-segura",
     "name": "Diana",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6215,7 +6215,7 @@
   {
     "id": "teras",
     "name": "Teras",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6259,7 +6259,7 @@
   {
     "id": "teras-o-observador",
     "name": "Teras",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6303,7 +6303,7 @@
   {
     "id": "victor",
     "name": "Victor",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6347,7 +6347,7 @@
   {
     "id": "silas",
     "name": "Silas",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6391,7 +6391,7 @@
   {
     "id": "silas-o-leal",
     "name": "Silas",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6435,7 +6435,7 @@
   {
     "id": "orion",
     "name": "Orion",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6479,7 +6479,7 @@
   {
     "id": "doggo",
     "name": "Doggo",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6523,7 +6523,7 @@
   {
     "id": "hans",
     "name": "Hans",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6567,7 +6567,7 @@
   {
     "id": "xian",
     "name": "Xian",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6611,7 +6611,7 @@
   {
     "id": "xian-o-imovel",
     "name": "Xian",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6655,7 +6655,7 @@
   {
     "id": "seraphim",
     "name": "Seraph",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6699,7 +6699,7 @@
   {
     "id": "seraphim-o-eco",
     "name": "Seraph",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6743,7 +6743,7 @@
   {
     "id": "eiremir",
     "name": "Eiremir",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {
@@ -6787,7 +6787,7 @@
   {
     "id": "eiremir-o-espelho-partido",
     "name": "Eiremir",
-    "selectable": false,
+    "selectable": true,
     "baseAtlas": false,
     "skills": [
       {

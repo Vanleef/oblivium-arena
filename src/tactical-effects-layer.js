@@ -5,6 +5,9 @@ const palettes={
  inferno:['#fff2b2','#ff6840','#751f36'],
  paraiso:['#fff9da','#ffd37e','#9a6e61'],
  limbo:['#f4eaff','#bf8dff','#5731a0'],
+ ritual:['#fff0c1','#d6a65d','#7c233d'],
+ memory:['#eee4dd','#b6a7c8','#483c58'],
+ cinder:['#ffe7a0','#f26b35','#44242c'],
  support:['#efffdb','#72e8a5','#28746b'],
  guard:['#f0faff','#8dd9ff','#3552a4']
 };
@@ -19,6 +22,8 @@ const material={
  'o-acougueiro':'inferno','a-viuva-escarlate':'inferno','o-escudo-vivo':'guard',
  'o-passo-interrompido':'limbo','o-odio-encarnado':'inferno','a-arquiteta-verde':'support'
 };
+export const tacticalEffectSignatures=Object.freeze({'o-falso-profeta':'ritual','o-corretor-de-memorias':'memory','o-incendiario':'cinder','a-brasa-eterna':'cinder'});
+const signatures=tacticalEffectSignatures;
 const shields=new Set(['guard','counter','support']);
 const control=new Set(['bind','affliction']);
 const TAU=Math.PI*2;
@@ -51,6 +56,8 @@ export function tacticalEffectResolution(width,height,dpr=1){
 
 function palette(actor,family){
  const world=actor?.realm==='Inferno'?'inferno':actor?.realm==='Paraíso'?'paraiso':'limbo';
+ const signature=signatures[actor?.sourceId||actor?.id];
+ if(signature)return palettes[signature];
  return palettes[family==='support'?'support':shields.has(family)?'guard':material[actor?.sourceId||actor?.id]||world];
 }
 
@@ -88,11 +95,11 @@ export class TacticalEffectsLayer {
   };
   const from=worldPoint(event.before.positions[event.actorId]),to=worldPoint(event.anchor);
   const now=performance.now(),color=palette(actor,event.family),radius=Math.max(9,Math.min(34,this.height/tracks.rows.length*.44));
-  const actorId=actor?.sourceId||actor?.id;
+  const actorId=actor?.sourceId||actor?.id,signature=signatures[actorId];
   const cutlass=actorId==='o-acougueiro'&&['impulso','tecnica','voto'].includes(event.abilityId);
   const bastion=actorId==='o-escudo-vivo'&&['tecnica','despertar'].includes(event.abilityId);
   const push=(kind,point,extra={})=>{
-   if(point)this.effects.push({kind,point,from,to,color,radius,family:event.family,now,duration,reduced,...extra});
+   if(point)this.effects.push({kind,point,from,to,color,radius,signature,family:event.family,now,duration,reduced,...extra});
   };
   if(!reduced&&phase==='impact'){
    if(event.type==='field-event'){
@@ -125,7 +132,7 @@ export class TacticalEffectsLayer {
    for(const contact of contacts){
     const {reaction,x,y}=contact;
     const guard=reaction==='block'||reaction==='shield';
-    const tint=guard?palettes.guard:reaction==='heal'?palettes.support:color;
+    const tint=guard?palettes.guard:reaction==='heal'&&!signature?palettes.support:color;
     push('impact',worldPoint(contact.point,.54),{reaction,cutlass,bastion,angle:x||y?Math.atan2(y,x):undefined,color:tint,particles:reaction==='effect'?0:particles});
    }
    if(!contacts.length)push('miss',to||from);
@@ -254,7 +261,7 @@ function drawEffect(ctx,fx,t){
   }
   ctx.strokeStyle=light;ctx.lineWidth=1.5;ctx.globalAlpha=fade*.8;
   ctx.beginPath();
-  for(let i=0;i<fx.particles&&!(heavy&&fx.cutlass);i++){
+  for(let i=0;i<fx.particles&&!fx.signature&&!(heavy&&fx.cutlass);i++){
    const a=i*2.39996,reach=r*(.48+(i%3)*.20)*p;
    const dx=Math.cos(a),dy=Math.sin(a);
    ctx.moveTo(dx*reach,dy*reach);
@@ -263,6 +270,27 @@ function drawEffect(ctx,fx,t){
   ctx.stroke();
  }
  ctx.restore();
+ if(kind==='impact'&&fx.signature&&!reduced&&fx.particles){
+  ctx.save();ctx.translate(x,y-r*.3);ctx.globalAlpha=fade*.85;
+  const count=fx.particles;
+  for(let i=0;i<count;i++){
+   const a=i*2.39996,reach=r*(.3+p*(.8+i%3*.18));
+   const px=Math.cos(a)*reach,py=Math.sin(a)*reach*.55-p*r*.3;
+   ctx.save();ctx.translate(px,py);ctx.rotate(a+p);
+   ctx.fillStyle=i%3===0?light:i%2?mid:dark;
+   if(fx.signature==='memory'){
+    ctx.fillRect(-r*.12,-r*.07,r*.24,r*.14);
+    ctx.strokeStyle=light;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(-r*.07,0);ctx.lineTo(r*.07,0);ctx.stroke();
+   }else if(fx.signature==='ritual'){
+    ctx.lineWidth=r*.08;ctx.strokeStyle=i%2?mid:light;
+    ctx.beginPath();ctx.arc(0,0,r*.18,0,Math.PI*1.25);ctx.stroke();
+   }else{
+    ctx.beginPath();ctx.moveTo(-r*.12,r*.05);ctx.lineTo(-r*.02,-r*.16);ctx.lineTo(r*.11,-r*.04);ctx.lineTo(r*.05,r*.13);ctx.closePath();ctx.fill();
+   }
+   ctx.restore();
+  }
+  ctx.restore();
+ }
 }
 
 function drawFieldEffect(ctx,fx,p){

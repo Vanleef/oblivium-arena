@@ -98,8 +98,15 @@ export function patternCells(kind,origin,anchor,direction=[1,0],length=2,s){
  return [...new Map(points.filter(point=>onBoard(point,s)).map(p=>[cellKey(p),p])).values()];
 }
 
-// Facings use board coordinates. Old battles fall back to the team's initial side.
+// Fortress stance always faces away from the last fortress visited.
+// Aim is transient: the last actual movement may turn a technique, never the idle stance.
 export function unitFacing(s,unit){
+ if(s.tactical.fortress){
+  const home=unit.side==='enemy'?boardWidth(s)-1:0,f=s.tactical.fortress;
+  const legacy=f.entered?.includes(unit.id)&&!f.rearmed?.includes(unit.id)?boardWidth(s)-1-home:home;
+  const last=s.tactical.lastFortresses?.[unit.id]??legacy;
+  return [last===0?1:-1,0];
+ }
  const facing=s.tactical.facings?.[unit.id];
  return directions.some(d=>d[0]===facing?.[0]&&d[1]===facing?.[1])?[...facing]:[unit.side==='enemy'?-1:1,0];
 }
@@ -107,7 +114,14 @@ export function faceMovement(s,actorId,from,to){
  const a=boardMetricPoint(s,from),b=boardMetricPoint(s,to);
  const facing=[Math.sign(b.x-a.x),Math.sign(b.y-a.y)];
  if(facing[0]||facing[1]){
-  s.tactical.facings??={};s.tactical.facings[actorId]=facing;
+  s.tactical.facings??={};
+  if(s.tactical.fortress){
+   const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);
+   s.tactical.lastFortresses??={};
+   if(to.x===0||to.x===boardWidth(s)-1)s.tactical.lastFortresses[actorId]=to.x;
+   s.tactical.aimFacings??={};s.tactical.aimFacings[actorId]=facing;
+   s.tactical.facings[actorId]=unitFacing(s,unit);
+  }else s.tactical.facings[actorId]=facing;
  }
  return facing;
 }

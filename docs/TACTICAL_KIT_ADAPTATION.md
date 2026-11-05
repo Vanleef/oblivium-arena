@@ -1,8 +1,8 @@
 # Adaptação dos kits ao tabuleiro
 
-150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 25 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
+150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 29 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
 
-Duas ações por personagem, primeiras ações de todos antes das segundas. Custos, recargas, Vida e passivas canônicas preservados. A adaptação inclui requisitos dos modos avançados, Resíduo, Fraturas e Sombra Preparada. Puxões e empurrões são modificadores exclusivos do adaptador tático. 136 personagens podem ser escolhidos no laboratório tático; 14 NPCs/lordes só entram como oposição. O laboratório não concede desbloqueios na campanha.
+Conquista: ativações simultâneas, um movimento seguido de técnica por personagem a cada rodada. Vida inicial 100, técnicas sem custo de Essência e recargas/equivalências próprias no adaptador conquest-techniques.js. A adaptação inclui requisitos dos modos avançados, Resíduo, Fraturas e Sombra Preparada. Puxões e empurrões são modificadores exclusivos do adaptador tático. 136 personagens podem ser escolhidos no laboratório tático; 14 NPCs/lordes só entram como oposição. O laboratório não concede desbloqueios na campanha.
 
 | Personagem | Revisão espacial | Atlas base | Técnicas/formas |
 | --- | --- | --- | --- |
@@ -22,10 +22,10 @@ Duas ações por personagem, primeiras ações de todos antes das segundas. Cust
 | Nyx, A Máscara Dupla | Adaptado | Sim | 5 |
 | Orin, O Intrigante | Adaptado | Sim | 5 |
 | Sylvara, A Serpe | Adaptado | Sim | 4 |
-| Cassian, O Falso Profeta | Adaptado | Pendente | 5 |
-| Annius, O Falsário | Adaptado | Pendente | 4 |
-| Ignis, O Incendiário | Adaptado | Pendente | 4 |
-| Emberlyn, A Brasa Eterna | Adaptado | Pendente | 7 |
+| Cassian, O Falso Profeta | Adaptado | Sim | 5 |
+| Annius, O Falsário | Adaptado | Sim | 4 |
+| Ignis, O Incendiário | Adaptado | Sim | 4 |
+| Emberlyn, A Brasa Eterna | Adaptado | Sim | 7 |
 | Corvin, O Furor | Adaptado | Sim | 6 |
 | Ragnar, O Ressentido | Adaptado | Pendente | 5 |
 | Lyra, A Vingadora | Adaptado | Pendente | 5 |

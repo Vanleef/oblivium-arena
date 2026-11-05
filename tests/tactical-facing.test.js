@@ -8,7 +8,7 @@ import {paintTacticalToken} from '../src/tactical-sprites.js';
 const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
 const enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
 const make=()=>createTacticalBattle(ids,enemy,{fortress:true});
-test('all eight movement directions persist and directional attacks match them after resolution',()=>{
+test('all eight cast directions follow movement while base stance remains horizontal',()=>{
  for(const facing of [[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]]){
   const s=make(),actor=s.allies[0];
   s.tactical.positions[actor.id]={x:4,y:2};
@@ -18,14 +18,14 @@ test('all eight movement directions persist and directional attacks match them a
   const preview=previewTacticalActivation(s,'player',actor.id,actions);
   assert.ok(preview.ok);
   assert.deepEqual(unitFacing(s,actor),[1,0]);
-  assert.deepEqual(unitFacing(preview.projection,actor),facing);
+  assert.deepEqual(unitFacing(preview.projection,actor),[1,0]);
   const result=submitTacticalActivation(s,'player',actor.id,actions);
   assert.ok(result.ok);
-  assert.deepEqual(unitFacing(s,actor),facing);
+  assert.deepEqual(unitFacing(s,actor),[1,0]);
   const cast=result.events.find(e=>e.type==='skill'&&e.actorId===actor.id);
   assert.deepEqual(cast.orientation,facing);
   assert.deepEqual(cast.cells,[{x:to.x+facing[0],y:to.y+facing[1]}]);
-  assert.deepEqual(result.events.find(e=>e.type==='exchange-move').after.facings[actor.id],facing);
+  assert.deepEqual(result.events.find(e=>e.type==='exchange-move').after.facings[actor.id],[1,0]);
  }
 });
 test('blocked movement preserves the prior facing and never casts into the planned direction',()=>{
@@ -36,7 +36,7 @@ test('blocked movement preserves the prior facing and never casts into the plann
  assert.ok(submitTacticalActivation(s,'player',a.id,action(a)).waiting);
  const result=submitTacticalActivation(s,'enemy',b.id,action(b));
  assert.ok(result.ok);
- assert.deepEqual(unitFacing(s,a),[0,-1]);
+ assert.deepEqual(unitFacing(s,a),[1,0]);
  assert.ok(!result.events.some(e=>e.type==='skill'));
 });
 test('old saves fall back to team direction and scene ids are validated',()=>{
@@ -58,10 +58,43 @@ test('skill animation orientation follows the facing even if the anchor is a dis
  assert.equal(values['--facing-sign'],-1);
  assert.equal(values['--lunge-x'],'-5%');
 });
-test('support animations preserve the last facing instead of turning back to the team default',()=>{
+test('support defaults to the fortress stance rather than a vertical movement',()=>{
  const s=make(),actor=s.allies[0],ability=actor.abilities.find(a=>a.target==='self');
  s.tactical.positions[actor.id]={x:3,y:2};
  faceMovement(s,actor.id,{x:3,y:3},{x:3,y:2});
  const aim=fortressAim(s,actor,ability);
- assert.deepEqual(aim.orientation,[0,-1]);
+ assert.deepEqual(aim.orientation,[1,0]);
+});
+
+test('either fortress changes stance even without a reward and persists through neutral movement',()=>{
+ const s=make(),actor=s.allies[0];
+ for(const x of [8,0,8]){
+  faceMovement(s,actor.id,{x:x===8?7:1,y:2},{x,y:2});
+  assert.deepEqual(unitFacing(s,actor),[x===8?-1:1,0]);
+  faceMovement(s,actor.id,{x:4,y:2},{x:4,y:3});
+  assert.deepEqual(unitFacing(s,actor),[x===8?-1:1,0]);
+  const restored=JSON.parse(JSON.stringify(s));
+  assert.deepEqual(unitFacing(restored,actor),[x===8?-1:1,0]);
+ }
+ const rival=s.enemies[0];
+ assert.deepEqual(unitFacing(s,rival),[-1,0]);
+ faceMovement(s,rival.id,{x:1,y:2},{x:0,y:2});
+ assert.deepEqual(unitFacing(s,rival),[1,0]);
+});
+test('recovery restores the horizontal atlas and stance after a vertical skill',()=>{
+ const unit={id:'o-acougueiro'},values={};
+ const sprite={style:{setProperty:(k,v)=>values[k]=v},getAttribute:()=>'/old.webp'};
+ const token={dataset:{unitId:unit.id},style:{setProperty:(k,v)=>values[k]=v},querySelector:()=>sprite,closest:()=>null};
+ paintTacticalToken(token,unit,{actorId:unit.id,type:'skill',abilityId:'impulso',orientation:[0,-1],after:{facings:{[unit.id]:[-1,0]}}},{family:'slash',pose:'ready',index:6});
+ assert.equal(token.dataset.directional,'false');
+ assert.equal(values['--facing-sign'],-1);
+ assert.ok(sprite.src.includes('tactical-body-20261104'));
+});
+
+test('older saved fortress visits migrate using entered and rearmed flags',()=>{
+ const s=make(),a=s.allies[0];delete s.tactical.lastFortresses;
+ s.tactical.fortress.entered.push(a.id);
+ assert.deepEqual(unitFacing(s,a),[-1,0]);
+ s.tactical.fortress.rearmed.push(a.id);
+ assert.deepEqual(unitFacing(s,a),[1,0]);
 });
