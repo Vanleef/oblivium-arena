@@ -1088,20 +1088,26 @@
  position:relative;inset:auto;translate:none;
  width:min(100%,1050px);height:auto;aspect-ratio:calc(var(--fort-cols,9)*1.12)/var(--fort-rows,6);
  transform:perspective(1050px) translateZ(-280px) rotateX(20deg);transform-origin:center top;
- padding:0;gap:0;border-color:#9a879d;
- background:
-  linear-gradient(160deg,#bba0be28,transparent 48%,#15102058),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 600' preserveAspectRatio='none'%3E%3Cpath fill='%23575064' d='M0 0h960v600H0z'/%3E%3Cpath fill='%23645b70' d='M0 0h381l-65 132-154 44L0 129zm415 0h305l23 114-136 81-250-51zM0 190l179 28 38 140L0 422zm256 40 117-63 230 54-29 147-165 39-161-63zm390 0 133-93 181 22v159l-173 75-155-36zm-13 185 183 16 144-56v225H703zm-411-16 172 42 140-34 57 193H270z'/%3E%3Cpath fill='%23706878' opacity='.55' d='m0 0 381 0-65 132-14-17L356 0zm256 230 117-63 230 54-15 9-219-47zm390 0 133-93 181 22v12l-174-19zM0 422l217-64-11 17L0 441zm703 178-70-185 183 16-14 8-151-13z'/%3E%3Cpath fill='none' stroke='%233b3447' stroke-opacity='.6' stroke-width='2' d='m316 132-18 44-52 12-14 33m375-26 17 37-20 51m-387 75 31-14 28 21 53 9m248-6 22 38 34 9m146-278-2-43 24-33 12-61M816 431l37 25 54-4 53 31M162 176l-14 42-30 12-18 52M534 407l-11 54 18 36-20 38 9 65'/%3E%3C/svg%3E") center/100% 100% no-repeat #575064;
- box-shadow:0 7px 0 #211b2c,0 11px 0 #3d3049,0 23px 27px #07050b9c;
+ padding:0;gap:0;border:0;
+ background:none;box-shadow:none;filter:none;
+}
+/* Fade the painted ground into the surrounding ruins beyond the playable area. */
+.fortress-battle .arena-field>.board::before{
+ content:"";position:absolute;inset:-3% -2.5%;z-index:0;pointer-events:none;
+ background:linear-gradient(175deg,#31264a22,transparent 38%,#14102550),
+  url("/art/arenas/limbo-bedrock.webp") center/cover no-repeat;
+ mask-image:linear-gradient(90deg,transparent,#000 5% 95%,transparent),
+  linear-gradient(180deg,transparent,#000 6% 94%,transparent);
+ mask-composite:intersect;
 }
 .fortress-battle .arena-field .cell{
  border:0;border-radius:0;
  background:transparent!important;
- box-shadow:inset -1px -1px #e4d6ed22;
+ box-shadow:inset -1px -1px #e4d6ed20;
 }
 .fortress-battle .arena-field .board .cell:is(.fortress-home,.fortress-rival){
  border:0;
- background:linear-gradient(0deg,color-mix(in srgb,var(--fortress-color) 32%,transparent),color-mix(in srgb,var(--fortress-color) 9%,transparent))!important;
+ background:linear-gradient(0deg,color-mix(in srgb,var(--fortress-color) 23%,transparent),color-mix(in srgb,var(--fortress-color) 5%,transparent))!important;
  box-shadow:inset -1px -1px #e4d6ed28;
 }
 .fortress-battle .arena-field .board .cell.reachable:not(.aim){
