@@ -1358,6 +1358,10 @@
 .fortress-battle .conquest-model .token-sprite{translate:calc(var(--figure-center,0) * 100% * var(--facing-sign,1) * var(--atlas-side-sign,1)) 0}
 .fortress-battle .token.enemy{--atlas-side-sign:1}
 
+/* Read-only playback keeps the techniques legible while input is locked. */
+.arena-techniques [data-panel-locked="true"] .activation-options button:disabled{opacity:.8;cursor:default}
+.arena-techniques [data-panel-locked="true"] .fortress-dock-tip{color:#dfd4e8}
+
 /* The viewport is the only facing owner; the legacy enemy wrapper must not mirror it again. */
 .fortress-battle .token.enemy .token-sprite{transform:translateX(-50%)}
 

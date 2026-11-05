@@ -201,20 +201,21 @@ function techniqueAreaMarkup(spec,facing=[1,0]){
  return '<svg class="technique-area" viewBox="0 0 '+((right-left+1)*8)+' '+((bottom-top+1)*8)+'" role="img" aria-label="Área de ação: '+affected.size+' '+(affected.size===1?'casa':'casas')+(spec.pattern==='self'?', no usuário':'')+'">'+cells.join('')+marker+'</svg>';
 }
 function activationCommands(actor,selection,projected){
- if(!playerTurn()||!actor)return '';
+ if(!actor||(!playerTurn()&&!state.battle.tactical.fortress))return '';
  if(state.battle.tactical.fortress){
+  const readOnly=!playerTurn();
   const equipped=state.mode||state.battle.tactical.fortress.equipped[actor.id];
   const buttons=actor.abilities.map(base=>{
    const a=conquestAugmentedAbility(projected,actor,conquestTechnique(base));
    const remaining=actor.cooldowns[a.id]||0;
    const blocked=skillSealReason(actor,a)||tacticalRequirementReason(projected,actor,a);
    const shape=fortressTechniqueSpec(projected,actor,a),cooldown=fortressCooldown(base),element=elements[techniqueElement(actor,a)];
-   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[a.description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span>'+techniqueAreaMarkup(shape,unitFacing(projected,actor))+'</button>';
+   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(readOnly||remaining||blocked?'disabled':'')+' title="'+esc(blocked||[a.description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span>'+techniqueAreaMarkup(shape,unitFacing(projected,actor))+'</button>';
   }).join('');
   const rawTechnique=actor.abilities.find(ability=>ability.id===equipped);
   const technique=rawTechnique&&conquestAugmentedAbility(projected,actor,conquestTechnique(rawTechnique));
-  const hint=state.message||technique?.description||'Equipe a técnica e toque na casa de destino para agir.';
-  return '<section class="activation-dock" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+'</div><p class="fortress-dock-tip">'+esc(hint)+'</p>'+passiveMarkup(actor)+'</section>';
+  const hint=readOnly?(state.busy?'Ações em resolução.':state.chestOffer?'Escolha a recompensa para continuar.':'Aguardando a próxima ação.'):state.message||technique?.description||'Equipe a técnica e toque na casa de destino para agir.';
+  return '<section class="activation-dock" data-panel-locked="'+readOnly+'" aria-busy="'+state.busy+'" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+'</div><p class="fortress-dock-tip">'+esc(hint)+'</p>'+passiveMarkup(actor)+'</section>';
  }
  const sprint=selection?.sprint;
  const buttons=actor.abilities.map(ability=>{
@@ -428,6 +429,8 @@ function render(){
  const focusKey=['actor','mode','cell','spendValue'].find(key=>focused?.[key]!==undefined);
  const s=shown(),projected=playerTurn()?planningView():s,selection=playerTurn()?selectionPreview(projected):null;
  const actorPlan=playerTurn()?selectedUnit(projected):null;
+ if(actorPlan)state.panelActorId=actorPlan.id;
+ const panelActor=s.tactical.fortress?(actorPlan||s.allies.find(u=>u.id===state.panelActorId)||s.allies.find(u=>u.hp>0)||s.allies[0]):actorPlan;
  const inspected=tacticalUnits(s).find(unit=>unit.id===state.inspected)||actorPlan;
  const locked=!playerTurn();
  const anim=state.animation,actor=anim?tacticalUnits(s).find(u=>u.id===anim.actorId):null;
@@ -440,9 +443,9 @@ function render(){
  const detail=announced?(anim.description||(anim.closure?'As faixas marcadas vão desabar.':'')):state.chestOffer?'Escolha uma entre três opções.':weather?.description||'';
  const eventBanner=headline?'<div class="arena-headline'+(announced?' featured':'')+'" data-phase="'+esc(anim?.pose||'ready')+'" role="status"><strong>'+esc(headline)+'</strong>'+(detail?'<span>'+esc(detail)+'</span>':'')+'</div>':'';
  const weatherFlash=anim?.type==='field-event'&&anim.pose==='impact'?'<i class="weather-flash" data-weather="'+anim.id+'" aria-hidden="true"></i>':'';
- const commands=activationCommands(actorPlan,selection,projected);
+ const commands=activationCommands(panelActor,selection,projected);
  const board=boardMarkup(s,selection);
- const field=s.tactical.fortress?'<div class="arena-field"><aside class="arena-techniques"><h2>Técnicas'+(actorPlan?' · '+esc(actorPlan.name):'')+'</h2>'+commands+'</aside>'+board+'</div>':board;
+ const field=s.tactical.fortress?'<div class="arena-field"><aside class="arena-techniques"><h2>Técnicas'+(panelActor?' · '+esc(panelActor.name):'')+'</h2>'+commands+'</aside>'+board+'</div>':board;
  const offer=chestOfferMarkup();
  const exchange=state.resourceMenu&&!state.busy?'<div class="essence-popover"><strong>Converter Essências · 5 → 1</strong><p>Receber '+names[state.resourceMenu]+'. O pagamento usa cinco Essências da reserva.</p><button data-command="exchange" '+(locked?'disabled':'')+'>Converter para '+names[state.resourceMenu]+'</button><button data-command="close-resources">Fechar</button></div>':'';
  const finished=!state.busy&&state.battle.tactical.stage==='finished'?'<section class="result">'+(state.battle.phase==='victory'?'Vitória':state.battle.phase==='draw'?'Empate':'Derrota')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-tier="'+esc(b.tier||'silver')+'" data-reward="'+esc(b.id)+'"><span>'+esc(augmentTiers[b.tier]?.label||'')+'</span><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':routeMarkup()):'')+'</section>':'';
