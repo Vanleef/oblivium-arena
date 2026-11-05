@@ -1,3 +1,5 @@
+import {conquestTechnique} from './conquest-techniques.js';
+import {augmentTiers,conquestProgress,conquestOfferTier,conquestOfferOptions} from './conquest-augments.js';
 import {techniqueElement,applyElementalArea,applyFieldEvent,pruneSurfaces} from './tactical-elements.js';
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {createTacticalEnvironment,resolveTacticalEnvironment} from './tactical-environment.js';
@@ -35,6 +37,32 @@ function applyChestEffect(s,side,effect){
  const units=team(s,side),living=livingTeam(s,side),pool=s[poolKey(side)];
  const healUnit=(unit,fraction)=>{if(unit&&unit.hp>0)unit.hp=Math.min(unit.maxHp,unit.hp+Math.max(1,Math.round(unit.maxHp*fraction)));};
  const addShield=(unit,amount)=>{if(unit?.hp>0)unit.shield=Math.min(Math.round(unit.maxHp*.5),unit.shield+amount);};
+ if(effect.type==='conquest-augment'){
+  addTacticalAugment(s,side,{...effect,id:effect.augmentId});
+  return;
+ }
+ const recipient=units.find(unit=>unit.id===effect.actorId&&unit.hp>0);
+ const healAmount=(unit,amount)=>{if(unit?.hp>0&&!unit.healingBlock)unit.hp=Math.min(unit.maxHp,unit.hp+amount);};
+ const cleanseUnit=unit=>{
+  if(!unit?.hp)return;
+  unit.dots=[];unit.marks={};unit.reactives=(unit.reactives||[]).filter(r=>!r.harmful);
+  for(const key of ['frozen','stunned','weakened','exposed','sealSupport','sealAttack','healingBlock'])unit[key]=0;
+ };
+ if(effect.type==='heal'){healAmount(recipient,effect.amount);return;}
+ if(effect.type==='shield'){addShield(recipient,effect.amount);return;}
+ if(effect.type==='reduction'){if(recipient)recipient.reduction=Math.max(recipient.reduction||0,effect.amount);return;}
+ if(effect.type==='heal-team'){for(const unit of living)healAmount(unit,effect.amount);return;}
+ if(effect.type==='restore'){cleanseUnit(recipient);healAmount(recipient,effect.amount);return;}
+ if(effect.type==='cleanse'){cleanseUnit(recipient);return;}
+ if(effect.type==='refresh'||effect.type==='refresh-team'){
+  for(const unit of effect.type==='refresh-team'?living:[recipient].filter(Boolean)){
+   for(const [id,left] of Object.entries(unit.cooldowns)){
+    if(left<=effect.amount)delete unit.cooldowns[id];else unit.cooldowns[id]-=effect.amount;
+   }
+  }
+  return;
+ }
+ if(['leap','terrain','breach','surface'].includes(effect.type))effect={...effect,type:'fortress-'+effect.type};
  if(effect.type==='fortress-heal')healUnit(units.find(u=>u.id===effect.actorId),.4);
  else if(effect.type==='fortress-ward'){
   const unit=units.find(u=>u.id===effect.actorId);
@@ -67,7 +95,7 @@ function applyChestEffect(s,side,effect){
   const unit=units.find(u=>u.id===effect.actorId);
   if(!unit?.hp||unit.abilities.some(a=>a.id==='fortress-breach'))return;
   const art=unit.abilities[0]?.art;
-  unit.abilities.push({id:'fortress-breach',name:'Ruptura do Bastião',description:'Causa 24 de dano perfurante e aplica Exposto na área em cruz.',target:'all-enemies',damage:24,damageType:'piercing',expose:1,cooldown:2,formKey:'base',art});
+  unit.abilities.push({id:'fortress-breach',name:'Ruptura do Bastião',description:'Causa 18 de dano perfurante e aplica Exposto na área em cruz.',target:'all-enemies',damage:18,damageType:'piercing',expose:1,cooldown:3,formKey:'base',art});
  }else if(effect.type==='heal-lowest'){
   const target=[...living].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp||a.id.localeCompare(b.id))[0];healUnit(target,effect.fraction);
  }else if(effect.type==='shield-team')for(const unit of living)addShield(unit,effect.amount);
@@ -117,12 +145,26 @@ function spawnTacticalChest(s){
  s.tactical.nextChest=null;s.tactical.chests.push(chest);stamp(s,{type:'chest-spawn',title:'Um baú apareceu na arena',chest:copy(chest),before,after:replayState(s)});
  return chest;
 }
+export function rerollTacticalChestReward(s,offerId){
+ const offer=s.tactical.pendingChestRewards?.[0],progress=s.tactical.fortress?.progress;
+ if(!offer?.fortress||offer.id!==offerId||offer.side!=='player'||!progress||progress.spins<1)return fail('Nenhum giro disponível.');
+ if(s.tactical.stage!=='reward')return fail('Aguarde a escolha de aprimoramento.');
+ const next={...offer,rerolls:(offer.rerolls||0)+1};
+ const options=conquestOfferOptions(s,next,offer.options.map(option=>option.id));
+ if(options.length!==3)return fail('Não há três novas opções compatíveis neste tier.');
+ progress.spins--;offer.rerolls=next.rerolls;offer.options=options;
+ return {ok:true,offer:copy(offer),spins:progress.spins};
+}
 export function chooseTacticalChestReward(s,offerId,optionId){
  const offer=s.tactical.pendingChestRewards?.[0];
  if(!offer||offer.id!==offerId||offer.side!=='player')return fail('Escolha de baú indisponível.');
  const option=offer.options.find(item=>item.id===optionId);if(!option)return fail('Aprimoramento inválido.');
  applyChestEffect(s,'player',option.effect);
  s.tactical.pendingChestRewards.shift();
+ for(const pending of s.tactical.pendingChestRewards.filter(item=>item.fortress)){
+  if(!livingTeam(s,pending.side).some(unit=>unit.id===pending.actorId))pending.actorId=livingTeam(s,pending.side)[0]?.id;
+  pending.options=conquestOfferOptions(s,pending);
+ }
  for(const pending of s.tactical.pendingChestRewards)if(!pending.fortress)pending.options=tacticalChestOptions(s,pending.side,pending.tier);
  if(!s.tactical.pendingChestRewards.length&&s.tactical.stage==='reward'){s.tactical.stage='planning';s.phase='tactical-planning';}
  return {ok:true,offer:copy(offer),option:copy(option),next:copy(s.tactical.pendingChestRewards[0]||null)};
@@ -141,7 +183,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
  s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
-  Object.assign(s.tactical,{width:9,height:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{}}});
+  Object.assign(s.tactical,{width:9,height:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{},progress:conquestProgress(config.augmentProgress)}});
   for(const u of tacticalUnits(s)){
    if(!u.npcOnly){u.maxHp=100;u.hp=config.teamHealth?.[u.id]??100;}
    u.abilities.push({...fortressBasicAttack});
@@ -161,10 +203,25 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
  if(config.alternating||config.fortress){resetTacticalActivation(s);if(!config.fortress)announceTacticalChest(s);}
  if(s.tactical.fortress)for(const reward of config.fortressRewards||[]){
-  if(reward==='shield')applyChestEffect(s,'player',{type:'shield-team',amount:12});
-  if(reward==='heal')applyChestEffect(s,'player',{type:'fortress-rally'});
-  if(reward==='purify')for(const unit of livingTeam(s,'player'))unit.armor=(unit.armor||0)+3;
+  if(reward==='shield'||reward==='gold-ward')applyChestEffect(s,'player',{type:'shield-team',amount:8});
+  if(reward==='heal')applyChestEffect(s,'player',{type:'heal-team',amount:8});
+  if(reward==='purify')for(const unit of livingTeam(s,'player'))unit.armor=(unit.armor||0)+1;
   if(reward==='leap')for(const unit of livingTeam(s,'player'))s.tactical.fortress.leaps.push(unit.id);
+  const campaignAugments={
+   march:{trigger:'move',stat:'shield',amount:2},
+   edge:{trigger:'modify',stat:'damage',amount:1},
+   mender:{trigger:'modify',stat:'heal',amount:2},
+   'gold-recovery':{trigger:'move',stat:'heal',amount:3},
+   'gold-support':{trigger:'modify',stat:'shield',amount:3},
+   'prism-edge':{trigger:'modify',stat:'damage',amount:3},
+   'prism-march':{trigger:'move',stat:'shield',amount:5},
+   'prism-mender':{trigger:'modify',stat:'heal',amount:4}
+  };
+  const augment=campaignAugments[reward];
+  if(augment)for(const unit of livingTeam(s,'player')){
+   const compatible=augment.trigger!=='modify'||unit.abilities.some(a=>a.id!=='fortress-basic'&&a[augment.stat]>0);
+   if(compatible)addTacticalAugment(s,'player',{...augment,type:'conquest-augment',id:'campaign:'+reward,actorId:unit.id,title:'Travessia'});
+  }
  }
  s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
@@ -270,7 +327,7 @@ function execute(s,ref,{projection=false}={}){
  const elemental=element&&!result.skipped?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
  const displacements=!result.skipped?displaceTargets(s,actor,result.affectedTargetIds||[],spec.displacement):[];
  const exposedHit=exposedBefore.some(old=>{const u=tacticalUnits(s).find(u=>u.id===old.id);return u&&(u.hp<old.hp||(u.shield||0)<old.shield);});
- const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit}):[];
+ const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit,ability,affected:result.affectedTargetIds?.length>0}):[];
  const chestsOpened=!s.tactical.fortress&&!projection&&!result.skipped&&(ability.damage>0||ability.dot||ability.dots?.length)
   ?claimTacticalChests(s,ref.side,cells):[];
  return {...result,element,elemental,targets:ids,cells,displacements,augmentNotes,...(chestsOpened.length?{chestsOpened,title:`${result.title||ability.name} · baú aberto`}:{})};
@@ -509,7 +566,8 @@ function finishTacticalRound(s){
 
 export function fortressCooldown(ability){
  if(ability.id===fortressBasicAttack.id)return 0;
- return Math.max(1,ability.cooldown||0,ability.invulnerable?4:ability.stun||ability.sealAttack||(ability.damage||0)>=30?3:(ability.damage||0)>=18||ability.heal||ability.shield?2:1);
+ ability=conquestTechnique(ability);
+ return Math.max(1,Math.min(5,ability.cooldown||0),ability.invulnerable?4:ability.stun||ability.sealAttack||(ability.damage||0)>=30?3:(ability.damage||0)>=18||ability.heal||ability.shield?2:1);
 }
 export function fortressAim(s,actor,ability,facing){
  const origin=s.tactical.positions[actor.id],forward=actor.side==='player'?1:-1;
@@ -567,23 +625,10 @@ function claimFortressEntry(s,{actorId,side,to}){
 function queueFortressReward(s,side,actorId,source){
  const f=s.tactical.fortress,units=livingTeam(s,side),actor=units.find(u=>u.id===actorId)||[...units].sort((a,b)=>a.hp-b.hp)[0];
  if(!actor)return;
- const id=actor.id,options=[
-  {id:'recover',title:'Fôlego do Invasor',category:'Individual',text:'Recupere até 40 de Vida de '+actor.name+'.',effect:{type:'fortress-heal',actorId:id}},
-  {id:'rampart',title:'Muralha de Cinzas',category:'Campo',text:'Ergue um obstáculo em uma casa livre perto da fortaleza rival.',effect:{type:'fortress-terrain'}},
-  {id:'rally',title:'Bastião Partilhado',category:'Coletivo',text:'Concede 14 de Escudo a cada aliado vivo.',effect:{type:'shield-team',amount:14}},
-  {id:'leap',title:'Salto do Cavalo',category:'Movimento',text:actor.name+' pode saltar em L com sua única ação.',effect:{type:'fortress-leap',actorId:id}},
-  {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Libera um ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId:id}},
-  {id:'team-heal',title:'Pacto dos Sobreviventes',category:'Coletivo',text:'Recupere até 14 de Vida de cada aliado vivo.',effect:{type:'fortress-rally'}},
-  {id:'refresh',title:'Pulso de Vigília',category:'Recarga',text:'Cada aliado vivo ganha 6 de Escudo e reduz suas recargas em uma rodada.',effect:{type:'fortress-refresh'}},
-  {id:'ward',title:'Égide Solitária',category:'Individual',text:'Concede 18 de Escudo e 6 de Redução de Dano a '+actor.name+'.',effect:{type:'fortress-ward',actorId:id}},
-  {id:'cleanse',title:'Rito de Purificação',category:'Coletivo',text:'Remove aflições, marcas e efeitos de controle dos aliados vivos.',effect:{type:'cleanse-team'}},
-  {id:'resolve',title:'Voto de Retaliação',category:'Coletivo',text:'Os aliados vivos recebem 6 de bônus de dano até o fim da rodada seguinte.',effect:{type:'boost-team',amount:6}},
-  {id:'tide',title:'Círculo da Maré',category:'Campo',text:'Espalha Água na casa de '+actor.name+' e nas casas adjacentes.',effect:{type:'fortress-surface',actorId:id,element:'water'}},
-  {id:'pitch',title:'Selo de Piche',category:'Campo',text:'Espalha Óleo na casa de '+actor.name+' e nas casas adjacentes.',effect:{type:'fortress-surface',actorId:id,element:'oil'}},
-  {id:'static',title:'Coroa de Estática',category:'Campo',text:'Eletrifica a casa de '+actor.name+' e as casas adjacentes, sem atordoar.',effect:{type:'fortress-surface',actorId:id,element:'electric'}}
- ].filter(option=>option.id!=='leap'||!f.leaps.includes(id)).filter(option=>option.id!=='breach'||!actor.abilities.some(a=>a.id==='fortress-breach'));
- const sequence=f.rewardSequence++,offset=sequence%options.length;
- const offer={id:'fortress:'+sequence,side,fortress:true,source,actorId,options:[options[offset],options[(offset+2)%options.length],options[(offset+3)%options.length]]};
+ const sequence=f.rewardSequence++,tier=conquestOfferTier(s,side,actor,sequence);
+ const offer={id:'fortress:'+sequence,side,fortress:true,source,actorId:actor.id,tier,tierName:augmentTiers[tier].label,rerolls:0};
+ offer.options=conquestOfferOptions(s,offer);
+ if(offer.options.length!==3)return;
  if(side==='player')s.tactical.pendingChestRewards.push(offer);
  else (s.tactical.enemyChestRewards??=[]).push(offer);
 }

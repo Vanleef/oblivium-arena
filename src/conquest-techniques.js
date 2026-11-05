@@ -1,5 +1,5 @@
 // Convert resource-manipulation on direct casts into effects usable on the grid.
-export function conquestTechnique(ability){
+function convertTechnique(ability){
  const disruption=ability.steal||ability.drain||0;
  const generation=ability.generateEssence?.resource?ability.generateEssence.amount??1:0;
  const conversion=ability.convertEssence?.amount??0;
@@ -36,4 +36,45 @@ export function conquestPassive(passive){
  const benefits=[effects.shield&&('ganha '+effects.shield+' de Escudo'),effects.heal&&('recupera '+effects.heal+' de Vida'),effects.gainCharge&&('ganha '+effects.gainCharge+' de Carga')].filter(Boolean);
  return {...passive,trigger:nextTrigger,spendResource:null,ifResource:null,enemyResource:null,minSpent:null,effect:effects,
   description:timing+(passive.hpAtMost!=null?' com até '+passive.hpAtMost+' de Vida':'')+', '+(benefits.join(' e ')||'ativa seu efeito de combate')+'. '+(passive.oncePerBattle?'Uma vez por combate.':passive.repeatPerRound?'':'Uma vez por rodada.')};
+}
+
+
+// Values assume 100 starting Health and one technique after each movement.
+export function conquestTechnique(ability){
+ const converted=convertTechnique(ability);
+ if(ability.id==='fortress-basic')return converted;
+ const team=['team','all-enemies'].includes(converted.target);
+ const capDamage=converted.stun||converted.sealAttack?18:team?20:26;
+ const result={...converted};
+ for(const [key,cap] of Object.entries({damage:capDamage,heal:team?14:22,shield:team?12:20,counter:20,boost:6,reduce:8,perChargeDamage:4,perChargeHeal:4,conquestWard:8})){
+  if(result[key]>cap)result[key]=cap;
+ }
+ for(const key of ['stun','sealAttack','sealSupport','invulnerable'])if(result[key]>1)result[key]=1;
+ if(result.combo)result.combo={...result.combo,bonusDamage:Math.min(result.combo.bonusDamage||0,8)};
+ const balanceDot=dot=>({...dot,damage:Math.min(dot.damage||0,4),turns:Math.min(dot.turns||1,2)});
+ if(result.dot)result.dot=balanceDot(result.dot);
+ if(result.dots)result.dots=result.dots.map(balanceDot);
+ const descriptions=[
+  result.damage&&('Causa '+result.damage+' de dano '+({physical:'físico',energy:'de energia',piercing:'perfurante',affliction:'de aflição'}[result.damageType]||'')+'.'),
+  result.heal&&('Recupera '+result.heal+' de Vida.'),
+  result.shield&&('Concede '+result.shield+' de Escudo.'),
+  result.conquestWard&&('O usuário recebe '+result.conquestWard+' de Escudo ao acertar.'),
+  result.stripShield&&('Remove até '+result.stripShield+' de Escudo.'),
+  result.stun&&'Atordoa por 1 rodada.',
+  result.invulnerable&&'Invulnerável por 1 rodada.',
+  result.counter&&('Prepara contra-ataque de '+result.counter+' de dano.'),
+  result.reduce&&('Reduz o dano recebido em '+result.reduce+'.'),
+  result.boost&&('Concede +'+result.boost+' de dano temporário.'),
+  result.expose&&'Aplica Exposto.',
+  result.mark&&'Aplica a marca desta técnica.',
+  result.cleanse&&'Remove efeitos negativos.',
+  result.weaken&&'Aplica Enfraquecido.',
+  result.sealAttack&&'Sela ataques por 1 rodada.',
+  result.sealSupport&&'Sela apoios por 1 rodada.',
+  ...[result.dot,...result.dots||[]].filter(Boolean).map(dot=>(dot.tag||'Aflição')+': '+dot.damage+' de dano por '+dot.turns+' rodada(s).'),
+  result.combo?.bonusDamage&&('Bônus de preparação: +'+result.combo.bonusDamage+' de dano.'),
+  result.shift?.length&&'Pode alterar a forma das técnicas ao cumprir sua preparação.'
+ ].filter(Boolean);
+ result.description=descriptions.length?descriptions.join(' '):converted.description;
+ return result;
 }

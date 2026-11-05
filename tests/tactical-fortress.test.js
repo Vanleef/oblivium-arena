@@ -53,8 +53,8 @@ test('cada invasão oferece três escolhas e a chegada do trio mantém a partida
  const result=exchange(s,first,8,1);
  assert.equal(result.chestRewards[0].options.length,3);
  assert.equal(s.tactical.stage,'reward');
- assert.ok(chooseTacticalChestReward(s,result.chestRewards[0].id,'leap').ok);
- assert.ok(findPath(s,first,{x:6,y:2}));
+ assert.equal(result.chestRewards[0].tier,'silver');
+ assert.ok(chooseTacticalChestReward(s,result.chestRewards[0].id,result.chestRewards[0].options[0].id).ok);
  const another=exchange(s,second,8,3);
  assert.ok(chooseTacticalChestReward(s,another.chestRewards[0].id,another.chestRewards[0].options[0].id).ok);
  const last=exchange(s,third,8,5);
@@ -244,25 +244,22 @@ test('área frontal segue a direção da grade e termina no obstáculo',()=>{
  assert.deepEqual(tacticalArea(s,actor,basic,{x:2,y:2},[1,-1]),[]);
 });
 
-test('a rotação oferece 13 aprimoramentos distintos e a Maré transforma o piso',()=>{
+test('a progressão inicial oferece três opções Prata compatíveis por invasão',()=>{
  const options=new Set();
- for(let offset=0;offset<13;offset++){
+ for(let offset=0;offset<20;offset++){
   const s=battle(),actor=allies[0];
   for(const u of s.enemies)u.stunned=5;
   s.tactical.fortress.rewardSequence=offset;
   s.tactical.positions[actor]={x:7,y:1};
-  const result=exchange(s,actor,8,1);
-  const [offer]=result.chestRewards;
+  const [offer]=exchange(s,actor,8,1).chestRewards;
+  assert.equal(offer.tier,'silver');
   assert.equal(new Set(offer.options.map(o=>o.id)).size,3);
-  for(const o of offer.options)options.add(o.id);
-  if(offer.options.some(o=>o.id==='tide')){
-   assert.ok(chooseTacticalChestReward(s,offer.id,'tide').ok);
-   assert.equal(surfaceAt(s,{x:8,y:1})?.element,'water');
-   assert.equal(surfaceAt(s,{x:7,y:2})?.element,'water');
-   assert.equal(surfaceAt(s,{x:6,y:1}),null);
+  for(const o of offer.options){
+   options.add(o.id);
+   assert.equal(o.effect.actorId,actor);
   }
  }
- assert.equal(options.size,13);
+ assert.ok(options.size>=6);
 });
 
 test('marcas, aflições e superfícies distinguem duração de valor de proteção',async()=>{

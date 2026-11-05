@@ -1,3 +1,4 @@
+import {conquestAugmentedAbility} from './conquest-augments.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {campaignCreature} from './campaign-creatures.js';
 import {surfaceDamageFactor} from './tactical-elements.js';
@@ -545,7 +546,7 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  const timed=['stunned','weakened','sealSupport','sealAttack','healingBlock'];
  const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,Object.fromEntries(timed.map(k=>[k,u[k]||0]))]));
  s.resolutionSide=action.side;
- const technique=s.tactical?.fortress?conquestTechnique(a):a;
+ const technique=s.tactical?.fortress?conquestAugmentedAbility(s,actor,conquestTechnique(a)):a;
  const result=apply(s,actor,technique,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
  for(const u of [...s.allies,...s.enemies]){
   u.boardFresh||={};

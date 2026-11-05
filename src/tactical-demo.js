@@ -1,3 +1,4 @@
+import {conquestProgress,conquestAugmentedAbility,augmentTiers} from './conquest-augments.js';
 import {tacticalStatuses} from './tactical-statuses.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {elements,surfaceAt,techniqueElement} from './tactical-elements.js';
@@ -11,8 +12,8 @@ import {tacticalEnvironments} from './tactical-environment.js';
 import {tacticalResolutionFeedback} from './tactical-insight.js';
 import {tacticalCutinMarkup,tacticalCutinActive,tacticalProjectileMarkup,tacticalProjectileKind,tacticalReplayFrames} from './tactical-cinematic.js';
 import {characterById} from './data.js';
-import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
-import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits,fortressCooldown,fortressTechniqueSpec} from './tactical-combat.js';
+import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun,conquestProgressText} from './tactical-run.js';
+import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward,rerollTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits,fortressCooldown,fortressTechniqueSpec} from './tactical-combat.js';
 import {planTacticalAIActivation} from './tactical-ai.js';
 import {boardCells,boardWidth,boardHeight,boardTracks,cellLabel,sameCell,findPath,movementRange,cellKey,occupied,obstacle,fortressClosure,patternCells} from './tactical-board.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText} from './tactical-kits.js';
@@ -28,7 +29,15 @@ const projectilePreload=new Image();projectilePreload.src='/art/animations/tacti
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const fortressMode=globalThis.location?.search!==undefined&&!new URLSearchParams(globalThis.location.search).has('classic');
-const state={compactReplay:true,playbackSpeed:1,battle:null,run:createTacticalRun(),rewardChoices:[],chestOffer:null,selected:null,mode:null,path:null,spendChoice:{},terrainEffects:{},message:'',busy:false,lastEvents:[],seed:1,revision:0};
+const progressKey='oblivium-conquest-augment-progress-v1';
+function loadAugmentProgress(){
+ try{return conquestProgress(JSON.parse(localStorage.getItem(progressKey)||'{}'));}catch{return conquestProgress();}
+}
+function saveAugmentProgress(){
+ state.run.augmentProgress=conquestProgress(state.battle?.tactical.fortress?.progress||state.run.augmentProgress);
+ try{localStorage.setItem(progressKey,JSON.stringify(state.run.augmentProgress));}catch{}
+}
+const state={compactReplay:true,playbackSpeed:1,battle:null,run:createTacticalRun(loadAugmentProgress()),rewardChoices:[],chestOffer:null,selected:null,mode:null,path:null,spendChoice:{},terrainEffects:{},message:'',busy:false,lastEvents:[],seed:1,revision:0};
 const costText=(u,a)=>Object.entries(getAbilityResourceCosts(u,a)).map(([k,n])=>`${n} ${names[k]||k}`).join(' + ')||'Sem custo';
 const shown=()=>state.playback?{...state.battle,...state.playback,tactical:{...state.battle.tactical,positions:state.playback.positions,surfaces:state.playback.surfaces,weather:state.playback.weather,fortress:state.playback.fortress||state.battle.tactical.fortress,obstacles:state.playback.obstacles||state.battle.tactical.obstacles,chests:state.playback.chests||[],nextChest:state.playback.nextChest||null}}:state.battle;
 const available=()=>tacticalActivationUnits(state.battle,'player');
@@ -75,7 +84,7 @@ function playbackControls(){return '<nav class="playback-controls" aria-label="V
 function routeMarkup(){return '<section class="route-choices"><h3>Escolha a próxima trilha</h3><p>A Vida e os aprimoramentos da expedição acompanham o trio.</p><div>'+tacticalRoutes.map(r=>'<button data-route="'+r.id+'"><small>'+esc(r.kind)+'</small><strong>'+esc(r.title)+'</strong><em>'+esc(r.story)+'</em><span>'+esc(r.text)+'</span></button>').join('')+'</div></section>';}
 function activeAugmentsMarkup(){
  const augments=(state.battle.tactical.augments?.player||[]).filter(a=>!a.expiresAt||a.expiresAt>=state.battle.round);
- return augments.length?'<div class="active-augments combat-augment-strip" aria-label="Aprimoramentos deste combate">'+augments.map(a=>'<span title="'+esc(a.type==='step-ward'?'Mover gera '+a.amount+' de Escudo, uma vez por alma por rodada.':a.type==='round-essence'?'Gera 1 Essência ao fim de cada rodada, até a rodada '+a.expiresAt+'.':'Dano em Exposto gera 1 Essência, uma vez por rodada.')+'">◆ '+esc(a.title)+'</span>').join('')+'</div>':'';
+ return augments.length?'<div class="active-augments combat-augment-strip" aria-label="Aprimoramentos deste combate">'+augments.map(a=>'<span title="'+esc(a.type==='conquest-augment'?(tacticalUnits(state.battle).find(u=>u.id===a.actorId)?.name||'Portador')+' · '+a.title+' · '+a.amount+' '+({damage:'dano',heal:'cura',shield:'Escudo',dot:'dano de aflição',counter:'contra-ataque',charge:'Carga'}[a.stat]||a.stat):a.type==='step-ward'?'Mover gera '+a.amount+' de Escudo, uma vez por alma por rodada.':a.type==='round-essence'?'Gera 1 Essência ao fim de cada rodada, até a rodada '+a.expiresAt+'.':'Dano em Exposto gera 1 Essência, uma vez por rodada.')+'">◆ '+esc(a.title)+'</span>').join('')+'</div>':'';
 }
 function movementTrailMarkup(move,s){
  if(!move||!move.path.length)return '';
@@ -172,13 +181,15 @@ function activationCommands(actor,selection,projected){
  if(!playerTurn()||!actor)return '';
  if(state.battle.tactical.fortress){
   const equipped=state.mode||state.battle.tactical.fortress.equipped[actor.id];
-  const buttons=actor.abilities.map(a=>{
+  const buttons=actor.abilities.map(base=>{
+   const a=conquestAugmentedAbility(projected,actor,conquestTechnique(base));
    const remaining=actor.cooldowns[a.id]||0;
    const blocked=skillSealReason(actor,a)||tacticalRequirementReason(projected,actor,a);
    const shape=fortressTechniqueSpec(projected,actor,a),cooldown=fortressCooldown(a),element=elements[techniqueElement(actor,a)];
-   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[conquestTechnique(a).description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span>'+techniqueAreaMarkup(shape)+'</button>';
+   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[a.description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span>'+techniqueAreaMarkup(shape)+'</button>';
   }).join('');
-  const technique=actor.abilities.map(conquestTechnique).find(ability=>ability.id===equipped);
+  const rawTechnique=actor.abilities.find(ability=>ability.id===equipped);
+  const technique=rawTechnique&&conquestAugmentedAbility(projected,actor,conquestTechnique(rawTechnique));
   const hint=state.message||technique?.description||'Equipe a técnica e toque na casa de destino para agir.';
   return '<section class="activation-dock" aria-label="Técnicas de '+esc(actor.name)+'"><div class="activation-options">'+buttons+'</div><p class="fortress-dock-tip">'+esc(hint)+'</p>'+passiveMarkup(actor)+'</section>';
  }
@@ -354,7 +365,7 @@ function paintArenaAssetsWhenDecoded(){
  });
 }
 function playActivation(result){
- if(result.finished&&state.battle.phase==='victory')state.rewardChoices=offerTacticalRewards(state.run,state.battle,state.seed+state.run.encounter);
+ if(result.finished&&state.battle.phase==='victory'){state.rewardChoices=offerTacticalRewards(state.run,state.battle,state.seed+state.run.encounter);saveAugmentProgress();}
  if(state.logRound!==result.events[0]?.round){state.lastEvents=[];state.logRound=result.events[0]?.round;}
  state.lastEvents.push(...result.events);
  state.chestOffer=result.chestRewards[0]||null;
@@ -370,6 +381,18 @@ function commitActivation(){
  if(result.ok&&!result.waiting)playActivation(result);
  else if(result.ok){const actorId=state.selected;clearSelection();state.sealedActor=actorId;state.resourceMenu=null;render();}
  else{state.message=result.reason;render();}
+}
+function chestOfferMarkup(){
+ const offer=state.chestOffer;
+ if(!offer||state.busy)return '';
+ const actor=tacticalUnits(state.battle).find(unit=>unit.id===offer.actorId);
+ const progress=state.battle.tactical.fortress?.progress;
+ const heading=offer.fortress?'Aprimoramento · '+(actor?.name||'Sobrevivente'):'Baú · '+offer.tierName;
+ const spins=progress?.spins||0;
+ return '<section class="chest-reward panel" data-tier="'+esc(offer.tier||'silver')+'"><h2>'+esc(heading)+'</h2>'+
+  '<p>'+esc(offer.tierName||'Prata')+' · Escolha 1 de 3'+(offer.fortress?' para '+(actor?.name||'Sobrevivente'):' para o trio')+'.</p>'+
+  '<div class="chest-options">'+offer.options.map(o=>'<button data-tier="'+esc(o.tier||offer.tier||'silver')+'" data-chest-choice="'+esc(o.id)+'" data-chest-offer="'+esc(offer.id)+'"><span class="reward-category">'+esc(augmentTiers[o.tier||offer.tier]?.label||o.category||'Aprimoramento')+(o.characterId?' · Exclusivo':'')+'</span><strong>'+esc(o.title)+'</strong><small>'+esc(o.text)+'</small><em>'+esc(o.reason||'')+'</em></button>').join('')+'</div>'+
+  (offer.fortress?'<div class="augment-reroll"><button data-reroll="'+esc(offer.id)+'" '+(spins<1?'disabled':'')+'>Girar opções · '+spins+' Giro(s)</button><small>1 Giro troca as três opções por outras do mesmo tier.</small></div>':'')+'</section>';
 }
 function render(){
  const focused=document.activeElement?.dataset;
@@ -391,13 +414,13 @@ function render(){
  const commands=activationCommands(actorPlan,selection,projected);
  const board=boardMarkup(s,selection);
  const field=s.tactical.fortress?'<div class="arena-field"><aside class="arena-techniques"><h2>Técnicas'+(actorPlan?' · '+esc(actorPlan.name):'')+'</h2>'+commands+'</aside>'+board+'</div>':board;
- const offer=state.chestOffer&&!state.busy?'<section class="chest-reward panel"><h2><span class="reward-sigil" aria-hidden="true">✦</span> '+(state.chestOffer.fortress?(state.chestOffer.source==='loss'?'Aprimoramento por baixa':'Fortaleza invadida'):'Baú · '+esc(state.chestOffer.tierName))+'</h2><p>Escolha 1 de 3 opções para o seu trio. '+state.battle.allies.filter(u=>u.hp>0).length+' alma(s) viva(s).</p><div class="chest-options">'+state.chestOffer.options.map(o=>'<button data-chest-choice="'+esc(o.id)+'" data-chest-offer="'+esc(state.chestOffer.id)+'"><span class="reward-category">'+esc(o.category||'Aprimoramento')+'</span><strong>'+esc(o.title)+'</strong><small>'+esc(o.text)+'</small><em>'+esc(o.reason||'')+'</em></button>').join('')+'</div></section>':'';
+ const offer=chestOfferMarkup();
  const exchange=state.resourceMenu&&!state.busy?'<div class="essence-popover"><strong>Converter Essências · 5 → 1</strong><p>Receber '+names[state.resourceMenu]+'. O pagamento usa cinco Essências da reserva.</p><button data-command="exchange" '+(locked?'disabled':'')+'>Converter para '+names[state.resourceMenu]+'</button><button data-command="close-resources">Fechar</button></div>':'';
- const finished=!state.busy&&state.battle.tactical.stage==='finished'?'<section class="result">'+(state.battle.phase==='victory'?'Vitória':state.battle.phase==='draw'?'Empate':'Derrota')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-reward="'+esc(b.id)+'"><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':routeMarkup()):'')+'</section>':'';
+ const finished=!state.busy&&state.battle.tactical.stage==='finished'?'<section class="result">'+(state.battle.phase==='victory'?'Vitória':state.battle.phase==='draw'?'Empate':'Derrota')+(state.battle.phase==='victory'?(state.rewardChoices.length?'<div class="reward-choices">'+state.rewardChoices.map(b=>'<button data-tier="'+esc(b.tier||'silver')+'" data-reward="'+esc(b.id)+'"><span>'+esc(augmentTiers[b.tier]?.label||'')+'</span><strong>'+esc(b.title)+'</strong><small>'+esc(b.text)+'</small></button>').join('')+'</div>':routeMarkup()):'')+'</section>':'';
  const battleLog='<details class="combat-log"><summary>Resolução da rodada</summary><ol>'+(state.busy?(state.completedEvents||[]):state.lastEvents).map(e=>'<li>'+esc(e.title)+(e.actorId?' · '+esc(tacticalUnits(state.battle).find(u=>u.id===e.actorId)?.name):'')+(e.elemental?.stuns.length?' · Atordoamento elemental':'')+(tacticalResolutionFeedback(e).length?'<span class="resolution-feedback">'+tacticalResolutionFeedback(e).map(esc).join(' ')+'</span>':'')+'</li>').join('')+'</ol></details>';
  root.innerHTML='<div class="shell combat-shell card-battle alternating-battle'+(s.tactical.fortress?' fortress-battle'+(playerTurn()&&!state.selected?' awaiting-actor':'')+(anim?.closure&&!['announce','settle'].includes(anim.pose)?' board-closing':''):'')+'"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Encontro '+state.run.encounter+(state.run.route?' · '+esc(tacticalRoutes.find(r=>r.id===state.run.route)?.title):'')+'</span><a href="#formation">Formação</a></header>'+(s.tactical.fortress?'':finished)+
  '<section class="battle-surface">'+(s.tactical.fortress?'':'<div class="arena-toolbar '+(state.animation?.type==='effects'&&state.animation?.pose==='impact'?'essence-pulse':'')+'">'+compactResources(s,selection)+playbackControls()+'<span class="battle-phase" role="status">'+('Rodada '+s.round+' · '+(state.busy?'Em ação':playerTurn()?(state.selected?'Planejando':'Escolha um aliado'):state.chestOffer?'Aprimoramento':state.battle.tactical.stage==='finished'?'Confronto encerrado':'Aguardando a troca'))+'</span></div>'+activeAugmentsMarkup()+(!state.selected&&state.message?'<p class="activation-notice" role="status">'+esc(state.message)+'</p>':'')+exchange+'<div class="activation-income">'+(state.incomeAnnouncement?.until>Date.now()?essenceArrivalMarkup(state.incomeAnnouncement):'')+'</div>')+
- (s.tactical.fortress?'':weatherBanner+environmentMarkup(s)+chestObjectiveMarkup(s))+'<div class="arena-stage">'+weatherFlash+'<img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+(s.tactical.fortress?'':tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim))+arenaHudMarkup(s,s.tactical.fortress?eventBanner:'')+(!state.busy&&state.battle.tactical.plans.player?'<span class="exchange-seal" role="status" aria-label="Ordem selada, aguardando o oponente">◆</span>':'')+ (s.tactical.fortress?'':callout)+field+(s.tactical.fortress?'<div class="arena-controls">'+compactResources(s,selection)+playbackControls()+'</div>'+activeAugmentsMarkup()+environmentMarkup(s)+offer+statusDetails(inspected,s)+finished+battleLog:'')+'</div>'+(s.tactical.fortress?'':offer+commands)+'</section>'+
+ (s.tactical.fortress?'':weatherBanner+environmentMarkup(s)+chestObjectiveMarkup(s))+'<div class="arena-stage">'+weatherFlash+'<img class="arena-backdrop" src="/art/arenas/limbo-ruins.webp" alt="" aria-hidden="true">'+(s.tactical.fortress?'':tacticalCutinMarkup(actor,actor?animationAbility(actor,anim):null,anim))+arenaHudMarkup(s,s.tactical.fortress?eventBanner:'')+(!state.busy&&state.battle.tactical.plans.player?'<span class="exchange-seal" role="status" aria-label="Ordem selada, aguardando o oponente">◆</span>':'')+ (s.tactical.fortress?'':callout)+field+(s.tactical.fortress?'<div class="arena-controls">'+compactResources(s,selection)+playbackControls()+'</div><p class="augment-progression">'+esc(conquestProgressText(state.battle.tactical.fortress.progress))+'</p>'+activeAugmentsMarkup()+environmentMarkup(s)+offer+statusDetails(inspected,s)+finished+battleLog:'')+'</div>'+(s.tactical.fortress?'':offer+commands)+'</section>'+
  
 
  (s.tactical.fortress?'':battleLog)+
@@ -621,7 +644,7 @@ function resetEncounter(seed){
  resumeActivation();
 }
 function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],seed=1,ruins=false,environment=null){
- try{state.battle=createTacticalBattle(player,enemy,{seed,alternating:true,fortress:fortressMode,environment,obstacles:ruins?(fortressMode?[{x:4,y:1},{x:4,y:4}]:[{x:2,y:1},{x:2,y:3}]):[],buffs:state.run.buffs,memories:state.run.memories,globalEffects:state.run.globalEffects,teamHealth:state.run.teamHealth});}catch(e){state.message=e.message;render();return;}
+ try{state.battle=createTacticalBattle(player,enemy,{seed,alternating:true,fortress:fortressMode,augmentProgress:state.run.augmentProgress,environment,obstacles:ruins?(fortressMode?[{x:4,y:1},{x:4,y:4}]:[{x:2,y:1},{x:2,y:3}]):[],buffs:state.run.buffs,memories:state.run.memories,globalEffects:state.run.globalEffects,teamHealth:state.run.teamHealth});}catch(e){state.message=e.message;render();return;}
  resetEncounter(seed);
 }
 const fortressPreviewClasses=['fortress-aim','fortress-aim-destination','fortress-aim-contact'];
@@ -659,7 +682,7 @@ root.addEventListener('click',event=>{
  if(el.dataset.speed){const speed=Number(el.dataset.speed);if([1,2,3].includes(speed)){state.playbackSpeed=speed;for(const b of root.querySelectorAll('[data-speed]'))b.setAttribute('aria-pressed',String(Number(b.dataset.speed)===speed));syncPlaybackRate();}return;}
  if(el.dataset.command==='toggle-audio'){setAudioEnabled(!audioEnabled());el.setAttribute('aria-pressed',String(audioEnabled()));el.textContent=audioEnabled()?'♪':'♪̸';return;}
  if(el.dataset.command==='compact-replay'){state.compactReplay=!state.compactReplay;el.setAttribute?.('aria-pressed',String(state.compactReplay));return;}
- if(state.busy)return;if(state.chestOffer&&!el.dataset.chestChoice)return;
+ if(state.busy)return;if(state.chestOffer&&!el.dataset.chestChoice&&!el.dataset.reroll)return;
  if(el.dataset.spendKind){const n=Number(el.dataset.spendValue);if(['residue','fracture'].includes(el.dataset.spendKind)&&Number.isInteger(n)&&n>=0){state.spendChoice??={residue:0,fracture:0};state.spendChoice[el.dataset.spendKind]=n;render();}return;}
  if(el.dataset.shadowActor){const result=chooseTacticalShadow(state.battle,'player',el.dataset.shadowActor,el.dataset.shadowChoice);state.message=result.ok?'Resposta da Sombra escolhida.':result.reason;render();return;}
  if(el.dataset.resourceMenu){state.resourceMenu=el.dataset.resourceMenu;render();return;}
@@ -673,13 +696,19 @@ root.addEventListener('click',event=>{
  }
  if(el.dataset.cell){const [x,y]=el.dataset.cell.split(',').map(Number);selectDestination({x,y});return;}
 
+ if(el.dataset.reroll){
+  const result=rerollTacticalChestReward(state.battle,el.dataset.reroll);
+  if(result.ok){state.chestOffer=result.offer;saveAugmentProgress();state.message='Novos aprimoramentos';}
+  else state.message=result.reason;
+  render();return;
+ }
  if(el.dataset.chestChoice){const before=displaySnapshot();const r=chooseTacticalChestReward(state.battle,el.dataset.chestOffer,el.dataset.chestChoice);if(!r.ok){state.message=r.reason;render();return;}state.chestOffer=r.next;state.message='';animateRound([{type:'effects',rewardActorId:r.offer.fortress?r.offer.actorId:null,title:r.offer.fortress?r.option.title:'Aprimoramento · '+r.option.title,description:r.option.text,before,after:displaySnapshot()}]);return;}
  if(el.dataset.reward){if(!chooseTacticalReward(state.run,state.rewardChoices,el.dataset.reward))return;state.rewardChoices=[];render();return;}
  const command=el.dataset.command;
  if(command==='close-resources'){state.resourceMenu=null;render();return;}
  if(command==='exchange'){const before=displaySnapshot();const r=exchangeTacticalEssence(state.battle,'player',state.resourceMenu||'essence');state.message=r.ok?'Cinco Essências convertidas em uma.':r.reason;if(r.ok){state.resourceMenu=null;animateRound([{type:'effects',title:'Conversão de Essências · 5 → 1',before,after:displaySnapshot()}]);}else render();}
- if(command==='next-encounter'||el.dataset.route){if(state.chestOffer)return;const next=advanceTacticalRun(state.run,state.battle,el.dataset.route||null);if(!next)return;state.seed=next.seed;try{state.battle=createTacticalBattle(next.player,next.enemy,{seed:next.seed,alternating:true,fortress:fortressMode,campaign:next.campaign,creatures:next.creatures,fortressRewards:next.fortressRewards,buffs:next.buffs,memories:next.memories,globalEffects:next.globalEffects,teamHealth:next.teamHealth,routeEnemyShield:next.routeEnemyShield,environment:next.environment});}catch(e){state.message=e.message;render();return;}resetEncounter(next.seed);return;}
- if(command==='restart'){state.run=createTacticalRun();const ids=side=>[0,1,2].map(i=>document.getElementById(`${side}-choice-${i}`).value),seed=Number(document.getElementById('seed-choice').value);start(ids('player'),ids('enemy'),Number.isSafeInteger(seed)?seed:1,document.getElementById('map-choice').value==='ruins',document.getElementById('environment-choice').value);}
+ if(command==='next-encounter'||el.dataset.route){if(state.chestOffer)return;const next=advanceTacticalRun(state.run,state.battle,el.dataset.route||null);if(!next)return;state.seed=next.seed;try{state.battle=createTacticalBattle(next.player,next.enemy,{seed:next.seed,alternating:true,fortress:fortressMode,augmentProgress:next.augmentProgress,campaign:next.campaign,creatures:next.creatures,fortressRewards:next.fortressRewards,buffs:next.buffs,memories:next.memories,globalEffects:next.globalEffects,teamHealth:next.teamHealth,routeEnemyShield:next.routeEnemyShield,environment:next.environment});}catch(e){state.message=e.message;render();return;}saveAugmentProgress();resetEncounter(next.seed);return;}
+ if(command==='restart'){state.run=createTacticalRun(loadAugmentProgress());const ids=side=>[0,1,2].map(i=>document.getElementById(`${side}-choice-${i}`).value),seed=Number(document.getElementById('seed-choice').value);start(ids('player'),ids('enemy'),Number.isSafeInteger(seed)?seed:1,document.getElementById('map-choice').value==='ruins',document.getElementById('environment-choice').value);}
 });
 
 document.addEventListener('keydown',event=>{
