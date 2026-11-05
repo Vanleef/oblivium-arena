@@ -45,7 +45,6 @@ export function addTacticalAugment(s,side,augment){
 }
 export function triggerTacticalAugments(s,side,actor,kind,{exposedHit=false,ability=null,affected=false}={}){
  const notes=[];s.tactical.augmentTriggers??={};
- const budget={heal:0,shield:0};
  for(const augment of s.tactical.augments?.[side]||[]){
   if(augment.type==='conquest-augment'){
    if(augment.actorId!==actor.id||actor.hp<=0||augment.abilityId&&ability?.id!==augment.abilityId)continue;
@@ -61,12 +60,10 @@ export function triggerTacticalAugments(s,side,actor,kind,{exposedHit=false,abil
    if(!matches)continue;
    const before=augment.stat==='heal'?actor.hp:augment.stat==='shield'?actor.shield:actor.charge||0;
    if(augment.stat==='heal'&&!actor.healingBlock){
-    const gain=Math.min(augment.amount,Math.max(0,10-budget.heal));
-    actor.hp=Math.min(actor.maxHp,actor.hp+gain);budget.heal+=actor.hp-before;
+    actor.hp=Math.min(actor.maxHp,actor.hp+augment.amount);
    }
    if(augment.stat==='shield'){
-    const gain=Math.min(augment.amount,Math.max(0,18-budget.shield));
-    actor.shield=Math.min(Math.round(actor.maxHp*.5),actor.shield+gain);budget.shield+=actor.shield-before;
+    actor.shield=Math.min(Math.round(actor.maxHp*.5),actor.shield+augment.amount);
    }
    if(augment.stat==='charge')actor.charge=Math.min(3,(actor.charge||0)+augment.amount);
    const after=augment.stat==='heal'?actor.hp:augment.stat==='shield'?actor.shield:actor.charge||0;

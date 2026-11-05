@@ -13,17 +13,17 @@ export const tacticalRoutes=Object.freeze([
 const conquestRewards=[
  {id:'shield',tier:'silver',kingdoms:0,title:'Muralha da Travessia',text:'Comece cada confronto seguinte com 8 de Escudo em cada sobrevivente.'},
  {id:'heal',tier:'silver',kingdoms:0,title:'Fonte das Almas',text:'Restaure até 8 de Vida de cada sobrevivente ao entrar em um confronto.'},
- {id:'purify',tier:'silver',kingdoms:0,title:'Pele de Mármore',text:'Comece os próximos confrontos com 1 de Armadura adicional.'},
- {id:'march',tier:'silver',kingdoms:1,title:'Rito da Marcha',text:'Cada sobrevivente ganha 2 de Escudo ao mover, uma vez por rodada nos próximos combates.'},
- {id:'edge',tier:'silver',kingdoms:1,title:'Fio da Travessia',text:'Técnicas ofensivas dos sobreviventes causam +1 de dano nos próximos combates.'},
- {id:'mender',tier:'silver',kingdoms:1,title:'Mãos da Travessia',text:'Técnicas de cura recuperam +2 de Vida nos próximos combates.'},
+ {id:'purify',tier:'silver',kingdoms:0,title:'Pele de Mármore',text:'Comece os próximos confrontos com 5 de Armadura adicional.'},
+ {id:'march',tier:'silver',kingdoms:1,title:'Rito da Marcha',text:'Cada sobrevivente ganha 5 de Escudo ao mover, uma vez por rodada nos próximos combates.'},
+ {id:'edge',tier:'silver',kingdoms:1,title:'Fio da Travessia',text:'Técnicas ofensivas dos sobreviventes causam +5 de dano nos próximos combates.'},
+ {id:'mender',tier:'silver',kingdoms:1,title:'Mãos da Travessia',text:'Técnicas de cura recuperam +5 de Vida nos próximos combates.'},
  {id:'leap',tier:'gold',kingdoms:3,title:'Passagem dos Vultos',text:'Nos próximos confrontos, os sobreviventes podem saltar em L.'},
- {id:'gold-ward',tier:'gold',kingdoms:3,title:'Pacto do Bastião',text:'Cada sobrevivente recebe mais 8 de Escudo no início dos próximos combates.'},
- {id:'gold-recovery',tier:'gold',kingdoms:3,title:'Passos da Fonte',text:'Mover recupera 3 de Vida, uma vez por rodada por portador nos próximos combates.'},
- {id:'gold-support',tier:'gold',kingdoms:3,title:'Trama da Vigília',text:'Técnicas de Escudo concedem +3 de Escudo nos próximos combates.'},
- {id:'prism-edge',tier:'prismatic',kingdoms:8,title:'Limiar Cortante',text:'Técnicas ofensivas dos sobreviventes causam +3 de dano nos próximos combates.'},
- {id:'prism-march',tier:'prismatic',kingdoms:8,title:'Peregrinação Eterna',text:'Mover concede 5 de Escudo, uma vez por rodada por portador nos próximos combates.'},
- {id:'prism-mender',tier:'prismatic',kingdoms:8,title:'Jardim Interior',text:'Técnicas de cura recuperam +4 de Vida nos próximos combates.'}
+ {id:'gold-ward',tier:'gold',kingdoms:3,title:'Pacto do Bastião',text:'Cada sobrevivente recebe mais 16 de Escudo no início dos próximos combates.'},
+ {id:'gold-recovery',tier:'gold',kingdoms:3,title:'Passos da Fonte',text:'Mover recupera 8 de Vida, uma vez por rodada por portador nos próximos combates.'},
+ {id:'gold-support',tier:'gold',kingdoms:3,title:'Trama da Vigília',text:'Técnicas de Escudo concedem +8 de Escudo nos próximos combates.'},
+ {id:'prism-edge',tier:'prismatic',kingdoms:8,title:'Limiar Cortante',text:'Técnicas ofensivas dos sobreviventes causam +12 de dano nos próximos combates.'},
+ {id:'prism-march',tier:'prismatic',kingdoms:8,title:'Peregrinação Eterna',text:'Mover concede 12 de Escudo, uma vez por rodada por portador nos próximos combates.'},
+ {id:'prism-mender',tier:'prismatic',kingdoms:8,title:'Jardim Interior',text:'Técnicas de cura recuperam +12 de Vida nos próximos combates.'}
 ];
 export function createTacticalRun(progress={}){return {augmentProgress:conquestProgress(progress),encounter:1,buffs:[],memories:[],teamHealth:{},globalEffects:{},history:[],route:null,rewardCount:3,fortressRewards:[]};}
 

@@ -17,7 +17,7 @@ const add=(id,title,tier,text,effect,eligible=()=>true,kingdoms=0)=>{
  text=text.replace(/\b[1-4](?= de (?:dano|Vida|Escudo))/g,'5');
  catalog.push({id,title,tier,text,effect,eligible,kingdoms:Math.max(kingdoms,augmentTiers[tier].kingdoms)});
 };
-const magnitudeStats=new Set(['damage','heal','shield','counter','dot','reduction','boost']);
+const magnitudeStats=new Set(['damage','heal','shield','counter','dot','reduction','reduce','boost','regen']);
 const instant=(type,amount)=>({type,amount:['heal','shield','reduction','boost'].includes(type)?Math.max(5,amount):amount});
 const lasting=(trigger,stat,amount)=>({type:'conquest-augment',trigger,stat,amount:magnitudeStats.has(stat)?Math.max(5,amount):amount});
 add('recover','Fôlego do Invasor','silver','Recupera 20 de Vida do portador.',instant('heal',20),u=>u.hp<u.maxHp);
@@ -80,17 +80,23 @@ export function characterAugments(actor){
   ['heal','Cuidado',a=>a.heal,'heal',5],
   ['shield','Guarda',a=>a.shield,'shield',5],
   ['counter','Resposta',a=>a.counter,'counter',5],
-  ['dot','Aflição',a=>a.dot||a.dots,'dot',5]
+  ['dot','Aflição',a=>a.dot||a.dots,'dot',5],
+  ['boost','Ímpeto',a=>a.boost,'boost',5],
+  ['reduce','Resiliência',a=>a.reduce,'reduce',5],
+  ['regen','Renovação',a=>a.regen?.heal,'regen',5]
  ];
  return definitions.flatMap(([key,label,match,stat,amount])=>{
   const ability=skills(actor).find(match);
   if(!ability)return [];
   return [{id:'signature:'+id+':'+key,title:label+' de '+actor.name,tier:'gold',kingdoms:5,characterId:id,
-   text:ability.name+' recebe +'+amount+' '+(stat==='dot'?'de dano por rodada de aflição.':stat==='heal'?'de cura.':stat==='shield'?'de Escudo.':'de dano.'),
+   text:ability.name+' recebe +'+amount+' '+modifierLabel(stat)+'.',
    effect:{...lasting('modify',stat,amount),abilityId:ability.id},eligible:()=>true}];
  });
 }
 const hash=text=>[...String(text)].reduce((n,c)=>(Math.imul(n,31)+c.charCodeAt(0))>>>0,2166136261);
+function modifierLabel(stat){
+ return {dot:'de dano de aflição por rodada',heal:'de cura',shield:'de Escudo',boost:'de bônus de dano concedido',reduce:'de redução de dano concedida',regen:'de regeneração de Vida por rodada'}[stat]||'de dano';
+}
 export function conquestAugmentPool(s,side,actor,tier){
  if(!actor||actor.hp<=0)return [];
  const progress=conquestProgress(s.tactical.fortress.progress);
@@ -104,13 +110,13 @@ export function objectiveAugmentPool(s,side,actor,tier){
  if(!actor||actor.hp<=0)return [];
  const rank={silver:0,gold:1,prismatic:2}[tier]??0,owned=s.tactical.augments?.[side]||[],result=[];
  for(const ability of actor.abilities){
-  const definitions=[['damage','Impacto','damage',[5,8,12][rank],ability.damage],['heal','Sutura','heal',[5,8,12][rank],ability.heal],['shield','Égide','shield',[5,8,12][rank],ability.shield],['counter','Resposta','counter',[5,8,12][rank],ability.counter],['dot','Aflição','dot',[5,6,8][rank],ability.dot||ability.dots?.length]];
+  const definitions=[['damage','Impacto','damage',[5,8,12][rank],ability.damage],['heal','Sutura','heal',[5,8,12][rank],ability.heal],['shield','Égide','shield',[5,8,12][rank],ability.shield],['counter','Resposta','counter',[5,8,12][rank],ability.counter],['dot','Aflição','dot',[5,6,8][rank],ability.dot||ability.dots?.length],['boost','Ímpeto','boost',[5,8,12][rank],ability.boost],['reduce','Resiliência','reduce',[5,8,12][rank],ability.reduce],['regen','Renovação','regen',[5,8,12][rank],ability.regen?.heal]];
   if(ability.id==='fortress-basic')definitions.push(['ward','Guarda no Impacto','shield',[5,8,12][rank],true],['mend','Fôlego no Impacto','heal',[5,6,8][rank],true]);
   for(const [key,label,stat,amount,eligible] of definitions){
    if(!eligible)continue;
    const id=['objective',actor.sourceId||actor.id,ability.id,key,tier].join(':'),stacks=owned.filter(a=>a.actorId===actor.id&&a.id?.startsWith(id+':')).length,proc=key==='ward'||key==='mend';
    result.push({id,title:label+' · '+ability.name,tier,characterId:actor.sourceId||actor.id,category:'Exclusivo de '+actor.name,reason:actor.name+' · '+ability.name,
-    text:proc?ability.name+' passa a '+(stat==='heal'?'recuperar '+amount+' de Vida do portador':'conceder '+amount+' de Escudo ao portador')+' ao acertar. Uma vez por rodada.':ability.name+' recebe +'+amount+' '+(stat==='dot'?'de dano de aflição por rodada':stat==='heal'?'de cura':stat==='shield'?'de Escudo':'de dano')+' neste combate.',
+    text:proc?ability.name+' passa a '+(stat==='heal'?'recuperar '+amount+' de Vida do portador':'conceder '+amount+' de Escudo ao portador')+' ao acertar. Uma vez por rodada.':ability.name+' recebe +'+amount+' '+modifierLabel(stat)+' neste combate.',
     effect:{type:'conquest-augment',id:id+':'+stacks,augmentId:id+':'+stacks,actorId:actor.id,abilityId:ability.id,trigger:proc?'basic-hit':ability.id==='fortress-basic'?'basic':'modify',stat,amount,title:label+' · '+ability.name,tier}});
   }
  }return result;
@@ -134,20 +140,37 @@ export function conquestOfferTier(s,side,actor,sequence){
  return 'silver';
 }
 export function conquestAugmentedAbility(s,actor,ability){
- const result={...ability};
+ const result={...ability},onHit={heal:0,shield:0};
  for(const a of s.tactical.augments?.[actor.side]||[]){
   if(a.actorId!==actor.id||a.type!=='conquest-augment'||a.abilityId&&a.abilityId!==ability.id)continue;
   if(a.trigger==='basic'&&ability.id!=='fortress-basic'||a.trigger==='modify'&&ability.id==='fortress-basic')continue;
+  if(a.trigger==='basic-hit'&&ability.id==='fortress-basic'&&Object.hasOwn(onHit,a.stat))onHit[a.stat]+=a.amount;
   if(!['modify','basic'].includes(a.trigger))continue;
   if(a.stat==='dot'){
-   if(result.dot)result.dot={...result.dot,damage:Math.min(9,result.dot.damage+a.amount)};
-   if(result.dots)result.dots=result.dots.map(dot=>({...dot,damage:Math.min(9,dot.damage+a.amount)}));
-  }else if(result[a.stat]>0)result[a.stat]=Math.min(a.stat==='damage'?36:32,result[a.stat]+a.amount);
+   if(result.dot)result.dot={...result.dot,damage:result.dot.damage+a.amount};
+   if(result.dots)result.dots=result.dots.map(dot=>({...dot,damage:dot.damage+a.amount}));
+  }else if(a.stat==='regen'&&result.regen?.heal)result.regen={...result.regen,heal:result.regen.heal+a.amount};
+  else if(result[a.stat]>0)result[a.stat]+=a.amount;
  }
  if(result.description){
-  for(const [stat,label] of [['damage','Causa '],['heal','Recupera '],['shield','Concede '],['counter','Prepara contra-ataque de ']]){
+  for(const [stat,label] of [['damage','Causa '],['heal','Recupera '],['shield','Concede '],['counter','Prepara contra-ataque de '],['reduce','Reduz o dano recebido em '],['boost','Concede +']]){
    if(result[stat]!==ability[stat])result.description=result.description.replace(label+ability[stat],label+result[stat]);
   }
+  if(result.regen?.heal!==ability.regen?.heal)result.description=result.description.replace('Regenera '+ability.regen.heal+' de Vida','Regenera '+result.regen.heal+' de Vida');
+  const beforeDots=[ability.dot,...ability.dots||[]].filter(Boolean),afterDots=[result.dot,...result.dots||[]].filter(Boolean);
+  const dotTexts=new Map();
+  beforeDots.forEach((dot,index)=>{
+   if(dot.damage!==afterDots[index].damage){
+    const prefix=(dot.tag||'Aflição')+': ';
+    dotTexts.set(prefix+dot.damage+' de dano por '+dot.turns+' rodada(s).',prefix+afterDots[index].damage+' de dano por '+dot.turns+' rodada(s).');
+   }
+  });
+  if(dotTexts.size){
+   const pattern=[...dotTexts.keys()].map(text=>text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
+   result.description=result.description.replace(new RegExp(pattern,'g'),text=>dotTexts.get(text));
+  }
  }
+ const benefits=[onHit.heal&&('recupera '+onHit.heal+' de Vida do portador'),onHit.shield&&('concede '+onHit.shield+' de Escudo ao portador')].filter(Boolean);
+ if(benefits.length)result.description=[result.description,'Ao acertar, '+benefits.join(' e ')+'. Uma vez por rodada. Cura e Escudo respeitam os limites do portador.'].filter(Boolean).join(' ');
  return result;
 }

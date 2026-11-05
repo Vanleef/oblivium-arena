@@ -216,19 +216,19 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
  if(config.alternating||config.fortress){resetTacticalActivation(s);if(!config.fortress)announceTacticalChest(s);}
  if(s.tactical.fortress)for(const reward of config.fortressRewards||[]){
-  if(reward==='shield'||reward==='gold-ward')applyChestEffect(s,'player',{type:'shield-team',amount:8});
+  if(reward==='shield'||reward==='gold-ward')applyChestEffect(s,'player',{type:'shield-team',amount:reward==='gold-ward'?16:8});
   if(reward==='heal')applyChestEffect(s,'player',{type:'heal-team',amount:8});
-  if(reward==='purify')for(const unit of livingTeam(s,'player'))unit.armor=(unit.armor||0)+1;
+  if(reward==='purify')for(const unit of livingTeam(s,'player'))unit.armor=(unit.armor||0)+5;
   if(reward==='leap')for(const unit of livingTeam(s,'player'))s.tactical.fortress.leaps.push(unit.id);
   const campaignAugments={
-   march:{trigger:'move',stat:'shield',amount:2},
-   edge:{trigger:'modify',stat:'damage',amount:1},
-   mender:{trigger:'modify',stat:'heal',amount:2},
-   'gold-recovery':{trigger:'move',stat:'heal',amount:3},
-   'gold-support':{trigger:'modify',stat:'shield',amount:3},
-   'prism-edge':{trigger:'modify',stat:'damage',amount:3},
-   'prism-march':{trigger:'move',stat:'shield',amount:5},
-   'prism-mender':{trigger:'modify',stat:'heal',amount:4}
+   march:{trigger:'move',stat:'shield',amount:5},
+   edge:{trigger:'modify',stat:'damage',amount:5},
+   mender:{trigger:'modify',stat:'heal',amount:5},
+   'gold-recovery':{trigger:'move',stat:'heal',amount:8},
+   'gold-support':{trigger:'modify',stat:'shield',amount:8},
+   'prism-edge':{trigger:'modify',stat:'damage',amount:12},
+   'prism-march':{trigger:'move',stat:'shield',amount:12},
+   'prism-mender':{trigger:'modify',stat:'heal',amount:12}
   };
   const augment=campaignAugments[reward];
   if(augment)for(const unit of livingTeam(s,'player')){
