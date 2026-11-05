@@ -1309,3 +1309,12 @@
  .fortress-battle .element-floor[data-element="fire"]::after{animation:ground-embers 1.7s ease-in-out infinite alternate}
 }
 @keyframes ground-embers{to{opacity:.56;transform:translateY(-3px) scale(.93,1.14)}}
+
+/* Directional idle changes drawings in place; adjacent cells never scroll into the viewport. */
+@media(prefers-reduced-motion:no-preference){
+ .fortress-battle .token[data-directional="true"][data-family="idle"] .sprite-sheet{
+  animation:directional-idle var(--idle-cycle,1800ms) steps(1,end) infinite!important;
+  animation-delay:var(--idle-delay,0ms)!important;
+ }
+}
+@keyframes directional-idle{0%,100%{left:0}25%,75%{left:-100%}50%{left:-200%}}

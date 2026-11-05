@@ -363,12 +363,13 @@ function boardMarkup(s,selection){
   const animClass=unit&&anim?.actorId===unit.id?(anim.type==='move'?'animate-move':anim.type==='skill'?(anim.category===1?'animate-defense':'animate-skill'):'animate-prepare'):'';
   const animAbility=unit&&anim?.actorId===unit.id?animationAbility(unit,anim):null;
   const effect=animAbility?(Object.keys(getAbilityResourceCosts(unit,animAbility)).find(k=>k!=='random')||'essence'):'essence';
-  const sprite=unit?tacticalSpriteFrame(unit,anim?.actorId===unit.id?anim:null):null;
-  const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
   const facing=unit?unitFacing(s,unit):[1,0],facingAngle=Math.atan2(facing[1],facing[0])*180/Math.PI;
+  const sprite=unit?tacticalSpriteFrame(unit,anim?.actorId===unit.id?anim:null,facing):null;
+  const hopRows=unit&&anim?.actorId===unit.id&&anim.type==='move'&&anim.pose==='airborne'?((anim.after?.positions?.[unit.id]?.y??anim.to?.y??0)-(anim.before?.positions?.[unit.id]?.y??anim.from?.y??0)):0,hop=hopRows!==0;
+
   const side=unit?.side||'',portrait=portraitSrc(unit),art=anim&&unit&&anim.actorId===unit.id?tacticalFrameArt(animAbility,anim.pose,portrait):portrait;
   return '<button class="'+classes+'" data-cell="'+p.x+','+p.y+'"'+reaction+' data-terrain-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" data-terrain-world="'+esc(terrain?.world||environment?.world||'')+'" data-terrain-effect="'+esc(terrain?.family||'')+'" style="'+recoil+'--depth-scale:1;z-index:'+(p.y*10+1+(s.tactical.fortress&&unit?100:0))+'" aria-label="'+cellLabel(p)+(s.tactical.fortress&&p.x===0?', fortaleza aliada':s.tactical.fortress&&p.x===boardWidth(s)-1?', fortaleza inimiga':'')+(material?', '+material.surface+', '+(surface.until-s.round)+' rodada(s). '+material.hint:'')+(collapseWarning?', fecha ao fim '+(currentClosure?'desta rodada':'da próxima rodada'):'')+(blocked?', obstáculo':unit?', '+esc(unit.name)+', '+(side==='player'?'aliado':'inimigo')+', Vida '+unit.hp+', '+esc(unit.identityTitle||''):', vazia')+(environmentCell?', '+esc(environment.title)+', efeito ao fim das ações':'')+(chest?', baú disponível':'')+(options?(atOrigin?', partida do movimento':reachable?', movimento disponível, '+reachable.length+(reachable.length===1?' casa':' casas'):', movimento indisponível'):'')+'" '+(!playerTurn()?'disabled':'')+'><span class="terrain-tile" data-tile-state="'+(terrain?'changed':environmentCell?'environment':blocked?'blocked':'base')+'" aria-hidden="true"></span><span class="coord">'+cellLabel(p)+'</span>'+(surface?'<span class="element-floor" data-element="'+surface.element+'" aria-hidden="true"></span>':'')+(elementFlash?'<span class="element-flash" data-element="'+elementFlash+'" data-element-change="'+(elementChange||'')+'" aria-hidden="true"></span>':'')+(warnedCells.has(key)?'<span class="event-warning-cell" aria-hidden="true"></span>':'')+(fieldStrikes.has(key)?'<span class="weather-bolt" aria-hidden="true"></span>':'')+(environmentCell?'<span class="environment-mark" aria-hidden="true">'+esc(environment.symbol)+'</span>':'')+(collapseWarning?'<span class="collapse-marker" aria-hidden="true"></span>':'')+(warning?'<span class="exchange-warning" aria-hidden="true"></span>':'')+(!s.tactical.fortress&&wave.has(cellKey(p))?tacticalExchangeVfxMarkup(anim.family,caster?.realm,source,p,Boolean(unit&&(hits.has(unit.id)||anim.affectedTargetIds?.includes(unit.id)||anim.type==='guard'))):'')+
-   (unit?(s.tactical.fortress?'<span class="facing-indicator" style="--facing-angle:'+facingAngle+'deg" aria-hidden="true"></span>':'')+activationSignal(unit,spent):'')+(chestFlash?'<span class="chest-flash" aria-hidden="true"><i></i></span>':'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i></i></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-body-clip="'+Boolean(sprite?.bodyClip)+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="--facing-sign:'+(facing[0]<0?-1:1)+';--facing-angle:'+facingAngle+'deg;'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="'+tacticalSpriteInline(sprite)+'">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':unit.npcOnly?'<i class="arena-creature-mark" aria-hidden="true">'+esc(unit.symbol)+'</i>':'')+(unit?effectsMarkup(unit,s,anim)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(s.tactical.fortress?'':unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
+   (unit?(s.tactical.fortress?'<span class="facing-indicator" style="--facing-angle:'+facingAngle+'deg" aria-hidden="true"></span>':'')+activationSignal(unit,spent):'')+(chestFlash?'<span class="chest-flash" aria-hidden="true"><i></i></span>':'')+(clash?'<span class="exchange-clash" aria-hidden="true"><i></i><i></i></span>':landing?'<span class="exchange-dust" aria-hidden="true"></span>':'')+fallenAt(p,anim)+(ghost&&mover&&sameCell(ghost,p)?ghostMarkup(mover):'')+(s.tactical.nextChest&&sameCell(s.tactical.nextChest.position,p)?'<span class="chest-telegraph" aria-label="Baú na rodada '+s.tactical.nextChest.round+'">◇<small>R'+s.tactical.nextChest.round+'</small></span>':'')+(chest?'<span class="treasure-chest" aria-hidden="true"><i></i></span>':'')+(unit?'<span class="token '+esc(side)+' '+animClass+(forced?' forced-move':'')+(unit.stunned?' stunned':'')+'" data-health-visible="'+((state.recentEffects?.[unit.id]||0)>Date.now())+'" data-unit-id="'+esc(unit.id)+'" data-portrait="'+esc(portrait)+'" data-skill-art="'+esc(animAbility?.art||'')+'" data-directional="'+Boolean(sprite?.directional)+'" data-body-clip="'+Boolean(sprite?.bodyClip)+'" data-idle-atlas="'+Boolean(sprite?.idleAnimated)+'" data-sprite="'+(sprite?'true':'false')+'" data-effect="'+esc(effect)+'" data-realm="'+esc(unit.realm||'')+'" data-family="'+esc(anim?.actorId===unit.id?anim.family||'strike':'idle')+'" data-pose="'+esc(anim?.actorId===unit.id?anim.pose||'ready':'ready')+'" data-hop="'+(hop?'true':'false')+'" style="--facing-sign:'+(sprite?.directional?1:facing[0]<0?-1:1)+';--facing-angle:'+facingAngle+'deg;'+tacticalIdleStyle(unit)+'--pose-duration:'+(anim?.actorId===unit.id?tacticalFrameDuration(anim):190)+'ms;--forced-x:'+((forced?.from.x||0)-(forced?.to.x||0))*100+'%;--forced-y:'+((forced?.from.y||0)-(forced?.to.y||0))*100+'%;--step-x:'+((anim?.to?.x??0)-(anim?.from?.x??0))*100+'%;--step-y:'+((anim?.to?.y??0)-(anim?.from?.y??0))*100+'%;--hop-y:'+Math.round(hopRows*90)+'%;--hop-mid-y:'+Math.round(hopRows*45)+'%">'+(sprite?'<span class="token-sprite" aria-hidden="true"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(sprite.src)+'" alt="" style="'+tacticalSpriteInline(sprite)+'">'+tacticalIdleLayerMarkup(sprite)+'</span></span>':art?'<img class="token-art" src="'+esc(art)+'" alt="" loading="lazy">':unit.npcOnly?'<i class="arena-creature-mark" aria-hidden="true">'+esc(unit.symbol)+'</i>':'')+(unit?effectsMarkup(unit,s,anim)+combatDelta(unit,anim):'')+'<span class="token-copy"><b>'+esc(unit.name)+'</b><small>'+esc(unit.identityTitle||unit.realm||'')+'</small></span><span class="hp"><i style="width:'+Math.max(0,unit.hp/unit.maxHp*100)+'%"></i></span>'+(s.tactical.fortress?'':unit.shield?'<em>◇ '+unit.shield+'</em>':unit.invulnerable?'<em>◇</em>':unit.stunned?'<em>!</em>':'')+'</span>':blocked?'<span aria-hidden="true">◆</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 let arenaAssetRevision=0,arenaFirstPaintComplete=false;
@@ -491,10 +492,25 @@ function paintFortressEffects(event,unit,ability,index,impact,duration,reduced){
  }
  tacticalEffects.emit(root.querySelector('.board'),event,unit,phase,phase==='impact'?Math.max(duration,90):duration,{reduced,projectile});
 }
+const decodedDirectionalAtlases=new Map();
+function decodeDirectionalAtlas(src){
+ if(!decodedDirectionalAtlases.has(src)){
+  const image=new Image();image.src=src;
+  const ready=typeof image.decode==='function'?image.decode().catch(()=>undefined):Promise.resolve();
+  decodedDirectionalAtlases.set(src,ready);
+ }
+ return decodedDirectionalAtlases.get(src);
+}
 async function paintExchangeMovement(event,pause,reduced){
  const duration=reduced?40:(event.closure?420:state.battle.tactical.fortress?190:event.moves.length?320:185)/state.playbackSpeed;
  const actors=new Map([...event.before.allies,...event.before.enemies].map(unit=>[unit.id,unit]));
  const walkers=[];
+ const directionalSources=new Set(event.moves.map(step=>{
+  const actor=actors.get(step.actorId),facing=event.after.facings?.[step.actorId];
+  const frame=tacticalSpriteFrame(actor,{type:'move',pose:'airborne'},facing);
+  return frame?.directional?frame.src:null;
+ }).filter(Boolean));
+ await Promise.all([...directionalSources].map(decodeDirectionalAtlas));
  state.animation=event;
  render();
  if(event.closure)paintFortressEffects(event,null,null,0,true,duration,reduced);
@@ -506,9 +522,9 @@ async function paintExchangeMovement(event,pause,reduced){
   const dx=landing.offsetLeft-origin.offsetLeft,dy=landing.offsetTop-origin.offsetTop,lift=Math.min(16,origin.offsetHeight*.28);
   const actor=actors.get(step.actorId);
   const direction=event.after.facings?.[step.actorId]||[Math.sign(step.to.x-step.from.x),Math.sign(step.to.y-step.from.y)];
-  token.style.setProperty('--facing-sign',direction[0]<0?-1:1);
+  token.style.setProperty('--facing-sign',tacticalSpriteFrame(actor,{type:'move',pose:'airborne'},direction)?.directional?1:direction[0]<0?-1:1);
   const sprite=token.querySelector('.sprite-sheet');
-  if(sprite&&!event.closure&&tacticalSpriteFrame(actor,{type:'move',pose:'airborne'})?.clip==='move')walkers.push({sprite,actor});
+  if(sprite&&!event.closure&&tacticalSpriteFrame(actor,{type:'move',pose:'airborne'},direction)?.clip==='move')walkers.push({sprite,actor,direction});
   token.animate([{translate:'0 0',scale:'1 1',offset:0},{translate:(dx*.06)+'px '+(dy*.06+2)+'px',scale:'1.035 .95',offset:.16},{translate:(dx*.58)+'px '+(dy*.58-lift)+'px',scale:'1 1.04',offset:.53},{translate:dx+'px '+dy+'px',scale:'1.055 .94',offset:.94},{translate:dx+'px '+dy+'px',scale:'1 1'}],
    {duration,easing:'cubic-bezier(.28,.06,.32,1)',fill:'forwards'});
  }
@@ -530,8 +546,13 @@ async function paintExchangeMovement(event,pause,reduced){
  if(walkers.length){
   const stride=[['anticipate',.16],['launch',.24],['airborne',.4],['landing',.2]];
   for(const [pose,fraction] of stride){
-   for(const {sprite,actor} of walkers){
-    const frame=tacticalSpriteFrame(actor,{type:'move',pose});
+   for(const {sprite,actor,direction} of walkers){
+    const frame=tacticalSpriteFrame(actor,{type:'move',pose},direction);
+    if(sprite.getAttribute('src')!==frame.src)sprite.src=frame.src;
+    sprite.style.setProperty('width',frame.sheetColumns*100+'%');
+    sprite.style.setProperty('height',frame.sheetRows*100+'%');
+    const viewport=sprite.parentElement;
+    viewport?.closest('.token')?.style.setProperty('--facing-sign',frame.directional?1:direction[0]<0?-1:1);
     sprite.style.setProperty('left',(-frame.column*100)+'%','important');
     sprite.style.setProperty('top',(-frame.row*100)+'%','important');
    }
