@@ -1020,13 +1020,19 @@
 
 .tactical-status-vfx{position:absolute;inset:0;z-index:9;pointer-events:none}
 .tactical-status-vfx i{position:absolute;display:block;pointer-events:none}
+/* Electric arcs flicker above the head while the body stays locked. */
 .tactical-status-vfx [data-status-vfx="stunned"]{
- inset:2% auto auto 50%;width:58%;height:13%;translate:-50% 0;border-radius:50%;
- border:1px solid #ffdf8e;border-inline-color:transparent;box-shadow:0 0 7px #f6cf7660;
+ inset:-8% auto auto 50%;width:64%;height:31%;translate:-50% 0;
+ filter:drop-shadow(0 0 3px #8bbfff) drop-shadow(0 0 5px #a986ff);
+}
+.tactical-status-vfx [data-status-vfx="stunned"]::before,
+.tactical-status-vfx [data-status-vfx="stunned"]::after{
+ content:"";position:absolute;inset:0;
+ background:#eaf7ff;
+ clip-path:polygon(0 61%,23% 29%,36% 48%,51% 11%,63% 43%,84% 21%,100% 53%,83% 33%,61% 56%,51% 29%,37% 62%,22% 42%);
 }
 .tactical-status-vfx [data-status-vfx="stunned"]::after{
- content:"";position:absolute;left:0;top:0;width:4px;height:4px;border-radius:50%;
- background:#fff8d1;box-shadow:0 0 7px 2px #ffdd88;
+ inset:15% 8% -8%;transform:scaleX(-1);background:#b6d5ff;opacity:.55;
 }
 .tactical-status-vfx [data-status-vfx="frozen"]{
  inset:10% 16% 12%;background:linear-gradient(135deg,#8ce7ff9c,#317fd448,#dcfaff9c);
@@ -1055,10 +1061,15 @@
  inset:30% 15% 8%;background:radial-gradient(ellipse at 22% 75%,#f17d9b77,transparent 43%),radial-gradient(ellipse at 78% 28%,#b64b9377,transparent 44%);
 }
 @media(prefers-reduced-motion:no-preference){
- .tactical-status-vfx [data-status-vfx="stunned"]{animation:status-orbit 1.25s linear infinite}
+ .tactical-status-vfx [data-status-vfx="stunned"]::before{animation:status-discharge 1.35s steps(1,end) infinite}
+ .tactical-status-vfx [data-status-vfx="stunned"]::after{animation:status-discharge 1.35s -.57s steps(1,end) infinite}
  .tactical-status-vfx.status-gained{animation:status-materialize .5s ease-out both}
 }
-@keyframes status-orbit{to{rotate:1turn}}
+@keyframes status-discharge{
+ 0%,66%,100%{opacity:1}
+ 12%,53%,78%{opacity:.26}
+ 30%,88%{opacity:.62}
+}
 @keyframes status-materialize{from{opacity:.18}to{opacity:1}}
 .tactical-status-vfx [data-status-vfx^="terrain-"]{
  inset:auto 12% 2%;height:15%;border-radius:50%;border-bottom:2px solid var(--status-ground,#8bcfff);opacity:.76;
@@ -1077,18 +1088,27 @@
  position:relative;inset:auto;translate:none;
  width:min(100%,1050px);height:auto;aspect-ratio:calc(var(--fort-cols,9)*1.12)/var(--fort-rows,6);
  transform:perspective(1050px) translateZ(-280px) rotateX(20deg);transform-origin:center top;
- padding:5px;gap:3px;border-color:#a59ab1;
- background:linear-gradient(140deg,#4c4459,#232130 65%,#181726);
+ padding:0;gap:0;border-color:#9a879d;
+ background:
+  linear-gradient(160deg,#bba0be28,transparent 48%,#15102058),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 600' preserveAspectRatio='none'%3E%3Cpath fill='%23575064' d='M0 0h960v600H0z'/%3E%3Cpath fill='%23645b70' d='M0 0h381l-65 132-154 44L0 129zm415 0h305l23 114-136 81-250-51zM0 190l179 28 38 140L0 422zm256 40 117-63 230 54-29 147-165 39-161-63zm390 0 133-93 181 22v159l-173 75-155-36zm-13 185 183 16 144-56v225H703zm-411-16 172 42 140-34 57 193H270z'/%3E%3Cpath fill='%23706878' opacity='.55' d='m0 0 381 0-65 132-14-17L356 0zm256 230 117-63 230 54-15 9-219-47zm390 0 133-93 181 22v12l-174-19zM0 422l217-64-11 17L0 441zm703 178-70-185 183 16-14 8-151-13z'/%3E%3Cpath fill='none' stroke='%233b3447' stroke-opacity='.6' stroke-width='2' d='m316 132-18 44-52 12-14 33m375-26 17 37-20 51m-387 75 31-14 28 21 53 9m248-6 22 38 34 9m146-278-2-43 24-33 12-61M816 431l37 25 54-4 53 31M162 176l-14 42-30 12-18 52M534 407l-11 54 18 36-20 38 9 65'/%3E%3C/svg%3E") center/100% 100% no-repeat #575064;
  box-shadow:0 7px 0 #211b2c,0 11px 0 #3d3049,0 23px 27px #07050b9c;
 }
 .fortress-battle .arena-field .cell{
- background:radial-gradient(ellipse at 30% 20%,#b2a2bd1f,transparent 70%),linear-gradient(145deg,#564d65,#393347)!important;
- box-shadow:inset 0 1px #d1c1e42e,inset 0 -2px #19162477;
+ border:0;border-radius:0;
+ background:transparent!important;
+ box-shadow:inset -1px -1px #e4d6ed22;
 }
-.fortress-battle .arena-field .cell.reachable:not(.aim){
- background:linear-gradient(145deg,#458080,#234554)!important;
- box-shadow:inset 0 0 12px #8cf1ed53,inset 0 -3px #98ece8a0;
+.fortress-battle .arena-field .board .cell:is(.fortress-home,.fortress-rival){
+ border:0;
+ background:linear-gradient(0deg,color-mix(in srgb,var(--fortress-color) 32%,transparent),color-mix(in srgb,var(--fortress-color) 9%,transparent))!important;
+ box-shadow:inset -1px -1px #e4d6ed28;
 }
+.fortress-battle .arena-field .board .cell.reachable:not(.aim){
+ background:linear-gradient(145deg,#77f8ea28,#1fa6a747)!important;
+ box-shadow:inset 0 0 12px #8cf1ed32,inset 0 -2px #98ece888;
+}
+.fortress-battle .arena-field .cell:not(:is(:hover,:focus-visible,.reachable,.aim,.active)) .coord{opacity:0}
 .fortress-battle .arena-field .cell.fortress-aim{box-shadow:inset 0 0 0 2px #ffd998,inset 0 0 15px #e0a05383}
 .fortress-battle .arena-field .cell.fortress-aim-contact{box-shadow:inset 0 0 0 2px #fff2bf,inset 0 0 21px #f2917da0}
 .fortress-battle .arena-field .cell.closing-track{background:transparent!important}
