@@ -13,7 +13,6 @@ test('shared base slots and dedicated form clips have separate coverage labels',
  assert.equal(tacticalClipCoverage(actor,ability,{...ability,formKey:'unweave'}).atlasKind,'dedicated');
 });
 test('characters without an atlas remain pending regardless of generic animation timelines',()=>{
- const actor=characterById['a-senhora-do-ultimo-pao'];
- assert.ok(actor);
+ const actor={...characterById['a-senhora-do-ultimo-pao'],id:'unmapped-character-fixture'};
  assert.equal(tacticalClipCoverage(actor,actor.abilities[0]).mappedAtlas,false);
 });

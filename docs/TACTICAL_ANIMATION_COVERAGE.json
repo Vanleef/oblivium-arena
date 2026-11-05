@@ -1627,51 +1627,51 @@
     "id": "a-senhora-do-ultimo-pao",
     "name": "Helena",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Marca da Privação",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Ração dos Submissos",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Tributo da Fome",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Celeiro Lacrado",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -1679,51 +1679,51 @@
     "id": "o-credor",
     "name": "Marrow",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Assinar a Dívida",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Juros Acumulados",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Execução do Contrato",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Cláusula de Ausência",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -1731,51 +1731,51 @@
     "id": "a-balanca-vazia",
     "name": "Fortuna",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Cobrança da Penúria",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Adiantamento Vital",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Confisco Coletivo",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Penhor Inalcançável",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -1783,51 +1783,51 @@
     "id": "o-apodrecido",
     "name": "Aldric",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Contato da Ruína",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Tecido Cedido",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Decomposição Completa",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Casca Morta",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },

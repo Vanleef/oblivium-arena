@@ -7,7 +7,7 @@ const pilotAtlasEntries=[
  ['o-passo-interrompido','chronos'],['o-odio-encarnado','corvin'],['a-arquiteta-verde','verdant'],
  ['nilo','nilo'],['naomi','naomi'],['kael','kael'],['diana','diana'],['a-mae-rubra','selene'],['o-soberano-quebrado','darius'],['o-colecionador-de-cabecas','thorne'],['vaas','vaas']
 ];
-const expansionAtlases=Object.fromEntries([['o-falso-profeta','cassian'],['o-corretor-de-memorias','annius'],['o-incendiario','ignis'],['a-brasa-eterna','emberlyn'],['o-filho-da-cinza','ragnar'],['a-pira-errante','lyra'],['o-coracao-em-furia','pyros'],['o-devorador','gorath'],['a-mao-que-toma','ravena'],['o-estomago-sem-fundo','drake']].map(([id,name])=>[id,Object.freeze({src:'/art/animations/tactical-expansion-20261105/'+name+'.webp',columns:6,rows:6,cellSize:160,phased:true})]));
+const expansionAtlases=Object.fromEntries([['o-falso-profeta','cassian'],['o-corretor-de-memorias','annius'],['o-incendiario','ignis'],['a-brasa-eterna','emberlyn'],['o-filho-da-cinza','ragnar'],['a-pira-errante','lyra'],['o-coracao-em-furia','pyros'],['o-devorador','gorath'],['a-mao-que-toma','ravena'],['o-estomago-sem-fundo','drake'],['a-senhora-do-ultimo-pao','helena'],['o-credor','marrow'],['a-balanca-vazia','fortuna'],['o-apodrecido','aldric']].map(([id,name])=>[id,Object.freeze({src:'/art/animations/tactical-expansion-20261105/'+name+'.webp',columns:6,rows:6,cellSize:160,phased:true})]));
 const pilotAtlases=Object.fromEntries(pilotAtlasEntries.map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})]));
 export const tacticalSpriteAtlases=Object.freeze({
  ...pilotAtlases,...expansionAtlases,
