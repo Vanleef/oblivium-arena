@@ -1332,7 +1332,7 @@
 .invasion-target select{max-width:100%;background:#21192d;color:#fff;padding:8px;border:1px solid #ac85b7;border-radius:6px}
 .fortress-battle .arena-field .cell .token{width:100%;height:100%;min-height:0;max-height:none;max-width:none;margin:0;padding:0}
 .conquest-model{position:absolute;inset:0;container-type:size;pointer-events:none}
-.fortress-battle .arena-field .token .conquest-model :is(.token-sprite,.token-art){width:calc(70cqw * var(--upgrade-growth,1));height:calc(70cqw * var(--upgrade-growth,1));max-width:96%;max-height:none;bottom:0;scale:1;transform-origin:center bottom;transition:width .3s ease,height .3s ease}
+.fortress-battle .arena-field .token .conquest-model :is(.token-sprite,.token-art){width:calc(90cqw + (var(--upgrade-growth,1) - 1) * 20cqw);height:calc(90cqw + (var(--upgrade-growth,1) - 1) * 20cqw);max-width:96%;max-height:none;bottom:0;scale:1;transform-origin:center bottom;transition:width .3s ease,height .3s ease}
 .fortress-battle .arena-field .token .conquest-model .token-art{object-fit:contain;scale:var(--facing-sign,1) 1}
 @media(prefers-reduced-motion:reduce){.conquest-model :is(.token-sprite,.token-art){transition:none!important}}
 
@@ -1343,3 +1343,13 @@
 .fortress-battle .arena-stage[data-world="Paraíso"] :is(.arena-status-details,.combat-log)>summary{width:fit-content;padding:6px 9px;border-radius:6px;background:#191525ed;color:#eadff1}
 /* Wide arena art must cover the stage instead of ending above the controls. */
 .fortress-battle .arena-stage[data-scene]::after{inset:-25% 0 0;background-size:auto,cover,auto;background-position:center,center bottom,center;background-repeat:no-repeat}
+
+/* A collectible emblem rises above the private objective's ground halo. */
+.objective-pulse{inset:16% 7% 10%;background:radial-gradient(ellipse,color-mix(in srgb,var(--objective-color) 26%,transparent),transparent 72%);opacity:1}
+.objective-pulse .objective-emblem{inset:auto;left:50%;bottom:23%;width:72%;max-width:68px;aspect-ratio:1;translate:-50% 0;filter:drop-shadow(0 0 7px var(--objective-color));text-shadow:none}
+.objective-emblem svg{display:block;width:100%;height:100%;overflow:visible}
+.objective-gem{fill:color-mix(in srgb,var(--objective-color) 72%,#22203b);stroke:#fff7e8;stroke-width:2;stroke-linejoin:round}
+.objective-facets{fill:none;stroke:#fff9e5;stroke-width:1.5;stroke-linejoin:round}
+.objective-sparks{fill:var(--objective-color);stroke:#fff9e5;stroke-width:.6}
+@media(prefers-reduced-motion:no-preference){.objective-pulse{animation:none}.objective-pulse .objective-emblem{animation:objective-emblem-float 2s ease-in-out infinite}}
+@keyframes objective-emblem-float{50%{translate:-50% -5px;filter:drop-shadow(0 0 12px var(--objective-color)) brightness(1.2)}}

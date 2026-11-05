@@ -85,7 +85,7 @@ test('enemy collection applies its own upgrade without revealing the objective i
  assert.deepEqual(result.chestRewards,[]);assert.equal(result.events.some(e=>e.after?.objectives?.enemy),false);
 });
 test('growth has diminishing increments bounded by one logical tile',()=>{
- let previous=objectiveGrowth(0),increment=1;for(let i=1;i<40;i++){const next=objectiveGrowth(i),gain=next-previous;assert.ok(gain>0&&gain<increment);assert.ok(next*.7<.9);previous=next;increment=gain;}
+ let previous=objectiveGrowth(0),increment=1;for(let i=1;i<40;i++){const next=objectiveGrowth(i),gain=next-previous;assert.ok(gain>0&&gain<increment);assert.ok(.9+(next-1)*.2<.96);previous=next;increment=gain;}
  assert.ok(objectiveGrowth(1e6)<=1.28);assert.equal(objectiveGrowth(-1),1);
 });
 test('AI advances toward its own private objective',()=>{
