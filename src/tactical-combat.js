@@ -1,4 +1,4 @@
-import {refreshConquestObjectives,collectConquestObjective,fortressPenaltyOptions,applyFortressPenalty} from './conquest-objectives.js';
+import {refreshConquestObjectives,collectConquestObjective,fortressPenaltyOptions,applyFortressPenalty,chooseFortressPenalty} from './conquest-objectives.js';
 import {combatScene} from './combat-scenes.js';
 import {conquestTechnique} from './conquest-techniques.js';
 import {conquestProgress,conquestOfferOptions} from './conquest-augments.js';
@@ -162,7 +162,7 @@ export function chooseTacticalChestReward(s,offerId,optionId,targetId){
  if(!offer||offer.id!==offerId||offer.side!=='player')return fail('Escolha de baú indisponível.');
  const option=offer.options.find(item=>item.id===optionId);if(!option)return fail('Aprimoramento inválido.');
  if(offer.invasion){
-  const applied=applyFortressPenalty(s,'player',option.effect,targetId);if(!applied.ok)return applied;
+  const applied=applyFortressPenalty(s,'player',option.effect,targetId,offer.round);if(!applied.ok)return applied;
  }else{
   if(offer.objective&&!actorFor(s,'player',offer.actorId))return fail('O portador saiu de combate.');
   applyChestEffect(s,'player',option.effect);
@@ -553,8 +553,9 @@ function applyRivalRewards(s,finished=false){
  for(const offer of s.tactical.enemyChestRewards||[]){
   if(finished||!livingTeam(s,'enemy').length)break;
   if(offer.objective&&!actorFor(s,'enemy',offer.actorId))continue;
-  const before=replayState(s),option=offer.fortress||offer.invasion?offer.options[0]:tacticalChestOptions(s,'enemy',offer.tier)[0];
-  if(offer.invasion)applyFortressPenalty(s,'enemy',option.effect);
+  const before=replayState(s),choice=offer.invasion?chooseFortressPenalty(s,'enemy',offer.options):null;
+  const option=choice?.option||(offer.fortress?offer.options[0]:tacticalChestOptions(s,'enemy',offer.tier)[0]);
+  if(offer.invasion)applyFortressPenalty(s,'enemy',option.effect,choice?.targetId,offer.round);
   else{applyChestEffect(s,'enemy',option.effect);if(offer.objective){const actor=actorFor(s,'enemy',offer.actorId);actor.objectiveAugments=(actor.objectiveAugments||0)+1;}}
   stamp(s,{type:'effects',rewardActorId:offer.fortress?offer.actorId:null,title:(offer.invasion?'Invasão rival · ':'Aprimoramento rival · ')+option.title,description:option.text,before,after:replayState(s)});
  }
@@ -642,7 +643,7 @@ function claimFortressEntry(s,{actorId,side,to}){
  if(to.x!==enemy||(f.entered.includes(actorId)&&!f.rearmed.includes(actorId)))return;
  if(!f.entered.includes(actorId))f.entered.push(actorId);
  f.rearmed=f.rearmed.filter(id=>id!==actorId);
- const offer={id:'invasion:'+f.rewardSequence++,side,actorId,invasion:true,source:'invasion',options:fortressPenaltyOptions()};
+ const offer={id:'invasion:'+f.rewardSequence++,side,actorId,round:s.round,invasion:true,source:'invasion',options:fortressPenaltyOptions()};
  if(side==='player')s.tactical.pendingChestRewards.push(offer);else(s.tactical.enemyChestRewards??=[]).push(offer);
 }
 function claimObjective(s,side,actorId,to){

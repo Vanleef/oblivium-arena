@@ -43,7 +43,7 @@ test('old saves fall back to team direction and scene ids are validated',()=>{
  const s=make();delete s.tactical.facings;
  assert.deepEqual(unitFacing(s,s.allies[0]),[1,0]);
  assert.deepEqual(unitFacing(s,s.enemies[0]),[-1,0]);
- assert.equal(combatScenes.length,3);
+ assert.deepEqual(new Set(combatScenes.map(scene=>scene.realm)),new Set(['Inferno','Paraíso','Limbo']));
  assert.equal(combatScene('missing').id,'limbo');
  for(const scene of combatScenes){
   const battle=createTacticalBattle(ids,enemy,{fortress:true,scene:scene.id});

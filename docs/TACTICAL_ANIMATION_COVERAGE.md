@@ -1,8 +1,8 @@
 # Cobertura de animações táticas
 
-35/150 entradas com atlas base conectado. 145/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
+35/150 entradas com atlas base conectado. 151/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
-Atlas específicos de habilidade conectados: 6. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
+Atlas específicos de habilidade conectados: 12. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
@@ -12,7 +12,7 @@ Atlas específicos de habilidade conectados: 6. Os demais recortes mapeados usam
 | Vale e Soren (gemeos-do-cutelo) | Sim | Sim | 4/5 |
 | Sanson (o-carrasco-sem-rosto) | Sim | Sim | 4/4 |
 | Selene (a-mae-rubra) | Sim | Sim | 4/4 |
-| Darius (o-soberano-quebrado) | Sim | Sim | 4/7 |
+| Darius (o-soberano-quebrado) | Sim | Sim | 7/7 |
 | Judith (a-juiza-de-ferro) | Sim | Sim | 4/4 |
 | Lucien (o-trono-vazio) | Sim | Sim | 4/4 |
 | Demetrius (o-principe-das-correntes) | Sim | Sim | 4/5 |
@@ -25,7 +25,7 @@ Atlas específicos de habilidade conectados: 6. Os demais recortes mapeados usam
 | Cassian (o-falso-profeta) | Sim | Sim | 4/5 |
 | Annius (o-corretor-de-memorias) | Sim | Sim | 4/4 |
 | Ignis (o-incendiario) | Sim | Sim | 4/4 |
-| Emberlyn (a-brasa-eterna) | Sim | Sim | 4/7 |
+| Emberlyn (a-brasa-eterna) | Sim | Sim | 7/7 |
 | Corvin (o-odio-encarnado) | Sim | Sim | 4/6 |
 | Ragnar (o-filho-da-cinza) | Sim | Sim | 5/5 |
 | Lyra (a-pira-errante) | Sim | Sim | 5/5 |

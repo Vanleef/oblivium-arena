@@ -727,7 +727,7 @@
  grid-template:repeat(var(--fort-rows,6),minmax(0,1fr))/repeat(var(--fort-cols,9),minmax(0,1fr));
 }
 .fortress-battle .arena-stage:after{
- background:linear-gradient(180deg,#160f27 0%,#34245473 34%,transparent 62%),url('/art/arenas/limbo-ruins.webp') center 55%/cover;
+ background:linear-gradient(180deg,#160f27 0%,#34245473 34%,transparent 62%),var(--arena-art,url('/art/arenas/limbo-ruins.webp')) center 55%/cover;
  opacity:1;
 }
 .fortress-battle .arena-stage:before{
@@ -858,7 +858,7 @@
 .fortress-battle .arena-stage:after{
  background:
   linear-gradient(180deg,#18122811,transparent 42%,#14132133 68%,#141321),
-  url('/art/arenas/limbo-ruins.webp') center top calc(-1 * clamp(110px,15vw,220px))/max(100%,800px) auto no-repeat,
+  var(--arena-art,url('/art/arenas/limbo-ruins.webp')) center top calc(-1 * clamp(110px,15vw,220px))/max(100%,800px) auto no-repeat,
   #141321;
 }
 .fortress-battle .board{
@@ -1234,15 +1234,15 @@
  clip-path:polygon(45% 26%,68% 26%,68% 4%,100% 50%,68% 96%,68% 74%,45% 74%);
  rotate:var(--facing-angle,0deg);transform-origin:50% 50%;
 }
-.fortress-battle .arena-stage[data-scene="inferno"]::after{
+.fortress-battle .arena-stage[data-world="Inferno"]::after{
  background:linear-gradient(180deg,#1b111508,transparent 48%,#170e1c8c 88%,#141321),
- url('/art/arenas/inferno-cathedral.webp') center top/max(100%,900px) auto no-repeat,#141321;
+ var(--arena-art,url('/art/arenas/inferno-cathedral.webp')) center top/max(100%,900px) auto no-repeat,#141321;
 }
-.fortress-battle .arena-stage[data-scene="paraiso"]::after{
+.fortress-battle .arena-stage[data-world="Paraíso"]::after{
  background:linear-gradient(180deg,#1924370d,transparent 42%,#17152880 90%,#141321),
- url('/art/arenas/paraiso-courtyard.webp') center top/max(100%,900px) auto no-repeat,#141321;
+ var(--arena-art,url('/art/arenas/paraiso-courtyard.webp')) center top/max(100%,900px) auto no-repeat,#141321;
 }
-.fortress-battle .arena-stage[data-scene="paraiso"] .cell{
+.fortress-battle .arena-stage[data-world="Paraíso"] .cell{
  box-shadow:inset -1px -1px #201a3529;
 }
 .tactical-status-vfx [data-status-vfx="stunned"]{
@@ -1335,3 +1335,11 @@
 .fortress-battle .arena-field .token .conquest-model :is(.token-sprite,.token-art){width:calc(70cqw * var(--upgrade-growth,1));height:calc(70cqw * var(--upgrade-growth,1));max-width:96%;max-height:none;bottom:0;scale:1;transform-origin:center bottom;transition:width .3s ease,height .3s ease}
 .fortress-battle .arena-field .token .conquest-model .token-art{object-fit:contain;scale:var(--facing-sign,1) 1}
 @media(prefers-reduced-motion:reduce){.conquest-model :is(.token-sprite,.token-art){transition:none!important}}
+
+.reward-error{color:#ffc6b9;border-left:3px solid #e58b79;padding:8px 12px;background:#542d3b88}
+
+/* Light arenas retain dark reading surfaces for secondary combat information. */
+.fortress-battle .arena-stage[data-world="Paraíso"] :is(.fortress-progress,.augment-progression){width:fit-content;padding:5px 9px;border-radius:6px;background:#191525ed;color:#eadff1}
+.fortress-battle .arena-stage[data-world="Paraíso"] :is(.arena-status-details,.combat-log)>summary{width:fit-content;padding:6px 9px;border-radius:6px;background:#191525ed;color:#eadff1}
+/* Wide arena art must cover the stage instead of ending above the controls. */
+.fortress-battle .arena-stage[data-scene]::after{background-size:auto,cover,auto;background-position:center,center 52%,center;background-repeat:no-repeat}

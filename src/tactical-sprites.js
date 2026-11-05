@@ -33,6 +33,13 @@ function skillRowFor(unit,event){
  return skillRows[index]??null;
 }
 export const tacticalSkillAtlases=Object.freeze({
+ 'o-soberano-quebrado/impulso/edict':Object.freeze({src:'/art/animations/tactical-expansion-20261105/darius-edict.webp',columns:6,rows:3,rowOffset:0,phased:true}),
+ 'o-soberano-quebrado/tecnica/edict':Object.freeze({src:'/art/animations/tactical-expansion-20261105/darius-edict.webp',columns:6,rows:3,rowOffset:1,phased:true}),
+ 'o-soberano-quebrado/voto/edict':Object.freeze({src:'/art/animations/tactical-expansion-20261105/darius-edict.webp',columns:6,rows:3,rowOffset:2,phased:true}),
+ 'a-brasa-eterna/impulso/smother':Object.freeze({src:'/art/animations/tactical-expansion-20261105/emberlyn-smother.webp',columns:6,rows:3,rowOffset:0,phased:true}),
+ 'a-brasa-eterna/tecnica/smother':Object.freeze({src:'/art/animations/tactical-expansion-20261105/emberlyn-smother.webp',columns:6,rows:3,rowOffset:1,phased:true}),
+ 'a-brasa-eterna/voto/smother':Object.freeze({src:'/art/animations/tactical-expansion-20261105/emberlyn-smother.webp',columns:6,rows:3,rowOffset:2,phased:true}),
+
  'o-filho-da-cinza/impulso/rebirth':Object.freeze({src:'/art/animations/tactical-expansion-20261105/ragnar-rebirth.webp',columns:3,rows:2}),
  'a-pira-errante/impulso/reply':Object.freeze({src:'/art/animations/tactical-expansion-20261105/lyra-reply.webp',columns:3,rows:2}),
  'o-devorador/impulso/starved':Object.freeze({src:'/art/animations/tactical-expansion-20261105/gorath-starved.webp',columns:3,rows:2}),
@@ -57,6 +64,7 @@ const bodyAtlasNames=Object.freeze({
  'o-acougueiro':'riven','a-viuva-escarlate':'lira','o-escudo-vivo':'aegis',
  'o-passo-interrompido':'chronos','o-odio-encarnado':'corvin','a-arquiteta-verde':'verdant'
 });
+const phaseColumns=Object.freeze({ready:0,anticipate:1,compress:1,gather:2,inhale:2,brace:2,windup:2,guard:3,release:3,thrust:3,impact:3,travel:4,spread:4,deflect:4,counter:4,followthrough:4,hold:5,withdraw:4,transfer:4,recover:5,settle:5,launch:2,airborne:3,landing:4});
 const bodyColumns=Object.freeze({
  ready:0,anticipate:0,compress:1,inhale:1,gather:1,windup:1,brace:1,
  guard:2,release:2,thrust:2,travel:3,spread:3,deflect:3,impact:3,
@@ -96,8 +104,8 @@ export function tacticalSpriteFrame(unit,event=null,facing=null){
  const bodyClip=Boolean(dedicated||skillRows.includes(skill)||moving);
  let row=0,column=0;
  if(dedicated){
-  const frame=bodyColumns[event.pose]??0;
-  row=Math.floor(frame/dedicated.columns);
+  const frame=(dedicated.phased?phaseColumns:bodyColumns)[event.pose]??0;
+  row=(dedicated.rowOffset||0)+Math.floor(frame/dedicated.columns);
   column=frame%dedicated.columns;
  }else if(body&&bodyClip){
   row=skillRows.indexOf(skill)+1;
@@ -112,7 +120,7 @@ export function tacticalSpriteFrame(unit,event=null,facing=null){
   column=frameColumns[event.family]?.[event.pose]??0;
  }
  if(original.phased&&!dedicated&&bodyClip){
-  column=({ready:0,anticipate:1,compress:1,gather:2,inhale:2,brace:2,windup:2,guard:3,release:3,thrust:3,impact:3,travel:4,spread:4,deflect:4,counter:4,followthrough:4,hold:5,withdraw:4,transfer:4,recover:5,settle:5,launch:2,airborne:3,landing:4})[event.pose]??0;
+  column=phaseColumns[event.pose]??0;
  }
  const src=dedicated?.src||(body?`/art/animations/tactical-body-20261104/${body}.webp`:original.src);
  const sheetRows=dedicated?.rows||(body?5:original.rows);

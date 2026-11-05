@@ -22,3 +22,21 @@ test('the new skill variations use their own atlas rather than an idle or shared
   assert.equal(done.clip,'idle');
  }
 });
+test('Darius and Emberlyn have six distinct phases in every alternate technique, preserving row identity',async()=>{
+ const entries=[['o-soberano-quebrado','edict'],['a-brasa-eterna','smother']];
+ const poses=['ready','anticipate','windup','impact','followthrough','recover'];
+ for(const [id,key] of entries){
+  const actor=characterById[id];
+  for(const [row,slot] of ['impulso','tecnica','voto'].entries()){
+   const ability=actor.abilities.find(a=>a.id===slot),form=ability.forms.find(f=>f.formKey===key);
+   assert.equal(tacticalClipCoverage(actor,ability,form).atlasKind,'dedicated');
+   const frames=poses.map(pose=>tacticalSpriteFrame(actor,{type:'skill',abilityId:slot,formKey:key,pose,index:pose==='ready'?0:1}));
+   assert.ok(frames.every(f=>f.row===row&&f.sheetRows===3&&f.sheetColumns===6));
+   assert.equal(new Set(frames.map(f=>f.column)).size,6);
+   const bytes=await readFile(new URL('..'+frames[0].src,import.meta.url));assert.equal(bytes.toString('ascii',8,12),'WEBP');
+   const mirrored=tacticalSpriteFrame({...actor,id:'opponent',sourceId:id},{type:'skill',abilityId:slot,formKey:key,pose:'impact'},[-1,0]);
+   assert.equal(mirrored.row,row);assert.equal(mirrored.src,frames[0].src);
+   assert.equal(tacticalSpriteFrame(actor,{type:'skill',abilityId:slot,formKey:key,pose:'ready',index:7}).clip,'idle');
+  }
+ }
+});

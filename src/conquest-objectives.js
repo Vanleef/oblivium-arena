@@ -1,3 +1,4 @@
+import {conquestTechnique} from './conquest-techniques.js';
 import {boardCells,boardTracks,canStep,cellKey,distance,obstacle,occupied,onBoard,sameCell} from './tactical-board.js';
 import {augmentTiers,conquestProgress} from './conquest-augments.js';
 const sides=['player','enemy'];
@@ -50,9 +51,34 @@ export function fortressPenaltyOptions(){return [
  {id:'siege-expose',title:'Romper a Guarda',category:'Equipe adversária',text:'Aplica Exposto à equipe adversária por 1 rodada.',effect:{type:'fortress-penalty',scope:'team',status:'exposed'}},
  {id:'siege-seal',title:'Selar a Ofensiva',category:'Um adversário',text:'Selecione um adversário: sela suas técnicas ofensivas por 1 rodada.',effect:{type:'fortress-penalty',scope:'single',status:'sealAttack'}}
 ];}
-export function applyFortressPenalty(s,side,effect,targetId){
+export function applyFortressPenalty(s,side,effect,targetId,earnedRound=s.round){
+ if(!sides.includes(side)||!['weakened','exposed','sealAttack'].includes(effect?.status))return {ok:false,reason:'Penalidade inválida.'};
+ const appliedRound=Number.isSafeInteger(earnedRound)?Math.min(s.round,Math.max(1,earnedRound)):s.round;
  const rivals=team(s,side==='player'?'enemy':'player'),targets=effect.scope==='team'?rivals:rivals.filter(u=>u.id===targetId);
  if(!targets.length)return {ok:false,reason:'Selecione um adversário vivo.'};
- for(const unit of targets){unit[effect.status]=Math.max(unit[effect.status]||0,1);unit.boardFresh??={};unit.boardFresh[effect.status]=s.round;}
+ for(const unit of targets){unit[effect.status]=Math.max(unit[effect.status]||0,1);unit.boardFresh??={};unit.boardFresh[effect.status]=Math.max(unit.boardFresh[effect.status]||0,appliedRound);}
  return {ok:true,targetIds:targets.map(u=>u.id)};
+}
+
+// Only public unit information is consulted, never an opponent's sealed order.
+export function chooseFortressPenalty(s,side,options=fortressPenaltyOptions()){
+ const rivals=team(s,side==='player'?'enemy':'player'),own=team(s,side);
+ const offense=unit=>Math.max(0,...unit.abilities.filter(a=>!['self','ally','friendly','team'].includes(a.target)&&(unit.cooldowns[a.id]||0)<=1).map(a=>{
+  const skill=conquestTechnique(a);return (skill.damage||0)+(skill.stun?8:0)+(skill.combo?.bonusDamage||0)+(skill.perChargeDamage||0)*Math.min(3,unit.charge||0);
+ }));
+ let best=null;
+ for(const option of options){
+  const {scope,status}=option.effect,groups=scope==='single'?rivals.map(unit=>[unit]):[rivals];
+  for(const targets of groups){
+   const score=targets.reduce((total,unit)=>{
+    if(unit[status])return total;
+    const threat=offense(unit);
+    if(status==='weakened')return total+Math.min(10,threat);
+    if(status==='sealAttack')return total+threat*.65;
+    const reachable=own.some(ally=>distance(s.tactical.positions[ally.id],s.tactical.positions[unit.id],s)<=3);
+    return total+(reachable?10:3);
+   },0);
+   if(!best||score>best.score)best={option,targetId:scope==='single'?targets[0]?.id:undefined,score};
+  }
+ }return best;
 }

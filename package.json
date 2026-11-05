@@ -13,7 +13,8 @@
     "audit:art": "node scripts/audit-art.mjs",
     "smoke:tactical": "node scripts/smoke-tactical-catalogue.mjs",
     "audit:tactical-kits": "node scripts/audit-tactical-kits.mjs",
-    "audit:animation": "node scripts/audit-tactical-animation.mjs"
+    "audit:animation": "node scripts/audit-tactical-animation.mjs",
+    "smoke:conquest": "node scripts/smoke-conquest.mjs"
   },
   "engines": {
     "node": ">=20"
