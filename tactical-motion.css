@@ -1089,7 +1089,7 @@
 }
 .fortress-battle .arena-field>.board{
  position:relative;inset:auto;translate:none;
- width:min(100%,1050px);height:auto;aspect-ratio:calc(var(--fort-cols,9)*2.45)/var(--fort-rows,6);
+ width:min(100%,1050px);height:auto;aspect-ratio:calc(max(1.5,var(--fort-cols,9) / var(--fort-rows,6))*2.45);
  transform:perspective(1050px) translateZ(-280px) rotateX(20deg);transform-origin:center top;
  padding:0;gap:0;border:0;
  background:none;box-shadow:none;filter:none;
@@ -1136,7 +1136,7 @@
 @media(max-width:720px){
  .fortress-battle .arena-stage:after{background-position:center,center top -135px}
  .fortress-battle .arena-field{display:flex;flex-direction:column;gap:12px}
- .fortress-battle .arena-field>.board{order:-1;aspect-ratio:calc(var(--fort-cols,9)*1.4)/var(--fort-rows,6);transform:perspective(750px) rotateX(15deg);transform-origin:center bottom}
+ .fortress-battle .arena-field>.board{order:-1;aspect-ratio:calc(max(1.5,var(--fort-cols,9) / var(--fort-rows,6))*1.4);transform:perspective(750px) rotateX(15deg);transform-origin:center bottom}
  .arena-techniques{width:100%;padding:8px}
  .arena-techniques .activation-options{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
