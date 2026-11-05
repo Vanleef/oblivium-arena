@@ -1356,4 +1356,29 @@
 
 /* Center the drawn silhouette rather than the transparent atlas cell. */
 .fortress-battle .conquest-model .token-sprite{translate:calc(var(--figure-center,0) * 100% * var(--facing-sign,1) * var(--atlas-side-sign,1)) 0}
-.fortress-battle .token.enemy{--atlas-side-sign:-1}
+.fortress-battle .token.enemy{--atlas-side-sign:1}
+
+/* The viewport is the only facing owner; the legacy enemy wrapper must not mirror it again. */
+.fortress-battle .token.enemy .token-sprite{transform:translateX(-50%)}
+
+/* Combat geometry is independent of animation titles and technique-card contents. */
+.combat-shell.fortress-battle .arena-stage{
+ container-type:inline-size;
+ --arena-hud-height:190px;
+ --arena-floor-height:calc(var(--arena-field-height) - 62px);
+ --arena-floor-anchor:64px;
+ --arena-field-height:clamp(430px,42vw,620px);
+ --arena-scene-height:calc(var(--arena-hud-height) + var(--arena-field-height) + 36px);
+}
+.fortress-battle .arena-stage>.arena-hud{height:var(--arena-hud-height);min-height:var(--arena-hud-height);overflow:hidden}
+.fortress-battle .arena-field{height:var(--arena-field-height);min-height:0;grid-template-columns:clamp(200px,18%,230px) minmax(0,1fr);grid-template-rows:minmax(0,1fr);align-items:stretch}
+.fortress-battle .arena-field>.board{height:100%;min-height:0;max-height:none;aspect-ratio:auto;contain:size layout}
+.fortress-battle .arena-field>.arena-techniques{height:100%;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.fortress-battle .arena-stage[data-scene]::after{inset:auto 0 auto;top:calc(var(--arena-hud-height) + var(--arena-floor-anchor) - var(--arena-floor-height) * 2.043478);height:calc(var(--arena-floor-height) * 4.347826);border-radius:0;filter:none}
+.fortress-battle .arena-stage>.arena-backdrop{height:var(--arena-scene-height);bottom:auto;object-fit:cover}
+@media(max-width:720px){
+ .combat-shell.fortress-battle .arena-stage{--arena-hud-height:150px;--arena-floor-height:calc(100cqw / 1.68);--arena-floor-anchor:48px;--arena-scene-height:calc(150px + 100cqw / 1.68 + 60px)}
+ .fortress-battle .arena-field{height:auto;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 320px;gap:18px;padding-top:24px}
+ .fortress-battle .arena-field>.board{grid-row:1;order:0;height:auto;aspect-ratio:calc(max(1.5,var(--fort-cols,9) / var(--fort-rows,6))*1.12)}
+ .fortress-battle .arena-field>.arena-techniques{grid-row:2;height:320px}
+}

@@ -47,8 +47,8 @@ test('objective basic-attack procs are ability scoped and once per round',()=>{
  s.tactical.augments={player:[{...option.effect,id:option.effect.augmentId}],enemy:[]};actor.shield=0;
  triggerTacticalAugments(s,'player',actor,'skill',{ability:actor.abilities[0],affected:true});assert.equal(actor.shield,0);
  const basic=actor.abilities.find(a=>a.id==='fortress-basic');
- triggerTacticalAugments(s,'player',actor,'skill',{ability:basic,affected:true});assert.equal(actor.shield,2);
- triggerTacticalAugments(s,'player',actor,'skill',{ability:basic,affected:true});assert.equal(actor.shield,2);
+ triggerTacticalAugments(s,'player',actor,'skill',{ability:basic,affected:true});assert.equal(actor.shield,5);
+ triggerTacticalAugments(s,'player',actor,'skill',{ability:basic,affected:true});assert.equal(actor.shield,5);
 });
 test('repeated objectives create distinct upgrade instances instead of replacing earlier ones',()=>{
  const s=make(),{actor,result}=collect(s),offer=result.chestRewards.find(o=>o.objective);chooseTacticalChestReward(s,offer.id,offer.options[0].id);

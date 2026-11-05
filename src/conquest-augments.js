@@ -14,12 +14,14 @@ const attack=u=>skills(u).some(a=>a.damage);
 const support=u=>skills(u).some(a=>friendly(a));
 const catalog=[];
 const add=(id,title,tier,text,effect,eligible=()=>true,kingdoms=0)=>{
+ text=text.replace(/\b[1-4](?= de (?:dano|Vida|Escudo))/g,'5');
  catalog.push({id,title,tier,text,effect,eligible,kingdoms:Math.max(kingdoms,augmentTiers[tier].kingdoms)});
 };
-const instant=(type,amount)=>({type,amount});
-const lasting=(trigger,stat,amount)=>({type:'conquest-augment',trigger,stat,amount});
+const magnitudeStats=new Set(['damage','heal','shield','counter','dot','reduction','boost']);
+const instant=(type,amount)=>({type,amount:['heal','shield','reduction','boost'].includes(type)?Math.max(5,amount):amount});
+const lasting=(trigger,stat,amount)=>({type:'conquest-augment',trigger,stat,amount:magnitudeStats.has(stat)?Math.max(5,amount):amount});
 add('recover','Fôlego do Invasor','silver','Recupera 20 de Vida do portador.',instant('heal',20),u=>u.hp<u.maxHp);
-add('brace','Pele de Pedra','silver','O portador reduz o dano direto recebido em 4 até o fim da rodada.',instant('reduction',4));
+add('brace','Pele de Pedra','silver','O portador reduz o dano direto recebido em 5 até o fim da rodada.',instant('reduction',4));
 add('ward','Égide Solitária','silver','Concede 12 de Escudo ao portador.',instant('shield',12));
 add('resolve','Fio Afiado','silver','Técnicas de dano do portador causam +2 de dano.',lasting('modify','damage',2),attack);
 add('mender','Mãos Firmes','silver','Técnicas de cura do portador recuperam +3 de Vida.',lasting('modify','heal',3),u=>has(u,'heal'));
@@ -74,11 +76,11 @@ export const conquestAugmentCatalog=Object.freeze(catalog);
 export function characterAugments(actor){
  const id=actor.sourceId||actor.id;
  const definitions=[
-  ['damage','Golpe',a=>a.damage,'damage',3],
-  ['heal','Cuidado',a=>a.heal,'heal',4],
-  ['shield','Guarda',a=>a.shield,'shield',4],
-  ['counter','Resposta',a=>a.counter,'counter',4],
-  ['dot','Aflição',a=>a.dot||a.dots,'dot',2]
+  ['damage','Golpe',a=>a.damage,'damage',5],
+  ['heal','Cuidado',a=>a.heal,'heal',5],
+  ['shield','Guarda',a=>a.shield,'shield',5],
+  ['counter','Resposta',a=>a.counter,'counter',5],
+  ['dot','Aflição',a=>a.dot||a.dots,'dot',5]
  ];
  return definitions.flatMap(([key,label,match,stat,amount])=>{
   const ability=skills(actor).find(match);
@@ -102,8 +104,8 @@ export function objectiveAugmentPool(s,side,actor,tier){
  if(!actor||actor.hp<=0)return [];
  const rank={silver:0,gold:1,prismatic:2}[tier]??0,owned=s.tactical.augments?.[side]||[],result=[];
  for(const ability of actor.abilities){
-  const definitions=[['damage','Impacto','damage',[2,4,6][rank],ability.damage],['heal','Sutura','heal',[3,5,8][rank],ability.heal],['shield','Égide','shield',[3,5,8][rank],ability.shield],['counter','Resposta','counter',[2,4,7][rank],ability.counter],['dot','Aflição','dot',[1,2,3][rank],ability.dot||ability.dots?.length]];
-  if(ability.id==='fortress-basic')definitions.push(['ward','Guarda no Impacto','shield',[2,4,6][rank],true],['mend','Fôlego no Impacto','heal',[1,2,3][rank],true]);
+  const definitions=[['damage','Impacto','damage',[5,8,12][rank],ability.damage],['heal','Sutura','heal',[5,8,12][rank],ability.heal],['shield','Égide','shield',[5,8,12][rank],ability.shield],['counter','Resposta','counter',[5,8,12][rank],ability.counter],['dot','Aflição','dot',[5,6,8][rank],ability.dot||ability.dots?.length]];
+  if(ability.id==='fortress-basic')definitions.push(['ward','Guarda no Impacto','shield',[5,8,12][rank],true],['mend','Fôlego no Impacto','heal',[5,6,8][rank],true]);
   for(const [key,label,stat,amount,eligible] of definitions){
    if(!eligible)continue;
    const id=['objective',actor.sourceId||actor.id,ability.id,key,tier].join(':'),stacks=owned.filter(a=>a.actorId===actor.id&&a.id?.startsWith(id+':')).length,proc=key==='ward'||key==='mend';
