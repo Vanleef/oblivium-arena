@@ -1,3 +1,4 @@
+import {combatScene} from './combat-scenes.js';
 import {conquestTechnique} from './conquest-techniques.js';
 import {augmentTiers,conquestProgress,conquestOfferTier,conquestOfferOptions} from './conquest-augments.js';
 import {techniqueElement,applyElementalArea,applyFieldEvent,pruneSurfaces} from './tactical-elements.js';
@@ -12,7 +13,7 @@ import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenc
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
 import {tacticalRoster,tacticalOpponentRoster,tacticalSpec} from './tactical-kits.js';
-import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,boardHeight,boardTracks,boardMetricPoint,mirrorCell,mirrorDirection,fortressClosure,findPath} from './tactical-board.js';
+import {onBoard,sameCell,distance,movementRange,occupied,obstacle,canStep,lineOfSight,patternCells,directions,cellKey,boardCells,boardWidth,boardHeight,boardTracks,boardMetricPoint,mirrorCell,mirrorDirection,fortressClosure,findPath,unitFacing,faceMovement} from './tactical-board.js';
 
 const fortressBasicAttack=Object.freeze({
  id:'fortress-basic',name:'Ataque Básico',description:'Causa 12 de dano físico na primeira casa à frente após o movimento.',
@@ -181,7 +182,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,fortress:config.fortress,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
- s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
+ s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},facings:{},scene:combatScene(config.scene).id,obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
   Object.assign(s.tactical,{width:9,height:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{},progress:conquestProgress(config.augmentProgress)}});
   for(const u of tacticalUnits(s)){
@@ -282,7 +283,7 @@ export function tacticalTargets(s,actor,ability,anchor,orientation){
 function move(s,ref,strict=false){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor||actor.stunned)return {skipped:true,reason:actor?'Atordoado.':'Personagem fora de combate.'};
  let at=s.tactical.positions[actor.id],moved=0;const from={...at},steps=[];
- for(const step of ref.path){if(!canStep(s,actor.id,at,step)){if(strict)return {skipped:true,reason:'Caminho bloqueado.'};break;}const previous={...at};at={...step};s.tactical.positions[actor.id]=at;steps.push({from:previous,to:{...at}});moved++;}
+ for(const step of ref.path){if(!canStep(s,actor.id,at,step)){if(strict)return {skipped:true,reason:'Caminho bloqueado.'};break;}const previous={...at};at={...step};s.tactical.positions[actor.id]=at;faceMovement(s,actor.id,previous,at);steps.push({from:previous,to:{...at}});moved++;}
  actor.actedThisTurn=true;
  const augmentNotes=moved?triggerTacticalAugments(s,ref.side,actor,'move'):[];
  return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
@@ -410,7 +411,7 @@ function boardOutcome(s){
  const a=s.allies.some(u=>u.hp>0),e=s.enemies.some(u=>u.hp>0);if(a&&e)return false;
  s.phase=a?'victory':e?'defeat':'draw';s.tactical.stage='finished';return true;
 }
-function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,surfaces:s.tactical.surfaces,weather:s.tactical.weather,fortress:s.tactical.fortress,width:s.tactical.width,height:s.tactical.height,obstacles:s.tactical.obstacles,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
+function replayState(s){return copy({allies:s.allies,enemies:s.enemies,resources:s.resources,enemyResources:s.enemyResources,round:s.round,surfaces:s.tactical.surfaces,weather:s.tactical.weather,fortress:s.tactical.fortress,width:s.tactical.width,height:s.tactical.height,obstacles:s.tactical.obstacles,activationSpent:s.tactical.activation?.spent,positions:s.tactical.positions,facings:s.tactical.facings,scene:s.tactical.scene,environment:s.tactical.environment,chests:s.tactical.chests,nextChest:s.tactical.nextChest||null});}
 export function resolveTacticalRound(s){
  if(s.tactical.stage!=='ready')return fail('Ambos os lados precisam confirmar.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
@@ -467,7 +468,7 @@ function resolveExchangeMovement(s,paths){
   const moving=steps.filter(step=>canStep(s,step.actorId,step.from,step.to,{movement:true})&&!steps.some(other=>other!==step&&sameCell(step.to,other.to)));
   const stopped=steps.filter(step=>!moving.includes(step));
   for(const step of stopped)interrupted.add(step.actorId);
-  for(const step of moving){s.tactical.positions[step.actorId]={...step.to};moved.add(step.actorId);}
+  for(const step of moving){s.tactical.positions[step.actorId]={...step.to};faceMovement(s,step.actorId,step.from,step.to);moved.add(step.actorId);}
   for(const step of moving)if(index===0){
    const actor=actorFor(s,step.side,step.actorId);actor.actedThisTurn=true;
    step.augmentNotes=triggerTacticalAugments(s,step.side,actor,'move');
@@ -501,7 +502,7 @@ function resolveTacticalExchange(s){
    if(!moved.has(ref.actorId))continue;
    const actor=actorFor(s,ref.side,ref.actorId),ability=actor?.abilities.find(a=>a.id===ref.abilityId);
    if(!ability||actor.cooldowns[ability.id])continue;
-   const before=replayState(s),aim=fortressAim(s,actor,ability,ref.facing);
+   const before=replayState(s),aim=fortressAim(s,actor,ability,unitFacing(s,actor));
    if(!aim)continue;
    const action={...ref,type:'skill',...aim,formKey:ability.formKey||'base',fortressCooldown:fortressCooldown(ability)};
    const result=execute(s,action);
@@ -573,14 +574,13 @@ export function fortressAim(s,actor,ability,facing){
  const origin=s.tactical.positions[actor.id],forward=actor.side==='player'?1:-1;
  const spec=actionSpec(s,actor,ability);
  const support=['self','ally','friendly','team'].includes(ability.target);
- const direction=facing||[forward,0];
+ const direction=facing||unitFacing(s,actor);
  const directional=!support&&['line','cone'].includes(spec.pattern);
  const anchors=spec.range===0||directional?[origin]:boardCells(s).filter(p=>distance(origin,p,s)<=spec.range);
  const units=new Map(tacticalUnits(s).map(unit=>[unit.id,unit]));
  let best=null;
  for(const anchor of anchors){
-  const dx=Math.sign(anchor.x-origin.x),dy=Math.sign(anchor.y-origin.y);
-  const orientation=directional?direction:[dx||(!dy?forward:0),dy];
+  const orientation=[...direction];
   if(!support&&!directional&&(anchor.x-origin.x)*direction[0]+(anchor.y-origin.y)*direction[1]<0)continue;
   const cells=tacticalArea(s,actor,ability,anchor,orientation);
   if(!cells.length)continue;
@@ -610,7 +610,7 @@ function fortressPreview(s,side,actorId,actions){
  const projection=planningCopy(s);
  projection.tactical.positions[actorId]={...to};
  const ready=!actor.cooldowns[abilityId]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(projection,actor,ability);
- const from=s.tactical.positions[actorId],facing=[Math.sign(to.x-from.x),Math.sign(to.y-from.y)];
+ const from=move.path.at(-2)||s.tactical.positions[actorId],facing=faceMovement(projection,actorId,from,to);
  const aim=ready?fortressAim(projection,actor,ability,facing):null;
  return {ok:true,projection,ability,aim,actions:[{type:'move',side,actorId,abilityId,facing,path:move.path.map(p=>({x:p.x,y:p.y}))}]};
 }

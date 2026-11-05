@@ -97,3 +97,17 @@ export function patternCells(kind,origin,anchor,direction=[1,0],length=2,s){
  else points=[anchor];
  return [...new Map(points.filter(point=>onBoard(point,s)).map(p=>[cellKey(p),p])).values()];
 }
+
+// Facings use board coordinates. Old battles fall back to the team's initial side.
+export function unitFacing(s,unit){
+ const facing=s.tactical.facings?.[unit.id];
+ return directions.some(d=>d[0]===facing?.[0]&&d[1]===facing?.[1])?[...facing]:[unit.side==='enemy'?-1:1,0];
+}
+export function faceMovement(s,actorId,from,to){
+ const a=boardMetricPoint(s,from),b=boardMetricPoint(s,to);
+ const facing=[Math.sign(b.x-a.x),Math.sign(b.y-a.y)];
+ if(facing[0]||facing[1]){
+  s.tactical.facings??={};s.tactical.facings[actorId]=facing;
+ }
+ return facing;
+}

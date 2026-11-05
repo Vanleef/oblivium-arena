@@ -30,7 +30,7 @@ test('limita resolução e partículas e encerra a animação após o impacto',(
  const size=tacticalEffectResolution(1920,1080,3);
  assert.ok(size.width*size.height<=900000);
  assert.deepEqual(tacticalEffectResolution(400,300,3),{width:600,height:450});
- const ctx=new Proxy({}, {get:(target,key)=>target[key]||(()=>{})});
+ const ctx=new Proxy({createRadialGradient:()=>({addColorStop(){}})}, {get:(target,key)=>target[key]||(()=>{})});
  const canvas={getContext:()=>ctx,dataset:{}};
  const board={clientWidth:900,clientHeight:600,append(node){node.parentElement=this;}};
  const saved=globalThis.requestAnimationFrame;
@@ -51,7 +51,7 @@ test('limita resolução e partículas e encerra a animação após o impacto',(
 });
 
 test('eventos usam a camada compartilhada com efeitos limitados e respeitam movimento reduzido',()=>{
- const ctx=new Proxy({}, {get:(target,key)=>target[key]||(()=>{})});
+ const ctx=new Proxy({createRadialGradient:()=>({addColorStop(){}})}, {get:(target,key)=>target[key]||(()=>{})});
  const canvas={getContext:()=>ctx,dataset:{}};
  const board={clientWidth:900,clientHeight:600,append(node){node.parentElement=this;}};
  const saved=globalThis.requestAnimationFrame;

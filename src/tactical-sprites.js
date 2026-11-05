@@ -108,7 +108,8 @@ export function paintTacticalToken(token,unit,event,frame){
   const board=token.closest('.board'),fromCell=token.closest('.cell'),toCell=board?.querySelector(`[data-cell="${event.to?.x},${event.to?.y}"]`);
   if(fromCell&&toCell){const a=fromCell.getBoundingClientRect(),b=toCell.getBoundingClientRect(),x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;token.style.setProperty('--travel-x',`${x}px`);token.style.setProperty('--travel-y',`${y}px`);token.style.setProperty('--travel-mid-x',`${x*.52}px`);token.style.setProperty('--travel-mid-y',`${y*.52}px`);}
  }
- let dx=Math.sign(aim.x-start.x),dy=Math.sign(aim.y-start.y);if(!dx&&!dy){dx=event.orientation?.[0]||1;dy=event.orientation?.[1]||0;}
+ let dx=event.orientation?.[0]??Math.sign(aim.x-start.x),dy=event.orientation?.[1]??Math.sign(aim.y-start.y);if(!dx&&!dy){dx=event.orientation?.[0]||1;dy=event.orientation?.[1]||0;}
+ token.style.setProperty('--facing-sign',dx<0?-1:1);
  token.style.setProperty('--windup-x',`${-dx*2}%`);token.style.setProperty('--windup-y',`${-dy*2}%`);token.style.setProperty('--lunge-x',`${dx*5}%`);token.style.setProperty('--lunge-y',`${dy*4}%`);token.style.setProperty('--follow-x',`${dx*2}%`);token.style.setProperty('--follow-y',`${dy*1}%`);
  const laneHop=event.type==='move'&&frame.pose==='airborne'&&hopRows!==0;token.dataset.hop=String(laneHop);token.closest('.cell')?.classList.toggle('hop',laneHop);token.style.setProperty('--hop-y',`${Math.round(hopRows*90)}%`);token.style.setProperty('--hop-mid-y',`${Math.round(hopRows*45)}%`);
  if(sprite&&atlasFrame){

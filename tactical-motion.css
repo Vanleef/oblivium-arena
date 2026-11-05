@@ -1218,3 +1218,94 @@
  .chest-options [data-tier]:nth-child(3){animation-delay:.14s}
 }
 @keyframes augment-arrival{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+
+/* The facing applies to the figure, while the ground indicator follows all eight directions. */
+.fortress-battle .token .sprite-viewport{
+ scale:calc(var(--facing-sign,1)*var(--model-scale,1)) var(--model-scale,1);
+}
+.fortress-battle .arena-field .token-art{scale:var(--facing-sign,1) 1.12}
+.facing-indicator{
+ position:absolute;z-index:2;left:50%;bottom:3%;width:72%;height:22%;
+ translate:-50% 0;pointer-events:none;opacity:.72;
+}
+.facing-indicator::after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(90deg,transparent 35%,#fff0bba6);
+ clip-path:polygon(45% 26%,68% 26%,68% 4%,100% 50%,68% 96%,68% 74%,45% 74%);
+ rotate:var(--facing-angle,0deg);transform-origin:50% 50%;
+}
+.fortress-battle .arena-stage[data-scene="inferno"]::after{
+ background:linear-gradient(180deg,#1b111508,transparent 48%,#170e1c8c 88%,#141321),
+ url('/art/arenas/inferno-cathedral.webp') center top/max(100%,900px) auto no-repeat,#141321;
+}
+.fortress-battle .arena-stage[data-scene="paraiso"]::after{
+ background:linear-gradient(180deg,#1924370d,transparent 42%,#17152880 90%,#141321),
+ url('/art/arenas/paraiso-courtyard.webp') center top/max(100%,900px) auto no-repeat,#141321;
+}
+.fortress-battle .arena-stage[data-scene="paraiso"] .cell{
+ box-shadow:inset -1px -1px #201a3529;
+}
+.tactical-status-vfx [data-status-vfx="stunned"]{
+ inset:-18% auto auto 50%;width:58%;height:27%;translate:-50% 0;
+ border:0;border-radius:50%;
+ background:radial-gradient(ellipse,#e6b95524,transparent 67%);
+ filter:drop-shadow(0 0 4px #ddac5680);
+}
+.tactical-status-vfx [data-status-vfx="stunned"]::before,
+.tactical-status-vfx [data-status-vfx="stunned"]::after{
+ content:"";position:absolute;inset:14% 0;border-radius:50%;clip-path:none;
+ background:conic-gradient(from 20deg,transparent 0 15%,#ffe5a5bb 24%,transparent 38% 57%,#d3a15ea3 68%,transparent 86%);
+ mask-image:radial-gradient(ellipse,transparent 47%,#000 54% 65%,transparent 73%);
+}
+.tactical-status-vfx [data-status-vfx="stunned"]::after{inset:0 18%;transform:rotate(-28deg);opacity:.5}
+.token.stunned .sprite-viewport,.token.stunned .token-art{filter:saturate(.55) brightness(.85)}
+.tactical-status-vfx [data-status-vfx="weakened"]{
+ inset:26% 5% 1%;height:auto;border:0;box-shadow:none;
+ background:radial-gradient(ellipse at 28% 85%,#6d4d827d,transparent 48%),radial-gradient(ellipse at 75% 40%,#866c9366,transparent 47%);
+}
+.tactical-status-vfx [data-status-vfx="invulnerable"]{
+ border:1px solid #ffe7b280;
+ background:radial-gradient(ellipse at 35% 30%,#fff0c23f,transparent 60%);
+ box-shadow:inset 0 0 12px #e2ba6245,0 0 8px #f0c78a35;
+}
+.tactical-status-vfx [data-status-vfx="frozen"]{
+ background:linear-gradient(115deg,#dbf8ffa1,transparent 38%,#64b8d673 62%,#d8f4ff9c);
+ filter:drop-shadow(0 1px 2px #b7e5ff70);
+}
+.fortress-battle .weather-bolt{
+ width:15%;left:43%;background:linear-gradient(#fcfeff,#badcff);
+ clip-path:polygon(42% 0,54% 0,61% 24%,39% 43%,66% 64%,44% 100%,46% 68%,25% 44%,49% 24%);
+ filter:drop-shadow(0 0 3px #c4e8ff) drop-shadow(0 0 9px #6799d2);
+}
+@media(prefers-reduced-motion:no-preference){
+ .tactical-status-vfx [data-status-vfx="stunned"]::before{animation:stun-haze 2.6s linear infinite}
+ .tactical-status-vfx [data-status-vfx="stunned"]::after{animation:stun-haze 3.4s linear infinite reverse}
+ .tactical-status-vfx [data-status-vfx="weakened"]{animation:debuff-breath 2s ease-in-out infinite alternate}
+}
+@keyframes stun-haze{to{rotate:1turn}}
+@keyframes debuff-breath{to{opacity:.5;translate:0 -3px}}
+.tactical-status-vfx [data-status-vfx="boost"]{
+ inset:20% 8% 3%;height:auto;border:0;
+ background:radial-gradient(ellipse at 50% 90%,#dda85475,transparent 57%),linear-gradient(90deg,transparent,#ffde9b12,transparent);
+}
+.tactical-status-vfx [data-status-vfx="counter"]{
+ border:0;border-inline-end:2px solid #d7b57caa;
+ box-shadow:inset -4px 0 10px #af835233;
+}
+.tactical-status-vfx [data-status-vfx="exposed"]{
+ inset:48% 12% 12%;height:auto;border:0;
+ background:radial-gradient(ellipse,#ac484951,transparent 62%);
+}
+.fortress-battle .element-floor[data-element="fire"]::after{
+ content:"";position:absolute;inset:-28% 12% 10%;
+ background:radial-gradient(ellipse at 27% 75%,#ffda99 0 6%,#ee865d80 16%,transparent 36%),radial-gradient(ellipse at 66% 66%,#ffe3a6 0 5%,#d6694f76 17%,transparent 35%);
+ filter:blur(.5px);
+}
+.fortress-battle .element-floor[data-element="water"]::after{
+ content:"";position:absolute;inset:24% 17%;border-radius:50%;
+ border:1px solid #c0e9ef57;box-shadow:0 0 0 4px #c0e9ef0d;
+}
+@media(prefers-reduced-motion:no-preference){
+ .fortress-battle .element-floor[data-element="fire"]::after{animation:ground-embers 1.7s ease-in-out infinite alternate}
+}
+@keyframes ground-embers{to{opacity:.56;transform:translateY(-3px) scale(.93,1.14)}}

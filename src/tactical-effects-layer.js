@@ -284,14 +284,32 @@ function drawFieldEffect(ctx,fx,p){
  }
  const [light,mid]=fx.colors;
  if(kind==='thunder'){
-  const pulse=Math.max(0,1-p*3.2);
-  ctx.strokeStyle=light;ctx.lineWidth=2;ctx.globalAlpha=pulse;
-  ctx.beginPath();ctx.moveTo(x-r*.35,y-r*2.5);
-  ctx.lineTo(x+r*.22,y-r*1.45);ctx.lineTo(x-r*.08,y-r*.93);ctx.lineTo(x,y);
-  ctx.moveTo(x+r*.22,y-r*1.45);ctx.lineTo(x+r*.72,y-r*.8);
-  ctx.stroke();
-  ring(ctx,x,y,r*(.24+p*1.25),mid,fade*.9,2);
-  ring(ctx,x,y,r*(.14+p*.8),light,fade*.63);
+  const pulse=Math.max(0,1-p*2.5)*(p<.12||p>.19&&p<.27?1:.35);
+  const points=Array.from({length:10},(_,i)=>({
+   x:x+(i===9?0:Math.sin(i*4.9+Math.floor(p*18)*2.3)*r*.24),
+   y:y-r*3.8*(1-i/9)
+  }));
+  ctx.lineJoin='round';ctx.lineCap='round';
+  for(const [width,color,alpha] of [[10,mid,.15],[4,mid,.55],[1.25,light,1]]){
+   ctx.globalAlpha=pulse*alpha;ctx.strokeStyle=color;ctx.lineWidth=width;
+   ctx.beginPath();points.forEach((point,i)=>i?ctx.lineTo(point.x,point.y):ctx.moveTo(point.x,point.y));ctx.stroke();
+  }
+  ctx.globalAlpha=pulse*.7;ctx.strokeStyle=light;ctx.lineWidth=.7;
+  for(const index of [3,5,7]){
+   const point=points[index],sign=index===5?-1:1;
+   ctx.beginPath();ctx.moveTo(point.x,point.y);
+   ctx.lineTo(point.x+sign*r*.4,point.y+r*.21);
+   ctx.lineTo(point.x+sign*r*.55,point.y+r*.6);ctx.stroke();
+  }
+  const halo=ctx.createRadialGradient(x,y,0,x,y,r*(.8+p*.8));
+  halo.addColorStop(0,'#d5eeff88');halo.addColorStop(.3,'#8bb9ef44');halo.addColorStop(1,'#79a7ed00');
+  ctx.globalAlpha=fade*.8;ctx.fillStyle=halo;ctx.beginPath();ctx.ellipse(x,y,r*(.8+p*.8),r*(.4+p*.3),0,0,TAU);ctx.fill();
+  ring(ctx,x,y,r*(.24+p*1.25),mid,fade*.5,1);
+  for(let i=0;i<8;i++){
+   const angle=i*2.4,travel=r*(.2+p*1.7);
+   ctx.globalAlpha=fade*fade;ctx.fillStyle=light;ctx.beginPath();
+   ctx.arc(x+Math.cos(angle)*travel,y+Math.sin(angle)*travel*.42-r*Math.sin(p*Math.PI)*.5,Math.max(.4,1.4*fade),0,TAU);ctx.fill();
+  }
  }else if(kind==='field-splash'){
   if(fx.field==='rain'){
    ctx.strokeStyle=light;ctx.lineWidth=1.5;ctx.globalAlpha=fade;
