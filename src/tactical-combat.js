@@ -36,9 +36,14 @@ function applyChestEffect(s,side,effect){
  const healUnit=(unit,fraction)=>{if(unit&&unit.hp>0)unit.hp=Math.min(unit.maxHp,unit.hp+Math.max(1,Math.round(unit.maxHp*fraction)));};
  const addShield=(unit,amount)=>{if(unit?.hp>0)unit.shield=Math.min(Math.round(unit.maxHp*.5),unit.shield+amount);};
  if(effect.type==='fortress-heal')healUnit(units.find(u=>u.id===effect.actorId),.4);
- else if(effect.type==='fortress-ward')addShield(units.find(u=>u.id===effect.actorId),24);
+ else if(effect.type==='fortress-ward'){
+  const unit=units.find(u=>u.id===effect.actorId);
+  addShield(unit,18);
+  if(unit?.hp>0){unit.reduction=Math.max(unit.reduction||0,6);}
+ }
  else if(effect.type==='fortress-surface'){
   const origin=s.tactical.positions[effect.actorId];
+  if(!origin||!living.some(unit=>unit.id===effect.actorId))return;
   const cells=boardCells(s).filter(p=>distance(origin,p,s)<=1&&!obstacle(s,p));
   applyElementalArea(s,effect.element,cells,[]);
  }
@@ -47,7 +52,12 @@ function applyChestEffect(s,side,effect){
  }else if(effect.type==='fortress-rally'){
   for(const unit of living)healUnit(unit,.14);
  }else if(effect.type==='fortress-refresh'){
-  for(const unit of living)for(const [id,left] of Object.entries(unit.cooldowns)){if(left<=1)delete unit.cooldowns[id];else unit.cooldowns[id]--;}
+  for(const unit of living){
+   addShield(unit,6);
+   for(const [id,left] of Object.entries(unit.cooldowns)){
+    if(left<=1)delete unit.cooldowns[id];else unit.cooldowns[id]--;
+   }
+  }
  }
  else if(effect.type==='fortress-terrain'){
   const enemyEdge=side==='player'?boardWidth(s)-1:0;
@@ -55,6 +65,7 @@ function applyChestEffect(s,side,effect){
   if(point)s.tactical.obstacles.push(point);
  }else if(effect.type==='fortress-breach'){
   const unit=units.find(u=>u.id===effect.actorId);
+  if(!unit?.hp||unit.abilities.some(a=>a.id==='fortress-breach'))return;
   const art=unit.abilities[0]?.art;
   unit.abilities.push({id:'fortress-breach',name:'Ruptura do Bastião',description:'Causa 24 de dano perfurante e aplica Exposto na área em cruz.',target:'all-enemies',damage:24,damageType:'piercing',expose:1,cooldown:2,formKey:'base',art});
  }else if(effect.type==='heal-lowest'){
@@ -126,7 +137,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  if(enemyIds.length+creatures.length>5||creatures.some(unit=>!unit.npcOnly||!unit.abilities?.length))throw Error('Encontro de campanha inválido.');
  const enemyTeam=[...enemyIds.map(id=>characterById[id]),...creatures].map((unit,i)=>({...unit,sourceId:unit.id,id:'rival-'+i+'-'+unit.id}));
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
- const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
+ const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,fortress:config.fortress,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
  s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
@@ -507,6 +518,7 @@ export function fortressAim(s,actor,ability,facing){
  const direction=facing||[forward,0];
  const directional=!support&&['line','cone'].includes(spec.pattern);
  const anchors=spec.range===0||directional?[origin]:boardCells(s).filter(p=>distance(origin,p,s)<=spec.range);
+ const units=new Map(tacticalUnits(s).map(unit=>[unit.id,unit]));
  let best=null;
  for(const anchor of anchors){
   const dx=Math.sign(anchor.x-origin.x),dy=Math.sign(anchor.y-origin.y);
@@ -515,7 +527,14 @@ export function fortressAim(s,actor,ability,facing){
   const cells=tacticalArea(s,actor,ability,anchor,orientation);
   if(!cells.length)continue;
   const targets=tacticalTargets(s,actor,ability,anchor,orientation);
-  const value=targets.length*10+(anchor.x-origin.x)*forward*.18-distance(origin,anchor,s)*.03;
+  const value=targets.reduce((score,id)=>{
+   if(!support)return score+10;
+   const unit=units.get(id);
+   const missingHealth=ability.heal?Math.min(ability.heal,unit.maxHp-unit.hp):0;
+   const missingShield=ability.shield?Math.min(ability.shield,Math.max(0,Math.round(unit.maxHp*.5)-unit.shield)):0;
+   const cleanseValue=ability.cleanse&&(unit.stunned||unit.weakened||unit.exposed||unit.dots?.length)?12:0;
+   return score+2+missingHealth+missingShield+cleanseValue;
+  },0)+(anchor.x-origin.x)*forward*.18-distance(origin,anchor,s)*.03;
   if(!best||value>best.value)best={anchor:directional?(targets[0]?s.tactical.positions[targets[0]]:cells.at(-1)):anchor,orientation,cells,targets,value};
  }
  return best;
@@ -555,8 +574,8 @@ function queueFortressReward(s,side,actorId,source){
   {id:'leap',title:'Salto do Cavalo',category:'Movimento',text:actor.name+' pode saltar em L com sua única ação.',effect:{type:'fortress-leap',actorId:id}},
   {id:'breach',title:'Ruptura do Bastião',category:'Técnica',text:'Libera um ataque em cruz que causa dano perfurante e aplica Exposto.',effect:{type:'fortress-breach',actorId:id}},
   {id:'team-heal',title:'Pacto dos Sobreviventes',category:'Coletivo',text:'Recupere até 14 de Vida de cada aliado vivo.',effect:{type:'fortress-rally'}},
-  {id:'refresh',title:'Pulso de Vigília',category:'Recarga',text:'Reduza em uma rodada as recargas dos aliados vivos.',effect:{type:'fortress-refresh'}},
-  {id:'ward',title:'Égide Solitária',category:'Individual',text:'Concede 24 de Escudo a '+actor.name+'.',effect:{type:'fortress-ward',actorId:id}},
+  {id:'refresh',title:'Pulso de Vigília',category:'Recarga',text:'Cada aliado vivo ganha 6 de Escudo e reduz suas recargas em uma rodada.',effect:{type:'fortress-refresh'}},
+  {id:'ward',title:'Égide Solitária',category:'Individual',text:'Concede 18 de Escudo e 6 de Redução de Dano a '+actor.name+'.',effect:{type:'fortress-ward',actorId:id}},
   {id:'cleanse',title:'Rito de Purificação',category:'Coletivo',text:'Remove aflições, marcas e efeitos de controle dos aliados vivos.',effect:{type:'cleanse-team'}},
   {id:'resolve',title:'Voto de Retaliação',category:'Coletivo',text:'Os aliados vivos recebem 6 de bônus de dano até o fim da rodada seguinte.',effect:{type:'boost-team',amount:6}},
   {id:'tide',title:'Círculo da Maré',category:'Campo',text:'Espalha Água na casa de '+actor.name+' e nas casas adjacentes.',effect:{type:'fortress-surface',actorId:id,element:'water'}},

@@ -1,4 +1,4 @@
-import {conquestTechnique} from './conquest-techniques.js';
+import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {campaignCreature} from './campaign-creatures.js';
 import {surfaceDamageFactor} from './tactical-elements.js';
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
@@ -195,7 +195,7 @@ function consumeFractures(target,actor,count){
 function transfer(s,side,n,steal,resource=null){const other=side==="player"?"enemy":"player",p=pool(s,other),requested=["random","coringa"].includes(resource)?null:resource;let count=0;for(let i=0;i<n;i++){const id=requested?(p[requested]>0?requested:null):resourceIds.filter(key=>(p[key]||0)>0).sort((a,b)=>(p[b]||0)-(p[a]||0))[0];if(!id)break;p[id]--;count++;if(steal)gain(s,side,id);}return count;}
 const essenceName=id=>({essence:"Éter",cinza:"Cinza",ruptura:"Ruptura",graca:"Graça",random:"Essência aleatória",coringa:"Essência aleatória"}[id]||"Essência");
 function triggerPassive(s,unit,trigger,context={}){
- const p=unit?.passive;if(!p||p.trigger!==trigger||unit.hp<=0)return false;
+ const p=s.tactical?.fortress?conquestPassive(unit?.passive):unit?.passive;if(!p||p.trigger!==trigger||unit.hp<=0)return false;
  if(p.oncePerBattle&&unit.passiveUsed)return false;
  if(!p.oncePerBattle&&!p.repeatPerRound&&unit.passiveTriggeredRound===s.round)return false;
  const own=pool(s,unit.side),other=pool(s,unit.side==="player"?"enemy":"player"),target=context.target,attacker=context.attacker;
@@ -340,6 +340,10 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   if(affected){if(a.lifesteal){const sharedFamine=eloSynergyPeers(team(s,actor.side),actor,"lifesteal");heal(actor,Math.floor(totalDamage*a.lifesteal)+sharedFamine);}if(totalDamage&&actor.passive?.type==="leech"){const passive=actor.passive,typed=passive.healByDamageType,amount=typed?(typed[a.damageType||"physical"]||0):passive.amount;if(amount)heal(actor,amount+eloSynergyPeers(team(s,actor.side),actor,"lifesteal"));}if(isFriendly&&actor.passive?.type==="support")heal(actor,actor.passive.amount);if(a.drain||a.steal){const extra=eloSynergyPeers(team(s,actor.side),actor,"essence"),n=transfer(s,actor.side,(a.steal||a.drain)+extra,Boolean(a.steal));log(s,`${a.steal?"Roubo":"Drenagem"} de Essência: ${n} ${n===1?"unidade":"unidades"}.`);}}
   if(affected){if(a.shieldToDamage?.consume)actor.shield=0;if(a.wardFromDamage)shield(actor,Math.min(20,Math.floor(totalDamage*a.wardFromDamage)));if(a.shieldFromStripped)shield(actor,Math.min(15,Math.floor(totalStripped*a.shieldFromStripped)));if(a.siphonToAlly){const beneficiary=nearest(team(s,actor.side));if(beneficiary)heal(beneficiary,Math.min(15,Math.floor(totalDamage*a.siphonToAlly)));}if(a.escalating&&a.damage)actor.skillGrowth[skillGrowthKey(a)]=Math.min(a.escalating.max,(actor.skillGrowth[skillGrowthKey(a)]||0)+a.escalating.amount);}
   if(a.damage&&affected){actor.globalStrikeUsed=true;if(actor.side==="player"&&s.global.lifesteal)heal(actor,Math.floor(totalDamage*Math.min(.6,s.global.lifesteal)));}
+  if(s.tactical?.fortress&&affected){
+    if(a.conquestWard)shield(actor,a.conquestWard);
+    if(a.id!=="fortress-basic")triggerPassive(s,actor,"techniqueHit",{ability:a,target:targets[0]});
+  }
   if(a.damage&&affected&&actor.passive?.type==="firstHit")actor.passiveUsed=true;
   if(totalDamage>0&&actor.passive?.trigger==="firstHit")triggerPassive(s,actor,"firstHit",{target:targets.find(target=>target.hp>0)||targets[0],ability:a,costs});
   if(affected){if(a.spendCharge)actor.charge=0;actor.charge=Math.min(3,actor.charge+(a.gainCharge||0));if(a.maxUses)actor.skillUses[a.id]=(actor.skillUses[a.id]||0)+1;applySkillShifts(s,actor,a.shift,targetId,meetsCondition);}
@@ -405,6 +409,7 @@ export function createBattle(ids,enemyTeam,config={}){
   const s={campaignRealm:config.campaignRealm||null,niloAbsorption:config.niloAbsorption?{cinza:config.niloAbsorption.cinza||0,graca:config.niloAbsorption.graca||0,ruptura:config.niloAbsorption.ruptura||0}:null,enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,...(config.rngSeed===undefined?{}:{rngState:(Number(config.rngSeed)||1)>>>0}),essenceDraws:{player:[],enemy:[]},pendingEssenceExchanges:[],global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:{...buffValues,...memoryEffects},deathEchoStacks:{player:0,enemy:0},acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};
   for(let i=0;i<(buffValues.randomEssence||0)+legacyRandomEssence+(global.randomEssence||0);i++)gain(s,"player",randomResourceId(s));
   for(const [side,units] of [["player",s.allies],["enemy",s.enemies]]){const counts=new Map();for(const unit of living(units)){const affinity=unit.affinity||unit.bodyResource;if(affinity)counts.set(affinity,(counts.get(affinity)||0)+1);}const [affinity,count]=[...counts].sort((a,b)=>b[1]-a[1])[0]||[];if(count>=2){gain(s,side,affinity,1);log(s,`${side==="player"?"Seu trio":"A oposição"} · Afinidade convergente: +1 ${essenceName(affinity)} no início do combate.`);}}
+  if(config.fortress)s.tactical={fortress:true};
   grantTurn(s);planAI(s);return s;
 }
 export function chooseAction(s,actorId,abilityId,targetId,options={}){

@@ -1,5 +1,5 @@
 import {tacticalStatuses} from './tactical-statuses.js';
-import {conquestTechnique} from './conquest-techniques.js';
+import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {elements,surfaceAt,techniqueElement} from './tactical-elements.js';
 import {applyTacticalShot} from './tactical-shot.js';
 import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
@@ -49,8 +49,9 @@ function specialChoicesMarkup(unit){
  return controls.join('')+pending.map(u=>'<div class="tactical-spend"><strong>'+esc(u.name)+' · Sombra Preparada</strong><button data-shadow-actor="'+esc(u.id)+'" data-shadow-choice="damage">+5 na próxima técnica de dano</button><button data-shadow-actor="'+esc(u.id)+'" data-shadow-choice="response">Próxima resposta contra qualquer tipo</button></div>').join('');
 }
 function passiveMarkup(unit){
- if(!unit?.passive)return '';
- return '<details class="tactical-passive"><summary>Passiva · '+esc(unit.passive.name)+' <small>Automática · não ocupa ações</small></summary><p>'+esc(unit.passive.description||'')+'</p></details>';
+ const passive=state.battle.tactical.fortress?conquestPassive(unit?.passive):unit?.passive;
+ if(!passive)return '';
+ return '<details class="tactical-passive"><summary>Passiva · '+esc(passive.name)+' <small>Automática · não ocupa ações</small></summary><p>'+esc(passive.description||'')+'</p></details>';
 }
 function environmentMarkup(s){
  const rule=s.tactical.environment;if(!rule)return '';
@@ -227,7 +228,7 @@ function activationSignal(unit,spent){
  const mark=activationMark(unit,spent);
  const interrupted=mark==='acting'&&state.animation?.actorId===unit.id&&state.animation.skipped;
  const icon=interrupted?'×':mark==='spent'?'✓':mark==='sealed'?'◆':mark==='selected'?'⌄':mark==='acting'?'✦':'';
- return mark&&mark!=='inactive'?'<span class="activation-signal '+mark+(interrupted?' interrupted':'')+'" aria-hidden="true"><i></i><b>'+icon+'</b></span>':'';
+ return mark&&mark!=='inactive'?(mark==='selected'&&state.battle.tactical.fortress?'<span class="selected-unit-arrow" aria-hidden="true"></span>':'')+'<span class="activation-signal '+mark+(interrupted?' interrupted':'')+'" aria-hidden="true"><i></i><b>'+icon+'</b></span>':'';
 }
 function arenaHudMarkup(s,announcement=''){
  const spent=state.playback?.activationSpent||state.battle.tactical.activation.spent;
