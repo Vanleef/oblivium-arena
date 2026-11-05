@@ -1,3 +1,5 @@
+import {conquestTechnique} from './conquest-techniques.js';
+import {conquestAugmentedAbility} from './conquest-augments.js';
 import {tacticalEnvironmentDelta} from './tactical-environment.js';
 import {tacticalView,previewTacticalPlan,previewTacticalActivation,tacticalActivationUnits} from './tactical-combat.js';
 import {boardCells,findPath,distance} from './tactical-board.js';
@@ -55,7 +57,8 @@ export function planTacticalAIActivation(s,side='enemy'){
    const objective=eligible?edge:8-edge;
    for(const to of boardCells(view)){
     const path=findPath(view,unit.id,to);if(!path)continue;
-    for(const ability of unit.abilities){
+    for(const base of unit.abilities){
+     const ability=conquestAugmentedAbility(view,unit,conquestTechnique(base));
      const actions=[{type:'move',actorId:unit.id,path,abilityId:ability.id}],preview=previewTacticalActivation(view,side,unit.id,actions);
      if(!preview.ok)continue;
      const value=(Math.abs(start.x-objective)-Math.abs(to.x-objective))*5+(to.x===objective?18:0)
