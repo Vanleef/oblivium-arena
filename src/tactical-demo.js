@@ -14,8 +14,8 @@ import {characterById} from './data.js';
 import {tacticalRoutes,createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun} from './tactical-run.js';
 import {createTacticalBattle,previewTacticalActivation,submitTacticalActivation,tacticalActivationUnits,tacticalView,chooseTacticalChestReward,exchangeTacticalEssence,chooseTacticalShadow,tacticalArea,tacticalTargets,tacticalUnits,fortressCooldown,fortressTechniqueSpec} from './tactical-combat.js';
 import {planTacticalAIActivation} from './tactical-ai.js';
-import {boardCells,boardWidth,boardHeight,boardTracks,cellLabel,sameCell,findPath,movementRange,cellKey,occupied,obstacle,fortressClosure} from './tactical-board.js';
-import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText,patternNames} from './tactical-kits.js';
+import {boardCells,boardWidth,boardHeight,boardTracks,cellLabel,sameCell,findPath,movementRange,cellKey,occupied,obstacle,fortressClosure,patternCells} from './tactical-board.js';
+import {tacticalRoster,tacticalOpponentRoster,tacticalSpec,tacticalRuleText} from './tactical-kits.js';
 import {tacticalFrameArt,tacticalImpactActive,tacticalFrameDuration,tacticalDamagedTargets} from './tactical-animation.js';
 import {tacticalSpriteFrame,tacticalSpriteInline,paintTacticalToken} from './tactical-sprites.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
@@ -153,6 +153,20 @@ function selectDestination(cell){
 }
 function portraitSrc(unit){return unit?.art?.portrait||'';}
 function animationAbility(unit,event){const base=event?.abilityId?unit?.abilities.find(k=>k.id===event.abilityId):null;if(!base)return null;const key=event.formKey;if(!key||key===(base.formKey||'base'))return base;return base._formRoot?.forms?.find(form=>form.formKey===key)||base.forms?.find(form=>form.formKey===key)||base;}
+function techniqueAreaMarkup(spec){
+ const center={x:3,y:3},grid={tactical:{width:7,height:7}};
+ const affected=new Set(patternCells(spec.pattern,center,center,[1,0],spec.length,grid).map(cellKey));
+ const points=[center,...boardCells(grid).filter(cell=>affected.has(cellKey(cell)))];
+ const left=Math.min(...points.map(cell=>cell.x)),right=Math.max(...points.map(cell=>cell.x));
+ const top=Math.min(...points.map(cell=>cell.y)),bottom=Math.max(...points.map(cell=>cell.y));
+ const cells=[];
+ for(let y=top;y<=bottom;y++)for(let x=left;x<=right;x++){
+  cells.push('<rect x="'+((x-left)*8+.5)+'" y="'+((y-top)*8+.5)+'" width="7" height="7" rx="1.2" class="'+(affected.has(cellKey({x,y}))?'area-hit':'area-empty')+'"/>');
+ }
+ const showsCaster=['self','line','cone','ring'].includes(spec.pattern);
+ const marker=showsCaster?'<circle class="area-caster" cx="'+((center.x-left)*8+4)+'" cy="'+((center.y-top)*8+4)+'" r="1.6"/>':'';
+ return '<svg class="technique-area" viewBox="0 0 '+((right-left+1)*8)+' '+((bottom-top+1)*8)+'" role="img" aria-label="Área de ação: '+affected.size+' '+(affected.size===1?'casa':'casas')+(spec.pattern==='self'?', no usuário':'')+'">'+cells.join('')+marker+'</svg>';
+}
 function activationCommands(actor,selection,projected){
  if(!playerTurn()||!actor)return '';
  if(state.battle.tactical.fortress){
@@ -161,7 +175,7 @@ function activationCommands(actor,selection,projected){
    const remaining=actor.cooldowns[a.id]||0;
    const blocked=skillSealReason(actor,a)||tacticalRequirementReason(projected,actor,a);
    const shape=fortressTechniqueSpec(projected,actor,a),cooldown=fortressCooldown(a),element=elements[techniqueElement(actor,a)];
-   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[conquestTechnique(a).description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||patternNames[shape.pattern]+' · '+(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span></button>';
+   return '<button data-mode="'+esc(a.id)+'" aria-pressed="'+(equipped===a.id)+'" '+(remaining||blocked?'disabled':'')+' title="'+esc(blocked||[conquestTechnique(a).description||a.name,element?.hint].filter(Boolean).join(' '))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" loading="lazy">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(remaining?'Em recarga · '+remaining:blocked||(cooldown?'Recarga '+cooldown:'Sem recarga')+(element?' · '+element.label:''))+'</small></span>'+techniqueAreaMarkup(shape)+'</button>';
   }).join('');
   const technique=actor.abilities.map(conquestTechnique).find(ability=>ability.id===equipped);
   const hint=state.message||technique?.description||'Equipe a técnica e toque na casa de destino para agir.';

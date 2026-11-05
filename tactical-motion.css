@@ -1118,6 +1118,10 @@
  background:linear-gradient(145deg,#302038f5,#171322ed);box-shadow:0 12px 28px #09061285;
 }
 .arena-techniques h2{margin:0 0 10px;color:#ffedc8;font:700 clamp(.95rem,1.65vw,1.25rem)/1.15 Georgia,serif}
+.arena-techniques .technique-area{width:32px;height:26px;flex:none;margin-inline-start:auto}
+.arena-techniques .area-hit{fill:#e7bf7b;stroke:#fff0c2;stroke-width:.45}
+.arena-techniques .area-empty{fill:#30263c;stroke:#cbb4da65;stroke-width:.45}
+.arena-techniques .area-caster{fill:#fff8f0;stroke:#271d36;stroke-width:.6}
 .arena-techniques .activation-options{grid-template-columns:1fr}
 .arena-techniques .activation-options button[aria-pressed="true"]{box-shadow:inset 3px 0 #f4d487,inset 0 0 18px #deb56b30}
 .fortress-battle .element-floor[data-element="water"]{
