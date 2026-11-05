@@ -854,9 +854,12 @@
  100%{filter:opacity(0);translate:0 10px;scale:.94 .85}
 }
 
-/* The backdrop is scenery. The grid is the continuous walkable platform. */
+/* The original ruins supply the walkable stone underneath the transparent grid. */
 .fortress-battle .arena-stage:after{
- background:linear-gradient(180deg,#18122811 0%,#22183166 45%,#141321 78%),url('/art/arenas/limbo-ruins.webp') center top/cover;
+ background:
+  linear-gradient(180deg,#18122811,transparent 42%,#14132133 68%,#141321),
+  url('/art/arenas/limbo-ruins.webp') center top calc(-1 * clamp(110px,15vw,220px))/max(100%,800px) auto no-repeat,
+  #141321;
 }
 .fortress-battle .board{
  padding:4px;gap:2px;isolation:isolate;
@@ -1091,15 +1094,6 @@
  padding:0;gap:0;border:0;
  background:none;box-shadow:none;filter:none;
 }
-/* Fade the painted ground into the surrounding ruins beyond the playable area. */
-.fortress-battle .arena-field>.board::before{
- content:"";position:absolute;inset:-3% -2.5%;z-index:0;pointer-events:none;
- background:linear-gradient(175deg,#31264a22,transparent 38%,#14102550),
-  url("/art/arenas/limbo-bedrock.webp") center/cover no-repeat;
- mask-image:linear-gradient(90deg,transparent,#000 5% 95%,transparent),
-  linear-gradient(180deg,transparent,#000 6% 94%,transparent);
- mask-composite:intersect;
-}
 .fortress-battle .arena-field .cell{
  border:0;border-radius:0;
  background:transparent!important;
@@ -1136,6 +1130,7 @@
  background:radial-gradient(ellipse at 30% 16%,#c8f8ff38,transparent 37%),linear-gradient(110deg,#a6f5ff2f,transparent 28%,transparent 74%,#77c5f439);
 }
 @media(max-width:720px){
+ .fortress-battle .arena-stage:after{background-position:center,center top -135px}
  .fortress-battle .arena-field{display:flex;flex-direction:column;gap:12px}
  .fortress-battle .arena-field>.board{order:-1;transform:perspective(750px) rotateX(15deg);transform-origin:center bottom}
  .arena-techniques{width:100%;padding:8px}
