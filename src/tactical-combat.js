@@ -152,7 +152,7 @@ export function rerollTacticalChestReward(s,offerId){
  const next={...offer,rerolls:(offer.rerolls||0)+1};
  const options=conquestOfferOptions(s,next,offer.options.map(option=>option.id));
  if(options.length!==3)return fail('Não há três novas opções compatíveis neste tier.');
- progress.spins--;offer.rerolls=next.rerolls;offer.options=options;
+ progress.spins--;progress.spentSpins=(progress.spentSpins||0)+1;offer.rerolls=next.rerolls;offer.options=options;
  return {ok:true,offer:copy(offer),spins:progress.spins};
 }
 export function chooseTacticalChestReward(s,offerId,optionId){

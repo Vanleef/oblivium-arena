@@ -1,3 +1,4 @@
+import {syncConquestCampaign} from './conquest-progress.js';
 import { elos, realms, characters, characterById, generateTrail, buffs, worldLeaders, starters } from './data.js';
 import { defaultKingdomByTrack } from './kingdoms.js';
 
@@ -126,6 +127,7 @@ export function normalizeCampaign(profile) {
     campaign.bossClearedDifficulties=[...new Set(campaign.bossClearedDifficulties||[])].filter(n=>Number.isInteger(n)&&n>=0&&n<=MAX_CAMPAIGN_DIFFICULTY).sort((a,b)=>a-b);
   }
   profile.completedElos=elos.filter(kingdom=>profile.eloProgress[kingdom.id].clearedDifficulties.length).map(kingdom=>kingdom.id);
+  syncConquestCampaign(profile);
   recoverCampaignUnlocks(profile);
   for(const leader of Object.values(worldLeaders)){
     const cleared=isWorldCampaignComplete(profile,leader.realmId);
@@ -434,6 +436,7 @@ export function completeExpedition(profile,run) {
   const p=profile.eloProgress[run.eloId],first=!p.clearedDifficulties.includes(run.difficulty);
   p.wins++;p.variants=[...new Set([...p.variants,run.variantId])];p.clearedDifficulties=[...new Set([...p.clearedDifficulties,run.difficulty])].sort((a,b)=>a-b);
   profile.completedElos=[...new Set([...profile.completedElos,run.eloId])];
+  syncConquestCampaign(profile);
   const unlockedCharacters=[];
   for(const id of scheduledCharacterUnlocks(run.eloId,run.difficulty)){
     if(!profile.ownedIds.includes(id)){profile.ownedIds.push(id);unlockedCharacters.push(id);}

@@ -1,3 +1,5 @@
+import {kingdomCatalog} from '../src/kingdoms.js';
+import {conquestProgress,syncConquestCampaign} from '../src/conquest-progress.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,chooseTacticalChestReward,rerollTacticalChestReward} from '../src/tactical-combat.js';
@@ -8,7 +10,8 @@ import {createTacticalRun,offerTacticalRewards,advanceTacticalRun} from '../src/
 
 const allies=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
 const enemies=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
-const make=(victories=0,spins=0)=>createTacticalBattle(allies,enemies,{fortress:true,augmentProgress:{victories,spins}});
+const progress=(count=0,spins=count*2)=>conquestProgress({completedKingdoms:kingdomCatalog.slice(0,count).map(k=>k.id),spentSpins:count*2-spins});
+const make=(count=0,spins=count*2)=>createTacticalBattle(allies,enemies,{fortress:true,augmentProgress:progress(count,spins)});
 const offerFor=(s,tier='silver')=>{
  const offer={id:'test-offer',side:'player',actorId:s.allies[0].id,fortress:true,tier,rerolls:0};
  offer.options=conquestOfferOptions(s,offer);
@@ -20,7 +23,7 @@ test('catalogue expands past fifty, tiers unlock with progress and signatures ma
  const s=make(),actor=s.allies[0];
  for(let sequence=0;sequence<200;sequence++)assert.equal(conquestOfferTier(s,'player',actor,sequence),'silver');
  assert.deepEqual(conquestAugmentPool(s,'player',actor,'gold'),[]);
- s.tactical.fortress.progress.victories=8;
+ s.tactical.fortress.progress=progress(8);
  const tiers=new Set(Array.from({length:300},(_,i)=>conquestOfferTier(s,'player',actor,i)));
  assert.deepEqual(tiers,new Set(['silver','gold','prismatic']));
  const pool=conquestAugmentPool(s,'player',actor,'gold');
@@ -30,7 +33,7 @@ test('catalogue expands past fifty, tiers unlock with progress and signatures ma
  assert.ok(characterAugments(actor).every(o=>actor.abilities.some(a=>a.id===o.effect.abilityId)));
 });
 test('reroll charges exactly once, changes all three choices, keeps tier and rejects stale or empty currency',()=>{
- const s=make(0,2),offer=offerFor(s),old=offer.options.map(o=>o.id);
+ const s=make(1,2),offer=offerFor(s),old=offer.options.map(o=>o.id);
  const result=rerollTacticalChestReward(s,offer.id);
  assert.ok(result.ok);assert.equal(result.spins,1);
  assert.equal(result.offer.tier,'silver');
@@ -68,17 +71,35 @@ test('movement procs are owner scoped, capped, once per round and respect healin
  s.round++;actor.healingBlock=1;
  triggerTacticalAugments(s,'player',actor,'move');assert.equal(actor.hp,53);
 });
-test('campaign victories award one spin once, discovery grants another and progress carries over',()=>{
+test('combat victories and discovery do not advance kingdom progression or grant spins',()=>{
  const s=make(2,1),run=createTacticalRun();
  s.phase='victory';s.tactical.stage='finished';
  offerTacticalRewards(run,s);offerTacticalRewards(run,s);
- assert.deepEqual(run.augmentProgress,{victories:3,spins:2});
+ assert.deepEqual(run.augmentProgress,progress(2,1));
  const next=advanceTacticalRun(run,s,'discovery');
- assert.deepEqual(next.augmentProgress,{victories:3,spins:3});
+ assert.deepEqual(next.augmentProgress,progress(2,1));
  const again=advanceTacticalRun(run,s,'discovery');
- assert.deepEqual(again.augmentProgress,{victories:3,spins:3});
+ assert.deepEqual(again.augmentProgress,progress(2,1));
  const nextBattle=createTacticalBattle(next.player,next.enemy,{...next,fortress:true});
  assert.deepEqual(nextBattle.tactical.fortress.progress,next.augmentProgress);
+});
+test('distinct cleared kingdoms award two spins each, once across trails, difficulties and reloads',()=>{
+ const id=kingdomCatalog[0].id,next=kingdomCatalog[1].id;
+ const profile={eloProgress:{[id]:{wins:99,combats:200,clearedDifficulties:[]}}};
+ assert.equal(syncConquestCampaign(profile).completedKingdoms.length,0);
+ profile.eloProgress[id].clearedDifficulties=[0];
+ const first=syncConquestCampaign(profile);
+ assert.equal(first.spins,2);assert.equal(first.completedKingdoms.length,1);
+ profile.eloProgress[id].clearedDifficulties=[0,1,2];
+ assert.deepEqual(syncConquestCampaign(profile),first);
+ const spent={...first,spentSpins:1};
+ assert.equal(syncConquestCampaign(profile,spent).spins,1);
+ assert.equal(syncConquestCampaign(JSON.parse(JSON.stringify(profile))).spins,1);
+ profile.eloProgress[next]={clearedDifficulties:[0]};
+ assert.equal(syncConquestCampaign(profile).spins,3);
+ assert.equal(syncConquestCampaign(profile).completedKingdoms.length,2);
+ assert.equal(conquestProgress({victories:999,spins:999}).completedKingdoms.length,0);
+ assert.equal(conquestProgress({victories:999,spins:999}).spins,0);
 });
 test('balance caps direct control damage and afflictions without changing shared definitions',()=>{
  const ability={id:'test',target:'all-enemies',damage:55,stun:3,shield:40,dot:{damage:10,turns:5}};
@@ -86,4 +107,18 @@ test('balance caps direct control damage and afflictions without changing shared
  assert.equal(result.damage,18);assert.equal(result.stun,1);assert.equal(result.shield,12);
  assert.deepEqual(result.dot,{damage:4,turns:2});
  assert.equal(ability.damage,55);assert.equal(ability.dot.damage,10);
+});
+test('finishing a campaign expedition updates augment progression through its normal completion entry point',async()=>{
+ const {normalizeCampaign,createExpedition,completeExpedition,campaignKingdoms}=await import('../src/progression.js');
+ const {starters}=await import('../src/data.js');
+ const {advanceTrail}=await import('../src/trail.js');
+ const profile=normalizeCampaign({ownedIds:starters.map(c=>c.id),team:starters.slice(0,3).map(c=>c.id),completedElos:[],xp:0,fragments:0,run:null});
+ const kingdom=campaignKingdoms('inferno')[0];
+ const run=createExpedition(profile,kingdom,'hunt',0,17);
+ while(run.availableNodeIds.length)assert.ok(advanceTrail(run,run.availableNodeIds[0]).ok);
+ completeExpedition(profile,run);
+ assert.deepEqual(profile.conquestAugments.completedKingdoms,[kingdom.id]);
+ assert.equal(profile.conquestAugments.spins,2);
+ assert.equal(completeExpedition(profile,run),null);
+ assert.equal(normalizeCampaign(JSON.parse(JSON.stringify(profile))).conquestAugments.spins,2);
 });

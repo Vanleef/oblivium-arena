@@ -1,3 +1,4 @@
+import {syncConquestCampaign} from './conquest-progress.js';
 import {conquestProgress,conquestAugmentedAbility,augmentTiers} from './conquest-augments.js';
 import {tacticalStatuses} from './tactical-statuses.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
@@ -29,14 +30,33 @@ const projectilePreload=new Image();projectilePreload.src='/art/animations/tacti
 const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura',random:'Coringa'};
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const fortressMode=globalThis.location?.search!==undefined&&!new URLSearchParams(globalThis.location.search).has('classic');
-const progressKey='oblivium-conquest-augment-progress-v1';
+const progressKey='oblivium-conquest-augment-progress-v2';
+const campaignSaveKey='pma-post-mortem-arena-v1';
 function loadAugmentProgress(){
- try{return conquestProgress(JSON.parse(localStorage.getItem(progressKey)||'{}'));}catch{return conquestProgress();}
+ try{
+  const saved=conquestProgress(JSON.parse(localStorage.getItem(progressKey)||'{}'));
+  const profile=JSON.parse(localStorage.getItem(campaignSaveKey)||'null');
+  return profile?syncConquestCampaign(profile,saved):saved;
+ }catch{return conquestProgress();}
 }
 function saveAugmentProgress(){
  state.run.augmentProgress=conquestProgress(state.battle?.tactical.fortress?.progress||state.run.augmentProgress);
- try{localStorage.setItem(progressKey,JSON.stringify(state.run.augmentProgress));}catch{}
+ try{
+  localStorage.setItem(progressKey,JSON.stringify(state.run.augmentProgress));
+  const profile=JSON.parse(localStorage.getItem(campaignSaveKey)||'null');
+  if(profile){
+   syncConquestCampaign(profile,state.run.augmentProgress);
+   localStorage.setItem(campaignSaveKey,JSON.stringify(profile));
+  }
+ }catch{}
 }
+globalThis.addEventListener?.('storage',event=>{
+ if(event.key!==campaignSaveKey&&event.key!==progressKey)return;
+ const progress=loadAugmentProgress();
+ state.run.augmentProgress=progress;
+ if(state.battle?.tactical.fortress)state.battle.tactical.fortress.progress={...progress};
+ render();
+});
 const state={compactReplay:true,playbackSpeed:1,battle:null,run:createTacticalRun(loadAugmentProgress()),rewardChoices:[],chestOffer:null,selected:null,mode:null,path:null,spendChoice:{},terrainEffects:{},message:'',busy:false,lastEvents:[],seed:1,revision:0};
 const costText=(u,a)=>Object.entries(getAbilityResourceCosts(u,a)).map(([k,n])=>`${n} ${names[k]||k}`).join(' + ')||'Sem custo';
 const shown=()=>state.playback?{...state.battle,...state.playback,tactical:{...state.battle.tactical,positions:state.playback.positions,surfaces:state.playback.surfaces,weather:state.playback.weather,fortress:state.playback.fortress||state.battle.tactical.fortress,obstacles:state.playback.obstacles||state.battle.tactical.obstacles,chests:state.playback.chests||[],nextChest:state.playback.nextChest||null}}:state.battle;

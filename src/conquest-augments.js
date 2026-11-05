@@ -1,21 +1,20 @@
+import {conquestProgress} from './conquest-progress.js';
+export {conquestProgress} from './conquest-progress.js';
 import {techniqueElement} from './tactical-elements.js';
 
 export const augmentTiers=Object.freeze({
- silver:{label:'Prata',wins:0},
- gold:{label:'Ouro',wins:3},
- prismatic:{label:'Prismático',wins:8}
+ silver:{label:'Prata',kingdoms:0},
+ gold:{label:'Ouro',kingdoms:3},
+ prismatic:{label:'Prismático',kingdoms:8}
 });
-export function conquestProgress(value={}){
- return {victories:Math.max(0,Math.floor(Number(value.victories)||0)),spins:Math.max(0,Math.floor(Number(value.spins)||0))};
-}
 const friendly=a=>['self','ally','friendly','team'].includes(a.target);
 const skills=u=>u.abilities.filter(a=>a.id!=='fortress-basic');
 const has=(u,key)=>skills(u).some(a=>a[key]);
 const attack=u=>skills(u).some(a=>a.damage);
 const support=u=>skills(u).some(a=>friendly(a));
 const catalog=[];
-const add=(id,title,tier,text,effect,eligible=()=>true,wins=0)=>{
- catalog.push({id,title,tier,text,effect,eligible,wins:Math.max(wins,augmentTiers[tier].wins)});
+const add=(id,title,tier,text,effect,eligible=()=>true,kingdoms=0)=>{
+ catalog.push({id,title,tier,text,effect,eligible,kingdoms:Math.max(kingdoms,augmentTiers[tier].kingdoms)});
 };
 const instant=(type,amount)=>({type,amount});
 const lasting=(trigger,stat,amount)=>({type:'conquest-augment',trigger,stat,amount});
@@ -84,7 +83,7 @@ export function characterAugments(actor){
  return definitions.flatMap(([key,label,match,stat,amount])=>{
   const ability=skills(actor).find(match);
   if(!ability)return [];
-  return [{id:'signature:'+id+':'+key,title:label+' de '+actor.name,tier:'gold',wins:5,characterId:id,
+  return [{id:'signature:'+id+':'+key,title:label+' de '+actor.name,tier:'gold',kingdoms:5,characterId:id,
    text:ability.name+' recebe +'+amount+' '+(stat==='dot'?'de dano por rodada de aflição.':stat==='heal'?'de cura.':stat==='shield'?'de Escudo.':'de dano.'),
    effect:{...lasting('modify',stat,amount),abilityId:ability.id},eligible:()=>true}];
  });
@@ -94,9 +93,9 @@ export function conquestAugmentPool(s,side,actor,tier){
  if(!actor||actor.hp<=0)return [];
  const progress=conquestProgress(s.tactical.fortress.progress);
  const owned=s.tactical.augments?.[side]||[];
- return [...catalog,...characterAugments(actor)].filter(o=>o.tier===tier&&o.wins<=progress.victories&&o.eligible(actor,s,side)&&
+ return [...catalog,...characterAugments(actor)].filter(o=>o.tier===tier&&o.kingdoms<=progress.completedKingdoms.length&&o.eligible(actor,s,side)&&
   !(o.id==='leap'&&s.tactical.fortress.leaps.includes(actor.id))&&
-  !owned.some(a=>a.actorId===actor.id&&a.id===o.id)).map(({eligible,wins,...o})=>({...o,category:o.characterId?'Exclusivo de '+actor.name:'Aprimoramento',reason:'Portador · '+actor.name,effect:{...o.effect,actorId:actor.id,augmentId:o.id,title:o.title,tier:o.tier}}));
+  !owned.some(a=>a.actorId===actor.id&&a.id===o.id)).map(({eligible,kingdoms,...o})=>({...o,category:o.characterId?'Exclusivo de '+actor.name:'Aprimoramento',reason:'Portador · '+actor.name,effect:{...o.effect,actorId:actor.id,augmentId:o.id,title:o.title,tier:o.tier}}));
 }
 export function conquestOfferOptions(s,offer,exclude=[]){
  const units=offer.side==='player'?s.allies:s.enemies;
@@ -110,7 +109,7 @@ export function conquestOfferOptions(s,offer,exclude=[]){
 }
 export function conquestOfferTier(s,side,actor,sequence){
  const progress=conquestProgress(s.tactical.fortress.progress);
- const unlocked=Object.keys(augmentTiers).filter(t=>augmentTiers[t].wins<=progress.victories&&conquestAugmentPool(s,side,actor,t).length>=3);
+ const unlocked=Object.keys(augmentTiers).filter(t=>augmentTiers[t].kingdoms<=progress.completedKingdoms.length&&conquestAugmentPool(s,side,actor,t).length>=3);
  const roll=hash([s.rngState||1,s.round,sequence,side].join(':'))%100;
  if(unlocked.includes('prismatic')&&roll<18)return 'prismatic';
  if(unlocked.includes('gold')&&roll<55)return 'gold';

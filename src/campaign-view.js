@@ -1,3 +1,4 @@
+import {conquestProgress} from './conquest-progress.js';
 import { uiIcon } from "./ui-icons.js";
 import { renderAugmentCard, effectGlyph, augmentGlyph } from "./augment-cards.js";
 import { characterById, characters } from './data.js';
@@ -48,6 +49,7 @@ export function renderCampaign(profile,state,realm) {
     ${campaignAtlas(realm,route,selected,profile,difficulty)}
     <aside class="campaign-story-card"><div class="campaign-story-copy"><small>${esc(chapter.label)}</small><p>${esc(arc.opening)}</p><span>${esc(arc.route)}</span></div><div class="campaign-leader-target"><small>${english()?"WORLD LEADER":"LORDE DO MUNDO"}</small><b>${esc(leader?.name||arc.leaderName)}${leader?.identityTitle?`, ${esc(leader.identityTitle)}`:""}</b><span>${esc(leaderStatus)}</span><p>${esc(rewardLine)}</p></div></aside>
     <div class="campaign-route-progress"><span>${clearCount}/${route.length} ${english()?"realms cleared on":"reinos concluídos em"} ${esc(difficultyName(difficulty))}</span><i><b style="width:${route.length?clearCount/route.length*100:0}%"></b></i></div>
+    <p class="campaign-augment-progress">${english()?"Augments":"Aprimoramentos"} · ${conquestProgress(profile.conquestAugments).completedKingdoms.length} ${english()?"distinct realms cleared":"reinos distintos concluídos"} · ${conquestProgress(profile.conquestAugments).spins} ${english()?"Rerolls":"Giros"} · ${english()?"Gold 3 · Character-specific 5 · Prismatic 8 realms":"Ouro 3 · Exclusivos 5 · Prismático 8 reinos"}</p>
     <div class="campaign-layout"><div class="realm-road">${route.map((elo,index)=>{
       const gate=eloAccess(profile,elo,difficulty),kingdomProgress=profile.eloProgress[elo.id];
       const owned=characters.filter(c=>c.kingdomId===elo.id&&profile.ownedIds.includes(c.id)).length;
