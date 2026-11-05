@@ -1342,4 +1342,4 @@
 .fortress-battle .arena-stage[data-world="Paraíso"] :is(.fortress-progress,.augment-progression){width:fit-content;padding:5px 9px;border-radius:6px;background:#191525ed;color:#eadff1}
 .fortress-battle .arena-stage[data-world="Paraíso"] :is(.arena-status-details,.combat-log)>summary{width:fit-content;padding:6px 9px;border-radius:6px;background:#191525ed;color:#eadff1}
 /* Wide arena art must cover the stage instead of ending above the controls. */
-.fortress-battle .arena-stage[data-scene]::after{background-size:auto,cover,auto;background-position:center,center 52%,center;background-repeat:no-repeat}
+.fortress-battle .arena-stage[data-scene]::after{inset:-25% 0 0;background-size:auto,cover,auto;background-position:center,center bottom,center;background-repeat:no-repeat}
