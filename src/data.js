@@ -365,8 +365,7 @@ export const realms = [
 ];
 for (const track of legacyElos) track.forms = characters.filter(character => character.legacyEloId === track.id).map(character => character.name);
 function addReactiveKit(character){const kit=reactiveKits[character.id];if(!kit)return character;return {...character,abilities:character.abilities.map(a=>{const reactive=kit[a.id];if(!reactive||a.reactive)return a;const next={...a,reactive};return {...next,description:describeAbility(next)};})};}
-// Expose current display names after deriving permanent IDs from the original roster.
-for (const elo of elos) elo.forms = characters.filter(c => c.eloId === elo.id).map(c => c.name);
+// Reino forms are already built from kingdomId above; do not overwrite them with legacy Elo IDs.
 export const characterById = Object.fromEntries(characters.map((character) => [character.id, character]));
 export const starters = characters.filter((character) => character.starter);
 export const rosterCounts = {
