@@ -67,6 +67,9 @@
 .compact-speed{display:flex;gap:4px}.compact-speed button{padding:6px;font-size:10px}
 .compact-speed [aria-pressed="true"]{border-color:#be9cce}
 .compact-explainer,.compact-rule{position:relative;z-index:4;font-size:11px;color:#d0c1d8;line-height:1.45;margin:9px 0}
+.compact-field-forecast{position:relative;z-index:4;border:1px solid #a38a8066;background:#261e33bd;border-radius:7px;padding:8px 11px;margin:9px 0;color:#e3d8eb;font-size:11px;line-height:1.45}
+.compact-field-forecast strong{color:#ead29e}
+.compact-field-forecast span{display:block;color:#d5c7e5;margin-top:3px;overflow-wrap:anywhere}
 .compact-battle .augment-progression{font-size:10px;color:#bdaac9;margin:9px 0}
 .compact-battle .chest-reward{position:relative;z-index:5;background:#21192ded;padding:15px;margin:14px 0}
 .compact-battle .chest-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}

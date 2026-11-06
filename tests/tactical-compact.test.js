@@ -6,7 +6,7 @@ import {planTacticalAI,compactExposurePenalty} from '../src/tactical-ai.js';
 import {conquestAugmentedAbility} from '../src/conquest-augments.js';
 import {conquestTechnique} from '../src/conquest-techniques.js';
 import {createTacticalRun,advanceTacticalRun} from '../src/tactical-run.js';
-import {applyFieldEvent} from '../src/tactical-elements.js';
+import {applyFieldEvent,tacticalFieldForecast} from '../src/tactical-elements.js';
 const allies=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemies=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
 const make=(config={})=>createTacticalBattle(allies,enemies,{fortress:true,compact:true,...config});
 const guard=actorId=>({type:'guard',actorId});
@@ -93,6 +93,20 @@ test('events recur every four rounds and never close the compact field',()=>{
  assert.deepEqual(s.tactical.fortress.closedRows,[]);assert.deepEqual(s.tactical.fortress.closedColumns,[]);
 });
 const units=s=>[...s.allies,...s.enemies];
+
+test('field forecast describes the public event cadence and current weather without future strikes',()=>{
+ const s=make();
+ assert.deepEqual(tacticalFieldForecast(s),{nextRound:4,roundsRemaining:3,active:null});
+ s.round=8;
+ const wind=applyFieldEvent(s),forecast=tacticalFieldForecast(s);
+ assert.equal(wind.id,'wind');
+ assert.equal(forecast.nextRound,12);
+ assert.equal(forecast.roundsRemaining,4);
+ assert.equal(forecast.active?.id,'wind');
+ assert.equal(Object.hasOwn(forecast,'strikes'),false);
+ s.round=9;
+ assert.equal(tacticalFieldForecast(s).active,null,'last round weather is not claimed as active');
+});
 
 test('Vendaval enables three steps on compact 5×5 and Chuva extinguishes active fire',()=>{
  const s=make(),u=s.allies[0];

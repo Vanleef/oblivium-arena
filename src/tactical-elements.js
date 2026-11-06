@@ -76,6 +76,14 @@ const weather=[
  {id:'wind',title:'Vendaval',description:'Nesta rodada, mova-se até uma casa adicional em linha reta, com o caminho livre.'},
  {id:'rain',title:'Chuva',description:'A chuva apaga chamas e deixa poças por 2 rodadas.'}
 ];
+// Public forecast: the four-round cadence is known, but future strikes remain hidden.
+export function tacticalFieldForecast(s){
+ const round=Number.isInteger(s?.round)&&s.round>=1?s.round:1;
+ const nextRound=round+4-round%4;
+ const weather=s?.tactical?.weather;
+ return {nextRound,roundsRemaining:nextRound-round,active:weather?.round===round?{id:weather.id,title:weather.title,description:weather.description}:null};
+}
+
 export function applyFieldEvent(s){
  if(s.round%4)return null;
  const source=weather[(s.round/4-1)%weather.length];
