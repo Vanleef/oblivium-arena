@@ -58,6 +58,7 @@ Abra [http://localhost:4173](http://localhost:4173). O servidor local atende o j
 | `npm run audit:art -- --list-missing` | Listar os caminhos de arte ausentes. |
 | `npm run test:compact` | Testar planejamento, objetivos e interface compacta. |
 | `npm run smoke:compact` | Simular rodadas e invariantes do combate compacto. |
+| `npm run smoke:balance` | Amostrar 12 sementes e três estágios de desbloqueio de tiers com métricas de combate. |
 | `npm run audit:animation` | Auditar atlas e quadros de ação mapeados. |
 
 A auditoria de arquivos não substitui a revisão visual das artes.
