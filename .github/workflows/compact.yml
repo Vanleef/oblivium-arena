@@ -37,5 +37,16 @@ jobs:
         run: npm run audit:animation
       - name: Build static site
         run: npm run build
-      - name: Validate whitespace
-        run: git diff --check
+      - name: Validate committed whitespace
+        run: git diff --check HEAD^ HEAD
+
+  full-regression-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run entire existing test suite
+        run: npm test
