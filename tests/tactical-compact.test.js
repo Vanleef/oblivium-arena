@@ -6,6 +6,7 @@ import {planTacticalAI,compactExposurePenalty} from '../src/tactical-ai.js';
 import {conquestAugmentedAbility} from '../src/conquest-augments.js';
 import {conquestTechnique} from '../src/conquest-techniques.js';
 import {createTacticalRun,advanceTacticalRun} from '../src/tactical-run.js';
+import {applyFieldEvent} from '../src/tactical-elements.js';
 const allies=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemies=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
 const make=(config={})=>createTacticalBattle(allies,enemies,{fortress:true,compact:true,...config});
 const guard=actorId=>({type:'guard',actorId});
@@ -92,6 +93,24 @@ test('events recur every four rounds and never close the compact field',()=>{
  assert.deepEqual(s.tactical.fortress.closedRows,[]);assert.deepEqual(s.tactical.fortress.closedColumns,[]);
 });
 const units=s=>[...s.allies,...s.enemies];
+
+test('Vendaval enables three steps on compact 5×5 and Chuva extinguishes active fire',()=>{
+ const s=make(),u=s.allies[0];
+ s.round=8;
+ const wind=applyFieldEvent(s);
+ assert.equal(wind.id,'wind');
+ assert.equal(movementRange(s,u.id),3);
+ const path=findPath(s,u.id,{x:3,y:0});
+ assert.equal(path?.length,3);
+ assert.ok(previewTacticalPlan(s,'player',[step(u.id,path)]).ok);
+ s.round=12;
+ s.tactical.surfaces['2,2']={element:'fire',until:16};
+ const rain=applyFieldEvent(s);
+ assert.equal(rain.id,'rain');
+ assert.notEqual(s.tactical.surfaces['2,2']?.element,'fire');
+ assert.equal(movementRange(s,u.id),2);
+ assert.equal(boardCells(s).length,25);
+});
 
 test('AI produces a legal sealed full-round plan without receiving the player objective',()=>{
  const s=make(),view=tacticalView(s,'enemy');assert.equal(view.tactical.objectives.player,undefined);

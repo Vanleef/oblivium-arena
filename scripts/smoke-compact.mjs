@@ -1,27 +1,35 @@
 import assert from 'node:assert/strict';
 import {createTacticalBattle,submitTacticalPlan,resolveTacticalRound,chooseTacticalChestReward,tacticalView} from '../src/tactical-combat.js';
-import {planTacticalAI} from '../src/tactical-ai.js';
+import {planTacticalAI,compactExposurePenalty} from '../src/tactical-ai.js';
 import {boardCells,cellKey,onBoard} from '../src/tactical-board.js';
 import {kingdomCatalog} from '../src/kingdoms.js';
 
 // Default remains a quick smoke. --samples=12 exercises more seeds and tier unlocks.
 const samplesOption=process.argv.find(arg=>arg.startsWith('--samples='));
 const samples=samplesOption?Number(samplesOption.slice('--samples='.length)):3;
-if(!Number.isInteger(samples)||samples<1||samples>24)throw Error('Use --samples=N com N entre 1 e 24.');
+const paired=process.argv.includes('--paired');
+if(!Number.isInteger(samples)||samples<1||samples>24||paired&&samples%2)throw Error('Use --samples=N com N entre 1 e 24 (par quando usar --paired).');
 const formations=[['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],['o-soberano-quebrado','a-brasa-eterna','a-arquiteta-verde'],['o-corrupto','o-medico-de-vermes','o-jardim-morto']];
-const aggregate={battles:samples,rounds:0,events:0,claims:0,guards:0,skills:0,moveStops:0,stunSkips:0,fieldEvents:0,results:{victory:0,defeat:0,draw:0}};
+const aggregate={battles:samples,paired,rounds:0,events:0,claims:0,guards:0,skills:0,moveStops:0,stunSkips:0,fieldEvents:0,exposedUnitRounds:0,results:{victory:0,defeat:0,draw:0}};
 const matchRounds=[];
 for(let seed=1;seed<=samples;seed++){
- const unlockedKingdoms=[0,3,8][(seed-1)%3];
+ const matchup=paired?Math.floor((seed-1)/2)%formations.length:(seed-1)%formations.length;
+ const swapped=paired&&seed%2===0,battleSeed=paired?Math.ceil(seed/2):seed;
+ const unlockedKingdoms=[0,3,8][paired?matchup:(seed-1)%3];
  const progress={completedKingdoms:kingdomCatalog.slice(0,unlockedKingdoms).map(k=>k.id)};
- const s=createTacticalBattle(formations[(seed-1)%formations.length],formations[seed%formations.length],{fortress:true,compact:true,seed,augmentProgress:progress});
- const sample={seed,unlockedKingdoms,rounds:0,events:0,guards:0,skills:0,moveStops:0,stunSkips:0,fieldEvents:0};
+ const teamA=formations[matchup],teamB=formations[(matchup+1)%formations.length];
+ const s=createTacticalBattle(swapped?teamB:teamA,swapped?teamA:teamB,{fortress:true,compact:true,seed:battleSeed,augmentProgress:progress});
+ const sample={seed,battleSeed,matchup,swapped,unlockedKingdoms,rounds:0,events:0,guards:0,skills:0,moveStops:0,stunSkips:0,fieldEvents:0,exposedUnitRounds:0};
  for(let i=0;i<45&&s.tactical.stage!=='finished';i++){
   while(s.tactical.pendingChestRewards.length){
    const offer=s.tactical.pendingChestRewards[0];
    assert.ok(chooseTacticalChestReward(s,offer.id,offer.options[0].id).ok);
   }
   const claimsBefore={...s.tactical.objectiveClaims};
+  for(const side of ['player','enemy']){
+   const own=side==='player'?s.allies:s.enemies,rivals=side==='player'?s.enemies:s.allies;
+   sample.exposedUnitRounds+=own.filter(unit=>unit.hp>0&&compactExposurePenalty(s,unit,rivals)>0).length;
+  }
   const plans=Object.fromEntries(['player','enemy'].map(side=>[side,planTacticalAI(tacticalView(s,side),side)]));
   assert.ok(submitTacticalPlan(s,'player',plans.player).ok);
   assert.ok(submitTacticalPlan(s,'enemy',plans.enemy).ok);
@@ -47,7 +55,7 @@ for(let seed=1;seed<=samples;seed++){
  assert.equal(s.tactical.stage,'finished','combat did not finish within 45 rounds; seed '+seed);
  sample.result=s.phase;sample.claims={...s.tactical.objectiveClaims};
  aggregate.results[s.phase]++;
- for(const key of ['rounds','events','guards','skills','moveStops','stunSkips','fieldEvents'])aggregate[key]+=sample[key];
+ for(const key of ['rounds','events','guards','skills','moveStops','stunSkips','fieldEvents','exposedUnitRounds'])aggregate[key]+=sample[key];
  aggregate.claims+=sample.claims.player+sample.claims.enemy;
  matchRounds.push(sample.rounds);
  console.log(JSON.stringify(sample));

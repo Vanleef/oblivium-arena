@@ -17,7 +17,7 @@
     "audit:tactical-kits": "node scripts/audit-tactical-kits.mjs",
     "audit:animation": "node scripts/audit-tactical-animation.mjs",
     "smoke:conquest": "node scripts/smoke-conquest.mjs",
-    "smoke:balance": "node scripts/smoke-compact.mjs --samples=12"
+    "smoke:balance": "node scripts/smoke-compact.mjs --samples=12 --paired"
   },
   "engines": {
     "node": ">=20"
