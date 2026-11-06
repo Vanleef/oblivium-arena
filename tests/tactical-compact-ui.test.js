@@ -12,7 +12,7 @@ test('compact UI queues actions privately, undoes the plan and retains technique
   globalThis.Worker=class{addEventListener(type,fn){if(type==='message')this.receive=fn;}postMessage({id}){queueMicrotask(()=>this.receive({data:{id,plan:[]}}));}};
   await import('../src/compact-demo.js?compact-ui-regression');
   assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/data-confirm/);assert.match(html,/Próximo evento: rodada 4/);
-  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/1\/6 ações/);assert.match(html,/compact-planned-destination/);
+  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/1\/6 ações/);assert.match(html,/compact-planned-destination/);assert.match(html,/data-action-kind="move"/);
   click({undo:''});assert.match(html,/0\/6 ações/);assert.doesNotMatch(html,/Mover → B2/);
   click({cell:'1,1'});click({technique:'despertar'});click({cell:'1,1'});
   assert.match(html,/Passo entre Lâminas/);assert.match(html,/2\/6 ações/);assert.match(html,/<b>1<\/b><strong role="status">Planejamento simultâneo/);
