@@ -39,7 +39,7 @@ export function canStep(s,actorId,from,to,{through=false,movement=false}={}){
  if(!onBoard(from,s)||!onBoard(to,s)||obstacle(s,to))return false;
  const aMetric=s.tactical.fortress?boardMetricPoint(s,from):from,bMetric=s.tactical.fortress?boardMetricPoint(s,to):to;
  const dx=Math.abs(bMetric.x-aMetric.x),dy=Math.abs(bMetric.y-aMetric.y);
- if(Math.max(dx,dy)!==1)return Boolean(movement&&s.tactical.fortress?.leaps.includes(actorId)&&dx*dy===2&&!occupied(s,to,actorId));
+ if(Math.max(dx,dy)!==1)return Boolean(movement&&!s.tactical.compact&&s.tactical.fortress?.leaps.includes(actorId)&&dx*dy===2&&!occupied(s,to,actorId));
  if(!through&&occupied(s,to,actorId))return false;
  if(from.x!==to.x&&from.y!==to.y){const a={x:to.x,y:from.y},b={x:from.x,y:to.y};if((obstacle(s,a)||(!through&&occupied(s,a,actorId)))&&(obstacle(s,b)||(!through&&occupied(s,b,actorId))))return false;}
  return true;

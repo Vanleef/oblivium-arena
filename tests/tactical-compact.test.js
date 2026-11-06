@@ -71,6 +71,29 @@ test('movement collects only the owner objective and upgrades only its collector
  if(s.tactical.objectives.player)assert.equal(s.tactical.objectives.player.minimumDistance,2);
 });
 
+test('all 36 compact cells permit valid movement and skill targets, including row 6 and column F',()=>{
+ const s=make(),u=s.allies[0];
+ s.tactical.positions[u.id]={x:4,y:4};
+ assert.equal(findPath(s,u.id,{x:5,y:5})?.length,1);
+ assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:5,y:5}])]).ok,true);
+ assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:6,y:5}])]).ok,false);
+ const passive=u.abilities.find(a=>a.id==='despertar');
+ const cast={type:'skill',actorId:u.id,abilityId:passive.id,anchor:{x:5,y:5},orientation:[1,0]};
+ assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:5,y:5}]),cast]).ok,true);
+ assert.deepEqual(s.tactical.positions[u.id],{x:4,y:4},'previews must not move an actor before the round');
+ const result=round(s,[step(u.id,[{x:5,y:5}]),cast]);
+ assert.ok(result.events.some(e=>e.type==='exchange-move'&&e.moves.some(move=>move.actorId===u.id&&move.to.x===5&&move.to.y===5)));
+ assert.deepEqual(s.tactical.positions[u.id],{x:5,y:5});
+});
+
+test('compact one-cell movement does not inherit the historical L leap bonus',()=>{
+ const s=make({fortressRewards:['leap']}),u=s.allies[0];
+ assert.ok(s.tactical.fortress.leaps.includes(u.id),'fixture grants the old traversal bonus');
+ assert.equal(movementRange(s,u.id),1);
+ assert.equal(findPath(s,u.id,{x:2,y:1}),null,'a two-cell L leap cannot consume one compact action');
+ assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:2,y:1}])]).ok,false);
+});
+
 test('two consecutive compact moves are individually adjacent and never move the unit before resolution',()=>{
  const s=make(),u=s.allies[0],start={...s.tactical.positions[u.id]};
  const first=step(u.id,[{x:1,y:1}]),second=step(u.id,[{x:2,y:1}]);

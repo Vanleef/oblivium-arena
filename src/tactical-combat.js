@@ -31,7 +31,7 @@ const otherSide=side=>side==='player'?'enemy':'player';
 const validSide=side=>side==='player'||side==='enemy';
 const actorFor=(s,side,id)=>team(s,side).find(u=>u.id===id&&u.hp>0);
 const stamp=(s,event)=>{s.tactical.events.push({round:s.round,...event});};
-const cleanPoint=p=>onBoard(p)?{x:p.x,y:p.y}:null;
+const cleanPoint=(p,s)=>onBoard(p,s)?{x:p.x,y:p.y}:null;
 const chestTierNames=Object.freeze({silver:'Prateado',gold:'Dourado',prismatic:'Prismático'});
 function livingTeam(s,side){return team(s,side).filter(u=>u.hp>0);}
 function chestTier(s,side){const count=livingTeam(s,side).length;return count<=1?'prismatic':count===2?'gold':'silver';}
@@ -211,7 +211,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  }
  const obstacles=config.obstacles||[];
  if(!Array.isArray(obstacles)||obstacles.some(p=>!onBoard(p,s)||occupied(s,p))||new Set(obstacles.map(cellKey)).size!==obstacles.length)throw Error('Obstáculos inválidos.');
- s.tactical.obstacles=obstacles.map(cleanPoint);
+ s.tactical.obstacles=obstacles.map(point=>cleanPoint(point,s));
  if(s.tactical.environment&&obstacles.some(p=>sameCell(p,s.tactical.environment.position)))throw Error('A casa ambiental não pode ser um obstáculo.');
  if(config.routeEnemyShield)for(const u of s.enemies)u.shield=Math.min(Math.floor(u.maxHp/2),(u.shield||0)+Math.max(0,Math.min(18,config.routeEnemyShield)));
  if(!config.compact&&(config.alternating||config.fortress)){resetTacticalActivation(s);if(!config.fortress)announceTacticalChest(s);}
@@ -368,13 +368,13 @@ function normalizePlan(s,side,actions){
   const actor=actorFor(s,side,ref.actorId);if(!actor||actor.stunned)return fail('Personagem indisponível.');
   counts[actor.id]=(counts[actor.id]||0)+1;if(counts[actor.id]>2)return fail('Cada personagem tem duas ações.');
   if(ref.type==='move'){
-   if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>movementRange(s,actor.id)||ref.path.some(p=>!onBoard(p)))return fail('Movimento inválido.');
-   refs.push({type:'move',actorId:actor.id,side,path:ref.path.map(cleanPoint),order});
+   if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>movementRange(s,actor.id)||ref.path.some(p=>!onBoard(p,s)))return fail('Movimento inválido.');
+   refs.push({type:'move',actorId:actor.id,side,path:ref.path.map(point=>cleanPoint(point,s)),order});
   }else if(ref.type==='skill'){
    const ability=actor.abilities.find(a=>a.id===ref.abilityId);if(!ability)return fail('Técnica inválida.');
    const formKey=typeof ref.formKey==='string'?ref.formKey:(ability.formKey||'base');
    if(formKey!=='base'&&formKey!==(ability.formKey||'base')&&!ability._formRoot?.forms?.some(f=>f.formKey===formKey))return fail('Forma inválida.');
-   const anchor=cleanPoint(ref.anchor||s.tactical.positions[actor.id]);if(!anchor)return fail('Região inválida.');
+   const anchor=cleanPoint(ref.anchor||s.tactical.positions[actor.id],s);if(!anchor)return fail('Região inválida.');
    const orientation=ref.orientation||(side==='player'?[1,0]:mirrorDirection([1,0]));
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
    const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}

@@ -51,7 +51,7 @@ function candidates(s,side,used,actorId){
  for(const u of own.filter(u=>u.hp>0&&!u.stunned&&(used[u.id]||0)<2&&(!actorId||u.id===actorId))){
   // Compact plans can defend; activation mode already supplies its own Guard candidate.
   if(s.tactical.compact&&!actorId)result.push({type:'guard',actorId:u.id});
-  if(!actorId)for(const to of boardCells()){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});}
+  if(!actorId)for(const to of boardCells(s)){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});}
   for(const a of u.abilities){
    if(u.cooldowns[a.id])continue;const spec=tacticalSpec(u,a),origin=s.tactical.positions[u.id];
    const anchors=spec.range===0?[origin]:['ally','friendly','team'].includes(a.target)?own.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]):other.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]);
