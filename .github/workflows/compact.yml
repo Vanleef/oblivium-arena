@@ -1,0 +1,39 @@
+name: Oblivium compact combat
+
+on:
+  push:
+    branches:
+      - art/oblivium-arena-anime-first-20261027
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'docs/**'
+      - 'package.json'
+      - '.github/workflows/compact.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compact regression tests
+        run: npm run test:compact
+      - name: Tactical and Conquest regressions
+        run: node --test tests/tactical-*.test.js tests/tactical-*.test.mjs tests/conquest-*.test.js tests/combat-scenes.test.js
+      - name: Complete three compact battles
+        run: npm run smoke:compact
+      - name: Multi-seed exploratory balance sample
+        run: npm run smoke:balance
+      - name: Build static site
+        run: npm run build
+      - name: Validate whitespace
+        run: git diff --check
