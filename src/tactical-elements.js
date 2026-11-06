@@ -87,7 +87,7 @@ export function tacticalFieldForecast(s){
 export function applyFieldEvent(s){
  if(s.round%4)return null;
  const source=weather[(s.round/4-1)%weather.length];
- const event=s.tactical.compact&&source.id==='wind'?{...source,description:'Nesta rodada, cada movimento alcança até 3 casas, com caminho livre.'}:source;
+ const event=s.tactical.compact&&source.id==='wind'?{...source,description:'Nesta rodada, cada movimento continua com 1 casa e concede +5 de Escudo ao personagem que se mover.'}:source;
  s.tactical.weather={...event,round:s.round};
  const free=boardCells(s).filter(p=>!obstacle(s,p)),cells=[],strikes=[];
  if(event.id==='storm'){

@@ -43,8 +43,8 @@ for(let seed=1;seed<=samples;seed++){
   sample.fieldEvents+=result.events.filter(event=>event.type==='field-event').length;
   const living=[...s.allies,...s.enemies].filter(u=>u.hp>0),positions=living.map(u=>s.tactical.positions[u.id]);
   assert.equal(new Set(positions.map(cellKey)).size,positions.length,'surviving characters overlap');
-  assert.ok(positions.every(p=>onBoard(p,s)),'a living character left the 5×5 board');
-  assert.equal(boardCells(s).length,25);
+  assert.ok(positions.every(p=>onBoard(p,s)),'a living character left the 6×6 board');
+  assert.equal(boardCells(s).length,36);
   assert.ok(living.every(u=>Number.isFinite(u.hp)&&u.hp<=u.maxHp));
   assert.equal(tacticalView(s,'enemy').tactical.objectives.player,undefined);
   assert.equal(tacticalView(s,'player').tactical.objectives.enemy,undefined);

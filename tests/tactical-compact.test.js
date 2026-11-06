@@ -13,14 +13,14 @@ const guard=actorId=>({type:'guard',actorId});
 const step=(actorId,path)=>({type:'move',actorId,path});
 const round=(s,a=[],b=[])=>{assert.ok(submitTacticalPlan(s,'player',a).ok);assert.ok(submitTacticalPlan(s,'enemy',b).ok);const result=resolveTacticalRound(s);assert.ok(result.ok);return result;};
 
-test('compact mode is 5×5 with full-round plans and private same-tier objectives at adapted distances',()=>{
- const s=make();assert.equal(s.tactical.activation,undefined);assert.equal(boardCells(s).length,25);
+test('compact mode is 6×6 with full-round plans and private same-tier objectives at adapted distances',()=>{
+ const s=make();assert.equal(s.tactical.activation,undefined);assert.equal(boardCells(s).length,36);
  assert.equal(new Set(Object.values(s.tactical.positions).map(cellKey)).size,6);
  for(const side of ['player','enemy']){
   const goal=s.tactical.objectives[side],team=side==='player'?s.allies:s.enemies;
-  assert.equal(goal.minimumDistance,3);assert.ok(team.every(u=>distance(goal.position,s.tactical.positions[u.id],s)>=3));
+  assert.equal(goal.minimumDistance,4);assert.ok(team.every(u=>distance(goal.position,s.tactical.positions[u.id],s)>=4));
   assert.equal(tacticalView(s,side).tactical.objectives[side==='player'?'enemy':'player'],undefined);
-  assert.ok(team.every(u=>movementRange(s,u.id)===2));
+  assert.ok(team.every(u=>movementRange(s,u.id)===1));
  }
  assert.equal(s.tactical.objectives.player.tier,s.tactical.objectives.enemy.tier);
 });
@@ -55,8 +55,8 @@ test('same-wave collision stops both movements regardless of confirmation order,
 });
 
 test('movement collects only the owner objective and upgrades only its collector after the round',()=>{
- const s=make(),u=s.allies[0],goal={x:2,y:0};s.tactical.objectives.player.position=goal;
- const path=findPath(s,u.id,goal);assert.equal(path.length,2);
+ const s=make(),u=s.allies[0],goal={x:1,y:0};s.tactical.objectives.player.position=goal;
+ const path=findPath(s,u.id,goal);assert.equal(path.length,1);
  const original=JSON.stringify(s),preview=previewTacticalPlan(s,'player',[step(u.id,path),guard(u.id)]);
  assert.ok(preview.ok);assert.equal(JSON.stringify(s),original);
  const result=round(s,[step(u.id,path),guard(u.id)]),offer=result.chestRewards.find(o=>o.objective);
@@ -69,6 +69,24 @@ test('movement collects only the owner objective and upgrades only its collector
  assert.notDeepEqual(conquestAugmentedAbility(s,u,base),base);assert.ok(s.allies.slice(1).every(v=>!v.objectiveAugments));
  assert.equal(s.tactical.stage,'planning');
  if(s.tactical.objectives.player)assert.equal(s.tactical.objectives.player.minimumDistance,2);
+});
+
+test('two consecutive compact moves are individually adjacent and never move the unit before resolution',()=>{
+ const s=make(),u=s.allies[0],start={...s.tactical.positions[u.id]};
+ const first=step(u.id,[{x:1,y:1}]),second=step(u.id,[{x:2,y:1}]);
+ assert.equal(findPath(s,u.id,{x:2,y:1}),null,'two cells are not one action');
+ assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:1,y:1},{x:2,y:1}])]).ok,false);
+ assert.ok(previewTacticalPlan(s,'player',[first,second]).ok,'two moves require two action slots');
+ assert.deepEqual(s.tactical.positions[u.id],start,'the simulated first move must never move the real actor');
+ assert.ok(submitTacticalPlan(s,'player',[first,second]).ok);
+ assert.deepEqual(s.tactical.positions[u.id],start,'sealing the plan does not execute either movement');
+ assert.ok(submitTacticalPlan(s,'enemy',[]).ok);
+ const result=resolveTacticalRound(s);
+ assert.ok(result.ok);
+ const moves=result.events.filter(e=>e.type==='exchange-move').flatMap(e=>e.moves).filter(e=>e.actorId===u.id);
+ assert.equal(moves.length,2);
+ assert.deepEqual(moves.map(m=>m.to),[{x:1,y:1},{x:2,y:1}]);
+ assert.deepEqual(s.tactical.positions[u.id],{x:2,y:1});
 });
 
 test('compact edges do not grant invasion penalties and keep the starting horizontal facing',()=>{
@@ -88,7 +106,7 @@ test('compact techniques use the balanced cooldowns without spending Essência',
 
 test('events recur every four rounds and never close the compact field',()=>{
  const s=make();const weather=[];
- for(let i=0;i<26;i++){const result=round(s);weather.push(...result.events.filter(e=>e.type==='field-event').map(e=>e.id));assert.equal(boardCells(s).length,25);assert.ok(units(s).filter(u=>u.hp>0).every(u=>onBoard(s.tactical.positions[u.id],s)));}
+ for(let i=0;i<26;i++){const result=round(s);weather.push(...result.events.filter(e=>e.type==='field-event').map(e=>e.id));assert.equal(boardCells(s).length,36);assert.ok(units(s).filter(u=>u.hp>0).every(u=>onBoard(s.tactical.positions[u.id],s)));}
  assert.deepEqual(weather,['storm','wind','rain','storm','wind','rain']);
  assert.deepEqual(s.tactical.fortress.closedRows,[]);assert.deepEqual(s.tactical.fortress.closedColumns,[]);
 });
@@ -108,22 +126,28 @@ test('field forecast describes the public event cadence and current weather with
  assert.equal(tacticalFieldForecast(s).active,null,'last round weather is not claimed as active');
 });
 
-test('Vendaval enables three steps on compact 5×5 and Chuva extinguishes active fire',()=>{
+test('Vendaval grants a shield for a single-tile move and Chuva extinguishes active fire on 6×6',()=>{
  const s=make(),u=s.allies[0];
  s.round=8;
  const wind=applyFieldEvent(s);
  assert.equal(wind.id,'wind');
- assert.equal(movementRange(s,u.id),3);
- const path=findPath(s,u.id,{x:3,y:0});
- assert.equal(path?.length,3);
+ assert.equal(movementRange(s,u.id),1);
+ assert.equal(findPath(s,u.id,{x:3,y:0}),null);
+ const path=findPath(s,u.id,{x:1,y:0});
+ assert.equal(path?.length,1);
  assert.ok(previewTacticalPlan(s,'player',[step(u.id,path)]).ok);
+ assert.equal(s.tactical.positions[u.id].x,0,'preview never moves the real character');
+ const moveResult=round(s,[step(u.id,path)]);
+ assert.equal(s.tactical.positions[u.id].x,1);
+ assert.equal(u.shield,5);
+ assert.ok(moveResult.events.some(e=>e.type==='exchange-move'&&e.moves.some(m=>m.windShield===5)));
  s.round=12;
  s.tactical.surfaces['2,2']={element:'fire',until:16};
  const rain=applyFieldEvent(s);
  assert.equal(rain.id,'rain');
  assert.notEqual(s.tactical.surfaces['2,2']?.element,'fire');
- assert.equal(movementRange(s,u.id),2);
- assert.equal(boardCells(s).length,25);
+ assert.equal(movementRange(s,u.id),1);
+ assert.equal(boardCells(s).length,36);
 });
 
 test('AI produces a legal sealed full-round plan without receiving the player objective',()=>{
@@ -170,7 +194,7 @@ test('next encounters retain compact planning, progression and earned trail rewa
  s.phase='victory';s.tactical.stage='finished';
  const next=advanceTacticalRun(run,s,'recovery');assert.equal(next.compact,true);
  const following=createTacticalBattle(next.player,next.enemy,{...next,fortress:true});
- assert.equal(following.tactical.compact,true);assert.equal(following.tactical.activation,undefined);assert.equal(boardCells(following).length,25);
+ assert.equal(following.tactical.compact,true);assert.equal(following.tactical.activation,undefined);assert.equal(boardCells(following).length,36);
  assert.ok(following.tactical.augments.player.every(a=>a.amount>=5));
  const extended=createTacticalBattle(allies,[...enemies,'o-corrupto','o-medico-de-vermes'],{fortress:true,compact:true,campaign:true});
  assert.ok(Object.values(extended.tactical.positions).every(p=>onBoard(p,extended)));assert.equal(new Set(Object.values(extended.tactical.positions).map(cellKey)).size,8);

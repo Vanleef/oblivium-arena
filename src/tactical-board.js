@@ -1,5 +1,6 @@
 // Position and geometry are independent of combat effects and resource costs.
 export const BOARD_SIZE=5;
+export const COMPACT_BOARD_SIZE=6;
 export const boardWidth=s=>s?.tactical?.width??BOARD_SIZE;
 export const boardHeight=s=>s?.tactical?.height??BOARD_SIZE;
 export function fortressClosure(s,round){
@@ -44,7 +45,8 @@ export function canStep(s,actorId,from,to,{through=false,movement=false}={}){
  return true;
 }
 export function movementRange(s,actorId){
- if(s.tactical.compact)return s.tactical.weather?.id==='wind'&&s.tactical.weather.round===s.round?3:2;
+ // Each movement is exactly one adjacent tile in compact mode, including during Wind.
+ if(s.tactical.compact)return 1;
  if(s.tactical.fortress)return s.tactical.weather?.id==='wind'&&s.tactical.weather.round===s.round?2:1;
  if(s.tactical.activation)return 2;
  const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);

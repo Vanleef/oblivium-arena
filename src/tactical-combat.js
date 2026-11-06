@@ -190,9 +190,9 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
  const seed=Number.isSafeInteger(config.seed)?config.seed:1;
  const s=createBattle(playerIds,enemyTeam,{rngSeed:seed,fortress:config.fortress,enemyPlanner:()=>[],buffs:config.buffs||[],memories:config.memories||[],globalEffects:config.globalEffects||{},teamHealth:config.teamHealth});
  s.humanSides=true;s.enemyResonance=getResonance(enemyIds);
- s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:5,positions:{},facings:{},aimFacings:{},lastFortresses:{},scene:combatScene(config.scene).id,obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
+ s.tactical={version:1,environment:createTacticalEnvironment(config.environment),size:config.compact?6:5,positions:{},facings:{},aimFacings:{},lastFortresses:{},scene:combatScene(config.scene).id,obstacles:[],chests:[],chestSequence:0,pendingChestRewards:[],plans:{},events:[],firstSide:(seed>>>0)%2?'player':'enemy',stage:'planning'};
  if(config.fortress){
-  Object.assign(s.tactical,{compact:Boolean(config.compact),width:config.compact?5:9,height:config.compact?5:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{},progress:conquestProgress(config.augmentProgress)}});
+  Object.assign(s.tactical,{compact:Boolean(config.compact),width:config.compact?6:9,height:6,surfaces:{},weather:null,fortress:{entered:[],rearmed:[],fallen:[],closedColumns:[],closedRows:[],rewardSequence:0,leaps:[],equipped:{},progress:conquestProgress(config.augmentProgress)}});
   for(const u of tacticalUnits(s)){
    if(!u.npcOnly){u.maxHp=100;u.hp=config.teamHealth?.[u.id]??100;}
    u.abilities.push({...fortressBasicAttack});
@@ -296,6 +296,12 @@ export function tacticalTargets(s,actor,ability,anchor,orientation){
  .filter(u=>['self','ally','friendly','team'].includes(ability.target)||!u.invulnerable||ability.ignoreInvulnerability)
  .sort((a,b)=>distance(origin,s.tactical.positions[a.id],s)-distance(origin,s.tactical.positions[b.id],s)||a.id.localeCompare(b.id)).slice(0,s.tactical.fortress?undefined:spec.limit).map(u=>u.id);
 }
+function grantCompactWindShield(s,actor){
+ if(!s.tactical.compact||s.tactical.weather?.id!=='wind'||s.tactical.weather.round!==s.round)return 0;
+ const gained=Math.max(0,Math.min(5,Math.round(actor.maxHp*.5)-(actor.shield||0)));
+ actor.shield=(actor.shield||0)+gained;
+ return gained;
+}
 function move(s,ref,strict=false){
  const actor=actorFor(s,ref.side,ref.actorId);if(!actor||actor.stunned)return {skipped:true,reason:actor?'Atordoado.':'Personagem fora de combate.'};
  let at=s.tactical.positions[actor.id],moved=0;const from={...at},steps=[];
@@ -303,7 +309,8 @@ function move(s,ref,strict=false){
  if(s.tactical.compact)refreshConquestObjectives(s);
  actor.actedThisTurn=true;
  const augmentNotes=moved?triggerTacticalAugments(s,ref.side,actor,'move'):[];
- return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
+ const windShield=moved?grantCompactWindShield(s,actor):0;
+ return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,windShield,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
 }
 function displaceTargets(s,actor,ids,displacement){
  if(!displacement)return [];
@@ -514,6 +521,7 @@ function resolveExchangeMovement(s,paths){
   for(const step of moving)if(index===0){
    const actor=actorFor(s,step.side,step.actorId);actor.actedThisTurn=true;
    step.augmentNotes=triggerTacticalAugments(s,step.side,actor,'move');
+   step.windShield=grantCompactWindShield(s,actor);
   }
   const chestsOpened=s.tactical.fortress?[]:moving.flatMap(step=>claimTacticalChests(s,step.side,[step.to]));
   if(s.tactical.fortress){
