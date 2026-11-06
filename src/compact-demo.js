@@ -31,32 +31,31 @@ const units=s=>[...s.allies,...s.enemies];
 const count=id=>state.actions.filter(a=>a.actorId===id).length;
 const locked=()=>state.busy||state.battle.tactical.stage!=='planning'||Boolean(state.battle.tactical.plans.player);
 const project=()=>previewTacticalPlan(tacticalView(state.battle,'player'),'player',state.actions);
-const displayed=()=>{
- if(state.snapshot)return {...state.battle,...state.snapshot,tactical:{...state.battle.tactical,...state.snapshot}};
- const projection=project().projection;
- return projection?{...projection,tactical:{...projection.tactical,objectives:tacticalView(state.battle,'player').tactical.objectives}}:state.battle;
-};
+// Previews indicate targets only; actors remain at the real tile until playback.
+const displayed=()=>state.snapshot?{...state.battle,...state.snapshot,tactical:{...state.battle.tactical,...state.snapshot}}:state.battle;
+const planned=()=>!state.snapshot&&state.battle.tactical.stage==='planning'?(project().projection||state.battle):state.battle;
 const actor=s=>s.allies.find(u=>u.id===state.selected)||s.allies.find(u=>u.hp>0)||s.allies[0];
 function saveProgress(){state.run.augmentProgress=conquestProgress(state.battle.tactical.fortress.progress);try{localStorage.setItem(key,JSON.stringify(state.battle.tactical.fortress.progress));}catch{}}
 function areaIcon(unit,ability){
- const spec=fortressTechniqueSpec(state.battle,unit,ability),origin={x:2,y:2},anchor=spec.pattern==='line'||spec.pattern==='cone'?origin:{x:2,y:2};
- const hit=new Set(patternCells(spec.pattern,origin,anchor,[1,0],spec.length,{tactical:{width:5,height:5}}).map(cellKey));
- return '<svg class="technique-area" viewBox="0 0 40 40" role="img" aria-label="Área de ação">'+boardCells().map(p=>'<rect x="'+(p.x*8+1)+'" y="'+(p.y*8+1)+'" width="6" height="6" rx="1" class="'+(hit.has(cellKey(p))?'area-hit':'area-empty')+'"/>').join('')+'</svg>';
+ const spec=fortressTechniqueSpec(state.battle,unit,ability),width=state.battle.tactical.width,height=state.battle.tactical.height,origin={x:Math.floor(width/2),y:Math.floor(height/2)},grid={tactical:{width,height}};
+ const hit=new Set(patternCells(spec.pattern,origin,origin,[1,0],spec.length,grid).map(cellKey));
+ return '<svg class="technique-area" viewBox="0 0 '+width*8+' '+height*8+'" role="img" aria-label="Área de ação">'+boardCells(grid).map(p=>'<rect x="'+(p.x*8+1)+'" y="'+(p.y*8+1)+'" width="6" height="6" rx="1" class="'+(hit.has(cellKey(p))?'area-hit':'area-empty')+'"/>').join('')+'</svg>';
 }
 function figure(unit,s){
  const current=state.event?.actorId===unit.id?state.event:null,facing=current?.orientation||unitFacing(s,unit),frame=tacticalSpriteFrame(unit,current,facing);
  const sign=frame?.directional?1:facing[0]<0?-1:1;
- const statuses=tacticalStatuses(unit,s),layers=[...new Set(statuses.map(e=>e.id.startsWith('dot:')?'affliction':e.id.startsWith('mark:')?'marked':e.id.startsWith('surface:')?'terrain-'+e.id.slice(8):e.id))],planned=!state.busy&&state.actions.some(a=>a.actorId===unit.id&&a.type==='move');
+ const statuses=tacticalStatuses(unit,s),layers=[...new Set(statuses.map(e=>e.id.startsWith('dot:')?'affliction':e.id.startsWith('mark:')?'marked':e.id.startsWith('surface:')?'terrain-'+e.id.slice(8):e.id))],orders=!state.busy&&unit.side==='player'?state.actions.filter(a=>a.actorId===unit.id):[];
  const sprite=frame?'<span class="token-sprite"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(frame.src)+'" alt="" style="'+tacticalSpriteInline(frame)+'"></span></span>':unit.art?.portrait?'<img class="token-art" src="'+esc(unit.art.portrait)+'" alt="">':'<i class="arena-creature-mark">'+esc(unit.symbol||'◆')+'</i>';
- return '<span class="token '+unit.side+(planned?' compact-ghost':'')+'" data-unit-id="'+esc(unit.id)+'" data-family="'+esc(current?.family||'idle')+'" data-pose="'+esc(current?.pose||'ready')+'" data-sprite="'+Boolean(frame)+'" data-idle-atlas="false" style="'+tacticalFigureStyle(unit)+tacticalIdleStyle(unit)+'--facing-sign:'+sign+';--upgrade-growth:'+objectiveGrowth(unit.objectiveAugments||0)+';--pose-duration:'+tacticalFrameDuration(current||{})+'ms"><span class="conquest-model">'+sprite+'</span>'+(unit.id===state.selected&&!state.busy?'<i class="selected-unit-arrow" aria-hidden="true"></i>':'')+'<span class="tactical-status-vfx" aria-hidden="true">'+layers.map(layer=>'<i data-status-vfx="'+esc(layer)+'"></i>').join('')+'</span><span class="compact-token-label">'+esc(unit.name)+(planned?' · plano':'')+'</span></span>';
+ return '<span class="token '+unit.side+'" data-unit-id="'+esc(unit.id)+'" data-family="'+esc(current?.family||'idle')+'" data-pose="'+esc(current?.pose||'ready')+'" data-sprite="'+Boolean(frame)+'" data-idle-atlas="false" style="'+tacticalFigureStyle(unit)+tacticalIdleStyle(unit)+'--facing-sign:'+sign+';--upgrade-growth:'+objectiveGrowth(unit.objectiveAugments||0)+';--pose-duration:'+tacticalFrameDuration(current||{})+'ms"><span class="conquest-model">'+sprite+'</span>'+(unit.id===state.selected&&!state.busy?'<i class="selected-unit-arrow" aria-hidden="true"></i>':'')+'<span class="tactical-status-vfx" aria-hidden="true">'+layers.map(layer=>'<i data-status-vfx="'+esc(layer)+'"></i>').join('')+'</span><span class="compact-token-label">'+esc(unit.name)+'</span>'+(orders.length?'<span class="compact-token-orders" aria-hidden="true">'+orders.map((a,i)=>'<b>'+(i+1)+' '+esc(actionName(unit,a))+'</b>').join('')+'</span>':'')+'</span>';
 }
 const emblem=tier=>'<span class="objective-pulse" data-tier="'+tier+'" aria-hidden="true"><i></i><b class="objective-emblem"><svg viewBox="0 0 64 64"><path class="objective-gem" d="M32 6 48 21 44 43 32 54 20 43 16 21Z"/><path class="objective-facets" d="m32 6-8 18 8 30 8-30Zm-16 15 16 9 16-9M20 43l12-13 12 13"/></svg></b></span>';
-function board(s){
+function board(s,future=planned()){
  const owner=actor(s),canMove=!locked()&&state.mode==='move'&&count(owner.id)<2,goal=s.tactical.objectives?.player;
- const activeCells=new Set((state.event?.cells||[]).map(cellKey));
- return '<div class="board compact-board" role="group" aria-label="Arena tática em grade 5 por 5" style="--fort-cols:5;--fort-rows:5">'+boardCells(s).map(p=>{
-  const unit=occupied(s,p),path=canMove?findPath(s,owner.id,p):null,objective=goal&&sameCell(goal.position,p),surface=surfaceAt(s,p),blocked=s.tactical.obstacles.some(q=>sameCell(q,p));
-  return '<button class="cell '+(path?'reachable ':'')+(blocked?'blocked ':'')+(objective?'objective-cell objective-'+goal.tier+' ':'')+(activeCells.has(cellKey(p))?'compact-impact ':'')+'" data-cell="'+cellKey(p)+'" style="z-index:'+(p.y*10+(unit?10:0))+'" aria-label="'+cellLabel(p)+(unit?', '+esc(unit.name)+', '+(unit.side==='player'?'aliado':'inimigo')+', Vida '+unit.hp:', vazia')+(objective?', objetivo '+augmentTiers[goal.tier].label:'')+(path?', movimento disponível, '+path.length+(path.length===1?' casa':' casas'):'')+(surface?', '+esc(elements[surface.element]?.surface||surface.element):'')+'" '+(locked()?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+(objective?emblem(goal.tier):'')+(surface?'<span class="element-floor" data-element="'+surface.element+'" aria-hidden="true"></span>':'')+(unit?figure(unit,s):'')+'</button>';
+ const activeCells=new Set((state.event?.cells||[]).map(cellKey)),destinations=new Map();
+ if(!state.busy)for(const u of s.allies){const to=future.tactical.positions[u.id];if(to&&!sameCell(to,s.tactical.positions[u.id]))destinations.set(cellKey(to),u);}
+ return '<div class="board compact-board" role="group" aria-label="Arena tática em grade 6 por 6" style="--fort-cols:6;--fort-rows:6">'+boardCells(s).map(p=>{
+  const unit=occupied(s,p),path=canMove?findPath(future,owner.id,p):null,objective=goal&&sameCell(goal.position,p),surface=surfaceAt(s,p),blocked=s.tactical.obstacles.some(q=>sameCell(q,p)),destination=destinations.get(cellKey(p));
+  return '<button class="cell '+(path?'reachable ':'')+(blocked?'blocked ':'')+(objective?'objective-cell objective-'+goal.tier+' ':'')+(activeCells.has(cellKey(p))?'compact-impact ':'')+'" data-cell="'+cellKey(p)+'" style="z-index:'+(p.y*10+(unit?10:0))+'" aria-label="'+cellLabel(p)+(unit?', '+esc(unit.name)+', '+(unit.side==='player'?'aliado':'inimigo')+', Vida '+unit.hp:', vazia')+(objective?', objetivo '+augmentTiers[goal.tier].label:'')+(path?', movimento disponível, 1 casa':'')+(surface?', '+esc(elements[surface.element]?.surface||surface.element):'')+'" '+(locked()?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+(objective?emblem(goal.tier):'')+(surface?'<span class="element-floor" data-element="'+surface.element+'" aria-hidden="true"></span>':'')+(destination?'<span class="compact-planned-destination" aria-hidden="true">↳ '+esc(destination.name)+'</span>':'')+(unit?figure(unit,s):'')+'</button>';
  }).join('')+'</div>';
 }
 function hud(s){
@@ -71,7 +70,7 @@ function techniques(s){
   return '<button data-technique="'+esc(a.id)+'" aria-pressed="'+(state.mode===a.id)+'" '+(readOnly||cooldown||reason?'disabled':'')+' title="'+esc(reason||a.description)+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" decoding="async">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(reason||(cooldown?'Em recarga · '+cooldown:fortressCooldown(a)?'Recarga '+fortressCooldown(a):'Sem recarga'))+'</small></span>'+areaIcon(u,a)+'</button>';
  }).join('');
  const hint=state.busy?'Planos em resolução. As técnicas continuam visíveis.':state.battle.tactical.stage==='reward'?'Escolha uma das melhorias para continuar.':state.message||chosen&&conquestAugmentedAbility(s,u,conquestTechnique(chosen)).description||(count(u.id)>=2?'Duas ações planejadas. Escolha outro aliado ou confirme a rodada.':'Escolha movimento ou técnica e toque na casa.');
- return '<aside class="arena-techniques"><h2>Técnicas · '+esc(u.name)+'</h2><section class="activation-dock" data-panel-locked="'+Boolean(readOnly)+'" aria-busy="'+state.busy+'" aria-label="Técnicas de '+esc(u.name)+'"><div class="compact-mode-controls"><button data-mode="move" aria-pressed="'+(state.mode==='move')+'" '+(readOnly?'disabled':'')+'>Mover <small>Até '+(s.tactical.weather?.id==='wind'&&s.tactical.weather.round===s.round?3:2)+' casas · 1 ação</small></button><button data-guard '+(readOnly?'disabled':'')+'>Guarda <small>+6 de Escudo · 1 ação</small></button></div><div class="activation-options">'+cards+'</div>'+specialChoices(u,chosen,readOnly)+'<p class="compact-hint" role="status">'+esc(hint)+'</p>'+(passive?'<details class="tactical-passive"><summary>Passiva · '+esc(passive.name)+'</summary><p>'+esc(passive.description)+'</p></details>':'')+'</section></aside>';
+ return '<aside class="arena-techniques"><h2>Técnicas · '+esc(u.name)+'</h2><section class="activation-dock" data-panel-locked="'+Boolean(readOnly)+'" aria-busy="'+state.busy+'" aria-label="Técnicas de '+esc(u.name)+'"><div class="compact-mode-controls"><button data-mode="move" aria-pressed="'+(state.mode==='move')+'" '+(readOnly?'disabled':'')+'>Mover <small>1 casa · 1 ação</small></button><button data-guard '+(readOnly?'disabled':'')+'>Guarda <small>+6 de Escudo · 1 ação</small></button></div><div class="activation-options">'+cards+'</div>'+specialChoices(u,chosen,readOnly)+'<p class="compact-hint" role="status">'+esc(hint)+'</p>'+(passive?'<details class="tactical-passive"><summary>Passiva · '+esc(passive.name)+'</summary><p>'+esc(passive.description)+'</p></details>':'')+'</section></aside>';
 }
 function specialChoices(unit,ability,readOnly){
  const disabled=readOnly?' disabled':'',controls=[];
@@ -116,16 +115,16 @@ function append(ref){
 }
 function selectCell(point){
  if(locked())return;
- const s=displayed(),u=actor(s),at=s.tactical.positions[u.id],hit=occupied(s,point);
- if(state.mode==='move'&&hit?.side==='player'){state.selected=hit.id;state.message='';render();return;}
+ const s=displayed(),future=planned(),u=actor(future),at=future.tactical.positions[u.id],hit=occupied(s,point);
+ if(hit?.side==='player'&&hit.id!==u.id){state.selected=hit.id;state.mode='move';state.message='';render();return;}
  if(count(u.id)>=2||u.stunned||u.hp<=0)return;
  if(state.mode==='move'){
-  const path=findPath(s,u.id,point);if(!path){state.message='Escolha uma casa destacada com caminho livre.';render();return;}
+  const path=findPath(future,u.id,point);if(!path){state.message='Escolha uma casa adjacente destacada.';render();return;}
   append({type:'move',actorId:u.id,path});return;
  }
  const ability=u.abilities.find(a=>a.id===state.mode);if(!ability)return;
  const orientation=[Math.sign(point.x-at.x),Math.sign(point.y-at.y)];
- if(sameCell(point,at))orientation.splice(0,2,...unitFacing(s,u));
+ if(sameCell(point,at))orientation.splice(0,2,...unitFacing(future,u));
  append({...state.spends,type:'skill',actorId:u.id,abilityId:ability.id,formKey:ability.formKey||'base',anchor:point,orientation});
 }
 function emit(event,unit,ability,phase,duration){
@@ -226,7 +225,7 @@ root.addEventListener('click',event=>{
 root.addEventListener('pointerover',event=>{
  const cell=event.target.closest('[data-cell]');if(!cell||locked()||state.mode==='move')return;
  for(const e of root.querySelectorAll('.cell.aim'))e.classList.remove('aim');
- const s=displayed(),u=actor(s),a=u.abilities.find(a=>a.id===state.mode);if(!a)return;
+ const s=planned(),u=actor(s),a=u.abilities.find(a=>a.id===state.mode);if(!a)return;
  const [x,y]=cell.dataset.cell.split(',').map(Number),origin=s.tactical.positions[u.id],orientation=[Math.sign(x-origin.x),Math.sign(y-origin.y)];
  if(!orientation[0]&&!orientation[1])orientation.splice(0,2,...unitFacing(s,u));
  for(const p of tacticalArea(s,u,a,{x,y},orientation))root.querySelector('[data-cell="'+cellKey(p)+'"]')?.classList.add('aim');
