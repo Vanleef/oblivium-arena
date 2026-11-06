@@ -6,6 +6,8 @@ const team=(s,side)=>(side==='player'?s.allies:s.enemies).filter(u=>u.hp>0);
 const hash=text=>[...String(text)].reduce((n,c)=>(Math.imul(n,31)+c.charCodeAt(0))>>>0,2166136261);
 export const objectiveGrowth=count=>1+.28*(1-Math.pow(.68,Math.max(0,Number.isFinite(count)?count:0)));
 export function objectiveMinimumDistance(s,initial=false){
+ // One step per action needs an approachable objective even on the expanded 6×6 field.
+ if(s.tactical.compact)return initial?3:2;
  const tracks=boardTracks(s),span=Math.max(tracks.columns.length-1,tracks.rows.length-1);
  return Math.max(1,Math.ceil((initial?5:3)*span/8));
 }

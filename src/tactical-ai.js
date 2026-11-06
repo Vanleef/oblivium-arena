@@ -39,8 +39,10 @@ function score(s,side){
  for(const u of [...own,...opposition]){const delta=tacticalEnvironmentDelta(s,u);value+=(u.side===side?1:-1)*(delta.hp*1.5+delta.shield*.28);}
  if(s.tactical.compact){
   const goal=s.tactical.objectives?.[side]?.position,living=own.filter(u=>u.hp>0&&!u.stunned);
-  if(goal&&living.length)value-=Math.min(...living.map(u=>distance(s.tactical.positions[u.id],goal,s)))*5;
-  value+=(s.tactical.objectiveClaims?.[side]||0)*25;
+  // A collected objective produces a lasting actor-specific technique buff. With
+  // one-tile moves, treat it as a meaningful alternative to immediate damage.
+  if(goal&&living.length)value-=Math.min(...living.map(u=>distance(s.tactical.positions[u.id],goal,s)))*10;
+  value+=(s.tactical.objectiveClaims?.[side]||0)*50;
  }
  return value;
 }

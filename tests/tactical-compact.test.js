@@ -18,7 +18,7 @@ test('compact mode is 6×6 with full-round plans and private same-tier objective
  assert.equal(new Set(Object.values(s.tactical.positions).map(cellKey)).size,6);
  for(const side of ['player','enemy']){
   const goal=s.tactical.objectives[side],team=side==='player'?s.allies:s.enemies;
-  assert.equal(goal.minimumDistance,4);assert.ok(team.every(u=>distance(goal.position,s.tactical.positions[u.id],s)>=4));
+  assert.equal(goal.minimumDistance,3);assert.ok(team.every(u=>distance(goal.position,s.tactical.positions[u.id],s)>=3));
   assert.equal(tacticalView(s,side).tactical.objectives[side==='player'?'enemy':'player'],undefined);
   assert.ok(team.every(u=>movementRange(s,u.id)===1));
  }
