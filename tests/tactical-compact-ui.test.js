@@ -11,11 +11,11 @@ test('compact UI queues actions privately, undoes the plan and retains technique
   globalThis.matchMedia=()=>({matches:true});globalThis.requestAnimationFrame=undefined;
   globalThis.Worker=class{addEventListener(type,fn){if(type==='message')this.receive=fn;}postMessage({id}){queueMicrotask(()=>this.receive({data:{id,plan:[]}}));}};
   await import('../src/compact-demo.js?compact-ui-regression');
-  assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/compact-portrait/);assert.match(html,/compact-command-panel/);assert.match(html,/data-confirm/);assert.doesNotMatch(html,/class="arena-techniques"/);assert.match(html,/Próximo evento: rodada 4/);
-  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/data-hero-index="0" style="--hero-accent:#f0ae56"/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,1);assert.match(html,/compact-planned-destination/);assert.match(html,/--compact-scene-image:url\('/);assert.match(html,/data-action-kind="move"/);assert.match(html,/data-actor-color="#f0ae56"/);
+  assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/compact-portrait/);assert.match(html,/compact-command-panel/);for(const section of ['actions','abilities','items','planning'])assert.match(html,new RegExp('data-panel-section="'+section+'"'));assert.match(html,/Mover<\/span>/);assert.match(html,/data-confirm/);assert.doesNotMatch(html,/class="arena-techniques"/);assert.match(html,/Próximo evento: rodada 4/);
+  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/data-hero-index="0" style="--hero-accent:#f0ae56"/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,1);assert.match(html,/compact-planned-destination/);assert.match(html,/--compact-scene-image:url\('/);assert.match(html,/--compact-floor-zoom:295%/);assert.match(html,/--compact-floor-focus:66%/);assert.match(html,/data-action-kind="move"/);assert.match(html,/data-plan-wave="1"/);assert.match(html,/data-plan-wave="2"/);assert.match(html,/data-actor-color="#f0ae56"/);
   click({undo:''});assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);assert.doesNotMatch(html,/Mover → B2/);
   click({cell:'1,1'});click({technique:'despertar'});click({cell:'1,1'});
-  assert.match(html,/Passo entre Lâminas/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,2);
+  assert.match(html,/Passo entre Lâminas/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,2);assert.match(html,/data-action-step="4"/,'second action is shown in wave two');
   assert.doesNotMatch(html,/class="compact-roster-card"/);
   click({actor:'a-viuva-escarlate'});click({guard:''});
   assert.match(html,/data-actor-color="#e94a86"/,'Lira has her own color on queued actions');
@@ -54,5 +54,5 @@ test('portrait-only sidebar keeps actual scene artwork under its transparent fie
  assert.doesNotMatch(source,/compact-roster-slots/);
  assert.match(styles,/border:2px solid var\(--hero-accent\)/);
  assert.match(styles,/background-image:linear-gradient\(180deg,[^\n]*var\(--compact-scene-image\)/);
- assert.match(styles,/\.compact-board \.cell\{background:transparent!important\}/);
+ assert.match(styles,/\.compact-board \.cell\{background:transparent!important\}/);assert.match(styles,/auto var\(--compact-floor-zoom,250%\)/);assert.match(styles,/\.compact-ground-shadow\{/);
 });

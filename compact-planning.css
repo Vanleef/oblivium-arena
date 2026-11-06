@@ -324,3 +324,77 @@
  .combat-shell.compact-battle .arena-field{grid-template-columns:minmax(78px,23%) minmax(0,1fr);gap:4px}
  .combat-shell.compact-battle .compact-command-panel{padding:3px;gap:5px}
 }
+
+/* Floor alignment: crop the walkable center of each authored environment instead
+   of laying the full sky + distant architecture image beneath combatants. */
+.combat-shell.compact-battle .compact-board-stack>.compact-board{
+ background-image:linear-gradient(180deg,#07081224,#08090f4a),var(--compact-scene-image)!important;
+ background-size:100% 100%,auto var(--compact-floor-zoom,250%)!important;
+ background-position:center,center var(--compact-floor-focus,68%)!important;
+ background-repeat:no-repeat!important;
+}
+.compact-battle .compact-board .cell:before{background:transparent}
+.compact-battle .compact-board .token .token-sprite{bottom:9px}
+.compact-battle .compact-board .token .token-art{bottom:9px}
+.compact-battle .compact-board .token .compact-ground-shadow{
+ position:absolute;z-index:1;left:50%;bottom:5px;translate:-50% 0;
+ width:72%;height:16%;max-height:14px;min-height:5px;
+ border-radius:50%;background:radial-gradient(ellipse,#090910b0 0%,#10102066 40%,transparent 72%);
+ filter:blur(2px);pointer-events:none;
+}
+.compact-battle .compact-board .token .conquest-model{z-index:2}
+.compact-battle .compact-command-panel{gap:7px!important}
+.compact-battle .compact-panel-section{display:grid;min-width:0;gap:5px;padding-top:8px;border-top:1px solid #a78d846d}
+.compact-battle .compact-panel-section h3{
+ margin:0;color:#eed9ae;font:700 10px/1.25 system-ui,sans-serif;
+ letter-spacing:.075em;text-transform:uppercase;
+}
+.compact-battle .compact-primary-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.compact-battle .compact-primary-action{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+ aspect-ratio:auto;min-height:43px;border:1px solid #b4927280;border-radius:6px;
+ background:#29202f;min-width:0;padding:3px 2px;
+}
+.compact-battle .compact-primary-action svg{width:21px;height:21px;color:#f7c17e}
+.compact-battle .compact-primary-action span{font-size:10px;font-weight:700;line-height:1;color:#eedbbb;white-space:nowrap}
+.compact-battle .compact-primary-action[aria-pressed="true"]{border-color:#f4d9a3;background:#48314a;box-shadow:inset 0 0 11px #ad796b6b}
+.compact-battle .compact-primary-action:disabled{opacity:.35}
+.compact-battle .compact-quick-buttons{padding-top:0;border-top:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.compact-battle .compact-items-empty{display:flex;align-items:center;justify-content:center;gap:5px;min-height:28px;border:1px dashed #88738b88;border-radius:5px;color:#a79aaf;background:#0c0a1255}
+.compact-battle .compact-items-empty>span{font-size:18px;line-height:1}
+.compact-battle .compact-items-empty>small{font-size:9px;line-height:1.2}
+.compact-battle .compact-panel-planning{margin-top:auto;gap:5px}
+.compact-battle .compact-action-sequence{display:flex;flex-direction:column;gap:2px;padding:0;border:0}
+.compact-battle .compact-sequence-wave{display:grid;gap:3px}
+.compact-battle .compact-sequence-wave h4{margin:0;font:600 9px/1.25 system-ui,sans-serif;color:#c9b7d5}
+.compact-battle .compact-sequence-steps{
+ display:grid;grid-template-columns:minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr);
+ gap:1px;align-items:center;
+}
+.compact-battle .compact-sequence-arrow,.compact-battle .compact-wave-arrow{display:grid;place-items:center;color:#e1c58a;font-size:12px;pointer-events:none;line-height:1}
+.compact-battle .compact-wave-arrow{font-size:16px;height:14px}
+.compact-battle .compact-sequence-empty::after{
+ content:attr(data-action-step);position:absolute;right:1px;bottom:1px;
+ font:700 9px/1 system-ui,sans-serif;color:#73677f;
+}
+.compact-battle .compact-sequence-empty,.compact-battle .compact-sequence-icon{width:100%;aspect-ratio:1;max-height:none}
+.compact-battle .compact-quick-footer{margin-top:4px;padding-top:5px}
+@media(max-width:720px){
+ .compact-battle .compact-panel-section{padding-top:5px;gap:3px}
+ .compact-battle .compact-panel-section h3{font-size:8px}
+ .compact-battle .compact-primary-buttons{gap:3px}
+ .compact-battle .compact-primary-action{min-height:32px;padding:2px 1px}
+ .compact-battle .compact-primary-action svg{width:15px;height:15px}
+ .compact-battle .compact-primary-action span{font-size:8px}
+ .compact-battle .compact-quick-buttons{gap:3px}
+ .compact-battle .compact-items-empty{min-height:21px;gap:3px}
+ .compact-battle .compact-items-empty>span{font-size:13px}
+ .compact-battle .compact-items-empty>small{font-size:8px}
+ .compact-battle .compact-sequence-wave h4{font-size:8px}
+ .compact-battle .compact-sequence-steps{grid-template-columns:minmax(0,1fr) 7px minmax(0,1fr) 7px minmax(0,1fr)}
+ .compact-battle .compact-sequence-arrow,.compact-battle .compact-wave-arrow{font-size:10px}
+ .compact-battle .compact-sequence-empty::after{font-size:7px}
+ .compact-battle .compact-board .token .token-sprite{bottom:5px}
+ .compact-battle .compact-board .token .token-art{bottom:5px}
+ .compact-battle .compact-board .token .compact-ground-shadow{bottom:3px}
+}

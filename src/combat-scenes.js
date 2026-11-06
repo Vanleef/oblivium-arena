@@ -1,10 +1,10 @@
 export const combatScenes=Object.freeze([
- {id:'limbo',name:'Limbo · Ruínas Suspensas',realm:'Limbo',art:'/art/arenas/limbo-ruins.webp'},
- {id:'inferno',name:'Inferno · Catedral das Cinzas',realm:'Inferno',art:'/art/arenas/inferno-cathedral.webp'},
- {id:'paraiso',name:'Paraíso · Pátio do Julgamento',realm:'Paraíso',art:'/art/arenas/paraiso-courtyard.webp'},
- {id:'inferno-ossuary',name:'Inferno · Claustro dos Condenados',realm:'Inferno',art:'/art/arenas/inferno-ossuary-20261105.webp'},
- {id:'paraiso-gardens',name:'Paraíso · Jardins do Veredito',realm:'Paraíso',art:'/art/arenas/paraiso-gardens-20261105.webp'},
- {id:'limbo-aqueronte',name:'Limbo · Margem do Aqueronte',realm:'Limbo',art:'/art/arenas/limbo-aqueronte-20261105.webp'}
+ {id:'limbo',floorZoom:295,floorFocus:66,name:'Limbo · Ruínas Suspensas',realm:'Limbo',art:'/art/arenas/limbo-ruins.webp'},
+ {id:'inferno',floorZoom:235,floorFocus:70,name:'Inferno · Catedral das Cinzas',realm:'Inferno',art:'/art/arenas/inferno-cathedral.webp'},
+ {id:'paraiso',floorZoom:238,floorFocus:68,name:'Paraíso · Pátio do Julgamento',realm:'Paraíso',art:'/art/arenas/paraiso-courtyard.webp'},
+ {id:'inferno-ossuary',floorZoom:235,floorFocus:65,name:'Inferno · Claustro dos Condenados',realm:'Inferno',art:'/art/arenas/inferno-ossuary-20261105.webp'},
+ {id:'paraiso-gardens',floorZoom:265,floorFocus:68,name:'Paraíso · Jardins do Veredito',realm:'Paraíso',art:'/art/arenas/paraiso-gardens-20261105.webp'},
+ {id:'limbo-aqueronte',floorZoom:245,floorFocus:65,name:'Limbo · Margem do Aqueronte',realm:'Limbo',art:'/art/arenas/limbo-aqueronte-20261105.webp'}
 ]);
 export const combatScene=id=>combatScenes.find(scene=>scene.id===id)||combatScenes[0];
 

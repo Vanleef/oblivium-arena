@@ -30,3 +30,13 @@ test('encounters vary scenery within their world without mutating RNG or repeati
  assert.equal(battle.rngState,before);assert.equal(combatScene(next.scene).realm,battle.enemies[0].realm);
  assert.deepEqual(advanceTacticalRun(createTacticalRun(),battle),next);
 });
+
+test('every arena supplies an explicit crop of the playable ground, distinct from distant scenery',()=>{
+ for(const scene of combatScenes){
+  assert.ok(scene.floorZoom>=200&&scene.floorZoom<=320,scene.id+' zoom');
+  assert.ok(scene.floorFocus>=55&&scene.floorFocus<=80,scene.id+' focus');
+  const start=(1-100/scene.floorZoom)*scene.floorFocus;
+  const end=start+100/scene.floorZoom*100;
+  assert.ok(start>=30&&end<=87,scene.id+' must show playable floor rather than sky or front precipice');
+ }
+});
