@@ -15,6 +15,11 @@ function score(s,side){
  }
  for(const u of opposition){value-=u.hp*1.6+(u.hp>0?80:0)+u.shield*.25;if(u.stunned)value+=10;if(u.weakened)value+=3;value+=Object.values(u.marks).filter(m=>own.some(a=>a.id===m.sourceId)).length*2;value+=u.dots.reduce((n,d)=>n+d.damage*d.turns*.6,0);}
  for(const u of [...own,...opposition]){const delta=tacticalEnvironmentDelta(s,u);value+=(u.side===side?1:-1)*(delta.hp*1.5+delta.shield*.28);}
+ if(s.tactical.compact){
+  const goal=s.tactical.objectives?.[side]?.position,living=own.filter(u=>u.hp>0&&!u.stunned);
+  if(goal&&living.length)value-=Math.min(...living.map(u=>distance(s.tactical.positions[u.id],goal,s)))*5;
+  value+=(s.tactical.objectiveClaims?.[side]||0)*25;
+ }
  return value;
 }
 function candidates(s,side,used,actorId){
@@ -38,7 +43,7 @@ export function planTacticalAI(publicState,side='enemy'){
   const used=actions.reduce((out,a)=>(out[a.actorId]=(out[a.actorId]||0)+1,out),{});let best=null;
   for(const ref of candidates(preview.projection,side,used)){
    const next=[...actions,ref],p=previewTacticalPlan(view,side,next);if(!p.ok)continue;
-   const v=score(p.projection,side)-p.payment.costs.essence*.12-Object.values(p.payment.costs).reduce((n,x)=>n+x,0)*.15;
+   const v=score(p.projection,side)-(p.payment.costs.essence||0)*.12-Object.values(p.payment.costs).reduce((n,x)=>n+x,0)*.15;
    if(v>value+.05&&(!best||v>best.value))best={actions:next,preview:p,value:v};
   }
   if(!best)break;({actions,preview,value}=best);

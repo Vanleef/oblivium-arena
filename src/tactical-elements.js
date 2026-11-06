@@ -78,7 +78,8 @@ const weather=[
 ];
 export function applyFieldEvent(s){
  if(s.round%4)return null;
- const event=weather[(s.round/4-1)%weather.length];
+ const source=weather[(s.round/4-1)%weather.length];
+ const event=s.tactical.compact&&source.id==='wind'?{...source,description:'Nesta rodada, cada movimento alcança até 3 casas, com caminho livre.'}:source;
  s.tactical.weather={...event,round:s.round};
  const free=boardCells(s).filter(p=>!obstacle(s,p)),cells=[],strikes=[];
  if(event.id==='storm'){

@@ -8,7 +8,7 @@ const output = resolve(root, "dist");
 const runtimeRoots = ["src", "art", "api", "server"];
 const staticRoots = ["src", "art"];
 const rootFiles = [
-  "index.html", "tactical.html", "tactical.css", "tactical-hand.css", "tactical-motion.css", "vercel.json",
+  "index.html", "tactical.html", "tactical.css", "tactical-hand.css", "tactical-motion.css", "compact-planning.css", "vercel.json",
   "styles.css", "campaign-atlas.css", "official-theme.css", "augment-cards.css", "identity.css", "realm-identity.css",
   "moth-theme.css", "account.css", "anime-ui.css", "brand-transparency.css", "manifest.webmanifest", "icon.svg", "favicon-32.png",
   "favicon-64.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png"

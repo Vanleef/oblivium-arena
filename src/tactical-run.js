@@ -60,7 +60,7 @@ export function advanceTacticalRun(run,battle,routeId=null){
  if(routeId==='discovery'&&opponents.every((id,i)=>id===ids('enemy')[i]))opponents=Array.from({length:3},(_,i)=>tacticalRoster[(offset+i+1)%tacticalRoster.length]);
  const creatures=battle.tactical.fortress&&routeId==='risk'
   ?Array.from({length:run.encounter>=4?2:1},(_,i)=>campaignCreature(battle.enemies[0].realm,i)):[];
- const next={scene:encounterScene(characterById[opponents[0]]?.realm,run.encounter,battle.tactical.scene),campaign:Boolean(battle.tactical.fortress),augmentProgress:{...run.augmentProgress},creatures,fortressRewards:[...(run.fortressRewards||[])],environment:battle.tactical.environment?.id||null,player:ids('player'),enemy:opponents,routeEnemyShield:routeId==='risk'?18:0,seed:(battle.rngState||battle.round)+run.encounter,buffs:[...run.buffs],memories:[...run.memories],globalEffects:{...run.globalEffects},teamHealth:{...run.teamHealth}};
+ const next={compact:Boolean(battle.tactical.compact),scene:encounterScene(characterById[opponents[0]]?.realm,run.encounter,battle.tactical.scene),campaign:Boolean(battle.tactical.fortress),augmentProgress:{...run.augmentProgress},creatures,fortressRewards:[...(run.fortressRewards||[])],environment:battle.tactical.environment?.id||null,player:ids('player'),enemy:opponents,routeEnemyShield:routeId==='risk'?18:0,seed:(battle.rngState||battle.round)+run.encounter,buffs:[...run.buffs],memories:[...run.memories],globalEffects:{...run.globalEffects},teamHealth:{...run.teamHealth}};
  if(battle.tactical.fortress)battle.tactical.fortress.nextEncounter=JSON.parse(JSON.stringify(next));
  return next;
 }

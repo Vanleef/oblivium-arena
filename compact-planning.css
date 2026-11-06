@@ -1,0 +1,94 @@
+/* Compact geometry is fixed independently of sprite poses and card content. */
+.combat-shell.compact-battle{max-width:1180px;margin:0 auto;padding:12px;min-width:0}
+.combat-shell.compact-battle .compact-stage{--compact-field-height:clamp(350px,46vw,540px);--compact-floor-offset:226px;position:relative;display:block;height:auto;max-height:none;aspect-ratio:auto;isolation:isolate;overflow:hidden;padding:18px;border:1px solid #ab8b6770;border-radius:15px;min-height:0;background:#171421;container-type:inline-size}
+.combat-shell.compact-battle .compact-stage::after{display:none}
+.combat-shell.compact-battle .compact-stage>.arena-backdrop{inset:auto 0 auto;top:calc(var(--compact-floor-offset) - var(--compact-field-height) * 2.043478);width:100%;height:calc(var(--compact-field-height) * 4.347826);max-height:none;object-fit:cover;object-position:center;opacity:.58;z-index:-2;pointer-events:none;transform:none;filter:saturate(.8)}
+.compact-stage::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(#0f0d1c66,transparent 40%,#0c0a1799);pointer-events:none}
+.compact-hud{display:grid;grid-template-columns:minmax(150px,1fr) minmax(100px,1fr) minmax(150px,1fr);gap:16px;position:relative;z-index:4;margin-bottom:28px;height:180px;min-height:180px;overflow:hidden}
+.compact-team{max-width:260px;display:grid;gap:5px;align-content:start;min-width:0}
+.compact-team>small{font-size:10px;letter-spacing:.12em;color:#e5c68e}
+.compact-team-enemy{justify-self:end;width:100%;text-align:right}
+.compact-unit{display:flex;gap:8px;align-items:center;width:100%;padding:5px 8px;background:#171323dc;border-color:#6e5b7277;border-radius:6px;text-align:left;min-width:0}
+.compact-unit:disabled{opacity:1}
+.compact-unit.selected{border-color:#ead194;box-shadow:inset 3px 0 #ead194}
+.compact-unit img{width:29px;height:33px;object-fit:cover;border:1px solid #b59a6d77}
+.compact-unit>span{min-width:0;flex:1}
+.compact-unit b,.compact-unit small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.compact-unit b{font-size:12px}.compact-unit small{font-size:10px;color:#d1c8d8}
+.compact-unit i{height:4px;background:#101016;display:block;margin-top:3px}
+.compact-unit em{display:block;height:100%;background:#c9cb8b}
+.compact-team-enemy .compact-unit{flex-direction:row-reverse;text-align:right}
+.compact-team-enemy .compact-unit em{margin-left:auto;background:#c98173}
+.compact-round{text-align:center;align-self:start;padding-top:4px;min-width:0}
+.compact-round small{display:block;letter-spacing:.16em;color:#e1c99e;font-size:9px}
+.compact-round>b{display:block;font:700 24px Georgia,serif;color:#fff0c9}
+.compact-round strong{display:block;font:700 clamp(.9rem,1.9vw,1.35rem)/1.25 Georgia,serif;color:#fff0c9;margin-top:8px;text-shadow:0 2px 5px #110b19;overflow-wrap:anywhere}
+.combat-shell.compact-battle .arena-field{position:relative;display:grid;grid-template-columns:clamp(210px,26%,265px) minmax(0,1fr);grid-template-rows:minmax(0,1fr);height:var(--compact-field-height);min-height:0;gap:22px;margin:0;padding:0;align-items:stretch}
+.combat-shell.compact-battle .arena-field>.board{position:relative;justify-self:center;width:min(100%,var(--compact-field-height));height:100%;max-width:none;max-height:none;margin:0;grid-template:repeat(5,minmax(0,1fr))/repeat(5,minmax(0,1fr));aspect-ratio:1;gap:0;contain:size layout;transform:none;filter:none;overflow:visible}
+.compact-battle .compact-board .cell{position:relative;min-width:0;min-height:0;padding:0;isolation:isolate;aspect-ratio:auto}
+.compact-battle .compact-board .cell::before{inset:0;border:1px solid #d8c6ad35;background:#2a243d12;clip-path:none;box-shadow:none}
+.compact-battle .compact-board .cell.blocked::before{background:repeating-linear-gradient(130deg,#40343a 0 9px,#241e2c 9px 18px)}
+.compact-battle .compact-board .cell.reachable::before{border:1px solid #9bc5a9a6;background:#7cac9338;box-shadow:inset 0 0 14px #aecda621}
+.compact-battle .compact-board .cell.aim::before{border:2px solid #ffe19a;background:#d8b57055}
+.compact-battle .compact-board .cell:disabled{opacity:1}
+.compact-battle .compact-board .cell .coord{position:absolute;top:4px;left:4px;opacity:.55;font-size:9px}
+.compact-battle .compact-board .cell.compact-impact::after{opacity:.7;background:radial-gradient(ellipse,#f6d6a866,transparent 70%);transform:none}
+.compact-battle .compact-board .token{position:absolute;left:0;bottom:0;width:100%;height:100%;min-height:0;max-height:none;margin:0;padding:0;display:block;transform:none;pointer-events:none}
+.compact-battle .compact-board .token.enemy .token-sprite{transform:translateX(-50%)}
+.compact-battle .compact-board .token .token-sprite{opacity:1;filter:drop-shadow(0 5px 4px #0b071bb0)}
+.compact-battle .compact-ghost .token-sprite{opacity:.78;filter:drop-shadow(0 0 5px #b2d8f1)!important}
+.compact-token-label{position:absolute;bottom:-6px;left:50%;translate:-50% 0;white-space:nowrap;font-size:9px;color:#f4ead9;text-shadow:0 1px 3px #000;z-index:8;pointer-events:none}
+.compact-battle .compact-board .selected-unit-arrow{left:50%;bottom:calc(100% + 2px);width:18px;height:16px}
+.combat-shell.compact-battle .arena-techniques{height:100%;min-height:0;overflow:auto;padding:10px;background:linear-gradient(135deg,#261d31dd,#171320b8);scrollbar-gutter:stable}
+.compact-battle .arena-techniques h2{font-size:1.05rem;margin:0 0 8px}
+.compact-battle .activation-dock{padding:0;background:none;border:0;box-shadow:none;margin:0}
+.compact-mode-controls{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px}
+.compact-mode-controls button{font-size:12px;padding:6px}.compact-mode-controls small{display:block;font-size:9px;color:#d2c2d7}
+.compact-mode-controls [aria-pressed="true"]{border-color:#e9d190;background:#4f3a50}
+.compact-battle .activation-options{display:grid;grid-template-columns:1fr;gap:5px}
+.compact-battle .activation-options>button{display:flex;align-items:center;gap:7px;min-height:48px;padding:5px;border-radius:6px;text-align:left}
+.compact-battle .activation-options img{width:32px;height:34px;object-fit:cover;flex:none;border-radius:3px}
+.compact-battle .activation-options>button>span{min-width:0;flex:1}
+.compact-battle .activation-options b{display:block;font-size:11px;line-height:1.2;overflow-wrap:anywhere}
+.compact-battle .activation-options small{display:block;font-size:9px;color:#d6c6dd}
+.compact-battle .activation-options .technique-area{width:29px;height:29px;flex:none}
+.compact-battle .compact-hint{font-size:11px;line-height:1.4;color:#ded2e6;margin:8px 0;min-height:30px}
+.compact-battle .tactical-passive{font-size:11px}.compact-battle .tactical-passive p{font-size:11px;line-height:1.4}
+.compact-plan{position:relative;z-index:4;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}
+.compact-plan>div{border:1px solid #aa8d6255;border-radius:7px;padding:7px;background:#161220c9;min-height:76px;min-width:0}
+.compact-plan button{border:0;background:none;padding:0;font-size:12px;color:#f1ddb5;text-align:left}
+.compact-plan button small{color:#bfb0cb;font-size:10px;margin-left:5px}
+.compact-plan ol{padding-left:17px;margin:5px 0 0;font-size:11px;line-height:1.4;color:#c9d1de}
+.compact-plan li{overflow-wrap:anywhere}
+.compact-controls{position:relative;z-index:4;display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:12px}
+.compact-controls>span{font-size:11px;color:#ddd0e5;margin-right:auto}
+.compact-controls button{font-size:12px;padding:8px 10px}
+.compact-controls .compact-confirm{border-color:#d6b877;background:linear-gradient(135deg,#795a6e,#47334f);color:#fff0d2;font-weight:700}
+.compact-speed{display:flex;gap:4px}.compact-speed button{padding:6px;font-size:10px}
+.compact-speed [aria-pressed="true"]{border-color:#be9cce}
+.compact-explainer,.compact-rule{position:relative;z-index:4;font-size:11px;color:#d0c1d8;line-height:1.45;margin:9px 0}
+.compact-battle .augment-progression{font-size:10px;color:#bdaac9;margin:9px 0}
+.compact-battle .chest-reward{position:relative;z-index:5;background:#21192ded;padding:15px;margin:14px 0}
+.compact-battle .chest-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.compact-battle .chest-options button{display:flex;flex-direction:column;gap:7px;text-align:left;padding:12px}
+.compact-battle .chest-options span{font-size:12px;line-height:1.4}
+.compact-result{position:relative;z-index:5;padding:15px;background:#211a2be6;border:1px solid #d6b87777;border-radius:9px;margin-top:12px}
+.compact-result button{margin:4px}.compact-result h2{margin:0 0 10px;color:#f0d19f}
+.compact-log{position:relative;z-index:3;font-size:11px;color:#c3b2d0;margin-top:12px;max-height:180px;overflow:auto}
+.compact-setup{margin-top:12px}.compact-setup .setup-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.compact-setup label{font-size:12px;display:grid;gap:4px}.compact-setup select{width:100%;min-width:0;font-size:12px;padding:7px;color:#eee1f0;background:#191522;border:1px solid #8b719a66;border-radius:5px}
+@media(max-width:720px){
+ .combat-shell.compact-battle{padding:6px}
+ .combat-shell.compact-battle .compact-stage{padding:10px;--compact-field-height:100cqw;--compact-floor-offset:182px}
+ .compact-hud{grid-template-columns:minmax(0,1fr) minmax(70px,.8fr) minmax(0,1fr);gap:7px;height:150px;min-height:150px;margin-bottom:22px}
+ .compact-unit{padding:4px;gap:4px}.compact-unit img{width:22px;height:28px}.compact-unit b{font-size:10px}.compact-unit small{font-size:8px}.compact-round strong{font-size:12px}
+ .combat-shell.compact-battle .arena-field{height:auto;grid-template-columns:minmax(0,1fr);grid-template-rows:var(--compact-field-height) 365px;gap:18px;padding:0}
+ .combat-shell.compact-battle .arena-field>.board{grid-row:1;width:100%;height:100%;aspect-ratio:1;transform:none}
+ .combat-shell.compact-battle .arena-techniques{grid-row:2;height:365px;width:100%}
+ .compact-battle .activation-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .compact-battle .activation-options b{font-size:11px}.compact-battle .activation-options>button{min-height:60px}.compact-battle .activation-options img{width:28px;height:34px}.compact-battle .activation-options .technique-area{width:26px;height:26px}
+ .compact-plan{gap:5px;margin-top:14px}.compact-plan>div{padding:5px}.compact-plan ol{font-size:10px;padding-left:13px}.compact-plan button{font-size:11px}
+ .compact-controls>span{flex-basis:100%}.compact-controls .compact-confirm{flex:1}.compact-speed{margin-left:auto}
+ .compact-battle .chest-options{grid-template-columns:1fr}.compact-setup .setup-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.compact-battle *{scroll-behavior:auto!important}}

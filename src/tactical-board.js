@@ -3,6 +3,7 @@ export const BOARD_SIZE=5;
 export const boardWidth=s=>s?.tactical?.width??BOARD_SIZE;
 export const boardHeight=s=>s?.tactical?.height??BOARD_SIZE;
 export function fortressClosure(s,round){
+ if(s?.tactical?.compact)return null;
  if(!s?.tactical?.fortress)return null;
  if(round===15)return {axis:'y',tracks:[0,boardHeight(s)-1]};
  if(round!==10&&round!==25)return null;
@@ -43,6 +44,7 @@ export function canStep(s,actorId,from,to,{through=false,movement=false}={}){
  return true;
 }
 export function movementRange(s,actorId){
+ if(s.tactical.compact)return s.tactical.weather?.id==='wind'&&s.tactical.weather.round===s.round?3:2;
  if(s.tactical.fortress)return s.tactical.weather?.id==='wind'&&s.tactical.weather.round===s.round?2:1;
  if(s.tactical.activation)return 2;
  const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);
@@ -51,7 +53,7 @@ export function movementRange(s,actorId){
 }
 export function findPath(s,actorId,to,maxSteps=movementRange(s,actorId)){
  const start=s.tactical.positions[actorId];if(!onBoard(to,s)||!start||sameCell(start,to))return null;
- if(s.tactical.fortress){
+ if(s.tactical.fortress&&!s.tactical.compact){
   if(maxSteps>0&&canStep(s,actorId,start,to,{movement:true}))return [to];
   if(maxSteps<2||movementRange(s,actorId)<2)return null;
   const a=boardMetricPoint(s,start),b=boardMetricPoint(s,to),dx=b.x-a.x,dy=b.y-a.y;
@@ -118,7 +120,7 @@ export function faceMovement(s,actorId,from,to){
   if(s.tactical.fortress){
    const unit=[...s.allies,...s.enemies].find(u=>u.id===actorId);
    s.tactical.lastFortresses??={};
-   if(to.x===0||to.x===boardWidth(s)-1)s.tactical.lastFortresses[actorId]=to.x;
+   if(!s.tactical.compact&&(to.x===0||to.x===boardWidth(s)-1))s.tactical.lastFortresses[actorId]=to.x;
    s.tactical.aimFacings??={};s.tactical.aimFacings[actorId]=facing;
    s.tactical.facings[actorId]=unitFacing(s,unit);
   }else s.tactical.facings[actorId]=facing;
