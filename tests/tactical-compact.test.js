@@ -92,8 +92,10 @@ test('compact one-cell movement does not inherit the historical L leap bonus',()
  assert.equal(movementRange(s,u.id),1);
  assert.equal(findPath(s,u.id,{x:2,y:1}),null,'a two-cell L leap cannot consume one compact action');
  assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:2,y:1}])]).ok,false);
- const start=s.tactical.positions[u.id];
- const movement=[step(u.id,[{x:start.x+1,y:start.y+1}]),step(u.id,[{x:start.x+2,y:start.y+2}])];
+ // Put the actor on two deliberately clear diagonal steps; default formations vary by seed.
+ s.tactical.obstacles=[];
+ s.tactical.positions[u.id]={x:1,y:1};
+ const movement=[step(u.id,[{x:2,y:2}]),step(u.id,[{x:3,y:3}])];
  assert.ok(previewTacticalPlan(s,'player',movement).ok);
  assert.equal(u.shield,0,'the pre-execution projection must not grant shields to the real actor');
  const result=round(s,movement);
