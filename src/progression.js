@@ -99,7 +99,10 @@ export function normalizeCampaign(profile) {
   if(profile.kingdomProgressVersion!==1){
     const previous=profile.eloProgress||{},completed=new Set(profile.completedElos||[]);
     for(const kingdom of elos){
-      const sourceIds=[...new Set(characters.filter(character=>character.kingdomId===kingdom.id).map(character=>character.legacyEloId).filter(Boolean))];
+      // Each historical Elo migrates into exactly one designated Reino.
+      // Looking at every character's old Elo would unlock multiple current Reinos
+      // when its former roster was redistributed (notably Limbo and Proteção).
+      const sourceIds=Object.keys(defaultKingdomByTrack).filter(id=>defaultKingdomByTrack[id]===kingdom.id);
       const sourceProgress=sourceIds.map(id=>previous[id]).filter(Boolean);
       const inheritedClear=sourceIds.some(id=>completed.has(id));
       const current=previous[kingdom.id]||{};
