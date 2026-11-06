@@ -8,7 +8,7 @@ A história acompanha Nilo, uma alma sem veredito que absorve involuntariamente 
 
 ## O jogo
 
-- **Combate tático 3v3 (laboratório compacto):** campo 5×5, até duas ações por personagem, planejamento simultâneo e privado e uma confirmação por rodada. Técnicas afetam as casas de sua área.
+- **Combate tático 3v3 (laboratório compacto):** campo **6×6**, duas ações por personagem, planejamento simultâneo e privado, movimento de **uma casa por ação** e execução automática após completar as escolhas. Técnicas afetam as casas de sua área.
 - **Essências e modos:** Éter, Cinza, Graça e Ruptura seguem na cosmologia, na campanha e em sistemas legados; Coringa é um custo flexível. O combate compacto padrão não cobra Essência por técnica.
 - **Formações e ressonâncias:** combine personagens, afinidades, passivas e técnicas para construir a estratégia do trio.
 - **Kits e transformações:** quatro espaços de técnicas por personagem, com recargas, aflições, marcas, cargas, Defesa e contra-ataques. Personagens específicos possuem formas alternativas.
@@ -28,11 +28,13 @@ A revisão visual do acervo está em andamento. Consulte a [direção de arte](d
 
 ## Laboratório de combate compacto
 
-Na branch de desenvolvimento do PR #3, `/tactical.html` abre por padrão o combate 3v3 em campo **5×5**, com **até duas ações por personagem** (seis por trio) e planejamento simultâneo. Cada lado sela seu plano sem acessar a ordem adversária; todas as primeiras ações são resolvidas antes das segundas. Movimento usa uma ação e alcança até duas casas livres (três durante Vendaval). Há Guarda e técnicas com recarga, **sem custo de Essência nesta modalidade**.
+Na branch de desenvolvimento do PR #3, `/tactical.html` abre por padrão o combate 3v3 em campo **6×6**, com **até duas ações por personagem** (seis por trio) e planejamento simultâneo. Cada lado sela seu plano sem acessar a ordem adversária; todas as primeiras ações são resolvidas antes das segundas. **Cada ação de movimento anda exatamente uma casa, incluindo diagonais.** O Vendaval não altera essa distância; em vez disso, concede +5 de Escudo a quem se mover durante seu efeito. Há Guarda e técnicas com recarga, **sem custo de Essência nesta modalidade**.
+
+**Fluxo rápido:** toque em um personagem no campo ou em sua miniatura junto à grade, escolha Mover, Guarda ou uma das quatro técnicas e toque no alvo quando necessário. As duas ações de cada personagem aparecem imediatamente junto ao campo e podem ser retiradas. **Com as ações de todos os personagens disponíveis preenchidas, a rodada começa automaticamente**; o comando `▶ Agora` fica junto ao campo apenas para executar planos incompletos. Durante o planejamento, a posição real não muda: um marcador pontilhado indica o destino de movimento, e os personagens só animam ao resolver a rodada.
 
 Casas objetivo privadas oferecem três aprimoramentos **individuais e vinculados a habilidades**, válidos durante o combate. Tiers Prata, Ouro e Prismático dependem de Reinos distintos concluídos. Eventos de campo e superfícies seguem presentes. Os laboratórios anteriores estão disponíveis em `/tactical.html?fortress` e `/tactical.html?classic`.
 
-Este é um **laboratório local contra IA**: não comprova integração integral à campanha, aos serviços da aplicação principal ou PvP com servidor autoritativo. A arte animada do elenco continua parcialmente coberta. Consulte [a cobertura de animações](docs/TACTICAL_ANIMATION_COVERAGE.md) e [a decisão atual do compacto](docs/COMPACT_SIMULTANEOUS_20261105.md). A [documentação do protótipo anterior](docs/TACTICAL_COMBAT_PROTOTYPE.md) é histórica.
+Este é um **laboratório local contra IA**: não comprova integração integral à campanha, aos serviços da aplicação principal ou PvP com servidor autoritativo. A arte animada do elenco continua parcialmente coberta. Consulte [a cobertura de animações](docs/TACTICAL_ANIMATION_COVERAGE.md), [a interação 6×6 atual](docs/COMPACT_6X6_ACTIONS_20261106.md) e [o registro histórico da versão 5×5](docs/COMPACT_SIMULTANEOUS_20261105.md). A [documentação do protótipo anterior](docs/TACTICAL_COMBAT_PROTOTYPE.md) é histórica.
 
 ## Executar localmente
 
@@ -58,7 +60,7 @@ Abra [http://localhost:4173](http://localhost:4173). O servidor local atende o j
 | `npm run audit:art -- --list-missing` | Listar os caminhos de arte ausentes. |
 | `npm run test:compact` | Testar planejamento, objetivos e interface compacta. |
 | `npm run smoke:compact` | Simular rodadas e invariantes do combate compacto. |
-| `npm run smoke:balance` | Amostrar 12 sementes e três estágios de desbloqueio de tiers com métricas de combate. |
+| `npm run smoke:balance` | Simular 12 confrontos em pares espelhados (seis sementes), três formações e tiers diferentes, com métricas de combate. |
 | `npm run audit:animation` | Auditar atlas e quadros de ação mapeados. |
 
 A auditoria de arquivos não substitui a revisão visual das artes.
@@ -120,7 +122,7 @@ O [índice canônico do projeto](docs/PROJECT_CANON.md) reúne as referências v
 
 ## Histórico e validação dos sistemas de combate
 
-A [proposta tática original](docs/TACTICAL_COMBAT_PROPOSAL.md) e [o protótipo inicial](docs/TACTICAL_COMBAT_PROTOTYPE.md) documentam etapas anteriores. A decisão atual da **branch do PR #3** é o [campo compacto com planejamento simultâneo](docs/COMPACT_SIMULTANEOUS_20261105.md), com aprimoramentos individuais e eventos. O campo de fortalezas 9×6 continua disponível apenas como laboratório legado.
+A [proposta tática original](docs/TACTICAL_COMBAT_PROPOSAL.md) e [o protótipo inicial](docs/TACTICAL_COMBAT_PROTOTYPE.md) documentam etapas anteriores. A decisão atual da **branch do PR #3** é o [campo 6×6 com comandos diretos e planejamento simultâneo](docs/COMPACT_6X6_ACTIONS_20261106.md), com aprimoramentos individuais e eventos. O [campo 5×5 anterior](docs/COMPACT_SIMULTANEOUS_20261105.md) permanece documentado apenas para histórico. O campo de fortalezas 9×6 continua disponível apenas como laboratório legado.
 
 Para verificar essa branch, execute `npm run test:compact`, `npm run smoke:compact`, `npm run audit:animation` e `npm run build`. Essas verificações não substituem testes em aparelho físico, aprovação visual do elenco inteiro ou uma auditoria de integração de campanha e Arena online. A branch `main` pode conter outra versão; o PR ainda não foi mesclado.
 

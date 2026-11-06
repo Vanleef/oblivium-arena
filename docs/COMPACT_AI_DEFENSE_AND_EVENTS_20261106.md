@@ -1,5 +1,7 @@
 # IA defensiva e eventos no campo compacto — 06/11/2026
 
+> **Métricas históricas da versão 5×5.** Desde a revisão [6×6 com movimento de uma casa](COMPACT_6X6_ACTIONS_20261106.md), Vendaval não amplia o movimento; confere +5 de Escudo ao mover. Os valores de simulação nesta página não se aplicam diretamente ao campo atualizado.
+
 Este registro é complementar a [COMPACT_BALANCE_BASELINE_20261106.md](COMPACT_BALANCE_BASELINE_20261106.md). Nenhum valor de técnica, Vida, Escudo de Guarda, tier ou periodicidade de evento foi alterado nesta etapa.
 
 ## Alterações funcionais

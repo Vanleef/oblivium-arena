@@ -1,5 +1,7 @@
 # Retorno ao campo compacto e planejamento simultâneo — 05/11/2026
 
+> **Registro histórico:** este documento descreve as regras e os testes da versão 5×5. A implementação atual usa campo **6×6**, movimento de **uma casa por ação**, personagens imóveis na etapa de planejamento e comandos rápidos junto ao tabuleiro. Consulte [a decisão vigente de 06/11](COMPACT_6X6_ACTIONS_20261106.md). Não interprete métricas, duração de Vendaval ou screenshots aqui como verificação da versão atual.
+
 O acesso padrão a `tactical.html` volta ao campo 5×5 com planejamento da rodada inteira. Cada personagem pode receber até duas ações; o trio tem até seis. O plano pode ser desfeito ou limpo antes de uma confirmação única. A prévia mostra a posição planejada com a indicação “plano”; não executa ações no combate.
 
 ## Resolução
