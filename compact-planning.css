@@ -236,3 +236,91 @@
  .compact-roster-card>button>img{display:none}
  .compact-roster-card>button>b{font-size:8px}
 }
+
+/* The accepted portrait-only tactical control layout. The board is the hero. */
+.combat-shell.compact-battle .arena-field{grid-template-columns:clamp(138px,15%,188px) minmax(0,1fr);gap:clamp(7px,1.4vw,15px)}
+.combat-shell.compact-battle .compact-command-panel{
+ display:flex;flex-direction:column;gap:12px;align-items:stretch;padding:9px 8px;
+ max-height:var(--compact-field-height);width:100%;overflow-y:auto;
+ background:linear-gradient(155deg,#201829f0,#151222ed);border-color:#9a829c80;
+}
+.compact-battle .compact-roster-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-items:stretch}
+.compact-battle .compact-portrait{
+ position:relative;display:grid;place-items:center;width:100%;min-width:0;
+ aspect-ratio:1;border:2px solid var(--hero-accent);border-radius:8px;
+ padding:0;overflow:hidden;background:#1a1424;box-shadow:0 0 0 1px #080910a8;
+}
+.compact-battle .compact-portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 22%}
+.compact-battle .compact-portrait[aria-pressed="true"]{box-shadow:0 0 0 2px #f8ead2,0 0 11px var(--hero-accent);transform:translateY(-1px)}
+.compact-battle .compact-portrait:disabled{opacity:.52;filter:grayscale(.6)}
+.compact-battle .compact-quick-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding-top:11px;border-top:1px solid #ab8b736e}
+.compact-battle .compact-quick-buttons>.compact-icon-btn{
+ display:grid;place-items:center;position:relative;aspect-ratio:1;min-height:0;
+ min-width:0;padding:3px;font-size:20px;border:1px solid #b4927280;border-radius:7px;
+ background:linear-gradient(145deg,#46323a88,#15111eee);overflow:hidden;
+}
+.compact-battle .compact-icon-btn img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.compact-battle .compact-icon-btn svg{display:block;width:82%;height:82%;color:#f7c17e}
+.compact-battle .compact-icon-btn[aria-pressed="true"]{background:#624258;border-color:#ffdfad;box-shadow:0 0 0 1px #e9c48d60,inset 0 0 12px #c7886b55}
+.compact-battle .compact-icon-btn:disabled{filter:grayscale(1);opacity:.35}
+.compact-battle .compact-action-sequence{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;
+ padding-top:11px;border-top:1px solid #ab8b736e;
+}
+.compact-battle .compact-sequence-icon,.compact-battle .compact-sequence-empty{
+ position:relative;display:grid;place-items:center;min-width:0;aspect-ratio:1;
+ border-radius:7px;padding:3px;overflow:hidden;
+}
+.compact-battle .compact-sequence-icon{border:2px solid var(--hero-accent);background:#1b1524;box-shadow:inset 0 0 8px #0008}
+.compact-battle .compact-sequence-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.compact-battle .compact-sequence-icon svg{width:86%;height:86%;color:#f0d9ba}
+.compact-battle .compact-sequence-icon>span{font-size:22px;line-height:1}
+.compact-battle .compact-sequence-icon::after{
+ content:attr(data-action-step);position:absolute;right:0;bottom:0;
+ background:#161120db;color:#fff8e8;font:700 9px/1.1 system-ui,sans-serif;
+ padding:2px 3px;border-top-left-radius:3px;
+}
+.compact-battle .compact-sequence-empty{border:1px dashed #8c798952;background:#1b15241e}
+.compact-battle .compact-sequence-icon:disabled{opacity:.78}
+.compact-battle .compact-quick-footer{
+ margin-top:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;
+ padding-top:8px;border-top:1px solid #ab8b736e;
+}
+.compact-battle .compact-quick-footer>button{min-width:0;min-height:32px;padding:4px 3px;font-size:18px;border-radius:6px}
+.compact-battle .compact-quick-footer>button[data-confirm]{font-size:17px}
+.compact-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.compact-battle .compact-panel-advanced{margin:0;border-top:1px solid #8d78966a;padding:4px}
+.compact-battle .compact-panel-advanced summary{cursor:pointer;list-style:none;font-size:17px;text-align:center;color:#cbb5df}
+.compact-battle .compact-panel-advanced summary::-webkit-details-marker{display:none}
+/* Keep the real encounter artwork under a translucent 6x6 grid. */
+.combat-shell.compact-battle .compact-stage{background-image:linear-gradient(#12101c38,#0b09154d),var(--compact-scene-image)!important;background-size:cover;background-position:center 62%}
+.combat-shell.compact-battle .compact-board-stack>.compact-board{
+ background-color:#252334!important;
+ background-image:linear-gradient(180deg,#11101b20,#0a0a1550),var(--compact-scene-image)!important;
+ background-size:cover!important;background-position:center 64%!important;
+ background-repeat:no-repeat!important;
+ border:1px solid #c1a88d9c;border-radius:9px;box-shadow:inset 0 0 15px #06050f90,0 9px 18px #0008;
+}
+.combat-shell.compact-battle .compact-board .cell{background:transparent!important}
+.combat-shell.compact-battle .compact-board .cell::before{background:transparent;border-color:#e1cdb35e;box-shadow:none}
+.combat-shell.compact-battle .compact-board .cell.reachable::before{background:#79a98030;border-color:#b6eda5}
+.combat-shell.compact-battle .compact-board .cell.aim::before{background:#ddb96c38;border-color:#ffe5a4}
+@media(max-width:720px){
+ .combat-shell.compact-battle .arena-field{grid-template-columns:minmax(88px,24%) minmax(0,1fr);gap:5px}
+ .combat-shell.compact-battle .compact-command-panel{padding:5px 4px;gap:6px}
+ .compact-battle .compact-roster-rail,.compact-battle .compact-quick-buttons,.compact-battle .compact-action-sequence{gap:3px}
+ .compact-battle .compact-portrait{border-width:1.5px;border-radius:5px}
+ .compact-battle .compact-quick-buttons{padding-top:6px}
+ .compact-battle .compact-action-sequence{padding-top:6px}
+ .compact-battle .compact-quick-buttons>.compact-icon-btn{padding:2px;border-radius:4px}
+ .compact-battle .compact-sequence-icon,.compact-battle .compact-sequence-empty{padding:1px;border-radius:4px}
+ .compact-battle .compact-sequence-icon{border-width:1.5px}
+ .compact-battle .compact-quick-footer{padding-top:5px;gap:2px}
+ .compact-battle .compact-quick-footer>button{min-height:25px;font-size:14px}
+ .compact-battle .compact-quick-footer>button[data-confirm]{font-size:13px}
+ .compact-battle .compact-sequence-icon::after{font-size:7px}
+}
+@media(max-width:420px){
+ .combat-shell.compact-battle .arena-field{grid-template-columns:minmax(78px,23%) minmax(0,1fr);gap:4px}
+ .combat-shell.compact-battle .compact-command-panel{padding:3px;gap:5px}
+}
