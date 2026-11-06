@@ -139,7 +139,9 @@ function append(ref){
 function selectCell(point){
  if(locked())return;
  const s=displayed(),future=planned(),u=actor(future),at=future.tactical.positions[u.id],hit=occupied(s,point);
- if(hit?.side==='player'&&hit.id!==u.id){state.selected=hit.id;state.mode='move';state.message='';render();return;}
+ const selectedAbility=u.abilities.find(a=>a.id===state.mode),allyTarget=['ally','friendly','team'].includes(selectedAbility?.target);
+ // Tap an ally to select them, except when deliberately targeting ally-support techniques.
+ if(hit?.side==='player'&&hit.id!==u.id&&!allyTarget){state.selected=hit.id;state.mode='move';state.message='';render();return;}
  if(count(u.id)>=2||u.stunned||u.hp<=0)return;
  if(state.mode==='move'){
   const path=findPath(future,u.id,point);if(!path){state.message='Escolha uma casa adjacente destacada.';render();return;}
