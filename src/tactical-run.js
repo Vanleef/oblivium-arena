@@ -17,7 +17,7 @@ const conquestRewards=[
  {id:'march',tier:'silver',kingdoms:1,title:'Rito da Marcha',text:'Cada sobrevivente ganha 5 de Escudo ao mover, uma vez por rodada nos próximos combates.'},
  {id:'edge',tier:'silver',kingdoms:1,title:'Fio da Travessia',text:'Técnicas ofensivas dos sobreviventes causam +5 de dano nos próximos combates.'},
  {id:'mender',tier:'silver',kingdoms:1,title:'Mãos da Travessia',text:'Técnicas de cura recuperam +5 de Vida nos próximos combates.'},
- {id:'leap',tier:'gold',kingdoms:3,title:'Passagem dos Vultos',text:'Nos próximos confrontos, os sobreviventes podem saltar em L.'},
+ {id:'leap',tier:'gold',kingdoms:3,title:'Passagem dos Vultos',text:'No campo compacto, cada sobrevivente ganha até 8 de Escudo ao mover-se uma casa na diagonal, uma vez por rodada.'},
  {id:'gold-ward',tier:'gold',kingdoms:3,title:'Pacto do Bastião',text:'Cada sobrevivente recebe mais 16 de Escudo no início dos próximos combates.'},
  {id:'gold-recovery',tier:'gold',kingdoms:3,title:'Passos da Fonte',text:'Mover recupera 8 de Vida, uma vez por rodada por portador nos próximos combates.'},
  {id:'gold-support',tier:'gold',kingdoms:3,title:'Trama da Vigília',text:'Técnicas de Escudo concedem +8 de Escudo nos próximos combates.'},

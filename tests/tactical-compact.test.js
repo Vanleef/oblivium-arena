@@ -92,6 +92,15 @@ test('compact one-cell movement does not inherit the historical L leap bonus',()
  assert.equal(movementRange(s,u.id),1);
  assert.equal(findPath(s,u.id,{x:2,y:1}),null,'a two-cell L leap cannot consume one compact action');
  assert.equal(previewTacticalPlan(s,'player',[step(u.id,[{x:2,y:1}])]).ok,false);
+ const movement=[step(u.id,[{x:1,y:1}]),step(u.id,[{x:2,y:2}])];
+ assert.ok(previewTacticalPlan(s,'player',movement).ok);
+ assert.equal(u.shield,0,'the pre-execution projection must not grant shields to the real actor');
+ const result=round(s,movement);
+ const moves=result.events.filter(event=>event.type==='exchange-move').flatMap(event=>event.moves).filter(move=>move.actorId===u.id);
+ assert.equal(moves.length,2);
+ assert.equal(moves[0].leapShield,8,'one diagonal step grants the Gold reward');
+ assert.equal(moves[1].leapShield,0,'the bonus activates only once per round');
+ assert.equal(u.shield,8);
 });
 
 test('two consecutive compact moves are individually adjacent and never move the unit before resolution',()=>{

@@ -296,6 +296,13 @@ export function tacticalTargets(s,actor,ability,anchor,orientation){
  .filter(u=>['self','ally','friendly','team'].includes(ability.target)||!u.invulnerable||ability.ignoreInvulnerability)
  .sort((a,b)=>distance(origin,s.tactical.positions[a.id],s)-distance(origin,s.tactical.positions[b.id],s)||a.id.localeCompare(b.id)).slice(0,s.tactical.fortress?undefined:spec.limit).map(u=>u.id);
 }
+function grantCompactLeapShield(s,actor,from,to){
+ if(!s.tactical.compact||!s.tactical.fortress?.leaps.includes(actor.id)||from.x===to.x||from.y===to.y||actor.compactLeapShieldRound===s.round)return 0;
+ const gained=Math.max(0,Math.min(8,Math.round(actor.maxHp*.5)-(actor.shield||0)));
+ actor.shield=(actor.shield||0)+gained;
+ actor.compactLeapShieldRound=s.round;
+ return gained;
+}
 function grantCompactWindShield(s,actor){
  if(!s.tactical.compact||s.tactical.weather?.id!=='wind'||s.tactical.weather.round!==s.round)return 0;
  const gained=Math.max(0,Math.min(5,Math.round(actor.maxHp*.5)-(actor.shield||0)));
@@ -310,7 +317,8 @@ function move(s,ref,strict=false){
  actor.actedThisTurn=true;
  const augmentNotes=moved?triggerTacticalAugments(s,ref.side,actor,'move'):[];
  const windShield=moved?grantCompactWindShield(s,actor):0;
- return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,windShield,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
+ const leapShield=moved?steps.reduce((total,step)=>total+grantCompactLeapShield(s,actor,step.from,step.to),0):0;
+ return {skipped:!moved,moved,from,to:{...at},steps,augmentNotes,windShield,leapShield,reason:moved<ref.path.length?'Passagem ocupada; movimento interrompido.':''};
 }
 function displaceTargets(s,actor,ids,displacement){
  if(!displacement)return [];
@@ -522,6 +530,7 @@ function resolveExchangeMovement(s,paths){
    const actor=actorFor(s,step.side,step.actorId);actor.actedThisTurn=true;
    step.augmentNotes=triggerTacticalAugments(s,step.side,actor,'move');
    step.windShield=grantCompactWindShield(s,actor);
+   step.leapShield=grantCompactLeapShield(s,actor,step.from,step.to);
   }
   const chestsOpened=s.tactical.fortress?[]:moving.flatMap(step=>claimTacticalChests(s,step.side,[step.to]));
   if(s.tactical.fortress){
