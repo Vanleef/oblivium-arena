@@ -98,7 +98,7 @@ test('compact one-cell movement does not inherit the historical L leap bonus',()
  const result=round(s,movement);
  const moves=result.events.filter(event=>event.type==='exchange-move').flatMap(event=>event.moves).filter(move=>move.actorId===u.id);
  assert.equal(moves.length,2);
- assert.equal(moves[0].leapShield,8,'one diagonal step grants the Gold reward');
+ assert.equal(moves[0].leapShield,8,'one diagonal step grants Gold: '+JSON.stringify({moves,shield:u.shield,round:s.round,hasLeap:s.tactical.fortress.leaps.includes(u.id),actorMarker:u.compactLeapShieldRound}));
  assert.equal(moves[1].leapShield,0,'the bonus activates only once per round');
  assert.equal(u.shield,8);
 });
