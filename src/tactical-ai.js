@@ -5,11 +5,33 @@ import {tacticalView,previewTacticalPlan,previewTacticalActivation,tacticalActiv
 import {boardCells,findPath,distance} from './tactical-board.js';
 import {tacticalSpec} from './tactical-kits.js';
 
+// Estimate pressure from visible threats only; never consult an opponent's sealed plan.
+// The discontinuity at lethal damage prioritizes survival when a small shield can save a unit.
+export function compactExposurePenalty(s,unit,opposition){
+ if(!s.tactical?.compact||unit.hp<=0||unit.invulnerable)return 0;
+ const origin=s.tactical.positions?.[unit.id];
+ if(!origin)return 0;
+ const threats=opposition.filter(u=>u.hp>0&&!u.stunned).map(enemy=>{
+  const position=s.tactical.positions?.[enemy.id];
+  if(!position)return 0;
+  const gap=distance(origin,position,s);
+  if(gap>2)return 0;
+  const damage=Math.max(0,...enemy.abilities.filter(a=>!['self','ally','friendly','team'].includes(a.target)&&!(enemy.cooldowns?.[a.id]||0))
+   .map(a=>Math.max(0,conquestTechnique(a).damage||0)));
+  return Math.min(40,damage)*(gap===1?1:.75);
+ }).filter(Boolean).sort((a,b)=>b-a);
+ if(!threats.length)return 0;
+ const incoming=threats[0]+(threats[1]||0)*.3;
+ const survival=unit.hp+(unit.shield||0)-incoming;
+ return survival<=0?60+Math.min(40,-survival*2):survival<20?(20-survival)*1.2:0;
+}
+
 function score(s,side){
  const own=side==='player'?s.allies:s.enemies,opposition=side==='player'?s.enemies:s.allies;
  const alive=opposition.filter(u=>u.hp>0);let value=0;
  for(const u of own){
   value+=u.hp*1.4+u.shield*.28+(u.hp>0?70:0)+u.charge*1.5+(u.counter?5:0);
+  value-=compactExposurePenalty(s,u,opposition);
   if(u.hp>0)value+=(u.ashExpansionTurns?5:0)+(u.collapseLevel||0)*5+(u.graceFormTurns?5:0)+(u.resonanceTargetId&&u.resonanceTurns?4:0);
   if(u.hp>0&&alive.length){const p=s.tactical.positions[u.id],nearest=Math.min(...alive.map(e=>distance(p,s.tactical.positions[e.id])));value-=nearest*5;value+=(2-Math.abs(p.y-2))*.4;if(u.invulnerable&&nearest<=3)value+=8;}
  }

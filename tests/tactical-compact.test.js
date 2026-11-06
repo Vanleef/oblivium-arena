@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,chooseTacticalChestReward} from '../src/tactical-combat.js';
 import {boardCells,cellKey,distance,findPath,onBoard,movementRange,unitFacing} from '../src/tactical-board.js';
-import {planTacticalAI} from '../src/tactical-ai.js';
+import {planTacticalAI,compactExposurePenalty} from '../src/tactical-ai.js';
 import {conquestAugmentedAbility} from '../src/conquest-augments.js';
 import {conquestTechnique} from '../src/conquest-techniques.js';
 import {createTacticalRun,advanceTacticalRun} from '../src/tactical-run.js';
@@ -98,6 +98,26 @@ test('AI produces a legal sealed full-round plan without receiving the player ob
  const before=JSON.stringify(s),plan=planTacticalAI(view);
  assert.ok(plan.length>0&&plan.length<=6);assert.ok(previewTacticalPlan(s,'enemy',plan).ok);assert.equal(JSON.stringify(s),before);
  for(const u of s.enemies)assert.ok(plan.filter(a=>a.actorId===u.id).length<=2);
+});
+
+test('compact AI exposure values a shield that prevents a visible lethal hit, without guessing sealed orders',()=>{
+ const s=make(),vulnerable=s.enemies[0],attacker=s.allies[0];
+ s.tactical.positions[vulnerable.id]={x:2,y:0};
+ s.tactical.positions[attacker.id]={x:3,y:0};
+ vulnerable.hp=10;vulnerable.shield=0;
+ const threats=[attacker],before=JSON.stringify(s);
+ const bare=compactExposurePenalty(s,vulnerable,threats);
+ assert.ok(bare>=60,'visible damage can defeat the low-health unit');
+ vulnerable.shield=6;
+ const guarded=compactExposurePenalty(s,vulnerable,threats);
+ assert.ok(guarded<bare,'Guard should reduce estimated danger');
+ vulnerable.hp=90;
+ assert.equal(compactExposurePenalty(s,vulnerable,threats),0,'healthy unit should not be forced to defend');
+ s.tactical.positions[attacker.id]={x:4,y:4};
+ vulnerable.hp=10;vulnerable.shield=0;
+ assert.equal(compactExposurePenalty(s,vulnerable,threats),0,'distant threats do not count as immediate attackers');
+ assert.equal(compactExposurePenalty({...s,tactical:{...s.tactical,compact:false}},vulnerable,threats),0,'legacy modes stay unchanged');
+ assert.notEqual(JSON.stringify(s),before,'the fixture deliberately changes values');
 });
 
 test('compact AI chooses a useful Guard when paths are blocked and other skills are unavailable',()=>{
