@@ -100,6 +100,18 @@ test('AI produces a legal sealed full-round plan without receiving the player ob
  for(const u of s.enemies)assert.ok(plan.filter(a=>a.actorId===u.id).length<=2);
 });
 
+test('compact AI chooses a useful Guard when paths are blocked and other skills are unavailable',()=>{
+ const s=make(),taken=new Set(Object.values(s.tactical.positions).map(cellKey));
+ s.tactical.obstacles=boardCells(s).filter(p=>!taken.has(cellKey(p)));
+ for(const u of s.enemies)for(const a of u.abilities)if(a.id!=='fortress-basic')u.cooldowns[a.id]=10;
+ const before=JSON.stringify(s),plan=planTacticalAI(tacticalView(s,'enemy'));
+ assert.ok(plan.some(ref=>ref.type==='guard'),'a defensive action should be considered');
+ assert.ok(previewTacticalPlan(s,'enemy',plan).ok);
+ assert.equal(JSON.stringify(s),before,'the planner must not mutate the real battle');
+ const result=round(s,[],plan);
+ assert.ok(result.events.some(event=>event.type==='guard'&&!event.skipped));
+});
+
 test('next encounters retain compact planning, progression and earned trail rewards',()=>{
  const s=make(),run=createTacticalRun();run.fortressRewards=['edge'];
  s.phase='victory';s.tactical.stage='finished';

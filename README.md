@@ -8,8 +8,8 @@ A história acompanha Nilo, uma alma sem veredito que absorve involuntariamente 
 
 ## O jogo
 
-- **Combate tático 3v3:** planeje uma ação por personagem, selecione alvos, reorganize a fila e confirme as escolhas antes da resposta adversária.
-- **Gestão de Essência:** Éter, Cinza, Graça e Ruptura alimentam as técnicas. Coringa representa um custo flexível pago com esses quatro tipos.
+- **Combate tático 3v3 (laboratório compacto):** campo 5×5, até duas ações por personagem, planejamento simultâneo e privado e uma confirmação por rodada. Técnicas afetam as casas de sua área.
+- **Essências e modos:** Éter, Cinza, Graça e Ruptura seguem na cosmologia, na campanha e em sistemas legados; Coringa é um custo flexível. O combate compacto padrão não cobra Essência por técnica.
 - **Formações e ressonâncias:** combine personagens, afinidades, passivas e técnicas para construir a estratégia do trio.
 - **Kits e transformações:** quatro espaços de técnicas por personagem, com recargas, aflições, marcas, cargas, Defesa e contra-ataques. Personagens específicos possuem formas alternativas.
 - **Travessias roguelite:** mapas com rotas conectadas, combates, elites, eventos, descanso, tesouro, mercador e guardiões. A Vida do trio persiste entre encontros.
@@ -26,9 +26,13 @@ Retratos, passivas e habilidades devem variar cenas, expressões, poses, câmera
 
 A revisão visual do acervo está em andamento. Consulte a [direção de arte](docs/ART_DIRECTION.md) para as referências e regras de produção.
 
-## Protótipo tático visual
+## Laboratório de combate compacto
 
-A rota `/tactical.html` abre um experimento 3v3 separado da campanha: grade 5×5, duas ações por alma, personagens com retratos 2.5D, cartas de movimento e técnicas, custos de Essência e áreas de ação visíveis. O escopo e os limites estão em [documentação do protótipo](docs/TACTICAL_COMBAT_PROTOTYPE.md).
+Na branch de desenvolvimento do PR #3, `/tactical.html` abre por padrão o combate 3v3 em campo **5×5**, com **até duas ações por personagem** (seis por trio) e planejamento simultâneo. Cada lado sela seu plano sem acessar a ordem adversária; todas as primeiras ações são resolvidas antes das segundas. Movimento usa uma ação e alcança até duas casas livres (três durante Vendaval). Há Guarda e técnicas com recarga, **sem custo de Essência nesta modalidade**.
+
+Casas objetivo privadas oferecem três aprimoramentos **individuais e vinculados a habilidades**, válidos durante o combate. Tiers Prata, Ouro e Prismático dependem de Reinos distintos concluídos. Eventos de campo e superfícies seguem presentes. Os laboratórios anteriores estão disponíveis em `/tactical.html?fortress` e `/tactical.html?classic`.
+
+Este é um **laboratório local contra IA**: não comprova integração integral à campanha, aos serviços da aplicação principal ou PvP com servidor autoritativo. A arte animada do elenco continua parcialmente coberta. Consulte [a cobertura de animações](docs/TACTICAL_ANIMATION_COVERAGE.md) e [a decisão atual do compacto](docs/COMPACT_SIMULTANEOUS_20261105.md). A [documentação do protótipo anterior](docs/TACTICAL_COMBAT_PROTOTYPE.md) é histórica.
 
 ## Executar localmente
 
@@ -52,6 +56,9 @@ Abra [http://localhost:4173](http://localhost:4173). O servidor local atende o j
 | `npm run build` | Validar JavaScript e imports e gerar o site em `dist/`. |
 | `npm run audit:art` | Contar arquivos de arte referenciados que faltam no checkout. |
 | `npm run audit:art -- --list-missing` | Listar os caminhos de arte ausentes. |
+| `npm run test:compact` | Testar planejamento, objetivos e interface compacta. |
+| `npm run smoke:compact` | Simular rodadas e invariantes do combate compacto. |
+| `npm run audit:animation` | Auditar atlas e quadros de ação mapeados. |
 
 A auditoria de arquivos não substitui a revisão visual das artes.
 
@@ -110,15 +117,11 @@ O [índice canônico do projeto](docs/PROJECT_CANON.md) reúne as referências v
 - [Avaliação do combate](docs/COMBAT_QA.md)
 - [Arena online](docs/online-arena.md)
 
-## Proposta de evolução do combate
+## Histórico e validação dos sistemas de combate
 
-A [proposta de combate tático 5×5](docs/TACTICAL_COMBAT_PROPOSAL.md) descreve planejamento simultâneo, duas ações por personagem e Técnicas Misteriosas. É um documento de design em avaliação; o motor atual ainda usa o fluxo descrito acima.
+A [proposta tática original](docs/TACTICAL_COMBAT_PROPOSAL.md) e [o protótipo inicial](docs/TACTICAL_COMBAT_PROTOTYPE.md) documentam etapas anteriores. A decisão atual da **branch do PR #3** é o [campo compacto com planejamento simultâneo](docs/COMPACT_SIMULTANEOUS_20261105.md), com aprimoramentos individuais e eventos. O campo de fortalezas 9×6 continua disponível apenas como laboratório legado.
 
-## Protótipo de combate tático
-
-Na branch de revisão, execute `npm run dev` e abra `/tactical.html` para testar o tabuleiro 5×5 contra a IA. Há seis kits piloto, duas ações por personagem, fila editável, áreas de efeito e reserva de Essência. Defesas são ativadas antes das ofensivas.
-
-`npm run test:tactical` executa os testes específicos. Veja [o estado do protótipo](docs/TACTICAL_COMBAT_PROTOTYPE.md) para regras, validação e limites. A campanha e a Arena online continuam usando o combate atual.
+Para verificar essa branch, execute `npm run test:compact`, `npm run smoke:compact`, `npm run audit:animation` e `npm run build`. Essas verificações não substituem testes em aparelho físico, aprovação visual do elenco inteiro ou uma auditoria de integração de campanha e Arena online. A branch `main` pode conter outra versão; o PR ainda não foi mesclado.
 
 ## Estado do projeto
 
