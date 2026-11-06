@@ -144,3 +144,95 @@
  .compact-quick-buttons>button>small{font-size:8px}
  .compact-token-label{font-size:8px}
 }
+
+/* 6x6 arena first: commands use the former technique-sidebar footprint. */
+.combat-shell.compact-battle .compact-stage{--compact-field-height:clamp(390px,60cqw,735px);--compact-floor-offset:160px;padding:14px}
+.compact-hud{height:122px;min-height:122px;margin-bottom:12px;gap:12px}
+.compact-round strong{font-size:clamp(.83rem,1.5vw,1.08rem);margin-top:3px}
+.combat-shell.compact-battle .arena-field{
+ display:grid;grid-template-columns:clamp(200px,21%,255px) minmax(0,1fr);
+ grid-template-rows:auto;align-items:start;gap:clamp(9px,2vw,20px);height:auto;min-height:0
+}
+.combat-shell.compact-battle .compact-command-panel{
+ grid-column:1;grid-row:1;align-self:start;width:100%;max-width:none;
+ max-height:var(--compact-field-height);overflow-y:auto;overflow-x:hidden;
+ overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#806e8b transparent;
+ position:relative;z-index:6;padding:9px;border:1px solid #a9919d77;border-radius:10px;
+ background:linear-gradient(130deg,#231b30ee,#171424f2);
+}
+.combat-shell.compact-battle .compact-board-stack{
+ grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:flex-start;
+ flex-direction:column;min-width:0;width:100%;gap:0;min-height:0
+}
+.combat-shell.compact-battle .compact-board-stack>.board{
+ position:relative;display:grid;flex:none;width:min(100%,var(--compact-field-height));
+ max-width:none;height:auto;aspect-ratio:1;margin:0;overflow:visible;
+ grid-template:repeat(6,minmax(0,1fr))/repeat(6,minmax(0,1fr));
+ contain:layout;transform:none;filter:none
+}
+.compact-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:5px;margin:0 0 7px;color:#ead6ae}
+.compact-panel-heading>strong{font:700 10px/1.2 system-ui,sans-serif;letter-spacing:.09em}
+.compact-panel-heading>small{font-size:9px;color:#bdb0cd}
+.compact-panel-techniques-heading{margin:9px 0 5px}
+.compact-roster-rail{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.compact-roster-card{padding:3px 4px}
+.compact-roster-card>button{min-height:30px}
+.compact-roster-card>button>img{width:29px;height:29px}
+.compact-roster-card>button>b{font-size:10px}
+.compact-roster-slots{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}
+.compact-roster-slots>*{font-size:9px;padding:3px;line-height:1.2}
+.compact-quick-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.compact-quick-buttons>button{min-height:47px;padding:3px 2px;font-size:17px}
+.compact-quick-buttons>button>img{width:27px;height:27px}
+.compact-quick-buttons>button>small{font-size:9px}
+.compact-quick-footer{display:grid;grid-template-columns:1fr 1fr minmax(70px,1.5fr);gap:4px;margin-top:6px}
+.compact-quick-footer>span{grid-column:1/-1;display:block;white-space:normal;min-height:22px;font-size:10px;line-height:1.25}
+.compact-quick-footer>button{padding:5px 3px}
+.compact-quick-footer>button[data-confirm]{font-size:11px;background:#4e3851}
+.compact-panel-advanced{display:grid;gap:4px;margin:8px 0;padding:6px 4px;border-top:1px solid #9784a15e}
+.compact-panel-advanced .tactical-spend{display:flex;flex-wrap:wrap;gap:3px;font-size:10px}
+.compact-panel-advanced .tactical-spend>strong{flex-basis:100%;font-size:10px}
+.compact-panel-advanced .tactical-spend button{font-size:10px;padding:3px 6px}
+.compact-panel-passive{font-size:10px;color:#c6b6d3;border-top:1px solid #76648766;margin-top:8px;padding-top:6px}
+.compact-panel-passive summary{cursor:pointer;color:#ead6ae}
+.compact-panel-passive p{font-size:10px;line-height:1.4}
+.compact-playback-tools{justify-content:flex-end}
+@media(max-width:720px){
+ .combat-shell.compact-battle .compact-stage{--compact-field-height:calc(63cqw - 18px);--compact-floor-offset:116px;padding:8px}
+ .compact-hud{height:100px;min-height:100px;margin-bottom:7px;gap:5px}
+ .compact-round strong{font-size:11px}
+ .combat-shell.compact-battle .arena-field{
+  grid-template-columns:minmax(112px,35%) minmax(0,1fr);
+  grid-template-rows:auto;gap:7px;align-items:start;padding:0;
+ }
+ .combat-shell.compact-battle .compact-command-panel{grid-column:1;grid-row:1;max-height:var(--compact-field-height);padding:4px;border-radius:7px}
+ .combat-shell.compact-battle .compact-board-stack{grid-column:2;grid-row:1;min-width:0}
+ .combat-shell.compact-battle .compact-board-stack>.board{width:100%;height:auto;aspect-ratio:1}
+ .compact-panel-heading{margin-bottom:4px}
+ .compact-panel-heading>strong{font-size:9px}
+ .compact-panel-heading>small{display:none}
+ .compact-panel-techniques-heading{margin-top:5px}
+ .compact-roster-rail{gap:2px}
+ .compact-roster-card{padding:2px}
+ .compact-roster-card>button{min-height:24px;padding:0 1px;gap:2px}
+ .compact-roster-card>button>img{width:18px;height:22px}
+ .compact-roster-card>button>b{font-size:8px}
+ .compact-roster-card>button>small{font-size:7px}
+ .compact-roster-slots>*{font-size:7px;padding:2px 1px}
+ .compact-quick-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
+ .compact-quick-buttons>button{min-height:39px;padding:2px 1px;font-size:16px}
+ .compact-quick-buttons>button>img{width:22px;height:22px}
+ .compact-quick-buttons>button>small{font-size:8px}
+ .compact-quick-footer{grid-template-columns:1fr 1fr 1.5fr;gap:2px}
+ .compact-quick-footer>span{font-size:9px;min-height:0}
+ .compact-quick-footer>button{padding:3px 1px;min-height:29px;font-size:10px}
+ .compact-quick-footer>button[data-confirm]{font-size:9px}
+ .compact-token-orders>b{font-size:8px}
+ .compact-token-label{font-size:8px}
+}
+@media(max-width:420px){
+ .combat-shell.compact-battle .arena-field{grid-template-columns:minmax(104px,34%) minmax(0,1fr);gap:5px}
+ .combat-shell.compact-battle .compact-stage{--compact-field-height:calc(65cqw - 17px)}
+ .compact-roster-card>button>img{display:none}
+ .compact-roster-card>button>b{font-size:8px}
+}

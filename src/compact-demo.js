@@ -1,6 +1,6 @@
 import {characterById} from './data.js';
 import {combatScenes,combatScene} from './combat-scenes.js';
-import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,tacticalArea,fortressTechniqueSpec,fortressCooldown,chooseTacticalChestReward,rerollTacticalChestReward,chooseTacticalShadow} from './tactical-combat.js';
+import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,tacticalArea,chooseTacticalChestReward,rerollTacticalChestReward,chooseTacticalShadow} from './tactical-combat.js';
 import {skillSealReason} from './combat-effects.js';
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {planTacticalAI} from './tactical-ai.js';
@@ -8,7 +8,7 @@ import {conquestAugmentedAbility,augmentTiers} from './conquest-augments.js';
 import {conquestProgress,syncConquestCampaign} from './conquest-progress.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {objectiveGrowth} from './conquest-objectives.js';
-import {boardCells,cellKey,cellLabel,findPath,occupied,sameCell,unitFacing,patternCells} from './tactical-board.js';
+import {boardCells,cellKey,cellLabel,findPath,occupied,sameCell,unitFacing} from './tactical-board.js';
 import {tacticalRoster,tacticalOpponentRoster} from './tactical-kits.js';
 import {tacticalSpriteFrame,tacticalSpriteInline,paintTacticalToken} from './tactical-sprites.js';
 import {tacticalFigureStyle} from './tactical-figure-framing.js';
@@ -36,11 +36,6 @@ const displayed=()=>state.snapshot?{...state.battle,...state.snapshot,tactical:{
 const planned=()=>!state.snapshot&&state.battle.tactical.stage==='planning'?(project().projection||state.battle):state.battle;
 const actor=s=>s.allies.find(u=>u.id===state.selected)||s.allies.find(u=>u.hp>0)||s.allies[0];
 function saveProgress(){state.run.augmentProgress=conquestProgress(state.battle.tactical.fortress.progress);try{localStorage.setItem(key,JSON.stringify(state.battle.tactical.fortress.progress));}catch{}}
-function areaIcon(unit,ability){
- const spec=fortressTechniqueSpec(state.battle,unit,ability),width=state.battle.tactical.width,height=state.battle.tactical.height,origin={x:Math.floor(width/2),y:Math.floor(height/2)},grid={tactical:{width,height}};
- const hit=new Set(patternCells(spec.pattern,origin,origin,[1,0],spec.length,grid).map(cellKey));
- return '<svg class="technique-area" viewBox="0 0 '+width*8+' '+height*8+'" role="img" aria-label="Área de ação">'+boardCells(grid).map(p=>'<rect x="'+(p.x*8+1)+'" y="'+(p.y*8+1)+'" width="6" height="6" rx="1" class="'+(hit.has(cellKey(p))?'area-hit':'area-empty')+'"/>').join('')+'</svg>';
-}
 function figure(unit,s){
  const current=state.event?.actorId===unit.id?state.event:null,facing=current?.orientation||unitFacing(s,unit),frame=tacticalSpriteFrame(unit,current,facing);
  const sign=frame?.directional?1:facing[0]<0?-1:1;
@@ -66,16 +61,6 @@ function hud(s){
  const team=(list,side)=>'<div class="compact-team compact-team-'+side+'"><small>'+(side==='player'?'SEU TRIO':'OPONENTE')+'</small>'+list.map(u=>'<button data-actor="'+esc(u.id)+'" class="compact-unit '+(u.id===state.selected?'selected':'')+'" '+(side==='enemy'||locked()||u.hp<=0?'disabled':'')+' aria-pressed="'+(u.id===state.selected)+'" title="'+esc(u.name)+'">'+(u.art?.portrait?'<img src="'+esc(u.art.portrait)+'" alt="">':'<i class="arena-creature-mark">'+esc(u.symbol||'◆')+'</i>')+'<span><b>'+esc(u.name)+'</b><small>'+Math.max(0,u.hp)+' PV'+(side==='player'?' · '+count(u.id)+'/2 ações':'')+'</small><i><em style="width:'+Math.max(0,u.hp/u.maxHp*100)+'%"></em></i></span></button>').join('')+'</div>';
  return '<div class="compact-hud">'+team(s.allies,'player')+'<div class="compact-round"><small>RODADA</small><b>'+s.round+'</b><strong role="status">'+esc(state.event?.title||(state.busy?'Revelando planos':state.battle.tactical.stage==='reward'?'Escolha seu aprimoramento':state.battle.tactical.stage==='finished'?'Combate encerrado':'Planejamento simultâneo'))+'</strong></div>'+team(s.enemies,'enemy')+'</div>';
 }
-function techniques(s){
- const u=actor(s),readOnly=locked()||count(u.id)>=2||u.stunned||u.hp<=0;
- const chosen=u.abilities.find(a=>a.id===state.mode),passive=conquestPassive(u.passive);
- const cards=u.abilities.map(base=>{
-  const a=conquestAugmentedAbility(s,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(s,u,a);
-  return '<button data-technique="'+esc(a.id)+'" aria-pressed="'+(state.mode===a.id)+'" '+(readOnly||cooldown||reason?'disabled':'')+' title="'+esc(reason||a.description)+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="" decoding="async">':'')+'<span><b>'+esc(a.name)+'</b><small>'+esc(reason||(cooldown?'Em recarga · '+cooldown:fortressCooldown(a)?'Recarga '+fortressCooldown(a):'Sem recarga'))+'</small></span>'+areaIcon(u,a)+'</button>';
- }).join('');
- const hint=state.busy?'Planos em resolução. As técnicas continuam visíveis.':state.battle.tactical.stage==='reward'?'Escolha uma das melhorias para continuar.':state.message||chosen&&conquestAugmentedAbility(s,u,conquestTechnique(chosen)).description||(count(u.id)>=2?'Duas ações planejadas. Escolha outro aliado ou confirme a rodada.':'Escolha movimento ou técnica e toque na casa.');
- return '<aside class="arena-techniques"><h2>Técnicas · '+esc(u.name)+'</h2><section class="activation-dock" data-panel-locked="'+Boolean(readOnly)+'" aria-busy="'+state.busy+'" aria-label="Técnicas de '+esc(u.name)+'"><div class="compact-mode-controls"><button data-mode="move" aria-pressed="'+(state.mode==='move')+'" '+(readOnly?'disabled':'')+'>Mover <small>1 casa · 1 ação</small></button><button data-guard '+(readOnly?'disabled':'')+'>Guarda <small>+6 de Escudo · 1 ação</small></button></div><div class="activation-options">'+cards+'</div>'+specialChoices(u,chosen,readOnly)+'<p class="compact-hint" role="status">'+esc(hint)+'</p>'+(passive?'<details class="tactical-passive"><summary>Passiva · '+esc(passive.name)+'</summary><p>'+esc(passive.description)+'</p></details>':'')+'</section></aside>';
-}
 function specialChoices(unit,ability,readOnly){
  const disabled=readOnly?' disabled':'',controls=[];
  for(const [key,max,label]of [['residueSpend',Math.min(ability?.spendResidueMax||0,unit.residue||0),'Resíduo'],['fractureSpend',ability?.spendFracturesMax||0,'Fraturas por alvo']]){
@@ -90,9 +75,10 @@ function actionName(unit,ref){
  if(ref.type==='guard')return 'Guarda';
  return unit.abilities.find(a=>a.id===ref.abilityId)?.name||'Técnica';
 }
-// Inline control directly over the board: all three actors, their two slots and six quick actions.
+// Compact side panel replaces the separate old skill list; the arena stays prominent.
 function actionDock(s,future){
  const u=actor(future),unavailable=locked()||count(u.id)>=2||u.hp<=0||u.stunned;
+ const passive=conquestPassive(u.passive),selectedAbility=u.abilities.find(a=>a.id===state.mode);
  const heroes='<div class="compact-roster-rail" aria-label="Plano de cada personagem">'+s.allies.map(hero=>{
   const orders=state.actions.filter(a=>a.actorId===hero.id);
   return '<div class="compact-roster-card '+(state.selected===hero.id?'is-active ':'')+(orders.length===2?'is-ready':'')+'"><button data-actor="'+esc(hero.id)+'" '+(locked()||hero.hp<=0||hero.stunned?'disabled':'')+' aria-pressed="'+(state.selected===hero.id)+'" title="Selecionar '+esc(hero.name)+'">'+(hero.art?.portrait?'<img src="'+esc(hero.art.portrait)+'" alt="">':'')+'<b>'+esc(hero.name)+'</b><small>'+(hero.hp<=0||hero.stunned?'Inativo':orders.length===2?'✓ 2/2':orders.length+'/2')+'</small></button><div class="compact-roster-slots">'+[0,1].map(i=>orders[i]?'<button data-drop="'+esc(hero.id)+'" data-slot="'+i+'" title="Retirar ação '+(i+1)+' de '+esc(hero.name)+'">'+(i+1)+' '+esc(actionName(hero,orders[i]))+'</button>':'<span>'+(i+1)+' · +</span>').join('')+'</div></div>';
@@ -103,10 +89,9 @@ function actionDock(s,future){
  }).join('')+'</div>';
  const hint=state.message||(state.mode==='move'?'Toque em uma casa vizinha':'Toque na casa-alvo da técnica');
  const footer='<div class="compact-quick-footer"><span role="status">'+state.actions.length+'/6 ações · '+esc(hint)+'</span><button data-undo '+(locked()||!state.actions.length?'disabled':'')+' title="Desfazer última ação" aria-label="Desfazer última ação">↶</button><button data-clear '+(locked()||!state.actions.length?'disabled':'')+' title="Limpar plano" aria-label="Limpar plano">×</button><button data-confirm '+(locked()?'disabled':'')+' title="Executar mesmo com menos de seis ações">▶ Agora</button></div>';
- return '<div class="compact-action-hub">'+heroes+buttons+footer+'</div>';
-}
-function planSummary(){
- return '<nav class="compact-plan" aria-label="Seu plano privado">'+state.battle.allies.map(u=>'<div><button data-actor="'+esc(u.id)+'" '+(locked()?'disabled':'')+'>'+esc(u.name)+' <small>'+count(u.id)+'/2</small></button><ol>'+state.actions.filter(a=>a.actorId===u.id).map(a=>'<li>'+esc(a.type==='move'?'Mover → '+cellLabel(a.path.at(-1)):a.type==='guard'?'Guarda':u.abilities.find(b=>b.id===a.abilityId)?.name)+'</li>').join('')+'</ol></div>').join('')+'</nav>';
+ const advance=specialChoices(u,selectedAbility,unavailable);
+ const advanced=advance?'<div class="compact-panel-advanced" aria-label="Opções extras da técnica">'+advance+'</div>':'';
+ return '<aside class="compact-action-hub compact-command-panel" data-panel-locked="'+Boolean(unavailable)+'" aria-busy="'+state.busy+'" aria-label="Comandos de '+esc(u.name)+'"><div class="compact-panel-heading"><strong>SEU PLANO</strong><small>2 ações por personagem</small></div>'+heroes+'<div class="compact-panel-heading compact-panel-techniques-heading"><strong>AÇÕES · '+esc(u.name)+'</strong></div>'+buttons+advanced+footer+(passive?'<details class="compact-panel-passive"><summary>Passiva · '+esc(passive.name)+'</summary><p>'+esc(passive.description)+'</p></details>':'')+'</aside>';
 }
 function reward(){
  const offer=state.battle.tactical.pendingChestRewards[0];
@@ -127,7 +112,7 @@ function render(){
  const s=displayed(),future=planned(),finished=state.battle.tactical.stage==='finished',rule=s.tactical.environment;
  const actorEvent=units(s).find(u=>u.id===state.event?.actorId),ability=actorEvent?.abilities.find(a=>a.id===state.event?.abilityId);
  const result=finished&&!state.busy?'<section class="compact-result"><h2>'+({victory:'Vitória',defeat:'Derrota',draw:'Empate'}[state.battle.phase]||'Confronto encerrado')+'</h2>'+(state.battle.phase==='victory'?state.rewards.length?'<p>Escolha uma melhoria para a próxima travessia.</p>'+state.rewards.map(r=>'<button data-trail-reward="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):tacticalRoutes.map(r=>'<button data-route="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):'<button data-restart>Nova tentativa</button>')+'</section>':'';
- root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+techniques(future)+'<div class="compact-board-stack">'+actionDock(s,future)+board(s,future)+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section><div id="compact-formation">'+setup()+'</div></div>';
+ root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section><div id="compact-formation">'+setup()+'</div></div>';
  if(effects?.frame)effects.attach(root.querySelector('.board'));
 }
 function append(ref){
