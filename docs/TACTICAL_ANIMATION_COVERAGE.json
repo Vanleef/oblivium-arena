@@ -1898,51 +1898,51 @@
     "id": "o-corrupto",
     "name": "Pact",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Acordo Podre",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Quebrar a Confiança",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Preço da Corrupção",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Privilégio Oculto",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -2024,51 +2024,51 @@
     "id": "o-medico-de-vermes",
     "name": "Bram",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Incisão Parasitária",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Hospedeiro Renovado",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Drenagem da Colônia",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Corpo entre Vermes",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -2076,51 +2076,51 @@
     "id": "o-jardim-morto",
     "name": "Thorn",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Raiz Necrosada",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Trama Necrosada",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Definhar",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Casca Inviolável",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -2191,51 +2191,51 @@
     "id": "a-porta-fechada",
     "name": "Mira",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Batida sem Resposta",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Guarida Seletiva",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Não Há Saída",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Limiar Interdito",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },

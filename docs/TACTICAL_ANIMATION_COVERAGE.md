@@ -1,6 +1,6 @@
 # Cobertura de animações táticas
 
-39/150 entradas com atlas base conectado. 167/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
+43/150 entradas com atlas base conectado. 183/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
 Atlas específicos de habilidade conectados: 12. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
@@ -38,12 +38,12 @@ Atlas específicos de habilidade conectados: 12. Os demais recortes mapeados usa
 | Fortuna (a-balanca-vazia) | Sim | Sim | 4/4 |
 | Aldric (o-apodrecido) | Sim | Sim | 4/4 |
 | Mire (a-praga-andante) | Pendente | Sim | 0/5 |
-| Pact (o-corrupto) | Pendente | Sim | 0/4 |
+| Pact (o-corrupto) | Sim | Sim | 4/4 |
 | Myra (a-rainha-dos-fungos) | Pendente | Sim | 0/6 |
-| Bram (o-medico-de-vermes) | Pendente | Sim | 0/4 |
-| Thorn (o-jardim-morto) | Pendente | Sim | 0/4 |
+| Bram (o-medico-de-vermes) | Sim | Sim | 4/4 |
+| Thorn (o-jardim-morto) | Sim | Sim | 4/4 |
 | Elias (o-que-observou) | Pendente | Sim | 0/5 |
-| Mira (a-porta-fechada) | Pendente | Sim | 0/4 |
+| Mira (a-porta-fechada) | Sim | Sim | 4/4 |
 | Voss (o-surdo) | Pendente | Sim | 0/5 |
 | Iris (a-testemunha-cega) | Pendente | Sim | 0/4 |
 | Hollow (o-quarto-vazio) | Pendente | Sim | 0/4 |

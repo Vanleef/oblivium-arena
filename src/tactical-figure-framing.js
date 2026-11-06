@@ -233,6 +233,30 @@ const framing=Object.freeze({
   "center": -0.0502,
   "width": 0.88038,
   "height": 1.0
+ },
+ "o-corrupto": {
+  "scale": 1.4379,
+  "center": 0.0,
+  "width": 0.6375,
+  "height": 0.85
+ },
+ "o-medico-de-vermes": {
+  "scale": 1.4815,
+  "center": 0.0,
+  "width": 0.6,
+  "height": 0.825
+ },
+ "o-jardim-morto": {
+  "scale": 1.3968,
+  "center": 0.0,
+  "width": 0.5875,
+  "height": 0.875
+ },
+ "a-porta-fechada": {
+  "scale": 1.4171,
+  "center": 0.0,
+  "width": 0.5125,
+  "height": 0.8625
  }
 });
 export function tacticalFigureFraming(unit){return framing[unit?.sourceId||unit?.id]||{scale:1,center:0};}

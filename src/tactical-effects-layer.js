@@ -15,6 +15,9 @@ const palettes={
  ration:['#ffe0a0','#b95b37','#452a28'],
  contract:['#f5d3a0','#c0423d','#38242f'],
  rot:['#c5b985','#85624b','#332b29'],
+ parasite:['#e4d5a1','#a37758','#47252f'],
+ root:['#dbbf87','#976443','#3d3029'],
+ threshold:['#e4c0aa','#a54a44','#35252d'],
  support:['#efffdb','#72e8a5','#28746b'],
  guard:['#f0faff','#8dd9ff','#3552a4']
 };
@@ -30,7 +33,8 @@ const material={
  'o-passo-interrompido':'limbo','o-odio-encarnado':'inferno','a-arquiteta-verde':'support'
 };
 export const tacticalEffectSignatures=Object.freeze({'o-falso-profeta':'ritual','o-corretor-de-memorias':'memory','o-incendiario':'cinder','a-brasa-eterna':'cinder','o-filho-da-cinza':'cinder','a-pira-errante':'cinder','o-coracao-em-furia':'pulse','o-devorador':'jaw','a-mao-que-toma':'relic','o-estomago-sem-fundo':'hunger',
- 'a-senhora-do-ultimo-pao':'ration','o-credor':'contract','a-balanca-vazia':'contract','o-apodrecido':'rot'});
+ 'a-senhora-do-ultimo-pao':'ration','o-credor':'contract','a-balanca-vazia':'contract','o-apodrecido':'rot',
+ 'o-corrupto':'contract','o-medico-de-vermes':'parasite','o-jardim-morto':'root','a-porta-fechada':'threshold'});
 const signatures=tacticalEffectSignatures;
 const shields=new Set(['guard','counter','support']);
 const control=new Set(['bind','affliction']);
@@ -284,7 +288,7 @@ function drawEffect(ctx,fx,t){
   for(let i=0;i<count;i++){
    const a=i*2.39996,inward=fx.signature==='jaw'||fx.signature==='hunger';
    const reach=r*(inward?1.15-p*.9:.3+p*(.8+i%3*.18));
-   const falling=fx.signature==='ration'||fx.signature==='rot';
+   const falling=['ration','rot','root','threshold'].includes(fx.signature);
    const px=Math.cos(a)*reach,py=Math.sin(a)*reach*.55+(falling?(p*p-p)*r*.9:-p*r*.3);
    ctx.save();ctx.translate(px,py);ctx.rotate(a+p);
    ctx.fillStyle=i%3===0?light:i%2?mid:dark;
@@ -296,6 +300,15 @@ function drawEffect(ctx,fx,t){
    }else if(fx.signature==='rot'){
     ctx.beginPath();ctx.moveTo(-r*.16,-r*.03);ctx.lineTo(-r*.02,-r*.11);ctx.lineTo(r*.13,-r*.02);ctx.lineTo(r*.05,r*.09);ctx.closePath();ctx.fill();
     ctx.globalAlpha=fade*.4;ctx.beginPath();ctx.ellipse(r*.07,-r*.13,r*.04,r*.065,0,0,TAU);ctx.fill();
+   }else if(fx.signature==='parasite'){
+    ctx.strokeStyle=i%2?mid:light;ctx.lineWidth=r*.07;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(-r*.15,r*.08);ctx.bezierCurveTo(-r*.18,-r*.17,r*.14,r*.16,r*.12,-r*.10);ctx.stroke();
+   }else if(fx.signature==='root'){
+    ctx.strokeStyle=i%2?mid:dark;ctx.lineWidth=r*.065;
+    ctx.beginPath();ctx.moveTo(0,r*.20);ctx.lineTo(-r*.03,0);ctx.lineTo(r*.05,-r*.19);ctx.moveTo(-r*.03,0);ctx.lineTo(-r*.17,-r*.12);ctx.moveTo(r*.02,-r*.10);ctx.lineTo(r*.17,-r*.15);ctx.stroke();
+   }else if(fx.signature==='threshold'){
+    ctx.beginPath();ctx.moveTo(-r*.15,-r*.15);ctx.lineTo(r*.11,-r*.12);ctx.lineTo(r*.17,r*.12);ctx.lineTo(-r*.09,r*.17);ctx.closePath();ctx.fill();
+    ctx.strokeStyle=dark;ctx.lineWidth=r*.035;ctx.beginPath();ctx.moveTo(0,-r*.12);ctx.lineTo(-r*.02,r*.02);ctx.lineTo(r*.10,r*.12);ctx.stroke();
    }else if(fx.signature==='memory'){
     ctx.fillRect(-r*.12,-r*.07,r*.24,r*.14);
     ctx.strokeStyle=light;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(-r*.07,0);ctx.lineTo(r*.07,0);ctx.stroke();

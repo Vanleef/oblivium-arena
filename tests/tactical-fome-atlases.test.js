@@ -4,7 +4,7 @@ import {characterById} from '../src/data.js';
 import {tacticalAnimationFrames} from '../src/tactical-animation.js';
 import {tacticalSpriteFrame,paintTacticalToken} from '../src/tactical-sprites.js';
 
-const ids=['a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia','o-apodrecido'];
+const ids=['a-senhora-do-ultimo-pao','o-credor','a-balanca-vazia','o-apodrecido','o-corrupto','o-medico-de-vermes','o-jardim-morto','a-porta-fechada'];
 test('new infernal atlases keep separate skill rows and restore the idle texture after each cast',()=>{
  for(const id of ids){
   const actor=characterById[id],idle=tacticalSpriteFrame(actor);
