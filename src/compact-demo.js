@@ -21,6 +21,7 @@ import {surfaceAt,elements,tacticalFieldForecast} from './tactical-elements.js';
 import {tacticalEnvironments} from './tactical-environment.js';
 import {createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun,tacticalRoutes,conquestProgressText} from './tactical-run.js';
 import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
+import {orderTacticalActions} from './tactical-order.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const key='oblivium-conquest-augment-progress-v2',profileKey='pma-post-mortem-arena-v1';
@@ -28,6 +29,8 @@ function progress(){try{const stored=conquestProgress(JSON.parse(localStorage.ge
 const state={battle:null,run:createTacticalRun(progress()),actions:[],spends:{},selected:null,mode:'move',busy:false,snapshot:null,event:null,message:'',speed:1,seed:1,revision:0,rewards:[]};
 let effects,worker,aiTask,job=0;
 const units=s=>[...s.allies,...s.enemies];
+const heroColors=Object.freeze(['#f0ae56','#e94a86','#6ca8f5']);
+const colorFor=(s,id)=>heroColors[Math.max(0,s.allies.findIndex(u=>u.id===id))%heroColors.length];
 const count=id=>state.actions.filter(a=>a.actorId===id).length;
 const locked=()=>state.busy||state.battle.tactical.stage!=='planning'||Boolean(state.battle.tactical.plans.player);
 const project=()=>previewTacticalPlan(tacticalView(state.battle,'player'),'player',state.actions);
@@ -75,23 +78,40 @@ function actionName(unit,ref){
  if(ref.type==='guard')return 'Guarda';
  return unit.abilities.find(a=>a.id===ref.abilityId)?.name||'Técnica';
 }
-// Compact side panel replaces the separate old skill list; the arena stays prominent.
+const moveGlyph='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 24l7-7m0 0V7m0 10h10M18 24l7-7M22 24h3v-3" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const guardGlyph='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 27 7v8c0 7-5 11-11 14C10 26 5 22 5 15V7L16 3Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 8v15M9 13h14" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
+function actionGlyph(unit,action){
+ if(action.type==='move')return moveGlyph;
+ if(action.type==='guard')return guardGlyph;
+ const ability=unit.abilities.find(a=>a.id===action.abilityId);
+ return ability?.art?'<img src="'+esc(ability.art)+'" alt="" loading="lazy" decoding="async">':'<span aria-hidden="true">✦</span>';
+}
 function actionDock(s,future){
  const u=actor(future),unavailable=locked()||count(u.id)>=2||u.hp<=0||u.stunned;
- const passive=conquestPassive(u.passive),selectedAbility=u.abilities.find(a=>a.id===state.mode);
- const heroes='<div class="compact-roster-rail" aria-label="Plano de cada personagem">'+s.allies.map(hero=>{
-  const orders=state.actions.filter(a=>a.actorId===hero.id);
-  return '<div class="compact-roster-card '+(state.selected===hero.id?'is-active ':'')+(orders.length===2?'is-ready':'')+'"><button data-actor="'+esc(hero.id)+'" '+(locked()||hero.hp<=0||hero.stunned?'disabled':'')+' aria-pressed="'+(state.selected===hero.id)+'" title="Selecionar '+esc(hero.name)+'">'+(hero.art?.portrait?'<img src="'+esc(hero.art.portrait)+'" alt="">':'')+'<b>'+esc(hero.name)+'</b><small>'+(hero.hp<=0||hero.stunned?'Inativo':orders.length===2?'✓ 2/2':orders.length+'/2')+'</small></button><div class="compact-roster-slots">'+[0,1].map(i=>orders[i]?'<button data-drop="'+esc(hero.id)+'" data-slot="'+i+'" title="Retirar ação '+(i+1)+' de '+esc(hero.name)+'">'+(i+1)+' '+esc(actionName(hero,orders[i]))+'</button>':'<span>'+(i+1)+' · +</span>').join('')+'</div></div>';
+ const picked=u.abilities.find(a=>a.id===state.mode);
+ const portraits='<div class="compact-roster-rail" role="group" aria-label="Selecionar personagem">'+s.allies.map((hero,i)=>{
+  const passive=conquestPassive(hero.passive);
+  const description=hero.name+(passive?' · Passiva: '+passive.name+' — '+passive.description:'');
+  return '<button class="compact-portrait" data-actor="'+esc(hero.id)+'" data-hero-index="'+i+'" style="--hero-accent:'+heroColors[i%heroColors.length]+'" title="'+esc(description)+'" aria-label="Selecionar '+esc(hero.name)+'" aria-pressed="'+(hero.id===state.selected)+'" '+(locked()||hero.hp<=0||hero.stunned?'disabled':'')+'>'+(hero.art?.portrait?'<img src="'+esc(hero.art.portrait)+'" alt="" loading="lazy" decoding="async">':'<span aria-hidden="true">'+esc(hero.symbol||'◆')+'</span>')+'</button>';
  }).join('')+'</div>';
- const buttons='<div class="compact-quick-buttons" role="group" aria-label="Escolha rápida de ação"><button data-mode="move" aria-pressed="'+(state.mode==='move')+'" '+(unavailable?'disabled':'')+' title="Mover uma casa">↗<small>Mover</small></button><button data-guard '+(unavailable?'disabled':'')+' title="Guarda: +6 de Escudo">⬡<small>Guarda</small></button>'+u.abilities.map(base=>{
+ const command=(kind,glyph,label,selected)=>'<button class="compact-icon-btn" '+(kind==='move'?'data-mode="move"':'data-guard')+' title="'+esc(label)+'" aria-label="'+esc(label)+'" aria-pressed="'+Boolean(selected)+'" '+(unavailable?'disabled':'')+'>'+glyph+'</button>';
+ const buttons='<div class="compact-quick-buttons" role="group" aria-label="Escolher movimento, Guarda ou técnica">'+command('move',moveGlyph,'Mover uma casa',state.mode==='move')+command('guard',guardGlyph,'Guarda: +6 de Escudo',false)+u.abilities.map(base=>{
   const a=conquestAugmentedAbility(future,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
-  return '<button data-technique="'+esc(a.id)+'" aria-pressed="'+(state.mode===a.id)+'" '+(unavailable||cooldown||reason?'disabled':'')+' title="'+esc(a.name+' — '+(reason||(cooldown?'Recarga '+cooldown:a.description)))+'">'+(a.art?'<img src="'+esc(a.art)+'" alt="">':'✦')+'<small>'+esc(a.name)+'</small></button>';
+  const tooltip=a.name+' — '+(reason||(cooldown?'Em recarga · '+cooldown:a.description));
+  return '<button class="compact-icon-btn" data-technique="'+esc(a.id)+'" aria-pressed="'+(state.mode===a.id)+'" aria-label="'+esc(tooltip)+'" title="'+esc(tooltip)+'" '+(unavailable||cooldown||reason?'disabled':'')+'>'+actionGlyph(u,{type:'skill',abilityId:a.id})+'</button>';
  }).join('')+'</div>';
- const hint=state.message||(state.mode==='move'?'Toque em uma casa vizinha':'Toque na casa-alvo da técnica');
- const footer='<div class="compact-quick-footer"><span role="status">'+state.actions.length+'/6 ações · '+esc(hint)+'</span><button data-undo '+(locked()||!state.actions.length?'disabled':'')+' title="Desfazer última ação" aria-label="Desfazer última ação">↶</button><button data-clear '+(locked()||!state.actions.length?'disabled':'')+' title="Limpar plano" aria-label="Limpar plano">×</button><button data-confirm '+(locked()?'disabled':'')+' title="Executar mesmo com menos de seis ações">▶ Agora</button></div>';
- const advance=specialChoices(u,selectedAbility,unavailable);
- const advanced=advance?'<div class="compact-panel-advanced" aria-label="Opções extras da técnica">'+advance+'</div>':'';
- return '<aside class="compact-action-hub compact-command-panel" data-panel-locked="'+Boolean(unavailable)+'" aria-busy="'+state.busy+'" aria-label="Comandos de '+esc(u.name)+'"><div class="compact-panel-heading"><strong>SEU PLANO</strong><small>2 ações por personagem</small></div>'+heroes+'<div class="compact-panel-heading compact-panel-techniques-heading"><strong>AÇÕES · '+esc(u.name)+'</strong></div>'+buttons+advanced+footer+(passive?'<details class="compact-panel-passive"><summary>Passiva · '+esc(passive.name)+'</summary><p>'+esc(passive.description)+'</p></details>':'')+'</aside>';
+ // Follow the engine's real execution order: first every slot 1, then slot 2.
+ const actions=orderTacticalActions(state.battle,state.actions.map((ref,order)=>({...ref,order,side:'player'})));
+ const sequence='<div class="compact-action-sequence" role="group" aria-label="Sequência de ações planejadas">'+Array.from({length:6},(_,i)=>{
+  const ref=actions[i];if(!ref)return '<span class="compact-sequence-empty" aria-hidden="true"></span>';
+  const hero=s.allies.find(ally=>ally.id===ref.actorId),name=hero.name;
+  const label=(i+1)+'ª ação · '+name+' · '+actionName(hero,ref);
+  return '<button class="compact-sequence-icon" data-remove-index="'+ref.order+'" data-action-step="'+(i+1)+'" data-actor-color="'+colorFor(s,ref.actorId)+'" style="--hero-accent:'+colorFor(s,ref.actorId)+'" title="'+esc(label)+' — tocar para remover" aria-label="Remover '+esc(label)+'" '+(locked()?'disabled':'')+'>'+actionGlyph(hero,ref)+'</button>';
+ }).join('')+'</div>';
+ const advance=specialChoices(u,picked,unavailable);
+ const advanced=advance?'<details class="compact-panel-advanced"><summary aria-label="Opções avançadas da técnica" title="Opções avançadas da técnica">✧</summary>'+advance+'</details>':'';
+ const footer='<div class="compact-quick-footer"><span class="compact-visually-hidden" role="status">'+esc(state.message||'Selecione um personagem e uma ação. '+state.actions.length+' de 6 ações planejadas.')+'</span><button data-undo title="Desfazer última ação" aria-label="Desfazer última ação" '+(locked()||!state.actions.length?'disabled':'')+'>↶</button><button data-clear title="Limpar o plano" aria-label="Limpar plano" '+(locked()||!state.actions.length?'disabled':'')+'>×</button><button data-confirm title="Executar rodada agora" aria-label="Executar rodada agora" '+(locked()?'disabled':'')+'>▶</button></div>';
+ return '<aside class="compact-action-hub compact-command-panel" data-panel-locked="'+Boolean(unavailable)+'" aria-busy="'+state.busy+'" aria-label="Comandos de '+esc(u.name)+'">'+portraits+buttons+sequence+advanced+footer+'</aside>';
 }
 function reward(){
  const offer=state.battle.tactical.pendingChestRewards[0];
@@ -112,7 +132,8 @@ function render(){
  const s=displayed(),future=planned(),finished=state.battle.tactical.stage==='finished',rule=s.tactical.environment;
  const actorEvent=units(s).find(u=>u.id===state.event?.actorId),ability=actorEvent?.abilities.find(a=>a.id===state.event?.abilityId);
  const result=finished&&!state.busy?'<section class="compact-result"><h2>'+({victory:'Vitória',defeat:'Derrota',draw:'Empate'}[state.battle.phase]||'Confronto encerrado')+'</h2>'+(state.battle.phase==='victory'?state.rewards.length?'<p>Escolha uma melhoria para a próxima travessia.</p>'+state.rewards.map(r=>'<button data-trail-reward="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):tacticalRoutes.map(r=>'<button data-route="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):'<button data-restart>Nova tentativa</button>')+'</section>':'';
- root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section><div id="compact-formation">'+setup()+'</div></div>';
+ const sceneUrl=combatScene(s.tactical.scene).art;
+ root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'" style="--compact-scene-image:url(\''+esc(sceneUrl)+'\')"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section><div id="compact-formation">'+setup()+'</div></div>';
  if(effects?.frame)effects.attach(root.querySelector('.board'));
 }
 function append(ref){
@@ -232,11 +253,13 @@ root.addEventListener('click',event=>{
  if('technique'in d){state.mode=d.technique;state.spends={};state.message='Toque na casa onde a técnica será aplicada.';render();return;}
  if('guard'in d){append({type:'guard',actorId:state.selected});return;}
  if(d.cell){const [x,y]=d.cell.split(',').map(Number);selectCell({x,y});return;}
- if('drop'in d){
-  let index=0;state.actions=state.actions.filter(a=>a.actorId!==d.drop||index++<Number(d.slot));
+ if('removeIndex'in d){
+  const index=Number(d.removeIndex);
+  if(!Number.isInteger(index)||index<0||index>=state.actions.length)return;
+  const [removed]=state.actions.splice(index,1);
   const valid=[],view=tacticalView(state.battle,'player');
   for(const action of state.actions)if(previewTacticalPlan(view,'player',[...valid,action]).ok)valid.push(action);
-  state.actions=valid;state.selected=d.drop;state.mode='move';state.message='';render();return;
+  state.actions=valid;state.selected=removed.actorId;state.mode='move';state.spends={};state.message='';render();return;
  }
  if('undo'in d){state.actions.pop();state.message='';render();return;}
  if('clear'in d){state.actions=[];state.message='';render();return;}
