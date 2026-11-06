@@ -11,8 +11,8 @@ test('compact UI queues actions privately, undoes the plan and retains technique
   globalThis.matchMedia=()=>({matches:true});globalThis.requestAnimationFrame=undefined;
   globalThis.Worker=class{addEventListener(type,fn){if(type==='message')this.receive=fn;}postMessage({id}){queueMicrotask(()=>this.receive({data:{id,plan:[]}}));}};
   await import('../src/compact-demo.js?compact-ui-regression');
-  assert.match(html,/grade 5 por 5/);assert.equal((html.match(/data-cell=/g)||[]).length,25);assert.match(html,/Confirmar rodada/);assert.match(html,/Próximo evento: rodada 4/);
-  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/1\/6 ações/);
+  assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/data-confirm/);assert.match(html,/Próximo evento: rodada 4/);
+  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/1\/6 ações/);assert.match(html,/compact-planned-destination/);
   click({undo:''});assert.match(html,/0\/6 ações/);assert.doesNotMatch(html,/Mover → B2/);
   click({cell:'1,1'});click({technique:'despertar'});click({cell:'1,1'});
   assert.match(html,/Passo entre Lâminas/);assert.match(html,/2\/6 ações/);assert.match(html,/<b>1<\/b><strong role="status">Planejamento simultâneo/);
@@ -20,5 +20,9 @@ test('compact UI queues actions privately, undoes the plan and retains technique
   const wait=async predicate=>{for(let i=0;i<160;i++){if(predicate())return;await new Promise(r=>setTimeout(r,25));}assert.fail('Round playback did not finish');};
   await wait(()=>html.includes('<b>2</b><strong role="status">Planejamento simultâneo'));
   assert.match(html,/0\/6 ações/);assert.ok(renders.filter(v=>v.includes('data-panel-locked="true"')).every(v=>v.includes('aria-label="Técnicas de ')));
+  for(let i=0;i<6;i++)click({guard:''});
+  assert.match(html,/data-panel-locked="true"/,'six actions seal the plan automatically');
+  await wait(()=>html.includes('<b>3</b><strong role="status">Planejamento simultâneo'));
+  assert.match(html,/0\/6 ações/);
  }finally{for(const key of names){if(saved[key]===undefined)delete globalThis[key];else globalThis[key]=saved[key];}}
 });
