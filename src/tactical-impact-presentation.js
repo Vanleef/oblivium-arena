@@ -47,7 +47,7 @@ export function tacticalMobileParticleBudget(width,{reduced=false}={}){
 }
 export function tacticalContactRecoil(contact,profile,{mobile=false}={}){
  if(!contact||!profile)return null;
- const magnitude=profile.recoilPx*(mobile?.65:1);
+ const magnitude=profile.recoilPx*(mobile ? .65 : 1);
  const x=bounded((contact.x||0)*magnitude,-13,13);
  const y=bounded((contact.y||0)*magnitude*.7,-10,10);
  return {
