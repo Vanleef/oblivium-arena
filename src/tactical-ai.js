@@ -2,6 +2,7 @@ import {conquestTechnique} from './conquest-techniques.js';
 import {conquestAugmentedAbility} from './conquest-augments.js';
 import {tacticalEnvironmentDelta} from './tactical-environment.js';
 import {tacticalView,previewTacticalPlan,previewTacticalActivation,tacticalActivationUnits} from './tactical-combat.js';
+import {tacticalHand} from './tactical-decks.js';
 import {boardCells,findPath,distance} from './tactical-board.js';
 import {tacticalSpec} from './tactical-kits.js';
 
@@ -50,14 +51,17 @@ function candidates(s,side,used,actorId){
  const own=side==='player'?s.allies:s.enemies,other=side==='player'?s.enemies:s.allies,result=[];
  for(const u of own.filter(u=>u.hp>0&&!u.stunned&&(used[u.id]||0)<2&&(!actorId||u.id===actorId))){
   // Compact mode has no Guard action: defensive play uses movement and character techniques.
-  if(!actorId)for(const to of boardCells(s)){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});}
+  if(!actorId)for(const to of boardCells(s)){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});if(s.tactical.cardMode)for(const card of tacticalHand(s,side,u.id).filter(c=>c.kind==='mobility')){const fast=findPath(s,u.id,to,2);if(fast)result.push({type:'move',actorId:u.id,path:fast,cardId:card.id});}}
   for(const a of u.abilities){
-   if(u.cooldowns[a.id])continue;const spec=tacticalSpec(u,a),origin=s.tactical.positions[u.id];
+   if(u.cooldowns[a.id])continue;
+   const cards=s.tactical.cardMode&&a.id!=='fortress-basic'?tacticalHand(s,side,u.id).filter(card=>card.kind==='skill'&&card.abilityId===a.id):[null];
+   if(!cards.length)continue;
+   const spec=tacticalSpec(u,a),origin=s.tactical.positions[u.id];
    const anchors=spec.range===0?[origin]:['ally','friendly','team'].includes(a.target)?own.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]):other.filter(t=>t.hp>0).map(t=>s.tactical.positions[t.id]);
    const spends=[{}];
    if(a.spendResidueMax&&u.residue)spends.push({residueSpend:Math.min(a.spendResidueMax,u.residue)});
    if(a.spendFracturesMax)spends.push({fractureSpend:a.spendFracturesMax});
-   for(const anchor of anchors){const orientation=[Math.sign(anchor.x-origin.x)||(anchor.y===origin.y?(side==='player'?1:-1):0),Math.sign(anchor.y-origin.y)];for(const spend of spends)result.push({...spend,type:'skill',actorId:u.id,abilityId:a.id,formKey:a.formKey||'base',anchor:{...anchor},orientation});}
+   for(const anchor of anchors){const orientation=[Math.sign(anchor.x-origin.x)||(anchor.y===origin.y?(side==='player'?1:-1):0),Math.sign(anchor.y-origin.y)];for(const spend of spends)for(const card of cards)result.push({...spend,type:'skill',actorId:u.id,abilityId:a.id,formKey:a.formKey||'base',anchor:{...anchor},orientation,...(card?{cardId:card.id}:{})});}
   }
  }return result;
 }
