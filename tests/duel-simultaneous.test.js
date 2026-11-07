@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {characters} from "../src/data.js";
 import {createDuel,submitDuelTurn,answerDuelClash,getValidTargets} from "../src/combat.js";
 import {publicBattle} from "../server/arena-service.js";
+import {setMovementPlan} from "../src/tactical-grid.js";
 
 const testCharacter=characters.find(c=>c.abilities?.some(a=>a.damage>0&&["enemy","all-enemies"].includes(a.target)));
 assert.ok(testCharacter,"At least one character must have an offensive skill.");
@@ -17,6 +18,8 @@ function duel(){
 }
 function attack(s,willSign="miragem"){
  const actor=s.allies[0],enemy=s.enemies[0],deck=s.cardCombat.decks[actor.id];
+ const movement=setMovementPlan(s,"player",actor.id,{x:1,y:actor.position.y});
+ assert.equal(movement.ok,true);
  const ability=actor.abilities.find(a=>a.damage>0&&["enemy","all-enemies"].includes(a.target)&&getValidTargets(s,actor,a).some(t=>t.id===enemy.id));
  assert.ok(ability,"Expected at least one valid offensive ability");
  let card=deck.hand.find(c=>c.abilityId===ability.id);
@@ -27,10 +30,13 @@ function attack(s,willSign="miragem"){
  }
  return {actorId:actor.id,abilityId:ability.id,targetId:enemy.id,cardId:card.id,willSign};
 }
+function submitAttack(s,sign="miragem"){
+ const action=attack(s,sign);
+ return submitDuelTurn(s,"player",[action],undefined,[],s.movementPlans.player);
+}
 test("both teams submit simultaneously: one commit does not execute or reveal its plan",()=>{
  const s=duel(),initial=s.enemies[0].hp;
- const planned=attack(s);
- submitDuelTurn(s,"player",[planned]);
+ submitAttack(s);
  assert.equal(s.phase,"player");
  assert.equal(s.enemies[0].hp,initial);
  assert.ok(s.duelPlans.player);
@@ -46,7 +52,7 @@ test("both teams submit simultaneously: one commit does not execute or reveal it
 });
 test("successful defender will sign blocks damage, preserving its team budget until the next round",()=>{
  const s=duel(),oldHp=s.enemies[0].hp;
- submitDuelTurn(s,"player",[attack(s,"miragem")]);
+ submitAttack(s,"miragem");
  submitDuelTurn(s,"enemy",[]);
  assert.equal(s.phase,"clash");
  assert.equal(s.clash.defenderSide,"enemy");
@@ -65,14 +71,14 @@ test("successful defender will sign blocks damage, preserving its team budget un
 });
 test("losing a reply raises the damage over an identical ordinary strike",()=>{
  const ordinary=duel();
- submitDuelTurn(ordinary,"player",[attack(ordinary,"miragem")]);
+ submitAttack(ordinary,"miragem");
  submitDuelTurn(ordinary,"enemy",[]);
  assert.equal(ordinary.phase,"clash");
  answerDuelClash(ordinary,"enemy","pass");
  const normalDamage=ordinary.enemies[0].maxHp-ordinary.enemies[0].hp;
 
  const critical=duel();
- submitDuelTurn(critical,"player",[attack(critical,"miragem")]);
+ submitAttack(critical,"miragem");
  submitDuelTurn(critical,"enemy",[]);
  assert.equal(critical.phase,"clash");
  answerDuelClash(critical,"enemy","luz");
@@ -81,7 +87,7 @@ test("losing a reply raises the damage over an identical ordinary strike",()=>{
 });
 test("invalid signs and duplicate response attempts do not spend a response",()=>{
  const s=duel();
- submitDuelTurn(s,"player",[attack(s)]);
+ submitAttack(s);
  submitDuelTurn(s,"enemy",[]);
  assert.throws(()=>answerDuelClash(s,"enemy","sangue"),/inválida/);
  assert.equal(s.cardCombat.responses.enemy,1);
