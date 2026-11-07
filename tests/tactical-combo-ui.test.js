@@ -10,6 +10,7 @@ test('combat page loads touch-sized clash HUD after the responsive tactical styl
  assert.match(css,/\.compact-rhythm-clash\{/);
  assert.match(css,/position:fixed;z-index:950/);
  assert.match(css,/safe-area-inset-bottom/);
+ assert.match(css,/--rhythm-stop/);
  assert.match(css,/\.compact-rhythm-actions>button\{[\s\S]*?min-height:53px/);
  assert.match(css,/@media\(max-width:600px\)/);
  assert.match(css,/@media\(max-width:360px\)/);
@@ -30,6 +31,7 @@ test('touch, click, keyboard and neutral-skip interaction are connected before b
  assert.match(js,/neutral\?\{attackHits:0,defenseHits:0\}/);
  assert.match(js,/const elapsed=performance\.now\(\)-value\.startedAt,accurate=tapped&&tacticalComboTimingHit\(elapsed,ms\)/);
  assert.match(js,/tacticalComboBeats/);
+ assert.match(js,/value\.progress=Math\.max\(0,Math\.min\(1,elapsed\/ms\)\)/);
 });
 
 test('interactive rhythm is integrated before each authoritative compact skill resolution',async()=>{
