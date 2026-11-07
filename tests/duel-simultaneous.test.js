@@ -11,6 +11,8 @@ const pools=()=>({essence:80,cinza:80,graca:80,ruptura:80});
 function duel(){
  const s=createDuel([testCharacter.id],[testCharacter.id],{rng:()=>0.4,cardMode:true});
  s.resources=pools();s.enemyResources=pools();
+ // Prevent a critical/normal comparison from saturating a target's 100 HP.
+ for(const unit of [...s.allies,...s.enemies]){unit.maxHp=1000;unit.hp=1000;}
  return s;
 }
 function attack(s,willSign="fenda"){
