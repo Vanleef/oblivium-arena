@@ -89,3 +89,13 @@ test('UI errors still finish the staged round with a safe no-choice resolution',
  assert.match(ui,/const step=session\.next\(pending\?\.comboEligible/);
  assert.match(ui,/state\.busy=false;state\.clash=null;state\.event=null;state\.snapshot=null/);
 });
+
+test('missing or forged choices cannot bypass the duel and grant an unopposed full special',async()=>{
+ const engine=await read('src/tactical-combat.js'),ui=await read('src/compact-demo.js');
+ const guarded=engine.indexOf("if(awaiting?.comboEligible&&!duel)return fail(");
+ const shifted=engine.indexOf("const ref=commands.shift();",guarded);
+ assert.ok(guarded>=0&&shifted>guarded,'validate the secret response BEFORE removing the planned skill from queue');
+ assert.match(ui,/const step=session\.next\(pending\?\.comboEligible/);
+ assert.match(ui,/attackChoice:'contencao',defenseChoice:'contencao'/);
+ assert.match(ui,/duel\.cancel=\(\)=>/);
+});
