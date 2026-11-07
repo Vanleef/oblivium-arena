@@ -161,22 +161,22 @@ export function rerollTacticalChestReward(s,offerId){
  addCardInscription(s,offer,'player');
  return {ok:true,offer:copy(offer),spins:progress.spins};
 }
-export function chooseTacticalChestReward(s,offerId,optionId,targetId){
- const offer=s.tactical.pendingChestRewards?.[0];
- if(!offer||offer.id!==offerId||offer.side!=='player')return fail('Escolha de baú indisponível.');
+export function chooseTacticalChestReward(s,offerId,optionId,targetId,side='player'){
+ const offer=s.tactical.pvpMode?s.tactical.pendingChestRewards?.find(value=>value.side===side&&value.id===offerId):s.tactical.pendingChestRewards?.[0];
+ if(!offer||offer.id!==offerId||offer.side!==side||!['player','enemy'].includes(side))return fail('Escolha de baú indisponível.');
  const option=offer.options.find(item=>item.id===optionId);if(!option)return fail('Aprimoramento inválido.');
  if(offer.invasion){
-  const applied=applyFortressPenalty(s,'player',option.effect,targetId,offer.round);if(!applied.ok)return applied;
+  const applied=applyFortressPenalty(s,side,option.effect,targetId,offer.round);if(!applied.ok)return applied;
  }else{
-  if(offer.objective&&!actorFor(s,'player',offer.actorId))return fail('O portador saiu de combate.');
+  if(offer.objective&&!actorFor(s,side,offer.actorId))return fail('O portador saiu de combate.');
   if(option.effect.type==='tactical-card-upgrade'){
    if(!offer.objective||!targetId)return fail('Selecione a carta que receberá a inscrição.');
-   const upgrade=upgradeTacticalCard(s,'player',offer.actorId,targetId,option.effect.upgrade);
+   const upgrade=upgradeTacticalCard(s,side,offer.actorId,targetId,option.effect.upgrade);
    if(!upgrade.ok)return upgrade;
-  }else applyChestEffect(s,'player',option.effect);
-  if(offer.objective)actorFor(s,'player',offer.actorId).objectiveAugments=(actorFor(s,'player',offer.actorId).objectiveAugments||0)+1;
+  }else applyChestEffect(s,side,option.effect);
+  if(offer.objective)actorFor(s,side,offer.actorId).objectiveAugments=(actorFor(s,side,offer.actorId).objectiveAugments||0)+1;
  }
- s.tactical.pendingChestRewards.shift();
+ s.tactical.pendingChestRewards=s.tactical.pendingChestRewards.filter(value=>value!==offer);
  for(const pending of s.tactical.pendingChestRewards.filter(item=>item.fortress&&!item.invasion)){
   if(pending.objective&&!actorFor(s,pending.side,pending.actorId))continue;
   if(!livingTeam(s,pending.side).some(unit=>unit.id===pending.actorId))pending.actorId=livingTeam(s,pending.side)[0]?.id;
@@ -796,10 +796,10 @@ function claimFortressEntry(s,{actorId,side,to}){
  if(!f.entered.includes(actorId))f.entered.push(actorId);
  f.rearmed=f.rearmed.filter(id=>id!==actorId);
  const offer={id:'invasion:'+f.rewardSequence++,side,actorId,round:s.round,invasion:true,source:'invasion',options:fortressPenaltyOptions()};
- if(side==='player')s.tactical.pendingChestRewards.push(offer);else(s.tactical.enemyChestRewards??=[]).push(offer);
+ if(side==='player'||s.tactical.pvpMode)s.tactical.pendingChestRewards.push(offer);else(s.tactical.enemyChestRewards??=[]).push(offer);
 }
 function addCardInscription(s,offer,side){
- if(!s.tactical.cardMode||side!=='player'||!offer?.objective)return;
+ if(!s.tactical.cardMode||(side!=='player'&&!s.tactical.pvpMode)||!offer?.objective)return;
  const upgrade=offer.tier==='prismatic'?{opening:true,damageBonus:10,expose:1}:offer.tier==='gold'?{retain:true,damageBonus:5,damageType:'piercing'}:{damageBonus:5};
  const text=offer.tier==='prismatic'?'Carta inicial, +10 de dano e Exposto':offer.tier==='gold'?'Preservar, +5 de dano e perfuração':'+5 de dano';
  // Preserve the three-choice structure of the existing objective reward UI.
