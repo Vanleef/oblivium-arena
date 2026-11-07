@@ -59,7 +59,7 @@ function startBattle(profile,run,node){
  run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
  const enemies=createEnemyTeam(elo,run.team,nodeType,run.encounter,{difficulty:run.difficulty||0,bossIds:run.bossIds});
- const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed,campaignRealm:elo.realm,niloAbsorption:run.niloAbsorption});
+ const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed,campaignRealm:elo.realm,niloAbsorption:run.niloAbsorption,cardMode:true});
  beginInfluences(battle,seed);
  run.currentNodeId=node.id;run.battle=storeBattle(battle);
  return campaignState(profile,{battle:run.battle,node});
@@ -123,7 +123,7 @@ export class CampaignService{
      const battle=restoreBattle(run.battle);if(battle.phase!=='player')fail('Aguarde a decisão atual do combate.',409);
      if(!Number.isSafeInteger(body.round)||body.round!==battle.round)fail('O turno mudou. A campanha foi atualizada.',409);
      const exchanges=applyEssenceExchanges(battle,'player',body.exchanges||[]);if(!exchanges.ok)fail(exchanges.reason||'Troca de Essência inválida.');
-     const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId,{residueSpend:ref?.residueSpend,fractureSpend:ref?.fractureSpend});if(!result.ok)fail(result.reason||'Ação inválida.');}
+     const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId,{residueSpend:ref?.residueSpend,fractureSpend:ref?.fractureSpend,cardId:ref?.cardId});if(!result.ok)fail(result.reason||'Ação inválida.');}
      const committed=commitTurn(battle,body.payment);if(!committed.ok)fail(committed.reason||'Pagamento inválido.');
      const events=runBattleToDecision(battle);syncNiloAbsorption(profile,run,battle.niloAbsorption);run.battle=storeBattle(battle);extra={battle:run.battle,events};
      break;
