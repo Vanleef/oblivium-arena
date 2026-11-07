@@ -114,3 +114,12 @@ test('physical technique materials outrank vague energy keywords and preserve ac
  assert.equal(tacticalTechniqueTone(attacker,{name:'Talho de Sangue',damage:12},event),'blood');
  assert.equal(tacticalTechniqueTone(attacker,{name:'Vermes da Ruína',heal:5},event),'heal');
 });
+
+test('an area-less skill reports only explicitly affected targets, not unrelated snapshot changes',()=>{
+ const onlyTarget={...event,cells:[],affectedTargetIds:[],targets:['foe']};
+ const actual=tacticalFeedback(onlyTarget);
+ assert.deepEqual(actual.map(item=>[item.actorId,item.label]),[['foe','−24']]);
+ const environment={...onlyTarget,type:'effects',targets:[],affectedTargetIds:[]};
+ assert.ok(tacticalFeedback(environment).some(item=>item.actorId==='friend'),
+  'unscoped world-effects snapshots may describe several affected characters');
+});
