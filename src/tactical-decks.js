@@ -1,6 +1,14 @@
 // Individual tactical card decks. All random draws use a local deterministic seed;
 // neither previews nor the opponent's hidden plan may alter the draw order.
 export const TACTICAL_CARD_RULES=Object.freeze({minimum:8,maximum:10,openingDraw:3,roundDraw:2,handLimit:6});
+export const tacticalCardVariants=Object.freeze([
+ Object.freeze({id:'passo-guardado',kind:'mobility',name:'Passo Guardado',kingdoms:1,movement:2,shield:5,description:'Percorra até duas casas e ganhe 5 de Escudo ao se mover.'}),
+ Object.freeze({id:'reverso-vital',kind:'reaction',name:'Reverso Vital',kingdoms:3,healOnBlock:5,description:'Uma resposta extra. Se bloquear a técnica, recupera 5 de Vida.'}),
+ Object.freeze({id:'salto-umbral',kind:'mobility',name:'Salto Umbral',kingdoms:8,movement:3,description:'Percorra até três casas usando uma carta de mobilidade.'})
+]);
+export const unlockedTacticalCardVariants=completed=>tacticalCardVariants.filter(v=>v.kingdoms<=completed);
+export const tacticalMovementSteps=card=>card?.kind==='mobility'
+ ?tacticalCardVariants.find(v=>v.id===card.variantId)?.movement||2:1;
 const clone=value=>JSON.parse(JSON.stringify(value));
 const other=side=>side==='player'?'enemy':'player';
 const validUpgrade=raw=>{
@@ -26,15 +34,17 @@ export function defaultTacticalCardBuild(unit){
  const copies=Array.from({length:Math.max(0,6-pool.length)},(_,i)=>pool[i%Math.max(1,pool.length)]).filter(Boolean);
  return [...pool,...copies,{kind:'mobility',name:'Passo Longo'},{kind:'reaction',name:'Último Suspiro'}];
 }
-function validateBuild(unit,raw){
+function validateBuild(unit,raw,unlockedKingdoms=0){
  if(!Array.isArray(raw)||raw.length<TACTICAL_CARD_RULES.minimum||raw.length>TACTICAL_CARD_RULES.maximum)throw Error('Cada baralho deve ter 8 a 10 cartas.');
  const abilities=new Set(unit.abilities.filter(a=>a.id!=='fortress-basic').map(a=>a.id));
  return raw.map((entry,index)=>{
   if(!entry||!['skill','mobility','reaction'].includes(entry.kind))throw Error('Tipo de carta inválido.');
   if(entry.kind==='skill'&&!abilities.has(entry.abilityId))throw Error('Carta de técnica não pertence ao personagem.');
+  const variant=tacticalCardVariants.find(value=>value.id===entry.variantId);
+  if(entry.variantId&&(!variant||variant.kind!==entry.kind||variant.kingdoms>unlockedKingdoms))throw Error('Carta ainda não liberada na campanha.');
   const id=unit.id+':card-'+index;
-  return {id,kind:entry.kind,abilityId:entry.kind==='skill'?entry.abilityId:null,
-   name:entry.kind==='skill'?unit.abilities.find(a=>a.id===entry.abilityId).name:entry.kind==='mobility'?'Passo Longo':'Último Suspiro',
+  return {id,kind:entry.kind,abilityId:entry.kind==='skill'?entry.abilityId:null,variantId:variant?.id||null,
+   name:entry.kind==='skill'?unit.abilities.find(a=>a.id===entry.abilityId).name:variant?.name||(entry.kind==='mobility'?'Passo Longo':'Último Suspiro'),
    upgrade:validUpgrade(entry.upgrade)};
  });
 }
@@ -47,12 +57,12 @@ function draw(deck,count){
   deck.hand.push(deck.draw.shift());
  }
 }
-export function createTacticalDecks(s,{decks={},seed=1}={}){
+export function createTacticalDecks(s,{decks={},seed=1,unlockedKingdoms=0}={}){
  const result={sides:{player:{},enemy:{}},responses:{player:1,enemy:1},round:s.round};
  for(const [side,team] of [['player',s.allies],['enemy',s.enemies]]){
   for(const [i,unit] of team.entries()){
    const build=decks[unit.sourceId||unit.id]||decks[unit.id]||defaultTacticalCardBuild(unit);
-   const cards=validateBuild(unit,build),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
+   const cards=validateBuild(unit,build,unlockedKingdoms),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
    const initial=cards.filter(card=>card.upgrade.opening).map(card=>card.id);
    if(initial.length>TACTICAL_CARD_RULES.handLimit)throw Error('Há cartas iniciais demais.');
    const serial=seed+(side==='enemy'?1009:0)+i*131;
@@ -115,7 +125,8 @@ export function nextTacticalCardRound(s){
 }
 export function tacticalResponseOptions(s,side,targetId){
  const decks=s.tactical?.decks;if(!decks)return {available:true,basic:true,reactions:[]};
- const hand=Object.keys(decks.sides[side]).flatMap(id=>tacticalHand(s,side,id));
+ const living=new Set((side==='player'?s.allies:s.enemies).filter(u=>u.hp>0).map(u=>u.id));
+ const hand=Object.keys(decks.sides[side]).filter(id=>living.has(id)).flatMap(id=>tacticalHand(s,side,id));
  return {available:Boolean(decks.responses[side]>0||hand.some(card=>card.kind==='reaction')),
   basic:decks.responses[side]>0,
   reactions:hand.filter(card=>card.kind==='reaction')};
@@ -123,7 +134,8 @@ export function tacticalResponseOptions(s,side,targetId){
 export function spendTacticalResponse(s,side,cardId=null){
  const decks=s.tactical?.decks;if(!decks)return true;
  if(cardId){
-  const entry=Object.entries(decks.sides[side]).find(([,deck])=>deck.hand.includes(cardId)&&deck.cards[cardId]?.kind==='reaction');
+  const living=new Set((side==='player'?s.allies:s.enemies).filter(u=>u.hp>0).map(u=>u.id));
+  const entry=Object.entries(decks.sides[side]).find(([id,deck])=>living.has(id)&&deck.hand.includes(cardId)&&deck.cards[cardId]?.kind==='reaction');
   if(!entry)return false;
   const deck=entry[1];deck.hand.splice(deck.hand.indexOf(cardId),1);
   (deck.cards[cardId].upgrade.exhaust?deck.exhausted:deck.discard).push(cardId);
