@@ -18,6 +18,10 @@ test('compact PvP client routes mutations through the authenticated authoritativ
  assert.match(app,/state\.actions\.push\(ref\)/);
  assert.match(app,/willSign:state\.willSign/);
  assert.match(app,/tacticalHand\(s,side,actor\.id\)/);
+ assert.match(app,/data-deck-slot/);
+ assert.match(app,/data-deck-add/);
+ assert.match(app,/deckFor\(id\)/);
+ assert.match(app,/team:state\.team,decks/);
  assert.match(app,/tacticalSpriteFrame\(unit,null/);
 });
 test('online interface exposes private card hands, clash controls, objectives and a responsive battlefield',async()=>{

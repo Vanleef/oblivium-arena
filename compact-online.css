@@ -89,3 +89,15 @@ body{background:radial-gradient(circle at 65% -15%,#393045,#100e17 68%);color:va
 @media(max-width:760px){.online-shell{padding:0 10px 38px}.online-combat{display:flex;flex-direction:column}.online-battle-scene,.online-action-panel{width:100%;box-sizing:border-box}.online-action-panel{max-height:none;overflow:visible}.online-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.online-formation{grid-template-columns:1fr}.online-roster-chip{width:35px;height:43px}.online-versus{font-size:10px}.online-header b{font-size:11px}}
 @media(max-width:420px){.online-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.online-roster-chip{width:27px;height:33px}.online-clash-signs,.online-reward-options{grid-template-columns:1fr}.online-unit-name{max-width:65px;font-size:8px;top:-18px}.online-battle-scene{padding:5px}.online-sprite,.online-sprite-fallback{top:-16%;height:118%}.online-header{flex-wrap:wrap;justify-content:center}.online-header b{order:3;width:100%}}
 @media(prefers-reduced-motion:reduce){.online-sprite{animation:none}.online-shell button{transition:none}}
+
+.online-deck-editor{margin:16px 0;padding:12px;border:1px solid #987c66;border-radius:10px;background:#1b1722}
+.online-deck-editor summary{font-weight:800;color:#f4d69f;cursor:pointer}
+.online-deck-editor p{font-size:12px}
+.online-deck-hero{margin:14px 0;padding:12px;border:1px solid #615468;border-radius:9px}
+.online-deck-hero h3{font-size:13px;margin:0 0 12px;color:#f4d69f}
+.online-deck-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.online-deck-slots label{display:flex;flex-direction:column;gap:4px;font-size:11px}
+.online-deck-slots select{width:100%;min-width:0;padding:8px;border:1px solid #a18a83;border-radius:7px;background:#1b1721;color:#f6eced;font-size:12px}
+.online-deck-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.online-deck-actions button{font-size:11px}
+@media(max-width:500px){.online-deck-slots{grid-template-columns:1fr}}
