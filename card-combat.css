@@ -161,3 +161,18 @@
 @keyframes objective-core-beat{0%,100%{opacity:.72;transform:scale(.92)}50%{opacity:1;transform:scale(1.13)}}
 @media(max-width:540px){.tactical-objective-emblem .objective-ring{border-width:1px}.tactical-objective-emblem .objective-core{font-size:clamp(17px,5vw,28px)}}
 @media(prefers-reduced-motion:reduce){.tactical-objective-emblem .objective-ring,.tactical-objective-emblem .objective-core{animation:none}}
+
+
+/* Direct feedback on the cells affected by real resolved abilities. */
+.tactical-tile.impact-area{z-index:2;outline:2px solid #bb92db;outline-offset:-2px;box-shadow:inset 0 0 18px #996cb677,0 0 12px #9872c258}
+.tactical-tile.impact-area.impact-damage{outline-color:#fc8a70;box-shadow:inset 0 0 20px #bf4f5280,0 0 15px #e7605366}
+.tactical-tile.impact-area.impact-heal{outline-color:#8bd8b9;box-shadow:inset 0 0 20px #70bda580,0 0 15px #72c9a070}
+.tactical-tile.impact-area.impact-blocked{outline-color:#f8df9e;box-shadow:inset 0 0 17px #dbc28d99,0 0 13px #f9dda388}
+.tactical-occupant.recently-hit{animation:tactical-unit-impact .44s ease-out both}
+.tactical-occupant.recently-moved{animation:tactical-unit-arrive .35s cubic-bezier(.15,.76,.18,1) both}
+.tactical-objective-hint{margin:8px 2px 0;text-align:center;color:#e7d3bc;font-size:11px;line-height:1.5}
+.battle-action-banner.effect-reward{border-color:#d1b578;background:linear-gradient(120deg,#362e39,#57424a)}
+.battle-action-banner.effect-reward .action-banner-icon{color:#ffe2a8;text-shadow:0 0 10px #ddaa64}
+@keyframes tactical-unit-impact{0%{transform:scale(1)}20%{transform:translateX(-4px) scale(1.08);filter:brightness(1.6)}50%{transform:translateX(4px) scale(.96)}100%{transform:scale(1)}}
+@keyframes tactical-unit-arrive{0%{opacity:.55;transform:translateY(10px) scale(.9)}65%{opacity:1;transform:translateY(-3px) scale(1.05)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.tactical-occupant.recently-hit,.tactical-occupant.recently-moved{animation:none}}
