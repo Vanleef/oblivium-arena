@@ -387,7 +387,7 @@ function normalizePlan(s,side,actions){
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
    const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}
    refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],order});
-  }else if(ref.type==='guard'&&(s.tactical.activation||s.tactical.compact)){refs.push({type:'guard',actorId:actor.id,side,order});}
+  }else if(ref.type==='guard'&&s.tactical.activation&&!s.tactical.compact){refs.push({type:'guard',actorId:actor.id,side,order});}
   else return fail('Tipo de ação inválido.');
  }
  return {ok:true,actions:refs};
