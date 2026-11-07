@@ -113,7 +113,7 @@ test('combat-speed controls scale CSS reactions together with replay and reduced
  const {readFile}=await import('node:fs/promises');
  const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
  const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
- assert.match(source,/--compact-hit-duration:'\+Math\.round\(420\/state\.speed\)/);
+ assert.match(source,/--compact-hit-duration:'\+Math\.round\(\(activeSpecial\?560:420\)\/state\.speed\)/);
  assert.match(source,/--compact-heal-duration:'\+Math\.round\(460\/state\.speed\)/);
  assert.match(source,/--compact-feedback-delay:'\+Math\.round\(36\/state\.speed\)/);
  assert.match(source,/\(reduced\?35:duration\)\/state\.speed/);
@@ -237,4 +237,34 @@ test('melee footprint displays physically different strike slash pierce and coun
  assert.match(css,/clip-path:polygon\(0 24%,66% 24%,100% 50%,66% 76%,0 76%\)/);
  assert.match(css,/@media\(max-width:760px\)\{/);
  assert.match(css,/\.compact-area-sigil\[data-attack-family\]::before\{animation:none!important/);
+});
+
+test('skill names appear immediately beneath the field and icons carry true miniature areas',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const cinematic=await readFile(new URL('../src/tactical-cinematic.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(source,/tacticalSuperCaptionMarkup\(actorEvent,ability,state\.event\)/);
+ assert.match(source,/board\(s,future\)\+tacticalSuperCaptionMarkup/);
+ assert.match(cinematic,/fighter-super-nameplate/);
+ assert.doesNotMatch(cinematic,/<span class="fighter-super-caption"/);
+ assert.match(css,/\.compact-board-stack>\.fighter-super-nameplate/);
+ assert.match(css,/margin-top:6px/);
+ assert.match(source,/tacticalAreaDiagramMarkup\(null,\{movement:kind==='move'\}\)/);
+ assert.match(source,/tacticalAreaDiagramMarkup\(fortressTechniqueSpec\(future,u,a\)\)/);
+ assert.match(css,/\.compact-area-mini/);
+ assert.match(css,/grid-template-columns:repeat\(7,minmax\(0,1fr\)\)/);
+ assert.match(css,/data-mini-cell="hit"/);
+ assert.match(css,/@media\(max-width:420px\)/);
+});
+test('super timing remains paced without slowing a normal basic attack or violating reduced motion',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const js=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const anim=await readFile(new URL('../src/tactical-animation.js',import.meta.url),'utf8');
+ assert.match(js,/activeSpecial\?560:420/);
+ assert.match(js,/--super-duration:'\+Math\.round\(320\/state\.speed\)/);
+ assert.match(anim,/windup:1\.36/);
+ assert.match(anim,/release:1\.42/);
+ assert.match(anim,/if\(superPace\)return Math\.max\(base,560/);
+ assert.match(anim,/if\(event\?\.skipped\|\|!/);
 });
