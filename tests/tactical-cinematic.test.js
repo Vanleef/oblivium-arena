@@ -4,7 +4,7 @@ import {tacticalCutinActive,tacticalCutinMarkup,tacticalProjectileKind,tacticalP
 import {tacticalFrameDuration} from '../src/tactical-animation.js';
 const actor={id:'serpe',sourceId:'a-boca-de-vidro',name:'Sylvara',realm:'Inferno',side:'player',art:{portrait:'/portrait.webp'}};
 const ability={name:'Sibilo Cortante',target:'enemy',damage:15,damageType:'piercing'};
-const event={type:'skill',actorId:actor.id,anchor:{x:3,y:1},before:{positions:{serpe:{x:0,y:1}}}};
+const event={type:'skill',actorId:actor.id,abilityId:'voto',anchor:{x:3,y:1},before:{positions:{serpe:{x:0,y:1}}}};
 test('vinheta fica restrita à preparação de habilidade executada',()=>{
  assert.equal(tacticalCutinActive({...event,pose:'windup'}),true);
  assert.equal(tacticalCutinActive({...event,pose:'impact'}),false);
@@ -32,9 +32,17 @@ test('suporte pessoal, movimento e ações canceladas não disparam projéteis',
  const melee={...actor,sourceId:'o-acougueiro'};
  assert.equal(tacticalProjectileKind(melee,ability,{...event,family:'slash'}),null);
 });
-test('a arte da forma ativa é usada na vinheta',()=>{
- assert.match(tacticalCutinMarkup({...actor,art:{portrait:'/form.webp'}},ability,{...event,pose:'gather'}),/form.webp/);
+test('supers focus the arena instead of injecting an oversized artwork',()=>{
+ const markup=tacticalCutinMarkup({...actor,art:{portrait:'/form.webp'}},ability,{...event,pose:'gather'});
+ assert.match(markup,/fighter-super inferno player/);
+ assert.match(markup,/fighter-super-speedlines/);
+ assert.match(markup,/fighter-super-caption/);
+ assert.doesNotMatch(markup,/<img|form\.webp|portrait\.webp|cutin-art/);
+ assert.equal(tacticalCutinMarkup(actor,ability,{...event,abilityId:'impulso',pose:'windup'}),'');
+ assert.equal(tacticalCutinMarkup(actor,ability,{...event,skipped:true,pose:'windup'}),'');
+ assert.equal(tacticalCutinActive({...event,abilityId:'despertar',pose:'release'}),true);
 });
+
 
 
 test('repetições curtas preservam trajeto, contato e a primeira ativação',()=>{
@@ -66,9 +74,14 @@ test('Fio de Memória usa um fio durante o trajeto',()=>{
  assert.equal(tacticalProjectileKind(nilo,{target:'enemy'},cast),'thread');
 });
 
-test('technique-specific art takes priority in the combat cut-in',()=>{
+test('fighting-game special shows the skill title without duplicating character artwork',()=>{
  const cast={...ability,name:'Chama da Ruína',art:'/art/skills/chama.webp'};
  const markup=tacticalCutinMarkup(actor,cast,{...event,pose:'release'});
- assert.match(markup,/chama.webp/);
- assert.doesNotMatch(markup,/src="\/portrait.webp"/);
+ assert.match(markup,/Chama da Ruína/);
+ assert.match(markup,/data-phase="release"/);
+ assert.doesNotMatch(markup,/<img|chama\.webp|portrait\.webp/);
+ const escape=tacticalCutinMarkup({...actor,name:'<ataque>'},{name:'<especial>'},{...event,pose:'windup'});
+ assert.match(escape,/&lt;ataque&gt;/);
+ assert.match(escape,/&lt;especial&gt;/);
 });
+
