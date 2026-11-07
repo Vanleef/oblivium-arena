@@ -16,6 +16,8 @@ import { renderTrail } from "./trail-view.js";
 import { highlightTrailChoice } from "./trail-motion.js";
 import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
+import { renderDeckBuilder, deckEntries } from "./deck-builder-view.js";
+import { defaultLoadout, CARD_RULES } from "./card-combat.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from "./progression.js";
@@ -57,6 +59,7 @@ const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
   ownedIds: starters.map((character) => character.id),
   team: starterTeam,
+  cardLoadouts: {},
   completedElos: [],
   xp: 0,
   fragments: 0,
@@ -116,6 +119,8 @@ let state = {
   selectedSkill: null,
   focusSkill: null,
   handActorId: null,
+  deckActorId: null,
+  deckDrafts: {},
   willSign: "fenda",
   inspectUnitId: null,
   confirmTurn: false,
@@ -526,7 +531,7 @@ async function sendOnline(payload){
   if(data.match){online.queuing=false;if(changed){state.battle=data.match.battle;state.battle.deadline=data.match.deadline;state.battleNode={label:"Arena ranqueada"};state.selectedSkill=null;state.focusSkill=null;state.confirmTurn=false;state.tab="battle";}}
   else if(state.battle?.online)state.battle=null;
  }catch(error){online.message=error.message;if(error.status===503){online.connected=false;online.queuing=false;}else if(error.status===409){onlineTimer=setTimeout(()=>sendOnline({op:"profile"}),300);}}
- finally{online.busy=false;render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team}:{op:"profile"}),2000);}}
+ finally{online.busy=false;render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team,loadouts:Object.fromEntries(profile.team.filter(id=>profile.cardLoadouts?.[id]).map(id=>[id,profile.cardLoadouts[id]]))}:{op:"profile"}),2000);}}
 }
 function arenaView(){return renderArena(profile,state.online);}
 function header() {
@@ -661,7 +666,8 @@ function teamView() {
           </button>`;
         }).join("")}</div>
       </section>
-    </div>`;
+    </div>
+    ${renderDeckBuilder(profile,state)}`;
 }
 
 function bodyFormSelector(c){
@@ -758,7 +764,7 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-card-play], [data-card-unit], [data-will-sign], [data-duel-response], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
+  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-card-play], [data-card-unit], [data-deck-unit], [data-deck-add], [data-deck-remove], [data-deck-save], [data-deck-reset], [data-will-sign], [data-duel-response], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
   if (!target) return;
   if(state.account&&state.audioOn)startAmbience();
   playSfx("click");
@@ -779,7 +785,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.action==="open-tutorial"){state.tutorialOpen=true;state.tutorialStep=0;render();return;}
   if(target.dataset.action==="skip-tutorial"){if(!state.account&&state.publicView==="tutorial"){state.publicView="login";state.publicTutorialStep=0;}else{state.tutorialOpen=false;profile.tutorialComplete=true;save();}render();return;}
   if(target.dataset.action==="logout"){clearTimeout(accountSaveTimer);accountRequest({op:"logout"}).finally(()=>{state.account=null;state.accountReady=true;state.authMode="login";state.tab="rota";render();});return;}
-  if(target.dataset.action==="queue-online"){if(state.battle&&!state.battle.online){toast("Termine o combate atual antes de buscar uma partida.");return;}state.online.queuing=true;sendOnline({op:"queue",team:profile.team});return;}
+  if(target.dataset.action==="queue-online"){if(state.battle&&!state.battle.online){toast("Termine o combate atual antes de buscar uma partida.");return;}state.online.queuing=true;sendOnline({op:"queue",team:profile.team,loadouts:Object.fromEntries(profile.team.filter(id=>profile.cardLoadouts?.[id]).map(id=>[id,profile.cardLoadouts[id]]))});return;}
   if(target.dataset.action==="cancel-online"){state.online.queuing=false;sendOnline({op:"cancel"});return;}
   if(target.dataset.action==="resume-online"){state.tab="battle";render();return;}
   if(target.dataset.action==="surrender-online"){sendOnline({op:"surrender"});return;}
@@ -827,6 +833,33 @@ app.addEventListener("click", (event) => {
   }
   if(target.dataset.duelResponse){if(state.battle?.online&&state.battle?.phase==="clash")sendOnline({op:"response",sign:target.dataset.duelResponse});return;}
   if(target.dataset.willSign){if(["fenda","vinculo","egide"].includes(target.dataset.willSign)){state.willSign=target.dataset.willSign;render();}return;}
+  if(target.dataset.deckUnit){state.deckActorId=target.dataset.deckUnit;render();return;}
+  if(target.dataset.deckAdd){
+   const [id,abilityId]=target.dataset.deckAdd.split("|"),unit=characterById[id];if(!unit||!profile.team.includes(id)||!unit.abilities.some(a=>a.id===abilityId))return;
+   const next=[...deckEntries(profile,state,unit).map(e=>({abilityId:e.abilityId}))];
+   if(next.length>=CARD_RULES.maxDeck)return;
+   const count=next.filter(e=>e.abilityId===abilityId).length;
+   if(unit.abilities.length>=3&&count>=3)return;
+   next.push({abilityId});state.deckDrafts[id]=next;render();return;
+  }
+  if(target.dataset.deckRemove){
+   const [id,index]=target.dataset.deckRemove.split("|"),unit=characterById[id];
+   if(!unit||!profile.team.includes(id))return;
+   const next=[...deckEntries(profile,state,unit).map(e=>({abilityId:e.abilityId}))],idx=Number(index);
+   if(!Number.isInteger(idx)||idx<0||idx>=next.length)return;
+   next.splice(idx,1);state.deckDrafts[id]=next;render();return;
+  }
+  if(target.dataset.deckSave){
+   const id=target.dataset.deckSave,unit=characterById[id];if(!unit||!profile.team.includes(id))return;
+   const next=deckEntries(profile,state,unit).map(e=>({abilityId:e.abilityId}));
+   if(next.length<CARD_RULES.minDeck||next.length>CARD_RULES.maxDeck){toast("O baralho precisa ter de 8 a 10 cartas.");return;}
+   if(unit.abilities.length>=3&&unit.abilities.some(a=>next.filter(e=>e.abilityId===a.id).length>3)){toast("Limite de 3 cópias por técnica.");return;}
+   profile.cardLoadouts||={};profile.cardLoadouts[id]=next;delete state.deckDrafts[id];save();toast("Baralho salvo para "+unit.name+".");return;
+  }
+  if(target.dataset.deckReset){
+   const id=target.dataset.deckReset;if(!profile.team.includes(id))return;
+   profile.cardLoadouts||={};delete profile.cardLoadouts[id];delete state.deckDrafts[id];save();toast("Baralho restaurado.");return;
+  }
   if(target.dataset.cardUnit){state.handActorId=target.dataset.cardUnit;state.selectedSkill=null;state.focusSkill=null;render();return;}
   if(target.dataset.cardPlay){const [actorId,abilityId,cardId]=target.dataset.cardPlay.split("|");updateBattle(actorId,abilityId,cardId);return;}
   if (target.dataset.useSkill) {
