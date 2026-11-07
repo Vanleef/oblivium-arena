@@ -1,6 +1,7 @@
 import {conquestAugmentedAbility} from './conquest-augments.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {campaignCreature} from './campaign-creatures.js';
+import {tacticalComboResult,tacticalComboDamage} from './tactical-combo.js';
 import {surfaceDamageFactor} from './tactical-elements.js';
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
 export {getAbilityResourceCosts} from "./resource-costs.js";
@@ -547,13 +548,18 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,Object.fromEntries(timed.map(k=>[k,u[k]||0]))]));
  s.resolutionSide=action.side;
  const technique=s.tactical?.fortress?conquestAugmentedAbility(s,actor,conquestTechnique(a)):a;
- const result=apply(s,actor,technique,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
+ // A rhythm clash changes the direct hit BEFORE the skill resolves. Lifesteal,
+ // armor, death checks, status triggers and all following actions see this value.
+ // Normal plans never carry a clash: the score is supplied after reveal only.
+ const combo=s.tactical?.compact&&action.clash&&technique.damage>0?tacticalComboResult(action.clash):null;
+ const executed=combo?{...technique,damage:tacticalComboDamage(technique.damage,combo)}:technique;
+ const result=apply(s,actor,executed,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
  for(const u of [...s.allies,...s.enemies]){
   u.boardFresh||={};
   for(const k of timed)if(u[k]>before.get(u.id)[k]||(result.affectedTargetIds?.includes(u.id)&&a[k]&&u[k]>0))u.boardFresh[k]=s.round;
   if(result.affectedTargetIds?.includes(u.id)&&a.mark&&u.marks[a.mark]?.sourceId===actor.id)u.marks[a.mark].appliedRound=s.round;
  }
- return {...result,title:a.name};
+ return {...result,title:a.name,...(combo?{combo,comboBaseDamage:technique.damage,comboAdjustedDamage:executed.damage}:{})};
 }
 export function finishBoardRound(s){
  const units=[...s.allies,...s.enemies],preserved=new Map();
