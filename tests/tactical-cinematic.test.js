@@ -129,7 +129,7 @@ test('earned defensive counter performs a short on-board deflect, strike and rec
  const retaliation={...event,type:'skill',reactionCounter:true,abilityId:null,
   actorId:'o-escudo-vivo',family:'counter'};
  assert.deepEqual(tacticalReplayFrames(actor,null,retaliation).map(f=>f.pose),
-  ['brace','deflect','counter','impact','recover']);
+  ['brace','deflect','release','impact','recover']);
  assert.equal(tacticalCutinActive({...retaliation,pose:'brace'}),false,
   'a parry counter should not start another giant character cut-in');
 });
