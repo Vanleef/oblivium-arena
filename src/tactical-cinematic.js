@@ -6,7 +6,8 @@ export function tacticalCutinActive(event){
 }
 export function tacticalCutinMarkup(actor,ability,event){
  if(!actor||!tacticalCutinActive(event))return '';
- const art=event.presentation==='exchange'?(ability?.art||actor.art?.portrait):(actor.art?.portrait||ability?.art);if(!art)return '';
+ // A technique-specific image communicates the actual ability; use the character portrait as fallback.
+ const art=ability?.art||actor.art?.portrait;if(!art)return '';
  const world=actor.realm==='Inferno'?'inferno':actor.realm==='Paraíso'?'paraiso':'limbo';
  return '<div class="skill-cutin '+(event.presentation==='exchange'?'exchange-cutin ':'')+world+' '+(actor.side==='enemy'?'enemy':'player')+'" data-pose="'+escapeHtml(event.pose)+'" aria-hidden="true"><div class="cutin-wash"></div><img class="cutin-art" src="'+escapeHtml(art)+'" alt=""><div class="cutin-strokes"></div><span class="cutin-title"><b>'+escapeHtml(actor.name)+'</b><small>'+escapeHtml(ability?.name||event.title)+'</small></span></div>';
 }

@@ -22,6 +22,7 @@ import {tacticalEnvironments} from './tactical-environment.js';
 import {createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun,tacticalRoutes,conquestProgressText} from './tactical-run.js';
 import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
 import {orderTacticalActions} from './tactical-order.js';
+import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase} from './tactical-feedback.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const key='oblivium-conquest-augment-progress-v2',profileKey='pma-post-mortem-arena-v1';
@@ -44,20 +45,22 @@ function figure(unit,s){
  const sign=frame?.directional?1:facing[0]<0?-1:1;
  const statuses=tacticalStatuses(unit,s),layers=[...new Set(statuses.map(e=>e.id.startsWith('dot:')?'affliction':e.id.startsWith('mark:')?'marked':e.id.startsWith('surface:')?'terrain-'+e.id.slice(8):e.id))],orders=!state.busy&&unit.side==='player'?state.actions.filter(a=>a.actorId===unit.id):[];
  const sprite=frame?'<span class="token-sprite"><span class="sprite-viewport"><img class="sprite-sheet" src="'+esc(frame.src)+'" alt="" style="'+tacticalSpriteInline(frame)+'"></span></span>':unit.art?.portrait?'<img class="token-art" src="'+esc(unit.art.portrait)+'" alt="">':'<i class="arena-creature-mark">'+esc(unit.symbol||'◆')+'</i>';
- const indicators=orders.map((action,i)=>{
-  const kind=action.type,mark=kind==='move'?'→'+cellLabel(action.path.at(-1)):kind==='guard'?'⬡':'✦';
-  return '<b data-action-kind="'+kind+'" title="'+esc((i+1)+'ª ação · '+actionName(unit,action))+'">'+(i+1)+' '+esc(mark)+'</b>';
- }).join('');
+ const indicators=orders.map((action,i)=>'<b data-action-kind="'+action.type+'" title="'+esc((i+1)+'ª ação · '+actionName(unit,action))+'" aria-label="'+esc(actionName(unit,action))+'"><span class="compact-order-symbol">'+actionGlyph(unit,action)+'</span><span class="compact-order-step">'+(i+1)+'</span></b>').join('');
  return '<span class="token '+unit.side+'" data-unit-id="'+esc(unit.id)+'" data-family="'+esc(current?.family||'idle')+'" data-pose="'+esc(current?.pose||'ready')+'" data-sprite="'+Boolean(frame)+'" data-idle-atlas="false" style="'+tacticalFigureStyle(unit)+tacticalIdleStyle(unit)+'--facing-sign:'+sign+';--upgrade-growth:'+objectiveGrowth(unit.objectiveAugments||0)+';--pose-duration:'+tacticalFrameDuration(current||{})+'ms"><span class="compact-ground-shadow" aria-hidden="true"></span><span class="conquest-model">'+sprite+'</span>'+(unit.id===state.selected&&!state.busy?'<i class="selected-unit-arrow" aria-hidden="true"></i>':'')+'<span class="tactical-status-vfx" aria-hidden="true">'+layers.map(layer=>'<i data-status-vfx="'+esc(layer)+'"></i>').join('')+'</span><span class="compact-token-label">'+esc(unit.name)+'</span>'+(orders.length?'<span class="compact-token-orders" aria-hidden="true">'+indicators+'</span>':'')+'</span>';
 }
 const emblem=tier=>'<span class="objective-pulse" data-tier="'+tier+'" aria-hidden="true"><i></i><b class="objective-emblem"><svg viewBox="0 0 64 64"><path class="objective-gem" d="M32 6 48 21 44 43 32 54 20 43 16 21Z"/><path class="objective-facets" d="m32 6-8 18 8 30 8-30Zm-16 15 16 9 16-9M20 43l12-13 12 13"/></svg></b></span>';
 function board(s,future=planned()){
  const owner=actor(s),canMove=!locked()&&state.mode==='move'&&count(owner.id)<2,goal=s.tactical.objectives?.player;
- const activeCells=new Set((state.event?.cells||[]).map(cellKey)),destinations=new Map();
+ const event=state.event,phase=tacticalAreaPhase(event),activeCells=new Set(phase?(event.cells||[]).map(cellKey):[]),destinations=new Map();
+ const beforeActor=event?.before&&units(event.before).find(u=>u.id===event.actorId),ability=beforeActor?.abilities?.find(a=>a.id===event.abilityId);
+ const tone=tacticalTechniqueTone(beforeActor,ability,event),feedback=phase==='impact'?tacticalFeedback(event):[];
+ const feedbackByCell=new Map();
+ for(const item of feedback){const key=cellKey(item.point);if(!feedbackByCell.has(key))feedbackByCell.set(key,[]);feedbackByCell.get(key).push(item);}
  if(!state.busy)for(const u of s.allies){const to=future.tactical.positions[u.id];if(to&&!sameCell(to,s.tactical.positions[u.id]))destinations.set(cellKey(to),u);}
  return '<div class="board compact-board" role="group" aria-label="Arena tática em grade 6 por 6" style="--fort-cols:6;--fort-rows:6">'+boardCells(s).map(p=>{
   const unit=occupied(s,p),path=canMove?findPath(future,owner.id,p):null,objective=goal&&sameCell(goal.position,p),surface=surfaceAt(s,p),blocked=s.tactical.obstacles.some(q=>sameCell(q,p)),destination=destinations.get(cellKey(p));
-  return '<button class="cell '+(path?'reachable ':'')+(blocked?'blocked ':'')+(objective?'objective-cell objective-'+goal.tier+' ':'')+(activeCells.has(cellKey(p))?'compact-impact ':'')+'" data-cell="'+cellKey(p)+'" style="z-index:'+(p.y*10+(unit?10:0))+'" aria-label="'+cellLabel(p)+(unit?', '+esc(unit.name)+', '+(unit.side==='player'?'aliado':'inimigo')+', Vida '+unit.hp:', vazia')+(objective?', objetivo '+augmentTiers[goal.tier].label:'')+(path?', movimento disponível, 1 casa':'')+(surface?', '+esc(elements[surface.element]?.surface||surface.element):'')+'" '+(locked()?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+(objective?emblem(goal.tier):'')+(surface?'<span class="element-floor" data-element="'+surface.element+'" aria-hidden="true"></span>':'')+(destination?'<span class="compact-planned-destination" aria-hidden="true">↳ '+esc(destination.name)+'</span>':'')+(unit?figure(unit,s):'')+'</button>';
+  const inArea=activeCells.has(cellKey(p)),reactions=feedbackByCell.get(cellKey(p))||[],heavy=reactions.some(r=>r.kind==='damage'||r.kind==='shield-loss'),restored=reactions.some(r=>r.kind==='heal'||r.kind==='shield');
+  return '<button class="cell '+(path?'reachable ':'')+(blocked?'blocked ':'')+(objective?'objective-cell objective-'+goal.tier+' ':'')+(inArea?'compact-ability-area compact-'+phase+' ':'')+(heavy?'compact-hit-damage ':'')+(restored?'compact-hit-heal ':'')+'" data-cell="'+cellKey(p)+'" style="z-index:'+(p.y*10+(unit?10:0))+'" aria-label="'+cellLabel(p)+(unit?', '+esc(unit.name)+', '+(unit.side==='player'?'aliado':'inimigo')+', Vida '+unit.hp:', vazia')+(objective?', objetivo '+augmentTiers[goal.tier].label:'')+(path?', movimento disponível, 1 casa':'')+(surface?', '+esc(elements[surface.element]?.surface||surface.element):'')+'" '+(locked()?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+(objective?emblem(goal.tier):'')+(surface?'<span class="element-floor" data-element="'+surface.element+'" aria-hidden="true"></span>':'')+(destination?'<span class="compact-planned-destination" aria-hidden="true">↳ '+esc(destination.name)+'</span>':'')+(inArea?'<span class="compact-area-sigil" data-effect-tone="'+tone+'" data-phase="'+phase+'" aria-hidden="true"></span>':'')+(unit?figure(unit,s):'')+(reactions.length?'<span class="compact-impact-feedback" aria-live="off">'+reactions.map((r,i)=>'<b data-feedback-kind="'+r.kind+'" style="--feedback-index:'+i+'" title="'+esc(r.label)+'">'+esc(r.label)+'</b>').join('')+'</span>':'')+'</button>';
  }).join('')+'</div>';
 }
 function hud(s){
@@ -95,7 +98,7 @@ function actionDock(s,future){
   return '<button class="compact-portrait" data-actor="'+esc(hero.id)+'" data-hero-index="'+i+'" style="--hero-accent:'+heroColors[i%heroColors.length]+'" title="'+esc(description)+'" aria-label="Selecionar '+esc(hero.name)+'" aria-pressed="'+(hero.id===state.selected)+'" '+(locked()||hero.hp<=0||hero.stunned?'disabled':'')+'>'+(hero.art?.portrait?'<img src="'+esc(hero.art.portrait)+'" alt="" loading="lazy" decoding="async">':'<span aria-hidden="true">'+esc(hero.symbol||'◆')+'</span>')+'</button>';
  }).join('')+'</div>';
  const command=(kind,glyph,label,selected)=>'<button class="compact-icon-btn compact-primary-action" '+(kind==='move'?'data-mode="move"':'data-guard')+' title="'+esc(label)+'" aria-label="'+esc(label)+'" aria-pressed="'+Boolean(selected)+'" '+(unavailable?'disabled':'')+'>'+glyph+'<span>'+esc(kind==='move'?'Mover':'Guarda')+'</span></button>';
- const primary='<section class="compact-panel-section" data-panel-section="actions"><h3>Ações</h3><div class="compact-primary-buttons">'+command('move',moveGlyph,'Mover uma casa',state.mode==='move')+command('guard',guardGlyph,'Guarda: +6 de Escudo',false)+'</div></section>';
+ const primary='<section class="compact-panel-section" data-panel-section="actions"><h3>Ações</h3><div class="compact-primary-buttons">'+command('move',moveGlyph,'Mover uma casa',state.mode==='move')+'</div></section>';
  const abilityButtons=u.abilities.map(base=>{
   const a=conquestAugmentedAbility(future,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
   const tooltip=a.name+' — '+(reason||(cooldown?'Em recarga · '+cooldown:a.description));
@@ -258,7 +261,6 @@ root.addEventListener('click',event=>{
  if(d.actor){state.selected=d.actor;state.spends={};state.mode='move';state.message='';render();return;}
  if('mode'in d){state.mode=d.mode;state.spends={};state.message='';render();return;}
  if('technique'in d){state.mode=d.technique;state.spends={};state.message='Toque na casa onde a técnica será aplicada.';render();return;}
- if('guard'in d){append({type:'guard',actorId:state.selected});return;}
  if(d.cell){const [x,y]=d.cell.split(',').map(Number);selectCell({x,y});return;}
  if('removeIndex'in d){
   const index=Number(d.removeIndex);
