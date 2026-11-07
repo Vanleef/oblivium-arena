@@ -297,3 +297,18 @@ test('responsive VFX budgets use fewer fragments at narrow widths',()=>{
   }
  }finally{globalThis.requestAnimationFrame=prior;}
 });
+
+
+test('clearing the arena removes frozen VFX clocks before the next fight',()=>{
+ const calls={cleared:0};
+ const canvas={getContext:()=>({clearRect(){calls.cleared++;}}),dataset:{}};
+ const layer=new TacticalEffectsLayer(canvas);
+ layer.width=320;layer.height=220;
+ layer.freezeStart=100;layer.freezeUntil=950;layer.effects=[{kind:'impact',now:100,duration:400}];
+ layer.clear();
+ assert.equal(layer.freezeStart,0);
+ assert.equal(layer.freezeUntil,0);
+ assert.deepEqual(layer.effects,[]);
+ assert.equal(canvas.dataset.active,'false');
+ assert.equal(calls.cleared,1);
+});
