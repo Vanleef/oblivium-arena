@@ -79,7 +79,7 @@ test('KOF action still consists of physically choreographed contact frames witho
  const cinema=await read('src/tactical-cinematic.js');
  assert.match(cinema,/if\(event\.comboReplay\)\{/);
  assert.match(cinema,/if\(event\.reactionCounter\)\{/);
- assert.match(cinema,/\['brace','deflect','counter','impact','recover'\]/);
+ assert.match(cinema,/\['brace','deflect','release','impact','recover'\]/);
  assert.match(cinema,/event\.comboBeat>1/);
  assert.doesNotMatch(cinema,/<img class="cutin-art"/);
 });
