@@ -11,7 +11,7 @@ import {tacticalComboEligible} from './tactical-combo.js';
 import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
-import {tacticalDuelResolve} from './tactical-duel.js';
+import {tacticalDuelResolve,tacticalDuelOptions} from './tactical-duel.js';
 import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard,tacticalMovementSteps} from './tactical-decks.js';
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
@@ -404,7 +404,9 @@ function normalizePlan(s,side,actions){
    const orientation=ref.orientation||(side==='player'?[1,0]:mirrorDirection([1,0]));
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
    const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}
-   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),order});
+   const willSign=ref.willSign??'miragem';
+   if(s.tactical.pvpMode&&!tacticalDuelOptions.some(option=>option.id===willSign))return fail('Manifestação inválida.');
+   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),...(s.tactical.pvpMode?{willSign}:{}),order});
   }else if(ref.type==='guard'&&s.tactical.activation&&!s.tactical.compact){refs.push({type:'guard',actorId:actor.id,side,order});}
   else return fail('Tipo de ação inválido.');
  }
@@ -510,16 +512,26 @@ function resolveCompactRound(s){
  * The planning actions are still sealed until BOTH teams submit; preview, RNG,
  * movement and the canonical resolveTacticalRound() remain backward compatible.
  */
-export function startCompactRoundResolution(s){
+export function startCompactRoundResolution(s,{persist=false}={}){
  if(!s?.tactical?.compact||s.tactical.stage!=='ready')return fail('A rodada compacta precisa das duas ordens confirmadas.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
  const actions=orderTacticalActions(s,[...s.tactical.plans.player,...s.tactical.plans.enemy]).map(ref=>({...ref,category:priority(s,ref)}));
  const before=replayState(s);
  stamp(s,{type:'reveal',title:'Planos revelados',actions:copy(actions),before,after:before});
- let slot=0,prepared=false,commands=[],closed=false;
+ const cursor={actions,slot:0,prepared:false,commands:[],closed:false};
+ if(persist)s.tactical.authoritativeResolution=cursor;
+ return compactRoundSession(s,cursor,copy(s.tactical.events));
+}
+export function resumeCompactRoundResolution(s){
+ const cursor=s?.tactical?.authoritativeResolution;
+ if(!cursor||s.tactical.stage!=='resolving'||cursor.closed)return fail('Resolução autoritativa indisponível.');
+ return compactRoundSession(s,cursor,[]);
+}
+function compactRoundSession(s,cursor,initialEvents){
+ const actions=cursor.actions;
  const peek=()=>{
-  if(closed||!prepared||!commands.length)return null;
-  const ref=commands[0],actor=actorFor(s,ref.side,ref.actorId);
+  if(cursor.closed||!cursor.prepared||!cursor.commands.length)return null;
+  const ref=cursor.commands[0],actor=actorFor(s,ref.side,ref.actorId);
   const ability=ref.type==='skill'?actor?.abilities.find(a=>a.id===ref.abilityId):null;
   const origin=actor?s.tactical.positions[actor.id]:null;
   const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
@@ -530,18 +542,18 @@ export function startCompactRoundResolution(s){
    ...(s.tactical.cardMode?{responseSide:otherSide(ref.side),responseOptions:tacticalResponseOptions(s,otherSide(ref.side),targets[0])}:{})};
  };
  const next=(responses={})=>{
-  if(closed)return fail('A rodada já foi concluída.');
+  if(cursor.closed)return fail('A rodada já foi concluída.');
   const start=s.tactical.events.length;
-  if(slot<2&&!prepared){
-   const wave=actions.filter(ref=>ref.slot===slot);
+  if(cursor.slot<2&&!cursor.prepared){
+   const wave=actions.filter(ref=>ref.cursor.slot===cursor.slot);
    const paths=wave.filter(ref=>ref.type==='move'&&actorFor(s,ref.side,ref.actorId)&&!actorFor(s,ref.side,ref.actorId).stunned);
    if(paths.length)resolveExchangeMovement(s,paths);
-   commands=wave.filter(ref=>ref.type!=='move').sort((a,b)=>a.category-b.category||a.turnRank-b.turnRank);
-   prepared=true;
+   cursor.commands=wave.filter(ref=>ref.type!=='move').sort((a,b)=>a.category-b.category||a.turnRank-b.turnRank);
+   cursor.prepared=true;
    // Return control to the UI BEFORE any skill resolves so the player can respond.
    return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
   }
-  if(commands.length){
+  if(cursor.commands.length){
    const awaiting=peek();
    // Invalid or missing intentions can NEVER silently award a free full hit.
    // Keep the sealed action pending until both choices have been submitted.
@@ -549,7 +561,7 @@ export function startCompactRoundResolution(s){
     ?tacticalDuelResolve(responses.attackChoice,responses.defenseChoice,{mode:s.tactical.cardMode?'cards':'legacy'}):null;
    if(awaiting?.comboEligible&&!duel&&(!s.tactical.cardMode||!responses.decline))return fail('Escolhas de Confronto de Vontades inválidas.');
    if(duel&&s.tactical.cardMode&&!spendTacticalResponse(s,awaiting.responseSide,responses.reactionCardId||null))return fail('Resposta indisponível.');
-   const ref=commands.shift();
+   const ref=cursor.commands.shift();
    const clash=duel&&s.tactical.cardMode?{...duel,protectedTargetId:awaiting.targets[0]}:duel;
    const before=replayState(s),result=execute(s,clash?{...ref,clash}:ref);
    if(duel?.outcome==='miss'&&responses.reactionCardId){
@@ -564,14 +576,14 @@ export function startCompactRoundResolution(s){
    const title=result.title||'Técnica interrompida';
    stamp(s,{...ref,...result,...(duel?{duel}:{}),before,after:replayState(s),
     title:duel&&!result.skipped?title+' · '+duel.label:title});
-   if(boardOutcome(s)){slot=2;commands=[];}
+   if(boardOutcome(s)){cursor.slot=2;cursor.commands=[];}
    return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
   }
-  if(slot<2){slot++;prepared=false;return {ok:true,done:false,events:[]};}
-  finishTacticalRound(s);pauseForTacticalRewards(s);closed=true;
+  if(cursor.slot<2){cursor.slot++;cursor.prepared=false;return {ok:true,done:false,events:[]};}
+  finishTacticalRound(s);pauseForTacticalRewards(s);cursor.closed=true;
   return {ok:true,done:true,events:copy(s.tactical.events.slice(start)),finished:s.tactical.stage==='finished'};
  };
- return {ok:true,events:copy(s.tactical.events),peek,next};
+ return {ok:true,events:copy(initialEvents),peek,next};
 }
 
 const canLeave=(s,u)=>boardCells(s).some(to=>canStep(s,u.id,s.tactical.positions[u.id],to,{movement:true}));

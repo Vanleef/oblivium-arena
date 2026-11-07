@@ -61,7 +61,8 @@ export function createTacticalDecks(s,{decks={},seed=1,unlockedKingdoms=0}={}){
  const result={sides:{player:{},enemy:{}},responses:{player:1,enemy:1},round:s.round};
  for(const [side,team] of [['player',s.allies],['enemy',s.enemies]]){
   for(const [i,unit] of team.entries()){
-   const build=decks[unit.sourceId||unit.id]||decks[unit.id]||defaultTacticalCardBuild(unit);
+   const sideDecks=decks[side]&&typeof decks[side]==='object'&&!Array.isArray(decks[side])?decks[side]:{};
+  const build=sideDecks[unit.sourceId||unit.id]||sideDecks[unit.id]||decks[unit.sourceId||unit.id]||decks[unit.id]||defaultTacticalCardBuild(unit);
    const cards=validateBuild(unit,build,unlockedKingdoms),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
    const initial=cards.filter(card=>card.upgrade.opening).map(card=>card.id);
    if(initial.length>TACTICAL_CARD_RULES.handLimit)throw Error('Há cartas iniciais demais.');
