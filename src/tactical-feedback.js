@@ -13,13 +13,25 @@ const boons=Object.freeze([
  ['regeneration','REGENERAÇÃO']
 ]);
 const dotKey=dot=>[dot.skillId||'',dot.sourceId||'',dot.tag||'',dot.name||''].join('|');
+// Only resolved replay events reach this helper. Never use it on hidden planning data.
+// Technique targets and the clicked anchor provide a fallback when the motor has no area cells.
+export function tacticalVisualCells(event){
+ if(!event||event.skipped)return [];
+ const cells=(event.cells||[]).filter(pointKey);
+ if(cells.length||event.type!=='skill')return cells;
+ const positions=event.before?.positions||event.after?.positions||{};
+ const ids=[...(event.affectedTargetIds||[]),...(event.targets||[])];
+ const points=ids.map(id=>positions[id]||event.after?.positions?.[id]).filter(pointKey);
+ if(!points.length&&pointKey(event.anchor))points.push(event.anchor);
+ return [...new Map(points.map(point=>[pointKey(point),point])).values()];
+}
 export function tacticalFeedback(event){
  if(!['skill','field-event','effects'].includes(event?.type)||event.skipped||!event.before||!event.after)return [];
  const previous=new Map(actors(event.before).map(u=>[u.id,u]));
  const area=new Set((event.cells||[]).map(pointKey));
  const targetIds=new Set(event.affectedTargetIds||event.targets||[]);
  return actors(event.after).flatMap(unit=>{
-  const old=previous.get(unit.id),point=event.before.positions?.[unit.id]||event.after.positions?.[unit.id];
+  const old=previous.get(unit.id),point=event.after.positions?.[unit.id]||event.before.positions?.[unit.id];
   if(!old||!point||(area.size&&!area.has(pointKey(point))&&!targetIds.has(unit.id)))return [];
   const out=[],hp=(unit.hp||0)-(old.hp||0),shield=(unit.shield||0)-(old.shield||0);
   if(hp<0)out.push({actorId:unit.id,point,kind:'damage',amount:-hp,label:'−'+(-hp)});
@@ -64,7 +76,7 @@ export function tacticalAreaPhase(event){
  if(event?.skipped)return null;
  if(event?.type==='effects')return event.pose==='impact'?'impact':null;
  if(event?.type==='field-event')return event.cells?.length&&event.pose==='impact'?'impact':null;
- if(event?.type!=='skill'||!(event.cells?.length||event.affectedTargetIds?.length||event.targets?.length))return null;
+ if(event?.type!=='skill'||!tacticalVisualCells(event).length)return null;
  if(['impact','counter'].includes(event.pose))return 'impact';
  if(['anticipate','windup','gather','inhale','compress','brace','release','thrust','travel','spread'].includes(event.pose))return 'preview';
  return null;
