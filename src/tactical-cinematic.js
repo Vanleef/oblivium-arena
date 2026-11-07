@@ -16,7 +16,21 @@ export function tacticalCutinMarkup(actor,ability,event){
  const side=actor.side==='enemy'?'enemy':'player';
  const phase=['release','thrust'].includes(event.pose)?'release':'charge';
  // Speed streaks, darkened arena and an anchored character glow: no oversized artwork.
- return '<div class="fighter-super '+world+' '+side+'" data-pose="'+escapeHtml(event.pose)+'" data-phase="'+phase+'" aria-hidden="true"><span class="fighter-super-veil"></span><span class="fighter-super-speedlines"></span><span class="fighter-super-rupture"></span><span class="fighter-super-caption"><b>'+escapeHtml(actor.name)+'</b><small>'+escapeHtml(ability?.name||event.title||'Especial')+'</small></span></div>';
+ return '<div class="fighter-super '+world+' '+side+'" data-pose="'+escapeHtml(event.pose)+'" data-phase="'+phase+'" aria-hidden="true"><span class="fighter-super-veil"></span><span class="fighter-super-speedlines"></span><span class="fighter-super-rupture"></span></div>';
+}
+// Keep the readable name BELOW the grid, including the attack contact.
+export function tacticalSuperCaptionActive(event){
+ if(event?.type!=='skill'||event.skipped)return false;
+ if(event.compactReplay&&event.repeated&&!tacticalHighlightEvent(event))return false;
+ if(!superSlots.has(String(event.abilityId||'').split('/')[0])&&!tacticalHighlightEvent(event))return false;
+ return ['anticipate','gather','inhale','compress','windup','brace','release','thrust',
+  'travel','spread','impact','counter','followthrough','recover','hold'].includes(event.pose);
+}
+export function tacticalSuperCaptionMarkup(actor,ability,event){
+ if(!actor||!tacticalSuperCaptionActive(event))return '';
+ const world=actor.realm==='Inferno'?'inferno':actor.realm==='Paraíso'?'paraiso':'limbo';
+ return '<div class="fighter-super-nameplate '+world+'" role="status" aria-live="off">'
+  +'<b>'+escapeHtml(actor.name)+'</b><strong>'+escapeHtml(ability?.name||event.title||'Especial')+'</strong></div>';
 }
 export function tacticalProjectileKind(actor,ability,event){
  if(event?.type!=='skill'||event.skipped||!ability||['self','ally','friendly','team'].includes(ability.target))return null;
