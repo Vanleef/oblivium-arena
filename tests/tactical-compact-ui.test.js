@@ -97,3 +97,13 @@ test('combat feedback is not a guessing overlay and renders actions as icons abo
  assert.match(css,/\.compact-hit-damage \.conquest-model/);
  assert.match(css,/\.compact-hit-heal \.conquest-model/);
 });
+
+test('compact combat resolves projectile trajectories, early telegraphs and full impact holds',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ assert.match(source,/tacticalReplayFrames\(unit,ability/);
+ assert.match(source,/tacticalVisualCells\(event\)\.map\(cellKey\)/);
+ assert.match(source,/tacticalCompactFrameDuration\(state\.event,feedbackStack\)/);
+ assert.match(source,/\['anticipate','compress','brace','inhale','gather'/);
+ assert.doesNotMatch(source,/Math\.min\(330,tacticalFrameDuration\(state\.event\)\)/);
+});
