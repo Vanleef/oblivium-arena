@@ -29,6 +29,8 @@ jobs:
           node-version: '22'
       - name: Compact regression tests
         run: npm run test:compact
+      - name: Authoritative compact PvP protocol tests
+        run: node --test tests/compact-pvp.test.js tests/compact-arena-service.test.js tests/tactical-pvp-core.test.js
       - name: Tactical and Conquest regressions
         run: node --test tests/tactical-*.test.js tests/tactical-*.test.mjs tests/conquest-*.test.js tests/combat-scenes.test.js
       - name: Complete three compact battles
