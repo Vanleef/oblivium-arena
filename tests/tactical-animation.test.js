@@ -98,3 +98,13 @@ test('Orin tem atlas próprio para Desatar a Trama sem emprestar formas desconhe
  assert.deepEqual(tacticalSpriteFrame(unit,{type:'skill',abilityId:'tecnica',formKey:'missing'}),tacticalSpriteFrame(unit));
 });
 
+
+test('compact playback holds impact long enough for damage, healing and stacked status indicators',async()=>{
+ const {tacticalCompactFrameDuration}=await import('../src/tactical-animation.js');
+ assert.equal(tacticalCompactFrameDuration({type:'skill',pose:'impact'}),460);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',pose:'impact'},4),568);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',pose:'impact'},40),620);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',pose:'release'}),115);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',pose:'impact',skipped:true}),95);
+ assert.equal(tacticalCompactFrameDuration({type:'field-event',pose:'impact'}),460);
+});
