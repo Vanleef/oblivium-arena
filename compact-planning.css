@@ -605,7 +605,7 @@
    sprite, never a giant static character painting. Overlay never changes grid size. */
 .combat-shell.compact-battle .compact-stage>.fighter-super{
  --super-bright:#f7d6a0;--super-accent:#ec6665;--super-deep:#2c1324;
- position:absolute;inset:0;z-index:12;pointer-events:none;overflow:hidden;
+ position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden;
  isolation:isolate;contain:paint;
 }
 .combat-shell.compact-battle .fighter-super.inferno{
@@ -620,6 +620,17 @@
 .combat-shell.compact-battle .compact-stage:has(>.fighter-super)>.arena-backdrop{
  filter:brightness(.61) saturate(.92);
 }
+/* Super streaks stay BEHIND the active board and sprite, preserving readable silhouettes. */
+.combat-shell.compact-battle .compact-stage:has(>.fighter-super)>.arena-field{
+ position:relative;z-index:6;
+}
+.combat-shell.compact-battle .compact-stage:has(>.fighter-super.inferno)
+ .compact-board .token[data-super-active="true"]{filter:drop-shadow(0 0 11px #ff7868)}
+.combat-shell.compact-battle .compact-stage:has(>.fighter-super.paraiso)
+ .compact-board .token[data-super-active="true"]{filter:drop-shadow(0 0 11px #f8e5a5)}
+.combat-shell.compact-battle .compact-stage:has(>.fighter-super.limbo)
+ .compact-board .token[data-super-active="true"]{filter:drop-shadow(0 0 11px #c49dff)}
+
 .compact-battle .fighter-super-veil,.compact-battle .fighter-super-speedlines,
 .compact-battle .fighter-super-rupture{position:absolute;inset:0;pointer-events:none}
 .compact-battle .fighter-super-veil{
