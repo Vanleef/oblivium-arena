@@ -51,3 +51,15 @@ test('online screen imports successfully with the browser environment mocked',as
   globalThis.setInterval=prevInterval;
  }
 });
+
+test('combat activity and surrender derive from confirmed server events and two deliberate steps',async()=>{
+ const app=await read('src/compact-online.js'),css=await read('compact-online.css');
+ assert.match(app,/function activityMarkup\(s\)/);
+ assert.match(app,/event\.before\?\.allies/);
+ assert.match(app,/event\.after\?\.enemies/);
+ assert.match(app,/online-activity-changes/);
+ assert.match(css,/online-activity-changes/);
+ assert.match(app,/data-surrender-confirm/);
+ assert.match(app,/data-surrender-cancel/);
+ assert.match(app,/op:'surrender'/);
+});

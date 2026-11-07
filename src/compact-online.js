@@ -13,7 +13,7 @@ import {characterById} from './data.js';
 import {surfaceAt} from './tactical-elements.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const state={account:null,server:null,loading:true,busy:false,message:'',team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{}};
+const state={account:null,server:null,loading:true,busy:false,message:'',team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false};
 const match=()=>state.server?.match||null;
 const battle=()=>match()?.battle||null;
 const owner=s=>s?Object.keys(s.tactical.decks?.sides?.player||{}).length?'player':'enemy':null;
@@ -85,7 +85,7 @@ function contextReset(next){
  const m=next?.match,b=m?.battle;
  if(!m){state.actions=[];state.selection=null;state.lastRound=null;state.lastMatchId=null;return;}
  if(state.lastMatchId!==m.id||state.lastRound!==b.round){
-  state.actions=[];state.selection=null;state.rewardCard=null;
+  state.actions=[];state.selection=null;state.rewardCard=null;state.surrenderConfirm=false;
  }
  state.lastMatchId=m.id;state.lastRound=b.round;
  const side=owner(b),live=teammates(b,side).filter(u=>u.hp>0);
@@ -210,6 +210,28 @@ function rewardMarkup(s,side){
   +'<div class="online-reward-options">'+offer.options.map(o=>'<button data-reward="'+esc(o.id)+'" '+(busy()?'disabled':'')+'>'
   +'<b>'+esc(o.title)+'</b><small>'+esc(o.text)+'</small></button>').join('')+'</div></section>';
 }
+function activityMarkup(s){
+ const events=(s.tactical.events||[]).filter(e=>e&&typeof e==='object').slice(-6).reverse();
+ if(!events.length)return '';
+ return '<details class="online-activity" open><summary>Últimos acontecimentos</summary><ol>'
+ +events.map(event=>{
+  const before=[...(event.before?.allies||[]),...(event.before?.enemies||[])];
+  const after=[...(event.after?.allies||[]),...(event.after?.enemies||[])];
+  const indexed=new Map(before.map(u=>[u.id,u]));
+  const changes=after.map(u=>{
+   const old=indexed.get(u.id);if(!old)return null;
+   const hp=(u.hp||0)-(old.hp||0),shield=(u.shield||0)-(old.shield||0);
+   if(!hp&&!shield)return null;
+   return {name:u.name||old.name,hp,shield};
+  }).filter(Boolean).slice(0,6);
+  return '<li class="online-activity-event" data-event-type="'+esc(event.type||'unknown')+'"><b>'+esc(event.title||'Efeito resolvido')+'</b>'
+   +(changes.length?'<div class="online-activity-changes">'+changes.map(change=>
+    '<span><strong>'+esc(change.name)+'</strong> '
+    +(change.hp?'<em data-stat="hp" data-negative="'+(change.hp<0)+'">'+(change.hp>0?'+':'')+change.hp+' Vida</em> ':'')
+    +(change.shield?'<em data-stat="shield" data-negative="'+(change.shield<0)+'">'+(change.shield>0?'+':'')+change.shield+' Defesa</em>':'')+'</span>').join('')+'</div>'
+   :'<small>Sem alteração imediata de Vida ou Defesa</small>')+'</li>';
+ }).join('')+'</ol></details>';
+}
 function setupMarkup(){
  const owned=state.account?.profile?.ownedIds||[],available=tacticalRoster.filter(id=>owned.includes(id));
  const options=(index)=>available.map(id=>'<option value="'+esc(id)+'" '+(state.team[index]===id?'selected':'')+'>'+esc(characterById[id].name)+'</option>').join('');
@@ -241,7 +263,12 @@ function render(){
   body='<div class="online-result"><h2>'+result+'</h2><p>Resultado validado pelo servidor.</p><button data-ack class="online-primary">Retornar à formação</button></div>';
  }else{
   body='<div class="online-combat">'+boardMarkup(s,side)+controlsMarkup(s,side)+'</div>'
-   +statusMarkup(s)+clashMarkup(s,side)+rewardMarkup(s,side);
+   +statusMarkup(s)+clashMarkup(s,side)+rewardMarkup(s,side)+activityMarkup(s)
+   +'<div class="online-surrender-controls">'
+   +(state.surrenderConfirm?'<p>Tem certeza de que deseja encerrar esta partida? A derrota será registrada.</p>'
+      +'<button data-surrender-cancel>Voltar</button> <button data-surrender-confirm>Confirmar rendição</button>'
+      :'<button data-surrender>Render-se</button>')
+   +'</div>';
  }
  root.innerHTML='<div class="online-shell">'+header
   +'<p class="online-account">Alma: '+esc(state.server?.profile?.name||account.user?.handle||'Andarilho')
@@ -317,6 +344,9 @@ root.addEventListener('click',async event=>{
  if(d.deckAdd){const build=deckFor(d.deckAdd);if(build.length<10){state.deckBuilds[d.deckAdd]=[...build,{kind:'mobility'}];saveDeckBuilds();render();}return;}
  if(d.deckRemove){const build=deckFor(d.deckRemove);if(build.length>8){state.deckBuilds[d.deckRemove]=build.slice(0,-1);saveDeckBuilds();render();}return;}
  if(d.deckDefault){delete state.deckBuilds[d.deckDefault];saveDeckBuilds();render();return;}
+ if('surrender'in d){state.surrenderConfirm=true;render();return;}
+ if('surrenderCancel'in d){state.surrenderConfirm=false;render();return;}
+ if('surrenderConfirm'in d){state.surrenderConfirm=false;await request({op:'surrender'});return;}
  if('queue'in d){if(legalFormation()){const decks=Object.fromEntries(state.team.map(id=>[id,deckFor(id)]));await request({op:'queue',team:state.team,decks});}return;}
  if('cancel'in d){await request({op:'cancel'});return;}
  if('ack'in d){await request({op:'ack'});state.queuing=false;return;}
