@@ -46,6 +46,7 @@ export const tacticalEffectSignatures=Object.freeze({'o-falso-profeta':'ritual',
 const signatures=tacticalEffectSignatures;
 const shields=new Set(['guard','counter','support']);
 const control=new Set(['bind','affliction']);
+const meleeFamilies=new Set(['strike','slash','pierce','counter']);
 const TAU=Math.PI*2;
 export const tacticalParticleBudget=36;
 
@@ -150,7 +151,7 @@ export class TacticalEffectsLayer {
    }
   }
   if(phase==='prepare')push('charge',from);
-  if(phase==='release'&&!projectile&&!reduced)push('swing',from);
+  if(phase==='release'&&!projectile&&!reduced)push('swing',from,{melee:meleeFamilies.has(event.family)});
   if(phase==='travel'&&from&&to)push('travel',from,{projectile});
   if(phase==='impact'&&actor){
    const contacts=tacticalImpactContacts(event);
@@ -159,7 +160,12 @@ export class TacticalEffectsLayer {
     const {reaction,x,y}=contact;
     const guard=reaction==='block'||reaction==='shield';
     const tint=guard?palettes.guard:reaction==='heal'&&!signature?palettes.support:color;
-    push('impact',worldPoint(contact.point,.54),{reaction,cutlass,bastion,angle:x||y?Math.atan2(y,x):undefined,color:tint,particles:reaction==='effect'?0:particles});
+    const original=[...(event.before?.allies||[]),...(event.before?.enemies||[])].find(unit=>unit.id===contact.id);
+    const resolved=[...(event.after?.allies||[]),...(event.after?.enemies||[])].find(unit=>unit.id===contact.id);
+    const lost=Math.max(0,(original?.hp||0)-(resolved?.hp||0))
+     +Math.max(0,(original?.shield||0)-(resolved?.shield||0));
+    const power=Math.min(1.55,.92+lost/48);
+    push('impact',worldPoint(contact.point,.54),{reaction,cutlass,bastion,angle:x||y?Math.atan2(y,x):undefined,color:tint,particles:reaction==='effect'?0:particles,power,melee:meleeFamilies.has(event.family)});
    }
    if(!contacts.length)push('miss',to||from);
   }
@@ -272,6 +278,65 @@ function drawSemanticImpact(ctx,tone,r,p,light,mid,dark){
   ctx.stroke();ctx.beginPath();ctx.fillStyle=dark;ctx.ellipse(0,0,r*.16,r*.29,0,0,TAU);ctx.fill();
  }
 }
+// Concentrated impact flash and heavy material chips. A slash fans forward from
+// actual contact; other effects radiate from their resolved target. No generic beam.
+function drawImpactBurst(ctx,fx,p){
+ if(fx.reduced||!['damage','block','shield','heal'].includes(fx.reaction))return;
+ const {x,y}=fx.point,[light,mid,dark]=fx.color,melee=fx.melee;
+ const r=fx.radius*Math.min(1.6,fx.power||1),f=Math.max(0,1-p);
+ ctx.save();ctx.translate(x,y-r*.38);ctx.lineCap='round';ctx.lineJoin='round';
+ const a=fx.angle??0;
+ // Layered contact flash is strongest precisely at impact, not throughout the wind-up.
+ const flash=Math.max(0,1-p*5);
+ if(flash){
+  ctx.globalAlpha=flash*.95;ctx.fillStyle=light;ctx.shadowColor=mid;ctx.shadowBlur=r*.7;
+  ctx.beginPath();ctx.ellipse(0,0,r*(.48+.28*p),r*(.25+.18*p),a,0,TAU);ctx.fill();
+  ctx.shadowBlur=0;
+ }
+ if(fx.reaction==='heal'){
+  ctx.globalAlpha=f*.86;ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.08);
+  for(let i=-2;i<=2;i++){
+   const dx=i*r*.27,dy=-r*(.14+p*(.35+i%2*.12));
+   ctx.beginPath();ctx.moveTo(dx,dy-r*.12);ctx.lineTo(dx,dy+r*.12);ctx.stroke();
+  }
+  ctx.restore();return;
+ }
+ if(fx.reaction==='shield'||fx.reaction==='block'){
+  ctx.globalAlpha=f*.88;ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.11);
+  ctx.beginPath();ctx.arc(0,0,r*(.38+p*.94),-1.05,1.15);ctx.stroke();
+  ctx.strokeStyle=mid;ctx.lineWidth=Math.max(2,r*.07);
+  ctx.beginPath();ctx.arc(0,0,r*(.23+p*.70),2.1,4.45);ctx.stroke();
+  ctx.restore();return;
+ }
+ if(melee){
+  // Pressurized edge tracks the attacker's original direction, followed by recoil.
+  ctx.rotate(a);ctx.globalAlpha=f*.95;ctx.strokeStyle=dark;
+  ctx.lineWidth=r*.30;ctx.beginPath();ctx.ellipse(0,0,r*(.80+.46*p),r*.63,-.16,-1.23,1.05);ctx.stroke();
+  ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.11);ctx.beginPath();
+  ctx.ellipse(0,0,r*(.90+.46*p),r*.68,-.16,-1.23,1.05);ctx.stroke();
+  ctx.rotate(-a);
+ }
+ // A short shock ring gives body-to-body contact weight but never covers the board.
+ ctx.globalAlpha=f*.66;ctx.strokeStyle=mid;ctx.lineWidth=Math.max(1.5,r*.12*f);
+ ctx.beginPath();ctx.ellipse(0,0,r*(.45+p*1.16),r*(.30+p*.78),a,0,TAU);ctx.stroke();
+ // The shared particle budget also caps the number of visible shards.
+ const count=Math.min(8,Math.max(0,fx.particles||0));
+ for(let i=0;i<count;i++){
+  const direction=melee?a-1.25+(i/(Math.max(1,count-1)))*2.5:(i*TAU/count);
+  const distance=r*(.35+p*(melee?1.55:1.15))*(.85+(i%3)*.11);
+  const dx=Math.cos(direction),dy=Math.sin(direction);
+  const px=dx*distance,py=dy*distance*.74;
+  const size=r*(.11+.08*((i+1)%3))*f;
+  ctx.globalAlpha=f*(i%3===0?.95:.75);
+  ctx.fillStyle=i%3===0?light:i%2?mid:dark;
+  ctx.beginPath();
+  ctx.moveTo(px+dx*size*1.45,py+dy*size*.85);
+  ctx.lineTo(px-dy*size*.5,py+dx*size*.5);
+  ctx.lineTo(px-dx*size*.75,py-dy*size*.8);
+  ctx.closePath();ctx.fill();
+ }
+ ctx.restore();
+}
 function drawEffect(ctx,fx,t){
  const {point:{x,y},radius:r,color:[light,mid,dark],kind,reduced,family}=fx;
  const p=reduced ? .38 : t,fade=1-p;
@@ -312,10 +377,12 @@ function drawEffect(ctx,fx,t){
  }else if(kind==='swing'){
   if(!shields.has(family)){
    ctx.translate(x,y-r*.6);ctx.rotate(angle+(p-.5)*1.3);
-   ctx.globalAlpha=Math.sin(p*Math.PI)*.86;
-   ctx.strokeStyle=mid;ctx.lineWidth=r*.19;ctx.lineCap='round';
-   ctx.beginPath();ctx.ellipse(0,0,r*1.15,r*.72,0,-1.02,1.02);ctx.stroke();
-   ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
+   ctx.globalAlpha=Math.sin(p*Math.PI)*.96;
+   ctx.lineCap='round';ctx.lineJoin='round';
+   ctx.strokeStyle=dark;ctx.lineWidth=r*(fx.melee?.36:.20);
+   ctx.beginPath();ctx.ellipse(0,0,r*(fx.melee?1.56:1.1),r*.82,0,-1.17,1.10);ctx.stroke();
+   ctx.strokeStyle=mid;ctx.lineWidth=r*(fx.melee?.20:.12);ctx.stroke();
+   ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.07);ctx.stroke();
   }
  }else{
   const guard=fx.reaction==='block'||fx.reaction==='shield'||shields.has(family);
@@ -381,6 +448,7 @@ function drawEffect(ctx,fx,t){
   ctx.stroke();
  }
  ctx.restore();
+ if(kind==='impact')drawImpactBurst(ctx,fx,p);
  if(kind==='impact'&&fx.signature&&!reduced&&fx.particles){
   ctx.save();ctx.translate(x,y-r*.3);ctx.globalAlpha=fade*.85;
   const count=fx.particles;
