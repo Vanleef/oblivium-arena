@@ -1,58 +1,63 @@
 # Oblivium Arena — três baralhos e Confronto de Vontades (07/11/2026)
 
-## Modelo aprovado
+## Escopo e regras atuais
 
-Cada combatente 3v3 possui um baralho, mão, compra, descarte e pilha de exaustão independentes. O jogador seleciona uma alma e vê somente a mão correspondente. Custos de Essências continuam **compartilhados pela equipe**. A base de teste utiliza 8 cartas equipadas por alma (limite configurável até 10), compra 2 por rodada, mão máxima de 6 cartas do deck e uma carta temporária de Movimento Padrão por rodada.
+Combate 3v3 com baralhos independentes por personagem: deck, mão, compra, descarte e exaustão privados. **Cada jogador planeja as ações dos três personagens ao mesmo tempo que o adversário** em partidas ranqueadas. Cada personagem compra 2 cartas por rodada, usa um deck de 8 a 10 cartas e tem uma carta de Movimento Padrão temporária garantida, fora do deck. A mão base comporta até 6 cartas do deck.
 
-Movimento Padrão **não entra no baralho**, não acumula e renasce no próximo turno. Uma carta de movimento pode ser uma variante equipável, caso o tabuleiro passe a oferecer um executor de movimento. O ataque básico permanente também deve ser extradeck, sem recarga, ocupando a ação principal.
+O **Ataque Básico (5 dano físico, sem recarga ou custo)** também fica permanentemente disponível fora do deck; ocupa a ação principal. O Movimento Padrão só terá deslocamento real quando o grid tático do projeto mais recente for integrado.
 
-O baralho inicial de cada personagem contém duplicatas de suas técnicas registradas, até 8 cartas. Baralhos personalizados podem ser passados por \`cardLoadouts\`, com 8–10 instâncias e até 3 melhorias por carta. Cada instância recebe ID único. Um personagem não pode jogar habilidades que não estejam na própria mão. A carta só sai da mão **na confirmação da fila**, nunca durante a inspeção ou mudança de plano.
+A composição do trio tem um editor para adicionar/remover cartas e persistir um baralho por personagem, com 8–10 instâncias e até três cópias por técnica quando o kit possui três ou mais técnicas. O servidor valida a composição enviada e nunca aceita cartas de personagens externos ao trio. No ranqueado, os aprimoramentos da campanha são proibidos para evitar vantagens indevidas.
 
-## Efeitos e raridade
+## Planejamento simultâneo e segurança
 
-- **Prata:** +5 dano, Preservar (a carta permanece na mão).
-- **Ouro:** Sangramento por 2 rodadas (5/rodada), alteração para dano de Fogo + Queimadura.
-- **Prismático:** Predestinada (garante a carta na mão inicial) ou Exaurir (vai para pilha de exaustão após uso).
-- Outras opções de terreno, custo, mobilidade e encadeamento devem ser adicionadas com validação do motor espacial, evitando oferecer efeitos fictícios.
-
-Na campanha, conquistas por reino deverão liberar **novas cartas, novas modificações e tiers**, sem gerar vantagem permanente obrigatória no PvP competitivo. O PvP deve operar com um catálogo equilibrado por temporada ou regras de equiparação.
+Em duelos ranqueados com \`cardMode\`:
+1. Cada lado prepara secretamente até uma habilidade por personagem, com alvo, carta exata, pagamento de Essências e manifestação de Vontade.
+2. O primeiro envio fica armazenado no servidor sem executar habilidades, sem gastar a carta na mão adversária e sem revelar o plano ao outro jogador.
+3. O segundo envio faz o servidor ordenar as ações alternando a iniciativa por rodada: jogador 1 / jogador 2 / jogador 1 / jogador 2. A resolução é autoritativa.
+4. Antes de uma habilidade ofensiva com dano atingir um alvo válido, o defensor pode gastar sua **única resposta por equipe a cada rodada** (se disponível).
+5. A manifestação do atacante foi selecionada na fase de planejamento e permanece confidencial até a resposta. O estado público remove os planos, a ordem de resolução, a ordem de compra e as mãos inimigas. A resposta tem prazo de 25 segundos; se esgotar, o golpe é aceito sem gastar direito de resposta.
+6. Depois de ambas as equipes resolverem a rodada, efeitos persistentes são atualizados, a mão regular descartada (salvo Preservar), e novas cartas e Movimentos Padrão são gerados.
 
 ## Confronto de Vontades
 
-Três manifestações cíclicas: **Fenda vence Vínculo, Vínculo vence Égide, Égide vence Fenda**. Ambas as escolhas precisam ser secretas até a revelação. Cada equipe recebe **1 resposta por rodada**, ampliável apenas por aprimoramentos específicos.
+- **Fenda vence Vínculo.**
+- **Vínculo vence Égide.**
+- **Égide vence Fenda.**
+- Vitória da defesa: o efeito e o dano são anulados no alvo protegido.
+- Empate: dano e efeito normais.
+- Vitória do ataque: dano de impacto ×1,4 antes da mitigação e efeitos mantidos.
+- Em habilidades de área, uma resposta protege apenas o alvo de confronto; os outros seguem normalmente.
+- No cliente, a resposta é uma janela com três escolhas ou **Aceitar o golpe**. No servidor, a manifestação do atacante não pode ser vista pelo defensor antes de escolher.
 
-1. O atacante prepara uma habilidade especial e uma manifestação secreta.
-2. Se uma unidade inimiga está na área, o adversário pode aceitar o golpe ou gastar 1 resposta. Apenas **uma tentativa por habilidade**.
-3. Resposta vence: anula dano e efeitos no alvo protegido; em áreas com vários alvos, os demais não são automaticamente protegidos.
-4. Empate: habilidade é aplicada normalmente.
-5. Ataque vence: habilidade recebe crítico de 1,4× no dano, e seus efeitos normalmente previstos continuam.
-6. Cartas reativas podem adicionar resposta, aprimorar defesa ou causar retaliação, mas não devem oferecer vitórias automáticas baratas.
+### Compatibilidade
 
-Na rede, o servidor deve custodiar a manifestação do atacante e **nunca enviá-la ao defensor antes da escolha**. Resposta precisa de fase própria, timeout e persistência; clientes não podem escolher o resultado da disputa.
+O duelo antigo sem \`cardMode\` continua alternado por compatibilidade com os testes legados. As partidas ranqueadas novas usam \`cardMode\` e simultaneidade. Campanhas novas usam decks e mãos, mas continuam com resolução de PvE anterior enquanto a arena espacial é integrada.
 
-## Implementação nesta branch
+## Arquivos alterados ou criados
 
-- \`src/card-combat.js\`: decks e mãos serializáveis, compra, descarte, exaustão, efeito Preservar/Predestinada, Movimento Padrão garantido, gastos de resposta e regra pura Fenda/Vínculo/Égide.
-- \`src/combat.js\`: opção \`cardMode\`, compra por rodada, exigência de carta para enfileirar, consumo apenas no commit e aplicação de aprimoramentos ao resolver.
-- \`src/combat-ai.js\`: IA limita suas técnicas às cartas da própria mão.
-- \`src/card-hand-view.js\`, \`src/battle-view.js\`, \`src/main.js\`, \`card-combat.css\`: mãos independentes com troca de personagem e visual responsivo.
-- \`server/campaign-service.js\` e \`server/arena-service.js\`: modo de cartas habilitado em novas partidas; o PvP oculta mãos inimigas e ordem de compra no estado público.
-- \`tests/card-combat.test.js\`: testes unitários para embaralhamento, cartas temporárias, cartas aprimoradas e o confronto.
+- \`src/card-combat.js\` — baralhos, movimentos temporários, ataque básico, melhorias, confrontos e limite de respostas.
+- \`src/ranked-loadouts.js\` — equipar e validar builds do PvP.
+- \`src/deck-builder-view.js\`, \`src/card-hand-view.js\`, \`card-combat.css\` — editor do trio, mãos, posturas secretas e janela de resposta responsivos.
+- \`src/combat.js\` — execução de cartas, planejamento simultâneo autoritativo e confronto antes do impacto.
+- \`src/combat-ai.js\` — IA limita técnicas à própria mão e pode usar Ataque Básico.
+- \`src/main.js\`, \`src/battle-view.js\` — seleção e filas, montagem do trio, feedback de confronto e envio de respostas.
+- \`server/arena-service.js\`, \`server/campaign-service.js\` — validação no servidor, sigilo, respostas, timeout e compatibilidade de campanhas.
+- \`tests/card-combat.test.js\`, \`tests/duel-simultaneous.test.js\`, \`tests/ranked-loadouts.test.js\` — cenários automatizados.
 
-## Limitações desta fase — não declarar conclusão antes dos itens abaixo
+## Verificações realizadas
 
-**O \`main\` disponível não possui a arena espacial compacta citada nos chats recentes**. Por isso a carta Movimento Padrão aparece na mão, mas seu botão está informativo até existir um executor de deslocamento por casa, com seleção e visualização de área.
+- Análise sintática de todos os JS modificados por avaliação isolada com o mecanismo V8.
+- Testes executados em runtime isolado para compra, descarte, exaustão, aprimoramento, custos ranqueados e confronto.
+- Teste isolado de funções reais de planejamento, resolução de resposta com efeitos substituídos: bloqueio, normal e crítico.
+- Teste isolado do estado público que confirma não revelar planos, manifestação do atacante nem cartas da mão inimiga.
+- **Não foi possível executar aqui o comando completo \`npm test\` ou \`npm run build\` no repositório real**, tampouco validar navegador/mobile. O Vercel apresentou bloqueio de builds por limite.
 
-O duelo humano atual no repositório continua sendo por **turnos alternados**, não o planejamento simultâneo desejado. O ciclo Fenda/Vínculo/Égide está implementado como **regra pura testável**, mas ainda precisa de janela interativa, escolha secreta e aplicação do resultado a danos/status nas etapas de resolução, com controle de timeout e autorização no servidor.
+## Pendências — manter PR como draft
 
-**Ainda não existe editor completo de decks / coleção / loja de aprimoramentos** para o PvP e a campanha. O suporte a loadouts personalizados existe no núcleo, porém depende da interface de equipar cartas e das recompensas de campanha.
+1. **Reintegrar a versão mais recente do tabuleiro espacial compacto** (não presente na \`main\` acessível), implementar seleção de casas, movimento e alcance reais. A carta Movimento Padrão ainda é apenas representada.
+2. Completar efeitos de movimento alternativo, cartas reativas e resposta na campanha contra IA.
+3. Habilitar desbloqueios por conclusão de Reino, evolução dos tiers Prata/Ouro/Prismático e o catálogo de cartas da campanha.
+4. Executar testes reais \`npm test\`, build completo, sessões PvP concorrentes e QA mobile/desktop, corrigindo discrepâncias.
+5. Verificar narração, VFX, área atingida e clareza dos impactos no campo espacial e ajustar balanceamento.
 
-A branch foi criada para preservar o jogo que está na \`main\`. Antes de integrar, rodar \`npm test\` e \`npm run build\`, validar no navegador e no mobile e realizar partidas reais de PvP.
-
-## Próximas etapas de integração
-
-1. Recuperar ou integrar o tabuleiro tático atual (movimento real, seleção de casas, áreas de habilidade).
-2. Acrescentar editor de baralho (8–10 cartas por personagem), salvar e validar os loadouts no servidor; ataque básico extradeck.
-3. Criar estado de **planejamento simultâneo** nos dois clientes com commit separado e revelação simultânea na resolução.
-4. Criar estado de **resposta** no servidor (confidencialidade, limite, seleção dos três signos, timeout), vinculado à habilidade e ao alvo e sem duplicação de efeitos.
-5. Acrescentar cartas reativas e progressão por conclusão dos reinos, testes de balanceamento 3v3 e avaliações de usabilidade no celular.
+**Não realizar merge ou deploy da branch como versão estável antes de fechar as pendências críticas.**
