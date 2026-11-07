@@ -13,7 +13,9 @@ export function renderTacticalGrid(state,getValidTargets){
  const abilityRange=ability?.id==="__basic_attack__"?1:Math.max(1,Math.min(4,Number(ability?.range)||3));
  const draftMoves=b.movementPlans?.player||[];
  const fx=state.battleFx,fxAbility=units.find(u=>u.id===fx?.actorId)?.abilities.find(a=>a.id===fx?.abilityId);
- const hitAll=fxAbility?.target==="all-enemies";
+ const hitAll=fxAbility?.target==="all-enemies",hitTeam=fxAbility?.target==="team";
+ const fxActor=units.find(u=>u.id===fx?.actorId);
+ const fxRange=fxAbility?.id==="__basic_attack__"?1:Math.max(1,Math.min(4,Number(fxAbility?.range)||3));
  const objectiveNames={silver:"Prata",gold:"Ouro",prismatic:"Prismático"};
  const tiles=[];
  for(let y=0;y<GRID_HEIGHT;y++)for(let x=0;x<GRID_WIDTH;x++){
@@ -24,7 +26,7 @@ export function renderTacticalGrid(state,getValidTargets){
   const inArea=showArea&&gridDistance(plannedPosition(b,actor),{x,y})<=abilityRange;
   const occupied=Boolean(unit);
   const arrived=Boolean(unit&&fx?.moves?.some(move=>move.actorId===unit.id));
-  const hit=Boolean(unit&&fx?.mode!=="movement"&&(fx?.targetId===unit.id||hitAll&&unit.side!==(units.find(u=>u.id===fx.actorId)?.side)));
+  const hit=Boolean(unit&&fx?.mode!=="movement"&&(fx?.targetId===unit.id||hitTeam&&unit.side===fxActor?.side||hitAll&&unit.side!==fxActor?.side&&fxActor?.position&&gridDistance(fxActor.position,unit.position)<=fxRange));
   const damage=Boolean(hit&&(fx?.changes?.find(change=>change.id===unit.id)?.hp<0||fx?.totalDamage>0));
   const healing=Boolean(hit&&fx?.changes?.find(change=>change.id===unit.id)?.hp>0);
   const blocked=Boolean(hit&&fx?.clashResult?.cancel);
