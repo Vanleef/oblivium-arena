@@ -81,6 +81,13 @@ body{overflow-x:clip}
  height:auto;min-height:0;max-height:none;
  padding:8px;overflow:visible;overscroll-behavior:auto;
 }
+/* Old square icons stretch the entire command column on narrow screens. */
+.combat-shell.compact-battle .compact-command-panel .compact-quick-buttons>.compact-icon-btn{
+ aspect-ratio:auto;min-height:60px;height:auto;max-height:none;
+}
+.combat-shell.compact-battle .compact-command-panel .compact-icon-btn>img{
+ object-fit:cover;
+}
 .combat-shell.compact-battle .compact-command-panel .compact-panel-section,
 .combat-shell.compact-battle .compact-command-panel .compact-primary-buttons,
 .combat-shell.compact-battle .compact-command-panel .compact-quick-buttons,
