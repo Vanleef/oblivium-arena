@@ -102,7 +102,9 @@ test('technique concepts use distinct contact colors and silhouettes within the 
    ['Chama do Fim','fire','#ff643b'],['Raio Celeste','storm','#b498ff'],
    ['Corte de Sangue','blood','#ed5875'],['Círculo de Raízes','nature','#91d68e'],
    ['Luz Divina','grace','#ecd588'],['Sombra Silenciosa','void','#a877e1'],
-   ['Congelamento Final','frost','#a5e2fb']
+   ['Congelamento Final','frost','#a5e2fb'],
+   ['Rochas da Ruína','stone','#bfa88a'],['Fios de Memória','thread','#ce96df'],
+   ['Vermes da Podridão','rot','#a4ac63']
   ]){
    const layer=new TacticalEffectsLayer(canvas);
    const event={...impact,abilityId:'tecnica'};
