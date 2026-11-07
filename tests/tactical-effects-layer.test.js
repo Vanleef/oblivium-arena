@@ -168,3 +168,53 @@ test('an explicitly targeted hit survives an empty affectedTargetIds list',()=>{
  const event={...impact,cells:[],affectedTargetIds:[],targets:['a2']};
  assert.deepEqual(tacticalImpactContacts(event).map(contact=>contact.id),['a2']);
 });
+
+test('melee techniques generate a directional contact flash and material fragments within the VFX budget',()=>{
+ const calls={fill:0,stroke:0,ellipse:0};
+ const ctx=new Proxy({fill(){calls.fill++;},stroke(){calls.stroke++;},ellipse(){calls.ellipse++;}},
+  {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}};
+ const board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const event={...impact,affectedTargetIds:['a1'],abilityId:'tecnica',
+  after:{...after,allies:after.allies.map(unit=>unit.id==='a1'?{...unit,hp:62}:unit)}};
+ const actor={...allies[0],realm:'Inferno',sourceId:'o-acougueiro',
+  abilities:[{id:'tecnica',name:'Talho do Açougue',damage:38}]};
+ const prior=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  for(const family of ['slash','strike','pierce']){
+   const layer=new TacticalEffectsLayer(canvas);
+   layer.emit(board,{...event,family},actor,'impact',460);
+   assert.equal(layer.effects.length,1);
+   assert.equal(layer.effects[0].melee,true,family+' is physical contact');
+   assert.ok(layer.effects[0].power>1,'impact strength follows resolved damage');
+   assert.ok(layer.effects[0].particles>0);
+   assert.ok(layer.effects[0].particles<=tacticalParticleBudget);
+   const before={...calls};layer.tick(performance.now()+30);
+   assert.ok(calls.fill>before.fill,family+' produces substantial bright shards');
+   assert.ok(calls.stroke>before.stroke,family+' has a thick close-range shock arc');
+  }
+  const ranged=new TacticalEffectsLayer(canvas);
+  ranged.emit(board,{...event,family:'projectile'},actor,'impact',460);
+  assert.equal(ranged.effects[0].melee,false);
+  const reduced=new TacticalEffectsLayer(canvas);
+  reduced.emit(board,{...event,family:'slash'},actor,'impact',35,{reduced:true});
+  assert.equal(reduced.effects[0].particles,0);
+ }finally{globalThis.requestAnimationFrame=prior;}
+});
+test('melee release follows the physical attack arc, while protective support does not swing',()=>{
+ const ctx=new Proxy({}, {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}},board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const before=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  const actor={...allies[0],abilities:[]};
+  const blade=new TacticalEffectsLayer(canvas);
+  blade.emit(board,{...impact,family:'slash',pose:'release',anchor:{x:0,y:1}},actor,'release',115);
+  assert.equal(blade.effects[0].kind,'swing');
+  assert.equal(blade.effects[0].melee,true);
+  const guard=new TacticalEffectsLayer(canvas);
+  guard.emit(board,{...impact,family:'support',pose:'release'},actor,'release',115);
+  assert.equal(guard.effects[0].melee,false);
+ }finally{globalThis.requestAnimationFrame=before;}
+});
