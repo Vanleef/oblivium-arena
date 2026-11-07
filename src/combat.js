@@ -2,6 +2,7 @@ import {conquestAugmentedAbility} from './conquest-augments.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {campaignCreature} from './campaign-creatures.js';
 import {tacticalReactiveDamage,tacticalReactiveCounterDamage} from './tactical-reactions.js';
+import {tacticalDuelDamage} from './tactical-duel.js';
 import {tacticalComboResult,tacticalComboDamage} from './tactical-combo.js';
 import {surfaceDamageFactor} from './tactical-elements.js';
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
@@ -553,12 +554,14 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  // armor, death checks, status triggers and all following actions see this value.
  // Normal plans never carry a clash: the score is supplied after reveal only.
  const combo=s.tactical?.compact&&action.clash&&technique.damage>0
-  ?action.clash.reactive?action.clash:tacticalComboResult(action.clash):null;
- const executed=combo?{...technique,damage:combo.reactive
-  ?tacticalReactiveDamage(technique.damage,combo):tacticalComboDamage(technique.damage,combo)}:technique;
- // Entirely evaded attacks still pay costs / trigger cooldown, but have no
- // damaged target, condition proc, status application or fabricated impact.
- const actualTargetIds=combo?.reactive&&combo.avoidedAll?[]:spatialTargetIds;
+  ?action.clash.duel?action.clash:action.clash.reactive?action.clash:tacticalComboResult(action.clash):null;
+ const executed=combo?{...technique,damage:combo.duel
+  ?tacticalDuelDamage(technique.damage,combo):combo.reactive
+   ?tacticalReactiveDamage(technique.damage,combo):tacticalComboDamage(technique.damage,combo)}:technique;
+ // Losing a duel makes the special miss completely, including its powerful
+ // target effects; costs and cooldowns still resolve once through apply().
+ const actualTargetIds=combo?.duel&&combo.outcome==='miss'||
+  combo?.reactive&&combo.avoidedAll?[]:spatialTargetIds;
  const result=apply(s,actor,executed,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds:actualTargetIds});
  for(const u of [...s.allies,...s.enemies]){
   u.boardFresh||={};
