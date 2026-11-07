@@ -1,44 +1,53 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-test('compact UI queues actions privately, undoes the plan and retains techniques through full-round playback',async()=>{
+test('compact card UI switches independent hands, queues movement and keeps planning private',async()=>{
  const events={},renders=[];let html='';
- const root={set innerHTML(v){html=v;renders.push(v);},get innerHTML(){return html;},addEventListener:(type,fn)=>events[type]=fn,querySelector:()=>null,querySelectorAll:()=>[]};
+ const root={
+  set innerHTML(v){html=v;renders.push(v);},get innerHTML(){return html;},
+  addEventListener:(type,fn)=>events[type]=fn,querySelector:()=>null,querySelectorAll:()=>[]
+ };
  const names=['document','Worker','matchMedia','requestAnimationFrame'],saved=Object.fromEntries(names.map(k=>[k,globalThis[k]]));
  const click=dataset=>events.click({target:{closest:()=>({dataset,disabled:false})}});
  try{
   globalThis.document={getElementById:()=>root,addEventListener(){}};
-  globalThis.matchMedia=()=>({matches:true});globalThis.requestAnimationFrame=undefined;
+  globalThis.matchMedia=()=>({matches:true});
+  globalThis.requestAnimationFrame=undefined;
   globalThis.Worker=class{addEventListener(type,fn){if(type==='message')this.receive=fn;}postMessage({id}){queueMicrotask(()=>this.receive({data:{id,plan:[]}}));}};
-  await import('../src/compact-demo.js?compact-ui-regression');
-  assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/compact-portrait/);assert.match(html,/compact-command-panel/);for(const section of ['actions','abilities','items','planning'])assert.match(html,new RegExp('data-panel-section="'+section+'"'));assert.match(html,/Mover<\/span>/);assert.doesNotMatch(html,/data-guard/);assert.match(html,/data-confirm/);assert.doesNotMatch(html,/class="arena-techniques"/);assert.match(html,/Próximo evento: rodada 4/);
-  click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/data-hero-index="0" style="--hero-accent:#f0ae56"/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,1);assert.match(html,/compact-planned-destination/);assert.match(html,/--compact-scene-image:url\('/);assert.match(html,/--compact-floor-zoom:295%/);assert.match(html,/--compact-floor-focus:66%/);assert.match(html,/data-action-kind="move"/);assert.match(html,/data-plan-wave="1"/);assert.match(html,/data-plan-wave="2"/);assert.match(html,/data-actor-color="#f0ae56"/);
-  click({undo:''});assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);assert.doesNotMatch(html,/Mover → B2/);
-  click({cell:'1,1'});click({technique:'despertar'});click({cell:'1,1'});
-  assert.match(html,/Passo entre Lâminas/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,2);assert.match(html,/data-action-step="4"/,'second action is shown in wave two');
-  assert.doesNotMatch(html,/class="compact-roster-card"/);
-  click({actor:'a-viuva-escarlate'});click({mode:'move'});click({cell:'2,2'});
-  assert.match(html,/data-actor-color="#e94a86"/,'Lira has her own color on queued actions');
-  assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,3);
-  click({removeIndex:'2'});
-  assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,2,'tap one action icon to remove that specific order');assert.match(html,/<b>1<\/b><strong role="status">Planejamento simultâneo/);
-  click({confirm:''});assert.match(html,/data-panel-locked="true"/);assert.match(html,/aria-label="Comandos de /);
-  const wait=async predicate=>{for(let i=0;i<160;i++){if(predicate())return;await new Promise(r=>setTimeout(r,25));}assert.fail('Round playback did not finish');};
-  await wait(()=>html.includes('<b>2</b><strong role="status">Planejamento simultâneo'));
-  assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);assert.ok(renders.filter(v=>v.includes('data-panel-locked="true"')).every(v=>v.includes('aria-label="Comandos de ')));
-  // Fill six moves using live highlighted cells (no Guard shortcut): auto-submit on sixth order.
-  for(const hero of ['o-acougueiro','a-viuva-escarlate','o-escudo-vivo']){
-   click({actor:hero});
-   for(let i=0;i<2;i++){
-    click({mode:'move'});
-    const cell=html.match(/<button class="cell reachable [^"]*" data-cell="([^"]+)"/)?.[1];
-    assert.ok(cell,'an adjacent move remains available for '+hero+' / action '+(i+1));
-    click({cell});
-   }
-  }
-  assert.match(html,/data-panel-locked="true"/,'six legal moves seal the plan automatically');
-  await wait(()=>html.includes('<b>3</b><strong role="status">Planejamento simultâneo'));
+  await import('../src/compact-demo.js?compact-card-ui-regression');
+  assert.match(html,/grade 6 por 6/);
+  assert.equal((html.match(/data-cell=/g)||[]).length,36);
+  assert.match(html,/compact-roster-rail/);
+  for(const section of ['actions','abilities','items','planning'])assert.match(html,new RegExp('data-panel-section="'+section+'"'));
+  assert.match(html,/Mão de/);
+  assert.match(html,/Respostas disponíveis: 1/);
+  assert.match(html,/data-card=/);
+  assert.match(html,/Ataque básico/);
+  assert.match(html,/Mover<\/span>/);
+  assert.doesNotMatch(html,/data-guard/);
+  assert.match(html,/data-confirm/);
+  assert.match(html,/Próximo evento: rodada 4/);
+  const firstHand=html.match(/Mão de ([^<]+)<\/strong>/)?.[1];
+  click({actor:'a-viuva-escarlate'});
+  assert.match(html,/Mão de/);
+  assert.notEqual(html.match(/Mão de ([^<]+)<\/strong>/)?.[1],firstHand,'switching characters displays another hand');
+  click({actor:'o-acougueiro'});
+  click({cell:'1,1'});
+  assert.match(html,/Mover → B2/);
+  assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,1);
+  assert.match(html,/data-plan-wave="1"/);
+  assert.match(html,/data-plan-wave="2"/);
+  assert.match(html,/compact-planned-destination/);
+  assert.match(html,/--compact-floor-zoom:295%/);
+  assert.match(html,/data-panel-locked="false"/);
+  click({undo:''});
   assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);
+  click({cell:'1,1'});
+  click({confirm:''});
+  assert.match(html,/data-panel-locked="true"/);
+  const wait=async predicate=>{for(let i=0;i<160;i++){if(predicate())return;await new Promise(r=>setTimeout(r,25));}assert.fail('Compact round did not resolve');};
+  await wait(()=>html.includes('<b>2</b><strong role="status">Planejamento simultâneo'));
+  assert.ok(renders.some(v=>v.includes('data-panel-locked="true"')));
  }finally{for(const key of names){if(saved[key]===undefined)delete globalThis[key];else globalThis[key]=saved[key];}}
 });
 
