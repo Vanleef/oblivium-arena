@@ -61,7 +61,7 @@ test('same-wave collision stops both movements regardless of confirmation order,
   const result=resolveTacticalRound(s),movement=result.events.find(e=>e.type==='exchange-move');
   assert.equal(movement.moves.length,0);assert.equal(movement.stopped.length,2);
   assert.deepEqual(s.tactical.positions[a.id],{x:1,y:1});assert.deepEqual(s.tactical.positions[b.id],{x:3,y:1});
-  assert.ok(result.events.filter(e=>e.type==='exchange-move').some(e=>e.slot===1&&e.moves.length===2),'second-wave moves still execute after the first-wave collision');
+  assert.equal(result.events.filter(e=>e.type==='exchange-move').at(-1)?.moves.length,2,'second-wave moves still execute after the first-wave collision');
   assert.equal(result.events.filter(e=>e.type==='guard').length,0);return {positions:s.tactical.positions,events:result.events};
  }
  assert.deepEqual(run('player'),run('enemy'));
