@@ -72,6 +72,22 @@ export function tacticalImpactContacts(event){
  });
 }
 
+// Every resolved tile, including empty cells struck by a basic skill, gets
+// a material arrival. This never creates targets or changes the tactical engine.
+export function tacticalAreaEffectCells(event){
+ if(event?.type!=='skill'||event.skipped)return [];
+ const points=(event.cells||[]).filter(p=>Number.isInteger(p?.x)&&Number.isInteger(p?.y));
+ if(!points.length){
+  for(const id of new Set([...(event.affectedTargetIds||[]),...(event.targets||[])])){
+   const p=event.before?.positions?.[id]||event.after?.positions?.[id];
+   if(Number.isInteger(p?.x)&&Number.isInteger(p?.y))points.push(p);
+  }
+  const p=event.anchor;
+  if(!points.length&&Number.isInteger(p?.x)&&Number.isInteger(p?.y))points.push(p);
+ }
+ return [...new Map(points.map(p=>[p.x+','+p.y,{x:p.x,y:p.y}])).values()].slice(0,36);
+}
+
 export function tacticalEffectResolution(width,height,dpr=1){
  const ratio=Math.min(dpr,1.5,Math.sqrt(900000/(width*height)));
  return {width:Math.max(1,Math.floor(width*ratio)),height:Math.max(1,Math.floor(height*ratio))};
@@ -163,6 +179,22 @@ export class TacticalEffectsLayer {
   }
   if(phase==='prepare')push('charge',from);
   if(phase==='release'&&!projectile&&!reduced)push('swing',from,{melee:meleeFamilies.has(event.family)});
+ // The same resolved area used by the grid telegraph also drives material FX.
+ // Even fortress-basic and short melee skills spawn small physical arrivals in
+ // EVERY affected cell, whether or not a character happens to occupy the tile.
+ const areaCells=tacticalAreaEffectCells(event);
+ if(!reduced&&phase==='release'&&from){
+  for(const cell of areaCells){
+   const landing=worldPoint(cell,.58);
+   if(landing)push('tile-flight',landing,{to:landing,particles:1});
+  }
+ }
+ if(phase==='impact'){
+  for(const cell of areaCells){
+   const landing=worldPoint(cell,.58);
+   if(landing)push('tile-impact',landing,{particles:reduced?0:1});
+  }
+ }
   if(phase==='travel'&&from&&to&&!reduced)push('travel',from,{projectile,trailCount:this.width<300?3:this.width<480?5:8});
   if(phase==='impact'&&actor){
    const contacts=tacticalImpactContacts(event);
@@ -315,6 +347,8 @@ export function tacticalImpactMaterial(fx){
  if(motif==='rage')return 'ember';
  if(motif==='memory')return 'thread';
  if(motif==='stutter')return 'void';
+ if(fx?.tone==='heal')return 'grace';
+ if(fx?.tone==='shield')return 'stone';
  if(['stone','blood','rot','thread','fire','frost','nature','grace','void'].includes(fx?.tone))
   return ({fire:'ember',nature:'root'})[fx.tone]||fx.tone;
  return 'shard';
@@ -480,6 +514,34 @@ function drawEffect(ctx,fx,t){
    ctx.lineTo(-r*.12,r*.27);ctx.closePath();
   }else ctx.ellipse(0,0,Math.max(3,r*.35),Math.max(2,r*.22),0,0,TAU);
   ctx.fill();ctx.shadowBlur=0;
+ }else if(kind==='tile-flight'){
+  const origin=fx.from||fx.point,dx=x-origin.x,dy=y-origin.y;
+  const angle=Math.atan2(dy,dx),ease=1-(1-p)**1.5;
+  // Physical chips converge on the resolved square; never a long energy beam.
+  const material=tacticalImpactMaterial(fx);
+  for(let i=0;i<3;i++){
+   const stagger=i*.11,t=Math.min(1,Math.max(0,(ease-stagger)/(1-stagger)));
+   const wobble=r*.18*Math.sin(i*2.7+p*8)*(1-t);
+   const px=origin.x+dx*t-Math.sin(angle)*wobble;
+   const py=origin.y+dy*t+Math.cos(angle)*wobble;
+   ctx.save();ctx.translate(px,py);ctx.rotate(angle+i*.55);
+   ctx.globalAlpha=(.72+.2*i/3)*(1-.24*p);
+   ctx.fillStyle=i===0?light:i===1?mid:dark;ctx.strokeStyle=mid;
+   drawMaterialChip(ctx,material,r*(i===0?.28:.18),i);ctx.restore();
+  }
+ }else if(kind==='tile-impact'){
+  // Fixed tile-level contact, distinct from the target's separate recoil hit.
+  const material=tacticalImpactMaterial(fx);
+  ctx.translate(x,y-r*.33);ctx.globalAlpha=reduced?.62:fade*.88;
+  ctx.strokeStyle=mid;ctx.lineWidth=Math.max(1.2,r*.065);
+  ctx.beginPath();ctx.ellipse(0,0,r*(.28+p*.62),r*(.13+p*.35),0,0,TAU);ctx.stroke();
+  for(let i=0;i<(reduced?1:3);i++){
+   const a=i*TAU/3+p*.28;
+   const spread=r*(.12+p*.48),size=r*(i? .23:.35)*fade;
+   ctx.save();ctx.translate(Math.cos(a)*spread,Math.sin(a)*spread*.55);
+   ctx.rotate(a);ctx.fillStyle=i===0?light:i===1?mid:dark;ctx.strokeStyle=light;
+   drawMaterialChip(ctx,material,Math.max(1.5,size),i);ctx.restore();
+  }
  }else if(kind==='miss'){
   ring(ctx,x,y,r*(.45+p*.53),mid,fade*.55,1.5);
  }else if(kind==='swing'){
