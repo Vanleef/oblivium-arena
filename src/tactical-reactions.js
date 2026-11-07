@@ -81,8 +81,9 @@ export function tacticalReactiveAI(beats,{side='defense',round=1,actorId='',abil
  const salt=[...safeText(actorId+'/'+abilityId)].reduce((n,c)=>n+c.charCodeAt(0),0)+round;
  return beats.map((beat,index)=>{
   if(side==='attack')return {action:'strike',success:(salt+index)%3!==0,perfect:false};
-  // NPCs dodge a minority of contacts; only a human can earn the mastery counter.
-  const canDodge=beat.kind!=='sweep'&&(salt+index)%3===0;
+  // NPCs may evade one contact on a subset of skills, instead of
+  // automatically cancelling a third of every offensive player combo.
+  const canDodge=beat.kind!=='sweep'&&salt%4===0&&index===salt%beats.length;
   return {action:canDodge?'dodge':'none',success:canDodge,perfect:false};
  });
 }
