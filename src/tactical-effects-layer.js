@@ -2,6 +2,7 @@ import {boardTracks} from './tactical-board.js';
 import {tacticalImpactActive} from './tactical-animation.js';
 import {tacticalTechniqueTone} from './tactical-feedback.js';
 import {tacticalCharacterChoreography,drawTacticalCharacterImpact} from './tactical-character-vfx.js';
+import {tacticalMobileParticleBudget} from './tactical-impact-presentation.js';
 
 const palettes={
  inferno:['#fff2b2','#ff6840','#751f36'],
@@ -90,9 +91,19 @@ export class TacticalEffectsLayer {
   this.ctx=canvas.getContext('2d');
   this.effects=[];
   this.frame=0;
+  this.freezeStart=0;
+  this.freezeUntil=0;
   this.tick=this.tick.bind(this);
  }
 
+ // Hold the first physical contact frame for a few milliseconds: KOF-like hitstop
+ // without altering turn results, delaying the clock of every active canvas effect.
+ freeze(durationMs){
+  if(!this.effects.length||!Number.isFinite(durationMs)||durationMs<=0)return;
+  const now=performance.now();
+  this.freezeStart=now;
+  this.freezeUntil=now+Math.min(130,durationMs);
+ }
  attach(board){
   if(!board||!this.ctx)return false;
   const width=board.clientWidth||0,height=board.clientHeight||0;
@@ -152,10 +163,11 @@ export class TacticalEffectsLayer {
   }
   if(phase==='prepare')push('charge',from);
   if(phase==='release'&&!projectile&&!reduced)push('swing',from,{melee:meleeFamilies.has(event.family)});
-  if(phase==='travel'&&from&&to&&!reduced)push('travel',from,{projectile});
+  if(phase==='travel'&&from&&to&&!reduced)push('travel',from,{projectile,trailCount:this.width<300?3:this.width<480?5:8});
   if(phase==='impact'&&actor){
    const contacts=tacticalImpactContacts(event);
-   const particles=reduced||!contacts.length?0:Math.min(10,Math.floor(tacticalParticleBudget/contacts.length));
+   const budget=tacticalMobileParticleBudget(this.width,{reduced});
+   const particles=!contacts.length?0:Math.min(10,Math.floor(budget/contacts.length));
    for(const contact of contacts){
     const {reaction,x,y}=contact;
     const guard=reaction==='block'||reaction==='shield';
@@ -169,6 +181,8 @@ export class TacticalEffectsLayer {
    }
    if(!contacts.length)push('miss',to||from);
   }
+  // Discard oldest nonessential particles after bursts of multi-actor combat.
+  if(this.effects.length>60)this.effects.splice(0,this.effects.length-60);
   if(this.effects.length&&!this.frame){
    this.canvas.dataset.active='true';
    this.frame=requestAnimationFrame(this.tick);
@@ -176,6 +190,14 @@ export class TacticalEffectsLayer {
  }
 
  tick(time){
+  if(this.freezeUntil){
+   if(time<this.freezeUntil)time=this.freezeStart;
+   else{
+    const held=this.freezeUntil-this.freezeStart;
+    for(const fx of this.effects)fx.now+=held;
+    this.freezeStart=0;this.freezeUntil=0;
+   }
+  }
   const ctx=this.ctx;
   ctx.clearRect(0,0,this.width,this.height);
   this.effects=this.effects.filter(f=>time-f.now<f.duration);
@@ -382,7 +404,7 @@ function drawEffect(ctx,fx,t){
   }
   // Embers, glass and spectral shards travel as substantial material pieces
   // rather than a thin linear energy beam.
-  const length=Math.hypot(dx,dy),count=Math.min(8,Math.max(4,Math.ceil(length/(r*.75))));
+  const length=Math.hypot(dx,dy),count=Math.min(fx.trailCount||8,Math.max(3,Math.ceil(length/(r*.75))));
   const perpendicular={x:-Math.sin(angle),y:Math.cos(angle)};
   for(let i=count-1;i>=0;i--){
    const at=head-i*.065;if(at<0)continue;
