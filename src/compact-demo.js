@@ -17,7 +17,7 @@ import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
 import {tacticalComboReplayEvents} from './tactical-combo.js';
 import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelAI,tacticalDuelTendency} from './tactical-duel.js';
-import {tacticalHand,tacticalCardDeck,tacticalResponseOptions} from './tactical-decks.js';
+import {tacticalHand,tacticalCardDeck,tacticalResponseOptions,defaultTacticalCardBuild} from './tactical-decks.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -33,7 +33,19 @@ const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const key='oblivium-conquest-augment-progress-v2',profileKey='pma-post-mortem-arena-v1';
 function progress(){try{const stored=conquestProgress(JSON.parse(localStorage.getItem(key)||'{}')),profile=JSON.parse(localStorage.getItem(profileKey)||'null');return profile?syncConquestCampaign(profile,stored):stored;}catch{return conquestProgress();}}
+const cardBuildKey='oblivium-campaign-card-builds-v1';
+const readCardBuilds=()=>{try{return JSON.parse(localStorage.getItem(cardBuildKey)||'{}')}catch{return {}}};
 const state={battle:null,run:createTacticalRun(progress()),actions:[],spends:{},selected:null,mode:'move',selectedCard:null,busy:false,snapshot:null,event:null,message:'',speed:1,seed:1,revision:0,rewards:[],hitstop:false,clash:null};
+state.run.cardDecks=readCardBuilds();
+function saveCardBuilds(){try{localStorage.setItem(cardBuildKey,JSON.stringify(state.run.cardDecks||{}))}catch{}}
+function preserveCardBuilds(){
+ state.run.cardDecks??={};
+ for(const unit of state.battle.allies){
+  const deck=tacticalCardDeck(state.battle,'player',unit.id);
+  if(deck)state.run.cardDecks[unit.sourceId||unit.id]=Object.values(deck.cards).map(card=>({kind:card.kind,abilityId:card.abilityId,upgrade:card.upgrade}));
+ }
+ saveCardBuilds();
+}
 let effects,worker,aiTask,job=0;
 const units=s=>[...s.allies,...s.enemies];
 const heroColors=Object.freeze(['#f0ae56','#e94a86','#6ca8f5']);
@@ -155,11 +167,28 @@ function reward(){
  const offer=state.battle.tactical.pendingChestRewards[0];
  if(!offer||state.busy)return '';
  const owner=units(state.battle).find(u=>u.id===offer.actorId);
- return '<section class="chest-reward panel" data-tier="'+offer.tier+'"><h2>'+esc(owner?.name)+' · '+augmentTiers[offer.tier].label+'</h2><p>Escolha uma melhoria individual para este combate.</p><div class="chest-options">'+offer.options.map(o=>'<button data-reward="'+esc(o.id)+'" title="'+esc(o.text)+'"><strong>'+esc(o.title)+'</strong><span>'+esc(o.text)+'</span></button>').join('')+'</div>'+((state.battle.tactical.fortress.progress.spins||0)>0?'<button data-reroll>Trocar opções · 1 Giro</button>':'')+'</section>';
+ const entries=offer.options.map(o=>{
+  const isCard=o.effect?.type==='tactical-card-upgrade';
+  const deck=isCard?tacticalCardDeck(state.battle,'player',offer.actorId):null;
+  const candidates=deck?Object.values(deck.cards).filter(card=>card.kind==='skill'):[];
+  const picker=isCard?'<label class="compact-card-reward-picker">Aprimorar carta<select data-card-target aria-label="Escolha uma carta para aprimorar">'+candidates.map(card=>'<option value="'+esc(card.id)+'">'+esc(card.name)+'</option>').join('')+'</select></label>':'';
+  return '<div class="compact-card-reward">'+picker+'<button data-reward="'+esc(o.id)+'" title="'+esc(o.text)+'"><strong>'+esc(o.title)+'</strong><span>'+esc(o.text)+'</span></button></div>';
+ }).join('');
+ return '<section class="chest-reward panel" data-tier="'+offer.tier+'"><h2>'+esc(owner?.name)+' · '+augmentTiers[offer.tier].label+'</h2><p>Escolha uma melhoria individual para este combate.</p><div class="chest-options">'+entries+'</div>'+((state.battle.tactical.fortress.progress.spins||0)>0?'<button data-reroll>Trocar opções · 1 Giro</button>':'')+'</section>';
 }
 function setup(){
+ const deckEditor=state.battle.allies.map(unit=>{
+  const id=unit.sourceId||unit.id,deck=tacticalCardDeck(state.battle,'player',unit.id);
+  const draft=state.run.cardDecks?.[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,upgrade:card.upgrade}));
+  const options=[...unit.abilities.filter(a=>a.id!=='fortress-basic').map(a=>({value:'skill:'+a.id,name:a.name})),
+   {value:'mobility',name:'Passo Longo · mobilidade'},{value:'reaction',name:'Último Suspiro · reação'}];
+  return '<section class="compact-deck-edit-hero"><h4>'+esc(unit.name)+'</h4><div class="compact-deck-edit-slots">'+draft.map((card,i)=>{
+   const current=card.kind==='skill'?'skill:'+card.abilityId:card.kind;
+   return '<label>Carta '+(i+1)+'<select data-card-config="'+esc(id)+'" data-card-slot="'+i+'">'+options.map(option=>'<option value="'+esc(option.value)+'" '+(option.value===current?'selected':'')+'>'+esc(option.name)+'</option>').join('')+'</select></label>';
+  }).join('')+'</div></section>';
+ }).join('');
  const select=(side,i)=>'<label>'+ (side==='player'?'Aliado ':'Adversário ')+(i+1)+'<select data-team="'+side+'" data-index="'+i+'">'+(side==='player'?tacticalRoster:tacticalOpponentRoster).map(id=>'<option value="'+id+'" '+((side==='player'?state.battle.allies:state.battle.enemies)[i]?.sourceId===id||(side==='player'?state.battle.allies:state.battle.enemies)[i]?.id===id?'selected':'')+'>'+esc(characterById[id].name+' — '+characterById[id].identityTitle)+'</option>').join('')+'</select></label>';
- return '<details class="panel compact-setup"><summary>Nova formação</summary><div class="setup-fields">'+['player','enemy'].flatMap(side=>[0,1,2].map(i=>select(side,i))).join('')+'<label>Cenário<select data-scene>'+combatScenes.map(c=>'<option value="'+c.id+'" '+(c.id===state.battle.tactical.scene?'selected':'')+'>'+esc(c.name)+'</option>').join('')+'</select></label><label>Regra ambiental<select data-environment><option value="none">Sem regra ambiental</option>'+tacticalEnvironments.map(e=>'<option value="'+e.id+'">'+esc(e.world+' · '+e.title)+'</option>').join('')+'</select></label><button data-restart>Iniciar confronto</button></div></details>';
+ return '<details class="panel compact-setup"><summary>Nova formação</summary><div class="setup-fields">'+['player','enemy'].flatMap(side=>[0,1,2].map(i=>select(side,i))).join('')+'<label>Cenário<select data-scene>'+combatScenes.map(c=>'<option value="'+c.id+'" '+(c.id===state.battle.tactical.scene?'selected':'')+'>'+esc(c.name)+'</option>').join('')+'</select></label><label>Regra ambiental<select data-environment><option value="none">Sem regra ambiental</option>'+tacticalEnvironments.map(e=>'<option value="'+e.id+'">'+esc(e.world+' · '+e.title)+'</option>').join('')+'</select></label><details class="compact-deck-editor"><summary>Equipar os três baralhos (próximo confronto)</summary><p>Escolha oito cartas por personagem. Cartas iguais podem ser repetidas. Movimento e Ataque Básico são garantidos.</p>'+deckEditor+'</details><button data-restart>Iniciar confronto</button></div></details>';
 }
 function eventForecast(s){
  if(state.battle.tactical.stage==='finished')return '';
@@ -421,7 +450,7 @@ function confirm(){
 }
 function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],config={}){
  job++;state.revision++;state.clash?.cancel?.();state.clash=null;effects?.clear();
- try{state.battle=createTacticalBattle(player,enemy,{...config,seed:config.seed||state.seed,fortress:true,compact:true,cardMode:true,augmentProgress:state.run.augmentProgress});}catch(error){state.message=error.message;if(state.battle)render();return;}
+ try{state.battle=createTacticalBattle(player,enemy,{...config,seed:config.seed||state.seed,fortress:true,compact:true,cardMode:true,decks:config.decks||state.run.cardDecks||{},augmentProgress:state.run.augmentProgress});}catch(error){state.message=error.message;if(state.battle)render();return;}
  Object.assign(state,{actions:[],busy:false,snapshot:null,event:null,message:'',mode:'move',selectedCard:null,rewards:[],selected:state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id});render();
 }
 root.addEventListener('click',event=>{
@@ -431,12 +460,13 @@ root.addEventListener('click',event=>{
  if('sound'in d){setAudioEnabled(!audioEnabled());render();return;}
  if(state.busy)return;
  const pending=state.battle.tactical.pendingChestRewards[0];
- if('reward'in d){if(!pending)return;const result=chooseTacticalChestReward(state.battle,pending.id,d.reward);state.message=result.ok?'':result.reason;if(result.ok)saveProgress();render();return;}
+ if('reward'in d){if(!pending)return;const option=pending.options.find(o=>o.id===d.reward),target=option?.effect?.type==='tactical-card-upgrade'?root.querySelector('[data-card-target]')?.value:undefined;
+   const result=chooseTacticalChestReward(state.battle,pending.id,d.reward,target);state.message=result.ok?'':result.reason;if(result.ok){saveProgress();if(option?.effect?.type==='tactical-card-upgrade')preserveCardBuilds();}render();return;}
  if('reroll'in d){if(pending){const result=rerollTacticalChestReward(state.battle,pending.id);state.message=result.ok?'':result.reason;if(result.ok)saveProgress();render();}return;}
  if(pending)return;
  if('restart'in d){
   const select=side=>[0,1,2].map(i=>root.querySelector('[data-team="'+side+'"][data-index="'+i+'"]')?.value||(side==='player'?state.battle.allies:state.battle.enemies)[i].sourceId||(side==='player'?state.battle.allies:state.battle.enemies)[i].id);
-  state.run=createTacticalRun(progress());start(select('player'),select('enemy'),{scene:root.querySelector('select[data-scene]')?.value,environment:root.querySelector('[data-environment]')?.value});return;
+  state.run=createTacticalRun(progress());state.run.cardDecks=readCardBuilds();start(select('player'),select('enemy'),{scene:root.querySelector('select[data-scene]')?.value,environment:root.querySelector('[data-environment]')?.value});return;
  }
  if('trailReward'in d){if(chooseTacticalReward(state.run,state.rewards,d.trailReward)){state.rewards=[];render();}return;}
  if('route'in d){const next=advanceTacticalRun(state.run,state.battle,d.route);if(next)start(next.player,next.enemy,next);return;}
@@ -464,6 +494,20 @@ root.addEventListener('click',event=>{
  if('undo'in d){state.actions.pop();state.message='';render();return;}
  if('clear'in d){state.actions=[];state.message='';render();return;}
  if('confirm'in d)confirm();
+});
+root.addEventListener('change',event=>{
+ const selector=event.target.closest?.('select[data-card-config]');if(!selector)return;
+ const id=selector.dataset.cardConfig,index=Number(selector.dataset.cardSlot);
+ const unit=state.battle.allies.find(u=>(u.sourceId||u.id)===id);
+ if(!unit||!Number.isInteger(index)||index<0||index>9)return;
+ state.run.cardDecks??={};
+ const deck=tacticalCardDeck(state.battle,'player',unit.id);
+ const build=state.run.cardDecks[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,upgrade:card.upgrade}));
+ if(!build[index])return;
+ const value=selector.value;
+ build[index]=value.startsWith('skill:')?{kind:'skill',abilityId:value.slice(6)}
+  :value==='mobility'?{kind:'mobility'}:{kind:'reaction'};
+ state.run.cardDecks[id]=build;saveCardBuilds();
 });
 root.addEventListener('pointerover',event=>{
  const cell=event.target.closest('[data-cell]');if(!cell||locked()||state.mode==='move')return;
