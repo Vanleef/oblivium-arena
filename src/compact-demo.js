@@ -9,7 +9,7 @@ import {conquestProgress,syncConquestCampaign} from './conquest-progress.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {objectiveGrowth} from './conquest-objectives.js';
 import {boardCells,cellKey,cellLabel,findPath,occupied,sameCell,unitFacing} from './tactical-board.js';
-import {tacticalRoster,tacticalOpponentRoster} from './tactical-kits.js';
+import {tacticalRoster,tacticalOpponentRoster,tacticalPatternLabel} from './tactical-kits.js';
 import {tacticalSpriteFrame,tacticalSpriteInline,paintTacticalToken} from './tactical-sprites.js';
 import {tacticalFigureStyle} from './tactical-figure-framing.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
@@ -110,8 +110,9 @@ function actionDock(s,future){
  const primary='<section class="compact-panel-section" data-panel-section="actions"><h3>Ações</h3><div class="compact-primary-buttons">'+command('move',moveGlyph,'Mover uma casa',state.mode==='move')+'</div></section>';
  const abilityButtons=u.abilities.map(base=>{
   const a=conquestAugmentedAbility(future,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
-  const tooltip=a.name+' — '+(reason||(cooldown?'Em recarga · '+cooldown:a.description));
-  const areaBadge=tacticalAreaDiagramMarkup(fortressTechniqueSpec(future,u,a));
+  const areaSpec=fortressTechniqueSpec(future,u,a);
+  const tooltip=a.name+' — Área: '+tacticalPatternLabel(areaSpec)+'; alcance '+areaSpec.range+' — '+(reason||(cooldown?'Em recarga · '+cooldown:a.description));
+  const areaBadge=tacticalAreaDiagramMarkup(areaSpec);
   return '<button class="compact-icon-btn" data-technique="'+esc(a.id)+'" aria-pressed="'+(state.mode===a.id)+'" aria-label="'+esc(tooltip)+'" title="'+esc(tooltip)+'" '+(unavailable||cooldown||reason?'disabled':'')+'>'+actionGlyph(u,{type:'skill',abilityId:a.id})+areaBadge+'</button>';
  }).join('');
  const advance=specialChoices(u,picked,unavailable);
