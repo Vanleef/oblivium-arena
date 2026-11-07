@@ -57,3 +57,14 @@ Inspecionar em navegador desktop e celular: leitura do sprite durante a vinheta,
 - Novos testes: `tests/tactical-impact-presentation.test.js` e ampliações em `tests/tactical-effects-layer.test.js`, `tests/tactical-character-vfx.test.js`, `tests/tactical-compact-ui.test.js`.
 
 **Estado de validação:** análises estáticas e testes isolados executados; a aprovação integral da suíte Node, gameplay em navegador e revisão visual em aparelho físico permanecem pendentes antes de promover a `main`.
+
+
+## Refinamento de legibilidade e sincronização — 07/11/2026
+
+- **Hit-stop sincronizado:** o perfil `tacticalImpactProfile(event,{speed})` calcula o valor final em milissegundos uma única vez. A pausa do replay e o congelamento do Canvas recebem exatamente esse valor, sem aplicar uma segunda divisão por `state.speed`.
+- **Tremor de câmera responsivo:** `data-impact-shake` na arena classifica `physical`, `special` e `heavy`; a animação curta movimenta em conjunto o backdrop e a camada visual do tabuleiro, não altera a posição lógica das células e reduz o deslocamento em celular. Em preferência por movimento reduzido, a animação é desabilitada.
+- **Respostas positivas distintas:** cura, escudo concedido e ataques sem contato resolvido não geram vibração de golpe; mantêm os próprios feedbacks claros de restauração/proteção.
+- **Assinaturas de área por família:** `strike` indica núcleo contundente, `slash` mostra faixa diagonal, `pierce` indica avanço concentrado, e `counter` destaca a defesa/reversão. As marcas são internas às casas do efeito e não substituem o alcance calculado pelo motor.
+- **Reinicialização robusta:** `TacticalEffectsLayer.clear()` também zera `freezeStart`/`freezeUntil`; novos combates não herdarem um congelamento anterior.
+- Casos automatizados acrescentados em `tests/tactical-impact-presentation.test.js`, `tests/tactical-compact-ui.test.js` e `tests/tactical-effects-layer.test.js`. As verificações isoladas passaram; execução integral do CI ainda está pendente e o PR segue draft.
+
