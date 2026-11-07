@@ -104,13 +104,31 @@ test('Arena valida custo Qualquer e carta real antes do planejamento simultâneo
  assert.equal(current.match.battle.allies[0].cooldowns.despertar,4);
  assert.ok(current.match.battle.log.some(line=>line.includes(u.abilities[3].name)&&line.includes('usa')));
 });
-test('Arena autoriza a troca 5:1 somente com cinco pips reais no pool do jogador',async()=>{
- const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
+test('Arena valida a troca 5:1 como plano secreto e só registra a conversão após ambas confirmações',async()=>{
+ const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
  let views=await Promise.all([service.request(a.token),service.request(b.token)]);
- for(let i=0;i<2;i++){const v=views.find(item=>item.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});views=await Promise.all([service.request(a.token),service.request(b.token)]);}
- const active=views.find(v=>v.match.battle.phase==='player'),raw=JSON.parse(store.data.get(`match:${active.match.id}`)),side=raw.players.indexOf(active.profile.id)===0?'player':'enemy',pool={essence:2,cinza:1,graca:1,ruptura:0,coringa:1};
- raw.battle[side==='player'?'resources':'enemyResources']=pool;store.data.set(`match:${raw.id}`,JSON.stringify(raw));
- const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}},turn={op:'turn',version:active.match.version,actions:[],payment:{},exchanges:[exchange]};
+ for(let i=0;i<2;i++){
+  const v=views.find(item=>item.match.battle.phase==='influence');
+  await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});
+  views=await Promise.all([service.request(a.token),service.request(b.token)]);
+ }
+ const active=views[0],other=views[1],raw=JSON.parse(store.data.get('match:'+active.match.id));
+ const side=raw.players.indexOf(active.profile.id)===0?'player':'enemy';
+ const pool={essence:2,cinza:1,graca:1,ruptura:0,coringa:1};
+ raw.battle[side==='player'?'resources':'enemyResources']=pool;
+ store.data.set('match:'+raw.id,JSON.stringify(raw));
+ const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}};
+ const turn={op:'turn',version:active.match.version,round:active.match.battle.round,actions:[],payment:{},moves:[],exchanges:[exchange]};
  await assert.rejects(()=>service.request(active.token,{...turn,exchanges:[{...exchange,payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:0}}]}),{status:409});
- const accepted=await service.request(active.token,turn);assert.ok(accepted.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
+ const unchanged=await service.request(active.token);
+ assert.equal(unchanged.match.version,active.match.version);
+ const first=await service.request(active.token,turn);
+ assert.equal(first.match.battle.phase,'waiting');
+ assert.ok(!first.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')),'a troca planejada permanece secreta');
+ assert.equal(first.match.battle.duelExchanges,undefined,'o plano privado não pode ser serializado publicamente');
+ const completed=await service.request(other.token,{op:'turn',version:other.match.version,round:other.match.battle.round,actions:[],payment:{},moves:[]});
+ assert.equal(completed.match.battle.round,active.match.battle.round+1);
+ const current=await service.request(active.token);
+ assert.ok(current.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
 });
