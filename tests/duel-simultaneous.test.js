@@ -94,6 +94,21 @@ test("invalid signs and duplicate response attempts do not spend a response",()=
  answerDuelClash(s,"enemy","luz");
  assert.throws(()=>answerDuelClash(s,"enemy","sombra"),/pendente/);
 });
+test("movement collision cancels an out-of-range basic attack instead of hitting from a ghost position",()=>{
+ const s=duel(),a=s.allies[0],b=s.enemies[0];
+ a.position={x:1,y:2};b.position={x:3,y:2};
+ assert.equal(setMovementPlan(s,"player",a.id,{x:2,y:2}).ok,true);
+ assert.equal(setMovementPlan(s,"enemy",b.id,{x:2,y:2}).ok,true);
+ assert.ok(getValidTargets(s,a,a.abilities.find(ability=>ability.id==="__basic_attack__")).some(target=>target.id===b.id));
+ const initial=b.hp;
+ submitDuelTurn(s,"player",[{actorId:a.id,abilityId:"__basic_attack__",targetId:b.id,willSign:"luz"}],undefined,[],s.movementPlans.player);
+ submitDuelTurn(s,"enemy",[],undefined,[],s.movementPlans.enemy);
+ assert.deepEqual(a.position,{x:1,y:2});
+ assert.deepEqual(b.position,{x:3,y:2});
+ assert.equal(b.hp,initial);
+ assert.notEqual(s.phase,"clash");
+ assert.equal(s.round,2);
+});
 test("legacy duel without card mode remains sequential",()=>{
  const s=createDuel([testCharacter.id],[testCharacter.id],{rng:()=>0.4});
  assert.equal(s.simultaneousDuel,undefined);
