@@ -186,7 +186,7 @@ function emit(event,unit,ability,phase,duration){
  effects.emit(root.querySelector('.board'),event,unit,phase,duration,{reduced:Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches),projectile:tacticalProjectileKind(unit,ability,event)});
 }
 async function playback(events){
- const revision=++state.revision;state.busy=true;render();
+ const revision=++state.revision;state.busy=true;state.hitstop=false;render();
  const reduced=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
  const pause=ms=>new Promise(resolve=>setTimeout(resolve,(reduced?35:ms)/state.speed));
  for(const event of events){
@@ -226,13 +226,27 @@ async function playback(events){
    if(!event.skipped&&['release','thrust'].includes(frame.pose))playCombatCue('release',frame.family);
    if(!event.skipped&&(impact||['release','thrust','travel'].includes(frame.pose)))
     emit(state.event,unit,ability,impact?'impact':frame.pose==='thrust'?'release':frame.pose,(reduced?35:duration)/state.speed);
-   if(impact&&!event.skipped)playCombatCue('contact',frame.family);
+   if(impact&&!event.skipped){
+    playCombatCue('contact',frame.family);
+    const hit=tacticalImpactProfile(state.event,{reduced});
+    if(hit?.hitstopMs){
+     // Freeze actual canvas VFX, feedback CSS and actor recoil at the same frame.
+     // Does not pause the motor: the simultaneous round was already resolved.
+     state.hitstop=true;
+     root.querySelector('.compact-stage')?.setAttribute('data-hitstop','true');
+     effects?.freeze(hit.hitstopMs/state.speed);
+     await pause(hit.hitstopMs);
+     state.hitstop=false;
+     if(revision!==state.revision)return;
+     root.querySelector('.compact-stage')?.setAttribute('data-hitstop','false');
+    }
+   }
    await pause(duration);
   }
   state.snapshot=event.after;
  }
  if(revision!==state.revision)return;
- state.snapshot=null;state.event=null;state.busy=false;state.actions=[];state.mode='move';state.message='';
+ state.snapshot=null;state.event=null;state.hitstop=false;state.busy=false;state.actions=[];state.mode='move';state.message='';
  state.selected=state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id;
  if(state.battle.phase==='victory')state.rewards=offerTacticalRewards(state.run,state.battle);
  render();
