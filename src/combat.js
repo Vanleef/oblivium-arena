@@ -500,7 +500,9 @@ export function resolveNextAction(s){
 // Authoritative human-v-human entry points. No client health, costs or results are accepted.
 export function createDuel(firstIds,secondIds,config={}){
  const roster=secondIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
- const s=createBattle(firstIds,roster,{...config,enemyPlanner:()=>[]});
+ const cardLoadouts={...(config.cardLoadouts?.player||{})};
+ secondIds.forEach((id,i)=>{if(config.cardLoadouts?.enemy?.[id])cardLoadouts[`rival-${i}-${id}`]=config.cardLoadouts.enemy[id];});
+ const s=createBattle(firstIds,roster,{...config,cardLoadouts,enemyPlanner:()=>[]});
  s.humanSides=true;s.turnSide='player';s.turnNumber=1;s.intents=[];
  if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.clash=null;}
  // Both human teams receive their own composition bonus.
