@@ -108,3 +108,16 @@ test('compact playback holds impact long enough for damage, healing and stacked 
  assert.equal(tacticalCompactFrameDuration({type:'skill',pose:'impact',skipped:true}),95);
  assert.equal(tacticalCompactFrameDuration({type:'field-event',pose:'impact'}),460);
 });
+
+test('vow and awakening specials breathe through anticipation, release, travel and contact',async()=>{
+ const {tacticalCompactFrameDuration}=await import('../src/tactical-animation.js');
+ const normal=pose=>tacticalCompactFrameDuration({type:'skill',abilityId:'tecnica',pose});
+ const special=pose=>tacticalCompactFrameDuration({type:'skill',abilityId:'voto',pose});
+ for(const pose of ['anticipate','gather','windup','release','thrust','travel','recover'])
+  assert.ok(special(pose)>normal(pose),pose);
+ assert.equal(special('impact'),560);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',abilityId:'despertar',pose:'impact'},3),632);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',abilityId:'voto/ascended',pose:'impact'}),560);
+ assert.equal(tacticalCompactFrameDuration({type:'skill',abilityId:'voto',pose:'impact',skipped:true}),95);
+ assert.equal(normal('impact'),460);
+});
