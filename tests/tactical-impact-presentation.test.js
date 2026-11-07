@@ -72,3 +72,20 @@ test('responsive particle cap and recoil preserve legibility on mobile',()=>{
  assert.equal(tacticalContactRecoil(null,profile),null);
  assert.equal(tacticalContactRecoil(contact,null),null);
 });
+
+
+test('heals and protective abilities do not fake a physical camera impact',()=>{
+ const restored={...after,enemies:[{...before.enemies[0],hp:90,shield:15}]};
+ const heal=tacticalImpactProfile({...event,family:'support',abilityId:'voto',after:restored});
+ assert.equal(heal.shake,'none');
+ assert.equal(heal.hitstopMs,0);
+ const shield={...after,enemies:[{...before.enemies[0],shield:34}]};
+ const support=tacticalImpactProfile({...event,family:'guard',abilityId:'despertar',after:shield});
+ assert.equal(support.shake,'none');
+ assert.equal(support.hitstopMs,0);
+ const missed=tacticalImpactProfile({...event,targets:[],affectedTargetIds:[],after:before});
+ assert.equal(missed.shake,'none');
+ assert.equal(missed.hitstopMs,0);
+ const blocked=tacticalImpactProfile({...event,after:{...before,enemies:[{...before.enemies[0],shield:0}]}});
+ assert.ok(blocked.hitstopMs>0,'physical shield damage retains a meaningful contact');
+});
