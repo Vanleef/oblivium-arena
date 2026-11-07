@@ -1,4 +1,5 @@
 import {resourceIds,resolveResourcePayment,resolveEssenceExchange} from "./resource-costs.js";
+import {findHandCard,applyCardUpgrades} from "./card-combat.js";
 const living = units => units.filter(u => u.hp > 0);
 const helpful = a => ['self', 'ally', 'friendly', 'team'].includes(a.target);
 const team = (s, side) => side === 'player' ? s.allies : s.enemies;
@@ -213,7 +214,10 @@ export function planTeamActions(battle, side, rules) {
     for (const actor of living(team(s, side))) {
       const original = team(battle, side).find(u => u.id === actor.id);
       if (used.has(actor.id) || actor.stunned || original.stunned) continue;
-      for (const a of actor.abilities) {
+      for (const baseAbility of actor.abilities) {
+        const card=battle.cardCombat?findHandCard(battle.cardCombat,actor.id,baseAbility.id):null;
+        if(battle.cardCombat&&!card)continue;
+        const a=card?.upgrades?.length?applyCardUpgrades(baseAbility,card.upgrades):baseAbility;
         const required=rules.getAbilityResourceCosts(actor,a),plans=affordableResourcePlans(required,reserved,5);
         if (actor.cooldowns[a.id] || original.cooldowns[a.id] || rules.skillSealReason(actor, a) || rules.skillSealReason(original, a) || !plans.length) continue;
         const valid = rules.getValidTargets(s, actor, a), area = ['team', 'all-enemies'].includes(a.target);
@@ -221,18 +225,18 @@ export function planTeamActions(battle, side, rules) {
           const targets = area ? valid : [target];
           for(const plan of plans){
            const score = scoreAction(s, actor, a, targets, rules)-plan.exchanges.length*6;
-           choices.push({actor,a,target,targets,costs:plan.payment.costs,randomPayment:plan.payment.selected,exchanges:plan.exchanges,score});
+           choices.push({actor,a,card,target,targets,costs:plan.payment.costs,randomPayment:plan.payment.selected,exchanges:plan.exchanges,score});
           }
         }
       }
     }
     choices.sort((a, b) => b.score - a.score);
     const pick = choices[0]; if (!pick || pick.score <= 0) break;
-    const {actor, a, target, targets, costs,randomPayment,exchanges} = pick;
+    const {actor, a, card,target, targets, costs,randomPayment,exchanges} = pick;
     for(const exchange of exchanges){for(const id of resourceIds)reserved[id]-=exchange.payment[id]||0;reserved[exchange.target]++;plan.push({type:'essence-exchange',target:exchange.target,payment:exchange.payment,side});}
     for (const [id, n] of Object.entries(costs)) reserved[id] -= n;
     used.add(actor.id);
-    plan.push({actorId: actor.id, abilityId: a.id, targetId: target.id, abilityName: a.name, targetName: target.name, side, randomPayment, formKey: a.formKey || 'base'});
+    plan.push({actorId: actor.id, abilityId: a.id, targetId: target.id, abilityName: a.name, targetName: target.name, side, randomPayment, formKey: a.formKey || 'base',...(card?{cardId:card.id}:{})});
     forecast(s, actor, a, targets, rules);
   }
   return plan;
