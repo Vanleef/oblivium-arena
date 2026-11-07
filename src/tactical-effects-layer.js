@@ -1,6 +1,7 @@
 import {boardTracks} from './tactical-board.js';
 import {tacticalImpactActive} from './tactical-animation.js';
 import {tacticalTechniqueTone} from './tactical-feedback.js';
+import {tacticalCharacterChoreography,drawTacticalCharacterImpact} from './tactical-character-vfx.js';
 
 const palettes={
  inferno:['#fff2b2','#ff6840','#751f36'],
@@ -15,7 +16,6 @@ const palettes={
  hunger:['#ead8c3','#9c626c','#302c3d'],
  ration:['#ffe0a0','#b95b37','#452a28'],
  contract:['#f5d3a0','#c0423d','#38242f'],
- rot:['#c5b985','#85624b','#332b29'],
  parasite:['#e4d5a1','#a37758','#47252f'],
  root:['#dbbf87','#976443','#3d3029'],
  threshold:['#e4c0aa','#a54a44','#35252d'],
@@ -58,12 +58,13 @@ export function tacticalImpactContacts(event){
  const after=new Map([...(event.after?.allies||[]),...(event.after?.enemies||[])].map(unit=>[unit.id,unit]));
  const origin=event.before?.positions?.[event.actorId];
  return [...(event.before?.allies||[]),...(event.before?.enemies||[])].flatMap(unit=>{
-  const point=event.before?.positions?.[unit.id],next=after.get(unit.id);
-  if(!next||!affected.has(unit.id)||!point||(pointKeys.size&&!pointKeys.has(point.x+','+point.y)))return [];
+  const originPoint=event.before?.positions?.[unit.id],point=event.after?.positions?.[unit.id]||originPoint,next=after.get(unit.id);
+  // Validate contact against the original struck cell, but draw recoil where the displaced unit lands.
+  if(!next||!affected.has(unit.id)||!originPoint||(pointKeys.size&&!pointKeys.has(originPoint.x+','+originPoint.y)))return [];
   const shieldDelta=(next.shield||0)-(unit.shield||0);
   const protectionGained=shieldDelta>0||(next.invulnerable||0)>(unit.invulnerable||0)||event.type==='guard';
   const reaction=next.hp<unit.hp?'damage':shieldDelta<0?'block':next.hp>unit.hp?'heal':protectionGained?'shield':'effect';
-  const dx=origin?point.x-origin.x:0,dy=origin?point.y-origin.y:0;
+  const dx=origin?originPoint.x-origin.x:0,dy=origin?originPoint.y-origin.y:0;
   const length=Math.hypot(dx,dy)||1;
   return [{id:unit.id,point,reaction,x:dx/length,y:dy/length}];
  });
@@ -120,11 +121,11 @@ export class TacticalEffectsLayer {
   const from=worldPoint(event.before.positions[event.actorId]),to=worldPoint(event.anchor);
   const ability=actor?.abilities?.find(a=>a.id===event.abilityId),tone=tacticalTechniqueTone(actor,ability,event);
   const now=performance.now(),color=palette(actor,event.family,tone),radius=Math.max(9,Math.min(34,this.height/tracks.rows.length*.44));
-  const actorId=actor?.sourceId||actor?.id,signature=signatures[actorId];
+  const actorId=actor?.sourceId||actor?.id,signature=signatures[actorId],choreography=tacticalCharacterChoreography(actor,event);
   const cutlass=actorId==='o-acougueiro'&&['impulso','tecnica','voto'].includes(event.abilityId);
   const bastion=actorId==='o-escudo-vivo'&&['tecnica','despertar'].includes(event.abilityId);
   const push=(kind,point,extra={})=>{
-   if(point)this.effects.push({kind,point,from,to,color,radius,signature,tone,family:event.family,now,duration,reduced,...extra});
+   if(point)this.effects.push({kind,point,from,to,color,radius,signature,choreography,tone,family:event.family,now,duration,reduced,...extra});
   };
   if(!reduced&&phase==='impact'){
    if(event.type==='field-event'){
@@ -334,6 +335,8 @@ function drawEffect(ctx,fx,t){
     ctx.moveTo(px,py-r*.10);ctx.lineTo(px,py+r*.10);
    }
    ctx.stroke();
+  }else if(drawTacticalCharacterImpact(ctx,fx,p)){
+   // Per-character physical silhouette replaces a generic light slash.
   }else if(guard&&fx.bastion){
    const spread=1+Math.max(0,1-p*4)*.65;
    for(let i=-1;i<=1;i++){
@@ -369,7 +372,7 @@ function drawEffect(ctx,fx,t){
   }
   ctx.strokeStyle=light;ctx.lineWidth=1.5;ctx.globalAlpha=fade*.8;
   ctx.beginPath();
-  for(let i=0;i<fx.particles&&!fx.signature&&!(heavy&&fx.cutlass);i++){
+  for(let i=0;i<fx.particles&&!fx.signature&&!fx.choreography&&!(heavy&&fx.cutlass);i++){
    const a=i*2.39996,reach=r*(.48+(i%3)*.20)*p;
    const dx=Math.cos(a),dy=Math.sin(a);
    ctx.moveTo(dx*reach,dy*reach);
