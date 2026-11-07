@@ -17,7 +17,7 @@ import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
 import {tacticalComboReplayEvents} from './tactical-combo.js';
 import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelAI,tacticalDuelTendency} from './tactical-duel.js';
-import {tacticalHand,tacticalCardDeck,tacticalResponseOptions,defaultTacticalCardBuild} from './tactical-decks.js';
+import {tacticalHand,tacticalCardDeck,tacticalResponseOptions,tacticalCard,tacticalCardVariants,tacticalMovementSteps} from './tactical-decks.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -42,7 +42,7 @@ function preserveCardBuilds(){
  state.run.cardDecks??={};
  for(const unit of state.battle.allies){
   const deck=tacticalCardDeck(state.battle,'player',unit.id);
-  if(deck)state.run.cardDecks[unit.sourceId||unit.id]=Object.values(deck.cards).map(card=>({kind:card.kind,abilityId:card.abilityId,upgrade:card.upgrade}));
+  if(deck)state.run.cardDecks[unit.sourceId||unit.id]=Object.values(deck.cards).map(card=>({kind:card.kind,abilityId:card.abilityId,variantId:card.variantId,upgrade:card.upgrade}));
  }
  saveCardBuilds();
 }
@@ -84,7 +84,7 @@ function board(s,future=planned()){
  for(const item of feedback){const key=cellKey(item.point);if(!feedbackByCell.has(key))feedbackByCell.set(key,[]);feedbackByCell.get(key).push(item);}
  if(!state.busy)for(const u of s.allies){const to=future.tactical.positions[u.id];if(to&&!sameCell(to,s.tactical.positions[u.id]))destinations.set(cellKey(to),u);}
  return '<div class="board compact-board" data-super-impact="'+Boolean(phase==='impact'&&['voto','despertar'].includes(String(event?.abilityId||'').split('/')[0]))+'" role="group" aria-label="Arena tática em grade 6 por 6" style="--fort-cols:6;--fort-rows:6">'+boardCells(s).map(p=>{
-  const living=occupied(s,p),fallen=!living?fallenByCell.get(cellKey(p)):null,unit=living||fallen,path=canMove?findPath(future,owner.id,p):null,objective=goal&&sameCell(goal.position,p),surface=surfaceAt(s,p),blocked=s.tactical.obstacles.some(q=>sameCell(q,p)),destination=destinations.get(cellKey(p));
+  const living=occupied(s,p),fallen=!living?fallenByCell.get(cellKey(p)):null,unit=living||fallen,path=canMove?findPath(future,owner.id,p,state.mode==='mobility'?tacticalMovementSteps(tacticalCard(state.battle,'player',owner.id,state.selectedCard)):undefined):null,objective=goal&&sameCell(goal.position,p),surface=surfaceAt(s,p),blocked=s.tactical.obstacles.some(q=>sameCell(q,p)),destination=destinations.get(cellKey(p));
   const inArea=activeCells.has(cellKey(p)),isOrigin=Boolean(phase&&castOrigin&&sameCell(p,castOrigin)),isAnchor=Boolean(inArea&&event?.anchor&&sameCell(p,event.anchor)),reactions=feedbackByCell.get(cellKey(p))||[],heavy=reactions.some(r=>r.kind==='damage'||r.kind==='shield-loss'),restored=reactions.some(r=>r.kind==='heal'||r.kind==='shield');
   const contact=contactsByCell.get(cellKey(p)),recoil=tacticalContactRecoil(contact,profile,{mobile:globalThis.innerWidth<=760});
   return '<button class="cell '+(path?'reachable ':'')+(blocked?'blocked ':'')+(objective?'objective-cell objective-'+goal.tier+' ':'')+(inArea?'compact-ability-area compact-'+phase+' ':'')+(isOrigin?'compact-cast-origin-cell ':'')+(isAnchor?'compact-cast-anchor-cell ':'')+(heavy?'compact-hit-damage ':'')+(restored?'compact-hit-heal ':'')+(fallen?'compact-defeated ':'')+(contact?'compact-hit-body ':'')+'" data-cell="'+cellKey(p)+'" data-impact-family="'+esc(contact?profile.family:'none')+'" data-impact-reaction="'+esc(contact?.reaction||'none')+'" style="z-index:'+(p.y*10+(unit?10:0))+';--hit-recoil-x:'+(recoil?.x||0)+'px;--hit-recoil-y:'+(recoil?.y||0)+'px" aria-label="'+cellLabel(p)+(unit?', '+esc(unit.name)+(fallen?', derrotado':', '+(unit.side==='player'?'aliado':'inimigo')+', Vida '+unit.hp):', vazia')+(objective?', objetivo '+augmentTiers[goal.tier].label:'')+(path?', movimento disponível, 1 casa':'')+(inArea?', na área '+(phase==='impact'?'atingida':'indicada')+' da técnica':'')+(isAnchor?', centro da ação':'')+(isOrigin?', origem do golpe':'')+(surface?', '+esc(elements[surface.element]?.surface||surface.element):'')+'" '+(locked()?'disabled':'')+'><span class="coord">'+cellLabel(p)+'</span>'+(objective?emblem(goal.tier):'')+(surface?'<span class="element-floor" data-element="'+surface.element+'" aria-hidden="true"></span>':'')+(destination?'<span class="compact-planned-destination" aria-hidden="true">↳ '+esc(destination.name)+'</span>':'')+(inArea?'<span class="compact-area-sigil" data-effect-tone="'+tone+'" data-attack-family="'+esc(event?.family||'none')+'" data-phase="'+phase+'" data-area-role="'+(isAnchor?'anchor':'affected')+'" data-actor-palette="'+Boolean(castColors)+'" style="'+castStyle+'" aria-hidden="true"></span>':'')+(isOrigin?'<span class="compact-cast-origin" aria-hidden="true"></span>':'')+(unit?figure(unit,s):'')+(reactions.length?'<span class="compact-impact-feedback" aria-live="off">'+reactions.map((r,i)=>'<b data-feedback-kind="'+r.kind+'" style="--feedback-index:'+i+'" title="'+esc(r.label)+'">'+esc(r.label)+'</b>').join('')+'</span>':'')+'</button>';
@@ -131,7 +131,7 @@ function actionDock(s,future){
  const abilityButtons=cards.map(card=>{
   const chosen=state.selectedCard===card.id,spent=queuedCards.has(card.id);
   if(card.kind==='reaction')return '<div class="compact-hand-card compact-hand-reaction" title="Use durante o Confronto de Vontades"><strong>↶ '+esc(card.name)+'</strong><small>Reação · '+(card.upgrade.retain?'Preservar':'na mão')+'</small></div>';
-  if(card.kind==='mobility')return '<button class="compact-hand-card compact-hand-mobility" data-card="'+esc(card.id)+'" aria-pressed="'+chosen+'" title="Avance até duas casas com esta carta" '+(unavailable||spent?'disabled':'')+'>'+moveGlyph+'<strong>'+esc(card.name)+'</strong><small>Mobilidade · até 2 casas</small></button>';
+  if(card.kind==='mobility')return '<button class="compact-hand-card compact-hand-mobility" data-card="'+esc(card.id)+'" aria-pressed="'+chosen+'" title="Avance até duas casas com esta carta" '+(unavailable||spent?'disabled':'')+'>'+moveGlyph+'<strong>'+esc(card.name)+'</strong><small>Mobilidade · até '+tacticalMovementSteps(card)+' casas</small></button>';
   const base=u.abilities.find(a=>a.id===card.abilityId);
   if(!base)return '';
   const a=conquestAugmentedAbility(future,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
@@ -179,11 +179,13 @@ function reward(){
 function setup(){
  const deckEditor=state.battle.allies.map(unit=>{
   const id=unit.sourceId||unit.id,deck=tacticalCardDeck(state.battle,'player',unit.id);
-  const draft=state.run.cardDecks?.[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,upgrade:card.upgrade}));
+  const draft=state.run.cardDecks?.[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,variantId:card.variantId,upgrade:card.upgrade}));
+  const unlocked=state.run.augmentProgress?.completedKingdoms?.length||0;
   const options=[...unit.abilities.filter(a=>a.id!=='fortress-basic').map(a=>({value:'skill:'+a.id,name:a.name})),
-   {value:'mobility',name:'Passo Longo · mobilidade'},{value:'reaction',name:'Último Suspiro · reação'}];
+   {value:'mobility',name:'Passo Longo · mobilidade'},{value:'reaction',name:'Último Suspiro · reação'},
+   ...tacticalCardVariants.filter(v=>v.kingdoms<=unlocked).map(v=>({value:'variant:'+v.id,name:v.name+' · '+v.description}))];
   return '<section class="compact-deck-edit-hero"><h4>'+esc(unit.name)+'</h4><div class="compact-deck-edit-slots">'+draft.map((card,i)=>{
-   const current=card.kind==='skill'?'skill:'+card.abilityId:card.kind;
+   const current=card.kind==='skill'?'skill:'+card.abilityId:card.variantId?'variant:'+card.variantId:card.kind;
    return '<label>Carta '+(i+1)+'<select data-card-config="'+esc(id)+'" data-card-slot="'+i+'">'+options.map(option=>'<option value="'+esc(option.value)+'" '+(option.value===current?'selected':'')+'>'+esc(option.name)+'</option>').join('')+'</select></label>';
   }).join('')+'</div></section>';
  }).join('');
@@ -255,7 +257,7 @@ function selectCell(point){
  if(hit?.side==='player'&&hit.id!==u.id&&!allyTarget){state.selected=hit.id;state.mode='move';state.selectedCard=null;state.spends={};state.message='';render();return;}
  if(count(u.id)>=2||u.stunned||u.hp<=0)return;
  if(state.mode==='move'||state.mode==='mobility'){
-  const path=findPath(future,u.id,point,state.mode==='mobility'?2:undefined);if(!path){state.message='Escolha uma casa adjacente destacada.';render();return;}
+  const path=findPath(future,u.id,point,state.mode==='mobility'?tacticalMovementSteps(tacticalCard(state.battle,'player',u.id,state.selectedCard)):undefined);if(!path){state.message='Escolha uma casa adjacente destacada.';render();return;}
   append({type:'move',actorId:u.id,path,...(state.selectedCard?{cardId:state.selectedCard}:{})});return;
  }
  const ability=u.abilities.find(a=>a.id===state.mode);if(!ability)return;
@@ -479,7 +481,7 @@ root.addEventListener('click',event=>{
   const card=tacticalHand(state.battle,'player',state.selected).find(item=>item.id===d.card);
   if(!card||card.kind==='reaction')return;
   state.mode=card.kind==='mobility'?'mobility':card.abilityId;
-  state.selectedCard=card.id;state.spends={};state.message=card.kind==='mobility'?'Toque na casa de destino (até 2 casas).':'Toque na casa onde a técnica será aplicada.';render();return;
+  state.selectedCard=card.id;state.spends={};state.message=card.kind==='mobility'?'Toque na casa de destino (até '+tacticalMovementSteps(card)+' casas).':'Toque na casa onde a técnica será aplicada.';render();return;
  }
  if('technique'in d){state.mode=d.technique;state.selectedCard=null;state.spends={};state.message='Toque na casa onde a técnica será aplicada.';render();return;}
  if(d.cell){const [x,y]=d.cell.split(',').map(Number);selectCell({x,y});return;}
@@ -502,10 +504,12 @@ root.addEventListener('change',event=>{
  if(!unit||!Number.isInteger(index)||index<0||index>9)return;
  state.run.cardDecks??={};
  const deck=tacticalCardDeck(state.battle,'player',unit.id);
- const build=state.run.cardDecks[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,upgrade:card.upgrade}));
+ const build=state.run.cardDecks[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,variantId:card.variantId,upgrade:card.upgrade}));
  if(!build[index])return;
  const value=selector.value;
+ const variant=value.startsWith('variant:')?tacticalCardVariants.find(v=>v.id===value.slice(8)):null;
  build[index]=value.startsWith('skill:')?{kind:'skill',abilityId:value.slice(6)}
+  :variant?{kind:variant.kind,variantId:variant.id}
   :value==='mobility'?{kind:'mobility'}:{kind:'reaction'};
  state.run.cardDecks[id]=build;saveCardBuilds();
 });
