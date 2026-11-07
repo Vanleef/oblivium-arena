@@ -189,6 +189,7 @@ async function playback(events){
  const revision=++state.revision;state.busy=true;state.hitstop=false;render();
  const reduced=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
  const pause=ms=>new Promise(resolve=>setTimeout(resolve,(reduced?35:ms)/state.speed));
+ const pauseExact=ms=>new Promise(resolve=>setTimeout(resolve,ms));
  for(const event of events){
   if(revision!==state.revision)return;
   if(!event.before||!event.after)continue;
@@ -228,14 +229,14 @@ async function playback(events){
     emit(state.event,unit,ability,impact?'impact':frame.pose==='thrust'?'release':frame.pose,(reduced?35:duration)/state.speed);
    if(impact&&!event.skipped){
     playCombatCue('contact',frame.family);
-    const hit=tacticalImpactProfile(state.event,{reduced});
+    const hit=tacticalImpactProfile(state.event,{speed:state.speed,reduced});
     if(hit?.hitstopMs){
      // Freeze actual canvas VFX, feedback CSS and actor recoil at the same frame.
      // Does not pause the motor: the simultaneous round was already resolved.
      state.hitstop=true;
      root.querySelector('.compact-stage')?.setAttribute('data-hitstop','true');
-     effects?.freeze(hit.hitstopMs/state.speed);
-     await pause(hit.hitstopMs);
+     effects?.freeze(hit.hitstopMs);
+     await pauseExact(hit.hitstopMs);
      state.hitstop=false;
      if(revision!==state.revision)return;
      root.querySelector('.compact-stage')?.setAttribute('data-hitstop','false');
