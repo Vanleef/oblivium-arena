@@ -20,9 +20,10 @@ Em duelos ranqueados com \`cardMode\`:
 
 ## Confronto de Vontades
 
-- **Fenda vence Vínculo.**
-- **Vínculo vence Égide.**
-- **Égide vence Fenda.**
+- **Miragem distorce e engana a Luz.**
+- **Luz revela, dissipa e atravessa a Sombra.**
+- **Sombra oculta e engole a Miragem.**
+- **Triângulo conceitual:** Miragem > Luz > Sombra > Miragem.
 - Vitória da defesa: o efeito e o dano são anulados no alvo protegido.
 - Empate: dano e efeito normais.
 - Vitória do ataque: dano de impacto ×1,4 antes da mitigação e efeitos mantidos.
