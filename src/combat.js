@@ -1,6 +1,7 @@
 import {conquestAugmentedAbility} from './conquest-augments.js';
 import {conquestTechnique,conquestPassive} from './conquest-techniques.js';
 import {campaignCreature} from './campaign-creatures.js';
+import {tacticalReactiveDamage,tacticalReactiveCounterDamage} from './tactical-reactions.js';
 import {tacticalComboResult,tacticalComboDamage} from './tactical-combo.js';
 import {surfaceDamageFactor} from './tactical-elements.js';
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
@@ -551,9 +552,14 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  // A rhythm clash changes the direct hit BEFORE the skill resolves. Lifesteal,
  // armor, death checks, status triggers and all following actions see this value.
  // Normal plans never carry a clash: the score is supplied after reveal only.
- const combo=s.tactical?.compact&&action.clash&&technique.damage>0?tacticalComboResult(action.clash):null;
- const executed=combo?{...technique,damage:tacticalComboDamage(technique.damage,combo)}:technique;
- const result=apply(s,actor,executed,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds});
+ const combo=s.tactical?.compact&&action.clash&&technique.damage>0
+  ?action.clash.reactive?action.clash:tacticalComboResult(action.clash):null;
+ const executed=combo?{...technique,damage:combo.reactive
+  ?tacticalReactiveDamage(technique.damage,combo):tacticalComboDamage(technique.damage,combo)}:technique;
+ // Entirely evaded attacks still pay costs / trigger cooldown, but have no
+ // damaged target, condition proc, status application or fabricated impact.
+ const actualTargetIds=combo?.reactive&&combo.avoidedAll?[]:spatialTargetIds;
+ const result=apply(s,actor,executed,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds:actualTargetIds});
  for(const u of [...s.allies,...s.enemies]){
   u.boardFresh||={};
   for(const k of timed)if(u[k]>before.get(u.id)[k]||(result.affectedTargetIds?.includes(u.id)&&a[k]&&u[k]>0))u.boardFresh[k]=s.round;
@@ -561,6 +567,25 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  }
  return {...result,title:a.name,...(combo?{combo,comboBaseDamage:technique.damage,comboAdjustedDamage:executed.damage}:{})};
 }
+
+/** A completed defensive parry sequence turns the attack back on the attacker.
+ * Uses the existing shield/armor/affliction pipeline and death notifications;
+ * deliberately does not grant a new action, Essence, or repeated skill cast. */
+export function resolveBoardReactiveCounter(s,{attackerId,defenderId,baseDamage=20}={}){
+ const attacker=[...s.allies,...s.enemies].find(u=>u.id===attackerId&&u.hp>0);
+ const defender=[...s.allies,...s.enemies].find(u=>u.id===defenderId&&u.hp>0);
+ if(!s.tactical?.compact||!attacker||!defender||attacker.side===defender.side)
+  return {skipped:true,reason:'Contra-ataque sem oponente válido.'};
+ const power=tacticalReactiveCounterDamage(baseDamage);
+ const outcome=hit(s,attacker,power,{damageType:'physical'});
+ if(outcome.dealt>0)attacker.tookDamageThisTurn=true;
+ if(attacker.hp<=0)notifyDefeat(s,attacker,defender);
+ log(s,`${defender.name} desvia a sequência e contra-ataca ${attacker.name}: ${outcome.dealt} de dano.`);
+ return {skipped:false,title:'Contra-ataque perfeito',actorId:defender.id,
+  targets:[attacker.id],affectedTargetIds:[attacker.id],totalDamage:outcome.dealt,
+  counterPower:power,counterBlocked:outcome.blocked};
+}
+
 export function finishBoardRound(s){
  const units=[...s.allies,...s.enemies],preserved=new Map();
  for(const u of units)preserved.set(u.id,Object.fromEntries(Object.entries(u.boardFresh||{}).filter(([,r])=>r===s.round).map(([key])=>[key,u[key]])));
