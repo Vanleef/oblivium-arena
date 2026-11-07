@@ -112,7 +112,7 @@ function actionDock(s,future){
   const a=conquestAugmentedAbility(future,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
   const areaSpec=fortressTechniqueSpec(future,u,a);
   const tooltip=a.name+' — Área: '+tacticalPatternLabel(areaSpec)+'; alcance '+areaSpec.range+' — '+(reason||(cooldown?'Em recarga · '+cooldown:a.description));
-  const areaBadge=tacticalAreaDiagramMarkup(areaSpec);
+  const areaBadge=tacticalAreaDiagramMarkup(areaSpec,{facing:unitFacing(future,u)});
   return '<button class="compact-icon-btn" data-technique="'+esc(a.id)+'" aria-pressed="'+(state.mode===a.id)+'" aria-label="'+esc(tooltip)+'" title="'+esc(tooltip)+'" '+(unavailable||cooldown||reason?'disabled':'')+'>'+actionGlyph(u,{type:'skill',abilityId:a.id})+areaBadge+'</button>';
  }).join('');
  const advance=specialChoices(u,picked,unavailable);
