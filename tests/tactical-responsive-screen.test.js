@@ -79,3 +79,14 @@ test('screen-width layout contract never creates negative space or an unreadably
   }
  }
 });
+
+test('responsive screen preserves sprite headroom, iPhone safe areas and reduced-motion controls',async()=>{
+ const css=await read('compact-responsive.css');
+ assert.match(css,/safe-area-inset-left/);
+ assert.match(css,/safe-area-inset-right/);
+ assert.match(css,/padding:clamp\(24px,3\.8vw,53px\) 0 0/);
+ assert.match(css,/padding:clamp\(27px,7vw,43px\) 0 0/);
+ assert.match(css,/body\{overflow-x:hidden;overflow-x:clip\}/);
+ assert.match(css,/\.compact-result button\{[\s\S]*?max-width:100%/);
+ assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
+});
