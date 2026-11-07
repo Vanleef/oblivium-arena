@@ -341,6 +341,9 @@ function interactiveCombo(ref){
     root.querySelector('.compact-stage')?.setAttribute('data-reactive-telegraph',beat.kind);
     const marker=root.querySelector('[data-unit-id="'+(role==='defense'?target:ref.actorId)+'"]');
     marker?.setAttribute('data-reactive-target',role);
+    const caster=root.querySelector('[data-unit-id="'+ref.actorId+'"]');
+    if(caster)paintTacticalToken(caster,ref.actor,{...state.event,pose:'release'},
+     {family:state.event.family,pose:'release',index:3});
     playCombatCue('release',state.event?.family||'strike');
     emit({...state.event,pose:'release'},ref.actor,ref.ability,'release',210);
    },Math.max(100,beat.impactMs-240));
