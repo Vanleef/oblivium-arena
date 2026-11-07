@@ -1,5 +1,6 @@
 import {boardTracks} from './tactical-board.js';
 import {tacticalImpactActive} from './tactical-animation.js';
+import {tacticalTechniqueTone} from './tactical-feedback.js';
 
 const palettes={
  inferno:['#fff2b2','#ff6840','#751f36'],
@@ -19,7 +20,12 @@ const palettes={
  root:['#dbbf87','#976443','#3d3029'],
  threshold:['#e4c0aa','#a54a44','#35252d'],
  support:['#efffdb','#72e8a5','#28746b'],
- guard:['#f0faff','#8dd9ff','#3552a4']
+ guard:['#f0faff','#8dd9ff','#3552a4'],
+ fire:['#fff1ab','#ff643b','#8c2135'],storm:['#f9f0ff','#b498ff','#5542bd'],
+ frost:['#f0ffff','#a5e2fb','#4188b4'],nature:['#e3ffd0','#91d68e','#3c795c'],
+ blood:['#ffe2d5','#ed5875','#731a43'],void:['#eee2ff','#a877e1','#34246c'],
+ grace:['#fffce3','#ecd588','#9671b8'],heal:['#e5ffeb','#6febac','#2a816e'],
+ shield:['#e8fbff','#90d9fa','#3a71b3']
 };
 const fieldColors={
  storm:['#f9efff','#b79aff'],wind:['#e9fff1','#98dcca'],rain:['#e0f8ff','#75b8ef'],
@@ -66,7 +72,8 @@ export function tacticalEffectResolution(width,height,dpr=1){
  return {width:Math.max(1,Math.floor(width*ratio)),height:Math.max(1,Math.floor(height*ratio))};
 }
 
-function palette(actor,family){
+function palette(actor,family,tone='neutral'){
+ if(palettes[tone])return palettes[tone];
  const world=actor?.realm==='Inferno'?'inferno':actor?.realm==='Paraíso'?'paraiso':'limbo';
  const signature=signatures[actor?.sourceId||actor?.id];
  if(signature)return palettes[signature];
@@ -106,12 +113,13 @@ export class TacticalEffectsLayer {
    return {x:(col+.5)*this.width/tracks.columns.length,y:(row+fraction)*this.height/tracks.rows.length};
   };
   const from=worldPoint(event.before.positions[event.actorId]),to=worldPoint(event.anchor);
-  const now=performance.now(),color=palette(actor,event.family),radius=Math.max(9,Math.min(34,this.height/tracks.rows.length*.44));
+  const ability=actor?.abilities?.find(a=>a.id===event.abilityId),tone=tacticalTechniqueTone(actor,ability,event);
+  const now=performance.now(),color=palette(actor,event.family,tone),radius=Math.max(9,Math.min(34,this.height/tracks.rows.length*.44));
   const actorId=actor?.sourceId||actor?.id,signature=signatures[actorId];
   const cutlass=actorId==='o-acougueiro'&&['impulso','tecnica','voto'].includes(event.abilityId);
   const bastion=actorId==='o-escudo-vivo'&&['tecnica','despertar'].includes(event.abilityId);
   const push=(kind,point,extra={})=>{
-   if(point)this.effects.push({kind,point,from,to,color,radius,signature,family:event.family,now,duration,reduced,...extra});
+   if(point)this.effects.push({kind,point,from,to,color,radius,signature,tone,family:event.family,now,duration,reduced,...extra});
   };
   if(!reduced&&phase==='impact'){
    if(event.type==='field-event'){
@@ -176,6 +184,37 @@ export class TacticalEffectsLayer {
 function ring(ctx,x,y,r,color,alpha,width=1){
  ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=width;
  ctx.beginPath();ctx.ellipse(x,y,r,r*.43,0,0,TAU);ctx.stroke();
+}
+// Technique-informed particles: elemental skills no longer share the same slash silhouette.
+function drawSemanticImpact(ctx,tone,r,p,light,mid,dark){
+ const fade=Math.max(.08,1-p);
+ ctx.lineCap='round';ctx.beginPath();ctx.strokeStyle=light;ctx.fillStyle=mid;
+ if(tone==='fire'){
+  for(let i=-2;i<=2;i++){const x=i*r*.27,reach=r*(.52+(i%2===0?.28:.06))*fade;
+   ctx.moveTo(x-r*.13,r*.32);ctx.quadraticCurveTo(x-r*.2,-reach*.28,x,-reach);ctx.quadraticCurveTo(x+r*.18,-reach*.24,x+r*.13,r*.32);}
+  ctx.fill();return;
+ }
+ if(tone==='storm'){
+  ctx.lineWidth=r*.17;ctx.moveTo(-r*.25,-r*1.1*fade);ctx.lineTo(r*.14,-r*.18);
+  ctx.lineTo(-r*.12,-r*.13);ctx.lineTo(r*.41,r*1.1*fade);ctx.stroke();return;
+ }
+ if(tone==='frost'||tone==='grace'){
+  ctx.lineWidth=2.5;const n=tone==='frost'?6:8;
+  for(let i=0;i<n;i++){const a=i*TAU/n,dx=Math.cos(a),dy=Math.sin(a);
+   ctx.moveTo(dx*r*.18,dy*r*.18);ctx.lineTo(dx*r*(1.22-p*.25),dy*r*(1.22-p*.25));
+   if(tone==='frost'){const x=dx*r*.8,y=dy*r*.8;ctx.moveTo(x-dy*r*.12,y+dx*r*.12);ctx.lineTo(x+dy*r*.12,y-dx*r*.12);}}
+  ctx.stroke();return;
+ }
+ if(tone==='nature'){
+  ctx.strokeStyle=mid;ctx.lineWidth=r*.10;
+  for(let i=-2;i<=2;i++){const x=i*r*.32;ctx.moveTo(x,r*.9);ctx.bezierCurveTo(x+r*.23,-r*.1,x-r*.25,-r*.4*fade,x,-r*.95*fade);ctx.moveTo(x-r*.04,-r*.16);ctx.lineTo(x-r*.24,-r*.38*fade);}
+  ctx.stroke();return;
+ }
+ if(tone==='void'){
+  ctx.lineWidth=r*.12;ctx.strokeStyle=mid;
+  for(let i=0;i<3;i++)ctx.ellipse(0,0,r*(.28+i*.27+p*.22),r*(.63-i*.13),i*.55+p*.5,-Math.PI*.8,Math.PI*.65);
+  ctx.stroke();ctx.beginPath();ctx.fillStyle=dark;ctx.ellipse(0,0,r*.16,r*.29,0,0,TAU);ctx.fill();
+ }
 }
 function drawEffect(ctx,fx,t){
  const {point:{x,y},radius:r,color:[light,mid,dark],kind,reduced,family}=fx;
@@ -252,7 +291,9 @@ function drawEffect(ctx,fx,t){
   }else if(guard){
    for(let i=0;i<6;i++){const a=i*TAU/6;ctx.lineTo(Math.sin(a)*r*.63,Math.cos(a)*r*.84);}
    ctx.closePath();ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
-  }else if(control.has(family)){
+  }else if(['fire','storm','frost','nature','void','grace'].includes(fx.tone)){
+    drawSemanticImpact(ctx,fx.tone,r,p,light,mid,dark);
+   }else if(control.has(family)){
    for(let i=0;i<4;i++){
     const left=(i-1.5)*r*.37;
     ctx.moveTo(left-r*.20,r*.33);ctx.lineTo(left+r*.10,-r*(.55+(i%2)*.3)*fade);ctx.lineTo(left+r*.22,r*.33);
