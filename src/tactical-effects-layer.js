@@ -91,16 +91,19 @@ export class TacticalEffectsLayer {
 
  attach(board){
   if(!board||!this.ctx)return false;
-  if(this.canvas.parentElement!==board){
-   board.append(this.canvas);
-   this.width=board.clientWidth;
-   this.height=board.clientHeight;
-   const pixels=tacticalEffectResolution(this.width,this.height,globalThis.devicePixelRatio||1);
-   this.canvas.width=pixels.width;
-   this.canvas.height=pixels.height;
-   this.ctx.setTransform(pixels.width/(this.width||1),0,0,pixels.height/(this.height||1),0,0);
+  const width=board.clientWidth||0,height=board.clientHeight||0;
+  if(width<=0||height<=0)return false;
+  // Responsive resizes and mobile rotation must rescale particles, even on the same board.
+  const moved=this.canvas.parentElement!==board;
+  const resized=this.width!==width||this.height!==height;
+  if(moved)board.append(this.canvas);
+  if(moved||resized){
+   this.width=width;this.height=height;
+   const pixels=tacticalEffectResolution(width,height,globalThis.devicePixelRatio||1);
+   this.canvas.width=pixels.width;this.canvas.height=pixels.height;
+   this.ctx.setTransform(pixels.width/width,0,0,pixels.height/height,0,0);
   }
-  return this.width>0&&this.height>0;
+  return true;
  }
 
  emit(board,event,actor,phase,duration,{reduced=false,projectile=false}={}){
