@@ -12,6 +12,7 @@ test('new physical cue interface keeps touch controls fixed above safe area',asy
  assert.match(css,/safe-area-inset-bottom/);
  assert.match(css,/\.compact-rhythm-contact-ring/);
  assert.match(css,/oblivium-reactive-windup/);
+ assert.match(css,/100%\{width:16px;height:16px;opacity:1/);
  assert.match(css,/\.compact-rhythm-actions \[data-combo-dodge\]/);
  assert.match(css,/\.compact-rhythm-actions \[data-combo-parry\]/);
  assert.match(css,/\.compact-rhythm-actions \[data-combo-jump\]/);
@@ -43,6 +44,7 @@ test('different telegraphed timings drive actual sprite swings; player reacts to
  assert.match(ui,/tacticalReactiveBeats\(ref\.actor,ref\.ability,tacticalAnimationFamily\(ref\.ability\)\)/);
  assert.match(ui,/const outcome=tacticalReactiveJudge\(beat,action,elapsed\)/);
  assert.match(ui,/beat\.impactMs-240/);
+ assert.match(ui,/--rhythm-ms:'\+beat\.impactMs\+'ms/);
  assert.match(ui,/setAttribute\('data-reactive-telegraph',beat\.kind\)/);
  assert.match(ui,/paintTacticalToken\(caster,ref\.actor/);
  assert.match(ui,/emit\(\{\.\.\.state\.event,pose:'release'\},ref\.actor/);
