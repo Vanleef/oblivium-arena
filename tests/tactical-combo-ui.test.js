@@ -28,7 +28,7 @@ test('touch, click, keyboard and neutral-skip interaction are connected before b
  assert.match(js,/event\.key==='Escape'/);
  assert.match(js,/value\.skip=\(\)=>complete\(true\)/);
  assert.match(js,/neutral\?\{attackHits:0,defenseHits:0\}/);
- assert.match(js,/const elapsed=performance\\.now\\(\\)-value\\.startedAt,accurate=tapped&&tacticalComboTimingHit\\(elapsed,ms\\)/);
+ assert.match(js,/const elapsed=performance\.now\(\)-value\.startedAt,accurate=tapped&&tacticalComboTimingHit\(elapsed,ms\)/);
  assert.match(js,/tacticalComboBeats/);
 });
 
