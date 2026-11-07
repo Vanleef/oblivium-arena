@@ -13,16 +13,16 @@ import {tacticalRoster,tacticalOpponentRoster} from './tactical-kits.js';
 import {tacticalSpriteFrame,tacticalSpriteInline,paintTacticalToken} from './tactical-sprites.js';
 import {tacticalFigureStyle} from './tactical-figure-framing.js';
 import {tacticalIdleStyle} from './tactical-motion.js';
-import {tacticalAnimationFrames,tacticalFrameDuration} from './tactical-animation.js';
+import {tacticalFrameDuration,tacticalCompactFrameDuration} from './tactical-animation.js';
 import {TacticalEffectsLayer} from './tactical-effects-layer.js';
-import {tacticalProjectileKind,tacticalCutinMarkup} from './tactical-cinematic.js';
+import {tacticalProjectileKind,tacticalCutinMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
 import {tacticalStatuses} from './tactical-statuses.js';
 import {surfaceAt,elements,tacticalFieldForecast} from './tactical-elements.js';
 import {tacticalEnvironments} from './tactical-environment.js';
 import {createTacticalRun,offerTacticalRewards,chooseTacticalReward,advanceTacticalRun,tacticalRoutes,conquestProgressText} from './tactical-run.js';
 import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
 import {orderTacticalActions} from './tactical-order.js';
-import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase} from './tactical-feedback.js';
+import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase,tacticalVisualCells} from './tactical-feedback.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const key='oblivium-conquest-augment-progress-v2',profileKey='pma-post-mortem-arena-v1';
@@ -51,7 +51,7 @@ function figure(unit,s){
 const emblem=tier=>'<span class="objective-pulse" data-tier="'+tier+'" aria-hidden="true"><i></i><b class="objective-emblem"><svg viewBox="0 0 64 64"><path class="objective-gem" d="M32 6 48 21 44 43 32 54 20 43 16 21Z"/><path class="objective-facets" d="m32 6-8 18 8 30 8-30Zm-16 15 16 9 16-9M20 43l12-13 12 13"/></svg></b></span>';
 function board(s,future=planned()){
  const owner=actor(s),canMove=!locked()&&state.mode==='move'&&count(owner.id)<2,goal=s.tactical.objectives?.player;
- const event=state.event,phase=tacticalAreaPhase(event),activeCells=new Set(phase?(event.cells||[]).map(cellKey):[]),destinations=new Map();
+ const event=state.event,phase=tacticalAreaPhase(event),activeCells=new Set(phase?tacticalVisualCells(event).map(cellKey):[]),destinations=new Map();
  const beforeActor=event?.before&&units(event.before).find(u=>u.id===event.actorId),ability=beforeActor?.abilities?.find(a=>a.id===event.abilityId);
  const tone=tacticalTechniqueTone(beforeActor,ability,event),feedback=phase==='impact'?tacticalFeedback(event):[];
  const feedbackByCell=new Map();
@@ -196,17 +196,21 @@ async function playback(events){
    await pause(360);state.snapshot=event.after;state.event=null;render();playCombatCue('step');continue;
   }
   const unit=units(event.before).find(u=>u.id===event.actorId),ability=unit?.abilities.find(a=>a.id===event.abilityId);
-  const frames=unit&&!event.skipped?(event.type==='guard'?[{family:'guard',pose:'ready',index:0},{family:'guard',pose:'impact',index:1}]:tacticalAnimationFrames(ability)):[{family:'support',pose:'impact',index:0}];
+  const frames=unit&&!event.skipped?(event.type==='guard'?[{family:'guard',pose:'ready',index:0},{family:'guard',pose:'impact',index:1}]:tacticalReplayFrames(unit,ability,{...event,compactReplay:true})):[{family:'support',pose:'impact',index:0}];
   for(const frame of frames){
    if(revision!==state.revision)return;
    state.event={...event,...frame};const impact=frame.pose==='impact'||frame.pose==='counter';
    if(impact)state.snapshot=event.after;
    // Update the actual board at the telegraph and projectile boundaries.
    // Sprite-only repaints kept the cut-in and target-area overlay invisible until impact.
-   const visualBoundary=impact||frame.index===0||!unit||['gather','windup','release','thrust','travel','spread'].includes(frame.pose);
+   const visualBoundary=impact||frame.index===0||!unit||['anticipate','compress','brace','inhale','gather','windup','release','thrust','travel','spread'].includes(frame.pose);
    if(visualBoundary)render();
    else{const token=root.querySelector('[data-unit-id="'+event.actorId+'"]');if(token)paintTacticalToken(token,unit,event,frame);}
-   const duration=Math.min(330,tacticalFrameDuration(state.event));
+   const reactions=impact?tacticalFeedback(event):[];
+   const counts=new Map();
+   for(const hit of reactions)counts.set(hit.actorId,(counts.get(hit.actorId)||0)+1);
+   const feedbackStack=Math.max(1,...counts.values());
+   const duration=tacticalCompactFrameDuration(state.event,feedbackStack);
    if(!event.skipped&&(impact||['release','travel'].includes(frame.pose)))emit(state.event,unit,ability,impact?'impact':frame.pose,duration/state.speed);
    if(impact&&!event.skipped)playCombatCue('contact',frame.family);
    await pause(duration);
