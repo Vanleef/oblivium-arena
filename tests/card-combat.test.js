@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {CARD_RULES,createCardState,beginCardRound,endCardRound,drawCards,findHandCard,consumeHandCard,handFor,validateLoadout,applyCardUpgrades,spendResponse,resolveWillClash} from "../src/card-combat.js";
+import {CARD_RULES,createCardState,beginCardRound,endCardRound,drawCards,findHandCard,consumeHandCard,handFor,validateLoadout,applyCardUpgrades,spendResponse,resolveWillClash,BASIC_ATTACK_ID,basicAttack} from "../src/card-combat.js";
 const unit=id=>({id,hp:100,side:id==="a"?"player":"enemy",abilities:[{id:"strike",damage:20},{id:"curse",damage:10},{id:"shield",shield:10},{id:"blast",damage:30}]});
 const rng=()=>0.42;
 test("three separate decks have separate hands and a guaranteed temporary movement card",()=>{
@@ -71,4 +71,15 @@ test("one team response per round and cyclic clash outcomes",()=>{
  assert.deepEqual(resolveWillClash({attackerChoice:"fenda",defenderChoice:"vinculo",baseDamage:30}),{outcome:"critical",cancel:false,critical:true,damage:42});
  assert.equal(resolveWillClash({attackerChoice:"egide",defenderChoice:"egide",baseDamage:30}).damage,30);
  assert.throws(()=>resolveWillClash({attackerChoice:"stone",defenderChoice:"egide"}),/inválida/);
+});
+
+test("permanent basic attack has no cooldown, costs no card, and never enters a starter deck",()=>{
+ const basic=basicAttack(),u=unit("a");
+ assert.equal(basic.id,BASIC_ATTACK_ID);
+ assert.equal(basic.damage,5);
+ assert.equal(basic.cooldown,0);
+ assert.deepEqual(basic.costs,{});
+ const s=createCardState([u],{rng});
+ beginCardRound(s,[u],1,rng);
+ assert.equal([...s.decks.a.hand,...s.decks.a.draw].some(c=>c.abilityId===BASIC_ATTACK_ID),false);
 });
