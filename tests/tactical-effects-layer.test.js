@@ -163,3 +163,8 @@ test('pilot actors own contact choreography without increasing the particle budg
   }
  }finally{globalThis.requestAnimationFrame=saved;}
 });
+
+test('an explicitly targeted hit survives an empty affectedTargetIds list',()=>{
+ const event={...impact,cells:[],affectedTargetIds:[],targets:['a2']};
+ assert.deepEqual(tacticalImpactContacts(event).map(contact=>contact.id),['a2']);
+});
