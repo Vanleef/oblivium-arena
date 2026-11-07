@@ -17,6 +17,6 @@ export function tacticalCharacterChoreography(actor,event){
  const slot=event.abilityId;
  if(!kind||!Object.hasOwn(slotWeight,slot))return null;
  // Upgraded forms alter the silhouette's weight, not game outcomes.
- const form=event.formKey&&event.formKey!=='base'?.1:0;
+ const form=event.formKey&&event.formKey!=='base' ? 0.1 : 0;
  return {kind,slot,weight:slotWeight[slot]+form};
 }
