@@ -16,7 +16,7 @@ export function normalizeRankedLoadouts(teamIds,byId={},catalog={}){
   for(const card of validated){
    if(card.upgrades.length)throw new Error("Aprimoramentos de campanha não podem ser usados no PvP ranqueado.");
    copies.set(card.abilityId,(copies.get(card.abilityId)||0)+1);
-   if(copies.get(card.abilityId)>RANKED_MAX_COPIES)throw new Error("Máximo de 3 cópias da mesma carta no PvP.");
+   if((actor.abilities||[]).length>=3&&copies.get(card.abilityId)>RANKED_MAX_COPIES)throw new Error("Máximo de 3 cópias da mesma carta no PvP.");
   }
   if(validated.length<CARD_RULES.minDeck||validated.length>CARD_RULES.maxDeck)throw new Error("Tamanho inválido.");
   result[id]=validated.map(card=>({abilityId:card.abilityId}));
