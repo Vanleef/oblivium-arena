@@ -175,8 +175,11 @@ test('KOF-style contact hold freezes recoil and material VFX without touching re
  assert.match(src,/data-impact-family=/);
  assert.match(src,/data-impact-reaction=/);
  assert.match(src,/data-hitstop=/);
- assert.match(src,/effects\?\.freeze\(hit\.hitstopMs\/state\.speed\)/);
- assert.match(src,/await pause\(hit\.hitstopMs\)/);
+ assert.match(src,/effects\?\.freeze\(hit\.hitstopMs\)/);
+ assert.match(src,/await pauseExact\(hit\.hitstopMs\)/);
+ assert.match(src,/tacticalImpactProfile\(state\.event,\{speed:state\.speed,reduced\}\)/);
+ assert.match(src,/const pauseExact=ms=>new Promise\(resolve=>setTimeout\(resolve,ms\)\)/);
+ assert.doesNotMatch(src,/freeze\(hit\.hitstopMs\/state\.speed\)|await pause\(hit\.hitstopMs\)/);
  assert.match(src,/state\.hitstop=false/);
  assert.match(css,/compact-recoil-strike/);
  assert.match(css,/compact-recoil-slash/);
