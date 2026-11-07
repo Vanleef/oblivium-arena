@@ -218,3 +218,33 @@ test('melee release follows the physical attack arc, while protective support do
   assert.equal(guard.effects[0].melee,false);
  }finally{globalThis.requestAnimationFrame=before;}
 });
+
+test('projectile travel shows substantial physical fragments, not a single thin beam',()=>{
+ const calls={fills:0,strokes:0};
+ const ctx=new Proxy({fill(){calls.fills++;},stroke(){calls.strokes++;}},
+  {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}};
+ const board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const saved=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  const actor={...allies[0],realm:'Inferno',abilities:[{id:'tecnica',name:'Projeção material'}]};
+  for(const projectile of ['ember','glass','shard']){
+   const layer=new TacticalEffectsLayer(canvas);
+   layer.emit(board,{...impact,actorId:'a0',abilityId:'tecnica',anchor:{x:5,y:4}},actor,'travel',300,{projectile});
+   assert.equal(layer.effects.length,1);
+   assert.equal(layer.effects[0].kind,'travel');
+   const before=calls.fills;
+   layer.tick(performance.now()+130);
+   assert.ok(calls.fills-before>=4,projectile+' must draw multiple physical pieces');
+  }
+  const ritual=new TacticalEffectsLayer(canvas);
+  ritual.emit(board,{...impact,actorId:'a0',anchor:{x:5,y:4}},actor,'travel',300,{projectile:'thread'});
+  const before=calls.strokes;
+  ritual.tick(performance.now()+120);
+  assert.ok(calls.strokes-before>=3,'thread has material thickness and a tied head');
+  const reduced=new TacticalEffectsLayer(canvas);
+  reduced.emit(board,{...impact,anchor:{x:5,y:4}},actor,'travel',35,{projectile:'ember',reduced:true});
+  assert.equal(reduced.effects.length,0,'reduced motion should not animate projectile travel');
+ }finally{globalThis.requestAnimationFrame=saved;}
+});
