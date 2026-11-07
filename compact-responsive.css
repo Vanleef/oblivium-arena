@@ -170,9 +170,9 @@ body{overflow-x:clip}
   grid-template-columns:repeat(2,minmax(0,1fr));
  }
 }
-/* Portrait phones: show the fight at full readable width, then all actions below.
+/* Narrow portrait screens: show the fight at full readable width, then all actions below.
    No 82px/94px column and no scrolling within a panel the player cannot see. */
-@media(max-width:680px){
+@media(max-width:600px){
  .combat-shell.compact-battle{padding:clamp(3px,1vw,8px)}
  .combat-shell.compact-battle .combat-header{
   gap:5px 8px;padding:5px 3px 8px;font-size:clamp(10px,2.6vw,13px);
