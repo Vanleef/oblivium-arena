@@ -1,0 +1,365 @@
+/*
+ * Oblivium Arena / tactical screen — last-loaded responsive layout contract.
+ * Explicitly supersedes legacy compact/mobile splits without modifying the
+ * board's coordinates, state machine, cinematic frames, or action footprints.
+ * The screen scrolls vertically when needed; there are no hidden command rows.
+ */
+html,body,#tactical-app{min-width:0;max-width:100%}
+body{overflow-x:clip}
+#tactical-app{width:100%;min-width:0}
+#tactical-app>.combat-shell.compact-battle,
+.combat-shell.compact-battle{
+ box-sizing:border-box;
+ width:min(100%,1320px);max-width:1320px;
+ min-width:0;margin-inline:auto;padding:clamp(4px,1.1vw,14px);
+}
+.combat-shell.compact-battle *,
+.combat-shell.compact-battle *::before,
+.combat-shell.compact-battle *::after{box-sizing:border-box}
+.combat-shell.compact-battle .combat-header{
+ display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+ gap:7px 12px;min-width:0;padding:5px 0 9px;
+}
+.combat-shell.compact-battle .combat-header>*{min-width:0}
+.combat-shell.compact-battle .combat-header>a{
+ max-width:100%;overflow-wrap:anywhere;
+}
+.combat-shell.compact-battle .combat-header>span{
+ flex:1 1 auto;min-width:0;text-align:center;white-space:normal;
+}
+.combat-shell.compact-battle .compact-stage{
+ width:100%;max-width:100%;min-width:0;
+ height:auto;min-height:0;max-height:none;
+ padding:clamp(8px,1vw,15px);overflow:hidden;
+}
+.combat-shell.compact-battle .compact-stage>.arena-backdrop{
+ width:100%;max-width:100%;pointer-events:none;
+}
+.combat-shell.compact-battle .compact-hud{
+ width:100%;min-width:0;
+ grid-template-columns:minmax(0,1fr) minmax(85px,.74fr) minmax(0,1fr);
+ height:auto;min-height:0;max-height:none;
+ gap:clamp(4px,1vw,13px);margin:0 0 13px;align-items:start;
+ overflow:visible;
+}
+.combat-shell.compact-battle .compact-team,
+.combat-shell.compact-battle .compact-unit,
+.combat-shell.compact-battle .compact-unit>span,
+.combat-shell.compact-battle .compact-round{min-width:0;max-width:100%}
+.combat-shell.compact-battle .compact-team{width:100%;gap:4px}
+.combat-shell.compact-battle .compact-unit{
+ box-sizing:border-box;width:100%;min-height:30px;gap:5px;padding:3px 5px;
+}
+.combat-shell.compact-battle .compact-unit img{
+ flex:none;width:clamp(20px,2.6vw,29px);height:clamp(24px,3vw,33px);
+}
+.combat-shell.compact-battle .compact-unit b,
+.combat-shell.compact-battle .compact-unit small{
+ overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+.combat-shell.compact-battle .compact-round{
+ align-self:start;overflow:visible;text-align:center;
+}
+.combat-shell.compact-battle .compact-round strong{
+ font-size:clamp(11px,1.35vw,18px);line-height:1.2;
+ overflow-wrap:anywhere;max-width:100%;
+}
+.combat-shell.compact-battle .arena-field{
+ --compact-side-width:clamp(238px,21cqw,276px);
+ --compact-side-gap:clamp(8px,1vw,14px);
+ box-sizing:border-box;display:grid;
+ grid-template-columns:minmax(0,var(--compact-side-width)) minmax(0,1fr);
+ grid-template-rows:auto;
+ gap:var(--compact-side-gap);align-items:start;
+ width:100%;min-width:0;height:auto;min-height:0;max-height:none;
+ margin:0;padding:0;
+}
+.combat-shell.compact-battle .compact-command-panel{
+ position:relative;z-index:6;grid-column:1;grid-row:1;
+ display:flex;flex-direction:column;gap:10px;
+ align-self:start;width:100%;min-width:0;max-width:100%;
+ height:auto;min-height:0;max-height:none;
+ padding:8px;overflow:visible;overscroll-behavior:auto;
+}
+.combat-shell.compact-battle .compact-command-panel .compact-panel-section,
+.combat-shell.compact-battle .compact-command-panel .compact-primary-buttons,
+.combat-shell.compact-battle .compact-command-panel .compact-quick-buttons,
+.combat-shell.compact-battle .compact-command-panel .compact-action-sequence{
+ width:100%;min-width:0;max-width:100%;
+}
+.combat-shell.compact-battle .compact-command-panel .compact-panel-planning{
+ margin-top:0;
+}
+.combat-shell.compact-battle .compact-board-stack{
+ position:relative;z-index:2;grid-column:2;grid-row:1;
+ display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;
+ width:100%;max-width:100%;min-width:0;min-height:0;
+ padding:10px 0 0;margin:0;gap:0;
+}
+.combat-shell.compact-battle .compact-board-stack>.compact-board{
+ position:relative;display:grid;flex:none;align-self:flex-start;
+ width:min(100%,735px);max-width:735px;
+ height:auto;min-height:0;max-height:none;
+ aspect-ratio:1;grid-template:repeat(6,minmax(0,1fr))/repeat(6,minmax(0,1fr));
+ margin:0;transform:none;filter:none;contain:layout;
+}
+.combat-shell.compact-battle .compact-board-stack>.compact-board>.cell{
+ min-width:0;min-height:0;aspect-ratio:auto;
+}
+.combat-shell.compact-battle .compact-board-stack>.fighter-super-nameplate{
+ width:min(100%,735px);max-width:100%;min-width:0;
+ overflow:hidden;overflow-wrap:anywhere;
+}
+.combat-shell.compact-battle .compact-quick-footer,
+.combat-shell.compact-battle .compact-sequence-steps{
+ min-width:0;max-width:100%;
+}
+.combat-shell.compact-battle .compact-playback-tools{
+ display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;
+ min-width:0;max-width:100%;margin:9px 0;
+}
+.combat-shell.compact-battle .compact-speed{
+ display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;
+}
+.combat-shell.compact-battle .compact-speed button{min-width:33px;min-height:33px}
+.combat-shell.compact-battle :is(.compact-explainer,.compact-rule,.compact-field-forecast,
+ .augment-progression,.compact-log,.compact-result,.chest-reward,.compact-setup){
+ box-sizing:border-box;max-width:100%;min-width:0;overflow-wrap:anywhere;
+}
+.combat-shell.compact-battle .compact-result,
+.combat-shell.compact-battle .chest-reward{width:100%;padding:clamp(9px,1.5vw,16px)}
+.combat-shell.compact-battle .chest-options{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;min-width:0;
+}
+.combat-shell.compact-battle .chest-options>*{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.combat-shell.compact-battle .compact-setup .setup-fields{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ align-items:end;gap:9px;min-width:0;
+}
+.combat-shell.compact-battle .compact-setup label,
+.combat-shell.compact-battle .compact-setup select{
+ display:block;min-width:0;max-width:100%;
+}
+.combat-shell.compact-battle .compact-setup label{display:grid;gap:4px}
+.combat-shell.compact-battle .compact-setup select{
+ width:100%;min-height:38px;overflow:hidden;text-overflow:ellipsis;
+}
+.combat-shell.compact-battle button:focus-visible,
+.combat-shell.compact-battle a:focus-visible,
+.combat-shell.compact-battle select:focus-visible,
+.combat-shell.compact-battle summary:focus-visible{
+ outline:2px solid #fce2b0;outline-offset:2px;
+}
+/* Tablet / small laptop — use a sidebar wide enough for a labeled 7×7 diagram. */
+@media(max-width:1159px){
+ .combat-shell.compact-battle .arena-field{
+  --compact-side-width:clamp(208px,29cqw,260px);
+  --compact-side-gap:clamp(6px,1vw,11px);
+ }
+ .combat-shell.compact-battle .compact-board-stack>.compact-board{
+  width:100%;max-width:735px;height:auto;aspect-ratio:1;
+ }
+ .combat-shell.compact-battle .compact-setup .setup-fields{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+ }
+}
+/* Portrait phones: show the fight at full readable width, then all actions below.
+   No 82px/94px column and no scrolling within a panel the player cannot see. */
+@media(max-width:680px){
+ .combat-shell.compact-battle{padding:clamp(3px,1vw,8px)}
+ .combat-shell.compact-battle .combat-header{
+  gap:5px 8px;padding:5px 3px 8px;font-size:clamp(10px,2.6vw,13px);
+ }
+ .combat-shell.compact-battle .combat-header>span{
+  flex:1 1 44%;text-align:center;
+ }
+ .combat-shell.compact-battle .compact-stage{
+  --compact-side-width:100%;--compact-side-gap:10px;
+  padding:clamp(5px,1.4vw,10px);overflow:hidden;
+ }
+ .combat-shell.compact-battle .compact-hud{
+  grid-template-columns:minmax(0,1fr) minmax(66px,.54fr) minmax(0,1fr);
+  gap:clamp(2px,.6vw,5px);margin:0 0 8px;
+  height:auto;min-height:0;max-height:none;overflow:visible;
+ }
+ .combat-shell.compact-battle .compact-team{gap:2px}
+ .combat-shell.compact-battle .compact-team>small{
+  font-size:clamp(8px,2vw,10px);line-height:1.15;
+ }
+ .combat-shell.compact-battle .compact-unit{
+  min-height:26px;padding:2px 3px;gap:3px;border-radius:5px;
+ }
+ .combat-shell.compact-battle .compact-unit img{
+  width:clamp(17px,5vw,24px);height:clamp(21px,6vw,28px);
+ }
+ .combat-shell.compact-battle .compact-unit b{font-size:clamp(9px,2.2vw,11px)}
+ .combat-shell.compact-battle .compact-unit small{font-size:clamp(8px,1.9vw,10px)}
+ .combat-shell.compact-battle .compact-round{padding-top:0}
+ .combat-shell.compact-battle .compact-round small{font-size:8px}
+ .combat-shell.compact-battle .compact-round>b{
+  font-size:clamp(17px,4.4vw,22px);line-height:1.12;
+ }
+ .combat-shell.compact-battle .compact-round strong{
+  font-size:clamp(9px,2.4vw,12px);line-height:1.15;margin-top:3px;
+ }
+ .combat-shell.compact-battle .arena-field{
+  display:grid;grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto auto;
+  gap:10px;width:100%;min-width:0;height:auto;max-height:none;padding:0;
+ }
+ .combat-shell.compact-battle .compact-board-stack{
+  grid-column:1;grid-row:1;
+  display:flex;flex-direction:column;align-items:center;
+  width:100%;min-width:0;max-width:100%;
+  padding:13px 0 0;margin:0;gap:0;order:0;
+ }
+ .combat-shell.compact-battle .compact-board-stack>.compact-board{
+  grid-row:auto;position:relative;
+  width:min(100%,640px);max-width:640px;height:auto;
+  min-width:0;min-height:0;max-height:none;
+  aspect-ratio:1;margin:0;align-self:center;transform:none;contain:layout;
+ }
+ .combat-shell.compact-battle .compact-board-stack>.fighter-super-nameplate{
+  width:min(100%,640px);align-self:center;
+ }
+ .combat-shell.compact-battle .compact-command-panel{
+  grid-column:1;grid-row:2;position:relative;z-index:6;
+  display:flex;flex-direction:column;
+  width:100%;min-width:0;max-width:100%;
+  height:auto;min-height:0;max-height:none;
+  padding:clamp(8px,2vw,13px);margin:0;
+  overflow:visible;overscroll-behavior:auto;-webkit-overflow-scrolling:auto;
+  gap:9px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-panel-section{
+  min-width:0;padding-top:9px;gap:6px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-panel-section h3{
+  font-size:clamp(10px,2.4vw,12px);line-height:1.15;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-roster-rail{
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-portrait{
+  width:100%;max-height:72px;aspect-ratio:1.12;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-buttons{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-buttons .compact-icon-btn{
+  width:100%;min-width:0;min-height:79px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-icon-btn>.compact-tech-name{
+  font-size:clamp(10px,2.3vw,12px);line-height:1.18;
+  max-height:none;overflow:visible;white-space:normal;overflow-wrap:anywhere;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-icon-btn>.compact-area-mini{
+  width:44px;height:44px;min-width:44px;min-height:44px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-primary-action{
+  min-height:48px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-primary-action>.compact-area-mini{
+  width:44px;height:44px;min-width:44px;min-height:44px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-area-legend{
+  font-size:10px;gap:8px;justify-content:flex-start;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-action-sequence{
+  display:flex;flex-direction:column;gap:6px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-sequence-steps{
+  grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);
+  gap:5px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-sequence-empty,
+ .combat-shell.compact-battle .compact-command-panel .compact-sequence-icon{
+  width:100%;min-height:42px;max-height:76px;aspect-ratio:1.6;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-sequence-icon svg,
+ .combat-shell.compact-battle .compact-command-panel .compact-sequence-icon img{
+  max-width:54px;max-height:54px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-footer{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;margin:0;padding-top:8px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-footer>button{
+  min-height:42px;font-size:18px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-footer>button[data-confirm]{
+  background:linear-gradient(130deg,#75566b,#423451);border-color:#e5bc79;
+ }
+ .combat-shell.compact-battle .compact-setup .setup-fields,
+ .combat-shell.compact-battle .chest-options{
+  grid-template-columns:minmax(0,1fr);
+ }
+ .combat-shell.compact-battle .compact-result button{
+  min-height:39px;white-space:normal;
+ }
+ .combat-shell.compact-battle .compact-explainer,
+ .combat-shell.compact-battle .compact-rule,
+ .combat-shell.compact-battle .compact-field-forecast,
+ .combat-shell.compact-battle .compact-log{
+  font-size:clamp(11px,2.8vw,13px);
+  line-height:1.45;max-width:100%;
+ }
+ .combat-shell.compact-battle .compact-playback-tools{
+  justify-content:center;min-height:39px;
+ }
+ .combat-shell.compact-battle .compact-speed{
+  justify-content:center;gap:6px;
+ }
+ .combat-shell.compact-battle .compact-speed button{
+  min-width:41px;min-height:38px;
+ }
+}
+/* Very narrow handsets: keep all three roster entries and every action readable. */
+@media(max-width:380px){
+ .combat-shell.compact-battle .compact-hud{
+  grid-template-columns:minmax(0,1fr) minmax(60px,.5fr) minmax(0,1fr);
+  gap:2px;margin-bottom:7px;
+ }
+ .combat-shell.compact-battle .compact-unit img{width:16px;height:20px}
+ .combat-shell.compact-battle .compact-unit{gap:2px;padding:2px}
+ .combat-shell.compact-battle .compact-unit b{font-size:9px}
+ .combat-shell.compact-battle .compact-unit small{font-size:8px}
+ .combat-shell.compact-battle .compact-round strong{font-size:9px}
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-buttons{
+  grid-template-columns:minmax(0,1fr);gap:6px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-buttons .compact-icon-btn{
+  grid-template-columns:31px minmax(0,1fr) 46px;
+  grid-template-rows:auto;min-height:57px;padding:5px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-icon-btn>img,
+ .combat-shell.compact-battle .compact-command-panel .compact-icon-btn>span:first-child:not(.compact-area-mini):not(.compact-tech-name){
+  grid-column:1;grid-row:1;width:29px;height:33px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-icon-btn>.compact-tech-name{
+  grid-column:2;grid-row:1;text-align:left;font-size:11px;line-height:1.2;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-icon-btn>.compact-area-mini{
+  grid-column:3;grid-row:1;width:46px;height:46px;min-width:46px;min-height:46px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-primary-action{
+  grid-template-columns:29px minmax(0,1fr) 46px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-primary-action>.compact-area-mini{
+  width:46px;height:46px;min-width:46px;min-height:46px;
+ }
+ .combat-shell.compact-battle .compact-command-panel .compact-quick-footer>button{
+  font-size:16px;
+ }
+}
+/* Short landscape viewports are free to scroll instead of clipping arena actions. */
+@media(max-height:520px) and (orientation:landscape){
+ .combat-shell.compact-battle .compact-stage{height:auto;max-height:none}
+ .combat-shell.compact-battle .compact-command-panel{height:auto;max-height:none;overflow:visible}
+ .combat-shell.compact-battle .compact-hud{height:auto;max-height:none;overflow:visible}
+}
+/* Retain all information when the player requests reduced visual motion. */
+@media(prefers-reduced-motion:reduce){
+ .combat-shell.compact-battle .compact-board-stack,
+ .combat-shell.compact-battle .compact-command-panel{scroll-behavior:auto}
+}
