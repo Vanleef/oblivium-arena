@@ -188,8 +188,8 @@ function clashMarkup(){
   +(reveal?'<div class="compact-duel-reveal" role="status" aria-live="polite"><strong>'+esc(reveal.label)+'</strong>'
    +'<span>Você: '+esc(playerLabel)+' · Oponente: '+esc(opponentLabel)+'</span></div>'
    :'<div class="compact-duel-help"><span>Ímpeto vence Finta</span><span>Finta vence Contenção</span><span>Contenção vence Ímpeto</span></div>')
-  +'<div class="compact-duel-footer"><span>Vitória: golpe potente · Empate: metade do dano · Derrota: erro</span>'
-   +'<button type="button" data-duel-auto '+(duel.locked?'disabled':'')+'>Escolher por mim <small>Esc</small></button></div>'
+  +'<div class="compact-duel-footer"><span>Vitória atacante: crítico · Empate: dano normal · Vitória defensor: bloqueio</span>'
+   +'<button type="button" data-duel-auto '+(duel.locked?'disabled':'')+'>'+(duel.role==='defense'?'Aceitar golpe':'Escolher por mim')+' <small>Esc</small></button></div>'
   +'</section>';
 }
 function render(){
@@ -324,6 +324,10 @@ async function playback(events,{partial=false}={}){
 // There is no reaction timer: this is a short, understandable strategy contest.
 function interactiveDuel(ref){
  const attacking=ref.side==='player',role=attacking?'attack':'defense';
+ const cardMode=Boolean(state.battle.tactical.cardMode),respondingSide=attacking?'enemy':'player';
+ const available=tacticalResponseOptions(state.battle,respondingSide,ref.targets[0]);
+ if(cardMode&&!available.available)return Promise.resolve({decline:true});
+ if(cardMode&&attacking&&(ref.ability.damage||0)<18&&!available.reactions.length)return Promise.resolve({decline:true});
  const current=state.battle,origin=current.tactical.positions[ref.actorId];
  const before={allies:current.allies,enemies:current.enemies,
   positions:current.tactical.positions,width:current.tactical.width,height:current.tactical.height};
@@ -347,20 +351,24 @@ function interactiveDuel(ref){
    if(!tacticalDuelOptions.some(option=>option.id===choice))return;
    duel.locked=true;duel.choice=choice;
    const attackChoice=attacking?choice:foeChoice,defenseChoice=attacking?foeChoice:choice;
-   const answer=tacticalDuelResolve(attackChoice,defenseChoice);
+   const answer=tacticalDuelResolve(attackChoice,defenseChoice,{mode:cardMode?'cards':'legacy'});
    duel.result=answer;state.clash=duel;render();
    playCombatCue(answer.outcome==='miss'?'guard':answer.outcome==='hit'?'release':'impact',
     state.event?.family||'strike');
    duel.transitionTimer=setTimeout(()=>{
     if(duel.completed)return;
-    duel.completed=true;state.clash=null;state.event=null;render();resolve({attackChoice,defenseChoice});
+    duel.completed=true;state.clash=null;state.event=null;render();resolve({attackChoice,defenseChoice,...(!available.basic&&available.reactions.length?{reactionCardId:available.reactions[0].id}:{})});
    },600);
   };
   duel.press=finish;
   duel.cancel=()=>{if(duel.completed)return;duel.completed=true;clearTimeout(duel.transitionTimer);resolve({});};
   // A skipped response still makes an ordinary, visibly explained choice.
   // There is no free immunity or advantage from skipping the contest.
-  duel.skip=()=>finish(attacking?'impeto':'contencao');
+  duel.skip=()=>{
+    if(cardMode&&!attacking&&!duel.locked){
+     duel.completed=true;state.clash=null;state.event=null;render();resolve({decline:true});
+    }else finish(attacking?'impeto':'contencao');
+   };
   state.clash=duel;render();
  });
 }
