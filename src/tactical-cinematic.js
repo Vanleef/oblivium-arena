@@ -1,15 +1,22 @@
 import {boardMetricPoint,boardTracks} from './tactical-board.js';
 import {tacticalAnimationFrames} from './tactical-animation.js';
 const escapeHtml=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const superSlots=new Set(['voto','despertar']);
+// A super is a brief arena treatment, not a portrait-sized interruption.
+// Regular techniques and repeated common attacks keep the board unobscured.
 export function tacticalCutinActive(event){
- return event?.type==='skill'&&!event.skipped&&!(event.compactReplay&&event.repeated&&!tacticalHighlightEvent(event))&&!(event.pose==='ready'&&event.index>0)&&['ready','anticipate','gather','inhale','compress','windup','brace','guard','release','thrust'].includes(event.pose);
+ if(event?.type!=='skill'||event.skipped)return false;
+ if(event.compactReplay&&event.repeated&&!tacticalHighlightEvent(event))return false;
+ if(!superSlots.has(event.abilityId)&&!tacticalHighlightEvent(event))return false;
+ return ['anticipate','gather','inhale','compress','windup','brace','release','thrust'].includes(event.pose);
 }
 export function tacticalCutinMarkup(actor,ability,event){
  if(!actor||!tacticalCutinActive(event))return '';
- // A technique-specific image communicates the actual ability; use the character portrait as fallback.
- const art=ability?.art||actor.art?.portrait;if(!art)return '';
  const world=actor.realm==='Inferno'?'inferno':actor.realm==='Paraíso'?'paraiso':'limbo';
- return '<div class="skill-cutin '+(event.presentation==='exchange'?'exchange-cutin ':'')+world+' '+(actor.side==='enemy'?'enemy':'player')+'" data-pose="'+escapeHtml(event.pose)+'" aria-hidden="true"><div class="cutin-wash"></div><img class="cutin-art" src="'+escapeHtml(art)+'" alt=""><div class="cutin-strokes"></div><span class="cutin-title"><b>'+escapeHtml(actor.name)+'</b><small>'+escapeHtml(ability?.name||event.title)+'</small></span></div>';
+ const side=actor.side==='enemy'?'enemy':'player';
+ const phase=['release','thrust'].includes(event.pose)?'release':'charge';
+ // Speed streaks, darkened arena and an anchored character glow: no oversized artwork.
+ return '<div class="fighter-super '+world+' '+side+'" data-pose="'+escapeHtml(event.pose)+'" data-phase="'+phase+'" aria-hidden="true"><span class="fighter-super-veil"></span><span class="fighter-super-speedlines"></span><span class="fighter-super-rupture"></span><span class="fighter-super-caption"><b>'+escapeHtml(actor.name)+'</b><small>'+escapeHtml(ability?.name||event.title||'Especial')+'</small></span></div>';
 }
 export function tacticalProjectileKind(actor,ability,event){
  if(event?.type!=='skill'||event.skipped||!ability||['self','ally','friendly','team'].includes(ability.target))return null;
