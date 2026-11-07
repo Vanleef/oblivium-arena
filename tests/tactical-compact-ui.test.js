@@ -92,7 +92,8 @@ test('combat feedback is not a guessing overlay and renders actions as icons abo
  assert.match(js,/data-feedback-kind/);
  assert.doesNotMatch(js,/if\('guard'in d\)/,'no click to plan Guard');
  assert.match(css,/\.compact-stage>\.fighter-super\s*\{/);
- assert.match(css,/z-index:12;pointer-events:none/,'special is a noninteractive arena treatment');
+ assert.match(css,/z-index:5;pointer-events:none/,'super stays behind the active combat board');
+ assert.match(css,/\.compact-stage:has\(>\.fighter-super\)>\.arena-field\{[\s\S]*?z-index:6/,'fighters stay foreground during the special');
  assert.match(css,/\.compact-token-label\s*\{[\s\S]*?top:-9px/);
  assert.match(css,/\.compact-hit-damage \.conquest-model/);
  assert.match(css,/\.compact-hit-heal \.conquest-model/);
