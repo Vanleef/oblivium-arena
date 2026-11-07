@@ -14,7 +14,7 @@ export function tacticalDuelResolve(attackChoice,defenseChoice){
   beats[attackChoice]===defenseChoice?'hit':'miss';
  return Object.freeze({
   duel:true,attackChoice,defenseChoice,outcome,
-  damageRate:outcome==='hit'?1:outcome==='clash'?0.5:0,
+  damageRate:outcome==='hit'?1.5:outcome==='clash'?0.5:0,
   hit:outcome!=='miss',
   label:outcome==='hit'?'ACERTO DECISIVO':outcome==='clash'?'CHOQUE DE VONTADES':'ESPECIAL EVITADO'
  });
@@ -22,7 +22,7 @@ export function tacticalDuelResolve(attackChoice,defenseChoice){
 export function tacticalDuelDamage(base,duel){
  if(!Number.isFinite(base)||base<=0)return base;
  if(!duel?.duel)return base;
- return duel.outcome==='miss'?0:Math.max(1,Math.round(base*(duel.outcome==='clash'?.5:1)));
+ return duel.outcome==='miss'?0:Math.max(1,Math.round(base*(duel.outcome==='clash'?.5:1.5)));
 }
 export function tacticalDuelAI({round=1,actorId='',targetId='',abilityId='',side='defense'}={}){
  // Chosen once, BEFORE the human picks. No random online timing/hidden
