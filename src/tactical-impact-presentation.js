@@ -26,7 +26,7 @@ export function tacticalImpactProfile(event,{speed=1,reduced=false}={}){
   const old=before.get(unit.id);
   return old&&(old.bodyForm||'base')!==(unit.bodyForm||'base');
  });
- const special=superAbilities.has(event.abilityId)||finishing||transformed;
+ const special=superAbilities.has(String(event.abilityId||'').split('/')[0])||finishing||transformed;
  // Restorative/support skills retain their own positive feedback, but should not
  // shake the arena or pause like a weapon contact. A missed strike is also quiet.
  const contactResolved=damage>0||finishing||transformed||(attack&&victims.length>0);
