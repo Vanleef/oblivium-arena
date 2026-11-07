@@ -23,6 +23,7 @@ As assinaturas antigas de partículas dos demais personagens continuam funcionan
 ## Correções de precisão
 
 - O contato compara a **casa original** com as células resolvidas para determinar o acerto, mas sua partícula e o número correspondente são desenhados na **casa de chegada** quando houve deslocamento.
+- Golpes letais preservam o último quadro da vítima durante o contato, executam o colapso e sinalizam **DERROTADO**. A ocupação real do tabuleiro continua considerando apenas unidades vivas.
 - As listas `affectedTargetIds` e `targets` são combinadas. Com técnica sem células explícitas, o feedback fica restrito aos alvos conhecidos, evitando números de unidades irrelevantes.
 - Cure e proteção genéricas mantêm um sinal visual próprio; o motivo físico não deve tornar uma cura indistinguível de um ataque.
 - As animações respeitam o orçamento global de partículas, os tamanhos responsivos e movimento reduzido.
@@ -32,7 +33,7 @@ As assinaturas antigas de partículas dos demais personagens continuam funcionan
 - `src/tactical-character-vfx.js` — catálogo, variação por posição e desenho de silhuetas.
 - `src/tactical-effects-layer.js` — composição sobre o contato resolvido.
 - `src/tactical-feedback.js` — filtragem precisa de feedback.
-- `tests/tactical-character-vfx.test.js`, `tests/tactical-effects-layer.test.js`, `tests/tactical-feedback.test.js` — regressões.
+- `tests/tactical-character-vfx.test.js`, `tests/tactical-effects-layer.test.js`, `tests/tactical-feedback.test.js`, `tests/tactical-compact-ui.test.js` — regressões.
 
 ## Verificação e limites
 
