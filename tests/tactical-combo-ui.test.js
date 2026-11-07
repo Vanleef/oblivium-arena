@@ -26,7 +26,7 @@ test('specials show three distinct options, clear cyclic help and hidden opponen
  assert.match(js,/Finta vence Contenção/);
  assert.match(js,/Contenção vence Ímpeto/);
  assert.match(js,/duel\.locked\?' disabled'/);
- assert.match(js,/tacticalDuelTendency\\(rival\\)/);
+ assert.match(js,/tacticalDuelTendency\(rival\)/);
  assert.match(js,/tende a/);
  assert.match(js,/opponentLabel=reveal\?/);
  assert.match(js,/duel\.result=answer;state\.clash=duel;render\(\)/);
@@ -86,6 +86,6 @@ test('lost specials visibly whiff without fake contact and successful specials r
 test('UI errors still finish the staged round with a safe no-choice resolution',async()=>{
  const ui=await read('src/compact-demo.js');
  assert.match(ui,/for\(let attempts=0;attempts<26;attempts\+\+\)/);
- assert.match(ui,/const step=session\.next\(\)/);
+ assert.match(ui,/const step=session\.next\(pending\?\.comboEligible/);
  assert.match(ui,/state\.busy=false;state\.clash=null;state\.event=null;state\.snapshot=null/);
 });
