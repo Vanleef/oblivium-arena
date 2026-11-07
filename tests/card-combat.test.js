@@ -69,6 +69,8 @@ test("one team response per round and cyclic clash outcomes",()=>{
  endCardRound(s);beginCardRound(s,[a,b],2,rng);assert.ok(spendResponse(s,"player"));
  assert.deepEqual(resolveWillClash({attackerChoice:"miragem",defenderChoice:"sombra",baseDamage:30}),{outcome:"blocked",cancel:true,critical:false,damage:0});
  assert.deepEqual(resolveWillClash({attackerChoice:"miragem",defenderChoice:"luz",baseDamage:30}),{outcome:"critical",cancel:false,critical:true,damage:42});
+ assert.equal(resolveWillClash({attackerChoice:"luz",defenderChoice:"sombra",baseDamage:30}).outcome,"critical");
+ assert.equal(resolveWillClash({attackerChoice:"sombra",defenderChoice:"miragem",baseDamage:30}).outcome,"critical");
  assert.equal(resolveWillClash({attackerChoice:"sombra",defenderChoice:"sombra",baseDamage:30}).damage,30);
  assert.throws(()=>resolveWillClash({attackerChoice:"stone",defenderChoice:"sombra"}),/inválida/);
 });
