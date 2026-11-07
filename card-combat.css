@@ -69,3 +69,30 @@
 .will-clash-rule{color:#d9bca7;font-size:11px;line-height:1.5;margin:10px 0 0}
 @media(max-width:520px){.will-clash-options{gap:5px}.will-clash-options button{min-height:76px}.will-clash-options button strong{font-size:14px}.will-plan-options button{flex:1}.will-plan-options{width:100%}}
 @media(prefers-reduced-motion:reduce){.will-clash-options button{transition:none}.will-clash-options button:hover{transform:none}}
+
+/* Deck construction below the trio roster, independent of campaign meta bonuses. */
+.deck-builder{margin-top:20px;border:1px solid #8e739d65;border-radius:14px;padding:clamp(14px,2.5vw,25px);background:linear-gradient(155deg,#1b1423,#282031 60%,#16121f);color:#f1e4dd}
+.deck-builder-heading{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.deck-builder-heading small{font-size:10px;letter-spacing:.12em;color:#e4b981}
+.deck-builder-heading h2{font-size:clamp(18px,2.5vw,24px);color:#f5e2c4;margin:6px 0}
+.deck-builder-heading p{color:#d6c8d8;font-size:12px;line-height:1.45;margin:0}
+.deck-builder-count{border:1px solid #a28b9699;border-radius:8px;padding:8px 12px;white-space:nowrap;color:#f6d9a2;font-size:13px}
+.deck-builder-units{display:flex;gap:7px;margin:17px 0 14px;flex-wrap:wrap}
+.deck-builder-units button{border:1px solid #796a7e;background:#281f30;color:#d9c7dc;padding:8px 12px;border-radius:8px;cursor:pointer;flex:1;min-width:100px}
+.deck-builder-units button[aria-pressed="true"]{border-color:#e1b579;background:#48354a;color:#f9e7ca}
+.deck-builder-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.deck-builder-layout h3{margin:0 0 9px;color:#f2dbbf;font-size:14px}
+.deck-card-list,.deck-skill-list{display:grid;gap:6px;align-content:start}
+.deck-list-card,.deck-skill-option{display:flex;align-items:center;gap:9px;min-width:0;padding:7px 9px;border:1px solid #95799455;border-radius:8px;background:#211b2a}
+.deck-card-index{font-size:10px;color:#e8b977;width:21px;text-align:center;flex:0 0 21px}
+.deck-list-card>div,.deck-skill-option>div{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
+.deck-list-card strong,.deck-skill-option strong{font-size:12px;line-height:1.2;white-space:normal}
+.deck-list-card small,.deck-skill-option small{font-size:10px;color:#c6b9cb}
+.deck-list-card button,.deck-skill-option button{border:1px solid #ab8d945e;color:#edd4cf;background:#463346;border-radius:6px;padding:5px 8px;cursor:pointer;font-size:11px}
+.deck-list-card button{font-size:17px;line-height:1;padding:3px 8px}
+.deck-skill-option button:disabled{opacity:.4;cursor:default}
+.deck-builder-note{font-size:11px;line-height:1.5;color:#bfaec7}
+.deck-builder-actions{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-top:1px solid #84728955;padding-top:13px;margin-top:15px}
+.deck-builder-actions>span{font-size:11px;color:#d4c6d8;max-width:400px}
+.deck-builder-actions>div{display:flex;gap:9px;flex-wrap:wrap}
+@media(max-width:760px){.deck-builder-layout{grid-template-columns:1fr}.deck-builder-heading{align-items:flex-start}.deck-builder-units button{font-size:12px}.deck-builder-actions>div{width:100%}.deck-builder-actions .button{flex:1}}
