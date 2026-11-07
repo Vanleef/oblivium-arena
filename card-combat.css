@@ -1,0 +1,46 @@
+/* Oblivium Arena — three character hands (feature branch).
+   Restrained infernal/paradise/limbo visual language; no opaque arena overlays. */
+.combat-card-system{border:1px solid rgba(213,183,126,.25);border-radius:16px;padding:clamp(12px,2vw,22px);margin:12px 0 18px;background:linear-gradient(160deg,rgba(37,24,51,.87),rgba(15,11,24,.90));color:#ece2d0;box-shadow:0 14px 38px #09071244;min-width:0}
+.combat-card-heading{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.combat-card-heading h2{font-size:clamp(16px,2.2vw,22px);margin:2px 0 0;color:#f7e8cb;line-height:1.15}
+.combat-card-heading small{font-size:10px;letter-spacing:.16em;color:#cbb18d}
+.combat-deck-counts{display:flex;gap:10px;flex-wrap:wrap;color:#c9bace;font-size:11px}
+.combat-deck-counts span{padding:5px 8px;border:1px solid #8a739044;border-radius:6px;background:#191323}
+.combat-hand-units{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.card-unit-switch{padding:10px;border:1px solid #85748b55;border-radius:10px;background:#241b2e;color:#cfc1d3;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:7px;min-width:0}
+.card-unit-switch span{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-unit-switch small{font-size:10px;color:#c2ad98;white-space:nowrap}
+.card-unit-switch.active{border-color:#dfb976;background:#423149;color:#fff3da;box-shadow:inset 0 0 0 1px #dfb9764a}
+.card-unit-switch:disabled{opacity:.4;cursor:not-allowed}
+.combat-hand-cards{display:flex;align-items:stretch;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:2px 3px 10px;scrollbar-width:thin;min-height:205px}
+.combat-hand-card{position:relative;flex:0 0 clamp(155px,18vw,205px);max-width:205px;min-width:0;scroll-snap-align:start;padding:12px 10px 14px;border:1px solid #a08a8255;border-radius:12px;display:flex;flex-direction:column;gap:7px;align-items:flex-start;text-align:left;min-height:190px;color:#fff1dc;background:linear-gradient(154deg,#4c3147 0%,#261e33 62%,#151220 100%);box-shadow:inset 0 1px #ffffff12,0 7px 15px #07051155;cursor:pointer;transition:border-color .15s,transform .15s,box-shadow .15s}
+.combat-hand-card:focus-visible{outline:2px solid #ffda93;outline-offset:2px}
+.combat-hand-card:not(:disabled):hover{transform:translateY(-4px);border-color:#f1c787}
+.combat-hand-card.active{border-color:#f0d091;box-shadow:0 0 0 2px #ad8e5677}
+.combat-hand-card.queued{border-color:#91d6c9}
+.combat-hand-card:disabled{opacity:.52;filter:saturate(.6);cursor:not-allowed}
+.combat-hand-card .card-type{font-size:9px;font-weight:700;letter-spacing:.1em;color:#f2cda2}
+.combat-hand-card .card-thumb{width:100%;height:62px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:6px;color:#dfbfa4;background:radial-gradient(ellipse,#95687955,#231529);font-size:28px}
+.combat-hand-card .card-thumb img{width:100%;height:100%;object-fit:cover}
+.combat-hand-card strong{font-size:13px;line-height:1.2}
+.combat-hand-card .card-cost{min-height:18px}
+.combat-hand-card .card-effect{font-size:11px;color:#cfbed0;line-height:1.35}
+.combat-hand-card .card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto}
+.combat-hand-card .card-upgrade-tag{border:1px solid #d8a75a66;color:#e6c995;border-radius:4px;padding:2px 4px;font-size:9px}
+.combat-hand-card .card-marker{font-size:9px;letter-spacing:.04em;color:#f6d097}
+.combat-hand-card.movement-card{border-color:#8e849d;background:linear-gradient(145deg,#47415c,#242036);cursor:default}
+.combat-hand-card.movement-card p{font-size:11px;line-height:1.45;color:#e1d8e9;margin:0}
+.movement-warning{font-size:10px;color:#e8c2a6;margin-top:auto}
+.combat-hand-hint{border-top:1px solid #8c729244;margin-top:2px;padding-top:9px;color:#c4b5c6;font-size:11px;line-height:1.5}
+@media(max-width:740px){
+ .combat-card-system{padding:11px;margin:8px 0 12px;border-radius:12px}
+ .combat-hand-units{gap:4px}
+ .card-unit-switch{padding:8px 5px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+ .card-unit-switch span{font-size:11px;width:100%}
+ .card-unit-switch small{font-size:9px}
+ .combat-hand-cards{min-height:190px}
+ .combat-hand-card{flex-basis:152px;min-height:180px;padding:10px}
+ .combat-card-heading{align-items:flex-start}
+ .combat-deck-counts{font-size:10px;gap:5px}
+}
+@media(prefers-reduced-motion:reduce){.combat-hand-card{transition:none}.combat-hand-card:not(:disabled):hover{transform:none}}
