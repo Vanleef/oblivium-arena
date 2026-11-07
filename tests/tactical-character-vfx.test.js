@@ -41,3 +41,23 @@ test('physical contact motifs render different geometry without changing combat 
  }
  assert.equal(drawTacticalCharacterImpact({}, {radius:20,color:[]},.4),false);
 });
+
+test('each pilot character has four visibly different physical gestures, not only size changes',()=>{
+ const poses=['impulso','tecnica','voto','despertar'];
+ for(const id of Object.keys(tacticalCharacterMotifs)){
+  const silhouettes=poses.map(abilityId=>{
+   const path=[];
+   const ctx=new Proxy({}, {get:(target,key)=>target[key]||((...args)=>{
+    if(['moveTo','lineTo','quadraticCurveTo','bezierCurveTo','ellipse','arc','fill','stroke'].includes(key))
+     path.push([key,...args.map(v=>typeof v==='number'?Math.round(v*100)/100:v)]);
+   })});
+   const choreography=tacticalCharacterChoreography({sourceId:id},{type:'skill',abilityId});
+   assert.ok(choreography);
+   assert.equal(drawTacticalCharacterImpact(ctx,{
+    choreography,radius:24,color:['#fff','#b86','#422'],reaction:'damage'
+   },.3),true);
+   return JSON.stringify(path);
+  });
+  assert.equal(new Set(silhouettes).size,4,id+' needs four distinct material motion paths');
+ }
+});
