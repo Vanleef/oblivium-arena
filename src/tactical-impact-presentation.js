@@ -19,7 +19,9 @@ export function tacticalImpactProfile(event,{speed=1,reduced=false}={}){
    +Math.max(0,(old.shield||0)-(unit.shield||0));
  });
  const damage=Math.max(0,...loss);
- const finishing=victims.some(unit=>before.get(unit.id)?.hp>0&&unit.hp<=0);
+ // Reactive and collateral damage can defeat units not listed as explicit targets.
+ // They are still visible in the resolved replay and deserve a finishing reaction.
+ const finishing=living(event.after).some(unit=>before.get(unit.id)?.hp>0&&unit.hp<=0);
  const transformed=living(event.after).some(unit=>{
   const old=before.get(unit.id);
   return old&&(old.bodyForm||'base')!==(unit.bodyForm||'base');
