@@ -39,7 +39,7 @@ test('compact action panel lives in the old left sidebar while the 6x6 board sta
  const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
  assert.match(css,/\.compact-command-panel\s*\{\s*grid-column:1;grid-row:1/);
  assert.match(css,/\.compact-board-stack\s*\{\s*grid-column:2;grid-row:1/);
- assert.match(css,/grid-template-columns:minmax\(88px,24%\) minmax\(0,1fr\)/,'mobile stays lateral');
+ assert.match(css,/grid-template-columns:var\(--compact-side-width\) minmax\(0,1fr\)/,'mobile stays lateral');
  assert.match(css,/max-height:var\(--compact-field-height\)/,'sidebar cannot grow the board while scrolling');
 });
 
@@ -55,4 +55,19 @@ test('portrait-only sidebar keeps actual scene artwork under its transparent fie
  assert.match(styles,/border:2px solid var\(--hero-accent\)/);
  assert.match(styles,/background-image:linear-gradient\(180deg,[^\n]*var\(--compact-scene-image\)/);
  assert.match(styles,/\.compact-board \.cell\{background:transparent!important\}/);assert.match(styles,/auto var\(--compact-floor-zoom,250%\)/);assert.match(styles,/\.compact-ground-shadow\{/);
+});
+
+test('mobile HUD shows the full 3v3 roster and places the board immediately beside a scrollable sidebar',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ const latest=css.slice(css.lastIndexOf('/* Responsive combat layout:'));
+ assert.ok(latest.includes('height:auto;')&&latest.includes('overflow:visible;'),'HUD must grow instead of hiding third team member');
+ assert.match(latest,/\.compact-hud\s*\{[\s\S]*?height:auto;[\s\S]*?overflow:visible;/,'roster HUD must not be fixed-height');
+ assert.match(latest,/--compact-side-width:clamp\(94px,18cqw,130px\)/);
+ assert.match(latest,/--compact-side-gap:4px/);
+ assert.match(latest,/grid-template-columns:var\(--compact-side-width\) minmax\(0,1fr\)/);
+ assert.match(latest,/max-height:var\(--compact-board-side\)/,'panel scrolls independently instead of cropping');
+ assert.match(latest,/top:auto;\s*bottom:auto;/,'old fortress-board vertical offset is removed');
+ assert.match(latest,/\.compact-board-stack>\.compact-board\s*\{[\s\S]*?width:100%;/,'board uses all available mobile space');
+ assert.match(latest,/--compact-side-width:clamp\(82px,23cqw,95px\)/,'extra narrow phones get a smaller sidebar');
 });

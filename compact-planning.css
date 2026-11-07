@@ -398,3 +398,178 @@
  .compact-battle .compact-board .token .token-art{bottom:5px}
  .compact-battle .compact-board .token .compact-ground-shadow{bottom:3px}
 }
+
+/* Responsive combat layout: keep the sidebar directly beside the field, never clip the third hero. */
+.combat-shell.compact-battle{
+ width:100%;
+ max-width:1320px;
+ min-width:0;
+}
+.combat-shell.compact-battle .compact-stage{
+ width:100%;
+ max-width:100%;
+ min-width:0;
+}
+/* No fixed-height masking: all three allied and opposing character cards stay visible. */
+.combat-shell.compact-battle .compact-hud{
+ display:grid;
+ grid-template-columns:minmax(0,1fr) minmax(92px,.78fr) minmax(0,1fr);
+ align-items:start;
+ height:auto;
+ min-height:0;
+ max-height:none;
+ overflow:visible;
+ gap:clamp(5px,1.2vw,14px);
+ margin-bottom:clamp(7px,1.3vw,13px);
+}
+.combat-shell.compact-battle .compact-team{
+ min-width:0;
+ max-width:100%;
+ gap:3px;
+}
+.combat-shell.compact-battle .compact-unit{min-width:0;max-width:100%}
+.combat-shell.compact-battle .compact-unit>span{min-width:0}
+.combat-shell.compact-battle .compact-round{min-width:0}
+/* A fixed, modest sidebar track means the board starts immediately next to it. */
+.combat-shell.compact-battle .arena-field{
+ --compact-side-width:clamp(126px,15cqw,190px);
+ --compact-side-gap:clamp(4px,.65cqw,9px);
+ display:grid;
+ width:100%;
+ min-width:0;
+ grid-template-columns:var(--compact-side-width) minmax(0,1fr);
+ grid-template-rows:auto;
+ align-items:start;
+ gap:var(--compact-side-gap);
+ margin:0;
+ padding:0;
+}
+.combat-shell.compact-battle .compact-command-panel{
+ grid-column:1;
+ grid-row:1;
+ box-sizing:border-box;
+ min-width:0;
+ max-width:100%;
+ width:100%;
+ margin:0;
+}
+.combat-shell.compact-battle .compact-board-stack{
+ grid-column:2;
+ grid-row:1;
+ display:flex;
+ align-items:flex-start;
+ justify-content:flex-start;
+ min-width:0;
+ max-width:100%;
+ width:100%;
+ margin:0;
+ padding:0;
+}
+.combat-shell.compact-battle .compact-board-stack>.compact-board{
+ position:relative;
+ top:auto;
+ bottom:auto;
+ left:auto;
+ right:auto;
+ width:min(100%,735px);
+ height:auto;
+ max-width:735px;
+ max-height:none;
+ aspect-ratio:1;
+ margin:0;
+ align-self:flex-start;
+ transform:none;
+ contain:layout;
+}
+/* Phones: compute panel and board sizes from the very same container width.
+   Unlike the old 63cqw field cap, the grid now fills the entire available track. */
+@media(max-width:760px){
+ .combat-shell.compact-battle{padding:4px;overflow:visible}
+ .combat-shell.compact-battle .compact-stage{
+  --compact-side-width:clamp(94px,18cqw,130px);
+  --compact-side-gap:4px;
+  --compact-board-side:calc(100cqw - var(--compact-side-width) - var(--compact-side-gap));
+  padding:5px;
+  overflow:hidden;
+ }
+ .combat-shell.compact-battle .compact-hud{
+  grid-template-columns:minmax(0,1fr) minmax(74px,.62fr) minmax(0,1fr);
+  height:auto;
+  min-height:0;
+  max-height:none;
+  overflow:visible;
+  gap:4px;
+  margin-bottom:7px;
+ }
+ .combat-shell.compact-battle .compact-team{gap:2px;width:100%;max-width:100%}
+ .combat-shell.compact-battle .compact-team>small{font-size:8px;line-height:1.2}
+ .combat-shell.compact-battle .compact-unit{
+  min-height:26px;
+  padding:2px 4px;
+  gap:4px;
+  width:100%;
+ }
+ .combat-shell.compact-battle .compact-unit img{
+  width:19px;
+  height:24px;
+  flex:none;
+ }
+ .combat-shell.compact-battle .compact-unit b{font-size:9px}
+ .combat-shell.compact-battle .compact-unit small{font-size:8px}
+ .combat-shell.compact-battle .compact-round{padding-top:1px}
+ .combat-shell.compact-battle .compact-round>b{font-size:18px;line-height:1.1}
+ .combat-shell.compact-battle .compact-round strong{font-size:10px;line-height:1.2;margin-top:2px}
+ .combat-shell.compact-battle .arena-field{
+  grid-template-columns:var(--compact-side-width) minmax(0,1fr);
+  gap:var(--compact-side-gap);
+ }
+ .combat-shell.compact-battle .compact-command-panel{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  max-height:var(--compact-board-side);
+  overflow-y:auto;
+  overflow-x:hidden;
+  margin:0;
+  scrollbar-width:thin;
+  -webkit-overflow-scrolling:touch;
+ }
+ .combat-shell.compact-battle .compact-board-stack{
+  align-items:flex-start;
+  width:100%;
+  min-width:0;
+ }
+ .combat-shell.compact-battle .compact-board-stack>.compact-board{
+  position:relative;
+  top:auto;
+  bottom:auto;
+  width:100%;
+  max-width:none;
+  height:auto;
+  aspect-ratio:1;
+  margin:0;
+ }
+ .combat-shell.compact-battle .compact-setup{min-width:0;max-width:100%}
+}
+@media(max-width:420px){
+ .combat-shell.compact-battle .compact-stage{
+  --compact-side-width:clamp(82px,23cqw,95px);
+  --compact-side-gap:3px;
+  padding:4px;
+ }
+ .combat-shell.compact-battle .compact-hud{
+  grid-template-columns:minmax(0,1fr) minmax(67px,.58fr) minmax(0,1fr);
+  gap:3px;
+ }
+ .combat-shell.compact-battle .compact-unit{padding:2px;gap:2px;min-height:24px}
+ .combat-shell.compact-battle .compact-unit img{width:17px;height:21px}
+ .combat-shell.compact-battle .compact-unit b{font-size:8px}
+ .combat-shell.compact-battle .compact-unit small{font-size:7px}
+ .combat-shell.compact-battle .compact-round strong{font-size:9px}
+ .combat-shell.compact-battle .compact-command-panel{padding:3px}
+ .compact-battle .compact-panel-section{min-width:0}
+ .compact-battle .compact-primary-buttons,.compact-battle .compact-quick-buttons{min-width:0}
+ .compact-battle .compact-panel-section h3{font-size:8px}
+ .compact-battle .compact-primary-action span{font-size:8px}
+ .compact-battle .compact-sequence-steps{min-width:0}
+}
