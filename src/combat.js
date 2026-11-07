@@ -1,5 +1,5 @@
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
-import {createCardState,beginCardRound,endCardRound,findHandCard,consumeHandCard,applyCardUpgrades} from "./card-combat.js";
+import {createCardState,beginCardRound,endCardRound,findHandCard,consumeHandCard,applyCardUpgrades,WILL_SIGNS,resolveWillClash,spendResponse,canUseResponse} from "./card-combat.js";
 export {getAbilityResourceCosts} from "./resource-costs.js";
 import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
 import { checkDeathInfluences } from "./world-influences.js";
@@ -300,6 +300,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   }
   const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),priorBodyForm=actor.bodyForm||"base",charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,totalPurged=0,affected=0;const reactions=[];
   for(const target of targets){
+    if(action.clashResult?.cancel&&action.clashTargetId===target.id){log(s,`${target.name} anula ${a.name} no Confronto de Vontades.`);continue;}
     if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterRequiresShield||target.shield>0)&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter,effect=target.counterEffect;target.counter=0;const r=hit(s,actor,value,{damageType:target.counterDamageType||"physical",ignoreInvulnerability:true}),notes=[];if(effect?.drainEssence){const n=transfer(s,target.side,effect.drainEssence.amount||1,false,effect.drainEssence.resource||null);if(n)notes.push(`remove ${n} ${essenceName(effect.drainEssence.resource)}`);}if(effect?.stealEssence){const n=transfer(s,target.side,effect.stealEssence.amount||1,true,effect.stealEssence.resource||null);if(n)notes.push(`rouba ${n} Essência`);}if(effect?.generateEssence?.resource){const n=gain(s,target.side,effect.generateEssence.resource,effect.generateEssence.amount||1);if(n)notes.push(`gera ${n} ${essenceName(effect.generateEssence.resource)}`);}if(effect?.dot&&actor.hp>0){actor.dots.push({...effect.dot,sourceId:target.id,skillId:a.id});notes.push("aplica aflição");}if(effect?.expose&&actor.hp>0){actor.exposed=Math.max(actor.exposed,effect.expose);actor.exposedFresh=true;notes.push("expõe o agressor");}if(effect?.mark&&actor.hp>0){actor.marks[effect.mark]={sourceId:target.id,turns:effect.markTurns||2,label:effect.label||"Contra-ataque"};notes.push("marca o agressor");}log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano${notes.length?` · ${notes.join(" · ")}`:""}.`);if(actor.hp<=0)notifyDefeat(s,actor,target);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);triggerPassive(s,owner||(!target.counterSourceId?target:null),"counter",{target,attacker:actor,ability:a,dealt:r.dealt});target.counterFormChanges=[];target.counterEffect=null;target.counterRequiresShield=false;continue;}
     affected++;
     const combo=a.combo&&meetsCondition(target,a.combo.condition,actor);let value=0,purgedThis=0,fractureSpend=0;
@@ -309,6 +310,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
       if(a.purge||a.purgeBuffs)purgedThis=purgeTargetBuffs(target,a.purgeBuffs||"all");totalPurged+=purgedThis;
       fractureSpend=a.spendFracturesMax?Math.min(statusCount(target),a.spendFracturesMax,Math.max(0,Math.floor(action.fractureSpend||0))):0;
       value=attackValue(s,actor,a,target,charges,{...action,fractureSpend},purgedThis);
+      if(action.clashResult?.critical&&action.clashTargetId===target.id)value=Math.floor(value*1.4);
       const ignoreDefense=actor.feridaAbertaTargets?.[target.id]||0;
       const r=a.damage?hit(s,target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability,ignoreDefense}):{dealt:0,blocked:0};
       if((r.dealt||r.blocked)&&ignoreDefense)delete actor.feridaAbertaTargets[target.id];
@@ -500,10 +502,12 @@ export function createDuel(firstIds,secondIds,config={}){
  const roster=secondIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
  const s=createBattle(firstIds,roster,{...config,enemyPlanner:()=>[]});
  s.humanSides=true;s.turnSide='player';s.turnNumber=1;s.intents=[];
+ if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.clash=null;}
  // Both human teams receive their own composition bonus.
  s.enemyResonance=getResonance(secondIds);return s;
 }
 export function submitDuelTurn(s,side,actions,selected,exchanges=[]){
+ if(s.simultaneousDuel)return submitSimultaneousDuelTurn(s,side,actions,selected,exchanges);
  if(s.phase!=='player'||s.turnSide!==side)throw new Error('Não é seu turno.');
  if(!Array.isArray(actions)||actions.length>3)throw new Error('Fila inválida.');
  refreshSkillForms(s);const used=new Set(),queue=[];
@@ -524,6 +528,7 @@ export function submitDuelTurn(s,side,actions,selected,exchanges=[]){
  s.phase='resolving';s.resolution=[...paid,{type:'duel-end',side}];s.queue=[];continueDuel(s);
 }
 export function continueDuel(s){
+ if(s.simultaneousDuel)return continueSimultaneousDuel(s);
  let guard=0;
  while(s.phase==='resolving'&&guard++<12){
   if(s.resolution[0]?.type==='duel-end'){
@@ -534,4 +539,112 @@ export function continueDuel(s){
   }
   resolveNextAction(s);
  }
+}
+
+
+// Simultaneous PvP is opt-in for card games. Legacy duels retain their previous flow.
+const opposingSide=side=>side==="player"?"enemy":"player";
+const activeDuelAbility=(s,action)=>{
+ const actor=byId(team(s,action.side),action.actorId);
+ const base=actor?.abilities.find(ability=>ability.id===action.abilityId);
+ return {actor,ability:base&&action.cardUpgrades?.length?applyCardUpgrades(base,action.cardUpgrades):base};
+};
+export function duelPlanningStatus(s){
+ return {round:s.round,ready:{player:Boolean(s.duelPlans?.player),enemy:Boolean(s.duelPlans?.enemy)}};
+}
+function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[]){
+ if(s.phase!=="player"||s.duelPlans?.[side])throw new Error("O planejamento deste lado já foi confirmado.");
+ if(!Array.isArray(actions)||actions.length>3)throw new Error("Fila inválida.");
+ if(!Array.isArray(exchanges)||exchanges.length>20)throw new Error("Trocas de Essência inválidas.");
+ refreshSkillForms(s);
+ const used=new Set(),queue=[];
+ for(const ref of actions){
+  const actor=byId(team(s,side),ref?.actorId),base=actor?.abilities.find(a=>a.id===ref?.abilityId);
+  if(!actor||!base||used.has(actor.id)||actor.stunned||actor.cooldowns[base.id]||skillSealReason(actor,base))throw new Error("Ação indisponível.");
+  // Card instance ownership and upgrades are entirely validated server-side.
+  const card=s.cardCombat?findHandCard(s.cardCombat,actor.id,base.id,ref?.cardId):null;
+  if(s.cardCombat&&!card)throw new Error("Carta não disponível na mão.");
+  const ability=card?.upgrades?.length?applyCardUpgrades(base,card.upgrades):base;
+  const valid=getValidTargets(s,actor,ability);
+  if(!valid.some(target=>target.id===ref?.targetId))throw new Error("Alvo inválido.");
+  const willSign=ref?.willSign||"fenda";
+  if(!WILL_SIGNS.includes(willSign))throw new Error("Manifestação inválida.");
+  used.add(actor.id);
+  queue.push({actorId:actor.id,abilityId:base.id,formKey:base.formKey||"base",targetId:ref.targetId,side,willSign,...(card?{cardId:card.id,cardUpgrades:card.upgrades}:{})});
+ }
+ // Build the complete payment on a copy before touching the authoritative state.
+ const nextPool={...pool(s,side)};
+ for(const exchange of exchanges){
+  const swap=resolveEssenceExchange(nextPool,exchange?.target,exchange?.payment);
+  if(!swap.ok)throw new Error(swap.reason);
+  Object.assign(nextPool,swap.pool);
+ }
+ const payment=allocateQueuePayment(queue,team(s,side),nextPool,selected);
+ if(!payment.ok)throw new Error(payment.reason);
+ // Only after the complete submission validates, consume hand cards and store a hidden plan.
+ const paid=payment.actions.map(action=>{
+  if(s.cardCombat&&!consumeHandCard(s.cardCombat,action.actorId,action.cardId))throw new Error("Carta indisponível.");
+  return action;
+ });
+ s.duelPlans[side]=paid;
+ s.duelPools[side]=nextPool;
+ if(s.duelPlans.player&&s.duelPlans.enemy){
+  Object.assign(pool(s,"player"),s.duelPools.player);
+  Object.assign(pool(s,"enemy"),s.duelPools.enemy);
+  const first=s.round%2===1?"player":"enemy",second=opposingSide(first),resolution=[];
+  for(let i=0;i<3;i++)for(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
+  s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};
+  s.phase="resolving";s.resolution=[...resolution,{type:"duel-round-end"}];
+  s.resolutionSide=first;s.acted=[];continueSimultaneousDuel(s);
+ }
+ return duelPlanningStatus(s);
+}
+function duelClashCandidate(s,action){
+ if(!action?.actorId||action.clashResolved||!canUseResponse(s.cardCombat,opposingSide(action.side)))return null;
+ const {actor,ability}=activeDuelAbility(s,action);
+ if(!actor||!ability||actor.stunned||actor.cooldowns[ability.id]||skillSealReason(actor,ability)||!ability.damage||friendly(ability))return null;
+ const valid=getValidTargets(s,actor,ability);
+ const chosen=valid.find(target=>target.id===action.targetId);
+ if(!chosen)return null;
+ return {defenderSide:opposingSide(action.side),attackerSide:action.side,actorId:actor.id,abilityId:ability.id,targetId:chosen.id,willSign:action.willSign||"fenda"};
+}
+export function answerDuelClash(s,side,sign="pass"){
+ if(!s.simultaneousDuel||s.phase!=="clash"||!s.clash||s.clash.defenderSide!==side)throw new Error("Não existe resposta pendente para esta equipe.");
+ if(sign!=="pass"&&!WILL_SIGNS.includes(sign))throw new Error("Manifestação inválida.");
+ const action=s.resolution[0];
+ if(!action||action.actorId!==s.clash.actorId||action.abilityId!==s.clash.abilityId)throw new Error("Confronto desatualizado.");
+ if(sign!=="pass"){
+  if(!spendResponse(s.cardCombat,side))throw new Error("Sem direito de resposta.");
+  action.clashResult=resolveWillClash({attackerChoice:s.clash.willSign,defenderChoice:sign});
+  action.clashTargetId=s.clash.targetId;
+  log(s,"Confronto de Vontades: "+s.clash.willSign+" contra "+sign+" · "+action.clashResult.outcome+".");
+ }
+ action.clashResolved=true;
+ s.clash=null;s.phase="resolving";continueSimultaneousDuel(s);
+ return {ok:true};
+}
+function continueSimultaneousDuel(s){
+ let guard=0;
+ while(s.phase==="resolving"&&guard++<30){
+  const action=s.resolution?.[0];
+  if(action?.type==="duel-round-end"){
+   s.resolution.shift();
+   const reactions=[];
+   endActing(s,s.allies,reactions);endActing(s,s.enemies,reactions);
+   endOpposing(s,s.allies);endOpposing(s,s.enemies);
+   tickEffects(s);
+   if(!outcome(s))nextTurn(s,[]);
+   checkDeathInfluences(s);
+   return;
+  }
+  const candidate=duelClashCandidate(s,action);
+  if(candidate){
+   s.clash=candidate;s.phase="clash";s.resolutionSide=action.side;
+   return;
+  }
+  if(action?.side)s.resolutionSide=action.side;
+  const result=resolveNextAction(s);
+  if(result.influence||s.phase==="influence"||result.done||s.phase!=="resolving")return;
+ }
+ if(guard>=30&&s.phase==="resolving")throw new Error("Limite de resolução simultânea excedido.");
 }
