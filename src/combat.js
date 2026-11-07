@@ -562,13 +562,15 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  // Normal plans never carry a clash: the score is supplied after reveal only.
  const combo=s.tactical?.compact&&action.clash&&technique.damage>0
   ?action.clash.duel?action.clash:action.clash.reactive?action.clash:tacticalComboResult(action.clash):null;
- const executed=combo?{...technique,damage:combo.duel
+ const partialDefense=combo?.duel&&combo.outcome==='miss'&&combo.protectedTargetId&&spatialTargetIds.some(id=>id!==combo.protectedTargetId);
+ const executed=combo?{...technique,damage:partialDefense?technique.damage:combo.duel
   ?tacticalDuelDamage(technique.damage,combo):combo.reactive
    ?tacticalReactiveDamage(technique.damage,combo):tacticalComboDamage(technique.damage,combo)}:technique;
  // Losing a duel makes the special miss completely, including its powerful
  // target effects; costs and cooldowns still resolve once through apply().
- const actualTargetIds=combo?.duel&&combo.outcome==='miss'||
-  combo?.reactive&&combo.avoidedAll?[]:spatialTargetIds;
+ const actualTargetIds=combo?.duel&&combo.outcome==='miss'
+  ?combo.protectedTargetId?spatialTargetIds.filter(id=>id!==combo.protectedTargetId):[]
+  :combo?.reactive&&combo.avoidedAll?[]:spatialTargetIds;
  const result=apply(s,actor,executed,action.targetId,action.randomPayment,{...action,boardCast:true,spatialTargetIds:actualTargetIds});
  for(const u of [...s.allies,...s.enemies]){
   u.boardFresh||={};
