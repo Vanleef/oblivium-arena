@@ -209,13 +209,19 @@ function clashMarkup(){
  ).join('');
  const opponentLabel=reveal?tacticalDuelOptions.find(o=>o.id===duel.opponentChoice)?.name||'—':null;
  const playerLabel=reveal?tacticalDuelOptions.find(o=>o.id===duel.choice)?.name||'—':null;
+ const spendResponse=duel.role==='defense'&&state.battle.tactical.cardMode
+  ?'<div class="compact-duel-resources" aria-label="Escolha o recurso da resposta">'
+   +(duel.basicAvailable?'<button type="button" data-duel-resource="basic" aria-pressed="'+(!duel.reactionCardId)+'">Resposta padrão</button>':'')
+   +(duel.reactions||[]).map(card=>'<button type="button" data-duel-resource="'+esc(card.id)+'" aria-pressed="'+(duel.reactionCardId===card.id)+'">'+esc(card.name)+'</button>').join('')
+   +'</div>':'';
+
  return '<section class="compact-rhythm-clash compact-duel-clash" role="dialog" aria-modal="false" aria-label="Confronto de Vontades"'
   +' data-duel-result="'+(reveal?reveal.outcome:'pending')+'" data-combo-role="'+duel.role+'"'
   +' style="'+duel.palette+'">'
   +'<div class="compact-rhythm-heading"><strong>CONFRONTO DE VONTADES</strong><span>ESPECIAL</span></div>'
   +'<p><b>'+esc(duel.actorName)+'</b> · '+esc(duel.abilityName)+'</p>'
   +'<p class="compact-duel-instruction">'+heading+' · Estilo adversário: tende a '+esc(tacticalDuelOptions.find(o=>o.id===duel.tendency)?.name||'variar')+'. A escolha real é secreta.</p>'
-  +'<div class="compact-duel-options" role="group" aria-label="Três intenções para o especial">'+options+'</div>'
+  +spendResponse+'<div class="compact-duel-options" role="group" aria-label="Três intenções para o especial">'+options+'</div>'
   +(reveal?'<div class="compact-duel-reveal" role="status" aria-live="polite"><strong>'+esc(reveal.label)+'</strong>'
    +'<span>Você: '+esc(playerLabel)+' · Oponente: '+esc(opponentLabel)+'</span></div>'
    :'<div class="compact-duel-help"><span>Ímpeto vence Finta</span><span>Finta vence Contenção</span><span>Contenção vence Ímpeto</span></div>')
@@ -376,7 +382,8 @@ function interactiveDuel(ref){
  return new Promise(resolve=>{
   const duel={role,actorName:ref.actor.name,abilityName:ref.ability.name,
    opponentChoice:foeChoice,tendency,palette:tacticalPaletteVariables(tacticalActorPalette(ref.actor,{realmFallback:true})),
-   locked:false,choice:null,result:null,transitionTimer:null,press:null,skip:null,completed:false};
+   locked:false,choice:null,result:null,transitionTimer:null,press:null,skip:null,completed:false,
+   basicAvailable:available.basic,reactions:available.reactions,reactionCardId:attacking?(available.basic?null:available.reactions[0]?.id):available.basic?null:available.reactions[0]?.id||null};
   const finish=choice=>{
    if(duel.completed||duel.locked)return;
    if(!tacticalDuelOptions.some(option=>option.id===choice))return;
@@ -388,7 +395,7 @@ function interactiveDuel(ref){
     state.event?.family||'strike');
    duel.transitionTimer=setTimeout(()=>{
     if(duel.completed)return;
-    duel.completed=true;state.clash=null;state.event=null;render();resolve({attackChoice,defenseChoice,...(!available.basic&&available.reactions.length?{reactionCardId:available.reactions[0].id}:{})});
+    duel.completed=true;state.clash=null;state.event=null;render();resolve({attackChoice,defenseChoice,...(duel.reactionCardId?{reactionCardId:duel.reactionCardId}:{})});
    },600);
   };
   duel.press=finish;
@@ -457,7 +464,16 @@ function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy
 }
 root.addEventListener('click',event=>{
  const button=event.target.closest('button');if(!button||button.disabled)return;const d=button.dataset;
- if(state.clash){if(d.duelChoice)state.clash.press?.(d.duelChoice);else if('duelAuto'in d)state.clash.skip?.();return;}
+ if(state.clash){
+  if(d.duelResource&&!state.clash.locked){
+   if(d.duelResource==='basic'&&state.clash.basicAvailable)state.clash.reactionCardId=null;
+   else if(state.clash.reactions?.some(card=>card.id===d.duelResource))state.clash.reactionCardId=d.duelResource;
+   render();return;
+  }
+  if(d.duelChoice)state.clash.press?.(d.duelChoice);
+  else if('duelAuto'in d)state.clash.skip?.();
+  return;
+ }
  if(d.speed){state.speed=Number(d.speed);render();return;}
  if('sound'in d){setAudioEnabled(!audioEnabled());render();return;}
  if(state.busy)return;
