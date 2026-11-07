@@ -1,5 +1,6 @@
 import { randomBytes, randomUUID, createHash } from 'node:crypto';
 import { characterById } from '../src/data.js';
+import { normalizeRankedLoadouts } from '../src/ranked-loadouts.js';
 import { createDuel, submitDuelTurn, continueDuel, answerDuelClash } from '../src/combat.js';
 import { beginInfluences, chooseInfluence } from '../src/world-influences.js';
 import { rankForRating, playerLevel } from '../src/player-level.js';
@@ -72,16 +73,17 @@ export class ArenaService{
    }
    if(op==='queue'&&!match){
     const ids=input.team;if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!characterById[id]))fail('Escolha três personagens diferentes.');
+    let loadouts;try{loadouts=normalizeRankedLoadouts(ids,input.loadouts||{},characterById);}catch(e){fail(e.message||"Baralhos inválidos.",400);}
     const oldQueue=await tx.get('queue')||[],previous=oldQueue.find(q=>q.id===id);let queue=oldQueue.filter(q=>now-q.touched<20000&&q.id!==id);
     const rivalIndex=queue.findIndex(q=>Math.abs(q.rating-p.rating)<=150+Math.floor((now-q.since)/1000)*5);
     if(rivalIndex>=0){const rival=queue.splice(rivalIndex,1)[0],other=await tx.get(profileKey(rival.id));
      if(other&&!other.matchId){
-      const first=randomBytes(1)[0]%2===0;const players=first?[p.id,other.id]:[other.id,p.id],teams=first?[ids,rival.team]:[rival.team,ids];let randomState=randomBytes(4).readUInt32LE();const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
-      const battle=createDuel(teams[0],teams[1],{rng:random,cardMode:true});battle.randomState=randomState;beginInfluences(battle,randomState);
+      const first=randomBytes(1)[0]%2===0;const players=first?[p.id,other.id]:[other.id,p.id],teams=first?[ids,rival.team]:[rival.team,ids],decks=first?[loadouts,rival.loadouts||{}]:[rival.loadouts||{},loadouts];let randomState=randomBytes(4).readUInt32LE();const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
+      const battle=createDuel(teams[0],teams[1],{rng:random,cardMode:true,cardLoadouts:{player:decks[0],enemy:decks[1]}});battle.randomState=randomState;beginInfluences(battle,randomState);
       match={id:randomUUID(),players,battle,version:1,deadline:now+120000,created:now,settled:false};p.matchId=match.id;other.matchId=match.id;await tx.set(profileKey(other.id),other);await tx.set(profileKey(id),p);await tx.set(`match:${match.id}`,match,86400);
      }
     }
-    if(!match){if(queue.length>=100)fail('Fila cheia. Tente novamente.',429);queue.push({id,team:ids,rating:p.rating,since:previous?.since||now,touched:now});}
+    if(!match){if(queue.length>=100)fail('Fila cheia. Tente novamente.',429);queue.push({id,team:ids,loadouts,rating:p.rating,since:previous?.since||now,touched:now});}
     await tx.set('queue',queue,600);
    }else if(op==='cancel'){await tx.set('queue',(await tx.get('queue')||[]).filter(q=>q.id!==id),600);}
    if(['turn','response','influence','surrender'].includes(op)){
