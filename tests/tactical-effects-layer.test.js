@@ -127,3 +127,39 @@ test('explicit single-target impacts still animate when a self/target technique 
  assert.deepEqual(tacticalImpactContacts({...single,affectedTargetIds:[]}),[]);
  assert.deepEqual(tacticalImpactContacts({...single,pose:'windup'}),[]);
 });
+
+test('displaced victims receive the contact at the landing tile, without extending the original impact area',()=>{
+ const displaced={...after,positions:{...positions,a1:{x:4,y:4}}};
+ const event={...impact,after:displaced,affectedTargetIds:['a1']};
+ const contacts=tacticalImpactContacts(event);
+ assert.equal(contacts.length,1);
+ assert.deepEqual(contacts[0].point,{x:4,y:4});
+ assert.deepEqual([contacts[0].x,contacts[0].y],[0,1],
+  'force direction must follow the original point of impact');
+ assert.deepEqual(tacticalImpactContacts({...event,cells:[{x:4,y:4}]}),[],
+  'a displaced unit must not create a second hit outside the original area');
+});
+test('pilot actors own contact choreography without increasing the particle budget',()=>{
+ const ctx=new Proxy({createRadialGradient:()=>({addColorStop(){}})}, {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}},board={clientWidth:540,clientHeight:540,append(node){node.parentElement=this;}};
+ const saved=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  for(const [sourceId,kind] of [
+   ['o-acougueiro','cleaver'],['a-viuva-escarlate','crimson'],
+   ['o-escudo-vivo','bastion'],['o-passo-interrompido','stutter'],
+   ['o-odio-encarnado','rage'],['a-arquiteta-verde','architect'],['nilo','memory']
+  ]){
+   const layer=new TacticalEffectsLayer(canvas);
+   layer.emit(board,{...impact,abilityId:'tecnica'},{
+    id:'a0',sourceId,realm:'Limbo',
+    abilities:[{id:'tecnica',name:'Técnica',damage:12}]
+   },'impact',300);
+   assert.equal(layer.effects.length,6);
+   assert.ok(layer.effects.every(fx=>fx.choreography?.kind===kind),sourceId);
+   assert.ok(layer.effects.reduce((sum,fx)=>sum+fx.particles,0)<=tacticalParticleBudget);
+   layer.tick(performance.now()+100);
+   layer.tick(performance.now()+400);
+  }
+ }finally{globalThis.requestAnimationFrame=saved;}
+});
