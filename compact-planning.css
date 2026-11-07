@@ -668,6 +668,7 @@
 .compact-battle .compact-impact-feedback [data-feedback-kind="shield"]{color:#a5e3ff}
 .compact-battle .compact-impact-feedback [data-feedback-kind="shield-loss"]{color:#f0bb7c}
 .compact-battle .compact-impact-feedback [data-feedback-kind="status"]{color:#e2b4ff;font-size:11px}
+.compact-battle .compact-impact-feedback [data-feedback-kind="buff"]{color:#a8f7d4;font-size:11px;text-shadow:0 0 8px #27845a}
 @keyframes compact-feedback-pop{0%{scale:.65;opacity:0;translate:0 11px}25%{scale:1.22;opacity:1;translate:0 -8px}100%{scale:1;opacity:1;translate:0 -5px}}
 @media(max-width:760px){
  .combat-shell.compact-battle .compact-board .compact-token-label{
