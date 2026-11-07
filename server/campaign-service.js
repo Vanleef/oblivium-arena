@@ -54,7 +54,7 @@ function buffChoices(run,offset=0){
 }
 function startBattle(profile,run,node){
  const elo=getElo(run.eloId);if(!elo)fail('Reino inválido.');
- const roster=Object.values(characterById).filter(character=>character.kingdomId===elo.id||character.legacyEloId===elo.id||character.eloId===elo.id).map(character=>character.id),opponents=roster.filter(id=>!(run.team||profile.team).includes(id));
+ const roster=Object.values(characterById).filter(character=>!character.npcOnly&&(character.kingdomId===elo.id||character.legacyEloId===elo.id||character.eloId===elo.id)).map(character=>character.id),opponents=roster.filter(id=>!(run.team||profile.team).includes(id));
  run.bossIds||=selectBossRoster(run.team||profile.team,opponents.length>=3?opponents:roster,run.seed);
  run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
