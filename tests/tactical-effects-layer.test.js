@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalImpactContacts,tacticalEffectResolution,TacticalEffectsLayer,tacticalParticleBudget,tacticalImpactMaterial} from '../src/tactical-effects-layer.js';
+import {tacticalImpactContacts,tacticalEffectResolution,TacticalEffectsLayer,tacticalParticleBudget,tacticalImpactMaterial,tacticalAreaEffectCells} from '../src/tactical-effects-layer.js';
 
 const cells=Array.from({length:54},(_,i)=>({x:i%9,y:Math.floor(i/9)}));
 const allies=Array.from({length:6},(_,i)=>({id:'a'+i,hp:100,shield:10}));
@@ -38,7 +38,7 @@ test('limita resolução e partículas e encerra a animação após o impacto',(
   globalThis.requestAnimationFrame=()=>1;
   const layer=new TacticalEffectsLayer(canvas);
   layer.emit(board,impact,allies[0],'impact',200);
-  assert.equal(layer.effects.length,6);
+  assert.equal(layer.effects.filter(fx=>fx.kind==='impact').length,6);
   assert.ok(layer.effects.reduce((sum,fx)=>sum+fx.particles,0)<=tacticalParticleBudget);
   layer.tick(performance.now()+50);
   assert.equal(canvas.dataset.active,'true');
@@ -155,7 +155,7 @@ test('pilot actors own contact choreography without increasing the particle budg
     id:'a0',sourceId,realm:'Limbo',
     abilities:[{id:'tecnica',name:'Técnica',damage:12}]
    },'impact',300);
-   assert.equal(layer.effects.length,6);
+   assert.equal(layer.effects.filter(fx=>fx.kind==='impact').length,6);
    assert.ok(layer.effects.every(fx=>fx.choreography?.kind===kind),sourceId);
    assert.ok(layer.effects.reduce((sum,fx)=>sum+fx.particles,0)<=tacticalParticleBudget);
    layer.tick(performance.now()+100);
@@ -185,21 +185,21 @@ test('melee techniques generate a directional contact flash and material fragmen
   for(const family of ['slash','strike','pierce']){
    const layer=new TacticalEffectsLayer(canvas);
    layer.emit(board,{...event,family},actor,'impact',460);
-   assert.equal(layer.effects.length,1);
-   assert.equal(layer.effects[0].melee,true,family+' is physical contact');
-   assert.ok(layer.effects[0].power>1,'impact strength follows resolved damage');
-   assert.ok(layer.effects[0].particles>0);
-   assert.ok(layer.effects[0].particles<=tacticalParticleBudget);
+   assert.equal(layer.effects.filter(fx=>fx.kind==='impact').length,1);
+   assert.equal(layer.effects.find(fx=>fx.kind==='impact').melee,true,family+' is physical contact');
+   assert.ok(layer.effects.find(fx=>fx.kind==='impact').power>1,'impact strength follows resolved damage');
+   assert.ok(layer.effects.find(fx=>fx.kind==='impact').particles>0);
+   assert.ok(layer.effects.find(fx=>fx.kind==='impact').particles<=tacticalParticleBudget);
    const before={...calls};layer.tick(performance.now()+30);
    assert.ok(calls.fill>before.fill,family+' produces substantial bright shards');
    assert.ok(calls.stroke>before.stroke,family+' has a thick close-range shock arc');
   }
   const ranged=new TacticalEffectsLayer(canvas);
   ranged.emit(board,{...event,family:'projectile'},actor,'impact',460);
-  assert.equal(ranged.effects[0].melee,false);
+  assert.equal(ranged.effects.find(fx=>fx.kind==='impact').melee,false);
   const reduced=new TacticalEffectsLayer(canvas);
   reduced.emit(board,{...event,family:'slash'},actor,'impact',35,{reduced:true});
-  assert.equal(reduced.effects[0].particles,0);
+  assert.equal(reduced.effects.find(fx=>fx.kind==='impact').particles,0);
  }finally{globalThis.requestAnimationFrame=prior;}
 });
 test('melee release follows the physical attack arc, while protective support does not swing',()=>{
@@ -275,7 +275,7 @@ test('canvas hitstop freezes frame age and resumes smoothly, without leaks',()=>
   const frozenAt=layer.freezeStart;
   layer.tick(frozenAt+25);
   assert.equal(layer.effects[0].now,initial);
-  assert.equal(layer.effects.length,6);
+  assert.equal(layer.effects.filter(fx=>fx.kind==='impact').length,6);
   layer.tick(frozenAt+75);
   assert.equal(layer.freezeUntil,0);
   assert.equal(layer.effects[0].now,initial+65);
@@ -311,4 +311,42 @@ test('clearing the arena removes frozen VFX clocks before the next fight',()=>{
  assert.deepEqual(layer.effects,[]);
  assert.equal(canvas.dataset.active,'false');
  assert.equal(calls.cleared,1);
+});
+
+test('every basic skill area tile gets a material flight and a visible landing, occupied or empty',()=>{
+ const canvas={getContext:()=>new Proxy({clearRect(){}},{get:(target,key)=>target[key]||(()=>{})}),dataset:{}};
+ const board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const cast={...impact,actorId:'a0',abilityId:'fortress-basic',family:'slash',
+  anchor:{x:3,y:1},cells:[{x:2,y:1},{x:3,y:1},{x:4,y:1}],affectedTargetIds:[]};
+ const actor={...allies[0],abilities:[{id:'fortress-basic',name:'Ataque Básico',damage:12,damageType:'physical'}]};
+ assert.equal(tacticalAreaEffectCells(cast).length,3);
+ const old=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  const release=new TacticalEffectsLayer(canvas);
+  release.emit(board,cast,actor,'release',180);
+  assert.equal(release.effects.filter(fx=>fx.kind==='tile-flight').length,3);
+  assert.ok(release.effects.some(fx=>fx.kind==='swing'));
+  const impactLayer=new TacticalEffectsLayer(canvas);
+  impactLayer.emit(board,{...cast,pose:'impact'},actor,'impact',460);
+  const arrivals=impactLayer.effects.filter(fx=>fx.kind==='tile-impact');
+  assert.equal(arrivals.length,3);
+  assert.equal(new Set(arrivals.map(fx=>fx.point.x+','+fx.point.y)).size,3);
+  assert.ok(impactLayer.effects.reduce((total,fx)=>total+(fx.particles||0),0)<=tacticalParticleBudget);
+  impactLayer.tick(performance.now()+60);
+  const reduced=new TacticalEffectsLayer(canvas);
+  reduced.emit(board,cast,actor,'release',35,{reduced:true});
+  assert.equal(reduced.effects.filter(fx=>fx.kind==='tile-flight').length,0);
+  reduced.emit(board,{...cast,pose:'impact'},actor,'impact',80,{reduced:true});
+  assert.equal(reduced.effects.filter(fx=>fx.kind==='tile-impact').length,3);
+ }finally{globalThis.requestAnimationFrame=old;}
+});
+test('area contact cells are deduplicated and honor explicit targets without guessing new hits',()=>{
+ const e={type:'skill',cells:[{x:1,y:2},{x:1,y:2},{x:2,y:2}],before,after:after,affectedTargetIds:[]};
+ assert.deepEqual(tacticalAreaEffectCells(e),[{x:1,y:2},{x:2,y:2}]);
+ assert.deepEqual(tacticalAreaEffectCells({...e,cells:[],targets:['a1']}),[positions.a1]);
+ assert.deepEqual(tacticalAreaEffectCells({...e,cells:[],targets:[],anchor:{x:3,y:4}}),[{x:3,y:4}]);
+ assert.deepEqual(tacticalAreaEffectCells({...e,type:'move'}),[]);
+ assert.deepEqual(tacticalAreaEffectCells({...e,skipped:true}),[]);
+ assert.equal(tacticalAreaEffectCells({...e,cells}).length,36,'large arenas cap lightweight marks safely');
 });
