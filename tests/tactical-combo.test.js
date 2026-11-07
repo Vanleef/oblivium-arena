@@ -71,3 +71,15 @@ test('ultimate releases have four impact contacts; basic/no damage has no fabric
  assert.equal(tacticalComboReplayEvents({...base,after:base.before}).length,1);
  assert.equal(tacticalComboReplayEvents({...base,skipped:true}).length,1);
 });
+
+test('reflected and collateral harm is not wrongly shown as a direct combo strike',()=>{
+ const event={...base,after:snapshot(73,0,1)};
+ event.after.allies[0].hp=87; // actual reflection from resolved engine
+ const beats=tacticalComboReplayEvents(event);
+ assert.equal(beats.length,3);
+ assert.equal(beats[0].after.allies[0].hp,100);
+ assert.equal(beats[1].after.allies[0].hp,100);
+ assert.equal(beats[2].after.allies[0].hp,87);
+ assert.equal(beats.reduce((sum,hit)=>sum+hit.totalDamage,0),39);
+ assert.deepEqual(beats[2].after,event.after);
+});
