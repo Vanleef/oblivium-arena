@@ -211,7 +211,12 @@ async function playback(events){
     if(token&&unit){paintTacticalToken(token,unit,{...event,type:'move',actorId:unit.id,orientation:event.after.facings[unit.id]}, {family:'move',pose:'airborne',index:3});}
     if(token?.animate&&from&&to&&!reduced){const x=to.offsetLeft-from.offsetLeft,y=to.offsetTop-from.offsetTop;token.animate([{translate:'0 0'},{translate:x*.5+'px '+(y*.5-14)+'px',offset:.5},{translate:x+'px '+y+'px'}],{duration:360/state.speed,fill:'forwards',easing:'ease-in-out'});}
    }
-   await pause(360);state.snapshot=event.after;state.event=null;render();playCombatCue('step');continue;
+   await pause(360);state.snapshot=event.after;state.event=null;render();
+   for(const step of event.moves){
+    const mover=units(event.before).find(u=>u.id===step.actorId);
+    if(mover)emit({type:'move',actorId:mover.id,before:event.before,after:event.after,anchor:step.to},mover,null,'step',180/state.speed);
+   }
+   playCombatCue('step');continue;
   }
   const unit=units(event.before).find(u=>u.id===event.actorId),ability=unit?.abilities.find(a=>a.id===event.abilityId);
   const frames=unit&&!event.skipped?(event.type==='guard'?[{family:'guard',pose:'ready',index:0},{family:'guard',pose:'impact',index:1}]:tacticalReplayFrames(unit,ability,{...event,compactReplay:true})):[{family:'support',pose:'impact',index:0}];
