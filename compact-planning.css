@@ -634,6 +634,9 @@
 .compact-battle .compact-area-sigil[data-effect-tone="storm"]{--area-bright:#c6aaff!important;--area-fill:#aaa1ff66!important}
 .compact-battle .compact-area-sigil[data-effect-tone="frost"]{--area-bright:#a7eeff!important;--area-fill:#63aee666!important}
 .compact-battle .compact-area-sigil[data-effect-tone="nature"]{--area-bright:#b9f18f!important;--area-fill:#78c27763!important}
+.compact-battle .compact-area-sigil[data-effect-tone="stone"]{--area-bright:#e4cdb0!important;--area-fill:#9f8a7470!important}
+.compact-battle .compact-area-sigil[data-effect-tone="rot"]{--area-bright:#c5d990!important;--area-fill:#74854372!important}
+.compact-battle .compact-area-sigil[data-effect-tone="thread"]{--area-bright:#e0a7ed!important;--area-fill:#b46ace5e!important}
 .compact-battle .compact-area-sigil[data-phase="preview"]{
  border-style:dashed;animation:compact-zone-warning 520ms ease-in-out infinite alternate;
 }
