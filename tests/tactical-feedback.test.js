@@ -62,3 +62,30 @@ test('field hazards and encounter rewards show the real resulting damage and rec
  assert.equal(tacticalAreaPhase(rewards),'impact');
  assert.equal(tacticalAreaPhase({...rewards,pose:'ready'}),null);
 });
+
+test('new boons, marks and afflictions appear as resolved feedback without repeating ongoing effects',()=>{
+ const before=structuredClone(event.before),after=structuredClone(event.after);
+ const original=before.enemies.find(unit=>unit.id==='stunned');
+ Object.assign(original,{stunned:1,boost:5,reduction:0,marks:{},dots:[]});
+ const changed=after.enemies.find(unit=>unit.id==='stunned');
+ Object.assign(changed,{stunned:1,boost:5,reduction:8,invulnerable:1,
+  marks:{omen:{turns:2,label:'Alvo marcado'}},dots:[{skillId:'bleed',sourceId:'caster',tag:'sangria',turns:3}]});
+ const feedback=tacticalFeedback({...event,before,after}).filter(item=>item.actorId==='stunned');
+ assert.deepEqual(feedback.map(item=>[item.kind,item.label]),[
+  ['buff','INVULNERÁVEL'],['buff','REDUÇÃO DE DANO'],['status','MARCADO'],['status','AFLIÇÃO']
+ ]);
+ assert.ok(!feedback.some(item=>item.label==='DANO AUMENTADO'||item.label==='ATORDOADO'));
+ const ongoing=structuredClone(after);
+ ongoing.enemies.find(unit=>unit.id==='stunned').dots[0].turns=2;
+ ongoing.enemies.find(unit=>unit.id==='stunned').marks.omen.turns=1;
+ assert.deepEqual(tacticalFeedback({...event,before:after,after:ongoing}).filter(item=>item.actorId==='stunned'),[]);
+});
+
+test('support shields are not shown as healing and single-target contact is visible without a cells array',()=>{
+ assert.equal(tacticalTechniqueTone({realm:'Limbo'},{target:'ally',shield:8},event),'shield');
+ assert.equal(tacticalTechniqueTone({realm:'Limbo'},{target:'ally',name:'Sombras Protetoras'},event),'void');
+ assert.equal(tacticalAreaPhase({...event,cells:[],pose:'impact'}),'impact');
+ assert.equal(tacticalAreaPhase({...event,cells:[],targets:[],affectedTargetIds:[],pose:'impact'}),null);
+ const result=tacticalFeedback({...event,cells:[]});
+ assert.equal(result.find(item=>item.actorId==='foe')?.label,'−24');
+});
