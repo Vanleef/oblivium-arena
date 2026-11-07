@@ -1,0 +1,22 @@
+/* Compact hand: each hero owns an independent draw/discard pile. */
+.compact-battle .compact-hand-counter{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 10px;color:#f2e6d5;font-size:12px}
+.compact-battle .compact-hand-counter span{font-size:11px;color:#bfb3cb}
+.compact-battle .compact-panel-section[data-panel-section="abilities"] .compact-quick-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:min(38vh,330px);overflow:auto;padding:3px;scrollbar-width:thin}
+.compact-battle .compact-hand-card{position:relative;min-width:0;min-height:96px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px 5px;border:1px solid #8d7b81;border-radius:9px;background:linear-gradient(160deg,#302633,#1c1825);color:#f8eadc;text-align:center;cursor:pointer;box-shadow:inset 0 1px 0 #ffffff20}
+.compact-battle .compact-hand-card>img,.compact-battle .compact-hand-card>.compact-icon-visual,.compact-battle .compact-hand-card>svg{width:40px;height:36px;object-fit:contain;flex-shrink:0}
+.compact-battle .compact-hand-card strong{font-size:11px;font-weight:750;line-height:1.15;max-width:100%;overflow-wrap:anywhere}
+.compact-battle .compact-hand-card small{font-size:10px;line-height:1.2;color:#cabbcc}
+.compact-battle .compact-hand-card[aria-pressed="true"]{border:2px solid #e9bd71;box-shadow:0 0 0 1px #4c3151,inset 0 0 16px #e6b66a22}
+.compact-battle .compact-hand-card:disabled{opacity:.35;filter:grayscale(.8);cursor:not-allowed}
+.compact-battle .compact-hand-reaction{cursor:default;border-color:#8b78c6;background:linear-gradient(145deg,#3f305a,#1b1933)}
+.compact-battle .compact-hand-mobility{border-color:#b3a06b;background:linear-gradient(145deg,#50402d,#1d1b24)}
+.compact-battle .compact-hand-basic{border-style:dashed;border-color:#a6afb5;min-height:75px}
+.compact-battle .compact-hand-skill .compact-area-diagram{max-width:48px;max-height:40px}
+.compact-battle .compact-duel-decline{background:#262333;color:#f2e5db;border:1px solid #91859a;border-radius:7px;padding:9px;font-weight:750}
+.compact-battle .compact-duel-clash .compact-reaction-count{font-size:11px;color:#e9d9bc}
+@media(max-width:700px){
+ .compact-battle .compact-panel-section[data-panel-section="abilities"] .compact-quick-buttons{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;max-height:none;scroll-snap-type:x mandatory;padding-bottom:7px}
+ .compact-battle .compact-hand-card{flex:0 0 112px;min-height:96px;scroll-snap-align:start}
+ .compact-battle .compact-hand-counter{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.compact-battle .compact-hand-card{scroll-behavior:auto}}
