@@ -35,3 +35,15 @@ test('movement miniature shows eight adjacent possibilities rather than attackin
  assert.equal((html.match(/data-mini-cell="hit"/g)||[]).length,8);
  assert.ok(!html.includes('<img'),'a miniature is geometry, not a copied card image');
 });
+
+test('diagram mirrors its footprint when the character faces its own fortress',()=>{
+ const right=tacticalAreaDiagram({pattern:'line',length:3,range:2},{facing:[1,0]});
+ const left=tacticalAreaDiagram({pattern:'line',length:3,range:2},{facing:[-1,0]});
+ assert.equal(right.cells[3*7+6],'hit');
+ assert.equal(left.cells[3*7+0],'hit');
+ assert.equal(left.cells[3*7+4],'empty');
+ assert.equal(left.count,right.count);
+ const mirrored=tacticalAreaDiagramMarkup({pattern:'cone',length:2,range:2},{facing:[-1,0]});
+ assert.match(mirrored,/data-mini-pattern="cone"/);
+ assert.equal((mirrored.match(/data-mini-cell="hit"/g)||[]).length,8);
+});
