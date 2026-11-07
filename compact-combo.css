@@ -193,7 +193,7 @@
  45%{width:76px;height:76px;opacity:.28;filter:blur(3px)}
  68%{width:49px;height:49px;opacity:.65;filter:none}
  83%{width:29px;height:29px;opacity:1;filter:none}
- 100%{width:16px;height:16px;opacity:0}
+ 100%{width:16px;height:16px;opacity:1;box-shadow:0 0 14px var(--rhythm-main)}
 }
 .compact-battle .compact-rhythm-clash[data-combo-cue="incoming"] .compact-rhythm-contact-ring{
  border-color:#fff8dc;
