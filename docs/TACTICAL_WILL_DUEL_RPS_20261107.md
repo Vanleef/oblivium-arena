@@ -64,7 +64,7 @@ A IA utiliza a tendência em aproximadamente metade dos confrontos; nas demais e
 - `tests/tactical-cinematic.test.js`: lançamento de especial que erra mantém animação física, mas não tem frame de colisão.
 - `tests/tactical-combo-round.test.js`: planejamento selado e resolução em ondas existentes.
 
-Foram executadas **40 verificações isoladas de código, regras, UI, sintaxe e CSS**, todas aprovadas. Uma simulação do resolvedor em etapas com dependências de combate simuladas confirmou: vitória com 30 de dano em base 20, empate com 10 e derrota com 0, além de rejeitar decisões inválidas sem avançar a fila.
+Foram executadas **41 verificações isoladas de código, regras, UI, sintaxe e CSS**, todas aprovadas. Uma simulação do resolvedor em etapas com dependências de combate simuladas confirmou: vitória com 30 de dano em base 20, empate com 10 e derrota com 0, além de rejeitar decisões inválidas sem avançar a fila.
 
 **Não equivale** a executar a suíte Node inteira, validação em navegador real, testes de todos os kits nem a balanceamento completo. Antes de fazer merge, revisar esses caminhos em desktops e celulares, particularmente técnicas de área, furtividade, invulnerabilidade, bloqueios e passivas.
 
