@@ -6,13 +6,44 @@ import handler from '../api/arena.js';
 // Test-only transactional fixture. No memory adapter is imported by production.
 class TestStore{constructor(){this.data=new Map();this.lock=Promise.resolve();}transaction(work){const run=this.lock.then(async()=>{const snapshot=new Map(this.data);const tx={get:async k=>snapshot.has(k)?JSON.parse(snapshot.get(k)):null,set:async(k,v)=>snapshot.set(k,JSON.stringify(v)),delete:async k=>snapshot.delete(k)};const result=await work(tx);this.data=snapshot;return result;});this.lock=run.catch(()=>{});return run;}}
 const ids=starters.map(c=>c.id);
-test('dois clientes: matchmaking, seleção por ambos, turnos, rendição e resultado idempotente',async()=>{
- const store=new TestStore(),service=new ArenaService(store);const a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});const joined=await service.request(b.token,{op:'queue',team:ids});assert.ok(joined.match);let av=await service.request(a.token),bv=await service.request(b.token);assert.equal(av.match.id,bv.match.id);assert.equal([av,bv].filter(v=>v.match.battle.phase==='influence').length,1);
- for(let i=0;i<2;i++){const v=[av,bv].find(v=>v.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});av=await service.request(a.token);bv=await service.request(b.token);}
- assert.equal([av,bv].filter(v=>v.match.battle.phase==='player').length,1);const active=[av,bv].find(v=>v.match.battle.phase==='player'),waiting=[av,bv].find(v=>v.match.battle.phase==='waiting');
- await assert.rejects(()=>service.request(waiting.token,{op:'turn',version:waiting.match.version,actions:[]}),{status:409});
- const submitted=await service.request(active.token,{op:'turn',version:active.match.version,actions:[]});assert.equal(submitted.match.battle.phase,'waiting');await assert.rejects(()=>service.request(active.token,{op:'turn',version:active.match.version,actions:[]}),{status:409});
- const result=await service.request(a.token,{op:'surrender'});assert.equal(result.profile.losses,1);assert.equal(result.match.settled,true);assert.ok(result.profile.rating<1000);const again=await service.request(a.token);assert.equal(again.profile.losses,1);assert.equal(again.profile.xp,30);const winner=await service.request(b.token);assert.equal(winner.profile.wins,1);assert.equal(winner.profile.xp,70);assert.equal(winner.leaderboard.length,2);assert.equal(winner.match.battle.phase,'victory');await service.request(a.token,{op:'ack'});const newQueue=await service.request(a.token,{op:'queue',team:ids});assert.equal(newQueue.match,null);
+test('dois clientes: planejamento simultâneo, confirmação secreta, rendição e resultado idempotente',async()=>{
+ const store=new TestStore(),service=new ArenaService(store);
+ const a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});
+ const joined=await service.request(b.token,{op:'queue',team:ids});
+ assert.ok(joined.match);
+ let av=await service.request(a.token),bv=await service.request(b.token);
+ assert.equal(av.match.id,bv.match.id);
+ assert.equal([av,bv].filter(v=>v.match.battle.phase==='influence').length,1);
+ for(let i=0;i<2;i++){
+  const v=[av,bv].find(v=>v.match.battle.phase==='influence');
+  await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});
+  av=await service.request(a.token);bv=await service.request(b.token);
+ }
+ assert.equal(av.match.battle.phase,'player');
+ assert.equal(bv.match.battle.phase,'player');
+ assert.equal(av.match.battle.round,bv.match.battle.round);
+ const round=av.match.battle.round;
+ const one=await service.request(a.token,{op:'turn',version:av.match.version,round,actions:[],moves:[]});
+ assert.equal(one.match.battle.phase,'waiting');
+ assert.deepEqual(one.match.battle.ready,{player:true,enemy:false});
+ const opponent=await service.request(b.token);
+ assert.equal(opponent.match.battle.phase,'player');
+ assert.deepEqual(opponent.match.battle.ready,{player:false,enemy:true});
+ await assert.rejects(()=>service.request(a.token,{op:'turn',version:one.match.version,round,actions:[]}),{status:409});
+ // The other player may still submit the original version while their plan was pending.
+ const both=await service.request(b.token,{op:'turn',version:bv.match.version,round,actions:[],moves:[]});
+ assert.equal(both.match.battle.round,round+1);
+ assert.equal(both.match.battle.phase,'player');
+ const result=await service.request(a.token,{op:'surrender'});
+ assert.equal(result.profile.losses,1);assert.equal(result.match.settled,true);
+ assert.ok(result.profile.rating<1000);
+ const again=await service.request(a.token);assert.equal(again.profile.losses,1);assert.equal(again.profile.xp,30);
+ const winner=await service.request(b.token);assert.equal(winner.profile.wins,1);assert.equal(winner.profile.xp,70);
+ assert.equal(winner.leaderboard.length,2);assert.equal(winner.match.battle.phase,'victory');
+ await service.request(a.token,{op:'ack'});
+ const newQueue=await service.request(a.token,{op:'queue',team:ids});
+ assert.equal(newQueue.match,null);
 });
 test('sessões isoladas e fila inválida não aceita personagem desconhecido ou duplicado',async()=>{const service=new ArenaService(new TestStore());const a=await service.request(),b=await service.request('inventado');assert.notEqual(a.profile.id,b.profile.id);await assert.rejects(()=>service.request(a.token,{op:'queue',team:[ids[0],ids[0],ids[0]]}),{status:400});await assert.rejects(()=>service.request(a.token,{op:'queue',team:['fraude',...ids.slice(1)]}),{status:400});});
 test('prazo persiste após reconectar e a derrota por inatividade é liquidada uma vez',async()=>{let now=1000000;const service=new ArenaService(new TestStore(),{now:()=>now}),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});const views=await Promise.all([service.request(a.token),service.request(b.token)]),current=views.find(v=>v.match.battle.phase==='influence');now+=120001;const lost=await service.request(current.token);assert.equal(lost.profile.losses,1);assert.equal(lost.match.reason,'Tempo esgotado');assert.equal((await service.request(current.token)).profile.losses,1);});
