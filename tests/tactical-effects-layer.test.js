@@ -350,3 +350,21 @@ test('area contact cells are deduplicated and honor explicit targets without gue
  assert.deepEqual(tacticalAreaEffectCells({...e,skipped:true}),[]);
  assert.equal(tacticalAreaEffectCells({...e,cells}).length,36,'large arenas cap lightweight marks safely');
 });
+
+test('movement leaves a brief ground contact only at the resolved destination',()=>{
+ const canvas={getContext:()=>new Proxy({clearRect(){}},{get:(target,key)=>target[key]||(()=>{})}),dataset:{}};
+ const board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const event={type:'move',actorId:'a0',before,after,anchor:{x:2,y:2}};
+ const beforeFrame=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  const layer=new TacticalEffectsLayer(canvas);
+  layer.emit(board,event,allies[0],'step',160);
+  assert.equal(layer.effects.filter(fx=>fx.kind==='step-dust').length,1);
+  assert.equal(layer.effects[0].particles,0);
+  layer.tick(performance.now()+45);
+  const reduced=new TacticalEffectsLayer(canvas);
+  reduced.emit(board,event,allies[0],'step',30,{reduced:true});
+  assert.equal(reduced.effects.length,0);
+ }finally{globalThis.requestAnimationFrame=beforeFrame;}
+});
