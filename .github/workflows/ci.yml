@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '22'
       - name: Testes isolados do novo combate
-        run: node --test tests/card-combat.test.js tests/tactical-grid.test.js tests/grid-objectives.test.js tests/ranked-loadouts.test.js tests/duel-simultaneous.test.js
+        run: node --test tests/card-combat.test.js tests/tactical-grid.test.js tests/grid-objectives.test.js tests/combat-event-journal.test.js tests/ranked-loadouts.test.js tests/duel-simultaneous.test.js
       - name: Build estático
         if: always()
         run: npm run build
