@@ -949,3 +949,46 @@
   animation:none!important;translate:none!important;
  }
 }
+
+
+/* Footprint language echoes the actual melee family without obscuring tiles.
+   This is a semantic contact mark, not a second independent hit effect. */
+.compact-battle .compact-area-sigil[data-attack-family="strike"]::before,
+.compact-battle .compact-area-sigil[data-attack-family="slash"]::before,
+.compact-battle .compact-area-sigil[data-attack-family="pierce"]::before,
+.compact-battle .compact-area-sigil[data-attack-family="counter"]::before{
+ content:"";position:absolute;inset:15%;pointer-events:none;opacity:.42;
+ border-radius:10%;mix-blend-mode:screen;
+}
+.compact-battle .compact-area-sigil[data-attack-family="strike"]::before{
+ border:3px solid var(--area-bright,#ffd890);border-radius:50%;
+ background:radial-gradient(ellipse,transparent 36%,var(--area-fill,#e8aa4a54) 43%,transparent 62%);
+}
+.compact-battle .compact-area-sigil[data-attack-family="slash"]::before{
+ inset:10% 13%;
+ background:linear-gradient(131deg,transparent 31%,var(--area-bright,#ffd890) 47%,transparent 52%);
+ transform:skewY(-7deg);
+}
+.compact-battle .compact-area-sigil[data-attack-family="pierce"]::before{
+ inset:10% 17%;clip-path:polygon(0 24%,66% 24%,100% 50%,66% 76%,0 76%);
+ background:var(--area-bright,#ffd890);
+}
+.compact-battle .compact-area-sigil[data-attack-family="counter"]::before{
+ inset:15%;border:3px double var(--area-bright,#ffd890);border-radius:25%;
+ box-shadow:inset 0 0 12px var(--area-fill,#e8aa4a54);
+}
+.compact-battle .compact-area-sigil[data-phase="impact"][data-attack-family]::before{
+ animation:compact-melee-area-read var(--compact-hit-duration,420ms) ease-out both;
+}
+@keyframes compact-melee-area-read{
+ 0%{scale:.72;opacity:.24;filter:brightness(1.7)}
+ 22%{scale:1.05;opacity:.76;filter:brightness(1.45)}
+ 100%{scale:1;opacity:.28;filter:brightness(1)}
+}
+@media(max-width:760px){
+ .compact-battle .compact-area-sigil[data-attack-family]::before{inset:22%;opacity:.45}
+ .compact-battle .compact-area-sigil[data-attack-family="slash"]::before{inset:17%}
+}
+@media(prefers-reduced-motion:reduce){
+ .compact-battle .compact-area-sigil[data-attack-family]::before{animation:none!important;opacity:.5}
+}
