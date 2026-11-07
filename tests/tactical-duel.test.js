@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelDamage,tacticalDuelAI}
+import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelDamage,tacticalDuelAI,tacticalDuelTendency}
  from '../src/tactical-duel.js';
 
 const ids=tacticalDuelOptions.map(o=>o.id);
@@ -61,4 +61,16 @@ test('all result UI labels describe the actual physical hit outcome',()=>{
   assert.ok(option.hint.length>0);
   assert.ok(ids.includes(option.beats));
  }
+});
+
+test('distinct character personalities give imperfect but actionable strategy clues',()=>{
+ assert.equal(tacticalDuelTendency({sourceId:'o-acougueiro'}),'impeto');
+ assert.equal(tacticalDuelTendency({sourceId:'a-viuva-escarlate'}),'finta');
+ assert.equal(tacticalDuelTendency({sourceId:'o-escudo-vivo'}),'contencao');
+ const sample=Array.from({length:28},(_,round)=>tacticalDuelAI({
+  round,actorId:'o-escudo-vivo',targetId:'hero',abilityId:'tecnica',
+  side:'defense',tendency:'contencao'
+ }));
+ assert.ok(sample.filter(choice=>choice==='contencao').length>=10);
+ assert.ok(sample.some(choice=>choice!=='contencao'),'a tendency must never reveal the actual choice');
 });
