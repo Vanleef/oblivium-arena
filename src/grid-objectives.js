@@ -31,7 +31,7 @@ export function eligibleObjectivePairs(battle){
  return pairs;
 }
 export function spawnGridObjectives(battle,rng=Math.random){
- if(!battle.grid||!Number.isInteger(battle.round)||!(battle.round===1||(battle.round-1)%OBJECTIVE_INTERVAL===0))return [];
+ if(!battle.grid||!Number.isInteger(battle.round)||!(battle.round===1||(battle.round-1)%OBJECTIVE_INTERVAL===0))return battle.gridObjectives||[];
  if(!Array.isArray(battle.gridObjectives))battle.gridObjectives=[];
  const pairs=eligibleObjectivePairs(battle);
  if(!pairs.length)return battle.gridObjectives;
