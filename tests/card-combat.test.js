@@ -67,10 +67,10 @@ test("one team response per round and cyclic clash outcomes",()=>{
  assert.equal(spendResponse(s,"player"),false);
  assert.equal(s.responses.enemy,CARD_RULES.responsesPerRound);
  endCardRound(s);beginCardRound(s,[a,b],2,rng);assert.ok(spendResponse(s,"player"));
- assert.deepEqual(resolveWillClash({attackerChoice:"fenda",defenderChoice:"egide",baseDamage:30}),{outcome:"blocked",cancel:true,critical:false,damage:0});
- assert.deepEqual(resolveWillClash({attackerChoice:"fenda",defenderChoice:"vinculo",baseDamage:30}),{outcome:"critical",cancel:false,critical:true,damage:42});
- assert.equal(resolveWillClash({attackerChoice:"egide",defenderChoice:"egide",baseDamage:30}).damage,30);
- assert.throws(()=>resolveWillClash({attackerChoice:"stone",defenderChoice:"egide"}),/inválida/);
+ assert.deepEqual(resolveWillClash({attackerChoice:"miragem",defenderChoice:"sombra",baseDamage:30}),{outcome:"blocked",cancel:true,critical:false,damage:0});
+ assert.deepEqual(resolveWillClash({attackerChoice:"miragem",defenderChoice:"luz",baseDamage:30}),{outcome:"critical",cancel:false,critical:true,damage:42});
+ assert.equal(resolveWillClash({attackerChoice:"sombra",defenderChoice:"sombra",baseDamage:30}).damage,30);
+ assert.throws(()=>resolveWillClash({attackerChoice:"stone",defenderChoice:"sombra"}),/inválida/);
 });
 
 test("permanent basic attack has no cooldown, costs no card, and never enters a starter deck",()=>{
