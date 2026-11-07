@@ -91,3 +91,29 @@ test('ritual, memory and cinder signatures reuse the shared particle budget',()=
   }
  }finally{globalThis.requestAnimationFrame=saved;}
 });
+
+test('technique concepts use distinct contact colors and silhouettes within the particle budget',()=>{
+ const ctx=new Proxy({createRadialGradient:()=>({addColorStop(){}})}, {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}},board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const saved=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  for(const [name,tone,color] of [
+   ['Chama do Fim','fire','#ff643b'],['Raio Celeste','storm','#b498ff'],
+   ['Corte de Sangue','blood','#ed5875'],['Círculo de Raízes','nature','#91d68e'],
+   ['Luz Divina','grace','#ecd588'],['Sombra Silenciosa','void','#a877e1'],
+   ['Congelamento Final','frost','#a5e2fb']
+  ]){
+   const layer=new TacticalEffectsLayer(canvas);
+   const event={...impact,abilityId:'tecnica'};
+   const actor={...allies[0],realm:'Limbo',abilities:[{id:'tecnica',name,damage:12}]};
+   layer.emit(board,event,actor,'impact',280);
+   assert.ok(layer.effects.length>0);
+   assert.ok(layer.effects.every(fx=>fx.tone===tone),name);
+   assert.ok(layer.effects.every(fx=>fx.color[1]===color),name);
+   assert.ok(layer.effects.reduce((n,fx)=>n+fx.particles,0)<=tacticalParticleBudget);
+   layer.tick(performance.now()+70);
+   layer.tick(performance.now()+300);
+  }
+ }finally{globalThis.requestAnimationFrame=saved;}
+});
