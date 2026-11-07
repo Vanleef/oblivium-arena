@@ -105,7 +105,7 @@ export function getValidTargets(s,actor,ability){
   .filter(u=>!ability.requiredMark||u.marks[ability.requiredMark]?.sourceId===actor.id)
   .filter(u=>!ability.requiresPillar||u.pillarOwnerId===actor.id)
   .filter(u=>!ability.requiresTargetStatus||statusCount(u)>0)
-  .filter(u=>isTargetInRange(s,actor,u,ability));
+  .filter(u=>isTargetInRange(s,actor,u,ability,{preview:s.phase==="player"}));
 }
 function statusCount(u){
  if(!u)return 0;
