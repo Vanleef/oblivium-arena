@@ -224,7 +224,7 @@ function clashMarkup(){
   +spendResponse+'<div class="compact-duel-options" role="group" aria-label="Três intenções para o especial">'+options+'</div>'
   +(reveal?'<div class="compact-duel-reveal" role="status" aria-live="polite"><strong>'+esc(reveal.label)+'</strong>'
    +'<span>Você: '+esc(playerLabel)+' · Oponente: '+esc(opponentLabel)+'</span></div>'
-   :'<div class="compact-duel-help"><span>Ímpeto vence Finta</span><span>Finta vence Contenção</span><span>Contenção vence Ímpeto</span></div>')
+   :'<div class="compact-duel-help"><span>Miragem distorce a Luz</span><span>Luz dissipa a Sombra</span><span>Sombra engole a Miragem</span></div>')
   +'<div class="compact-duel-footer"><span>Vitória atacante: crítico · Empate: dano normal · Vitória defensor: bloqueio</span>'
    +'<button type="button" data-duel-auto '+(duel.locked?'disabled':'')+'>'+(duel.role==='defense'?'Aceitar golpe':'Escolher por mim')+' <small>Esc</small></button></div>'
   +'</section>';
@@ -405,7 +405,7 @@ function interactiveDuel(ref){
   duel.skip=()=>{
     if(cardMode&&!attacking&&!duel.locked){
      duel.completed=true;state.clash=null;state.event=null;render();resolve({decline:true});
-    }else finish(attacking?'impeto':'contencao');
+    }else finish(attacking?'miragem':'sombra');
    };
   state.clash=duel;render();
  });
@@ -435,7 +435,7 @@ function finishPlan(id,round,plan){
   for(let attempts=0;attempts<26;attempts++){
    const pending=session.peek();
    const step=session.next(pending?.comboEligible
-    ?{attackChoice:'contencao',defenseChoice:'contencao'}:{});
+    ?{attackChoice:'sombra',defenseChoice:'sombra'}:{});
    if(!step.ok||step.done)break;
   }
   state.busy=false;state.clash=null;state.event=null;state.snapshot=null;state.actions=[];
@@ -541,9 +541,9 @@ document.addEventListener('keydown',event=>{
  if(state.clash){
   if(event.repeat)return;
   if(event.key==='Escape'){event.preventDefault();state.clash.skip?.();return;}
-  const choice=event.code==='Digit1'||event.code==='Numpad1'?'impeto'
-   :event.code==='Digit2'||event.code==='Numpad2'?'finta'
-   :event.code==='Digit3'||event.code==='Numpad3'?'contencao':null;
+  const choice=event.code==='Digit1'||event.code==='Numpad1'?'miragem'
+   :event.code==='Digit2'||event.code==='Numpad2'?'luz'
+   :event.code==='Digit3'||event.code==='Numpad3'?'sombra':null;
   if(choice){event.preventDefault();state.clash.press?.(choice);}return;
  }
  if(event.target.matches('input,select,textarea,[contenteditable="true"]')||locked())return;

@@ -2,9 +2,9 @@
 // mind game. Sealed plans resolve before either side learns the other intent.
 // This deliberately replaces real-time reaction input for special techniques.
 export const tacticalDuelOptions=Object.freeze([
- Object.freeze({id:'impeto',name:'Ímpeto',symbol:'✦',beats:'finta',hint:'Interrompe a Finta'}),
- Object.freeze({id:'finta',name:'Finta',symbol:'◇',beats:'contencao',hint:'Contorna a Contenção'}),
- Object.freeze({id:'contencao',name:'Contenção',symbol:'⬡',beats:'impeto',hint:'Segura o Ímpeto'})
+ Object.freeze({id:'miragem',name:'Miragem',symbol:'◇',beats:'luz',hint:'Distorce a Luz'}),
+ Object.freeze({id:'luz',name:'Luz',symbol:'☼',beats:'sombra',hint:'Revela a Sombra'}),
+ Object.freeze({id:'sombra',name:'Sombra',symbol:'◐',beats:'miragem',hint:'Engole a Miragem'})
 ]);
 const beats=Object.freeze(Object.fromEntries(tacticalDuelOptions.map(o=>[o.id,o.beats])));
 const valid=x=>Object.hasOwn(beats,x);
@@ -25,9 +25,9 @@ export function tacticalDuelDamage(base,duel){
  return duel.outcome==='miss'?0:Math.max(1,Math.round(base*duel.damageRate));
 }
 const tendencies=Object.freeze({
- 'o-acougueiro':'impeto','o-odio-encarnado':'impeto',
- 'a-viuva-escarlate':'finta','o-passo-interrompido':'finta',
- 'o-escudo-vivo':'contencao','a-arquiteta-verde':'contencao'
+ 'o-acougueiro':'miragem','o-odio-encarnado':'miragem',
+ 'a-viuva-escarlate':'luz','o-passo-interrompido':'luz',
+ 'o-escudo-vivo':'sombra','a-arquiteta-verde':'sombra'
 });
 /** A visible, imperfect read on the rival's preferred style. This makes the
  * mind game informed rather than a blind 33% lottery. It never leaks the roll. */

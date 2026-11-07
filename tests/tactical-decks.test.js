@@ -89,14 +89,14 @@ test('tactical views conceal the opponent deck and the future draw order',()=>{
 });
 
 test('card-mode duel grants full damage on tie, crit on attack win, and cancels a protected target on defense win',()=>{
- const tied=tacticalDuelResolve('impeto','impeto',{mode:'cards'});
- const hit=tacticalDuelResolve('impeto','finta',{mode:'cards'});
- const block=tacticalDuelResolve('impeto','contencao',{mode:'cards'});
+ const tied=tacticalDuelResolve('miragem','miragem',{mode:'cards'});
+ const hit=tacticalDuelResolve('miragem','luz',{mode:'cards'});
+ const block=tacticalDuelResolve('miragem','sombra',{mode:'cards'});
  assert.equal(tied.damageRate,1);
  assert.equal(hit.damageRate,1.5);
  assert.equal(block.damageRate,0);
  assert.equal(block.outcome,'miss');
- assert.equal(tacticalDuelResolve('impeto','impeto').damageRate,.5,'legacy mode preserved');
+ assert.equal(tacticalDuelResolve('miragem','miragem').damageRate,.5,'legacy mode preserved');
 });
 
 test('campaign completion gates extra movement and reactive card variants',()=>{

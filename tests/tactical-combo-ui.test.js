@@ -22,9 +22,9 @@ test('specials show three distinct options, clear cyclic help and hidden opponen
  assert.match(js,/CONFRONTO DE VONTADES/);
  assert.match(js,/data-duel-choice/);
  assert.match(js,/tacticalDuelOptions\.map/);
- assert.match(js,/Ímpeto vence Finta/);
- assert.match(js,/Finta vence Contenção/);
- assert.match(js,/Contenção vence Ímpeto/);
+ assert.match(js,/Miragem distorce a Luz/);
+ assert.match(js,/Luz dissipa a Sombra/);
+ assert.match(js,/Sombra engole a Miragem/);
  assert.match(js,/duel\.locked\?' disabled'/);
  assert.match(js,/tacticalDuelTendency\(rival\)/);
  assert.match(js,/tende a/);
@@ -57,7 +57,7 @@ test('click, keyboard and auto choice work even while the stage is busy',async()
  assert.match(js,/event\.code==='Digit2'/);
  assert.match(js,/event\.code==='Digit3'/);
  assert.match(js,/event\.key==='Escape'/);
- assert.match(js,/duel\.skip=\(\)=>finish\(attacking\?'impeto':'contencao'\)/);
+ assert.match(js,/duel\.skip=\(\)=>finish\(attacking\?'miragem':'sombra'\)/);
 });
 
 test('winning choices apply ability effects, defensive victories miss entirely, ties only halve damage',async()=>{
@@ -96,6 +96,6 @@ test('missing or forged choices cannot bypass the duel and grant an unopposed fu
  const shifted=engine.indexOf("const ref=commands.shift();",guarded);
  assert.ok(guarded>=0&&shifted>guarded,'validate the secret response BEFORE removing the planned skill from queue');
  assert.match(ui,/const step=session\.next\(pending\?\.comboEligible/);
- assert.match(ui,/attackChoice:'contencao',defenseChoice:'contencao'/);
+ assert.match(ui,/attackChoice:'sombra',defenseChoice:'sombra'/);
  assert.match(ui,/duel\.cancel=\(\)=>/);
 });

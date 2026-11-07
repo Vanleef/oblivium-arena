@@ -5,23 +5,23 @@ import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelDamage,tacticalDuelA
 
 const ids=tacticalDuelOptions.map(o=>o.id);
 test('the three intentions form an exact non-transitive rock-paper-scissors triangle',()=>{
- assert.deepEqual(ids,['impeto','finta','contencao']);
+ assert.deepEqual(ids,['miragem','luz','sombra']);
  for(const attacker of ids){
   const results=ids.map(defender=>tacticalDuelResolve(attacker,defender)?.outcome).sort();
   assert.deepEqual(results,['clash','hit','miss'],attacker+' needs one win, one loss, one tie');
   assert.equal(tacticalDuelResolve(attacker,attacker).outcome,'clash');
  }
- assert.equal(tacticalDuelResolve('impeto','finta').outcome,'hit');
- assert.equal(tacticalDuelResolve('finta','contencao').outcome,'hit');
- assert.equal(tacticalDuelResolve('contencao','impeto').outcome,'hit');
- assert.equal(tacticalDuelResolve('finta','impeto').outcome,'miss');
- assert.equal(tacticalDuelResolve('contencao','finta').outcome,'miss');
- assert.equal(tacticalDuelResolve('impeto','contencao').outcome,'miss');
+ assert.equal(tacticalDuelResolve('miragem','luz').outcome,'hit');
+ assert.equal(tacticalDuelResolve('luz','sombra').outcome,'hit');
+ assert.equal(tacticalDuelResolve('sombra','miragem').outcome,'hit');
+ assert.equal(tacticalDuelResolve('luz','miragem').outcome,'miss');
+ assert.equal(tacticalDuelResolve('sombra','luz').outcome,'miss');
+ assert.equal(tacticalDuelResolve('miragem','sombra').outcome,'miss');
 });
 test('a special wins for full damage, clashes for half or misses with zero impact',()=>{
- const win=tacticalDuelResolve('impeto','finta');
- const draw=tacticalDuelResolve('impeto','impeto');
- const lose=tacticalDuelResolve('impeto','contencao');
+ const win=tacticalDuelResolve('miragem','luz');
+ const draw=tacticalDuelResolve('miragem','miragem');
+ const lose=tacticalDuelResolve('miragem','sombra');
  assert.equal(tacticalDuelDamage(27,win),41);
  assert.equal(tacticalDuelDamage(27,draw),14);
  assert.equal(tacticalDuelDamage(27,lose),0);
@@ -35,9 +35,9 @@ test('a special wins for full damage, clashes for half or misses with zero impac
  assert.equal(lose.hit,false);
 });
 test('invalid choices cannot count as successes or alter the outcome',()=>{
- assert.equal(tacticalDuelResolve('invalid','impeto'),null);
- assert.equal(tacticalDuelResolve('impeto','invalid'),null);
- assert.equal(tacticalDuelResolve('__proto__','impeto'),null);
+ assert.equal(tacticalDuelResolve('invalid','miragem'),null);
+ assert.equal(tacticalDuelResolve('miragem','invalid'),null);
+ assert.equal(tacticalDuelResolve('__proto__','miragem'),null);
  assert.equal(tacticalDuelResolve('',null),null);
  assert.equal(tacticalDuelDamage(17,undefined),17);
 });
@@ -53,9 +53,9 @@ test('AI selection is sealed without looking at the human response',()=>{
  assert.ok(new Set(Array.from({length:9},(_,i)=>tacticalDuelAI({...scenario,round:i+1}))).size>1);
 });
 test('all result UI labels describe the actual physical hit outcome',()=>{
- assert.equal(tacticalDuelResolve('finta','contencao').label,'ACERTO DECISIVO');
- assert.equal(tacticalDuelResolve('finta','finta').label,'CHOQUE DE VONTADES');
- assert.equal(tacticalDuelResolve('finta','impeto').label,'ESPECIAL EVITADO');
+ assert.equal(tacticalDuelResolve('luz','sombra').label,'ACERTO DECISIVO');
+ assert.equal(tacticalDuelResolve('luz','luz').label,'CHOQUE DE VONTADES');
+ assert.equal(tacticalDuelResolve('luz','miragem').label,'ESPECIAL EVITADO');
  for(const option of tacticalDuelOptions){
   assert.ok(option.name.length>0);
   assert.ok(option.hint.length>0);
@@ -64,13 +64,13 @@ test('all result UI labels describe the actual physical hit outcome',()=>{
 });
 
 test('distinct character personalities give imperfect but actionable strategy clues',()=>{
- assert.equal(tacticalDuelTendency({sourceId:'o-acougueiro'}),'impeto');
- assert.equal(tacticalDuelTendency({sourceId:'a-viuva-escarlate'}),'finta');
- assert.equal(tacticalDuelTendency({sourceId:'o-escudo-vivo'}),'contencao');
+ assert.equal(tacticalDuelTendency({sourceId:'o-acougueiro'}),'miragem');
+ assert.equal(tacticalDuelTendency({sourceId:'a-viuva-escarlate'}),'luz');
+ assert.equal(tacticalDuelTendency({sourceId:'o-escudo-vivo'}),'sombra');
  const sample=Array.from({length:28},(_,round)=>tacticalDuelAI({
   round,actorId:'o-escudo-vivo',targetId:'hero',abilityId:'tecnica',
-  side:'defense',tendency:'contencao'
+  side:'defense',tendency:'sombra'
  }));
- assert.ok(sample.filter(choice=>choice==='contencao').length>=10);
- assert.ok(sample.some(choice=>choice!=='contencao'),'a tendency must never reveal the actual choice');
+ assert.ok(sample.filter(choice=>choice==='sombra').length>=10);
+ assert.ok(sample.some(choice=>choice!=='sombra'),'a tendency must never reveal the actual choice');
 });
