@@ -15,7 +15,7 @@ function duel(){
  for(const unit of [...s.allies,...s.enemies]){unit.maxHp=1000;unit.hp=1000;unit.shield=0;unit.armor=0;unit.reduction=0;unit.invulnerable=0;}
  return s;
 }
-function attack(s,willSign="fenda"){
+function attack(s,willSign="miragem"){
  const actor=s.allies[0],enemy=s.enemies[0],deck=s.cardCombat.decks[actor.id];
  const ability=actor.abilities.find(a=>a.damage>0&&["enemy","all-enemies"].includes(a.target)&&getValidTargets(s,actor,a).some(t=>t.id===enemy.id));
  assert.ok(ability,"Expected at least one valid offensive ability");
@@ -46,7 +46,7 @@ test("both teams submit simultaneously: one commit does not execute or reveal it
 });
 test("successful defender will sign blocks damage, preserving its team budget until the next round",()=>{
  const s=duel(),oldHp=s.enemies[0].hp;
- submitDuelTurn(s,"player",[attack(s,"fenda")]);
+ submitDuelTurn(s,"player",[attack(s,"miragem")]);
  submitDuelTurn(s,"enemy",[]);
  assert.equal(s.phase,"clash");
  assert.equal(s.clash.defenderSide,"enemy");
@@ -55,8 +55,8 @@ test("successful defender will sign blocks damage, preserving its team budget un
  assert.equal(defender.clash.willSign,undefined);
  assert.equal(attacker.phase,"waiting");
  assert.equal(attacker.clash.willSign,undefined);
- assert.throws(()=>answerDuelClash(s,"player","egide"),/pendente/);
- answerDuelClash(s,"enemy","egide");
+ assert.throws(()=>answerDuelClash(s,"player","sombra"),/pendente/);
+ answerDuelClash(s,"enemy","sombra");
  assert.equal(s.enemies[0].hp,oldHp);
  assert.equal(s.round,2);
  assert.equal(s.cardCombat.responses.enemy,1,"Response budget resets in new round");
@@ -65,17 +65,17 @@ test("successful defender will sign blocks damage, preserving its team budget un
 });
 test("losing a reply raises the damage over an identical ordinary strike",()=>{
  const ordinary=duel();
- submitDuelTurn(ordinary,"player",[attack(ordinary,"fenda")]);
+ submitDuelTurn(ordinary,"player",[attack(ordinary,"miragem")]);
  submitDuelTurn(ordinary,"enemy",[]);
  assert.equal(ordinary.phase,"clash");
  answerDuelClash(ordinary,"enemy","pass");
  const normalDamage=ordinary.enemies[0].maxHp-ordinary.enemies[0].hp;
 
  const critical=duel();
- submitDuelTurn(critical,"player",[attack(critical,"fenda")]);
+ submitDuelTurn(critical,"player",[attack(critical,"miragem")]);
  submitDuelTurn(critical,"enemy",[]);
  assert.equal(critical.phase,"clash");
- answerDuelClash(critical,"enemy","vinculo");
+ answerDuelClash(critical,"enemy","luz");
  const critDamage=critical.enemies[0].maxHp-critical.enemies[0].hp;
  assert.ok(critDamage>normalDamage, "Critical must exceed the normal damage");
 });
@@ -85,8 +85,8 @@ test("invalid signs and duplicate response attempts do not spend a response",()=
  submitDuelTurn(s,"enemy",[]);
  assert.throws(()=>answerDuelClash(s,"enemy","sangue"),/inválida/);
  assert.equal(s.cardCombat.responses.enemy,1);
- answerDuelClash(s,"enemy","vinculo");
- assert.throws(()=>answerDuelClash(s,"enemy","egide"),/pendente/);
+ answerDuelClash(s,"enemy","luz");
+ assert.throws(()=>answerDuelClash(s,"enemy","sombra"),/pendente/);
 });
 test("legacy duel without card mode remains sequential",()=>{
  const s=createDuel([testCharacter.id],[testCharacter.id],{rng:()=>0.4});
