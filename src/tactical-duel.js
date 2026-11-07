@@ -24,11 +24,28 @@ export function tacticalDuelDamage(base,duel){
  if(!duel?.duel)return base;
  return duel.outcome==='miss'?0:Math.max(1,Math.round(base*(duel.outcome==='clash'?.5:1.5)));
 }
-export function tacticalDuelAI({round=1,actorId='',targetId='',abilityId='',side='defense'}={}){
+const tendencies=Object.freeze({
+ 'o-acougueiro':'impeto','o-odio-encarnado':'impeto',
+ 'a-viuva-escarlate':'finta','o-passo-interrompido':'finta',
+ 'o-escudo-vivo':'contencao','a-arquiteta-verde':'contencao'
+});
+/** A visible, imperfect read on the rival's preferred style. This makes the
+ * mind game informed rather than a blind 33% lottery. It never leaks the roll. */
+export function tacticalDuelTendency(actor){
+ const id=String(actor?.sourceId||actor?.id||'');
+ if(tendencies[id])return tendencies[id];
+ const sum=[...id].reduce((value,c)=>value+c.charCodeAt(0),0);
+ return tacticalDuelOptions[sum%3].id;
+}
+export function tacticalDuelAI({round=1,actorId='',targetId='',abilityId='',side='defense',tendency=null}={}){
  // Chosen once, BEFORE the human picks. No random online timing/hidden
  // opposing plan or player input influences this local AI response.
  const seed=[round,actorId,targetId,abilityId,side].join('|');
  let checksum=0;
  for(const c of seed)checksum=(checksum*31+c.charCodeAt(0))%2147483647;
- return tacticalDuelOptions[checksum%tacticalDuelOptions.length].id;
+ const favored=valid(tendency)?tendency:null;
+ if(!favored)return tacticalDuelOptions[checksum%tacticalDuelOptions.length].id;
+ const other=tacticalDuelOptions.filter(o=>o.id!==favored);
+ const roll=checksum%4; // two favored, one each alternative
+ return roll<2?favored:other[roll-2].id;
 }
