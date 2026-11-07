@@ -165,3 +165,27 @@ test('super activation stinger and physical thrust particles stay synchronized w
  assert.match(effects,/drawImpactBurst\(ctx,fx,p\)/);
  assert.match(effects,/const meleeFamilies=new Set\(\['strike','slash','pierce','counter'\]\)/);
 });
+
+test('KOF-style contact hold freezes recoil and material VFX without touching resolved battle state',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const src=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(src,/tacticalImpactContacts\(event\)/);
+ assert.match(src,/tacticalContactRecoil\(contact,profile/);
+ assert.match(src,/data-impact-family=/);
+ assert.match(src,/data-impact-reaction=/);
+ assert.match(src,/data-hitstop=/);
+ assert.match(src,/effects\?\.freeze\(hit\.hitstopMs\/state\.speed\)/);
+ assert.match(src,/await pause\(hit\.hitstopMs\)/);
+ assert.match(src,/state\.hitstop=false/);
+ assert.match(css,/compact-recoil-strike/);
+ assert.match(css,/compact-recoil-slash/);
+ assert.match(css,/compact-recoil-pierce/);
+ assert.match(css,/compact-recoil-counter/);
+ assert.match(css,/compact-recoil-block/);
+ assert.match(css,/animation-play-state:paused!important/);
+ assert.match(css,/@media\(max-width:760px\)\{/);
+ assert.match(css,/prefers-reduced-motion:reduce/);
+ assert.doesNotMatch(src,/\.battle\.allies\[[^\]]+\]\.hp\s*-=/,
+  'visual hitstop must not apply or modify game damage');
+});
