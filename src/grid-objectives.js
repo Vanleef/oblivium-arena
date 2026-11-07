@@ -50,7 +50,7 @@ function cardUpgradeFor(ability,tier){
 export function applyObjectiveCardReward(battle,actor,tier){
  const deck=battle.cardCombat?.decks?.[actor.id];
  if(!deck)return null;
- const cards=[...deck.hand,...deck.draw,...deck.discard,...deck.exhaust].filter(c=>c.kind==="ability"&&Array.isArray(c.upgrades)&&c.upgrades.length<3);
+ const cards=[...deck.hand,...deck.draw,...deck.discard].filter(c=>c.kind==="ability"&&Array.isArray(c.upgrades)&&c.upgrades.length<3);
  if(!cards.length)return null;
  const eligible=cards.map(card=>({card,ability:actor.abilities.find(a=>a.id===card.abilityId)})).filter(({ability})=>Boolean(ability));
  if(!eligible.length)return null;
