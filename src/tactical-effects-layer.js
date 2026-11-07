@@ -51,7 +51,7 @@ export const tacticalParticleBudget=36;
 
 export function tacticalImpactContacts(event){
  if(!tacticalImpactActive(event))return [];
- const affected=new Set(event.affectedTargetIds||event.targets||[]);
+ const affected=new Set([...(event.affectedTargetIds||[]),...(event.targets||[])]);
  if(event.type==='guard')affected.add(event.actorId);
  if(!affected.size)return [];
  const pointKeys=new Set((event.cells||[]).map(p=>p.x+','+p.y));
