@@ -1,3 +1,5 @@
+> **Mecânica substituída (07/11/2026):** os desafios de reflexo por golpe descritos aqui são históricos. A mecânica ativa de acerto/erro dos especiais é o [Confronto de Vontades — três intenções](TACTICAL_WILL_DUEL_RPS_20261107.md). O sistema continua usando as animações cinematográficas de golpes deste desenvolvimento, mas a interação atual consiste em uma única escolha estratégica, sem barra de timing.
+
 # Combate reativo inspirado em Clair Obscur: Expedition 33
 Oblivium Arena · 07/11/2026 · Complemento ao sistema de especiais estilo KOF
 
