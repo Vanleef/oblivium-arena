@@ -19,6 +19,8 @@ test('seven combatants have distinct procedural physical motifs and all four tec
   assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'tecnica',skipped:true}),null);
   assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'fortress-basic'}),null);
   assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'tecnica',formKey:'alt'}).weight,1.1);
+  assert.equal(tacticalCharacterChoreography({...actor,bodyForm:'winged'},{type:'skill',abilityId:'tecnica'}).form,'alternate');
+  assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'tecnica',bodyForm:'ruin'}).weight,1.1);
  }
  assert.equal(tacticalCharacterChoreography({id:'nonexistent'},{type:'skill',abilityId:'tecnica'}),null);
 });
