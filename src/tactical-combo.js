@@ -4,6 +4,7 @@ const clampHits=value=>Number.isInteger(value)?Math.max(0,Math.min(3,value)):0;
 export const tacticalComboBeats=3;
 export function tacticalComboEligible(actor,ability,targets=[]){
  return Boolean(actor?.hp>0&&ability&&(ability.damage||0)>=5
+  &&!['impulso','fortress-basic'].includes(String(ability.id||'').split('/')[0])
   &&!['self','ally','friendly','team'].includes(ability.target)
   &&Array.isArray(targets)&&targets.length>0);
 }
