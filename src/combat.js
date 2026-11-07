@@ -1,5 +1,7 @@
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
 import {createCardState,beginCardRound,endCardRound,findHandCard,consumeHandCard,applyCardUpgrades,WILL_SIGNS,resolveWillClash,spendResponse,canUseResponse,BASIC_ATTACK_ID,basicAttack} from "./card-combat.js";
+import {setupGrid,isTargetInRange,validateMovementPlans,setMovementPlan,resolveGridMoves,greedyMovement} from "./tactical-grid.js";
+export {setMovementPlan} from "./tactical-grid.js";
 export {getAbilityResourceCosts} from "./resource-costs.js";
 import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
 import { checkDeathInfluences } from "./world-influences.js";
@@ -102,7 +104,8 @@ export function getValidTargets(s,actor,ability){
   .filter(u=>!ability.formTargetId||u.id===ability.formTargetId)
   .filter(u=>!ability.requiredMark||u.marks[ability.requiredMark]?.sourceId===actor.id)
   .filter(u=>!ability.requiresPillar||u.pillarOwnerId===actor.id)
-  .filter(u=>!ability.requiresTargetStatus||statusCount(u)>0);
+  .filter(u=>!ability.requiresTargetStatus||statusCount(u)>0)
+  .filter(u=>isTargetInRange(s,actor,u,ability));
 }
 function statusCount(u){
  if(!u)return 0;
@@ -405,7 +408,7 @@ export function createBattle(ids,enemyTeam,config={}){
   const s={campaignRealm:config.campaignRealm||null,niloAbsorption:config.niloAbsorption?{cinza:config.niloAbsorption.cinza||0,graca:config.niloAbsorption.graca||0,ruptura:config.niloAbsorption.ruptura||0}:null,enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,...(config.rngSeed===undefined?{}:{rngState:(Number(config.rngSeed)||1)>>>0}),essenceDraws:{player:[],enemy:[]},pendingEssenceExchanges:[],global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:{...buffValues,...memoryEffects},deathEchoStacks:{player:0,enemy:0},acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};
   for(let i=0;i<(buffValues.randomEssence||0)+legacyRandomEssence+(global.randomEssence||0);i++)gain(s,"player",randomResourceId(s));
   for(const [side,units] of [["player",s.allies],["enemy",s.enemies]]){const counts=new Map();for(const unit of living(units)){const affinity=unit.affinity||unit.bodyResource;if(affinity)counts.set(affinity,(counts.get(affinity)||0)+1);}const [affinity,count]=[...counts].sort((a,b)=>b[1]-a[1])[0]||[];if(count>=2){gain(s,side,affinity,1);log(s,`${side==="player"?"Seu trio":"A oposição"} · Afinidade convergente: +1 ${essenceName(affinity)} no início do combate.`);}}
-  if(config.cardMode){s.cardCombat=createCardState([...s.allies,...s.enemies],{loadouts:config.cardLoadouts||{},rng:()=>nextRandom(s)});for(const unit of [...s.allies,...s.enemies])unit.abilities.push(basicAttack());}
+  if(config.cardMode){setupGrid(s);s.cardCombat=createCardState([...s.allies,...s.enemies],{loadouts:config.cardLoadouts||{},rng:()=>nextRandom(s)});for(const unit of [...s.allies,...s.enemies])unit.abilities.push(basicAttack());}
   grantTurn(s);planAI(s);return s;
 }
 export function chooseAction(s,actorId,abilityId,targetId,options={}){
@@ -424,7 +427,9 @@ export function chooseAction(s,actorId,abilityId,targetId,options={}){
   const residueSpend=Math.max(0,Math.floor(options.residueSpend||0)),fractureSpend=Math.max(0,Math.floor(options.fractureSpend||0));
   if(residueSpend>(a.spendResidueMax||0)||residueSpend>(actor.residue||0))return {ok:false,reason:"Resíduo insuficiente para este gasto."};
   if(fractureSpend>(a.spendFracturesMax||0))return {ok:false,reason:"Gasto de Fraturas inválido."};
-  const action={actorId,abilityId,formKey:a.formKey||"base",targetId:a.target==="self"?actor.id:target.id,side:"player",...(handCard?{cardId:handCard.id}:{}),
+  const willSign=options.willSign||"miragem";
+  if(s.cardCombat&&!WILL_SIGNS.includes(willSign))return {ok:false,reason:"Manifestação inválida."};
+  const action={actorId,abilityId,formKey:a.formKey||"base",targetId:a.target==="self"?actor.id:target.id,side:"player",...(s.cardCombat?{willSign}:{}),...(handCard?{cardId:handCard.id}:{}),
    ...(residueSpend?{residueSpend}:{}),...(fractureSpend?{fractureSpend}:{})};
   const index=s.queue.findIndex(ref=>ref.actorId===actorId);if(index>=0)s.queue[index]=action;else s.queue.push(action);
   return {ok:true,action};
@@ -433,8 +438,9 @@ export function removeQueuedAction(s,id){if(s.phase!=="player")return false;s.qu
 export function moveQueuedAction(s,id,direction){if(s.phase!=="player")return false;const i=s.queue.findIndex(a=>a.actorId===id),j=i+direction;if(i<0||j<0||j>=s.queue.length)return false;[s.queue[i],s.queue[j]]=[s.queue[j],s.queue[i]];return true;}
 export function commitTurn(s,selected){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};const payment=getTurnPayment(s,selected);if(!payment.ok)return {ok:false,reason:payment.reason};
  if(s.cardCombat&&payment.actions.some(action=>action.abilityId!==BASIC_ATTACK_ID&&!findHandCard(s.cardCombat,action.actorId,action.abilityId,action.cardId)))return {ok:false,reason:"Uma carta da fila não está mais disponível."};
+ const moves=s.grid?validateMovementPlans(s,"player",s.movementPlans?.player||[]):[];
  const actions=payment.actions.map(action=>{const card=s.cardCombat&&action.abilityId!==BASIC_ATTACK_ID?consumeHandCard(s.cardCombat,action.actorId,action.cardId):null;return {...action,...(card?{cardUpgrades:card.upgrades}:{} )};});
- s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...actions,{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];s.pendingEssenceExchanges=[];return {ok:true};}
+ s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...(s.grid?[{type:"grid-moves",moves}]:[]),...actions,{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];s.pendingEssenceExchanges=[];return {ok:true};}
 function endOpposing(s,units){expireReactives(s,units,"opposing",effectsContext(s));for(const u of units){if(!u.healingBlockFresh)u.healingBlock=0;u.healingBlockFresh=false;u.invulnerable=0;u.counter=0;u.reduction=0;if(!u.exposedFresh)u.exposed=0;u.exposedFresh=false;}}
 function endActing(s,units,reactions=[]){expireReactives(s,units,"acting",effectsContext(s,reactions));for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
 function tickEffects(s){
@@ -451,16 +457,17 @@ function tickEffects(s){
   tick("collapseTurns","collapseFresh",()=>{u.collapseLevel=0;});
  }
 }
-function nextTurn(s,recoveries){if(s.cardCombat)endCardRound(s.cardCombat);for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
+function nextTurn(s,recoveries){if(s.cardCombat)endCardRound(s.cardCombat);if(s.grid)s.movementPlans={player:[],enemy:[]};for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
 function resolveAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();
   if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
+  if(action.type==="grid-moves"){const moves=resolveGridMoves(s,action.moves||[]);if(moves.length)log(s,`${moves.length} alma(s) se movimentaram no tabuleiro.`);return {done:false,event:{mode:"movement",moves,title:"Movimentação tática",summary:moves.length?`${moves.length} deslocamento(s) concluídos.`:"Nenhum deslocamento foi possível."}};}
   if(action.type==="essence-exchange"){
    const result=resolveEssenceExchange(s.enemyResources,action.target,action.payment);
    if(result.ok){s.enemyResources=result.pool;const names={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura"};log(s,`A oposição troca 5 Essências por 1 ${names[action.target]}.`);return {done:false,event:{...action,mode:"exchange",title:"Essência convertida",summary:`5 Essências convertidas em 1 ${names[action.target]}.`}};}
    return {done:false,event:{...action,mode:"exchange",skipped:true,title:"Troca cancelada",summary:result.reason}};
   }
-  if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
+  if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";const moves=s.grid?resolveGridMoves(s,greedyMovement(s,"enemy")):[];planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:moves.length?"movement":reactions.length?"reactions":"turn",moves,reactions,title:moves.length?"A oposição avançou":reactions.length?"Efeito reativo":"Turno da oposição",summary:moves.length?`${moves.length} alma(s) adversárias se moveram.`:"As habilidades adversárias serão resolvidas uma a uma."}};}
   if(action.type==="effects"){const reactions=[];endActing(s,s.enemies,reactions);endOpposing(s,s.allies);tickEffects(s);outcome(s);return {done:s.phase!=="resolving",event:{mode:reactions.length?"reactions":"effects",reactions,title:reactions.length?"Efeito reativo":"Efeitos persistentes",summary:"Aflições e durações foram atualizadas."}};}
   const actor=byId(team(s,action.side),action.actorId),baseAbility=actor?.abilities.find(a=>a.id===action.abilityId);let a=baseAbility&&action.cardUpgrades?.length?applyCardUpgrades(baseAbility,action.cardUpgrades):baseAbility;
   if(!actor||!a)return {done:false,event:{...action,skipped:true,title:"Ação cancelada",summary:"O personagem deixou o combate antes de agir."}};
@@ -504,12 +511,12 @@ export function createDuel(firstIds,secondIds,config={}){
  secondIds.forEach((id,i)=>{if(config.cardLoadouts?.enemy?.[id])cardLoadouts[`rival-${i}-${id}`]=config.cardLoadouts.enemy[id];});
  const s=createBattle(firstIds,roster,{...config,cardLoadouts,enemyPlanner:()=>[]});
  s.humanSides=true;s.turnSide='player';s.turnNumber=1;s.intents=[];
- if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.clash=null;}
+ if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};s.clash=null;}
  // Both human teams receive their own composition bonus.
  s.enemyResonance=getResonance(secondIds);return s;
 }
-export function submitDuelTurn(s,side,actions,selected,exchanges=[]){
- if(s.simultaneousDuel)return submitSimultaneousDuelTurn(s,side,actions,selected,exchanges);
+export function submitDuelTurn(s,side,actions,selected,exchanges=[],moves=[]){
+ if(s.simultaneousDuel)return submitSimultaneousDuelTurn(s,side,actions,selected,exchanges,moves);
  if(s.phase!=='player'||s.turnSide!==side)throw new Error('Não é seu turno.');
  if(!Array.isArray(actions)||actions.length>3)throw new Error('Fila inválida.');
  refreshSkillForms(s);const used=new Set(),queue=[];
@@ -554,10 +561,14 @@ const activeDuelAbility=(s,action)=>{
 export function duelPlanningStatus(s){
  return {round:s.round,ready:{player:Boolean(s.duelPlans?.player),enemy:Boolean(s.duelPlans?.enemy)}};
 }
-function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[]){
+function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[]){
  if(s.phase!=="player"||s.duelPlans?.[side])throw new Error("O planejamento deste lado já foi confirmado.");
  if(!Array.isArray(actions)||actions.length>3)throw new Error("Fila inválida.");
  if(!Array.isArray(exchanges)||exchanges.length>20)throw new Error("Trocas de Essência inválidas.");
+ const normalizedMoves=validateMovementPlans(s,side,moves);
+ // Preview own movements when validating the chosen targets.
+ const previousMoves=s.movementPlans?.[side]||[];
+ if(s.grid)s.movementPlans[side]=normalizedMoves;
  refreshSkillForms(s);
  const used=new Set(),queue=[];
  for(const ref of actions){
@@ -590,19 +601,22 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[]){
  });
  s.duelPlans[side]=paid;
  s.duelPools[side]=nextPool;
+ s.duelMoves[side]=normalizedMoves;
  if(s.duelPlans.player&&s.duelPlans.enemy){
   Object.assign(pool(s,"player"),s.duelPools.player);
   Object.assign(pool(s,"enemy"),s.duelPools.enemy);
   const first=s.round%2===1?"player":"enemy",second=opposingSide(first),resolution=[];
-  for(let i=0;i<3;i++)for(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
-  s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};
+  const moves=[...(s.duelMoves.player||[]),...(s.duelMoves.enemy||[])];
+  if(s.grid)resolution.push({type:"grid-moves",moves});
+  for(let i=0;i<3;ifor(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
+  s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};
   s.phase="resolving";s.resolution=[...resolution,{type:"duel-round-end"}];
   s.resolutionSide=first;s.acted=[];continueSimultaneousDuel(s);
  }
  return duelPlanningStatus(s);
 }
 function duelClashCandidate(s,action){
- if(!action?.actorId||action.clashResolved||!canUseResponse(s.cardCombat,opposingSide(action.side)))return null;
+ if(!action?.actorId||action.abilityId===BASIC_ATTACK_ID||action.clashResolved||!canUseResponse(s.cardCombat,opposingSide(action.side)))return null;
  const {actor,ability}=activeDuelAbility(s,action);
  if(!actor||!ability||actor.stunned||actor.cooldowns[ability.id]||skillSealReason(actor,ability)||!ability.damage||friendly(ability))return null;
  const valid=getValidTargets(s,actor,ability);
