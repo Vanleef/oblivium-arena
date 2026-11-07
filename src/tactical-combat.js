@@ -254,6 +254,10 @@ export function tacticalView(s,side='player'){
  delete v.tactical.objectiveSeed;
  if(v.tactical.objectives)v.tactical.objectives=v.tactical.objectives[side]?{[side]:v.tactical.objectives[side]}:{};
  v.tactical.pendingChestRewards=v.tactical.pendingChestRewards.filter(offer=>offer.side===side);
+ if(v.tactical.decks){
+  v.tactical.decks.sides[otherSide(side)]={};
+  for(const deck of Object.values(v.tactical.decks.sides[side]))deck.draw=Array(deck.draw.length).fill(null);
+ }
  return v;
 }
 
