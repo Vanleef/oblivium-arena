@@ -1,5 +1,6 @@
 import {boardMetricPoint,boardTracks} from './tactical-board.js';
 import {tacticalAnimationFrames} from './tactical-animation.js';
+import {tacticalActorPalette} from './tactical-visual-palette.js';
 const escapeHtml=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const superSlots=new Set(['voto','despertar']);
 // A super is a brief arena treatment, not a portrait-sized interruption.
@@ -15,8 +16,10 @@ export function tacticalCutinMarkup(actor,ability,event){
  const world=actor.realm==='Inferno'?'inferno':actor.realm==='Paraíso'?'paraiso':'limbo';
  const side=actor.side==='enemy'?'enemy':'player';
  const phase=['release','thrust'].includes(event.pose)?'release':'charge';
+ const colors=tacticalActorPalette(actor);
+ const tint=colors?' style="--super-bright:'+colors[0]+';--super-accent:'+colors[1]+';--super-deep:'+colors[2]+'"':'';
  // Speed streaks, darkened arena and an anchored character glow: no oversized artwork.
- return '<div class="fighter-super '+world+' '+side+'" data-pose="'+escapeHtml(event.pose)+'" data-phase="'+phase+'" aria-hidden="true"><span class="fighter-super-veil"></span><span class="fighter-super-speedlines"></span><span class="fighter-super-rupture"></span></div>';
+ return '<div class="fighter-super '+world+' '+side+'" data-pose="'+escapeHtml(event.pose)+'" data-phase="'+phase+'"'+tint+' aria-hidden="true"><span class="fighter-super-veil"></span><span class="fighter-super-speedlines"></span><span class="fighter-super-rupture"></span></div>';
 }
 // Keep the readable name BELOW the grid, including the attack contact.
 export function tacticalSuperCaptionActive(event){
@@ -29,7 +32,8 @@ export function tacticalSuperCaptionActive(event){
 export function tacticalSuperCaptionMarkup(actor,ability,event){
  if(!actor||!tacticalSuperCaptionActive(event))return '';
  const world=actor.realm==='Inferno'?'inferno':actor.realm==='Paraíso'?'paraiso':'limbo';
- return '<div class="fighter-super-nameplate '+world+'" role="status" aria-live="off">'
+ const colors=tacticalActorPalette(actor),tint=colors?' style="--caption-accent:'+colors[1]+'"':'';
+ return '<div class="fighter-super-nameplate '+world+'"'+tint+' role="status" aria-live="off">'
   +'<b>'+escapeHtml(actor.name)+'</b><strong>'+escapeHtml(ability?.name||event.title||'Especial')+'</strong></div>';
 }
 export function tacticalProjectileKind(actor,ability,event){
