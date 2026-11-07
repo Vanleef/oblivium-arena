@@ -20,3 +20,26 @@
  .compact-battle .compact-hand-counter{font-size:11px}
 }
 @media(prefers-reduced-motion:reduce){.compact-battle .compact-hand-card{scroll-behavior:auto}}
+
+/* Resource selection appears only for an actual incoming special. */
+.compact-battle .compact-duel-resources{display:flex;gap:6px;overflow-x:auto;justify-content:center;margin:8px auto;padding-bottom:4px;max-width:100%}
+.compact-battle .compact-duel-resources button{flex:0 0 auto;max-width:170px;min-height:34px;border:1px solid #9680b0;border-radius:8px;background:#2e223b;color:#efdfef;padding:6px 9px;font:700 11px/1.2 system-ui,sans-serif}
+.compact-battle .compact-duel-resources button[aria-pressed="true"]{border-color:#ffe0a9;background:#65425c;box-shadow:0 0 0 1px #e6b966}
+.compact-battle .compact-response-count{margin:4px 0 8px;padding:5px 8px;border:1px solid #8c728c;border-radius:7px;background:#302638;color:#ffeed6;font-size:11px;text-align:center}
+.compact-battle .compact-deck-editor{grid-column:1/-1;width:100%;min-width:0;padding:10px;border:1px solid #8d7684;border-radius:10px;background:#17151fdb;color:#f0e5d6;box-sizing:border-box}
+.compact-battle .compact-deck-editor>summary{font-weight:800;cursor:pointer}
+.compact-battle .compact-deck-editor>p{font-size:12px;line-height:1.4;color:#c8bace}
+.compact-battle .compact-deck-edit-hero{min-width:0;margin:9px 0;padding:8px;border:1px solid #655870;border-radius:8px}
+.compact-battle .compact-deck-edit-hero h4{margin:0 0 6px;font-size:13px}
+.compact-battle .compact-deck-edit-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:6px}
+.compact-battle .compact-deck-edit-slots>label{display:flex;flex-direction:column;gap:4px;font-size:11px;min-width:0}
+.compact-battle .compact-deck-edit-slots select{max-width:100%;min-width:0;padding:6px;color:#f5ecdf;background:#2b2234;border:1px solid #87768e;border-radius:5px}
+.compact-battle .compact-card-reward-picker{display:flex;flex-direction:column;gap:4px;margin-bottom:8px;font-size:11px}
+.compact-battle .compact-card-reward-picker select{width:100%;max-width:100%;padding:7px;background:#281f32;color:#f3e7d9;border:1px solid #a992b3;border-radius:5px}
+.compact-battle .compact-card-reward{display:flex;flex-direction:column;justify-content:stretch;min-width:0}
+.compact-battle .compact-card-reward>button{flex:1;min-height:70px}
+@media(max-width:600px){
+ .compact-battle .compact-deck-edit-slots{grid-template-columns:1fr}
+ .compact-battle .compact-card-reward-picker{font-size:12px}
+ .compact-battle .compact-duel-resources{justify-content:flex-start}
+}
