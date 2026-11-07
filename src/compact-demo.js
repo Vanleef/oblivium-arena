@@ -16,7 +16,7 @@ import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
 import {tacticalComboReplayEvents} from './tactical-combo.js';
-import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelAI} from './tactical-duel.js';
+import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelAI,tacticalDuelTendency} from './tactical-duel.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -171,7 +171,7 @@ function clashMarkup(){
   +' style="'+duel.palette+'">'
   +'<div class="compact-rhythm-heading"><strong>CONFRONTO DE VONTADES</strong><span>ESPECIAL</span></div>'
   +'<p><b>'+esc(duel.actorName)+'</b> · '+esc(duel.abilityName)+'</p>'
-  +'<p class="compact-duel-instruction">'+heading+' · A intenção do oponente permanece oculta até você decidir.</p>'
+  +'<p class="compact-duel-instruction">'+heading+' · Estilo adversário: tende a '+esc(tacticalDuelOptions.find(o=>o.id===duel.tendency)?.name||'variar')+'. A escolha real é secreta.</p>'
   +'<div class="compact-duel-options" role="group" aria-label="Três intenções para o especial">'+options+'</div>'
   +(reveal?'<div class="compact-duel-reveal" role="status" aria-live="polite"><strong>'+esc(reveal.label)+'</strong>'
    +'<span>Você: '+esc(playerLabel)+' · Oponente: '+esc(opponentLabel)+'</span></div>'
@@ -316,9 +316,11 @@ function interactiveDuel(ref){
  const before={allies:current.allies,enemies:current.enemies,
   positions:current.tactical.positions,width:current.tactical.width,height:current.tactical.height};
  const anchor=ref.anchor||origin,area=tacticalArea(current,ref.actor,ref.ability,anchor,ref.orientation);
+ const rival=attacking?current.enemies.find(u=>u.id===ref.targets[0])||ref.actor:ref.actor;
+ const tendency=tacticalDuelTendency(rival);
  const foeChoice=tacticalDuelAI({round:current.round,actorId:ref.actorId,
   targetId:ref.targets[0]||'',abilityId:ref.abilityId,
-  side:attacking?'defense':'attack'});
+  side:attacking?'defense':'attack',tendency});
  state.snapshot=before;
  state.event={type:'skill',actorId:ref.actorId,abilityId:ref.abilityId,
   family:tacticalAnimationFamily(ref.ability),anchor,orientation:ref.orientation,
@@ -326,7 +328,7 @@ function interactiveDuel(ref){
   title:'Confronto de Vontades · '+ref.ability.name};
  return new Promise(resolve=>{
   const duel={role,actorName:ref.actor.name,abilityName:ref.ability.name,
-   opponentChoice:foeChoice,palette:tacticalPaletteVariables(tacticalActorPalette(ref.actor,{realmFallback:true})),
+   opponentChoice:foeChoice,tendency,palette:tacticalPaletteVariables(tacticalActorPalette(ref.actor,{realmFallback:true})),
    locked:false,choice:null,result:null,transitionTimer:null,press:null,skip:null,completed:false};
   const finish=choice=>{
    if(duel.completed||duel.locked)return;
