@@ -495,8 +495,27 @@ export function createEnemyTeam(elo,playerIds,encounter="normal",sequence=0,conf
 export function getEloById(id){return getElo(id);}
 
 export function resolveNextAction(s){
- const aliveBefore=new Set([...s.allies,...s.enemies].filter(unit=>unit.hp>0).map(unit=>unit.id));
+ const unitsBefore=[...s.allies,...s.enemies];
+ const aliveBefore=new Set(unitsBefore.filter(unit=>unit.hp>0).map(unit=>unit.id));
+ const before=new Map(unitsBefore.map(unit=>[unit.id,{hp:unit.hp,shield:unit.shield}]));
  const result=resolveAction(s),units=[...s.allies,...s.enemies];
+ // A bounded public timeline contains only already resolved events; no hidden cards or plans.
+ if(result.event){
+  const event=result.event;
+  const changes=units.map(unit=>{
+   const prev=before.get(unit.id)||{hp:unit.hp,shield:unit.shield};
+   return {id:unit.id,name:unit.name,hp:unit.hp-prev.hp,shield:unit.shield-prev.shield,statuses:[],forms:[]};
+  }).filter(change=>change.hp||change.shield);
+  s.combatEventSeq=(s.combatEventSeq||0)+1;
+  const publicEvent={seq:s.combatEventSeq,round:s.round,mode:event.mode||"ability",title:event.title||"Ação resolvida",summary:event.summary||"",
+   actorId:event.actorId||null,actorName:event.actorName||null,abilityId:event.abilityId||null,
+   targetId:event.targetId||null,totalDamage:event.totalDamage||0,changes,
+   ...(event.clashResult?{clashResult:{outcome:event.clashResult.outcome,cancel:!!event.clashResult.cancel,critical:!!event.clashResult.critical}}:{}),
+   ...(event.moves?.length?{moves:event.moves.map(move=>({actorId:move.actorId,side:move.side}))}:{}),
+   ...(event.objectiveRewards?.length?{objectiveRewards:event.objectiveRewards.map(reward=>({actorId:reward.actorId,actorName:reward.actorName,tier:reward.tier}))}:{})};
+  (s.combatEvents||=[]).push(publicEvent);
+  if(s.combatEvents.length>12)s.combatEvents.splice(0,s.combatEvents.length-12);
+ }
  // Reactions and idle traps can defeat a soul outside the direct-hit path.
  for(const unit of units)if(aliveBefore.has(unit.id)&&unit.hp<=0&&!unit.defeatNotified){
   const reaction=result.event?.reactions?.find(item=>item.targetId===unit.id&&item.damage>0);
