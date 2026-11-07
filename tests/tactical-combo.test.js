@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalComboBeats,tacticalComboEligible,tacticalComboResult,tacticalComboDamage,
+import {tacticalComboBeats,tacticalComboTimingHit,tacticalComboEligible,tacticalComboResult,tacticalComboDamage,
  tacticalComboAIOpposition,tacticalComboReplayEvents} from '../src/tactical-combo.js';
 
 const player={id:'hero',hp:100,shield:0,side:'player'};
@@ -82,4 +82,16 @@ test('reflected and collateral harm is not wrongly shown as a direct combo strik
  assert.equal(beats[2].after.allies[0].hp,87);
  assert.equal(beats.reduce((sum,hit)=>sum+hit.totalDamage,0),39);
  assert.deepEqual(beats[2].after,event.after);
+});
+
+test('timing window is predictable, bounded and symmetric on mobile and desktop',()=>{
+ assert.equal(tacticalComboTimingHit(525,1050),true);
+ assert.equal(tacticalComboTimingHit(525-240,1050),true);
+ assert.equal(tacticalComboTimingHit(525+240,1050),true);
+ assert.equal(tacticalComboTimingHit(270,1050),false);
+ assert.equal(tacticalComboTimingHit(780,1050),false);
+ assert.equal(tacticalComboTimingHit(-1,1050),false);
+ assert.equal(tacticalComboTimingHit(9999,1050),false);
+ assert.equal(tacticalComboTimingHit(Number.NaN,1050),false);
+ assert.equal(tacticalComboTimingHit(525,0),false);
 });
