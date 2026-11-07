@@ -1,6 +1,7 @@
 import { randomBytes, randomUUID, createHash } from 'node:crypto';
 import { characterById } from '../src/data.js';
 import { normalizeRankedLoadouts } from '../src/ranked-loadouts.js';
+import {mirrorCell} from '../src/tactical-grid.js';
 import { createDuel, submitDuelTurn, continueDuel, answerDuelClash } from '../src/combat.js';
 import { beginInfluences, chooseInfluence } from '../src/world-influences.js';
 import { rankForRating, playerLevel } from '../src/player-level.js';
@@ -14,10 +15,11 @@ export function rankedResult(a,b,winner){
  return [a,b].map((p,i)=>({...p,rating:Math.max(0,p.rating+(i===winner?delta:-delta)),wins:p.wins+(i===winner?1:0),losses:p.losses+(i!==winner?1:0),streak:i===winner?p.streak+1:0,xp:p.xp+(i===winner?70:30),matchId:p.matchId}));
 }
 export function publicBattle(match,index){
- const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;delete s.duelPlans;delete s.duelPools;s.queue=[];s.intents=[];
+ const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;delete s.duelPlans;delete s.duelPools;delete s.duelMoves;s.queue=[];s.intents=[];if(s.movementPlans)s.movementPlans={player:[],enemy:[]};
  const side=index===0?'player':'enemy';
  if(index===1){[s.allies,s.enemies]=[s.enemies,s.allies];[s.resources,s.enemyResources]=[s.enemyResources,s.resources];s.resonance=s.enemyResonance;[s.essenceDraws.player,s.essenceDraws.enemy]=[s.essenceDraws.enemy,s.essenceDraws.player];if(s.phase==='victory')s.phase='defeat';else if(s.phase==='defeat')s.phase='victory';}
  for(const u of s.allies)u.side='player';for(const u of s.enemies)u.side='enemy';
+ if(index===1&&s.grid)for(const u of [...s.allies,...s.enemies])if(u.position)u.position=mirrorCell(u.position);
  if(s.phase==='influence'){if(s.influenceDraft.side!==side){s.phase='waiting';s.influenceDraft=null;}else s.influenceDraft.side='player';}
  else if(s.simultaneousDuel){
   s.ready={player:Boolean(match.battle.duelPlans?.[side]),enemy:Boolean(match.battle.duelPlans?.[side==='player'?'enemy':'player'])};
@@ -96,7 +98,7 @@ export class ArenaService{
     attachRandom(match.battle);
     if(op==='turn'){
      if(battle.simultaneousDuel&&input.round!==battle.round)fail('O turno mudou. Atualize a Arena.',409);
-     try{submitDuelTurn(battle,owner,input.actions,input.payment,input.exchanges||[]);}
+     try{const moves=(input.moves||[]).map(m=>({...m,to:owner==='enemy'?mirrorCell(m.to):m.to}));submitDuelTurn(battle,owner,input.actions,input.payment,input.exchanges||[],moves);}
      catch{fail('Fila inválida, carta indisponível ou planejamento já enviado.',409);}
     }
     if(op==='response'){
