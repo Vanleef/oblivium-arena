@@ -121,7 +121,7 @@ let state = {
   handActorId: null,
   deckActorId: null,
   deckDrafts: {},
-  willSign: "fenda",
+  willSign: "miragem",
   inspectUnitId: null,
   confirmTurn: false,
   randomPayment:null,
@@ -833,7 +833,7 @@ app.addEventListener("click", (event) => {
     save(); render(); return;
   }
   if(target.dataset.duelResponse){if(state.battle?.online&&state.battle?.phase==="clash")sendOnline({op:"response",sign:target.dataset.duelResponse});return;}
-  if(target.dataset.willSign){if(["fenda","vinculo","egide"].includes(target.dataset.willSign)){state.willSign=target.dataset.willSign;render();}return;}
+  if(target.dataset.willSign){if(["miragem","luz","sombra"].includes(target.dataset.willSign)){state.willSign=target.dataset.willSign;render();}return;}
   if(target.dataset.deckUnit){state.deckActorId=target.dataset.deckUnit;render();return;}
   if(target.dataset.deckAdd){
    const [id,abilityId]=target.dataset.deckAdd.split("|"),unit=characterById[id];if(!unit||!profile.team.includes(id)||!unit.abilities.some(a=>a.id===abilityId))return;
