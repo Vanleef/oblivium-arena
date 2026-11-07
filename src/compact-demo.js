@@ -188,7 +188,11 @@ function emit(event,unit,ability,phase,duration){
 async function playback(events){
  const revision=++state.revision;state.busy=true;state.hitstop=false;render();
  const reduced=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
- const pause=ms=>new Promise(resolve=>setTimeout(resolve,(reduced?35:ms)/state.speed));
+ // Reduced motion removes travel, not the player's time to read damage or healing.
+ const pause=(ms,{holdFeedback=false}={})=>new Promise(resolve=>{
+  const delay=holdFeedback&&reduced?Math.max(180,220/state.speed):(reduced?35:ms)/state.speed;
+  setTimeout(resolve,delay);
+ });
  const pauseExact=ms=>new Promise(resolve=>setTimeout(resolve,ms));
  for(const event of events){
   if(revision!==state.revision)return;
@@ -242,7 +246,7 @@ async function playback(events){
      root.querySelector('.compact-stage')?.setAttribute('data-hitstop','false');
     }
    }
-   await pause(duration);
+   await pause(duration,{holdFeedback:impact});
   }
   state.snapshot=event.after;
  }
