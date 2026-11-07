@@ -116,6 +116,7 @@ let state = {
   selectedSkill: null,
   focusSkill: null,
   handActorId: null,
+  willSign: "fenda",
   inspectUnitId: null,
   confirmTurn: false,
   randomPayment:null,
@@ -494,7 +495,7 @@ function resolveCombatStep() {
 function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
   const exchanges=state.battle.pendingEssenceExchanges||[];
-  if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected,exchanges});return;}
+  if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",round:state.battle.round,actions:state.battle.queue,payment:payment.selected,exchanges});return;}
   if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId})=>({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
   if(!commitTurn(state.battle,payment.selected).ok)return;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
@@ -510,7 +511,7 @@ function updateBattle(actorId,abilityId,cardId=null) {
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
   if(!state.selectedSkill){state.inspectUnitId=targetId;state.focusSkill=null;render();return;}
-  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0,cardId:state.selectedSkill.cardId});
+  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0,cardId:state.selectedSkill.cardId,willSign:state.willSign});
   if(!result.ok){toast(result.reason);return;}state.exchangeOpen=false;state.exchangePayment=null;state.selectedSkill=null;render();
 }
 
@@ -757,7 +758,7 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-card-play], [data-card-unit], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
+  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-card-play], [data-card-unit], [data-will-sign], [data-duel-response], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
   if (!target) return;
   if(state.account&&state.audioOn)startAmbience();
   playSfx("click");
@@ -824,6 +825,8 @@ app.addEventListener("click", (event) => {
     profile.team = profile.team.filter((id) => id !== target.dataset.removeMember);
     save(); render(); return;
   }
+  if(target.dataset.duelResponse){if(state.battle?.online&&state.battle?.phase==="clash")sendOnline({op:"response",sign:target.dataset.duelResponse});return;}
+  if(target.dataset.willSign){if(["fenda","vinculo","egide"].includes(target.dataset.willSign)){state.willSign=target.dataset.willSign;render();}return;}
   if(target.dataset.cardUnit){state.handActorId=target.dataset.cardUnit;state.selectedSkill=null;state.focusSkill=null;render();return;}
   if(target.dataset.cardPlay){const [actorId,abilityId,cardId]=target.dataset.cardPlay.split("|");updateBattle(actorId,abilityId,cardId);return;}
   if (target.dataset.useSkill) {
