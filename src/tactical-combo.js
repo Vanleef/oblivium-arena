@@ -59,11 +59,19 @@ export function tacticalComboReplayEvents(event){
  },0);
  if(losses<2)return [event];
  const slot=String(event.abilityId||'').split('/')[0];
- const count=['voto','despertar'].includes(slot)?4:slot==='impulso'?2:3;
+ const count=event.combo?.reactive?event.combo.beats
+  :['voto','despertar'].includes(slot)?4:slot==='impulso'?2:3;
+ // Intermediate snapshots must honor successful evasions. In a 3-hit chain,
+ // a dodged first hit shows NO loss, while the later unavoided contacts still do.
+ const weights=Array.from({length:count},(_,i)=>event.combo?.reactive
+  ?event.combo.avoidedBeats.includes(i)?0:event.combo.attackBeats[i]?1.3:1
+  :1);
+ const totalWeight=weights.reduce((sum,n)=>sum+n,0)||1;
+ const fraction=i=>weights.slice(0,i).reduce((sum,n)=>sum+n,0)/totalWeight;
  const frames=[];
  for(let index=0;index<count;index++){
-  const first=index?inBetween(event.before,event.after,index/count,affected):clone(event.before);
-  const last=index===count-1?clone(event.after):inBetween(event.before,event.after,(index+1)/count,affected);
+  const first=index?inBetween(event.before,event.after,fraction(index),affected):clone(event.before);
+  const last=index===count-1?clone(event.after):inBetween(event.before,event.after,fraction(index+1),affected);
   const from=new Map(units(first).map(unit=>[unit.id,unit]));
   const value=units(last).reduce((sum,unit)=>{
    const old=from.get(unit.id);
@@ -71,6 +79,7 @@ export function tacticalComboReplayEvents(event){
   },0);
   frames.push({...event,before:first,after:last,totalDamage:value,
    comboBeat:index+1,comboTotal:count,comboReplay:true,
+   comboAvoided:Boolean(event.combo?.reactive&&event.combo.avoidedBeats.includes(index)),
    title:event.title+' · '+(index+1)+'/'+count});
  }
  return frames;
