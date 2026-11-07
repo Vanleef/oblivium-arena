@@ -15,7 +15,8 @@ import {tacticalFigureStyle} from './tactical-figure-framing.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
-import {tacticalComboReplayEvents,tacticalComboAIOpposition,tacticalComboBeats,tacticalComboTimingHit} from './tactical-combo.js';
+import {tacticalComboReplayEvents} from './tactical-combo.js';
+import {tacticalReactiveBeats,tacticalReactiveJudge,tacticalReactiveAI} from './tactical-reactions.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -154,15 +155,22 @@ function eventForecast(s){
  return '<p class="compact-field-forecast"><strong>Eventos de campo</strong> · Próximo evento: rodada '+nextRound+' (em '+roundsRemaining+' rodada(s))'+(active?'<span>Ativo: '+esc(active.title)+' · '+esc(active.description)+'</span>':'')+'</p>';
 }
 function clashMarkup(){
- const clash=state.clash;if(!clash)return '';
- const attack=clash.role==='attack',label=attack?'INTENSIFICAR':'APARAR';
- return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Disputa de combo" data-combo-role="'+clash.role+'" data-combo-feedback="'+Boolean(clash.locked)+'" style="--rhythm-ms:'+clash.ms+'ms;--rhythm-stop:'+clash.progress+'">'
-  +'<div class="compact-rhythm-heading"><strong>'+esc(attack?'SEQUÊNCIA OFENSIVA':'DEFESA ATIVA')+'</strong><span>GOLPE '+clash.beat+' / '+tacticalComboBeats+'</span></div>'
-  +'<p><b>'+esc(clash.actorName)+'</b> · '+esc(clash.abilityName)+'</p>'
-  +'<div class="compact-rhythm-track" aria-hidden="true"><i class="compact-rhythm-zone"></i><i class="compact-rhythm-cursor"></i></div>'
-  +'<p class="compact-rhythm-help">'+esc(clash.feedback||'Toque no momento em que o marcador cruzar o centro.')+'</p>'
-  +'<div class="compact-rhythm-actions"><button data-combo-strike '+(clash.locked?'disabled':'')+'>'+label+' <small>Toque / Espaço</small></button><button data-combo-skip>Sem interação</button></div>'
-  +'<span class="compact-rhythm-score" role="status">Acertos: '+clash.hits+' / '+tacticalComboBeats+' · A disputa afeta o dano real.</span>'
+ const value=state.clash;if(!value)return '';
+ const beat=value.beats[value.beat-1],offense=value.role==='attack';
+ const cue=beat?.cue||'GOLPE';
+ const keys=offense?'<button data-combo-strike '+(value.locked?'disabled':'')+'>ATACAR<small>Espaço / Enter</small></button>'
+  :beat?.kind==='sweep'?'<button data-combo-jump '+(value.locked?'disabled':'')+'>SALTAR<small>W / Espaço</small></button>'
+  :'<button data-combo-dodge '+(value.locked?'disabled':'')+'>ESQUIVAR<small>Espaço / D</small></button><button data-combo-parry '+(value.locked?'disabled':'')+'>APARAR<small>E / Enter</small></button>';
+ const tip=offense?'Acompanhe o movimento do personagem e ataque quando o golpe conectar.'
+  :beat?.kind==='sweep'?'Varredura no chão: salte na hora do contato.'
+  :'Esquiva: janela maior. Aparo: janela curta e chance de contra-atacar.';
+ return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Resposta durante sequência de golpes" data-combo-role="'+value.role+'" data-combo-kind="'+beat.kind+'" data-combo-cue="'+(value.locked?'resolved':'windup')+'" data-combo-feedback="'+Boolean(value.locked)+'" style="--rhythm-ms:'+beat.duration+'ms;--rhythm-stop:'+value.progress+'">'
+  +'<div class="compact-rhythm-heading"><strong>'+esc(offense?'EXECUÇÃO DO COMBO':'REAGIR AO ATAQUE')+'</strong><span>GOLPE '+value.beat+' / '+value.beats.length+'</span></div>'
+  +'<p><b>'+esc(value.actorName)+'</b> · '+esc(value.abilityName)+'</p>'
+  +'<div class="compact-rhythm-contact" aria-hidden="true"><span class="compact-rhythm-contact-core"></span><span class="compact-rhythm-contact-ring"></span><span class="compact-rhythm-attack-glyph">'+esc(cue)+'</span></div>'
+  +'<p class="compact-rhythm-help">'+esc(value.feedback||tip)+'</p>'
+  +'<div class="compact-rhythm-actions">'+keys+'<button data-combo-skip>Sem interação<small>Esc</small></button></div>'
+  +'<span class="compact-rhythm-score" role="status">Ações precisas: '+value.hits+' / '+value.beats.length+(offense?' · Intensifica a técnica.':' · Aparo total gera contra-ataque.')+'</span>'
   +'</section>';
 }
 function render(){
@@ -287,64 +295,94 @@ async function playback(events,{partial=false}={}){
 }
 // The opponent's score is a bounded deterministic AI response.
  // The human acts for the attacking or defending team, even in solo play.
+// The animation communicates the contact; the player decides whether
+// to time an offensive input or defend with a forgiving dodge / risky parry.
 function interactiveCombo(ref){
  const reduced=Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
- if(reduced)return Promise.resolve({attackHits:0,defenseHits:0});
- const role=ref.side==='player'?'attack':'defense',ms=1050;
- const current=state.battle,position=current.tactical.positions[ref.actorId];
- const before={allies:current.allies,enemies:current.enemies,positions:current.tactical.positions,
-  width:current.tactical.width,height:current.tactical.height};
+ if(reduced)return Promise.resolve({attacks:[],defenses:[]});
+ const role=ref.side==='player'?'attack':'defense',current=state.battle;
+ const beats=ref.beats||tacticalReactiveBeats(ref.actor,ref.ability,tacticalAnimationFamily(ref.ability));
+ const human=[],attacksAI=tacticalReactiveAI(beats,{side:'attack',round:current.round,
+  actorId:ref.actorId,abilityId:ref.abilityId});
+ const defensesAI=tacticalReactiveAI(beats,{side:'defense',round:current.round,
+  actorId:ref.actorId,abilityId:ref.abilityId});
+ const position=current.tactical.positions[ref.actorId],before={
+  allies:current.allies,enemies:current.enemies,positions:current.tactical.positions,
+  width:current.tactical.width,height:current.tactical.height
+ };
  const anchor=ref.anchor||position,area=tacticalArea(current,ref.actor,ref.ability,anchor,ref.orientation);
+ const target=ref.targets.find(id=>current.allies.some(unit=>unit.id===id))||ref.targets[0];
  state.snapshot=before;
- state.event={type:'skill',actorId:ref.actorId,abilityId:ref.abilityId,family:tacticalAnimationFamily(ref.ability),
-  anchor,orientation:ref.orientation,cells:area,before,after:before,pose:'windup',
-  title:role==='attack'?'Combo ofensivo · '+ref.ability.name:'Defesa ativa · '+ref.ability.name};
+ state.event={type:'skill',actorId:ref.actorId,abilityId:ref.abilityId,
+  family:tacticalAnimationFamily(ref.ability),anchor,orientation:ref.orientation,
+  cells:area,before,after:before,pose:'anticipate',
+  title:role==='attack'?'Execução ativa · '+ref.ability.name:'Reação ao ataque · '+ref.ability.name};
  return new Promise(resolve=>{
-  const opponent=tacticalComboAIOpposition({round:current.round,actorId:ref.actorId,abilityId:ref.abilityId});
-  const value={role,ms,beat:1,hits:0,locked:false,feedback:'',actorName:ref.actor.name,
-   abilityName:ref.ability.name,startedAt:0,progress:0,timer:null,completed:false,press:null,skip:null};
+  const value={role,beats,beat:1,hits:0,locked:false,feedback:'',actorName:ref.actor.name,
+   abilityName:ref.ability.name,startedAt:0,progress:0,completed:false,timer:null,
+   cueTimer:null,transitionTimer:null,press:null,skip:null};
+  const clear=()=>{clearTimeout(value.timer);clearTimeout(value.cueTimer);clearTimeout(value.transitionTimer);};
   const complete=neutral=>{
    if(value.completed)return;
-   value.completed=true;clearTimeout(value.timer);state.clash=null;state.event=null;
-   const answer=neutral?{attackHits:0,defenseHits:0}:
-    role==='attack'?{attackHits:value.hits,defenseHits:opponent}:{attackHits:opponent,defenseHits:value.hits};
+   value.completed=true;clear();state.clash=null;state.event=null;
+   const answer=neutral?{attacks:[],defenses:[]}:role==='attack'
+    ?{attacks:human,defenses:defensesAI}:{attacks:attacksAI,defenses:human};
    state.snapshot=before;render();resolve(answer);
   };
   const begin=()=>{
    if(value.completed)return;
-   value.locked=false;value.feedback='';value.progress=0;state.clash=value;
-   state.event={...state.event,pose:'windup'};
+   clear();value.locked=false;value.feedback='';value.progress=0;state.clash=value;
+   state.event={...state.event,pose:value.beats[value.beat-1].pose};
    render();value.startedAt=performance.now();
-   value.timer=setTimeout(()=>end(false),ms);
+   const beat=value.beats[value.beat-1];
+   value.cueTimer=setTimeout(()=>{
+    if(value.completed||value.locked)return;
+    root.querySelector('.compact-rhythm-clash')?.setAttribute('data-combo-cue','incoming');
+    root.querySelector('.compact-stage')?.setAttribute('data-reactive-telegraph',beat.kind);
+    const marker=root.querySelector('[data-unit-id="'+(role==='defense'?target:ref.actorId)+'"]');
+    marker?.setAttribute('data-reactive-target',role);
+    playCombatCue('release',state.event?.family||'strike');
+    emit({...state.event,pose:'release'},ref.actor,ref.ability,'release',210);
+   },Math.max(100,beat.impactMs-240));
+   value.timer=setTimeout(()=>finish('none'),beat.duration);
   };
-  const end=tapped=>{
+  const finish=action=>{
    if(value.completed||value.locked)return;
-   value.locked=true;clearTimeout(value.timer);
-   const elapsed=performance.now()-value.startedAt,accurate=tapped&&tacticalComboTimingHit(elapsed,ms);
-   value.progress=Math.max(0,Math.min(1,elapsed/ms));
-   if(accurate)value.hits++;
-   value.feedback=accurate?'ACERTO!':tapped?'FORA DO RITMO':'TEMPO ESGOTADO';
-   // Every beat animates the real actor, not just a metronome. A successful
-   // defense also creates a material ward around the actually targeted ally.
-   state.event={...state.event,pose:'release'};
+   const beat=value.beats[value.beat-1];
+   value.locked=true;clearTimeout(value.timer);clearTimeout(value.cueTimer);
+   const elapsed=performance.now()-value.startedAt;
+   const outcome=tacticalReactiveJudge(beat,action,elapsed);
+   human.push(outcome);
+   value.progress=Math.max(0,Math.min(1,elapsed/beat.duration));
+   if(outcome.success)value.hits++;
+   value.feedback=outcome.success
+    ?action==='parry'?'APARO PERFEITO!':action==='dodge'?'ESQUIVA!':action==='jump'?'SALTO CERTO!':'GOLPE PRECISO!'
+    :action==='none'?'GOLPE RECEBIDO':action==='parry'?'APARO FORA DO TEMPO':'TEMPO INCORRETO';
+   state.event={...state.event,pose:outcome.success&&action==='parry'?'counter':'impact'};
    render();
-   playCombatCue('release',state.event?.family||'strike');
-   emit(state.event,ref.actor,ref.ability,'release',220/state.speed);
-   if(accurate&&role==='defense'){
-    const guarded=current.allies.find(unit=>ref.targets.includes(unit.id));
-    if(guarded){
-     const location=before.positions[guarded.id];
-     emit({type:'guard',actorId:guarded.id,before,after:before,anchor:location,
-      family:'guard',cells:[location]},guarded,null,'prepare',220/state.speed);
+   root.querySelector('.compact-rhythm-clash')?.setAttribute('data-combo-cue',outcome.success?'success':'miss');
+   if(outcome.success){
+    playCombatCue('contact',outcome.action==='parry'?'counter':state.event?.family||'strike');
+    if(role==='defense'){
+     const guarded=current.allies.find(u=>u.id===target);
+     const location=before.positions[guarded?.id];
+     if(guarded&&location){
+      if(action==='dodge'||action==='jump')
+       root.querySelector('[data-unit-id="'+guarded.id+'"]')?.setAttribute('data-reactive-evade',action);
+      if(action==='parry')
+       emit({type:'guard',actorId:guarded.id,before,after:before,anchor:location,
+        family:'counter',cells:[location]},guarded,null,'prepare',260);
+     }
     }
    }
-   setTimeout(()=>{
+   value.transitionTimer=setTimeout(()=>{
     if(value.completed)return;
-    if(value.beat>=tacticalComboBeats)complete(false);
+    if(value.beat>=beats.length)complete(false);
     else{value.beat++;begin();}
-   },170);
+   },outcome.success?260:185);
   };
-  value.press=()=>end(true);value.skip=()=>complete(true);
+  value.press=action=>finish(action);
+  value.skip=()=>complete(true);
   begin();
  });
 }
@@ -399,7 +437,7 @@ function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy
 }
 root.addEventListener('click',event=>{
  const button=event.target.closest('button');if(!button||button.disabled)return;const d=button.dataset;
- if(state.clash){if('comboStrike'in d)state.clash.press?.();else if('comboSkip'in d)state.clash.skip?.();return;}
+ if(state.clash){if('comboStrike'in d)state.clash.press?.('strike');else if('comboDodge'in d)state.clash.press?.('dodge');else if('comboParry'in d)state.clash.press?.('parry');else if('comboJump'in d)state.clash.press?.('jump');else if('comboSkip'in d)state.clash.skip?.();return;}
  if(d.speed){state.speed=Number(d.speed);render();return;}
  if('sound'in d){setAudioEnabled(!audioEnabled());render();return;}
  if(state.busy)return;
@@ -442,9 +480,13 @@ root.addEventListener('pointerover',event=>{
 });
 document.addEventListener('keydown',event=>{
  if(state.clash){
-  if((event.code==='Space'||event.code==='Enter')&&!event.repeat){event.preventDefault();state.clash.press?.();}
-  else if(event.key==='Escape'){event.preventDefault();state.clash.skip?.();}
-  return;
+  if(event.key==='Escape'){event.preventDefault();state.clash.skip?.();return;}
+  if(event.repeat)return;
+  const active=state.clash,kind=active.beats[active.beat-1]?.kind;
+  const key=event.code==='Space'?active.role==='attack'?'strike':kind==='sweep'?'jump':'dodge':
+   event.code==='Enter'?active.role==='attack'?'strike':'parry':
+   event.code==='KeyD'?'dodge':event.code==='KeyE'?'parry':event.code==='KeyW'?'jump':null;
+  if(key){event.preventDefault();active.press?.(key);}return;
  }
  if(event.target.matches('input,select,textarea,[contenteditable="true"]')||locked())return;
  if(event.code==='Space'&&!event.repeat){event.preventDefault();confirm();}
