@@ -29,7 +29,7 @@ export function tacticalFeedback(event){
  if(!['skill','field-event','effects'].includes(event?.type)||event.skipped||!event.before||!event.after)return [];
  const previous=new Map(actors(event.before).map(u=>[u.id,u]));
  const area=new Set((event.cells||[]).map(pointKey));
- const targetIds=new Set(event.affectedTargetIds||event.targets||[]);
+ const targetIds=new Set([...(event.affectedTargetIds||[]),...(event.targets||[])]);
  return actors(event.after).flatMap(unit=>{
   const old=previous.get(unit.id),point=event.after.positions?.[unit.id]||event.before.positions?.[unit.id];
   if(!old||!point||(area.size&&!area.has(pointKey(point))&&!targetIds.has(unit.id)))return [];
