@@ -12,6 +12,7 @@ import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
 import {tacticalDuelResolve} from './tactical-duel.js';
+import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse} from './tactical-decks.js';
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
@@ -239,6 +240,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
   }
  }
  if(s.tactical.fortress)refreshConquestObjectives(s);
+ if(config.compact&&config.cardMode){s.tactical.cardMode=true;s.tactical.decks=createTacticalDecks(s,{decks:config.decks||{},seed});}
  s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
 }
@@ -378,8 +380,10 @@ function normalizePlan(s,side,actions){
   const actor=actorFor(s,side,ref.actorId);if(!actor||actor.stunned)return fail('Personagem indisponível.');
   counts[actor.id]=(counts[actor.id]||0)+1;if(counts[actor.id]>2)return fail('Cada personagem tem duas ações.');
   if(ref.type==='move'){
-   if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>movementRange(s,actor.id)||ref.path.some(p=>!onBoard(p,s)))return fail('Movimento inválido.');
-   refs.push({type:'move',actorId:actor.id,side,path:ref.path.map(point=>cleanPoint(point,s)),order});
+   const movementCard=ref.cardId?tacticalCard(s,side,actor.id,ref.cardId):null;
+   const maxSteps=s.tactical.cardMode&&movementCard?.kind==='mobility'?2:movementRange(s,actor.id);
+   if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>maxSteps||ref.path.some(p=>!onBoard(p,s)))return fail('Movimento inválido.');
+   refs.push({type:'move',actorId:actor.id,side,path:ref.path.map(point=>cleanPoint(point,s)),...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),order});
   }else if(ref.type==='skill'){
    const ability=actor.abilities.find(a=>a.id===ref.abilityId);if(!ability)return fail('Técnica inválida.');
    const formKey=typeof ref.formKey==='string'?ref.formKey:(ability.formKey||'base');
@@ -388,10 +392,11 @@ function normalizePlan(s,side,actions){
    const orientation=ref.orientation||(side==='player'?[1,0]:mirrorDirection([1,0]));
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
    const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}
-   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],order});
+   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),order});
   }else if(ref.type==='guard'&&s.tactical.activation&&!s.tactical.compact){refs.push({type:'guard',actorId:actor.id,side,order});}
   else return fail('Tipo de ação inválido.');
  }
+ const cards=validateTacticalCardPlan(s,side,refs);if(!cards.ok)return fail(cards.reason);
  return {ok:true,actions:refs};
 }
 
@@ -427,6 +432,7 @@ export function previewTacticalPlan(s,side,actions,selected){
 export function submitTacticalPlan(s,side,actions,selected){
  if(s.tactical.activation||s.tactical.stage!=='planning'||!validSide(side)||s.tactical.plans[side])return fail('Este lado já confirmou ou a rodada terminou.');
  const result=previewTacticalPlan(s,side,actions,selected);if(!result.ok)return result;
+ spendTacticalCards(s,side,result.actions);
  s.tactical.plans[side]=copy(result.actions);
  if(s.tactical.plans.player&&s.tactical.plans.enemy){s.tactical.stage='ready';s.phase='tactical-ready';}
  return {ok:true,ready:s.tactical.stage==='ready'};
@@ -507,7 +513,9 @@ export function startCompactRoundResolution(s){
   const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
   const targets=ability&&anchor?tacticalTargets(s,actor,ability,anchor,ref.orientation):[];
   return {...ref,anchor,actor:actor||null,ability:ability||null,targets,
-   comboEligible:tacticalComboEligible(actor,ability,targets)&&!actor.cooldowns?.[ability.id]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(s,actor,ability)};
+   comboEligible:tacticalComboEligible(actor,ability,targets)&&!actor.cooldowns?.[ability.id]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(s,actor,ability)
+     &&(!s.tactical.cardMode||tacticalResponseOptions(s,otherSide(ref.side),targets[0]).available),
+   ...(s.tactical.cardMode?{responseSide:otherSide(ref.side),responseOptions:tacticalResponseOptions(s,otherSide(ref.side),targets[0])}:{})};
  };
  const next=(responses={})=>{
   if(closed)return fail('A rodada já foi concluída.');
@@ -525,11 +533,13 @@ export function startCompactRoundResolution(s){
    const awaiting=peek();
    // Invalid or missing intentions can NEVER silently award a free full hit.
    // Keep the sealed action pending until both choices have been submitted.
-   const duel=awaiting?.comboEligible
-    ?tacticalDuelResolve(responses.attackChoice,responses.defenseChoice):null;
-   if(awaiting?.comboEligible&&!duel)return fail('Escolhas de Confronto de Vontades inválidas.');
+   const duel=awaiting?.comboEligible&&!responses.decline
+    ?tacticalDuelResolve(responses.attackChoice,responses.defenseChoice,{mode:s.tactical.cardMode?'cards':'legacy'}):null;
+   if(awaiting?.comboEligible&&!duel&&(!s.tactical.cardMode||!responses.decline))return fail('Escolhas de Confronto de Vontades inválidas.');
+   if(duel&&s.tactical.cardMode&&!spendTacticalResponse(s,awaiting.responseSide,responses.reactionCardId||null))return fail('Resposta indisponível.');
    const ref=commands.shift();
-   const before=replayState(s),result=execute(s,duel?{...ref,clash:duel}:ref);
+   const clash=duel&&s.tactical.cardMode?{...duel,protectedTargetId:awaiting.targets[0]}:duel;
+   const before=replayState(s),result=execute(s,clash?{...ref,clash}:ref);
    const title=result.title||'Técnica interrompida';
    stamp(s,{...ref,...result,...(duel?{duel}:{}),before,after:replayState(s),
     title:duel&&!result.skipped?title+' · '+duel.label:title});
@@ -686,6 +696,7 @@ function finishTacticalRound(s){
   }else if(chestSpawnRound(s))spawnTacticalChest(s);else announceTacticalChest(s);}
  }
  if(s.tactical.fortress){registerFortressDeaths(s);applyRivalRewards(s,s.tactical.stage==='finished');}
+ if(s.tactical.stage==='planning'||s.tactical.stage==='reward')nextTacticalCardRound(s);
  s.tactical.plans={};s.queue=[];s.intents=[];s.resolution=[];s.resolutionSide=null;
 }
 
