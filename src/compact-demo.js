@@ -164,7 +164,7 @@ function clashMarkup(){
  const tip=offense?'Acompanhe o movimento do personagem e ataque quando o golpe conectar.'
   :beat?.kind==='sweep'?'Varredura no chão: salte na hora do contato.'
   :'Esquiva: janela maior. Aparo: janela curta e chance de contra-atacar.';
- return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Resposta durante sequência de golpes" data-combo-role="'+value.role+'" data-combo-kind="'+beat.kind+'" data-combo-cue="'+(value.locked?'resolved':'windup')+'" data-combo-feedback="'+Boolean(value.locked)+'" style="--rhythm-ms:'+beat.duration+'ms;--rhythm-stop:'+value.progress+'">'
+ return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Resposta durante sequência de golpes" data-combo-role="'+value.role+'" data-combo-kind="'+beat.kind+'" data-combo-cue="'+(value.locked?'resolved':'windup')+'" data-combo-feedback="'+Boolean(value.locked)+'" style="--rhythm-ms:'+beat.impactMs+'ms;--rhythm-stop:'+value.progress+'">'
   +'<div class="compact-rhythm-heading"><strong>'+esc(offense?'EXECUÇÃO DO COMBO':'REAGIR AO ATAQUE')+'</strong><span>GOLPE '+value.beat+' / '+value.beats.length+'</span></div>'
   +'<p><b>'+esc(value.actorName)+'</b> · '+esc(value.abilityName)+'</p>'
   +'<div class="compact-rhythm-contact" aria-hidden="true"><span class="compact-rhythm-contact-core"></span><span class="compact-rhythm-contact-ring"></span><span class="compact-rhythm-attack-glyph">'+esc(cue)+'</span></div>'
