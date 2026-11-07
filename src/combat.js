@@ -531,7 +531,7 @@ export function createDuel(firstIds,secondIds,config={}){
  secondIds.forEach((id,i)=>{if(config.cardLoadouts?.enemy?.[id])cardLoadouts[`rival-${i}-${id}`]=config.cardLoadouts.enemy[id];});
  const s=createBattle(firstIds,roster,{...config,cardLoadouts,enemyPlanner:()=>[]});
  s.humanSides=true;s.turnSide='player';s.turnNumber=1;s.intents=[];
- if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};s.clash=null;}
+ if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};s.duelExchanges={player:null,enemy:null};s.clash=null;}
  // Both human teams receive their own composition bonus.
  s.enemyResonance=getResonance(secondIds);return s;
 }
@@ -607,11 +607,11 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[
   queue.push({actorId:actor.id,abilityId:base.id,formKey:base.formKey||"base",targetId:ref.targetId,side,willSign,...(card?{cardId:card.id,cardUpgrades:card.upgrades}:{})});
  }
  // Build the complete payment on a copy before touching the authoritative state.
- const nextPool={...pool(s,side)};
+ const nextPool={...pool(s,side)},resolvedExchanges=[];
  for(const exchange of exchanges){
   const swap=resolveEssenceExchange(nextPool,exchange?.target,exchange?.payment);
   if(!swap.ok)throw new Error(swap.reason);
-  Object.assign(nextPool,swap.pool);
+  Object.assign(nextPool,swap.pool);resolvedExchanges.push(swap.target);
  }
  const payment=allocateQueuePayment(queue,team(s,side),nextPool,selected);
  if(!payment.ok)throw new Error(payment.reason);
@@ -623,14 +623,16 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[
  s.duelPlans[side]=paid;
  s.duelPools[side]=nextPool;
  s.duelMoves[side]=normalizedMoves;
+ s.duelExchanges[side]=resolvedExchanges;
  if(s.duelPlans.player&&s.duelPlans.enemy){
   Object.assign(pool(s,"player"),s.duelPools.player);
   Object.assign(pool(s,"enemy"),s.duelPools.enemy);
+  for(const [confirmedSide,targets] of Object.entries(s.duelExchanges))for(const target of targets||[])log(s,`${confirmedSide==="player"?"Seu trio":"A oposição"}: 5 Essências foram trocadas por 1 ${essenceName(target)}.`);
   const first=s.round%2===1?"player":"enemy",second=opposingSide(first),resolution=[];
   const moves=[...(s.duelMoves.player||[]),...(s.duelMoves.enemy||[])];
   if(s.grid)resolution.push({type:"grid-moves",moves});
   for(let i=0;i<3;i++)for(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
-  s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};
+  s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};s.duelExchanges={player:null,enemy:null};
   s.phase="resolving";s.resolution=[...resolution,{type:"duel-round-end"}];
   s.resolutionSide=first;s.acted=[];continueSimultaneousDuel(s);
  }
