@@ -34,6 +34,7 @@ test('special, kill and transformed bodies receive longer impact pauses',()=>{
  assert.ok(vote.special);
  assert.ok(vote.hitstopMs>normal.hitstopMs);
  assert.equal(vote.shake,'special');
+ assert.equal(tacticalImpactProfile({...event,abilityId:'despertar/ruin'}).special,true);
  const dead={...after,enemies:[{...after.enemies[0],hp:0}]};
  const lethal=tacticalImpactProfile({...event,after:dead});
  assert.equal(lethal.finishing,true);
