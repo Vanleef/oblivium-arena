@@ -348,30 +348,49 @@ function drawEffect(ctx,fx,t){
   ring(ctx,x,y,r*.65,light,p*.56);
  }else if(kind==='travel'){
   const {from,to}=fx,dx=to.x-from.x,dy=to.y-from.y;
-  const head=1-(1-p)**1.45,tail=Math.max(0,head-.22);
+  const head=1-(1-p)**1.45;
   if(fx.projectile==='thread'){
+   // A taut ritual cord advances physically; the loop at its head marks the binding.
    const hx=dx*head,hy=dy*head,bend=r*.65*Math.sin(p*Math.PI)*(1-p);
-   ctx.translate(from.x,from.y);
-   ctx.globalAlpha=.88;
-   for(const [width,color] of [[4,dark],[1.5,light]]){
+   ctx.translate(from.x,from.y);ctx.globalAlpha=.90;ctx.lineCap='round';
+   for(const [width,color] of [[5,dark],[2.2,mid],[1.3,light]]){
     ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(0,0);
     ctx.quadraticCurveTo(hx*.48-Math.sin(angle)*bend,hy*.48+Math.cos(angle)*bend,hx,hy);
     ctx.stroke();
    }
+   ctx.strokeStyle=light;ctx.lineWidth=2;ctx.beginPath();
+   ctx.ellipse(hx,hy,r*.19,r*.12,angle,0,TAU);ctx.stroke();
    ctx.restore();return;
   }
-  ctx.lineCap='round';
-  for(const [width,color] of [[r*.30,dark],[r*.15,mid],[2,light]]){
-   ctx.lineWidth=width;ctx.strokeStyle=color;ctx.globalAlpha=.9;
-   ctx.beginPath();ctx.moveTo(from.x+dx*tail,from.y+dy*tail);
-   ctx.lineTo(from.x+dx*head,from.y+dy*head);ctx.stroke();
+  // Embers, glass and spectral shards travel as substantial material pieces
+  // rather than a thin linear energy beam.
+  const length=Math.hypot(dx,dy),count=Math.min(8,Math.max(4,Math.ceil(length/(r*.75))));
+  const perpendicular={x:-Math.sin(angle),y:Math.cos(angle)};
+  for(let i=count-1;i>=0;i--){
+   const at=head-i*.065;if(at<0)continue;
+   const wobble=r*.16*Math.sin(i*2.4+p*12);
+   const px=from.x+dx*at+perpendicular.x*wobble;
+   const py=from.y+dy*at+perpendicular.y*wobble;
+   const size=r*(.11+.035*(i%3))*(1-i/(count+3));
+   ctx.save();ctx.translate(px,py);ctx.rotate(angle+i*.38);
+   ctx.globalAlpha=(1-i/(count+2))*.82;
+   ctx.fillStyle=i%3===0?light:i%2===0?dark:mid;ctx.beginPath();
+   if(fx.projectile==='ember'){
+    ctx.ellipse(0,0,size*1.18,size*.72,i*.3,0,TAU);
+   }else{
+    ctx.moveTo(size*1.7,0);ctx.lineTo(-size*.4,-size*.87);
+    ctx.lineTo(-size*1.14,size*.23);ctx.closePath();
+   }
+   ctx.fill();ctx.restore();
   }
   ctx.translate(from.x+dx*head,from.y+dy*head);ctx.rotate(angle);
+  ctx.globalAlpha=.97;ctx.shadowColor=mid;ctx.shadowBlur=r*.42;
   ctx.fillStyle=light;ctx.beginPath();
   if(fx.projectile==='glass'||fx.projectile==='shard'){
-   ctx.moveTo(r*.32,0);ctx.lineTo(-r*.18,-r*.12);ctx.lineTo(-r*.09,r*.11);ctx.closePath();
-  }else ctx.ellipse(0,0,Math.max(2,r*.21),Math.max(1,r*.09),0,0,TAU);
-  ctx.fill();
+   ctx.moveTo(r*.57,0);ctx.lineTo(-r*.24,-r*.29);
+   ctx.lineTo(-r*.12,r*.27);ctx.closePath();
+  }else ctx.ellipse(0,0,Math.max(3,r*.35),Math.max(2,r*.22),0,0,TAU);
+  ctx.fill();ctx.shadowBlur=0;
  }else if(kind==='miss'){
   ring(ctx,x,y,r*(.45+p*.53),mid,fade*.55,1.5);
  }else if(kind==='swing'){
