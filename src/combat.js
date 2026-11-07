@@ -350,7 +350,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   if(totalStripped>0)triggerPassive(s,actor,"stripShield",{ability:a,stripped:totalStripped});
   if(totalPurged>0){triggerPassive(s,actor,"purge",{ability:a,purged:totalPurged});triggerPassive(s,actor,"controlCleansed",{target:targets[0],ability:a,purged:totalPurged});}
   if(actor.markNextFresh)actor.markNextFresh=false;else if(a.damage&&actor.markNextTargetId&&targets.some(target=>target.id===actor.markNextTargetId)){if(actor.markNextHeal)heal(actor,actor.markNextHeal);actor.markNextTargetId=null;actor.markNextBonus=0;actor.markNextHeal=0;}
-  if(a.damage){actor.shadowDamageBonus=0;if(actor.nextSkillBonus){for(const target of targets)if(actor.nextSkillExpose){target.exposed=Math.max(target.exposed,actor.nextSkillExpose);target.exposedFresh=true;triggerPassive(s,actor,"statusApplied",{target,ability:a,condition:"status"});}actor.nextSkillBonus=0;actor.nextSkillExpose=0;}}
+  if(a.damage){actor.shadowDamageBonus=0;if(actor.nextSkillBonus){for(const target of targets)if(actor.nextSkillExpose&&!(action.clashResult?.cancel&&action.clashTargetId===target.id)){target.exposed=Math.max(target.exposed,actor.nextSkillExpose);target.exposedFresh=true;triggerPassive(s,actor,"statusApplied",{target,ability:a,condition:"status"});}actor.nextSkillBonus=0;actor.nextSkillExpose=0;}}
   if(a.clearEchoLink){actor.resonanceTargetId=null;actor.resonanceTurns=0;actor.resonanceFresh=false;}
   if(a.cooldown){actor.cooldowns[a.id]=Math.max(actor.cooldowns[a.id]||0,a.cooldown);actor.cooldownFresh.push(a.id);}
   const ownShift=affected&&a.shift?.some(t=>t.slot===a.id&&t.form!=="base");
