@@ -44,3 +44,16 @@ npm test
 ```
 
 Inspecionar em navegador desktop e celular: leitura do sprite durante a vinheta, força dos golpes melee, finalização dos efeitos e limites em telas estreitas. A `main` deve continuar intocada até a validação integral.
+
+## Continuação — impacto, recoil e mobile (07/11/2026)
+
+- `src/tactical-impact-presentation.js`: perfis visuais determinísticos calculados **somente após a resolução do ataque**, por família de golpe, dano realmente sofrido, especial, eliminação e transformação. Hitstop é adaptado a 1×/2×/3× e desativado em movimento reduzido.
+- `TacticalEffectsLayer.freeze()`: congela o relógio do Canvas durante o hitstop e compensa a idade dos efeitos ao retornar, sem alterar ações, Vida, posição ou custos. O CSS pausa simultaneamente o recoil corporal e os indicadores.
+- Reações físicas dedicadas: `strike` comprime o corpo, `slash` inclina e desloca lateralmente, `pierce` retrai e estende, `counter` rebate, `block` contém o impacto. Os vetores derivam das posições resolvidas pelo motor.
+- Fragmentos de contato adaptados à matéria de cada técnica: sangue, lajes, raízes, podridão, fios rituais, brasas, gelo e Graça. O terreno mantém formas distintas durante o contato.
+- Orçamentos responsivos: 10 partículas em área muito estreita, 14 em telas pequenas, 22 em espaço intermediário e até 36 no desktop; projéteis também reduzem fragmentos quando o tabuleiro é estreito.
+- Preferência por movimento reduzido: deslocamentos e hitstop removidos, mas valores de dano/cura/escudo permanecem visíveis por pelo menos **180 ms**, permitindo leitura.
+- Sete personagens piloto possuem gestos diferentes para `impulso`, `tecnica`, `voto` e `despertar` (28 combinações procedurais) e consideram forma corporal alternativa. Isso **não substitui atlas quadro a quadro específicos** para cada técnica de todos os personagens.
+- Novos testes: `tests/tactical-impact-presentation.test.js` e ampliações em `tests/tactical-effects-layer.test.js`, `tests/tactical-character-vfx.test.js`, `tests/tactical-compact-ui.test.js`.
+
+**Estado de validação:** análises estáticas e testes isolados executados; a aprovação integral da suíte Node, gameplay em navegador e revisão visual em aparelho físico permanecem pendentes antes de promover a `main`.
