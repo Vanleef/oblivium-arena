@@ -15,7 +15,7 @@ import {tacticalFigureStyle} from './tactical-figure-framing.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
-import {tacticalComboReplayEvents,tacticalComboAIOpposition,tacticalComboBeats} from './tactical-combo.js';
+import {tacticalComboReplayEvents,tacticalComboAIOpposition,tacticalComboBeats,tacticalComboTimingHit} from './tactical-combo.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -320,7 +320,7 @@ function interactiveCombo(ref){
   const end=tapped=>{
    if(value.completed||value.locked)return;
    value.locked=true;clearTimeout(value.timer);
-   const offset=(performance.now()-value.startedAt)/ms,accurate=tapped&&Math.abs(offset-.5)<=.23;
+   const elapsed=performance.now()-value.startedAt,accurate=tapped&&tacticalComboTimingHit(elapsed,ms);
    if(accurate)value.hits++;
    value.feedback=accurate?'ACERTO!':tapped?'FORA DO RITMO':'TEMPO ESGOTADO';
    // Every beat animates the real actor, not just a metronome. A successful
