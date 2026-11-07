@@ -19,6 +19,15 @@ export function publicBattle(match,index){
  for(const u of s.allies)u.side='player';for(const u of s.enemies)u.side='enemy';
  if(s.phase==='influence'){if(s.influenceDraft.side!==side){s.phase='waiting';s.influenceDraft=null;}else s.influenceDraft.side='player';}
  else if(s.phase==='player'&&match.battle.turnSide!==side)s.phase='waiting';
+ if(s.cardCombat){
+  // Never expose the opponent's hand or either draw-pile order to a PvP client.
+  const ownIds=new Set(s.allies.map(u=>u.id)),original=match.battle.cardCombat;
+  s.cardCombat={round:original.round,responses:{player:original.responses[side]||0,enemy:original.responses[side==='player'?'enemy':'player']||0},decks:{}};
+  for(const id of ownIds){
+    const deck=original.decks[id];if(!deck)continue;
+    s.cardCombat.decks[id]={hand:deck.hand,draw:Array(deck.draw.length).fill(null),discard:deck.discard,exhaust:deck.exhaust};
+  }
+ }
  s.worldEvents=(s.worldEvents||[]).map(e=>({...e,side:index===1?(e.side==='player'?'enemy':'player'):e.side}));s.online=true;return s;
 }
 export class ArenaService{
@@ -45,7 +54,7 @@ export class ArenaService{
     if(rivalIndex>=0){const rival=queue.splice(rivalIndex,1)[0],other=await tx.get(profileKey(rival.id));
      if(other&&!other.matchId){
       const first=randomBytes(1)[0]%2===0;const players=first?[p.id,other.id]:[other.id,p.id],teams=first?[ids,rival.team]:[rival.team,ids];let randomState=randomBytes(4).readUInt32LE();const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
-      const battle=createDuel(teams[0],teams[1],{rng:random});battle.randomState=randomState;beginInfluences(battle,randomState);
+      const battle=createDuel(teams[0],teams[1],{rng:random,cardMode:true});battle.randomState=randomState;beginInfluences(battle,randomState);
       match={id:randomUUID(),players,battle,version:1,deadline:now+120000,created:now,settled:false};p.matchId=match.id;other.matchId=match.id;await tx.set(profileKey(other.id),other);await tx.set(profileKey(id),p);await tx.set(`match:${match.id}`,match,86400);
      }
     }
