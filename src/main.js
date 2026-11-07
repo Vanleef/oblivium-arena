@@ -531,10 +531,11 @@ async function sendOnline(payload){
  clearTimeout(onlineTimer);
  try{
   const data=await arenaRequest({...payload,version:online.match?.version});
+  const priorMatchId=online.match?.id;
   const changed=data.match?.id!==online.match?.id||data.match?.version!==online.match?.version;
   Object.assign(online,data,{connected:true,message:data.match?data.match.settled?"Resultado registrado na classificação.":"Partida conectada.":online.queuing?"Buscando uma alma de classificação próxima…":"Arena conectada."});
   if(data.match){online.queuing=false;if(changed){
-   const previous=state.battle,matchSame=online.match?.id===data.match.id;
+   const previous=state.battle,matchSame=priorMatchId===data.match.id;
    const next=data.match.battle;
    const continuePlanning=matchSame&&previous?.online&&previous.phase==="player"&&next.phase==="player"&&previous.round===next.round;
    if(continuePlanning){
