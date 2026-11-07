@@ -122,3 +122,29 @@
 @media(prefers-reduced-motion:reduce){
  .compact-battle .compact-rhythm-cursor{animation:none;left:50%}
 }
+
+/* Combo readout stays with the arena, below the field rather than obscuring
+   its characters, target tiles or the physical contact particles. */
+.combat-shell.compact-battle .compact-board-stack>.compact-combo-counter{
+ display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+ gap:4px 9px;width:min(100%,735px);max-width:100%;min-width:0;
+ min-height:29px;margin:5px 0 0;padding:5px 8px;
+ border:1px solid #d8a66d9c;border-left:3px solid #f4d3a4;
+ border-radius:5px;background:linear-gradient(100deg,#181323ee,#3b263fe0);
+ color:#fff0d2;text-shadow:0 1px 3px #000;overflow:hidden;
+}
+.compact-battle .compact-combo-counter>strong{
+ font:850 clamp(12px,1.6vw,17px)/1.2 system-ui,sans-serif;
+ letter-spacing:.1em;
+}
+.compact-battle .compact-combo-counter>small{
+ font:700 clamp(10px,1.1vw,12px)/1.2 system-ui,sans-serif;
+ color:#ebd0d2;
+}
+@media(max-width:600px){
+ .combat-shell.compact-battle .compact-board-stack>.compact-combo-counter{
+  min-height:25px;padding:3px 6px;margin-top:3px;
+ }
+ .compact-battle .compact-combo-counter>strong{font-size:12px}
+ .compact-battle .compact-combo-counter>small{font-size:10px}
+}
