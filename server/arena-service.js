@@ -20,6 +20,8 @@ export function publicBattle(match,index){
  if(index===1){[s.allies,s.enemies]=[s.enemies,s.allies];[s.resources,s.enemyResources]=[s.enemyResources,s.resources];s.resonance=s.enemyResonance;[s.essenceDraws.player,s.essenceDraws.enemy]=[s.essenceDraws.enemy,s.essenceDraws.player];if(s.phase==='victory')s.phase='defeat';else if(s.phase==='defeat')s.phase='victory';}
  for(const u of s.allies)u.side='player';for(const u of s.enemies)u.side='enemy';
  if(index===1&&s.grid)for(const u of [...s.allies,...s.enemies])if(u.position)u.position=mirrorCell(u.position);
+ // Opposing objective positions are hidden; each client only sees its own objective.
+ if(s.grid&&Array.isArray(s.gridObjectives))s.gridObjectives=s.gridObjectives.filter(o=>o.side===side).map(o=>({...o,side:"player",...(index===1?mirrorCell(o):{})}));
  if(s.phase==='influence'){if(s.influenceDraft.side!==side){s.phase='waiting';s.influenceDraft=null;}else s.influenceDraft.side='player';}
  else if(s.simultaneousDuel){
   s.ready={player:Boolean(match.battle.duelPlans?.[side]),enemy:Boolean(match.battle.duelPlans?.[side==='player'?'enemy':'player'])};
