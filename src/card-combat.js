@@ -9,7 +9,7 @@ export function defaultLoadout(unit){
  const abilities=unit.abilities||[];
  if(!abilities.length)return [];
  // The first iteration uses eight equipped cards, with every available skill represented.
- return Array.from({length:Math.max(CARD_RULES.minDeck,abilities.length)},(_,i)=>({abilityId:abilities[i%abilities.length].id}));
+ return Array.from({length:Math.min(CARD_RULES.maxDeck,Math.max(CARD_RULES.minDeck,abilities.length))},(_,i)=>({abilityId:abilities[i%abilities.length].id}));
 }
 export function validateLoadout(unit,loadout){
  if(!Array.isArray(loadout)||loadout.length<CARD_RULES.minDeck||loadout.length>CARD_RULES.maxDeck)throw new Error("O baralho deve ter entre 8 e 10 cartas.");
