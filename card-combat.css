@@ -48,3 +48,24 @@
 /* A mão central substitui os painéis individuais de técnicas neste modo. */
 .arena-ally-row.card-mode{display:block;min-width:0}
 .arena-ally-row.card-mode > .fighter-card{width:100%;max-width:none}
+
+.will-plan-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 2px;margin:0 0 8px;border-top:1px solid #8c729244}
+.will-plan-controls>div:first-child{display:flex;flex-direction:column;gap:4px;min-width:210px;flex:1}
+.will-plan-controls b{color:#f4deb0;font-size:13px}
+.will-plan-controls small{font-size:10px;color:#c8b9cd;line-height:1.35}
+.will-plan-options{display:flex;gap:6px;flex-wrap:wrap}
+.will-plan-options button{background:#251e31;color:#ddc4d6;border:1px solid #93809b77;padding:8px 11px;border-radius:7px;cursor:pointer}
+.will-plan-options button[aria-pressed="true"]{color:#ffe2a3;border-color:#e4b970;background:#55405b;box-shadow:0 0 0 1px #c6a56e44}
+.will-clash-panel{position:relative;border:1px solid #e4b970;border-radius:16px;background:linear-gradient(130deg,#211326,#342038 55%,#1c1825);padding:clamp(16px,2.6vw,24px);color:#f7e8d5;margin:12px 0;box-shadow:0 8px 26px #0a051455}
+.will-clash-header small{letter-spacing:.13em;color:#eacb95;font-size:10px}
+.will-clash-header h2{margin:5px 0 9px;color:#ffe6bc;font-size:clamp(18px,3vw,25px)}
+.will-clash-header p{font-size:13px;line-height:1.6;color:#e0d2df;margin:0 0 16px}
+.will-clash-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.will-clash-options button{border:1px solid #c9ad8855;background:linear-gradient(140deg,#51354e,#282033);border-radius:12px;color:#f9e5ce;min-height:83px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:transform .1s,border-color .1s}
+.will-clash-options button:hover,.will-clash-options button:focus-visible{border-color:#f9d8a1;transform:translateY(-2px)}
+.will-clash-options button strong{font-size:17px}
+.will-clash-options button small{color:#d5c3d3}
+.will-clash-pass{display:block;width:100%;margin-top:10px;border:1px solid #b39a8c77;background:transparent;border-radius:9px;color:#dac7cc;padding:10px;cursor:pointer}
+.will-clash-rule{color:#d9bca7;font-size:11px;line-height:1.5;margin:10px 0 0}
+@media(max-width:520px){.will-clash-options{gap:5px}.will-clash-options button{min-height:76px}.will-clash-options button strong{font-size:14px}.will-plan-options button{flex:1}.will-plan-options{width:100%}}
+@media(prefers-reduced-motion:reduce){.will-clash-options button{transition:none}.will-clash-options button:hover{transform:none}}
