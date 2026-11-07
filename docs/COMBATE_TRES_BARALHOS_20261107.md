@@ -63,7 +63,7 @@ O modo legado sem `cardMode` permanece sequencial. As partidas ranqueadas usam o
 
 ## Validação e pendências
 
-**Confirmado no GitHub Actions:** testes direcionados do combate novo e build estático passaram. A suíte completa ainda falha em testes legados (primeira execução: 98 falhas em 328 testes), incluindo testes de artes, nomenclatura, regras antigas e turnos alternados. Ainda não houve QA visual real em navegador/mobile. A checagem Vercel indicou bloqueio por quota de builds.
+**Confirmado no GitHub Actions:** 40 de 40 testes direcionados do combate, editor, objetivos e Arena online passaram; build estático de produção aprovado. Após migração dos testes antigos de PvP para planejamento simultâneo, a branch registra **246/337 aprovações e 91 falhas**, enquanto a `main` apresenta **214/305 aprovações e as mesmas 91 falhas**. A comparação automática por nome de teste não encontrou regressões exclusivas da branch. Ainda não houve QA visual real em navegador/mobile; a checagem Vercel continua bloqueada por quota de builds.
 
 Prioridades antes de integrar à `main`:
 1. Corrigir ou atualizar as regressões, separando testes antigos incompatíveis com a nova regra de bugs reais.
