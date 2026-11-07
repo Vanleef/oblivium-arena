@@ -176,7 +176,7 @@ function clashMarkup(){
   +(reveal?'<div class="compact-duel-reveal" role="status" aria-live="polite"><strong>'+esc(reveal.label)+'</strong>'
    +'<span>Você: '+esc(playerLabel)+' · Oponente: '+esc(opponentLabel)+'</span></div>'
    :'<div class="compact-duel-help"><span>Ímpeto vence Finta</span><span>Finta vence Contenção</span><span>Contenção vence Ímpeto</span></div>')
-  +'<div class="compact-duel-footer"><span>Vitória: acerto completo · Empate: metade do dano · Derrota: erro</span>'
+  +'<div class="compact-duel-footer"><span>Vitória: golpe potente · Empate: metade do dano · Derrota: erro</span>'
    +'<button type="button" data-duel-auto '+(duel.locked?'disabled':'')+'>Escolher por mim <small>Esc</small></button></div>'
   +'</section>';
 }
