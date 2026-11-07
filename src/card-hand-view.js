@@ -11,6 +11,8 @@ export function renderCardHand(state){
  const deck=battle.cardCombat.decks[selected.id];
  const hand=handFor(battle.cardCombat,selected.id);
  const canPlay=battle.phase==="player"&&selected.hp>0;
+ const controlling=state.selectedSkill?.actorId===selected.id?selected.abilities.find(a=>a.id===state.selectedSkill.abilityId):null;
+ const contestable=Boolean(controlling?.damage&&!["self","ally","friendly","team"].includes(controlling.target));
  const controls=battle.allies.map(u=>{
   const count=handFor(battle.cardCombat,u.id).filter(c=>c.kind==="ability").length;
   return '<button type="button" class="card-unit-switch '+(u.id===selected.id?"active":"")+
@@ -41,6 +43,9 @@ export function renderCardHand(state){
   '<div class="combat-deck-counts"><span>Compra: '+(deck?.draw.length||0)+'</span><span>Descarte: '+(deck?.discard.length||0)+'</span><span>Exauridas: '+(deck?.exhaust.length||0)+'</span></div></header>'+
   '<div class="combat-hand-units" role="group" aria-label="Trocar de personagem">'+controls+'</div>'+
   '<div class="combat-hand-cards">'+cards+'</div>'+
+  (contestable?'<div class="will-plan-controls"><div><b>Manifestação secreta</b><small>Escolha sua postura antes de selecionar o alvo. O adversário só verá a manifestação depois de responder.</small></div><div class="will-plan-options">'+
+  [["fenda","Fenda"],["vinculo","Vínculo"],["egide","Égide"]].map(([id,label])=>'<button data-will-sign="'+id+'" type="button" aria-pressed="'+(state.willSign===id)+'">'+label+'</button>').join("")+
+  '</div></div>':"")+
   '<footer class="combat-hand-hint">Cada alma compra 2 cartas por rodada. A mão de cada personagem é independente. Respostas de equipe: '+
   (battle.cardCombat.responses?.player??0)+'.</footer></section>';
 }
