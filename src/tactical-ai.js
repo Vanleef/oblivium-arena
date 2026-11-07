@@ -2,7 +2,7 @@ import {conquestTechnique} from './conquest-techniques.js';
 import {conquestAugmentedAbility} from './conquest-augments.js';
 import {tacticalEnvironmentDelta} from './tactical-environment.js';
 import {tacticalView,previewTacticalPlan,previewTacticalActivation,tacticalActivationUnits} from './tactical-combat.js';
-import {tacticalHand} from './tactical-decks.js';
+import {tacticalHand,tacticalMovementSteps} from './tactical-decks.js';
 import {boardCells,findPath,distance} from './tactical-board.js';
 import {tacticalSpec} from './tactical-kits.js';
 
@@ -51,7 +51,7 @@ function candidates(s,side,used,actorId){
  const own=side==='player'?s.allies:s.enemies,other=side==='player'?s.enemies:s.allies,result=[];
  for(const u of own.filter(u=>u.hp>0&&!u.stunned&&(used[u.id]||0)<2&&(!actorId||u.id===actorId))){
   // Compact mode has no Guard action: defensive play uses movement and character techniques.
-  if(!actorId)for(const to of boardCells(s)){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});if(s.tactical.cardMode)for(const card of tacticalHand(s,side,u.id).filter(c=>c.kind==='mobility')){const fast=findPath(s,u.id,to,2);if(fast)result.push({type:'move',actorId:u.id,path:fast,cardId:card.id});}}
+  if(!actorId)for(const to of boardCells(s)){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});if(s.tactical.cardMode)for(const card of tacticalHand(s,side,u.id).filter(c=>c.kind==='mobility')){const fast=findPath(s,u.id,to,tacticalMovementSteps(card));if(fast)result.push({type:'move',actorId:u.id,path:fast,cardId:card.id});}}
   for(const a of u.abilities){
    if(u.cooldowns[a.id])continue;
    const cards=s.tactical.cardMode&&a.id!=='fortress-basic'?tacticalHand(s,side,u.id).filter(card=>card.kind==='skill'&&card.abilityId===a.id):[null];
