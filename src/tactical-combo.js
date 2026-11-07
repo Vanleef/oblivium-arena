@@ -29,9 +29,10 @@ export function tacticalComboAIOpposition({round=1,actorId='',abilityId=''}={}){
 }
 const units=s=>[...(s?.allies||[]),...(s?.enemies||[])];
 const clone=value=>JSON.parse(JSON.stringify(value));
-function inBetween(before,after,fraction){
+function inBetween(before,after,fraction,affected){
  const snapshot=clone(before),end=new Map(units(after).map(unit=>[unit.id,unit]));
  for(const actor of units(snapshot)){
+  if(!affected.has(actor.id))continue;
   const target=end.get(actor.id);
   if(!target)continue;
   for(const key of ['hp','shield']){
@@ -47,8 +48,9 @@ function inBetween(before,after,fraction){
 export function tacticalComboReplayEvents(event){
  if(event?.type!=='skill'||event.skipped||!event.before||!event.after||!event.combo)return [event];
  const start=new Map(units(event.before).map(unit=>[unit.id,unit]));
+ const affected=new Set([...(event.affectedTargetIds||[]),...(event.targets||[])]);
  const losses=units(event.after).reduce((sum,unit)=>{
-  const old=start.get(unit.id);if(!old)return sum;
+  const old=start.get(unit.id);if(!old||!affected.has(unit.id))return sum;
   return sum+Math.max(0,(old.hp||0)-(unit.hp||0))+Math.max(0,(old.shield||0)-(unit.shield||0));
  },0);
  if(losses<2)return [event];
@@ -56,12 +58,12 @@ export function tacticalComboReplayEvents(event){
  const count=['voto','despertar'].includes(slot)?4:slot==='impulso'?2:3;
  const frames=[];
  for(let index=0;index<count;index++){
-  const first=index?inBetween(event.before,event.after,index/count):clone(event.before);
-  const last=index===count-1?clone(event.after):inBetween(event.before,event.after,(index+1)/count);
+  const first=index?inBetween(event.before,event.after,index/count,affected):clone(event.before);
+  const last=index===count-1?clone(event.after):inBetween(event.before,event.after,(index+1)/count,affected);
   const from=new Map(units(first).map(unit=>[unit.id,unit]));
   const value=units(last).reduce((sum,unit)=>{
    const old=from.get(unit.id);
-   return old?sum+Math.max(0,(old.hp||0)-(unit.hp||0))+Math.max(0,(old.shield||0)-(unit.shield||0)):sum;
+   return old&&affected.has(unit.id)?sum+Math.max(0,(old.hp||0)-(unit.hp||0))+Math.max(0,(old.shield||0)-(unit.shield||0)):sum;
   },0);
   frames.push({...event,before:first,after:last,totalDamage:value,
    comboBeat:index+1,comboTotal:count,comboReplay:true,
