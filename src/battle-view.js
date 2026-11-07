@@ -59,7 +59,7 @@ function duelResponsePanel(state){
   esc(attacker?.name||"Oponente")+' utiliza <b>'+esc(ability?.name||"uma técnica")+'</b> contra <b>'+esc(target?.name||"seu trio")+
   '</b>. Escolha sua manifestação secreta ou aceite o golpe.</p></div>'+
   '<div class="will-clash-options">'+
-  [["fenda","Fenda","Romper"],["vinculo","Vínculo","Dominar"],["egide","Égide","Resistir"]].map(([id,name,desc])=>
+  [["miragem","Miragem","Distorcer"],["luz","Luz","Revelar"],["sombra","Sombra","Engolir"]].map(([id,name,desc])=>
    '<button type="button" data-duel-response="'+id+'"><strong>'+name+'</strong><small>'+desc+'</small></button>').join("")+
   '</div><button type="button" class="will-clash-pass" data-duel-response="pass">ACEITAR O GOLPE · GUARDAR RESPOSTA</button>'+
   '<p class="will-clash-rule">Vitória: anula o efeito no alvo escolhido. Empate: efeito normal. Derrota: dano crítico.</p></section>';
