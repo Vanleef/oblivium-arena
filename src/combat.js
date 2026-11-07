@@ -460,7 +460,7 @@ function resolveAction(s){
   }
   if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
   if(action.type==="effects"){const reactions=[];endActing(s,s.enemies,reactions);endOpposing(s,s.allies);tickEffects(s);outcome(s);return {done:s.phase!=="resolving",event:{mode:reactions.length?"reactions":"effects",reactions,title:reactions.length?"Efeito reativo":"Efeitos persistentes",summary:"Aflições e durações foram atualizadas."}};}
-  const actor=byId(team(s,action.side),action.actorId),baseAbility=actor?.abilities.find(a=>a.id===action.abilityId),a=baseAbility&&action.cardUpgrades?.length?applyCardUpgrades(baseAbility,action.cardUpgrades):baseAbility;
+  const actor=byId(team(s,action.side),action.actorId),baseAbility=actor?.abilities.find(a=>a.id===action.abilityId);let a=baseAbility&&action.cardUpgrades?.length?applyCardUpgrades(baseAbility,action.cardUpgrades):baseAbility;
   if(!actor||!a)return {done:false,event:{...action,skipped:true,title:"Ação cancelada",summary:"O personagem deixou o combate antes de agir."}};
   if(actor.stunned){log(s,`${actor.name} perde a ação: Atordoado.`);return {done:false,event:{...action,skipped:true,title:`${actor.name} · Atordoado`,summary:"A habilidade foi interrompida."}};}
   if(actor.cooldowns[a.id])return {done:false,event:{...action,skipped:true,title:"Técnica em recarga",summary:"A recarga impede esta ação. Custos de Essência preservados."}};
@@ -469,7 +469,7 @@ function resolveAction(s){
   if(s.cardCombat&&action.side==="enemy"&&!s.humanSides){
    const used=consumeHandCard(s.cardCombat,actor.id,action.cardId);
    if(!used)return {done:false,event:{...action,skipped:true,title:"Carta indisponível",summary:"O adversário não possui essa carta na mão."}};
-   if(used.upgrades?.length)Object.assign(a,applyCardUpgrades(a,used.upgrades));
+   if(used.upgrades?.length)a=applyCardUpgrades(a,used.upgrades);
   }
   const result=apply(s,actor,a,action.targetId,action.randomPayment,action);if(action.side==="player")s.acted.push(actor.id);outcome(s);return {done:s.phase!=="resolving",event:{...action,...result,title:a.name,actorName:actor.name,summary:result.reason||""}};
 }
