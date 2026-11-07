@@ -51,7 +51,7 @@
  animation:rhythm-sweep var(--rhythm-ms,1050ms) linear 1 both;
 }
 .compact-battle .compact-rhythm-clash[data-combo-feedback="true"] .compact-rhythm-cursor{
- animation-play-state:paused;
+ animation:none;left:calc((100% - 9px) * var(--rhythm-stop,0));
 }
 @keyframes rhythm-sweep{
  from{left:0}to{left:calc(100% - 9px)}
