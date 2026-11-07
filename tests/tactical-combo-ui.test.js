@@ -26,6 +26,8 @@ test('specials show three distinct options, clear cyclic help and hidden opponen
  assert.match(js,/Finta vence Contenção/);
  assert.match(js,/Contenção vence Ímpeto/);
  assert.match(js,/duel\.locked\?' disabled'/);
+ assert.match(js,/tacticalDuelTendency\\(rival\\)/);
+ assert.match(js,/tende a/);
  assert.match(js,/opponentLabel=reveal\?/);
  assert.match(js,/duel\.result=answer;state\.clash=duel;render\(\)/);
  assert.match(js,/role="dialog"/);
