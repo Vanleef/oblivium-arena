@@ -28,6 +28,21 @@ O servidor valida card IDs, propriedade do personagem, pagamento de Essências, 
 
 Resultado da defesa: anula o impacto e os efeitos no alvo protegido. Empate: efeito normal. Resultado do atacante: crítico de **×1,4** no dano de impacto antes da mitigação. Cada equipe tem **uma resposta por rodada**; cada habilidade admite uma única resposta. O jogador pode aceitar o golpe para conservar a resposta. Respostas são secretas antes de serem reveladas. A janela tem timeout no servidor.
 
+## Casa Objetivo e recompensas
+
+No campo compacto 5×5, cada equipe recebe um emblema secreto, em posições simétricas e a pelo menos três casas do personagem aliado vivo mais próximo. Somente o proprietário visualiza seu próprio emblema. Os dois lados compartilham **o mesmo tier**; tentativas de coletar o objetivo são resolvidas através de deslocamentos validados no servidor, sem botão de aprimoramento.
+
+Os emblemas são renovados a cada quatro rodadas (rodadas 1, 5, 9...), e coletá-los concede automaticamente **uma melhoria temporária de carta** daquela alma, aplicada somente à batalha em curso:
+- **Prata:** +5 de dano à técnica ofensiva ou Vigor (+5 de cura/defesa) ao suporte.
+- **Ouro:** dano + sangramento ou Vigor + Preservar.
+- **Prismático:** dano + fogo + Preservar ou Vigor reforçado + Preservar.
+
+No ranqueado, o tier é **Prata**, igual para ambos. Na campanha, o tier é liberado por quantidade de Reinos/Elos concluídos: 0–4 Prata, 5–11 Ouro, 12 ou mais Prismático. As melhorias da Casa Objetivo **não são persistidas no loadout ranqueado nem no catálogo permanente da campanha**. Somente cartas ativas (mão, compra ou descarte) são elegíveis, não cartas exauridas.
+
+## Animações sincronizadas no PvP
+
+O servidor registra uma janela deslizante de até 12 **eventos de combate já resolvidos**, com número sequencial, tipo de habilidade, unidade de origem, destinatários e alterações de Vida/Defesa. Planos secretos, carta identificada e manifestações não reveladas são excluídos do histórico público. O cliente reproduz os eventos recebidos, destacando deslocamentos, dano, cura, bloqueios e coleta de emblemas. A ordem é do servidor; a exibição é resumida para não criar dependência da animação na lógica de dano.
+
 ## Compatibilidade
 
 O modo legado sem `cardMode` permanece sequencial. As partidas ranqueadas usam o novo sistema de decks, campo 5×5 e planejamento simultâneo. O PvE de campanha utiliza decks, o grid, validação autoritativa dos movimentos e movimentação automática da IA, mas ainda não utiliza planejamento simultâneo contra IA.
@@ -36,6 +51,8 @@ O modo legado sem `cardMode` permanece sequencial. As partidas ranqueadas usam o
 
 - `src/card-combat.js`: compra, descarte, exaustão, movimentos temporários, básico permanente e Miragem/Luz/Sombra.
 - `src/tactical-grid.js`: campo, posições, movimento, colisão, alcance, previsão e IA de movimento.
+- `src/grid-objectives.js`: objetivos simétricos, progressão dos tiers, coleta e melhorias temporárias.
+- `tests/grid-objectives.test.js` e `tests/combat-event-journal.test.js`: testes de recompensas, sigilo e histórico de efeitos resolvidos.
 - `src/tactical-grid-view.js`, `src/card-hand-view.js`, `card-combat.css`: tokens na grade, destaque de casas/áreas, cartas e interação responsiva.
 - `src/combat.js`, `src/combat-ai.js`: planejamento, custos, resolução, movimento + técnica e confrontos.
 - `server/arena-service.js`: sigilo dos planos, espelhamento, validação e resposta do duelo.
