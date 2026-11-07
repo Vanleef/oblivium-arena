@@ -78,7 +78,7 @@ export function tacticalHighlightEvent(event){
 }
 export function tacticalReplayFrames(actor,ability,event){
  if(event.reactionCounter){
-  const poses=['brace','deflect','counter','impact','recover'];
+  const poses=['brace','deflect','release','impact','recover'];
   return poses.map((pose,index)=>({family:'counter',pose,index,count:poses.length}));
  }
  const frames=tacticalPlaybackFrames(actor,ability,event);
