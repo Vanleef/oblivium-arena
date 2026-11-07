@@ -14,7 +14,9 @@ const slotWeight=Object.freeze({impulso:.85,tecnica:1,voto:1.15,despertar:1.3});
 export function tacticalCharacterChoreography(actor,event){
  if(!actor||event?.type!=='skill'||event.skipped)return null;
  const kind=tacticalCharacterMotifs[actor.sourceId||actor.id];
- const slot=event.abilityId;
+ const id=String(event.abilityId||'');
+ // Form-specific technique IDs keep the material language of their source slot.
+ const key=id.split('/')[0],slot=key.startsWith('tecnica-')?'tecnica':key;
  if(!kind||!Object.hasOwn(slotWeight,slot))return null;
  // Upgraded forms alter the silhouette's weight, not game outcomes.
  const altered=[event.formKey,event.bodyForm,actor.bodyForm].some(key=>key&&key!=='base');
