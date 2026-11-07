@@ -12,7 +12,7 @@
     "docs:generate": "node scripts/generate-project-docs.mjs",
     "audit:art": "node scripts/audit-art.mjs",
     "smoke:tactical": "node scripts/smoke-tactical-catalogue.mjs",
-    "test:compact": "node --test tests/tactical-compact*.test.js",
+    "test:compact": "node --test tests/tactical-compact*.test.js tests/tactical-decks.test.js",
     "smoke:compact": "node scripts/smoke-compact.mjs",
     "audit:tactical-kits": "node scripts/audit-tactical-kits.mjs",
     "audit:animation": "node scripts/audit-tactical-animation.mjs",
