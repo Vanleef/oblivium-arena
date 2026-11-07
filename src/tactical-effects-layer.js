@@ -152,7 +152,7 @@ export class TacticalEffectsLayer {
   }
   if(phase==='prepare')push('charge',from);
   if(phase==='release'&&!projectile&&!reduced)push('swing',from,{melee:meleeFamilies.has(event.family)});
-  if(phase==='travel'&&from&&to)push('travel',from,{projectile});
+  if(phase==='travel'&&from&&to&&!reduced)push('travel',from,{projectile});
   if(phase==='impact'&&actor){
    const contacts=tacticalImpactContacts(event);
    const particles=reduced||!contacts.length?0:Math.min(10,Math.floor(tacticalParticleBudget/contacts.length));
