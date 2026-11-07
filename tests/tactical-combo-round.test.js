@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,submitTacticalPlan,resolveTacticalRound,startCompactRoundResolution} from '../src/tactical-combat.js';
+import {resolveBoardReactiveCounter} from '../src/combat.js';
 
 const player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
 const enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
@@ -63,4 +64,21 @@ test('the opponent cannot embed forged clash scores into sealed planning actions
   assert.equal(s.tactical.plans.player[0].clash,undefined);
   assert.equal(s.tactical.plans.player[0].comboAdjustedDamage,undefined);
  }else assert.deepEqual(s.tactical.plans,{});
+});
+
+test('earned reactive counter uses real shield and health values without adding a new skill action',()=>{
+ const s=createTacticalBattle(player,enemy,{seed:9,compact:true,fortress:true});
+ const victim=s.enemies[0],defender=s.allies[0];
+ const originalHP=victim.hp,originalTurn=s.round,originalActions=JSON.stringify(s.tactical.plans);
+ victim.shield=0;
+ const r=resolveBoardReactiveCounter(s,{
+  attackerId:victim.id,defenderId:defender.id,baseDamage:30
+ });
+ assert.equal(r.skipped,false);
+ assert.equal(r.counterPower,7);
+ assert.equal(r.actorId,defender.id);
+ assert.ok(victim.hp<=originalHP);
+ assert.equal(s.round,originalTurn);
+ assert.equal(JSON.stringify(s.tactical.plans),originalActions,'counter costs no extra sealed order');
+ assert.equal(resolveBoardReactiveCounter(s,{attackerId:victim.id,defenderId:victim.id}).skipped,true);
 });
