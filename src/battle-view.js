@@ -1,4 +1,5 @@
 import { uiIcon, statusIcon, abilityIcon } from "./ui-icons.js";
+import { renderCardHand } from "./card-hand-view.js";
 import { eloSigil } from "./crests.js";
 import { combatStatuses } from "./combat-statuses.js";
 import { skillSealReason, skillGrowthKey } from "./combat-effects.js";
@@ -34,6 +35,7 @@ export function skillAvailability(b,actor,ability) {
   return "";
 }
 function skills(u,state){
+  if(state.battle?.cardCombat)return "";
   const b=state.battle,queued=b.queue.find(a=>a.actorId===u.id);
   return `<div class="arena-skills">${u.abilities.map((a,index)=>{
     const cooldown=u.cooldowns[a.id]||0,selected=state.selectedSkill?.actorId===u.id&&state.selectedSkill?.abilityId===a.id,locked=b.phase!=="player",reason=skillAvailability(b,u,a),cast=state.battleFx?.actorId===u.id&&state.battleFx?.abilityId===a.id;
@@ -81,7 +83,8 @@ export function renderBattle(state,elo){const b=state.battle;if(!b)return "";con
   ${planning?essenceExchangePanel(state,b):""}
   <div class="arena-fx-slot" aria-live="polite">${fx?`<section class="battle-action-banner effect-${fx.kind}" role="status"><span class="action-banner-icon">${fx.reactions?.length?"↶":(fx.abilityArt||fxAbility?.art)?`<img src="${esc(fx.abilityArt||fxAbility.art)}" alt="">`:fx.kind==="impact"?"✹":fx.kind==="restore"?"✚":fx.kind==="shield"?"⬡":fx.mode==="turn"?"↻":"✧"}</span><div><small>${esc(fx.actorName||"RESOLUÇÃO DO TURNO")}</small><b>${esc(fx.title)}</b><span>${esc(fx.summary)}</span></div></section>`:`<div class="arena-round-hint"><span>✧</span>${planning?`${b.queue.length}/3 ações preparadas${payment.required?` · ${payment.required} Qualquer a pagar`:""}`:result?"Confronto encerrado":b.phase==="waiting"?"Aguardando a escolha ou o turno do adversário.":"Preparando a próxima ação…"}</div>`}</div>
   ${b.difficulty?`<div class="combat-modifiers" title="${esc(modifierLabels(b.difficulty).join(" · "))}">☽ ${difficultyName(b.difficulty)} <span>${modifierLabels(b.difficulty).slice(0,2).join(" · ")}</span></div>`:""}
-  <div data-origin-realm="${esc(elo.realm)}" class="arena-match ${fx?`match-fx-${fx.kind}`:""}"><section class="arena-allies"><div class="battle-side-heading"><span>SEU TRIO · TÉCNICAS</span><small>4 TÉCNICAS · 1 AÇÃO POR ALMA</small></div>${b.allies.map((u,i)=>`<div class="arena-ally-row color-${esc(u.color)}">${unitCard(u,state,i)}${skills(u,state)}</div>`).join("")}</section><div class="arena-divider" aria-hidden="true"><span>III</span><i></i><b>VS</b><i></i><span>III</span></div><section class="arena-opposition"><div class="battle-side-heading"><span>OPOSIÇÃO</span><small>${b.enemies.filter(u=>u.hp>0).length} EM PÉ</small></div>${b.enemies.map((u,i)=>unitCard(u,state,i)).join("")}</section></div>
+  ${b.cardCombat?renderCardHand(state):""}
+  <div data-origin-realm="${esc(elo.realm)}" class="arena-match ${fx?`match-fx-${fx.kind}`:""}"><section class="arena-allies"><div class="battle-side-heading"><span>SEU TRIO · TÉCNICAS</span><small>${b.cardCombat?"3 MÃOS INDEPENDENTES · 1 AÇÃO POR ALMA":"4 TÉCNICAS · 1 AÇÃO POR ALMA"}</small></div>${b.allies.map((u,i)=>`<div class="arena-ally-row color-${esc(u.color)}">${unitCard(u,state,i)}${skills(u,state)}</div>`).join("")}</section><div class="arena-divider" aria-hidden="true"><span>III</span><i></i><b>VS</b><i></i><span>III</span></div><section class="arena-opposition"><div class="battle-side-heading"><span>OPOSIÇÃO</span><small>${b.enemies.filter(u=>u.hp>0).length} EM PÉ</small></div>${b.enemies.map((u,i)=>unitCard(u,state,i)).join("")}</section></div>
   <div class="arena-reading">${renderBattleDetail(state)}</div>
   ${planning?`<section class="arena-plan"><header><div><div class="eyebrow">FILA DO TURNO</div></div><div class="queue-heading-controls"><button class="button button-gold" data-action="review-turn">REVISAR FILA ↗</button></div></header>${queueMarkup(state)}</section>`:""}
   <details class="battle-log"><summary>REGISTRO DO COMBATE <span>⌄</span></summary><ol>${b.log.map(line=>`<li><i aria-hidden="true">${logIcon(line)}</i><span>${esc(line)}</span></li>`).join("")}</ol></details>
