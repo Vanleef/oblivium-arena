@@ -64,7 +64,7 @@ function board(s,future=planned()){
  const feedbackByCell=new Map();
  for(const item of feedback){const key=cellKey(item.point);if(!feedbackByCell.has(key))feedbackByCell.set(key,[]);feedbackByCell.get(key).push(item);}
  if(!state.busy)for(const u of s.allies){const to=future.tactical.positions[u.id];if(to&&!sameCell(to,s.tactical.positions[u.id]))destinations.set(cellKey(to),u);}
- return '<div class="board compact-board" data-super-impact="'+Boolean(phase==='impact'&&['voto','despertar'].includes(event?.abilityId))+'" role="group" aria-label="Arena tática em grade 6 por 6" style="--fort-cols:6;--fort-rows:6">'+boardCells(s).map(p=>{
+ return '<div class="board compact-board" data-super-impact="'+Boolean(phase==='impact'&&['voto','despertar'].includes(String(event?.abilityId||'').split('/')[0]))+'" role="group" aria-label="Arena tática em grade 6 por 6" style="--fort-cols:6;--fort-rows:6">'+boardCells(s).map(p=>{
   const living=occupied(s,p),fallen=!living?fallenByCell.get(cellKey(p)):null,unit=living||fallen,path=canMove?findPath(future,owner.id,p):null,objective=goal&&sameCell(goal.position,p),surface=surfaceAt(s,p),blocked=s.tactical.obstacles.some(q=>sameCell(q,p)),destination=destinations.get(cellKey(p));
   const inArea=activeCells.has(cellKey(p)),reactions=feedbackByCell.get(cellKey(p))||[],heavy=reactions.some(r=>r.kind==='damage'||r.kind==='shield-loss'),restored=reactions.some(r=>r.kind==='heal'||r.kind==='shield');
   const contact=contactsByCell.get(cellKey(p)),recoil=tacticalContactRecoil(contact,profile,{mobile:globalThis.innerWidth<=760});
