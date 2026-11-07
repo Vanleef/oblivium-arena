@@ -71,8 +71,19 @@ export function tacticalFrameDuration(event){
 // line at a target. Do not advance the board while the hit or heal is still visible.
 export function tacticalCompactFrameDuration(event,feedbackStack=1){
  const base=Math.min(330,tacticalFrameDuration(event));
- if(event?.skipped||!['impact','counter'].includes(event?.pose))return base;
+ const superPace=event?.type==='skill'&&!event.skipped
+  &&['voto','despertar'].includes(String(event.abilityId||'').split('/')[0]);
+ if(event?.skipped||!['impact','counter'].includes(event?.pose)){
+  if(!superPace)return base;
+  // Hold anticipation / release / travel a little longer, never a screen-blocking cut-in.
+  const multiplier=({anticipate:1.28,gather:1.28,inhale:1.28,compress:1.28,
+   windup:1.36,brace:1.36,release:1.42,thrust:1.42,
+   travel:1.25,spread:1.25,followthrough:1.18,recover:1.18,
+   withdraw:1.18,transfer:1.18,hold:1.18})[event.pose]||1;
+  return Math.round(base*multiplier);
+ }
  const stack=Math.max(1,Math.floor(Number.isFinite(feedbackStack)?feedbackStack:1));
+ if(superPace)return Math.max(base,560,Math.min(720,560+(stack-1)*36));
  return Math.max(base,460,Math.min(620,460+(stack-1)*36));
 }
 
