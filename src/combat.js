@@ -569,7 +569,7 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[]){
   const ability=card?.upgrades?.length?applyCardUpgrades(base,card.upgrades):base;
   const valid=getValidTargets(s,actor,ability);
   if(!valid.some(target=>target.id===ref?.targetId))throw new Error("Alvo inválido.");
-  const willSign=ref?.willSign||"fenda";
+  const willSign=ref?.willSign||"miragem";
   if(!WILL_SIGNS.includes(willSign))throw new Error("Manifestação inválida.");
   used.add(actor.id);
   queue.push({actorId:actor.id,abilityId:base.id,formKey:base.formKey||"base",targetId:ref.targetId,side,willSign,...(card?{cardId:card.id,cardUpgrades:card.upgrades}:{})});
@@ -608,7 +608,7 @@ function duelClashCandidate(s,action){
  const valid=getValidTargets(s,actor,ability);
  const chosen=valid.find(target=>target.id===action.targetId);
  if(!chosen)return null;
- return {defenderSide:opposingSide(action.side),attackerSide:action.side,actorId:actor.id,abilityId:ability.id,targetId:chosen.id,willSign:action.willSign||"fenda"};
+ return {defenderSide:opposingSide(action.side),attackerSide:action.side,actorId:actor.id,abilityId:ability.id,targetId:chosen.id,willSign:action.willSign||"miragem"};
 }
 export function answerDuelClash(s,side,sign="pass"){
  if(!s.simultaneousDuel||s.phase!=="clash"||!s.clash||s.clash.defenderSide!==side)throw new Error("Não existe resposta pendente para esta equipe.");
