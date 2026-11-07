@@ -53,6 +53,10 @@ export function tacticalFeedback(event){
  });
 }
 const effects=[
+ // Materials take priority over generic realm/energy words in a technique title.
+ ['rot',/podrid|vermes?|decompos|corros|necros|fungo|praga|toxina/i],
+ ['stone',/pedra|rocha|m[aá]rmore|l[aá]pide|escombro|muralha|estilha[cç]o de pedra/i],
+ ['thread',/fios?\b|tecel|trama|costur|la[cç]o|amarra|correntes?|grilh[aã]o/i],
  ['fire',/chama|brasa|fogo|inc[eê]ndio|queima|cinza|lava|flame|burn/i],
  ['storm',/raio|rel[aâ]mpago|el[eé]tric|tempestade|trov[aã]o|shock|lightning/i],
  ['frost',/gelo|congela|frio|geada|ice|frost/i],
