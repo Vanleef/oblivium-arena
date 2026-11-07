@@ -270,3 +270,13 @@ test('super timing remains paced without slowing a normal basic attack or violat
  assert.match(anim,/if\(superPace\)return Math\.max\(base,560/);
  assert.match(anim,/if\(event\?\.skipped\|\|!/);
 });
+
+test('actual movement contact is shown on its final destination, not as a generic shot',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const js=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const effects=await readFile(new URL('../src/tactical-effects-layer.js',import.meta.url),'utf8');
+ assert.match(js,/if\(mover\)emit\(\{type:'move',actorId:mover\.id,before:event\.before,after:event\.after,anchor:step\.to\}/);
+ assert.match(effects,/phase==='step'&&event\.type==='move'/);
+ assert.match(effects,/kind==='step-dust'/);
+ assert.doesNotMatch(js,/if\(mover\)emit\(\{type:'skill'/);
+});
