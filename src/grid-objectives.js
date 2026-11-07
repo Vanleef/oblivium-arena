@@ -41,8 +41,8 @@ export function spawnGridObjectives(battle,rng=Math.random){
  battle.gridObjectives=[{side:"player",...chosen.player,tier,round:battle.round},{side:"enemy",...chosen.enemy,tier,round:battle.round}];
  return battle.gridObjectives;
 }
-function cardUpgradeFor(unit,tier){
- const attack=unit?.abilities?.some(a=>a.damage>0);
+function cardUpgradeFor(ability,tier){
+ const attack=Boolean(ability?.damage>0);
  return attack?
   tier==="prismatic"?["damage","fire","retain"]:tier==="gold"?["damage","bleed"]:["damage"]:
   tier==="prismatic"?["vigor","vigor","retain"]:tier==="gold"?["vigor","retain"]:["vigor"];
