@@ -58,7 +58,8 @@ export function removeMovementPlan(battle,side,actorId){
 export function isTargetInRange(battle,actor,target,ability,{preview=true}={}){
  if(!battle.grid||!actor?.position||!target?.position)return true;
  if(ability?.target==="team"||ability?.target==="self")return true;
- const source=preview?plannedPosition(battle,actor):actor.position,aim=preview?plannedPosition(battle,target):target.position;
+ // Preview the acting soul only. The defender’s unrevealed move is never used for targeting validation.
+ const source=preview?plannedPosition(battle,actor):actor.position,aim=target.position;
  const range=ability?.id==="__basic_attack__"?1:Math.max(1,Math.min(4,Number(ability?.range)||3));
  return gridDistance(source,aim)<=range;
 }
