@@ -107,3 +107,16 @@ test('compact combat resolves projectile trajectories, early telegraphs and full
  assert.match(source,/\['anticipate','compress','brace','inhale','gather'/);
  assert.doesNotMatch(source,/Math\.min\(330,tacticalFrameDuration\(state\.event\)\)/);
 });
+
+test('combat-speed controls scale CSS reactions together with replay and reduced-motion VFX',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(source,/--compact-hit-duration:'\+Math\.round\(420\/state\.speed\)/);
+ assert.match(source,/--compact-heal-duration:'\+Math\.round\(460\/state\.speed\)/);
+ assert.match(source,/--compact-feedback-delay:'\+Math\.round\(36\/state\.speed\)/);
+ assert.match(source,/\(reduced\?35:duration\)\/state\.speed/);
+ assert.match(css,/animation:compact-hit-stagger var\(--compact-hit-duration,420ms\)/);
+ assert.match(css,/animation:compact-heal-rise var\(--compact-heal-duration,460ms\)/);
+ assert.match(css,/--compact-feedback-delay,36ms/);
+});
