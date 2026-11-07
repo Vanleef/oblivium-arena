@@ -8,7 +8,7 @@ const statuses=Object.freeze([
  ['healingBlock','CURA BLOQUEADA']
 ]);
 export function tacticalFeedback(event){
- if(event?.type!=='skill'||event.skipped||!event.before||!event.after)return [];
+ if(!['skill','field-event','effects'].includes(event?.type)||event.skipped||!event.before||!event.after)return [];
  const previous=new Map(actors(event.before).map(u=>[u.id,u]));
  const area=new Set((event.cells||[]).map(pointKey));
  const targetIds=new Set(event.affectedTargetIds||event.targets||[]);
@@ -34,6 +34,7 @@ const effects=[
  ['grace',/gra[cç]a|luz|sagrad|purific|divin|b[eê]n[cç][aã]o/i]
 ];
 export function tacticalTechniqueTone(actor,ability,event){
+ if(event?.type==='field-event')return ({storm:'storm',wind:'nature',rain:'frost'})[event.id]||'void';
  if(event?.type!=='skill')return 'neutral';
  if(ability?.heal||ability?.regen||ability?.target==='ally'||ability?.target==='team'||ability?.target==='friendly')return 'heal';
  if(ability?.defense||ability?.invulnerable||ability?.shield)return 'shield';
@@ -44,7 +45,10 @@ export function tacticalTechniqueTone(actor,ability,event){
  return actor?.realm==='Inferno'?'fire':actor?.realm==='Paraíso'?'grace':'void';
 }
 export function tacticalAreaPhase(event){
- if(event?.type!=='skill'||event.skipped||!event.cells?.length)return null;
+ if(event?.skipped)return null;
+ if(event?.type==='effects')return event.pose==='impact'?'impact':null;
+ if(event?.type==='field-event')return event.cells?.length&&event.pose==='impact'?'impact':null;
+ if(event?.type!=='skill'||!event.cells?.length)return null;
  if(['impact','counter'].includes(event.pose))return 'impact';
  if(['anticipate','windup','gather','inhale','compress','brace','release','thrust','travel','spread'].includes(event.pose))return 'preview';
  return null;

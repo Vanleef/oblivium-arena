@@ -49,3 +49,16 @@ test('visual cues reflect ability semantics and area phases, including reduced-m
  assert.equal(tacticalAreaPhase({...event,pose:'recover'}),null);
  assert.equal(tacticalAreaPhase({...event,skipped:true}),null);
 });
+
+test('field hazards and encounter rewards show the real resulting damage and recovery',()=>{
+ const storm={...event,type:'field-event',id:'storm',affectedTargetIds:[],targets:[]};
+ const feedback=tacticalFeedback(storm);
+ assert.ok(feedback.some(f=>f.actorId==='foe'&&f.kind==='damage'&&f.label==='−24'));
+ assert.ok(feedback.some(f=>f.actorId==='friend'&&f.kind==='heal'&&f.label==='+18'));
+ assert.equal(tacticalAreaPhase(storm),'impact');
+ assert.equal(tacticalTechniqueTone(null,null,storm),'storm');
+ const rewards={...event,type:'effects',cells:[],affectedTargetIds:[],targets:[]};
+ assert.deepEqual(tacticalFeedback(rewards).filter(x=>x.kind==='heal').map(x=>x.label),['+18']);
+ assert.equal(tacticalAreaPhase(rewards),'impact');
+ assert.equal(tacticalAreaPhase({...rewards,pose:'ready'}),null);
+});
