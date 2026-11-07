@@ -6,7 +6,7 @@ const superSlots=new Set(['voto','despertar']);
 // A super is a brief arena treatment, not a portrait-sized interruption.
 // Regular techniques and repeated common attacks keep the board unobscured.
 export function tacticalCutinActive(event){
- if(event?.type!=='skill'||event.skipped)return false;
+ if(event?.type!=='skill'||event.skipped||event.comboBeat>1)return false;
  if(event.compactReplay&&event.repeated&&!tacticalHighlightEvent(event))return false;
  if(!superSlots.has(String(event.abilityId||'').split('/')[0])&&!tacticalHighlightEvent(event))return false;
  return ['anticipate','gather','inhale','compress','windup','brace','release','thrust'].includes(event.pose);
@@ -78,6 +78,14 @@ export function tacticalHighlightEvent(event){
 }
 export function tacticalReplayFrames(actor,ability,event){
  const frames=tacticalPlaybackFrames(actor,ability,event);
+ if(event.comboReplay){
+  // Character-specific material VFX still run on EVERY true contact.
+  const first=event.comboBeat===1,last=event.comboBeat===event.comboTotal;
+  const poses=first?['anticipate','windup','release','impact']:
+   last?['release','impact','followthrough','recover']:['release','impact'];
+  return poses.map((pose,index)=>({family:frames[0]?.family||event.family||'strike',
+   pose,index,count:poses.length,comboBeat:event.comboBeat,comboTotal:event.comboTotal}));
+ }
  if(!event.compactReplay||!event.repeated||event.type!=='skill'||event.skipped||tacticalHighlightEvent(event))return frames;
  // Keep travel before contact and one full impact; only shorten repeated preparation/recovery.
  const compact=frames.filter((frame,i)=>i===0||i===frames.length-1||['release','thrust','travel','spread','impact','counter'].includes(frame.pose));
