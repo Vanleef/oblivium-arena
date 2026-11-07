@@ -68,3 +68,14 @@ Inspecionar em navegador desktop e celular: leitura do sprite durante a vinheta,
 - **Reinicialização robusta:** `TacticalEffectsLayer.clear()` também zera `freezeStart`/`freezeUntil`; novos combates não herdarem um congelamento anterior.
 - Casos automatizados acrescentados em `tests/tactical-impact-presentation.test.js`, `tests/tactical-compact-ui.test.js` e `tests/tactical-effects-layer.test.js`. As verificações isoladas passaram; execução integral do CI ainda está pendente e o PR segue draft.
 
+
+## Cadência, legenda e padrões de área nos comandos (07/11/2026)
+
+- `voto` e `despertar` ganharam uma cadência discretamente mais lenta nas fases de antecipação, preparação, liberação e trajetória; o contato de um especial dura aproximadamente 560–720 ms em 1× conforme o empilhamento de reações, com a escala normal de 2×/3× preservada. Técnicas normais continuam com a cadência anterior.
+- A identificação de personagem e técnica foi **removida da sobreposição cinematográfica** e posicionada em uma faixa legível **imediatamente abaixo da grade 6×6**. A legenda persiste até o impacto e utiliza a cor de Inferno, Paraíso ou Limbo.
+- Todos os ícones de movimento e habilidades do painel receberam um **diagrama miniatura 7×7**, com origem em destaque e casas afetadas. A forma vem da mesma função `patternCells` usada pelo motor, a especificação real `fortressTechniqueSpec` e a orientação atual de `unitFacing`; inclui linha, cone, célula, cruz, área, X, anel e movimento adjacente. A descrição por texto e acessibilidade também informa o padrão e o alcance.
+- Qualquer técnica executada, **inclusive `fortress-basic`**, recebe chegada de fragmentos físicos em cada célula resolvida da área (mesmo vazia) e um breve contato material na célula. As reações individuais de dano, cura, proteção e deslocamento permanecem uma camada separada. Não há dano extra nem projéteis artificiais definidos por padrões diferentes dos do motor.
+- Movimentos deixam poeira no destino efetivamente ocupado, sem disparar luz artificial. Trajetórias móveis são omitidas em preferência por movimento reduzido, preservando o aviso estático de contato.
+- Novos módulos `src/tactical-area-diagram.js` e `tests/tactical-area-diagram.test.js`. Alterados `src/tactical-cinematic.js`, `src/tactical-animation.js`, `src/compact-demo.js`, `src/tactical-effects-layer.js`, `compact-planning.css` e respectivas suítes. Atualizado cache-busting em `tactical.html`.
+- Verificações de execução isolada: **33 testes síncronos** (diagramas, VFX e cinemática) + **16 testes assíncronos da UI com leitura de arquivos simulada**, sem falhas. O teste interativo completo em DOM/Node e a suíte global ainda requerem execução própria; não confundir compilação da prévia com cobertura integral.
+
