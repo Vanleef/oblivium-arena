@@ -19,6 +19,7 @@ import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-vi
 import { renderDeckBuilder, deckEntries } from "./deck-builder-view.js";
 import { defaultLoadout, CARD_RULES } from "./card-combat.js";
 import { setMovementPlan, removeMovementPlan } from "./tactical-grid.js";
+import { campaignObjectiveTier } from "./grid-objectives.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from "./progression.js";
@@ -299,7 +300,7 @@ function startEncounter(node) {
   state.battleNode = node;
   state.moveActorId = null;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
-  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption,cardMode:true });
+  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption,objectiveTier:campaignObjectiveTier(profile),cardMode:true });
   beginInfluences(state.battle,(profile.run?.seed||1)+(profile.run?.encounter||0)*97);
   state.targetId = null;
   state.battleFx = null;
