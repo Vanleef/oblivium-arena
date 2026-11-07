@@ -44,3 +44,7 @@
  .combat-deck-counts{font-size:10px;gap:5px}
 }
 @media(prefers-reduced-motion:reduce){.combat-hand-card{transition:none}.combat-hand-card:not(:disabled):hover{transform:none}}
+
+/* A mão central substitui os painéis individuais de técnicas neste modo. */
+.arena-ally-row.card-mode{display:block;min-width:0}
+.arena-ally-row.card-mode > .fighter-card{width:100%;max-width:none}
