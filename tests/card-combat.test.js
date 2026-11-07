@@ -47,7 +47,7 @@ test("innate cards start in hand, retained cards remain, exhausted cards do not 
 test("draw pile reshuffles discard without cloning or losing a card",()=>{
  const u=unit("a"),s=createCardState([u],{rng});beginCardRound(s,[u],1,rng);
  const deck=s.decks.a;
- deck.discard.push(...deck.draw.splice(0));
+ deck.discard.push(...deck.hand.filter(c=>c.kind==="ability"),...deck.draw.splice(0));
  deck.hand=deck.hand.filter(c=>c.kind==="movement");
  drawCards(deck,2,rng);
  assert.equal(deck.hand.filter(c=>c.kind==="ability").length,2);
