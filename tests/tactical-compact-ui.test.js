@@ -260,9 +260,9 @@ test('skill names appear immediately beneath the field and icons carry true mini
  assert.match(css,/\.compact-board-stack>\.fighter-super-nameplate/);
  assert.match(css,/margin-top:6px/);
  assert.match(source,/tacticalAreaDiagramMarkup\(null,\{movement:kind==='move'\}\)/);
- assert.match(source,/const areaSpec=fortressTechniqueSpec\(future,u,a\)/);
- assert.match(source,/tacticalAreaDiagramMarkup\(areaSpec,\{facing:unitFacing\(future,u\)\}\)/);
- assert.match(source,/tacticalPatternLabel\(areaSpec\)/);
+ assert.match(source,/const spec=fortressTechniqueSpec\(future,u,a\)/);
+ assert.match(source,/tacticalAreaDiagramMarkup\(spec,\{facing:unitFacing\(future,u\)\}\)/);
+ assert.match(source,/tacticalPatternLabel\(spec\)/);
  assert.match(css,/\.compact-area-mini/);
  assert.match(css,/grid-template-columns:repeat\(7,minmax\(0,1fr\)\)/);
  assert.match(css,/data-mini-cell="hit"/);
@@ -295,7 +295,9 @@ test('desktop and mobile action footprint legends are legible and match the cast
  const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
  const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
  const mini=await readFile(new URL('../src/tactical-area-diagram.js',import.meta.url),'utf8');
- assert.match(source,/compact-tech-name/);
+ assert.match(source,/compact-hand-card compact-hand-skill/);
+ const cardCss=await readFile(new URL('../compact-cards.css',import.meta.url),'utf8');
+ assert.match(cardCss,/\.compact-hand-skill \.compact-area-diagram/);
  assert.match(source,/compact-area-legend/);
  assert.match(source,/tacticalActorPalette\(beforeActor\)/);
  assert.match(source,/tacticalPaletteVariables\(castColors\)/);
