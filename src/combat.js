@@ -468,7 +468,7 @@ function resolveAction(s){
   if(actor.cooldowns[a.id])return {done:false,event:{...action,skipped:true,title:"Técnica em recarga",summary:"A recarga impede esta ação. Custos de Essência preservados."}};
   if(skillSealReason(actor,a))return {done:false,event:{...action,skipped:true,title:skillSealReason(actor,a),summary:"A técnica foi selada antes de agir. Custos de Essência preservados."}};
   if(action.formKey&&action.formKey!==(a.formKey||"base"))return {done:false,event:{...action,skipped:true,title:"Técnica alterada",summary:"A forma mudou após a confirmação. Ação cancelada; custos de Essência preservados."}};
-  if(s.cardCombat&&action.side==="enemy"&&!s.humanSides){
+  if(s.cardCombat&&action.side==="enemy"&&!s.humanSides&&action.abilityId!==BASIC_ATTACK_ID){
    const used=consumeHandCard(s.cardCombat,actor.id,action.cardId);
    if(!used)return {done:false,event:{...action,skipped:true,title:"Carta indisponível",summary:"O adversário não possui essa carta na mão."}};
    if(used.upgrades?.length)a=applyCardUpgrades(a,used.upgrades);
