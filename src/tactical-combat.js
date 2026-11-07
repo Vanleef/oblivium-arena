@@ -12,7 +12,7 @@ import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
 import {tacticalDuelResolve} from './tactical-duel.js';
-import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse} from './tactical-decks.js';
+import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard} from './tactical-decks.js';
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
@@ -168,7 +168,11 @@ export function chooseTacticalChestReward(s,offerId,optionId,targetId){
   const applied=applyFortressPenalty(s,'player',option.effect,targetId,offer.round);if(!applied.ok)return applied;
  }else{
   if(offer.objective&&!actorFor(s,'player',offer.actorId))return fail('O portador saiu de combate.');
-  applyChestEffect(s,'player',option.effect);
+  if(option.effect.type==='tactical-card-upgrade'){
+   if(!offer.objective||!targetId)return fail('Selecione a carta que receberá a inscrição.');
+   const upgrade=upgradeTacticalCard(s,'player',offer.actorId,targetId,option.effect.upgrade);
+   if(!upgrade.ok)return upgrade;
+  }else applyChestEffect(s,'player',option.effect);
   if(offer.objective)actorFor(s,'player',offer.actorId).objectiveAugments=(actorFor(s,'player',offer.actorId).objectiveAugments||0)+1;
  }
  s.tactical.pendingChestRewards.shift();
@@ -766,6 +770,12 @@ function claimFortressEntry(s,{actorId,side,to}){
 function claimObjective(s,side,actorId,to){
  const offer=collectConquestObjective(s,side,actorId,to);if(!offer)return;
  offer.options=conquestOfferOptions(s,offer);
+ if(s.tactical.cardMode&&side==='player'){
+  const upgrade=offer.tier==='prismatic'?{opening:true,damageBonus:10}:offer.tier==='gold'?{retain:true,damageBonus:5}:{damageBonus:5};
+  const text=offer.tier==='prismatic'?'Carta inicial e +10 de dano':offer.tier==='gold'?'Preservar na mão e +5 de dano':'+5 de dano';
+  offer.options.push({id:'card-inscription:'+offer.id,title:'Inscrição de Carta',text:'Escolha uma técnica: '+text,
+   effect:{type:'tactical-card-upgrade',upgrade}});
+ }
  if(side==='player')s.tactical.pendingChestRewards.push(offer);else(s.tactical.enemyChestRewards??=[]).push(offer);
 }
 function registerFortressDeaths(s){
