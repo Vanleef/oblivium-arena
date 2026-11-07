@@ -39,7 +39,7 @@ test('choices are a single interaction per special, never a reflex-timer minigam
  assert.match(js,/function interactiveDuel\(ref\)/);
  assert.match(js,/tacticalDuelAI\(\{round:current\.round/);
  assert.match(js,/const foeChoice=tacticalDuelAI/);
- assert.match(js,/const answer=tacticalDuelResolve\(attackChoice,defenseChoice\)/);
+ assert.match(js,/const answer=tacticalDuelResolve\(attackChoice,defenseChoice,\{mode:cardMode\?'cards':'legacy'\}\)/);
  assert.match(js,/const contest=pending\?\.comboEligible\?await interactiveDuel\(pending\):\{\}/);
  assert.match(js,/const next=session\.next\(contest\)/);
  assert.doesNotMatch(js,/tacticalReactiveJudge\(/);
@@ -57,13 +57,14 @@ test('click, keyboard and auto choice work even while the stage is busy',async()
  assert.match(js,/event\.code==='Digit2'/);
  assert.match(js,/event\.code==='Digit3'/);
  assert.match(js,/event\.key==='Escape'/);
- assert.match(js,/duel\.skip=\(\)=>finish\(attacking\?'miragem':'sombra'\)/);
+ assert.match(js,/duel\.skip=\(\)=>\{/);
+ assert.match(js,/else finish\(attacking\?'miragem':'sombra'\)/);
 });
 
 test('winning choices apply ability effects, defensive victories miss entirely, ties only halve damage',async()=>{
  const engine=await read('src/tactical-combat.js'),combat=await read('src/combat.js');
- assert.match(engine,/tacticalDuelResolve\(responses\.attackChoice,responses\.defenseChoice\)/);
- assert.match(engine,/execute\(s,duel\?\{\.\.\.ref,clash:duel\}:ref\)/);
+ assert.match(engine,/tacticalDuelResolve\(responses\.attackChoice,responses\.defenseChoice,\{mode:s\.tactical\.cardMode\?'cards':'legacy'\}\)/);
+ assert.match(engine,/execute\(s,clash\?\{\.\.\.ref,clash\}:ref\)/);
  assert.match(combat,/action\.clash\.duel\?action\.clash/);
  assert.match(combat,/tacticalDuelDamage\(technique\.damage,combo\)/);
  assert.match(combat,/combo\?\.duel&&combo\.outcome==='miss'/);
