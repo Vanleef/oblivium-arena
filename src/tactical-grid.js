@@ -87,15 +87,12 @@ export function greedyMovement(battle,side){
  if(!battle.grid)return [];
  const ours=(side==="player"?battle.allies:battle.enemies).filter(u=>u.hp>0);
  const theirs=(side==="player"?battle.enemies:battle.allies).filter(u=>u.hp>0);
- const original=battle.movementPlans?.[side]||[],moves=[];
+ const moves=[],objective=battle.gridObjectives?.find(objective=>objective.side===side);
  const preview={...battle,movementPlans:{...battle.movementPlans,[side]:[]}};
  for(const actor of ours){
-  const candidate=movementChoices(preview,actor).sort((a,b)=>{
-   const score=p=>Math.min(...theirs.map(target=>gridDistance(p,target.position)));
-   return score(a)-score(b)||a.y-b.y||a.x-b.x;
-  })[0];
-  if(!candidate)continue;
-  if(Math.min(...theirs.map(target=>gridDistance(candidate,target.position)))>=Math.min(...theirs.map(target=>gridDistance(actor.position,target.position))))continue;
+  const score=p=>objective?gridDistance(p,objective):Math.min(...theirs.map(target=>gridDistance(p,target.position)));
+  const candidate=movementChoices(preview,actor).sort((a,b)=>score(a)-score(b)||a.y-b.y||a.x-b.x)[0];
+  if(!candidate||score(candidate)>=score(actor.position))continue;
   moves.push({actorId:actor.id,side,to:candidate});
   preview.movementPlans[side]=moves;
  }
