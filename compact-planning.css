@@ -816,3 +816,99 @@
  .compact-battle .compact-board .cell.compact-hit-damage .conquest-model,
  .compact-battle .compact-board .cell.compact-hit-heal .conquest-model{animation:none!important}
 }
+
+
+/* Resolved physical hit reactions. Only the actor sprite is displaced; grid
+   geometry, target cells and the deterministic turn remain unchanged. */
+.combat-shell.compact-battle .compact-board .cell:not(.compact-defeated).compact-hit-body[data-impact-reaction="damage"][data-impact-family="strike"] .conquest-model{
+ animation:compact-recoil-strike var(--compact-hit-duration,420ms) cubic-bezier(.16,.72,.28,1) both;
+}
+.combat-shell.compact-battle .compact-board .cell:not(.compact-defeated).compact-hit-body[data-impact-reaction="damage"][data-impact-family="slash"] .conquest-model{
+ animation:compact-recoil-slash var(--compact-hit-duration,420ms) cubic-bezier(.14,.72,.3,1) both;
+}
+.combat-shell.compact-battle .compact-board .cell:not(.compact-defeated).compact-hit-body[data-impact-reaction="damage"][data-impact-family="pierce"] .conquest-model{
+ animation:compact-recoil-pierce var(--compact-hit-duration,420ms) cubic-bezier(.12,.72,.35,1) both;
+}
+.combat-shell.compact-battle .compact-board .cell:not(.compact-defeated).compact-hit-body[data-impact-reaction="damage"][data-impact-family="counter"] .conquest-model{
+ animation:compact-recoil-counter var(--compact-hit-duration,420ms) cubic-bezier(.19,.7,.35,1) both;
+}
+.combat-shell.compact-battle .compact-board .cell:not(.compact-defeated).compact-hit-body[data-impact-reaction="block"] .conquest-model{
+ animation:compact-recoil-block var(--compact-hit-duration,420ms) ease-out both;
+}
+@keyframes compact-recoil-strike{
+ 0%,100%{translate:0 0;scale:1;rotate:0deg}
+ 16%{translate:calc(var(--hit-recoil-x,0px) * .4) 3px;scale:1.15 .72}
+ 36%{translate:var(--hit-recoil-x,0px) var(--hit-recoil-y,0px);scale:.89 1.08;rotate:-3deg}
+ 67%{translate:calc(var(--hit-recoil-x,0px) * .3) 2px;scale:.99 1.02}
+}
+@keyframes compact-recoil-slash{
+ 0%,100%{translate:0 0;rotate:0deg;scale:1}
+ 21%{translate:calc(var(--hit-recoil-x,0px) * .7) -2px;rotate:-8deg;scale:1.13 .94}
+ 47%{translate:var(--hit-recoil-x,0px) var(--hit-recoil-y,0px);rotate:7deg;scale:.95 1.04}
+ 76%{translate:calc(var(--hit-recoil-x,0px) * .2) 1px;rotate:-2deg}
+}
+@keyframes compact-recoil-pierce{
+ 0%,100%{translate:0 0;scale:1}
+ 13%{translate:calc(var(--hit-recoil-x,0px) * -.35) 0;scale:.86 1.03}
+ 30%{translate:var(--hit-recoil-x,0px) var(--hit-recoil-y,0px);scale:1.08 .86}
+ 65%{translate:calc(var(--hit-recoil-x,0px) * .3) 0;scale:.97 1}
+}
+@keyframes compact-recoil-counter{
+ 0%,100%{translate:0 0;rotate:0deg}
+ 20%{translate:calc(var(--hit-recoil-x,0px) * -.35) 0;rotate:-5deg}
+ 43%{translate:var(--hit-recoil-x,0px) var(--hit-recoil-y,0px);rotate:5deg}
+ 68%{translate:0 0;rotate:-2deg}
+}
+@keyframes compact-recoil-block{
+ 0%,100%{translate:0 0;scale:1}
+ 18%{translate:calc(var(--hit-recoil-x,0px) * .2) 0;scale:1.08 .91}
+ 40%{translate:calc(var(--hit-recoil-x,0px) * .35) 0;scale:.97 1.04}
+}
+/* Areas communicate WHAT physically arrived at their cells. */
+.compact-battle .compact-area-sigil[data-phase="impact"][data-effect-tone="stone"]{
+ border-radius:4%;clip-path:polygon(12% 0,88% 0,100% 19%,91% 81%,70% 100%,0 93%);
+ background:repeating-linear-gradient(127deg,#d2bba730 0 8px,#51423869 9px 12px);
+}
+.compact-battle .compact-area-sigil[data-phase="impact"][data-effect-tone="blood"]{
+ border-radius:8%;background:linear-gradient(126deg,transparent 34%,#ff6b7c80 43%,#470d20ba 49%,#ed3d60a9 55%,transparent 62%);
+}
+.compact-battle .compact-area-sigil[data-phase="impact"][data-effect-tone="thread"]{
+ background:repeating-linear-gradient(115deg,transparent 0 14px,#d5a0e677 15px 19px,transparent 20px 30px);
+}
+.compact-battle .compact-area-sigil[data-phase="impact"][data-effect-tone="rot"]{
+ border-radius:47% 31% 42% 23%;background:radial-gradient(ellipse at 42% 57%,#85945680,#303a3269 58%,transparent 82%);
+}
+/* A short held frame preserves the first contact flash across canvas, HUD
+   numbers and avatar recoil, then animation continues with synchronized timing. */
+.combat-shell.compact-battle .compact-stage[data-hitstop="true"] .compact-board .compact-hit-body .conquest-model,
+.combat-shell.compact-battle .compact-stage[data-hitstop="true"] .compact-board .compact-impact-feedback b,
+.combat-shell.compact-battle .compact-stage[data-hitstop="true"] .compact-board .compact-area-sigil,
+.combat-shell.compact-battle .compact-stage[data-hitstop="true"] .compact-board[data-super-impact="true"]{
+ animation-play-state:paused!important;
+}
+.combat-shell.compact-battle .compact-stage:has(>.fighter-super)>.arena-backdrop{
+ animation:compact-super-parallax var(--super-duration,240ms) cubic-bezier(.1,.66,.25,1) both;
+ transform-origin:center 65%;
+}
+@keyframes compact-super-parallax{
+ from{scale:1.014;translate:0 3px}
+ 45%{scale:1.028;translate:0 -3px}
+ to{scale:1.015;translate:0 0}
+}
+@media(max-width:760px){
+ .combat-shell.compact-battle .compact-stage:has(>.fighter-super)>.arena-backdrop{
+  animation:none;filter:brightness(.69) saturate(.9);
+ }
+ .combat-shell.compact-battle .compact-board .cell.compact-hit-body .conquest-model{
+  filter:drop-shadow(0 0 4px #ffffff45);
+ }
+ .combat-shell.compact-battle .fighter-super-speedlines{filter:none;opacity:.42}
+ .combat-shell.compact-battle .fighter-super-rupture{mix-blend-mode:normal;opacity:.35}
+}
+@media(prefers-reduced-motion:reduce){
+ .combat-shell.compact-battle .compact-board .cell.compact-hit-body .conquest-model,
+ .combat-shell.compact-battle .compact-stage:has(>.fighter-super)>.arena-backdrop{
+  animation:none!important;translate:none!important;rotate:0deg!important;scale:1!important;
+ }
+ .combat-shell.compact-battle .compact-stage[data-hitstop="true"] *{animation-play-state:running!important}
+}
