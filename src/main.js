@@ -289,7 +289,7 @@ function startEncounter(node) {
   }
   state.battleNode = node;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
-  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption });
+  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption,cardMode:true });
   beginInfluences(state.battle,(profile.run?.seed||1)+(profile.run?.encounter||0)*97);
   state.targetId = null;
   state.battleFx = null;
@@ -494,7 +494,7 @@ function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
   const exchanges=state.battle.pendingEssenceExchanges||[];
   if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected,exchanges});return;}
-  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend})=>({actorId,abilityId,targetId,residueSpend,fractureSpend}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
+  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId})=>({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
   if(!commitTurn(state.battle,payment.selected).ok)return;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
 function updateBattle(actorId,abilityId) {
@@ -509,7 +509,7 @@ function updateBattle(actorId,abilityId) {
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
   if(!state.selectedSkill){state.inspectUnitId=targetId;state.focusSkill=null;render();return;}
-  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0});
+  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0,cardId:state.selectedSkill.cardId});
   if(!result.ok){toast(result.reason);return;}state.exchangeOpen=false;state.exchangePayment=null;state.selectedSkill=null;render();
 }
 
