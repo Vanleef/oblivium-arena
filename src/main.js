@@ -516,7 +516,7 @@ function updateBattle(actorId,abilityId,cardId=null) {
   if(skillAvailability(b,actor,ability)){
     state.selectedSkill=null;render();app.querySelector(`[data-use-skill="${actorId}:${abilityId}"]`)?.focus({preventScroll:true});return;
   }
-  state.selectedSkill={actorId,abilityId,cardId};render();app.querySelector('.fighter-card.valid-target')?.focus({preventScroll:true});
+  state.selectedSkill={actorId,abilityId,cardId};render();if(b.grid)app.querySelector(".tactical-tile.target-choice .tactical-occupant")?.focus({preventScroll:true});else app.querySelector(".fighter-card.valid-target")?.focus({preventScroll:true});
 }
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
@@ -886,7 +886,7 @@ app.addEventListener("click", (event) => {
    if(state.battle?.phase!=="player")return;
    const id=target.dataset.movementToggle;
    state.moveActorId=state.moveActorId===id?null:id;state.selectedSkill=null;state.focusSkill=null;
-   state.handActorId=id;render();return;
+   state.handActorId=id;render();if(state.moveActorId)app.querySelector(".tactical-arena")?.scrollIntoView({behavior:"smooth",block:"center"});return;
   }
   if(target.dataset.gridCell){
    if(!state.moveActorId||state.battle?.phase!=="player")return;
