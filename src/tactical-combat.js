@@ -545,7 +545,7 @@ function compactRoundSession(s,cursor,initialEvents){
   if(cursor.closed)return fail('A rodada já foi concluída.');
   const start=s.tactical.events.length;
   if(cursor.slot<2&&!cursor.prepared){
-   const wave=actions.filter(ref=>ref.cursor.slot===cursor.slot);
+   const wave=actions.filter(ref=>ref.slot===cursor.slot);
    const paths=wave.filter(ref=>ref.type==='move'&&actorFor(s,ref.side,ref.actorId)&&!actorFor(s,ref.side,ref.actorId).stunned);
    if(paths.length)resolveExchangeMovement(s,paths);
    cursor.commands=wave.filter(ref=>ref.type!=='move').sort((a,b)=>a.category-b.category||a.turnRank-b.turnRank);
