@@ -912,3 +912,40 @@
  }
  .combat-shell.compact-battle .compact-stage[data-hitstop="true"] *{animation-play-state:running!important}
 }
+
+
+/* Contact-only camera impulse. The backdrop and board track move together via
+   individual translate: no layout shift, square-cell resize or HUD movement. */
+.combat-shell.compact-battle .compact-stage[data-impact-shake]:not([data-impact-shake="none"]){
+ --impact-shake-px:2px;
+}
+.combat-shell.compact-battle .compact-stage[data-impact-shake="physical"]{--impact-shake-px:3px}
+.combat-shell.compact-battle .compact-stage[data-impact-shake="special"]{--impact-shake-px:4px}
+.combat-shell.compact-battle .compact-stage[data-impact-shake="heavy"]{--impact-shake-px:5px}
+.combat-shell.compact-battle .compact-stage[data-impact-shake]:not([data-impact-shake="none"])>.arena-backdrop,
+.combat-shell.compact-battle .compact-stage[data-impact-shake]:not([data-impact-shake="none"]) .compact-board-stack{
+ animation:compact-physical-camera var(--compact-hit-duration,420ms) cubic-bezier(.19,.65,.32,1) both;
+}
+@keyframes compact-physical-camera{
+ 0%,100%{translate:0 0}
+ 10%{translate:calc(var(--impact-shake-px)*-.8) calc(var(--impact-shake-px)*.3)}
+ 23%{translate:var(--impact-shake-px) calc(var(--impact-shake-px)*-.5)}
+ 39%{translate:calc(var(--impact-shake-px)*-.6) calc(var(--impact-shake-px)*.4)}
+ 55%{translate:calc(var(--impact-shake-px)*.45) calc(var(--impact-shake-px)*-.3)}
+ 77%{translate:calc(var(--impact-shake-px)*-.15) 0}
+}
+.combat-shell.compact-battle .compact-stage[data-hitstop="true"]>.arena-backdrop,
+.combat-shell.compact-battle .compact-stage[data-hitstop="true"] .compact-board-stack{
+ animation-play-state:paused!important;
+}
+@media(max-width:760px){
+ .combat-shell.compact-battle .compact-stage[data-impact-shake="physical"]{--impact-shake-px:1.5px}
+ .combat-shell.compact-battle .compact-stage[data-impact-shake="special"],
+ .combat-shell.compact-battle .compact-stage[data-impact-shake="heavy"]{--impact-shake-px:2px}
+}
+@media(prefers-reduced-motion:reduce){
+ .combat-shell.compact-battle .compact-stage[data-impact-shake]>.arena-backdrop,
+ .combat-shell.compact-battle .compact-stage[data-impact-shake] .compact-board-stack{
+  animation:none!important;translate:none!important;
+ }
+}
