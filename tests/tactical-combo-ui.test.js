@@ -5,7 +5,8 @@ const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8');
 
 test('new physical cue interface keeps touch controls fixed above safe area',async()=>{
  const html=await read('tactical.html'),css=await read('compact-combo.css');
- assert.ok(html.indexOf('compact-combo.css')>html.indexOf('compact-responsive.css'));
+ assert.ok(html.indexOf('compact-combo.css?v=reactive-combat-20261107')>html.indexOf('compact-responsive.css'));
+ assert.match(html,/tactical-entry\.js\?v=reactive-combat-20261107/);
  assert.match(css,/\.compact-rhythm-clash\{/);
  assert.match(css,/position:fixed;z-index:950/);
  assert.match(css,/safe-area-inset-bottom/);
