@@ -209,7 +209,7 @@ export class TacticalEffectsLayer {
    for(const contact of contacts){
     const {reaction,x,y}=contact;
     const guard=reaction==='block'||reaction==='shield';
-    const tint=guard?palettes.guard:reaction==='heal'&&!signature?palettes.support:color;
+    const tint=tacticalActorPalette(actor)?color:guard?palettes.guard:reaction==='heal'&&!signature?palettes.support:color;
     const original=[...(event.before?.allies||[]),...(event.before?.enemies||[])].find(unit=>unit.id===contact.id);
     const resolved=[...(event.after?.allies||[]),...(event.after?.enemies||[])].find(unit=>unit.id===contact.id);
     const lost=Math.max(0,(original?.hp||0)-(resolved?.hp||0))
