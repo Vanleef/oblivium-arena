@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalCutinActive,tacticalCutinMarkup,tacticalProjectileKind,tacticalProjectileMarkup,tacticalPlaybackFrames,tacticalReplayFrames,tacticalHighlightEvent} from '../src/tactical-cinematic.js';
+import {tacticalCutinActive,tacticalCutinMarkup,tacticalSuperCaptionActive,tacticalSuperCaptionMarkup,tacticalProjectileKind,tacticalProjectileMarkup,tacticalPlaybackFrames,tacticalReplayFrames,tacticalHighlightEvent} from '../src/tactical-cinematic.js';
 import {tacticalFrameDuration} from '../src/tactical-animation.js';
 const actor={id:'serpe',sourceId:'a-boca-de-vidro',name:'Sylvara',realm:'Inferno',side:'player',art:{portrait:'/portrait.webp'}};
 const ability={name:'Sibilo Cortante',target:'enemy',damage:15,damageType:'piercing'};
@@ -36,7 +36,8 @@ test('supers focus the arena instead of injecting an oversized artwork',()=>{
  const markup=tacticalCutinMarkup({...actor,art:{portrait:'/form.webp'}},ability,{...event,pose:'gather'});
  assert.match(markup,/fighter-super inferno player/);
  assert.match(markup,/fighter-super-speedlines/);
- assert.match(markup,/fighter-super-caption/);
+ assert.doesNotMatch(markup,/fighter-super-caption|fighter-super-nameplate/);
+ assert.match(tacticalSuperCaptionMarkup(actor,ability,{...event,pose:'gather'}),/fighter-super-nameplate/);
  assert.doesNotMatch(markup,/<img|form\.webp|portrait\.webp|cutin-art/);
  assert.equal(tacticalCutinMarkup(actor,ability,{...event,abilityId:'impulso',pose:'windup'}),'');
  assert.equal(tacticalCutinMarkup(actor,ability,{...event,skipped:true,pose:'windup'}),'');
@@ -77,12 +78,24 @@ test('Fio de Memória usa um fio durante o trajeto',()=>{
 
 test('fighting-game special shows the skill title without duplicating character artwork',()=>{
  const cast={...ability,name:'Chama da Ruína',art:'/art/skills/chama.webp'};
- const markup=tacticalCutinMarkup(actor,cast,{...event,pose:'release'});
+ const markup=tacticalSuperCaptionMarkup(actor,cast,{...event,pose:'release'});
  assert.match(markup,/Chama da Ruína/);
- assert.match(markup,/data-phase="release"/);
+ assert.match(markup,/fighter-super-nameplate/);
+ assert.doesNotMatch(tacticalCutinMarkup(actor,cast,{...event,pose:'release'}),/Chama da Ruína/);
  assert.doesNotMatch(markup,/<img|chama\.webp|portrait\.webp/);
- const escape=tacticalCutinMarkup({...actor,name:'<ataque>'},{name:'<especial>'},{...event,pose:'windup'});
+ const escape=tacticalSuperCaptionMarkup({...actor,name:'<ataque>'},{name:'<especial>'},{...event,pose:'windup'});
  assert.match(escape,/&lt;ataque&gt;/);
  assert.match(escape,/&lt;especial&gt;/);
 });
 
+
+test('special technique name remains below the board through contact, even after the overlay fades',()=>{
+ for(const pose of ['gather','release','travel','impact','followthrough']){
+  assert.equal(tacticalSuperCaptionActive({...event,pose}),true,pose);
+  assert.match(tacticalSuperCaptionMarkup(actor,ability,{...event,pose}),/Sibilo Cortante/);
+ }
+ assert.equal(tacticalCutinActive({...event,pose:'impact'}),false);
+ assert.equal(tacticalSuperCaptionMarkup(actor,ability,{...event,pose:'ready'}),'');
+ assert.equal(tacticalSuperCaptionMarkup(actor,ability,{...event,pose:'impact',skipped:true}),'');
+ assert.equal(tacticalSuperCaptionMarkup(actor,ability,{...event,pose:'release',abilityId:'impulso'}),'');
+});
