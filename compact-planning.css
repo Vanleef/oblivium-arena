@@ -992,3 +992,80 @@
 @media(prefers-reduced-motion:reduce){
  .compact-battle .compact-area-sigil[data-attack-family]::before{animation:none!important;opacity:.5}
 }
+
+
+/* Inuyasha Demon Tournament-like miniature tactical stencil on every command.
+   One origin square plus accurately derived attack footprint, never a generic icon. */
+.compact-battle .compact-primary-action,
+.compact-battle .compact-quick-buttons .compact-icon-btn{
+ position:relative;isolation:isolate;overflow:hidden;
+}
+.compact-battle .compact-area-mini{
+ position:absolute;right:2px;bottom:2px;z-index:7;
+ display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
+ grid-template-rows:repeat(7,minmax(0,1fr));gap:.4px;
+ width:24px;height:24px;box-sizing:border-box;
+ padding:2px;border:1px solid #b9a1a5b8;border-radius:4px;
+ background:#130f1de9;box-shadow:0 1px 5px #05040bbd;
+ pointer-events:none;contain:layout paint;
+}
+.compact-battle .compact-area-mini i{
+ display:block;min-width:0;min-height:0;border-radius:.5px;
+ background:#4b4154a6;
+}
+.compact-battle .compact-area-mini i[data-mini-cell="origin"]{
+ background:#fff1c2;box-shadow:0 0 3px #ffffffae;
+}
+.compact-battle .compact-area-mini i[data-mini-cell="hit"]{
+ background:#f09268;box-shadow:0 0 2px #ff9b53b5;
+}
+.compact-battle .compact-area-mini[data-mini-pattern="move"] i[data-mini-cell="hit"]{
+ background:#9fe2b7;box-shadow:0 0 2px #81e5b1;
+}
+.compact-battle .compact-icon-btn:disabled .compact-area-mini{
+ filter:grayscale(.6);opacity:.69;
+}
+.combat-shell.compact-battle .compact-board-stack>.fighter-super-nameplate{
+ --caption-accent:#e4c692;
+ position:relative;z-index:8;box-sizing:border-box;
+ display:flex;align-items:center;justify-content:center;gap:9px;
+ width:min(100%,735px);max-width:100%;min-width:0;
+ min-height:34px;padding:6px 9px;margin-top:6px;
+ border:1px solid color-mix(in srgb,var(--caption-accent) 55%,transparent);
+ border-left:3px solid var(--caption-accent);border-radius:5px;
+ background:linear-gradient(92deg,#13101fea,#23182fdb 65%,#13101fea);
+ color:#fff3dd;text-shadow:0 1px 4px #000;
+ box-shadow:0 3px 12px #0806118a;
+ pointer-events:none;overflow:hidden;
+ animation:fighter-super-caption var(--super-duration,320ms) ease-out both;
+}
+.compact-battle .fighter-super-nameplate.inferno{--caption-accent:#fa765f}
+.compact-battle .fighter-super-nameplate.paraiso{--caption-accent:#ead69b}
+.compact-battle .fighter-super-nameplate.limbo{--caption-accent:#c49cff}
+.compact-battle .fighter-super-nameplate>b{
+ font:650 clamp(9px,.85vw,12px)/1.2 system-ui,sans-serif;
+ letter-spacing:.09em;text-transform:uppercase;color:var(--caption-accent);
+ white-space:nowrap;min-width:0;max-width:36%;overflow:hidden;text-overflow:ellipsis;
+}
+.compact-battle .fighter-super-nameplate>strong{
+ font:850 clamp(11px,1.3vw,17px)/1.15 system-ui,sans-serif;
+ min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+@media(max-width:760px){
+ .compact-battle .compact-area-mini{width:19px;height:19px;padding:1.5px;gap:.2px;right:1px;bottom:1px}
+ .combat-shell.compact-battle .compact-board-stack>.fighter-super-nameplate{
+  min-height:28px;gap:5px;margin-top:3px;padding:4px 5px;
+ }
+ .compact-battle .fighter-super-nameplate>b{font-size:8px;max-width:30%}
+ .compact-battle .fighter-super-nameplate>strong{font-size:10px}
+}
+@media(max-width:420px){
+ .compact-battle .compact-area-mini{width:16px;height:16px;padding:1px}
+ .compact-battle .fighter-super-nameplate>b{font-size:7px}
+ .compact-battle .fighter-super-nameplate>strong{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+ .combat-shell.compact-battle .compact-board-stack>.fighter-super-nameplate{
+  animation:none!important;
+ }
+}
