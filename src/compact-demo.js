@@ -201,7 +201,10 @@ async function playback(events){
    if(revision!==state.revision)return;
    state.event={...event,...frame};const impact=frame.pose==='impact'||frame.pose==='counter';
    if(impact)state.snapshot=event.after;
-   if(impact||frame.index===0||!unit)render();
+   // Update the actual board at the telegraph and projectile boundaries.
+   // Sprite-only repaints kept the cut-in and target-area overlay invisible until impact.
+   const visualBoundary=impact||frame.index===0||!unit||['gather','windup','release','thrust','travel','spread'].includes(frame.pose);
+   if(visualBoundary)render();
    else{const token=root.querySelector('[data-unit-id="'+event.actorId+'"]');if(token)paintTacticalToken(token,unit,event,frame);}
    const duration=Math.min(330,tacticalFrameDuration(state.event));
    if(!event.skipped&&(impact||['release','travel'].includes(frame.pose)))emit(state.event,unit,ability,impact?'impact':frame.pose,duration/state.speed);
