@@ -100,7 +100,7 @@ export class ArenaService{
     attachRandom(match.battle);
     if(op==='turn'){
      if(battle.simultaneousDuel&&input.round!==battle.round)fail('O turno mudou. Atualize a Arena.',409);
-     try{const moves=(input.moves||[]).map(m=>({...m,to:owner==='enemy'?mirrorCell(m.to):m.to}));submitDuelTurn(battle,owner,input.actions,input.payment,input.exchanges||[],moves);}
+     try{if(!Array.isArray(input.moves||[])||(input.moves||[]).length>3)throw new Error('Movimentos inválidos.');const moves=(input.moves||[]).map(m=>({...m,to:owner==='enemy'?mirrorCell(m.to):m.to}));submitDuelTurn(battle,owner,input.actions,input.payment,input.exchanges||[],moves);}
      catch{fail('Fila inválida, carta indisponível ou planejamento já enviado.',409);}
     }
     if(op==='response'){
