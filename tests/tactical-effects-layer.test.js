@@ -110,7 +110,8 @@ test('technique concepts use distinct contact colors and silhouettes within the 
    layer.emit(board,event,actor,'impact',280);
    assert.ok(layer.effects.length>0);
    assert.ok(layer.effects.every(fx=>fx.tone===tone),name);
-   assert.ok(layer.effects.every(fx=>fx.color[1]===color),name);
+   assert.ok(layer.effects.some(fx=>fx.color[1]===color),name+' semantic contact');
+   assert.ok(layer.effects.some(fx=>fx.color[1]==='#8dd9ff'),name+' shield block keeps the shield palette');
    assert.ok(layer.effects.reduce((n,fx)=>n+fx.particles,0)<=tacticalParticleBudget);
    layer.tick(performance.now()+70);
    layer.tick(performance.now()+300);
