@@ -608,7 +608,7 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[
   const first=s.round%2===1?"player":"enemy",second=opposingSide(first),resolution=[];
   const moves=[...(s.duelMoves.player||[]),...(s.duelMoves.enemy||[])];
   if(s.grid)resolution.push({type:"grid-moves",moves});
-  for(let i=0;i<3;ifor(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
+  for(let i=0;i<3;i++)for(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
   s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};
   s.phase="resolving";s.resolution=[...resolution,{type:"duel-round-end"}];
   s.resolutionSide=first;s.acted=[];continueSimultaneousDuel(s);
