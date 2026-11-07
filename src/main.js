@@ -115,6 +115,7 @@ let state = {
   battleFx: null,
   selectedSkill: null,
   focusSkill: null,
+  handActorId: null,
   inspectUnitId: null,
   confirmTurn: false,
   randomPayment:null,
@@ -497,14 +498,14 @@ function executePlannedTurn() {
   if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId})=>({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
   if(!commitTurn(state.battle,payment.selected).ok)return;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
-function updateBattle(actorId,abilityId) {
+function updateBattle(actorId,abilityId,cardId=null) {
   const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
   if(!actor||!ability)return;
-  state.focusSkill={actorId,abilityId};state.inspectUnitId=null;
+  state.focusSkill={actorId,abilityId};state.handActorId=actorId;state.inspectUnitId=null;
   if(skillAvailability(b,actor,ability)){
     state.selectedSkill=null;render();app.querySelector(`[data-use-skill="${actorId}:${abilityId}"]`)?.focus({preventScroll:true});return;
   }
-  state.selectedSkill={actorId,abilityId};render();app.querySelector('.fighter-card.valid-target')?.focus({preventScroll:true});
+  state.selectedSkill={actorId,abilityId,cardId};render();app.querySelector('.fighter-card.valid-target')?.focus({preventScroll:true});
 }
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
@@ -756,7 +757,7 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
+  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-card-play], [data-card-unit], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
   if (!target) return;
   if(state.account&&state.audioOn)startAmbience();
   playSfx("click");
@@ -823,6 +824,8 @@ app.addEventListener("click", (event) => {
     profile.team = profile.team.filter((id) => id !== target.dataset.removeMember);
     save(); render(); return;
   }
+  if(target.dataset.cardUnit){state.handActorId=target.dataset.cardUnit;state.selectedSkill=null;state.focusSkill=null;render();return;}
+  if(target.dataset.cardPlay){const [actorId,abilityId,cardId]=target.dataset.cardPlay.split("|");updateBattle(actorId,abilityId,cardId);return;}
   if (target.dataset.useSkill) {
     const [actorId, abilityId] = target.dataset.useSkill.split(":");
     updateBattle(actorId, abilityId);
