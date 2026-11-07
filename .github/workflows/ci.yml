@@ -23,3 +23,18 @@ jobs:
       - name: Regressão completa (inclui testes legados)
         if: always()
         run: npm test
+      - name: Consultar a main como referência
+        if: always()
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          clean: true
+      - name: Diagnóstico de falhas existentes na main
+        if: always()
+        run: |
+          set +e
+          npm test > "$RUNNER_TEMP/main-tests.log" 2>&1
+          code=$?
+          echo "Resultado da main (exit $code):"
+          grep -E "^# (tests|pass|fail) " "$RUNNER_TEMP/main-tests.log" || true
+          exit 0
