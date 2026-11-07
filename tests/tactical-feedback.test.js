@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase} from '../src/tactical-feedback.js';
+import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase,tacticalVisualCells} from '../src/tactical-feedback.js';
 
 const event={
  type:'skill',pose:'impact',actorId:'caster',abilityId:'tecnica',
@@ -88,4 +88,20 @@ test('support shields are not shown as healing and single-target contact is visi
  assert.equal(tacticalAreaPhase({...event,cells:[],targets:[],affectedTargetIds:[],pose:'impact'}),null);
  const result=tacticalFeedback({...event,cells:[]});
  assert.equal(result.find(item=>item.actorId==='foe')?.label,'−24');
+});
+
+test('single-target techniques telegraph resolved targets or the anchor even without motor area cells',()=>{
+ const noArea={...event,cells:[]};
+ assert.deepEqual(tacticalVisualCells(noArea),[{x:1,y:1},{x:2,y:1},{x:3,y:1},{x:4,y:1}]);
+ assert.equal(tacticalAreaPhase({...noArea,pose:'windup'}),'preview');
+ assert.deepEqual(tacticalVisualCells({...noArea,targets:[],affectedTargetIds:[],anchor:{x:5,y:5}}),[{x:5,y:5}]);
+ assert.equal(tacticalAreaPhase({...noArea,targets:[],affectedTargetIds:[],anchor:{x:5,y:5},pose:'impact'}),'impact');
+ assert.deepEqual(tacticalVisualCells({...noArea,skipped:true}),[]);
+ assert.deepEqual(tacticalVisualCells({...noArea,type:'move'}),[]);
+});
+test('numbers follow a displaced unit at the impact snapshot rather than floating over its old tile',()=>{
+ const after=structuredClone(event.after);
+ after.positions.foe={x:5,y:4};
+ const display=tacticalFeedback({...event,after}).find(x=>x.actorId==='foe'&&x.kind==='damage');
+ assert.deepEqual(display.point,{x:5,y:4});
 });
