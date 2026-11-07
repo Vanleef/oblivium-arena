@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase,tacticalVisualCells} from '../src/tactical-feedback.js';
+import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase,tacticalVisualCells,tacticalDefeatedUnits} from '../src/tactical-feedback.js';
 
 const event={
  type:'skill',pose:'impact',actorId:'caster',abilityId:'tecnica',
@@ -122,4 +122,20 @@ test('an area-less skill reports only explicitly affected targets, not unrelated
  const environment={...onlyTarget,type:'effects',targets:[],affectedTargetIds:[]};
  assert.ok(tacticalFeedback(environment).some(item=>item.actorId==='friend'),
   'unscoped world-effects snapshots may describe several affected characters');
+});
+
+test('a killing blow keeps the fallen model available until replay finishes and announces defeat',()=>{
+ const before=structuredClone(event.before),after=structuredClone(event.after);
+ after.positions.foe={x:5,y:3};
+ after.enemies.find(unit=>unit.id==='foe').hp=0;
+ const resolved={...event,before,after};
+ assert.deepEqual(tacticalDefeatedUnits(resolved).map(entry=>[entry.actorId,entry.point]),[
+  ['foe',{x:5,y:3}]
+ ]);
+ assert.deepEqual(tacticalFeedback(resolved).filter(x=>x.actorId==='foe').map(x=>x.kind),[
+  'damage','defeat'
+ ]);
+ assert.deepEqual(tacticalDefeatedUnits({...resolved,skipped:true}),[]);
+ assert.deepEqual(tacticalDefeatedUnits({...resolved,before:after}),[]);
+ assert.deepEqual(tacticalDefeatedUnits({...resolved,type:'move'}),[]);
 });
