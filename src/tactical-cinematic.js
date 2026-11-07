@@ -7,7 +7,7 @@ const superSlots=new Set(['voto','despertar']);
 export function tacticalCutinActive(event){
  if(event?.type!=='skill'||event.skipped)return false;
  if(event.compactReplay&&event.repeated&&!tacticalHighlightEvent(event))return false;
- if(!superSlots.has(event.abilityId)&&!tacticalHighlightEvent(event))return false;
+ if(!superSlots.has(String(event.abilityId||'').split('/')[0])&&!tacticalHighlightEvent(event))return false;
  return ['anticipate','gather','inhale','compress','windup','brace','release','thrust'].includes(event.pose);
 }
 export function tacticalCutinMarkup(actor,ability,event){
