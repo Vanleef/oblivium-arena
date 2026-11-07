@@ -16,7 +16,7 @@ import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
 import {tacticalComboReplayEvents} from './tactical-combo.js';
-import {tacticalReactiveBeats,tacticalReactiveJudge,tacticalReactiveAI} from './tactical-reactions.js';
+import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelAI} from './tactical-duel.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -155,22 +155,29 @@ function eventForecast(s){
  return '<p class="compact-field-forecast"><strong>Eventos de campo</strong> · Próximo evento: rodada '+nextRound+' (em '+roundsRemaining+' rodada(s))'+(active?'<span>Ativo: '+esc(active.title)+' · '+esc(active.description)+'</span>':'')+'</p>';
 }
 function clashMarkup(){
- const value=state.clash;if(!value)return '';
- const beat=value.beats[value.beat-1],offense=value.role==='attack';
- const cue=beat?.cue||'GOLPE';
- const keys=offense?'<button data-combo-strike '+(value.locked?'disabled':'')+'>ATACAR<small>Espaço / Enter</small></button>'
-  :beat?.kind==='sweep'?'<button data-combo-jump '+(value.locked?'disabled':'')+'>SALTAR<small>W / Espaço</small></button>'
-  :'<button data-combo-dodge '+(value.locked?'disabled':'')+'>ESQUIVAR<small>Espaço / D</small></button><button data-combo-parry '+(value.locked?'disabled':'')+'>APARAR<small>E / Enter</small></button>';
- const tip=offense?'Acompanhe o movimento do personagem e ataque quando o golpe conectar.'
-  :beat?.kind==='sweep'?'Varredura no chão: salte na hora do contato.'
-  :'Esquiva: janela maior. Aparo: janela curta e chance de contra-atacar.';
- return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Resposta durante sequência de golpes" data-combo-role="'+value.role+'" data-combo-kind="'+beat.kind+'" data-combo-cue="'+(value.locked?'resolved':'windup')+'" data-combo-feedback="'+Boolean(value.locked)+'" style="--rhythm-ms:'+beat.impactMs+'ms;--rhythm-stop:'+value.progress+'">'
-  +'<div class="compact-rhythm-heading"><strong>'+esc(offense?'EXECUÇÃO DO COMBO':'REAGIR AO ATAQUE')+'</strong><span>GOLPE '+value.beat+' / '+value.beats.length+'</span></div>'
-  +'<p><b>'+esc(value.actorName)+'</b> · '+esc(value.abilityName)+'</p>'
-  +'<div class="compact-rhythm-contact" aria-hidden="true"><span class="compact-rhythm-contact-core"></span><span class="compact-rhythm-contact-ring"></span><span class="compact-rhythm-attack-glyph">'+esc(cue)+'</span></div>'
-  +'<p class="compact-rhythm-help">'+esc(value.feedback||tip)+'</p>'
-  +'<div class="compact-rhythm-actions">'+keys+'<button data-combo-skip>Sem interação<small>Esc</small></button></div>'
-  +'<span class="compact-rhythm-score" role="status">Ações precisas: '+value.hits+' / '+value.beats.length+(offense?' · Intensifica a técnica.':' · Aparo total gera contra-ataque.')+'</span>'
+ const duel=state.clash;if(!duel)return '';
+ const attacking=duel.role==='attack',reveal=duel.result;
+ const heading=attacking?'ESCOLHA SUA INVESTIDA':'ESCOLHA SUA RESPOSTA';
+ const options=tacticalDuelOptions.map(option=>
+  '<button type="button" class="compact-duel-option" data-duel-choice="'+option.id+'" aria-label="'+esc(option.name+' — '+option.hint)+'"'
+   +(duel.locked?' disabled':'')+' data-duel-selected="'+Boolean(duel.choice===option.id)+'">'
+   +'<span class="compact-duel-symbol" aria-hidden="true">'+option.symbol+'</span>'
+   +'<strong>'+esc(option.name)+'</strong><small>'+esc(option.hint)+'</small></button>'
+ ).join('');
+ const opponentLabel=reveal?tacticalDuelOptions.find(o=>o.id===duel.opponentChoice)?.name||'—':null;
+ const playerLabel=reveal?tacticalDuelOptions.find(o=>o.id===duel.choice)?.name||'—':null;
+ return '<section class="compact-rhythm-clash compact-duel-clash" role="dialog" aria-modal="false" aria-label="Confronto de Vontades"'
+  +' data-duel-result="'+(reveal?reveal.outcome:'pending')+'" data-combo-role="'+duel.role+'"'
+  +' style="'+duel.palette+'">'
+  +'<div class="compact-rhythm-heading"><strong>CONFRONTO DE VONTADES</strong><span>ESPECIAL</span></div>'
+  +'<p><b>'+esc(duel.actorName)+'</b> · '+esc(duel.abilityName)+'</p>'
+  +'<p class="compact-duel-instruction">'+heading+' · A intenção do oponente permanece oculta até você decidir.</p>'
+  +'<div class="compact-duel-options" role="group" aria-label="Três intenções para o especial">'+options+'</div>'
+  +(reveal?'<div class="compact-duel-reveal" role="status" aria-live="polite"><strong>'+esc(reveal.label)+'</strong>'
+   +'<span>Você: '+esc(playerLabel)+' · Oponente: '+esc(opponentLabel)+'</span></div>'
+   :'<div class="compact-duel-help"><span>Ímpeto vence Finta</span><span>Finta vence Contenção</span><span>Contenção vence Ímpeto</span></div>')
+  +'<div class="compact-duel-footer"><span>Vitória: acerto completo · Empate: metade do dano · Derrota: erro</span>'
+   +'<button type="button" data-duel-auto '+(duel.locked?'disabled':'')+'>Escolher por mim <small>Esc</small></button></div>'
   +'</section>';
 }
 function render(){
@@ -180,8 +187,12 @@ function render(){
  const scene=combatScene(s.tactical.scene),sceneUrl=scene.art;
  const cinematicImpact=tacticalImpactProfile(state.event,{speed:state.speed,reduced:Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches)});
  const activeSpecial=state.event?.type==='skill'&&!state.event.skipped&&['voto','despertar'].includes(String(state.event.abilityId||'').split('/')[0]);
- const comboCounter=state.event?.comboBeat?
-  '<span class="compact-combo-counter" role="status" aria-live="off"><strong>COMBO '+state.event.comboBeat+' / '+state.event.comboTotal+'</strong><small>ATAQUE '+state.event.combo.attackHits+' · DEFESA '+state.event.combo.defenseHits+'</small></span>':'';
+ const comboCounter=state.event?.duel
+  ?'<span class="compact-combo-counter" role="status"><strong>'+esc(state.event.duel.label)
+   +'</strong><small>'+esc((tacticalDuelOptions.find(o=>o.id===state.event.duel.attackChoice)?.name||'')+' × '
+   +(tacticalDuelOptions.find(o=>o.id===state.event.duel.defenseChoice)?.name||''))+'</small></span>'
+  :state.event?.comboBeat
+   ?'<span class="compact-combo-counter" role="status"><strong>COMBO '+state.event.comboBeat+' / '+state.event.comboTotal+'</strong></span>':'';
  root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'" data-hitstop="'+state.hitstop+'" data-impact-shake="'+(cinematicImpact?.shake||'none')+'" style="--compact-scene-image:url(\''+esc(sceneUrl)+'\');--compact-floor-zoom:'+scene.floorZoom+'%;--compact-floor-focus:'+scene.floorFocus+'%;--compact-hit-duration:'+Math.round((activeSpecial?560:420)/state.speed)+'ms;--compact-heal-duration:'+Math.round(460/state.speed)+'ms;--compact-feedback-delay:'+Math.round(36/state.speed)+'ms;--super-duration:'+Math.round(320/state.speed)+'ms"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+tacticalSuperCaptionMarkup(actorEvent,ability,state.event)+comboCounter+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section>'+clashMarkup()+'<div id="compact-formation">'+setup()+'</div></div>';
  if(effects?.frame)effects.attach(root.querySelector('.board'));
 }
@@ -297,96 +308,45 @@ async function playback(events,{partial=false}={}){
  // The human acts for the attacking or defending team, even in solo play.
 // The animation communicates the contact; the player decides whether
 // to time an offensive input or defend with a forgiving dodge / risky parry.
-function interactiveCombo(ref){
- const reduced=Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
- if(reduced)return Promise.resolve({attacks:[],defenses:[]});
- const role=ref.side==='player'?'attack':'defense',current=state.battle;
- const beats=ref.beats||tacticalReactiveBeats(ref.actor,ref.ability,tacticalAnimationFamily(ref.ability));
- const human=[],attacksAI=tacticalReactiveAI(beats,{side:'attack',round:current.round,
-  actorId:ref.actorId,abilityId:ref.abilityId});
- const defensesAI=tacticalReactiveAI(beats,{side:'defense',round:current.round,
-  actorId:ref.actorId,abilityId:ref.abilityId});
- const position=current.tactical.positions[ref.actorId],before={
-  allies:current.allies,enemies:current.enemies,positions:current.tactical.positions,
-  width:current.tactical.width,height:current.tactical.height
- };
- const anchor=ref.anchor||position,area=tacticalArea(current,ref.actor,ref.ability,anchor,ref.orientation);
- const target=ref.targets.find(id=>current.allies.some(unit=>unit.id===id))||ref.targets[0];
+// The rival's stance is sealed deterministically before the player selects.
+// There is no reaction timer: this is a short, understandable strategy contest.
+function interactiveDuel(ref){
+ const attacking=ref.side==='player',role=attacking?'attack':'defense';
+ const current=state.battle,origin=current.tactical.positions[ref.actorId];
+ const before={allies:current.allies,enemies:current.enemies,
+  positions:current.tactical.positions,width:current.tactical.width,height:current.tactical.height};
+ const anchor=ref.anchor||origin,area=tacticalArea(current,ref.actor,ref.ability,anchor,ref.orientation);
+ const foeChoice=tacticalDuelAI({round:current.round,actorId:ref.actorId,
+  targetId:ref.targets[0]||'',abilityId:ref.abilityId,
+  side:attacking?'defense':'attack'});
  state.snapshot=before;
  state.event={type:'skill',actorId:ref.actorId,abilityId:ref.abilityId,
   family:tacticalAnimationFamily(ref.ability),anchor,orientation:ref.orientation,
-  cells:area,before,after:before,pose:'anticipate',
-  title:role==='attack'?'Execução ativa · '+ref.ability.name:'Reação ao ataque · '+ref.ability.name};
+  cells:area,before,after:before,pose:'windup',
+  title:'Confronto de Vontades · '+ref.ability.name};
  return new Promise(resolve=>{
-  const value={role,beats,beat:1,hits:0,locked:false,feedback:'',actorName:ref.actor.name,
-   abilityName:ref.ability.name,startedAt:0,progress:0,completed:false,timer:null,
-   cueTimer:null,transitionTimer:null,press:null,skip:null};
-  const clear=()=>{clearTimeout(value.timer);clearTimeout(value.cueTimer);clearTimeout(value.transitionTimer);};
-  const complete=neutral=>{
-   if(value.completed)return;
-   value.completed=true;clear();state.clash=null;state.event=null;
-   const answer=neutral?{attacks:[],defenses:[]}:role==='attack'
-    ?{attacks:human,defenses:defensesAI}:{attacks:attacksAI,defenses:human};
-   state.snapshot=before;render();resolve(answer);
+  const duel={role,actorName:ref.actor.name,abilityName:ref.ability.name,
+   opponentChoice:foeChoice,palette:tacticalPaletteVariables(tacticalActorPalette(ref.actor,{realmFallback:true})),
+   locked:false,choice:null,result:null,transitionTimer:null,press:null,skip:null,completed:false};
+  const finish=choice=>{
+   if(duel.completed||duel.locked)return;
+   if(!tacticalDuelOptions.some(option=>option.id===choice))return;
+   duel.locked=true;duel.choice=choice;
+   const attackChoice=attacking?choice:foeChoice,defenseChoice=attacking?foeChoice:choice;
+   const answer=tacticalDuelResolve(attackChoice,defenseChoice);
+   duel.result=answer;state.clash=duel;render();
+   playCombatCue(answer.outcome==='miss'?'guard':answer.outcome==='hit'?'release':'impact',
+    state.event?.family||'strike');
+   duel.transitionTimer=setTimeout(()=>{
+    if(duel.completed)return;
+    duel.completed=true;state.clash=null;state.event=null;render();resolve({attackChoice,defenseChoice});
+   },600);
   };
-  const begin=()=>{
-   if(value.completed)return;
-   clear();value.locked=false;value.feedback='';value.progress=0;state.clash=value;
-   state.event={...state.event,pose:value.beats[value.beat-1].pose};
-   render();value.startedAt=performance.now();
-   const beat=value.beats[value.beat-1];
-   value.cueTimer=setTimeout(()=>{
-    if(value.completed||value.locked)return;
-    root.querySelector('.compact-rhythm-clash')?.setAttribute('data-combo-cue','incoming');
-    root.querySelector('.compact-stage')?.setAttribute('data-reactive-telegraph',beat.kind);
-    const marker=root.querySelector('[data-unit-id="'+(role==='defense'?target:ref.actorId)+'"]');
-    marker?.setAttribute('data-reactive-target',role);
-    const caster=root.querySelector('[data-unit-id="'+ref.actorId+'"]');
-    if(caster)paintTacticalToken(caster,ref.actor,{...state.event,pose:'release'},
-     {family:state.event.family,pose:'release',index:3});
-    playCombatCue('release',state.event?.family||'strike');
-    emit({...state.event,pose:'release'},ref.actor,ref.ability,'release',210);
-   },Math.max(100,beat.impactMs-240));
-   value.timer=setTimeout(()=>finish('none'),beat.duration);
-  };
-  const finish=action=>{
-   if(value.completed||value.locked)return;
-   const beat=value.beats[value.beat-1];
-   value.locked=true;clearTimeout(value.timer);clearTimeout(value.cueTimer);
-   const elapsed=performance.now()-value.startedAt;
-   const outcome=tacticalReactiveJudge(beat,action,elapsed);
-   human.push(outcome);
-   value.progress=Math.max(0,Math.min(1,elapsed/beat.duration));
-   if(outcome.success)value.hits++;
-   value.feedback=outcome.success
-    ?action==='parry'?'APARO PERFEITO!':action==='dodge'?'ESQUIVA!':action==='jump'?'SALTO CERTO!':'GOLPE PRECISO!'
-    :action==='none'?'GOLPE RECEBIDO':action==='parry'?'APARO FORA DO TEMPO':'TEMPO INCORRETO';
-   state.event={...state.event,pose:outcome.success&&action==='parry'?'counter':'impact'};
-   render();
-   root.querySelector('.compact-rhythm-clash')?.setAttribute('data-combo-cue',outcome.success?'success':'miss');
-   if(outcome.success){
-    playCombatCue('contact',outcome.action==='parry'?'counter':state.event?.family||'strike');
-    if(role==='defense'){
-     const guarded=current.allies.find(u=>u.id===target);
-     const location=before.positions[guarded?.id];
-     if(guarded&&location){
-      if(action==='dodge'||action==='jump')
-       root.querySelector('[data-unit-id="'+guarded.id+'"]')?.setAttribute('data-reactive-evade',action);
-      if(action==='parry')
-       emit({type:'guard',actorId:guarded.id,before,after:before,anchor:location,
-        family:'counter',cells:[location]},guarded,null,'prepare',260);
-     }
-    }
-   }
-   value.transitionTimer=setTimeout(()=>{
-    if(value.completed)return;
-    if(value.beat>=beats.length)complete(false);
-    else{value.beat++;begin();}
-   },outcome.success?260:185);
-  };
-  value.press=action=>finish(action);
-  value.skip=()=>complete(true);
-  begin();
+  duel.press=finish;
+  // A skipped response still makes an ordinary, visibly explained choice.
+  // There is no free immunity or advantage from skipping the contest.
+  duel.skip=()=>finish(attacking?'impeto':'contencao');
+  state.clash=duel;render();
  });
 }
 async function playCompactSession(session){
@@ -394,7 +354,7 @@ async function playCompactSession(session){
  await playback(session.events,{partial:true});
  while(id===job){
   const pending=session.peek();
-  const contest=pending?.comboEligible?await interactiveCombo(pending):{};
+  const contest=pending?.comboEligible?await interactiveDuel(pending):{};
   if(id!==job)return;
   const next=session.next(contest);
   if(!next.ok)throw Error(next.reason||'Etapa tática inválida');
@@ -440,7 +400,7 @@ function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy
 }
 root.addEventListener('click',event=>{
  const button=event.target.closest('button');if(!button||button.disabled)return;const d=button.dataset;
- if(state.clash){if('comboStrike'in d)state.clash.press?.('strike');else if('comboDodge'in d)state.clash.press?.('dodge');else if('comboParry'in d)state.clash.press?.('parry');else if('comboJump'in d)state.clash.press?.('jump');else if('comboSkip'in d)state.clash.skip?.();return;}
+ if(state.clash){if(d.duelChoice)state.clash.press?.(d.duelChoice);else if('duelAuto'in d)state.clash.skip?.();return;}
  if(d.speed){state.speed=Number(d.speed);render();return;}
  if('sound'in d){setAudioEnabled(!audioEnabled());render();return;}
  if(state.busy)return;
@@ -483,13 +443,12 @@ root.addEventListener('pointerover',event=>{
 });
 document.addEventListener('keydown',event=>{
  if(state.clash){
-  if(event.key==='Escape'){event.preventDefault();state.clash.skip?.();return;}
   if(event.repeat)return;
-  const active=state.clash,kind=active.beats[active.beat-1]?.kind;
-  const key=event.code==='Space'?active.role==='attack'?'strike':kind==='sweep'?'jump':'dodge':
-   event.code==='Enter'?active.role==='attack'?'strike':'parry':
-   event.code==='KeyD'?'dodge':event.code==='KeyE'?'parry':event.code==='KeyW'?'jump':null;
-  if(key){event.preventDefault();active.press?.(key);}return;
+  if(event.key==='Escape'){event.preventDefault();state.clash.skip?.();return;}
+  const choice=event.code==='Digit1'||event.code==='Numpad1'?'impeto'
+   :event.code==='Digit2'||event.code==='Numpad2'?'finta'
+   :event.code==='Digit3'||event.code==='Numpad3'?'contencao':null;
+  if(choice){event.preventDefault();state.clash.press?.(choice);}return;
  }
  if(event.target.matches('input,select,textarea,[contenteditable="true"]')||locked())return;
  if(event.code==='Space'&&!event.repeat){event.preventDefault();confirm();}
