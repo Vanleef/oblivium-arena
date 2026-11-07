@@ -1,6 +1,7 @@
 import {boardTracks} from './tactical-board.js';
 import {tacticalImpactActive} from './tactical-animation.js';
 import {tacticalTechniqueTone} from './tactical-feedback.js';
+import {tacticalActorPalette} from './tactical-visual-palette.js';
 import {tacticalCharacterChoreography,drawTacticalCharacterImpact} from './tactical-character-vfx.js';
 import {tacticalMobileParticleBudget} from './tactical-impact-presentation.js';
 
@@ -94,6 +95,10 @@ export function tacticalEffectResolution(width,height,dpr=1){
 }
 
 function palette(actor,family,tone='neutral'){
+ // The combatant's illustrated identity takes priority over generic material tones.
+ // Unmapped NPC/test actors keep the old semantic/realm fallback.
+ const identity=tacticalActorPalette(actor);
+ if(identity)return identity;
  if(palettes[tone])return palettes[tone];
  const world=actor?.realm==='Inferno'?'inferno':actor?.realm==='Paraíso'?'paraiso':'limbo';
  const signature=signatures[actor?.sourceId||actor?.id];
