@@ -473,7 +473,7 @@ function resolveAction(s){
 export function passTurn(s){if(!commitTurn(s).ok)return false;let guard=0;while(s.phase==="resolving"&&guard++<20)resolveNextAction(s);return true;}
 export function createEnemyTeam(elo,playerIds,encounter="normal",sequence=0,config={}){
   const roster=Object.values(characterById).filter(c=>!c.npcOnly&&(c.kingdomId===elo.id||c.legacyEloId===elo.id||c.eloId===elo.id)),other=roster.filter(c=>!playerIds.includes(c.id)),source=other.length>=3?other:roster,m=difficultyModifiers(config.difficulty),multiplier=encounter==="elite"?1.12:encounter==="mini"?1.2:encounter==="boss"?1.16:1;
-  const boss=config.bossIds?.map(id=>characterById[id]).filter(Boolean);
+  const boss=config.bossIds?.map(id=>characterById[id]).filter(c=>c&&!c.npcOnly);
   const count=config.campaign?(encounter==='boss'?5:encounter==='elite'||encounter==='mini'?4:3):3;
   return Array.from({length:count},(_,i)=>{
     if(i>=3){
