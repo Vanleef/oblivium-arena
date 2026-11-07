@@ -49,7 +49,7 @@ export function renderCardHand(state){
   '<div class="combat-hand-units" role="group" aria-label="Trocar de personagem">'+controls+'</div>'+
   '<div class="combat-hand-cards">'+basicCard+cards+'</div>'+
   (contestable?'<div class="will-plan-controls"><div><b>Manifestação secreta</b><small>Escolha sua postura antes de selecionar o alvo. O adversário só verá a manifestação depois de responder.</small></div><div class="will-plan-options">'+
-  [["fenda","Fenda"],["vinculo","Vínculo"],["egide","Égide"]].map(([id,label])=>'<button data-will-sign="'+id+'" type="button" aria-pressed="'+(state.willSign===id)+'">'+label+'</button>').join("")+
+  [["miragem","Miragem"],["luz","Luz"],["sombra","Sombra"]].map(([id,label])=>'<button data-will-sign="'+id+'" type="button" aria-pressed="'+(state.willSign===id)+'">'+label+'</button>').join("")+
   '</div></div>':"")+
   '<footer class="combat-hand-hint">Cada alma compra 2 cartas por rodada. A mão de cada personagem é independente. Respostas de equipe: '+
   (battle.cardCombat.responses?.player??0)+'.</footer></section>';
