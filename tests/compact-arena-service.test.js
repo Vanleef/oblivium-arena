@@ -26,8 +26,12 @@ test('separate matchmaking, private decks, simultaneous turns and valid server s
  assert.equal(a.match.id,b.match.id);
  assert.equal(a.match.battle.tactical.width,6);
  assert.equal(a.match.battle.tactical.height,6);
- assert.deepEqual(a.match.battle.tactical.decks.sides.enemy,{});
- assert.deepEqual(b.match.battle.tactical.decks.sides.player,{});
+ for(const client of [a,b]){
+  const decks=client.match.battle.tactical.decks.sides;
+  const visible=Object.values(decks).filter(sideDeck=>Object.keys(sideDeck).length>0);
+  assert.equal(visible.length,1,'each client receives only its own three decks');
+  assert.equal(Object.keys(visible[0]).length,3);
+ }
  const version=a.match.version;
  const first=await service.request(alice.token,{op:'turn',version,round:1,actions:[]});
  assert.equal(first.match.battle.phase,'waiting');
