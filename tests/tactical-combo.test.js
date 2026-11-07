@@ -95,3 +95,17 @@ test('timing window is predictable, bounded and symmetric on mobile and desktop'
  assert.equal(tacticalComboTimingHit(Number.NaN,1050),false);
  assert.equal(tacticalComboTimingHit(525,0),false);
 });
+
+test('real dodges create empty visual contacts while preserving exact resolved damage',()=>{
+ const reactive={reactive:true,beats:3,avoidedBeats:[0,2],attackBeats:[true,false,true],
+  attackHits:2,defenseHits:2,parryBeats:[2],counter:false};
+ const event={...base,combo:reactive};
+ const contacts=tacticalComboReplayEvents(event);
+ assert.equal(contacts.length,3);
+ assert.equal(contacts[0].comboAvoided,true);
+ assert.equal(contacts[0].totalDamage,0);
+ assert.equal(contacts[1].totalDamage,39);
+ assert.equal(contacts[2].comboAvoided,true);
+ assert.equal(contacts[2].totalDamage,0);
+ assert.deepEqual(contacts.at(-1).after,event.after);
+});
