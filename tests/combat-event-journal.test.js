@@ -28,6 +28,8 @@ test("ranked replay exposes resolved damage but never the precommitted Miragem s
  const s=createDuel([actor.id],[actor.id],{cardMode:true,rng:()=>0.1});
  const a=s.allies[0],b=s.enemies[0];
  a.position={x:1,y:2};b.position={x:2,y:2};
+ Object.assign(b,{hp:1000,maxHp:1000,shield:0,armor:0,reduction:0,invulnerable:0,stunned:0});
+ a.stunned=0;
  submitDuelTurn(s,"player",[{actorId:a.id,abilityId:BASIC_ATTACK_ID,targetId:b.id,willSign:"miragem"}]);
  assert.equal(s.combatEvents?.length||0,0,"No event may be revealed after only one plan.");
  submitDuelTurn(s,"enemy",[]);
