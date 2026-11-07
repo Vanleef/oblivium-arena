@@ -27,7 +27,7 @@ export function renderCardHand(state){
  const cards=hand.map(card=>{
   if(card.kind==="movement"){
    const moved=battle.movementPlans?.player?.some(move=>move.actorId===selected.id),active=state.moveActorId===selected.id;
-   return '<button type="button" class="combat-hand-card movement-card" data-movement-toggle="'+esc(selected.id)+'" aria-pressed="'+active+'" '+(!canPlay?'disabled':'')+'><span class="card-type">MOVIMENTO · GARANTIDO</span><span class="card-thumb">↗</span><strong>Movimento padrão</strong><p>Escolha uma casa adjacente livre. Pode ser usado junto de uma técnica.</p><span class="movement-warning">'+(moved?'DESTINO MARCADO · ALTERAR':active?'ESCOLHA UMA CASA':'ESCOLHER MOVIMENTO')+'</span></button>';
+   return '<button type="button" class="combat-hand-card movement-card" data-movement-toggle="'+esc(selected.id)+'" aria-pressed="'+active+'" '+(!canPlay?'disabled':'')+'><span class="card-type">MOVIMENTO · GARANTIDO</span><span class="card-thumb">↗</span><strong>Movimento padrão</strong><p>Escolha uma casa adjacente livre. Pode ser usado junto de uma técnica.</p><span class="movement-warning">'+(moved?'DESTINO MARCADO · ALTERAR':active?'ESCOLHA UMA CASA':'ESCOLHER MOVIMENTO')+'</span></button>'+(moved?'<button type="button" class="movement-clear" data-movement-clear="'+esc(selected.id)+'" '+(!canPlay?'disabled':'')+'>CANCELAR MOVIMENTO</button>':'');
   }
   const ability=selected.abilities.find(a=>a.id===card.abilityId);
   if(!ability)return "";
