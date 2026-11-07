@@ -156,7 +156,7 @@ function eventForecast(s){
 function clashMarkup(){
  const clash=state.clash;if(!clash)return '';
  const attack=clash.role==='attack',label=attack?'INTENSIFICAR':'APARAR';
- return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Disputa de combo" data-combo-role="'+clash.role+'" data-combo-feedback="'+Boolean(clash.locked)+'" style="--rhythm-ms:'+clash.ms+'ms">'
+ return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Disputa de combo" data-combo-role="'+clash.role+'" data-combo-feedback="'+Boolean(clash.locked)+'" style="--rhythm-ms:'+clash.ms+'ms;--rhythm-stop:'+clash.progress+'">'
   +'<div class="compact-rhythm-heading"><strong>'+esc(attack?'SEQUÊNCIA OFENSIVA':'DEFESA ATIVA')+'</strong><span>GOLPE '+clash.beat+' / '+tacticalComboBeats+'</span></div>'
   +'<p><b>'+esc(clash.actorName)+'</b> · '+esc(clash.abilityName)+'</p>'
   +'<div class="compact-rhythm-track" aria-hidden="true"><i class="compact-rhythm-zone"></i><i class="compact-rhythm-cursor"></i></div>'
@@ -302,7 +302,7 @@ function interactiveCombo(ref){
  return new Promise(resolve=>{
   const opponent=tacticalComboAIOpposition({round:current.round,actorId:ref.actorId,abilityId:ref.abilityId});
   const value={role,ms,beat:1,hits:0,locked:false,feedback:'',actorName:ref.actor.name,
-   abilityName:ref.ability.name,startedAt:0,timer:null,completed:false,press:null,skip:null};
+   abilityName:ref.ability.name,startedAt:0,progress:0,timer:null,completed:false,press:null,skip:null};
   const complete=neutral=>{
    if(value.completed)return;
    value.completed=true;clearTimeout(value.timer);state.clash=null;state.event=null;
@@ -312,7 +312,7 @@ function interactiveCombo(ref){
   };
   const begin=()=>{
    if(value.completed)return;
-   value.locked=false;value.feedback='';state.clash=value;
+   value.locked=false;value.feedback='';value.progress=0;state.clash=value;
    state.event={...state.event,pose:'windup'};
    render();value.startedAt=performance.now();
    value.timer=setTimeout(()=>end(false),ms);
@@ -321,6 +321,7 @@ function interactiveCombo(ref){
    if(value.completed||value.locked)return;
    value.locked=true;clearTimeout(value.timer);
    const elapsed=performance.now()-value.startedAt,accurate=tapped&&tacticalComboTimingHit(elapsed,ms);
+   value.progress=Math.max(0,Math.min(1,elapsed/ms));
    if(accurate)value.hits++;
    value.feedback=accurate?'ACERTO!':tapped?'FORA DO RITMO':'TEMPO ESGOTADO';
    // Every beat animates the real actor, not just a metronome. A successful
