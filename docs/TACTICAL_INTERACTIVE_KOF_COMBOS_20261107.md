@@ -1,3 +1,5 @@
+> **Mecânica substituída (07/11/2026):** os desafios de reflexo por golpe descritos aqui são históricos. A mecânica ativa de acerto/erro dos especiais é o [Confronto de Vontades — três intenções](TACTICAL_WILL_DUEL_RPS_20261107.md). O sistema continua usando as animações cinematográficas de golpes deste desenvolvimento, mas a interação atual consiste em uma única escolha estratégica, sem barra de timing.
+
 > **Atualização de interação (07/11/2026):** as janelas de ritmo uniformes descritas abaixo foram substituídas por sequências reativas baseadas na leitura de cada golpe, com **esquiva, aparo, salto e contra-ataque**. As regras e controles atuais estão em [Combate reativo inspirado em Expedition 33](TACTICAL_REACTIONS_EXPEDITION33_20261107.md). Esta página registra a primeira iteração de combos estilo KOF e continua válida quanto à arquitetura de resolução em etapas, não quanto aos comandos de defesa.
 
 # Combos interativos — apresentação de luta e disputa ofensiva/defensiva
