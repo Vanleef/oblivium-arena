@@ -120,3 +120,15 @@ test('combat-speed controls scale CSS reactions together with replay and reduced
  assert.match(css,/animation:compact-heal-rise var\(--compact-heal-duration,460ms\)/);
  assert.match(css,/--compact-feedback-delay,36ms/);
 });
+
+test('fallen characters linger only during the resolved killing contact, with reduced-motion safety',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const js=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(js,/if\(phase==='impact'\)for\(const fallen of tacticalDefeatedUnits\(event\)\)/);
+ assert.match(js,/fallenByCell\.get\(cellKey\(p\)\)/);
+ assert.match(js,/compact-defeated /);
+ assert.match(css,/compact-defeat-collapse var\(--compact-hit-duration,420ms\)/);
+ assert.match(css,/data-feedback-kind="defeat"/);
+ assert.match(css,/compact-defeated \.conquest-model\{\s*animation:none!important/);
+});
