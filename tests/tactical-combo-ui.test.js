@@ -49,8 +49,8 @@ test('choices are a single interaction per special, never a reflex-timer minigam
 
 test('click, keyboard and auto choice work even while the stage is busy',async()=>{
  const js=await read('src/compact-demo.js');
- const first=js.indexOf("if(state.clash){if(d.duelChoice)"),busy=js.indexOf('if(state.busy)return;',first);
- assert.ok(first>0&&busy>first);
+ const first=js.indexOf("if(state.clash){"),choice=js.indexOf("if(d.duelChoice)",first),busy=js.indexOf('if(state.busy)return;',choice);
+ assert.ok(first>0&&choice>first&&busy>choice);
  assert.match(js,/state\.clash\.press\?\.\(d\.duelChoice\)/);
  assert.match(js,/state\.clash\.skip\?\.\(\)/);
  assert.match(js,/event\.code==='Digit1'/);
@@ -93,7 +93,7 @@ test('UI errors still finish the staged round with a safe no-choice resolution',
 
 test('missing or forged choices cannot bypass the duel and grant an unopposed full special',async()=>{
  const engine=await read('src/tactical-combat.js'),ui=await read('src/compact-demo.js');
- const guarded=engine.indexOf("if(awaiting?.comboEligible&&!duel)return fail(");
+ const guarded=engine.indexOf("if(awaiting?.comboEligible&&!duel&&(");
  const shifted=engine.indexOf("const ref=commands.shift();",guarded);
  assert.ok(guarded>=0&&shifted>guarded,'validate the secret response BEFORE removing the planned skill from queue');
  assert.match(ui,/const step=session\.next\(pending\?\.comboEligible/);
