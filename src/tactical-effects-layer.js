@@ -302,6 +302,53 @@ function drawSemanticImpact(ctx,tone,r,p,light,mid,dark){
 }
 // Concentrated impact flash and heavy material chips. A slash fans forward from
 // actual contact; other effects radiate from their resolved target. No generic beam.
+// Particle shapes are material fragments, not generic thin energy streaks.
+// Assign physical silhouettes from the technique/identity already visible.
+export function tacticalImpactMaterial(fx){
+ const motif=fx?.choreography?.kind;
+ if(motif==='crimson'||motif==='cleaver')return 'blood';
+ if(motif==='bastion')return 'stone';
+ if(motif==='architect')return 'root';
+ if(motif==='rage')return 'ember';
+ if(motif==='memory')return 'thread';
+ if(motif==='stutter')return 'void';
+ if(['stone','blood','rot','thread','fire','frost','nature','grace','void'].includes(fx?.tone))
+  return ({fire:'ember',nature:'root'})[fx.tone]||fx.tone;
+ return 'shard';
+}
+function drawMaterialChip(ctx,material,size,seed){
+ ctx.beginPath();
+ if(material==='blood'){
+  ctx.ellipse(0,-size*.14,size*.35,size*.85,seed*.18,0,TAU);
+ }else if(material==='rot'){
+  ctx.ellipse(0,0,size*.82,size*.51,seed*.4,0,TAU);
+ }else if(material==='thread'){
+  ctx.lineWidth=Math.max(1.3,size*.28);ctx.beginPath();
+  ctx.moveTo(-size*.65,-size*.75);
+  ctx.quadraticCurveTo(size*.8,-size*.1,-size*.25,size*.65);
+  ctx.stroke();return;
+ }else if(material==='root'){
+  ctx.moveTo(-size*.25,size*.7);ctx.lineTo(0,-size*.7);
+  ctx.lineTo(size*.18,0);ctx.lineTo(size*.65,-size*.2);
+  ctx.lineTo(size*.07,size*.23);ctx.closePath();
+ }else if(material==='stone'){
+  ctx.moveTo(-size*.87,-size*.4);ctx.lineTo(-size*.15,-size*.86);
+  ctx.lineTo(size*.81,-size*.26);ctx.lineTo(size*.41,size*.76);
+  ctx.lineTo(-size*.61,size*.62);ctx.closePath();
+ }else if(material==='ember'){
+  ctx.moveTo(size*.8,0);ctx.quadraticCurveTo(size*.15,-size*.9,-size*.67,-size*.25);
+  ctx.quadraticCurveTo(-size*.23,size*.7,size*.8,0);
+ }else if(material==='grace'){
+  ctx.moveTo(0,-size);ctx.lineTo(size*.65,0);ctx.lineTo(0,size);ctx.lineTo(-size*.65,0);ctx.closePath();
+ }else if(material==='frost'){
+  ctx.moveTo(0,-size);ctx.lineTo(size*.43,-size*.15);
+  ctx.lineTo(size*.11,size);ctx.lineTo(-size*.31,size*.04);ctx.closePath();
+ }else{
+  ctx.moveTo(size*1.45,0);ctx.lineTo(-size*.50,-size*.86);
+  ctx.lineTo(-size*.75,size*.63);ctx.closePath();
+ }
+ ctx.fill();
+}
 function drawImpactBurst(ctx,fx,p){
  if(fx.reduced||!['damage','block','shield','heal'].includes(fx.reaction))return;
  const {x,y}=fx.point,[light,mid,dark]=fx.color,melee=fx.melee;
@@ -361,19 +408,18 @@ function drawImpactBurst(ctx,fx,p){
  ctx.beginPath();ctx.ellipse(0,0,r*(.45+p*1.16),r*(.30+p*.78),a,0,TAU);ctx.stroke();
  // The shared particle budget also caps the number of visible shards.
  const count=Math.min(8,Math.max(0,fx.particles||0));
+ const material=tacticalImpactMaterial(fx);
  for(let i=0;i<count;i++){
   const direction=melee?a-1.25+(i/(Math.max(1,count-1)))*2.5:(i*TAU/count);
   const distance=r*(.35+p*(melee?1.55:1.15))*(.85+(i%3)*.11);
   const dx=Math.cos(direction),dy=Math.sin(direction);
   const px=dx*distance,py=dy*distance*.74;
   const size=r*(.11+.08*((i+1)%3))*f;
+  ctx.save();ctx.translate(px,py);ctx.rotate(direction+i*.12);
   ctx.globalAlpha=f*(i%3===0?.95:.75);
   ctx.fillStyle=i%3===0?light:i%2?mid:dark;
-  ctx.beginPath();
-  ctx.moveTo(px+dx*size*1.45,py+dy*size*.85);
-  ctx.lineTo(px-dy*size*.5,py+dx*size*.5);
-  ctx.lineTo(px-dx*size*.75,py-dy*size*.8);
-  ctx.closePath();ctx.fill();
+  ctx.strokeStyle=i%3===0?light:mid;
+  drawMaterialChip(ctx,material,size,i);ctx.restore();
  }
  ctx.restore();
 }
