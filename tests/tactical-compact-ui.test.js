@@ -11,13 +11,13 @@ test('compact UI queues actions privately, undoes the plan and retains technique
   globalThis.matchMedia=()=>({matches:true});globalThis.requestAnimationFrame=undefined;
   globalThis.Worker=class{addEventListener(type,fn){if(type==='message')this.receive=fn;}postMessage({id}){queueMicrotask(()=>this.receive({data:{id,plan:[]}}));}};
   await import('../src/compact-demo.js?compact-ui-regression');
-  assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/compact-portrait/);assert.match(html,/compact-command-panel/);for(const section of ['actions','abilities','items','planning'])assert.match(html,new RegExp('data-panel-section="'+section+'"'));assert.match(html,/Mover<\/span>/);assert.match(html,/data-confirm/);assert.doesNotMatch(html,/class="arena-techniques"/);assert.match(html,/Próximo evento: rodada 4/);
+  assert.match(html,/grade 6 por 6/);assert.equal((html.match(/data-cell=/g)||[]).length,36);assert.match(html,/compact-roster-rail/);assert.match(html,/compact-portrait/);assert.match(html,/compact-command-panel/);for(const section of ['actions','abilities','items','planning'])assert.match(html,new RegExp('data-panel-section="'+section+'"'));assert.match(html,/Mover<\/span>/);assert.doesNotMatch(html,/data-guard/);assert.match(html,/data-confirm/);assert.doesNotMatch(html,/class="arena-techniques"/);assert.match(html,/Próximo evento: rodada 4/);
   click({cell:'1,1'});assert.match(html,/Mover → B2/);assert.match(html,/data-hero-index="0" style="--hero-accent:#f0ae56"/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,1);assert.match(html,/compact-planned-destination/);assert.match(html,/--compact-scene-image:url\('/);assert.match(html,/--compact-floor-zoom:295%/);assert.match(html,/--compact-floor-focus:66%/);assert.match(html,/data-action-kind="move"/);assert.match(html,/data-plan-wave="1"/);assert.match(html,/data-plan-wave="2"/);assert.match(html,/data-actor-color="#f0ae56"/);
   click({undo:''});assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);assert.doesNotMatch(html,/Mover → B2/);
   click({cell:'1,1'});click({technique:'despertar'});click({cell:'1,1'});
   assert.match(html,/Passo entre Lâminas/);assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,2);assert.match(html,/data-action-step="4"/,'second action is shown in wave two');
   assert.doesNotMatch(html,/class="compact-roster-card"/);
-  click({actor:'a-viuva-escarlate'});click({guard:''});
+  click({actor:'a-viuva-escarlate'});click({mode:'move'});click({cell:'2,2'});
   assert.match(html,/data-actor-color="#e94a86"/,'Lira has her own color on queued actions');
   assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,3);
   click({removeIndex:'2'});
@@ -26,8 +26,17 @@ test('compact UI queues actions privately, undoes the plan and retains technique
   const wait=async predicate=>{for(let i=0;i<160;i++){if(predicate())return;await new Promise(r=>setTimeout(r,25));}assert.fail('Round playback did not finish');};
   await wait(()=>html.includes('<b>2</b><strong role="status">Planejamento simultâneo'));
   assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);assert.ok(renders.filter(v=>v.includes('data-panel-locked="true"')).every(v=>v.includes('aria-label="Comandos de ')));
-  for(let i=0;i<6;i++)click({guard:''});
-  assert.match(html,/data-panel-locked="true"/,'six actions seal the plan automatically');
+  // Fill six moves using live highlighted cells (no Guard shortcut): auto-submit on sixth order.
+  for(const hero of ['o-acougueiro','a-viuva-escarlate','o-escudo-vivo']){
+   click({actor:hero});
+   for(let i=0;i<2;i++){
+    click({mode:'move'});
+    const cell=html.match(/<button class="cell reachable [^"]*" data-cell="([^"]+)"/)?.[1];
+    assert.ok(cell,'an adjacent move remains available for '+hero+' / action '+(i+1));
+    click({cell});
+   }
+  }
+  assert.match(html,/data-panel-locked="true"/,'six legal moves seal the plan automatically');
   await wait(()=>html.includes('<b>3</b><strong role="status">Planejamento simultâneo'));
   assert.equal((html.match(/class="compact-sequence-icon"/g)||[]).length,0);
  }finally{for(const key of names){if(saved[key]===undefined)delete globalThis[key];else globalThis[key]=saved[key];}}
@@ -70,4 +79,21 @@ test('mobile HUD shows the full 3v3 roster and places the board immediately besi
  assert.match(latest,/top:auto;\s*bottom:auto;/,'old fortress-board vertical offset is removed');
  assert.match(latest,/\.compact-board-stack>\.compact-board\s*\{[\s\S]*?width:100%;/,'board uses all available mobile space');
  assert.match(latest,/--compact-side-width:clamp\(82px,23cqw,95px\)/,'extra narrow phones get a smaller sidebar');
+});
+
+test('combat feedback is not a guessing overlay and renders actions as icons above the arena',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const js=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(js,/compact-order-symbol/);
+ assert.match(js,/actionGlyph\(unit,action\)/);
+ assert.match(js,/tacticalFeedback\(event\)/);
+ assert.match(js,/tacticalAreaPhase\(event\)/);
+ assert.match(js,/data-feedback-kind/);
+ assert.doesNotMatch(js,/if\('guard'in d\)/,'no click to plan Guard');
+ assert.match(css,/\.compact-stage>\.skill-cutin\s*\{/);
+ assert.match(css,/z-index:90!important/,'cinematic belongs above board and hud');
+ assert.match(css,/\.compact-token-label\s*\{[\s\S]*?top:-9px/);
+ assert.match(css,/\.compact-hit-damage \.conquest-model/);
+ assert.match(css,/\.compact-hit-heal \.conquest-model/);
 });

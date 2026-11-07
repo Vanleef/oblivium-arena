@@ -65,3 +65,10 @@ test('Fio de Memória usa um fio durante o trajeto',()=>{
  const cast={type:'skill',actorId:'nilo',abilityId:'tecnica',family:'bind',anchor:{x:2,y:0},before:{positions:{nilo:{x:0,y:0}}}};
  assert.equal(tacticalProjectileKind(nilo,{target:'enemy'},cast),'thread');
 });
+
+test('technique-specific art takes priority in the combat cut-in',()=>{
+ const cast={...ability,name:'Chama da Ruína',art:'/art/skills/chama.webp'};
+ const markup=tacticalCutinMarkup(actor,cast,{...event,pose:'release'});
+ assert.match(markup,/chama.webp/);
+ assert.doesNotMatch(markup,/src="\/portrait.webp"/);
+});
