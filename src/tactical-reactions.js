@@ -22,7 +22,7 @@ export function tacticalReactiveBeats(actor,ability,family='strike'){
    index:index+1,total:count,duration,impactAt,impactMs:Math.round(duration*impactAt),
    kind:sweep?'sweep':family==='pierce'?'thrust':family==='strike'?'crush':'normal',
    cue:sweep?'VARREDURA BAIXA':pace===2?'FINTA — ESPERE':family==='pierce'?'ESTOCADA':'GOLPE',
-   pose:pace===2?'feint':pace===1?'windup':'anticipate'
+   pose:pace===2?'compress':pace===1?'windup':'anticipate'
   });
  });
 }
