@@ -11,6 +11,10 @@
     "api/campaign.js": {
       "maxDuration": 30,
       "includeFiles": "{src,server}/**/*.js"
+    },
+    "api/arena-compact.js": {
+      "maxDuration": 30,
+      "includeFiles": "{src,server}/**/*.js"
     }
   },
   "headers": [
