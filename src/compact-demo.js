@@ -252,7 +252,7 @@ function selectCell(point){
  const s=displayed(),future=planned(),u=actor(future),at=future.tactical.positions[u.id],hit=occupied(s,point);
  const selectedAbility=u.abilities.find(a=>a.id===state.mode),allyTarget=['ally','friendly','team'].includes(selectedAbility?.target);
  // Tap an ally to select them, except when deliberately targeting ally-support techniques.
- if(hit?.side==='player'&&hit.id!==u.id&&!allyTarget){state.selected=hit.id;state.mode='move';state.message='';render();return;}
+ if(hit?.side==='player'&&hit.id!==u.id&&!allyTarget){state.selected=hit.id;state.mode='move';state.selectedCard=null;state.spends={};state.message='';render();return;}
  if(count(u.id)>=2||u.stunned||u.hp<=0)return;
  if(state.mode==='move'||state.mode==='mobility'){
   const path=findPath(future,u.id,point,state.mode==='mobility'?2:undefined);if(!path){state.message='Escolha uma casa adjacente destacada.';render();return;}
@@ -340,7 +340,7 @@ async function playback(events,{partial=false}={}){
  }
  if(revision!==state.revision)return;
  if(partial){state.event=null;state.hitstop=false;render();return;}
- state.snapshot=null;state.event=null;state.hitstop=false;state.busy=false;state.actions=[];state.mode='move';state.message='';
+ state.snapshot=null;state.event=null;state.hitstop=false;state.busy=false;state.actions=[];state.mode='move';state.selectedCard=null;state.message='';
  state.selected=state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id;
  if(state.battle.phase==='victory')state.rewards=offerTacticalRewards(state.run,state.battle);
  render();
@@ -491,8 +491,8 @@ root.addEventListener('click',event=>{
   for(const action of state.actions)if(previewTacticalPlan(view,'player',[...valid,action]).ok)valid.push(action);
   state.actions=valid;state.selected=removed.actorId;state.mode='move';state.selectedCard=null;state.spends={};state.message='';render();return;
  }
- if('undo'in d){state.actions.pop();state.message='';render();return;}
- if('clear'in d){state.actions=[];state.message='';render();return;}
+ if('undo'in d){state.actions.pop();state.selectedCard=null;state.mode='move';state.message='';render();return;}
+ if('clear'in d){state.actions=[];state.selectedCard=null;state.mode='move';state.message='';render();return;}
  if('confirm'in d)confirm();
 });
 root.addEventListener('change',event=>{
@@ -510,7 +510,7 @@ root.addEventListener('change',event=>{
  state.run.cardDecks[id]=build;saveCardBuilds();
 });
 root.addEventListener('pointerover',event=>{
- const cell=event.target.closest('[data-cell]');if(!cell||locked()||state.mode==='move')return;
+ const cell=event.target.closest('[data-cell]');if(!cell||locked()||state.mode==='move'||state.mode==='mobility')return;
  for(const e of root.querySelectorAll('.cell.aim'))e.classList.remove('aim');
  const s=planned(),u=actor(s),a=u.abilities.find(a=>a.id===state.mode);if(!a)return;
  const [x,y]=cell.dataset.cell.split(',').map(Number),origin=s.tactical.positions[u.id],orientation=[Math.sign(x-origin.x),Math.sign(y-origin.y)];
@@ -528,7 +528,7 @@ document.addEventListener('keydown',event=>{
  }
  if(event.target.matches('input,select,textarea,[contenteditable="true"]')||locked())return;
  if(event.code==='Space'&&!event.repeat){event.preventDefault();confirm();}
- else if(['1','2','3'].includes(event.key)){state.selected=state.battle.allies[Number(event.key)-1].id;state.mode='move';render();}
- else if(event.key==='Escape'){state.mode='move';state.message='';render();}
+ else if(['1','2','3'].includes(event.key)){state.selected=state.battle.allies[Number(event.key)-1].id;state.selectedCard=null;state.mode='move';render();}
+ else if(event.key==='Escape'){state.mode='move';state.selectedCard=null;state.message='';render();}
 });
 start();
