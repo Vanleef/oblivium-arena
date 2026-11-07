@@ -1,4 +1,4 @@
-import {GRID_WIDTH,GRID_HEIGHT,movementChoices,plannedPosition} from "./tactical-grid.js";
+import {GRID_WIDTH,GRID_HEIGHT,movementChoices,plannedPosition,gridDistance} from "./tactical-grid.js";
 import {portraitMarkup,esc} from "./view-utils.js";
 
 export function renderTacticalGrid(state,getValidTargets){
@@ -9,17 +9,20 @@ export function renderTacticalGrid(state,getValidTargets){
  const actor=b.allies.find(u=>u.id===state.selectedSkill?.actorId);
  const ability=actor?.abilities.find(a=>a.id===state.selectedSkill?.abilityId);
  const targets=new Set(actor&&ability?getValidTargets(b,actor,ability).map(u=>u.id):[]);
+ const showArea=Boolean(actor&&ability&&!["self","team"].includes(ability.target));
+ const abilityRange=ability?.id==="__basic_attack__"?1:Math.max(1,Math.min(4,Number(ability?.range)||3));
  const draftMoves=b.movementPlans?.player||[];
  const tiles=[];
  for(let y=0;y<GRID_HEIGHT;y++)for(let x=0;x<GRID_WIDTH;x++){
   const pos=x+":"+y,unit=units.find(u=>u.position?.x===x&&u.position?.y===y&&u.hp>0);
   const pending=draftMoves.find(m=>m.to.x===x&&m.to.y===y),isMove=moveCells.has(pos);
   const activeTarget=unit&&targets.has(unit.id);
+  const inArea=showArea&&gridDistance(plannedPosition(b,actor),{x,y})<=abilityRange;
   const occupied=Boolean(unit);
   const art=unit?portraitMarkup(unit,"tactical-unit-portrait"):"";
   const realm=unit?.realm||"";
   tiles.push('<div class="tactical-tile'+(isMove?" move-choice":"")+(activeTarget?" target-choice":"")+
-   (occupied?" occupied":"")+(pending?" planned-destination":"")+
+   (occupied?" occupied":"")+(inArea?" ability-area":"")+(pending?" planned-destination":"")+
    '" role="gridcell" data-cell="'+pos+'" aria-label="Casa '+(x+1)+", "+(y+1)+'">'+
    '<button type="button" class="tactical-tile-pad" data-grid-cell="'+pos+'" '+(!planning||!moving||!isMove?"disabled":"")+
    ' aria-label="Mover '+esc(moving?.name||"alma")+' para coluna '+(x+1)+", linha "+(y+1)+'"></button>'+
@@ -34,7 +37,7 @@ export function renderTacticalGrid(state,getValidTargets){
  const movesCount=draftMoves.length;
  return '<section class="tactical-arena" data-origin-realm="'+esc(state.battleNode?.realm||state.battle?.campaignRealm||"Limbo")+'" aria-label="Tabuleiro tático compacto">'+
   '<header class="tactical-arena-header"><div><small>ARENA · 5×5</small><h2>Campo de Confronto</h2></div>'+
-  '<div class="tactical-arena-legend"><span>● Seu trio</span><span>◆ Adversários</span></div></header>'+
+  '<div class="tactical-arena-legend"><span>● Seu trio</span><span>◆ Adversários</span><span>✦ Alcance</span></div></header>'+
   '<div class="tactical-grid-wrap"><div class="tactical-grid" role="grid" aria-label="Grade de cinco por cinco">'+tiles.join("")+'</div></div>'+
   '<footer class="tactical-arena-hint" role="status">'+
   (moving?'Selecione uma das casas destacadas para mover '+esc(moving.name)+".":actor&&ability?"Selecione o alvo destacado para "+esc(ability.name)+".":"Selecione uma carta de Movimento ou uma técnica na mão.")+
