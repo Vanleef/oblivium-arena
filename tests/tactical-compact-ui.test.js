@@ -280,3 +280,24 @@ test('actual movement contact is shown on its final destination, not as a generi
  assert.match(effects,/kind==='step-dust'/);
  assert.doesNotMatch(js,/if\(mover\)emit\(\{type:'skill'/);
 });
+
+test('desktop and mobile action footprint legends are legible and match the caster palette',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ const mini=await readFile(new URL('../src/tactical-area-diagram.js',import.meta.url),'utf8');
+ assert.match(source,/compact-tech-name/);
+ assert.match(source,/compact-area-legend/);
+ assert.match(source,/tacticalActorPalette\(beforeActor\)/);
+ assert.match(source,/tacticalPaletteVariables\(castColors\)/);
+ assert.match(source,/data-area-role=/);
+ assert.match(source,/compact-cast-origin/);
+ assert.match(source,/na área .+ da técnica/);
+ assert.match(css,/\.compact-icon-btn>\.compact-area-mini\{[\s\S]*?width:50px;height:50px/);
+ assert.match(css,/\.compact-icon-btn>\.compact-area-mini\{[\s\S]*?width:40px;height:40px/);
+ assert.match(css,/@media\(max-width:420px\)\{[\s\S]*?width:37px;height:37px/);
+ assert.match(css,/\.compact-area-sigil\[data-actor-palette="true"\]/);
+ assert.match(css,/\.compact-area-sigil\[data-area-role="anchor"\]::after/);
+ assert.match(css,/\.compact-cast-origin/);
+ assert.match(mini,/patternCells\(/,'minimap must keep reusing the exact motor footprint calculation');
+});
