@@ -118,3 +118,10 @@ test('technique concepts use distinct contact colors and silhouettes within the 
   }
  }finally{globalThis.requestAnimationFrame=saved;}
 });
+
+test('explicit single-target impacts still animate when a self/target technique has no area cells',()=>{
+ const single={...impact,cells:[],affectedTargetIds:['a1']};
+ assert.deepEqual(tacticalImpactContacts(single).map(contact=>contact.id),['a1']);
+ assert.deepEqual(tacticalImpactContacts({...single,affectedTargetIds:[]}),[]);
+ assert.deepEqual(tacticalImpactContacts({...single,pose:'windup'}),[]);
+});
