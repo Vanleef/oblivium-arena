@@ -641,16 +641,16 @@
  border-style:dashed;animation:compact-zone-warning 520ms ease-in-out infinite alternate;
 }
 .compact-battle .compact-area-sigil[data-phase="impact"]{
- border-width:3px;animation:compact-zone-contact 430ms cubic-bezier(.2,.82,.28,1) both;
+ border-width:3px;animation:compact-zone-contact var(--compact-hit-duration,420ms) cubic-bezier(.2,.82,.28,1) both;
 }
 @keyframes compact-zone-warning{from{opacity:.52;filter:brightness(.8)}to{opacity:.96;filter:brightness(1.25)}}
 @keyframes compact-zone-contact{from{scale:.7;opacity:.4;filter:brightness(2.2)}35%{scale:1.05;opacity:1;filter:brightness(1.7)}to{scale:1;opacity:.8;filter:brightness(1)}}
 .combat-shell.compact-battle .compact-board .cell.compact-impact .compact-area-sigil{z-index:6}
 .combat-shell.compact-battle .compact-board .cell.compact-hit-damage .conquest-model{
- animation:compact-hit-stagger 420ms cubic-bezier(.15,.7,.3,1) both;filter:brightness(1.6) drop-shadow(0 0 9px #ff485a);
+ animation:compact-hit-stagger var(--compact-hit-duration,420ms) cubic-bezier(.15,.7,.3,1) both;filter:brightness(1.6) drop-shadow(0 0 9px #ff485a);
 }
 .combat-shell.compact-battle .compact-board .cell.compact-hit-heal .conquest-model{
- animation:compact-heal-rise 460ms ease-out both;filter:brightness(1.3) drop-shadow(0 0 12px #5cf4ab);
+ animation:compact-heal-rise var(--compact-heal-duration,460ms) ease-out both;filter:brightness(1.3) drop-shadow(0 0 12px #5cf4ab);
 }
 @keyframes compact-hit-stagger{0%{translate:0 0}20%{translate:-5px 1px}43%{translate:5px -2px}65%{translate:-2px 0}100%{translate:0 0}}
 @keyframes compact-heal-rise{0%{translate:0 3px;opacity:.85}45%{translate:0 -4px}100%{translate:0 0;opacity:1}}
@@ -663,8 +663,8 @@
  display:block;padding:3px 7px;border-radius:7px;border:1px solid currentColor;
  background:#160f1cef;box-shadow:0 2px 12px #000a;
  font:900 clamp(14px,1.8vw,24px)/1.15 system-ui,sans-serif;
- white-space:nowrap;animation:compact-feedback-pop 420ms ease-out both;
- animation-delay:calc(var(--feedback-index,0) * 36ms);
+ white-space:nowrap;animation:compact-feedback-pop var(--compact-hit-duration,420ms) ease-out both;
+ animation-delay:calc(var(--feedback-index,0) * var(--compact-feedback-delay,36ms));
 }
 .compact-battle .compact-impact-feedback [data-feedback-kind="damage"]{color:#ff6f78;text-shadow:0 0 8px #ee3333}
 .compact-battle .compact-impact-feedback [data-feedback-kind="heal"]{color:#8effc2;text-shadow:0 0 8px #34d992}
