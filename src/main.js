@@ -527,6 +527,38 @@ function selectBattleTarget(targetId) {
 }
 
 let onlineTimer=null;
+function playOnlineCombatEvent(){
+ if(state.onlineFxActive||!state.battle?.online||!state.onlineFxQueue?.length)return;
+ const event=state.onlineFxQueue.shift();
+ const kind=event.objectiveRewards?.length?"reward":event.clashResult?.cancel?"shield":event.changes?.some(change=>change.hp<0)?"impact":event.changes?.some(change=>change.hp>0)?"restore":event.mode==="movement"?"movement":"control";
+ state.onlineFxActive=true;
+ state.battleFx={...event,kind,id:++battleFxSequence,changes:event.changes||[],title:event.clashResult?.cancel?"VONTADE · GOLPE ANULADO":event.clashResult?.critical?"CONFRONTO · ACERTO CRÍTICO":event.title,
+  summary:event.objectiveRewards?.length?event.summary:event.summary||"Ação resolvida."};
+ playSfx(kind==="impact"?"impact":kind==="restore"?"heal":"cast");
+ render();
+ clearTimeout(battleFxTimer);
+ battleFxTimer=setTimeout(()=>{
+  state.onlineFxActive=false;state.battleFx=null;
+  if(state.battle?.online&&state.onlineFxQueue?.length)playOnlineCombatEvent();
+  else render();
+ },820);
+}
+function ingestOnlineCombatEvents(match){
+ if(!match?.battle)return;
+ const online=state.online,events=match.battle.combatEvents||[];
+ if(online.fxMatchId!==match.id){
+  online.fxMatchId=match.id;
+  online.fxSeq=events.length?events[events.length-1].seq-1:0;
+  state.onlineFxQueue=[];state.onlineFxActive=false;state.battleFx=null;
+  clearTimeout(battleFxTimer);
+ }
+ const unseen=events.filter(event=>Number.isInteger(event.seq)&&event.seq>(online.fxSeq||0));
+ if(!unseen.length)return;
+ online.fxSeq=unseen[unseen.length-1].seq;
+ state.onlineFxQueue||=[];
+ state.onlineFxQueue.push(...unseen.slice(-8));
+ if(state.onlineFxQueue.length>12)state.onlineFxQueue.splice(0,state.onlineFxQueue.length-12);
+}
 async function sendOnline(payload){
  state.online ||= {connected:false,queuing:false};const online=state.online;if(online.busy)return;online.busy=true;
  clearTimeout(onlineTimer);
@@ -546,10 +578,11 @@ async function sendOnline(payload){
     next.movementPlans={player:[...(previous.movementPlans?.player||[])],enemy:[]};
    }else{state.selectedSkill=null;state.focusSkill=null;state.moveActorId=null;state.confirmTurn=false;}
    state.battle=next;state.battle.deadline=data.match.deadline;state.battleNode={label:"Arena ranqueada"};state.tab="battle";
+   ingestOnlineCombatEvents(data.match);
   }}
-  else if(state.battle?.online)state.battle=null;
+  else if(state.battle?.online){state.battle=null;state.onlineFxQueue=[];state.battleFx=null;state.onlineFxActive=false;clearTimeout(battleFxTimer);}
  }catch(error){online.message=error.message;if(error.status===503){online.connected=false;online.queuing=false;}else if(error.status===409){onlineTimer=setTimeout(()=>sendOnline({op:"profile"}),300);}}
- finally{online.busy=false;render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team,loadouts:Object.fromEntries(profile.team.filter(id=>profile.cardLoadouts?.[id]).map(id=>[id,profile.cardLoadouts[id]]))}:{op:"profile"}),2000);}}
+ finally{online.busy=false;if(state.onlineFxQueue?.length&&!state.onlineFxActive)playOnlineCombatEvent();else render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team,loadouts:Object.fromEntries(profile.team.filter(id=>profile.cardLoadouts?.[id]).map(id=>[id,profile.cardLoadouts[id]]))}:{op:"profile"}),2000);}}
 }
 function arenaView(){return renderArena(profile,state.online);}
 function header() {
