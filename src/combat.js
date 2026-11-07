@@ -1,4 +1,8 @@
 import {getAbilityResourceCosts,resolveResourcePayment,allocateQueuePayment,resolveEssenceExchange,resourceIds} from "./resource-costs.js";
+import {createCardState,beginCardRound,endCardRound,findHandCard,consumeHandCard,applyCardUpgrades,WILL_SIGNS,resolveWillClash,spendResponse,canUseResponse,BASIC_ATTACK_ID,basicAttack} from "./card-combat.js";
+import {setupGrid,isTargetInRange,validateMovementPlans,setMovementPlan,resolveGridMoves,greedyMovement} from "./tactical-grid.js";
+import {spawnGridObjectives,collectGridObjectives,OBJECTIVE_TIERS,OBJECTIVE_LABELS} from "./grid-objectives.js";
+export {setMovementPlan} from "./tactical-grid.js";
 export {getAbilityResourceCosts} from "./resource-costs.js";
 import { initializeWorldUnit, worldDamageBonus, worldAfterAction } from "./world-rules.js";
 import { checkDeathInfluences } from "./world-influences.js";
@@ -77,6 +81,7 @@ export function applyEssenceExchanges(s,side,exchanges){
  return {ok:true,exchanges:resolved};
 }
 export function canAffordAbility(s,actor,ability){
+ if(s.cardCombat&&ability.id!==BASIC_ATTACK_ID&&!findHandCard(s.cardCombat,actor.id,ability.id))return false;
  if(actor.side==='enemy')return resolveResourcePayment(getAbilityResourceCosts(actor,ability),pool(s,"enemy")).ok;
  const actions=(s.queue||[]).filter(a=>a.actorId!==actor.id).concat({actorId:actor.id,abilityId:ability.id});
  return allocateQueuePayment(actions,s.allies,pool(s,"player")).ok;
@@ -100,7 +105,8 @@ export function getValidTargets(s,actor,ability){
   .filter(u=>!ability.formTargetId||u.id===ability.formTargetId)
   .filter(u=>!ability.requiredMark||u.marks[ability.requiredMark]?.sourceId===actor.id)
   .filter(u=>!ability.requiresPillar||u.pillarOwnerId===actor.id)
-  .filter(u=>!ability.requiresTargetStatus||statusCount(u)>0);
+  .filter(u=>!ability.requiresTargetStatus||statusCount(u)>0)
+  .filter(u=>isTargetInRange(s,actor,u,ability,{preview:s.phase==="player"}));
 }
 function statusCount(u){
  if(!u)return 0;
@@ -298,6 +304,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   }
   const priorForms=actor.abilities.map(a=>a.formKey||"base").join(":"),priorBodyForm=actor.bodyForm||"base",charges=actor.charge,isFriendly=friendly(a);let totalDamage=0,totalStripped=0,totalPurged=0,affected=0;const reactions=[];
   for(const target of targets){
+    if(action.clashResult?.cancel&&action.clashTargetId===target.id){log(s,`${target.name} anula ${a.name} no Confronto de Vontades.`);continue;}
     if(!isFriendly&&target.counter>0&&!a.ignoreCounters&&(!target.counterRequiresShield||target.shield>0)&&(!target.counterFilter||target.counterFilter.includes(a.damageType||"physical"))){const value=target.counter,effect=target.counterEffect;target.counter=0;const r=hit(s,actor,value,{damageType:target.counterDamageType||"physical",ignoreInvulnerability:true}),notes=[];if(effect?.drainEssence){const n=transfer(s,target.side,effect.drainEssence.amount||1,false,effect.drainEssence.resource||null);if(n)notes.push(`remove ${n} ${essenceName(effect.drainEssence.resource)}`);}if(effect?.stealEssence){const n=transfer(s,target.side,effect.stealEssence.amount||1,true,effect.stealEssence.resource||null);if(n)notes.push(`rouba ${n} Essência`);}if(effect?.generateEssence?.resource){const n=gain(s,target.side,effect.generateEssence.resource,effect.generateEssence.amount||1);if(n)notes.push(`gera ${n} ${essenceName(effect.generateEssence.resource)}`);}if(effect?.dot&&actor.hp>0){actor.dots.push({...effect.dot,sourceId:target.id,skillId:a.id});notes.push("aplica aflição");}if(effect?.expose&&actor.hp>0){actor.exposed=Math.max(actor.exposed,effect.expose);actor.exposedFresh=true;notes.push("expõe o agressor");}if(effect?.mark&&actor.hp>0){actor.marks[effect.mark]={sourceId:target.id,turns:effect.markTurns||2,label:effect.label||"Contra-ataque"};notes.push("marca o agressor");}log(s,`${target.name} anula ${a.name} e contra-ataca ${actor.name}: ${r.dealt} dano${notes.length?` · ${notes.join(" · ")}`:""}.`);if(actor.hp<=0)notifyDefeat(s,actor,target);reactions.push({actorId:target.id,targetId:actor.id,actorName:target.name,damage:r.dealt});const owner=byId(team(s,target.side),target.counterSourceId);if(owner)applySkillShifts(s,owner,target.counterFormChanges,actor.id,meetsCondition);triggerPassive(s,owner||(!target.counterSourceId?target:null),"counter",{target,attacker:actor,ability:a,dealt:r.dealt});target.counterFormChanges=[];target.counterEffect=null;target.counterRequiresShield=false;continue;}
     affected++;
     const combo=a.combo&&meetsCondition(target,a.combo.condition,actor);let value=0,purgedThis=0,fractureSpend=0;
@@ -307,6 +314,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
       if(a.purge||a.purgeBuffs)purgedThis=purgeTargetBuffs(target,a.purgeBuffs||"all");totalPurged+=purgedThis;
       fractureSpend=a.spendFracturesMax?Math.min(statusCount(target),a.spendFracturesMax,Math.max(0,Math.floor(action.fractureSpend||0))):0;
       value=attackValue(s,actor,a,target,charges,{...action,fractureSpend},purgedThis);
+      if(action.clashResult?.critical&&action.clashTargetId===target.id)value=Math.floor(value*1.4);
       const ignoreDefense=actor.feridaAbertaTargets?.[target.id]||0;
       const r=a.damage?hit(s,target,value,{damageType:a.damageType,ignoreInvulnerability:a.ignoreInvulnerability,ignoreDefense}):{dealt:0,blocked:0};
       if((r.dealt||r.blocked)&&ignoreDefense)delete actor.feridaAbertaTargets[target.id];
@@ -346,7 +354,7 @@ function apply(s,actor,a,targetId,randomPayment,action={}){
   if(totalStripped>0)triggerPassive(s,actor,"stripShield",{ability:a,stripped:totalStripped});
   if(totalPurged>0){triggerPassive(s,actor,"purge",{ability:a,purged:totalPurged});triggerPassive(s,actor,"controlCleansed",{target:targets[0],ability:a,purged:totalPurged});}
   if(actor.markNextFresh)actor.markNextFresh=false;else if(a.damage&&actor.markNextTargetId&&targets.some(target=>target.id===actor.markNextTargetId)){if(actor.markNextHeal)heal(actor,actor.markNextHeal);actor.markNextTargetId=null;actor.markNextBonus=0;actor.markNextHeal=0;}
-  if(a.damage){actor.shadowDamageBonus=0;if(actor.nextSkillBonus){for(const target of targets)if(actor.nextSkillExpose){target.exposed=Math.max(target.exposed,actor.nextSkillExpose);target.exposedFresh=true;triggerPassive(s,actor,"statusApplied",{target,ability:a,condition:"status"});}actor.nextSkillBonus=0;actor.nextSkillExpose=0;}}
+  if(a.damage){actor.shadowDamageBonus=0;if(actor.nextSkillBonus){for(const target of targets)if(actor.nextSkillExpose&&!(action.clashResult?.cancel&&action.clashTargetId===target.id)){target.exposed=Math.max(target.exposed,actor.nextSkillExpose);target.exposedFresh=true;triggerPassive(s,actor,"statusApplied",{target,ability:a,condition:"status"});}actor.nextSkillBonus=0;actor.nextSkillExpose=0;}}
   if(a.clearEchoLink){actor.resonanceTargetId=null;actor.resonanceTurns=0;actor.resonanceFresh=false;}
   if(a.cooldown){actor.cooldowns[a.id]=Math.max(actor.cooldowns[a.id]||0,a.cooldown);actor.cooldownFresh.push(a.id);}
   const ownShift=affected&&a.shift?.some(t=>t.slot===a.id&&t.form!=="base");
@@ -374,6 +382,7 @@ function applyNaturalTurnStart(s,side,recoveries=[]){
   }
 }
 function grantTurn(s,recoveries=[]){
+  if(s.cardCombat)beginCardRound(s.cardCombat,[...s.allies,...s.enemies],s.round,()=>nextRandom(s));
   // Both sides draw before any start-of-turn passive can manipulate either reserve.
   drawEssence(s,"player");drawEssence(s,"enemy");
   const order=s.round%2?["player","enemy"]:["enemy","player"];
@@ -400,7 +409,8 @@ export function createBattle(ids,enemyTeam,config={}){
   const s={campaignRealm:config.campaignRealm||null,niloAbsorption:config.niloAbsorption?{cinza:config.niloAbsorption.cinza||0,graca:config.niloAbsorption.graca||0,ruptura:config.niloAbsorption.ruptura||0}:null,enemyPlanner:config.enemyPlanner||getCombatPlan,rng:config.rng||Math.random,...(config.rngSeed===undefined?{}:{rngState:(Number(config.rngSeed)||1)>>>0}),essenceDraws:{player:[],enemy:[]},pendingEssenceExchanges:[],global,difficulty:config.difficulty||0,allies,enemies:enemyTeam.map(c=>clone(c,"enemy")),round:1,resources:Object.fromEntries(resources.map(r=>[r.id,(buffValues[r.id]||0)+(global[r.id]||0)])),enemyResources:Object.fromEntries(resources.map(r=>[r.id,0])),resonance,buffs:{...buffValues,...memoryEffects},deathEchoStacks:{player:0,enemy:0},acted:[],actionLimit:3,queue:[],resolution:[],resolutionSide:null,phase:"player",log:["Escolha uma habilidade, clique no alvo e confirme a fila para executar seu turno."],intents:[]};
   for(let i=0;i<(buffValues.randomEssence||0)+legacyRandomEssence+(global.randomEssence||0);i++)gain(s,"player",randomResourceId(s));
   for(const [side,units] of [["player",s.allies],["enemy",s.enemies]]){const counts=new Map();for(const unit of living(units)){const affinity=unit.affinity||unit.bodyResource;if(affinity)counts.set(affinity,(counts.get(affinity)||0)+1);}const [affinity,count]=[...counts].sort((a,b)=>b[1]-a[1])[0]||[];if(count>=2){gain(s,side,affinity,1);log(s,`${side==="player"?"Seu trio":"A oposição"} · Afinidade convergente: +1 ${essenceName(affinity)} no início do combate.`);}}
-  grantTurn(s);planAI(s);return s;
+  if(config.cardMode){setupGrid(s);s.cardCombat=createCardState([...s.allies,...s.enemies],{loadouts:config.cardLoadouts||{},rng:()=>nextRandom(s)});for(const unit of [...s.allies,...s.enemies])unit.abilities.push(basicAttack());}
+  grantTurn(s);if(s.grid){s.objectiveTier=OBJECTIVE_TIERS.includes(config.objectiveTier)?config.objectiveTier:"silver";spawnGridObjectives(s,()=>nextRandom(s));}planAI(s);return s;
 }
 export function chooseAction(s,actorId,abilityId,targetId,options={}){
   refreshSkillForms(s);
@@ -408,6 +418,8 @@ export function chooseAction(s,actorId,abilityId,targetId,options={}){
   const actor=byId(s.allies,actorId),a=actor?.abilities.find(a=>a.id===abilityId);
   if(!actor||!a)return {ok:false,reason:"Personagem ou habilidade indisponível."};
   if(actor.stunned)return {ok:false,reason:"Personagem Atordoado neste turno."};
+  const handCard=s.cardCombat?findHandCard(s.cardCombat,actor.id,abilityId,options.cardId):null;
+  if(s.cardCombat&&abilityId!==BASIC_ATTACK_ID&&!handCard)return {ok:false,reason:"Essa carta não está na mão do personagem."};
   if(skillSealReason(actor,a))return {ok:false,reason:skillSealReason(actor,a)};
   if(actor.cooldowns[abilityId])return {ok:false,reason:`Recarga: ${actor.cooldowns[abilityId]} turno(s).`};
   if(!canAffordAbility(s,actor,a))return {ok:false,reason:"A Essência disponível não paga esta habilidade."};
@@ -416,14 +428,20 @@ export function chooseAction(s,actorId,abilityId,targetId,options={}){
   const residueSpend=Math.max(0,Math.floor(options.residueSpend||0)),fractureSpend=Math.max(0,Math.floor(options.fractureSpend||0));
   if(residueSpend>(a.spendResidueMax||0)||residueSpend>(actor.residue||0))return {ok:false,reason:"Resíduo insuficiente para este gasto."};
   if(fractureSpend>(a.spendFracturesMax||0))return {ok:false,reason:"Gasto de Fraturas inválido."};
-  const action={actorId,abilityId,formKey:a.formKey||"base",targetId:a.target==="self"?actor.id:target.id,side:"player",
+  const willSign=options.willSign||"miragem";
+  if(s.cardCombat&&!WILL_SIGNS.includes(willSign))return {ok:false,reason:"Manifestação inválida."};
+  const action={actorId,abilityId,formKey:a.formKey||"base",targetId:a.target==="self"?actor.id:target.id,side:"player",...(s.cardCombat?{willSign}:{}),...(handCard?{cardId:handCard.id}:{}),
    ...(residueSpend?{residueSpend}:{}),...(fractureSpend?{fractureSpend}:{})};
   const index=s.queue.findIndex(ref=>ref.actorId===actorId);if(index>=0)s.queue[index]=action;else s.queue.push(action);
   return {ok:true,action};
 }
 export function removeQueuedAction(s,id){if(s.phase!=="player")return false;s.queue=s.queue.filter(a=>a.actorId!==id);return true;}
 export function moveQueuedAction(s,id,direction){if(s.phase!=="player")return false;const i=s.queue.findIndex(a=>a.actorId===id),j=i+direction;if(i<0||j<0||j>=s.queue.length)return false;[s.queue[i],s.queue[j]]=[s.queue[j],s.queue[i]];return true;}
-export function commitTurn(s,selected){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};const payment=getTurnPayment(s,selected);if(!payment.ok)return {ok:false,reason:payment.reason};s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...payment.actions,{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];s.pendingEssenceExchanges=[];return {ok:true};}
+export function commitTurn(s,selected){if(s.phase!=="player")return {ok:false,reason:"O turno já está em resolução."};const payment=getTurnPayment(s,selected);if(!payment.ok)return {ok:false,reason:payment.reason};
+ if(s.cardCombat&&payment.actions.some(action=>action.abilityId!==BASIC_ATTACK_ID&&!findHandCard(s.cardCombat,action.actorId,action.abilityId,action.cardId)))return {ok:false,reason:"Uma carta da fila não está mais disponível."};
+ const moves=s.grid?validateMovementPlans(s,"player",s.movementPlans?.player||[]):[];
+ const actions=payment.actions.map(action=>{const card=s.cardCombat&&action.abilityId!==BASIC_ATTACK_ID?consumeHandCard(s.cardCombat,action.actorId,action.cardId):null;return {...action,...(card?{cardUpgrades:card.upgrades}:{} )};});
+ s.phase="resolving";s.resolutionSide="player";s.acted=[];s.resolution=[...(s.grid?[{type:"grid-moves",moves}]:[]),...actions,{type:"handoff"},{type:"effects"},{type:"next-turn"}];s.queue=[];s.pendingEssenceExchanges=[];return {ok:true};}
 function endOpposing(s,units){expireReactives(s,units,"opposing",effectsContext(s));for(const u of units){if(!u.healingBlockFresh)u.healingBlock=0;u.healingBlockFresh=false;u.invulnerable=0;u.counter=0;u.reduction=0;if(!u.exposedFresh)u.exposed=0;u.exposedFresh=false;}}
 function endActing(s,units,reactions=[]){expireReactives(s,units,"acting",effectsContext(s,reactions));for(const u of units){if(!u.boostFresh)u.boost=0;u.boostFresh=false;u.weakened=Math.max(0,u.weakened-1);u.stunned=Math.max(0,u.stunned-1);}}
 function tickEffects(s){
@@ -440,23 +458,29 @@ function tickEffects(s){
   tick("collapseTurns","collapseFresh",()=>{u.collapseLevel=0;});
  }
 }
-function nextTurn(s,recoveries){for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
+function nextTurn(s,recoveries){if(s.cardCombat)endCardRound(s.cardCombat);if(s.grid)s.movementPlans={player:[],enemy:[]};for(const u of [...s.allies,...s.enemies]){const fresh=new Set(u.cooldownFresh);u.cooldownFresh=[];for(const [id,n]of Object.entries(u.cooldowns))if(!fresh.has(id)){if(n>1)u.cooldowns[id]=n-1;else delete u.cooldowns[id];}u.offenseLastTurn=u.offenseUsedThisTurn;u.damagedLastTurn=u.tookDamageThisTurn;u.offenseUsedThisTurn=false;u.tookDamageThisTurn=false;}s.round++;s.acted=[];s.phase="player";s.resolutionSide=null;grantTurn(s,recoveries);if(s.grid)spawnGridObjectives(s,()=>nextRandom(s));for(const u of [...s.allies,...s.enemies])u.cooldownFresh=[];planAI(s);log(s,`Turno ${s.round}: Essência recebida. Monte sua próxima fila.`);}
 function resolveAction(s){
   if(s.phase!=="resolving")return {done:true};refreshSkillForms(s);const action=s.resolution.shift();
   if(!action||action.type==="next-turn"){const before=JSON.stringify([...s.allies,...s.enemies].map(formSummary)),recoveries=[];nextTurn(s,recoveries);const changed=before!==JSON.stringify([...s.allies,...s.enemies].map(formSummary));return {done:true,newTurn:true,...(recoveries.length?{event:{mode:"recovery",reactions:recoveries,title:"Regeneração",summary:"A recuperação do início do turno foi aplicada."}}:changed?{event:{mode:"forms",title:"Técnicas alteradas",summary:"As formas foram atualizadas para este turno."}}:{})};}
+  if(action.type==="grid-moves"){const moves=resolveGridMoves(s,action.moves||[]),claims=collectGridObjectives(s,moves);if(moves.length)log(s,`${moves.length} alma(s) se movimentaram no tabuleiro.`);for(const claim of claims)log(s,`${claim.actorName} coleta um Emblema ${OBJECTIVE_LABELS[claim.tier]}.`);return {done:false,event:{mode:"movement",moves,objectiveRewards:claims,title:claims.length?"Emblema da Casa Objetivo":"Movimentação tática",summary:claims.length?claims.map(claim=>`${claim.actorName}: aprimoramento ${OBJECTIVE_LABELS[claim.tier]} aplicado ao seu baralho.`).join(" · "):moves.length?`${moves.length} deslocamento(s) concluídos.`:"Nenhum deslocamento foi possível."}};}
   if(action.type==="essence-exchange"){
    const result=resolveEssenceExchange(s.enemyResources,action.target,action.payment);
    if(result.ok){s.enemyResources=result.pool;const names={essence:"Éter",cinza:"Cinza",graca:"Graça",ruptura:"Ruptura"};log(s,`A oposição troca 5 Essências por 1 ${names[action.target]}.`);return {done:false,event:{...action,mode:"exchange",title:"Essência convertida",summary:`5 Essências convertidas em 1 ${names[action.target]}.`}};}
    return {done:false,event:{...action,mode:"exchange",skipped:true,title:"Troca cancelada",summary:result.reason}};
   }
-  if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:reactions.length?"reactions":"turn",reactions,title:reactions.length?"Efeito reativo":"Turno da oposição",summary:"As habilidades adversárias serão resolvidas uma a uma."}};}
+  if(action.type==="handoff"){const reactions=[];endActing(s,s.allies,reactions);endOpposing(s,s.enemies);if(outcome(s))return {done:true,event:{mode:"effects",reactions,title:"Efeito ativado",summary:"As reações encerraram o confronto."}};s.resolutionSide="enemy";const moves=s.grid?resolveGridMoves(s,greedyMovement(s,"enemy")):[];const claims=collectGridObjectives(s,moves);for(const claim of claims)log(s,`${claim.actorName} coleta um Emblema ${OBJECTIVE_LABELS[claim.tier]}.`);planAI(s);s.resolution.unshift(...s.intents.map(a=>({...a})));return {done:false,event:{mode:moves.length?"movement":reactions.length?"reactions":"turn",moves,objectiveRewards:claims,reactions,title:claims.length?"Emblema da Casa Objetivo":moves.length?"A oposição avançou":reactions.length?"Efeito reativo":"Turno da oposição",summary:claims.length?claims.map(claim=>`${claim.actorName} recebe um aprimoramento ${OBJECTIVE_LABELS[claim.tier]}.`).join(" · "):moves.length?`${moves.length} alma(s) adversárias se moveram.`:"As habilidades adversárias serão resolvidas uma a uma."}};}
   if(action.type==="effects"){const reactions=[];endActing(s,s.enemies,reactions);endOpposing(s,s.allies);tickEffects(s);outcome(s);return {done:s.phase!=="resolving",event:{mode:reactions.length?"reactions":"effects",reactions,title:reactions.length?"Efeito reativo":"Efeitos persistentes",summary:"Aflições e durações foram atualizadas."}};}
-  const actor=byId(team(s,action.side),action.actorId),a=actor?.abilities.find(a=>a.id===action.abilityId);
+  const actor=byId(team(s,action.side),action.actorId),baseAbility=actor?.abilities.find(a=>a.id===action.abilityId);let a=baseAbility&&action.cardUpgrades?.length?applyCardUpgrades(baseAbility,action.cardUpgrades):baseAbility;
   if(!actor||!a)return {done:false,event:{...action,skipped:true,title:"Ação cancelada",summary:"O personagem deixou o combate antes de agir."}};
   if(actor.stunned){log(s,`${actor.name} perde a ação: Atordoado.`);return {done:false,event:{...action,skipped:true,title:`${actor.name} · Atordoado`,summary:"A habilidade foi interrompida."}};}
   if(actor.cooldowns[a.id])return {done:false,event:{...action,skipped:true,title:"Técnica em recarga",summary:"A recarga impede esta ação. Custos de Essência preservados."}};
   if(skillSealReason(actor,a))return {done:false,event:{...action,skipped:true,title:skillSealReason(actor,a),summary:"A técnica foi selada antes de agir. Custos de Essência preservados."}};
   if(action.formKey&&action.formKey!==(a.formKey||"base"))return {done:false,event:{...action,skipped:true,title:"Técnica alterada",summary:"A forma mudou após a confirmação. Ação cancelada; custos de Essência preservados."}};
+  if(s.cardCombat&&action.side==="enemy"&&!s.humanSides&&action.abilityId!==BASIC_ATTACK_ID){
+   const used=consumeHandCard(s.cardCombat,actor.id,action.cardId);
+   if(!used)return {done:false,event:{...action,skipped:true,title:"Carta indisponível",summary:"O adversário não possui essa carta na mão."}};
+   if(used.upgrades?.length)a=applyCardUpgrades(a,used.upgrades);
+  }
   const result=apply(s,actor,a,action.targetId,action.randomPayment,action);if(action.side==="player")s.acted.push(actor.id);outcome(s);return {done:s.phase!=="resolving",event:{...action,...result,title:a.name,actorName:actor.name,summary:result.reason||""}};
 }
 export function passTurn(s){if(!commitTurn(s).ok)return false;let guard=0;while(s.phase==="resolving"&&guard++<20)resolveNextAction(s);return true;}
@@ -471,8 +495,27 @@ export function createEnemyTeam(elo,playerIds,encounter="normal",sequence=0,conf
 export function getEloById(id){return getElo(id);}
 
 export function resolveNextAction(s){
- const aliveBefore=new Set([...s.allies,...s.enemies].filter(unit=>unit.hp>0).map(unit=>unit.id));
+ const unitsBefore=[...s.allies,...s.enemies];
+ const aliveBefore=new Set(unitsBefore.filter(unit=>unit.hp>0).map(unit=>unit.id));
+ const before=new Map(unitsBefore.map(unit=>[unit.id,{hp:unit.hp,shield:unit.shield}]));
  const result=resolveAction(s),units=[...s.allies,...s.enemies];
+ // A bounded public timeline contains only already resolved events; no hidden cards or plans.
+ if(result.event){
+  const event=result.event;
+  const changes=units.map(unit=>{
+   const prev=before.get(unit.id)||{hp:unit.hp,shield:unit.shield};
+   return {id:unit.id,name:unit.name,hp:unit.hp-prev.hp,shield:unit.shield-prev.shield,statuses:[],forms:[]};
+  }).filter(change=>change.hp||change.shield);
+  s.combatEventSeq=(s.combatEventSeq||0)+1;
+  const publicEvent={seq:s.combatEventSeq,round:s.round,mode:event.mode||"ability",title:event.title||"Ação resolvida",summary:event.summary||"",
+   actorId:event.actorId||null,actorName:event.actorName||null,abilityId:event.abilityId||null,
+   targetId:event.targetId||null,totalDamage:event.totalDamage||0,changes,
+   ...(event.clashResult?{clashResult:{outcome:event.clashResult.outcome,cancel:!!event.clashResult.cancel,critical:!!event.clashResult.critical}}:{}),
+   ...(event.moves?.length?{moves:event.moves.map(move=>({actorId:move.actorId,side:move.side}))}:{}),
+   ...(event.objectiveRewards?.length?{objectiveRewards:event.objectiveRewards.map(reward=>({actorId:reward.actorId,actorName:reward.actorName,tier:reward.tier}))}:{})};
+  (s.combatEvents||=[]).push(publicEvent);
+  if(s.combatEvents.length>12)s.combatEvents.splice(0,s.combatEvents.length-12);
+ }
  // Reactions and idle traps can defeat a soul outside the direct-hit path.
  for(const unit of units)if(aliveBefore.has(unit.id)&&unit.hp<=0&&!unit.defeatNotified){
   const reaction=result.event?.reactions?.find(item=>item.targetId===unit.id&&item.damage>0);
@@ -484,29 +527,37 @@ export function resolveNextAction(s){
 // Authoritative human-v-human entry points. No client health, costs or results are accepted.
 export function createDuel(firstIds,secondIds,config={}){
  const roster=secondIds.map((id,i)=>({...characterById[id],sourceId:id,id:`rival-${i}-${id}`}));
- const s=createBattle(firstIds,roster,{...config,enemyPlanner:()=>[]});
+ const cardLoadouts={...(config.cardLoadouts?.player||{})};
+ secondIds.forEach((id,i)=>{if(config.cardLoadouts?.enemy?.[id])cardLoadouts[`rival-${i}-${id}`]=config.cardLoadouts.enemy[id];});
+ const s=createBattle(firstIds,roster,{...config,cardLoadouts,enemyPlanner:()=>[]});
  s.humanSides=true;s.turnSide='player';s.turnNumber=1;s.intents=[];
+ if(config.cardMode){s.simultaneousDuel=true;s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};s.duelExchanges={player:null,enemy:null};s.clash=null;}
  // Both human teams receive their own composition bonus.
  s.enemyResonance=getResonance(secondIds);return s;
 }
-export function submitDuelTurn(s,side,actions,selected,exchanges=[]){
+export function submitDuelTurn(s,side,actions,selected,exchanges=[],moves=[]){
+ if(s.simultaneousDuel)return submitSimultaneousDuelTurn(s,side,actions,selected,exchanges,moves);
  if(s.phase!=='player'||s.turnSide!==side)throw new Error('Não é seu turno.');
  if(!Array.isArray(actions)||actions.length>3)throw new Error('Fila inválida.');
  refreshSkillForms(s);const used=new Set(),queue=[];
  for(const ref of actions){
   const actor=byId(team(s,side),ref.actorId),a=actor?.abilities.find(a=>a.id===ref.abilityId);
   if(!actor||!a||used.has(actor.id)||actor.stunned||actor.cooldowns[a.id]||skillSealReason(actor,a))throw new Error('Ação indisponível.');
+  const card=s.cardCombat?findHandCard(s.cardCombat,actor.id,a.id,ref.cardId):null;
+  if(s.cardCombat&&a.id!==BASIC_ATTACK_ID&&!card)throw new Error("Carta não disponível na mão.");
   if(!getValidTargets(s,actor,a).some(u=>u.id===ref.targetId))throw new Error('Alvo inválido.');
-  used.add(actor.id);queue.push({actorId:actor.id,abilityId:a.id,targetId:ref.targetId,formKey:a.formKey||'base',side});
+  used.add(actor.id);queue.push({actorId:actor.id,abilityId:a.id,targetId:ref.targetId,formKey:a.formKey||'base',side,...(card?{cardId:card.id}:{})});
  }
  if(!Array.isArray(exchanges)||exchanges.length>20)throw new Error('Trocas de Essência inválidas.');
  const nextPool={...pool(s,side)},resolvedExchanges=[];
  for(const exchange of exchanges){const result=resolveEssenceExchange(nextPool,exchange?.target,exchange?.payment);if(!result.ok)throw new Error(result.reason);Object.assign(nextPool,result.pool);resolvedExchanges.push(result);}
  const payment=allocateQueuePayment(queue,team(s,side),nextPool,selected);if(!payment.ok)throw new Error(payment.reason);
  Object.assign(pool(s,side),nextPool);const names={essence:'Éter',cinza:'Cinza',graca:'Graça',ruptura:'Ruptura'};for(const exchange of resolvedExchanges)log(s,`5 Essências foram trocadas por 1 ${names[exchange.target]}.`);s.pendingEssenceExchanges=[];
- s.phase='resolving';s.resolution=[...payment.actions,{type:'duel-end',side}];s.queue=[];continueDuel(s);
+ const paid=payment.actions.map(action=>{const card=s.cardCombat&&action.abilityId!==BASIC_ATTACK_ID?consumeHandCard(s.cardCombat,action.actorId,action.cardId):null;return {...action,...(card?{cardUpgrades:card.upgrades}:{})};});
+ s.phase='resolving';s.resolution=[...paid,{type:'duel-end',side}];s.queue=[];continueDuel(s);
 }
 export function continueDuel(s){
+ if(s.simultaneousDuel)return continueSimultaneousDuel(s);
  let guard=0;
  while(s.phase==='resolving'&&guard++<12){
   if(s.resolution[0]?.type==='duel-end'){
@@ -517,4 +568,123 @@ export function continueDuel(s){
   }
   resolveNextAction(s);
  }
+}
+
+
+// Simultaneous PvP is opt-in for card games. Legacy duels retain their previous flow.
+const opposingSide=side=>side==="player"?"enemy":"player";
+const activeDuelAbility=(s,action)=>{
+ const actor=byId(team(s,action.side),action.actorId);
+ const base=actor?.abilities.find(ability=>ability.id===action.abilityId);
+ return {actor,ability:base&&action.cardUpgrades?.length?applyCardUpgrades(base,action.cardUpgrades):base};
+};
+export function duelPlanningStatus(s){
+ return {round:s.round,ready:{player:Boolean(s.duelPlans?.player),enemy:Boolean(s.duelPlans?.enemy)}};
+}
+function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[]){
+ if(s.phase!=="player"||s.duelPlans?.[side])throw new Error("O planejamento deste lado já foi confirmado.");
+ if(!Array.isArray(actions)||actions.length>3)throw new Error("Fila inválida.");
+ if(!Array.isArray(exchanges)||exchanges.length>20)throw new Error("Trocas de Essência inválidas.");
+ const normalizedMoves=validateMovementPlans(s,side,moves);
+ // Preview own movements when validating the chosen targets.
+ const previousMoves=s.movementPlans?.[side]||[];
+ if(s.grid)s.movementPlans[side]=normalizedMoves;
+ try{
+ refreshSkillForms(s);
+ const used=new Set(),queue=[];
+ for(const ref of actions){
+  const actor=byId(team(s,side),ref?.actorId),base=actor?.abilities.find(a=>a.id===ref?.abilityId);
+  if(!actor||!base||used.has(actor.id)||actor.stunned||actor.cooldowns[base.id]||skillSealReason(actor,base))throw new Error("Ação indisponível.");
+  // Card instance ownership and upgrades are entirely validated server-side.
+  const card=s.cardCombat?findHandCard(s.cardCombat,actor.id,base.id,ref?.cardId):null;
+  if(s.cardCombat&&base.id!==BASIC_ATTACK_ID&&!card)throw new Error("Carta não disponível na mão.");
+  const ability=card?.upgrades?.length?applyCardUpgrades(base,card.upgrades):base;
+  const valid=getValidTargets(s,actor,ability);
+  if(!valid.some(target=>target.id===ref?.targetId))throw new Error("Alvo inválido.");
+  const willSign=ref?.willSign||"miragem";
+  if(!WILL_SIGNS.includes(willSign))throw new Error("Manifestação inválida.");
+  used.add(actor.id);
+  queue.push({actorId:actor.id,abilityId:base.id,formKey:base.formKey||"base",targetId:ref.targetId,side,willSign,...(card?{cardId:card.id,cardUpgrades:card.upgrades}:{})});
+ }
+ // Build the complete payment on a copy before touching the authoritative state.
+ const nextPool={...pool(s,side)},resolvedExchanges=[];
+ for(const exchange of exchanges){
+  const swap=resolveEssenceExchange(nextPool,exchange?.target,exchange?.payment);
+  if(!swap.ok)throw new Error(swap.reason);
+  Object.assign(nextPool,swap.pool);resolvedExchanges.push(swap.target);
+ }
+ const payment=allocateQueuePayment(queue,team(s,side),nextPool,selected);
+ if(!payment.ok)throw new Error(payment.reason);
+ // Only after the complete submission validates, consume hand cards and store a hidden plan.
+ const paid=payment.actions.map(action=>{
+  if(s.cardCombat&&action.abilityId!==BASIC_ATTACK_ID&&!consumeHandCard(s.cardCombat,action.actorId,action.cardId))throw new Error("Carta indisponível.");
+  return action;
+ });
+ s.duelPlans[side]=paid;
+ s.duelPools[side]=nextPool;
+ s.duelMoves[side]=normalizedMoves;
+ s.duelExchanges[side]=resolvedExchanges;
+ if(s.duelPlans.player&&s.duelPlans.enemy){
+  Object.assign(pool(s,"player"),s.duelPools.player);
+  Object.assign(pool(s,"enemy"),s.duelPools.enemy);
+  for(const [confirmedSide,targets] of Object.entries(s.duelExchanges))for(const target of targets||[])log(s,`${confirmedSide==="player"?"Seu trio":"A oposição"}: 5 Essências foram trocadas por 1 ${essenceName(target)}.`);
+  const first=s.round%2===1?"player":"enemy",second=opposingSide(first),resolution=[];
+  const moves=[...(s.duelMoves.player||[]),...(s.duelMoves.enemy||[])];
+  if(s.grid)resolution.push({type:"grid-moves",moves});
+  for(let i=0;i<3;i++)for(const sideInOrder of [first,second])if(s.duelPlans[sideInOrder][i])resolution.push(s.duelPlans[sideInOrder][i]);
+  s.duelPlans={player:null,enemy:null};s.duelPools={player:null,enemy:null};s.duelMoves={player:null,enemy:null};s.duelExchanges={player:null,enemy:null};
+  s.phase="resolving";s.resolution=[...resolution,{type:"duel-round-end"}];
+  s.resolutionSide=first;s.acted=[];continueSimultaneousDuel(s);
+ }
+ return duelPlanningStatus(s);
+ }catch(error){if(s.grid)s.movementPlans[side]=previousMoves;throw error;}
+}
+function duelClashCandidate(s,action){
+ if(!action?.actorId||action.abilityId===BASIC_ATTACK_ID||action.clashResolved||!canUseResponse(s.cardCombat,opposingSide(action.side)))return null;
+ const {actor,ability}=activeDuelAbility(s,action);
+ if(!actor||!ability||actor.stunned||actor.cooldowns[ability.id]||skillSealReason(actor,ability)||!ability.damage||friendly(ability))return null;
+ const valid=getValidTargets(s,actor,ability);
+ const chosen=valid.find(target=>target.id===action.targetId);
+ if(!chosen)return null;
+ return {defenderSide:opposingSide(action.side),attackerSide:action.side,actorId:actor.id,abilityId:ability.id,targetId:chosen.id,willSign:action.willSign||"miragem"};
+}
+export function answerDuelClash(s,side,sign="pass"){
+ if(!s.simultaneousDuel||s.phase!=="clash"||!s.clash||s.clash.defenderSide!==side)throw new Error("Não existe resposta pendente para esta equipe.");
+ if(sign!=="pass"&&!WILL_SIGNS.includes(sign))throw new Error("Manifestação inválida.");
+ const action=s.resolution[0];
+ if(!action||action.actorId!==s.clash.actorId||action.abilityId!==s.clash.abilityId)throw new Error("Confronto desatualizado.");
+ if(sign!=="pass"){
+  if(!spendResponse(s.cardCombat,side))throw new Error("Sem direito de resposta.");
+  action.clashResult=resolveWillClash({attackerChoice:s.clash.willSign,defenderChoice:sign});
+  action.clashTargetId=s.clash.targetId;
+  log(s,"Confronto de Vontades: "+s.clash.willSign+" contra "+sign+" · "+action.clashResult.outcome+".");
+ }
+ action.clashResolved=true;
+ s.clash=null;s.phase="resolving";continueSimultaneousDuel(s);
+ return {ok:true};
+}
+function continueSimultaneousDuel(s){
+ let guard=0;
+ while(s.phase==="resolving"&&guard++<30){
+  const action=s.resolution?.[0];
+  if(action?.type==="duel-round-end"){
+   s.resolution.shift();
+   const reactions=[];
+   endActing(s,s.allies,reactions);endActing(s,s.enemies,reactions);
+   endOpposing(s,s.allies);endOpposing(s,s.enemies);
+   tickEffects(s);
+   if(!outcome(s))nextTurn(s,[]);
+   checkDeathInfluences(s);
+   return;
+  }
+  const candidate=duelClashCandidate(s,action);
+  if(candidate){
+   s.clash=candidate;s.phase="clash";s.resolutionSide=action.side;
+   return;
+  }
+  if(action?.side)s.resolutionSide=action.side;
+  const result=resolveNextAction(s);
+  if(result.influence||s.phase==="influence"||result.done||s.phase!=="resolving")return;
+ }
+ if(guard>=30&&s.phase==="resolving")throw new Error("Limite de resolução simultânea excedido.");
 }

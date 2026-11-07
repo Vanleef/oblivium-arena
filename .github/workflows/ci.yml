@@ -1,0 +1,55 @@
+name: Testes e build
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - feature/tres-baralhos-confronto-20261107
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testes isolados do novo combate
+        run: node --test tests/card-combat.test.js tests/tactical-grid.test.js tests/grid-objectives.test.js tests/combat-event-journal.test.js tests/ranked-loadouts.test.js tests/duel-simultaneous.test.js tests/online.test.js
+      - name: Build estático
+        if: always()
+        run: npm run build
+      - name: Regressão completa (inclui testes legados)
+        if: always()
+        run: |
+          set +e
+          npm test > "$RUNNER_TEMP/feature-tests.log" 2>&1
+          code=$?
+          echo "Resultado da branch (exit $code):"
+          grep -E "^# (tests|pass|fail) " "$RUNNER_TEMP/feature-tests.log" || true
+          exit "$code"
+      - name: Consultar a main como referência
+        if: always()
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          clean: true
+      - name: Diagnóstico de falhas existentes na main
+        if: always()
+        run: |
+          set +e
+          npm test > "$RUNNER_TEMP/main-tests.log" 2>&1
+          code=$?
+          echo "Resultado da main (exit $code):"
+          grep -E "^# (tests|pass|fail) " "$RUNNER_TEMP/main-tests.log" || true
+          exit 0
+      - name: Comparar falhas com a main
+        if: always()
+        run: |
+          grep -E "^not ok [0-9]+ - " "$RUNNER_TEMP/main-tests.log" | sed -E 's/^not ok [0-9]+ - //' | sort -u > "$RUNNER_TEMP/main-fails.txt" || true
+          grep -E "^not ok [0-9]+ - " "$RUNNER_TEMP/feature-tests.log" | sed -E 's/^not ok [0-9]+ - //' | sort -u > "$RUNNER_TEMP/feature-fails.txt" || true
+          echo "Falhas apenas na branch:"
+          comm -13 "$RUNNER_TEMP/main-fails.txt" "$RUNNER_TEMP/feature-fails.txt" || true
+          echo "Falhas da main corrigidas na branch:"
+          comm -23 "$RUNNER_TEMP/main-fails.txt" "$RUNNER_TEMP/feature-fails.txt" || true

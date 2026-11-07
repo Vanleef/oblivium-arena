@@ -16,6 +16,10 @@ import { renderTrail } from "./trail-view.js";
 import { highlightTrailChoice } from "./trail-motion.js";
 import { renderBattleMotion } from "./battle-motion.js";
 import { renderBattle, renderBattleDetail, skillAvailability } from "./battle-view.js";
+import { renderDeckBuilder, deckEntries } from "./deck-builder-view.js";
+import { defaultLoadout, CARD_RULES } from "./card-combat.js";
+import { setMovementPlan, removeMovementPlan } from "./tactical-grid.js";
+import { campaignObjectiveTier } from "./grid-objectives.js";
 import { eloCrest, eloSigil } from "./crests.js";
 import { veilScene } from "./atmosphere.js";
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from "./progression.js";
@@ -57,6 +61,7 @@ const starterTeam = ["o-escudo-vivo", "a-brasa-eterna", "o-passo-interrompido"];
 const defaults = {
   ownedIds: starters.map((character) => character.id),
   team: starterTeam,
+  cardLoadouts: {},
   completedElos: [],
   xp: 0,
   fragments: 0,
@@ -115,6 +120,11 @@ let state = {
   battleFx: null,
   selectedSkill: null,
   focusSkill: null,
+  handActorId: null,
+  moveActorId: null,
+  deckActorId: null,
+  deckDrafts: {},
+  willSign: "miragem",
   inspectUnitId: null,
   confirmTurn: false,
   randomPayment:null,
@@ -288,8 +298,9 @@ function startEncounter(node) {
     enemies[2].symbol = "⬡";
   }
   state.battleNode = node;
+  state.moveActorId = null;
   if (profile.run && nodeType !== "finale") profile.run.currentNodeId = node.id;
-  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption });
+  state.battle = createBattle(battleTeam, enemies, { buffs: profile.run?.buffs || [], memories: profile.run?.memories || [], teamHealth: profile.run?.teamHealth || {},globalEffects:aggregateGlobal(profile),difficulty:profile.run?.difficulty||0,campaignRealm:elo.realm,niloAbsorption:profile.run?.niloAbsorption,objectiveTier:campaignObjectiveTier(profile),cardMode:true });
   beginInfluences(state.battle,(profile.run?.seed||1)+(profile.run?.encounter||0)*97);
   state.targetId = null;
   state.battleFx = null;
@@ -480,9 +491,10 @@ function battleChanges(before,battle) {
 function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
   const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
-  const kind=event.mode==="turn"?"turn":changes.some(c=>c.statuses.some(s=>s.startsWith("FORMA ·")))?"form":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
+  const kind=event.objectiveRewards?.length?"reward":event.clashResult?.cancel?"shield":event.mode==="turn"?"turn":changes.some(c=>c.statuses.some(s=>s.startsWith("FORMA ·")))?"form":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
   playSfx(event.reactions?.length?"reactive":kind==="form"?"form":kind==="restore"?"heal":kind==="impact"?"impact":"cast");
-  state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="world")?"Eco ativado":event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
+  const clashLabel=event.clashResult?.cancel?"VONTADE VENCIDA · GOLPE ANULADO":event.clashResult?.critical?"CONFRONTO · ACERTO CRÍTICO":null;
+  state.battleFx={...event,...(clashLabel?{title:clashLabel,actorName:event.actorName}:{}) ,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="world")?"Eco ativado":event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:event.clashResult?.cancel?"O defensor anulou completamente o dano e os efeitos recebidos.":event.clashResult?.critical?"CRÍTICO! "+(summary||event.summary||"Impacto ampliado."):(summary||event.summary||"Habilidade resolvida.")};render();
 }
 function resolveCombatStep() {
   const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);
@@ -493,38 +505,84 @@ function resolveCombatStep() {
 function executePlannedTurn() {
   if(!state.battle)return;const payment=getTurnPayment(state.battle,state.randomPayment);if(!payment.ok){toast(payment.reason);return;}
   const exchanges=state.battle.pendingEssenceExchanges||[];
-  if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",actions:state.battle.queue,payment:payment.selected,exchanges});return;}
-  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend})=>({actorId,abilityId,targetId,residueSpend,fractureSpend}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges},{animate:true});return;}
-  if(!commitTurn(state.battle,payment.selected).ok)return;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
+  const moves=state.battle.movementPlans?.player||[];
+  if(state.battle.online){state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;sendOnline({op:"turn",round:state.battle.round,actions:state.battle.queue,payment:payment.selected,exchanges,moves});return;}
+  if(profile.run?.serverOwned){const actions=state.battle.queue.map(({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId})=>({actorId,abilityId,targetId,residueSpend,fractureSpend,cardId}));state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;requestCampaign({op:"turn",round:state.battle.round,actions,payment:payment.selected,exchanges,moves},{animate:true});return;}
+  if(!commitTurn(state.battle,payment.selected).ok)return;state.moveActorId=null;state.exchangeOpen=false;state.exchangePayment=null;state.confirmTurn=false;state.selectedSkill=null;state.focusSkill=null;resolveCombatStep();
 }
-function updateBattle(actorId,abilityId) {
+function updateBattle(actorId,abilityId,cardId=null) {
   const b=state.battle;if(!b||b.phase!=="player"||state.battleFx)return;const actor=b.allies.find(u=>u.id===actorId),ability=actor?.abilities.find(a=>a.id===abilityId);
   if(!actor||!ability)return;
-  state.focusSkill={actorId,abilityId};state.inspectUnitId=null;
+  state.moveActorId=null;state.focusSkill={actorId,abilityId};state.handActorId=actorId;state.inspectUnitId=null;
   if(skillAvailability(b,actor,ability)){
     state.selectedSkill=null;render();app.querySelector(`[data-use-skill="${actorId}:${abilityId}"]`)?.focus({preventScroll:true});return;
   }
-  state.selectedSkill={actorId,abilityId};render();app.querySelector('.fighter-card.valid-target')?.focus({preventScroll:true});
+  state.selectedSkill={actorId,abilityId,cardId};render();if(b.grid)app.querySelector(".tactical-tile.target-choice .tactical-occupant")?.focus({preventScroll:true});else app.querySelector(".fighter-card.valid-target")?.focus({preventScroll:true});
 }
 function selectBattleTarget(targetId) {
   if(!state.battle||state.battle.phase!=="player")return;
   if(!state.selectedSkill){state.inspectUnitId=targetId;state.focusSkill=null;render();return;}
-  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0});
+  const {actorId,abilityId}=state.selectedSkill,key=`${actorId}:${abilityId}`,result=chooseAction(state.battle,actorId,abilityId,targetId,{residueSpend:state.spendChoices?.[`${key}:residue`]||0,fractureSpend:state.spendChoices?.[`${key}:fracture`]||0,cardId:state.selectedSkill.cardId,willSign:state.willSign});
   if(!result.ok){toast(result.reason);return;}state.exchangeOpen=false;state.exchangePayment=null;state.selectedSkill=null;render();
 }
 
 let onlineTimer=null;
+function playOnlineCombatEvent(){
+ if(state.onlineFxActive||!state.battle?.online||!state.onlineFxQueue?.length)return;
+ const event=state.onlineFxQueue.shift();
+ const kind=event.objectiveRewards?.length?"reward":event.clashResult?.cancel?"shield":event.changes?.some(change=>change.hp<0)?"impact":event.changes?.some(change=>change.hp>0)?"restore":event.mode==="movement"?"movement":"control";
+ state.onlineFxActive=true;
+ state.battleFx={...event,kind,id:++battleFxSequence,changes:event.changes||[],title:event.clashResult?.cancel?"VONTADE · GOLPE ANULADO":event.clashResult?.critical?"CONFRONTO · ACERTO CRÍTICO":event.title,
+  summary:event.objectiveRewards?.length?event.summary:event.summary||"Ação resolvida."};
+ playSfx(kind==="impact"?"impact":kind==="restore"?"heal":"cast");
+ render();
+ clearTimeout(battleFxTimer);
+ battleFxTimer=setTimeout(()=>{
+  state.onlineFxActive=false;state.battleFx=null;
+  if(state.battle?.online&&state.onlineFxQueue?.length)playOnlineCombatEvent();
+  else render();
+ },820);
+}
+function ingestOnlineCombatEvents(match){
+ if(!match?.battle)return;
+ const online=state.online,events=match.battle.combatEvents||[];
+ if(online.fxMatchId!==match.id){
+  online.fxMatchId=match.id;
+  online.fxSeq=events.length?events[events.length-1].seq-1:0;
+  state.onlineFxQueue=[];state.onlineFxActive=false;state.battleFx=null;
+  clearTimeout(battleFxTimer);
+ }
+ const unseen=events.filter(event=>Number.isInteger(event.seq)&&event.seq>(online.fxSeq||0));
+ if(!unseen.length)return;
+ online.fxSeq=unseen[unseen.length-1].seq;
+ state.onlineFxQueue||=[];
+ state.onlineFxQueue.push(...unseen.slice(-8));
+ if(state.onlineFxQueue.length>12)state.onlineFxQueue.splice(0,state.onlineFxQueue.length-12);
+}
 async function sendOnline(payload){
  state.online ||= {connected:false,queuing:false};const online=state.online;if(online.busy)return;online.busy=true;
  clearTimeout(onlineTimer);
  try{
   const data=await arenaRequest({...payload,version:online.match?.version});
+  const priorMatchId=online.match?.id;
   const changed=data.match?.id!==online.match?.id||data.match?.version!==online.match?.version;
   Object.assign(online,data,{connected:true,message:data.match?data.match.settled?"Resultado registrado na classificação.":"Partida conectada.":online.queuing?"Buscando uma alma de classificação próxima…":"Arena conectada."});
-  if(data.match){online.queuing=false;if(changed){state.battle=data.match.battle;state.battle.deadline=data.match.deadline;state.battleNode={label:"Arena ranqueada"};state.selectedSkill=null;state.focusSkill=null;state.confirmTurn=false;state.tab="battle";}}
-  else if(state.battle?.online)state.battle=null;
+  if(data.match){online.queuing=false;if(changed){
+   const previous=state.battle,matchSame=priorMatchId===data.match.id;
+   const next=data.match.battle;
+   const continuePlanning=matchSame&&previous?.online&&previous.phase==="player"&&next.phase==="player"&&previous.round===next.round;
+   if(continuePlanning){
+    next.queue=[...(previous.queue||[])];
+    next.resources={...previous.resources};
+    next.pendingEssenceExchanges=[...(previous.pendingEssenceExchanges||[])];
+    next.movementPlans={player:[...(previous.movementPlans?.player||[])],enemy:[]};
+   }else{state.selectedSkill=null;state.focusSkill=null;state.moveActorId=null;state.confirmTurn=false;}
+   state.battle=next;state.battle.deadline=data.match.deadline;state.battleNode={label:"Arena ranqueada"};state.tab="battle";
+   ingestOnlineCombatEvents(data.match);
+  }}
+  else if(state.battle?.online){state.battle=null;state.onlineFxQueue=[];state.battleFx=null;state.onlineFxActive=false;clearTimeout(battleFxTimer);}
  }catch(error){online.message=error.message;if(error.status===503){online.connected=false;online.queuing=false;}else if(error.status===409){onlineTimer=setTimeout(()=>sendOnline({op:"profile"}),300);}}
- finally{online.busy=false;render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team}:{op:"profile"}),2000);}}
+ finally{online.busy=false;if(state.onlineFxQueue?.length&&!state.onlineFxActive)playOnlineCombatEvent();else render();if(online.connected&&(online.queuing||online.match&&!online.match.settled)){onlineTimer=setTimeout(()=>sendOnline(online.queuing?{op:"queue",team:profile.team,loadouts:Object.fromEntries(profile.team.filter(id=>profile.cardLoadouts?.[id]).map(id=>[id,profile.cardLoadouts[id]]))}:{op:"profile"}),2000);}}
 }
 function arenaView(){return renderArena(profile,state.online);}
 function header() {
@@ -659,7 +717,8 @@ function teamView() {
           </button>`;
         }).join("")}</div>
       </section>
-    </div>`;
+    </div>
+    ${renderDeckBuilder(profile,state)}`;
 }
 
 function bodyFormSelector(c){
@@ -756,7 +815,7 @@ function toggleCodexSkill(summary) {
 }
 
 app.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
+  const target = event.target.closest("[data-language], [data-spend-choice], [data-shadow-choice], [data-random-payment], [data-exchange-payment], [data-exchange-target], [data-world-event], [data-codex-skill], [data-preview-form], [data-public-view], [data-tab], [data-realm], [data-start-run], [data-guided-run], [data-node], [data-crew-realm], [data-add-member], [data-remove-member], [data-search], [data-use-skill], [data-card-play], [data-card-unit], [data-movement-toggle], [data-movement-clear], [data-grid-cell], [data-deck-unit], [data-deck-add], [data-deck-remove], [data-deck-save], [data-deck-reset], [data-will-sign], [data-duel-response], [data-action], [data-event-choice], [data-choose-buff], [data-shop-action], [data-shop-buff], [data-abandon-run], [data-clear-notice], [data-final-battle], [data-target], [data-remove-action], [data-move-action], [data-inspect-skill], [data-select-elo], [data-difficulty], [data-global-upgrade], [data-clear-completion], [data-auth-mode], [data-avatar], [data-tutorial-answer], [data-tutorial]");
   if (!target) return;
   if(state.account&&state.audioOn)startAmbience();
   playSfx("click");
@@ -777,7 +836,7 @@ app.addEventListener("click", (event) => {
   if(target.dataset.action==="open-tutorial"){state.tutorialOpen=true;state.tutorialStep=0;render();return;}
   if(target.dataset.action==="skip-tutorial"){if(!state.account&&state.publicView==="tutorial"){state.publicView="login";state.publicTutorialStep=0;}else{state.tutorialOpen=false;profile.tutorialComplete=true;save();}render();return;}
   if(target.dataset.action==="logout"){clearTimeout(accountSaveTimer);accountRequest({op:"logout"}).finally(()=>{state.account=null;state.accountReady=true;state.authMode="login";state.tab="rota";render();});return;}
-  if(target.dataset.action==="queue-online"){if(state.battle&&!state.battle.online){toast("Termine o combate atual antes de buscar uma partida.");return;}state.online.queuing=true;sendOnline({op:"queue",team:profile.team});return;}
+  if(target.dataset.action==="queue-online"){if(state.battle&&!state.battle.online){toast("Termine o combate atual antes de buscar uma partida.");return;}state.online.queuing=true;sendOnline({op:"queue",team:profile.team,loadouts:Object.fromEntries(profile.team.filter(id=>profile.cardLoadouts?.[id]).map(id=>[id,profile.cardLoadouts[id]]))});return;}
   if(target.dataset.action==="cancel-online"){state.online.queuing=false;sendOnline({op:"cancel"});return;}
   if(target.dataset.action==="resume-online"){state.tab="battle";render();return;}
   if(target.dataset.action==="surrender-online"){sendOnline({op:"surrender"});return;}
@@ -823,6 +882,55 @@ app.addEventListener("click", (event) => {
     profile.team = profile.team.filter((id) => id !== target.dataset.removeMember);
     save(); render(); return;
   }
+  if(target.dataset.duelResponse){if(state.battle?.online&&state.battle?.phase==="clash")sendOnline({op:"response",sign:target.dataset.duelResponse});return;}
+  if(target.dataset.willSign){if(["miragem","luz","sombra"].includes(target.dataset.willSign)){state.willSign=target.dataset.willSign;render();}return;}
+  if(target.dataset.deckUnit){state.deckActorId=target.dataset.deckUnit;render();return;}
+  if(target.dataset.deckAdd){
+   const [id,abilityId]=target.dataset.deckAdd.split("|"),unit=characterById[id];if(!unit||!profile.team.includes(id)||!unit.abilities.some(a=>a.id===abilityId))return;
+   const next=[...deckEntries(profile,state,unit).map(e=>({abilityId:e.abilityId}))];
+   if(next.length>=CARD_RULES.maxDeck)return;
+   const count=next.filter(e=>e.abilityId===abilityId).length;
+   if(unit.abilities.length>=3&&count>=3)return;
+   next.push({abilityId});state.deckDrafts[id]=next;render();return;
+  }
+  if(target.dataset.deckRemove){
+   const [id,index]=target.dataset.deckRemove.split("|"),unit=characterById[id];
+   if(!unit||!profile.team.includes(id))return;
+   const next=[...deckEntries(profile,state,unit).map(e=>({abilityId:e.abilityId}))],idx=Number(index);
+   if(!Number.isInteger(idx)||idx<0||idx>=next.length)return;
+   next.splice(idx,1);state.deckDrafts[id]=next;render();return;
+  }
+  if(target.dataset.deckSave){
+   const id=target.dataset.deckSave,unit=characterById[id];if(!unit||!profile.team.includes(id))return;
+   const next=deckEntries(profile,state,unit).map(e=>({abilityId:e.abilityId}));
+   if(next.length<CARD_RULES.minDeck||next.length>CARD_RULES.maxDeck){toast("O baralho precisa ter de 8 a 10 cartas.");return;}
+   if(unit.abilities.length>=3&&unit.abilities.some(a=>next.filter(e=>e.abilityId===a.id).length>3)){toast("Limite de 3 cópias por técnica.");return;}
+   profile.cardLoadouts||={};profile.cardLoadouts[id]=next;delete state.deckDrafts[id];save();toast("Baralho salvo para "+unit.name+".");return;
+  }
+  if(target.dataset.deckReset){
+   const id=target.dataset.deckReset;if(!profile.team.includes(id))return;
+   profile.cardLoadouts||={};delete profile.cardLoadouts[id];delete state.deckDrafts[id];save();toast("Baralho restaurado.");return;
+  }
+  if(target.dataset.movementClear){
+   if(state.battle?.phase!=="player")return;
+   removeMovementPlan(state.battle,"player",target.dataset.movementClear);
+   state.moveActorId=null;render();return;
+  }
+  if(target.dataset.movementToggle){
+   if(state.battle?.phase!=="player")return;
+   const id=target.dataset.movementToggle;
+   state.moveActorId=state.moveActorId===id?null:id;state.selectedSkill=null;state.focusSkill=null;
+   state.handActorId=id;render();if(state.moveActorId)app.querySelector(".tactical-arena")?.scrollIntoView({behavior:"smooth",block:"center"});return;
+  }
+  if(target.dataset.gridCell){
+   if(!state.moveActorId||state.battle?.phase!=="player")return;
+   const [x,y]=target.dataset.gridCell.split(":").map(Number);
+   const move=setMovementPlan(state.battle,"player",state.moveActorId,{x,y});
+   if(!move.ok){toast(move.reason);return;}
+   state.moveActorId=null;render();return;
+  }
+  if(target.dataset.cardUnit){state.handActorId=target.dataset.cardUnit;state.selectedSkill=null;state.focusSkill=null;render();return;}
+  if(target.dataset.cardPlay){const [actorId,abilityId,cardId]=target.dataset.cardPlay.split("|");updateBattle(actorId,abilityId,cardId);return;}
   if (target.dataset.useSkill) {
     const [actorId, abilityId] = target.dataset.useSkill.split(":");
     updateBattle(actorId, abilityId);

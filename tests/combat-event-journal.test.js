@@ -1,0 +1,46 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {characters} from "../src/data.js";
+import {createBattle,createDuel,submitDuelTurn,commitTurn,resolveNextAction} from "../src/combat.js";
+import {setMovementPlan} from "../src/tactical-grid.js";
+import {BASIC_ATTACK_ID} from "../src/card-combat.js";
+import {publicBattle} from "../server/arena-service.js";
+
+const actor=characters.find(c=>c.abilities?.length>=3);
+assert.ok(actor,"Expected at least one playable combatant");
+test("resolved grid movement is journaled with event ordering but no hidden targets, cards or coordinates",()=>{
+ const s=createBattle([actor.id],[{...actor,id:"foe",sourceId:actor.id}],{cardMode:true,rng:()=>0.1});
+ const u=s.allies[0],destination={x:1,y:u.position.y};
+ assert.equal(setMovementPlan(s,"player",u.id,destination).ok,true);
+ assert.equal(commitTurn(s).ok,true);
+ const first=resolveNextAction(s);
+ assert.equal(first.event.mode,"movement");
+ assert.equal(s.combatEvents.length,1);
+ const entry=s.combatEvents[0];
+ assert.equal(entry.seq,1);
+ assert.equal(entry.mode,"movement");
+ assert.deepEqual(entry.moves,[{actorId:u.id,side:"player"}]);
+ assert.equal(entry.cardId,undefined);
+ assert.equal(entry.willSign,undefined);
+ assert.equal(entry.moves[0].to,undefined);
+});
+test("ranked replay exposes resolved damage but never the precommitted Miragem sign or card identifiers",()=>{
+ const s=createDuel([actor.id],[actor.id],{cardMode:true,rng:()=>0.1});
+ const a=s.allies[0],b=s.enemies[0];
+ a.position={x:1,y:2};b.position={x:2,y:2};
+ Object.assign(b,{hp:1000,maxHp:1000,shield:0,armor:0,reduction:0,invulnerable:0,stunned:0});
+ a.stunned=0;
+ submitDuelTurn(s,"player",[{actorId:a.id,abilityId:BASIC_ATTACK_ID,targetId:b.id,willSign:"miragem"}]);
+ assert.equal(s.combatEvents?.length||0,0,"No event may be revealed after only one plan.");
+ submitDuelTurn(s,"enemy",[]);
+ const view=publicBattle({battle:s},1);
+ assert.ok(view.combatEvents.length>0);
+ const attack=view.combatEvents.find(e=>e.abilityId===BASIC_ATTACK_ID);
+ assert.ok(attack);
+ assert.ok(attack.changes.some(change=>change.id===b.id&&change.hp<0));
+ assert.equal(attack.willSign,undefined);
+ assert.equal(attack.cardId,undefined);
+ assert.equal(attack.cardUpgrades,undefined);
+ assert.ok(!JSON.stringify(view.combatEvents).includes('"miragem"'));
+ assert.ok(view.combatEvents.every(e=>e.seq>0));
+});

@@ -6,13 +6,44 @@ import handler from '../api/arena.js';
 // Test-only transactional fixture. No memory adapter is imported by production.
 class TestStore{constructor(){this.data=new Map();this.lock=Promise.resolve();}transaction(work){const run=this.lock.then(async()=>{const snapshot=new Map(this.data);const tx={get:async k=>snapshot.has(k)?JSON.parse(snapshot.get(k)):null,set:async(k,v)=>snapshot.set(k,JSON.stringify(v)),delete:async k=>snapshot.delete(k)};const result=await work(tx);this.data=snapshot;return result;});this.lock=run.catch(()=>{});return run;}}
 const ids=starters.map(c=>c.id);
-test('dois clientes: matchmaking, seleção por ambos, turnos, rendição e resultado idempotente',async()=>{
- const store=new TestStore(),service=new ArenaService(store);const a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});const joined=await service.request(b.token,{op:'queue',team:ids});assert.ok(joined.match);let av=await service.request(a.token),bv=await service.request(b.token);assert.equal(av.match.id,bv.match.id);assert.equal([av,bv].filter(v=>v.match.battle.phase==='influence').length,1);
- for(let i=0;i<2;i++){const v=[av,bv].find(v=>v.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});av=await service.request(a.token);bv=await service.request(b.token);}
- assert.equal([av,bv].filter(v=>v.match.battle.phase==='player').length,1);const active=[av,bv].find(v=>v.match.battle.phase==='player'),waiting=[av,bv].find(v=>v.match.battle.phase==='waiting');
- await assert.rejects(()=>service.request(waiting.token,{op:'turn',version:waiting.match.version,actions:[]}),{status:409});
- const submitted=await service.request(active.token,{op:'turn',version:active.match.version,actions:[]});assert.equal(submitted.match.battle.phase,'waiting');await assert.rejects(()=>service.request(active.token,{op:'turn',version:active.match.version,actions:[]}),{status:409});
- const result=await service.request(a.token,{op:'surrender'});assert.equal(result.profile.losses,1);assert.equal(result.match.settled,true);assert.ok(result.profile.rating<1000);const again=await service.request(a.token);assert.equal(again.profile.losses,1);assert.equal(again.profile.xp,30);const winner=await service.request(b.token);assert.equal(winner.profile.wins,1);assert.equal(winner.profile.xp,70);assert.equal(winner.leaderboard.length,2);assert.equal(winner.match.battle.phase,'victory');await service.request(a.token,{op:'ack'});const newQueue=await service.request(a.token,{op:'queue',team:ids});assert.equal(newQueue.match,null);
+test('dois clientes: planejamento simultâneo, confirmação secreta, rendição e resultado idempotente',async()=>{
+ const store=new TestStore(),service=new ArenaService(store);
+ const a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});
+ const joined=await service.request(b.token,{op:'queue',team:ids});
+ assert.ok(joined.match);
+ let av=await service.request(a.token),bv=await service.request(b.token);
+ assert.equal(av.match.id,bv.match.id);
+ assert.equal([av,bv].filter(v=>v.match.battle.phase==='influence').length,1);
+ for(let i=0;i<2;i++){
+  const v=[av,bv].find(v=>v.match.battle.phase==='influence');
+  await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});
+  av=await service.request(a.token);bv=await service.request(b.token);
+ }
+ assert.equal(av.match.battle.phase,'player');
+ assert.equal(bv.match.battle.phase,'player');
+ assert.equal(av.match.battle.round,bv.match.battle.round);
+ const round=av.match.battle.round;
+ const one=await service.request(a.token,{op:'turn',version:av.match.version,round,actions:[],moves:[]});
+ assert.equal(one.match.battle.phase,'waiting');
+ assert.deepEqual(one.match.battle.ready,{player:true,enemy:false});
+ const opponent=await service.request(b.token);
+ assert.equal(opponent.match.battle.phase,'player');
+ assert.deepEqual(opponent.match.battle.ready,{player:false,enemy:true});
+ await assert.rejects(()=>service.request(a.token,{op:'turn',version:one.match.version,round,actions:[]}),{status:409});
+ // The other player may still submit the original version while their plan was pending.
+ const both=await service.request(b.token,{op:'turn',version:bv.match.version,round,actions:[],moves:[]});
+ assert.equal(both.match.battle.round,round+1);
+ assert.equal(both.match.battle.phase,'player');
+ const result=await service.request(a.token,{op:'surrender'});
+ assert.equal(result.profile.losses,1);assert.equal(result.match.settled,true);
+ assert.ok(result.profile.rating<1000);
+ const again=await service.request(a.token);assert.equal(again.profile.losses,1);assert.equal(again.profile.xp,30);
+ const winner=await service.request(b.token);assert.equal(winner.profile.wins,1);assert.equal(winner.profile.xp,70);
+ assert.equal(winner.leaderboard.length,2);assert.equal(winner.match.battle.phase,'victory');
+ await service.request(a.token,{op:'ack'});
+ const newQueue=await service.request(a.token,{op:'queue',team:ids});
+ assert.equal(newQueue.match,null);
 });
 test('sessões isoladas e fila inválida não aceita personagem desconhecido ou duplicado',async()=>{const service=new ArenaService(new TestStore());const a=await service.request(),b=await service.request('inventado');assert.notEqual(a.profile.id,b.profile.id);await assert.rejects(()=>service.request(a.token,{op:'queue',team:[ids[0],ids[0],ids[0]]}),{status:400});await assert.rejects(()=>service.request(a.token,{op:'queue',team:['fraude',...ids.slice(1)]}),{status:400});});
 test('prazo persiste após reconectar e a derrota por inatividade é liquidada uma vez',async()=>{let now=1000000;const service=new ArenaService(new TestStore(),{now:()=>now}),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});const views=await Promise.all([service.request(a.token),service.request(b.token)]),current=views.find(v=>v.match.battle.phase==='influence');now+=120001;const lost=await service.request(current.token);assert.equal(lost.profile.losses,1);assert.equal(lost.match.reason,'Tempo esgotado');assert.equal((await service.request(current.token)).profile.losses,1);});
@@ -34,22 +65,70 @@ test('a Arena mantém um perfil e o limite de chamadas por conta mesmo com token
 });
 
 
-test('Arena recebe a escolha Qualquer, rejeita pagamento adulterado e mantém a versão após rejeição',async()=>{
- const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
+test('Arena valida custo Qualquer e carta real antes do planejamento simultâneo, sem gastar até ambos confirmarem',async()=>{
+ const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
  let views=await Promise.all([service.request(a.token),service.request(b.token)]);
- for(let i=0;i<2;i++){const v=views.find(v=>v.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});views=await Promise.all([service.request(a.token),service.request(b.token)]);}
- const active=views.find(v=>v.match.battle.phase==='player'),u=active.match.battle.allies[0],resource=Object.keys(active.match.battle.resources).find(id=>active.match.battle.resources[id]>0),input={op:'turn',version:active.match.version,actions:[{actorId:u.id,abilityId:'despertar',targetId:u.id,randomPayment:{fake:1}}]};assert.ok(resource);
- await assert.rejects(()=>service.request(active.token,{...input,payment:{fake:1}}),{status:409});const unchanged=await service.request(active.token);assert.equal(unchanged.match.version,active.match.version);assert.deepEqual(unchanged.match.battle.resources,active.match.battle.resources);
- const sent=await service.request(active.token,{...input,payment:{[resource]:1}});assert.equal(sent.match.version,active.match.version+1);assert.equal(sent.match.battle.allies[0].cooldowns.despertar,4);assert.ok(sent.match.battle.log.some(line=>line.includes(u.abilities[3].name)&&line.includes('usa')));
+ for(let i=0;i<2;i++){
+  const v=views.find(v=>v.match.battle.phase==='influence');
+  await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});
+  views=await Promise.all([service.request(a.token),service.request(b.token)]);
+ }
+ const active=views[0],other=views[1],u=active.match.battle.allies[0];
+ const resource=Object.keys(active.match.battle.resources).find(id=>active.match.battle.resources[id]>0);
+ assert.ok(resource);
+ const raw=JSON.parse(store.data.get('match:'+active.match.id));
+ const deck=raw.battle.cardCombat.decks[u.id];
+ let card=deck.hand.find(c=>c.abilityId==='despertar');
+ if(!card){
+  const index=deck.draw.findIndex(c=>c.abilityId==='despertar');
+  assert.ok(index>=0,'a defesa precisa existir no deck equipado');
+  card=deck.draw.splice(index,1)[0];
+  deck.hand.push(card);
+ }
+ store.data.set('match:'+raw.id,JSON.stringify(raw));
+ const input={op:'turn',version:active.match.version,round:active.match.battle.round,moves:[],actions:[
+  {actorId:u.id,abilityId:'despertar',targetId:u.id,cardId:card.id}
+ ]};
+ await assert.rejects(()=>service.request(active.token,{...input,payment:{fake:1}}),{status:409});
+ const unchanged=await service.request(active.token);
+ assert.equal(unchanged.match.version,active.match.version);
+ assert.deepEqual(unchanged.match.battle.resources,active.match.battle.resources);
+ const first=await service.request(active.token,{...input,payment:{[resource]:1}});
+ assert.equal(first.match.version,active.match.version+1);
+ assert.equal(first.match.battle.phase,'waiting');
+ assert.equal(first.match.battle.allies[0].cooldowns.despertar||0,0,'primeiro plano não executa sozinho');
+ const completed=await service.request(other.token,{op:'turn',version:other.match.version,round:other.match.battle.round,actions:[],moves:[]});
+ assert.equal(completed.match.battle.round,active.match.battle.round+1);
+ const current=await service.request(active.token);
+ assert.equal(current.match.battle.allies[0].cooldowns.despertar,4);
+ assert.ok(current.match.battle.log.some(line=>line.includes(u.abilities[3].name)&&line.includes('usa')));
 });
-
-test('Arena autoriza a troca 5:1 somente com cinco pips reais no pool do jogador',async()=>{
- const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
+test('Arena valida a troca 5:1 como plano secreto e só registra a conversão após ambas confirmações',async()=>{
+ const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
  let views=await Promise.all([service.request(a.token),service.request(b.token)]);
- for(let i=0;i<2;i++){const v=views.find(item=>item.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});views=await Promise.all([service.request(a.token),service.request(b.token)]);}
- const active=views.find(v=>v.match.battle.phase==='player'),raw=JSON.parse(store.data.get(`match:${active.match.id}`)),side=raw.players.indexOf(active.profile.id)===0?'player':'enemy',pool={essence:2,cinza:1,graca:1,ruptura:0,coringa:1};
- raw.battle[side==='player'?'resources':'enemyResources']=pool;store.data.set(`match:${raw.id}`,JSON.stringify(raw));
- const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}},turn={op:'turn',version:active.match.version,actions:[],payment:{},exchanges:[exchange]};
+ for(let i=0;i<2;i++){
+  const v=views.find(item=>item.match.battle.phase==='influence');
+  await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});
+  views=await Promise.all([service.request(a.token),service.request(b.token)]);
+ }
+ const active=views[0],other=views[1],raw=JSON.parse(store.data.get('match:'+active.match.id));
+ const side=raw.players.indexOf(active.profile.id)===0?'player':'enemy';
+ const pool={essence:2,cinza:1,graca:1,ruptura:0,coringa:1};
+ raw.battle[side==='player'?'resources':'enemyResources']=pool;
+ store.data.set('match:'+raw.id,JSON.stringify(raw));
+ const exchange={target:'ruptura',payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:1}};
+ const turn={op:'turn',version:active.match.version,round:active.match.battle.round,actions:[],payment:{},moves:[],exchanges:[exchange]};
  await assert.rejects(()=>service.request(active.token,{...turn,exchanges:[{...exchange,payment:{essence:2,cinza:1,graca:1,ruptura:0,coringa:0}}]}),{status:409});
- const accepted=await service.request(active.token,turn);assert.ok(accepted.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
+ const unchanged=await service.request(active.token);
+ assert.equal(unchanged.match.version,active.match.version);
+ const first=await service.request(active.token,turn);
+ assert.equal(first.match.battle.phase,'waiting');
+ assert.ok(!first.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')),'a troca planejada permanece secreta');
+ assert.equal(first.match.battle.duelExchanges,undefined,'o plano privado não pode ser serializado publicamente');
+ const completed=await service.request(other.token,{op:'turn',version:other.match.version,round:other.match.battle.round,actions:[],payment:{},moves:[]});
+ assert.equal(completed.match.battle.round,active.match.battle.round+1);
+ const current=await service.request(active.token);
+ assert.ok(current.match.battle.log.some(line=>line.includes('5 Essências foram trocadas por 1 Ruptura')));
 });

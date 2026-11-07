@@ -1,6 +1,8 @@
 import { randomBytes, randomUUID, createHash } from 'node:crypto';
 import { characterById } from '../src/data.js';
-import { createDuel, submitDuelTurn, continueDuel } from '../src/combat.js';
+import { normalizeRankedLoadouts } from '../src/ranked-loadouts.js';
+import {mirrorCell} from '../src/tactical-grid.js';
+import { createDuel, submitDuelTurn, continueDuel, answerDuelClash } from '../src/combat.js';
 import { beginInfluences, chooseInfluence } from '../src/world-influences.js';
 import { rankForRating, playerLevel } from '../src/player-level.js';
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -13,12 +15,34 @@ export function rankedResult(a,b,winner){
  return [a,b].map((p,i)=>({...p,rating:Math.max(0,p.rating+(i===winner?delta:-delta)),wins:p.wins+(i===winner?1:0),losses:p.losses+(i!==winner?1:0),streak:i===winner?p.streak+1:0,xp:p.xp+(i===winner?70:30),matchId:p.matchId}));
 }
 export function publicBattle(match,index){
- const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;s.queue=[];s.intents=[];
+ const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;delete s.duelPlans;delete s.duelPools;delete s.duelMoves;delete s.duelExchanges;s.queue=[];s.intents=[];if(s.movementPlans)s.movementPlans={player:[],enemy:[]};
  const side=index===0?'player':'enemy';
  if(index===1){[s.allies,s.enemies]=[s.enemies,s.allies];[s.resources,s.enemyResources]=[s.enemyResources,s.resources];s.resonance=s.enemyResonance;[s.essenceDraws.player,s.essenceDraws.enemy]=[s.essenceDraws.enemy,s.essenceDraws.player];if(s.phase==='victory')s.phase='defeat';else if(s.phase==='defeat')s.phase='victory';}
  for(const u of s.allies)u.side='player';for(const u of s.enemies)u.side='enemy';
+ if(index===1&&s.grid)for(const u of [...s.allies,...s.enemies])if(u.position)u.position=mirrorCell(u.position);
+ // Opposing objective positions are hidden; each client only sees its own objective.
+ if(s.grid&&Array.isArray(s.gridObjectives))s.gridObjectives=s.gridObjectives.filter(o=>o.side===side).map(o=>({...o,side:"player",...(index===1?mirrorCell(o):{})}));
  if(s.phase==='influence'){if(s.influenceDraft.side!==side){s.phase='waiting';s.influenceDraft=null;}else s.influenceDraft.side='player';}
+ else if(s.simultaneousDuel){
+  s.ready={player:Boolean(match.battle.duelPlans?.[side]),enemy:Boolean(match.battle.duelPlans?.[side==='player'?'enemy':'player'])};
+  if(s.phase==='player'&&s.ready.player)s.phase='waiting';
+  if(s.phase==='clash'&&match.battle.clash){
+   const clash=match.battle.clash,defender=clash.defenderSide===side;
+   // Sign secrecy is critical: never serialize attacker willSign or queued actions.
+   s.clash=defender?{defender:true,actorId:clash.actorId,abilityId:clash.abilityId,targetId:clash.targetId}:{defender:false};
+   if(!defender)s.phase='waiting';
+  }else delete s.clash;
+ }
  else if(s.phase==='player'&&match.battle.turnSide!==side)s.phase='waiting';
+ if(s.cardCombat){
+  // Never expose the opponent's hand or either draw-pile order to a PvP client.
+  const ownIds=new Set(s.allies.map(u=>u.id)),original=match.battle.cardCombat;
+  s.cardCombat={round:original.round,responses:{player:original.responses[side]||0,enemy:original.responses[side==='player'?'enemy':'player']||0},decks:{}};
+  for(const id of ownIds){
+    const deck=original.decks[id];if(!deck)continue;
+    s.cardCombat.decks[id]={hand:deck.hand,draw:Array(deck.draw.length).fill(null),discard:deck.discard,exhaust:deck.exhaust};
+  }
+ }
  s.worldEvents=(s.worldEvents||[]).map(e=>({...e,side:index===1?(e.side==='player'?'enemy':'player'):e.side}));s.online=true;return s;
 }
 export class ArenaService{
@@ -37,32 +61,58 @@ export class ArenaService{
    if(op==='ack'&&match?.settled){p.matchId=null;await tx.set(profileKey(id),p);match=null;}
    const side=match?.players.indexOf(id);
    if(match&&side<0)fail('Partida indisponível.',403);
-   if(match&&!match.settled&&match.deadline<=now){const current=match.battle.phase==='influence'?match.battle.influenceDraft.side:match.battle.turnSide;match.battle.phase=terminal({phase:match.battle.influenceResume})?match.battle.influenceResume:current==='player'?'defeat':'victory';match.reason='Tempo esgotado';match.version++;}
+   if(match&&!match.settled&&match.deadline<=now){
+    const battle=match.battle;
+    if(battle.simultaneousDuel&&battle.phase==='clash'&&battle.clash){
+     // A reaction timeout accepts the hit; it must never forfeit the entire match.
+     attachRandom(battle);answerDuelClash(battle,battle.clash.defenderSide,'pass');
+     match.reason=null;match.deadline=now+(battle.phase==='clash'?25000:120000);
+    }else{
+     const current=battle.phase==='influence'?battle.influenceDraft.side:
+       battle.simultaneousDuel&&battle.phase==='player'?(battle.duelPlans?.player?'enemy':'player'):battle.turnSide;
+     battle.phase=terminal({phase:battle.influenceResume})?battle.influenceResume:current==='player'?'defeat':'victory';
+     match.reason='Tempo esgotado';
+    }
+    match.version++;
+   }
    if(op==='queue'&&!match){
     const ids=input.team;if(!Array.isArray(ids)||ids.length!==3||new Set(ids).size!==3||ids.some(id=>!characterById[id]))fail('Escolha três personagens diferentes.');
+    let loadouts;try{loadouts=normalizeRankedLoadouts(ids,input.loadouts||{},characterById);}catch(e){fail(e.message||"Baralhos inválidos.",400);}
     const oldQueue=await tx.get('queue')||[],previous=oldQueue.find(q=>q.id===id);let queue=oldQueue.filter(q=>now-q.touched<20000&&q.id!==id);
     const rivalIndex=queue.findIndex(q=>Math.abs(q.rating-p.rating)<=150+Math.floor((now-q.since)/1000)*5);
     if(rivalIndex>=0){const rival=queue.splice(rivalIndex,1)[0],other=await tx.get(profileKey(rival.id));
      if(other&&!other.matchId){
-      const first=randomBytes(1)[0]%2===0;const players=first?[p.id,other.id]:[other.id,p.id],teams=first?[ids,rival.team]:[rival.team,ids];let randomState=randomBytes(4).readUInt32LE();const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
-      const battle=createDuel(teams[0],teams[1],{rng:random});battle.randomState=randomState;beginInfluences(battle,randomState);
+      const first=randomBytes(1)[0]%2===0;const players=first?[p.id,other.id]:[other.id,p.id],teams=first?[ids,rival.team]:[rival.team,ids],decks=first?[loadouts,rival.loadouts||{}]:[rival.loadouts||{},loadouts];let randomState=randomBytes(4).readUInt32LE();const random=()=>{randomState=(Math.imul(randomState,1664525)+1013904223)>>>0;return randomState/4294967296;};
+      const battle=createDuel(teams[0],teams[1],{rng:random,cardMode:true,cardLoadouts:{player:decks[0],enemy:decks[1]}});battle.randomState=randomState;beginInfluences(battle,randomState);
       match={id:randomUUID(),players,battle,version:1,deadline:now+120000,created:now,settled:false};p.matchId=match.id;other.matchId=match.id;await tx.set(profileKey(other.id),other);await tx.set(profileKey(id),p);await tx.set(`match:${match.id}`,match,86400);
      }
     }
-    if(!match){if(queue.length>=100)fail('Fila cheia. Tente novamente.',429);queue.push({id,team:ids,rating:p.rating,since:previous?.since||now,touched:now});}
+    if(!match){if(queue.length>=100)fail('Fila cheia. Tente novamente.',429);queue.push({id,team:ids,loadouts,rating:p.rating,since:previous?.since||now,touched:now});}
     await tx.set('queue',queue,600);
    }else if(op==='cancel'){await tx.set('queue',(await tx.get('queue')||[]).filter(q=>q.id!==id),600);}
-   if(['turn','influence','surrender'].includes(op)){
+   if(['turn','response','influence','surrender'].includes(op)){
     if(!match||match.settled)fail('Partida encerrada ou indisponível.',409);
-    if(op!=='surrender'&&input.version!==match.version)fail('O combate foi atualizado. Reconectando.',409);
-    attachRandom(match.battle);const owner=match.players.indexOf(id)===0?'player':'enemy';
-    if(op==='turn'){try{submitDuelTurn(match.battle,owner,input.actions,input.payment,input.exchanges||[]);}catch{fail('Fila inválida, troca de Essência ou turno indisponível.',409);}}
+    // In simultaneous planning, the other player's submission may increment version.
+    // Round matching prevents replaying an old plan, even when the version has advanced.
+    const owner=match.players.indexOf(id)===0?'player':'enemy',battle=match.battle;
+    const independentPlan=op==='turn'&&battle.simultaneousDuel&&battle.phase==='player'&&!battle.duelPlans?.[owner]&&input.round===battle.round;
+    if(op!=='surrender'&&!independentPlan&&input.version!==match.version)fail('O combate foi atualizado. Reconectando.',409);
+    attachRandom(match.battle);
+    if(op==='turn'){
+     if(battle.simultaneousDuel&&input.round!==battle.round)fail('O turno mudou. Atualize a Arena.',409);
+     try{if(!Array.isArray(input.moves||[])||(input.moves||[]).length>3)throw new Error('Movimentos inválidos.');const moves=(input.moves||[]).map(m=>({...m,to:owner==='enemy'?mirrorCell(m.to):m.to}));submitDuelTurn(battle,owner,input.actions,input.payment,input.exchanges||[],moves);}
+     catch{fail('Fila inválida, carta indisponível ou planejamento já enviado.',409);}
+    }
+    if(op==='response'){
+     try{answerDuelClash(battle,owner,input.sign);}
+     catch{fail('Resposta indisponível ou manifestação inválida.',409);}
+    }
     if(op==='influence'){
      if(match.battle.phase!=='influence'||match.battle.influenceDraft.side!==owner||!chooseInfluence(match.battle,input.eventId))fail('Escolha indisponível.',409);
      continueDuel(match.battle);
     }
     if(op==='surrender'){match.battle.phase=owner==='player'?'defeat':'victory';match.reason='Rendição';}
-    match.version++;match.deadline=now+120000;
+    match.version++;match.deadline=now+(battle.phase==='clash'?25000:120000);
    }
    if(match){
     if(terminal(match.battle)&&!match.settled){const a=await tx.get(profileKey(match.players[0])),b=await tx.get(profileKey(match.players[1]));const result=rankedResult(a,b,match.battle.phase==='victory'?0:1);const leaderboard=await tx.get('leaderboard')||[];
