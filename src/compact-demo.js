@@ -297,7 +297,8 @@ function interactiveCombo(ref){
  const anchor=ref.anchor||position,area=tacticalArea(current,ref.actor,ref.ability,anchor,ref.orientation);
  state.snapshot=before;
  state.event={type:'skill',actorId:ref.actorId,abilityId:ref.abilityId,family:tacticalAnimationFamily(ref.ability),
-  anchor,orientation:ref.orientation,cells:area,before,after:before,pose:'windup'};
+  anchor,orientation:ref.orientation,cells:area,before,after:before,pose:'windup',
+  title:role==='attack'?'Combo ofensivo · '+ref.ability.name:'Defesa ativa · '+ref.ability.name};
  return new Promise(resolve=>{
   const opponent=tacticalComboAIOpposition({round:current.round,actorId:ref.actorId,abilityId:ref.abilityId});
   const value={role,ms,beat:1,hits:0,locked:false,feedback:'',actorName:ref.actor.name,
