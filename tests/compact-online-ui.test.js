@@ -29,3 +29,21 @@ test('online interface exposes private card hands, clash controls, objectives an
  for(const bp of ['990px','760px','420px'])assert.ok(css.includes(bp));
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
 });
+
+test('online screen imports successfully with the browser environment mocked',async()=>{
+ const prevDocument=globalThis.document,prevFetch=globalThis.fetch,prevInterval=globalThis.setInterval;
+ const root={innerHTML:'',addEventListener(){}};
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.fetch=async()=>({ok:true,json:async()=>({user:null})});
+  globalThis.setInterval=()=>0;
+  await import('../src/compact-online.js?online-smoke=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.match(root.innerHTML,/Entre na sua conta/);
+  assert.match(root.innerHTML,/Treino contra IA/);
+ }finally{
+  if(prevDocument===undefined)delete globalThis.document;else globalThis.document=prevDocument;
+  if(prevFetch===undefined)delete globalThis.fetch;else globalThis.fetch=prevFetch;
+  globalThis.setInterval=prevInterval;
+ }
+});

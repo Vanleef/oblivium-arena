@@ -31,6 +31,8 @@ jobs:
         run: npm run test:compact
       - name: Authoritative compact PvP protocol tests
         run: node --test tests/compact-pvp.test.js tests/compact-arena-service.test.js tests/tactical-pvp-core.test.js
+      - name: Online interface and endpoint smoke
+        run: node --check src/compact-online.js && node --check api/arena-compact.js && node --test tests/compact-online-ui.test.js
       - name: Tactical and Conquest regressions
         run: node --test tests/tactical-*.test.js tests/tactical-*.test.mjs tests/conquest-*.test.js tests/combat-scenes.test.js
       - name: Complete three compact battles
