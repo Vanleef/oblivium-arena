@@ -368,14 +368,17 @@ function finishPlan(id,round,plan){
  if(!result.ok){if(state.battle.tactical.stage==='planning')delete state.battle.tactical.plans.player;state.message=result.reason;state.busy=false;render();return;}
  const session=startCompactRoundResolution(state.battle);
  if(session.ok)playCompactSession(session).catch(error=>{
-  // Never strand the duel in tactical.stage='resolving' after a UI failure.
-  // Complete only the remaining canonical steps, with neutral rhythm scores.
+  // Never strand tactical.stage='resolving' after an unexpected UI failure.
+  // Unanswered special duels collide for half damage instead of silently
+  // granting the attacker a full-strength unopposed special.
   for(let attempts=0;attempts<26;attempts++){
-   const step=session.next();
+   const pending=session.peek();
+   const step=session.next(pending?.comboEligible
+    ?{attackChoice:'contencao',defenseChoice:'contencao'}:{});
    if(!step.ok||step.done)break;
   }
   state.busy=false;state.clash=null;state.event=null;state.snapshot=null;state.actions=[];
-  state.message='Apresentação interrompida; rodada concluída sem bônus adicional. '+(error?.message||'');
+  state.message='Apresentação interrompida; especiais sem resposta foram resolvidos como choque. '+(error?.message||'');
   render();
  });
  else{state.busy=false;state.message=session.reason;render();}
