@@ -12,7 +12,7 @@ import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
 import {tacticalDuelResolve} from './tactical-duel.js';
-import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard} from './tactical-decks.js';
+import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard,tacticalMovementSteps,tacticalCardVariants} from './tactical-decks.js';
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
@@ -246,7 +246,7 @@ export function createTacticalBattle(playerIds,enemyIds,config={}){
   }
  }
  if(s.tactical.fortress)refreshConquestObjectives(s);
- if(config.compact&&config.cardMode){s.tactical.cardMode=true;s.tactical.decks=createTacticalDecks(s,{decks:config.decks||{},seed});}
+ if(config.compact&&config.cardMode){s.tactical.cardMode=true;s.tactical.decks=createTacticalDecks(s,{decks:config.decks||{},seed,unlockedKingdoms:s.tactical.fortress?.progress?.completedKingdoms?.length||0});}
  s.phase='tactical-planning';s.queue=[];s.intents=[];
  return s;
 }
@@ -391,7 +391,7 @@ function normalizePlan(s,side,actions){
   counts[actor.id]=(counts[actor.id]||0)+1;if(counts[actor.id]>2)return fail('Cada personagem tem duas ações.');
   if(ref.type==='move'){
    const movementCard=ref.cardId?tacticalCard(s,side,actor.id,ref.cardId):null;
-   const maxSteps=s.tactical.cardMode&&movementCard?.kind==='mobility'?2:movementRange(s,actor.id);
+   const maxSteps=s.tactical.cardMode&&movementCard?.kind==='mobility'?tacticalMovementSteps(movementCard):movementRange(s,actor.id);
    if(!Array.isArray(ref.path)||ref.path.length<1||ref.path.length>maxSteps||ref.path.some(p=>!onBoard(p,s)))return fail('Movimento inválido.');
    refs.push({type:'move',actorId:actor.id,side,path:ref.path.map(point=>cleanPoint(point,s)),...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),order});
   }else if(ref.type==='skill'){
@@ -550,6 +550,15 @@ export function startCompactRoundResolution(s){
    const ref=commands.shift();
    const clash=duel&&s.tactical.cardMode?{...duel,protectedTargetId:awaiting.targets[0]}:duel;
    const before=replayState(s),result=execute(s,clash?{...ref,clash}:ref);
+   if(duel?.outcome==='miss'&&responses.reactionCardId){
+    const defender=actorFor(s,awaiting.responseSide,awaiting.targets[0]);
+    const responderCard=tacticalCard(s,awaiting.responseSide,undefined,responses.reactionCardId)||
+     Object.keys(s.tactical.decks?.sides?.[awaiting.responseSide]||{}).map(id=>tacticalCard(s,awaiting.responseSide,id,responses.reactionCardId)).find(Boolean);
+    if(defender?.hp>0&&responderCard?.variantId==='reverso-vital'&&!defender.healingBlock){
+     const healed=Math.max(0,Math.min(5,defender.maxHp-defender.hp));
+     defender.hp+=healed;result.cardReactionHeal=healed;
+    }
+   }
    const title=result.title||'Técnica interrompida';
    stamp(s,{...ref,...result,...(duel?{duel}:{}),before,after:replayState(s),
     title:duel&&!result.skipped?title+' · '+duel.label:title});
@@ -610,6 +619,12 @@ function resolveExchangeMovement(s,paths){
    step.augmentNotes=triggerTacticalAugments(s,step.side,actor,'move');
    step.windShield=grantCompactWindShield(s,actor);
    step.leapShield=grantCompactLeapShield(s,actor,step.from,step.to);
+    const ref=paths.find(item=>item.actorId===step.actorId&&item.side===step.side);
+    const card=ref?.cardId?tacticalCard(s,step.side,step.actorId,ref.cardId):null;
+    if(card?.variantId==='passo-guardado'){
+     const shield=Math.max(0,Math.min(5,Math.floor(actor.maxHp/2)-(actor.shield||0)));
+     actor.shield+=shield;step.cardShield=shield;
+    }
   }
   const chestsOpened=s.tactical.fortress?[]:moving.flatMap(step=>claimTacticalChests(s,step.side,[step.to]));
   if(s.tactical.fortress){
@@ -771,8 +786,8 @@ function claimFortressEntry(s,{actorId,side,to}){
 }
 function addCardInscription(s,offer,side){
  if(!s.tactical.cardMode||side!=='player'||!offer?.objective)return;
- const upgrade=offer.tier==='prismatic'?{opening:true,damageBonus:10}:offer.tier==='gold'?{retain:true,damageBonus:5}:{damageBonus:5};
- const text=offer.tier==='prismatic'?'Carta inicial e +10 de dano':offer.tier==='gold'?'Preservar na mão e +5 de dano':'+5 de dano';
+ const upgrade=offer.tier==='prismatic'?{opening:true,damageBonus:10,expose:1}:offer.tier==='gold'?{retain:true,damageBonus:5,damageType:'piercing'}:{damageBonus:5};
+ const text=offer.tier==='prismatic'?'Carta inicial, +10 de dano e Exposto':offer.tier==='gold'?'Preservar, +5 de dano e perfuração':'+5 de dano';
  // Preserve the three-choice structure of the existing objective reward UI.
  offer.options=[...offer.options.slice(0,2),{id:'card-inscription:'+offer.id,title:'Inscrição de Carta',text:'Escolha uma técnica: '+text,
   effect:{type:'tactical-card-upgrade',upgrade}}];
