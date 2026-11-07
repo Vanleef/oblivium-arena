@@ -549,7 +549,14 @@ export function resolveBoardTechnique(s,action,spatialTargetIds){
  const timed=['stunned','weakened','sealSupport','sealAttack','healingBlock'];
  const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,Object.fromEntries(timed.map(k=>[k,u[k]||0]))]));
  s.resolutionSide=action.side;
- const technique=s.tactical?.fortress?conquestAugmentedAbility(s,actor,conquestTechnique(a)):a;
+ const original=s.tactical?.fortress?conquestAugmentedAbility(s,actor,conquestTechnique(a)):a;
+  const card=action.cardId?s.tactical?.decks?.sides?.[action.side]?.[action.actorId]?.cards?.[action.cardId]:null;
+  const upgrade=card?.kind==='skill'&&card.abilityId===a.id?card.upgrade:null;
+  const technique=upgrade?{...original,
+   damage:Math.max(0,(original.damage||0)+(upgrade.damageBonus||0)),
+   damageType:upgrade.damageType||original.damageType,
+   weaken:Math.max(original.weaken||0,upgrade.weaken||0),
+   expose:Math.max(original.expose||0,upgrade.expose||0)}:original;
  // A rhythm clash changes the direct hit BEFORE the skill resolves. Lifesteal,
  // armor, death checks, status triggers and all following actions see this value.
  // Normal plans never carry a clash: the score is supplied after reveal only.
