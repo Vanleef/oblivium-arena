@@ -387,8 +387,8 @@ test('combat VFX now prioritize the physical palette of the caster over generic 
    const actor={...allies[0],sourceId:id,realm,color,
     abilities:[{id:'tecnica',name:'Chama de Fogo',damage:12}]};
    layer.emit(board,{...impact,abilityId:'tecnica',affectedTargetIds:['a1']},actor,'impact',300);
-   assert.equal(layer.effects.length,1);
-   assert.equal(layer.effects[0].color[1],dominant,id+' should not inherit generic fire VFX');
+   assert.ok(layer.effects.some(fx=>fx.kind==='impact'),'physical target reaction exists');
+   assert.ok(layer.effects.every(fx=>fx.color[1]===dominant),id+' should not inherit generic fire VFX');
    layer.clear();
   }
  }finally{globalThis.requestAnimationFrame=saved;}
