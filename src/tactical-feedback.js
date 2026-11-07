@@ -25,6 +25,16 @@ export function tacticalVisualCells(event){
  if(!points.length&&pointKey(event.anchor))points.push(event.anchor);
  return [...new Map(points.map(point=>[pointKey(point),point])).values()];
 }
+// The renderer keeps an actor's last visible frame through the resolved killing blow.
+// This never changes occupancy, combat logic, or the next round's living roster.
+export function tacticalDefeatedUnits(event){
+ if(event?.skipped||!['skill','field-event','effects'].includes(event?.type)||!event.before||!event.after)return [];
+ const last=new Map(actors(event.after).map(unit=>[unit.id,unit]));
+ return actors(event.before).flatMap(unit=>{
+  const next=last.get(unit.id),point=event.after.positions?.[unit.id]||event.before.positions?.[unit.id];
+  return unit.hp>0&&next&&next.hp<=0&&pointKey(point)?[{actorId:unit.id,unit,point}]:[];
+ });
+}
 export function tacticalFeedback(event){
  if(!['skill','field-event','effects'].includes(event?.type)||event.skipped||!event.before||!event.after)return [];
  const previous=new Map(actors(event.before).map(u=>[u.id,u]));
@@ -35,6 +45,7 @@ export function tacticalFeedback(event){
   if(!old||!point||((area.size||targetIds.size)&&!area.has(pointKey(point))&&!targetIds.has(unit.id)))return [];
   const out=[],hp=(unit.hp||0)-(old.hp||0),shield=(unit.shield||0)-(old.shield||0);
   if(hp<0)out.push({actorId:unit.id,point,kind:'damage',amount:-hp,label:'−'+(-hp)});
+  if(old.hp>0&&unit.hp<=0)out.push({actorId:unit.id,point,kind:'defeat',amount:0,label:'DERROTADO'});
   if(hp>0)out.push({actorId:unit.id,point,kind:'heal',amount:hp,label:'+'+hp});
   if(shield<0)out.push({actorId:unit.id,point,kind:'shield-loss',amount:-shield,label:'−'+(-shield)+' Escudo'});
   if(shield>0)out.push({actorId:unit.id,point,kind:'shield',amount:shield,label:'+'+shield+' Escudo'});
