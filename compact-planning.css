@@ -601,22 +601,114 @@
  border-radius:3px 0 0;background:#17101fe9;color:#fff;
  text-align:center;font:700 9px/1 system-ui,sans-serif;
 }
-/* The cinematic artwork is a foreground overlay, not an image hidden behind the board. */
-.combat-shell.compact-battle .compact-stage>.skill-cutin{
- position:absolute;inset:0;z-index:90!important;pointer-events:none;
- overflow:hidden;isolation:isolate;opacity:1;
+/* Fighting-game-style super: dramatic hit-stop, speed streaks and the LIVE board
+   sprite, never a giant static character painting. Overlay never changes grid size. */
+.combat-shell.compact-battle .compact-stage>.fighter-super{
+ --super-bright:#f7d6a0;--super-accent:#ec6665;--super-deep:#2c1324;
+ position:absolute;inset:0;z-index:12;pointer-events:none;overflow:hidden;
+ isolation:isolate;contain:paint;
 }
-.combat-shell.compact-battle .compact-stage>.skill-cutin[data-pose="release"],
-.combat-shell.compact-battle .compact-stage>.skill-cutin[data-pose="thrust"]{
- opacity:1!important;
+.combat-shell.compact-battle .fighter-super.inferno{
+ --super-bright:#fff0be;--super-accent:#ff624d;--super-deep:#3c101b;
 }
-.combat-shell.compact-battle .compact-stage>.skill-cutin .cutin-wash{
- opacity:.67;background:linear-gradient(100deg,#090b1bd8 0%,color-mix(in srgb,var(--cutin-color) 25%,transparent) 46%,#0a0a1619 100%);
+.combat-shell.compact-battle .fighter-super.paraiso{
+ --super-bright:#fff9de;--super-accent:#dac68a;--super-deep:#233c50;
 }
-.combat-shell.compact-battle .compact-stage>.skill-cutin .cutin-art{
- opacity:.96;object-fit:contain;object-position:center;filter:drop-shadow(0 0 16px #060411);
+.combat-shell.compact-battle .fighter-super.limbo{
+ --super-bright:#f1dfff;--super-accent:#ab85fa;--super-deep:#2b184c;
 }
-.combat-shell.compact-battle .compact-stage>.skill-cutin .cutin-title{z-index:2}
+.combat-shell.compact-battle .compact-stage:has(>.fighter-super)>.arena-backdrop{
+ filter:brightness(.61) saturate(.92);
+}
+.compact-battle .fighter-super-veil,.compact-battle .fighter-super-speedlines,
+.compact-battle .fighter-super-rupture{position:absolute;inset:0;pointer-events:none}
+.compact-battle .fighter-super-veil{
+ background:linear-gradient(96deg,#0707108c 0%,#0d0b1a51 54%,#0507118b 100%);
+ animation:fighter-super-veil var(--super-duration,240ms) ease-out both;
+}
+.compact-battle .fighter-super-speedlines{
+ background:repeating-linear-gradient(176deg,transparent 0 16px,
+  color-mix(in srgb,var(--super-accent) 56%,transparent) 17px 19px,
+  transparent 20px 37px);
+ mask-image:linear-gradient(90deg,transparent 3%,#000 30%,#000 79%,transparent 98%);
+ opacity:.73;transform-origin:center center;
+ animation:fighter-super-speed var(--super-duration,240ms) cubic-bezier(.2,.74,.3,1) both;
+}
+.compact-battle .fighter-super-rupture{
+ background:linear-gradient(106deg,transparent 26%,var(--super-bright) 51%,transparent 72%);
+ mix-blend-mode:screen;opacity:0;
+ animation:fighter-super-flash var(--super-duration,240ms) steps(2,end) both;
+}
+.compact-battle .fighter-super[data-phase="charge"] .fighter-super-rupture{animation:none}
+.compact-battle .fighter-super-caption{
+ position:absolute;top:clamp(80px,14%,128px);right:clamp(9px,3%,26px);
+ max-width:min(48%,370px);display:flex;flex-direction:column;gap:2px;
+ padding:5px 12px;border-left:3px solid var(--super-accent);
+ color:var(--super-bright);background:linear-gradient(90deg,#090916c9,#09091645);
+ text-shadow:0 2px 7px #000;box-shadow:0 7px 22px #0006;
+ transform:skewX(-8deg);animation:fighter-super-caption var(--super-duration,240ms) ease-out both;
+}
+.compact-battle .fighter-super.enemy .fighter-super-caption{
+ left:clamp(9px,3%,26px);right:auto;border-left:0;border-right:3px solid var(--super-accent);
+ transform:skewX(8deg);
+}
+.compact-battle .fighter-super-caption>b{
+ font:800 clamp(10px,1.05vw,15px)/1.1 system-ui,sans-serif;
+ text-transform:uppercase;letter-spacing:.12em;
+}
+.compact-battle .fighter-super-caption>small{
+ font:750 clamp(12px,1.6vw,22px)/1.12 system-ui,sans-serif;
+ overflow-wrap:anywhere;
+}
+.combat-shell.compact-battle .compact-board .token[data-super-active="true"]{
+ z-index:26;filter:drop-shadow(0 0 9px #faf0d0c2);
+}
+.combat-shell.compact-battle .compact-board .token[data-super-active="true"] .conquest-model{
+ animation:fighter-super-sprite var(--super-duration,240ms) steps(3,end) both;
+ filter:brightness(1.4) contrast(1.15) drop-shadow(0 0 13px #ffe1b8);
+ transform-origin:center 87%;
+}
+.combat-shell.compact-battle .compact-board[data-super-impact="true"]{
+ animation:fighter-super-shock var(--compact-hit-duration,420ms) ease-out both;
+}
+@keyframes fighter-super-veil{0%{opacity:0}40%{opacity:1}100%{opacity:.62}}
+@keyframes fighter-super-speed{
+ 0%{opacity:0;translate:34% 0;scale:1.15 1}
+ 50%{opacity:.9;translate:-7% 0;scale:1.03 1}
+ 100%{opacity:.28;translate:-19% 0;scale:1 1}
+}
+@keyframes fighter-super-flash{
+ 0%,32%{opacity:0}34%,55%{opacity:.55}58%,100%{opacity:0}
+}
+@keyframes fighter-super-caption{
+ from{opacity:0;translate:20px -4px}
+ 45%{opacity:1;translate:-5px 0}
+ to{opacity:.94;translate:0 0}
+}
+@keyframes fighter-super-sprite{
+ from{scale:1;translate:0 0}45%{scale:1.12 .96;translate:0 2px}
+ to{scale:1.04;translate:0 0}
+}
+@keyframes fighter-super-shock{
+ 0%{translate:0 0}7%{translate:-3px 1px}14%{translate:3px -1px}
+ 22%{translate:-2px 0}31%{translate:2px 1px}50%,100%{translate:0 0}
+}
+@media(max-width:760px){
+ .compact-battle .fighter-super-caption{top:clamp(62px,16%,95px);max-width:55%;padding:3px 6px}
+ .compact-battle .fighter-super-caption>b{font-size:9px}
+ .compact-battle .fighter-super-caption>small{font-size:11px}
+ .compact-battle .fighter-super-speedlines{opacity:.5}
+}
+@media(prefers-reduced-motion:reduce){
+ .compact-battle .fighter-super-veil,.compact-battle .fighter-super-speedlines,
+ .compact-battle .fighter-super-rupture,.compact-battle .fighter-super-caption,
+ .compact-battle .compact-board[data-super-impact="true"],
+ .compact-battle .compact-board .token[data-super-active="true"] .conquest-model{
+  animation:none!important;
+ }
+ .compact-battle .fighter-super-veil{opacity:.35}
+ .compact-battle .fighter-super-speedlines,.compact-battle .fighter-super-rupture{opacity:0}
+}
 .combat-shell.compact-battle .compact-board .cell.compact-ability-area{--area-glow:#ffd890}
 .combat-shell.compact-battle .compact-board .cell.compact-ability-area .compact-area-sigil{
  position:absolute;inset:2px;z-index:4;pointer-events:none;
@@ -707,7 +799,6 @@
  .compact-battle .compact-board .compact-impact-feedback{top:0;min-width:42px}
  .compact-battle .compact-impact-feedback b{font-size:13px;padding:2px 3px}
  .compact-battle .compact-impact-feedback [data-feedback-kind="status"]{font-size:8px}
- .combat-shell.compact-battle .compact-stage>.skill-cutin .cutin-title{top:19%;max-width:49%}
 }
 @media(prefers-reduced-motion:reduce){
  .compact-battle .compact-area-sigil,.compact-battle .compact-impact-feedback b,
