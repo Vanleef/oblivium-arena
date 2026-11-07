@@ -186,13 +186,13 @@ export class TacticalEffectsLayer {
  if(!reduced&&phase==='release'&&from){
   for(const cell of areaCells){
    const landing=worldPoint(cell,.58);
-   if(landing)push('tile-flight',landing,{to:landing,particles:1});
+   if(landing)push('tile-flight',landing,{to:landing,particles:0});
   }
  }
  if(phase==='impact'){
   for(const cell of areaCells){
    const landing=worldPoint(cell,.58);
-   if(landing)push('tile-impact',landing,{particles:reduced?0:1});
+   if(landing)push('tile-impact',landing,{particles:0});
   }
  }
   if(phase==='travel'&&from&&to&&!reduced)push('travel',from,{projectile,trailCount:this.width<300?3:this.width<480?5:8});
