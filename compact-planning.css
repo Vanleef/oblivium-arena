@@ -671,6 +671,30 @@
 .compact-battle .compact-impact-feedback [data-feedback-kind="shield"]{color:#a5e3ff}
 .compact-battle .compact-impact-feedback [data-feedback-kind="shield-loss"]{color:#f0bb7c}
 .compact-battle .compact-impact-feedback [data-feedback-kind="status"]{color:#e2b4ff;font-size:11px}
+/* Keep the last frame of a slain actor in place until the impact concludes. */
+.combat-shell.compact-battle .compact-board .cell.compact-defeated .conquest-model{
+ animation:compact-defeat-collapse var(--compact-hit-duration,420ms) cubic-bezier(.2,.7,.34,1) both;
+ transform-origin:center 86%;
+ filter:grayscale(.38) contrast(1.15) drop-shadow(0 0 9px #941c3a);
+}
+.combat-shell.compact-battle .compact-board .cell.compact-defeated .compact-token-label{
+ opacity:.25;transition:opacity var(--compact-hit-duration,420ms) ease-out;
+}
+@keyframes compact-defeat-collapse{
+ 0%{translate:0 0;scale:1;opacity:1}
+ 27%{translate:-2px 0;scale:1.04 .94;opacity:1}
+ 62%{translate:0 7px;scale:1.01 .79;opacity:.73}
+ 100%{translate:0 13px;scale:1 .49;opacity:0}
+}
+.compact-battle .compact-impact-feedback [data-feedback-kind="defeat"]{
+ color:#fbd3dd;font-size:11px;letter-spacing:.06em;text-shadow:0 0 10px #9d234e;
+}
+@media(prefers-reduced-motion:reduce){
+ .combat-shell.compact-battle .compact-board .cell.compact-defeated .conquest-model{
+  animation:none!important;opacity:.45;filter:grayscale(.8);
+ }
+}
+
 .compact-battle .compact-impact-feedback [data-feedback-kind="buff"]{color:#a8f7d4;font-size:11px;text-shadow:0 0 8px #27845a}
 @keyframes compact-feedback-pop{0%{scale:.65;opacity:0;translate:0 11px}25%{scale:1.22;opacity:1;translate:0 -8px}100%{scale:1;opacity:1;translate:0 -5px}}
 @media(max-width:760px){
