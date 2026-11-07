@@ -7,6 +7,7 @@ import {tacticalRequirementReason} from './tactical-requirements.js';
 import {createTacticalEnvironment,resolveTacticalEnvironment} from './tactical-environment.js';
 import {tacticalChestOptions,addTacticalAugment,triggerTacticalAugments} from './tactical-chests.js';
 import {orderTacticalActions,tacticalFirstSide} from './tactical-order.js';
+import {tacticalComboEligible,tacticalComboResult} from './tactical-combo.js';
 import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
@@ -482,6 +483,56 @@ function resolveCompactRound(s){
  }
  finishTacticalRound(s);pauseForTacticalRewards(s);
  return tacticalResolution(s);
+}
+
+/**
+ * Optional staged resolver for a *revealed* compact round.
+ * It resolves each real action only after a bounded rhythm response is received.
+ * The planning actions are still sealed until BOTH teams submit; preview, RNG,
+ * movement and the canonical resolveTacticalRound() remain backward compatible.
+ */
+export function startCompactRoundResolution(s){
+ if(!s?.tactical?.compact||s.tactical.stage!=='ready')return fail('A rodada compacta precisa das duas ordens confirmadas.');
+ s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
+ const actions=orderTacticalActions(s,[...s.tactical.plans.player,...s.tactical.plans.enemy]).map(ref=>({...ref,category:priority(s,ref)}));
+ const before=replayState(s);
+ stamp(s,{type:'reveal',title:'Planos revelados',actions:copy(actions),before,after:before});
+ let slot=0,prepared=false,commands=[],closed=false;
+ const peek=()=>{
+  if(closed||!prepared||!commands.length)return null;
+  const ref=commands[0],actor=actorFor(s,ref.side,ref.actorId);
+  const ability=ref.type==='skill'?actor?.abilities.find(a=>a.id===ref.abilityId):null;
+  const origin=actor?s.tactical.positions[actor.id]:null;
+  const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
+  const targets=ability&&anchor?tacticalTargets(s,actor,ability,anchor,ref.orientation):[];
+  return {...ref,actor:actor||null,ability:ability||null,targets,
+   comboEligible:tacticalComboEligible(actor,ability,targets)};
+ };
+ const next=(responses={})=>{
+  if(closed)return fail('A rodada já foi concluída.');
+  const start=s.tactical.events.length;
+  if(slot<2&&!prepared){
+   const wave=actions.filter(ref=>ref.slot===slot);
+   const paths=wave.filter(ref=>ref.type==='move'&&actorFor(s,ref.side,ref.actorId)&&!actorFor(s,ref.side,ref.actorId).stunned);
+   if(paths.length)resolveExchangeMovement(s,paths);
+   commands=wave.filter(ref=>ref.type!=='move').sort((a,b)=>a.category-b.category||a.turnRank-b.turnRank);
+   prepared=true;
+   // Return control to the UI BEFORE any skill resolves so the player can respond.
+   return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
+  }
+  if(commands.length){
+   const awaiting=peek(),ref=commands.shift();
+   const combo=awaiting?.comboEligible?tacticalComboResult(responses):null;
+   const before=replayState(s),result=execute(s,combo?{...ref,clash:combo}:ref);
+   stamp(s,{...ref,...result,before,after:replayState(s),title:result.title||'Técnica interrompida'});
+   if(boardOutcome(s)){slot=2;commands=[];}
+   return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
+  }
+  if(slot<2){slot++;prepared=false;return {ok:true,done:false,events:[]};}
+  finishTacticalRound(s);pauseForTacticalRewards(s);closed=true;
+  return {ok:true,done:true,events:copy(s.tactical.events.slice(start)),finished:s.tactical.stage==='finished'};
+ };
+ return {ok:true,events:copy(s.tactical.events),peek,next};
 }
 
 const canLeave=(s,u)=>boardCells(s).some(to=>canStep(s,u.id,s.tactical.positions[u.id],to,{movement:true}));
