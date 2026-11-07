@@ -345,6 +345,7 @@ function interactiveDuel(ref){
    },600);
   };
   duel.press=finish;
+  duel.cancel=()=>{if(duel.completed)return;duel.completed=true;clearTimeout(duel.transitionTimer);resolve({});};
   // A skipped response still makes an ordinary, visibly explained choice.
   // There is no free immunity or advantage from skipping the contest.
   duel.skip=()=>finish(attacking?'impeto':'contencao');
@@ -399,7 +400,7 @@ function confirm(){
  }catch{fallback();}
 }
 function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],config={}){
- job++;state.revision++;state.clash?.skip?.();state.clash=null;effects?.clear();
+ job++;state.revision++;state.clash?.cancel?.();state.clash=null;effects?.clear();
  try{state.battle=createTacticalBattle(player,enemy,{...config,seed:config.seed||state.seed,fortress:true,compact:true,augmentProgress:state.run.augmentProgress});}catch(error){state.message=error.message;if(state.battle)render();return;}
  Object.assign(state,{actions:[],busy:false,snapshot:null,event:null,message:'',mode:'move',rewards:[],selected:state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id});render();
 }
