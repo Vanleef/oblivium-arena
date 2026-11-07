@@ -1,6 +1,6 @@
 import {characterById} from './data.js';
 import {combatScenes,combatScene} from './combat-scenes.js';
-import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,tacticalView,tacticalArea,fortressTechniqueSpec,chooseTacticalChestReward,rerollTacticalChestReward,chooseTacticalShadow} from './tactical-combat.js';
+import {createTacticalBattle,previewTacticalPlan,submitTacticalPlan,resolveTacticalRound,startCompactRoundResolution,tacticalView,tacticalArea,fortressTechniqueSpec,chooseTacticalChestReward,rerollTacticalChestReward,chooseTacticalShadow} from './tactical-combat.js';
 import {skillSealReason} from './combat-effects.js';
 import {tacticalRequirementReason} from './tactical-requirements.js';
 import {planTacticalAI} from './tactical-ai.js';
@@ -14,7 +14,8 @@ import {tacticalSpriteFrame,tacticalSpriteInline,paintTacticalToken} from './tac
 import {tacticalFigureStyle} from './tactical-figure-framing.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalIdleStyle} from './tactical-motion.js';
-import {tacticalFrameDuration,tacticalCompactFrameDuration} from './tactical-animation.js';
+import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
+import {tacticalComboReplayEvents,tacticalComboAIOpposition,tacticalComboBeats} from './tactical-combo.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -30,7 +31,7 @@ const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const key='oblivium-conquest-augment-progress-v2',profileKey='pma-post-mortem-arena-v1';
 function progress(){try{const stored=conquestProgress(JSON.parse(localStorage.getItem(key)||'{}')),profile=JSON.parse(localStorage.getItem(profileKey)||'null');return profile?syncConquestCampaign(profile,stored):stored;}catch{return conquestProgress();}}
-const state={battle:null,run:createTacticalRun(progress()),actions:[],spends:{},selected:null,mode:'move',busy:false,snapshot:null,event:null,message:'',speed:1,seed:1,revision:0,rewards:[],hitstop:false};
+const state={battle:null,run:createTacticalRun(progress()),actions:[],spends:{},selected:null,mode:'move',busy:false,snapshot:null,event:null,message:'',speed:1,seed:1,revision:0,rewards:[],hitstop:false,clash:null};
 let effects,worker,aiTask,job=0;
 const units=s=>[...s.allies,...s.enemies];
 const heroColors=Object.freeze(['#f0ae56','#e94a86','#6ca8f5']);
@@ -152,6 +153,18 @@ function eventForecast(s){
  const {nextRound,roundsRemaining,active}=tacticalFieldForecast(s);
  return '<p class="compact-field-forecast"><strong>Eventos de campo</strong> · Próximo evento: rodada '+nextRound+' (em '+roundsRemaining+' rodada(s))'+(active?'<span>Ativo: '+esc(active.title)+' · '+esc(active.description)+'</span>':'')+'</p>';
 }
+function clashMarkup(){
+ const clash=state.clash;if(!clash)return '';
+ const attack=clash.role==='attack',label=attack?'INTENSIFICAR':'APARAR';
+ return '<section class="compact-rhythm-clash" role="dialog" aria-modal="false" aria-label="Disputa de combo" data-combo-role="'+clash.role+'" data-combo-feedback="'+Boolean(clash.locked)+'" style="--rhythm-ms:'+clash.ms+'ms">'
+  +'<div class="compact-rhythm-heading"><strong>'+esc(attack?'SEQUÊNCIA OFENSIVA':'DEFESA ATIVA')+'</strong><span>GOLPE '+clash.beat+' / '+tacticalComboBeats+'</span></div>'
+  +'<p><b>'+esc(clash.actorName)+'</b> · '+esc(clash.abilityName)+'</p>'
+  +'<div class="compact-rhythm-track" aria-hidden="true"><i class="compact-rhythm-zone"></i><i class="compact-rhythm-cursor"></i></div>'
+  +'<p class="compact-rhythm-help">'+esc(clash.feedback||'Toque no momento em que o marcador cruzar o centro.')+'</p>'
+  +'<div class="compact-rhythm-actions"><button data-combo-strike '+(clash.locked?'disabled':'')+'>'+label+' <small>Toque / Espaço</small></button><button data-combo-skip>Sem interação</button></div>'
+  +'<span class="compact-rhythm-score" role="status">Acertos: '+clash.hits+' / '+tacticalComboBeats+' · A disputa afeta o dano real.</span>'
+  +'</section>';
+}
 function render(){
  const s=displayed(),future=planned(),finished=state.battle.tactical.stage==='finished',rule=s.tactical.environment;
  const actorEvent=units(s).find(u=>u.id===state.event?.actorId),ability=actorEvent?.abilities.find(a=>a.id===state.event?.abilityId);
@@ -159,7 +172,7 @@ function render(){
  const scene=combatScene(s.tactical.scene),sceneUrl=scene.art;
  const cinematicImpact=tacticalImpactProfile(state.event,{speed:state.speed,reduced:Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches)});
  const activeSpecial=state.event?.type==='skill'&&!state.event.skipped&&['voto','despertar'].includes(String(state.event.abilityId||'').split('/')[0]);
- root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'" data-hitstop="'+state.hitstop+'" data-impact-shake="'+(cinematicImpact?.shake||'none')+'" style="--compact-scene-image:url(\''+esc(sceneUrl)+'\');--compact-floor-zoom:'+scene.floorZoom+'%;--compact-floor-focus:'+scene.floorFocus+'%;--compact-hit-duration:'+Math.round((activeSpecial?560:420)/state.speed)+'ms;--compact-heal-duration:'+Math.round(460/state.speed)+'ms;--compact-feedback-delay:'+Math.round(36/state.speed)+'ms;--super-duration:'+Math.round(320/state.speed)+'ms"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+tacticalSuperCaptionMarkup(actorEvent,ability,state.event)+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section><div id="compact-formation">'+setup()+'</div></div>';
+ root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'" data-hitstop="'+state.hitstop+'" data-impact-shake="'+(cinematicImpact?.shake||'none')+'" style="--compact-scene-image:url(\''+esc(sceneUrl)+'\');--compact-floor-zoom:'+scene.floorZoom+'%;--compact-floor-focus:'+scene.floorFocus+'%;--compact-hit-duration:'+Math.round((activeSpecial?560:420)/state.speed)+'ms;--compact-heal-duration:'+Math.round(460/state.speed)+'ms;--compact-feedback-delay:'+Math.round(36/state.speed)+'ms;--super-duration:'+Math.round(320/state.speed)+'ms"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+clashMarkup()+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+tacticalSuperCaptionMarkup(actorEvent,ability,state.event)+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section><div id="compact-formation">'+setup()+'</div></div>';
  if(effects?.frame)effects.attach(root.querySelector('.board'));
 }
 function append(ref){
@@ -193,7 +206,7 @@ function emit(event,unit,ability,phase,duration){
  if(!effects){const canvas=document.createElement('canvas');canvas.className='tactical-effects-canvas';canvas.setAttribute('aria-hidden','true');effects=new TacticalEffectsLayer(canvas);}
  effects.emit(root.querySelector('.board'),event,unit,phase,duration,{reduced:Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches),projectile:tacticalProjectileKind(unit,ability,event)});
 }
-async function playback(events){
+async function playback(events,{partial=false}={}){
  const revision=++state.revision;state.busy=true;state.hitstop=false;render();
  const reduced=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
  // Reduced motion removes travel, not the player's time to read damage or healing.
@@ -202,7 +215,7 @@ async function playback(events){
   setTimeout(resolve,delay);
  });
  const pauseExact=ms=>new Promise(resolve=>setTimeout(resolve,ms));
- for(const event of events){
+ for(const event of events.flatMap(tacticalComboReplayEvents)){
   if(revision!==state.revision)return;
   if(!event.before||!event.after)continue;
   state.snapshot=event.before;state.event={...event,pose:'announce'};render();
@@ -264,16 +277,86 @@ async function playback(events){
   state.snapshot=event.after;
  }
  if(revision!==state.revision)return;
+ if(partial){state.event=null;state.hitstop=false;render();return;}
  state.snapshot=null;state.event=null;state.hitstop=false;state.busy=false;state.actions=[];state.mode='move';state.message='';
  state.selected=state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id;
  if(state.battle.phase==='victory')state.rewards=offerTacticalRewards(state.run,state.battle);
  render();
 }
+// The opponent's score is a bounded deterministic AI response.
+ // The human acts for the attacking or defending team, even in solo play.
+function interactiveCombo(ref){
+ const reduced=Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
+ if(reduced)return Promise.resolve({attackHits:0,defenseHits:0});
+ const role=ref.side==='player'?'attack':'defense',ms=1050;
+ const current=state.battle,position=current.tactical.positions[ref.actorId];
+ const before={allies:current.allies,enemies:current.enemies,positions:current.tactical.positions,
+  width:current.tactical.width,height:current.tactical.height};
+ const anchor=ref.anchor||position,area=tacticalArea(current,ref.actor,ref.ability,anchor,ref.orientation);
+ state.snapshot=before;
+ state.event={type:'skill',actorId:ref.actorId,abilityId:ref.abilityId,family:tacticalAnimationFamily(ref.ability),
+  anchor,orientation:ref.orientation,cells:area,before,after:before,pose:'windup'};
+ return new Promise(resolve=>{
+  const opponent=tacticalComboAIOpposition({round:current.round,actorId:ref.actorId,abilityId:ref.abilityId});
+  const value={role,ms,beat:1,hits:0,locked:false,feedback:'',actorName:ref.actor.name,
+   abilityName:ref.ability.name,startedAt:0,timer:null,completed:false,press:null,skip:null};
+  const complete=neutral=>{
+   if(value.completed)return;
+   value.completed=true;clearTimeout(value.timer);state.clash=null;state.event=null;
+   const answer=neutral?{attackHits:0,defenseHits:0}:
+    role==='attack'?{attackHits:value.hits,defenseHits:opponent}:{attackHits:opponent,defenseHits:value.hits};
+   state.snapshot=before;render();resolve(answer);
+  };
+  const begin=()=>{
+   if(value.completed)return;
+   value.locked=false;value.feedback='';state.clash=value;render();
+   value.startedAt=performance.now();
+   value.timer=setTimeout(()=>end(false),ms);
+  };
+  const end=tapped=>{
+   if(value.completed||value.locked)return;
+   value.locked=true;clearTimeout(value.timer);
+   const offset=(performance.now()-value.startedAt)/ms,accurate=tapped&&Math.abs(offset-.5)<=.23;
+   if(accurate)value.hits++;
+   value.feedback=accurate?'ACERTO!':tapped?'FORA DO RITMO':'TEMPO ESGOTADO';
+   if(tapped){
+    playCombatCue('release',state.event?.family||'strike');
+    emit({...state.event,pose:'release'},ref.actor,ref.ability,'release',220/state.speed);
+   }
+   render();
+   setTimeout(()=>{
+    if(value.completed)return;
+    if(value.beat>=tacticalComboBeats)complete(false);
+    else{value.beat++;begin();}
+   },170);
+  };
+  value.press=()=>end(true);value.skip=()=>complete(true);
+  begin();
+ });
+}
+async function playCompactSession(session){
+ const id=job;
+ await playback(session.events,{partial:true});
+ while(id===job){
+  const pending=session.peek();
+  const contest=pending?.comboEligible?await interactiveCombo(pending):{};
+  if(id!==job)return;
+  const next=session.next(contest);
+  if(!next.ok)throw Error(next.reason||'Etapa tática inválida');
+  if(next.events.length||next.done)await playback(next.events,{partial:!next.done});
+  if(next.done)return;
+ }
+}
 function finishPlan(id,round,plan){
  if(id!==job||round!==state.battle.round||!state.busy)return;
  const result=submitTacticalPlan(state.battle,'enemy',plan||[]);
  if(!result.ok){if(state.battle.tactical.stage==='planning')delete state.battle.tactical.plans.player;state.message=result.reason;state.busy=false;render();return;}
- const resolution=resolveTacticalRound(state.battle);if(resolution.ok)playback(resolution.events);else{state.busy=false;state.message=resolution.reason;render();}
+ const session=startCompactRoundResolution(state.battle);
+ if(session.ok)playCompactSession(session).catch(error=>{
+  state.busy=false;state.clash=null;state.event=null;state.snapshot=null;
+  state.message='Falha ao reproduzir o combo: '+(error?.message||'erro desconhecido');render();
+ });
+ else{state.busy=false;state.message=session.reason;render();}
 }
 function confirm(){
  if(locked())return;
@@ -289,12 +372,13 @@ function confirm(){
  }catch{fallback();}
 }
 function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],config={}){
- job++;state.revision++;effects?.clear();
+ job++;state.revision++;state.clash?.skip?.();state.clash=null;effects?.clear();
  try{state.battle=createTacticalBattle(player,enemy,{...config,seed:config.seed||state.seed,fortress:true,compact:true,augmentProgress:state.run.augmentProgress});}catch(error){state.message=error.message;if(state.battle)render();return;}
  Object.assign(state,{actions:[],busy:false,snapshot:null,event:null,message:'',mode:'move',rewards:[],selected:state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id});render();
 }
 root.addEventListener('click',event=>{
  const button=event.target.closest('button');if(!button||button.disabled)return;const d=button.dataset;
+ if(state.clash){if('comboStrike'in d)state.clash.press?.();else if('comboSkip'in d)state.clash.skip?.();return;}
  if(d.speed){state.speed=Number(d.speed);render();return;}
  if('sound'in d){setAudioEnabled(!audioEnabled());render();return;}
  if(state.busy)return;
@@ -336,6 +420,11 @@ root.addEventListener('pointerover',event=>{
  for(const p of tacticalArea(s,u,a,{x,y},orientation))root.querySelector('[data-cell="'+cellKey(p)+'"]')?.classList.add('aim');
 });
 document.addEventListener('keydown',event=>{
+ if(state.clash){
+  if((event.code==='Space'||event.code==='Enter')&&!event.repeat){event.preventDefault();state.clash.press?.();}
+  else if(event.key==='Escape'){event.preventDefault();state.clash.skip?.();}
+  return;
+ }
  if(event.target.matches('input,select,textarea,[contenteditable="true"]')||locked())return;
  if(event.code==='Space'&&!event.repeat){event.preventDefault();confirm();}
  else if(['1','2','3'].includes(event.key)){state.selected=state.battle.allies[Number(event.key)-1].id;state.mode='move';render();}
