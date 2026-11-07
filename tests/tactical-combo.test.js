@@ -109,3 +109,15 @@ test('real dodges create empty visual contacts while preserving exact resolved d
  assert.equal(contacts[2].totalDamage,0);
  assert.deepEqual(contacts.at(-1).after,event.after);
 });
+
+test('sealed mindgame still replays one authoritative special, and never fabricates missed damage',()=>{
+ const lost={...base,duel:{duel:true,outcome:'miss'},
+  combo:{duel:true,outcome:'miss'},after:structuredClone(base.before)};
+ assert.equal(tacticalComboReplayEvents(lost).length,1);
+ const graze={...base,duel:{duel:true,outcome:'clash'},
+  combo:{duel:true,outcome:'clash'},after:snapshot(86,12)};
+ const grazeFrames=tacticalComboReplayEvents(graze);
+ assert.equal(grazeFrames.length,3);
+ assert.equal(grazeFrames.reduce((sum,f)=>sum+f.totalDamage,0),14);
+ assert.deepEqual(grazeFrames.at(-1).after,graze.after);
+});
