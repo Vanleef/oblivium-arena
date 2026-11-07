@@ -177,7 +177,8 @@ export class TacticalEffectsLayer {
     }
    }
   }
-  if(phase==='prepare')push('charge',from);
+  if(phase==='step'&&event.type==='move'&&!reduced)push('step-dust',worldPoint(event.anchor,.86),{particles:0});
+ if(phase==='prepare')push('charge',from);
   if(phase==='release'&&!projectile&&!reduced)push('swing',from,{melee:meleeFamilies.has(event.family)});
  // The same resolved area used by the grid telegraph also drives material FX.
  // Even fortress-basic and short melee skills spawn small physical arrivals in
@@ -514,6 +515,16 @@ function drawEffect(ctx,fx,t){
    ctx.lineTo(-r*.12,r*.27);ctx.closePath();
   }else ctx.ellipse(0,0,Math.max(3,r*.35),Math.max(2,r*.22),0,0,TAU);
   ctx.fill();ctx.shadowBlur=0;
+ }else if(kind==='step-dust'){
+  // Footfall disturbs the actual ground on the destination tile: no fake spell.
+  ctx.save();ctx.translate(x,y);ctx.globalAlpha=fade*.65;
+  ctx.fillStyle=mid;ctx.strokeStyle=dark;ctx.lineWidth=1;
+  ctx.beginPath();ctx.ellipse(0,0,r*(.22+.32*p),r*(.08+.12*p),0,0,TAU);ctx.fill();
+  for(let i=-1;i<=1;i++){
+   ctx.beginPath();ctx.ellipse(i*r*(.32+.32*p),-r*(.05+.16*p),r*.12*fade,r*.07*fade,0,0,TAU);
+   ctx.fill();
+  }
+  ctx.restore();
  }else if(kind==='tile-flight'){
   const origin=fx.from||fx.point,dx=x-origin.x,dy=y-origin.y;
   const angle=Math.atan2(dy,dx),ease=1-(1-p)**1.5;
