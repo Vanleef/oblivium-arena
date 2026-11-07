@@ -25,7 +25,10 @@ export function renderCardHand(state){
   '<span class="card-type">AÇÃO BÁSICA · SEM RECARGA</span><span class="card-thumb">⚔</span><strong>Ataque Básico</strong><span class="card-effect">Causa 5 de dano físico ao inimigo escolhido. Não consome uma carta.</span>'+
   '<span class="card-marker">'+(basicReason?esc(basicReason):"SEMPRE DISPONÍVEL")+"</span></button>":"";
  const cards=hand.map(card=>{
-  if(card.kind==="movement")return '<div class="combat-hand-card movement-card" aria-label="Movimento padrão garantido"><div class="card-type">MOVIMENTO · GRATUITO</div><strong>Movimento padrão</strong><p>Avança uma casa. Ação temporária: renasce na próxima rodada.</p><span class="movement-warning">Aguardando integração ao tabuleiro espacial</span></div>';
+  if(card.kind==="movement"){
+   const moved=battle.movementPlans?.player?.some(move=>move.actorId===selected.id),active=state.moveActorId===selected.id;
+   return '<button type="button" class="combat-hand-card movement-card" data-movement-toggle="'+esc(selected.id)+'" aria-pressed="'+active+'" '+(!canPlay?'disabled':'')+'><span class="card-type">MOVIMENTO · GARANTIDO</span><span class="card-thumb">↗</span><strong>Movimento padrão</strong><p>Escolha uma casa adjacente livre. Pode ser usado junto de uma técnica.</p><span class="movement-warning">'+(moved?'DESTINO MARCADO · ALTERAR':active?'ESCOLHA UMA CASA':'ESCOLHER MOVIMENTO')+'</span></button>';
+  }
   const ability=selected.abilities.find(a=>a.id===card.abilityId);
   if(!ability)return "";
   const reason=skillAvailability(battle,selected,ability);
