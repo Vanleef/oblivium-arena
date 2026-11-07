@@ -368,3 +368,28 @@ test('movement leaves a brief ground contact only at the resolved destination',(
   assert.equal(reduced.effects.length,0);
  }finally{globalThis.requestAnimationFrame=beforeFrame;}
 });
+
+test('combat VFX now prioritize the physical palette of the caster over generic fire/blood/light tone',()=>{
+ const ctx=new Proxy({createRadialGradient:()=>({addColorStop(){}})}, {get:(target,key)=>target[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}};
+ const board={clientWidth:540,clientHeight:360,append(node){node.parentElement=this;}};
+ const saved=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  for(const [id,realm,color,dominant] of [
+   ['o-acougueiro','Inferno','blood','#c5354c'],
+   ['a-viuva-escarlate','Inferno','blood','#b62857'],
+   ['o-escudo-vivo','Paraíso','guard','#d7b56f'],
+   ['a-arquiteta-verde','Paraíso','creation','#76be84'],
+   ['o-passo-interrompido','Limbo','limbo','#a88bf0']
+  ]){
+   const layer=new TacticalEffectsLayer(canvas);
+   const actor={...allies[0],sourceId:id,realm,color,
+    abilities:[{id:'tecnica',name:'Chama de Fogo',damage:12}]};
+   layer.emit(board,{...impact,abilityId:'tecnica',affectedTargetIds:['a1']},actor,'impact',300);
+   assert.equal(layer.effects.length,1);
+   assert.equal(layer.effects[0].color[1],dominant,id+' should not inherit generic fire VFX');
+   layer.clear();
+  }
+ }finally{globalThis.requestAnimationFrame=saved;}
+});
