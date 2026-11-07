@@ -1,0 +1,43 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {tacticalCharacterMotifs,tacticalCharacterChoreography,drawTacticalCharacterImpact} from '../src/tactical-character-vfx.js';
+
+const kinds=Object.values(tacticalCharacterMotifs);
+test('seven combatants have distinct procedural physical motifs and all four technique slots',()=>{
+ assert.equal(new Set(kinds).size,7);
+ assert.deepEqual(Object.keys(tacticalCharacterMotifs).sort(),[
+  'a-arquiteta-verde','a-viuva-escarlate','nilo','o-acougueiro',
+  'o-escudo-vivo','o-odio-encarnado','o-passo-interrompido'
+ ].sort());
+ for(const [id,kind] of Object.entries(tacticalCharacterMotifs)){
+  const actor={id:'rival-0-'+id,sourceId:id};
+  const profiles=['impulso','tecnica','voto','despertar'].map(abilityId=>
+   tacticalCharacterChoreography(actor,{type:'skill',abilityId,formKey:'base'}));
+  assert.deepEqual(profiles.map(m=>m.kind),[kind,kind,kind,kind]);
+  assert.deepEqual(profiles.map(m=>m.weight),[.85,1,1.15,1.3]);
+  assert.equal(tacticalCharacterChoreography(actor,{type:'move',abilityId:'tecnica'}),null);
+  assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'tecnica',skipped:true}),null);
+  assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'fortress-basic'}),null);
+  assert.equal(tacticalCharacterChoreography(actor,{type:'skill',abilityId:'tecnica',formKey:'alt'}).weight,1.1);
+ }
+ assert.equal(tacticalCharacterChoreography({id:'nonexistent'},{type:'skill',abilityId:'tecnica'}),null);
+});
+
+test('physical contact motifs render different geometry without changing combat state',()=>{
+ for(const [id,kind] of Object.entries(tacticalCharacterMotifs)){
+  const calls={fills:0,strokes:0,arcs:0};
+  const ctx=new Proxy({
+   fill(){calls.fills++;},stroke(){calls.strokes++;},ellipse(){calls.arcs++;}
+  },{get:(target,key)=>target[key]||(()=>{})});
+  const fx={
+   choreography:tacticalCharacterChoreography({id},{type:'skill',abilityId:'tecnica'}),
+   radius:24,color:['#fff','#d96','#522'],reaction:'damage'
+  };
+  assert.equal(fx.choreography.kind,kind);
+  assert.equal(drawTacticalCharacterImpact(ctx,fx,.4),true,id);
+  assert.ok(calls.fills+calls.strokes>0,id+' needs a drawn contact shape');
+  assert.equal(drawTacticalCharacterImpact(ctx,{...fx,reaction:'heal'},.4),false,
+   id+' keeps a legible universal healing indicator');
+ }
+ assert.equal(drawTacticalCharacterImpact({}, {radius:20,color:[]},.4),false);
+});
