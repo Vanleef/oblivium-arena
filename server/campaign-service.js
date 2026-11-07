@@ -5,6 +5,7 @@ import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
 import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
 import {validateMovementPlans} from '../src/tactical-grid.js';
+import {campaignObjectiveTier} from '../src/grid-objectives.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from '../src/progression.js';
 
@@ -60,7 +61,7 @@ function startBattle(profile,run,node){
  run.memories||=[];run.memoryNodeIds||=[];
  const nodeType=node.type||node.id,seed=((Number(run.seed)||1)+(Number(run.encounter)||0)*97)>>>0;
  const enemies=createEnemyTeam(elo,run.team,nodeType,run.encounter,{difficulty:run.difficulty||0,bossIds:run.bossIds});
- const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed,campaignRealm:elo.realm,niloAbsorption:run.niloAbsorption,cardMode:true});
+ const battle=createBattle(run.team,enemies,{buffs:run.buffs||[],memories:run.memories||[],teamHealth:run.teamHealth||{},globalEffects:aggregateGlobal(profile),difficulty:run.difficulty||0,rngSeed:seed,campaignRealm:elo.realm,niloAbsorption:run.niloAbsorption,objectiveTier:campaignObjectiveTier(profile),cardMode:true});
  beginInfluences(battle,seed);
  run.currentNodeId=node.id;run.battle=storeBattle(battle);
  return campaignState(profile,{battle:run.battle,node});
