@@ -189,3 +189,20 @@ test('KOF-style contact hold freezes recoil and material VFX without touching re
  assert.doesNotMatch(src,/\.battle\.allies\[[^\]]+\]\.hp\s*-=/,
   'visual hitstop must not apply or modify game damage');
 });
+
+test('mobile cinematic clarity does not sacrifice the readability of damage in reduced motion',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const src=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(src,/Math\.max\(180,220\/state\.speed\)/);
+ assert.match(src,/await pause\(duration,\{holdFeedback:impact\}\)/);
+ assert.match(css,/\.compact-hit-body\[data-impact-reaction="damage"\]\[data-impact-family="strike"\]/);
+ assert.match(css,/\.compact-hit-body\[data-impact-reaction="damage"\]\[data-impact-family="slash"\]/);
+ assert.match(css,/\.compact-hit-body\[data-impact-reaction="damage"\]\[data-impact-family="pierce"\]/);
+ assert.match(css,/\.compact-hit-body\[data-impact-reaction="damage"\]\[data-impact-family="counter"\]/);
+ assert.match(css,/\.compact-hit-body\[data-impact-reaction="block"\]/);
+ assert.match(css,/\.compact-stage\[data-hitstop="true"\]/);
+ assert.match(css,/\.compact-area-sigil\[data-phase="impact"\]\[data-effect-tone="stone"\]/);
+ assert.match(css,/\.compact-area-sigil\[data-phase="impact"\]\[data-effect-tone="blood"\]/);
+ assert.match(css,/\.compact-area-sigil\[data-phase="impact"\]\[data-effect-tone="thread"\]/);
+});
