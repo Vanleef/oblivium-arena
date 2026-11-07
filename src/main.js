@@ -487,9 +487,10 @@ function battleChanges(before,battle) {
 function presentBattleEffect(before,event) {
   const changes=battleChanges(before,state.battle);
   const summary=changes.flatMap(c=>[c.hp<0?`${c.name}: −${Math.abs(c.hp)} Vida`:c.hp>0?`${c.name}: +${c.hp} Vida`:"",c.shield>0?`${c.name}: +${c.shield} Defesa`:"",c.statuses.length?`${c.name}: ${c.statuses.join(", ")}`:""]).filter(Boolean).slice(0,3).join(" · ");
-  const kind=event.mode==="turn"?"turn":changes.some(c=>c.statuses.some(s=>s.startsWith("FORMA ·")))?"form":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
+  const kind=event.clashResult?.cancel?"shield":event.mode==="turn"?"turn":changes.some(c=>c.statuses.some(s=>s.startsWith("FORMA ·")))?"form":changes.some(c=>c.hp<0)?"impact":changes.some(c=>c.hp>0)?"restore":changes.some(c=>c.shield>0||c.statuses.includes("INVULNERÁVEL"))?"shield":"control";
   playSfx(event.reactions?.length?"reactive":kind==="form"?"form":kind==="restore"?"heal":kind==="impact"?"impact":"cast");
-  state.battleFx={...event,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="world")?"Eco ativado":event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:summary||event.summary||"Habilidade resolvida."};render();
+  const clashLabel=event.clashResult?.cancel?"VONTADE VENCIDA · GOLPE ANULADO":event.clashResult?.critical?"CONFRONTO · ACERTO CRÍTICO":null;
+  state.battleFx={...event,...(clashLabel?{title:clashLabel,actorName:event.actorName}:{}) ,...(event.reactions?.length?{title:event.reactions.some(r=>r.kind==="world")?"Eco ativado":event.reactions.some(r=>r.kind==="reaction")?"Efeito reativo":event.mode==="recovery"?"Regeneração":"Contra-ataque",actorName:[...new Set(event.reactions.map(r=>r.actorName))].join(" · ")}:{}),id:++battleFxSequence,changes,kind,summary:event.clashResult?.cancel?"O defensor anulou completamente o dano e os efeitos recebidos.":event.clashResult?.critical?"CRÍTICO! "+(summary||event.summary||"Impacto ampliado."):(summary||event.summary||"Habilidade resolvida.")};render();
 }
 function resolveCombatStep() {
   const battle=state.battle;if(!battle)return;const before=battleSnapshot(battle),result=resolveNextAction(battle);
