@@ -79,3 +79,37 @@ test('a defender timeout accepts the special without forfeiting the entire match
  await assert.rejects(()=>service.request(a.token),/Resolução autoritativa indisponível/);
  assert.equal(JSON.parse(store.data.get('compact-match:'+raw.id)).settled,false);
 });
+
+test('profile polling preserves an active queue without changing since, and reload restores search state',async()=>{
+ let now=1_000_000;
+ const store=new Store(),service=new CompactArenaService(store,{now:()=>now});
+ const first=await service.request();
+ const queued=await service.request(first.token,{op:'queue',team:ids});
+ assert.equal(queued.queued,true);
+ const before=JSON.parse(store.data.get('compact-queue'))[0];
+ for(let i=0;i<8;i++){
+  now+=10_000;
+  const response=await service.request(first.token,{op:'profile'});
+  assert.equal(response.queued,true,'heartbeat must keep queued player visible');
+  assert.equal(response.match,null);
+ }
+ const after=JSON.parse(store.data.get('compact-queue'))[0];
+ assert.equal(after.since,before.since,'search age must not reset');
+ assert.equal(after.touched,now);
+ const other=await service.request();
+ const matched=await service.request(other.token,{op:'queue',team:ids});
+ assert.ok(matched.match,'a waiting player is matchable after more than 20 seconds');
+ assert.equal(matched.queued,false);
+ assert.equal((await service.request(first.token,{op:'profile'})).queued,false);
+});
+test('cancelled and expired searches are never revived by profile polling',async()=>{
+ let now=200_000;
+ const service=new CompactArenaService(new Store(),{now:()=>now});
+ const first=await service.request();
+ await service.request(first.token,{op:'queue',team:ids});
+ assert.equal((await service.request(first.token,{op:'cancel'})).queued,false);
+ assert.equal((await service.request(first.token,{op:'profile'})).queued,false);
+ await service.request(first.token,{op:'queue',team:ids});
+ now+=20_001;
+ assert.equal((await service.request(first.token,{op:'profile'})).queued,false);
+});

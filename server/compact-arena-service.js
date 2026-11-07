@@ -98,6 +98,13 @@ export class CompactArenaService {
    }else if(op==='cancel'){
     await tx.set('compact-queue',(await tx.get('compact-queue')||[]).filter(q=>q.id!==id),600);
    }
+   // Polling must keep an existing queue reservation alive across refreshes,
+   // without silently re-queuing a cancelled or expired request.
+   if(op==='profile'&&!match){
+    const queue=await tx.get('compact-queue')||[];
+    const active=queue.find(entry=>entry.id===id&&now-entry.touched<20000);
+    if(active){active.touched=now;await tx.set('compact-queue',queue,600);}
+   }
    if(['turn','response','reward','surrender'].includes(op)){
     if(!match||match.settled)fail('Partida encerrada ou indisponível.',409);
     const side=match.players.indexOf(id)===0?'player':'enemy',b=match.battle;
@@ -141,7 +148,9 @@ export class CompactArenaService {
     }
     await tx.set('compact-match:'+match.id,match,86400);
    }
+   const queued=!match&&(await tx.get('compact-queue')||[]).some(entry=>entry.id===id&&now-entry.touched<20000);
    return {
+    queued,
     profile:{...p,rank:rankForRating(p.rating),level:playerLevel(p.xp)},
     leaderboard:(await tx.get('compact-leaderboard')||[]).slice(0,25),
     match:match?{id:match.id,mode:'compact',version:match.version,deadline:match.deadline,reason:match.reason,

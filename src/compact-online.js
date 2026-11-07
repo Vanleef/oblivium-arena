@@ -97,7 +97,7 @@ async function request(payload,{silent=false}={}){
  try{
   const response=await compactArenaRequest(payload);
   state.server=response;contextReset(response);
-  state.queuing=!response.match&&payload.op==='queue'?true:response.match?false:payload.op==='cancel'?false:state.queuing;
+  state.queuing=Boolean(response.queued);
  }catch(e){state.message=e.message;if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}}
  finally{state.busy=false;render();}
 }
@@ -285,6 +285,7 @@ async function initialize(){
    state.deckBuilds=loadDeckBuilds();
    state.server=await compactArenaRequest({op:'profile'});
    contextReset(state.server);
+   state.queuing=Boolean(state.server.queued);
   }
  }catch(error){state.message=error.message;}
  finally{state.loading=false;render();}
