@@ -4,6 +4,7 @@ import { affinityForTeam } from '../src/archetypes.js';
 import { getRelevantBuffChoices } from '../src/rules.js';
 import { beginInfluences, chooseInfluence, persistentCombatHp } from '../src/world-influences.js';
 import { applyEssenceExchanges, chooseAction, commitTurn, createBattle, createEnemyTeam, getCombatPlan, resolveNextAction } from '../src/combat.js';
+import {validateMovementPlans} from '../src/tactical-grid.js';
 import { advanceTrail, normalizeTrail } from '../src/trail.js';
 import { normalizeCampaign, createExpedition, completeExpedition, claimGlobalUpgrade, aggregateGlobal, runMaxHp, recordEncounter, selectBossRoster, maxDifficulty, canChooseNiloPath, resolveNiloPathChoice, syncNiloAbsorption } from '../src/progression.js';
 
@@ -122,6 +123,10 @@ export class CampaignService{
      if(!Array.isArray(body.actions)||body.actions.length>3)fail('Fila inválida.');
      const battle=restoreBattle(run.battle);if(battle.phase!=='player')fail('Aguarde a decisão atual do combate.',409);
      if(!Number.isSafeInteger(body.round)||body.round!==battle.round)fail('O turno mudou. A campanha foi atualizada.',409);
+     if(battle.grid){
+      try{battle.movementPlans.player=validateMovementPlans(battle,'player',body.moves||[]);}
+      catch(e){fail(e.message||'Movimento inválido.');}
+     }
      const exchanges=applyEssenceExchanges(battle,'player',body.exchanges||[]);if(!exchanges.ok)fail(exchanges.reason||'Troca de Essência inválida.');
      const actors=new Set();for(const ref of body.actions){if(actors.has(ref?.actorId))fail('Cada alma pode agir uma vez por turno.');actors.add(ref?.actorId);const result=chooseAction(battle,ref?.actorId,ref?.abilityId,ref?.targetId,{residueSpend:ref?.residueSpend,fractureSpend:ref?.fractureSpend,cardId:ref?.cardId});if(!result.ok)fail(result.reason||'Ação inválida.');}
      const committed=commitTurn(battle,body.payment);if(!committed.ok)fail(committed.reason||'Pagamento inválido.');
