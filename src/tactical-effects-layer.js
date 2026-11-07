@@ -309,11 +309,29 @@ function drawImpactBurst(ctx,fx,p){
   ctx.restore();return;
  }
  if(melee){
-  // Pressurized edge tracks the attacker's original direction, followed by recoil.
-  ctx.rotate(a);ctx.globalAlpha=f*.95;ctx.strokeStyle=dark;
-  ctx.lineWidth=r*.30;ctx.beginPath();ctx.ellipse(0,0,r*(.80+.46*p),r*.63,-.16,-1.23,1.05);ctx.stroke();
-  ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.11);ctx.beginPath();
-  ctx.ellipse(0,0,r*(.90+.46*p),r*.68,-.16,-1.23,1.05);ctx.stroke();
+  ctx.rotate(a);ctx.globalAlpha=f*.95;
+  if(fx.family==='pierce'){
+   // A hard, short wedge and front-facing splinters: a thrust, not a sword arc.
+   ctx.fillStyle=dark;ctx.beginPath();
+   ctx.moveTo(-r*.44,-r*.35);ctx.lineTo(r*(1.30+.35*p),0);
+   ctx.lineTo(-r*.44,r*.35);ctx.closePath();ctx.fill();
+   ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.09);ctx.beginPath();
+   ctx.moveTo(-r*.25,0);ctx.lineTo(r*(1.10+.31*p),0);ctx.stroke();
+  }else if(fx.family==='strike'){
+   // A blunt hit compresses the center and fractures the floor outward.
+   ctx.strokeStyle=dark;ctx.lineWidth=r*.18;ctx.beginPath();
+   for(let i=-2;i<=2;i++){
+    const offset=i*r*.22;ctx.moveTo(0,0);ctx.lineTo(r*(.55+.5*p),offset);
+   }
+   ctx.stroke();ctx.fillStyle=light;ctx.beginPath();
+   ctx.ellipse(r*.18,0,r*.32*f,r*.24*f,0,0,TAU);ctx.fill();
+  }else{
+   // Slashes and counters retain a broad, weighty edge with a bright follow-through.
+   ctx.strokeStyle=dark;ctx.lineWidth=r*.30;ctx.beginPath();
+   ctx.ellipse(0,0,r*(.80+.46*p),r*.63,-.16,-1.23,1.05);ctx.stroke();
+   ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.11);ctx.beginPath();
+   ctx.ellipse(0,0,r*(.90+.46*p),r*.68,-.16,-1.23,1.05);ctx.stroke();
+  }
   ctx.rotate(-a);
  }
  // A short shock ring gives body-to-body contact weight but never covers the board.
@@ -399,8 +417,11 @@ function drawEffect(ctx,fx,t){
    ctx.globalAlpha=Math.sin(p*Math.PI)*.96;
    ctx.lineCap='round';ctx.lineJoin='round';
    ctx.strokeStyle=dark;ctx.lineWidth=r*(fx.melee?.36:.20);
-   ctx.beginPath();ctx.ellipse(0,0,r*(fx.melee?1.56:1.1),r*.82,0,-1.17,1.10);ctx.stroke();
-   ctx.strokeStyle=mid;ctx.lineWidth=r*(fx.melee?.20:.12);ctx.stroke();
+   ctx.beginPath();
+   if(family==='pierce'){
+    ctx.moveTo(-r*.58,-r*.26);ctx.lineTo(r*1.64,0);ctx.lineTo(-r*.58,r*.26);
+   }else ctx.ellipse(0,0,r*(fx.melee?1.56:1.1),r*.82,0,-1.17,1.10);
+   ctx.stroke();ctx.strokeStyle=mid;ctx.lineWidth=r*(fx.melee?.20:.12);ctx.stroke();
    ctx.strokeStyle=light;ctx.lineWidth=Math.max(2,r*.07);ctx.stroke();
   }
  }else{
