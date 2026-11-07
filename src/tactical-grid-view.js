@@ -12,9 +12,11 @@ export function renderTacticalGrid(state,getValidTargets){
  const showArea=Boolean(actor&&ability&&!["self","team"].includes(ability.target));
  const abilityRange=ability?.id==="__basic_attack__"?1:Math.max(1,Math.min(4,Number(ability?.range)||3));
  const draftMoves=b.movementPlans?.player||[];
+ const objectiveNames={silver:"Prata",gold:"Ouro",prismatic:"Prismático"};
  const tiles=[];
  for(let y=0;y<GRID_HEIGHT;y++)for(let x=0;x<GRID_WIDTH;x++){
   const pos=x+":"+y,unit=units.find(u=>u.position?.x===x&&u.position?.y===y&&u.hp>0);
+  const objective=(b.gridObjectives||[]).find(o=>o.side==="player"&&o.x===x&&o.y===y);
   const pending=draftMoves.find(m=>m.to.x===x&&m.to.y===y),isMove=moveCells.has(pos);
   const activeTarget=unit&&targets.has(unit.id);
   const inArea=showArea&&gridDistance(plannedPosition(b,actor),{x,y})<=abilityRange;
@@ -22,7 +24,7 @@ export function renderTacticalGrid(state,getValidTargets){
   const art=unit?portraitMarkup(unit,"tactical-unit-portrait"):"";
   const realm=unit?.realm||"";
   tiles.push('<div class="tactical-tile'+(isMove?" move-choice":"")+(activeTarget?" target-choice":"")+
-   (occupied?" occupied":"")+(inArea?" ability-area":"")+(pending?" planned-destination":"")+
+   (occupied?" occupied":"")+(inArea?" ability-area":"")+(objective?" objective-tile objective-"+esc(objective.tier):"")+(pending?" planned-destination":"")+
    '" role="gridcell" data-cell="'+pos+'" aria-label="Casa '+(x+1)+", "+(y+1)+'">'+
    '<button type="button" class="tactical-tile-pad" data-grid-cell="'+pos+'" '+(!planning||!moving||!isMove?"disabled":"")+
    ' aria-label="Mover '+esc(moving?.name||"alma")+' para coluna '+(x+1)+", linha "+(y+1)+'"></button>'+
@@ -31,6 +33,7 @@ export function renderTacticalGrid(state,getValidTargets){
    '<span class="tactical-token-art">'+art+'</span><span class="tactical-token-name">'+esc(unit.name)+'</span>'+
    (state.battleFx?.changes.some(change=>change.id===unit.id)?'<span class="tactical-token-impact">✹</span>':"")+
    '</button>':"")+
+   (objective?'<span class="tactical-objective-emblem" role="img" aria-label="Casa Objetivo · '+esc(objectiveNames[objective.tier]||"Prata")+'"><span class="objective-ring"></span><span class="objective-core">✧</span></span>':"")+
    (pending?'<span class="tactical-move-marker" title="Movimento planejado" aria-hidden="true">↳</span>':"")+
    '</div>');
  }
