@@ -2,6 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createCompactPvpBattle,publicCompactPvpBattle,submitCompactPvpPlan,respondCompactPvp,chooseCompactPvpReward} from '../server/compact-pvp.js';
 import {tacticalHand} from '../src/tactical-decks.js';
+import {tacticalTargets,previewTacticalPlan} from '../src/tactical-combat.js';
+import {tacticalComboEligible} from '../src/tactical-combo.js';
+import {boardCells,directions} from '../src/tactical-board.js';
 const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
 const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
 const duel=(config={})=>createCompactPvpBattle(ids,rivals,{seed:17,...config});
@@ -70,4 +73,51 @@ test('private objective reward can be chosen by the owning rival, never by the a
  assert.equal(result.ok,true,result.reason);
  assert.equal(s.tactical.stage,'planning');
  assert.equal(s.tactical.pendingChestRewards.length,0);
+});
+
+test('a real special waits for the defender after the two sealed plans, then resumes on a fresh JSON snapshot',()=>{
+ let s=duel();
+ const actor=s.allies[0],victim=s.enemies[0];
+ s.tactical.positions[actor.id]={x:2,y:2};
+ s.tactical.positions[victim.id]={x:3,y:2};
+ const deck=s.tactical.decks.sides.player[actor.id];
+ let chosen=null;
+ for(const card of Object.values(deck.cards)){
+  const ability=actor.abilities.find(a=>a.id===card.abilityId);
+  if(!ability||!tacticalComboEligible(actor,ability,[victim.id]))continue;
+  for(const anchor of boardCells(s)){
+   for(const orientation of directions){
+    if(!tacticalTargets(s,actor,ability,anchor,orientation).includes(victim.id))continue;
+    const ref={type:'skill',actorId:actor.id,abilityId:ability.id,cardId:card.id,
+     anchor,orientation,willSign:'miragem'};
+    const previous=[...deck.hand];deck.hand=[card.id];
+    const preview=previewTacticalPlan(s,'player',[ref]);
+    if(preview.ok){chosen=ref;break;}
+    deck.hand=previous;
+   }
+   if(chosen)break;
+  }
+  if(chosen)break;
+ }
+ assert.ok(chosen,'must find an actual valid offensive special with the enemy adjacent');
+ assert.equal(submitCompactPvpPlan(s,'player',1,[chosen]).ready,false);
+ s=JSON.parse(JSON.stringify(s));
+ const started=submitCompactPvpPlan(s,'enemy',1,[]);
+ assert.equal(started.ok,true,started.reason);
+ assert.equal(started.clash,true,'server must stop before executing a contestable hit');
+ assert.equal(s.tactical.pendingClash.defenderSide,'enemy');
+ const view=publicCompactPvpBattle(s,'enemy');
+ assert.equal(view.phase,'tactical-clash');
+ assert.equal(view.tactical.clash.defender,true);
+ assert.equal(JSON.stringify(view).includes('"willSign"'),false);
+ assert.equal(JSON.stringify(view).includes('"authoritativeResolution"'),false);
+ const hp=victim.hp;
+ s=JSON.parse(JSON.stringify(s));
+ assert.equal(respondCompactPvp(s,'player','luz').ok,false,'the attacker cannot answer in place of the defender');
+ assert.equal(s.enemies[0].hp,hp);
+ const resolved=respondCompactPvp(s,'enemy','luz');
+ assert.equal(resolved.ok,true,resolved.reason);
+ assert.equal(s.tactical.pendingClash,undefined);
+ assert.ok(s.enemies[0].hp<hp,'Miragem defeats Luz, so the defender must suffer the special');
+ assert.equal(s.round,2);
 });
