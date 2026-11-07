@@ -149,3 +149,18 @@ test('KOF-inspired special keeps the actual fighter visible and avoids portrait-
  assert.doesNotMatch(cinematic,/<img class="cutin-art"/);
  assert.doesNotMatch(styles,/\.compact-stage>\.skill-cutin/);
 });
+
+test('super activation stinger and physical thrust particles stay synchronized with replay frames',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const audio=await readFile(new URL('../src/audio.js',import.meta.url),'utf8');
+ const effects=await readFile(new URL('../src/tactical-effects-layer.js',import.meta.url),'utf8');
+ assert.match(source,/let superCuePlayed=false/);
+ assert.match(source,/!superCuePlayed&&tacticalCutinActive\(state\.event\)/);
+ assert.match(source,/playCombatCue\('super',frame\.family\)/);
+ assert.match(source,/\['release','thrust','travel'\]\.includes\(frame\.pose\)/);
+ assert.match(source,/frame\.pose==='thrust'\?'release':frame\.pose/);
+ assert.match(audio,/if\(kind==='super'\)/);
+ assert.match(effects,/drawImpactBurst\(ctx,fx,p\)/);
+ assert.match(effects,/const meleeFamilies=new Set\(\['strike','slash','pierce','counter'\]\)/);
+});
