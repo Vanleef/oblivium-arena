@@ -569,6 +569,7 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[
  // Preview own movements when validating the chosen targets.
  const previousMoves=s.movementPlans?.[side]||[];
  if(s.grid)s.movementPlans[side]=normalizedMoves;
+ try{
  refreshSkillForms(s);
  const used=new Set(),queue=[];
  for(const ref of actions){
@@ -614,6 +615,7 @@ function submitSimultaneousDuelTurn(s,side,actions,selected,exchanges=[],moves=[
   s.resolutionSide=first;s.acted=[];continueSimultaneousDuel(s);
  }
  return duelPlanningStatus(s);
+ }catch(error){if(s.grid)s.movementPlans[side]=previousMoves;throw error;}
 }
 function duelClashCandidate(s,action){
  if(!action?.actorId||action.abilityId===BASIC_ATTACK_ID||action.clashResolved||!canUseResponse(s.cardCombat,opposingSide(action.side)))return null;
