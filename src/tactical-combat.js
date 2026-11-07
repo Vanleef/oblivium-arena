@@ -506,7 +506,7 @@ export function startCompactRoundResolution(s){
   const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
   const targets=ability&&anchor?tacticalTargets(s,actor,ability,anchor,ref.orientation):[];
   return {...ref,actor:actor||null,ability:ability||null,targets,
-   comboEligible:tacticalComboEligible(actor,ability,targets)};
+   comboEligible:tacticalComboEligible(actor,ability,targets)&&!actor.cooldowns?.[ability.id]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(s,actor,ability)};
  };
  const next=(responses={})=>{
   if(closed)return fail('A rodada já foi concluída.');
