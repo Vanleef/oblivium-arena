@@ -32,7 +32,7 @@ export function tacticalFeedback(event){
  const targetIds=new Set([...(event.affectedTargetIds||[]),...(event.targets||[])]);
  return actors(event.after).flatMap(unit=>{
   const old=previous.get(unit.id),point=event.after.positions?.[unit.id]||event.before.positions?.[unit.id];
-  if(!old||!point||(area.size&&!area.has(pointKey(point))&&!targetIds.has(unit.id)))return [];
+  if(!old||!point||((area.size||targetIds.size)&&!area.has(pointKey(point))&&!targetIds.has(unit.id)))return [];
   const out=[],hp=(unit.hp||0)-(old.hp||0),shield=(unit.shield||0)-(old.shield||0);
   if(hp<0)out.push({actorId:unit.id,point,kind:'damage',amount:-hp,label:'−'+(-hp)});
   if(hp>0)out.push({actorId:unit.id,point,kind:'heal',amount:hp,label:'+'+hp});
