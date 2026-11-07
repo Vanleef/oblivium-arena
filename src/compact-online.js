@@ -2,7 +2,7 @@ import {currentAccount} from './account-client.js';
 import {compactArenaRequest} from './compact-online-client.js';
 import {fortressTechniqueSpec} from './tactical-combat.js';
 import {tacticalRoster} from './tactical-kits.js';
-import {tacticalHand,tacticalResponseOptions,tacticalCardDeck,tacticalMovementSteps} from './tactical-decks.js';
+import {tacticalHand,tacticalResponseOptions,tacticalCardDeck,tacticalMovementSteps,defaultTacticalCardBuild} from './tactical-decks.js';
 import {tacticalArea,previewTacticalPlan} from './tactical-combat.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalSpriteFrame,tacticalSpriteStyle} from './tactical-sprites.js';
@@ -13,7 +13,7 @@ import {characterById} from './data.js';
 import {surfaceAt} from './tactical-elements.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const state={account:null,server:null,loading:true,busy:false,message:'',team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false};
+const state={account:null,server:null,loading:true,busy:false,message:'',team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{}};
 const match=()=>state.server?.match||null;
 const battle=()=>match()?.battle||null;
 const owner=s=>s?Object.keys(s.tactical.decks?.sides?.player||{}).length?'player':'enemy':null;
@@ -30,6 +30,52 @@ function projection(s,side){
   const result=previewTacticalPlan(s,side,state.actions);
   return result.ok?result.projection:s;
  }catch{return s;}
+}
+const deckSaveKey='oblivium-online-card-builds-v1';
+function loadDeckBuilds(){
+ try{
+  const local=JSON.parse(globalThis.localStorage?.getItem(deckSaveKey)||'null');
+  if(local&&typeof local==='object'&&!Array.isArray(local))return local;
+  const legacy=JSON.parse(globalThis.localStorage?.getItem('oblivium-campaign-card-builds-v1')||'null');
+  return legacy&&typeof legacy==='object'&&!Array.isArray(legacy)?legacy:{};
+ }catch{return {};}
+}
+function saveDeckBuilds(){try{globalThis.localStorage?.setItem(deckSaveKey,JSON.stringify(state.deckBuilds));}catch{}}
+function deckFor(id){
+ const hero=characterById[id];
+ if(!hero)return [];
+ const allowed=new Set(hero.abilities.map(a=>a.id));
+ const preset=defaultTacticalCardBuild(hero);
+ const stored=state.deckBuilds[id];
+ if(!Array.isArray(stored)||stored.length<8||stored.length>10)return preset;
+ return stored.map((card,i)=>{
+  if(card?.kind==='skill'&&allowed.has(card.abilityId))return {kind:'skill',abilityId:card.abilityId};
+  if(card?.kind==='mobility')return {kind:'mobility'};
+  if(card?.kind==='reaction')return {kind:'reaction'};
+  return preset[i]||{kind:'mobility'};
+ });
+}
+function deckEditorMarkup(){
+ const renderOne=id=>{
+  const hero=characterById[id],build=deckFor(id),choices=[
+   ...hero.abilities.filter(a=>a.id!=='fortress-basic').map(a=>({key:'skill:'+a.id,name:a.name})),
+   {key:'mobility',name:'Passo Longo · mobilidade'},
+   {key:'reaction',name:'Último Suspiro · reação'}
+  ];
+  return '<section class="online-deck-hero"><h3>'+esc(hero.name)+' · '+build.length+' cartas</h3>'
+   +'<div class="online-deck-slots">'+build.map((card,i)=>{
+    const chosen=card.kind==='skill'?'skill:'+card.abilityId:card.kind;
+    return '<label>Carta '+(i+1)+'<select data-deck-slot="'+esc(id)+'|'+i+'">'
+     +choices.map(option=>'<option value="'+esc(option.key)+'" '+(option.key===chosen?'selected':'')+'>'+esc(option.name)+'</option>').join('')
+     +'</select></label>';
+   }).join('')+'</div><div class="online-deck-actions">'
+   +'<button data-deck-add="'+esc(id)+'" '+(build.length>=10?'disabled':'')+'>Adicionar carta</button>'
+   +'<button data-deck-remove="'+esc(id)+'" '+(build.length<=8?'disabled':'')+'>Remover última</button>'
+   +'<button data-deck-default="'+esc(id)+'">Restaurar padrão</button></div></section>';
+ };
+ return '<details class="online-deck-editor"><summary>Equipar os três baralhos · 8 a 10 cartas por personagem</summary>'
+  +'<p>Monte cada mão com técnicas do próprio personagem, mobilidade e reação. Modificadores de dano de campanhas não são importados para o ranqueado.</p>'
+  +state.team.filter(id=>characterById[id]).map(renderOne).join('')+'</details>';
 }
 function legalFormation(){
  const team=state.team;
@@ -169,6 +215,7 @@ function setupMarkup(){
  const options=(index)=>available.map(id=>'<option value="'+esc(id)+'" '+(state.team[index]===id?'selected':'')+'>'+esc(characterById[id].name)+'</option>').join('');
  return '<section class="online-matchmaking"><h2>Arena ranqueada · 3v3</h2><p>Selecione três personagens recrutados. Cada um terá seu próprio baralho e sua própria mão. O planejamento fica oculto até a confirmação dos dois lados.</p>'
   +(available.length>=3?'<div class="online-formation">'+[0,1,2].map(i=>'<label>Personagem '+(i+1)+'<select data-team-slot="'+i+'">'+options(i)+'</select></label>').join('')+'</div>'
+   +deckEditorMarkup()
    +'<button class="online-primary" data-queue '+(legalFormation()||false?'':'disabled')+'>'+(state.queuing?'Atualizar busca':'Buscar partida')+'</button>'
    +(state.queuing?'<button data-cancel>Cancelar busca</button>':'')
    :'<p>Você precisa recrutar pelo menos três personagens disponíveis para o combate compacto antes de buscar uma partida.</p>')
@@ -235,6 +282,7 @@ async function initialize(){
   if(state.account.user){
    const owned=state.account.profile?.ownedIds||[];
    state.team=tacticalRoster.filter(id=>owned.includes(id)).slice(0,3);
+   state.deckBuilds=loadDeckBuilds();
    state.server=await compactArenaRequest({op:'profile'});
    contextReset(state.server);
   }
@@ -265,12 +313,22 @@ root.addEventListener('click',async event=>{
    ?state.rewardCard||Object.values(deck?.cards||{}).find(c=>c.kind==='skill')?.id:null;
   await request({op:'reward',version:match().version,offerId:offer.id,optionId:d.reward,cardId});return;
  }
- if('queue'in d){if(legalFormation())await request({op:'queue',team:state.team});return;}
+ if(d.deckAdd){const build=deckFor(d.deckAdd);if(build.length<10){state.deckBuilds[d.deckAdd]=[...build,{kind:'mobility'}];saveDeckBuilds();render();}return;}
+ if(d.deckRemove){const build=deckFor(d.deckRemove);if(build.length>8){state.deckBuilds[d.deckRemove]=build.slice(0,-1);saveDeckBuilds();render();}return;}
+ if(d.deckDefault){delete state.deckBuilds[d.deckDefault];saveDeckBuilds();render();return;}
+ if('queue'in d){if(legalFormation()){const decks=Object.fromEntries(state.team.map(id=>[id,deckFor(id)]));await request({op:'queue',team:state.team,decks});}return;}
  if('cancel'in d){await request({op:'cancel'});return;}
  if('ack'in d){await request({op:'ack'});state.queuing=false;return;}
  if('refresh'in d){await request({op:'profile'});return;}
 });
 root.addEventListener('change',event=>{
+ if(event.target.matches('[data-deck-slot]')){
+  const [id,index]=event.target.dataset.deckSlot.split('|'),value=event.target.value;
+  const build=deckFor(id),position=Number(index);
+  if(!Number.isInteger(position)||position<0||position>=build.length)return;
+  build[position]=value.startsWith('skill:')?{kind:'skill',abilityId:value.slice(6)}:{kind:value==='reaction'?'reaction':'mobility'};
+  state.deckBuilds[id]=build;saveDeckBuilds();render();return;
+ }
  if(event.target.matches('[data-team-slot]')){
   state.team[Number(event.target.dataset.teamSlot)]=event.target.value;render();
  }else if(event.target.matches('[data-response-card]'))state.responseCard=event.target.value||null;
