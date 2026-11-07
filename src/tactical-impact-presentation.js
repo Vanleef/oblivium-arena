@@ -27,6 +27,9 @@ export function tacticalImpactProfile(event,{speed=1,reduced=false}={}){
   return old&&(old.bodyForm||'base')!==(unit.bodyForm||'base');
  });
  const special=superAbilities.has(event.abilityId)||finishing||transformed;
+ // Restorative/support skills retain their own positive feedback, but should not
+ // shake the arena or pause like a weapon contact. A missed strike is also quiet.
+ const contactResolved=damage>0||finishing||transformed||(attack&&victims.length>0);
  const base={strike:46,slash:40,pierce:33,counter:48}[family]||26;
  const severity=Math.min(24,Math.floor(damage/6));
  const hold=base+severity+(special?32:0);
@@ -34,9 +37,9 @@ export function tacticalImpactProfile(event,{speed=1,reduced=false}={}){
  return Object.freeze({
   family,melee:attack,special,finishing,damage,
   // 1–2 frames on routine attacks, slightly more for consequential super hits.
-  hitstopMs:reduced?0:Math.round(hold/rate),
+  hitstopMs:reduced||!contactResolved?0:Math.round(hold/rate),
   recoilPx:attack?bounded(5+damage/9,5,13):bounded(damage/12,0,5),
-  shake:reduced?'none':finishing?'heavy':special?'special':attack?'physical':'soft'
+  shake:reduced||!contactResolved?'none':finishing?'heavy':special?'special':attack?'physical':'soft'
  });
 }
 export function tacticalMobileParticleBudget(width,{reduced=false}={}){
