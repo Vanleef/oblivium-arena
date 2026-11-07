@@ -34,7 +34,7 @@ export function defaultTacticalCardBuild(unit){
  const copies=Array.from({length:Math.max(0,6-pool.length)},(_,i)=>pool[i%Math.max(1,pool.length)]).filter(Boolean);
  return [...pool,...copies,{kind:'mobility',name:'Passo Longo'},{kind:'reaction',name:'Último Suspiro'}];
 }
-function validateBuild(unit,raw,unlockedKingdoms=0){
+export function validateTacticalBuild(unit,raw,unlockedKingdoms=0){
  if(!Array.isArray(raw)||raw.length<TACTICAL_CARD_RULES.minimum||raw.length>TACTICAL_CARD_RULES.maximum)throw Error('Cada baralho deve ter 8 a 10 cartas.');
  const abilities=new Set(unit.abilities.filter(a=>a.id!=='fortress-basic').map(a=>a.id));
  return raw.map((entry,index)=>{
@@ -63,7 +63,7 @@ export function createTacticalDecks(s,{decks={},seed=1,unlockedKingdoms=0}={}){
   for(const [i,unit] of team.entries()){
    const sideDecks=decks[side]&&typeof decks[side]==='object'&&!Array.isArray(decks[side])?decks[side]:{};
   const build=sideDecks[unit.sourceId||unit.id]||sideDecks[unit.id]||decks[unit.sourceId||unit.id]||decks[unit.id]||defaultTacticalCardBuild(unit);
-   const cards=validateBuild(unit,build,unlockedKingdoms),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
+   const cards=validateTacticalBuild(unit,build,unlockedKingdoms),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
    const initial=cards.filter(card=>card.upgrade.opening).map(card=>card.id);
    if(initial.length>TACTICAL_CARD_RULES.handLimit)throw Error('Há cartas iniciais demais.');
    const serial=seed+(side==='enemy'?1009:0)+i*131;

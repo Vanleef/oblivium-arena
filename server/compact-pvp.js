@@ -2,6 +2,8 @@
 // This module intentionally does not replace the historical ranked 3v3 API.
 import {createTacticalBattle,submitTacticalPlan,startCompactRoundResolution,resumeCompactRoundResolution,tacticalView,chooseTacticalChestReward} from '../src/tactical-combat.js';
 import {tacticalDuelOptions} from '../src/tactical-duel.js';
+import {characterById} from '../src/data.js';
+import {validateTacticalBuild} from '../src/tactical-decks.js';
 
 const other=side=>side==='player'?'enemy':'player';
 const signs=new Set(tacticalDuelOptions.map(option=>option.id));
@@ -23,10 +25,16 @@ function cleanBuilds(builds){
   })];
  }));
 }
+export function validateCompactPvpLoadouts(team,raw){
+ const builds=cleanBuilds(raw);
+ if(!Array.isArray(team)||Object.keys(builds).some(id=>!team.includes(id)))throw Error('Baralho pertence a outro personagem.');
+ for(const [id,cards] of Object.entries(builds))validateTacticalBuild(characterById[id],cards,0);
+ return builds;
+}
 export function createCompactPvpBattle(firstIds,secondIds,{seed=1,decks={}}={}){
  const battle=createTacticalBattle(firstIds,secondIds,{
   compact:true,fortress:true,cardMode:true,seed,
-  decks:{player:cleanBuilds(decks.player),enemy:cleanBuilds(decks.enemy)}
+  decks:{player:validateCompactPvpLoadouts(firstIds,decks.player),enemy:validateCompactPvpLoadouts(secondIds,decks.enemy)}
  });
  battle.tactical.pvpMode=true;
  battle.tactical.pvpProtocol=1;
@@ -56,6 +64,8 @@ export function publicCompactPvpBattle(s,side){
   defender:clash.defenderSide===side,actorId:clash.actorId,
   abilityId:clash.abilityId,targetId:clash.targetId
  }:null;
+ if(side==='enemy'&&v.phase==='victory')v.phase='defeat';
+ else if(side==='enemy'&&v.phase==='defeat')v.phase='victory';
  if(clash)v.phase=clash.defenderSide===side?'tactical-clash':'waiting';
  else if(s.tactical.stage==='planning'&&s.tactical.plans?.[side])v.phase='waiting';
  else if(s.tactical.stage==='resolving'||s.tactical.stage==='ready')v.phase='waiting';
