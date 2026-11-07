@@ -65,15 +65,45 @@ test('a Arena mantém um perfil e o limite de chamadas por conta mesmo com token
 });
 
 
-test('Arena recebe a escolha Qualquer, rejeita pagamento adulterado e mantém a versão após rejeição',async()=>{
- const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
+test('Arena valida custo Qualquer e carta real antes do planejamento simultâneo, sem gastar até ambos confirmarem',async()=>{
+ const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
  let views=await Promise.all([service.request(a.token),service.request(b.token)]);
- for(let i=0;i<2;i++){const v=views.find(v=>v.match.battle.phase==='influence');await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});views=await Promise.all([service.request(a.token),service.request(b.token)]);}
- const active=views.find(v=>v.match.battle.phase==='player'),u=active.match.battle.allies[0],resource=Object.keys(active.match.battle.resources).find(id=>active.match.battle.resources[id]>0),input={op:'turn',version:active.match.version,actions:[{actorId:u.id,abilityId:'despertar',targetId:u.id,randomPayment:{fake:1}}]};assert.ok(resource);
- await assert.rejects(()=>service.request(active.token,{...input,payment:{fake:1}}),{status:409});const unchanged=await service.request(active.token);assert.equal(unchanged.match.version,active.match.version);assert.deepEqual(unchanged.match.battle.resources,active.match.battle.resources);
- const sent=await service.request(active.token,{...input,payment:{[resource]:1}});assert.equal(sent.match.version,active.match.version+1);assert.equal(sent.match.battle.allies[0].cooldowns.despertar,4);assert.ok(sent.match.battle.log.some(line=>line.includes(u.abilities[3].name)&&line.includes('usa')));
+ for(let i=0;i<2;i++){
+  const v=views.find(v=>v.match.battle.phase==='influence');
+  await service.request(v.token,{op:'influence',version:v.match.version,eventId:v.match.battle.influenceDraft.options[0]});
+  views=await Promise.all([service.request(a.token),service.request(b.token)]);
+ }
+ const active=views[0],other=views[1],u=active.match.battle.allies[0];
+ const resource=Object.keys(active.match.battle.resources).find(id=>active.match.battle.resources[id]>0);
+ assert.ok(resource);
+ const raw=JSON.parse(store.data.get('match:'+active.match.id));
+ const deck=raw.battle.cardCombat.decks[u.id];
+ let card=deck.hand.find(c=>c.abilityId==='despertar');
+ if(!card){
+  const index=deck.draw.findIndex(c=>c.abilityId==='despertar');
+  assert.ok(index>=0,'a defesa precisa existir no deck equipado');
+  card=deck.draw.splice(index,1)[0];
+  deck.hand.push(card);
+ }
+ store.data.set('match:'+raw.id,JSON.stringify(raw));
+ const input={op:'turn',version:active.match.version,round:active.match.battle.round,moves:[],actions:[
+  {actorId:u.id,abilityId:'despertar',targetId:u.id,cardId:card.id}
+ ]};
+ await assert.rejects(()=>service.request(active.token,{...input,payment:{fake:1}}),{status:409});
+ const unchanged=await service.request(active.token);
+ assert.equal(unchanged.match.version,active.match.version);
+ assert.deepEqual(unchanged.match.battle.resources,active.match.battle.resources);
+ const first=await service.request(active.token,{...input,payment:{[resource]:1}});
+ assert.equal(first.match.version,active.match.version+1);
+ assert.equal(first.match.battle.phase,'waiting');
+ assert.equal(first.match.battle.allies[0].cooldowns.despertar||0,0,'primeiro plano não executa sozinho');
+ const completed=await service.request(other.token,{op:'turn',version:other.match.version,round:other.match.battle.round,actions:[],moves:[]});
+ assert.equal(completed.match.battle.round,active.match.battle.round+1);
+ const current=await service.request(active.token);
+ assert.equal(current.match.battle.allies[0].cooldowns.despertar,4);
+ assert.ok(current.match.battle.log.some(line=>line.includes(u.abilities[3].name)&&line.includes('usa')));
 });
-
 test('Arena autoriza a troca 5:1 somente com cinco pips reais no pool do jogador',async()=>{
  const store=new TestStore(),service=new ArenaService(store),a=await service.request(),b=await service.request();await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});
  let views=await Promise.all([service.request(a.token),service.request(b.token)]);
