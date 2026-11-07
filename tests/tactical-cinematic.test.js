@@ -133,3 +133,11 @@ test('earned defensive counter performs a short on-board deflect, strike and rec
  assert.equal(tacticalCutinActive({...retaliation,pose:'brace'}),false,
   'a parry counter should not start another giant character cut-in');
 });
+
+test('a defensive duel victory makes the special visibly miss without a damage contact',()=>{
+ const miss={...event,type:'skill',abilityId:'voto',duel:{duel:true,outcome:'miss'},pose:'windup'};
+ const frames=tacticalReplayFrames(actor,ability,miss);
+ assert.deepEqual(frames.map(f=>f.pose),['anticipate','windup','release','followthrough','recover']);
+ assert.equal(frames.some(f=>f.pose==='impact'||f.pose==='counter'),false);
+ assert.equal(tacticalCutinActive(miss),true,'the cast can still have its special presentation before missing');
+});
