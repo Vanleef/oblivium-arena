@@ -1,6 +1,8 @@
 // Oblivium Arena: three independent, serializable decks per team.
 // Deliberately pure: the same rules can be used by the browser, campaign server and PvP server.
 export const CARD_RULES = Object.freeze({minDeck:8,maxDeck:10,drawPerRound:2,maxHand:6,movementPerRound:1,responsesPerRound:1});
+export const BASIC_ATTACK_ID = "__basic_attack__";
+export const basicAttack = () => ({id:BASIC_ATTACK_ID,name:"Ataque Básico",target:"enemy",damage:5,damageType:"physical",costs:{},cooldown:0,formKey:"base"});
 export const WILL_SIGNS = Object.freeze(["fenda","vinculo","egide"]);
 const BEATS = Object.freeze({fenda:"vinculo",vinculo:"egide",egide:"fenda"});
 const hasUpgrade=(card,type)=>(card?.upgrades||[]).some(upgrade=>(typeof upgrade==="string"?upgrade:upgrade.type)===type);
