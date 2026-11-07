@@ -115,7 +115,7 @@ export function nextTacticalCardRound(s){
 }
 export function tacticalResponseOptions(s,side,targetId){
  const decks=s.tactical?.decks;if(!decks)return {available:true,basic:true,reactions:[]};
- const hand=targetId?tacticalHand(s,side,targetId):Object.keys(decks.sides[side]).flatMap(id=>tacticalHand(s,side,id));
+ const hand=Object.keys(decks.sides[side]).flatMap(id=>tacticalHand(s,side,id));
  return {available:Boolean(decks.responses[side]>0||hand.some(card=>card.kind==='reaction')),
   basic:decks.responses[side]>0,
   reactions:hand.filter(card=>card.kind==='reaction')};
