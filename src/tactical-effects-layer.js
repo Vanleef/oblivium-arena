@@ -25,7 +25,9 @@ const palettes={
  frost:['#f0ffff','#a5e2fb','#4188b4'],nature:['#e3ffd0','#91d68e','#3c795c'],
  blood:['#ffe2d5','#ed5875','#731a43'],void:['#eee2ff','#a877e1','#34246c'],
  grace:['#fffce3','#ecd588','#9671b8'],heal:['#e5ffeb','#6febac','#2a816e'],
- shield:['#e8fbff','#90d9fa','#3a71b3']
+ shield:['#e8fbff','#90d9fa','#3a71b3'],
+ stone:['#f3e4d4','#bfa88a','#5b4c49'],rot:['#dfe8ae','#a4ac63','#46523b'],
+ thread:['#f8e3ff','#ce96df','#624481']
 };
 const fieldColors={
  storm:['#f9efff','#b79aff'],wind:['#e9fff1','#98dcca'],rain:['#e0f8ff','#75b8ef'],
@@ -213,6 +215,56 @@ function drawSemanticImpact(ctx,tone,r,p,light,mid,dark){
   for(let i=-2;i<=2;i++){const x=i*r*.32;ctx.moveTo(x,r*.9);ctx.bezierCurveTo(x+r*.23,-r*.1,x-r*.25,-r*.4*fade,x,-r*.95*fade);ctx.moveTo(x-r*.04,-r*.16);ctx.lineTo(x-r*.24,-r*.38*fade);}
   ctx.stroke();return;
  }
+ if(tone==='blood'){
+  // Heavy overlapping cuts and droplets from the physical contact point.
+  ctx.strokeStyle=mid;ctx.lineWidth=r*.19;
+  for(let i=-1;i<=1;i++){
+   const offset=i*r*.25;
+   ctx.moveTo(-r*.80,offset+r*.21);
+   ctx.bezierCurveTo(-r*.15,offset-r*.72*fade,r*.24,offset+r*.38,r*.82,offset-r*.27*fade);
+  }
+  ctx.stroke();ctx.beginPath();ctx.fillStyle=dark;
+  for(let i=0;i<4;i++)ctx.ellipse((i-1.4)*r*.30,r*(.20+(i%2)*.17),r*.07,r*(.12+i*.012),i*.22,0,TAU);
+  ctx.fill();return;
+ }
+ if(tone==='stone'){
+  // Three slabs dislodge from the impact tile instead of a light beam.
+  for(let i=-1;i<=1;i++){
+   const x=i*r*.46,height=r*(.65+(i===0?.37:.12))*fade;
+   ctx.beginPath();ctx.moveTo(x-r*.24,r*.39);ctx.lineTo(x-r*.20,-height*.48);
+   ctx.lineTo(x+r*.04,-height);ctx.lineTo(x+r*.28,-height*.38);
+   ctx.lineTo(x+r*.25,r*.39);ctx.closePath();
+   ctx.fillStyle=i===0?mid:dark;ctx.fill();
+   ctx.strokeStyle=light;ctx.lineWidth=1.5;ctx.stroke();
+  }
+  return;
+ }
+ if(tone==='rot'){
+  // Dense, downward-slumping decomposition with uneven organic edges.
+  ctx.fillStyle=mid;ctx.beginPath();
+  for(let i=-2;i<=2;i++){
+   const x=i*r*.30,y=r*(.25-.2*(i%2)),size=r*(.18+.09*((i+3)%3));
+   ctx.moveTo(x+size,y);ctx.ellipse(x,y,size,size*(.8+p*.5),i*.19,0,TAU);
+  }
+  ctx.fill();ctx.strokeStyle=dark;ctx.lineWidth=r*.12;ctx.beginPath();
+  for(let i=-1;i<=1;i++){
+   const x=i*r*.35;
+   ctx.moveTo(x,r*.3);ctx.bezierCurveTo(x+r*.15,r*.5,x-r*.08,r*.7*fade,x+r*.03,r*fade);
+  }
+  ctx.stroke();return;
+ }
+ if(tone==='thread'){
+  // Ritual bindings wrap around the struck body; no laser-like energy strands.
+  ctx.strokeStyle=mid;ctx.lineWidth=r*.12;ctx.beginPath();
+  for(let i=0;i<3;i++){
+   const h=r*(.55-i*.37),width=r*(.88-i*.14);
+   ctx.moveTo(-width,h);
+   ctx.bezierCurveTo(-width*.45,h-r*.50,width*.65,h+r*.36,width,h-r*.13);
+  }
+  ctx.stroke();ctx.strokeStyle=light;ctx.lineWidth=2;ctx.beginPath();
+  ctx.moveTo(-r*.79,r*.56);ctx.lineTo(-r*.46,-r*.55*fade);
+  ctx.moveTo(r*.76,r*.52);ctx.lineTo(r*.48,-r*.44*fade);ctx.stroke();return;
+ }
  if(tone==='void'){
   ctx.lineWidth=r*.12;ctx.strokeStyle=mid;
   for(let i=0;i<3;i++)ctx.ellipse(0,0,r*(.28+i*.27+p*.22),r*(.63-i*.13),i*.55+p*.5,-Math.PI*.8,Math.PI*.65);
@@ -294,7 +346,7 @@ function drawEffect(ctx,fx,t){
   }else if(guard){
    for(let i=0;i<6;i++){const a=i*TAU/6;ctx.lineTo(Math.sin(a)*r*.63,Math.cos(a)*r*.84);}
    ctx.closePath();ctx.strokeStyle=light;ctx.lineWidth=2;ctx.stroke();
-  }else if(['fire','storm','frost','nature','void','grace'].includes(fx.tone)){
+  }else if(['fire','storm','frost','nature','void','grace','blood','stone','rot','thread'].includes(fx.tone)){
     drawSemanticImpact(ctx,fx.tone,r,p,light,mid,dark);
    }else if(control.has(family)){
    for(let i=0;i<4;i++){
