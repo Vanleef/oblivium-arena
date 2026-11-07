@@ -252,7 +252,7 @@ test('skill names appear immediately beneath the field and icons carry true mini
  assert.match(css,/margin-top:6px/);
  assert.match(source,/tacticalAreaDiagramMarkup\(null,\{movement:kind==='move'\}\)/);
  assert.match(source,/const areaSpec=fortressTechniqueSpec\(future,u,a\)/);
- assert.match(source,/tacticalAreaDiagramMarkup\(areaSpec\)/);
+ assert.match(source,/tacticalAreaDiagramMarkup\(areaSpec,\{facing:unitFacing\(future,u\)\}\)/);
  assert.match(source,/tacticalPatternLabel\(areaSpec\)/);
  assert.match(css,/\.compact-area-mini/);
  assert.match(css,/grid-template-columns:repeat\(7,minmax\(0,1fr\)\)/);
