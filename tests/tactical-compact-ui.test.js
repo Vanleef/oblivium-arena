@@ -209,3 +209,32 @@ test('mobile cinematic clarity does not sacrifice the readability of damage in r
  assert.match(css,/\.compact-area-sigil\[data-phase="impact"\]\[data-effect-tone="blood"\]/);
  assert.match(css,/\.compact-area-sigil\[data-phase="impact"\]\[data-effect-tone="thread"\]/);
 });
+
+
+test('physical camera shake is applied only during resolved hits and preserves square field layout',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const js=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(js,/const cinematicImpact=tacticalImpactProfile\(state\.event,\{speed:state\.speed/);
+ assert.match(js,/data-impact-shake=/);
+ assert.match(js,/data-attack-family=/);
+ assert.match(css,/compact-physical-camera/);
+ assert.match(css,/data-impact-shake="physical"/);
+ assert.match(css,/data-impact-shake="special"/);
+ assert.match(css,/data-impact-shake="heavy"/);
+ assert.match(css,/\.compact-stage\[data-hitstop="true"\] \.compact-board-stack/);
+ assert.match(css,/@media\(prefers-reduced-motion:reduce\)\{/);
+ assert.match(css,/animation:none!important;translate:none!important/);
+ assert.doesNotMatch(js,/\.tactical\.positions\[[^\]]+\]\s*=/,
+  'camera shake must not mutate logical grid positions');
+});
+test('melee footprint displays physically different strike slash pierce and counter shapes',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ for(const family of ['strike','slash','pierce','counter'])
+  assert.match(css,new RegExp('data-attack-family="'+family+'"'));
+ assert.match(css,/compact-melee-area-read/);
+ assert.match(css,/clip-path:polygon\(0 24%,66% 24%,100% 50%,66% 76%,0 76%\)/);
+ assert.match(css,/@media\(max-width:760px\)\{/);
+ assert.match(css,/\.compact-area-sigil\[data-attack-family\]::before\{animation:none!important/);
+});
