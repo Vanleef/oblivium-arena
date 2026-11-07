@@ -200,6 +200,7 @@ async function playback(events){
   }
   const unit=units(event.before).find(u=>u.id===event.actorId),ability=unit?.abilities.find(a=>a.id===event.abilityId);
   const frames=unit&&!event.skipped?(event.type==='guard'?[{family:'guard',pose:'ready',index:0},{family:'guard',pose:'impact',index:1}]:tacticalReplayFrames(unit,ability,{...event,compactReplay:true})):[{family:'support',pose:'impact',index:0}];
+  let superCuePlayed=false;
   for(const frame of frames){
    if(revision!==state.revision)return;
    state.event={...event,...frame};const impact=frame.pose==='impact'||frame.pose==='counter';
@@ -214,7 +215,12 @@ async function playback(events){
    for(const hit of reactions)counts.set(hit.actorId,(counts.get(hit.actorId)||0)+1);
    const feedbackStack=Math.max(1,...counts.values());
    const duration=tacticalCompactFrameDuration(state.event,feedbackStack);
-   if(!event.skipped&&(impact||['release','travel'].includes(frame.pose)))emit(state.event,unit,ability,impact?'impact':frame.pose,(reduced?35:duration)/state.speed);
+   if(!superCuePlayed&&tacticalCutinActive(state.event)){
+    playCombatCue('super',frame.family);superCuePlayed=true;
+   }
+   if(!event.skipped&&['release','thrust'].includes(frame.pose))playCombatCue('release',frame.family);
+   if(!event.skipped&&(impact||['release','thrust','travel'].includes(frame.pose)))
+    emit(state.event,unit,ability,impact?'impact':frame.pose==='thrust'?'release':frame.pose,(reduced?35:duration)/state.speed);
    if(impact&&!event.skipped)playCombatCue('contact',frame.family);
    await pause(duration);
   }
