@@ -522,11 +522,13 @@ export function startCompactRoundResolution(s){
    return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
   }
   if(commands.length){
-   const awaiting=peek(),ref=commands.shift();
-   // Responses are revealed together. No guess or target damage is committed
-   // until both intents are known, including the already sealed local AI choice.
+   const awaiting=peek();
+   // Invalid or missing intentions can NEVER silently award a free full hit.
+   // Keep the sealed action pending until both choices have been submitted.
    const duel=awaiting?.comboEligible
     ?tacticalDuelResolve(responses.attackChoice,responses.defenseChoice):null;
+   if(awaiting?.comboEligible&&!duel)return fail('Escolhas de Confronto de Vontades inválidas.');
+   const ref=commands.shift();
    const before=replayState(s),result=execute(s,duel?{...ref,clash:duel}:ref);
    const title=result.title||'Técnica interrompida';
    stamp(s,{...ref,...result,...(duel?{duel}:{}),before,after:replayState(s),
