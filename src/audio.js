@@ -15,6 +15,12 @@ export function playCombatCue(kind,family='strike'){
   tone(wardTone(family)?284:112,.19,{gain:.05,wave:'triangle'});
   return;
  }
+ if(kind==='super'){
+  // A compact two-layer fighting-game activation sting; the sprite remains on stage.
+  tone(88,.18,{gain:.12,wave:'triangle'});
+  tone(176,.22,{gain:.065,wave:'sawtooth',delay:.035});
+  return;
+ }
  if(kind==='contact'&&wardTone(family)){
   tone(family==='support'?520:248,.24,{gain:.11,wave:'triangle'});
   tone(family==='support'?780:383,.28,{gain:.07,delay:.035});
