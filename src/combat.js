@@ -466,6 +466,11 @@ function resolveAction(s){
   if(actor.cooldowns[a.id])return {done:false,event:{...action,skipped:true,title:"Técnica em recarga",summary:"A recarga impede esta ação. Custos de Essência preservados."}};
   if(skillSealReason(actor,a))return {done:false,event:{...action,skipped:true,title:skillSealReason(actor,a),summary:"A técnica foi selada antes de agir. Custos de Essência preservados."}};
   if(action.formKey&&action.formKey!==(a.formKey||"base"))return {done:false,event:{...action,skipped:true,title:"Técnica alterada",summary:"A forma mudou após a confirmação. Ação cancelada; custos de Essência preservados."}};
+  if(s.cardCombat&&action.side==="enemy"&&!s.humanSides){
+   const used=consumeHandCard(s.cardCombat,actor.id,action.cardId);
+   if(!used)return {done:false,event:{...action,skipped:true,title:"Carta indisponível",summary:"O adversário não possui essa carta na mão."}};
+   if(used.upgrades?.length)Object.assign(a,applyCardUpgrades(a,used.upgrades));
+  }
   const result=apply(s,actor,a,action.targetId,action.randomPayment,action);if(action.side==="player")s.acted.push(actor.id);outcome(s);return {done:s.phase!=="resolving",event:{...action,...result,title:a.name,actorName:actor.name,summary:result.reason||""}};
 }
 export function passTurn(s){if(!commitTurn(s).ok)return false;let guard=0;while(s.phase==="resolving"&&guard++<20)resolveNextAction(s);return true;}
