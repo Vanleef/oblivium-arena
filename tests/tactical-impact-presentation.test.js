@@ -40,6 +40,9 @@ test('special, kill and transformed bodies receive longer impact pauses',()=>{
  assert.equal(lethal.shake,'heavy');
  const transformed={...after,allies:[{...after.allies[0],bodyForm:'awakened'}]};
  assert.equal(tacticalImpactProfile({...event,after:transformed}).special,true);
+ const collateral={...event,affectedTargetIds:['a'],targets:[],after:dead};
+ assert.equal(tacticalImpactProfile(collateral).finishing,true,
+  'reactive knockouts not in explicit targets still require a decisive hitstop');
 });
 test('speed and reduced-motion cut hitstop without affecting resolved damage',()=>{
  const normal=tacticalImpactProfile(event);
