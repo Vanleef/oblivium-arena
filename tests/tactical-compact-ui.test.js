@@ -91,8 +91,8 @@ test('combat feedback is not a guessing overlay and renders actions as icons abo
  assert.match(js,/tacticalAreaPhase\(event\)/);
  assert.match(js,/data-feedback-kind/);
  assert.doesNotMatch(js,/if\('guard'in d\)/,'no click to plan Guard');
- assert.match(css,/\.compact-stage>\.skill-cutin\s*\{/);
- assert.match(css,/z-index:90!important/,'cinematic belongs above board and hud');
+ assert.match(css,/\.compact-stage>\.fighter-super\s*\{/);
+ assert.match(css,/z-index:12;pointer-events:none/,'special is a noninteractive arena treatment');
  assert.match(css,/\.compact-token-label\s*\{[\s\S]*?top:-9px/);
  assert.match(css,/\.compact-hit-damage \.conquest-model/);
  assert.match(css,/\.compact-hit-heal \.conquest-model/);
@@ -131,4 +131,21 @@ test('fallen characters linger only during the resolved killing contact, with re
  assert.match(css,/compact-defeat-collapse var\(--compact-hit-duration,420ms\)/);
  assert.match(css,/data-feedback-kind="defeat"/);
  assert.match(css,/compact-defeated \.conquest-model\{\s*animation:none!important/);
+});
+
+test('KOF-inspired special keeps the actual fighter visible and avoids portrait-sized cut-ins',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const cinematic=await readFile(new URL('../src/tactical-cinematic.js',import.meta.url),'utf8');
+ const styles=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
+ assert.match(source,/data-super-active=/);
+ assert.match(source,/data-super-impact=/);
+ assert.match(styles,/\.fighter-super-speedlines/);
+ assert.match(styles,/\.fighter-super-rupture/);
+ assert.match(styles,/fighter-super-sprite/);
+ assert.match(styles,/fighter-super-shock/);
+ assert.match(styles,/@media\(prefers-reduced-motion:reduce\)\{[\s\S]*?fighter-super-speedlines/);
+ assert.match(cinematic,/superSlots=new Set\(\['voto','despertar'\]\)/);
+ assert.doesNotMatch(cinematic,/<img class="cutin-art"/);
+ assert.doesNotMatch(styles,/\.compact-stage>\.skill-cutin/);
 });
