@@ -36,7 +36,7 @@ export function renderCardHand(state){
   const active=state.selectedSkill?.cardId===card.id;
   const tags=(card.upgrades||[]).map(upgrade=>{
    const type=typeof upgrade==="string"?upgrade:upgrade.type;
-   return '<span class="card-upgrade-tag">'+esc(({damage:"+5 dano",bleed:"Sangramento",fire:"Fogo",innate:"Predestinada",retain:"Preservar",exhaust:"Exaurir"})[type]||type)+'</span>';
+   return '<span class="card-upgrade-tag">'+esc(({damage:"+5 dano",bleed:"Sangramento",fire:"Fogo",vigor:"+5 cura/defesa",innate:"Predestinada",retain:"Preservar",exhaust:"Exaurir"})[type]||type)+'</span>';
   }).join("");
   return '<button type="button" class="combat-hand-card '+(queued?"queued ":"")+(active?"active ":"")+(reason?"unavailable":"")+
    '" data-card-play="'+esc(selected.id+'|'+ability.id+'|'+card.id)+'" '+(!canPlay||Boolean(reason)?"disabled":"")+
