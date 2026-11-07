@@ -99,3 +99,16 @@ test('special technique name remains below the board through contact, even after
  assert.equal(tacticalSuperCaptionMarkup(actor,ability,{...event,pose:'impact',skipped:true}),'');
  assert.equal(tacticalSuperCaptionMarkup(actor,ability,{...event,pose:'release',abilityId:'impulso'}),'');
 });
+
+test('special streaks and nameplates use the actor dominant color rather than only world color',()=>{
+ const shieldActor={...actor,sourceId:'o-escudo-vivo',realm:'Paraíso',color:'guard',name:'Themistocles'};
+ const cast={...event,pose:'windup',abilityId:'voto'};
+ const layer=tacticalCutinMarkup(shieldActor,ability,cast);
+ const title=tacticalSuperCaptionMarkup(shieldActor,ability,cast);
+ assert.match(layer,/--super-accent:#d7b56f/);
+ assert.match(layer,/--super-bright:#fff3cd/);
+ assert.match(title,/--caption-accent:#d7b56f/);
+ const voidActor={...actor,sourceId:'o-passo-interrompido',realm:'Limbo',color:'limbo'};
+ assert.match(tacticalCutinMarkup(voidActor,ability,cast),/--super-accent:#a88bf0/);
+ assert.doesNotMatch(layer,/<img/);
+});
