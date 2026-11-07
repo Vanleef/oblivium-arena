@@ -20,7 +20,7 @@ export function validateLoadout(unit,loadout){
   const upgrades=typeof entry==="string"?[]:entry.upgrades||[];
   if(!Array.isArray(upgrades)||upgrades.length>3)throw new Error("Aprimoramentos de carta inválidos.");
   if(upgrades.some(u=>!["damage","bleed","fire","innate","retain","exhaust"].includes(typeof u==="string"?u:u?.type)))throw new Error("Aprimoramento desconhecido.");
-  return {id:unit.id+":card:"+index,kind:"ability",abilityId,upgrades:structuredClone(upgrades)};
+  return {id:unit.id+":card:"+index,kind:"ability",abilityId,upgrades:JSON.parse(JSON.stringify(upgrades))};
  });
 }
 export function createCardState(units,{loadouts={},rng=Math.random}={}){
