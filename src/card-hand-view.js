@@ -1,4 +1,4 @@
-import {handFor} from "./card-combat.js";
+import {handFor,BASIC_ATTACK_ID} from "./card-combat.js";
 import {abilityIcon} from "./ui-icons.js";
 import {esc,costMarkup} from "./view-utils.js";
 import {abilityQuickEffect} from "./ability-presentation.js";
@@ -19,6 +19,11 @@ export function renderCardHand(state){
    '" data-card-unit="'+esc(u.id)+'" aria-pressed="'+(u.id===selected.id)+'" '+(u.hp<=0?"disabled":"")+'>'+
    '<span>'+esc(u.name)+'</span><small>'+count+' cartas</small></button>';
  }).join("");
+ const basic=selected.abilities.find(a=>a.id===BASIC_ATTACK_ID);
+ const basicReason=basic?skillAvailability(battle,selected,basic):"INATIVO";
+ const basicCard=basic?'<button class="combat-hand-card basic-attack-card" type="button" data-card-play="'+esc(selected.id+"|"+BASIC_ATTACK_ID+"|basic")+'" '+(!canPlay||Boolean(basicReason)?"disabled":"")+'>'+
+  '<span class="card-type">AÇÃO BÁSICA · SEM RECARGA</span><span class="card-thumb">⚔</span><strong>Ataque Básico</strong><span class="card-effect">Causa 5 de dano físico ao inimigo escolhido. Não consome uma carta.</span>'+
+  '<span class="card-marker">'+(basicReason?esc(basicReason):"SEMPRE DISPONÍVEL")+"</span></button>":"";
  const cards=hand.map(card=>{
   if(card.kind==="movement")return '<div class="combat-hand-card movement-card" aria-label="Movimento padrão garantido"><div class="card-type">MOVIMENTO · GRATUITO</div><strong>Movimento padrão</strong><p>Avança uma casa. Ação temporária: renasce na próxima rodada.</p><span class="movement-warning">Aguardando integração ao tabuleiro espacial</span></div>';
   const ability=selected.abilities.find(a=>a.id===card.abilityId);
@@ -42,7 +47,7 @@ export function renderCardHand(state){
   '<header class="combat-card-heading"><div><small>TRÊS BARALHOS · UMA EQUIPE</small><h2>Mão de '+esc(selected.name)+'</h2></div>'+
   '<div class="combat-deck-counts"><span>Compra: '+(deck?.draw.length||0)+'</span><span>Descarte: '+(deck?.discard.length||0)+'</span><span>Exauridas: '+(deck?.exhaust.length||0)+'</span></div></header>'+
   '<div class="combat-hand-units" role="group" aria-label="Trocar de personagem">'+controls+'</div>'+
-  '<div class="combat-hand-cards">'+cards+'</div>'+
+  '<div class="combat-hand-cards">'+basicCard+cards+'</div>'+
   (contestable?'<div class="will-plan-controls"><div><b>Manifestação secreta</b><small>Escolha sua postura antes de selecionar o alvo. O adversário só verá a manifestação depois de responder.</small></div><div class="will-plan-options">'+
   [["fenda","Fenda"],["vinculo","Vínculo"],["egide","Égide"]].map(([id,label])=>'<button data-will-sign="'+id+'" type="button" aria-pressed="'+(state.willSign===id)+'">'+label+'</button>').join("")+
   '</div></div>':"")+
