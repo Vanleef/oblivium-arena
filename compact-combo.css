@@ -263,3 +263,129 @@
  .compact-battle .compact-rhythm-contact-ring{animation:none}
  .combat-shell.compact-battle .compact-board [data-reactive-evade] .conquest-model{transform:none}
 }
+
+/* Confronto de Vontades — three sealed intentions, one strategic decision.
+   This supersedes the former reflex-meter HUD; the actual fighter sequence
+   still plays on the board AFTER the outcomes are revealed. */
+.combat-shell.compact-battle .compact-duel-clash{
+ --duel-accent:var(--actor-vfx-main,#d7b26e);
+ width:min(520px,calc(100vw - 18px));max-width:calc(100vw - 12px);
+ padding:clamp(10px,1.8vw,16px);border:2px solid var(--duel-accent);
+ border-radius:11px;
+ background:linear-gradient(125deg,#1e182afa,#0e101bf9);
+ box-shadow:0 12px 36px #07050ad9,inset 0 0 23px #ffffff0c;
+}
+.combat-shell.compact-battle .compact-duel-instruction{
+ font-size:clamp(11px,2.6vw,13px);margin:7px 0 10px;
+ color:#efe6e7;line-height:1.35;
+}
+.combat-shell.compact-battle .compact-duel-options{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;
+ align-items:stretch;min-width:0;
+}
+.combat-shell.compact-battle .compact-duel-option{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:3px;min-width:0;min-height:100px;padding:8px 5px;
+ border:2px solid #91859b;border-radius:9px;
+ background:linear-gradient(145deg,#3b2c42,#241d32);
+ color:#fff0e3;box-shadow:inset 0 1px #ffffff28,0 2px 8px #0006;
+ white-space:normal;text-align:center;
+}
+.combat-shell.compact-battle .compact-duel-option>.compact-duel-symbol{
+ display:block;font:700 clamp(20px,5vw,27px)/1.15 serif;
+ color:var(--duel-accent);filter:drop-shadow(0 0 4px var(--duel-accent));
+}
+.combat-shell.compact-battle .compact-duel-option strong{
+ font:800 clamp(11px,2.8vw,15px)/1.15 system-ui,sans-serif;
+ letter-spacing:.02em;
+}
+.combat-shell.compact-battle .compact-duel-option small{
+ font:650 clamp(9px,2.15vw,11px)/1.25 system-ui,sans-serif;
+ color:#d8cdd5;white-space:normal;
+}
+.combat-shell.compact-battle .compact-duel-option:not(:disabled):hover,
+.combat-shell.compact-battle .compact-duel-option:not(:disabled):focus-visible{
+ border-color:#f8e6c6;transform:translateY(-2px);
+ box-shadow:0 0 0 1px var(--duel-accent),0 0 17px #c4a9cf68;
+}
+.combat-shell.compact-battle .compact-duel-option[data-duel-selected="true"]{
+ background:linear-gradient(145deg,#73526b,#473654);
+ border-color:#fff4d1;box-shadow:0 0 0 1px var(--duel-accent),0 0 16px #d6b3b285;
+}
+.combat-shell.compact-battle .compact-duel-option:disabled:not([data-duel-selected="true"]){
+ opacity:.51;
+}
+.combat-shell.compact-battle .compact-duel-help{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;
+ align-items:center;justify-content:center;margin:7px 0 0;
+ font:650 10px/1.25 system-ui,sans-serif;color:#d8cee2;
+}
+.combat-shell.compact-battle .compact-duel-help span{
+ border-radius:4px;background:#b1a2c018;padding:3px 2px;min-width:0;
+}
+.combat-shell.compact-battle .compact-duel-footer{
+ display:flex;justify-content:space-between;align-items:center;gap:8px;
+ margin-top:9px;
+}
+.combat-shell.compact-battle .compact-duel-footer>span{
+ flex:1;min-width:0;text-align:left;
+ font:650 clamp(10px,2.15vw,12px)/1.3 system-ui,sans-serif;color:#eee3da;
+}
+.combat-shell.compact-battle .compact-duel-footer>button{
+ flex:none;min-height:35px;max-width:155px;padding:4px 9px;
+ font:700 11px/1.15 system-ui,sans-serif;white-space:normal;
+ color:#eee3e6;border:1px solid #ac9db6;border-radius:6px;
+ background:#2f2b3e;
+}
+.combat-shell.compact-battle .compact-duel-footer>button small{
+ font-size:10px;color:#bcb1d4;
+}
+.combat-shell.compact-battle .compact-duel-reveal{
+ display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+ gap:4px 12px;margin-top:9px;min-height:35px;
+ border:1px solid #c5b39a;border-radius:6px;
+ padding:5px;background:#ffffff0b;text-align:center;
+ font:700 11px/1.25 system-ui,sans-serif;
+}
+.combat-shell.compact-battle .compact-duel-reveal strong{
+ font-size:13px;color:#fff5cb;
+}
+.combat-shell.compact-battle .compact-duel-clash[data-duel-result="hit"] .compact-duel-reveal{
+ border-color:#86c896;background:#4a9b5b21;
+}
+.combat-shell.compact-battle .compact-duel-clash[data-duel-result="miss"] .compact-duel-reveal{
+ border-color:#a3c9ed;background:#699dd626;
+}
+.combat-shell.compact-battle .compact-duel-clash[data-duel-result="clash"] .compact-duel-reveal{
+ border-color:#ebc487;background:#c2a05c26;
+}
+@media(max-width:600px){
+ .combat-shell.compact-battle .compact-duel-clash{
+  padding:9px;bottom:max(7px,env(safe-area-inset-bottom,0px));
+ }
+ .combat-shell.compact-battle .compact-duel-option{min-height:83px;padding:6px 3px}
+ .combat-shell.compact-battle .compact-duel-help{gap:3px;font-size:9px}
+ .combat-shell.compact-battle .compact-duel-footer>button{max-width:117px}
+}
+@media(max-width:360px){
+ .combat-shell.compact-battle .compact-duel-option{min-height:75px;gap:1px;padding:5px 2px}
+ .combat-shell.compact-battle .compact-duel-option strong{font-size:11px}
+ .combat-shell.compact-battle .compact-duel-option small{font-size:9px}
+ .combat-shell.compact-battle .compact-duel-help{font-size:8px}
+ .combat-shell.compact-battle .compact-duel-footer>span{font-size:9px}
+}
+@media(max-height:460px) and (orientation:landscape){
+ .combat-shell.compact-battle .compact-duel-clash{
+  width:min(610px,calc(100vw - 12px));padding:6px 10px;bottom:3px;
+ }
+ .combat-shell.compact-battle .compact-duel-instruction{margin:3px 0}
+ .combat-shell.compact-battle .compact-duel-option{
+  flex-direction:row;min-height:44px;padding:4px 5px;gap:5px;
+ }
+ .combat-shell.compact-battle .compact-duel-option>.compact-duel-symbol{font-size:17px}
+ .combat-shell.compact-battle .compact-duel-help{margin-top:3px}
+ .combat-shell.compact-battle .compact-duel-footer{margin-top:4px}
+}
+@media(prefers-reduced-motion:reduce){
+ .combat-shell.compact-battle .compact-duel-option{transition:none!important;transform:none!important}
+}
