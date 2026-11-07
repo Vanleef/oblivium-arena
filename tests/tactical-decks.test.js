@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createTacticalBattle,previewTacticalPlan,tacticalView} from '../src/tactical-combat.js';
-import {TACTICAL_CARD_RULES,createTacticalDecks,defaultTacticalCardBuild,tacticalCardDeck,tacticalHand,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard} from '../src/tactical-decks.js';
+import {TACTICAL_CARD_RULES,tacticalCardVariants,tacticalMovementSteps,createTacticalDecks,defaultTacticalCardBuild,tacticalCardDeck,tacticalHand,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard} from '../src/tactical-decks.js';
 import {tacticalDuelResolve} from '../src/tactical-duel.js';
 
 const allies=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
@@ -97,4 +97,22 @@ test('card-mode duel grants full damage on tie, crit on attack win, and cancels 
  assert.equal(block.damageRate,0);
  assert.equal(block.outcome,'miss');
  assert.equal(tacticalDuelResolve('impeto','impeto').damageRate,.5,'legacy mode preserved');
+});
+
+test('campaign completion gates extra movement and reactive card variants',()=>{
+ const unit={id:'hero',side:'player',hp:100,abilities:[
+  {id:'a',name:'A'},{id:'b',name:'B'},{id:'c',name:'C'},{id:'d',name:'D'}]};
+ const stub={round:1,allies:[unit],enemies:[]};
+ const base=defaultTacticalCardBuild(unit);
+ const variants=tacticalCardVariants;
+ assert.equal(variants.length,3);
+ for(const variant of variants){
+  const custom=base.map((entry,i)=>i===6?{kind:variant.kind,variantId:variant.id}:entry);
+  assert.throws(()=>createTacticalDecks(stub,{decks:{hero:custom},unlockedKingdoms:variant.kingdoms-1}),/não liberada/);
+  const state=createTacticalDecks(stub,{decks:{hero:custom},unlockedKingdoms:variant.kingdoms});
+  const card=Object.values(state.sides.player.hero.cards).find(c=>c.variantId===variant.id);
+  assert.ok(card);
+  assert.equal(card.kind,variant.kind);
+  if(card.kind==='mobility')assert.equal(tacticalMovementSteps(card),variant.movement);
+ }
 });
