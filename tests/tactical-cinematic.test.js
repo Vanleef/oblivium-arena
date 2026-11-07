@@ -112,3 +112,15 @@ test('special streaks and nameplates use the actor dominant color rather than on
  assert.match(tacticalCutinMarkup(voidActor,ability,cast),/--super-accent:#a88bf0/);
  assert.doesNotMatch(layer,/<img/);
 });
+
+test('KOF-like combo uses distinct opening, repeated contact and finishing recoil frames',()=>{
+ const first={...event,type:'skill',abilityId:'voto',comboReplay:true,comboBeat:1,comboTotal:3,pose:'release'};
+ const middle={...first,comboBeat:2};
+ const last={...first,comboBeat:3};
+ assert.deepEqual(tacticalReplayFrames(actor,ability,first).map(f=>f.pose),['anticipate','windup','release','impact']);
+ assert.deepEqual(tacticalReplayFrames(actor,ability,middle).map(f=>f.pose),['release','impact']);
+ assert.deepEqual(tacticalReplayFrames(actor,ability,last).map(f=>f.pose),['release','impact','followthrough','recover']);
+ assert.equal(tacticalCutinActive({...first,pose:'windup'}),true);
+ assert.equal(tacticalCutinActive({...middle,pose:'windup'}),false,'avoid giant repeated super interruption');
+ assert.equal(tacticalSuperCaptionActive({...middle,pose:'impact'}),true,'combo title remains legible at each hit');
+});
