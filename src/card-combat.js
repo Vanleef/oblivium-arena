@@ -21,7 +21,7 @@ export function validateLoadout(unit,loadout){
   if(!allowed.has(abilityId))throw new Error("Carta inválida para o personagem.");
   const upgrades=typeof entry==="string"?[]:entry.upgrades||[];
   if(!Array.isArray(upgrades)||upgrades.length>3)throw new Error("Aprimoramentos de carta inválidos.");
-  if(upgrades.some(u=>!["damage","bleed","fire","innate","retain","exhaust"].includes(typeof u==="string"?u:u?.type)))throw new Error("Aprimoramento desconhecido.");
+  if(upgrades.some(u=>!["damage","bleed","fire","vigor","innate","retain","exhaust"].includes(typeof u==="string"?u:u?.type)))throw new Error("Aprimoramento desconhecido.");
   return {id:unit.id+":card:"+index,kind:"ability",abilityId,upgrades:JSON.parse(JSON.stringify(upgrades))};
  });
 }
@@ -88,6 +88,7 @@ export function applyCardUpgrades(ability,upgrades=[]){
  for(const raw of upgrades){
   const type=typeof raw==="string"?raw:raw.type;
   if(type==="damage"&&modified.damage)modified.damage+=5;
+  if(type==="vigor"){if(modified.heal)modified.heal+=5;if(modified.shield)modified.shield+=5;}
   if(type==="fire"&&modified.damage){
    modified.damageType="fire";
    if(!modified.dot&&!modified.dots)modified.dot={tag:"queimadura",damage:5,turns:2};
