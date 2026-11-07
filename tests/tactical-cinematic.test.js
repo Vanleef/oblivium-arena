@@ -41,6 +41,7 @@ test('supers focus the arena instead of injecting an oversized artwork',()=>{
  assert.equal(tacticalCutinMarkup(actor,ability,{...event,abilityId:'impulso',pose:'windup'}),'');
  assert.equal(tacticalCutinMarkup(actor,ability,{...event,skipped:true,pose:'windup'}),'');
  assert.equal(tacticalCutinActive({...event,abilityId:'despertar',pose:'release'}),true);
+ assert.equal(tacticalCutinActive({...event,abilityId:'voto/awakened',pose:'windup'}),true);
 });
 
 
