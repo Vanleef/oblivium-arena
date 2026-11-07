@@ -67,6 +67,15 @@ export function tacticalFrameDuration(event){
  if(event?.type==='guard')return event.pose==='impact'?295:105;
  return event?.presentation==='exchange'?85:95;
 }
+// Impact readouts use 420ms animations, with 36ms staggering per additional
+// line at a target. Do not advance the board while the hit or heal is still visible.
+export function tacticalCompactFrameDuration(event,feedbackStack=1){
+ const base=Math.min(330,tacticalFrameDuration(event));
+ if(event?.skipped||!['impact','counter'].includes(event?.pose))return base;
+ const stack=Math.max(1,Math.floor(Number.isFinite(feedbackStack)?feedbackStack:1));
+ return Math.max(base,460,Math.min(620,460+(stack-1)*36));
+}
+
 export function tacticalFrameArt(ability,pose,portrait=''){
  // Character cut-ins and ability illustrations belong to the card/VFX layer.
  // The board token keeps its registered character portrait for every pose.
