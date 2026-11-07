@@ -15,7 +15,7 @@ export function rankedResult(a,b,winner){
  return [a,b].map((p,i)=>({...p,rating:Math.max(0,p.rating+(i===winner?delta:-delta)),wins:p.wins+(i===winner?1:0),losses:p.losses+(i!==winner?1:0),streak:i===winner?p.streak+1:0,xp:p.xp+(i===winner?70:30),matchId:p.matchId}));
 }
 export function publicBattle(match,index){
- const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;delete s.duelPlans;delete s.duelPools;delete s.duelMoves;s.queue=[];s.intents=[];if(s.movementPlans)s.movementPlans={player:[],enemy:[]};
+ const s=JSON.parse(JSON.stringify(match.battle));delete s.randomState;delete s.worldSeed;delete s.influenceQueue;delete s.influenceResume;delete s.resolution;delete s.eventDeaths;delete s.duelPlans;delete s.duelPools;delete s.duelMoves;delete s.duelExchanges;s.queue=[];s.intents=[];if(s.movementPlans)s.movementPlans={player:[],enemy:[]};
  const side=index===0?'player':'enemy';
  if(index===1){[s.allies,s.enemies]=[s.enemies,s.allies];[s.resources,s.enemyResources]=[s.enemyResources,s.resources];s.resonance=s.enemyResonance;[s.essenceDraws.player,s.essenceDraws.enemy]=[s.essenceDraws.enemy,s.essenceDraws.player];if(s.phase==='victory')s.phase='defeat';else if(s.phase==='defeat')s.phase='victory';}
  for(const u of s.allies)u.side='player';for(const u of s.enemies)u.side='enemy';
