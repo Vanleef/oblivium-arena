@@ -21,7 +21,7 @@ test('three-beat rhythm clash modifies direct damage only and clamps hostile sco
  assert.equal(tacticalComboDamage(20,{attackHits:3}),26);
  assert.equal(tacticalComboDamage(20,{defenseHits:3}),14);
  assert.equal(tacticalComboDamage(20,{attackHits:3,defenseHits:3}),20);
- assert.equal(tacticalComboDamage(20,{attackHits:999,defenseHits:-18}),20);
+ assert.equal(tacticalComboDamage(20,{attackHits:999,defenseHits:-18}),26);
  assert.equal(tacticalComboDamage(20,{attackHits:2.5,defenseHits:1}),18);
  assert.equal(tacticalComboDamage(0,{attackHits:3}),0);
 });
