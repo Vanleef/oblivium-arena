@@ -96,3 +96,7 @@
 .deck-builder-actions>span{font-size:11px;color:#d4c6d8;max-width:400px}
 .deck-builder-actions>div{display:flex;gap:9px;flex-wrap:wrap}
 @media(max-width:760px){.deck-builder-layout{grid-template-columns:1fr}.deck-builder-heading{align-items:flex-start}.deck-builder-units button{font-size:12px}.deck-builder-actions>div{width:100%}.deck-builder-actions .button{flex:1}}
+
+.combat-hand-card.basic-attack-card{background:linear-gradient(150deg,#403a49,#221c2b);border-color:#bea47d8a}
+.combat-hand-card.basic-attack-card .card-type{color:#efd3a6}
+.combat-hand-card.basic-attack-card .card-marker{margin-top:auto;color:#d9c7ab}
