@@ -12,6 +12,8 @@ export function renderTacticalGrid(state,getValidTargets){
  const showArea=Boolean(actor&&ability&&!["self","team"].includes(ability.target));
  const abilityRange=ability?.id==="__basic_attack__"?1:Math.max(1,Math.min(4,Number(ability?.range)||3));
  const draftMoves=b.movementPlans?.player||[];
+ const fx=state.battleFx,fxAbility=units.find(u=>u.id===fx?.actorId)?.abilities.find(a=>a.id===fx?.abilityId);
+ const hitAll=fxAbility?.target==="all-enemies";
  const objectiveNames={silver:"Prata",gold:"Ouro",prismatic:"Prismático"};
  const tiles=[];
  for(let y=0;y<GRID_HEIGHT;y++)for(let x=0;x<GRID_WIDTH;x++){
@@ -21,14 +23,19 @@ export function renderTacticalGrid(state,getValidTargets){
   const activeTarget=unit&&targets.has(unit.id);
   const inArea=showArea&&gridDistance(plannedPosition(b,actor),{x,y})<=abilityRange;
   const occupied=Boolean(unit);
+  const arrived=Boolean(unit&&fx?.moves?.some(move=>move.actorId===unit.id));
+  const hit=Boolean(unit&&fx?.mode!=="movement"&&(fx?.targetId===unit.id||hitAll&&unit.side!==(units.find(u=>u.id===fx.actorId)?.side)));
+  const damage=Boolean(hit&&(fx?.changes?.find(change=>change.id===unit.id)?.hp<0||fx?.totalDamage>0));
+  const healing=Boolean(hit&&fx?.changes?.find(change=>change.id===unit.id)?.hp>0);
+  const blocked=Boolean(hit&&fx?.clashResult?.cancel);
   const art=unit?portraitMarkup(unit,"tactical-unit-portrait"):"";
   const realm=unit?.realm||"";
   tiles.push('<div class="tactical-tile'+(isMove?" move-choice":"")+(activeTarget?" target-choice":"")+
-   (occupied?" occupied":"")+(inArea?" ability-area":"")+(objective?" objective-tile objective-"+esc(objective.tier):"")+(pending?" planned-destination":"")+
+   (occupied?" occupied":"")+(inArea?" ability-area":"")+(hit?" impact-area":"")+(damage?" impact-damage":"")+(healing?" impact-heal":"")+(blocked?" impact-blocked":"")+(objective?" objective-tile objective-"+esc(objective.tier):"")+(pending?" planned-destination":"")+
    '" role="gridcell" data-cell="'+pos+'" aria-label="Casa '+(x+1)+", "+(y+1)+'">'+
    '<button type="button" class="tactical-tile-pad" data-grid-cell="'+pos+'" '+(!planning||!moving||!isMove?"disabled":"")+
    ' aria-label="Mover '+esc(moving?.name||"alma")+' para coluna '+(x+1)+", linha "+(y+1)+'"></button>'+
-   (unit?'<button type="button" class="tactical-occupant '+(unit.side==="player"?"friendly-unit":"opponent-unit")+
+   (unit?'<button type="button" class="tactical-occupant '+(unit.side==="player"?"friendly-unit":"opponent-unit")+(arrived?" recently-moved":"")+(hit?" recently-hit":"")+
    '" data-target="'+esc(unit.id)+'" data-origin-realm="'+esc(realm)+'" aria-label="'+esc(unit.name)+' · '+unit.hp+' de vida'+(activeTarget?" · alvo válido":"")+'">'+
    '<span class="tactical-token-art">'+art+'</span><span class="tactical-token-name">'+esc(unit.name)+'</span>'+
    (state.battleFx?.changes.some(change=>change.id===unit.id)?'<span class="tactical-token-impact">✹</span>':"")+
@@ -40,9 +47,9 @@ export function renderTacticalGrid(state,getValidTargets){
  const movesCount=draftMoves.length;
  return '<section class="tactical-arena" data-origin-realm="'+esc(state.battleNode?.realm||state.battle?.campaignRealm||"Limbo")+'" aria-label="Tabuleiro tático compacto">'+
   '<header class="tactical-arena-header"><div><small>ARENA · 5×5</small><h2>Campo de Confronto</h2></div>'+
-  '<div class="tactical-arena-legend"><span>● Seu trio</span><span>◆ Adversários</span><span>✦ Alcance</span></div></header>'+
+  '<div class="tactical-arena-legend"><span>● Seu trio</span><span>◆ Adversários</span><span>✦ Alcance</span>'+(b.gridObjectives?.some(o=>o.side==="player")?'<span>✧ Casa Objetivo</span>':"")+"</div></header>"+
   '<div class="tactical-grid-wrap"><div class="tactical-grid" role="grid" aria-label="Grade de cinco por cinco">'+tiles.join("")+'</div></div>'+
   '<footer class="tactical-arena-hint" role="status">'+
   (moving?'Selecione uma das casas destacadas para mover '+esc(moving.name)+".":actor&&ability?"Selecione o alvo destacado para "+esc(ability.name)+".":"Selecione uma carta de Movimento ou uma técnica na mão.")+
-  ' <span>'+movesCount+'/3 movimentos planejados</span></footer></section>';
+  ' <span>'+movesCount+'/3 movimentos planejados</span></footer>'+(b.gridObjectives?.some(o=>o.side==="player")?'<p class="tactical-objective-hint">✧ Alcance o emblema para aprimorar uma carta deste personagem.</p>':"")+"</section>";
 }
