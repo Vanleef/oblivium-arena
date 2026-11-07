@@ -12,7 +12,7 @@ import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,resolveBoardReactiveCounter,finishBoardRound,getValidTargets} from './combat.js';
 import {tacticalAnimationFamily} from './tactical-animation.js';
-import {tacticalReactiveBeats,tacticalReactiveOutcome} from './tactical-reactions.js';
+import {tacticalDuelResolve} from './tactical-duel.js';
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
 import {skillSealReason} from './combat-effects.js';
@@ -361,7 +361,7 @@ function execute(s,ref,{projection=false}={}){
  const exposedBefore=ids.map(id=>tacticalUnits(s).find(u=>u.id===id)).filter(u=>u?.exposed).map(u=>({id:u.id,hp:u.hp,shield:u.shield||0}));
  const element=s.tactical.fortress?techniqueElement(actor,ability):null;
  const result=resolveBoardTechnique(s,{...ref,element,...(s.tactical.compact?{fortressCooldown:fortressCooldown(ability)}:{}),targetId:ids[0]||null},ids);
- const elemental=element&&!result.skipped?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
+ const elemental=element&&!result.skipped&&result.combo?.outcome!=='miss'?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
  const displacements=!result.skipped?displaceTargets(s,actor,result.affectedTargetIds||[],spec.displacement):[];
  const exposedHit=exposedBefore.some(old=>{const u=tacticalUnits(s).find(u=>u.id===old.id);return u&&(u.hp<old.hp||(u.shield||0)<old.shield);});
  const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit,ability,affected:result.affectedTargetIds?.length>0}):[];
@@ -508,7 +508,6 @@ export function startCompactRoundResolution(s){
   const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
   const targets=ability&&anchor?tacticalTargets(s,actor,ability,anchor,ref.orientation):[];
   return {...ref,anchor,actor:actor||null,ability:ability||null,targets,
-   beats:ability?tacticalReactiveBeats(actor,ability,tacticalAnimationFamily(ability)):[],
    comboEligible:tacticalComboEligible(actor,ability,targets)&&!actor.cooldowns?.[ability.id]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(s,actor,ability)};
  };
  const next=(responses={})=>{
@@ -525,25 +524,14 @@ export function startCompactRoundResolution(s){
   }
   if(commands.length){
    const awaiting=peek(),ref=commands.shift();
-   const combo=awaiting?.comboEligible
-    ?tacticalReactiveOutcome({beats:awaiting.beats,attacks:responses.attacks,defenses:responses.defenses}):null;
-   const before=replayState(s),result=execute(s,combo?{...ref,clash:combo}:ref);
-   stamp(s,{...ref,...result,before,after:replayState(s),title:result.title||'Técnica interrompida'});
-   if(!result.skipped&&combo?.counter&&awaiting.targets.length){
-    const defender=actorFor(s,otherSide(ref.side),awaiting.targets[0]);
-    if(defender){
-     const reactionBefore=replayState(s);
-     const retaliation=resolveBoardReactiveCounter(s,{
-      attackerId:ref.actorId,defenderId:defender.id,baseDamage:awaiting.ability.damage
-     });
-     if(!retaliation.skipped)stamp(s,{
-      ...retaliation,type:'skill',side:defender.side,abilityId:null,
-      reactionCounter:true,family:'counter',
-      anchor:s.tactical.positions[ref.actorId],cells:[s.tactical.positions[ref.actorId]],
-      before:reactionBefore,after:replayState(s)
-     });
-    }
-   }
+   // Responses are revealed together. No guess or target damage is committed
+   // until both intents are known, including the already sealed local AI choice.
+   const duel=awaiting?.comboEligible
+    ?tacticalDuelResolve(responses.attackChoice,responses.defenseChoice):null;
+   const before=replayState(s),result=execute(s,duel?{...ref,clash:duel}:ref);
+   const title=result.title||'Técnica interrompida';
+   stamp(s,{...ref,...result,...(duel?{duel}:{}),before,after:replayState(s),
+    title:duel&&!result.skipped?title+' · '+duel.label:title});
    if(boardOutcome(s)){slot=2;commands=[];}
    return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
   }
