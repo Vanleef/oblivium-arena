@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tacticalImpactContacts,tacticalEffectResolution,TacticalEffectsLayer,tacticalParticleBudget} from '../src/tactical-effects-layer.js';
+import {tacticalImpactContacts,tacticalEffectResolution,TacticalEffectsLayer,tacticalParticleBudget,tacticalImpactMaterial} from '../src/tactical-effects-layer.js';
 
 const cells=Array.from({length:54},(_,i)=>({x:i%9,y:Math.floor(i/9)}));
 const allies=Array.from({length:6},(_,i)=>({id:'a'+i,hp:100,shield:10}));
@@ -247,4 +247,53 @@ test('projectile travel shows substantial physical fragments, not a single thin 
   reduced.emit(board,{...impact,anchor:{x:5,y:4}},actor,'travel',35,{projectile:'ember',reduced:true});
   assert.equal(reduced.effects.length,0,'reduced motion should not animate projectile travel');
  }finally{globalThis.requestAnimationFrame=saved;}
+});
+
+test('impact material follows the physical skill or seven actor identities',()=>{
+ assert.equal(tacticalImpactMaterial({tone:'fire'}),'ember');
+ assert.equal(tacticalImpactMaterial({tone:'stone'}),'stone');
+ assert.equal(tacticalImpactMaterial({tone:'rot'}),'rot');
+ assert.equal(tacticalImpactMaterial({tone:'blood'}),'blood');
+ assert.equal(tacticalImpactMaterial({tone:'thread'}),'thread');
+ assert.equal(tacticalImpactMaterial({tone:'nature'}),'root');
+ assert.equal(tacticalImpactMaterial({tone:'grace'}),'grace');
+ assert.equal(tacticalImpactMaterial({tone:'neutral',choreography:{kind:'bastion'}}),'stone');
+ assert.equal(tacticalImpactMaterial({tone:'neutral',choreography:{kind:'memory'}}),'thread');
+ assert.equal(tacticalImpactMaterial({tone:'neutral'}),'shard');
+});
+test('canvas hitstop freezes frame age and resumes smoothly, without leaks',()=>{
+ const ctx=new Proxy({}, {get:(object,key)=>object[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}},board={clientWidth:800,clientHeight:540,append(node){node.parentElement=this;}};
+ const previous=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  const layer=new TacticalEffectsLayer(canvas);
+  layer.emit(board,impact,allies[0],'impact',240);
+  const initial=layer.effects[0].now;
+  layer.freeze(65);
+  assert.ok(layer.freezeUntil>layer.freezeStart);
+  const frozenAt=layer.freezeStart;
+  layer.tick(frozenAt+25);
+  assert.equal(layer.effects[0].now,initial);
+  assert.equal(layer.effects.length,6);
+  layer.tick(frozenAt+75);
+  assert.equal(layer.freezeUntil,0);
+  assert.equal(layer.effects[0].now,initial+65);
+  layer.tick(frozenAt+400);
+  assert.equal(layer.effects.length,0);
+  assert.equal(layer.frame,0);
+ }finally{globalThis.requestAnimationFrame=previous;}
+});
+test('responsive VFX budgets use fewer fragments at narrow widths',()=>{
+ const ctx=new Proxy({}, {get:(object,key)=>object[key]||(()=>{})});
+ const canvas={getContext:()=>ctx,dataset:{}},prior=globalThis.requestAnimationFrame;
+ try{
+  globalThis.requestAnimationFrame=()=>1;
+  for(const [width,cap] of [[210,10],[340,14],[530,22],[900,36]]){
+   const board={clientWidth:width,clientHeight:width,append(node){node.parentElement=this;}};
+   const layer=new TacticalEffectsLayer(canvas);
+   layer.emit(board,impact,allies[0],'impact',200);
+   assert.ok(layer.effects.reduce((sum,e)=>sum+(e.particles||0),0)<=cap,width+'px budget');
+  }
+ }finally{globalThis.requestAnimationFrame=prior;}
 });
