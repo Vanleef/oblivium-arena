@@ -1,5 +1,5 @@
 import {resourceIds,resolveResourcePayment,resolveEssenceExchange} from "./resource-costs.js";
-import {findHandCard,applyCardUpgrades} from "./card-combat.js";
+import {findHandCard,applyCardUpgrades,BASIC_ATTACK_ID} from "./card-combat.js";
 const living = units => units.filter(u => u.hp > 0);
 const helpful = a => ['self', 'ally', 'friendly', 'team'].includes(a.target);
 const team = (s, side) => side === 'player' ? s.allies : s.enemies;
@@ -216,7 +216,7 @@ export function planTeamActions(battle, side, rules) {
       if (used.has(actor.id) || actor.stunned || original.stunned) continue;
       for (const baseAbility of actor.abilities) {
         const card=battle.cardCombat?findHandCard(battle.cardCombat,actor.id,baseAbility.id):null;
-        if(battle.cardCombat&&!card)continue;
+        if(battle.cardCombat&&!card&&baseAbility.id!==BASIC_ATTACK_ID)continue;
         const a=card?.upgrades?.length?applyCardUpgrades(baseAbility,card.upgrades):baseAbility;
         const required=rules.getAbilityResourceCosts(actor,a),plans=affordableResourcePlans(required,reserved,5);
         if (actor.cooldowns[a.id] || original.cooldowns[a.id] || rules.skillSealReason(actor, a) || rules.skillSealReason(original, a) || !plans.length) continue;
