@@ -105,3 +105,12 @@ test('numbers follow a displaced unit at the impact snapshot rather than floatin
  const display=tacticalFeedback({...event,after}).find(x=>x.actorId==='foe'&&x.kind==='damage');
  assert.deepEqual(display.point,{x:5,y:4});
 });
+
+test('physical technique materials outrank vague energy keywords and preserve actual healing',()=>{
+ const attacker={realm:'Limbo'};
+ assert.equal(tacticalTechniqueTone(attacker,{name:'Fios de Memória',damage:12},event),'thread');
+ assert.equal(tacticalTechniqueTone(attacker,{name:'Pilares de Mármore',damage:12},event),'stone');
+ assert.equal(tacticalTechniqueTone(attacker,{name:'Vermes da Ruína',damage:12},event),'rot');
+ assert.equal(tacticalTechniqueTone(attacker,{name:'Talho de Sangue',damage:12},event),'blood');
+ assert.equal(tacticalTechniqueTone(attacker,{name:'Vermes da Ruína',heal:5},event),'heal');
+});
