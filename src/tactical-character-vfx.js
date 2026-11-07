@@ -18,7 +18,7 @@ export function tacticalCharacterChoreography(actor,event){
  if(!kind||!Object.hasOwn(slotWeight,slot))return null;
  // Upgraded forms alter the silhouette's weight, not game outcomes.
  const form=event.formKey&&event.formKey!=='base' ? 0.1 : 0;
- return {kind,slot,weight:slotWeight[slot]+form};
+ return {kind,slot,weight:slotWeight[slot]+form,form:form>0?'alternate':'base'};
 }
 
 /**
@@ -118,5 +118,42 @@ export function drawTacticalCharacterImpact(ctx,fx,progress){
   ctx.ellipse(0,0,r*.22,r*.18,.35,0,Math.PI*2);ctx.stroke();
   ctx.fillStyle=dark;ctx.beginPath();ctx.ellipse(0,0,r*.09,r*.08,0,0,Math.PI*2);ctx.fill();
  }else{ctx.restore();return false;}
+ // Distinct material choreography for all four slots, not merely larger sparks.
+ // The seven base motifs combine with these four silhouettes for 28 readings.
+ ctx.globalAlpha=fade*.82;
+ ctx.strokeStyle=light;ctx.fillStyle=mid;
+ if(motion.slot==='impulso'){
+  // A short leading thrust/advance, with debris physically flung forward.
+  ctx.beginPath();ctx.lineWidth=r*.085;
+  for(let i=-1;i<=1;i++){
+   const yy=i*r*.24;ctx.moveTo(-r*.66,yy+r*.14);
+   ctx.lineTo(r*(.52+.27*fade),yy-r*.20);
+  }
+  ctx.stroke();
+ }else if(motion.slot==='tecnica'){
+  // A grounded hooking path communicates a controlled single technique.
+  ctx.beginPath();ctx.lineWidth=r*.14;
+  ctx.moveTo(-r*.55,-r*.24);
+  ctx.quadraticCurveTo(-r*.19,-r*.83*fade,r*.53,-r*.32);
+  ctx.quadraticCurveTo(r*.82,r*.05,r*.41,r*.42);
+  ctx.stroke();
+ }else if(motion.slot==='voto'){
+  // Two converging physical strokes close in on the target.
+  ctx.beginPath();ctx.lineWidth=r*.13;
+  ctx.moveTo(-r*.77,-r*.72*fade);ctx.lineTo(r*.72,r*.58*fade);
+  ctx.moveTo(r*.71,-r*.68*fade);ctx.lineTo(-r*.68,r*.62*fade);
+  ctx.stroke();
+ }else if(motion.slot==='despertar'){
+  // Six discrete cracking plates, not an expanding light laser.
+  for(let i=0;i<6;i++){
+   const angle=i*Math.PI/3;
+   ctx.save();ctx.rotate(angle);
+   ctx.beginPath();ctx.moveTo(r*.48,-r*.12);
+   ctx.lineTo(r*(.95+.24*fade),-r*.21);
+   ctx.lineTo(r*(.84+.2*fade),r*.14);
+   ctx.lineTo(r*.48,r*.12);ctx.closePath();ctx.fill();
+   ctx.restore();
+  }
+ }
  ctx.restore();return true;
 }
