@@ -2,6 +2,10 @@
 // No random damage, no percentage UI, and no gameplay changes in previews.
 const clampHits=value=>Number.isInteger(value)?Math.max(0,Math.min(3,value)):0;
 export const tacticalComboBeats=3;
+export function tacticalComboTimingHit(elapsed,duration=1050){
+ return Number.isFinite(elapsed)&&Number.isFinite(duration)&&duration>0
+  &&elapsed>=0&&elapsed<=duration&&Math.abs(elapsed/duration-.5)<=.23;
+}
 export function tacticalComboEligible(actor,ability,targets=[]){
  return Boolean(actor?.hp>0&&ability&&(ability.damage||0)>=5
   &&!['impulso','fortress-basic'].includes(String(ability.id||'').split('/')[0])
