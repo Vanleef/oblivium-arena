@@ -58,10 +58,11 @@ test("campaign tier unlocks from completed kingdoms; ranked default stays silver
 test("gold and prismatic rewards offer stronger upgrades, while support receives Vigor",()=>{
  for(const [tier,expected] of [["silver",["damage"]],["gold",["damage","bleed"]],["prismatic",["damage","fire","retain"]]]){
   const b=make();b.objectiveTier=tier;const [o]=spawnGridObjectives(b,()=>0);
-  const unit=b.allies[0],card=b.cardCombat.decks[unit.id].draw.find(c=>c.abilityId==="strike");
+  const unit=b.allies[0];
   unit.position={x:o.x,y:o.y};
   const claim=collectGridObjectives(b,[{actorId:unit.id,side:"player",to:{x:o.x,y:o.y}}]);
   assert.deepEqual(claim[0].reward.upgrades,expected);
+  const card=[...b.cardCombat.decks[unit.id].draw,...b.cardCombat.decks[unit.id].hand,...b.cardCombat.decks[unit.id].discard].find(c=>c.id===claim[0].reward.cardId);
   assert.deepEqual(card.upgrades,expected);
  }
  const b=make();b.objectiveTier="prismatic";
