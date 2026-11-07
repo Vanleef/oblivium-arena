@@ -100,3 +100,43 @@
 .combat-hand-card.basic-attack-card{background:linear-gradient(150deg,#403a49,#221c2b);border-color:#bea47d8a}
 .combat-hand-card.basic-attack-card .card-type{color:#efd3a6}
 .combat-hand-card.basic-attack-card .card-marker{margin-top:auto;color:#d9c7ab}
+
+
+/* Physical 5×5 arena — static equal cells keep animations from resizing the board. */
+.tactical-arena{--arena-ink:#20192a;margin:14px auto 18px;max-width:780px;border:1px solid #9e83a358;border-radius:14px;padding:clamp(10px,2vw,18px);color:#f1e4db;background:radial-gradient(circle at 50% 35%,#5b355160,#221829 66%,#130f1e);overflow:hidden}
+.tactical-arena[data-origin-realm="Inferno"]{background:radial-gradient(circle at 50% 40%,#602b2663,#25171c 70%,#140d16)}
+.tactical-arena[data-origin-realm="Paraíso"]{background:radial-gradient(circle at 50% 40%,#6b65543f,#292836 70%,#1c1b28)}
+.tactical-arena[data-origin-realm="Limbo"]{background:radial-gradient(circle at 50% 40%,#55428c58,#231c39 70%,#151221)}
+.tactical-arena-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.tactical-arena-header small{font-size:10px;letter-spacing:.12em;color:#d7c0a4}
+.tactical-arena-header h2{font-size:16px;color:#f1dac0;margin:4px 0 0}
+.tactical-arena-legend{display:flex;gap:12px;color:#c2b9d0;font-size:10px}
+.tactical-grid-wrap{max-width:530px;margin:0 auto}
+.tactical-grid{width:100%;aspect-ratio:1/1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:3px;isolation:isolate}
+.tactical-tile{position:relative;min-width:0;min-height:0;overflow:visible;border:1px solid #b6a3a23b;border-radius:5px;background:linear-gradient(140deg,#5549584b,#2d23365e),repeating-linear-gradient(35deg,transparent 0 12px,#eee6d007 13px 14px);box-shadow:inset 0 1px #e6d1ca0d;transition:background .15s,border-color .15s}
+.tactical-arena[data-origin-realm="Inferno"] .tactical-tile{background:linear-gradient(145deg,#6a312940,#261923b0),repeating-linear-gradient(40deg,transparent 0 12px,#d9593014 13px 15px)}
+.tactical-arena[data-origin-realm="Paraíso"] .tactical-tile{background:linear-gradient(145deg,#89794e30,#3e3b4790),repeating-linear-gradient(40deg,transparent 0 12px,#eee1b916 13px 15px)}
+.tactical-tile.move-choice{border-color:#eecb84;background:#8e694d60;box-shadow:inset 0 0 0 2px #fff2bc55,0 0 9px #d8aa8550}
+.tactical-tile.target-choice{border-color:#ff9276;box-shadow:inset 0 0 0 2px #d86a5877,0 0 10px #dd6c5550}
+.tactical-tile.planned-destination{border-color:#d9c49f;box-shadow:inset 0 0 0 2px #d8a5675e}
+.tactical-tile-pad{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:5px;background:transparent;cursor:pointer;z-index:1}
+.tactical-tile-pad:disabled{pointer-events:none;cursor:default}
+.tactical-tile-pad:focus-visible,.tactical-occupant:focus-visible{outline:2px solid #fff0b1;outline-offset:-2px}
+.tactical-occupant{position:absolute;inset:3px 3px 11px;z-index:2;width:calc(100% - 6px);height:calc(100% - 14px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:1px;border-radius:8px;cursor:pointer;border:1px solid #8cb5df9e;background:radial-gradient(circle at 50% 40%,#4e69778c,#17182b99);padding:0;box-shadow:0 3px 8px #0301096b}
+.tactical-occupant.opponent-unit{border-color:#cb7f83c7;background:radial-gradient(circle at 50% 40%,#7f42458c,#25121eaa)}
+.tactical-occupant[data-origin-realm="Paraíso"]{box-shadow:inset 0 0 8px #fbda9352,0 3px 8px #0301096b}
+.tactical-occupant[data-origin-realm="Inferno"]{box-shadow:inset 0 0 8px #b64b335d,0 3px 8px #0301096b}
+.tactical-occupant[data-origin-realm="Limbo"]{box-shadow:inset 0 0 8px #8660cd64,0 3px 8px #0301096b}
+.tactical-token-art{display:flex;align-items:center;justify-content:center;flex:1;min-height:0;width:100%;overflow:hidden;border-radius:5px}
+.tactical-token-art img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.tactical-token-art svg{max-width:75%;max-height:75%}
+.tactical-token-name{width:100%;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:clamp(8px,1.25vw,10px);font-weight:700;line-height:1.4;color:#f5edf2;text-shadow:0 1px 3px #0a051e}
+.tactical-token-impact{position:absolute;right:-4px;top:-8px;color:#ffad73;font-size:18px;filter:drop-shadow(0 0 4px #d35338)}
+.tactical-move-marker{position:absolute;right:3px;bottom:3px;z-index:3;font-weight:700;font-size:17px;color:#f5d49e;text-shadow:0 0 5px #775238;pointer-events:none}
+.tactical-arena-hint{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:#cec0d4;font-size:11px;line-height:1.5;margin-top:10px}
+.tactical-arena-hint span{color:#f1cfa9}
+.combat-hand-card.movement-card{cursor:pointer}
+.combat-hand-card.movement-card[aria-pressed="true"]{border-color:#ffe5a5;box-shadow:0 0 0 2px #dac49490}
+.combat-hand-card.movement-card:disabled{cursor:default}
+@media(max-width:600px){.tactical-arena{margin:8px 0 12px;padding:8px;border-radius:9px}.tactical-grid{gap:2px}.tactical-arena-legend{font-size:9px}.tactical-occupant{inset:2px 2px 9px;width:calc(100% - 4px);height:calc(100% - 11px);border-radius:5px}.tactical-token-name{font-size:8px}.tactical-arena-header h2{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.tactical-tile{transition:none}}
