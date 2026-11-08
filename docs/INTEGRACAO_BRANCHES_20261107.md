@@ -31,7 +31,7 @@ O PR #6 **não foi fundido arquivo a arquivo** porque altera o mesmo motor com g
 
 ## Pendências para release
 
-1. O playback online de habilidades e VFX ainda não tem a coreografia cinematográfica completa do modo IA.
+1. A revisão online opcional de eventos usa snapshots públicos e quadros de habilidade, mas ainda não possui fila automática, animação interpolada de movimento nem a coreografia e VFX completos do modo IA.
 2. Falta QA em dois navegadores reais, incl. latência, reconexão, orientação e responsividade de celular.
 3. Cartas especiais desbloqueadas pela campanha ficam restritas ao modo local até que a conclusão dos Reinos possa ser comprovada pelo servidor.
 4. A suíte integral do PR #3 mantém falhas legadas que precisam de correção e auditoria separada.

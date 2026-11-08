@@ -36,7 +36,7 @@ jobs:
       - name: Authoritative compact PvP protocol tests
         run: node --test tests/compact-pvp.test.js tests/compact-arena-service.test.js tests/tactical-pvp-core.test.js
       - name: Online interface and endpoint smoke
-        run: node --check src/compact-online.js && node --check api/arena-compact.js && node --test tests/compact-online-ui.test.js tests/dev-server-compact.test.js tests/online.test.js
+        run: node --check src/compact-online.js && node --check api/arena-compact.js && node --test tests/compact-online-ui.test.js tests/compact-online-replay.test.js tests/dev-server-compact.test.js tests/online.test.js
       - name: Account and campaign integration regressions
         run: node --test tests/auth-integration-regression.test.js tests/account-service.test.js tests/account-api.test.js tests/campaign-api.test.js tests/campaign-service.test.js
       - name: Tactical and Conquest regressions

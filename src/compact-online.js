@@ -11,10 +11,12 @@ import {combatScene} from './combat-scenes.js';
 import {findPath,boardCells,unitFacing} from './tactical-board.js';
 import {characterById} from './data.js';
 import {surfaceAt} from './tactical-elements.js';
+import {onlineReplayFrames,onlineReplayBattle} from './compact-online-replay.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false};
 let pollController=null;
+let replayRevision=0;
 const match=()=>state.server?.match||null;
 const battle=()=>match()?.battle||null;
 const owner=s=>s?Object.keys(s.tactical.decks?.sides?.player||{}).length?'player':'enemy':null;
@@ -130,37 +132,37 @@ function rosterMarkup(s,side){
  return '<div class="online-rosters"><div aria-label="Sua equipe">'+allies.map(u=>chip(u,false)).join('')+'</div>'
   +'<span class="online-versus">RODADA '+s.round+' · VS</span><div aria-label="Equipe adversária">'+enemies.map(u=>chip(u,true)).join('')+'</div></div>';
 }
-function spriteMarkup(s,unit,side){
- const own=unit.side===side,frame=tacticalSpriteFrame(unit,null,s.tactical.facings?.[unit.id]);
+function spriteMarkup(s,unit,side,event=null){
+ const own=unit.side===side,frame=tacticalSpriteFrame(unit,event?.actorId===unit.id?event:null,s.tactical.facings?.[unit.id]);
  const art=unit.art?.portrait||characterById[unit.sourceId||unit.id]?.art?.portrait;
  const sprite=frame?'<span class="online-sprite" style="'+esc(tacticalSpriteStyle(frame))+'"></span>'
   :art?'<img class="online-sprite-fallback" src="'+esc(art)+'" alt="">':'<span class="online-sprite-fallback">◆</span>';
  return '<span class="online-unit" data-own="'+own+'" data-selected="'+(unit.id===state.actorId)+'" data-unit-id="'+esc(unit.id)+'">'
   +'<span class="online-unit-name">'+esc(unit.name)+'</span>'+sprite+'</span>';
 }
-function boardMarkup(s,side){
+function boardMarkup(s,side,{replay=false,event=null}={}){
  const scene=combatScene(s.tactical.scene);
  const positions=s.tactical.positions||{};
  const units=allUnits(s).filter(u=>u.hp>0);
  const myObjective=s.tactical.objectives?.[side]?.position;
- const focus=state.selection?.mode==='skill'?projection(s,side):s;
+ const focus=!replay&&state.selection?.mode==='skill'?projection(s,side):s;
  const origin=focus.tactical.positions[state.actorId];
  const cells=boardCells(s).map(p=>{
   const unit=units.find(u=>coord(positions[u.id])===coord(p));
   const surface=surfaceAt(s,p),objective=coord(myObjective)===coord(p);
-  const preview=state.selection?.mode==='skill'&&origin?(()=>{
+  const preview=!replay&&state.selection?.mode==='skill'&&origin?(()=>{
    const actor=ownUnit(focus,side),a=actor.abilities.find(x=>x.id===state.selection.abilityId);
    if(!a)return false;
    const direction=[Math.sign(p.x-origin.x),Math.sign(p.y-origin.y)];
    if(!direction[0]&&!direction[1])direction.splice(0,2,...unitFacing(focus,actor));
    return tacticalArea(focus,actor,a,p,direction).length>0;
   })():false;
-  return '<button type="button" role="gridcell" class="online-cell" data-cell="'+coord(p)+'"'
+  return '<button type="button" role="gridcell" class="online-cell" data-cell="'+coord(p)+'"'+(replay?' disabled':'')
    +' data-surface="'+esc(surface?.element||'none')+'" data-objective="'+objective+'"'
    +' data-possible="'+preview+'" aria-label="Casa '+String.fromCharCode(65+p.x)+(p.y+1)+(unit?' · '+esc(unit.name):'')+'">'
    +(surface?'<span class="online-surface" title="'+esc(surface.element)+'"></span>':'')
    +(objective?'<span class="online-objective" title="Seu emblema objetivo">✧</span>':'')
-   +(unit?spriteMarkup(s,unit,side):'')+'</button>';
+   +(unit?spriteMarkup(s,unit,side,event):'')+'</button>';
  }).join('');
  return '<div class="online-battle-scene" style="--scene-image:url(\''+esc(scene.art)+'\')">'
   +rosterMarkup(s,side)+'<div class="online-board" role="grid" aria-label="Arena 6 por 6">'+cells+'</div></div>';
@@ -229,10 +231,10 @@ function rewardMarkup(s,side){
   +'<b>'+esc(o.title)+'</b><small>'+esc(o.text)+'</small></button>').join('')+'</div></section>';
 }
 function activityMarkup(s){
- const events=(s.tactical.events||[]).filter(e=>e&&typeof e==='object').slice(-6).reverse();
+ const events=(s.tactical.events||[]).map((event,index)=>({event,index})).filter(({event})=>event&&typeof event==='object').slice(-6).reverse();
  if(!events.length)return '';
  return '<details class="online-activity" open><summary>Últimos acontecimentos</summary><ol>'
- +events.map(event=>{
+ +events.map(({event,index})=>{
   const duel=tacticalDuelSummary(event.duel);
   const before=[...(event.before?.allies||[]),...(event.before?.enemies||[])];
   const after=[...(event.after?.allies||[]),...(event.after?.enemies||[])];
@@ -249,8 +251,25 @@ function activityMarkup(s){
     '<span><strong>'+esc(change.name)+'</strong> '
     +(change.hp?'<em data-stat="hp" data-negative="'+(change.hp<0)+'">'+(change.hp>0?'+':'')+change.hp+' Vida</em> ':'')
     +(change.shield?'<em data-stat="shield" data-negative="'+(change.shield<0)+'">'+(change.shield>0?'+':'')+change.shield+' Defesa</em>':'')+'</span>').join('')+'</div>'
-   :'<small>Sem alteração imediata de Vida ou Defesa</small>')+'</li>';
- }).join('')+'</ol></details>';
+   :'<small>Sem alteração imediata de Vida ou Defesa</small>')
+   +(event.before?.positions&&event.after?.positions&&!s.tactical.clash&&s.tactical.stage!=='reward'
+    ?'<button type="button" data-replay-event="'+index+'">Rever acontecimento</button>':'')+'</li>';
+ }).join('')+'</ol><div data-replay-stage></div></details>';
+}
+async function replayEvent(index){
+ const s=battle(),event=s?.tactical.events?.[index],frames=onlineReplayFrames(event);
+ if(!frames.length||s.tactical.clash||s.tactical.stage==='reward')return;
+ const revision=++replayRevision,side=owner(s),reduced=Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
+ for(const frame of frames){
+  if(revision!==replayRevision)return;
+  const stage=root.querySelector('[data-replay-stage]');
+  if(!stage)return;
+  stage.innerHTML='<section class="online-replay" aria-label="Repetição do acontecimento"><h3>'+esc(event.title||'Acontecimento')+'</h3>'
+   +'<p>Repetição visual de um evento já resolvido; o combate continua em tempo real.</p>'
+   +boardMarkup(onlineReplayBattle(s,frame.snapshot),side,{replay:true,event:frame.pose})
+   +'<button type="button" data-replay-close>Fechar repetição</button></section>';
+  await new Promise(resolve=>setTimeout(resolve,reduced?35:frame.duration));
+ }
 }
 function setupMarkup(){
  const owned=state.account?.profile?.ownedIds||[],available=tacticalRoster.filter(id=>owned.includes(id));
@@ -271,6 +290,7 @@ function statusMarkup(s){
  return '<p class="online-state" role="status">'+esc(id)+(last?' · '+esc(last.title||last.type):'')+'</p>';
 }
 function render(){
+ replayRevision++;
  if(state.loading){root.innerHTML='<div class="online-loading">Conectando à Arena compacta…</div>';return;}
  const account=state.account;
  const header='<header class="online-header"><a href="/">OBLIVIUM ARENA</a><b>ARENA COMPACTA · PvP 6×6</b><a href="/tactical.html">Treino contra IA</a></header>';
@@ -340,6 +360,8 @@ async function initialize(){
 root.addEventListener('click',async event=>{
  const button=event.target.closest('button');if(!button||button.disabled||state.busy)return;
  const d=button.dataset,s=battle(),side=owner(s);
+ if(d.replayEvent!==undefined){void replayEvent(Number(d.replayEvent));return;}
+ if('replayClose'in d){replayRevision++;const stage=root.querySelector('[data-replay-stage]');if(stage)stage.innerHTML='';return;}
  if(d.selectActor){state.actorId=d.selectActor;state.selection=null;render();return;}
  if(d.sign){state.willSign=d.sign;render();return;}
  if('move'in d){state.selection={mode:'move'};render();return;}

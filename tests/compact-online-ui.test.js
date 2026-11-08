@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelSummary} from '../src/tactical-duel.js';
-import {createCompactPvpBattle,publicCompactPvpBattle} from '../server/compact-pvp.js';
+import {createCompactPvpBattle,publicCompactPvpBattle,submitCompactPvpPlan} from '../server/compact-pvp.js';
+import {boardCells,findPath} from '../src/tactical-board.js';
 const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8');
 test('online mode routes to its own server-driven screen without changing the AI mode',async()=>{
  const entry=await read('src/tactical-entry.js'),page=await read('tactical.html'),local=await read('src/compact-demo.js');
@@ -24,7 +25,7 @@ test('compact PvP client routes mutations through the authenticated authoritativ
  assert.match(app,/data-deck-add/);
  assert.match(app,/deckFor\(id\)/);
  assert.match(app,/team:state\.team,decks/);
- assert.match(app,/tacticalSpriteFrame\(unit,null/);
+ assert.match(app,/tacticalSpriteFrame\(unit,event/);
 });
 test('online interface exposes private card hands, clash controls, objectives and a responsive battlefield',async()=>{
  const app=await read('src/compact-online.js'),css=await read('compact-online.css');
@@ -301,6 +302,51 @@ test('a failed resynchronization after a rejected action is visible to the playe
   assert.equal(requests,3);
   assert.match(root.innerHTML,/Rodada desatualizada/);
   assert.match(root.innerHTML,/Não foi possível atualizar o combate: Serviço indisponível/);
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+ }
+});
+
+test('a pending clash interrupts an on-demand replay and keeps its response controls available',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval,setTimeout:globalThis.setTimeout};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=createCompactPvpBattle(ids,rivals,{seed:17});
+ const unit=battle.allies[0],destination=boardCells(battle).find(cell=>findPath(battle,unit.id,cell,1));
+ assert.equal(submitCompactPvpPlan(battle,'player',1,[{type:'move',actorId:unit.id,path:findPath(battle,unit.id,destination,1)}]).ok,true);
+ assert.equal(submitCompactPvpPlan(battle,'enemy',1,[]).ok,true);
+ let response={profile:{name:'Alice'},queued:false,match:{id:'match',version:1,battle:publicCompactPvpBattle(battle,'player')}};
+ const index=response.match.battle.tactical.events.findIndex(event=>event.type==='exchange-move');
+ const listeners={};
+ const stage={innerHTML:''};
+ const root={innerHTML:'',addEventListener(type,listener){listeners[type]=listener;},
+  querySelector(selector){return selector==='[data-replay-stage]'?stage:null;}};
+ let poll,timer;
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=callback=>{poll=callback;return 0;};
+  globalThis.fetch=async(url)=>url==='/api/account'
+   ?{ok:true,json:async()=>({user:{handle:'Alice'},profile:{ownedIds:ids}})}
+   :{ok:true,json:async()=>structuredClone(response)};
+  await import('../src/compact-online.js?replay-interruption=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.match(root.innerHTML,/data-replay-event/);
+  globalThis.setTimeout=callback=>{timer=callback;return 1;};
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{replayEvent:String(index)}})}});
+  assert.match(stage.innerHTML,/Repetição visual/);
+  const firstFrame=stage.innerHTML;
+  battle.tactical.stage='resolving';
+  battle.tactical.pendingClash={defenderSide:'player',actorId:battle.enemies[0].id,
+   abilityId:'voto',targetId:unit.id,willSign:'luz'};
+  response={profile:{name:'Alice'},queued:false,match:{id:'match',version:2,battle:publicCompactPvpBattle(battle,'player')}};
+  await poll();
+  assert.match(root.innerHTML,/Confronto de Vontades/);
+  assert.doesNotMatch(root.innerHTML,/data-replay-event/);
+  timer();
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(stage.innerHTML,firstFrame);
  }finally{
   for(const [key,value] of Object.entries(previous)){
    if(value===undefined)delete globalThis[key];else globalThis[key]=value;

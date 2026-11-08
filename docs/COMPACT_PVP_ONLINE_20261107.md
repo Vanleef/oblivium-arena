@@ -31,7 +31,9 @@ Na implementação atual, cartas não utilizadas são descartadas ao fim da roda
 
 Miragem distorce Luz; Luz dissipa Sombra; Sombra engole Miragem. A intenção ofensiva é selada durante o planejamento. O defensor escolhe uma intenção ou aceita o golpe quando o especial será executado. Vitória ofensiva: 150% do dano; empate: 100%; vitória defensiva: bloqueio do alvo protegido. A carta defensiva ou resposta padrão é consumida apenas se escolhida.
 
-Após a resolução, a lista de acontecimentos apresenta as duas intenções e o resultado confirmado pelo servidor; ela permanece acessível no resultado final. Aceitar o golpe não cria um confronto revelado. Essa lista não substitui o replay cinematográfico, ainda pendente.
+Após a resolução, a lista de acontecimentos apresenta as duas intenções e o resultado confirmado pelo servidor; ela permanece acessível no resultado final. Aceitar o golpe não cria um confronto revelado.
+
+Eventos com snapshots públicos podem ser revistos individualmente a partir da lista. A revisão usa um tabuleiro somente de leitura, quadros de habilidade e estados anterior/posterior confirmados; o combate continua em tempo real. Ela é interrompida ao atualizar a tela e não fica disponível durante uma resposta de Confronto ou recompensa. Objetivos não são desenhados nos snapshots históricos. Movimento mostra os estados antes e depois, sem interpolação. Esta revisão opcional ainda não é a fila cinematográfica automática: faltam sequenciamento de rodadas, VFX e transições equivalentes ao modo local.
 
 Em uma defesa vencedora contra uma área elemental, o personagem protegido não recebe os efeitos de contato, mas os demais alvos efetivamente atingidos ainda recebem as interações elementais válidas. Se não houver alvo atingido, a técnica bloqueada não cria superfície de contato.
 
@@ -48,6 +50,8 @@ O perfil autenticado é vinculado ao identificador da conta, não herdado do coo
 - src/compact-online.js, src/compact-online-client.js e compact-online.css: interface.
 - tests/tactical-pvp-core.test.js, tests/compact-pvp.test.js, tests/compact-arena-service.test.js, tests/compact-online-ui.test.js: regressões.
 - GitHub Actions: node --test para protocolos, QA de importação de interface, integração de autenticação e campanha, suíte compacta, simulações e build.
+
+O replay opcional foi verificado no servidor local com duas contas e uma rodada com movimento, inclusive na tela final. Em viewport de 390 px, o tabuleiro de revisão coube sem rolagem horizontal; a automação disparou eventos de clique e não substitui validação de toque ou de efeitos completos.
 
 Em um ensaio local isolado, duas páginas de navegador com contas distintas (uma em viewport de 390 px) entraram na mesma partida, planejaram e resolveram movimentos, retomaram a rodada após recarregar e viram resultados opostos após rendição. As páginas usaram hosts locais distintos para separar cookies, com cabeçalho de protocolo de desenvolvimento no segundo host; a automação disparou eventos de clique. Isso não valida gestos físicos, latência real, duelo especial, animações ou uma partida completa até eliminação.
 
