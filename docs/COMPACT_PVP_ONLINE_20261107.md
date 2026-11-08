@@ -27,6 +27,8 @@ O cliente consulta periodicamente a partida e preserva os controles quando o est
 
 Cada equipe possui 3 baralhos independentes de 8–10 cartas. A compra inicial é de 3 cartas; nas rodadas seguintes, 2 cartas até o limite de 6. Movimento básico e Ataque Básico permanecem acessíveis sem compra; cartas de habilidade precisam estar na mão do personagem correto.
 
+As mãos do treino e do PvP apresentam cartas ilustradas em leque com rolagem horizontal quando necessário. A carta selecionada exibe sua descrição completa, e a seleção preserva a posição da mão e o foco do teclado. O Ataque Básico fica separado das cartas compradas; reações continuam informativas até o Confronto.
+
 Na implementação atual, cartas não utilizadas são descartadas ao fim da rodada, exceto as marcadas com Preservar. Isso explica uma nova mão de duas cartas quando nenhuma carta foi preservada; a compatibilidade dessa regra com a intenção de produto deve ser revisada antes de alterá-la.
 
 Miragem distorce Luz; Luz dissipa Sombra; Sombra engole Miragem. A intenção ofensiva é selada durante o planejamento. O defensor escolhe uma intenção ou aceita o golpe quando o especial será executado. Vitória ofensiva: 150% do dano; empate: 100%; vitória defensiva: bloqueio do alvo protegido. A carta defensiva ou resposta padrão é consumida apenas se escolhida.
@@ -52,6 +54,8 @@ O perfil autenticado é vinculado ao identificador da conta, não herdado do coo
 - GitHub Actions: node --test para protocolos, QA de importação de interface, integração de autenticação e campanha, suíte compacta, simulações e build.
 
 O replay opcional foi verificado no servidor local com duas contas e uma rodada com movimento, inclusive na tela final. Em viewport de 390 px, o tabuleiro de revisão coube sem rolagem horizontal; a automação disparou eventos de clique e não substitui validação de toque ou de efeitos completos.
+
+A apresentação da mão foi verificada no treino em 320 px e desktop, e no PvP em 390 px com duas contas locais. A seleção por clique e teclado, a descrição, a rolagem e a preferência por movimento reduzido foram verificadas no navegador; isso não substitui ensaios de toque físico. A troca de quadros atualizados diretamente usa uma dissolução curta, e o repouso tem movimento sutil e fases independentes. As transições não acrescentam desenhos aos atlas existentes nem cobrem todas as recriações do DOM durante a resolução.
 
 Em um ensaio local isolado, duas páginas de navegador com contas distintas (uma em viewport de 390 px) entraram na mesma partida, planejaram e resolveram movimentos, retomaram a rodada após recarregar e viram resultados opostos após rendição. As páginas usaram hosts locais distintos para separar cookies, com cabeçalho de protocolo de desenvolvimento no segundo host; a automação disparou eventos de clique. Isso não valida gestos físicos, latência real, duelo especial, animações ou uma partida completa até eliminação.
 

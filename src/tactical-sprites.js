@@ -1,4 +1,5 @@
 import {tacticalFrameDuration} from './tactical-animation.js';
+import {blendTacticalSpriteFrame} from './tactical-motion.js';
 // Candidate hand-drawn atlas coverage is intentionally separate from the generic
 // pose fallback. A mapped form is required: unknown forms never borrow base art.
 const root='/art/animations/tactical-pilot-20261101';
@@ -141,6 +142,7 @@ export function paintTacticalToken(token,unit,event,frame){
  const orientation=(restoring?event.after?.facings?.[unit.id]:event.orientation)||event.after?.facings?.[unit.id];
  const sprite=token.querySelector('.sprite-sheet'),atlasFrame=tacticalSpriteFrame(unit,{...event,...frame},orientation);
  const duration=tacticalFrameDuration({...event,...frame});
+ if(sprite&&atlasFrame)blendTacticalSpriteFrame(sprite,atlasFrame,duration);
  token.dataset.idleAtlas='false';token.dataset.bodyClip=String(Boolean(atlasFrame?.bodyClip));token.dataset.family=frame.family;token.dataset.pose=frame.pose;
  token.style.setProperty('--pose-duration',`${duration}ms`);
  const fromY=event.before?.positions?.[unit.id]?.y??event.from?.y??0,toY=event.after?.positions?.[unit.id]?.y??event.to?.y??fromY,hopRows=event.type==='move'?toY-fromY:0;
@@ -166,5 +168,3 @@ export function paintTacticalToken(token,unit,event,frame){
  }
  return true;
 }
-
-
