@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelSummary} from '../src/tactical-duel.js';
 const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8');
 test('online mode routes to its own server-driven screen without changing the AI mode',async()=>{
  const entry=await read('src/tactical-entry.js'),page=await read('tactical.html'),local=await read('src/compact-demo.js');
@@ -62,4 +63,16 @@ test('combat activity and surrender derive from confirmed server events and two 
  assert.match(app,/data-surrender-confirm/);
  assert.match(app,/data-surrender-cancel/);
  assert.match(app,/op:'surrender'/);
+});
+test('resolved duels expose both intentions and the canonical result in the activity, even after the match',async()=>{
+ for(const attack of tacticalDuelOptions)for(const defense of tacticalDuelOptions){
+  const result=tacticalDuelResolve(attack.id,defense.id,{mode:'cards'});
+  assert.deepEqual(tacticalDuelSummary(result),{attack:attack.name,defense:defense.name,label:result.label});
+ }
+ assert.equal(tacticalDuelSummary(null),null);
+ const app=await read('src/compact-online.js'),css=await read('compact-online.css');
+ assert.match(app,/tacticalDuelSummary\(event\.duel\)/);
+ assert.match(app,/Ataque: .*Defesa:/);
+ assert.match(app,/Retornar à formação<\/button><\/div>'\+activityMarkup\(s\)/);
+ assert.match(css,/online-activity-duel/);
 });

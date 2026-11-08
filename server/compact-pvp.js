@@ -38,11 +38,14 @@ export function createCompactPvpBattle(firstIds,secondIds,{seed=1,decks={}}={}){
  });
  battle.tactical.pvpMode=true;
  battle.tactical.pvpProtocol=1;
+ delete battle.enemyPlanner;
+ delete battle.rng;
  return battle;
 }
 export function publicCompactPvpBattle(s,side){
  if(!validSide(side))throw Error('Lado inválido.');
  const v=tacticalView(s,side);
+ v.tactical.events=clone(s.tactical.events||[]);
  // Project only public information, never the queued signs, cursor or other
  // team's hidden objective. "reveal" events may include both action lists.
  delete v.tactical.authoritativeResolution;
@@ -50,6 +53,7 @@ export function publicCompactPvpBattle(s,side){
  for(const event of v.tactical.events||[]){
   delete event.willSign;
   delete event.cardId;
+  delete event.randomPayment;
   if(Array.isArray(event.actions))for(const action of event.actions){
    delete action.willSign;
    delete action.cardId;

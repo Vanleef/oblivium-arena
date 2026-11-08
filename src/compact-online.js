@@ -6,7 +6,7 @@ import {tacticalHand,tacticalResponseOptions,tacticalCardDeck,tacticalMovementSt
 import {tacticalArea,previewTacticalPlan} from './tactical-combat.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
 import {tacticalSpriteFrame,tacticalSpriteStyle} from './tactical-sprites.js';
-import {tacticalDuelOptions} from './tactical-duel.js';
+import {tacticalDuelOptions,tacticalDuelSummary} from './tactical-duel.js';
 import {combatScene} from './combat-scenes.js';
 import {findPath,boardCells,unitFacing} from './tactical-board.js';
 import {characterById} from './data.js';
@@ -215,6 +215,7 @@ function activityMarkup(s){
  if(!events.length)return '';
  return '<details class="online-activity" open><summary>Últimos acontecimentos</summary><ol>'
  +events.map(event=>{
+  const duel=tacticalDuelSummary(event.duel);
   const before=[...(event.before?.allies||[]),...(event.before?.enemies||[])];
   const after=[...(event.after?.allies||[]),...(event.after?.enemies||[])];
   const indexed=new Map(before.map(u=>[u.id,u]));
@@ -225,6 +226,7 @@ function activityMarkup(s){
    return {name:u.name||old.name,hp,shield};
   }).filter(Boolean).slice(0,6);
   return '<li class="online-activity-event" data-event-type="'+esc(event.type||'unknown')+'"><b>'+esc(event.title||'Efeito resolvido')+'</b>'
+   +(duel?'<p class="online-activity-duel">Ataque: '+esc(duel.attack)+' · Defesa: '+esc(duel.defense)+' · '+esc(duel.label)+'</p>':'')
    +(changes.length?'<div class="online-activity-changes">'+changes.map(change=>
     '<span><strong>'+esc(change.name)+'</strong> '
     +(change.hp?'<em data-stat="hp" data-negative="'+(change.hp<0)+'">'+(change.hp>0?'+':'')+change.hp+' Vida</em> ':'')
@@ -260,7 +262,7 @@ function render(){
  if(!s){body=setupMarkup();}
  else if(s.tactical.stage==='finished'){
   const result=s.phase==='victory'?'Vitória':s.phase==='defeat'?'Derrota':s.phase==='draw'?'Empate':'Confronto encerrado';
-  body='<div class="online-result"><h2>'+result+'</h2><p>Resultado validado pelo servidor.</p><button data-ack class="online-primary">Retornar à formação</button></div>';
+  body='<div class="online-result"><h2>'+result+'</h2><p>Resultado validado pelo servidor.</p><button data-ack class="online-primary">Retornar à formação</button></div>'+activityMarkup(s);
  }else{
   body='<div class="online-combat">'+boardMarkup(s,side)+controlsMarkup(s,side)+'</div>'
    +statusMarkup(s)+clashMarkup(s,side)+rewardMarkup(s,side)+activityMarkup(s)

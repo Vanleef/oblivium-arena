@@ -24,6 +24,13 @@ export function tacticalDuelDamage(base,duel){
  if(!duel?.duel)return base;
  return duel.outcome==='miss'?0:Math.max(1,Math.round(base*duel.damageRate));
 }
+export function tacticalDuelSummary(duel){
+ if(!duel?.duel)return null;
+ const attack=tacticalDuelOptions.find(option=>option.id===duel.attackChoice);
+ const defense=tacticalDuelOptions.find(option=>option.id===duel.defenseChoice);
+ if(!attack||!defense||typeof duel.label!=='string')return null;
+ return {attack:attack.name,defense:defense.name,label:duel.label};
+}
 const tendencies=Object.freeze({
  'o-acougueiro':'miragem','o-odio-encarnado':'miragem',
  'a-viuva-escarlate':'luz','o-passo-interrompido':'luz',

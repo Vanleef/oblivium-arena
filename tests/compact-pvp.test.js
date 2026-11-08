@@ -12,6 +12,8 @@ const duel=(config={})=>createCompactPvpBattle(ids,rivals,{seed:17,...config});
 test('two separate sealed plans resume a 6x6 server-authored round after JSON persistence',()=>{
  let s=duel();
  assert.equal(s.tactical.width,6);
+ assert.doesNotThrow(()=>structuredClone(s));
+ assert.ok(Number.isInteger(s.rngState));
  assert.equal(submitCompactPvpPlan(s,'player',1,[]).ready,false);
  assert.equal(publicCompactPvpBattle(s,'player').phase,'waiting');
  assert.equal(publicCompactPvpBattle(s,'enemy').tactical.confirmed.player,true);
@@ -34,13 +36,17 @@ test('opponent hands, draw order, planned signs and objective coordinates never 
  assert.ok(objective);
  assert.equal(view.tactical.objectives.enemy,undefined);
  s.tactical.pendingClash={round:1,defenderSide:'enemy',actorId:s.allies[0].id,abilityId:'voto',targetId:s.enemies[0].id,willSign:'luz'};
- s.tactical.events.push({type:'reveal',actions:[{actorId:s.allies[0].id,willSign:'luz',cardId:'secret'}],before:{objectives:{player:s.tactical.objectives.player}}});
+ s.tactical.events.push({type:'reveal',actions:[{actorId:s.allies[0].id,willSign:'luz',cardId:'secret',randomPayment:{eter:1}}],before:{objectives:{player:s.tactical.objectives.player}}});
  const rival=publicCompactPvpBattle(s,'enemy');
  assert.equal(rival.phase,'tactical-clash');
  assert.equal(rival.tactical.clash.defender,true);
  assert.equal(JSON.stringify(rival).includes('"willSign"'),false);
  assert.equal(JSON.stringify(rival).includes('"authoritativeResolution"'),false);
  assert.equal(JSON.stringify(rival.tactical.events).includes('"objectives"'),false);
+ assert.equal(JSON.stringify(rival.tactical.events).includes('"cardId"'),false);
+ assert.equal(JSON.stringify(rival.tactical.events).includes('"randomPayment"'),false);
+ assert.equal(rival.tactical.events.length,1);
+ assert.equal(s.tactical.events[0].actions[0].willSign,'luz','projection must not mutate authoritative events');
 });
 test('forged upgrades never enter competitive decks',()=>{
  const s=duel({decks:{player:{[ids[0]]:[
@@ -120,4 +126,10 @@ test('a real special waits for the defender after the two sealed plans, then res
  assert.equal(s.tactical.pendingClash,undefined);
  assert.ok(s.enemies[0].hp<hp,'Miragem defeats Luz, so the defender must suffer the special');
  assert.equal(s.round,2);
+ for(const side of ['player','enemy']){
+  const event=publicCompactPvpBattle(s,side).tactical.events.find(item=>item.duel);
+  assert.equal(event.duel.attackChoice,'miragem');
+  assert.equal(event.duel.defenseChoice,'luz');
+  assert.equal(event.duel.outcome,'hit');
+ }
 });

@@ -108,6 +108,7 @@ body{background:radial-gradient(circle at 65% -15%,#393045,#100e17 68%);color:va
 .online-activity-event{border:1px solid #594d60;border-radius:7px;padding:7px 10px;background:#2b2433}
 .online-activity-event>b{font-size:12px;color:#f5e6cd}
 .online-activity-event small{display:block;color:#b7abb4;font-size:11px}
+.online-activity-duel{margin:5px 0;color:#f2d6a0;font-size:12px;line-height:1.4}
 .online-activity-changes{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px;font-size:11px}
 .online-activity-changes span{padding:3px 7px;background:#15131a;border:1px solid #6b5c65;border-radius:5px}
 .online-activity-changes strong{color:#e7d9ce}
