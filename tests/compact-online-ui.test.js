@@ -77,6 +77,8 @@ test('online permanent move card tracks a queued free movement and undo',async()
   globalThis.fetch=async url=>({ok:true,json:async()=>url==='/api/account'?{user:{handle:'Alice'},profile:{ownedIds:ids}}:response});
   await import('../src/compact-online.js?permanent-move-hand=1');
   await new Promise(resolve=>setImmediate(resolve));
+  assert.match(root.innerHTML,/class="compact-area-legend"/);
+  assert.match(root.innerHTML,/class="hand-card-area-label">Área: /);
   assert.match(root.innerHTML,/data-move[^>]*aria-pressed="false"[^>]*>/);
   await click({move:''});
   await click({cell:destination.x+','+destination.y});

@@ -29,6 +29,8 @@ Cada equipe possui 3 baralhos independentes de 8–10 cartas. A compra inicial �
 
 As mãos do treino e do PvP ficam no centro inferior da tela, em leque com rolagem horizontal quando necessário, e podem ser recolhidas para liberar o tabuleiro. Movimento e Ataque Básico aparecem como cartas permanentes na mão: não entram no baralho nem são comprados ou descartados, e mantêm as regras anteriores. A contagem indica apenas cartas compradas. A seleção preserva a posição da mão e o foco do teclado; reações continuam informativas até o Confronto. Como não há mecânica de itens neste combate, não há cartas de itens ainda.
 
+As cartas priorizam a arte existente da técnica e mantêm o diagrama tático em um quadro separado, com legenda de origem e área em ambos os modos. A descrição completa permanece disponível ao selecionar a técnica; o nome do padrão também é anunciado a leitores de tela. O diagrama representa o padrão da técnica, não uma previsão dos alvos reais em cada posição.
+
 Na implementação atual, cartas não utilizadas são descartadas ao fim da rodada, exceto as marcadas com Preservar. Isso explica uma nova mão de duas cartas quando nenhuma carta foi preservada; a compatibilidade dessa regra com a intenção de produto deve ser revisada antes de alterá-la.
 
 Miragem distorce Luz; Luz dissipa Sombra; Sombra engole Miragem. A intenção ofensiva é selada durante o planejamento. O defensor escolhe uma intenção ou aceita o golpe quando o especial será executado. Vitória ofensiva: 150% do dano; empate: 100%; vitória defensiva: bloqueio do alvo protegido. A carta defensiva ou resposta padrão é consumida apenas se escolhida.

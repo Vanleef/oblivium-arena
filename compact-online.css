@@ -141,6 +141,65 @@ body{background:radial-gradient(circle at 65% -15%,#393045,#100e17 68%);color:va
  .compact-battle .tactical-hand-dock .compact-hand-card:not(:disabled):hover,.compact-battle .tactical-hand-dock .compact-hand-card:focus-visible,.compact-battle .tactical-hand-dock .compact-hand-card[aria-pressed="true"]{transform:rotate(0deg)}
 }
 
+/* Illustrated relics: the art leads, while the tactical grid has its own quiet inset. */
+.combat-shell.compact-battle .tactical-hand-dock .compact-area-legend,
+.online-shell .tactical-hand-dock .compact-area-legend{
+ display:flex;justify-content:center;gap:14px;align-items:center;
+ color:#d5c9c8;font:600 10px/1.2 system-ui,sans-serif
+}
+.tactical-hand-dock .compact-area-legend span{display:flex;align-items:center;gap:4px}
+.tactical-hand-dock .compact-area-legend i{display:block;width:9px;height:9px;border-radius:2px;background:#fff0bf}
+.tactical-hand-dock .compact-area-legend i[data-legend="hit"]{background:#ff9867}
+.hand-card-area-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.compact-battle .tactical-hand-dock .compact-hand-card,
+.online-shell .tactical-hand-dock .online-cards .online-card{
+ position:relative;display:grid;grid-template-columns:minmax(0,1fr) 48px;
+ grid-template-rows:112px minmax(36px,auto) 48px;align-content:start;align-items:center;
+ flex:0 0 154px;width:154px;min-height:0;padding:5px;gap:4px;
+ overflow:hidden;border:1px solid #b49475;border-radius:11px;
+ background:linear-gradient(145deg,#6b5149 0%,#30232f 20%,#15131e 75%,#5a3f3c 100%);
+ box-shadow:0 8px 16px #000b,inset 0 0 0 2px #19131f,inset 0 0 0 3px #8e6e5c;
+ color:#fbefdf
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card) .hand-card-art{
+ grid-column:1/-1;grid-row:1;width:100%;height:100%;box-sizing:border-box;
+ border:1px solid #b89a7b;border-radius:7px 7px 2px 2px;
+ background:radial-gradient(ellipse at 50% 35%,#604958,#211925 75%)
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card) .hand-card-art img{object-fit:cover;object-position:center}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>:is(strong,b){
+ grid-column:1/-1;grid-row:2;min-height:0;max-height:3em;width:100%;
+ display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+ box-sizing:border-box;padding:2px 4px;color:#fff0d7;font:700 11px/1.2 Georgia,serif;
+ text-align:center;text-shadow:0 1px 3px #000;overflow-wrap:anywhere
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>small{
+ grid-column:1;grid-row:3;align-self:start;display:-webkit-box;overflow:hidden;
+ -webkit-box-orient:vertical;-webkit-line-clamp:4;color:#ddcdd1;
+ font:500 10px/1.18 system-ui,sans-serif;text-align:left
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card) .compact-area-mini{
+ grid-column:2;grid-row:3;justify-self:end;align-self:end;width:48px;height:48px;
+ margin:0;padding:3px;gap:1px;border-color:#c3a78a;background:#120f1b;
+ box-shadow:0 0 0 1px #100c14
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card) .compact-area-mini i{background:#4b4051;border-radius:1px}
+.tactical-hand-dock :is(.compact-hand-card,.online-card) .compact-area-mini i[data-mini-cell="origin"]{background:#fff0bf}
+.tactical-hand-dock :is(.compact-hand-card,.online-card) .compact-area-mini i[data-mini-cell="hit"]{background:#ff9867}
+.tactical-hand-dock :is(.compact-hand-card,.online-card):disabled{opacity:.62;filter:none}
+.compact-battle .tactical-hand-dock .compact-hand-reaction,.online-shell .tactical-hand-dock .online-card.reaction{border-color:#a88dc8;background:linear-gradient(145deg,#61516e,#282038 48%,#17131f)}
+.compact-battle .tactical-hand-dock .compact-hand-mobility,.online-shell .tactical-hand-dock .online-card[data-card-kind="mobility"]{border-color:#bca476}
+@media(max-width:600px),(max-height:600px){
+ .compact-battle .tactical-hand-dock .compact-hand-card,
+ .online-shell .tactical-hand-dock .online-cards .online-card{
+  grid-template-columns:minmax(0,1fr) 40px;grid-template-rows:78px minmax(29px,auto) 40px;
+  flex-basis:119px;width:119px;padding:4px;gap:3px
+ }
+ .tactical-hand-dock :is(.compact-hand-card,.online-card)>:is(strong,b){font-size:10px}
+ .tactical-hand-dock :is(.compact-hand-card,.online-card)>small{font-size:9px;-webkit-line-clamp:3}
+ .tactical-hand-dock :is(.compact-hand-card,.online-card) .compact-area-mini{width:40px;height:40px;gap:.5px;padding:2px}
+}
+
 .online-deck-editor{margin:16px 0;padding:12px;border:1px solid #987c66;border-radius:10px;background:#1b1722}
 .online-deck-editor summary{font-weight:800;color:#f4d69f;cursor:pointer}
 .online-deck-editor p{font-size:12px}

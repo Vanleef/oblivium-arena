@@ -25,6 +25,7 @@ test('compact card UI switches independent hands, queues movement and keeps plan
   assert.match(html,/Mão de/);
   assert.match(html,/Respostas disponíveis: 1/);
   assert.match(html,/data-card=/);
+  assert.match(html,/class="hand-card-area-label">Área: /);
   assert.match(html,/Ataque básico/);
   assert.match(html,/data-mode="move"[^>]*>[\s\S]*?<strong>Mover<\/strong>/);
   assert.match(html,/data-technique="fortress-basic"/);

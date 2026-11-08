@@ -1,7 +1,7 @@
 import {currentAccount} from './account-client.js';
 import {compactArenaRequest} from './compact-online-client.js';
 import {fortressTechniqueSpec} from './tactical-combat.js';
-import {tacticalRoster} from './tactical-kits.js';
+import {tacticalRoster,tacticalPatternLabel} from './tactical-kits.js';
 import {tacticalHand,tacticalResponseOptions,tacticalCardDeck,tacticalMovementSteps,defaultTacticalCardBuild} from './tactical-decks.js';
 import {tacticalArea,previewTacticalPlan} from './tactical-combat.js';
 import {tacticalAreaDiagramMarkup} from './tactical-area-diagram.js';
@@ -187,9 +187,10 @@ function handMarkup(s,side,actor){
   const playing=pending?.cardId===card.id;
   const ability=actor.abilities.find(a=>a.id===card.abilityId);
   const enabled=card.kind==='mobility'||Boolean(ability);
-  const diagram=card.kind==='skill'&&ability?tacticalAreaDiagramMarkup(fortressTechniqueSpec(s,actor,ability),{facing:unitFacing(s,actor)}):'';
-  return '<button type="button" class="online-card" data-use-card="'+esc(card.id)+'" aria-pressed="'+playing+'" style="'+fan+'" title="'+esc(ability?.description||card.name)+'" '+(locked||used.has(card.id)||!enabled?'disabled':'')+'>'
-   +'<b>'+esc(card.name)+'</b>'+tacticalCardArtMarkup(ability,esc,card.kind==='mobility'?'➜':'✦')+'<small>'+esc(card.kind==='mobility'?'Mobilidade · '+tacticalMovementSteps(card)+' casas':ability?.description||'Técnica')+'</small>'+diagram+'</button>';
+  const spec=card.kind==='skill'&&ability?fortressTechniqueSpec(s,actor,ability):null;
+  const diagram=spec?tacticalAreaDiagramMarkup(spec,{facing:unitFacing(s,actor)}):'';
+  return '<button type="button" class="online-card" data-card-kind="'+esc(card.kind)+'" data-use-card="'+esc(card.id)+'" aria-pressed="'+playing+'" style="'+fan+'" title="'+esc(spec?tacticalPatternLabel(spec)+' · '+(ability.description||''):card.name)+'" '+(locked||used.has(card.id)||!enabled?'disabled':'')+'>'
+   +'<b>'+esc(card.name)+'</b>'+tacticalCardArtMarkup(ability,esc,card.kind==='mobility'?'➜':'✦')+'<small>'+esc(card.kind==='mobility'?'Mobilidade · '+tacticalMovementSteps(card)+' casas':ability?.description||'Técnica')+'</small>'+diagram+(spec?'<span class="hand-card-area-label">Área: '+esc(tacticalPatternLabel(spec))+'</span>':'')+'</button>';
  };
  const moveUsed=state.actions.some(action=>action.actorId===actor.id&&action.type==='move'&&!action.cardId);
  const move='<button type="button" class="online-card" data-move aria-pressed="'+(pending?.mode==='move')+'" style="'+tacticalHandFanStyle(0,handSize)+'" '+(locked||moveUsed?'disabled':'')+'><b>Mover</b>'+tacticalCardArtMarkup(null,esc,'➜')+'<small>Ação permanente · 1 casa</small>'+tacticalAreaDiagramMarkup(null,{movement:true})+'</button>';
@@ -207,7 +208,7 @@ function controlsMarkup(s,side){
   +'<section><h3>Planejamento</h3><small>Primeiras ações de todos, depois as segundas.</small>'+queued(s,side)
   +'<div class="online-buttons"><button data-undo '+(readOnly||!state.actions.length?'disabled':'')+'>Desfazer</button>'
   +'<button class="online-primary" data-confirm '+(readOnly?'disabled':'')+'>Confirmar rodada · '+state.actions.length+'/6</button></div></section></aside>'
-  +'<section class="tactical-hand-dock" aria-label="Mão de cartas" '+(s.tactical.stage!=='planning'||s.tactical.clash||s.tactical.pendingChestRewards?.length?'hidden':'')+'><div class="tactical-hand-header"><div><strong>Mão de '+esc(actor.name)+'</strong><small> · '+hand.length+' cartas compradas · '+(tacticalCardDeck(s,side,actor.id)?.draw?.length||0)+' no monte</small></div><button type="button" data-hand-toggle aria-expanded="'+!state.handCollapsed+'">'+(state.handCollapsed?'Mostrar mão':'Recolher mão')+'</button></div><div class="tactical-hand-content" '+(state.handCollapsed?'hidden':'')+'><div class="online-cards tactical-hand-cards" role="group" aria-label="Cartas de '+esc(actor.name)+'">'+handMarkup(s,side,actor)+'</div>'
+  +'<section class="tactical-hand-dock" aria-label="Mão de cartas" '+(s.tactical.stage!=='planning'||s.tactical.clash||s.tactical.pendingChestRewards?.length?'hidden':'')+'><div class="tactical-hand-header"><div><strong>Mão de '+esc(actor.name)+'</strong><small> · '+hand.length+' cartas compradas · '+(tacticalCardDeck(s,side,actor.id)?.draw?.length||0)+' no monte</small></div><button type="button" data-hand-toggle aria-expanded="'+!state.handCollapsed+'">'+(state.handCollapsed?'Mostrar mão':'Recolher mão')+'</button></div><div class="tactical-hand-content" '+(state.handCollapsed?'hidden':'')+'><div class="compact-area-legend" aria-label="No desenho das áreas, centro claro é a origem e casas coloridas são atingidas"><span><i data-legend="origin"></i>Origem</span><span><i data-legend="hit"></i>Área</span></div><div class="online-cards tactical-hand-cards" role="group" aria-label="Cartas de '+esc(actor.name)+'">'+handMarkup(s,side,actor)+'</div>'
   +(active?.cardId&&actor.abilities.find(a=>a.id===active.abilityId)?.description?'<p class="hand-card-detail">'+esc(actor.abilities.find(a=>a.id===active.abilityId).description)+'</p>':'')+'</div></section>';
 }
 function clashMarkup(s,side){
