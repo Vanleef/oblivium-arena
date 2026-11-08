@@ -374,7 +374,8 @@ function execute(s,ref,{projection=false}={}){
  const infused=card?.upgrade?.damageType;
  const element=s.tactical.fortress?(['fire','water','air','electric'].includes(infused)?infused:techniqueElement(actor,ability)):null;
  const result=resolveBoardTechnique(s,{...ref,element,...(s.tactical.compact?{fortressCooldown:fortressCooldown(ability)}:{}),targetId:ids[0]||null},ids);
- const elemental=element&&!result.skipped&&result.combo?.outcome!=='miss'?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
+ const elemental=element&&!result.skipped&&(result.combo?.outcome!=='miss'||result.affectedTargetIds?.length)
+  ?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
  const displacements=!result.skipped?displaceTargets(s,actor,result.affectedTargetIds||[],spec.displacement):[];
  const exposedHit=exposedBefore.some(old=>{const u=tacticalUnits(s).find(u=>u.id===old.id);return u&&(u.hp<old.hp||(u.shield||0)<old.shield);});
  const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit,ability,affected:result.affectedTargetIds?.length>0}):[];

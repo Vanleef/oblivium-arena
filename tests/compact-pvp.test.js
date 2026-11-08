@@ -133,3 +133,73 @@ test('a real special waits for the defender after the two sealed plans, then res
   assert.equal(event.duel.outcome,'hit');
  }
 });
+
+test('a defensive block protects only its target from elemental effects in an area',()=>{
+ const s=duel(),actor=s.allies[0],protectedUnit=s.enemies[0],other=s.enemies[1];
+ s.tactical.positions[actor.id]={x:2,y:2};
+ s.tactical.positions[protectedUnit.id]={x:3,y:2};
+ s.tactical.positions[other.id]={x:4,y:2};
+ s.tactical.surfaces['3,2']={element:'water',until:3};
+ s.tactical.surfaces['4,2']={element:'water',until:3};
+ const deck=s.tactical.decks.sides.player[actor.id];
+ const card=Object.values(deck.cards).find(item=>item.kind==='skill'&&item.abilityId==='voto');
+ card.upgrade.damageType='electric';
+ deck.draw=deck.draw.filter(id=>id!==card.id);deck.hand=[card.id];
+ const ability=actor.abilities.find(item=>item.id==='voto');
+ let chosen;
+ for(const anchor of boardCells(s)){
+  for(const orientation of directions){
+   const targets=tacticalTargets(s,actor,ability,anchor,orientation);
+   if(!targets.includes(protectedUnit.id)||!targets.includes(other.id))continue;
+   const ref={type:'skill',actorId:actor.id,abilityId:ability.id,cardId:card.id,anchor,orientation,willSign:'miragem'};
+   if(previewTacticalPlan(s,'player',[ref]).ok){chosen=ref;break;}
+  }
+  if(chosen)break;
+ }
+ assert.ok(chosen,'must find an area that reaches both targets');
+ assert.equal(submitCompactPvpPlan(s,'player',1,[chosen]).ok,true);
+ const started=submitCompactPvpPlan(s,'enemy',1,[]);
+ assert.equal(started.clash,true);
+ assert.equal(s.tactical.pendingClash.targetId,protectedUnit.id);
+ const hp=protectedUnit.hp;
+ const result=respondCompactPvp(s,'enemy','sombra');
+ assert.equal(result.ok,true,result.reason);
+ const event=s.tactical.events.find(item=>item.duel?.outcome==='miss');
+ assert.ok(event.affectedTargetIds.includes(other.id));
+ assert.equal(protectedUnit.hp,hp);
+ assert.equal(protectedUnit.stunned,0);
+ assert.ok(event.elemental.stuns.includes(other.id));
+ assert.ok(!event.elemental.stuns.includes(protectedUnit.id));
+ assert.equal(event.after.surfaces['4,2'].element,'electric');
+});
+test('a fully blocked elemental special spends its card without producing a contact surface',()=>{
+ const s=duel(),actor=s.allies[0],victim=s.enemies[0];
+ s.tactical.positions[actor.id]={x:2,y:2};
+ s.tactical.positions[victim.id]={x:3,y:2};
+ s.tactical.surfaces['3,2']={element:'water',until:3};
+ const deck=s.tactical.decks.sides.player[actor.id];
+ const card=Object.values(deck.cards).find(item=>item.kind==='skill'&&item.abilityId==='voto');
+ card.upgrade.damageType='electric';
+ deck.draw=deck.draw.filter(id=>id!==card.id);deck.hand=[card.id];
+ const ability=actor.abilities.find(item=>item.id==='voto');
+ let chosen;
+ for(const anchor of boardCells(s)){
+  for(const orientation of directions){
+   const targets=tacticalTargets(s,actor,ability,anchor,orientation);
+   if(targets.length!==1||targets[0]!==victim.id)continue;
+   const ref={type:'skill',actorId:actor.id,abilityId:ability.id,cardId:card.id,anchor,orientation,willSign:'miragem'};
+   if(previewTacticalPlan(s,'player',[ref]).ok){chosen=ref;break;}
+  }
+  if(chosen)break;
+ }
+ assert.ok(chosen);
+ assert.equal(submitCompactPvpPlan(s,'player',1,[chosen]).ok,true);
+ assert.equal(submitCompactPvpPlan(s,'enemy',1,[]).clash,true);
+ assert.equal(respondCompactPvp(s,'enemy','sombra').ok,true);
+ const event=s.tactical.events.find(item=>item.duel?.outcome==='miss');
+ assert.deepEqual(event.affectedTargetIds,[]);
+ assert.equal(event.elemental,null);
+ assert.equal(event.after.surfaces['3,2'].element,'water');
+ assert.ok(!deck.hand.includes(card.id));
+ assert.ok(actor.cooldowns.voto>0);
+});

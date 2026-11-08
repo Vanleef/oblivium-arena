@@ -31,6 +31,8 @@ Miragem distorce Luz; Luz dissipa Sombra; Sombra engole Miragem. A intenção of
 
 Após a resolução, a lista de acontecimentos apresenta as duas intenções e o resultado confirmado pelo servidor; ela permanece acessível no resultado final. Aceitar o golpe não cria um confronto revelado. Essa lista não substitui o replay cinematográfico, ainda pendente.
 
+Em uma defesa vencedora contra uma área elemental, o personagem protegido não recebe os efeitos de contato, mas os demais alvos efetivamente atingidos ainda recebem as interações elementais válidas. Se não houver alvo atingido, a técnica bloqueada não cria superfície de contato.
+
 O servidor mantém um cursor serializável da ordem de execução, garantindo que a rodada seja retomável entre requisições. A projeção enviada ao cliente omite cursor, plano secreto, cartas adversárias, ordem futura de compra e localização de Casas Objetivo rivais.
 
 Os aprimoramentos conquistados por Casa Objetivo são privados da equipe que os coletou. O ranqueado não aceita melhorias arbitrárias inseridas no JSON dos baralhos; as recompensas são do próprio combate.

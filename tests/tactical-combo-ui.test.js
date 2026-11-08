@@ -69,7 +69,7 @@ test('winning choices apply ability effects, defensive victories miss entirely, 
  assert.match(combat,/tacticalDuelDamage\(technique\.damage,combo\)/);
  assert.match(combat,/combo\?\.duel&&combo\.outcome==='miss'/);
  assert.match(combat,/const result=apply\(s,actor,executed,/);
- assert.match(engine,/result\.combo\?\.outcome!=='miss'/);
+ assert.match(engine,/result\.combo\?\.outcome!=='miss'\|\|result\.affectedTargetIds\?\.length/);
  assert.match(engine,/duel\?\{duel\}:\{\}/);
 });
 
