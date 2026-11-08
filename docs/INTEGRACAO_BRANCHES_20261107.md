@@ -40,3 +40,11 @@ O PR #6 **não foi fundido arquivo a arquivo** porque altera o mesmo motor com g
 Para protocolo, casos de teste e operações da API, consulte COMPACT_PVP_ONLINE_20261107.md.
 
 **Estado: PR #7 draft; código versionado em branch própria, não publicado na main.**
+
+## Verificação local de continuidade — 07/11/2026
+
+Após atualização não destrutiva das referências, os HEADs de main e dos PRs #3, #6 e #7 permaneciam nos commits indicados acima e em `7fb81647b8bdbe72ce9c5ab43f26ba3c9cd77afe` para o PR #7. A branch de integração contém os 32 commits posteriores ao HEAD do PR #3 e o histórico da main; o PR #6 tem 117 commits exclusivos em relação à integração, que devem ser revisados por funcionalidade, sem copiar o motor 5×5.
+
+No HEAD do PR #7, o CI remoto registrou `compact` aprovado e `full-regression-diagnostic` reprovado. Uma execução local do diagnóstico completo com Node 26.13.0 indicou 534 testes aprovados e 132 falhas; a classificação das falhas e a comparação por nome com a base ainda estão pendentes. Não se deve interpretar essa contagem como prova de que todas as falhas sejam obsoletas.
+
+A auditoria local de animação confirmou 43 atlas base em 150 entradas e 183 clipes mapeados em 689 técnicas/formas. Isso não comprova qualidade visual nem cobertura integral das animações.
