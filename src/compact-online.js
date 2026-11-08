@@ -341,9 +341,8 @@ root.addEventListener('click',async event=>{
  }
  if(d.reward){
   const offer=s.tactical.pendingChestRewards[0],option=offer?.options.find(x=>x.id===d.reward);
-  const deck=tacticalCardDeck(s,side,offer.actorId);
   const cardId=option?.effect?.type==='tactical-card-upgrade'
-   ?state.rewardCard||Object.values(deck?.cards||{}).find(c=>c.kind==='skill')?.id:null;
+   ?root.querySelector('[data-reward-card]')?.value||null:null;
   await request({op:'reward',version:match().version,offerId:offer.id,optionId:d.reward,cardId});return;
  }
  if(d.deckAdd){const build=deckFor(d.deckAdd);if(build.length<10){state.deckBuilds[d.deckAdd]=[...build,{kind:'mobility'}];saveDeckBuilds();render();}return;}

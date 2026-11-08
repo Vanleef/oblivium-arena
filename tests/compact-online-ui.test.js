@@ -116,3 +116,55 @@ test('a default reactive card is submitted when the basic response has been spen
   }
  }
 });
+
+test('successive reward offers submit the card selected for the current character',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=createCompactPvpBattle(ids,rivals,{seed:17});
+ const offer=actorId=>({id:'offer:'+actorId,side:'player',actorId,tierName:'Prata',
+  options:[{id:'inscription',title:'Inscrição',text:'Melhoria',effect:{type:'tactical-card-upgrade'}}]});
+ battle.tactical.stage='reward';
+ battle.tactical.pendingChestRewards=[offer(ids[0]),offer(ids[1])];
+ const response=()=>({profile:{name:'Alice'},match:{id:'match',version:4,battle:publicCompactPvpBattle(battle,'player')}});
+ const listeners={},sent=[];
+ let html='',select=null;
+ const root={
+  get innerHTML(){return html;},
+  set innerHTML(value){
+   html=value;
+   const section=value.match(/<select data-reward-card>(.*?)<\/select>/);
+   const options=section?[...section[1].matchAll(/<option value="([^"]+)"/g)].map(match=>({value:match[1]})):[];
+   select=options.length?{value:options[0].value,options}:null;
+  },
+  addEventListener(type,listener){listeners[type]=listener;},
+  querySelector(selector){return selector==='[data-reward-card]'?select:null;}
+ };
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=()=>0;
+  globalThis.fetch=async(url,options)=>{
+   if(url==='/api/account')return {ok:true,json:async()=>({user:{handle:'Alice'},profile:{ownedIds:ids}})};
+   const payload=JSON.parse(options.body);
+   if(payload.op==='reward'){sent.push(payload);battle.tactical.pendingChestRewards.shift();}
+   return {ok:true,json:async()=>response()};
+  };
+  await import('../src/compact-online.js?successive-rewards=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.ok(select.options.length>1);
+  select.value=select.options[1].value;
+  const firstCard=select.value;
+  listeners.change({target:{matches:selector=>selector==='[data-reward-card]',value:firstCard}});
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{reward:'inscription'}})}});
+  const secondCard=select.value;
+  assert.notEqual(secondCard,firstCard);
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{reward:'inscription'}})}});
+  assert.deepEqual(sent.map(item=>({offerId:item.offerId,cardId:item.cardId})),[
+   {offerId:'offer:'+ids[0],cardId:firstCard},{offerId:'offer:'+ids[1],cardId:secondCard}
+  ]);
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+ }
+});
