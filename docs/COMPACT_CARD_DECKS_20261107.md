@@ -36,6 +36,7 @@ As recompensas continuam com **três opções**. No modo de cartas, uma delas po
 - **Prismático:** +10 de dano, aplica **Exposto** e vira carta **Inicial**.
 
 Essas inscrições são persistidas no deck local para os próximos combates/campanhas desse navegador. São exemplos iniciais que precisam de balanceamento antes de PvP competitivo.
+Inscrições sucessivas na mesma carta somam o dano anunciado, sem um teto intermediário de 15; propriedades já adquiridas, como Preservar, continuam presentes. No PvP, inscrições de origem local continuam bloqueadas e apenas recompensas obtidas na própria partida são aceitas.
 
 ## Respostas — Confronto de Vontades
 

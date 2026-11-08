@@ -15,7 +15,7 @@ const validUpgrade=raw=>{
  const x=raw&&typeof raw==='object'?raw:{};
  return {
   opening:Boolean(x.opening),retain:Boolean(x.retain),exhaust:Boolean(x.exhaust),
-  damageBonus:Number.isInteger(x.damageBonus)?Math.max(0,Math.min(15,x.damageBonus)):0,
+  damageBonus:Number.isSafeInteger(x.damageBonus)?Math.max(0,x.damageBonus):0,
   damageType:['physical','fire','water','air','light','shadow','piercing'].includes(x.damageType)?x.damageType:null,
   weaken:x.weaken===1?1:0,expose:x.expose===1?1:0
  };
@@ -147,7 +147,13 @@ export function spendTacticalResponse(s,side,cardId=null){
 }
 export function upgradeTacticalCard(s,side,actorId,cardId,upgrade){
  const card=tacticalCard(s,side,actorId,cardId);
- if(!card||!upgrade||typeof upgrade!=='object')return {ok:false,reason:'Carta ou melhoria inválida.'};
- card.upgrade=validUpgrade({...card.upgrade,...upgrade});
+ if(!card||!upgrade||typeof upgrade!=='object'||Array.isArray(upgrade))return {ok:false,reason:'Carta ou melhoria inválida.'};
+ let damageBonus=card.upgrade.damageBonus;
+ if(upgrade.damageBonus!==undefined){
+  if(!Number.isSafeInteger(upgrade.damageBonus)||upgrade.damageBonus<0||
+   !Number.isSafeInteger(damageBonus+upgrade.damageBonus))return {ok:false,reason:'Bônus de dano inválido.'};
+  damageBonus+=upgrade.damageBonus;
+ }
+ card.upgrade=validUpgrade({...card.upgrade,...upgrade,damageBonus});
  return {ok:true,card:clone(card)};
 }
