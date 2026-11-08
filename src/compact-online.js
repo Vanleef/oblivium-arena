@@ -110,7 +110,10 @@ async function request(payload,{silent=false}={}){
  }catch(e){
   if(silent&&pollController!==controller)return;
   state.message=e.message;state.pollError=silent;
-  if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}
+  if(e.status===409){
+   try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);state.queuing=Boolean(response.queued);}
+   catch(syncError){state.message+=' Não foi possível atualizar o combate: '+syncError.message;}
+  }
  }finally{
   if(silent){if(pollController===controller){pollController=null;if(shouldRender)render();}}
   else{state.busy=false;render();}

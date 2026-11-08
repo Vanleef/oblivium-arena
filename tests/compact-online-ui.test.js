@@ -246,6 +246,7 @@ test('a player request cancels an in-flight poll and ignores its stale response'
     return await new Promise((resolve,reject)=>{
      options.signal.addEventListener('abort',()=>reject(Object.assign(Error('aborted'),{name:'AbortError'})));
     });
+
    }
    return {ok:true,json:async()=>structuredClone(requests===1?response('Inicial',1):response('Atualizado',2))};
   };
@@ -268,6 +269,38 @@ test('a player request cancels an in-flight poll and ignores its stale response'
   assert.doesNotMatch(root.innerHTML,/aborted/);
   await poll();
   assert.equal(requests,6);
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+ }
+});
+
+test('a failed resynchronization after a rejected action is visible to the player',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=publicCompactPvpBattle(createCompactPvpBattle(ids,rivals,{seed:17}),'player');
+ const response={profile:{name:'Alice'},queued:false,match:{id:'match',version:1,battle}};
+ const listeners={};
+ const root={innerHTML:'',addEventListener(type,listener){listeners[type]=listener;},querySelector(){return null;}};
+ let requests=0;
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=()=>0;
+  globalThis.fetch=async(url)=>{
+   if(url==='/api/account')return {ok:true,json:async()=>({user:{handle:'Alice'},profile:{ownedIds:ids}})};
+   requests++;
+   if(requests===1)return {ok:true,json:async()=>structuredClone(response)};
+   if(requests===2)return {ok:false,status:409,json:async()=>({error:'Rodada desatualizada.'})};
+   return {ok:false,status:503,json:async()=>({error:'Serviço indisponível.'})};
+  };
+  await import('../src/compact-online.js?failed-resync=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{confirm:''}})}});
+  assert.equal(requests,3);
+  assert.match(root.innerHTML,/Rodada desatualizada/);
+  assert.match(root.innerHTML,/Não foi possível atualizar o combate: Serviço indisponível/);
  }finally{
   for(const [key,value] of Object.entries(previous)){
    if(value===undefined)delete globalThis[key];else globalThis[key]=value;
