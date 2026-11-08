@@ -14,6 +14,7 @@ import {surfaceAt} from './tactical-elements.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false};
+let pollController=null;
 const match=()=>state.server?.match||null;
 const battle=()=>match()?.battle||null;
 const owner=s=>s?Object.keys(s.tactical.decks?.sides?.player||{}).length?'player':'enemy':null;
@@ -93,16 +94,27 @@ function contextReset(next){
 }
 async function request(payload,{silent=false}={}){
  if(state.busy)return;
+ if(silent&&pollController)return;
+ if(!silent&&pollController){pollController.abort();pollController=null;}
+ const controller=silent?new AbortController():null;
+ if(silent)pollController=controller;
  let shouldRender=true;
- state.busy=true;if(!silent){state.message='';state.pollError=false;}
+ if(!silent){state.busy=true;state.message='';state.pollError=false;}
  try{
-  const response=await compactArenaRequest(payload);
+  const response=await compactArenaRequest(payload,controller?.signal);
+  if(silent&&pollController!==controller)return;
   if(silent&&state.pollError){state.message='';state.pollError=false;}
   else if(silent&&JSON.stringify(response)===JSON.stringify(state.server))shouldRender=false;
   state.server=response;contextReset(response);
   state.queuing=Boolean(response.queued);
- }catch(e){state.message=e.message;state.pollError=silent;if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}}
- finally{state.busy=false;if(shouldRender)render();}
+ }catch(e){
+  if(silent&&pollController!==controller)return;
+  state.message=e.message;state.pollError=silent;
+  if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}
+ }finally{
+  if(silent){if(pollController===controller){pollController=null;if(shouldRender)render();}}
+  else{state.busy=false;render();}
+ }
 }
 function rosterMarkup(s,side){
  const allies=teammates(s,side),enemies=opponent(s,side);

@@ -222,3 +222,55 @@ test('unchanged polling preserves the current controls while updates and errors 
   }
  }
 });
+
+test('a player request cancels an in-flight poll and ignores its stale response',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=publicCompactPvpBattle(createCompactPvpBattle(ids,rivals,{seed:17}),'player');
+ const response=(name,version)=>({profile:{name},queued:false,match:{id:'match',version,battle}});
+ const listeners={};
+ const root={innerHTML:'',addEventListener(type,listener){listeners[type]=listener;},querySelector(){return null;}};
+ let poll,resolvePoll,pollSignal,requests=0;
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=callback=>{poll=callback;return 0;};
+  globalThis.fetch=async(url,options)=>{
+   if(url==='/api/account')return {ok:true,json:async()=>({user:{handle:'Alice'},profile:{ownedIds:ids}})};
+   requests++;
+   if(requests===2){
+    pollSignal=options.signal;
+    return await new Promise(resolve=>{resolvePoll=resolve;});
+   }
+   if(requests===4){
+    return await new Promise((resolve,reject)=>{
+     options.signal.addEventListener('abort',()=>reject(Object.assign(Error('aborted'),{name:'AbortError'})));
+    });
+   }
+   return {ok:true,json:async()=>structuredClone(requests===1?response('Inicial',1):response('Atualizado',2))};
+  };
+  await import('../src/compact-online.js?poll-race=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  const pending=poll();
+  assert.ok(resolvePoll);
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{refresh:''}})}});
+  assert.equal(pollSignal.aborted,true);
+  assert.equal(requests,3);
+  assert.match(root.innerHTML,/Atualizado/);
+  resolvePoll({ok:true,json:async()=>structuredClone(response('Obsoleto',1))});
+  await pending;
+  assert.match(root.innerHTML,/Atualizado/);
+  assert.doesNotMatch(root.innerHTML,/Obsoleto/);
+  const aborted=poll();
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{refresh:''}})}});
+  await aborted;
+  assert.equal(requests,5);
+  assert.doesNotMatch(root.innerHTML,/aborted/);
+  await poll();
+  assert.equal(requests,6);
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+ }
+});

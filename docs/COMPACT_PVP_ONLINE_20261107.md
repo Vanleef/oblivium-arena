@@ -21,6 +21,8 @@ O servidor local `npm run dev` também encaminha `/api/arena-compact` para a API
 
 A segunda confirmação pode usar uma versão anterior se a rodada enviada continuar correta e a equipe ainda não tiver confirmado. Todo o restante usa versão estrita para rejeitar alterações concorrentes.
 
+O cliente consulta periodicamente a partida e preserva os controles quando o estado recebido não mudou. Ações do jogador têm prioridade sobre uma consulta pendente; respostas antigas dessa consulta são ignoradas. Falhas temporárias de consulta são exibidas e removidas quando a conexão é restabelecida.
+
 ## Sistema e sigilo
 
 Cada equipe possui 3 baralhos independentes de 8–10 cartas. A compra inicial é de 3 cartas; nas rodadas seguintes, 2 cartas até o limite de 6. Movimento básico e Ataque Básico permanecem acessíveis sem compra; cartas de habilidade precisam estar na mão do personagem correto.
