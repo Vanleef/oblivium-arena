@@ -93,13 +93,15 @@ function contextReset(next){
 }
 async function request(payload,{silent=false}={}){
  if(state.busy)return;
+ let shouldRender=true;
  state.busy=true;if(!silent)state.message='';
  try{
   const response=await compactArenaRequest(payload);
+  if(silent&&JSON.stringify(response)===JSON.stringify(state.server))shouldRender=false;
   state.server=response;contextReset(response);
   state.queuing=Boolean(response.queued);
  }catch(e){state.message=e.message;if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}}
- finally{state.busy=false;render();}
+ finally{state.busy=false;if(shouldRender)render();}
 }
 function rosterMarkup(s,side){
  const allies=teammates(s,side),enemies=opponent(s,side);

@@ -168,3 +168,43 @@ test('successive reward offers submit the card selected for the current characte
   }
  }
 });
+
+test('unchanged polling preserves the current controls while updates and errors are rendered',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=createCompactPvpBattle(ids,rivals,{seed:17});
+ const response={profile:{name:'Alice'},queued:false,
+  match:{id:'match',version:1,battle:publicCompactPvpBattle(battle,'player')}};
+ let html='',renders=0,poll,failed=false;
+ const root={
+  get innerHTML(){return html;},
+  set innerHTML(value){html=value;renders++;},
+  addEventListener(){},querySelector(){return null;}
+ };
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=callback=>{poll=callback;return 0;};
+  globalThis.fetch=async(url)=>{
+   if(url==='/api/account')return {ok:true,json:async()=>({user:{handle:'Alice'},profile:{ownedIds:ids}})};
+   if(failed)return {ok:false,status:503,json:async()=>({error:'Arena indisponível'})};
+   return {ok:true,json:async()=>structuredClone(response)};
+  };
+  await import('../src/compact-online.js?stable-poll=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  const initialRenders=renders;
+  await poll();
+  assert.equal(renders,initialRenders);
+  response.match.version++;
+  await poll();
+  assert.equal(renders,initialRenders+1);
+  failed=true;
+  await poll();
+  assert.equal(renders,initialRenders+2);
+  assert.match(html,/Arena indisponível/);
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+ }
+});
