@@ -177,10 +177,11 @@ test('unchanged polling preserves the current controls while updates and errors 
  const response={profile:{name:'Alice'},queued:false,
   match:{id:'match',version:1,battle:publicCompactPvpBattle(battle,'player')}};
  let html='',renders=0,poll,failed=false;
+ const listeners={};
  const root={
   get innerHTML(){return html;},
   set innerHTML(value){html=value;renders++;},
-  addEventListener(){},querySelector(){return null;}
+  addEventListener(type,listener){listeners[type]=listener;},querySelector(){return null;}
  };
  try{
   globalThis.document={getElementById:()=>root,addEventListener(){}};
@@ -201,6 +202,19 @@ test('unchanged polling preserves the current controls while updates and errors 
   failed=true;
   await poll();
   assert.equal(renders,initialRenders+2);
+  assert.match(html,/Arena indisponível/);
+  failed=false;
+  await poll();
+  assert.equal(renders,initialRenders+3);
+  assert.doesNotMatch(html,/Arena indisponível/);
+  await poll();
+  assert.equal(renders,initialRenders+3);
+  failed=true;
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{refresh:''}})}});
+  assert.match(html,/Arena indisponível/);
+  failed=false;
+  await poll();
+  assert.equal(renders,initialRenders+4);
   assert.match(html,/Arena indisponível/);
  }finally{
   for(const [key,value] of Object.entries(previous)){

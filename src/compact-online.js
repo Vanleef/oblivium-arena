@@ -13,7 +13,7 @@ import {characterById} from './data.js';
 import {surfaceAt} from './tactical-elements.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const state={account:null,server:null,loading:true,busy:false,message:'',team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false};
+const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false};
 const match=()=>state.server?.match||null;
 const battle=()=>match()?.battle||null;
 const owner=s=>s?Object.keys(s.tactical.decks?.sides?.player||{}).length?'player':'enemy':null;
@@ -94,13 +94,14 @@ function contextReset(next){
 async function request(payload,{silent=false}={}){
  if(state.busy)return;
  let shouldRender=true;
- state.busy=true;if(!silent)state.message='';
+ state.busy=true;if(!silent){state.message='';state.pollError=false;}
  try{
   const response=await compactArenaRequest(payload);
-  if(silent&&JSON.stringify(response)===JSON.stringify(state.server))shouldRender=false;
+  if(silent&&state.pollError){state.message='';state.pollError=false;}
+  else if(silent&&JSON.stringify(response)===JSON.stringify(state.server))shouldRender=false;
   state.server=response;contextReset(response);
   state.queuing=Boolean(response.queued);
- }catch(e){state.message=e.message;if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}}
+ }catch(e){state.message=e.message;state.pollError=silent;if(e.status===409){try{const response=await compactArenaRequest({op:'profile'});state.server=response;contextReset(response);}catch{}}}
  finally{state.busy=false;if(shouldRender)render();}
 }
 function rosterMarkup(s,side){
@@ -288,8 +289,8 @@ function render(){
 function addAction(ref){
  const s=battle(),side=owner(s);
  const preview=previewTacticalPlan(s,side,[...state.actions,ref]);
- if(!preview.ok){state.message=preview.reason;render();return;}
- state.actions.push(ref);state.selection=null;state.message='';render();
+ if(!preview.ok){state.message=preview.reason;state.pollError=false;render();return;}
+ state.actions.push(ref);state.selection=null;state.message='';state.pollError=false;render();
 }
 function chooseCell(point){
  const s=battle(),side=owner(s);
@@ -299,7 +300,7 @@ function chooseCell(point){
   const card=selected.cardId?tacticalHand(s,side,unit.id).find(c=>c.id===selected.cardId):null;
   const max=card?tacticalMovementSteps(card):1;
   const path=findPath(view,unit.id,point,max);
-  if(!path){state.message='Destino inválido ou caminho bloqueado.';render();return;}
+  if(!path){state.message='Destino inválido ou caminho bloqueado.';state.pollError=false;render();return;}
   addAction({type:'move',actorId:unit.id,path,...(card?{cardId:card.id}:{})});return;
  }
  const dir=[Math.sign(point.x-from.x),Math.sign(point.y-from.y)];
