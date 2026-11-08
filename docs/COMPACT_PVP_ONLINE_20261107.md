@@ -47,6 +47,6 @@ O perfil autenticado é vinculado ao identificador da conta, não herdado do coo
 - api/arena-compact.js: autenticação, validação de origem e operações.
 - src/compact-online.js, src/compact-online-client.js e compact-online.css: interface.
 - tests/tactical-pvp-core.test.js, tests/compact-pvp.test.js, tests/compact-arena-service.test.js, tests/compact-online-ui.test.js: regressões.
-- GitHub Actions: node --test para protocolos, QA de importação de interface, suíte compacta, simulações e build.
+- GitHub Actions: node --test para protocolos, QA de importação de interface, integração de autenticação e campanha, suíte compacta, simulações e build.
 
 O recurso está em draft. A interface usa os sprites/atlas existentes, mas ainda requer integração de replay cinematográfico e validação de sessões reais em mobile/desktop antes de ser considerada pronta para produção. As variantes raras desbloqueadas por campanha ainda precisam de verificação servidor-autoritativa.
