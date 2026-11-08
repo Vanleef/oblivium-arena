@@ -77,7 +77,7 @@ export function tacticalHighlightEvent(event){
  });
 }
 export function tacticalReplayFrames(actor,ability,event){
- if(event.duel?.outcome==='miss'){
+ if(event.duel?.outcome==='miss'&&!event.affectedTargetIds?.length){
   // A lost Confronto de Vontades is a visible whiff: wind-up and swing,
   // but NO physical hit, damage flash, displacement, or contact particle.
   const poses=['anticipate','windup','release','followthrough','recover'];

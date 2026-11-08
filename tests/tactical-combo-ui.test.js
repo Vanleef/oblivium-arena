@@ -75,7 +75,7 @@ test('winning choices apply ability effects, defensive victories miss entirely, 
 
 test('lost specials visibly whiff without fake contact and successful specials retain chained hits',async()=>{
  const ui=await read('src/compact-demo.js'),cinema=await read('src/tactical-cinematic.js');
- assert.match(cinema,/if\(event\.duel\?\.outcome==='miss'\)/);
+ assert.match(cinema,/event\.duel\?\.outcome==='miss'&&!event\.affectedTargetIds\?\.length/);
  assert.match(cinema,/\['anticipate','windup','release','followthrough','recover'\]/);
  assert.match(cinema,/if\(event\.comboReplay\)/);
  assert.match(ui,/events\.flatMap\(tacticalComboReplayEvents\)/);
