@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelSummary} from '../src/tactical-duel.js';
+import {createCompactPvpBattle,publicCompactPvpBattle} from '../server/compact-pvp.js';
 const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8');
 test('online mode routes to its own server-driven screen without changing the AI mode',async()=>{
  const entry=await read('src/tactical-entry.js'),page=await read('tactical.html'),local=await read('src/compact-demo.js');
@@ -75,4 +76,43 @@ test('resolved duels expose both intentions and the canonical result in the acti
  assert.match(app,/Ataque: .*Defesa:/);
  assert.match(app,/Retornar à formação<\/button><\/div>'\+activityMarkup\(s\)/);
  assert.match(css,/online-activity-duel/);
+});
+test('a default reactive card is submitted when the basic response has been spent',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=createCompactPvpBattle(ids,rivals,{seed:17});
+ const deck=battle.tactical.decks.sides.player[ids[0]];
+ const card=Object.values(deck.cards).find(item=>item.kind==='reaction');
+ deck.draw=deck.draw.filter(id=>id!==card.id);
+ deck.hand.push(card.id);
+ battle.tactical.decks.responses.player=0;
+ battle.tactical.stage='resolving';
+ battle.tactical.pendingClash={defenderSide:'player',actorId:battle.enemies[0].id,
+  abilityId:'voto',targetId:ids[0],willSign:'luz'};
+ const response={profile:{name:'Alice'},match:{id:'match',version:4,battle:publicCompactPvpBattle(battle,'player')}};
+ const listeners={};
+ const select={value:card.id,options:[{value:card.id}]};
+ const root={innerHTML:'',addEventListener(type,listener){listeners[type]=listener;},
+  querySelector(selector){return selector==='[data-response-card]'?select:null;}};
+ let sent;
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=()=>0;
+  globalThis.fetch=async(url,options)=>{
+   if(url==='/api/account')return {ok:true,json:async()=>({user:{handle:'Alice'},profile:{ownedIds:ids}})};
+   const payload=JSON.parse(options.body);
+   if(payload.op==='response')sent=payload;
+   return {ok:true,json:async()=>response};
+  };
+  await import('../src/compact-online.js?reactive-default=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.match(root.innerHTML,/Custo da resposta/);
+  await listeners.click({target:{closest:()=>({disabled:false,dataset:{response:'miragem'}})}});
+  assert.deepEqual(sent,{op:'response',version:4,sign:'miragem',cardId:card.id});
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+ }
 });

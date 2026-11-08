@@ -335,7 +335,10 @@ root.addEventListener('click',async event=>{
  if(d.remove!==undefined){state.actions.splice(Number(d.remove),1);state.selection=null;render();return;}
  if('undo'in d){state.actions.pop();state.selection=null;render();return;}
  if('confirm'in d){await request({op:'turn',version:match().version,round:s.round,actions:state.actions});return;}
- if(d.response){await request({op:'response',version:match().version,sign:d.response,cardId:d.response==='pass'?null:state.responseCard});return;}
+ if(d.response){
+  const cardId=d.response==='pass'?null:root.querySelector('[data-response-card]')?.value||null;
+  await request({op:'response',version:match().version,sign:d.response,cardId});return;
+ }
  if(d.reward){
   const offer=s.tactical.pendingChestRewards[0],option=offer?.options.find(x=>x.id===d.reward);
   const deck=tacticalCardDeck(s,side,offer.actorId);
