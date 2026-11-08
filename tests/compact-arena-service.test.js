@@ -2,6 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {CompactArenaService} from '../server/compact-arena-service.js';
 import {tacticalHand} from '../src/tactical-decks.js';
+import {tacticalTargets,previewTacticalPlan} from '../src/tactical-combat.js';
+import {tacticalComboEligible} from '../src/tactical-combo.js';
+import {boardCells,directions} from '../src/tactical-board.js';
 const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
 class Store{
  constructor(){this.data=new Map();this.lock=Promise.resolve();}
@@ -83,7 +86,7 @@ test('concurrent independent submissions use round identity and reject replay of
  assert.equal((await service.request(a.token)).match.battle.round,2);
  await assert.rejects(()=>service.request(a.token,{op:'turn',version:oldVersion,round:1,actions:[]}),{status:409});
 });
-test('a defender timeout accepts the special without forfeiting the entire match',async()=>{
+test('an invalid persisted clash cannot silently settle or corrupt a match',async()=>{
  let now=50000;const store=new Store(),service=new CompactArenaService(store,{now:()=>now});
  const a=await service.request(),b=await service.request();
  await service.request(a.token,{op:'queue',team:ids});const joined=await service.request(b.token,{op:'queue',team:ids});
@@ -97,6 +100,54 @@ test('a defender timeout accepts the special without forfeiting the entire match
  now+=200;
  await assert.rejects(()=>service.request(a.token),/Resolução autoritativa indisponível/);
  assert.equal(JSON.parse(store.data.get('compact-match:'+raw.id)).settled,false);
+});
+
+test('a real defender timeout accepts the special and resumes the same match',async()=>{
+ let now=50000;const store=new Store(),service=new CompactArenaService(store,{now:()=>now});
+ const a=await service.request(),b=await service.request();
+ await service.request(a.token,{op:'queue',team:ids});
+ const joined=await service.request(b.token,{op:'queue',team:ids});
+ const raw=JSON.parse(store.data.get('compact-match:'+joined.match.id));
+ const battle=raw.battle,actor=battle.allies[0],victim=battle.enemies[0];
+ battle.tactical.positions[actor.id]={x:2,y:2};
+ battle.tactical.positions[victim.id]={x:3,y:2};
+ const deck=battle.tactical.decks.sides.player[actor.id];
+ let action=null;
+ for(const card of Object.values(deck.cards)){
+  const ability=actor.abilities.find(item=>item.id===card.abilityId);
+  if(!ability||!tacticalComboEligible(actor,ability,[victim.id]))continue;
+  for(const anchor of boardCells(battle)){
+   for(const orientation of directions){
+    if(!tacticalTargets(battle,actor,ability,anchor,orientation).includes(victim.id))continue;
+    const candidate={type:'skill',actorId:actor.id,abilityId:ability.id,cardId:card.id,anchor,orientation,willSign:'miragem'};
+    const hand=[...deck.hand];deck.hand=[card.id];
+    if(previewTacticalPlan(battle,'player',[candidate]).ok){action=candidate;break;}
+    deck.hand=hand;
+   }
+   if(action)break;
+  }
+  if(action)break;
+ }
+ assert.ok(action,'a real contestable special must be available');
+ store.data.set('compact-match:'+raw.id,JSON.stringify(raw));
+ const players=new Map([[a.profile.id,a],[b.profile.id,b]]);
+ const attacker=players.get(raw.players[0]),defender=players.get(raw.players[1]);
+ const version=raw.version;
+ await service.request(attacker.token,{op:'turn',version,round:1,actions:[action]});
+ const pending=await service.request(defender.token,{op:'turn',version,round:1,actions:[]});
+ assert.equal(pending.match.battle.phase,'tactical-clash');
+ const beforeHp=pending.match.battle.enemies[0].hp;
+ now=pending.match.deadline+1;
+ const resumed=await service.request(attacker.token,{op:'profile'});
+ assert.equal(resumed.match.id,raw.id);
+ assert.equal(resumed.match.settled,false);
+ assert.equal(resumed.match.battle.round,2);
+ assert.equal(resumed.match.battle.tactical.stage,'planning');
+ assert.ok(resumed.match.battle.enemies[0].hp<beforeHp);
+ const reconnected=await service.request(defender.token,{op:'profile'});
+ assert.equal(reconnected.match.version,resumed.match.version);
+ assert.equal(reconnected.match.battle.enemies[0].hp,resumed.match.battle.enemies[0].hp);
+ assert.equal(reconnected.profile.losses,0);
 });
 
 test('profile polling preserves an active queue without changing since, and reload restores search state',async()=>{
