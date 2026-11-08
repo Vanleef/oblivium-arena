@@ -48,3 +48,15 @@ Após atualização não destrutiva das referências, os HEADs de main e dos PRs
 No HEAD do PR #7, o CI remoto registrou `compact` aprovado e `full-regression-diagnostic` reprovado. Uma execução local do diagnóstico completo com Node 26.13.0 indicou 534 testes aprovados e 132 falhas; a classificação das falhas e a comparação por nome com a base ainda estão pendentes. Não se deve interpretar essa contagem como prova de que todas as falhas sejam obsoletas.
 
 A auditoria local de animação confirmou 43 atlas base em 150 entradas e 183 clipes mapeados em 689 técnicas/formas. Isso não comprova qualidade visual nem cobertura integral das animações.
+
+## Comparação do diagnóstico integral
+
+Na integração em `89e6ae6`, o `node --test` com Node 26.13.0 no Windows executou 680 testes: 548 passaram e 132 falharam em 31 arquivos. Os mesmos 31 arquivos foram executados separadamente no PR #3 `9066963`: 122 passaram e 132 falharam. Os nomes das 132 falhas coincidiram com os da execução integral da integração. Isso é uma comparação desse conjunto de testes, não uma prova de ausência de regressões em outros cenários ou versões de Node.
+
+As maiores concentrações foram `skill-forms.test.js` (25), `reactive-kits.test.js` (19), `app-smoke.test.js` e `rules.test.js` (11 cada), `progression.test.js` (10), `i18n.test.js` e `passive-revisions.test.js` (6 cada), além de `resource-payment.test.js` e `trail-presentation.test.js` (5 cada). Há diferenças de catálogo visíveis, como um teste que ainda espera 100 personagens com mecânicas quando existem 150, mas também existem falhas de efeitos, recursos, progressão e interface que exigem investigação individual. Não é seguro classificá-las todas como expectativas obsoletas.
+
+Na amostra de progressão, vários testes usam `elos[0]` como primeiro Reino e esperam `eloProgress.sangria`; a rota atual é ordenada por `campaignKingdoms`, e a migração designa Sangria ao Reino Flagelo. Portanto, esses pressupostos não descrevem diretamente a estrutura atual. Isso não comprova, por si só, que a migração de todos os salvamentos antigos esteja correta.
+
+O teste de integração de autenticação falhou na execução integral e no PR #3, mas passou na repetição isolada da integração: usava esperas fixas para operações assíncronas. Após trocar essas esperas por observação da inicialização, dos salvamentos concluídos, da saída e da restauração, a mesma seleção de 254 testes registrou 123 aprovados e 131 falhas, cujos nomes coincidem com os 131 restantes no PR #3. Essa correção elimina uma fonte de intermitência do teste; não resolve as demais falhas nem substitui QA em navegadores.
+
+Uma nova execução integral após essa correção registrou 549 aprovados e 131 falhas entre 680 testes; os nomes das falhas continuaram coincidindo com os 131 casos restantes reproduzidos no PR #3.
