@@ -29,6 +29,7 @@ import {audioEnabled,setAudioEnabled,playCombatCue} from './audio.js';
 import {orderTacticalActions} from './tactical-order.js';
 import {tacticalFeedback,tacticalTechniqueTone,tacticalAreaPhase,tacticalVisualCells,tacticalDefeatedUnits} from './tactical-feedback.js';
 import {tacticalActorPalette,tacticalPaletteVariables} from './tactical-visual-palette.js';
+import {tacticalHandFanStyle,tacticalCardArtMarkup,restoreTacticalHand} from './tactical-card-presentation.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const key='oblivium-conquest-augment-progress-v2',profileKey='pma-post-mortem-arena-v1';
@@ -128,24 +129,26 @@ function actionDock(s,future){
  const primary='<section class="compact-panel-section" data-panel-section="actions"><h3>Ações</h3><div class="compact-primary-buttons">'+command('move',moveGlyph,'Mover uma casa',state.mode==='move')+'</div></section>';
  const queuedCards=new Set(state.actions.map(ref=>ref.cardId).filter(Boolean));
  const cards=tacticalHand(state.battle,'player',u.id),deck=tacticalCardDeck(state.battle,'player',u.id);
- const abilityButtons=cards.map(card=>{
+ const abilityButtons=cards.map((card,index)=>{
   const chosen=state.selectedCard===card.id,spent=queuedCards.has(card.id);
-  if(card.kind==='reaction')return '<div class="compact-hand-card compact-hand-reaction" title="Use durante o Confronto de Vontades"><strong>↶ '+esc(card.name)+'</strong><small>Reação · '+(card.upgrade.retain?'Preservar':'na mão')+'</small></div>';
-  if(card.kind==='mobility')return '<button class="compact-hand-card compact-hand-mobility" data-card="'+esc(card.id)+'" aria-pressed="'+chosen+'" title="Avance até duas casas com esta carta" '+(unavailable||spent?'disabled':'')+'>'+moveGlyph+'<strong>'+esc(card.name)+'</strong><small>Mobilidade · até '+tacticalMovementSteps(card)+' casas</small></button>';
+  const fan=tacticalHandFanStyle(index,cards.length);
+  if(card.kind==='reaction')return '<div class="compact-hand-card compact-hand-reaction" style="'+fan+'" title="Use durante o Confronto de Vontades"><strong>'+esc(card.name)+'</strong><span class="hand-card-art hand-card-art-placeholder" aria-hidden="true">↶</span><small>Reação · '+(card.upgrade.retain?'Preservar':'na mão')+'</small></div>';
+  if(card.kind==='mobility')return '<button class="compact-hand-card compact-hand-mobility" data-card="'+esc(card.id)+'" aria-pressed="'+chosen+'" title="Avance até '+tacticalMovementSteps(card)+' casas com esta carta" style="'+fan+'" '+(unavailable||spent?'disabled':'')+'><strong>'+esc(card.name)+'</strong><span class="hand-card-art hand-card-art-placeholder">'+moveGlyph+'</span><small>Mobilidade · até '+tacticalMovementSteps(card)+' casas</small></button>';
   const base=u.abilities.find(a=>a.id===card.abilityId);
   if(!base)return '';
   const a=conquestAugmentedAbility(future,u,conquestTechnique(base)),cooldown=u.cooldowns[a.id]||0,reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
   const spec=fortressTechniqueSpec(future,u,a),area=tacticalAreaDiagramMarkup(spec,{facing:unitFacing(future,u)});
   const tooltip=a.name+' — '+tacticalPatternLabel(spec)+' · '+(reason||a.description);
   const effects=[card.upgrade.damageBonus?'+'+card.upgrade.damageBonus+' dano':'',card.upgrade.damageType||'',card.upgrade.opening?'Inicial':'',card.upgrade.retain?'Preservar':''].filter(Boolean).join(' · ');
-  return '<button class="compact-hand-card compact-hand-skill" data-card="'+esc(card.id)+'" data-technique="'+esc(a.id)+'" aria-pressed="'+chosen+'" title="'+esc(tooltip)+'" style="'+tacticalPaletteVariables(tacticalActorPalette(u,{realmFallback:true}))+'" '+(unavailable||spent||cooldown||reason?'disabled':'')+'>'+actionGlyph(u,{type:'skill',abilityId:a.id})+'<strong>'+esc(a.name)+'</strong><small>'+esc(effects||'Técnica')+'</small>'+area+'</button>';
+  return '<button class="compact-hand-card compact-hand-skill" data-card="'+esc(card.id)+'" data-technique="'+esc(a.id)+'" aria-pressed="'+chosen+'" title="'+esc(tooltip)+'" style="'+fan+tacticalPaletteVariables(tacticalActorPalette(u,{realmFallback:true}))+'" '+(unavailable||spent||cooldown||reason?'disabled':'')+'><strong>'+esc(a.name)+'</strong>'+tacticalCardArtMarkup(a,esc)+'<small>'+esc(effects||a.description||'Técnica')+'</small>'+area+'</button>';
  }).join('');
  const basic=u.abilities.find(a=>a.id==='fortress-basic');
  const basicButton=basic?'<button class="compact-hand-card compact-hand-basic" data-technique="fortress-basic" aria-pressed="'+(state.mode==='fortress-basic')+'" '+(unavailable?'disabled':'')+'>'+actionGlyph(u,{type:'skill',abilityId:basic.id})+'<strong>Ataque básico</strong><small>Sempre disponível · sem recarga</small></button>':'';
  const handCounter='<div class="compact-hand-counter"><strong>Mão de '+esc(u.name)+'</strong><span>'+cards.length+' cartas · '+(deck?.draw.length||0)+' no deck · '+(deck?.discard.length||0)+' descarte</span></div>';
  const advance=specialChoices(u,picked,unavailable);
  const advanced=advance?'<details class="compact-panel-advanced"><summary aria-label="Opções avançadas da técnica" title="Opções avançadas da técnica">✧</summary>'+advance+'</details>':'';
- const abilities='<section class="compact-panel-section" data-panel-section="abilities"><h3>Habilidades</h3>'+handCounter+'<div class="compact-area-legend" aria-label="No desenho das áreas, centro claro é a origem e casas coloridas são atingidas"><span><i data-legend="origin"></i>Origem</span><span><i data-legend="hit"></i>Área</span></div><div class="compact-quick-buttons" role="group" aria-label="Técnicas do personagem selecionado">'+abilityButtons+basicButton+'</div>'+advanced+'</section>';
+ const selectedDescription=state.selectedCard&&picked?.description?'<p class="hand-card-detail">'+esc(picked.description)+'</p>':'';
+ const abilities='<section class="compact-panel-section" data-panel-section="abilities"><h3>Habilidades</h3>'+handCounter+'<div class="compact-area-legend" aria-label="No desenho das áreas, centro claro é a origem e casas coloridas são atingidas"><span><i data-legend="origin"></i>Origem</span><span><i data-legend="hit"></i>Área</span></div><div class="compact-quick-buttons" role="group" aria-label="Cartas do personagem selecionado">'+abilityButtons+'</div>'+selectedDescription+basicButton+advanced+'</section>';
  // Items have no combat mechanic in this mode yet: do not invent clickable item commands.
  const items='<section class="compact-panel-section" data-panel-section="items"><h3>Itens</h3><div class="compact-items-empty" aria-label="Nenhum item disponível neste combate"><span aria-hidden="true">◇</span><small>Sem itens</small></div></section>';
  const ordered=orderTacticalActions(state.battle,state.actions.map((ref,order)=>({...ref,order,side:'player'})));
@@ -497,7 +500,9 @@ root.addEventListener('click',event=>{
   const card=tacticalHand(state.battle,'player',state.selected).find(item=>item.id===d.card);
   if(!card||card.kind==='reaction')return;
   state.mode=card.kind==='mobility'?'mobility':card.abilityId;
-  state.selectedCard=card.id;state.spends={};state.message=card.kind==='mobility'?'Toque na casa de destino (até '+tacticalMovementSteps(card)+' casas).':'Toque na casa onde a técnica será aplicada.';render();return;
+  const scrollLeft=root.querySelector('.compact-quick-buttons')?.scrollLeft||0;
+  state.selectedCard=card.id;state.spends={};state.message=card.kind==='mobility'?'Toque na casa de destino (até '+tacticalMovementSteps(card)+' casas).':'Toque na casa onde a técnica será aplicada.';render();
+  restoreTacticalHand(root,'.compact-quick-buttons','card',card.id,scrollLeft,event.detail===0);return;
  }
  if('technique'in d){state.mode=d.technique;state.selectedCard=null;state.spends={};state.message='Toque na casa onde a técnica será aplicada.';render();return;}
  if(d.cell){const [x,y]=d.cell.split(',').map(Number);selectCell({x,y});return;}

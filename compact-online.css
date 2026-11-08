@@ -54,8 +54,8 @@ body{background:radial-gradient(circle at 65% -15%,#393045,#100e17 68%);color:va
 .online-unit[data-selected="true"]{outline:3px solid #f0d08d;outline-offset:-2px}
 .online-unit-name{position:absolute;z-index:4;left:50%;top:-24px;transform:translateX(-50%);white-space:nowrap;max-width:125px;overflow:hidden;text-overflow:ellipsis;font-size:11px;font-weight:800;color:#fff6e7;text-shadow:0 2px 3px #000,0 0 4px #000}
 .online-sprite,.online-sprite-fallback{position:absolute;display:block;left:12%;top:-30%;width:76%;height:140%;background-repeat:no-repeat;background-color:transparent;object-fit:contain;image-rendering:auto}
-.online-sprite{animation:online-idle 2.8s ease-in-out infinite alternate}
-@keyframes online-idle{from{transform:translateY(0)}to{transform:translateY(-3%)}}
+.online-sprite,.online-sprite-fallback{animation:online-idle var(--idle-cycle,1760ms) ease-in-out infinite;animation-delay:var(--idle-delay,0ms);transform-origin:50% 100%}
+@keyframes online-idle{0%,100%{transform:translateY(0) scale(1)}45%{transform:translateY(-1%) scale(1.004,1.012)}72%{transform:translateY(-.4%) scale(1.002,1.006)}}
 .online-action-panel{padding:12px;background:#19151de8;border:1px solid #8b7585;border-radius:13px;max-height:calc(100svh - 96px);overflow-y:auto;display:flex;flex-direction:column;gap:12px}
 .online-action-panel section{border:1px solid #6f5d70;border-radius:9px;padding:10px;background:#2c2635b9}
 .online-action-panel h3{font-size:13px;letter-spacing:.06em;color:#e9c989;margin:0 0 10px}
@@ -72,6 +72,14 @@ body{background:radial-gradient(circle at 65% -15%,#393045,#100e17 68%);color:va
 .online-card .compact-area-diagram{max-width:44px;max-height:44px}
 .online-card[aria-pressed="true"]{border-color:#f6ce8b;background:#745137}
 .online-card.reaction{cursor:default;display:flex;align-items:center;justify-content:center;border:1px solid #5e5477;border-radius:8px;background:#332a4f;padding:9px}
+.online-action-panel .online-cards{display:flex;align-items:flex-end;gap:0;overflow-x:auto;overflow-y:hidden;padding:22px 10px 12px;scroll-snap-type:x proximity;scrollbar-width:thin}
+.online-shell .online-cards .online-card{flex:0 0 136px;width:136px;min-height:214px;box-sizing:border-box;margin-left:-7px;padding:8px;justify-content:flex-start;gap:6px;border:2px solid #aa8d6d;border-radius:12px;background:linear-gradient(155deg,#513c49,#211b2c 65%);box-shadow:0 5px 12px #0008,inset 0 0 0 2px #1a1424;transform:translateY(var(--hand-drop,0px)) rotate(var(--hand-angle,0deg));transform-origin:50% 100%;scroll-snap-align:center}
+.online-shell .online-cards .online-card:first-child{margin-left:0}
+.online-shell .online-cards .online-card:not(:disabled):hover,.online-shell .online-cards .online-card:focus-visible,.online-shell .online-cards .online-card[aria-pressed="true"]{position:relative;z-index:2;transform:translateY(-10px) rotate(0deg);border-color:#f6d395;box-shadow:0 10px 20px #000a,0 0 0 1px #e6b66a}
+.online-cards .online-card b{min-height:28px;display:grid;place-items:center;line-height:1.15;overflow-wrap:anywhere}
+.online-cards .online-card small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;line-height:1.2}
+.online-cards .compact-area-diagram{margin-top:auto}
+.online-action-panel .hand-card-detail{font-size:12px;line-height:1.4;color:#eaded6}
 .online-signs{margin-top:10px}
 .online-signs>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:6px}
 .online-signs button{padding:6px 3px;font-size:11px}
@@ -93,7 +101,7 @@ body{background:radial-gradient(circle at 65% -15%,#393045,#100e17 68%);color:va
 @media(max-width:990px){.online-combat{grid-template-columns:minmax(0,1fr) minmax(220px,290px)}.online-action-panel{max-height:none}}
 @media(max-width:760px){.online-shell{padding:0 10px 38px}.online-combat{display:flex;flex-direction:column}.online-battle-scene,.online-action-panel{width:100%;box-sizing:border-box}.online-action-panel{max-height:none;overflow:visible}.online-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.online-formation{grid-template-columns:1fr}.online-roster-chip{width:35px;height:43px}.online-versus{font-size:10px}.online-header b{font-size:11px}}
 @media(max-width:420px){.online-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.online-roster-chip{width:27px;height:33px}.online-clash-signs,.online-reward-options{grid-template-columns:1fr}.online-unit-name{max-width:65px;font-size:8px;top:-18px}.online-battle-scene{padding:5px}.online-sprite,.online-sprite-fallback{top:-16%;height:118%}.online-header{flex-wrap:wrap;justify-content:center}.online-header b{order:3;width:100%}}
-@media(prefers-reduced-motion:reduce){.online-sprite{animation:none}.online-shell button{transition:none}}
+@media(prefers-reduced-motion:reduce){.online-sprite,.online-sprite-fallback{animation:none}.online-shell button{transition:none}.online-shell .online-cards .online-card:not(:disabled):hover,.online-shell .online-cards .online-card:focus-visible,.online-shell .online-cards .online-card[aria-pressed="true"]{transform:rotate(0deg)}}
 
 .online-deck-editor{margin:16px 0;padding:12px;border:1px solid #987c66;border-radius:10px;background:#1b1722}
 .online-deck-editor summary{font-weight:800;color:#f4d69f;cursor:pointer}

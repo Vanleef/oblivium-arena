@@ -43,3 +43,46 @@
  .compact-battle .compact-card-reward-picker{font-size:12px}
  .compact-battle .compact-duel-resources{justify-content:flex-start}
 }
+
+.combat-shell.compact-battle .compact-command-panel .compact-panel-section[data-panel-section="abilities"] .compact-quick-buttons{
+ display:flex;align-items:flex-end;gap:0;max-height:none;overflow-x:auto;overflow-y:hidden;
+ padding:22px 10px 12px;scroll-snap-type:x proximity;scrollbar-width:thin
+}
+.compact-battle .compact-panel-section[data-panel-section="abilities"] .compact-hand-card{
+ flex:0 0 136px;width:136px;min-height:214px;margin:0 0 0 -7px;padding:8px;
+ justify-content:flex-start;gap:6px;border:2px solid #aa8d6d;border-radius:12px;
+ background:linear-gradient(155deg,#513c49,#211b2c 65%);box-shadow:0 5px 12px #0008,inset 0 0 0 2px #1a1424;
+ transform:translateY(var(--hand-drop,0px)) rotate(var(--hand-angle,0deg));
+ transform-origin:50% 100%;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+ scroll-snap-align:center
+}
+.compact-battle .compact-hand-card:first-child{margin-left:0}
+.compact-battle .compact-hand-card:not(:disabled):hover,
+.compact-battle .compact-hand-card:focus-visible,
+.compact-battle .compact-hand-card[aria-pressed="true"]{
+ position:relative;z-index:2;transform:translateY(-10px) rotate(0deg);
+ border-color:#f6d395;box-shadow:0 10px 20px #000a,0 0 0 1px #e6b66a
+}
+.compact-battle .compact-hand-card:focus-visible{outline:2px solid #fff0bd;outline-offset:2px}
+.compact-battle .compact-hand-card strong{min-height:28px;display:grid;place-items:center}
+.hand-card-art{display:grid;place-items:center;width:100%;height:68px;flex:none;overflow:hidden;border:1px solid #a48b78;border-radius:5px;background:#1a1722}
+.hand-card-art img{width:100%;height:100%;object-fit:cover}
+.hand-card-art-placeholder{font-size:32px;color:#dfc692;background:radial-gradient(circle,#53435a,#211b2c)}
+.hand-card-art-placeholder svg{width:35px;height:35px}
+.compact-battle .compact-hand-card small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.compact-hand-card .compact-area-mini,.online-card .compact-area-mini{
+ position:static;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:repeat(7,minmax(0,1fr));
+ flex:none;width:36px;height:36px;box-sizing:border-box;margin-top:auto;padding:2px;gap:.4px;
+ border:1px solid #b9a1a5b8;border-radius:4px;background:#130f1de9;pointer-events:none
+}
+.compact-hand-card .compact-area-mini i,.online-card .compact-area-mini i{display:block;min-width:0;min-height:0;background:#4b4154a6}
+.compact-hand-card .compact-area-mini i[data-mini-cell="origin"],.online-card .compact-area-mini i[data-mini-cell="origin"]{background:#fff1c2}
+.compact-hand-card .compact-area-mini i[data-mini-cell="hit"],.online-card .compact-area-mini i[data-mini-cell="hit"]{background:#f09268}
+.compact-battle .compact-panel-section[data-panel-section="abilities"] .compact-hand-basic{display:inline-flex;flex-direction:row;width:auto;min-height:0;margin-top:8px;padding:7px 10px;transform:none}
+.compact-battle .compact-hand-basic strong{min-height:0}
+.compact-battle .compact-hand-basic>img,.compact-battle .compact-hand-basic>svg{width:24px;height:24px}
+.hand-card-detail{margin:8px 0;color:#eaded6;font-size:12px;line-height:1.4}
+@media(prefers-reduced-motion:reduce){
+ .compact-battle .compact-hand-card{transition:none}
+ .compact-battle .compact-hand-card:not(:disabled):hover,.compact-battle .compact-hand-card:focus-visible,.compact-battle .compact-hand-card[aria-pressed="true"]{transform:rotate(0deg)}
+}
