@@ -8,7 +8,8 @@ process.env.PMA_LOCAL_DATA_PATH ||= resolve(root, ".pma-dev-data.json");
 const apiHandlers = {
   "/api/account": (await import("../api/account.js")).default,
   "/api/campaign": (await import("../api/campaign.js")).default,
-  "/api/arena": (await import("../api/arena.js")).default
+  "/api/arena": (await import("../api/arena.js")).default,
+  "/api/arena-compact": (await import("../api/arena-compact.js")).default
 };
 const types = {
   ".html": "text/html; charset=utf-8",
@@ -21,7 +22,7 @@ const types = {
 };
 const port = Number(process.env.PORT || 4173);
 
-createServer(async (request, response) => {
+const server = createServer(async (request, response) => {
   const pathname = decodeURIComponent(new URL(request.url || "/", "http://localhost").pathname);
   if (apiHandlers[pathname]) {
     let body;
@@ -55,6 +56,5 @@ createServer(async (request, response) => {
     response.writeHead(404).end("Not Found");
   }
 }).listen(port, () => {
-  process.stdout.write("Oblivium Arena em http://localhost:" + port + "\n");
+  process.stdout.write("Oblivium Arena em http://localhost:" + server.address().port + "\n");
 });
-
