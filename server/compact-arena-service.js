@@ -48,7 +48,7 @@ export class CompactArenaService {
    if(identity?.id){
     const accountKey='account-arena:'+identity.id;
     id=await tx.get(accountKey);
-    if(!id){id=await tx.get(sessionKey)||randomUUID();await tx.set(accountKey,id);}
+    if(!id){id=randomUUID();await tx.set(accountKey,id);}
     p=await tx.get(key(id));
    }else{
     id=await tx.get(sessionKey);p=id?await tx.get(key(id)):null;

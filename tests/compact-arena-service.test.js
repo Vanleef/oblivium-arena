@@ -53,6 +53,25 @@ test('rejects adversary cards and forged hero IDs without corrupting queue',asyn
  await assert.rejects(()=>service.request(a.token,{op:'queue',team:ids,decks:{[ids[0]]:[{kind:'skill',abilityId:'despertar'}]}}),{status:400});
  await assert.rejects(()=>service.request(a.token,{op:'queue',team:ids,decks:{fake:[{kind:'reaction'}]}}),{status:400});
 });
+test('switching authenticated accounts on the same browser cannot inherit another account’s match',async()=>{
+ const service=new CompactArenaService(new Store());
+ const alice={id:'account-alice',handle:'Alice'},bob={id:'account-bob',handle:'Bob'},charlie={id:'account-charlie',handle:'Charlie'};
+ const a=await service.request(null,{},alice);
+ const b=await service.request(null,{},bob);
+ await service.request(a.token,{op:'queue',team:ids},alice);
+ const matched=await service.request(b.token,{op:'queue',team:ids},bob);
+ assert.ok(matched.match);
+ const switched=await service.request(a.token,{},charlie);
+ assert.notEqual(switched.profile.id,a.profile.id);
+ assert.equal(switched.match,null);
+ await assert.rejects(()=>service.request(a.token,{op:'surrender'},charlie),{status:409});
+ const reconnected=await service.request(a.token,{},alice);
+ assert.equal(reconnected.profile.id,a.profile.id);
+ assert.equal(reconnected.match.id,matched.match.id);
+ assert.equal(reconnected.match.settled,false);
+ const freshBrowser=await service.request(null,{},charlie);
+ assert.equal(freshBrowser.profile.id,switched.profile.id);
+});
 test('concurrent independent submissions use round identity and reject replay of prior round',async()=>{
  const store=new Store(),service=new CompactArenaService(store),a=await service.request(),b=await service.request();
  await service.request(a.token,{op:'queue',team:ids});await service.request(b.token,{op:'queue',team:ids});

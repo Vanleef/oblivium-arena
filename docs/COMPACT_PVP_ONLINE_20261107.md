@@ -29,6 +29,8 @@ O servidor mantém um cursor serializável da ordem de execução, garantindo qu
 
 Os aprimoramentos conquistados por Casa Objetivo são privados da equipe que os coletou. O ranqueado não aceita melhorias arbitrárias inseridas no JSON dos baralhos; as recompensas são do próprio combate.
 
+O perfil autenticado é vinculado ao identificador da conta, não herdado do cookie compacto de uma conta anteriormente usada no mesmo navegador. Associações de conta já existentes são preservadas; eventuais associações indevidas criadas anteriormente precisam de diagnóstico e correção de dados separados.
+
 ## Arquivos e testes
 
 - server/compact-pvp.js e server/compact-arena-service.js: motor de protocolo, segurança e matchmaking.
