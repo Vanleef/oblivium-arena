@@ -16,7 +16,7 @@ import {tacticalHandFanStyle,tacticalCardArtMarkup,restoreTacticalHand} from './
 import {tacticalIdleStyle} from './tactical-motion.js';
 const root=document.getElementById('tactical-app');
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false};
+const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false,handCollapsed:false};
 let pollController=null;
 let replayRevision=0;
 const match=()=>state.server?.match||null;
@@ -179,9 +179,10 @@ function queued(s,side){
 }
 function handMarkup(s,side,actor){
  const cards=tacticalHand(s,side,actor.id),used=new Set(state.actions.map(x=>x.cardId).filter(Boolean));
- const pending=state.selection,locked=!phaseEditable(s);
+ const pending=state.selection,locked=!phaseEditable(s)||actor.hp<=0||actor.stunned||state.actions.filter(action=>action.actorId===actor.id).length>=2;
+ const basic=actor.abilities.find(a=>a.id==='fortress-basic'),handSize=cards.length+1+(basic?1:0);
  const cardMarkup=(card,index)=>{
-  const fan=tacticalHandFanStyle(index,cards.length);
+  const fan=tacticalHandFanStyle(index+1,handSize);
   if(card.kind==='reaction')return '<div class="online-card reaction" style="'+fan+'" title="Gasta durante um Confronto de Vontades"><b>'+esc(card.name)+'</b><span class="hand-card-art hand-card-art-placeholder" aria-hidden="true">↶</span><small>Reação</small></div>';
   const playing=pending?.cardId===card.id;
   const ability=actor.abilities.find(a=>a.id===card.abilityId);
@@ -190,26 +191,24 @@ function handMarkup(s,side,actor){
   return '<button type="button" class="online-card" data-use-card="'+esc(card.id)+'" aria-pressed="'+playing+'" style="'+fan+'" title="'+esc(ability?.description||card.name)+'" '+(locked||used.has(card.id)||!enabled?'disabled':'')+'>'
    +'<b>'+esc(card.name)+'</b>'+tacticalCardArtMarkup(ability,esc,card.kind==='mobility'?'➜':'✦')+'<small>'+esc(card.kind==='mobility'?'Mobilidade · '+tacticalMovementSteps(card)+' casas':ability?.description||'Técnica')+'</small>'+diagram+'</button>';
  };
- return cards.map(cardMarkup).join('');
+ const moveUsed=state.actions.some(action=>action.actorId===actor.id&&action.type==='move'&&!action.cardId);
+ const move='<button type="button" class="online-card" data-move aria-pressed="'+(pending?.mode==='move')+'" style="'+tacticalHandFanStyle(0,handSize)+'" '+(locked||moveUsed?'disabled':'')+'><b>Mover</b>'+tacticalCardArtMarkup(null,esc,'➜')+'<small>Ação permanente · 1 casa</small>'+tacticalAreaDiagramMarkup(null,{movement:true})+'</button>';
+ const attack=basic?'<button type="button" class="online-card" data-basic aria-pressed="'+(pending?.mode==='skill'&&!pending.cardId&&pending.abilityId==='fortress-basic')+'" style="'+tacticalHandFanStyle(handSize-1,handSize)+'" '+(locked?'disabled':'')+'><b>Ataque básico</b>'+tacticalCardArtMarkup(basic,esc)+'<small>Ação permanente · sem recarga</small>'+tacticalAreaDiagramMarkup(fortressTechniqueSpec(s,actor,basic),{facing:unitFacing(s,actor)})+'</button>':'';
+ return move+cards.map(cardMarkup).join('')+attack;
 }
 function controlsMarkup(s,side){
  const actor=ownUnit(s,side),readOnly=!phaseEditable(s),count=state.actions.filter(a=>a.actorId===actor.id).length,hand=tacticalHand(s,side,actor.id);
- const basic=actor.abilities.find(a=>a.id==='fortress-basic');
  const active=state.selection;
  const signs=tacticalDuelOptions.map(sign=>'<button type="button" data-sign="'+sign.id+'" aria-pressed="'+(sign.id===state.willSign)+'">'+esc(sign.name)+'</button>').join('');
  return '<aside class="online-action-panel" aria-label="Painel de ações"><section><h3>Personagens</h3><div class="online-actor-row">'
   +teammates(s,side).map(u=>'<button data-select-actor="'+esc(u.id)+'" aria-pressed="'+(actor.id===u.id)+'" '+(u.hp<=0?'disabled':'')+'>'+esc(u.name)+'</button>').join('')
   +'</div><small>'+esc(actor.name)+' · '+count+'/2 ações selecionadas</small></section>'
-  +'<section><h3>Ações</h3><button class="online-move" data-move '+(readOnly?'disabled':'')+' aria-pressed="'+(active?.mode==='move')+'">Mover 1 casa</button>'
-  +(basic?'<button data-basic '+(readOnly?'disabled':'')+' aria-pressed="'+(active?.mode==='skill'&&!active.cardId&&active.abilityId==='fortress-basic')+'">Ataque básico</button>':'')+'</section>'
-  +'<section><h3>Habilidades · mão individual</h3><p class="online-deck-count">'+hand.length+' cartas na mão · '+(tacticalCardDeck(s,side,actor.id)?.draw?.length||0)+' no monte</p>'
-  +'<div class="online-cards" role="group" aria-label="Cartas de '+esc(actor.name)+'">'+handMarkup(s,side,actor)+'</div>'
-  +(active?.cardId&&actor.abilities.find(a=>a.id===active.abilityId)?.description?'<p class="hand-card-detail">'+esc(actor.abilities.find(a=>a.id===active.abilityId).description)+'</p>':'')
-  +'<div class="online-signs"><small>Intenção dos especiais ofensivos</small><div>'+signs+'</div></div></section>'
-  +'<section><h3>Itens</h3><p>Sem itens neste confronto.</p></section>'
+  +'<section><div class="online-signs"><small>Intenção dos especiais ofensivos</small><div>'+signs+'</div></div></section>'
   +'<section><h3>Planejamento</h3><small>Primeiras ações de todos, depois as segundas.</small>'+queued(s,side)
   +'<div class="online-buttons"><button data-undo '+(readOnly||!state.actions.length?'disabled':'')+'>Desfazer</button>'
-  +'<button class="online-primary" data-confirm '+(readOnly?'disabled':'')+'>Confirmar rodada · '+state.actions.length+'/6</button></div></section></aside>';
+  +'<button class="online-primary" data-confirm '+(readOnly?'disabled':'')+'>Confirmar rodada · '+state.actions.length+'/6</button></div></section></aside>'
+  +'<section class="tactical-hand-dock" aria-label="Mão de cartas" '+(s.tactical.stage!=='planning'||s.tactical.clash||s.tactical.pendingChestRewards?.length?'hidden':'')+'><div class="tactical-hand-header"><div><strong>Mão de '+esc(actor.name)+'</strong><small> · '+hand.length+' cartas compradas · '+(tacticalCardDeck(s,side,actor.id)?.draw?.length||0)+' no monte</small></div><button type="button" data-hand-toggle aria-expanded="'+!state.handCollapsed+'">'+(state.handCollapsed?'Mostrar mão':'Recolher mão')+'</button></div><div class="tactical-hand-content" '+(state.handCollapsed?'hidden':'')+'><div class="online-cards tactical-hand-cards" role="group" aria-label="Cartas de '+esc(actor.name)+'">'+handMarkup(s,side,actor)+'</div>'
+  +(active?.cardId&&actor.abilities.find(a=>a.id===active.abilityId)?.description?'<p class="hand-card-detail">'+esc(actor.abilities.find(a=>a.id===active.abilityId).description)+'</p>':'')+'</div></section>';
 }
 function clashMarkup(s,side){
  const response=s.tactical.clash;
@@ -367,9 +366,13 @@ root.addEventListener('click',async event=>{
  if(d.replayEvent!==undefined){void replayEvent(Number(d.replayEvent));return;}
  if('replayClose'in d){replayRevision++;const stage=root.querySelector('[data-replay-stage]');if(stage)stage.innerHTML='';return;}
  if(d.selectActor){state.actorId=d.selectActor;state.selection=null;render();return;}
+ if('handToggle'in d){state.handCollapsed=!state.handCollapsed;render();root.querySelector('[data-hand-toggle]')?.focus({preventScroll:true});return;}
  if(d.sign){state.willSign=d.sign;render();return;}
- if('move'in d){state.selection={mode:'move'};render();return;}
- if('basic'in d){state.selection={mode:'skill',abilityId:'fortress-basic',cardId:null};render();return;}
+ if('move'in d||'basic'in d){
+  const scrollLeft=root.querySelector('.online-cards')?.scrollLeft||0;
+  state.selection='move'in d?{mode:'move'}:{mode:'skill',abilityId:'fortress-basic',cardId:null};render();
+  restoreTacticalHand(root,'.online-cards','move'in d?'move':'basic','',scrollLeft,event.detail===0);return;
+ }
  if(d.useCard){
   const card=tacticalHand(s,side,state.actorId).find(c=>c.id===d.useCard);
   if(!card)return;
@@ -416,7 +419,7 @@ root.addEventListener('change',event=>{
  else if(event.target.matches('[data-reward-card]'))state.rewardCard=event.target.value||null;
 });
 document.addEventListener('keydown',event=>{
- if(event.target.matches('input,select,textarea,[contenteditable]'))return;
+ if(event.target.matches('button,input,select,textarea,[contenteditable]'))return;
  if(event.code==='Space'&&battle()?.tactical.stage==='planning'&&battle().phase!=='waiting'){
   event.preventDefault();const button=root.querySelector('[data-confirm]:not(:disabled)');button?.click();
  }

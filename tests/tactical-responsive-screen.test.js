@@ -49,12 +49,12 @@ test('very narrow portrait and short landscape screens keep forms, HUD and actio
  assert.match(css,/\.compact-setup select\{[\s\S]*?min-height:38px/);
 });
 
-test('all combat screen sections remain in the responsive DOM, without card/canvas substitutes',async()=>{
+test('planning and the bottom card hand remain in the responsive DOM',async()=>{
  const markup=await read('src/compact-demo.js');
  const css=await read('compact-responsive.css');
- for(const section of ['actions','abilities','items','planning']){
-  assert.match(markup,new RegExp('data-panel-section="'+section+'"'),section);
- }
+ assert.match(markup,/data-panel-section="planning"/);
+ for(const section of ['actions','abilities','items'])assert.doesNotMatch(markup,new RegExp('data-panel-section="'+section+'"'),section);
+ assert.match(markup,/class="tactical-hand-dock"/);
  for(const className of ['combat-header','compact-hud','compact-board-stack','compact-command-panel','compact-playback-tools','compact-setup','compact-result','compact-log','chest-options']){
   assert.ok(css.includes('.'+className),className+' must participate in responsive styling');
  }

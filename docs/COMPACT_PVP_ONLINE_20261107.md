@@ -27,7 +27,7 @@ O cliente consulta periodicamente a partida e preserva os controles quando o est
 
 Cada equipe possui 3 baralhos independentes de 8–10 cartas. A compra inicial é de 3 cartas; nas rodadas seguintes, 2 cartas até o limite de 6. Movimento básico e Ataque Básico permanecem acessíveis sem compra; cartas de habilidade precisam estar na mão do personagem correto.
 
-As mãos do treino e do PvP apresentam cartas ilustradas em leque com rolagem horizontal quando necessário. A carta selecionada exibe sua descrição completa, e a seleção preserva a posição da mão e o foco do teclado. O Ataque Básico fica separado das cartas compradas; reações continuam informativas até o Confronto.
+As mãos do treino e do PvP ficam no centro inferior da tela, em leque com rolagem horizontal quando necessário, e podem ser recolhidas para liberar o tabuleiro. Movimento e Ataque Básico aparecem como cartas permanentes na mão: não entram no baralho nem são comprados ou descartados, e mantêm as regras anteriores. A contagem indica apenas cartas compradas. A seleção preserva a posição da mão e o foco do teclado; reações continuam informativas até o Confronto. Como não há mecânica de itens neste combate, não há cartas de itens ainda.
 
 Na implementação atual, cartas não utilizadas são descartadas ao fim da rodada, exceto as marcadas com Preservar. Isso explica uma nova mão de duas cartas quando nenhuma carta foi preservada; a compatibilidade dessa regra com a intenção de produto deve ser revisada antes de alterá-la.
 

@@ -32,6 +32,11 @@ test('online interface exposes private card hands, clash controls, objectives an
  for(const part of ['online-cards','online-board','online-unit-name','online-objective','online-clash','online-reward','online-formation'])assert.match(app,new RegExp(part));
  assert.match(app,/data-response/);
  assert.match(app,/data-reward/);
+ assert.match(app,/class="tactical-hand-dock"/);
+ assert.match(app,/class="online-card" data-move/);
+ assert.match(app,/class="online-card" data-basic/);
+ assert.doesNotMatch(app,/<h3>Itens<\/h3>|<h3>Ações<\/h3>/);
+ assert.match(app,/event\.target\.matches\('button,input,select,textarea,\[contenteditable\]'\)/);
  assert.match(app,/aria-label="Arena 6 por 6"/);
  for(const bp of ['990px','760px','420px'])assert.ok(css.includes(bp));
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
@@ -52,6 +57,37 @@ test('online screen imports successfully with the browser environment mocked',as
   if(prevDocument===undefined)delete globalThis.document;else globalThis.document=prevDocument;
   if(prevFetch===undefined)delete globalThis.fetch;else globalThis.fetch=prevFetch;
   globalThis.setInterval=prevInterval;
+ }
+});
+
+test('online permanent move card tracks a queued free movement and undo',async()=>{
+ const previous={document:globalThis.document,fetch:globalThis.fetch,setInterval:globalThis.setInterval};
+ const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+ const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+ const battle=publicCompactPvpBattle(createCompactPvpBattle(ids,rivals,{seed:17}),'player');
+ const destination=boardCells(battle).find(cell=>findPath(battle,ids[0],cell,1));
+ assert.ok(destination);
+ const response={profile:{name:'Alice'},match:{id:'match',version:1,battle}};
+ const listeners={};
+ const root={innerHTML:'',addEventListener(type,fn){listeners[type]=fn;},querySelector(){return null;}};
+ const click=dataset=>listeners.click({detail:1,target:{closest:()=>({dataset,disabled:false})}});
+ try{
+  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.setInterval=()=>0;
+  globalThis.fetch=async url=>({ok:true,json:async()=>url==='/api/account'?{user:{handle:'Alice'},profile:{ownedIds:ids}}:response});
+  await import('../src/compact-online.js?permanent-move-hand=1');
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.match(root.innerHTML,/data-move[^>]*aria-pressed="false"[^>]*>/);
+  await click({move:''});
+  await click({cell:destination.x+','+destination.y});
+  assert.match(root.innerHTML,/data-move[^>]*disabled/);
+  assert.match(root.innerHTML,/Confirmar rodada · 1\/6/);
+  await click({undo:''});
+  assert.doesNotMatch(root.innerHTML,/data-move[^>]*disabled/);
+ }finally{
+  for(const [key,value] of Object.entries(previous)){
+   if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
  }
 });
 
