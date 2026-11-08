@@ -5,6 +5,7 @@ import {mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {once} from 'node:events';
+import {boardCells,findPath} from '../src/tactical-board.js';
 
 test('local HTTP server supports two authenticated compact PvP sessions',async()=>{
  const directory=await mkdtemp(join(tmpdir(),'oblivium-compact-dev-'));
@@ -66,11 +67,30 @@ test('local HTTP server supports two authenticated compact PvP sessions',async()
    assert.deepEqual(Object.values(decks).map(side=>Object.keys(side).length).sort(),[0,3]);
    assert.equal(view.match.battle.tactical.width,6);
   }
+  const movement=(view,excluded)=>{
+   const battle=view.match.battle,side=Object.keys(battle.tactical.decks.sides.player).length?'player':'enemy';
+   const unit=(side==='player'?battle.allies:battle.enemies)[0];
+   for(const destination of boardCells(battle)){
+    if(excluded&&destination.x===excluded.x&&destination.y===excluded.y)continue;
+    const path=findPath(battle,unit.id,destination,1);
+    if(path)return {action:{type:'move',actorId:unit.id,path},destination};
+   }
+   assert.fail('No legal adjacent movement for '+side);
+  };
+  const aMove=movement(aView),bMove=movement(joined,aMove.destination);
   const version=joined.match.version;
-  await post('/api/arena-compact',{op:'turn',version,round:1,actions:[]},a.cookies);
-  const resolved=(await post('/api/arena-compact',{op:'turn',version,round:1,actions:[]},b.cookies)).payload;
+  await post('/api/arena-compact',{op:'turn',version,round:1,actions:[aMove.action]},a.cookies);
+  const pending=(await post('/api/arena-compact',{op:'profile'},b.cookies)).payload;
+  assert.deepEqual(pending.match.battle.tactical.plans,{});
+  assert.deepEqual(pending.match.battle.tactical.positions[aMove.action.actorId],aView.match.battle.tactical.positions[aMove.action.actorId]);
+  const resolved=(await post('/api/arena-compact',{op:'turn',version,round:1,actions:[bMove.action]},b.cookies)).payload;
   assert.equal(resolved.match.battle.round,2);
+  assert.deepEqual(resolved.match.battle.tactical.positions[aMove.action.actorId],aMove.destination);
+  assert.deepEqual(resolved.match.battle.tactical.positions[bMove.action.actorId],bMove.destination);
   assert.ok(resolved.match.battle.tactical.events.some(event=>event.type==='reveal'));
+  const reconnected=(await post('/api/arena-compact',{op:'profile'},a.cookies)).payload;
+  assert.equal(reconnected.match.battle.round,2);
+  assert.deepEqual(reconnected.match.battle.tactical.positions,resolved.match.battle.tactical.positions);
   const surrendered=(await post('/api/arena-compact',{op:'surrender'},a.cookies)).payload;
   assert.equal(surrendered.match.settled,true);
   assert.equal(surrendered.profile.losses,1);
