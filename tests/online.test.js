@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { ArenaService } from '../server/arena-service.js';
+import { CompactArenaService } from '../server/compact-arena-service.js';
 import { starters } from '../src/data.js';
 import handler from '../api/arena.js';
 // Test-only transactional fixture. No memory adapter is imported by production.
@@ -31,6 +32,20 @@ test('a Arena mantém um perfil e o limite de chamadas por conta mesmo com token
  for(let i=2;i<25;i++)await service.request(i.toString(16).padStart(64,'0'),{},identity);
  await assert.rejects(service.request('f'.repeat(64),{},identity),{status:429});
  now+=10000;const nextWindow=await service.request('e'.repeat(64),{},identity);assert.equal(nextWindow.profile.id,first.profile.id);
+});
+
+test('troca de contas na Arena clássica mantém perfis separados também no PvP compacto',async()=>{
+ const store=new TestStore(),classic=new ArenaService(store),compact=new CompactArenaService(store);
+ const alice={id:'alice-classic',handle:'Alice'},bob={id:'bob-classic',handle:'Bob'};
+ const first=await classic.request(null,{},alice);
+ const switched=await classic.request(first.token,{},bob);
+ assert.notEqual(switched.profile.id,first.profile.id);
+ assert.equal((await classic.request(first.token,{},alice)).profile.id,first.profile.id);
+ const compactAlice=await compact.request(null,{},alice);
+ const compactBob=await compact.request(compactAlice.token,{},bob);
+ assert.equal(compactAlice.profile.id,first.profile.id);
+ assert.equal(compactBob.profile.id,switched.profile.id);
+ assert.notEqual(compactAlice.profile.id,compactBob.profile.id);
 });
 
 
