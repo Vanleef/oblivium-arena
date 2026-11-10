@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 test('compact card UI switches independent hands, queues movement and keeps planning private',async()=>{
- const events={},renders=[];let html='';
+ const events={},documentEvents={},renders=[];let html='';
  const root={
   set innerHTML(v){html=v;renders.push(v);},get innerHTML(){return html;},
   addEventListener:(type,fn)=>events[type]=fn,querySelector:()=>null,querySelectorAll:()=>[]
@@ -10,7 +10,7 @@ test('compact card UI switches independent hands, queues movement and keeps plan
  const names=['document','Worker','matchMedia','requestAnimationFrame'],saved=Object.fromEntries(names.map(k=>[k,globalThis[k]]));
  const click=dataset=>events.click({target:{closest:()=>({dataset,disabled:false})}});
  try{
-  globalThis.document={getElementById:()=>root,addEventListener(){}};
+  globalThis.document={getElementById:()=>root,addEventListener(type,fn){documentEvents[type]=fn;}};
   globalThis.matchMedia=()=>({matches:true});
   globalThis.requestAnimationFrame=undefined;
   globalThis.Worker=class{addEventListener(type,fn){if(type==='message')this.receive=fn;}postMessage({id}){queueMicrotask(()=>this.receive({data:{id,plan:[]}}));}};
@@ -18,12 +18,28 @@ test('compact card UI switches independent hands, queues movement and keeps plan
   assert.match(html,/grade 6 por 6/);
   assert.equal((html.match(/data-cell=/g)||[]).length,36);
   assert.match(html,/compact-roster-rail/);
-  for(const section of ['actions','abilities','items','planning'])assert.match(html,new RegExp('data-panel-section="'+section+'"'));
+  assert.match(html,/data-panel-section="planning"/);
+  for(const section of ['actions','abilities','items'])assert.doesNotMatch(html,new RegExp('data-panel-section="'+section+'"'));
+  assert.match(html,/class="tactical-hand-dock"/);
+  assert.match(html,/data-hand-toggle/);
   assert.match(html,/Mão de/);
   assert.match(html,/Respostas disponíveis: 1/);
   assert.match(html,/data-card=/);
+  assert.match(html,/class="hand-card-area-label">Área: /);
   assert.match(html,/Ataque básico/);
-  assert.match(html,/Mover<\/span>/);
+  assert.match(html,/data-mode="move"[^>]*>[\s\S]*?<strong>Mover<\/strong>/);
+  assert.match(html,/data-technique="fortress-basic"/);
+  let prevented=false;
+  documentEvents.keydown({target:{matches:selector=>selector.startsWith('button,')},code:'Space',preventDefault(){prevented=true;}});
+  assert.equal(prevented,false,'space on a card is reserved for its native button activation');
+  click({technique:'fortress-basic'});
+  assert.match(html,/data-technique="fortress-basic" aria-pressed="true"/);
+  click({handToggle:''});
+  assert.match(html,/data-hand-toggle aria-expanded="false"/);
+  assert.match(html,/class="tactical-hand-content" hidden/);
+  click({handToggle:''});
+  click({mode:'move'});
+  assert.match(html,/data-mode="move" aria-pressed="true"/);
   assert.doesNotMatch(html,/data-guard/);
   assert.match(html,/data-confirm/);
   assert.match(html,/Próximo evento: rodada 4/);
@@ -259,10 +275,10 @@ test('skill names appear immediately beneath the field and icons carry true mini
  assert.doesNotMatch(cinematic,/<span class="fighter-super-caption"/);
  assert.match(css,/\.compact-board-stack>\.fighter-super-nameplate/);
  assert.match(css,/margin-top:6px/);
- assert.match(source,/tacticalAreaDiagramMarkup\(null,\{movement:kind==='move'\}\)/);
- assert.match(source,/const areaSpec=fortressTechniqueSpec\(future,u,a\)/);
- assert.match(source,/tacticalAreaDiagramMarkup\(areaSpec,\{facing:unitFacing\(future,u\)\}\)/);
- assert.match(source,/tacticalPatternLabel\(areaSpec\)/);
+ assert.match(source,/tacticalAreaDiagramMarkup\(null,\{movement:true\}\)/);
+ assert.match(source,/const spec=fortressTechniqueSpec\(future,u,a\)/);
+ assert.match(source,/tacticalAreaDiagramMarkup\(spec,\{facing:unitFacing\(future,u\)\}\)/);
+ assert.match(source,/tacticalPatternLabel\(spec\)/);
  assert.match(css,/\.compact-area-mini/);
  assert.match(css,/grid-template-columns:repeat\(7,minmax\(0,1fr\)\)/);
  assert.match(css,/data-mini-cell="hit"/);
@@ -295,7 +311,9 @@ test('desktop and mobile action footprint legends are legible and match the cast
  const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
  const css=await readFile(new URL('../compact-planning.css',import.meta.url),'utf8');
  const mini=await readFile(new URL('../src/tactical-area-diagram.js',import.meta.url),'utf8');
- assert.match(source,/compact-tech-name/);
+ assert.match(source,/compact-hand-card compact-hand-skill/);
+ const cardCss=await readFile(new URL('../compact-cards.css',import.meta.url),'utf8');
+ assert.match(cardCss,/\.compact-hand-skill \.compact-area-diagram/);
  assert.match(source,/compact-area-legend/);
  assert.match(source,/tacticalActorPalette\(beforeActor\)/);
  assert.match(source,/tacticalPaletteVariables\(castColors\)/);

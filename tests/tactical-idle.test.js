@@ -44,6 +44,21 @@ test('dissolução não cria duplicatas quando o quadro não muda, respeita movi
  try{assert.equal(blendTacticalSpriteFrame(sprite,{src:'/atlas.webp',column:2,row:0},200),false);assert.equal(appended,1);}finally{if(old===undefined)delete globalThis.matchMedia;else globalThis.matchMedia=old;}
 });
 
+test('pintura captura o quadro anterior antes de alterar a pose e o atlas',async()=>{
+ let appended=0,resolveFade;
+ const unit={id:'nilo'},token={dataset:{unitId:unit.id,family:'idle'},style:{setProperty(){}},closest:()=>null};
+ const parent={querySelectorAll:()=>[],append(){appended++;}};
+ const previous={style:{setProperty(){}},setAttribute(){},remove(){},animate(){return {finished:new Promise(resolve=>{resolveFade=resolve;})};}};
+ const sprite={parentElement:parent,style:{left:'0%',top:'0%',setProperty(name,value){this[name]=value;}},getAttribute:()=>'/old-atlas.webp',animate(){},
+  cloneNode(){assert.equal(token.dataset.family,'idle');return previous;}};
+ token.querySelector=()=>sprite;
+ assert.equal(paintTacticalToken(token,unit,{actorId:unit.id,type:'move'},{family:'move',pose:'airborne',index:2}),true);
+ assert.equal(appended,1);
+ assert.notEqual(sprite.src,'/old-atlas.webp');
+ assert.equal(token.dataset.family,'move');
+ resolveFade();await new Promise(resolve=>setImmediate(resolve));
+});
+
 
 test('atlas com linha de movimento alternam apoio, impulso, voo e aterrissagem',()=>{
  const unit={id:'nilo'};

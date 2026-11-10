@@ -26,6 +26,10 @@ Retratos, passivas e habilidades devem variar cenas, expressões, poses, câmera
 
 A revisão visual do acervo está em andamento. Consulte a [direção de arte](docs/ART_DIRECTION.md) para as referências e regras de produção.
 
+## Arena compacta PvP (beta em desenvolvimento)
+
+Na branch de integração do PR #7, /tactical.html?online abre o combate 3v3 compactado 6×6 contra outro jogador, com três mãos, planejamento simultâneo e Confronto Miragem/Luz/Sombra. Exige conta autenticada e três almas recrutadas. O modo local em /tactical.html permanece disponível. Ainda não publicado na main; veja docs/COMPACT_PVP_ONLINE_20261107.md.
+
 ## Laboratório de combate compacto
 
 Na branch de desenvolvimento do PR #3, `/tactical.html` abre por padrão o combate 3v3 em campo **6×6**, com **até duas ações por personagem** (seis por trio) e planejamento simultâneo. Cada lado sela seu plano sem acessar a ordem adversária; todas as primeiras ações são resolvidas antes das segundas. **O Movimento padrão percorre uma casa, incluindo diagonais, e volta à mão a cada rodada; cartas de mobilidade podem alcançar até duas ou três casas.** O Vendaval não altera essa distância; em vez disso, concede +5 de Escudo a quem se mover durante seu efeito. Técnicas em cartas podem ter recarga, e o Ataque Básico fica sempre disponível, **sem custo de Essência nesta modalidade**.

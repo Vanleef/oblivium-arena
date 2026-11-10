@@ -8,7 +8,7 @@ const output = resolve(root, "dist");
 const runtimeRoots = ["src", "art", "api", "server"];
 const staticRoots = ["src", "art"];
 const rootFiles = [
-  "index.html", "tactical.html", "tactical.css", "tactical-hand.css", "tactical-motion.css", "compact-planning.css", "compact-responsive.css", "compact-combo.css", "compact-cards.css", "vercel.json",
+  "index.html", "tactical.html", "tactical.css", "tactical-hand.css", "tactical-motion.css", "compact-planning.css", "compact-responsive.css", "compact-combo.css", "compact-cards.css", "compact-online.css", "vercel.json",
   "styles.css", "campaign-atlas.css", "official-theme.css", "augment-cards.css", "identity.css", "realm-identity.css",
   "moth-theme.css", "account.css", "anime-ui.css", "brand-transparency.css", "manifest.webmanifest", "icon.svg", "favicon-32.png",
   "favicon-64.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png"
@@ -52,11 +52,13 @@ for (const path of runtimeFiles) {
   }
 }
 
-const html = await readFile(join(root, "index.html"), "utf8");
-const htmlRefs = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(match => match[1]);
-for (const ref of htmlRefs) {
-  const path = localRootPath(ref);
-  if (path) await assertFile(path, "index.html");
+for (const entry of ["index.html", "tactical.html"]) {
+  const html = await readFile(join(root, entry), "utf8");
+  const htmlRefs = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(match => match[1]);
+  for (const ref of htmlRefs) {
+    const path = localRootPath(ref);
+    if (path) await assertFile(path, entry);
+  }
 }
 
 const cssFiles = rootFiles.filter(file => extname(file) === ".css").map(file => join(root, file));
@@ -105,10 +107,12 @@ await writeFile(join(output, "package.json"), `${JSON.stringify({
   engines: sourcePackage.engines
 }, null, 2)}\n`);
 
-const outputHtml = await readFile(join(output, "index.html"), "utf8");
-for (const ref of [...outputHtml.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(match => match[1])) {
-  const path = localRootPath(ref);
-  if (path) await assertFile(resolve(output, `.${ref.split(/[?#]/, 1)[0]}`), "built index.html");
+for (const entry of ["index.html", "tactical.html"]) {
+  const outputHtml = await readFile(join(output, entry), "utf8");
+  for (const ref of [...outputHtml.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(match => match[1])) {
+    const path = localRootPath(ref);
+    if (path) await assertFile(resolve(output, `.${ref.split(/[?#]/, 1)[0]}`), "built " + entry);
+  }
 }
 
 const builtFiles = (await walk(output)).map(path => relative(output, path).split(sep).join("/"));

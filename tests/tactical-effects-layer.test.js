@@ -278,7 +278,7 @@ test('canvas hitstop freezes frame age and resumes smoothly, without leaks',()=>
   assert.equal(layer.effects.filter(fx=>fx.kind==='impact').length,6);
   layer.tick(frozenAt+75);
   assert.equal(layer.freezeUntil,0);
-  assert.equal(layer.effects[0].now,initial+65);
+  assert.ok(Math.abs(layer.effects[0].now-(initial+65))<1e-6,'freeze duration must survive floating point rounding');
   layer.tick(frozenAt+400);
   assert.equal(layer.effects.length,0);
   assert.equal(layer.frame,0);

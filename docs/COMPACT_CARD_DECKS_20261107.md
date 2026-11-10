@@ -36,13 +36,14 @@ As recompensas continuam com **três opções**. No modo de cartas, uma delas po
 - **Prismático:** +10 de dano, aplica **Exposto** e vira carta **Inicial**.
 
 Essas inscrições são persistidas no deck local para os próximos combates/campanhas desse navegador. São exemplos iniciais que precisam de balanceamento antes de PvP competitivo.
+Inscrições sucessivas na mesma carta somam o dano anunciado, sem um teto intermediário de 15; propriedades já adquiridas, como Preservar, continuam presentes. No PvP, inscrições de origem local continuam bloqueadas e apenas recompensas obtidas na própria partida são aceitas.
 
 ## Respostas — Confronto de Vontades
 
 - Cada equipe dispõe de **uma resposta básica por rodada**, reabastecida ao começar a seguinte.
 - Uma carta de reação na mão de um aliado vivo pode gerar **uma resposta adicional** e deve ser consumida quando selecionada.
 - Diante de uma técnica especial contestável que tenha alvo na área, o defensor pode **responder** ou **aceitar o golpe** e poupar seus recursos.
-- Se responder, as duas escolhas são secretas: **Ímpeto → Finta → Contenção → Ímpeto**. A IA define sua intenção antes da escolha humana e não lê a entrada posterior.
+- Se responder, as duas escolhas são secretas: **Miragem → Luz → Sombra → Miragem**. A IA define sua intenção antes da escolha humana e não lê a entrada posterior.
 - **Vitória do ataque:** acerto crítico, **150% do dano base**; **empate:** dano normal; **vitória da defesa:** anula todos os efeitos dessa habilidade **sobre o personagem protegido**. Caso uma habilidade em área atinja outros personagens, eles continuam sujeitos à técnica normalmente.
 - A habilidade consome a carta e a recarga mesmo se for bloqueada. Existe, no máximo, um confronto por habilidade, sem cadeia infinita de reações.
 - No combate local atual, a IA avalia se vale a pena gastar sua resposta. **Não há comunicação PvP em tempo real** ou autoridade de servidor para escolhas secretas entre humanos.

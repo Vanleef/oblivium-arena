@@ -11,7 +11,7 @@ import {tacticalComboEligible} from './tactical-combo.js';
 import {characterById} from './data.js';
 import {getResonance} from './rules.js';
 import {createBattle,resolveBoardTechnique,finishBoardRound,getValidTargets} from './combat.js';
-import {tacticalDuelResolve} from './tactical-duel.js';
+import {tacticalDuelResolve,tacticalDuelOptions} from './tactical-duel.js';
 import {createTacticalDecks,tacticalCard,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard,tacticalMovementSteps} from './tactical-decks.js';
 import {getAbilityResourceCosts,resolveResourcePayment,resourceIds,resolveEssenceExchange} from './resource-costs.js';
 import {refreshSkillForms} from './skill-state.js';
@@ -161,22 +161,22 @@ export function rerollTacticalChestReward(s,offerId){
  addCardInscription(s,offer,'player');
  return {ok:true,offer:copy(offer),spins:progress.spins};
 }
-export function chooseTacticalChestReward(s,offerId,optionId,targetId){
- const offer=s.tactical.pendingChestRewards?.[0];
- if(!offer||offer.id!==offerId||offer.side!=='player')return fail('Escolha de baú indisponível.');
+export function chooseTacticalChestReward(s,offerId,optionId,targetId,side='player'){
+ const offer=s.tactical.pvpMode?s.tactical.pendingChestRewards?.find(value=>value.side===side&&value.id===offerId):s.tactical.pendingChestRewards?.[0];
+ if(!offer||offer.id!==offerId||offer.side!==side||!['player','enemy'].includes(side))return fail('Escolha de baú indisponível.');
  const option=offer.options.find(item=>item.id===optionId);if(!option)return fail('Aprimoramento inválido.');
  if(offer.invasion){
-  const applied=applyFortressPenalty(s,'player',option.effect,targetId,offer.round);if(!applied.ok)return applied;
+  const applied=applyFortressPenalty(s,side,option.effect,targetId,offer.round);if(!applied.ok)return applied;
  }else{
-  if(offer.objective&&!actorFor(s,'player',offer.actorId))return fail('O portador saiu de combate.');
+  if(offer.objective&&!actorFor(s,side,offer.actorId))return fail('O portador saiu de combate.');
   if(option.effect.type==='tactical-card-upgrade'){
    if(!offer.objective||!targetId)return fail('Selecione a carta que receberá a inscrição.');
-   const upgrade=upgradeTacticalCard(s,'player',offer.actorId,targetId,option.effect.upgrade);
+   const upgrade=upgradeTacticalCard(s,side,offer.actorId,targetId,option.effect.upgrade);
    if(!upgrade.ok)return upgrade;
-  }else applyChestEffect(s,'player',option.effect);
-  if(offer.objective)actorFor(s,'player',offer.actorId).objectiveAugments=(actorFor(s,'player',offer.actorId).objectiveAugments||0)+1;
+  }else applyChestEffect(s,side,option.effect);
+  if(offer.objective)actorFor(s,side,offer.actorId).objectiveAugments=(actorFor(s,side,offer.actorId).objectiveAugments||0)+1;
  }
- s.tactical.pendingChestRewards.shift();
+ s.tactical.pendingChestRewards=s.tactical.pendingChestRewards.filter(value=>value!==offer);
  for(const pending of s.tactical.pendingChestRewards.filter(item=>item.fortress&&!item.invasion)){
   if(pending.objective&&!actorFor(s,pending.side,pending.actorId))continue;
   if(!livingTeam(s,pending.side).some(unit=>unit.id===pending.actorId))pending.actorId=livingTeam(s,pending.side)[0]?.id;
@@ -374,7 +374,8 @@ function execute(s,ref,{projection=false}={}){
  const infused=card?.upgrade?.damageType;
  const element=s.tactical.fortress?(['fire','water','air','electric'].includes(infused)?infused:techniqueElement(actor,ability)):null;
  const result=resolveBoardTechnique(s,{...ref,element,...(s.tactical.compact?{fortressCooldown:fortressCooldown(ability)}:{}),targetId:ids[0]||null},ids);
- const elemental=element&&!result.skipped&&result.combo?.outcome!=='miss'?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
+ const elemental=element&&!result.skipped&&(result.combo?.outcome!=='miss'||result.affectedTargetIds?.length)
+  ?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
  const displacements=!result.skipped?displaceTargets(s,actor,result.affectedTargetIds||[],spec.displacement):[];
  const exposedHit=exposedBefore.some(old=>{const u=tacticalUnits(s).find(u=>u.id===old.id);return u&&(u.hp<old.hp||(u.shield||0)<old.shield);});
  const augmentNotes=!result.skipped?triggerTacticalAugments(s,ref.side,actor,'skill',{exposedHit,ability,affected:result.affectedTargetIds?.length>0}):[];
@@ -404,7 +405,9 @@ function normalizePlan(s,side,actions){
    const orientation=ref.orientation||(side==='player'?[1,0]:mirrorDirection([1,0]));
    if(!Array.isArray(orientation)||!directions.some(d=>d[0]===orientation[0]&&d[1]===orientation[1])||orientation.length!==2)return fail('Orientação inválida.');
    const spends={};for(const [key,max]of [['residueSpend',ability.spendResidueMax||0],['fractureSpend',ability.spendFracturesMax||0]]){const n=ref[key]??0;if(!Number.isInteger(n)||n<0||n>max)return fail('Gasto especial inválido.');if(n)spends[key]=n;}
-   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),order});
+   const willSign=ref.willSign??'miragem';
+   if(s.tactical.pvpMode&&!tacticalDuelOptions.some(option=>option.id===willSign))return fail('Manifestação inválida.');
+   refs.push({...spends,type:'skill',actorId:actor.id,abilityId:ability.id,formKey,side,anchor,orientation:[...orientation],...(s.tactical.cardMode?{cardId:ref.cardId||null}:{}),...(s.tactical.pvpMode?{willSign}:{}),order});
   }else if(ref.type==='guard'&&s.tactical.activation&&!s.tactical.compact){refs.push({type:'guard',actorId:actor.id,side,order});}
   else return fail('Tipo de ação inválido.');
  }
@@ -510,16 +513,26 @@ function resolveCompactRound(s){
  * The planning actions are still sealed until BOTH teams submit; preview, RNG,
  * movement and the canonical resolveTacticalRound() remain backward compatible.
  */
-export function startCompactRoundResolution(s){
+export function startCompactRoundResolution(s,{persist=false}={}){
  if(!s?.tactical?.compact||s.tactical.stage!=='ready')return fail('A rodada compacta precisa das duas ordens confirmadas.');
  s.tactical.stage='resolving';s.phase='tactical-resolving';s.tactical.events=[];
  const actions=orderTacticalActions(s,[...s.tactical.plans.player,...s.tactical.plans.enemy]).map(ref=>({...ref,category:priority(s,ref)}));
  const before=replayState(s);
  stamp(s,{type:'reveal',title:'Planos revelados',actions:copy(actions),before,after:before});
- let slot=0,prepared=false,commands=[],closed=false;
+ const cursor={actions,slot:0,prepared:false,commands:[],closed:false};
+ if(persist)s.tactical.authoritativeResolution=cursor;
+ return compactRoundSession(s,cursor,copy(s.tactical.events));
+}
+export function resumeCompactRoundResolution(s){
+ const cursor=s?.tactical?.authoritativeResolution;
+ if(!cursor||s.tactical.stage!=='resolving'||cursor.closed)return fail('Resolução autoritativa indisponível.');
+ return compactRoundSession(s,cursor,[]);
+}
+function compactRoundSession(s,cursor,initialEvents){
+ const actions=cursor.actions;
  const peek=()=>{
-  if(closed||!prepared||!commands.length)return null;
-  const ref=commands[0],actor=actorFor(s,ref.side,ref.actorId);
+  if(cursor.closed||!cursor.prepared||!cursor.commands.length)return null;
+  const ref=cursor.commands[0],actor=actorFor(s,ref.side,ref.actorId);
   const ability=ref.type==='skill'?actor?.abilities.find(a=>a.id===ref.abilityId):null;
   const origin=actor?s.tactical.positions[actor.id]:null;
   const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
@@ -530,18 +543,18 @@ export function startCompactRoundResolution(s){
    ...(s.tactical.cardMode?{responseSide:otherSide(ref.side),responseOptions:tacticalResponseOptions(s,otherSide(ref.side),targets[0])}:{})};
  };
  const next=(responses={})=>{
-  if(closed)return fail('A rodada já foi concluída.');
+  if(cursor.closed)return fail('A rodada já foi concluída.');
   const start=s.tactical.events.length;
-  if(slot<2&&!prepared){
-   const wave=actions.filter(ref=>ref.slot===slot);
+  if(cursor.slot<2&&!cursor.prepared){
+   const wave=actions.filter(ref=>ref.slot===cursor.slot);
    const paths=wave.filter(ref=>ref.type==='move'&&actorFor(s,ref.side,ref.actorId)&&!actorFor(s,ref.side,ref.actorId).stunned);
    if(paths.length)resolveExchangeMovement(s,paths);
-   commands=wave.filter(ref=>ref.type!=='move').sort((a,b)=>a.category-b.category||a.turnRank-b.turnRank);
-   prepared=true;
+   cursor.commands=wave.filter(ref=>ref.type!=='move').sort((a,b)=>a.category-b.category||a.turnRank-b.turnRank);
+   cursor.prepared=true;
    // Return control to the UI BEFORE any skill resolves so the player can respond.
    return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
   }
-  if(commands.length){
+  if(cursor.commands.length){
    const awaiting=peek();
    // Invalid or missing intentions can NEVER silently award a free full hit.
    // Keep the sealed action pending until both choices have been submitted.
@@ -549,7 +562,7 @@ export function startCompactRoundResolution(s){
     ?tacticalDuelResolve(responses.attackChoice,responses.defenseChoice,{mode:s.tactical.cardMode?'cards':'legacy'}):null;
    if(awaiting?.comboEligible&&!duel&&(!s.tactical.cardMode||!responses.decline))return fail('Escolhas de Confronto de Vontades inválidas.');
    if(duel&&s.tactical.cardMode&&!spendTacticalResponse(s,awaiting.responseSide,responses.reactionCardId||null))return fail('Resposta indisponível.');
-   const ref=commands.shift();
+   const ref=cursor.commands.shift();
    const clash=duel&&s.tactical.cardMode?{...duel,protectedTargetId:awaiting.targets[0]}:duel;
    const before=replayState(s),result=execute(s,clash?{...ref,clash}:ref);
    if(duel?.outcome==='miss'&&responses.reactionCardId){
@@ -564,14 +577,14 @@ export function startCompactRoundResolution(s){
    const title=result.title||'Técnica interrompida';
    stamp(s,{...ref,...result,...(duel?{duel}:{}),before,after:replayState(s),
     title:duel&&!result.skipped?title+' · '+duel.label:title});
-   if(boardOutcome(s)){slot=2;commands=[];}
+   if(boardOutcome(s)){cursor.slot=2;cursor.commands=[];}
    return {ok:true,done:false,events:copy(s.tactical.events.slice(start))};
   }
-  if(slot<2){slot++;prepared=false;return {ok:true,done:false,events:[]};}
-  finishTacticalRound(s);pauseForTacticalRewards(s);closed=true;
+  if(cursor.slot<2){cursor.slot++;cursor.prepared=false;return {ok:true,done:false,events:[]};}
+  finishTacticalRound(s);pauseForTacticalRewards(s);cursor.closed=true;
   return {ok:true,done:true,events:copy(s.tactical.events.slice(start)),finished:s.tactical.stage==='finished'};
  };
- return {ok:true,events:copy(s.tactical.events),peek,next};
+ return {ok:true,events:copy(initialEvents),peek,next};
 }
 
 const canLeave=(s,u)=>boardCells(s).some(to=>canStep(s,u.id,s.tactical.positions[u.id],to,{movement:true}));
@@ -784,10 +797,10 @@ function claimFortressEntry(s,{actorId,side,to}){
  if(!f.entered.includes(actorId))f.entered.push(actorId);
  f.rearmed=f.rearmed.filter(id=>id!==actorId);
  const offer={id:'invasion:'+f.rewardSequence++,side,actorId,round:s.round,invasion:true,source:'invasion',options:fortressPenaltyOptions()};
- if(side==='player')s.tactical.pendingChestRewards.push(offer);else(s.tactical.enemyChestRewards??=[]).push(offer);
+ if(side==='player'||s.tactical.pvpMode)s.tactical.pendingChestRewards.push(offer);else(s.tactical.enemyChestRewards??=[]).push(offer);
 }
 function addCardInscription(s,offer,side){
- if(!s.tactical.cardMode||side!=='player'||!offer?.objective)return;
+ if(!s.tactical.cardMode||(side!=='player'&&!s.tactical.pvpMode)||!offer?.objective)return;
  const upgrade=offer.tier==='prismatic'?{opening:true,damageBonus:10,expose:1}:offer.tier==='gold'?{retain:true,damageBonus:5,damageType:'piercing'}:{damageBonus:5};
  const text=offer.tier==='prismatic'?'Carta inicial, +10 de dano e Exposto':offer.tier==='gold'?'Preservar, +5 de dano e perfuração':'+5 de dano';
  // Preserve the three-choice structure of the existing objective reward UI.

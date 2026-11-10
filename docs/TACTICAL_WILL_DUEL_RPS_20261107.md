@@ -11,9 +11,9 @@ O planejamento 3v3 segue **simultâneo e oculto** até ambas as equipes confirma
 
 | Intenção | Estilo | Vence | Perde para |
 |---|---|---|---|
-| **Ímpeto** | pressão frontal, confronto direto | Finta | Contenção |
-| **Finta** | desviar o foco, enganar, contornar | Contenção | Ímpeto |
-| **Contenção** | firmar posição, absorver e bloquear | Ímpeto | Finta |
+| **Miragem** | distorce a percepção e confunde intenções | Luz | Sombra |
+| **Luz** | revela a verdade e rompe ocultações | Sombra | Miragem |
+| **Sombra** | envolve e engole a falsa imagem | Miragem | Luz |
 
 Atacante e defensor escolhem **uma** intenção dentre as mesmas três. A interface só mostra a resposta adversária depois que a escolha do jogador é concluída.
 
@@ -29,17 +29,19 @@ O último caso ainda consome **execução e recarga**, evitando o uso de especia
 
 Em habilidades de área, uma única decisão representa a interação do time defendendo a zona; os mesmos fatores são aplicados à técnica, mantendo o combate fluido.
 
+**Atualização do modo com cartas:** ao empatar, a técnica causa 100% do dano normal, não 50%. A taxa de 50% permanece apenas no laboratório legado.
+
 ## Estratégia sem loteria cega
 
 A IA local escolhe sua intenção **antes** da resposta humana, usando uma semente determinística de personagem, alvo, habilidade, lado e rodada. Não vê nem lê a opção do usuário.
 
-Cada oponente possui uma **tendência de estilo observável**. Por exemplo, combatentes agressivos podem tender ao Ímpeto, evasivos à Finta e protetores à Contenção. A interface informa a tendência, **não a escolha real**.
+Cada oponente possui uma **tendência de estilo observável**. Por exemplo, combatentes agressivos podem tender ao Miragem, evasivos à Luz e protetores à Sombra. A interface informa a tendência, **não a escolha real**.
 
 A IA utiliza a tendência em aproximadamente metade dos confrontos; nas demais escolhas varia entre as outras duas possibilidades. Isso permite antecipação, blefe, leitura de oponente e escolha de personagens sem remover o risco.
 
 ## UX e controles
 
-- **Desktop:** teclas **1, 2, 3** para Ímpeto, Finta e Contenção; Escape executa uma escolha automática explícita.
+- **Desktop:** teclas **1, 2, 3** para Miragem, Luz e Sombra; Escape executa uma escolha automática explícita.
 - **Mobile:** três botões grandes em linha com nome e uma frase curta de vantagem, responsivos até 320px e em orientação paisagem.
 - Sem barras de timing ou exigência de reflexo. O jogador tem tempo para decidir; preferência por movimento reduzido não bloqueia a participação.
 - Resultado: mostra as duas intenções escolhidas e o desfecho (acerto decisivo / choque / especial evitado).

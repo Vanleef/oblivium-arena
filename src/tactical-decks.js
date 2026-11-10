@@ -15,7 +15,7 @@ const validUpgrade=raw=>{
  const x=raw&&typeof raw==='object'?raw:{};
  return {
   opening:Boolean(x.opening),retain:Boolean(x.retain),exhaust:Boolean(x.exhaust),
-  damageBonus:Number.isInteger(x.damageBonus)?Math.max(0,Math.min(15,x.damageBonus)):0,
+  damageBonus:Number.isSafeInteger(x.damageBonus)?Math.max(0,x.damageBonus):0,
   damageType:['physical','fire','water','air','light','shadow','piercing'].includes(x.damageType)?x.damageType:null,
   weaken:x.weaken===1?1:0,expose:x.expose===1?1:0
  };
@@ -34,7 +34,7 @@ export function defaultTacticalCardBuild(unit){
  const copies=Array.from({length:Math.max(0,6-pool.length)},(_,i)=>pool[i%Math.max(1,pool.length)]).filter(Boolean);
  return [...pool,...copies,{kind:'mobility',name:'Passo Longo'},{kind:'reaction',name:'Último Suspiro'}];
 }
-function validateBuild(unit,raw,unlockedKingdoms=0){
+export function validateTacticalBuild(unit,raw,unlockedKingdoms=0){
  if(!Array.isArray(raw)||raw.length<TACTICAL_CARD_RULES.minimum||raw.length>TACTICAL_CARD_RULES.maximum)throw Error('Cada baralho deve ter 8 a 10 cartas.');
  const abilities=new Set(unit.abilities.filter(a=>a.id!=='fortress-basic').map(a=>a.id));
  return raw.map((entry,index)=>{
@@ -61,8 +61,9 @@ export function createTacticalDecks(s,{decks={},seed=1,unlockedKingdoms=0}={}){
  const result={sides:{player:{},enemy:{}},responses:{player:1,enemy:1},round:s.round};
  for(const [side,team] of [['player',s.allies],['enemy',s.enemies]]){
   for(const [i,unit] of team.entries()){
-   const build=decks[unit.sourceId||unit.id]||decks[unit.id]||defaultTacticalCardBuild(unit);
-   const cards=validateBuild(unit,build,unlockedKingdoms),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
+   const sideDecks=decks[side]&&typeof decks[side]==='object'&&!Array.isArray(decks[side])?decks[side]:{};
+  const build=sideDecks[unit.sourceId||unit.id]||sideDecks[unit.id]||decks[unit.sourceId||unit.id]||decks[unit.id]||defaultTacticalCardBuild(unit);
+   const cards=validateTacticalBuild(unit,build,unlockedKingdoms),byId=Object.fromEntries(cards.map(card=>[card.id,card]));
    const initial=cards.filter(card=>card.upgrade.opening).map(card=>card.id);
    if(initial.length>TACTICAL_CARD_RULES.handLimit)throw Error('Há cartas iniciais demais.');
    const serial=seed+(side==='enemy'?1009:0)+i*131;
@@ -146,7 +147,13 @@ export function spendTacticalResponse(s,side,cardId=null){
 }
 export function upgradeTacticalCard(s,side,actorId,cardId,upgrade){
  const card=tacticalCard(s,side,actorId,cardId);
- if(!card||!upgrade||typeof upgrade!=='object')return {ok:false,reason:'Carta ou melhoria inválida.'};
- card.upgrade=validUpgrade({...card.upgrade,...upgrade});
+ if(!card||!upgrade||typeof upgrade!=='object'||Array.isArray(upgrade))return {ok:false,reason:'Carta ou melhoria inválida.'};
+ let damageBonus=card.upgrade.damageBonus;
+ if(upgrade.damageBonus!==undefined){
+  if(!Number.isSafeInteger(upgrade.damageBonus)||upgrade.damageBonus<0||
+   !Number.isSafeInteger(damageBonus+upgrade.damageBonus))return {ok:false,reason:'Bônus de dano inválido.'};
+  damageBonus+=upgrade.damageBonus;
+ }
+ card.upgrade=validUpgrade({...card.upgrade,...upgrade,damageBonus});
  return {ok:true,card:clone(card)};
 }

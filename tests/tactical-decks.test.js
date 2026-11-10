@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createTacticalBattle,previewTacticalPlan,tacticalView} from '../src/tactical-combat.js';
+import {createTacticalBattle,previewTacticalPlan,tacticalView,chooseTacticalChestReward,tacticalTargets} from '../src/tactical-combat.js';
+import {boardCells,directions} from '../src/tactical-board.js';
 import {TACTICAL_CARD_RULES,tacticalCardVariants,tacticalMovementSteps,createTacticalDecks,defaultTacticalCardBuild,tacticalCardDeck,tacticalHand,validateTacticalCardPlan,spendTacticalCards,nextTacticalCardRound,tacticalResponseOptions,spendTacticalResponse,upgradeTacticalCard} from '../src/tactical-decks.js';
 import {tacticalDuelResolve} from '../src/tactical-duel.js';
 
@@ -80,6 +81,49 @@ test('card inscriptions can upgrade an equipped card without leaking into other 
  assert.equal(upgradeTacticalCard(s,'player',a.id,'nonexistent',{damageBonus:15}).ok,false);
 });
 
+test('successive objective inscriptions add their advertised damage without an intermediate cap',()=>{
+ const s=battle(),unit=s.allies[0],deck=tacticalCardDeck(s,'player',unit.id);
+ const card=Object.values(deck.cards).find(item=>item.kind==='skill'&&unit.abilities.find(ability=>ability.id===item.abilityId)?.damage>0);
+ const ability=unit.abilities.find(item=>item.id===card.abilityId),victim=s.enemies[0];
+ s.resonance.bonus=0;s.buffs.damage=0;
+ s.tactical.positions[unit.id]={x:2,y:2};s.tactical.positions[victim.id]={x:3,y:2};
+ deck.draw=deck.draw.filter(id=>id!==card.id);deck.hand=[card.id];
+ let action,baseline;
+ for(const anchor of boardCells(s)){
+  for(const orientation of directions){
+   if(!tacticalTargets(s,unit,ability,anchor,orientation).includes(victim.id))continue;
+   const candidate={type:'skill',actorId:unit.id,abilityId:ability.id,cardId:card.id,anchor,orientation};
+   const preview=previewTacticalPlan(s,'player',[candidate]);
+   if(preview.ok&&preview.projection.enemies[0].hp<victim.hp){action=candidate;baseline=preview.projection.enemies[0].hp;break;}
+  }
+  if(action)break;
+ }
+ assert.ok(action,'must find a valid damaging skill');
+ for(const [index,amount] of [5,5,10,5].entries()){
+  const offer={id:'objective:test:'+index,side:'player',actorId:unit.id,objective:true,fortress:true,tier:'silver',
+   options:[{id:'inscription',effect:{type:'tactical-card-upgrade',upgrade:{
+    damageBonus:amount,...(index===1?{retain:true,damageType:'piercing'}:{}),...(index===2?{opening:true}:{})
+   }}}]};
+  s.tactical.stage='reward';s.tactical.pendingChestRewards.push(offer);
+  const result=chooseTacticalChestReward(s,offer.id,'inscription',card.id,'player');
+  assert.equal(result.ok,true,result.reason);
+ }
+ assert.equal(card.upgrade.damageBonus,25);
+ assert.equal(card.upgrade.retain,true);
+ assert.equal(card.upgrade.opening,true);
+ assert.equal(card.upgrade.damageType,'piercing');
+ const upgradedPreview=previewTacticalPlan(s,'player',[action]);
+ assert.equal(upgradedPreview.ok,true,upgradedPreview.reason);
+ assert.equal(baseline-upgradedPreview.projection.enemies[0].hp,25);
+ const saved=Object.values(deck.cards).map(item=>({kind:item.kind,abilityId:item.abilityId,variantId:item.variantId,upgrade:item.upgrade}));
+ const restored=battle({decks:{[unit.id]:saved}});
+ assert.equal(tacticalCardDeck(restored,'player',unit.id).cards[card.id].upgrade.damageBonus,25);
+ const previous=structuredClone(card.upgrade);
+ assert.equal(upgradeTacticalCard(s,'player',unit.id,card.id,{damageBonus:-1}).ok,false);
+ assert.equal(upgradeTacticalCard(s,'player',unit.id,card.id,{damageBonus:Number.MAX_SAFE_INTEGER}).ok,false);
+ assert.deepEqual(card.upgrade,previous);
+});
+
 test('tactical views conceal the opponent deck and the future draw order',()=>{
  const s=battle();
  const view=tacticalView(s,'player');
@@ -89,14 +133,14 @@ test('tactical views conceal the opponent deck and the future draw order',()=>{
 });
 
 test('card-mode duel grants full damage on tie, crit on attack win, and cancels a protected target on defense win',()=>{
- const tied=tacticalDuelResolve('impeto','impeto',{mode:'cards'});
- const hit=tacticalDuelResolve('impeto','finta',{mode:'cards'});
- const block=tacticalDuelResolve('impeto','contencao',{mode:'cards'});
+ const tied=tacticalDuelResolve('miragem','miragem',{mode:'cards'});
+ const hit=tacticalDuelResolve('miragem','luz',{mode:'cards'});
+ const block=tacticalDuelResolve('miragem','sombra',{mode:'cards'});
  assert.equal(tied.damageRate,1);
  assert.equal(hit.damageRate,1.5);
  assert.equal(block.damageRate,0);
  assert.equal(block.outcome,'miss');
- assert.equal(tacticalDuelResolve('impeto','impeto').damageRate,.5,'legacy mode preserved');
+ assert.equal(tacticalDuelResolve('miragem','miragem').damageRate,.5,'legacy mode preserved');
 });
 
 test('campaign completion gates extra movement and reactive card variants',()=>{

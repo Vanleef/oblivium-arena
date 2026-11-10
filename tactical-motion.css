@@ -64,6 +64,10 @@
 
 /* Dense mesh-skinned idle: 48 registered frames from one identity-preserving source pose. */
 .token[data-family="idle"] .sprite-viewport{animation:none!important;transform:none}
+.token[data-family="idle"] .sprite-viewport{
+ animation:oblivium-idle-body var(--idle-cycle,1760ms) ease-in-out infinite!important;
+ animation-delay:var(--idle-delay,0ms)!important;transform-origin:50% 100%
+}
 .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){
  animation:oblivium-rig-wait 1s steps(1,end) infinite!important;
  animation-delay:0s!important;
@@ -126,6 +130,7 @@
 }
 .token.stunned .sprite-sheet[data-rig-atlas="true"]{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){
+ .token[data-family="idle"] .sprite-viewport{animation:none!important}
  .token[data-family="idle"] .sprite-sheet:not(.sprite-previous-frame){animation:none!important}
  .token[data-idle-rig="true"][data-family="idle"] .sprite-sheet[data-rig-atlas="true"]{animation:none!important;left:0%!important;top:0%!important}
 }

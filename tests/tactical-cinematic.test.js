@@ -2,6 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {tacticalCutinActive,tacticalCutinMarkup,tacticalSuperCaptionActive,tacticalSuperCaptionMarkup,tacticalProjectileKind,tacticalProjectileMarkup,tacticalPlaybackFrames,tacticalReplayFrames,tacticalHighlightEvent} from '../src/tactical-cinematic.js';
 import {tacticalFrameDuration} from '../src/tactical-animation.js';
+import {createTacticalBattle} from '../src/tactical-combat.js';
+import {resolveBoardTechnique} from '../src/combat.js';
+import {tacticalDuelResolve} from '../src/tactical-duel.js';
 const actor={id:'serpe',sourceId:'a-boca-de-vidro',name:'Sylvara',realm:'Inferno',side:'player',art:{portrait:'/portrait.webp'}};
 const ability={name:'Sibilo Cortante',target:'enemy',damage:15,damageType:'piercing'};
 const event={type:'skill',actorId:actor.id,abilityId:'voto',anchor:{x:3,y:1},before:{positions:{serpe:{x:0,y:1}}}};
@@ -140,4 +143,29 @@ test('a defensive duel victory makes the special visibly miss without a damage c
  assert.deepEqual(frames.map(f=>f.pose),['anticipate','windup','release','followthrough','recover']);
  assert.equal(frames.some(f=>f.pose==='impact'||f.pose==='counter'),false);
  assert.equal(tacticalCutinActive(miss),true,'the cast can still have its special presentation before missing');
+});
+test('a protected target does not hide an area impact on other resolved targets',()=>{
+ const partial={...event,duel:{duel:true,outcome:'miss'},
+  affectedTargetIds:['other'],targets:['protected','other']};
+ const frames=tacticalReplayFrames(actor,ability,partial);
+ assert.ok(frames.some(frame=>frame.pose==='impact'));
+ assert.equal(frames.some(frame=>frame.duelMiss),false);
+ const blocked={...partial,affectedTargetIds:[]};
+ assert.equal(tacticalReplayFrames(actor,ability,blocked).some(frame=>frame.pose==='impact'),false);
+});
+test('real board resolution keeps an unprotected target hit during a defensive duel victory',()=>{
+ const s=createTacticalBattle(['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],
+  ['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],{compact:true,fortress:true,cardMode:true,seed:17});
+ const attacker=s.allies[0],protectedUnit=s.enemies[0],other=s.enemies[1];
+ const ability=attacker.abilities.find(item=>item.id==='voto');
+ const before=JSON.parse(JSON.stringify({allies:s.allies,enemies:s.enemies,positions:s.tactical.positions}));
+ const duel=tacticalDuelResolve('miragem','sombra',{mode:'cards'});
+ const result=resolveBoardTechnique(s,{side:'player',actorId:attacker.id,abilityId:ability.id,
+  clash:{...duel,protectedTargetId:protectedUnit.id}},[protectedUnit.id,other.id]);
+ assert.equal(result.skipped,false);
+ assert.equal(protectedUnit.hp,before.enemies[0].hp);
+ assert.ok(other.hp<before.enemies[1].hp);
+ const replay={type:'skill',actorId:attacker.id,abilityId:ability.id,duel,
+  ...result,before,after:{allies:s.allies,enemies:s.enemies,positions:s.tactical.positions}};
+ assert.ok(tacticalReplayFrames(attacker,ability,replay).some(frame=>frame.pose==='impact'));
 });

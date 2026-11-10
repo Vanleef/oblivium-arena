@@ -245,7 +245,7 @@ export class TacticalEffectsLayer {
  }
 
  clear(){
-  if(this.frame)cancelAnimationFrame(this.frame);
+  if(this.frame)globalThis.cancelAnimationFrame?.(this.frame);
   this.frame=0;
   // A newly started battle must never inherit a cinematic freeze from the last one.
   this.freezeStart=0;
