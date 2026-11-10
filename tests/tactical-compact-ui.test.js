@@ -67,6 +67,19 @@ test('compact card UI switches independent hands, queues movement and keeps plan
  }finally{for(const key of names){if(saved[key]===undefined)delete globalThis[key];else globalThis[key]=saved[key];}}
 });
 
+test('campaign victories open the player deck editor before the next compact encounter',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../src/compact-demo.js',import.meta.url),'utf8');
+ const styles=await readFile(new URL('../compact-card-ui.css',import.meta.url),'utf8');
+ assert.match(source,/data-campaign-decks>Ajustar os três baralhos para a próxima batalha/);
+ assert.match(source,/if\('campaignDecks'in d\)[\s\S]*?setup\.open=true;editor\.open=true/);
+ assert.match(source,/state\.run\.cardDecks=readCardBuilds\(\);start\(select\('player'\),select\('enemy'\)/);
+ assert.match(source,/config\.decks\|\|state\.run\.cardDecks/);
+ assert.match(source,/const deckEditor=state\.battle\.allies\.map/,'only the player’s three independent decks are editable');
+ assert.match(styles,/\.compact-campaign-deck-link\{/);
+ assert.match(styles,/\.compact-deck-editor\[open\]/);
+});
+
 // CSS layout is part of this regression: the command panel replaces, rather than stacks over, the arena.
 test('compact action panel lives in the old left sidebar while the 6x6 board stays in the larger right column',async()=>{
  const {readFile}=await import('node:fs/promises');

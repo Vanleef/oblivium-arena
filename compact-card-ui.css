@@ -96,3 +96,16 @@
 .combat-shell.compact-battle .compact-stage,.online-combat,.online-replay{
  background-image:linear-gradient(180deg,#100d1b18 0%,#0e0b1740 58%,#171421c9 76%,#171421 86%),var(--arena-ground-image)!important;
 }
+.combat-shell.compact-battle .compact-campaign-deck-link{
+ display:block;width:min(100%,520px);margin:12px auto 4px;padding:11px 16px;
+ border:1px solid #c5a878;border-radius:9px;color:#f5e6c9;
+ background:linear-gradient(135deg,#453345,#211a29);font:600 13px/1.35 system-ui;
+ box-shadow:0 4px 14px #0005;cursor:pointer;
+}
+.combat-shell.compact-battle .compact-campaign-deck-link:hover,
+.combat-shell.compact-battle .compact-campaign-deck-link:focus-visible{
+ border-color:#f1d496;box-shadow:0 0 0 2px #dfbf8555,0 6px 18px #0007;outline:none;
+}
+.combat-shell.compact-battle .compact-deck-editor[open]{
+ border-color:#b99b6b;box-shadow:0 0 0 1px #b99b6b44,0 8px 22px #0005;
+}

@@ -17,6 +17,8 @@ Protótipo conectado à arena compacta **6×6, 3v3, planejamento simultâneo con
 
 A montagem dos decks abre em **Nova formação → Equipar os três baralhos** e é salva no armazenamento local. As opções adicionais aparecem quando a campanha registra Reinos concluídos:
 
+Depois de vencer um encontro, a tela de rota também oferece **Ajustar os três baralhos para a próxima batalha**. O atalho abre a mesma configuração individual dos três personagens do jogador; as mudanças são salvas localmente e passam a valer no confronto seguinte. O editor não altera a mão nem o plano do encontro já encerrado. A equipe adversária continua com três decks próprios usados pela IA; o PvP não mostra nem permite editar decks do rival.
+
 | Reinos concluídos | Carta | Tipo | Efeito |
 | --- | --- | --- | --- |
 | 0 | Passo Longo | Mobilidade | Desloca até 2 casas |

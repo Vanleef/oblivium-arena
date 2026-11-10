@@ -237,7 +237,9 @@ function clashMarkup(){
 function render(){
  const s=displayed(),future=planned(),finished=state.battle.tactical.stage==='finished',rule=s.tactical.environment;
  const actorEvent=units(s).find(u=>u.id===state.event?.actorId),ability=actorEvent?.abilities.find(a=>a.id===state.event?.abilityId);
- const result=finished&&!state.busy?'<section class="compact-result"><h2>'+({victory:'Vitória',defeat:'Derrota',draw:'Empate'}[state.battle.phase]||'Confronto encerrado')+'</h2>'+(state.battle.phase==='victory'?state.rewards.length?'<p>Escolha uma melhoria para a próxima travessia.</p>'+state.rewards.map(r=>'<button data-trail-reward="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):tacticalRoutes.map(r=>'<button data-route="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):'<button data-restart>Nova tentativa</button>')+'</section>':'';
+ const campaignDeckAction=state.battle.phase==='victory'&&!state.rewards.length
+  ?'<button type="button" class="compact-campaign-deck-link" data-campaign-decks>Ajustar os três baralhos para a próxima batalha</button>':'';
+ const result=finished&&!state.busy?'<section class="compact-result"><h2>'+({victory:'Vitória',defeat:'Derrota',draw:'Empate'}[state.battle.phase]||'Confronto encerrado')+'</h2>'+(state.battle.phase==='victory'?state.rewards.length?'<p>Escolha uma melhoria para a próxima travessia.</p>'+state.rewards.map(r=>'<button data-trail-reward="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):tacticalRoutes.map(r=>'<button data-route="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join('')+campaignDeckAction:'<button data-restart>Nova tentativa</button>')+'</section>':'';
  const scene=combatScene(s.tactical.scene),sceneUrl=scene.art;
  const cinematicImpact=tacticalImpactProfile(state.event,{speed:state.speed,reduced:Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches)});
  const activeSpecial=state.event?.type==='skill'&&!state.event.skipped&&['voto','despertar'].includes(String(state.event.abilityId||'').split('/')[0]);
@@ -485,6 +487,11 @@ root.addEventListener('click',event=>{
  if(d.speed){state.speed=Number(d.speed);render();return;}
  if('sound'in d){setAudioEnabled(!audioEnabled());render();return;}
  if('handToggle'in d){state.handCollapsed=!state.handCollapsed;render();root.querySelector('[data-hand-toggle]')?.focus({preventScroll:true});return;}
+ if('campaignDecks'in d){
+  const setup=root.querySelector('.compact-setup'),editor=root.querySelector('.compact-deck-editor');
+  if(setup&&editor){setup.open=true;editor.open=true;const first=editor.querySelector('select[data-card-config]');first?.focus({preventScroll:true});editor.scrollIntoView({behavior:globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});}
+  return;
+ }
  if(state.busy)return;
  const pending=state.battle.tactical.pendingChestRewards[0];
  if('reward'in d){if(!pending)return;const option=pending.options.find(o=>o.id===d.reward),target=option?.effect?.type==='tactical-card-upgrade'?root.querySelector('[data-card-target]')?.value:undefined;

@@ -4,7 +4,7 @@
 
 Esta retomada parte da integração remota `37d1e5621d8a4746d61617082b3556df29a32583`, em `fix/compact-card-readability-20261110`. O checkout local anterior não estava disponível; os commits locais até `24cff0d` não foram encontrados no GitHub nem nas cópias disponíveis. O usuário autorizou prosseguir com a base remota.
 
-A continuidade visual do chão e a mão em fluxo abaixo do campo foram reconstruídas a partir do comportamento registrado no chat. Isso **não recupera integralmente** a antiga branch: o deckbuilding entre encontros, as correções de recuperação de conexão e a fila automática de replay daqueles commits ainda precisam de recuperação ou reimplementação separada. A revisão individual pública existente na integração foi mantida. Não é uma substituição do motor atual por laboratório histórico.
+A continuidade visual do chão e a mão em fluxo abaixo do campo foram reconstruídas a partir do comportamento registrado no chat. O acesso ao editor dos três baralhos na tela de vitória também foi reimplementado nesta continuação para o próximo encontro do modo compacto; ele salva localmente e não integra decks à campanha principal. Isso **não recupera integralmente** a antiga branch: as correções de recuperação de conexão e a fila automática de replay daqueles commits ainda precisam de recuperação ou reimplementação separada. A revisão individual pública existente na integração foi mantida. Não é uma substituição do motor atual por laboratório histórico.
 
 Checkout novo inicialmente limpo; sem `package-lock.json` local ou versionado. Nenhuma dependência instalada. Outros checkouts não foram alterados.
 
@@ -15,6 +15,7 @@ Checkout novo inicialmente limpo; sem `package-lock.json` local ou versionado. N
 - Descrições compartilhadas entre treino e PvP usam a técnica convertida para combate compacto, seus aprimoramentos aplicáveis e as inscrições da carta. O bônus de dano não substitui a descrição; Preservar, Exaurir, Inicial, conversão de tipo e recarga aparecem separados. A descrição normaliza plural de rodadas sem alterar valores de combate.
 - Nome e arte da técnica ativa têm prioridade sobre o nome estático da cópia da carta. Movimento, reação e Ataque Básico usam retrato do dono com símbolo de função; as habilidades mantêm suas artes existentes. Erros de carregamento têm alternativa visual sem ícone de imagem quebrada.
 - Texto com quebra de linha nas cartas; descrição completa ao selecionar. Realce de seleção/foco, estados indisponíveis desaturados e carta planejada com borda tracejada. Movimento reduzido desativa transições do novo tratamento.
+- Após escolher a recompensa do encontro, a tela de rota oferece um atalho para ajustar os três baralhos antes do próximo combate. O editor usa os mesmos desbloqueios por Reinos e persiste a escolha no armazenamento local; decks da IA continuam independentes e não são revelados no PvP.
 - Mantidos o campo 6×6, as regras de planejamento, as três mãos independentes e o protocolo privado. Não há mudança de API/servidor.
 
 ## Arquivos principais
