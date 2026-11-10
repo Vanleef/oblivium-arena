@@ -1,0 +1,21 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Projeção PvP sintética para cartas</title>
+<link rel="stylesheet" href="/tactical.css"><link rel="stylesheet" href="/tactical-motion.css"><link rel="stylesheet" href="/compact-cards.css"><link rel="stylesheet" href="/compact-online.css"><link rel="stylesheet" href="/compact-card-ui.css">
+<body><main id="tactical-app"></main><script type="module">
+// QA fixture only: no credentials, cookies, saved progression or authenticated API calls.
+import {createCompactPvpBattle,publicCompactPvpBattle,submitCompactPvpPlan} from '/server/compact-pvp.js';
+const ids=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'];
+const rivals=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'];
+const battle=createCompactPvpBattle(ids,rivals,{seed:17});let version=1;
+globalThis.fetch=async(url,options)=>{
+ if(url==='/api/account')return {ok:true,json:async()=>({user:{handle:'Projeção de QA'},profile:{ownedIds:ids}})};
+ if(url!=='/api/arena-compact')throw new Error('Esta fixture não faz chamadas externas.');
+ const payload=JSON.parse(options.body);
+ if(payload.op==='turn'){
+  const result=submitCompactPvpPlan(battle,'player',battle.round,payload.actions);
+  if(!result.ok)return {ok:false,status:400,json:async()=>({error:result.reason})};
+  submitCompactPvpPlan(battle,'enemy',battle.round,[]);version++;
+ }
+ return {ok:true,json:async()=>({profile:{name:'Projeção de QA',rating:1000},queued:false,match:{id:'fixture-cards',version,battle:publicCompactPvpBattle(battle,'player')}})};
+};
+await import('/src/compact-online.js');
+</script></body></html>

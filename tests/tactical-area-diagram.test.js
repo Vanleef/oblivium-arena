@@ -47,3 +47,11 @@ test('diagram mirrors its footprint when the character faces its own fortress',(
  assert.match(mirrored,/data-mini-pattern="cone"/);
  assert.equal((mirrored.match(/data-mini-cell="hit"/g)||[]).length,8);
 });
+
+test('mobility diagrams distinguish one, two and three steps on an unobstructed field',()=>{
+ for(const [steps,expected] of [[1,8],[2,24],[3,48]]){
+  const diagram=tacticalAreaDiagram(null,{movement:true,steps});
+  assert.equal(diagram.count,expected);
+  assert.equal(diagram.cells.filter(cell=>cell==='hit').length,expected);
+ }
+});

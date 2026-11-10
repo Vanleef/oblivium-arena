@@ -1,0 +1,17 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>QA de cartas compactas</title>
+<style>body{background:#120f1c;color:#eee;font:14px system-ui;margin:12px}header{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}select,button{padding:7px}iframe{display:block;margin:auto;border:1px solid #786782;max-width:100%}output{white-space:pre-wrap}</style>
+<header><label>Tela <select id="size"><option value="320,740">320×740</option><option value="390,844" selected>390×844</option><option value="1280,900">1280×900</option></select></label><label>Modo <select id="mode"><option value="/tactical.html">Treino</option><option value="/tests/fixtures/compact-online-cards.html">Projeção PvP sintética</option></select></label><button id="check">Verificar cartas e campo</button><output id="result" role="status"></output></header>
+<iframe src="/tactical.html" title="Arena em viewport de teste" width="390" height="844"></iframe>
+<script>
+const frame=document.querySelector('iframe'),result=document.querySelector('#result');
+document.querySelector('#size').onchange=e=>{[frame.width,frame.height]=e.target.value.split(',');result.textContent='';};
+document.querySelector('#mode').onchange=e=>{frame.src=e.target.value;result.textContent='';};
+document.querySelector('#check').onclick=()=>{
+ const d=frame.contentDocument,w=frame.contentWindow,board=d.querySelector('.compact-board,.online-board'),hand=d.querySelector('.tactical-hand-dock'),cards=[...d.querySelectorAll('.tactical-hand-cards>.compact-hand-card,.tactical-hand-cards>.online-card')];
+ if(!board||!hand||!cards.length){result.textContent='Carregando combate…';return;}
+ const b=board.getBoundingClientRect(),h=hand.getBoundingClientRect();
+ const checks={cells:board.querySelectorAll('[data-cell]').length===36,square:Math.abs(b.width-b.height)<2,noNames:board.querySelectorAll('.compact-token-label,.online-unit-name').length===0,separate:h.top>=b.bottom,noOverflow:d.documentElement.scrollWidth<=w.innerWidth+1,
+  areas:cards.every(card=>{const diagram=card.querySelector('.compact-area-mini');if(!diagram)return false;const css=w.getComputedStyle(diagram);return css.position==='absolute'&&Math.abs(parseFloat(css.left)-card.clientWidth/2)<1;})};
+ result.textContent=JSON.stringify(checks);
+};
+</script></html>

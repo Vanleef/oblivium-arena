@@ -62,3 +62,7 @@ A apresentação da mão foi verificada no treino em 320 px e desktop, e no PvP 
 Em um ensaio local isolado, duas páginas de navegador com contas distintas (uma em viewport de 390 px) entraram na mesma partida, planejaram e resolveram movimentos, retomaram a rodada após recarregar e viram resultados opostos após rendição. As páginas usaram hosts locais distintos para separar cookies, com cabeçalho de protocolo de desenvolvimento no segundo host; a automação disparou eventos de clique. Isso não valida gestos físicos, latência real, duelo especial, animações ou uma partida completa até eliminação.
 
 O recurso está em draft. A interface usa os sprites/atlas existentes, mas ainda requer integração de replay cinematográfico e validação de sessões reais em mobile/desktop antes de ser considerada pronta para produção. As variantes raras desbloqueadas por campanha ainda precisam de verificação servidor-autoritativa.
+
+## Ajustes de cartas — retomada de 10/11/2026
+
+O campo não exibe etiquetas de nomes, mas preserva a identificação nos rótulos acessíveis. A área da carta fica acoplada ao centro da borda superior. Descrições usam os valores compactos e inscrições da carta; a mão permanece abaixo do campo, com seleção, indisponibilidade e recarga visualmente distintas. A continuidade visual do chão foi reconstruída nesta branch. Veja [escopo, base recuperada, capturas e limites](COMPACT_CARD_UI_20261110.md); isso não recupera os demais commits locais indisponíveis da antiga branch.

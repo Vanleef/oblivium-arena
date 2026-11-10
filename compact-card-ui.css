@@ -1,0 +1,98 @@
+/* Current card composition, shared by the local and authenticated compact arena. */
+.combat-shell.compact-battle .tactical-hand-dock,
+.online-shell .tactical-hand-dock{
+ position:relative;left:auto;bottom:auto;transform:none;grid-column:1/-1;
+ width:100%;max-height:none;overflow:visible;margin:26px 0 0;padding:8px 0 14px;
+ background:transparent;border:0;border-radius:0;box-shadow:none;z-index:7;
+}
+.combat-shell.compact-battle:has(.tactical-hand-dock),.online-shell:has(.tactical-hand-dock){padding-bottom:20px}
+.combat-shell.compact-battle .compact-board-stack>.compact-board{width:min(100%,735px,max(330px,calc(100svh - 540px)));align-self:center}
+/* Space above every card includes its attached diagram and hover rise. */
+.tactical-hand-dock .tactical-hand-cards{padding:68px 20px 20px;overflow-x:auto;overflow-y:hidden;align-items:flex-start;scroll-padding-inline:20px}
+.combat-shell.compact-battle .tactical-hand-dock .compact-hand-card,
+.online-shell .tactical-hand-dock .online-cards .online-card{
+ position:relative;overflow:visible;display:grid;grid-template-columns:minmax(0,1fr);
+ grid-template-rows:116px 38px 76px minmax(20px,auto);align-content:start;
+ flex:0 0 166px;width:166px;min-height:270px;gap:4px;padding:5px;
+ border:1px solid #b69a7b;border-radius:12px;
+ background:linear-gradient(145deg,#54404b,#211a29 55%,#322333);
+ transform:translateY(var(--hand-drop,0px)) rotate(var(--hand-angle,0deg));
+ transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>.hand-card-art{
+ position:relative;grid-column:1;grid-row:1;width:100%;height:100%;overflow:hidden;
+ border-radius:8px 8px 3px 3px;background:#22192c;
+}
+.tactical-hand-dock .hand-card-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:filter .18s ease}
+.tactical-hand-dock .hand-card-art img[hidden]{display:none}
+.hand-card-art[data-art-missing="true"]::after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;font-size:36px;color:#e4c58c}
+.tactical-hand-dock .hand-card-kind-mark{position:absolute;right:5px;bottom:5px;display:grid;place-items:center;width:28px;height:28px;font:700 22px/1 system-ui;color:#fff2cf;background:#171020db;border:1px solid #ddc28e;border-radius:50%;text-shadow:0 1px 3px #000}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>:is(strong,b){grid-column:1;grid-row:2;font-size:12px;line-height:1.25;max-height:3em;padding:3px;text-wrap:balance}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>small{
+ grid-column:1;grid-row:3;align-self:start;-webkit-line-clamp:5;line-height:1.35;
+ font-size:11px;color:#f0e5df;padding:0 4px;max-height:6.75em;text-align:left;
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini{
+ position:absolute;left:50%;top:0;bottom:auto;right:auto;transform:translate(-50%,-74%);
+ width:54px;height:54px;grid-column:auto;grid-row:auto;z-index:4;
+ border:2px solid #c7af88;border-radius:8px;background:#1a1423;
+ box-shadow:0 3px 8px #0008,0 0 0 2px #1d1625;padding:3px;gap:1px;
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini::after{
+ content:"";position:absolute;width:14px;height:4px;left:50%;bottom:-5px;transform:translateX(-50%);background:#c7af88;border-radius:0 0 3px 3px;
+}
+.hand-card-traits{grid-column:1;grid-row:4;display:flex;flex-wrap:wrap;justify-content:center;gap:3px;padding:0 3px;font:600 9px/1.3 system-ui;color:#f5dba7}
+.hand-card-traits>span{padding:2px 4px;border:1px solid #a78c6655;border-radius:4px}
+.combat-shell.compact-battle .tactical-hand-dock .compact-hand-card:not(:disabled):is(:hover,:focus-visible),
+.combat-shell.compact-battle .tactical-hand-dock .compact-hand-card[aria-pressed="true"],
+.online-shell .tactical-hand-dock .online-card:not(:disabled):is(:hover,:focus-visible),
+.online-shell .tactical-hand-dock .online-card[aria-pressed="true"]{
+ transform:translateY(-10px) rotate(0deg);z-index:5;border-color:var(--actor-vfx-light,#efd49d);
+ box-shadow:0 9px 18px #0009,0 0 12px color-mix(in srgb,var(--actor-vfx-main,#dfb972) 35%,transparent);
+}
+.tactical-hand-dock :is(.compact-hand-card,.online-card):disabled{opacity:.74;filter:saturate(.35)}
+.tactical-hand-dock :is(.compact-hand-card,.online-card)[data-planned="true"]{border-style:dashed;filter:saturate(.5);opacity:.78}
+.tactical-hand-dock .hand-card-detail{max-height:none;overflow:visible;line-height:1.55;margin:6px auto 12px;max-width:680px;padding:8px 12px;color:#f4e8de;background:#15101cbb;border-radius:8px}
+/* The foreground remains shared with the floor; there is no board slab. */
+.combat-shell.compact-battle .compact-stage,.online-combat,.online-replay{
+ background-color:#171421;background-image:linear-gradient(180deg,#100d1b18,#0e0b1740),var(--arena-ground-image)!important;
+ background-size:100% 100%,var(--arena-ground-size)!important;background-position:0 0,var(--arena-ground-position)!important;background-origin:border-box;background-repeat:no-repeat!important;
+}
+.combat-shell.compact-battle .compact-stage>.arena-backdrop{display:none!important}
+.combat-shell.compact-battle .compact-stage::before{background:linear-gradient(#100d1b24,transparent 32%,#100d1b38)}
+.combat-shell.compact-battle .compact-board-stack>.compact-board,.online-board{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.online-combat,.online-replay{position:relative;isolation:isolate;border-radius:12px;padding:10px}
+.online-combat .online-battle-scene,.online-replay .online-battle-scene{background:transparent;border:0;border-radius:0;box-shadow:none}
+.combat-shell.compact-battle .compact-board>.cell,.online-shell .online-cell{border:1px solid #e9d9bc2b}
+.online-battle-scene{width:100%;max-width:610px;justify-self:center;box-sizing:border-box}
+.tactical-hand-header{flex-wrap:wrap}
+@media(max-width:600px){
+ .combat-shell.compact-battle .compact-board-stack>.compact-board{width:100%}
+ .combat-shell.compact-battle .arena-field{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:10px}
+ .combat-shell.compact-battle .compact-command-panel{grid-column:1;grid-row:1;width:100%}
+ .combat-shell.compact-battle .compact-board-stack{grid-column:1;grid-row:2;width:100%;padding-top:18px}
+ .combat-shell.compact-battle .tactical-hand-dock,.online-shell .tactical-hand-dock{margin-top:22px}
+ .combat-shell.compact-battle .tactical-hand-dock .compact-hand-card,.online-shell .tactical-hand-dock .online-cards .online-card{
+  flex-basis:142px;width:142px;grid-template-rows:98px 34px 74px minmax(18px,auto);min-height:244px;
+ }
+ .tactical-hand-dock :is(.compact-hand-card,.online-card)>small{font-size:10px;line-height:1.4;-webkit-line-clamp:5}
+ .tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini{width:48px;height:48px}
+ .tactical-hand-dock :is(.compact-hand-card,.online-card)>:is(strong,b){font-size:11px}
+ .tactical-hand-dock .tactical-hand-cards{padding-top:62px}
+}
+@media(prefers-reduced-motion:reduce){
+ .tactical-hand-dock :is(.compact-hand-card,.online-card),.tactical-hand-dock .hand-card-art img{transition:none!important;animation:none!important}
+ .tactical-hand-dock :is(.compact-hand-card,.online-card):is(:hover,:focus-visible,[aria-pressed="true"]){transform:rotate(0deg)!important}
+}
+.combat-shell.compact-battle:has(.tactical-hand-dock:not([hidden]) .tactical-hand-content:not([hidden])),
+.online-shell:has(.tactical-hand-dock:not([hidden]) .tactical-hand-content:not([hidden])){padding-bottom:20px}
+/* Supersede the old one-line quick-action labels inside the illustrated cards. */
+.combat-shell.compact-battle .tactical-hand-dock .compact-hand-card>small,
+.online-shell .tactical-hand-dock .online-cards .online-card>small{
+ display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;
+ white-space:normal;text-overflow:clip;overflow-wrap:anywhere;max-width:100%;
+}
+.tactical-hand-dock .hand-card-traits{white-space:normal}
+.combat-shell.compact-battle .compact-stage,.online-combat,.online-replay{
+ background-image:linear-gradient(180deg,#100d1b18 0%,#0e0b1740 58%,#171421c9 76%,#171421 86%),var(--arena-ground-image)!important;
+}

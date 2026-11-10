@@ -4,14 +4,13 @@ import {patternCells} from './tactical-board.js';
 // Reuse patternCells so diagonals, cones and area shapes mirror the actual rules.
 const size=7,center={x:3,y:3};
 const sandbox={tactical:{width:size,height:size,obstacles:[]}};
-const offsets=[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]];
 const key=point=>point.x+','+point.y;
 
-export function tacticalAreaDiagram(spec,{movement=false,facing=[1,0]}={}){
+export function tacticalAreaDiagram(spec,{movement=false,facing=[1,0],steps=1}={}){
  const direction=Array.isArray(facing)&&facing.length===2&&facing.every(Number.isInteger)
   &&(facing[0]||facing[1])?facing:[1,0];
  const cells=movement
-  ?offsets.map(([dx,dy])=>({x:center.x+dx,y:center.y+dy}))
+  ?Array.from({length:49},(_,i)=>({x:i%size,y:Math.floor(i/size)})).filter(p=>{const distance=Math.max(Math.abs(p.x-center.x),Math.abs(p.y-center.y));return distance>0&&distance<=Math.min(3,Math.max(1,steps));})
   :(spec?patternCells(
     spec.pattern,center,
     spec.pattern==='self'||spec.pattern==='ring'?center:{
@@ -30,8 +29,8 @@ export function tacticalAreaDiagram(spec,{movement=false,facing=[1,0]}={}){
  };
 }
 
-export function tacticalAreaDiagramMarkup(spec,{movement=false,facing=[1,0]}={}){
- const diagram=tacticalAreaDiagram(spec,{movement,facing});
+export function tacticalAreaDiagramMarkup(spec,{movement=false,facing=[1,0],steps=1}={}){
+ const diagram=tacticalAreaDiagram(spec,{movement,facing,steps});
  return '<span class="compact-area-mini" data-mini-pattern="'+diagram.pattern+'" aria-hidden="true">'
    +diagram.cells.map(state=>'<i data-mini-cell="'+state+'"></i>').join('')+'</span>';
 }

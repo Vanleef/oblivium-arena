@@ -29,7 +29,7 @@ test('compact PvP client routes mutations through the authenticated authoritativ
 });
 test('online interface exposes private card hands, clash controls, objectives and a responsive battlefield',async()=>{
  const app=await read('src/compact-online.js'),css=await read('compact-online.css');
- for(const part of ['online-cards','online-board','online-unit-name','online-objective','online-clash','online-reward','online-formation'])assert.match(app,new RegExp(part));
+ for(const part of ['online-cards','online-board','online-objective','online-clash','online-reward','online-formation'])assert.match(app,new RegExp(part));
  assert.match(app,/data-response/);
  assert.match(app,/data-reward/);
  assert.match(app,/class="tactical-hand-dock"/);
