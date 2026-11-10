@@ -74,7 +74,7 @@ test('campaign victories open the player deck editor before the next compact enc
  assert.match(source,/data-campaign-decks>Ajustar os três baralhos para a próxima batalha/);
  assert.match(source,/if\('campaignDecks'in d\)[\s\S]*?setup\.open=true;editor\.open=true/);
  assert.match(source,/state\.run\.cardDecks=readCardBuilds\(\);start\(select\('player'\),select\('enemy'\)/);
- assert.match(source,/config\.decks\|\|state\.run\.cardDecks/);
+ assert.match(source,/decks:config\.decks\|\|\{player:state\.run\.cardDecks\|\|\{\}\}/,'saved campaign builds belong only to the player side');
  assert.match(source,/const deckEditor=state\.battle\.allies\.map/,'only the player’s three independent decks are editable');
  assert.match(styles,/\.compact-campaign-deck-link\{/);
  assert.match(styles,/\.compact-deck-editor\[open\]/);

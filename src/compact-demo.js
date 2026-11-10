@@ -469,7 +469,7 @@ function confirm(){
 }
 function start(player=['o-acougueiro','a-viuva-escarlate','o-escudo-vivo'],enemy=['o-passo-interrompido','o-odio-encarnado','a-arquiteta-verde'],config={}){
  job++;state.revision++;state.clash?.cancel?.();state.clash=null;effects?.clear();
- try{state.battle=createTacticalBattle(player,enemy,{...config,seed:config.seed||state.seed,fortress:true,compact:true,cardMode:true,decks:config.decks||state.run.cardDecks||{},augmentProgress:state.run.augmentProgress});}catch(error){state.message=error.message;if(state.battle)render();return;}
+ try{state.battle=createTacticalBattle(player,enemy,{...config,seed:config.seed||state.seed,fortress:true,compact:true,cardMode:true,decks:config.decks||{player:state.run.cardDecks||{}},augmentProgress:state.run.augmentProgress});}catch(error){state.message=error.message;if(state.battle)render();return;}
  Object.assign(state,{actions:[],busy:false,snapshot:null,event:null,message:'',mode:'move',selectedCard:null,rewards:[],selected:state.battle.allies.find(u=>u.hp>0&&!u.stunned)?.id||state.battle.allies[0].id});render();
 }
 root.addEventListener('click',event=>{
