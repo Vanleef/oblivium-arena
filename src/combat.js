@@ -544,7 +544,8 @@ export function continueDuel(s){
 export function resolveBoardTechnique(s,action,spatialTargetIds){
  refreshSkillForms(s);
  const actor=byId(team(s,action.side),action.actorId),a=actor?.abilities.find(a=>a.id===action.abilityId);
- if(!actor||!a||actor.stunned||actor.cooldowns[a.id]||skillSealReason(actor,a))return {skipped:true,reason:!actor?'Personagem fora de combate.':actor.stunned?'Atordoado.':actor.cooldowns[a?.id]?'Técnica em recarga.':skillSealReason(actor,a)||'Técnica indisponível.'};
+ if(s.tactical?.cardMode&&actor&&a){delete actor.cooldowns[a.id];actor.cooldownFresh=actor.cooldownFresh.filter(id=>id!==a.id);}
+ if(!actor||!a||actor.stunned||(!s.tactical?.cardMode&&actor.cooldowns[a.id])||skillSealReason(actor,a))return {skipped:true,reason:!actor?'Personagem fora de combate.':actor.stunned?'Atordoado.':!s.tactical?.cardMode&&actor.cooldowns[a?.id]?'Técnica em recarga.':skillSealReason(actor,a)||'Técnica indisponível.'};
  if(action.formKey&&action.formKey!==(a.formKey||'base'))return {skipped:true,reason:'A preparação não se confirmou; forma indisponível.'};
  const timed=['stunned','weakened','sealSupport','sealAttack','healingBlock'];
  const before=new Map([...s.allies,...s.enemies].map(u=>[u.id,Object.fromEntries(timed.map(k=>[k,u[k]||0]))]));

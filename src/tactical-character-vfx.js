@@ -4,10 +4,12 @@
 export const tacticalCharacterMotifs=Object.freeze({
  'o-acougueiro':'cleaver',       // Heavy blade, tearing contact
  'a-viuva-escarlate':'crimson',  // Blood cloth/cords closing over the victim
+ 'a-praga-andante':'mire',      // Toxic spores and a heavy fungal mantle
  'o-escudo-vivo':'bastion',      // Interlocking shield slabs
  'o-passo-interrompido':'stutter',// Misaligned successive positions
  'o-odio-encarnado':'rage',      // Crushing fist and cinders
  'a-arquiteta-verde':'architect',// Load-bearing roots and living arch
+ 'a-rainha-dos-fungos':'myra',   // Crowned bloom, thick roots and amber spores
  'nilo':'memory'                // Memory knots on taut ritual thread
 });
 const slotWeight=Object.freeze({impulso:.85,tecnica:1,voto:1.15,despertar:1.3});
@@ -34,7 +36,7 @@ export function drawTacticalCharacterImpact(ctx,fx,progress){
  const motion=fx.choreography;
  if(!motion)return false;
  const {kind,weight}=motion,reaction=fx.reaction;
- if(reaction==='heal'||((reaction==='shield'||reaction==='block')&&kind!=='bastion'&&kind!=='architect'))return false;
+ if(reaction==='heal'||((reaction==='shield'||reaction==='block')&&kind!=='bastion'&&kind!=='architect'&&kind!=='mire'&&kind!=='myra'))return false;
  const p=Math.max(0,Math.min(1,progress)),fade=1-p;
  const r=fx.radius*Math.min(1.5,weight),[light,mid,dark]=fx.color;
  ctx.save();ctx.lineCap='round';ctx.lineJoin='round';
@@ -112,6 +114,41 @@ export function drawTacticalCharacterImpact(ctx,fx,progress){
   ctx.stroke();ctx.fillStyle=light;ctx.beginPath();
   ctx.ellipse(-r*.45,-r*.25*fade,r*.14,r*.07,-.5,0,Math.PI*2);
   ctx.ellipse(r*.38,-r*.14*fade,r*.16,r*.08,.5,0,Math.PI*2);ctx.fill();
+ }else if(kind==='mire'){
+  // A weighted fungal mantle opens at contact while its roots seize the ground.
+  ctx.strokeStyle=dark;ctx.lineWidth=r*.12;ctx.beginPath();
+  for(let i=-1;i<=1;i++){
+   const x=i*r*.26;ctx.moveTo(x,-r*.06);
+   ctx.bezierCurveTo(x-r*.2,r*.18,x+r*.23,r*.38,x+r*.1,r*(.72+.08*fade));
+   ctx.moveTo(x,r*.16);ctx.quadraticCurveTo(x-r*.34,r*.28,x-r*.55,r*(.42+.08*fade));
+  }
+  ctx.stroke();ctx.fillStyle=mid;ctx.beginPath();
+  ctx.moveTo(-r*.78,-r*.15);ctx.bezierCurveTo(-r*.54,-r*.74,r*.47,-r*.80,r*.82,-r*.18);
+  ctx.quadraticCurveTo(r*.16,-r*.03,-r*.78,-r*.15);ctx.fill();
+  ctx.strokeStyle=light;ctx.lineWidth=r*.045;ctx.beginPath();
+  ctx.moveTo(-r*.56,-r*.12);ctx.quadraticCurveTo(0,r*.06,r*.57,-r*.13);ctx.stroke();
+  ctx.fillStyle=light;for(let i=-1;i<=1;i++){
+   ctx.beginPath();ctx.ellipse(i*r*.34,-r*.25,r*.075,r*.055,i*.2,0,Math.PI*2);ctx.fill();
+  }
+ }else if(kind==='myra'){
+  // Myra's crown blooms in broad layered caps while roots grip the impact site.
+  ctx.strokeStyle=dark;ctx.lineWidth=r*.13;ctx.beginPath();
+  ctx.moveTo(-r*.72,r*.78);ctx.bezierCurveTo(-r*.62,r*.2,-r*.12,r*.07,-r*.04,-r*.27*fade);
+  ctx.moveTo(r*.7,r*.78);ctx.bezierCurveTo(r*.55,r*.23,r*.17,r*.1,r*.04,-r*.28*fade);
+  ctx.moveTo(0,r*.7);ctx.quadraticCurveTo(-r*.2,r*.2,0,-r*.18*fade);ctx.stroke();
+  ctx.fillStyle=mid;ctx.beginPath();ctx.moveTo(-r*.88,-r*.18);
+  ctx.bezierCurveTo(-r*.69,-r*.9*fade,r*.66,-r*.92*fade,r*.9,-r*.17);
+  ctx.quadraticCurveTo(r*.57,r*.04,r*.31,-r*.03);ctx.quadraticCurveTo(0,r*.14,-r*.31,-r*.03);
+  ctx.quadraticCurveTo(-r*.57,r*.04,-r*.88,-r*.18);ctx.fill();
+  ctx.strokeStyle=light;ctx.lineWidth=r*.045;ctx.beginPath();
+  for(let i=-2;i<=2;i++){
+   const x=i*r*.22;ctx.moveTo(x,-r*.16);ctx.quadraticCurveTo(x+r*.05,r*.08,x+r*.09,r*.22);
+  }
+  ctx.stroke();ctx.fillStyle=light;
+  for(let i=0;i<5;i++){
+   const a=(i/5)*Math.PI*1.35-Math.PI*.78,reach=r*(.48+.13*(i%2))*fade;
+   ctx.beginPath();ctx.ellipse(Math.cos(a)*reach,-r*.42+Math.sin(a)*reach*.48,r*.055,r*.09,a,0,Math.PI*2);ctx.fill();
+  }
  }else if(kind==='memory'){
   // One knotted physical thread winds around the contact point.
   ctx.strokeStyle=mid;ctx.lineWidth=r*.13;ctx.beginPath();

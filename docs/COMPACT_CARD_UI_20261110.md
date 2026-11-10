@@ -12,7 +12,7 @@ Checkout novo inicialmente limpo; sem `package-lock.json` local ou versionado. N
 
 - Removidas as etiquetas visíveis de nomes no campo, tanto no treino quanto no PvP/revisão. Nomes continuam no HUD, nos controles e nos rótulos acessíveis das casas.
 - Miniatura de área acoplada ao centro da borda superior de cada carta, com espaço reservado acima do leque. Mobilidade diferencia uma, duas e três casas; a miniatura é uma legenda de padrão em terreno livre, não uma promessa de alvos reais na resolução.
-- Descrições compartilhadas entre treino e PvP usam a técnica convertida para combate compacto, seus aprimoramentos aplicáveis e as inscrições da carta. O bônus de dano não substitui a descrição; Preservar, Exaurir, Inicial, conversão de tipo e recarga aparecem separados. A descrição normaliza plural de rodadas sem alterar valores de combate.
+- Descrições compartilhadas entre treino e PvP usam a técnica convertida para combate compacto, seus aprimoramentos aplicáveis e as inscrições da carta. O bônus de dano não substitui a descrição; Preservar, Exaurir, Inicial e conversão de tipo aparecem separados. Em modo de baralhos, habilidades não exibem nem verificam recarga individual: a carta usada vai ao descarte e volta à mão pelo ciclo de compra e reembaralhamento.
 - Nome e arte da técnica ativa têm prioridade sobre o nome estático da cópia da carta. Movimento, reação e Ataque Básico usam retrato do dono com símbolo de função; as habilidades mantêm suas artes existentes. Erros de carregamento têm alternativa visual sem ícone de imagem quebrada.
 - Texto com quebra de linha nas cartas; descrição completa ao selecionar. Realce de seleção/foco, estados indisponíveis desaturados e carta planejada com borda tracejada. Movimento reduzido desativa transições do novo tratamento.
 - Após escolher a recompensa do encontro, a tela de rota oferece um atalho para ajustar os três baralhos antes do próximo combate. O editor usa os mesmos desbloqueios por Reinos e persiste a escolha no armazenamento local; decks da IA continuam independentes e não são revelados no PvP.
@@ -49,4 +49,13 @@ As capturas são da aplicação real em desenvolvimento, com o PvP explicitament
 
 ## Limites
 
-Sem novos atlas ou artes geradas. O ajuste de efeitos visuais desta entrega refere-se à apresentação das cartas, não a novas coreografias de combate. Ainda faltam QA físico de toque, navegadores distintos e validação autenticada em duas sessões. Em telas baixas, a página continua rolável para acessar a mão inteira; as cartas não cobrem as casas. Variantes raras continuam restritas conforme a validação já existente na integração.
+Ainda faltam QA físico de toque, navegadores distintos e validação autenticada em duas sessões. Em telas baixas, a página continua rolável para acessar a mão inteira; as cartas não cobrem as casas. Variantes raras continuam restritas conforme a validação já existente na integração.
+
+## Continuação — 10/11/2026
+
+- Cartas compactadas para **150×205 px no desktop** e **124×184 px no mobile**; os diagramas de área passaram a **40 px e 36 px**. O campo permanece acima da mão e o dock continua transparente.
+- No modo de baralhos, técnicas não recebem nem verificam recarga individual. A carta usada vai ao descarte e retorna pelo ciclo de compra e reembaralhamento. Os modos táticos antigos preservam as regras legadas.
+- Conectado o atlas 6×6 da Mire, com movimento e quatro famílias de ação. Myra recebeu uma coreografia procedural própria de cogumelos em camadas, raízes e esporos, além de paleta violeta, marfim e âmbar. O atlas dela segue pendente; a imagem gerada nesta etapa tinha halos coloridos nas bordas e não foi conectada. As artes de passiva e técnicas já registradas para as cartas continuam sendo usadas.
+- Cobertura atual: **44/150 atlas base** e **187/689 técnicas/formas** com pelo menos três quadros distintos. A cobertura por personagem está em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
+- Verificação desta etapa: `npm run test:compact` **44/44**, `npm run smoke:compact` **3 combates e 220 eventos sem erros**, `npm run build` **4382 arquivos**. Na suíte completa, **564/695 passaram e 131 falharam**; os 131 títulos de falha coincidem com o checkout limpo de referência `4c0110b`.
+- A nova mão foi vista no Chrome compartilhado em desktop. Não consegui capturar um novo viewport mobile nesta sessão: o Chromium local abortou ao iniciar por restrição do ambiente. As capturas mobile acima pertencem à rodada anterior e não são uma verificação da nova dimensão de carta.

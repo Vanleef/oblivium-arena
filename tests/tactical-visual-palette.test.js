@@ -6,15 +6,18 @@ test('character-specific VFX stays distinct even among combatants sharing a king
  const butcher=tacticalActorPalette({id:'oponente-0-0',sourceId:'o-acougueiro',realm:'Inferno',color:'blood'});
  const widow=tacticalActorPalette({id:'a-viuva-escarlate',realm:'Inferno',color:'blood'});
  const architect=tacticalActorPalette({id:'a-arquiteta-verde',realm:'Paraíso',color:'creation'});
+ const myra=tacticalActorPalette({id:'a-rainha-dos-fungos',realm:'Limbo',color:'grace'});
  const shield=tacticalActorPalette({id:'o-escudo-vivo',realm:'Paraíso',color:'guard'});
  const limbo=tacticalActorPalette({id:'o-passo-interrompido',realm:'Limbo',color:'limbo'});
  assert.notDeepEqual(butcher,widow);
  assert.notDeepEqual(architect,shield);
  assert.notDeepEqual(architect,limbo);
+ assert.notDeepEqual(myra,limbo);
  assert.match(butcher[1],/^#[0-9a-f]{6}$/);
  assert.equal(architect[1],'#76be84');
  assert.equal(shield[1],'#d7b56f');
  assert.equal(limbo[1],'#a88bf0');
+ assert.equal(myra[1],'#b47caf');
 });
 test('unmapped characters retain their canonical kingdom identity without generic world colors',()=>{
  assert.deepEqual(tacticalActorPalette({id:'other-soul',realm:'Inferno',color:'rot'}),['#dce7b6','#90a765','#45513d']);

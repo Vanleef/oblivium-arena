@@ -1835,29 +1835,29 @@
     "id": "a-praga-andante",
     "name": "Mire",
     "selectable": true,
-    "baseAtlas": false,
+    "baseAtlas": true,
     "skills": [
       {
         "id": "impulso",
         "name": "Febre Andante",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
         "name": "Contágio do Caminho",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
@@ -1868,29 +1868,29 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
         "name": "Crise Pestilenta",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
         "name": "Névoa Contaminada",
         "form": "base",
-        "mappedAtlas": false,
+        "mappedAtlas": true,
         "dedicatedAtlas": false,
-        "atlasKind": "none",
+        "atlasKind": "slot",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },
@@ -1961,7 +1961,7 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
@@ -1972,7 +1972,7 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "tecnica",
@@ -1983,7 +1983,7 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
@@ -1994,7 +1994,7 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "voto",
@@ -2005,7 +2005,7 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       },
       {
         "id": "despertar",
@@ -2016,7 +2016,7 @@
         "atlasKind": "none",
         "sharedVfx": true,
         "customVfx": false,
-        "actorVfx": false
+        "actorVfx": true
       }
     ]
   },

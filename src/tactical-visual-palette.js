@@ -30,7 +30,8 @@ const IDENTITY=Object.freeze({
  'a-mao-que-toma':['#ffe0c4','#ad6c6d','#3d293f'],
  'o-estomago-sem-fundo':['#f8d7c5','#a55b65','#342c3a'],
  'o-apodrecido':['#e2ebb7','#95aa65','#43513e'],
- 'a-praga-andante':['#e0e9b8','#90a660','#46513e'],
+ 'a-praga-andante':['#f0dcf3','#a66bb1','#53253f'],
+ 'a-rainha-dos-fungos':['#fff0d7','#b47caf','#49334f'],
  'o-medico-de-vermes':['#e6d7b4','#9e9a6f','#574937'],
  'o-jardim-morto':['#d8e0ab','#849b66','#34433a'],
  'a-porta-fechada':['#e6d8e4','#9f8199','#4a3b55']

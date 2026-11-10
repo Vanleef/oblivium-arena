@@ -192,17 +192,16 @@ function handMarkup(s,side,actor){
   const traits=tacticalCardTraitsMarkup(details.traits,esc);
   if(card.kind==='reaction')return '<div class="online-card reaction" style="'+fan+'" title="'+esc(details.description)+'"><b>'+esc(details.name)+'</b>'+tacticalUtilityArtMarkup(actor,'reaction',esc)+'<small>'+esc(details.description)+'</small>'+traits+tacticalAreaDiagramMarkup({pattern:'self',range:0,length:1})+'</div>';
   const playing=pending?.cardId===card.id,ability=details.ability;
-  const enabled=card.kind==='mobility'||Boolean(ability),cooldown=actor.cooldowns?.[ability?.id]||0;
+  const enabled=card.kind==='mobility'||Boolean(ability);
   const reason=ability?(skillSealReason(actor,ability)||tacticalRequirementReason(s,actor,ability)):null;
   const spec=card.kind==='skill'&&ability?fortressTechniqueSpec(s,actor,ability):null;
   const diagram=spec?tacticalAreaDiagramMarkup(spec,{facing:unitFacing(s,actor)}):tacticalAreaDiagramMarkup(null,{movement:true,steps:tacticalMovementSteps(card)});
-  const tags=[...details.traits,cooldown?'Recarga: '+cooldown:''].filter(Boolean);
-  return '<button type="button" class="online-card" data-card-kind="'+esc(card.kind)+'" data-use-card="'+esc(card.id)+'" data-planned="'+used.has(card.id)+'" aria-pressed="'+playing+'" style="'+fan+tacticalPaletteVariables(tacticalActorPalette(actor,{realmFallback:true}))+'" title="'+esc(reason||(cooldown?'Disponível em '+cooldown+' rodada(s).':details.description))+'" '+(locked||used.has(card.id)||!enabled||cooldown||reason?'disabled':'')+'>'
-   +'<b>'+esc(details.name)+'</b>'+(card.kind==='mobility'?tacticalUtilityArtMarkup(actor,'mobility',esc):tacticalCardArtMarkup(ability,esc))+'<small>'+esc(details.description)+'</small>'+tacticalCardTraitsMarkup(tags,esc)+diagram+(spec?'<span class="hand-card-area-label">Área: '+esc(tacticalPatternLabel(spec))+'</span>':'')+'</button>';
+  return '<button type="button" class="online-card" data-card-kind="'+esc(card.kind)+'" data-use-card="'+esc(card.id)+'" data-planned="'+used.has(card.id)+'" aria-pressed="'+playing+'" style="'+fan+tacticalPaletteVariables(tacticalActorPalette(actor,{realmFallback:true}))+'" title="'+esc(reason||details.description)+'" '+(locked||used.has(card.id)||!enabled||reason?'disabled':'')+'>'
+   +'<b>'+esc(details.name)+'</b>'+(card.kind==='mobility'?tacticalUtilityArtMarkup(actor,'mobility',esc):tacticalCardArtMarkup(ability,esc))+'<small>'+esc(details.description)+'</small>'+tacticalCardTraitsMarkup(details.traits,esc)+diagram+(spec?'<span class="hand-card-area-label">Área: '+esc(tacticalPatternLabel(spec))+'</span>':'')+'</button>';
  };
  const moveUsed=state.actions.some(action=>action.actorId===actor.id&&action.type==='move'&&!action.cardId);
  const move='<button type="button" class="online-card" data-move aria-pressed="'+(pending?.mode==='move')+'" style="'+tacticalHandFanStyle(0,handSize)+'" '+(locked||moveUsed?'disabled':'')+'><b>Mover</b>'+tacticalUtilityArtMarkup(actor,'mobility',esc)+'<small>Ação permanente · 1 casa</small>'+tacticalAreaDiagramMarkup(null,{movement:true})+'</button>';
- const attack=basic?'<button type="button" class="online-card" data-basic aria-pressed="'+(pending?.mode==='skill'&&!pending.cardId&&pending.abilityId==='fortress-basic')+'" style="'+tacticalHandFanStyle(handSize-1,handSize)+'" '+(locked?'disabled':'')+'><b>Ataque básico</b>'+tacticalUtilityArtMarkup(actor,'basic',esc)+'<small>'+esc(tacticalCardPresentation(s,actor,{kind:'skill',abilityId:basic.id}).description)+' Sem recarga.</small>'+tacticalAreaDiagramMarkup(fortressTechniqueSpec(s,actor,basic),{facing:unitFacing(s,actor)})+'</button>':'';
+ const attack=basic?'<button type="button" class="online-card" data-basic aria-pressed="'+(pending?.mode==='skill'&&!pending.cardId&&pending.abilityId==='fortress-basic')+'" style="'+tacticalHandFanStyle(handSize-1,handSize)+'" '+(locked?'disabled':'')+'><b>Ataque básico</b>'+tacticalUtilityArtMarkup(actor,'basic',esc)+'<small>'+esc(tacticalCardPresentation(s,actor,{kind:'skill',abilityId:basic.id}).description)+' Ação permanente sem custo de Essência.</small>'+tacticalAreaDiagramMarkup(fortressTechniqueSpec(s,actor,basic),{facing:unitFacing(s,actor)})+'</button>':'';
  return move+cards.map(cardMarkup).join('')+attack;
 }
 function controlsMarkup(s,side){

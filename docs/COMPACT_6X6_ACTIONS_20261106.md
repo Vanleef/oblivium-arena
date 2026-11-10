@@ -6,7 +6,7 @@
 
 O campo possui 6 colunas × 6 linhas. Acima da grade há um painel **compacto e contextual**, visível também no celular:
 - Três personagens aliados com miniatura, seleção por toque e duas posições de ação cada. O jogador vê nome e ordem da técnica ou do movimento sem abrir a lista no rodapé.
-- Barra horizontal de seis escolhas: Mover, Guarda e quatro técnicas. A técnica selecionada fica destacada. Recargas e requisitos bloqueiam técnicas indisponíveis.
+- Nos modos compactos sem baralho, recargas e requisitos podem bloquear técnicas. No modo de baralhos, cada carta de técnica disponível na mão pode ser usada sem recarga individual; a carta usada segue o ciclo de descarte, compra e reembaralhamento. Requisitos e selos ainda bloqueiam a técnica.
 - Depois de escolher Mover ou uma técnica, tocar na casa-alvo registra imediatamente a ação. Guarda entra na fila com um toque. **Não há confirmação intermediária para cada destino.**
 - Toque sobre qualquer ação registrada para retirar essa ação e as ações posteriores do mesmo personagem, revalidando as restantes. Desfazer e Limpar são acessíveis junto à grade.
 - O primeiro e o segundo espaços são numerados. Ao preencher os dois espaços dos três personagens **aptos a agir**, o plano é enviado automaticamente, sem botão obrigatório embaixo da arena. O botão discreto `▶ Agora` acima da grade é opção de envio antecipado, para uma rodada com menos ações.

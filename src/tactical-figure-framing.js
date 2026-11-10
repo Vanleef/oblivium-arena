@@ -186,6 +186,12 @@ const framing=Object.freeze({
   "width": 0.6,
   "height": 0.86875
  },
+ "a-praga-andante": {
+  "scale": 1.05,
+  "center": 0.0,
+  "width": 0.87,
+  "height": 0.9
+ },
  "o-escudo-vivo": {
   "scale": 1.4957,
   "center": 0.0208,

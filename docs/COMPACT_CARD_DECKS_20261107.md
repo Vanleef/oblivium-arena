@@ -7,7 +7,7 @@ Protótipo conectado à arena compacta **6×6, 3v3, planejamento simultâneo con
 
 - **Três baralhos e três mãos independentes por equipe**. Selecionar um aliado troca a mão visível, sem alterar os outros dois baralhos.
 - Baralhos configuráveis com **8–10 cartas por personagem**; a formação inicia com oito cartas padrão: técnicas de seu kit, cópias, uma mobilidade e uma reação.
-- Compra inicial de **3 cartas** por personagem; compra de **2 cartas** no início das rodadas seguintes, com mão máxima de seis. Cartas jogadas vão ao descarte, que é reembaralhado ao esgotar o monte; cartas com **Exaurir** saem do combate e as com **Preservar** ficam na mão.
+- Compra inicial de **3 cartas** por personagem; compra de **2 cartas** no início das rodadas seguintes, com mão máxima de seis. Cartas jogadas vão ao descarte, que é reembaralhado ao esgotar o monte; cartas com **Exaurir** saem do combate e as com **Preservar** ficam na mão. Técnicas neste modo **não recebem nem verificam recarga individual**: a disponibilidade volta quando a carta retorna pelo ciclo de compra e reembaralhamento.
 - **Movimento padrão garantido**, fora do deck, uma vez por personagem por rodada, alcançando uma casa. Essa disponibilidade expira no fim da rodada e é recriada no começo da próxima. O **Ataque Básico** também fica acessível sem carta do monte e sem recarga.
 - Cartas de técnica só podem ser usadas se estiverem **na mão do personagem correto**. O planejamento continua limitado a duas ações por personagem, seis ordens por equipe. Uma mesma carta só pode ser usada uma vez em cada rodada.
 - A seleção e a validação de planos ocorrem antes da confirmação; cartas são descartadas apenas na confirmação real. Prévia e IA não consomem cartas.
@@ -47,7 +47,7 @@ Inscrições sucessivas na mesma carta somam o dano anunciado, sem um teto inter
 - Diante de uma técnica especial contestável que tenha alvo na área, o defensor pode **responder** ou **aceitar o golpe** e poupar seus recursos.
 - Se responder, as duas escolhas são secretas: **Miragem → Luz → Sombra → Miragem**. A IA define sua intenção antes da escolha humana e não lê a entrada posterior.
 - **Vitória do ataque:** acerto crítico, **150% do dano base**; **empate:** dano normal; **vitória da defesa:** anula todos os efeitos dessa habilidade **sobre o personagem protegido**. Caso uma habilidade em área atinja outros personagens, eles continuam sujeitos à técnica normalmente.
-- A habilidade consome a carta e a recarga mesmo se for bloqueada. Existe, no máximo, um confronto por habilidade, sem cadeia infinita de reações.
+- A carta é consumida e vai ao descarte mesmo se o efeito da habilidade for bloqueado. Existe, no máximo, um confronto por habilidade, sem cadeia infinita de reações.
 - No combate local atual, a IA avalia se vale a pena gastar sua resposta. **Não há comunicação PvP em tempo real** ou autoridade de servidor para escolhas secretas entre humanos.
 
 ## Código e validação

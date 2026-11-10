@@ -12,6 +12,7 @@ const expansionAtlases=Object.fromEntries([['o-falso-profeta','cassian'],['o-cor
 const pilotAtlases=Object.fromEntries(pilotAtlasEntries.map(([id,name])=>[id,Object.freeze({src:`${root}/${name}.webp`,columns:6,rows:6,cellSize:209})]));
 export const tacticalSpriteAtlases=Object.freeze({
  ...pilotAtlases,...expansionAtlases,
+ 'a-praga-andante':Object.freeze({src:'/art/animations/tactical-compact-20261110/mire.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),

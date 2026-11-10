@@ -182,6 +182,7 @@ test('a fully blocked elemental special spends its card without producing a cont
  card.upgrade.damageType='electric';
  deck.draw=deck.draw.filter(id=>id!==card.id);deck.hand=[card.id];
  const ability=actor.abilities.find(item=>item.id==='voto');
+ actor.cooldowns.voto=3;
  let chosen;
  for(const anchor of boardCells(s)){
   for(const orientation of directions){
@@ -201,5 +202,6 @@ test('a fully blocked elemental special spends its card without producing a cont
  assert.equal(event.elemental,null);
  assert.equal(event.after.surfaces['3,2'].element,'water');
  assert.ok(!deck.hand.includes(card.id));
- assert.ok(actor.cooldowns.voto>0);
+ assert.equal(actor.cooldowns.voto,undefined,'card mode ignores and clears any legacy cooldown; the spent card controls when the technique returns');
+ assert.ok(deck.discard.includes(card.id),'a blocked technique still spends its card into the discard pile');
 });

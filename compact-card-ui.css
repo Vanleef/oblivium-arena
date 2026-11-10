@@ -2,19 +2,19 @@
 .combat-shell.compact-battle .tactical-hand-dock,
 .online-shell .tactical-hand-dock{
  position:relative;left:auto;bottom:auto;transform:none;grid-column:1/-1;
- width:100%;max-height:none;overflow:visible;margin:26px 0 0;padding:8px 0 14px;
+ width:100%;max-height:none;overflow:visible;margin:20px 0 0;padding:6px 0 12px;
  background:transparent;border:0;border-radius:0;box-shadow:none;z-index:7;
 }
 .combat-shell.compact-battle:has(.tactical-hand-dock),.online-shell:has(.tactical-hand-dock){padding-bottom:20px}
 .combat-shell.compact-battle .compact-board-stack>.compact-board{width:min(100%,735px,max(330px,calc(100svh - 540px)));align-self:center}
 /* Space above every card includes its attached diagram and hover rise. */
-.tactical-hand-dock .tactical-hand-cards{padding:68px 20px 20px;overflow-x:auto;overflow-y:hidden;align-items:flex-start;scroll-padding-inline:20px}
+.tactical-hand-dock .tactical-hand-cards{padding:50px 20px 16px;overflow-x:auto;overflow-y:hidden;align-items:flex-start;scroll-padding-inline:20px}
 .combat-shell.compact-battle .tactical-hand-dock .compact-hand-card,
 .online-shell .tactical-hand-dock .online-cards .online-card{
  position:relative;overflow:visible;display:grid;grid-template-columns:minmax(0,1fr);
- grid-template-rows:116px 38px 76px minmax(20px,auto);align-content:start;
- flex:0 0 166px;width:166px;min-height:270px;gap:4px;padding:5px;
- border:1px solid #b69a7b;border-radius:12px;
+ grid-template-rows:90px 32px 54px minmax(14px,auto);align-content:start;
+ flex:0 0 150px;width:150px;min-height:205px;gap:3px;padding:5px;
+ border:1px solid #b69a7b;border-radius:11px;
  background:linear-gradient(145deg,#54404b,#211a29 55%,#322333);
  transform:translateY(var(--hand-drop,0px)) rotate(var(--hand-angle,0deg));
  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
@@ -34,8 +34,8 @@
 }
 .tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini{
  position:absolute;left:50%;top:0;bottom:auto;right:auto;transform:translate(-50%,-74%);
- width:54px;height:54px;grid-column:auto;grid-row:auto;z-index:4;
- border:2px solid #c7af88;border-radius:8px;background:#1a1423;
+ width:40px;height:40px;grid-column:auto;grid-row:auto;z-index:4;
+ border:1px solid #c7af88;border-radius:7px;background:#1a1423;
  box-shadow:0 3px 8px #0008,0 0 0 2px #1d1625;padding:3px;gap:1px;
 }
 .tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini::after{
@@ -71,14 +71,14 @@
  .combat-shell.compact-battle .arena-field{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:10px}
  .combat-shell.compact-battle .compact-command-panel{grid-column:1;grid-row:1;width:100%}
  .combat-shell.compact-battle .compact-board-stack{grid-column:1;grid-row:2;width:100%;padding-top:18px}
- .combat-shell.compact-battle .tactical-hand-dock,.online-shell .tactical-hand-dock{margin-top:22px}
+ .combat-shell.compact-battle .tactical-hand-dock,.online-shell .tactical-hand-dock{margin-top:16px}
  .combat-shell.compact-battle .tactical-hand-dock .compact-hand-card,.online-shell .tactical-hand-dock .online-cards .online-card{
-  flex-basis:142px;width:142px;grid-template-rows:98px 34px 74px minmax(18px,auto);min-height:244px;
+  flex-basis:124px;width:124px;grid-template-rows:76px 30px 50px minmax(14px,auto);min-height:184px;gap:3px;padding:4px;border-radius:10px;
  }
  .tactical-hand-dock :is(.compact-hand-card,.online-card)>small{font-size:10px;line-height:1.4;-webkit-line-clamp:5}
- .tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini{width:48px;height:48px}
+ .tactical-hand-dock :is(.compact-hand-card,.online-card)>.compact-area-mini{width:36px;height:36px}
  .tactical-hand-dock :is(.compact-hand-card,.online-card)>:is(strong,b){font-size:11px}
- .tactical-hand-dock .tactical-hand-cards{padding-top:62px}
+ .tactical-hand-dock .tactical-hand-cards{padding:44px 12px 14px;scroll-padding-inline:12px}
 }
 @media(prefers-reduced-motion:reduce){
  .tactical-hand-dock :is(.compact-hand-card,.online-card),.tactical-hand-dock .hand-card-art img{transition:none!important;animation:none!important}

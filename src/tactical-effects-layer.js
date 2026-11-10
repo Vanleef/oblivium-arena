@@ -19,6 +19,7 @@ const palettes={
  ration:['#ffe0a0','#b95b37','#452a28'],
  contract:['#f5d3a0','#c0423d','#38242f'],
  parasite:['#e4d5a1','#a37758','#47252f'],
+ spore:['#f0dcf3','#a66bb1','#53253f'],
  root:['#dbbf87','#976443','#3d3029'],
  threshold:['#e4c0aa','#a54a44','#35252d'],
  support:['#efffdb','#72e8a5','#28746b'],
@@ -44,7 +45,7 @@ const material={
 };
 export const tacticalEffectSignatures=Object.freeze({'o-falso-profeta':'ritual','o-corretor-de-memorias':'memory','o-incendiario':'cinder','a-brasa-eterna':'cinder','o-filho-da-cinza':'cinder','a-pira-errante':'cinder','o-coracao-em-furia':'pulse','o-devorador':'jaw','a-mao-que-toma':'relic','o-estomago-sem-fundo':'hunger',
  'a-senhora-do-ultimo-pao':'ration','o-credor':'contract','a-balanca-vazia':'contract','o-apodrecido':'rot',
- 'o-corrupto':'contract','o-medico-de-vermes':'parasite','o-jardim-morto':'root','a-porta-fechada':'threshold'});
+ 'a-praga-andante':'spore','a-rainha-dos-fungos':'spore','o-corrupto':'contract','o-medico-de-vermes':'parasite','o-jardim-morto':'root','a-porta-fechada':'threshold'});
 const signatures=tacticalEffectSignatures;
 const shields=new Set(['guard','counter','support']);
 const control=new Set(['bind','affliction']);
@@ -350,6 +351,7 @@ export function tacticalImpactMaterial(fx){
  if(motif==='crimson'||motif==='cleaver')return 'blood';
  if(motif==='bastion')return 'stone';
  if(motif==='architect')return 'root';
+ if(motif==='mire')return 'spore';
  if(motif==='rage')return 'ember';
  if(motif==='memory')return 'thread';
  if(motif==='stutter')return 'void';
@@ -374,6 +376,9 @@ function drawMaterialChip(ctx,material,size,seed){
   ctx.moveTo(-size*.25,size*.7);ctx.lineTo(0,-size*.7);
   ctx.lineTo(size*.18,0);ctx.lineTo(size*.65,-size*.2);
   ctx.lineTo(size*.07,size*.23);ctx.closePath();
+ }else if(material==='spore'){
+  ctx.ellipse(0,-size*.18,size*.68,size*.34,seed*.15,Math.PI,Math.PI*2);
+  ctx.rect(-size*.12,-size*.2,size*.24,size*.64);
  }else if(material==='stone'){
   ctx.moveTo(-size*.87,-size*.4);ctx.lineTo(-size*.15,-size*.86);
   ctx.lineTo(size*.81,-size*.26);ctx.lineTo(size*.41,size*.76);
@@ -659,6 +664,10 @@ function drawEffect(ctx,fx,t){
    }else if(fx.signature==='parasite'){
     ctx.strokeStyle=i%2?mid:light;ctx.lineWidth=r*.07;ctx.lineCap='round';
     ctx.beginPath();ctx.moveTo(-r*.15,r*.08);ctx.bezierCurveTo(-r*.18,-r*.17,r*.14,r*.16,r*.12,-r*.10);ctx.stroke();
+   }else if(fx.signature==='spore'){
+    ctx.fillStyle=i%3===0?light:mid;ctx.beginPath();
+    ctx.ellipse(0,-r*.03,r*.14,r*.085,a*.16,Math.PI,Math.PI*2);ctx.fill();
+    ctx.fillStyle=dark;ctx.fillRect(-r*.035,r*.025,r*.07,r*.12);
    }else if(fx.signature==='root'){
     ctx.strokeStyle=i%2?mid:dark;ctx.lineWidth=r*.065;
     ctx.beginPath();ctx.moveTo(0,r*.20);ctx.lineTo(-r*.03,0);ctx.lineTo(r*.05,-r*.19);ctx.moveTo(-r*.03,0);ctx.lineTo(-r*.17,-r*.12);ctx.moveTo(r*.02,-r*.10);ctx.lineTo(r*.17,-r*.15);ctx.stroke();

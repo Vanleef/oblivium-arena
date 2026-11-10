@@ -17,7 +17,7 @@ export function compactExposurePenalty(s,unit,opposition){
   if(!position)return 0;
   const gap=distance(origin,position,s);
   if(gap>2)return 0;
-  const damage=Math.max(0,...enemy.abilities.filter(a=>!['self','ally','friendly','team'].includes(a.target)&&!(enemy.cooldowns?.[a.id]||0))
+  const damage=Math.max(0,...enemy.abilities.filter(a=>!['self','ally','friendly','team'].includes(a.target)&&(s.tactical.cardMode||!(enemy.cooldowns?.[a.id]||0)))
    .map(a=>Math.max(0,conquestTechnique(a).damage||0)));
   return Math.min(40,damage)*(gap===1?1:.75);
  }).filter(Boolean).sort((a,b)=>b-a);
@@ -53,7 +53,7 @@ function candidates(s,side,used,actorId){
   // Compact mode has no Guard action: defensive play uses movement and character techniques.
   if(!actorId)for(const to of boardCells(s)){const path=findPath(s,u.id,to);if(path)result.push({type:'move',actorId:u.id,path});if(s.tactical.cardMode)for(const card of tacticalHand(s,side,u.id).filter(c=>c.kind==='mobility')){const fast=findPath(s,u.id,to,tacticalMovementSteps(card));if(fast)result.push({type:'move',actorId:u.id,path:fast,cardId:card.id});}}
   for(const a of u.abilities){
-   if(u.cooldowns[a.id])continue;
+   if(!s.tactical.cardMode&&u.cooldowns[a.id])continue;
    const cards=s.tactical.cardMode&&a.id!=='fortress-basic'?tacticalHand(s,side,u.id).filter(card=>card.kind==='skill'&&card.abilityId===a.id):[null];
    if(!cards.length)continue;
    const spec=tacticalSpec(u,a),origin=s.tactical.positions[u.id];
@@ -98,7 +98,7 @@ export function planTacticalAIActivation(s,side='enemy'){
      const objectiveValue=goal?(distance(start,goal,view)-distance(to,goal,view))*8+(distance(to,goal,view)===0?30:0):0;
      const value=objectiveValue+(Math.abs(start.x-objective)-Math.abs(to.x-objective))*5+(to.x===objective?18:0)
        +(preview.aim?.targets?.length||0)*((ability.damage||0)*.5+(ability.stun?11:0)+(ability.heal?4:0))
-       +(!unit.cooldowns[ability.id]?1:0)-Math.abs(to.y-start.y)*.2;
+       +(s.tactical.cardMode||!unit.cooldowns[ability.id]?1:0)-Math.abs(to.y-start.y)*.2;
      if(!best||value>best.value)best={actorId:unit.id,actions,value};
     }
    }

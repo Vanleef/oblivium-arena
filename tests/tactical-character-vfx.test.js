@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import {tacticalCharacterMotifs,tacticalCharacterChoreography,drawTacticalCharacterImpact} from '../src/tactical-character-vfx.js';
 
 const kinds=Object.values(tacticalCharacterMotifs);
-test('seven combatants have distinct procedural physical motifs and all four technique slots',()=>{
- assert.equal(new Set(kinds).size,7);
+test('nine combatants have distinct procedural physical motifs and all four technique slots',()=>{
+ assert.equal(new Set(kinds).size,9);
  assert.deepEqual(Object.keys(tacticalCharacterMotifs).sort(),[
-  'a-arquiteta-verde','a-viuva-escarlate','nilo','o-acougueiro',
+  'a-arquiteta-verde','a-praga-andante','a-rainha-dos-fungos','a-viuva-escarlate','nilo','o-acougueiro',
   'o-escudo-vivo','o-odio-encarnado','o-passo-interrompido'
  ].sort());
  for(const [id,kind] of Object.entries(tacticalCharacterMotifs)){

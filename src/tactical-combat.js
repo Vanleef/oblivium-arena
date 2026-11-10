@@ -373,7 +373,7 @@ function execute(s,ref,{projection=false}={}){
  const card=ref.cardId?tacticalCard(s,ref.side,actor.id,ref.cardId):null;
  const infused=card?.upgrade?.damageType;
  const element=s.tactical.fortress?(['fire','water','air','electric'].includes(infused)?infused:techniqueElement(actor,ability)):null;
- const result=resolveBoardTechnique(s,{...ref,element,...(s.tactical.compact?{fortressCooldown:fortressCooldown(ability)}:{}),targetId:ids[0]||null},ids);
+ const result=resolveBoardTechnique(s,{...ref,element,...(s.tactical.compact&&!s.tactical.cardMode?{fortressCooldown:fortressCooldown(ability)}:{}),targetId:ids[0]||null},ids);
  const elemental=element&&!result.skipped&&(result.combo?.outcome!=='miss'||result.affectedTargetIds?.length)
   ?applyElementalArea(s,element,cells,tacticalUnits(s).filter(u=>result.affectedTargetIds?.includes(u.id))):null;
  const displacements=!result.skipped?displaceTargets(s,actor,result.affectedTargetIds||[],spec.displacement):[];
@@ -425,7 +425,7 @@ export function previewTacticalPlan(s,side,actions,selected){
  for(const ref of refs){
   if(ref.type==='skill'){
    refreshSkillForms(projection);const actor=actorFor(projection,side,ref.actorId),ability=actor?.abilities.find(a=>a.id===ref.abilityId);
-   if(!actor||!ability||actor.cooldowns[ability.id]||skillSealReason(actor,ability))return fail('Técnica em recarga ou selada.');
+   if(!actor||!ability||(!s.tactical.cardMode&&actor.cooldowns[ability.id])||skillSealReason(actor,ability))return fail(s.tactical.cardMode?'Técnica selada.':'Técnica em recarga ou selada.');
    if((ability.formKey||'base')!==ref.formKey)return fail('A preparação necessária não está na fila.');
    const cost=s.tactical.compact?{}:getAbilityResourceCosts(actor,ability);costs.push({ref,cost});
    for(const id of resourceIds)projection[poolKey(side)][id]=10000;
@@ -538,7 +538,7 @@ function compactRoundSession(s,cursor,initialEvents){
   const anchor=ability&&origin&&actionSpec(s,actor,ability).range===0?origin:ref.anchor;
   const targets=ability&&anchor?tacticalTargets(s,actor,ability,anchor,ref.orientation):[];
   return {...ref,anchor,actor:actor||null,ability:ability||null,targets,
-   comboEligible:tacticalComboEligible(actor,ability,targets)&&!actor.cooldowns?.[ability.id]&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(s,actor,ability)
+   comboEligible:tacticalComboEligible(actor,ability,targets)&&(s.tactical.cardMode||!actor.cooldowns?.[ability.id])&&!skillSealReason(actor,ability)&&!tacticalRequirementReason(s,actor,ability)
      &&(!s.tactical.cardMode||tacticalResponseOptions(s,otherSide(ref.side),targets[0]).available),
    ...(s.tactical.cardMode?{responseSide:otherSide(ref.side),responseOptions:tacticalResponseOptions(s,otherSide(ref.side),targets[0])}:{})};
  };
@@ -727,7 +727,7 @@ function finishTacticalRound(s){
   boardOutcome(s);
  }
  if(s.tactical.stage!=='finished'){
-  const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:s.tactical.fortress?'Efeitos e recargas':'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
+  const endingRound=s.round,before=replayState(s),augmentNotes=['player','enemy'].flatMap(side=>{const actor=livingTeam(s,side)[0];return actor?triggerTacticalAugments(s,side,actor,'round-end'):[];}),result=finishBoardRound(s);stamp(s,{augmentNotes,round:endingRound,type:'effects',title:s.tactical.cardMode?'Efeitos, recuperação e ciclo dos decks':s.tactical.fortress?'Efeitos e recargas':'Efeitos, recuperação e geração de Essência',before,after:replayState(s),reactions:result.reactions||[],recoveries:result.recoveries||[]});
   if(result.done)s.tactical.stage='finished';else {s.tactical.stage='planning';s.phase='tactical-planning';if(s.tactical.activation)resetTacticalActivation(s);if(s.tactical.fortress){
    if(!s.tactical.compact)closeFortressBoard(s,endingRound);
    pruneSurfaces(s);
