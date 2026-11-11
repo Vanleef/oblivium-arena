@@ -1,8 +1,8 @@
 # Cobertura de animações táticas
 
-45/150 entradas com atlas base conectado. 193/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
+47/150 entradas com atlas base conectado. 203/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
-Atlas específicos de habilidade conectados: 14. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
+Atlas específicos de habilidade conectados: 16. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ Atlas específicos de habilidade conectados: 14. Os demais recortes mapeados usa
 | Myra (a-rainha-dos-fungos) | Sim | Sim | 6/6 |
 | Bram (o-medico-de-vermes) | Sim | Sim | 4/4 |
 | Thorn (o-jardim-morto) | Sim | Sim | 4/4 |
-| Elias (o-que-observou) | Pendente | Sim | 0/5 |
+| Elias (o-que-observou) | Sim | Sim | 5/5 |
 | Mira (a-porta-fechada) | Sim | Sim | 4/4 |
-| Voss (o-surdo) | Pendente | Sim | 0/5 |
+| Voss (o-surdo) | Sim | Sim | 5/5 |
 | Iris (a-testemunha-cega) | Pendente | Sim | 0/4 |
 | Hollow (o-quarto-vazio) | Pendente | Sim | 0/4 |
 | Reed (o-vigia-ausente) | Pendente | Sim | 0/5 |
