@@ -1,6 +1,6 @@
 # Cobertura de animações táticas
 
-50/150 entradas com atlas base conectado. 216/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
+51/150 entradas com atlas base conectado. 220/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
 Atlas específicos de habilidade conectados: 17. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
@@ -48,7 +48,7 @@ Atlas específicos de habilidade conectados: 17. Os demais recortes mapeados usa
 | Iris (a-testemunha-cega) | Sim | Sim | 4/4 |
 | Hollow (o-quarto-vazio) | Sim | Sim | 4/4 |
 | Efialtes / O Desertor (o-vigia-ausente) | Sim | Sim | 5/5 |
-| Maren (o-que-possui) | Pendente | Sim | 0/4 |
+| Andriscus / O Usurpador (o-que-possui) | Sim | Sim | 4/4 |
 | Quill (a-pele-alheia) | Pendente | Sim | 0/10 |
 | Desire (o-desejo-quebrado) | Pendente | Sim | 0/4 |
 | Liora (a-marionetista-de-nervos) | Pendente | Sim | 0/5 |

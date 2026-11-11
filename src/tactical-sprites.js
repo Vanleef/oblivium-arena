@@ -19,6 +19,7 @@ export const tacticalSpriteAtlases=Object.freeze({
  'a-testemunha-cega':Object.freeze({src:'/art/animations/tactical-compact-20261110/iris.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-quarto-vazio':Object.freeze({src:'/art/animations/tactical-compact-20261110/hollow.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-vigia-ausente':Object.freeze({src:'/art/animations/tactical-compact-20261110/reed.webp',columns:6,rows:6,cellSize:209,phased:true}),
+ 'o-que-possui':Object.freeze({src:'/art/animations/tactical-compact-20261110/maren.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),
