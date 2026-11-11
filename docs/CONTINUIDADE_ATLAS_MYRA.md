@@ -6,7 +6,7 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 
 - Repositório: `Vanleef/oblivium-arena`
 - Branch: `fix/compact-card-readability-20261110`
-- Último checkpoint de código conferido: `522f7cdcc13e20f56273156bb383d53659228fec`
+- Integração iniciada no checkpoint `becd3465e69c6bc4379c2c981f3371eed5d63905`
 - Não alterar `main`.
 
 ## Estado
@@ -15,14 +15,13 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 - Retrato, passiva, quatro artes de habilidade, paleta e VFX já estão registrados.
 - O atlas de Mire/`a-praga-andante` é separado e não deve ser reutilizado.
 - Myra segue em 0/6 animações de atlas; a cobertura registrada é 44/150.
-- A folha da Biblioteca `Rainha fúngica em 36 poses.png` tem grade 6×6 (1254×1254), mas não serve como atlas de runtime: há muito ruído de baixa opacidade, franjas vermelhas/amarelas e raízes invadindo células vizinhas. Uma edição guiada em 11/11 também manteve halo vermelho. Manter como referência visual; não integrar. Myra segue 0/6 e nenhum arquivo do jogo foi alterado.
+- Atlas Myra integrado em `art/animations/tactical-compact-20261110/myra.webp`, registrado apenas em `a-rainha-dos-fungos`. Mire segue separado em `mire.webp`. A folha mantém algumas franjas coloridas e raízes que cruzam quadros; refinar isso em passagem visual posterior sem desfazer a integração. Myra está em 6/6; cobertura global 45/150.
 
 ## Próximos passos
 
-1. Produzir atlas 6×6 transparente, com bordas limpas e seis linhas: idle, movimento, impulso, técnica Bloom, voto Cloud e despertar.
-2. Preservar a personagem: mulher adulta, pele lavanda, cabelo preto curto, vestido marfim, manto de cogumelos violeta e cajado de raiz com âmbar. Poderes físicos de raízes, fungos e esporos; anatomia e silhueta legíveis; sem halo, tecnologia, pose para câmera ou olhar para câmera.
-3. Só então conectar o arquivo a `a-rainha-dos-fungos`, mantendo Mire intacta; atualizar auditoria e testes existentes. A contagem passa de 44 para 45 quando o atlas for integrado.
-4. Validar build e animação em campo compacto antes de publicar o branch.
+1. Próximo atlas pendente na ordem do elenco: Elias (`o-que-observou`); localizar as artes do kit e seguir o mesmo mapeamento 6×6.
+2. Continuar personagem a personagem sem aguardar aprovação entre kits, mantendo a direção de arte e sem reutilizar atlas de outro personagem.
+3. Refinar transparência e efeitos que cruzam células na folha da Myra durante a rodada visual seguinte.
 
 ## Limite de chat e continuidade
 
