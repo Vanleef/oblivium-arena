@@ -1,8 +1,8 @@
 # Cobertura de animações táticas
 
-55/150 entradas com atlas base conectado. 243/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
+56/150 entradas com atlas base conectado. 248/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
-Atlas específicos de habilidade conectados: 24. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
+Atlas específicos de habilidade conectados: 25. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
 | Personagem | Atlas base | Selecionável no piloto | Recortes mapeados |
 | --- | --- | --- | --- |
@@ -53,7 +53,7 @@ Atlas específicos de habilidade conectados: 24. Os demais recortes mapeados usa
 | Desire / Tarquínio, O Profanador (o-desejo-quebrado) | Sim | Sim | 4/4 |
 | Liora (a-marionetista-de-nervos) | Sim | Sim | 5/5 |
 | Echo / O Simulacro (o-espelho-carnal) | Sim | Sim | 4/4 |
-| Sable (a-costureira) | Pendente | Sim | 0/5 |
+| Sable / A Suturadora (a-costureira) | Sim | Sim | 5/5 |
 | Noctis (o-que-apaga) | Pendente | Sim | 0/5 |
 | Vespera (a-ausencia) | Pendente | Sim | 0/4 |
 | Erebus (o-fim-silencioso) | Pendente | Sim | 0/5 |

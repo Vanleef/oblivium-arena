@@ -6,8 +6,8 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 
 - Repositório: `Vanleef/oblivium-arena`
 - Branch: `fix/compact-card-readability-20261110`
-- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa Desire/Tarquínio, O Profanador Liora/A Marionetista e Echo/O Simulacro.
-- Base deste checkpoint: `2fb08c1dce2f18c422d1feb167da1e3cccd42e0f`. Não alterar `main`.
+- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa Desire/Tarquínio, O Profanador Liora/A Marionetista Echo/O Simulacro e Sable/A Suturadora.
+- Base deste checkpoint: `839cca818e8f5db54b975aaf2ac46f6fcf511a47`. Não alterar `main`.
 
 ## Estado
 
@@ -17,11 +17,12 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 - Desire tem atlas 6×6 próprio no combate: repouso, movimento e os quatro slots de ação, com efeitos compactos sem alvos duplicados.
 - Liora tem atlas 6×7; a técnica especial `hold` usa a sétima linha dedicada.
 - Echo usa atlas 6×6 para repouso, movimento e quatro ações, com efeitos de espelho carnal presos ao próprio corpo.
-- Cobertura: 55/150 atlas base e 243/689 técnicas/formas; há 24 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
+- Sable tem atlas 6×7; a forma especial `tecnica:remove` usa a sétima linha para Reforçar os Pontos.
+- Cobertura: 56/150 atlas base e 248/689 técnicas/formas; há 25 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
 
 ## Próximos passos
 
-1. Próximo atlas pendente: Sable (`a-costureira`).
+1. Próximo atlas pendente: Noctis (`o-que-apaga`).
 2. Continue pelo elenco sem aguardar aprovação entre kits: localizar as artes atuais, gerar atlases de forma/kit necessários e ligar tudo ao combate.
 3. Preserve IDs canônicos, anatomia coerente e a direção de arte pictórica 2.5D do projeto.
 
