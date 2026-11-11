@@ -15,7 +15,7 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 - Retrato, passiva, quatro artes de habilidade, paleta e VFX já estão registrados.
 - O atlas de Mire/`a-praga-andante` é separado e não deve ser reutilizado.
 - Myra segue em 0/6 animações de atlas; a cobertura registrada é 44/150.
-- A folha da Biblioteca `Rainha fúngica em 36 poses.png` tem grade 6×6 (1254×1254), mas não serve como atlas de runtime: há muito ruído de baixa opacidade, franjas vermelhas/amarelas e raízes invadindo células vizinhas. Manter como referência visual; não integrar. Myra segue 0/6 e nenhum arquivo do jogo foi alterado.
+- A folha da Biblioteca `Rainha fúngica em 36 poses.png` tem grade 6×6 (1254×1254), mas não serve como atlas de runtime: há muito ruído de baixa opacidade, franjas vermelhas/amarelas e raízes invadindo células vizinhas. Uma edição guiada em 11/11 também manteve halo vermelho. Manter como referência visual; não integrar. Myra segue 0/6 e nenhum arquivo do jogo foi alterado.
 
 ## Próximos passos
 
