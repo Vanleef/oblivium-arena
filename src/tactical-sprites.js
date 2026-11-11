@@ -20,6 +20,7 @@ export const tacticalSpriteAtlases=Object.freeze({
  'o-quarto-vazio':Object.freeze({src:'/art/animations/tactical-compact-20261110/hollow.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-vigia-ausente':Object.freeze({src:'/art/animations/tactical-compact-20261110/reed.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-que-possui':Object.freeze({src:'/art/animations/tactical-compact-20261110/maren.webp',columns:6,rows:6,cellSize:209,phased:true}),
+ 'a-pele-alheia':Object.freeze({src:'/art/animations/tactical-compact-20261110/quill.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),
@@ -32,6 +33,24 @@ export const tacticalSpriteAtlases=Object.freeze({
  'a-boca-de-vidro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sylvara-v1.webp',columns:6,rows:6,cellSize:209,idleAnimated:true}),
  'o-sussurro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/vesper.webp',columns:6,rows:6,cellSize:209})
 });
+export const tacticalBodyFormAtlases=Object.freeze({
+ 'a-pele-alheia':Object.freeze({
+  skin:Object.freeze({src:'/art/animations/tactical-compact-20261110/quill-skin.webp',columns:6,rows:6,cellSize:209,phased:true}),
+  shell:Object.freeze({src:'/art/animations/tactical-compact-20261110/quill-shell.webp',columns:6,rows:6,cellSize:209,phased:true})
+ })
+});
+function tacticalBodyFormFor(unit,event,id){
+ const available=tacticalBodyFormAtlases[id];
+ if(!available)return 'base';
+ if(available[event?.formKey])return event.formKey;
+ const unitId=unit?.id;
+ const states=event?.type==='skill'?[event?.before,event?.after]:[event?.after,event?.before];
+ for(const state of states){
+  const actor=[...(state?.allies||[]),...(state?.enemies||[])].find(candidate=>candidate.id===unitId);
+  if(available[actor?.bodyForm])return actor.bodyForm;
+ }
+ return available[unit?.bodyForm]?unit.bodyForm:'base';
+}
 const rows=Object.freeze({idle:0,move:1,impulso:2,tecnica:3,voto:4,despertar:5});
 const skillRows=Object.freeze(['impulso','tecnica','voto','despertar']);
 function skillRowFor(unit,event){
@@ -41,7 +60,16 @@ function skillRowFor(unit,event){
  const index=unit?.abilities?.findIndex(ability=>ability.id===event?.abilityId)??-1;
  return skillRows[index]??null;
 }
+function quillFormSkillAtlas(form,rowOffset){
+ return Object.freeze({src:`/art/animations/tactical-compact-20261110/quill-${form}.webp`,columns:6,rows:6,rowOffset,phased:true});
+}
 export const tacticalSkillAtlases=Object.freeze({
+ 'a-pele-alheia/impulso/skin':quillFormSkillAtlas('skin',2),
+ 'a-pele-alheia/tecnica/shed':quillFormSkillAtlas('skin',3),
+ 'a-pele-alheia/voto/skin':quillFormSkillAtlas('skin',4),
+ 'a-pele-alheia/impulso/shell':quillFormSkillAtlas('shell',2),
+ 'a-pele-alheia/tecnica/shell':quillFormSkillAtlas('shell',3),
+ 'a-pele-alheia/voto/shell':quillFormSkillAtlas('shell',4),
  'o-que-observou/voto/witness':Object.freeze({src:'/art/animations/tactical-compact-20261110/elias.webp',columns:6,rows:6,rowOffset:4,phased:true}),
  'o-vigia-ausente/voto/ambush':Object.freeze({src:'/art/animations/tactical-compact-20261110/reed.webp',columns:6,rows:6,rowOffset:4,phased:true}),
  'o-surdo/impulso/echo':Object.freeze({src:'/art/animations/tactical-compact-20261110/voss.webp',columns:6,rows:6,rowOffset:2,phased:true}),
@@ -91,7 +119,8 @@ export const tacticalDirectionalAtlases=Object.freeze(Object.fromEntries(
  })])
 ));
 export function tacticalSpriteFrame(unit,event=null,facing=null){
- const id=unit?.sourceId||unit?.id,body=bodyAtlasNames[id],original=tacticalSpriteAtlases[id];
+ const id=unit?.sourceId||unit?.id,body=bodyAtlasNames[id],bodyForm=tacticalBodyFormFor(unit,event,id);
+ const original=tacticalBodyFormAtlases[id]?.[bodyForm]||tacticalSpriteAtlases[id];
  if(!original)return null;
  const finished=event?.pose==='ready'&&event.index>0;
  const casting=event?.type==='skill'&&!event.skipped&&!finished;
