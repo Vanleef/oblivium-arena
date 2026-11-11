@@ -1,6 +1,6 @@
 # Cobertura de animações táticas
 
-52/150 entradas com atlas base conectado. 230/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
+53/150 entradas com atlas base conectado. 234/689 técnicas e formas com pelo menos três quadros distintos de ação. Retornos à pose de repouso não contam como cobertura.
 
 Atlas específicos de habilidade conectados: 23. Os demais recortes mapeados usam sequências compartilhadas por slot; não representam validação de animações exclusivas por habilidade. Os VFX combinam famílias compartilhadas e materiais por personagem; não são exclusivos de cada técnica.
 
@@ -50,7 +50,7 @@ Atlas específicos de habilidade conectados: 23. Os demais recortes mapeados usa
 | Efialtes / O Desertor (o-vigia-ausente) | Sim | Sim | 5/5 |
 | Andriscus / O Usurpador (o-que-possui) | Sim | Sim | 4/4 |
 | Quill (a-pele-alheia) | Sim | Sim | 10/10 |
-| Desire (o-desejo-quebrado) | Pendente | Sim | 0/4 |
+| Desire / Tarquínio, O Profanador (o-desejo-quebrado) | Sim | Sim | 4/4 |
 | Liora (a-marionetista-de-nervos) | Pendente | Sim | 0/5 |
 | Echo (o-espelho-carnal) | Pendente | Sim | 0/4 |
 | Sable (a-costureira) | Pendente | Sim | 0/5 |
