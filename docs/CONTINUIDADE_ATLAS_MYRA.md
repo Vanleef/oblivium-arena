@@ -1,35 +1,27 @@
 # Continuidade do atlas da Myra
 
-Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico completo e do prompt mestre.
+Atualizado em 11/11/2026. Este resumo substitui a colagem de históricos extensos.
 
 ## Projeto
 
 - Repositório: `Vanleef/oblivium-arena`
-- Branch: `fix/compact-card-readability-20261110`
-- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa Desire/Tarquínio, O Profanador Liora/A Marionetista Echo/O Simulacro e Sable/A Suturadora.
-- Base deste checkpoint: `839cca818e8f5db54b975aaf2ac46f6fcf511a47`. Não alterar `main`.
+- Branch de trabalho: `fix/compact-card-readability-20261110`; não alterar `main`.
+- O checkpoint anterior, com Sable, era `0d57f0f4ab88197c11b704e7fe66b260bdaa39b0`. Noctis foi conectado nesta continuação.
+- Atlases táticos conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa, Desire/Tarquínio, Liora/A Marionetista, Echo/O Simulacro, Sable/A Suturadora e Noctis/O Anulador.
 
-## Estado
+## Estado atual
 
-- Myra mantém o nome usado pelo usuário e o ID canônico `a-rainha-dos-fungos`; o atlas de Mire (`a-praga-andante`) permanece independente.
-- Quill tem três folhas ligadas ao combate: forma humanoide, Quimera Terrestre quadrúpede e Quimera Alada com asas como membros dianteiros.
-- Os recortes de Quill incluem Impulso, Técnica, Voto e Despertar para o corpo ativo; seis variações de habilidade usam mapeamentos de linha próprios.
-- Desire tem atlas 6×6 próprio no combate: repouso, movimento e os quatro slots de ação, com efeitos compactos sem alvos duplicados.
-- Liora tem atlas 6×7; a técnica especial `hold` usa a sétima linha dedicada.
-- Echo usa atlas 6×6 para repouso, movimento e quatro ações, com efeitos de espelho carnal presos ao próprio corpo.
-- Sable tem atlas 6×7; a forma especial `tecnica:remove` usa a sétima linha para Reforçar os Pontos.
-- Cobertura: 56/150 atlas base e 248/689 técnicas/formas; há 25 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
+- Noctis (`o-que-apaga`) tem atlas transparente 6×7: repouso, movimento, quatro ações e a forma especial `impulso:erase` na sétima linha.
+- Os outros mapeamentos de forma continuam sem emprestar arte a formas desconhecidas.
+- Cobertura registrada: 57/150 atlas base, 253/689 técnicas/formas e 26 recortes específicos de habilidade. Consulte `docs/TACTICAL_ANIMATION_COVERAGE.md`.
+- Mantêm-se os kits e as diretrizes de arte do projeto. Noctis usa efeitos físicos de cinza, pedra e brasas, sem feixes genéricos.
 
 ## Próximos passos
 
-1. Próximo atlas pendente: Noctis (`o-que-apaga`).
-2. Continue pelo elenco sem aguardar aprovação entre kits: localizar as artes atuais, gerar atlases de forma/kit necessários e ligar tudo ao combate.
-3. Preserve IDs canônicos, anatomia coerente e a direção de arte pictórica 2.5D do projeto.
+1. Próximo atlas pendente: Vespera (`a-ausencia`), kit 4/4.
+2. Continuar sequencialmente pelos personagens, integrando os atlases ao renderer, cobertura e checkpoint, sem pedir aprovação entre kits.
+3. Trabalhar somente na branch indicada e confirmar a ponta antes de cada atualização.
 
-## Limite de chat e continuidade
+## Limite de contexto do chat
 
-O projeto não pode alterar os limites do ChatGPT. Para reduzir contexto repetido, comece o próximo chat só com:
-
-> Continue o atlas da Myra no branch `fix/compact-card-readability-20261110`. Leia `docs/CONTINUIDADE_ATLAS_MYRA.md` e prossiga pelos próximos passos. Não cole o histórico nem o prompt mestre.
-
-Se uma conversa nova atingir o limite após uma mensagem curta, registre horário, modelo e URL/ID ao relatar o problema ao suporte.
+O limite interno do ChatGPT não pode ser alterado pelo projeto. Para reduzir o contexto repetido, em um chat novo envie apenas: “Continue a partir de `docs/CONTINUIDADE_ATLAS_MYRA.md` na branch `fix/compact-card-readability-20261110`.” Não cole o histórico completo nem o prompt mestre.
