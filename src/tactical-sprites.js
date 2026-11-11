@@ -16,6 +16,9 @@ export const tacticalSpriteAtlases=Object.freeze({
  'a-rainha-dos-fungos':Object.freeze({src:'/art/animations/tactical-compact-20261110/myra.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-que-observou':Object.freeze({src:'/art/animations/tactical-compact-20261110/elias.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-surdo':Object.freeze({src:'/art/animations/tactical-compact-20261110/voss.webp',columns:6,rows:6,cellSize:209,phased:true}),
+ 'a-testemunha-cega':Object.freeze({src:'/art/animations/tactical-compact-20261110/iris.webp',columns:6,rows:6,cellSize:209,phased:true}),
+ 'o-quarto-vazio':Object.freeze({src:'/art/animations/tactical-compact-20261110/hollow.webp',columns:6,rows:6,cellSize:209,phased:true}),
+ 'o-vigia-ausente':Object.freeze({src:'/art/animations/tactical-compact-20261110/reed.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),
@@ -39,6 +42,7 @@ function skillRowFor(unit,event){
 }
 export const tacticalSkillAtlases=Object.freeze({
  'o-que-observou/voto/witness':Object.freeze({src:'/art/animations/tactical-compact-20261110/elias.webp',columns:6,rows:6,rowOffset:4,phased:true}),
+ 'o-vigia-ausente/voto/ambush':Object.freeze({src:'/art/animations/tactical-compact-20261110/reed.webp',columns:6,rows:6,rowOffset:4,phased:true}),
  'o-surdo/impulso/echo':Object.freeze({src:'/art/animations/tactical-compact-20261110/voss.webp',columns:6,rows:6,rowOffset:2,phased:true}),
  'a-rainha-dos-fungos/tecnica/bloom':Object.freeze({src:'/art/animations/tactical-compact-20261110/myra.webp',columns:6,rows:6,rowOffset:3,phased:true}),
  'a-rainha-dos-fungos/voto/cloud':Object.freeze({src:'/art/animations/tactical-compact-20261110/myra.webp',columns:6,rows:6,rowOffset:4,phased:true}),
