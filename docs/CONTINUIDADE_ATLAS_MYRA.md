@@ -6,8 +6,8 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 
 - Repositório: `Vanleef/oblivium-arena`
 - Branch: `fix/compact-card-readability-20261110`
-- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa e Desire/Tarquínio, O Profanador.
-- Base deste checkpoint: `10864680441177d0b057f2a6a4f258817c31152f`. Não alterar `main`.
+- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa Desire/Tarquínio, O Profanador e Liora/A Marionetista.
+- Base deste checkpoint: `5a39528075c45868dca37b036f3890da912230af`. Não alterar `main`.
 
 ## Estado
 
@@ -15,11 +15,12 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 - Quill tem três folhas ligadas ao combate: forma humanoide, Quimera Terrestre quadrúpede e Quimera Alada com asas como membros dianteiros.
 - Os recortes de Quill incluem Impulso, Técnica, Voto e Despertar para o corpo ativo; seis variações de habilidade usam mapeamentos de linha próprios.
 - Desire tem atlas 6×6 próprio no combate: repouso, movimento e os quatro slots de ação, com efeitos compactos sem alvos duplicados.
-- Cobertura: 53/150 atlas base e 234/689 técnicas/formas; há 23 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
+- Liora tem atlas 6×7; a técnica especial `hold` usa a sétima linha dedicada.
+- Cobertura: 54/150 atlas base e 239/689 técnicas/formas; há 24 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
 
 ## Próximos passos
 
-1. Próximo atlas pendente: Liora (`a-marionetista-de-nervos`).
+1. Próximo atlas pendente: Echo (`o-espelho-carnal`).
 2. Continue pelo elenco sem aguardar aprovação entre kits: localizar as artes atuais, gerar atlases de forma/kit necessários e ligar tudo ao combate.
 3. Preserve IDs canônicos, anatomia coerente e a direção de arte pictórica 2.5D do projeto.
 
