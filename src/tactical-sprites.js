@@ -23,6 +23,7 @@ export const tacticalSpriteAtlases=Object.freeze({
  'a-pele-alheia':Object.freeze({src:'/art/animations/tactical-compact-20261110/quill.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'o-desejo-quebrado':Object.freeze({src:'/art/animations/tactical-compact-20261110/desire.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'a-marionetista-de-nervos':Object.freeze({src:'/art/animations/tactical-compact-20261110/liora.webp',columns:6,rows:7,cellSize:209,phased:true}),
+ 'o-espelho-carnal':Object.freeze({src:'/art/animations/tactical-compact-20261110/echo.webp',columns:6,rows:6,cellSize:209,phased:true}),
  'a-regente-de-cinzas':Object.freeze({src:'/art/animations/tactical-pilot-20261102/ashara.webp',columns:6,rows:6,cellSize:209}),
  'a-juiza-de-ferro':Object.freeze({src:'/art/animations/tactical-pilot-20261102/judith.webp',columns:6,rows:6,cellSize:209}),
  'o-carrasco-sem-rosto':Object.freeze({src:'/art/animations/tactical-pilot-20261102/sanson.webp',columns:6,rows:6,cellSize:209}),

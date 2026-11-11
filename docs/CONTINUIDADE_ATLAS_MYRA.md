@@ -6,8 +6,8 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 
 - Repositório: `Vanleef/oblivium-arena`
 - Branch: `fix/compact-card-readability-20261110`
-- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa Desire/Tarquínio, O Profanador e Liora/A Marionetista.
-- Base deste checkpoint: `5a39528075c45868dca37b036f3890da912230af`. Não alterar `main`.
+- Atlases conectados: Myra, Elias, Voss, Iris, Hollow, Efialtes/O Desertor, Andriscus/O Usurpador, Quill/A Metamorfa Desire/Tarquínio, O Profanador Liora/A Marionetista e Echo/O Simulacro.
+- Base deste checkpoint: `2fb08c1dce2f18c422d1feb167da1e3cccd42e0f`. Não alterar `main`.
 
 ## Estado
 
@@ -16,11 +16,12 @@ Atualizado em 11/11/2026. Este handoff substitui a colagem do histórico complet
 - Os recortes de Quill incluem Impulso, Técnica, Voto e Despertar para o corpo ativo; seis variações de habilidade usam mapeamentos de linha próprios.
 - Desire tem atlas 6×6 próprio no combate: repouso, movimento e os quatro slots de ação, com efeitos compactos sem alvos duplicados.
 - Liora tem atlas 6×7; a técnica especial `hold` usa a sétima linha dedicada.
-- Cobertura: 54/150 atlas base e 239/689 técnicas/formas; há 24 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
+- Echo usa atlas 6×6 para repouso, movimento e quatro ações, com efeitos de espelho carnal presos ao próprio corpo.
+- Cobertura: 55/150 atlas base e 243/689 técnicas/formas; há 24 mapeamentos específicos em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
 
 ## Próximos passos
 
-1. Próximo atlas pendente: Echo (`o-espelho-carnal`).
+1. Próximo atlas pendente: Sable (`a-costureira`).
 2. Continue pelo elenco sem aguardar aprovação entre kits: localizar as artes atuais, gerar atlases de forma/kit necessários e ligar tudo ao combate.
 3. Preserve IDs canônicos, anatomia coerente e a direção de arte pictórica 2.5D do projeto.
 
