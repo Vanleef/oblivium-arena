@@ -4,7 +4,7 @@
 
 A postura base é horizontal e aponta para longe da última fortaleza alcançada. A animação pode virar durante uma técnica e restaura a postura na recuperação.
 
-35/150 personagens têm atlas base. Atlas base por slot e VFX compartilhados não equivalem a animações exclusivas para todas as formas, passivas e habilidades. O trabalho visual está em andamento.
+62/150 personagens têm atlas base. Atlas base por slot e VFX compartilhados não equivalem a animações exclusivas para todas as formas, passivas e habilidades. O trabalho visual está em andamento.
 
 | Personagem | Atlas base | Técnicas/formas |
 | --- | --- | --- |
@@ -35,33 +35,33 @@ A postura base é horizontal e aponta para longe da última fortaleza alcançada
 | Gorath | Conectado | 5 |
 | Ravena | Conectado | 5 |
 | Drake | Conectado | 4 |
-| Helena | Pendente | 4 |
-| Marrow | Pendente | 4 |
-| Fortuna | Pendente | 4 |
-| Aldric | Pendente | 4 |
-| Mire | Pendente | 5 |
-| Pact | Pendente | 4 |
-| Myra | Pendente | 6 |
-| Bram | Pendente | 4 |
-| Thorn | Pendente | 4 |
-| Elias | Pendente | 5 |
-| Mira | Pendente | 4 |
-| Voss | Pendente | 5 |
-| Iris | Pendente | 4 |
-| Hollow | Pendente | 4 |
-| Reed | Pendente | 5 |
-| Maren | Pendente | 4 |
-| Quill | Pendente | 10 |
-| Desire | Pendente | 4 |
-| Liora | Pendente | 5 |
-| Echo | Pendente | 4 |
-| Sable | Pendente | 5 |
-| Noctis | Pendente | 5 |
-| Vespera | Pendente | 4 |
-| Erebus | Pendente | 5 |
-| Ashen | Pendente | 5 |
-| Soren | Pendente | 4 |
-| Niith | Pendente | 4 |
+| Helena | Conectado | 4 |
+| Marrow | Conectado | 4 |
+| Fortuna | Conectado | 4 |
+| Aldric | Conectado | 4 |
+| Mire | Conectado | 5 |
+| Pact | Conectado | 4 |
+| Myra | Conectado | 6 |
+| Bram | Conectado | 4 |
+| Thorn | Conectado | 4 |
+| Elias | Conectado | 5 |
+| Mira | Conectado | 4 |
+| Voss | Conectado | 5 |
+| Iris | Conectado | 4 |
+| Hollow | Conectado | 4 |
+| Reed | Conectado | 5 |
+| Maren | Conectado | 4 |
+| Quill | Conectado | 10 |
+| Desire | Conectado | 4 |
+| Liora | Conectado | 5 |
+| Echo | Conectado | 4 |
+| Sable | Conectado | 5 |
+| Noctis | Conectado | 5 |
+| Vespera | Conectado | 4 |
+| Erebus | Conectado | 5 |
+| Ashen | Conectado | 5 |
+| Soren | Conectado | 4 |
+| Niith | Conectado | 4 |
 | Aegis | Conectado | 5 |
 | Bastion | Pendente | 4 |
 | Caius | Pendente | 4 |

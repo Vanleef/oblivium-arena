@@ -1,6 +1,6 @@
 # Adaptação dos kits ao tabuleiro
 
-150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 35 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
+150/150 kits com revisão espacial explícita; 0 pendentes. 689 habilidades/formas mapeadas. 62 dos kits adaptados têm atlas base; os demais usam as artes existentes. Balanceamento com jogadores e animações exclusivas de cada técnica permanecem pendentes.
 
 Conquista: ativações simultâneas, um movimento seguido de técnica por personagem a cada rodada. Vida inicial 100, técnicas sem custo de Essência e recargas/equivalências próprias no adaptador conquest-techniques.js. A adaptação inclui requisitos dos modos avançados, Resíduo, Fraturas e Sombra Preparada. Puxões e empurrões são modificadores exclusivos do adaptador tático. 136 personagens podem ser escolhidos no laboratório tático; 14 NPCs/lordes só entram como oposição. O laboratório não concede desbloqueios na campanha.
 
@@ -33,33 +33,33 @@ Conquista: ativações simultâneas, um movimento seguido de técnica por person
 | Gorath, O Devorador | Adaptado | Sim | 5 |
 | Ravena, A Saqueadora | Adaptado | Sim | 5 |
 | Drake, O Insaciável | Adaptado | Sim | 4 |
-| Helena, A Matriarca | Adaptado | Pendente | 4 |
-| Marrow, O Credor | Adaptado | Pendente | 4 |
-| Fortuna, A Usurária | Adaptado | Pendente | 4 |
-| Aldric, O Apodrecido | Adaptado | Pendente | 4 |
-| Mire, A Pestilência | Adaptado | Pendente | 5 |
-| Pact, O Corrupto | Adaptado | Pendente | 4 |
-| Myra, A Rainha dos Fungos | Adaptado | Pendente | 6 |
-| Bram, O Inoculador | Adaptado | Pendente | 4 |
-| Thorn, O Definhador | Adaptado | Pendente | 4 |
-| Elias, O Espectador | Adaptado | Pendente | 5 |
-| Mira, A Carcereira | Adaptado | Pendente | 4 |
-| Voss, O Silenciador | Adaptado | Pendente | 5 |
-| Iris, A Cúmplice | Adaptado | Pendente | 4 |
-| Hollow, O Anfitrião | Adaptado | Pendente | 4 |
-| Reed, O Desertor | Adaptado | Pendente | 5 |
-| Maren, O Usurpador | Adaptado | Pendente | 4 |
-| Quill, A Metamorfa | Adaptado | Pendente | 10 |
-| Desire, O Profanador | Adaptado | Pendente | 4 |
-| Liora, A Marionetista | Adaptado | Pendente | 5 |
-| Echo, O Simulacro | Adaptado | Pendente | 4 |
-| Sable, A Suturadora | Adaptado | Pendente | 5 |
-| Noctis, O Anulador | Adaptado | Pendente | 5 |
-| Vespera, A Ausência | Adaptado | Pendente | 4 |
-| Erebus, O Arauto | Adaptado | Pendente | 5 |
-| Ashen, O Desolador | Adaptado | Pendente | 5 |
-| Soren, A Escriba | Adaptado | Pendente | 4 |
-| Niith, O Fim | Adaptado | Pendente | 4 |
+| Helena, A Matriarca | Adaptado | Sim | 4 |
+| Marrow, O Credor | Adaptado | Sim | 4 |
+| Fortuna, A Usurária | Adaptado | Sim | 4 |
+| Aldric, O Apodrecido | Adaptado | Sim | 4 |
+| Mire, A Pestilência | Adaptado | Sim | 5 |
+| Pact, O Corrupto | Adaptado | Sim | 4 |
+| Myra, A Rainha dos Fungos | Adaptado | Sim | 6 |
+| Bram, O Inoculador | Adaptado | Sim | 4 |
+| Thorn, O Definhador | Adaptado | Sim | 4 |
+| Elias, O Espectador | Adaptado | Sim | 5 |
+| Mira, A Carcereira | Adaptado | Sim | 4 |
+| Voss, O Silenciador | Adaptado | Sim | 5 |
+| Iris, A Cúmplice | Adaptado | Sim | 4 |
+| Hollow, O Anfitrião | Adaptado | Sim | 4 |
+| Reed, O Desertor | Adaptado | Sim | 5 |
+| Maren, O Usurpador | Adaptado | Sim | 4 |
+| Quill, A Metamorfa | Adaptado | Sim | 10 |
+| Desire, O Profanador | Adaptado | Sim | 4 |
+| Liora, A Marionetista | Adaptado | Sim | 5 |
+| Echo, O Simulacro | Adaptado | Sim | 4 |
+| Sable, A Suturadora | Adaptado | Sim | 5 |
+| Noctis, O Anulador | Adaptado | Sim | 5 |
+| Vespera, A Ausência | Adaptado | Sim | 4 |
+| Erebus, O Arauto | Adaptado | Sim | 5 |
+| Ashen, O Desolador | Adaptado | Sim | 5 |
+| Soren, A Escriba | Adaptado | Sim | 4 |
+| Niith, O Fim | Adaptado | Sim | 4 |
 | Aegis, O Escudo Vivo | Adaptado | Sim | 5 |
 | Bastion, A Muralha | Adaptado | Pendente | 4 |
 | Caius, O Abnegado | Adaptado | Pendente | 4 |
