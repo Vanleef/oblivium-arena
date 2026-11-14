@@ -22,7 +22,7 @@ const root=document.getElementById('tactical-app');
 root.addEventListener('error',handleTacticalCardArtError,true);
 const sceneGround=new TacticalSceneGround();
 const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},surrenderConfirm:false,handCollapsed:false};
+const state={account:null,server:null,loading:true,busy:false,message:'',pollError:false,team:[],actorId:null,selection:null,actions:[],responseCard:null,rewardCard:null,willSign:'miragem',lastRound:null,lastMatchId:null,queuing:false,deckBuilds:{},deckEditorOpen:false,surrenderConfirm:false,handCollapsed:false};
 let pollController=null;
 let replayRevision=0;
 const match=()=>state.server?.match||null;
@@ -73,19 +73,24 @@ function deckEditorMarkup(){
    {key:'mobility',name:'Passo Longo · mobilidade'},
    {key:'reaction',name:'Último Suspiro · reação'}
   ];
-  return '<section class="online-deck-hero"><h3>'+esc(hero.name)+' · '+build.length+' cartas</h3>'
+  const counts=build.reduce((result,card)=>{result[card.kind]=(result[card.kind]||0)+1;return result},{skill:0,mobility:0,reaction:0});
+  const completion=Math.min(100,build.length/10*100);
+  return '<section class="online-deck-hero" data-deck-owner="'+esc(id)+'"><header class="online-deck-heading"><div><h3>'+esc(hero.name)+'</h3><p>'+counts.skill+' técnicas <i>·</i> '+counts.mobility+' mobilidade <i>·</i> '+counts.reaction+' reação</p></div><strong class="deck-size-badge">'+build.length+'<small>/10</small></strong></header><div class="deck-size-meter" role="progressbar" aria-label="Tamanho do baralho de '+esc(hero.name)+'" aria-valuemin="8" aria-valuemax="10" aria-valuenow="'+build.length+'"><i style="width:'+completion+'%"></i></div>'
    +'<div class="online-deck-slots">'+build.map((card,i)=>{
     const chosen=card.kind==='skill'?'skill:'+card.abilityId:card.kind;
-    return '<label>Carta '+(i+1)+'<select data-deck-slot="'+esc(id)+'|'+i+'">'
+    const ability=card.kind==='skill'?hero.abilities.find(item=>item.id===card.abilityId):null;
+    const label=card.kind==='skill'?'Técnica':card.kind==='mobility'?'Mobilidade':'Reação';
+    const description=ability?.description||ability?.text||(card.kind==='mobility'?'Reposicione o personagem no tabuleiro.':'Responda a uma técnica especial do oponente.');
+    return '<article class="online-deck-slot" data-card-kind="'+esc(card.kind)+'"><span class="deck-slot-number">'+String(i+1).padStart(2,'0')+'</span><span class="deck-slot-art" aria-hidden="true">'+(ability?.art?'<img src="'+esc(ability.art)+'" alt="" loading="lazy">':card.kind==='mobility'?'↗':'◈')+'</span><div class="deck-slot-control"><small>'+label+' · Carta '+(i+1)+'</small><label class="online-visually-hidden" for="online-deck-'+esc(id)+'-'+i+'">Carta '+(i+1)+' de '+esc(hero.name)+'</label><select id="online-deck-'+esc(id)+'-'+i+'" data-deck-slot="'+esc(id)+'|'+i+'">'
      +choices.map(option=>'<option value="'+esc(option.key)+'" '+(option.key===chosen?'selected':'')+'>'+esc(option.name)+'</option>').join('')
-     +'</select></label>';
+     +'</select><p>'+esc(description)+'</p></div></article>';
    }).join('')+'</div><div class="online-deck-actions">'
    +'<button data-deck-add="'+esc(id)+'" '+(build.length>=10?'disabled':'')+'>Adicionar carta</button>'
    +'<button data-deck-remove="'+esc(id)+'" '+(build.length<=8?'disabled':'')+'>Remover última</button>'
    +'<button data-deck-default="'+esc(id)+'">Restaurar padrão</button></div></section>';
  };
- return '<details class="online-deck-editor"><summary>Equipar os três baralhos · 8 a 10 cartas por personagem</summary>'
-  +'<p>Monte cada mão com técnicas do próprio personagem, mobilidade e reação. Modificadores de dano de campanhas não são importados para o ranqueado.</p>'
+ return '<details class="online-deck-editor" '+(state.deckEditorOpen?'open':'')+'><summary>Montar os três baralhos · 8 a 10 cartas por personagem</summary>'
+  +'<p>Cada personagem tem compra, mão e descarte próprios. Cartas usadas voltam ao ciclo quando a compra se esgota. Movimento básico e Ataque Básico permanecem sempre disponíveis.</p>'
   +state.team.filter(id=>characterById[id]).map(renderOne).join('')+'</details>';
 }
 function legalFormation(){
@@ -372,6 +377,7 @@ async function initialize(){
  }catch(error){state.message=error.message;}
  finally{state.loading=false;render();}
 }
+root.addEventListener('toggle',event=>{if(event.target.matches?.('.online-deck-editor'))state.deckEditorOpen=event.target.open;},true);
 root.addEventListener('click',async event=>{
  const button=event.target.closest('button');if(!button||button.disabled||state.busy)return;
  const d=button.dataset,s=battle(),side=owner(s);
@@ -406,9 +412,9 @@ root.addEventListener('click',async event=>{
    ?root.querySelector('[data-reward-card]')?.value||null:null;
   await request({op:'reward',version:match().version,offerId:offer.id,optionId:d.reward,cardId});return;
  }
- if(d.deckAdd){const build=deckFor(d.deckAdd);if(build.length<10){state.deckBuilds[d.deckAdd]=[...build,{kind:'mobility'}];saveDeckBuilds();render();}return;}
- if(d.deckRemove){const build=deckFor(d.deckRemove);if(build.length>8){state.deckBuilds[d.deckRemove]=build.slice(0,-1);saveDeckBuilds();render();}return;}
- if(d.deckDefault){delete state.deckBuilds[d.deckDefault];saveDeckBuilds();render();return;}
+ if(d.deckAdd){const build=deckFor(d.deckAdd);if(build.length<10){state.deckBuilds[d.deckAdd]=[...build,{kind:'mobility'}];saveDeckBuilds();state.deckEditorOpen=true;render();}return;}
+ if(d.deckRemove){const build=deckFor(d.deckRemove);if(build.length>8){state.deckBuilds[d.deckRemove]=build.slice(0,-1);saveDeckBuilds();state.deckEditorOpen=true;render();}return;}
+ if(d.deckDefault){delete state.deckBuilds[d.deckDefault];saveDeckBuilds();state.deckEditorOpen=true;render();return;}
  if('surrender'in d){state.surrenderConfirm=true;render();return;}
  if('surrenderCancel'in d){state.surrenderConfirm=false;render();return;}
  if('surrenderConfirm'in d){state.surrenderConfirm=false;await request({op:'surrender'});return;}
@@ -423,7 +429,7 @@ root.addEventListener('change',event=>{
   const build=deckFor(id),position=Number(index);
   if(!Number.isInteger(position)||position<0||position>=build.length)return;
   build[position]=value.startsWith('skill:')?{kind:'skill',abilityId:value.slice(6)}:{kind:value==='reaction'?'reaction':'mobility'};
-  state.deckBuilds[id]=build;saveDeckBuilds();render();return;
+  state.deckBuilds[id]=build;saveDeckBuilds();state.deckEditorOpen=true;render();root.querySelector('[data-deck-slot="'+id+'|'+position+'"]')?.focus({preventScroll:true});return;
  }
  if(event.target.matches('[data-team-slot]')){
   state.team[Number(event.target.dataset.teamSlot)]=event.target.value;render();

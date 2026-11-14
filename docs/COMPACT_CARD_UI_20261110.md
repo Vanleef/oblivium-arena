@@ -59,3 +59,11 @@ Ainda faltam QA físico de toque, navegadores distintos e validação autenticad
 - Cobertura atual: **44/150 atlas base** e **187/689 técnicas/formas** com pelo menos três quadros distintos. A cobertura por personagem está em `docs/TACTICAL_ANIMATION_COVERAGE.md`.
 - Verificação desta etapa: `npm run test:compact` **44/44**, `npm run smoke:compact` **3 combates e 220 eventos sem erros**, `npm run build` **4382 arquivos**. Na suíte completa, **564/695 passaram e 131 falharam**; os 131 títulos de falha coincidem com o checkout limpo de referência `4c0110b`.
 - A nova mão foi vista no Chrome compartilhado em desktop. Não consegui capturar um novo viewport mobile nesta sessão: o Chromium local abortou ao iniciar por restrição do ambiente. As capturas mobile acima pertencem à rodada anterior e não são uma verificação da nova dimensão de carta.
+
+## Continuação — 14/11/2026
+
+- O editor de baralhos no treino/campanha e no lobby PvP agora mostra cada slot como uma carta de loadout com retrato, tipo, efeito, seletor e contador de técnicas, mobilidade e reação. Mantém o limite de 8–10 cartas e a edição deixa claro que cada personagem tem compra, mão e descarte próprios.
+- Entre encontros, a travessia mostra encontro atual, rotas percorridas e marcos. A tela de vitória apresenta o efeito e a história de cada rota e detalha os legados antes da escolha. O atalho de montagem preserva os baralhos durante as escolhas de rota.
+- A mão de combate explicita quantas cartas estão na mão, na compra e no descarte. A carta selecionada recebe um realce animado discreto; cartas já planejadas ficam marcadas com borda tracejada. A animação respeita movimento reduzido.
+- Os atlas compactos de Erebus, Ashen, Soren e Niith estão conectados, incluindo linhas dedicadas para as formas de Erebus e Ashen. Na ponta atual da branch, a cobertura cumulativa é de 62/150 atlas base, 275/689 técnicas/formas e 28 recortes específicos de habilidade.
+- Os novos slots do deckbuilder e as escolhas entre encontros usam colunas adaptáveis, quebra de texto e controles com área de toque adequada em telas estreitas.

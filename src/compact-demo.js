@@ -18,7 +18,7 @@ import {tacticalIdleStyle} from './tactical-motion.js';
 import {tacticalFrameDuration,tacticalCompactFrameDuration,tacticalAnimationFamily} from './tactical-animation.js';
 import {tacticalComboReplayEvents} from './tactical-combo.js';
 import {tacticalDuelOptions,tacticalDuelResolve,tacticalDuelAI,tacticalDuelTendency} from './tactical-duel.js';
-import {tacticalHand,tacticalCardDeck,tacticalResponseOptions,tacticalCard,tacticalCardVariants,tacticalMovementSteps} from './tactical-decks.js';
+import {tacticalHand,tacticalCardDeck,tacticalResponseOptions,tacticalCard,tacticalCardVariants,tacticalMovementSteps,defaultTacticalCardBuild} from './tactical-decks.js';
 import {TacticalEffectsLayer,tacticalImpactContacts} from './tactical-effects-layer.js';
 import {tacticalImpactProfile,tacticalContactRecoil} from './tactical-impact-presentation.js';
 import {tacticalProjectileKind,tacticalCutinMarkup,tacticalCutinActive,tacticalSuperCaptionMarkup,tacticalReplayFrames} from './tactical-cinematic.js';
@@ -134,18 +134,18 @@ function actionDock(s,future){
  const abilityButtons=cards.map((card,index)=>{
   const chosen=state.selectedCard===card.id,spent=queuedCards.has(card.id),fan=tacticalHandFanStyle(index+1,handSize);
   const details=tacticalCardPresentation(future,u,card),traits=tacticalCardTraitsMarkup(details.traits,esc);
-  if(card.kind==='reaction')return '<div class="compact-hand-card compact-hand-reaction" style="'+fan+'" title="'+esc(details.description)+'"><strong>'+esc(details.name)+'</strong>'+tacticalUtilityArtMarkup(u,'reaction',esc)+'<small>'+esc(details.description)+'</small>'+traits+tacticalAreaDiagramMarkup({pattern:'self',range:0,length:1})+'</div>';
-  if(card.kind==='mobility')return '<button class="compact-hand-card compact-hand-mobility" data-card="'+esc(card.id)+'" aria-pressed="'+chosen+'" title="'+esc(details.description)+'" style="'+fan+'" '+(unavailable||spent?'disabled':'')+'><strong>'+esc(details.name)+'</strong>'+tacticalUtilityArtMarkup(u,'mobility',esc)+'<small>'+esc(details.description)+'</small>'+traits+tacticalAreaDiagramMarkup(null,{movement:true,steps:tacticalMovementSteps(card)})+'</button>';
+  if(card.kind==='reaction')return '<div class="compact-hand-card compact-hand-reaction" data-card-kind="reaction" style="'+fan+'" title="'+esc(details.description)+'"><strong>'+esc(details.name)+'</strong>'+tacticalUtilityArtMarkup(u,'reaction',esc)+'<small>'+esc(details.description)+'</small>'+traits+tacticalAreaDiagramMarkup({pattern:'self',range:0,length:1})+'</div>';
+  if(card.kind==='mobility')return '<button class="compact-hand-card compact-hand-mobility" data-card-kind="mobility" data-planned="'+spent+'" data-card="'+esc(card.id)+'" aria-pressed="'+chosen+'" title="'+esc(details.description)+'" style="'+fan+'" '+(unavailable||spent?'disabled':'')+'><strong>'+esc(details.name)+'</strong>'+tacticalUtilityArtMarkup(u,'mobility',esc)+'<small>'+esc(details.description)+'</small>'+traits+tacticalAreaDiagramMarkup(null,{movement:true,steps:tacticalMovementSteps(card)})+'</button>';
   const a=details.ability;if(!a)return '';
   const reason=skillSealReason(u,a)||tacticalRequirementReason(future,u,a);
   const spec=fortressTechniqueSpec(future,u,a),area=tacticalAreaDiagramMarkup(spec,{facing:unitFacing(future,u)});
   const label=reason||details.description;
-  return '<button class="compact-hand-card compact-hand-skill" data-card="'+esc(card.id)+'" data-technique="'+esc(a.id)+'" data-planned="'+spent+'" aria-pressed="'+chosen+'" title="'+esc(a.name+' — '+tacticalPatternLabel(spec)+' · '+label)+'" style="'+fan+tacticalPaletteVariables(tacticalActorPalette(u,{realmFallback:true}))+'" '+(unavailable||spent||reason?'disabled':'')+'><strong>'+esc(details.name)+'</strong>'+tacticalCardArtMarkup(a,esc)+'<small>'+esc(details.description)+'</small>'+tacticalCardTraitsMarkup(details.traits,esc)+area+'<span class="hand-card-area-label">Área: '+esc(tacticalPatternLabel(spec))+'</span></button>';
+  return '<button class="compact-hand-card compact-hand-skill" data-card-kind="skill" data-card="'+esc(card.id)+'" data-technique="'+esc(a.id)+'" data-planned="'+spent+'" aria-pressed="'+chosen+'" title="'+esc(a.name+' — '+tacticalPatternLabel(spec)+' · '+label)+'" style="'+fan+tacticalPaletteVariables(tacticalActorPalette(u,{realmFallback:true}))+'" '+(unavailable||spent||reason?'disabled':'')+'><strong>'+esc(details.name)+'</strong>'+tacticalCardArtMarkup(a,esc)+'<small>'+esc(details.description)+'</small>'+tacticalCardTraitsMarkup(details.traits,esc)+area+'<span class="hand-card-area-label">Área: '+esc(tacticalPatternLabel(spec))+'</span></button>';
  }).join('');
- const moveButton='<button class="compact-hand-card compact-hand-mobility" data-mode="move" aria-pressed="'+(state.mode==='move'&&!state.selectedCard)+'" style="'+tacticalHandFanStyle(0,handSize)+'" '+(unavailable||state.actions.some(ref=>ref.actorId===u.id&&ref.type==='move'&&!ref.cardId)?'disabled':'')+'><strong>Mover</strong>'+tacticalUtilityArtMarkup(u,'mobility',esc)+'<small>Ação permanente · 1 casa</small>'+tacticalAreaDiagramMarkup(null,{movement:true})+'</button>';
+ const moveButton='<button class="compact-hand-card compact-hand-mobility" data-card-kind="mobility" data-mode="move" aria-pressed="'+(state.mode==='move'&&!state.selectedCard)+'" style="'+tacticalHandFanStyle(0,handSize)+'" '+(unavailable||state.actions.some(ref=>ref.actorId===u.id&&ref.type==='move'&&!ref.cardId)?'disabled':'')+'><strong>Mover</strong>'+tacticalUtilityArtMarkup(u,'mobility',esc)+'<small>Ação permanente · 1 casa</small>'+tacticalAreaDiagramMarkup(null,{movement:true})+'</button>';
  const basicDescription=basic?tacticalCardPresentation(future,u,{kind:'skill',abilityId:basic.id}).description:'';
- const basicButton=basic?'<button class="compact-hand-card compact-hand-basic" data-technique="fortress-basic" aria-pressed="'+(state.mode==='fortress-basic'&&!state.selectedCard)+'" style="'+tacticalHandFanStyle(handSize-1,handSize)+'" '+(unavailable?'disabled':'')+'><strong>Ataque básico</strong>'+tacticalUtilityArtMarkup(u,'basic',esc)+'<small>'+esc(basicDescription)+' · ação permanente sem custo de Essência.</small>'+tacticalAreaDiagramMarkup(fortressTechniqueSpec(future,u,basic),{facing:unitFacing(future,u)})+'</button>':'';
- const handCounter='<div class="compact-hand-counter"><strong>Mão de '+esc(u.name)+'</strong><span>'+cards.length+' cartas · '+(deck?.draw.length||0)+' no deck · '+(deck?.discard.length||0)+' descarte</span></div>';
+ const basicButton=basic?'<button class="compact-hand-card compact-hand-basic" data-card-kind="basic" data-technique="fortress-basic" aria-pressed="'+(state.mode==='fortress-basic'&&!state.selectedCard)+'" style="'+tacticalHandFanStyle(handSize-1,handSize)+'" '+(unavailable?'disabled':'')+'><strong>Ataque básico</strong>'+tacticalUtilityArtMarkup(u,'basic',esc)+'<small>'+esc(basicDescription)+' · ação permanente sem custo de Essência.</small>'+tacticalAreaDiagramMarkup(fortressTechniqueSpec(future,u,basic),{facing:unitFacing(future,u)})+'</button>':'';
+ const handCounter='<div class="compact-hand-counter"><strong>Mão de '+esc(u.name)+'</strong><span><b>'+cards.length+'</b> na mão <i>·</i> <b>'+(deck?.draw.length||0)+'</b> para comprar <i>·</i> <b>'+(deck?.discard.length||0)+'</b> no descarte</span><small class="card-cycle-hint">Usadas voltam ao ciclo quando a compra se esgota</small></div>';
  const advance=specialChoices(u,picked,unavailable);
  const advanced=advance?'<details class="compact-panel-advanced"><summary aria-label="Opções avançadas da técnica" title="Opções avançadas da técnica">✧</summary>'+advance+'</details>':'';
  const selected=cards.find(card=>card.id===state.selectedCard)||(state.mode==='fortress-basic'?{kind:'skill',abilityId:'fortress-basic'}:null);
@@ -180,21 +180,54 @@ function reward(){
  }).join('');
  return '<section class="chest-reward panel" data-tier="'+offer.tier+'"><h2>'+esc(owner?.name)+' · '+augmentTiers[offer.tier].label+'</h2><p>Escolha uma melhoria individual para este combate.</p><div class="chest-options">'+entries+'</div>'+((state.battle.tactical.fortress.progress.spins||0)>0?'<button data-reroll>Trocar opções · 1 Giro</button>':'')+'</section>';
 }
+function deckDraftFor(unit){
+ const id=unit.sourceId||unit.id,deck=tacticalCardDeck(state.battle,'player',unit.id);
+ return state.run.cardDecks?.[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,variantId:card.variantId,upgrade:card.upgrade}));
+}
+function deckKindLabel(card){
+ return card.variantId?'Campanha':card.kind==='skill'?'Técnica':card.kind==='mobility'?'Mobilidade':'Reação';
+}
+function deckCardDescription(unit,card){
+ return tacticalCardPresentation(state.battle,unit,card).description||'Efeito da carta.';
+}
+function refreshDeckEditor({id=null,index=null}={}){
+ const setupOpen=Boolean(root.querySelector('.compact-setup')?.open),editorOpen=Boolean(root.querySelector('.compact-deck-editor')?.open);
+ render();
+ if(setupOpen)root.querySelector('.compact-setup').open=true;
+ if(editorOpen){
+  const editor=root.querySelector('.compact-deck-editor');editor.open=true;
+  if(id&&Number.isInteger(index))root.querySelector('[data-card-config="'+id+'"][data-card-slot="'+index+'"]')?.focus({preventScroll:true});
+ }
+}
 function setup(){
  const deckEditor=state.battle.allies.map(unit=>{
-  const id=unit.sourceId||unit.id,deck=tacticalCardDeck(state.battle,'player',unit.id);
-  const draft=state.run.cardDecks?.[id]||Object.values(deck?.cards||{}).map(card=>({kind:card.kind,abilityId:card.abilityId,variantId:card.variantId,upgrade:card.upgrade}));
+  const id=unit.sourceId||unit.id,draft=deckDraftFor(unit);
   const unlocked=state.run.augmentProgress?.completedKingdoms?.length||0;
   const options=[...unit.abilities.filter(a=>a.id!=='fortress-basic').map(a=>({value:'skill:'+a.id,name:a.name})),
    {value:'mobility',name:'Passo Longo · mobilidade'},{value:'reaction',name:'Último Suspiro · reação'},
    ...tacticalCardVariants.filter(v=>v.kingdoms<=unlocked).map(v=>({value:'variant:'+v.id,name:v.name+' · '+v.description}))];
-  return '<section class="compact-deck-edit-hero"><h4>'+esc(unit.name)+'</h4><div class="compact-deck-edit-slots">'+draft.map((card,i)=>{
+  const counts=draft.reduce((result,card)=>{result[card.kind]=(result[card.kind]||0)+1;return result},{skill:0,mobility:0,reaction:0});
+  const completion=Math.min(100,draft.length/10*100);
+  return '<section class="compact-deck-edit-hero" data-deck-owner="'+esc(id)+'"><header class="deck-edit-heading"><div><h4>'+esc(unit.name)+'</h4><p>'+counts.skill+' técnicas <i>·</i> '+counts.mobility+' mobilidade <i>·</i> '+counts.reaction+' reação</p></div><strong class="deck-size-badge" data-deck-size="'+esc(id)+'">'+draft.length+'<small>/10</small></strong></header><div class="deck-size-meter" role="progressbar" aria-label="Tamanho do baralho de '+esc(unit.name)+'" aria-valuemin="8" aria-valuemax="10" aria-valuenow="'+draft.length+'"><i style="width:'+completion+'%"></i></div><div class="compact-deck-edit-slots">'+draft.map((card,i)=>{
    const current=card.kind==='skill'?'skill:'+card.abilityId:card.variantId?'variant:'+card.variantId:card.kind;
-   return '<label>Carta '+(i+1)+'<select data-card-config="'+esc(id)+'" data-card-slot="'+i+'">'+options.map(option=>'<option value="'+esc(option.value)+'" '+(option.value===current?'selected':'')+'>'+esc(option.name)+'</option>').join('')+'</select></label>';
-  }).join('')+'</div></section>';
+   const kind=deckKindLabel(card),description=deckCardDescription(unit,card);
+   const visual=card.kind==='skill'?unit.abilities.find(ability=>ability.id===card.abilityId)?.art:null;
+   return '<article class="compact-deck-slot" data-card-kind="'+esc(card.kind)+'"><span class="deck-slot-number">'+String(i+1).padStart(2,'0')+'</span><span class="deck-slot-art" aria-hidden="true">'+(visual?'<img src="'+esc(visual)+'" alt="" loading="lazy">':card.kind==='mobility'?'↗':card.kind==='reaction'?'◈':'✦')+'</span><div class="deck-slot-control"><small>'+esc(kind)+' · Carta '+(i+1)+'</small><label class="compact-visually-hidden" for="deck-'+esc(id)+'-'+i+'">Carta '+(i+1)+' de '+esc(unit.name)+'</label><select id="deck-'+esc(id)+'-'+i+'" data-card-config="'+esc(id)+'" data-card-slot="'+i+'">'+options.map(option=>'<option value="'+esc(option.value)+'" '+(option.value===current?'selected':'')+'>'+esc(option.name)+'</option>').join('')+'</select><p>'+esc(description)+'</p></div></article>';
+  }).join('')+'</div><footer class="deck-edit-actions"><span>8–10 cartas · repetição permitida</span><div><button type="button" data-deck-add="'+esc(id)+'" '+(draft.length>=10?'disabled':'')+'>+ Adicionar</button><button type="button" data-deck-remove="'+esc(id)+'" '+(draft.length<=8?'disabled':'')+'>− Remover</button><button type="button" data-deck-default="'+esc(id)+'">Padrão</button></div></footer></section>';
  }).join('');
  const select=(side,i)=>'<label>'+ (side==='player'?'Aliado ':'Adversário ')+(i+1)+'<select data-team="'+side+'" data-index="'+i+'">'+(side==='player'?tacticalRoster:tacticalOpponentRoster).map(id=>'<option value="'+id+'" '+((side==='player'?state.battle.allies:state.battle.enemies)[i]?.sourceId===id||(side==='player'?state.battle.allies:state.battle.enemies)[i]?.id===id?'selected':'')+'>'+esc(characterById[id].name+' — '+characterById[id].identityTitle)+'</option>').join('')+'</select></label>';
- return '<details class="panel compact-setup"><summary>Nova formação</summary><div class="setup-fields">'+['player','enemy'].flatMap(side=>[0,1,2].map(i=>select(side,i))).join('')+'<label>Cenário<select data-scene>'+combatScenes.map(c=>'<option value="'+c.id+'" '+(c.id===state.battle.tactical.scene?'selected':'')+'>'+esc(c.name)+'</option>').join('')+'</select></label><label>Regra ambiental<select data-environment><option value="none">Sem regra ambiental</option>'+tacticalEnvironments.map(e=>'<option value="'+e.id+'">'+esc(e.world+' · '+e.title)+'</option>').join('')+'</select></label><details class="compact-deck-editor"><summary>Equipar os três baralhos (próximo confronto)</summary><p>Escolha oito cartas por personagem. Cartas iguais podem ser repetidas. Movimento e Ataque Básico são garantidos.</p>'+deckEditor+'</details><button data-restart>Iniciar confronto</button></div></details>';
+ return '<details class="panel compact-setup"><summary>Nova formação</summary><div class="setup-fields">'+['player','enemy'].flatMap(side=>[0,1,2].map(i=>select(side,i))).join('')+'<label>Cenário<select data-scene>'+combatScenes.map(c=>'<option value="'+c.id+'" '+(c.id===state.battle.tactical.scene?'selected':'')+'>'+esc(c.name)+'</option>').join('')+'</select></label><label>Regra ambiental<select data-environment><option value="none">Sem regra ambiental</option>'+tacticalEnvironments.map(e=>'<option value="'+e.id+'">'+esc(e.world+' · '+e.title)+'</option>').join('')+'</select></label><details class="compact-deck-editor"><summary>Montar baralhos · 8 a 10 cartas por personagem</summary><p>Escolha quais técnicas entram no ciclo de cada personagem. A carta usada vai para o descarte; quando a compra termina, o descarte é embaralhado e volta ao ciclo. Movimento e Ataque Básico continuam disponíveis.</p>'+deckEditor+'</details><button data-restart>Iniciar confronto</button></div></details>';
+}
+function campaignJourney(){
+ const history=state.run.history||[],routeById=Object.fromEntries(tacticalRoutes.map(route=>[route.id,route]));
+ const visible=history.slice(-4),firstIndex=history.length-visible.length+1;
+ const recent=visible.map((step,index)=>'<span class="campaign-route-stamp" data-route="'+esc(step.route||'')+'"><i>'+String(firstIndex+index).padStart(2,'0')+'</i>'+esc(routeById[step.route]?.title||step.title||'Travessia')+'</span>').join('');
+ const encounter=Math.max(1,state.run.encounter||1),completed=state.run.augmentProgress?.completedKingdoms?.length||0;
+ return '<section class="compact-campaign-journey" aria-label="Progresso da campanha"><div class="campaign-journey-top"><span><small>TRAVESSIA ROGUELITE</small><strong>ENCONTRO '+String(encounter).padStart(2,'0')+'</strong></span><span class="campaign-journey-stats"><b>'+completed+'</b> reinos <i>·</i> <b>'+state.run.buffs.length+'</b> legados <i>·</i> <b>'+state.run.fortressRewards.length+'</b> marcos</span></div>'+(recent?'<div class="campaign-route-history" aria-label="Rotas recentes">'+recent+'</div>':'<p>Escolha a rota depois da primeira vitória. Vida dos sobreviventes e baralhos equipados seguem para a próxima batalha.</p>')+'</section>';
+}
+function campaignRouteChoices(){
+ const symbols={recovery:'✧',risk:'⌑',discovery:'◌'};
+ return '<div class="compact-route-grid">'+tacticalRoutes.map((route,index)=>'<button class="compact-route-card route-'+route.id+'" data-route="'+route.id+'"><span class="route-number">0'+(index+1)+'</span><span class="route-symbol" aria-hidden="true">'+symbols[route.id]+'</span><small>'+esc(route.kind.toUpperCase())+'</small><strong>'+esc(route.title)+'</strong><span class="route-effect">'+esc(route.text)+'</span><i>'+esc(route.story)+'</i><b>SEGUIR ROTA ↗</b></button>').join('')+'</div>';
 }
 function eventForecast(s){
  if(state.battle.tactical.stage==='finished')return '';
@@ -237,8 +270,8 @@ function render(){
  const s=displayed(),future=planned(),finished=state.battle.tactical.stage==='finished',rule=s.tactical.environment;
  const actorEvent=units(s).find(u=>u.id===state.event?.actorId),ability=actorEvent?.abilities.find(a=>a.id===state.event?.abilityId);
  const campaignDeckAction=state.battle.phase==='victory'&&!state.rewards.length
-  ?'<button type="button" class="compact-campaign-deck-link" data-campaign-decks>Ajustar os três baralhos para a próxima batalha</button>':'';
- const result=finished&&!state.busy?'<section class="compact-result"><h2>'+({victory:'Vitória',defeat:'Derrota',draw:'Empate'}[state.battle.phase]||'Confronto encerrado')+'</h2>'+(state.battle.phase==='victory'?state.rewards.length?'<p>Escolha uma melhoria para a próxima travessia.</p>'+state.rewards.map(r=>'<button data-trail-reward="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join(''):tacticalRoutes.map(r=>'<button data-route="'+r.id+'" title="'+esc(r.text)+'">'+esc(r.title)+'</button>').join('')+campaignDeckAction:'<button data-restart>Nova tentativa</button>')+'</section>':'';
+  ?'<button type="button" class="compact-campaign-deck-link" data-campaign-decks>Preparar baralhos para a próxima batalha</button>':'';
+ const result=finished&&!state.busy?'<section class="compact-result"><header><small>TRAVESSIA · ENCONTRO '+String(Math.max(1,state.run.encounter||1)).padStart(2,'0')+'</small><h2>'+({victory:'Vitória',defeat:'Derrota',draw:'Empate'}[state.battle.phase]||'Confronto encerrado')+'</h2></header>'+(state.battle.phase==='victory'?state.rewards.length?'<p>Escolha um legado para levar na próxima etapa.</p><div class="compact-route-rewards">'+state.rewards.map(r=>'<button class="compact-run-reward" data-trail-reward="'+r.id+'"><small>'+(r.tier||'LEGADO').toUpperCase()+'</small><strong>'+esc(r.title)+'</strong><span>'+esc(r.text)+'</span><i>ESCOLHER ↗</i></button>').join('')+'</div>':campaignRouteChoices()+campaignDeckAction:'<p>A travessia foi interrompida. Reorganize a equipe e tente outra vez.</p><button data-restart>Nova tentativa</button>')+'</section>':'';
  const scene=combatScene(s.tactical.scene),sceneUrl=scene.art;
  const cinematicImpact=tacticalImpactProfile(state.event,{speed:state.speed,reduced:Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches)});
  const activeSpecial=state.event?.type==='skill'&&!state.event.skipped&&['voto','despertar'].includes(String(state.event.abilityId||'').split('/')[0]);
@@ -248,7 +281,7 @@ function render(){
    +(tacticalDuelOptions.find(o=>o.id===state.event.duel.defenseChoice)?.name||''))+'</small></span>'
   :state.event?.comboBeat
    ?'<span class="compact-combo-counter" role="status"><strong>COMBO '+state.event.comboBeat+' / '+state.event.comboTotal+'</strong></span>':'';
- root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="/tactical.html?online">PvP online</a><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'" data-hitstop="'+state.hitstop+'" data-impact-shake="'+(cinematicImpact?.shake||'none')+'" style="--compact-scene-image:url(\''+esc(sceneUrl)+'\');--compact-floor-zoom:'+scene.floorZoom+'%;--compact-floor-focus:'+scene.floorFocus+'%;--compact-hit-duration:'+Math.round((activeSpecial?560:420)/state.speed)+'ms;--compact-heal-duration:'+Math.round(460/state.speed)+'ms;--compact-feedback-delay:'+Math.round(36/state.speed)+'ms;--super-duration:'+Math.round(320/state.speed)+'ms"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+tacticalSuperCaptionMarkup(actorEvent,ability,state.event)+comboCounter+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section>'+clashMarkup()+'<div id="compact-formation">'+setup()+'</div></div>';
+ root.innerHTML='<div class="combat-shell fortress-battle compact-battle"><header class="combat-header"><a href="/">OBLIVIUM ARENA</a><span>Campo compacto · 6 × 6</span><a href="/tactical.html?online">PvP online</a><a href="#compact-formation">Formação</a></header><section class="arena-stage compact-stage" data-scene="'+s.tactical.scene+'" data-hitstop="'+state.hitstop+'" data-impact-shake="'+(cinematicImpact?.shake||'none')+'" style="--compact-scene-image:url(\''+esc(sceneUrl)+'\');--compact-floor-zoom:'+scene.floorZoom+'%;--compact-floor-focus:'+scene.floorFocus+'%;--compact-hit-duration:'+Math.round((activeSpecial?560:420)/state.speed)+'ms;--compact-heal-duration:'+Math.round(460/state.speed)+'ms;--compact-feedback-delay:'+Math.round(36/state.speed)+'ms;--super-duration:'+Math.round(320/state.speed)+'ms"><img class="arena-backdrop" src="'+combatScene(s.tactical.scene).art+'" alt="">'+hud(s)+tacticalCutinMarkup(actorEvent,ability,state.event)+'<div class="arena-field">'+actionDock(s,future)+'<div class="compact-board-stack">'+board(s,future)+tacticalSuperCaptionMarkup(actorEvent,ability,state.event)+comboCounter+'</div></div><div class="compact-playback-tools"><div class="compact-speed" aria-label="Velocidade das animações">'+[1,2,3].map(n=>'<button data-speed="'+n+'" aria-pressed="'+(state.speed===n)+'">'+n+'×</button>').join('')+'<button data-sound aria-label="Som de combate" aria-pressed="'+audioEnabled()+'">♪</button></div></div><p class="compact-explainer">Primeiro as ações ① de todos, depois as ações ②. O personagem permanece na casa atual até a execução.</p>'+eventForecast(s)+campaignJourney()+reward()+result+'<p class="augment-progression">'+esc(conquestProgressText(s.tactical.fortress.progress))+'</p>'+(rule?'<p class="compact-rule">'+esc(rule.title+' · '+rule.text)+'</p>':'')+'<details class="compact-log"><summary>Resolução da rodada</summary><ol>'+[...state.battle.tactical.events].map(e=>'<li>'+esc(e.title)+(e.skipped?' · '+esc(e.reason):'')+'</li>').join('')+'</ol></details></section>'+clashMarkup()+'<div id="compact-formation">'+setup()+'</div></div>';
  const hand=root.querySelector('.tactical-hand-dock'),field=root.querySelector('.arena-field');
  if(hand&&field)field.after(hand);
  sceneGround.sync(root);
@@ -491,6 +524,15 @@ root.addEventListener('click',event=>{
   if(setup&&editor){setup.open=true;editor.open=true;const first=editor.querySelector('select[data-card-config]');first?.focus({preventScroll:true});editor.scrollIntoView({behavior:globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});}
   return;
  }
+ if(d.deckAdd||d.deckRemove||d.deckDefault){
+  const id=d.deckAdd||d.deckRemove||d.deckDefault,unit=state.battle.allies.find(item=>(item.sourceId||item.id)===id);
+  if(!unit)return;
+  const build=deckDraftFor(unit);
+  if(d.deckAdd&&build.length<10)build.push({kind:'mobility'});
+  else if(d.deckRemove&&build.length>8)build.pop();
+  else if(d.deckDefault){state.run.cardDecks??={};state.run.cardDecks[id]=defaultTacticalCardBuild(unit);saveCardBuilds();refreshDeckEditor();return;}
+  state.run.cardDecks??={};state.run.cardDecks[id]=build;saveCardBuilds();refreshDeckEditor();return;
+ }
  if(state.busy)return;
  const pending=state.battle.tactical.pendingChestRewards[0];
  if('reward'in d){if(!pending)return;const option=pending.options.find(o=>o.id===d.reward),target=option?.effect?.type==='tactical-card-upgrade'?root.querySelector('[data-card-target]')?.value:undefined;
@@ -545,6 +587,7 @@ root.addEventListener('change',event=>{
   :variant?{kind:variant.kind,variantId:variant.id}
   :value==='mobility'?{kind:'mobility'}:{kind:'reaction'};
  state.run.cardDecks[id]=build;saveCardBuilds();
+ refreshDeckEditor({id,index});
 });
 root.addEventListener('pointerover',event=>{
  const cell=event.target.closest('[data-cell]');if(!cell||locked()||state.mode==='move'||state.mode==='mobility')return;

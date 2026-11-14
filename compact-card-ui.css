@@ -109,3 +109,84 @@
 .combat-shell.compact-battle .compact-deck-editor[open]{
  border-color:#b99b6b;box-shadow:0 0 0 1px #b99b6b44,0 8px 22px #0005;
 }
+
+/* Card slots read like a loadout, with the card text visible before opening its selector. */
+.deck-edit-heading,.online-deck-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.deck-edit-heading h4,.online-deck-heading h3{margin:0;color:#f3dfb5;font:700 15px/1.2 Georgia,serif}
+.deck-edit-heading p,.online-deck-heading p{margin:4px 0 0;color:#c9bbd1;font-size:11px;line-height:1.35}
+.deck-edit-heading p i,.online-deck-heading p i{font-style:normal;color:#e0c58d}
+.deck-size-badge{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border:1px solid #cbb17c;border-radius:50%;background:radial-gradient(circle at 35% 28%,#68523d,#211a2b 75%);color:#fff0c9;font:700 17px/1 Georgia,serif;box-shadow:0 0 14px #d6b87726}
+.deck-size-badge small{margin-top:-8px;color:#c3b5c4;font:600 9px/1 system-ui,sans-serif}
+.deck-size-meter{height:5px;margin:8px 0 10px;overflow:hidden;border-radius:99px;background:#100e18;border:1px solid #6e5d724a}
+.deck-size-meter i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#9d75b6,#d4b56e);box-shadow:0 0 9px #d4b56e88;transition:width .2s ease}
+.compact-battle .compact-deck-edit-slots,.online-deck-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:7px;min-width:0}
+.compact-deck-slot,.online-deck-slot{display:grid;grid-template-columns:24px 42px minmax(0,1fr);align-items:center;gap:8px;min-width:0;padding:7px;border:1px solid #594d65;border-radius:8px;background:linear-gradient(120deg,#302539,#1b1824 68%);box-shadow:inset 0 1px #ffffff0d}
+.deck-slot-number{align-self:start;padding-top:5px;color:#d4bd89;font:700 10px/1 system-ui,sans-serif;text-align:center}
+.deck-slot-art{position:relative;display:grid;place-items:center;width:42px;height:48px;overflow:hidden;border:1px solid #85705d;border-radius:5px;background:radial-gradient(circle at 50% 30%,#5b4655,#211925 72%);color:#f1d79d;font:700 23px/1 Georgia,serif}
+.deck-slot-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 28%}
+.deck-slot-control{display:grid;gap:3px;min-width:0}
+.deck-slot-control>small{color:#d9c99e;font:700 9px/1.2 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.deck-slot-control select{width:100%;min-width:0;min-height:38px;padding:6px 8px;border:1px solid #89788f;border-radius:6px;background:#211b29;color:#f7ecdf;font:600 11px/1.25 system-ui,sans-serif}
+.deck-slot-control select:focus-visible{outline:2px solid #f1d99c;outline-offset:1px}
+.deck-slot-control p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:2.4em;margin:0;color:#bfb3c8;font:10px/1.2 system-ui,sans-serif}
+.compact-deck-slot[data-card-kind="mobility"],.online-deck-slot[data-card-kind="mobility"]{border-color:#8b7857}
+.compact-deck-slot[data-card-kind="reaction"],.online-deck-slot[data-card-kind="reaction"]{border-color:#756292}
+.deck-edit-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:9px}
+.deck-edit-actions>span{color:#bcb0c4;font-size:10px}
+.deck-edit-actions>div,.online-deck-actions{display:flex;gap:6px;flex-wrap:wrap}
+.deck-edit-actions button,.online-deck-actions button{min-height:40px;padding:7px 10px;border:1px solid #87768a;border-radius:7px;background:#312638;color:#f3e5d9;font:650 11px/1.2 system-ui,sans-serif;cursor:pointer}
+.deck-edit-actions button:disabled,.online-deck-actions button:disabled{opacity:.42;cursor:not-allowed}
+.online-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Campaign intermission makes route effects and the accumulated path visible at a glance. */
+.compact-campaign-journey{position:relative;z-index:4;display:grid;gap:8px;margin:12px 0;padding:10px 12px;border:1px solid #b59a6d66;border-radius:10px;background:linear-gradient(110deg,#2a2030e8,#171522e8 65%,#282134e8);box-shadow:inset 0 1px #ffffff12}
+.campaign-journey-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.campaign-journey-top>span:first-child{display:grid;gap:2px}
+.campaign-journey-top small{color:#d4bb86;font:700 8px/1 system-ui,sans-serif;letter-spacing:.16em}
+.campaign-journey-top strong{color:#fff0d0;font:700 15px/1.15 Georgia,serif}
+.campaign-journey-stats{color:#d2c3d5;font-size:10px}.campaign-journey-stats b{color:#f4d69b}.campaign-journey-stats i{padding:0 4px;color:#9b8ba5;font-style:normal}
+.compact-campaign-journey>p{margin:0;color:#c7bacd;font-size:10px;line-height:1.4}
+.campaign-route-history{display:flex;gap:5px;overflow-x:auto;padding:2px 0 3px;scrollbar-width:thin}
+.campaign-route-stamp{display:flex;align-items:center;gap:5px;flex:0 0 auto;max-width:190px;padding:5px 8px;border:1px solid #726276;border-radius:99px;background:#17131ed9;color:#e6d8e5;font-size:9px;white-space:nowrap}
+.campaign-route-stamp i{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;background:#574451;color:#f3d7a2;font:700 8px/1 system-ui,sans-serif;font-style:normal}
+.campaign-route-stamp[data-route="recovery"] i{background:#356255}.campaign-route-stamp[data-route="risk"] i{background:#74393e}.campaign-route-stamp[data-route="discovery"] i{background:#534276}
+.compact-result>header>small{display:block;margin-bottom:4px;color:#d8c28f;font:700 9px/1.2 system-ui,sans-serif;letter-spacing:.15em}
+.compact-result>p{margin:4px 0 10px;color:#d2c6d5;font-size:12px;line-height:1.4}
+.compact-route-grid,.compact-route-rewards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0}
+.compact-route-card,.compact-run-reward{position:relative;display:grid;grid-template-columns:35px minmax(0,1fr);align-content:start;align-items:center;gap:5px 9px;min-width:0;min-height:182px;padding:11px;border:1px solid #89735e;border-radius:10px;background:linear-gradient(145deg,#42313c,#211b29 57%,#171520);color:#f1e5d8;text-align:left;cursor:pointer;box-shadow:0 5px 14px #0005;transition:transform .18s,border-color .18s,box-shadow .18s}
+.compact-route-card:hover,.compact-route-card:focus-visible,.compact-run-reward:hover,.compact-run-reward:focus-visible{transform:translateY(-2px);border-color:#edcf91;box-shadow:0 9px 20px #0007,0 0 15px #dfbb6b24;outline:none}
+.compact-route-card.route-risk{border-color:#9c6461}.compact-route-card.route-discovery{border-color:#756392}.compact-route-card.route-recovery{border-color:#628477}
+.route-number{grid-column:1;grid-row:1/3;align-self:start;color:#d3bd88;font:700 9px/1 system-ui,sans-serif}
+.route-symbol{grid-column:2;grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border:1px solid #e1c17e;border-radius:50%;background:#241c2b;color:#f4d89e;font-size:19px}
+.compact-route-card>small{grid-column:1/-1;color:#d5c18c;font:700 8px/1 system-ui,sans-serif;letter-spacing:.13em}
+.compact-route-card>strong,.compact-run-reward>strong{grid-column:1/-1;color:#fff0d2;font:700 16px/1.15 Georgia,serif}
+.route-effect,.compact-run-reward>span{grid-column:1/-1;color:#e4d8dd;font:11px/1.4 system-ui,sans-serif}
+.compact-route-card>i{grid-column:1/-1;min-height:2.5em;color:#bdaec7;font:italic 10px/1.35 Georgia,serif}
+.compact-route-card>b,.compact-run-reward>i{grid-column:1/-1;align-self:end;margin-top:3px;color:#f1d08c;font:700 9px/1.2 system-ui,sans-serif;letter-spacing:.08em}
+.compact-run-reward{grid-template-columns:minmax(0,1fr);min-height:150px;border-color:#82705b}
+.compact-run-reward>small{color:#d6bd88;font:700 8px/1 system-ui,sans-serif;letter-spacing:.14em}
+.compact-battle .compact-hand-counter{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:3px 10px}
+.compact-battle .compact-hand-counter>span{grid-column:2;grid-row:1;white-space:nowrap}
+.compact-battle .compact-hand-counter>span b{color:#f0d697}
+.compact-battle .compact-hand-counter>span i{font-style:normal;color:#8d7e91}
+.compact-battle .compact-hand-counter .card-cycle-hint{grid-column:1/-1;grid-row:2;color:#a99cac;font-size:9px;line-height:1.2}
+.compact-battle .tactical-hand-dock .compact-hand-card[aria-pressed="true"]:not(:disabled){animation:card-intent-glow 2s ease-in-out infinite}
+.compact-battle .tactical-hand-dock .compact-hand-card[data-planned="true"]{border-style:dashed;border-color:#cfb6a2;filter:saturate(.58);opacity:.68}
+@keyframes card-intent-glow{50%{box-shadow:0 0 0 2px color-mix(in srgb,var(--actor-vfx-light,#f4d69b) 45%,transparent),0 0 18px color-mix(in srgb,var(--actor-vfx-main,#dfb972) 52%,transparent)}}
+@media(max-width:760px){
+ .compact-route-grid,.compact-route-rewards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .compact-route-card,.compact-run-reward{min-height:165px;padding:9px}
+ .compact-deck-edit-slots,.online-deck-slots{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:480px){
+ .compact-route-grid,.compact-route-rewards{grid-template-columns:minmax(0,1fr)}
+ .compact-route-card,.compact-run-reward{min-height:0}
+ .compact-battle .compact-hand-counter{grid-template-columns:minmax(0,1fr);gap:3px}
+ .compact-battle .compact-hand-counter>span{grid-column:1;grid-row:2;white-space:normal}
+ .compact-battle .compact-hand-counter .card-cycle-hint{grid-row:3}
+ .deck-edit-actions{align-items:stretch}
+ .deck-edit-actions>div{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .deck-edit-actions button,.online-deck-actions button{padding:6px 4px;font-size:10px}
+ .compact-route-card>strong,.compact-run-reward>strong{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){.deck-size-meter i,.compact-route-card,.compact-run-reward{transition:none}.compact-battle .tactical-hand-dock .compact-hand-card[aria-pressed="true"]{animation:none}}
