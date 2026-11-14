@@ -67,3 +67,8 @@ Ainda faltam QA físico de toque, navegadores distintos e validação autenticad
 - A mão de combate explicita quantas cartas estão na mão, na compra e no descarte. A carta selecionada recebe um realce animado discreto; cartas já planejadas ficam marcadas com borda tracejada. A animação respeita movimento reduzido.
 - Os atlas compactos de Erebus, Ashen, Soren e Niith estão conectados, incluindo linhas dedicadas para as formas de Erebus e Ashen. Na ponta atual da branch, a cobertura cumulativa é de 62/150 atlas base, 275/689 técnicas/formas e 28 recortes específicos de habilidade.
 - Os novos slots do deckbuilder e as escolhas entre encontros usam colunas adaptáveis, quebra de texto e controles com área de toque adequada em telas estreitas.
+
+## Jogar cartas e confirmar o alvo (14 nov 2026)
+- Uma carta de técnica pode ser ativada tocando/clicando nela ou arrastando-a para o tabuleiro. A seleção mostra a área afetada e destaca o centro do alvo.
+- O primeiro toque em um destino móvel ou em outra casa de mira apenas posiciona o trajeto/alvo; tocar uma casa contornada ou pressionar Espaço confirma a ação.
+- Clique fora do tabuleiro e botão direito cancelam a mira. O mesmo fluxo está presente na campanha e no PvP online, com realce adaptado a telas pequenas.
