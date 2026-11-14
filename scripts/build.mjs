@@ -47,7 +47,8 @@ for (const path of runtimeFiles) {
   const source = await readFile(path, "utf8");
   const importPattern = /(?:\bfrom\s*|\bimport\s*\(\s*)["'](\.[^"']+)["']/g;
   for (const match of source.matchAll(importPattern)) {
-    const dependency = resolve(dirname(path), match[1]);
+    const dependencyPath = match[1].split(/[?#]/, 1)[0];
+    const dependency = resolve(dirname(path), dependencyPath);
     await assertFile(dependency, `${relative(root, path)} import`);
   }
 }
